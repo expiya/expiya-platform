@@ -1,63 +1,47 @@
-export default function Home() {
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-neutral-50 text-neutral-900">
-      <section className="mx-auto flex max-w-6xl flex-col items-center px-6 py-24 text-center lg:py-32">
-        <span className="rounded-full border border-neutral-200 px-4 py-2 text-sm font-medium text-neutral-600">
-          Coming Soon
-        </span>
+"use client";
 
-        <h1 className="mt-8 max-w-4xl text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
-          Make smarter
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+export default function Home() {
+  const router = useRouter();
+  const [query, setQuery] = useState("");
+
+  return (
+    <main className="min-h-screen bg-gradient-to-b from-white to-neutral-50">
+      <section className="mx-auto flex max-w-5xl flex-col items-center px-6 py-24 text-center">
+
+        <div className="rounded-full border border-neutral-300 px-4 py-2 text-sm text-neutral-600">
+          Expiya Cars MVP v0.1
+        </div>
+
+        <h1 className="mt-8 text-5xl font-bold tracking-tight sm:text-6xl">
+          Find your next car
           <br />
-          buying decisions
-          <br />
-          with AI.
+          with AI
         </h1>
 
-        <p className="mt-8 max-w-2xl text-lg leading-8 text-neutral-600">
-          Expiya analyzes real user experiences, expert knowledge and trusted
-          data to help you choose the right product with confidence.
+        <p className="mt-6 max-w-2xl text-lg text-neutral-600">
+          Describe the car you are looking for and let Expiya analyze the best
+          buying option for you.
         </p>
 
-        <button className="mt-10 rounded-full bg-black px-8 py-4 font-semibold text-white shadow-lg transition duration-300 hover:-translate-y-1 hover:bg-neutral-800">
-  Join the Waitlist
+        <textarea
+  value={query}
+  onChange={(e) => setQuery(e.target.value)}
+  placeholder="Example: I'm looking for a 2023 Toyota Corolla Hybrid under 60,000 km with an automatic transmission."
+  className="mt-10 h-40 w-full max-w-3xl rounded-2xl border border-neutral-300 p-6 text-lg outline-none focus:border-black"
+/>
+
+        <button
+  onClick={() =>
+    router.push(`/analysis?query=${encodeURIComponent(query)}`)
+  }
+  className="mt-8 rounded-xl bg-black px-8 py-4 font-semibold text-white transition hover:bg-neutral-800"
+>
+  Analyze My Next Car
 </button>
 
-        <p className="mt-6 text-sm text-neutral-500">
-          Starting with used cars. Expanding to every purchase.
-        </p>
       </section>
-
-      <section className="mx-auto grid max-w-6xl gap-6 px-6 pb-24 md:grid-cols-3">
-        <article className="rounded-3xl border border-neutral-200 p-8">
-          <h2 className="text-xl font-semibold">Real Experiences</h2>
-
-          <p className="mt-4 text-neutral-600">
-            Learn from thousands of authentic user experiences before making a
-            purchase.
-          </p>
-        </article>
-
-        <article className="rounded-3xl border border-neutral-200 p-8">
-          <h2 className="text-xl font-semibold">AI Analysis</h2>
-
-          <p className="mt-4 text-neutral-600">
-            Compare products using AI that understands what truly matters.
-          </p>
-        </article>
-
-        <article className="rounded-3xl border border-neutral-200 p-8">
-          <h2 className="text-xl font-semibold">Better Decisions</h2>
-
-          <p className="mt-4 text-neutral-600">
-            Spend less time researching and buy with confidence.
-          </p>
-        </article>
-      </section>
-
-      <footer className="border-t border-neutral-200 py-10 text-center text-sm text-neutral-500">
-        © 2026 Expiya. All rights reserved.
-      </footer>
     </main>
   );
 }
