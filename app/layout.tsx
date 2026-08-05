@@ -13,8 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Expiya",
-  description: "Make smarter buying decisions with AI.",
+  title: "Expiya - Make Smarter Buying Decisions with AI",
+  description:
+    "Expiya analyzes real user experiences and trusted data to help you make smarter buying decisions.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
