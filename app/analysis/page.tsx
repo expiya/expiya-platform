@@ -1,45 +1,43 @@
 "use client";
 
-import { useEffect } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
+import { CarCard } from "@/components/cars/CarCard";
+import { getRecommendedCars } from "@/features/recommendation/getRecommendedCars";
 
 export default function AnalysisPage() {
-  const router = useRouter();
   const searchParams = useSearchParams();
-
-  const query = searchParams.get("query") ?? "";
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      router.push(`/result?query=${encodeURIComponent(query)}`);
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [router, query]);
+  const query = searchParams.get("query");
+  const recommendedCars = getRecommendedCars();
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gradient-to-b from-white to-neutral-50 px-6">
-      <div className="w-full max-w-2xl rounded-3xl border border-neutral-200 bg-white p-10 shadow-sm">
-
-        <h1 className="text-center text-4xl font-bold">
-          🤖 AI is analyzing...
+    <main className="min-h-screen p-10">
+      <div className="mx-auto max-w-5xl">
+        <h1 className="text-4xl font-bold">
+          Expiya Decision Engine
         </h1>
 
-        <div className="mt-8 rounded-xl bg-neutral-100 p-4">
-          <p className="text-sm text-neutral-500">
-            Your request
-          </p>
+        <p className="mt-6 text-neutral-600">
+          User Request
+        </p>
 
-          <p className="mt-2 whitespace-pre-wrap text-lg">
-            {query}
-          </p>
+        <div className="mt-2 rounded-xl border p-6">
+          {query}
         </div>
 
-        <p className="mt-8">🔍 Searching listings...</p>
-        <p className="mt-3">⭐ Reading owner reviews...</p>
-        <p className="mt-3">📊 Comparing market prices...</p>
-        <p className="mt-3">🧠 Calculating Expiya AI Score...</p>
+        <section className="mt-12">
+          <h2 className="text-2xl font-semibold tracking-tight">
+            Recommended Cars
+          </h2>
 
+          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+            {recommendedCars.map((recommendedCar) => (
+              <CarCard
+                key={recommendedCar.car.id}
+                recommendedCar={recommendedCar}
+              />
+            ))}
+          </div>
+        </section>
       </div>
     </main>
   );
