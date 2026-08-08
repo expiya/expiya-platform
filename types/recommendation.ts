@@ -1,8 +1,8 @@
 import { Car } from "@/types/car";
-import { DecisionResult } from "@/types/decision";
+import { DecisionSummary } from "@/types/decisionSummary";
 
 export interface RecommendedCar {
   car: Car;
-  decision: DecisionResult;
+  decision: DecisionSummary;
   isTopPick: boolean;
 }

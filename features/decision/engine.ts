@@ -4,6 +4,8 @@ import {
   DecisionResult,
   Recommendation,
 } from "@/types/decision";
+import { calculateConfidence } from "@/features/decision/confidence";
+import { decisionStore } from "@/features/decision/store/decisionStore";
 
 let decisionSequence = 0;
 
@@ -87,11 +89,26 @@ function buildReasons(car: Car): DecisionReason[] {
 
 export function evaluateCar(car: Car): DecisionResult {
   const score = calculateDecisionScore(car);
+  const reasons = buildReasons(car);
 
-  return {
+  const decision: DecisionResult = {
     decisionId: createDecisionId(),
     score,
     recommendation: getRecommendation(score),
-    reasons: buildReasons(car),
+    reasons,
+    confidence: calculateConfidence(reasons),
+    trace: {
+      steps: [
+        "Vehicle data evaluated",
+        "Scoring rules applied",
+        "Supporting reasons generated",
+        "Confidence calculated",
+        "Recommendation created",
+      ],
+    },
   };
+
+  decisionStore.save(decision);
+
+  return decision;
 }

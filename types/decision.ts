@@ -1,3 +1,6 @@
+import { DecisionConfidence } from "@/types/confidence";
+import { DecisionTrace } from "@/types/trace";
+
 export type Recommendation =
   | "Excellent"
   | "Very Good"
@@ -22,4 +25,6 @@ export interface DecisionResult {
   score: number;
   recommendation: Recommendation;
   reasons: DecisionReason[];
+  confidence: DecisionConfidence;
+  trace: DecisionTrace;
 }

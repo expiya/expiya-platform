@@ -1,18 +1,19 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { CarCard } from "@/components/cars/CarCard";
 import { getRecommendedCars } from "@/features/recommendation/getRecommendedCars";
 
-export default function AnalysisPage() {
+function AnalysisContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get("query");
   const recommendedCars = getRecommendedCars();
 
   return (
-    <main className="min-h-screen p-10">
-      <div className="mx-auto max-w-5xl">
-        <h1 className="text-4xl font-bold">
+    <main className="min-h-screen bg-neutral-50">
+      <div className="mx-auto max-w-6xl px-6 py-12">
+        <h1 className="text-4xl font-bold tracking-tight">
           Expiya Decision Engine
         </h1>
 
@@ -40,5 +41,13 @@ export default function AnalysisPage() {
         </section>
       </div>
     </main>
+  );
+}
+
+export default function AnalysisPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <AnalysisContent />
+    </Suspense>
   );
 }

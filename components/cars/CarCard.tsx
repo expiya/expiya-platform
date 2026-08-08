@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { RecommendedCar } from "@/types/recommendation";
-
 interface CarCardProps {
   recommendedCar: RecommendedCar;
 }
@@ -63,21 +63,35 @@ export function CarCard({ recommendedCar }: CarCardProps) {
           {decision.recommendation}
         </p>
 
+        <div className="mt-4">
+          <p className="text-sm text-neutral-500">Confidence</p>
+          <p className="mt-1 text-2xl font-semibold tracking-tight">
+            {decision.confidence.value}%
+          </p>
+          <p className="mt-1 text-sm text-neutral-600">
+            {decision.confidence.level}
+          </p>
+          <p className="mt-1 text-sm text-neutral-600">
+            {decision.confidence.explanation}
+          </p>
+        </div>
+
         {decision.reasons.length > 0 && (
           <div className="mt-4">
             <p className="text-sm font-medium text-neutral-700">Why?</p>
             <ul className="mt-2 space-y-1 text-sm text-neutral-600">
               {decision.reasons.map((reason) => (
-                <li key={reason.code}>• {reason.message}</li>
+                <li key={reason}>• {reason}</li>
               ))}
             </ul>
           </div>
         )}
-      </div>
-
-      <div className="mt-6">
-        <p className="text-xs text-neutral-400">Decision ID</p>
-        <p className="text-xs text-neutral-400">{decision.decisionId}</p>
+        <Link
+  href={`/decision/${decision.decisionId}`}
+  className="mt-6 inline-flex rounded-xl bg-black px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800"
+>
+  Inspect Decision
+</Link>
       </div>
     </article>
   );
