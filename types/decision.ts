@@ -1,4 +1,5 @@
 import { DecisionConfidence } from "@/types/confidence";
+import { DecisionContext } from "@/types/decisionContext";
 import { DecisionTrace } from "@/types/trace";
 
 export type Recommendation =
@@ -22,6 +23,7 @@ export interface DecisionReason {
 
 export interface DecisionResult {
   decisionId: string;
+  context: DecisionContext;
   score: number;
   recommendation: Recommendation;
   reasons: DecisionReason[];

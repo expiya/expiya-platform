@@ -1,4 +1,5 @@
 import { Car } from "@/types/car";
+import { DecisionContext } from "@/types/decisionContext";
 import {
   DecisionReason,
   DecisionResult,
@@ -87,12 +88,16 @@ function buildReasons(car: Car): DecisionReason[] {
   return reasons;
 }
 
-export function evaluateCar(car: Car): DecisionResult {
+export function evaluateCar(
+  car: Car,
+  context: DecisionContext,
+): DecisionResult {
   const score = calculateDecisionScore(car);
   const reasons = buildReasons(car);
 
   const decision: DecisionResult = {
     decisionId: createDecisionId(),
+    context,
     score,
     recommendation: getRecommendation(score),
     reasons,

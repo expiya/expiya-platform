@@ -4,11 +4,13 @@ import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { CarCard } from "@/components/cars/CarCard";
 import { getRecommendedCars } from "@/features/recommendation/getRecommendedCars";
+import { createDecisionContext } from "@/features/decision/context/createDecisionContext";
 
 function AnalysisContent() {
   const searchParams = useSearchParams();
-  const query = searchParams.get("query");
-  const recommendedCars = getRecommendedCars();
+  const query = searchParams.get("query") ?? "";
+const decisionContext = createDecisionContext(query);
+  const recommendedCars = getRecommendedCars(decisionContext);
 
   return (
     <main className="min-h-screen bg-neutral-50">
@@ -22,7 +24,7 @@ function AnalysisContent() {
         </p>
 
         <div className="mt-2 rounded-xl border p-6">
-          {query}
+          {decisionContext.decisionNeed}
         </div>
 
         <section className="mt-12">

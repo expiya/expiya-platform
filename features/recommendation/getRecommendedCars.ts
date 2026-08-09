@@ -1,12 +1,15 @@
 import { cars } from "@/data/car";
+import { DecisionContext } from "@/types/decisionContext";
 import { createDecisionSummary } from "@/features/decision/createDecisionSummary";
 import { evaluateCar } from "@/features/decision/engine";
 import { defaultRanking } from "@/features/recommendation/ranking/defaultRanking";
 import { RecommendedCar } from "@/types/recommendation";
 
-export function getRecommendedCars(): RecommendedCar[] {
+export function getRecommendedCars(
+  context: DecisionContext,
+): RecommendedCar[] {
   const evaluatedCars = cars.map((car) => {
-    const decision = evaluateCar(car);
+    const decision = evaluateCar(car, context);
 
     return {
       car,
