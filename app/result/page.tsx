@@ -1,18 +1,17 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function ResultPage() {
+function ResultContent() {
   const searchParams = useSearchParams();
-  const query = searchParams.get("query") ?? "No vehicle description provided.";
+  const query =
+    searchParams.get("query") ?? "No vehicle description provided.";
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-neutral-50 px-6 py-16">
-      <div className="mx-auto max-w-4xl">
-
-        {/* Header */}
+    <main className="min-h-screen bg-neutral-50">
+      <div className="mx-auto max-w-5xl px-6 py-12">
         <div className="rounded-3xl border border-neutral-200 bg-white p-10 shadow-sm">
-
           <div className="text-center">
             <div className="text-6xl">🚗</div>
 
@@ -21,11 +20,11 @@ export default function ResultPage() {
             </h1>
 
             <p className="mt-3 text-neutral-600">
-              Based on your request, our AI has prepared the following recommendation.
+              Based on your request, our AI has prepared the following
+              recommendation.
             </p>
           </div>
 
-          {/* User Request */}
           <div className="mt-10 rounded-2xl bg-neutral-100 p-6">
             <h2 className="text-lg font-semibold">
               Your Request
@@ -36,9 +35,7 @@ export default function ResultPage() {
             </p>
           </div>
 
-          {/* Recommended Vehicle */}
           <div className="mt-10 rounded-2xl border border-neutral-200 p-6">
-
             <h2 className="text-3xl font-bold">
               Toyota Corolla Hybrid
             </h2>
@@ -52,12 +49,9 @@ export default function ResultPage() {
                 AI Score: 91 / 100
               </span>
             </div>
-
           </div>
 
-          {/* Analysis */}
           <div className="mt-10 grid gap-8 md:grid-cols-3">
-
             <div className="rounded-2xl bg-green-50 p-5">
               <h3 className="text-xl font-bold text-green-700">
                 ✅ Pros
@@ -94,28 +88,30 @@ export default function ResultPage() {
                 <li>Confirm mileage accuracy</li>
               </ul>
             </div>
-
           </div>
 
-          {/* Final Recommendation */}
           <div className="mt-10 rounded-2xl bg-neutral-900 p-8 text-white">
-
             <h2 className="text-2xl font-bold">
               Expiya Verdict
             </h2>
 
             <p className="mt-4 leading-8 text-neutral-300">
               This vehicle appears to be an excellent buying opportunity.
-              It offers high reliability, low ownership costs and strong resale
-              value. Before purchasing, verify the service history, mileage and
-              accident records.
+              It offers high reliability, low ownership costs and strong
+              resale value. Before purchasing, verify the service history,
+              mileage and accident records.
             </p>
-
           </div>
-
         </div>
-
       </div>
     </main>
+  );
+}
+
+export default function ResultPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ResultContent />
+    </Suspense>
   );
 }
