@@ -1,208 +1,158 @@
 import type {
-  CarsDomainEvidenceRecord,
-  ValidatedCarsDomainEvidenceInput,
+  CarsDomainEvidenceAssertion,
+  ValidatedCarsDomainEvidenceLinkageInput,
 } from "@/types/carsDomainEvidence";
+import type { CarsDomainFactRequirement } from "@/types/carsDomainFactRequirement";
 import type {
   CarsDecisionType,
   CarsDomainSufficiencyAssessment,
+  CarsDomainSufficiencyDiagnostic,
   CarsSufficiencyPolicy,
-  MaterialityAssessment,
-  SufficiencyRequirement,
 } from "@/types/contextSufficiency";
 
+import { evaluateCarsDomainFactRequirement } from "./evaluateCarsDomainFactRequirement";
+
 export interface AssessCarsDomainSufficiencyInput {
-  decisionType: CarsDecisionType;
-  policy: CarsSufficiencyPolicy;
-  materialityAssessments: MaterialityAssessment[];
-  evidenceInput: ValidatedCarsDomainEvidenceInput;
+  readonly decisionType: CarsDecisionType;
+  readonly policy: CarsSufficiencyPolicy;
+  readonly evidenceInput: ValidatedCarsDomainEvidenceLinkageInput;
 }
 
-function materialityFor(
-  assessments: MaterialityAssessment[],
-  requirementId: string,
-): MaterialityAssessment | undefined {
-  return assessments.find(
-    (assessment) =>
-      assessment.requirementId === requirementId,
-  );
+function diagnosticKey(item: CarsDomainSufficiencyDiagnostic): string {
+  return [item.requirementId, item.optionId ?? "", item.reason, ...item.evidenceIds].join("\u0000");
 }
 
-function isApplicableRequirement(
-  requirement: SufficiencyRequirement,
-  materialityAssessments: MaterialityAssessment[],
-): boolean | null {
-  if (requirement.mode === "REQUIRED") {
-    return true;
-  }
-
-  if (requirement.mode === "OPTIONAL") {
-    return false;
-  }
-
-  const materiality = materialityFor(
-    materialityAssessments,
-    requirement.requirementId,
-  );
-
-  if (!materiality) {
-    return null;
-  }
-
-  if (materiality.outcome === "MATERIAL") {
-    return true;
-  }
-
-  if (materiality.outcome === "NOT_MATERIAL") {
-    return false;
-  }
-
-  return null;
-}
-
-function evidenceFor(
-  evidence: CarsDomainEvidenceRecord[],
-  optionId: string,
-  requirementId: string,
-): CarsDomainEvidenceRecord[] {
-  return evidence.filter(
-    (record) =>
-      record.optionId === optionId &&
-      record.requirementId === requirementId,
-  );
-}
-
-function hasUsableAvailableEvidence(
-  evidence: CarsDomainEvidenceRecord[],
-): boolean {
-  return evidence.some(
-    (record) =>
-      record.availability === "AVAILABLE" &&
-      record.provenance !== "UNKNOWN",
-  );
+function assertionsConflict(assertions: readonly CarsDomainEvidenceAssertion[]): boolean {
+  if (assertions.length < 2) return false;
+  const first = assertions[0].assertion;
+  return assertions.slice(1).some((item) => !Object.is(item.assertion, first));
 }
 
 export function assessCarsDomainSufficiency(
   input: AssessCarsDomainSufficiencyInput,
 ): CarsDomainSufficiencyAssessment {
-  const unresolvedMaterialityRequirementIds =
-    input.policy.requirements
-      .filter(
-        (requirement) =>
-          requirement.mode === "CONDITIONAL" &&
-          isApplicableRequirement(
-            requirement,
-            input.materialityAssessments,
-          ) === null,
-      )
-      .map((requirement) => requirement.requirementId);
+  const { evidenceInput } = input;
+  const assertions = new Map(evidenceInput.assertions.map((item) => [item.evidenceId, item] as const));
+  const linksByRequirement = new Map<string, string[]>();
+  for (const link of evidenceInput.requirementLinks) {
+    const ids = linksByRequirement.get(link.requirementId) ?? [];
+    ids.push(link.evidenceId);
+    linksByRequirement.set(link.requirementId, ids);
+  }
 
-  const applicableRequirements =
-    input.policy.requirements.filter(
-      (requirement) =>
-        isApplicableRequirement(
-          requirement,
-          input.materialityAssessments,
-        ) === true,
+  const diagnostics: CarsDomainSufficiencyDiagnostic[] = [];
+  const missing = new Set<string>();
+  const evaluableOptions = new Set(evidenceInput.optionIds);
+  let hasUnresolved = evidenceInput.requirementResolution.status !== "RESOLVED";
+  let hasInsufficient = false;
+
+  for (const resolution of evidenceInput.requirementResolution.resolutions) {
+    if (resolution.status !== "RESOLVED") {
+      diagnostics.push({
+        requirementId: resolution.parentPolicyRequirementId,
+        evidenceIds: [],
+        reason: "UNRESOLVED_REQUIREMENT_RESOLUTION",
+      });
+      hasUnresolved = true;
+    }
+  }
+
+  const unresolvedConflictIds = evidenceInput.conflicts
+    .filter((conflict) => conflict.resolutionStatus === "UNRESOLVED")
+    .map((conflict) => conflict.conflictId)
+    .sort();
+  const unresolvedConflictEvidence = new Set(
+    evidenceInput.conflicts
+      .filter((conflict) => conflict.resolutionStatus === "UNRESOLVED")
+      .flatMap((conflict) => conflict.evidenceIds),
+  );
+
+  function assessCoverage(requirement: CarsDomainFactRequirement, optionId: string): void {
+    const linked = (linksByRequirement.get(requirement.id) ?? [])
+      .flatMap((id) => {
+        const assertion = assertions.get(id);
+        return assertion?.optionId === optionId ? [assertion] : [];
+      });
+    const evidenceIds = linked.map((item) => item.evidenceId).sort();
+    const authoritative = linked.filter((item) =>
+      item.provenance === "AUTHORITATIVE_SOURCE" && item.source !== undefined,
     );
 
-  const unresolvedConflictIds =
-    input.evidenceInput.conflicts
-      .filter(
-        (conflict) =>
-          conflict.resolutionStatus === "UNRESOLVED" &&
-          applicableRequirements.some(
-            (requirement) =>
-              requirement.requirementId ===
-              conflict.requirementId,
-          ),
-      )
-      .map((conflict) => conflict.conflictId);
+    if (linked.some((item) => unresolvedConflictEvidence.has(item.evidenceId))) {
+      diagnostics.push({ requirementId: requirement.id, optionId, evidenceIds, reason: "UNRESOLVED_CONFLICT" });
+      evaluableOptions.delete(optionId);
+      hasUnresolved = true;
+      return;
+    }
+    if (linked.length === 0 || authoritative.length === 0) {
+      diagnostics.push({ requirementId: requirement.id, optionId, evidenceIds, reason: "MISSING_AUTHORITATIVE_EVIDENCE" });
+      evaluableOptions.delete(optionId);
+      hasUnresolved = true;
+      return;
+    }
+    if (authoritative.some((item) => item.availability === "UNRESOLVED")) {
+      diagnostics.push({ requirementId: requirement.id, optionId, evidenceIds, reason: "EVIDENCE_UNRESOLVED" });
+      evaluableOptions.delete(optionId);
+      hasUnresolved = true;
+      return;
+    }
 
-  const evidenceLimitations =
-    input.evidenceInput.evidence.flatMap(
-      (record) => record.limitations,
-    );
+    if (new Set(authoritative.map((item) => item.availability)).size > 1) {
+      diagnostics.push({ requirementId: requirement.id, optionId, evidenceIds, reason: "EVIDENCE_UNRESOLVED" });
+      evaluableOptions.delete(optionId);
+      hasUnresolved = true;
+      return;
+    }
 
-  const missingDomainRequirements = new Set<string>();
-  let hasUnresolvedEvidence = false;
-
-  const evaluableOptionIds =
-    input.evidenceInput.optionIds.filter((optionId) => {
-      let optionEvaluable = true;
-
-      for (const requirement of applicableRequirements) {
-        const records = evidenceFor(
-          input.evidenceInput.evidence,
-          optionId,
-          requirement.requirementId,
-        );
-
-        if (
-          records.some(
-            (record) =>
-              record.availability === "UNRESOLVED" ||
-              record.provenance === "UNKNOWN",
-          )
-        ) {
-          hasUnresolvedEvidence = true;
-          optionEvaluable = false;
-          continue;
-        }
-
-        if (
-          records.length === 0 ||
-          records.every(
-            (record) =>
-              record.availability === "MISSING",
-          )
-        ) {
-          missingDomainRequirements.add(
-            requirement.requirementId,
-          );
-          optionEvaluable = false;
-          continue;
-        }
-
-        if (!hasUsableAvailableEvidence(records)) {
-          hasUnresolvedEvidence = true;
-          optionEvaluable = false;
-        }
+    const available = authoritative.filter((item) => item.availability === "AVAILABLE");
+    if (assertionsConflict(available)) {
+      diagnostics.push({ requirementId: requirement.id, optionId, evidenceIds, reason: "EVIDENCE_UNRESOLVED" });
+      evaluableOptions.delete(optionId);
+      hasUnresolved = true;
+      return;
+    }
+    if (available.length === 0) {
+      if (authoritative.some((item) => item.availability === "MISSING")) {
+        diagnostics.push({ requirementId: requirement.id, optionId, evidenceIds, reason: "MISSING_AUTHORITATIVE_EVIDENCE" });
+        missing.add(requirement.id);
+        evaluableOptions.delete(optionId);
+        hasInsufficient = true;
+      } else {
+        diagnostics.push({ requirementId: requirement.id, optionId, evidenceIds, reason: "EVIDENCE_UNRESOLVED" });
+        evaluableOptions.delete(optionId);
+        hasUnresolved = true;
       }
+      return;
+    }
 
-      return optionEvaluable;
-    });
+    for (const item of available) {
+      const evaluation = evaluateCarsDomainFactRequirement(requirement, item);
+      if (evaluation.status === "UNRESOLVED") {
+        diagnostics.push({ requirementId: requirement.id, optionId, evidenceIds: [item.evidenceId], reason: evaluation.reason });
+        evaluableOptions.delete(optionId);
+        hasUnresolved = true;
+      } else if (evaluation.status === "NEGATIVE") {
+        diagnostics.push({ requirementId: requirement.id, optionId, evidenceIds: [item.evidenceId], reason: evaluation.reason });
+      }
+    }
+  }
 
-  const hasUnresolvedMateriality =
-    unresolvedMaterialityRequirementIds.length > 0;
+  for (const requirement of evidenceInput.requirementResolution.requirements) {
+    for (const optionId of requirement.identity.optionIds) assessCoverage(requirement, optionId);
+  }
 
-  const hasUnresolvedConflicts =
-    unresolvedConflictIds.length > 0;
-
-  const outcome =
-    hasUnresolvedMateriality ||
-    hasUnresolvedEvidence ||
-    hasUnresolvedConflicts
-      ? "UNRESOLVED"
-      : missingDomainRequirements.size > 0 ||
-          evaluableOptionIds.length === 0
-        ? "INSUFFICIENT"
-        : "SUFFICIENT";
+  diagnostics.sort((left, right) => diagnosticKey(left).localeCompare(diagnosticKey(right)));
+  const evidenceLimitations = [...new Set(evidenceInput.assertions.flatMap((item) => item.limitations))].sort();
+  const outcome = hasUnresolved ? "UNRESOLVED" : hasInsufficient ? "INSUFFICIENT" : "SUFFICIENT";
 
   return {
     policyId: input.policy.policyId,
     decisionType: input.decisionType,
-    evaluableOptionIds,
+    evaluableOptionIds: evidenceInput.optionIds.filter((id) => evaluableOptions.has(id)),
     outcome,
-    missingDomainRequirements: [
-      ...missingDomainRequirements,
-    ],
-    evidenceLimitations: [
-      ...evidenceLimitations,
-      ...unresolvedMaterialityRequirementIds.map(
-        (requirementId) =>
-          `Materiality unresolved for requirement: ${requirementId}`,
-      ),
-    ],
+    missingDomainRequirements: [...missing].sort(),
+    evidenceLimitations,
     relevantConflicts: unresolvedConflictIds,
+    diagnostics,
   };
 }

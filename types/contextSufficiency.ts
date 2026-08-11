@@ -73,6 +73,22 @@ export type DomainSufficiencyOutcome =
   | "INSUFFICIENT"
   | "UNRESOLVED";
 
+export type CarsDomainSufficiencyDiagnosticReason =
+  | "MISSING_AUTHORITATIVE_EVIDENCE"
+  | "EVIDENCE_UNRESOLVED"
+  | "NEGATIVE_RELATION_RESULT"
+  | "CONSTRAINT_MISMATCH"
+  | "UNSUPPORTED_RELATION_EVALUATION"
+  | "UNRESOLVED_REQUIREMENT_RESOLUTION"
+  | "UNRESOLVED_CONFLICT";
+
+export interface CarsDomainSufficiencyDiagnostic {
+  requirementId: string;
+  optionId?: string;
+  evidenceIds: string[];
+  reason: CarsDomainSufficiencyDiagnosticReason;
+}
+
 export interface CarsDomainSufficiencyAssessment {
   policyId: string;
   decisionType: CarsDecisionType;
@@ -81,6 +97,7 @@ export interface CarsDomainSufficiencyAssessment {
   missingDomainRequirements: string[];
   evidenceLimitations: string[];
   relevantConflicts: string[];
+  diagnostics?: CarsDomainSufficiencyDiagnostic[];
 }
 
 export interface SatisfiedRequirement {
