@@ -19,10 +19,10 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-neutral-50">
+    <main className="min-h-screen bg-gradient-to-b from-white to-neutral-50 text-neutral-950 dark:from-neutral-950 dark:to-black dark:text-neutral-50">
       <section className="mx-auto flex max-w-5xl flex-col items-center px-6 py-24 text-center">
 
-        <div className="rounded-full border border-neutral-300 px-4 py-2 text-sm text-neutral-600">
+        <div className="rounded-full border border-neutral-300 px-4 py-2 text-sm text-neutral-600 dark:border-neutral-700 dark:text-neutral-300">
           Expiya Cars
         </div>
 
@@ -32,7 +32,7 @@ export default function Home() {
           birlikte bulalım
         </h1>
 
-        <p className="mt-6 max-w-2xl text-lg text-neutral-600">
+        <p className="mt-6 max-w-2xl text-lg text-neutral-600 dark:text-neutral-300">
           İhtiyaçlarınızı anlatın; seçenekleri bir arkadaş gibi konuşup sonunda
           net ve gerekçeli bir karara ulaşalım.
         </p>
@@ -45,13 +45,13 @@ export default function Home() {
   onChange={(e) => setQuery(e.target.value)}
   onKeyDown={handleKeyDown}
   placeholder="Hadi başlayalım… Aklınızdaki aracı veya ihtiyacınızı anlatın."
-  className="mt-10 h-40 w-full max-w-3xl rounded-2xl border border-neutral-300 p-6 text-lg outline-none focus:border-black"
+  className="mt-10 h-40 w-full max-w-3xl rounded-2xl border border-neutral-300 bg-white p-6 text-lg text-neutral-950 outline-none focus:border-black dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-50 dark:focus:border-neutral-400"
 />
 
         <button
   type="submit"
   disabled={!query.trim()}
-  className="mt-8 rounded-xl bg-black px-8 py-4 font-semibold text-white transition hover:bg-neutral-800"
+  className="mt-8 rounded-xl bg-black px-8 py-4 font-semibold text-white transition hover:bg-neutral-800 disabled:opacity-40 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
 >
   Aracımı Bul
 </button>

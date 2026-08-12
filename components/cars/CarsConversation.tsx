@@ -24,17 +24,17 @@ function RecommendationActions({ message, onUpdate }: RecommendationActionsProps
   const [district, setDistrict] = useState("");
 
   return (
-    <div className="mt-5 space-y-4 border-t border-neutral-200 pt-4">
+    <div className="mt-5 space-y-4 border-t border-neutral-200 pt-4 dark:border-neutral-700">
       <div>
         <p className="text-sm font-semibold">Bu karar size yardımcı oldu mu?</p>
         {message.satisfaction ? (
-          <p className="mt-2 text-sm text-neutral-600">
+          <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">
             {message.satisfaction === "HELPFUL" ? "Bunu duymak güzel. Geri bildiriminiz kaydedildi." : "Anladım. Neyi beğenmediğinizi yazın; seçenekleri yeniden değerlendireyim."}
           </p>
         ) : (
           <div className="mt-2 flex gap-2">
-            <button type="button" onClick={() => onUpdate({ satisfaction: "HELPFUL" })} className="rounded-full border border-neutral-300 px-3 py-1.5 text-sm hover:border-black">Evet</button>
-            <button type="button" onClick={() => onUpdate({ satisfaction: "NOT_HELPFUL" })} className="rounded-full border border-neutral-300 px-3 py-1.5 text-sm hover:border-black">Hayır</button>
+            <button type="button" onClick={() => onUpdate({ satisfaction: "HELPFUL" })} className="rounded-full border border-neutral-300 px-3 py-1.5 text-sm hover:border-black dark:border-neutral-600 dark:hover:border-white">Evet</button>
+            <button type="button" onClick={() => onUpdate({ satisfaction: "NOT_HELPFUL" })} className="rounded-full border border-neutral-300 px-3 py-1.5 text-sm hover:border-black dark:border-neutral-600 dark:hover:border-white">Hayır</button>
           </div>
         )}
       </div>
@@ -216,26 +216,26 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   }
 
   return (
-    <main className="min-h-screen bg-neutral-50">
+    <main className="min-h-screen bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
       <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-500">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
             Expiya Cars
           </p>
           <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
             {isTurkish ? "Doğru arabayı birlikte bulalım." : "Let's find the right car together."}
           </h1>
-          <p className="mt-4 text-neutral-600">
+          <p className="mt-4 text-neutral-600 dark:text-neutral-300">
             {isTurkish
               ? "Sizi dinleyip seçenekleri birlikte tartacağım; hazır olduğumuzda net bir karar çıkaracağız."
               : "I will listen, weigh the tradeoffs with you, and reach a clear decision when we are ready."}
           </p>
         </div>
 
-        <section className="mt-10 rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm sm:p-6" aria-label="Car decision conversation">
+        <section className="mt-10 rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 sm:p-6" aria-label="Car decision conversation">
           <div className="min-h-64 space-y-4" aria-live="polite">
             {messages.length === 0 && (
-              <div className="rounded-2xl bg-neutral-100 p-4 text-neutral-700">
+              <div className="rounded-2xl bg-neutral-100 p-4 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200">
                 {isTurkish
                   ? "Nasıl bir araç düşündüğünüzü anlatın veya karşılaştırmak istediğiniz araçları yazın."
                   : "Describe the car you need, or name the cars you want to compare."}
@@ -248,12 +248,12 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
               >
                 <div className={`${message.recommendations?.length ? "w-full" : "max-w-[88%]"} rounded-2xl px-4 py-3 leading-6 ${
                   message.role === "user"
-                    ? "bg-neutral-900 text-white"
-                    : "bg-neutral-100 text-neutral-800"
+                    ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-950"
+                    : "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100"
                 }`}>
                   {message.content}
                   {message.recommendations && message.recommendations.length > 0 && (
-                    <div className="mt-4 grid gap-4 text-neutral-900 sm:grid-cols-2 lg:grid-cols-3">
+                    <div className="mt-4 grid gap-4 text-neutral-900 dark:text-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
                       {message.recommendations.map((recommendation) => (
                         <CarCard key={recommendation.car.id} recommendedCar={recommendation} locale={locale} />
                       ))}
@@ -267,7 +267,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                           type="button"
                           onClick={() => submitContent(option)}
                           disabled={isLoading || message !== messages[messages.length - 1]}
-                          className="rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-sm text-neutral-800 transition hover:border-neutral-600 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-sm text-neutral-800 transition hover:border-neutral-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:border-neutral-400"
                         >
                           {option}
                         </button>
@@ -282,7 +282,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="flex items-center gap-1 rounded-2xl bg-neutral-100 px-4 py-4" role="status" aria-label="Yanıt hazırlanıyor">
+                <div className="flex items-center gap-1 rounded-2xl bg-neutral-100 px-4 py-4 dark:bg-neutral-800" role="status" aria-label="Yanıt hazırlanıyor">
                   {[0, 1, 2].map((index) => (
                     <span
                       key={index}
@@ -295,7 +295,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
             )}
           </div>
 
-          <form onSubmit={submit} className="mt-6 border-t border-neutral-200 pt-5">
+          <form onSubmit={submit} className="mt-6 border-t border-neutral-200 pt-5 dark:border-neutral-700">
             <label htmlFor="cars-reply" className="sr-only">{isTurkish ? "Mesajınız" : "Your message"}</label>
             <div className="flex flex-col gap-3 sm:flex-row">
               <textarea
@@ -305,12 +305,12 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                 onKeyDown={handleDraftKeyDown}
                 placeholder={isTurkish ? "Bir şey anlatın, sorun veya önceki bilginizi düzeltin…" : "Tell me something, ask, or correct an earlier detail…"}
                 rows={2}
-                className="min-h-14 flex-1 resize-none rounded-2xl border border-neutral-300 px-4 py-3 outline-none focus:border-neutral-900"
+                className="min-h-14 flex-1 resize-none rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-neutral-950 outline-none focus:border-neutral-900 dark:border-neutral-600 dark:bg-neutral-950 dark:text-neutral-50 dark:focus:border-neutral-300"
               />
               <button
                 type="submit"
                 disabled={isLoading || !draft.trim()}
-                className="rounded-2xl bg-black px-6 py-3 font-semibold text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-300"
+                className="rounded-2xl bg-black px-6 py-3 font-semibold text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-300 disabled:text-neutral-500 dark:bg-white dark:text-black dark:hover:bg-neutral-200 dark:disabled:bg-neutral-700 dark:disabled:text-neutral-400"
               >
                 {isTurkish ? "Gönder" : "Send"}
               </button>

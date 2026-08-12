@@ -59,15 +59,15 @@ export default function DecisionDetailPage() {
   }, [decisionId]);
 
   if (recommendation === undefined) {
-    return <main className="min-h-screen bg-neutral-50" aria-label="Karar yükleniyor" />;
+    return <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950" aria-label="Karar yükleniyor" />;
   }
 
   if (!recommendation) {
     return (
-      <main className="min-h-screen bg-neutral-50 p-10">
+      <main className="min-h-screen bg-neutral-50 p-10 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
         <div className="mx-auto max-w-3xl">
           <h1 className="text-4xl font-bold">Karar bulunamadı</h1>
-          <p className="mt-4 text-neutral-600">
+          <p className="mt-4 text-neutral-600 dark:text-neutral-300">
             Bu karar bu tarayıcıdaki mevcut görüşmede bulunmuyor.
           </p>
           <Link href="/" className="mt-6 inline-flex rounded-xl bg-black px-5 py-3 font-semibold text-white">
@@ -87,21 +87,21 @@ export default function DecisionDetailPage() {
   }
 
   return (
-    <main className="min-h-screen bg-neutral-50 p-5 sm:p-10">
+    <main className="min-h-screen bg-neutral-50 p-5 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:p-10">
       <div className="mx-auto max-w-4xl">
-        <Link href="/analysis" className="text-sm font-semibold text-neutral-600 hover:text-black">
+        <Link href="/analysis" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">
           ← Görüşmeye dön
         </Link>
         <h1 className="mt-5 text-4xl font-bold">Bu araç sizin için ne ifade ediyor?</h1>
 
-        <article className="mt-8 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm">
+        <article className="mt-8 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
           <div className="relative aspect-[16/9]">
             <Image src={car.image} alt={`${car.brand} ${car.model}`} fill priority sizes="(max-width: 900px) 100vw, 850px" className="object-cover" />
           </div>
           <div className="p-6 sm:p-8">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Önerilen araç</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">Önerilen araç</p>
             <h2 className="mt-2 text-3xl font-bold">{car.brand} {car.model}</h2>
-            <p className="mt-2 text-neutral-600">{car.year} · {fuelTranslations[car.fuel]} · {car.transmission === "Automatic" ? "Otomatik" : "Manuel"}</p>
+            <p className="mt-2 text-neutral-600 dark:text-neutral-300">{car.year} · {fuelTranslations[car.fuel]} · {car.transmission === "Automatic" ? "Otomatik" : "Manuel"}</p>
 
             <div className="mt-6 rounded-2xl bg-neutral-950 p-5 text-white">
               <p className="text-sm font-semibold uppercase tracking-[0.14em] text-neutral-400">Kısa yorum</p>
@@ -109,49 +109,49 @@ export default function DecisionDetailPage() {
             </div>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl bg-neutral-100 p-5">
-                <p className="text-sm text-neutral-500">Karar puanı</p>
+              <div className="rounded-2xl bg-neutral-100 p-5 dark:bg-neutral-800">
+                <p className="text-sm text-neutral-500 dark:text-neutral-400">Karar puanı</p>
                 <p className="mt-1 text-3xl font-semibold">{decision.score} / 100</p>
               </div>
-              <div className="rounded-2xl bg-neutral-100 p-5">
-                <p className="text-sm text-neutral-500">Güven</p>
+              <div className="rounded-2xl bg-neutral-100 p-5 dark:bg-neutral-800">
+                <p className="text-sm text-neutral-500 dark:text-neutral-400">Güven</p>
                 <p className="mt-1 text-3xl font-semibold">%{decision.confidence.value}</p>
               </div>
             </div>
 
             <section className="mt-8 grid gap-5 md:grid-cols-2">
-              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
-                <h3 className="text-lg font-semibold text-emerald-950">İyi tarafları</h3>
-                <ul className="mt-3 space-y-3 text-sm leading-6 text-emerald-950">
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-900 dark:bg-emerald-950/40">
+                <h3 className="text-lg font-semibold text-emerald-950 dark:text-emerald-200">İyi tarafları</h3>
+                <ul className="mt-3 space-y-3 text-sm leading-6 text-emerald-950 dark:text-emerald-100">
                   {interpretation.strengths.map((item) => <li key={item}>✓ {item}</li>)}
                 </ul>
               </div>
-              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
-                <h3 className="text-lg font-semibold text-amber-950">Dikkat edilmesi gerekenler</h3>
-                <ul className="mt-3 space-y-3 text-sm leading-6 text-amber-950">
+              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5 dark:border-amber-900 dark:bg-amber-950/40">
+                <h3 className="text-lg font-semibold text-amber-950 dark:text-amber-200">Dikkat edilmesi gerekenler</h3>
+                <ul className="mt-3 space-y-3 text-sm leading-6 text-amber-950 dark:text-amber-100">
                   {interpretation.tradeoffs.map((item) => <li key={item}>! {item}</li>)}
                 </ul>
               </div>
             </section>
 
             {interpretation.experienceAnalysis ? (
-              <section className="mt-8 rounded-2xl border border-neutral-200 p-5 sm:p-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500">Gerçek tüketici deneyimi</p>
+              <section className="mt-8 rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 sm:p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">Gerçek tüketici deneyimi</p>
                 <h3 className="mt-2 text-xl font-semibold">Olumsuz yorum ve şikâyet sinyalleri</h3>
-                <p className="mt-3 leading-7 text-neutral-700">{interpretation.experienceAnalysis.summary}</p>
+                <p className="mt-3 leading-7 text-neutral-700 dark:text-neutral-200">{interpretation.experienceAnalysis.summary}</p>
 
                 <div className="mt-5 flex flex-wrap gap-2">
                   {interpretation.experienceAnalysis.recurringConcerns.map((theme) => (
-                    <span key={theme} className="rounded-full bg-red-50 px-3 py-1.5 text-sm font-medium text-red-800">{theme}</span>
+                    <span key={theme} className="rounded-full bg-red-50 px-3 py-1.5 text-sm font-medium text-red-800 dark:bg-red-950/60 dark:text-red-200">{theme}</span>
                   ))}
                 </div>
 
                 <h4 className="mt-6 font-semibold">Test sürüşünde ve ekspertizde neye bakmalı?</h4>
-                <ul className="mt-3 space-y-3 text-sm leading-6 text-neutral-700">
+                <ul className="mt-3 space-y-3 text-sm leading-6 text-neutral-700 dark:text-neutral-200">
                   {interpretation.experienceAnalysis.testDriveChecks.map((item) => <li key={item}>• {item}</li>)}
                 </ul>
 
-                <div className="mt-6 rounded-xl bg-neutral-100 p-4 text-sm leading-6 text-neutral-600">
+                <div className="mt-6 rounded-xl bg-neutral-100 p-4 text-sm leading-6 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">
                   <strong>Veriyi doğru okuyalım:</strong> {interpretation.experienceAnalysis.evidenceNote}
                 </div>
                 <a href={recommendation.consumerExperience?.sourceUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex font-semibold underline">
@@ -159,28 +159,28 @@ export default function DecisionDetailPage() {
                 </a>
               </section>
             ) : (
-              <section className="mt-8 rounded-2xl border border-dashed border-neutral-300 p-5">
+              <section className="mt-8 rounded-2xl border border-dashed border-neutral-300 p-5 dark:border-neutral-700">
                 <h3 className="font-semibold">Gerçek kullanıcı deneyimi verisi henüz yok</h3>
-                <p className="mt-2 text-sm leading-6 text-neutral-600">Bu araç için doğrulanmış olumlu/olumsuz yorum kaynağı bağlanmadığından kullanıcı görüşü uydurmuyoruz. Şimdiki yorum yalnızca katalog özelliklerine dayanıyor.</p>
+                <p className="mt-2 text-sm leading-6 text-neutral-600 dark:text-neutral-300">Bu araç için doğrulanmış olumlu/olumsuz yorum kaynağı bağlanmadığından kullanıcı görüşü uydurmuyoruz. Şimdiki yorum yalnızca katalog özelliklerine dayanıyor.</p>
               </section>
             )}
 
-            <details className="mt-8 rounded-2xl border border-neutral-200 p-5">
+            <details className="mt-8 rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700">
               <summary className="cursor-pointer font-semibold">Teknik puanın dayanaklarını göster</summary>
-              <ul className="mt-3 space-y-2 text-neutral-700">
+              <ul className="mt-3 space-y-2 text-neutral-700 dark:text-neutral-200">
                 {decision.reasons.map((reason) => <li key={reason}>• {reasonTranslations[reason] ?? reason}</li>)}
               </ul>
-              <p className="mt-4 text-sm leading-6 text-neutral-500">Karar puanı araç kalitesinin mutlak ölçüsü değildir; model yılı, kilometre ve fiyat gibi katalog değişkenleriyle adayları karşılaştırmak için kullanılır.</p>
+              <p className="mt-4 text-sm leading-6 text-neutral-500 dark:text-neutral-400">Karar puanı araç kalitesinin mutlak ölçüsü değildir; model yılı, kilometre ve fiyat gibi katalog değişkenleriyle adayları karşılaştırmak için kullanılır.</p>
             </details>
 
-            <section className="mt-8 border-t border-neutral-200 pt-6">
+            <section className="mt-8 border-t border-neutral-200 pt-6 dark:border-neutral-700">
               <h3 className="font-semibold">Bu karar yardımcı oldu mu?</h3>
               {feedbackSubmitted ? (
-                <p className="mt-3 text-neutral-600">Geri bildiriminiz için teşekkürler.</p>
+                <p className="mt-3 text-neutral-600 dark:text-neutral-300">Geri bildiriminiz için teşekkürler.</p>
               ) : (
                 <div className="mt-3 flex gap-3">
-                  <button type="button" onClick={() => handleFeedback(true)} className="rounded-xl border border-neutral-300 px-4 py-2 font-medium hover:border-black">Evet</button>
-                  <button type="button" onClick={() => handleFeedback(false)} className="rounded-xl border border-neutral-300 px-4 py-2 font-medium hover:border-black">Hayır</button>
+                  <button type="button" onClick={() => handleFeedback(true)} className="rounded-xl border border-neutral-300 px-4 py-2 font-medium hover:border-black dark:border-neutral-600 dark:hover:border-white">Evet</button>
+                  <button type="button" onClick={() => handleFeedback(false)} className="rounded-xl border border-neutral-300 px-4 py-2 font-medium hover:border-black dark:border-neutral-600 dark:hover:border-white">Hayır</button>
                 </div>
               )}
             </section>

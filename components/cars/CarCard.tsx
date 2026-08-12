@@ -24,10 +24,10 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
     <Link
       href={`/decision/${decision.decisionId}`}
       aria-label={`${title} ${isTurkish ? "karar ayrıntısını aç" : "open decision details"}`}
-      className="group block overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:border-neutral-400 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
+      className="group block overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:border-neutral-400 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black dark:border-neutral-700 dark:bg-neutral-900 dark:hover:border-neutral-500 dark:focus-visible:outline-white"
     >
       <article>
-        <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
+        <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100 dark:bg-neutral-800">
           <Image
             src={car.image}
             alt={title}
@@ -45,19 +45,19 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
         <div className="p-4">
           <div className="flex items-start justify-between gap-3">
             <div className="min-w-0">
-              <h2 className="truncate text-lg font-semibold tracking-tight text-neutral-950">{title}</h2>
-              <p className="mt-1 text-sm text-neutral-500">
+              <h2 className="truncate text-lg font-semibold tracking-tight text-neutral-950 dark:text-neutral-50">{title}</h2>
+              <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
                 {car.year} · {isTurkish ? fuelTranslations[car.fuel] : car.fuel}
               </p>
             </div>
             <div className="shrink-0 text-right">
-              <p className="text-xs text-neutral-500">{isTurkish ? "Güven" : "Confidence"}</p>
-              <p className="mt-0.5 text-xl font-bold text-neutral-950">%{decision.confidence.value}</p>
+              <p className="text-xs text-neutral-500 dark:text-neutral-400">{isTurkish ? "Güven" : "Confidence"}</p>
+              <p className="mt-0.5 text-xl font-bold text-neutral-950 dark:text-neutral-50">%{decision.confidence.value}</p>
             </div>
           </div>
 
-          <div className="mt-4 flex items-center justify-between border-t border-neutral-100 pt-3 text-sm">
-            <span className="text-neutral-500">{isTurkish ? "Ayrıntılı analizi aç" : "Open detailed analysis"}</span>
+          <div className="mt-4 flex items-center justify-between border-t border-neutral-100 pt-3 text-sm dark:border-neutral-800">
+            <span className="text-neutral-500 dark:text-neutral-400">{isTurkish ? "Ayrıntılı analizi aç" : "Open detailed analysis"}</span>
             <span aria-hidden="true" className="text-lg transition group-hover:translate-x-1">→</span>
           </div>
         </div>
