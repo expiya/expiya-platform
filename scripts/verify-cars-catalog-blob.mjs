@@ -1,7 +1,7 @@
 import { execFileSync } from "node:child_process";
 
-const approvedSnapshot = "b59169f29f974369a51ca607cb7dbd201683578b";
-const approvedBlob = "32edbf2ed189b2936cf468d5489c97e07a094d42";
+const approvedSnapshot = "6e59417e408e9f69cbd32496bf2b4ed7b4739a34";
+const approvedBlob = "bb93a2944ec8924fd349df077e0405b4bc89df01";
 const catalogPath = "data/car.ts";
 
 function git(...args) {

@@ -9,7 +9,7 @@ import type { Car } from "@/types/car";
 
 export const CARS_CATALOG_SOURCE_ID = "repo:data/car.ts" as const;
 export const CARS_CATALOG_APPROVED_SNAPSHOT =
-  "b59169f29f974369a51ca607cb7dbd201683578b" as const;
+  "6e59417e408e9f69cbd32496bf2b4ed7b4739a34" as const;
 export const CARS_CATALOG_REVISION =
   "git-blob:bb93a2944ec8924fd349df077e0405b4bc89df01" as const;
 
