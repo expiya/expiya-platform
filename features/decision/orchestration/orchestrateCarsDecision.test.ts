@@ -197,8 +197,9 @@ describe("orchestrateCarsDecision", () => {
     expectReason(input, "NEGATIVE_DIAGNOSTIC_UNRESOLVED");
   });
 
-  it("keeps the terminal Scope A path unresolved", () => {
-    const result = expectReason(completeInput(), "SCOPE_A_AUTHORIZATION_BLOCKED");
+  it("authorizes execution only after every governed gate succeeds", () => {
+    const result = orchestrateCarsDecision(completeInput());
+    expect(result).toMatchObject({ status: "AUTHORIZED", reasons: [] });
     expect(result.lineage.stoppedAt).toBe("AUTHORIZATION");
   });
 

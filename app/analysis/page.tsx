@@ -1,6 +1,7 @@
 import { randomUUID } from "node:crypto";
 import { createDecisionContext } from "@/features/decision/context/createDecisionContext";
 import { runCarsRuntime } from "@/features/decision/runtime/runCarsRuntime";
+import { CarCard } from "@/components/cars/CarCard";
 
 export default async function AnalysisPage({
   searchParams,
@@ -34,12 +35,25 @@ export default async function AnalysisPage({
 
         <section className="mt-12" aria-live="polite">
           <h2 className="text-2xl font-semibold tracking-tight">
-            Decision Status
+            {runtimeResult.status === "SUCCEEDED"
+              ? "Recommended Cars"
+              : "Decision Status"}
           </h2>
 
-          <div className="mt-6 rounded-xl border p-6">
-            {runtimeResult.status}
-          </div>
+          {runtimeResult.status === "SUCCEEDED" ? (
+            <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {runtimeResult.recommendations.map((recommendation) => (
+                <CarCard
+                  key={recommendation.car.id}
+                  recommendedCar={recommendation}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="mt-6 rounded-xl border p-6">
+              {runtimeResult.status}
+            </div>
+          )}
         </section>
       </div>
     </main>

@@ -26,7 +26,7 @@ describe("runCarsRuntime integration", () => {
   it.each([
     "AUTOMOBILE_PURCHASE_OPTION_DISCOVERY_RECOMMENDATION",
     "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON",
-  ] as const)("classifies %s and fails closed at the next unavailable dependency", async (decisionType) => {
+  ] as const)("classifies and executes governed %s recommendations", async (decisionType) => {
     const policy = decisionType === "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON"
       ? candidateComparisonPolicy
       : optionDiscoveryRecommendationPolicy;
@@ -54,14 +54,10 @@ describe("runCarsRuntime integration", () => {
         : "Bana uygun bir otomobil öner.",
     });
 
-    expect(result).toEqual({
-      status: "UNRESOLVED",
-      reasons: [{
-        code: "SCOPE_A_AUTHORIZATION_BLOCKED",
-        stage: "AUTHORIZATION",
-        referenceIds: [],
-      }],
-      lineage: {
+    expect(result.status).toBe("SUCCEEDED");
+    if (result.status !== "SUCCEEDED") throw new Error("Expected success.");
+    expect(result.reasons).toEqual([]);
+    expect(result.lineage).toEqual({
         requestId: "request-1",
         contextReference: "context-1",
         stoppedAt: "AUTHORIZATION",
@@ -87,11 +83,13 @@ describe("runCarsRuntime integration", () => {
               "DOMAIN_SUFFICIENCY",
               "AUTHORIZATION",
             ],
-      },
     });
-    expect(result).not.toHaveProperty("recommendation");
-    expect(result).not.toHaveProperty("decision");
-    expect(result).not.toHaveProperty("ranking");
+    expect(result.recommendations.map((item) => item.car.id)).toEqual(
+      decisionType === "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON"
+        ? ["1", "2"]
+        : ["3", "1", "2"],
+    );
+    expect(result.recommendations[0].isTopPick).toBe(true);
   });
 
   it.each([

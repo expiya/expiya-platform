@@ -6,12 +6,14 @@ import { selectCarsSufficiencyPolicy } from "@/features/decision/context/suffici
 import { orchestrateCarsDecision } from "@/features/decision/orchestration/orchestrateCarsDecision";
 import { buildCarsRuntimeContextDependencies } from "./buildCarsRuntimeContextDependencies";
 import { buildCarsRuntimeEvidenceDependencies } from "./buildCarsRuntimeEvidenceDependencies";
+import { executeAuthorizedCarsRecommendation } from "./executeAuthorizedCarsRecommendation";
 import { resolveCarsRuntimeDomainRequirements } from "./resolveCarsRuntimeDomainRequirements";
 import type {
   CarsOrchestrationLineage,
   CarsOrchestrationReason,
   CarsOrchestrationResult,
 } from "@/types/carsOrchestration";
+import type { RecommendedCar } from "@/types/recommendation";
 
 export interface CarsRuntimeInput {
   readonly requestId: string;
@@ -19,15 +21,26 @@ export interface CarsRuntimeInput {
   readonly query: string;
 }
 
-export interface CarsFailClosedRuntimeResult {
-  readonly status: CarsOrchestrationResult["status"];
+export interface CarsBlockedRuntimeResult {
+  readonly status: Exclude<CarsOrchestrationResult["status"], "AUTHORIZED">;
   readonly reasons: readonly CarsOrchestrationReason[];
   readonly lineage: CarsOrchestrationLineage;
 }
 
+export interface CarsSuccessfulRuntimeResult {
+  readonly status: "SUCCEEDED";
+  readonly recommendations: readonly RecommendedCar[];
+  readonly reasons: readonly [];
+  readonly lineage: CarsOrchestrationLineage;
+}
+
+export type CarsRuntimeResult =
+  | CarsBlockedRuntimeResult
+  | CarsSuccessfulRuntimeResult;
+
 export async function runCarsRuntime(
   input: CarsRuntimeInput,
-): Promise<CarsFailClosedRuntimeResult> {
+): Promise<CarsRuntimeResult> {
   const classificationInput =
     await produceCarsDecisionTypeClassificationInput({
       text: input.query,
@@ -103,6 +116,39 @@ export async function runCarsRuntime(
           : undefined,
     },
   });
+
+  if (result.status === "AUTHORIZED") {
+    if (!contextDependencies?.populationResult.ok) {
+      return {
+        status: "FAILED",
+        reasons: [{
+          code: "EXECUTION_CONTEXT_UNAVAILABLE",
+          stage: "AUTHORIZATION",
+          referenceIds: [input.contextReference],
+        }],
+        lineage: result.lineage,
+      };
+    }
+
+    return {
+      status: "SUCCEEDED",
+      recommendations: executeAuthorizedCarsRecommendation({
+        context: contextDependencies.populationResult.context,
+        optionIds:
+          classification.status === "CLASSIFIED" &&
+          classification.decisionType ===
+            "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON"
+            ? typeBIdentity?.status === "RESOLVED"
+              ? typeBIdentity.production.selectionTrace.map(
+                  (item) => item.optionId,
+                )
+              : []
+            : undefined,
+      }),
+      reasons: [],
+      lineage: result.lineage,
+    };
+  }
 
   return {
     status: result.status,

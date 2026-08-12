@@ -46,7 +46,7 @@ export type CarsOrchestrationReasonCode =
   | "DOMAIN_SUFFICIENCY_INSUFFICIENT"
   | "NEGATIVE_DIAGNOSTIC_UNRESOLVED"
   | "EVALUATION_UNSUPPORTED"
-  | "SCOPE_A_AUTHORIZATION_BLOCKED";
+  | "EXECUTION_CONTEXT_UNAVAILABLE";
 
 export interface CarsTypeBIdentitySnapshot {
   readonly status: "RESOLVED" | "UNRESOLVED";
@@ -95,4 +95,12 @@ interface CarsBlockedOrchestrationResult {
   readonly lineage: CarsOrchestrationLineage;
 }
 
-export type CarsOrchestrationResult = CarsBlockedOrchestrationResult;
+export interface CarsAuthorizedOrchestrationResult {
+  readonly status: "AUTHORIZED";
+  readonly reasons: readonly [];
+  readonly lineage: CarsOrchestrationLineage;
+}
+
+export type CarsOrchestrationResult =
+  | CarsBlockedOrchestrationResult
+  | CarsAuthorizedOrchestrationResult;

@@ -11,9 +11,7 @@ const mocks = vi.hoisted(() => ({
   resolveCarsRuntimeDomainRequirements: vi.fn(),
   buildCarsRuntimeEvidenceDependencies: vi.fn(),
   orchestrateCarsDecision: vi.fn(),
-  getRecommendedCars: vi.fn(),
-  evaluateCar: vi.fn(),
-  defaultRanking: vi.fn(),
+  executeAuthorizedCarsRecommendation: vi.fn(),
 }));
 
 vi.mock("@/features/decision/context/classification/produceCarsDecisionTypeClassificationInput", () => ({
@@ -39,19 +37,16 @@ vi.mock("./buildCarsRuntimeEvidenceDependencies", () => ({
 vi.mock("@/features/decision/orchestration/orchestrateCarsDecision", () => ({
   orchestrateCarsDecision: mocks.orchestrateCarsDecision,
 }));
-vi.mock("@/features/recommendation/getRecommendedCars", () => ({
-  getRecommendedCars: mocks.getRecommendedCars,
-}));
-vi.mock("@/features/decision/engine", () => ({
-  evaluateCar: mocks.evaluateCar,
-}));
-vi.mock("@/features/recommendation/ranking/defaultRanking", () => ({
-  defaultRanking: mocks.defaultRanking,
+vi.mock("./executeAuthorizedCarsRecommendation", () => ({
+  executeAuthorizedCarsRecommendation:
+    mocks.executeAuthorizedCarsRecommendation,
 }));
 
 import { runCarsRuntime } from "./runCarsRuntime";
 
-function result(status: CarsOrchestrationResult["status"]): CarsOrchestrationResult {
+function result(
+  status: "ADDITIONAL_CONTEXT_REQUIRED" | "UNRESOLVED" | "FAILED",
+): CarsOrchestrationResult {
   return {
     status,
     reasons: [{
@@ -131,6 +126,7 @@ describe("runCarsRuntime", () => {
         relevantConflicts: [], diagnostics: [],
       },
     });
+    mocks.executeAuthorizedCarsRecommendation.mockReturnValue([]);
   });
 
   it.each([
@@ -172,17 +168,69 @@ describe("runCarsRuntime", () => {
     });
   });
 
-  it("never executes the legacy recommendation, engine, or ranking path", async () => {
+  it("never executes recommendation on a fail-closed result", async () => {
     mocks.orchestrateCarsDecision.mockReturnValue(result("UNRESOLVED"));
 
     await runCarsRuntime(input);
 
-    expect(mocks.getRecommendedCars).not.toHaveBeenCalled();
-    expect(mocks.evaluateCar).not.toHaveBeenCalled();
-    expect(mocks.defaultRanking).not.toHaveBeenCalled();
+    expect(mocks.executeAuthorizedCarsRecommendation).not.toHaveBeenCalled();
   });
 
-  it("has no structural dependency on the legacy execution path", () => {
+  it("executes discovery recommendations only after authorization", async () => {
+    mocks.orchestrateCarsDecision.mockReturnValue({
+      status: "AUTHORIZED",
+      reasons: [],
+      lineage: {
+        requestId: input.requestId,
+        contextReference: input.contextReference,
+        stoppedAt: "AUTHORIZATION",
+        inspectedStages: ["CLASSIFICATION", "AUTHORIZATION"],
+      },
+    });
+    mocks.executeAuthorizedCarsRecommendation.mockReturnValue([{ car: { id: "1" } }]);
+
+    const runtimeResult = await runCarsRuntime(input);
+
+    expect(runtimeResult).toMatchObject({
+      status: "SUCCEEDED",
+      recommendations: [{ car: { id: "1" } }],
+    });
+    expect(mocks.executeAuthorizedCarsRecommendation).toHaveBeenCalledOnce();
+    expect(mocks.executeAuthorizedCarsRecommendation).toHaveBeenCalledWith({
+      context: expect.objectContaining({ decisionNeed: input.query }),
+      optionIds: undefined,
+    });
+  });
+
+  it("fails closed if an authorized result has no populated execution context", async () => {
+    mocks.buildCarsRuntimeContextDependencies.mockResolvedValue({
+      populationResult: {
+        ok: false,
+        rejectedCandidates: [],
+        errors: [],
+      },
+      rejectionAssessments: [],
+      limitedSupportAssessment: { outcome: "NOT_PERMITTED", limitations: [] },
+    });
+    mocks.orchestrateCarsDecision.mockReturnValue({
+      status: "AUTHORIZED",
+      reasons: [],
+      lineage: {
+        requestId: input.requestId,
+        contextReference: input.contextReference,
+        stoppedAt: "AUTHORIZATION",
+        inspectedStages: ["CLASSIFICATION", "AUTHORIZATION"],
+      },
+    });
+
+    await expect(runCarsRuntime(input)).resolves.toMatchObject({
+      status: "FAILED",
+      reasons: [{ code: "EXECUTION_CONTEXT_UNAVAILABLE" }],
+    });
+    expect(mocks.executeAuthorizedCarsRecommendation).not.toHaveBeenCalled();
+  });
+
+  it("keeps execution structurally behind the governed runtime boundary", () => {
     const runtimeSource = readFileSync(
       fileURLToPath(new URL("./runCarsRuntime.ts", import.meta.url)),
       "utf8",
@@ -192,14 +240,13 @@ describe("runCarsRuntime", () => {
       "utf8",
     );
 
-    for (const forbiddenDependency of [
-      "getRecommendedCars",
-      "evaluateCar",
-      "defaultRanking",
-    ]) {
-      expect(runtimeSource).not.toContain(forbiddenDependency);
+    for (const forbiddenDependency of ["getRecommendedCars", "evaluateCar", "defaultRanking"]) {
       expect(analysisSource).not.toContain(forbiddenDependency);
     }
+    expect(runtimeSource).toContain("executeAuthorizedCarsRecommendation");
+    expect(runtimeSource.indexOf('result.status === "AUTHORIZED"')).toBeLessThan(
+      runtimeSource.indexOf("executeAuthorizedCarsRecommendation({"),
+    );
   });
 
   it("has no active legacy success bypass routes", () => {

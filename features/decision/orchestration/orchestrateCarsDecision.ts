@@ -5,7 +5,7 @@ import type {
   CarsOrchestrationStage,
 } from "@/types/carsOrchestration";
 
-type BlockedStatus = CarsOrchestrationResult["status"];
+type BlockedStatus = Exclude<CarsOrchestrationResult["status"], "AUTHORIZED">;
 
 function blocked(
   input: CarsOrchestrationInput,
@@ -147,5 +147,14 @@ export function orchestrateCarsDecision(
   }
 
   inspected.push("AUTHORIZATION");
-  return blocked(input, "UNRESOLVED", "AUTHORIZATION", "SCOPE_A_AUTHORIZATION_BLOCKED", inspected);
+  return {
+    status: "AUTHORIZED",
+    reasons: [],
+    lineage: {
+      requestId: input.requestId,
+      contextReference: input.contextReference,
+      stoppedAt: "AUTHORIZATION",
+      inspectedStages: [...inspected],
+    },
+  };
 }

@@ -7,8 +7,12 @@ import { RecommendedCar } from "@/types/recommendation";
 
 export function getRecommendedCars(
   context: DecisionContext,
+  optionIds?: readonly string[],
 ): RecommendedCar[] {
-  const evaluatedCars = cars.map((car) => {
+  const eligibleCars = optionIds
+    ? cars.filter((car) => optionIds.includes(car.id))
+    : cars;
+  const evaluatedCars = eligibleCars.map((car) => {
     const decision = evaluateCar(car, context);
 
     return {
