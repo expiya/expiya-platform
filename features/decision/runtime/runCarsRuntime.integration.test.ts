@@ -1,30 +1,122 @@
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
+
+const { parseMock } = vi.hoisted(() => ({
+  parseMock: vi.fn(),
+}));
+
+vi.mock("@/lib/openai", () => ({
+  openai: {
+    responses: {
+      parse: parseMock,
+    },
+  },
+}));
 
 import { runCarsRuntime } from "./runCarsRuntime";
+import {
+  candidateComparisonPolicy,
+  optionDiscoveryRecommendationPolicy,
+} from "@/features/decision/context/sufficiency/carsSufficiencyPolicies";
 
 describe("runCarsRuntime integration", () => {
-  it("fails closed through the real orchestrator when runtime dependencies are unavailable", () => {
-    const result = runCarsRuntime({
+  beforeEach(() => {
+    parseMock.mockReset();
+  });
+
+  it.each([
+    "AUTOMOBILE_PURCHASE_OPTION_DISCOVERY_RECOMMENDATION",
+    "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON",
+  ] as const)("classifies %s and fails closed at the next unavailable dependency", async (decisionType) => {
+    const policy = decisionType === "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON"
+      ? candidateComparisonPolicy
+      : optionDiscoveryRecommendationPolicy;
+    parseMock.mockResolvedValueOnce({
+      output_parsed: { candidateDecisionTypes: [decisionType] },
+    }).mockResolvedValueOnce({
+      output_parsed: {
+        determinations: policy.requirements.map((requirement) => ({
+          requirementId: requirement.requirementId,
+          outcome: requirement.mode === "REQUIRED"
+            ? "MATERIAL"
+            : "NOT_MATERIAL",
+          limitations: [],
+        })),
+      },
+    }).mockResolvedValueOnce({
+      output_parsed: { facts: [] },
+    });
+
+    const result = await runCarsRuntime({
       requestId: "request-1",
       contextReference: "context-1",
+      query: decisionType === "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON"
+        ? "Toyota Corolla ile Honda Civic'i karşılaştır."
+        : "Bana uygun bir otomobil öner.",
     });
 
     expect(result).toEqual({
       status: "UNRESOLVED",
       reasons: [{
-        code: "CLASSIFICATION_MISSING",
-        stage: "CLASSIFICATION",
+        code: "EVIDENCE_PROVIDER_UNAVAILABLE",
+        stage: "EVIDENCE",
         referenceIds: [],
       }],
       lineage: {
         requestId: "request-1",
         contextReference: "context-1",
-        stoppedAt: "CLASSIFICATION",
-        inspectedStages: ["CLASSIFICATION"],
+        stoppedAt: "EVIDENCE",
+        inspectedStages: decisionType === "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON"
+          ? [
+              "CLASSIFICATION",
+              "TYPE_B_IDENTITY",
+              "MATERIALITY",
+              "REJECTION_RELEVANCE",
+              "LIMITED_SUPPORT",
+              "DOMAIN_BINDING",
+              "EVIDENCE",
+            ]
+          : [
+              "CLASSIFICATION",
+              "MATERIALITY",
+              "REJECTION_RELEVANCE",
+              "LIMITED_SUPPORT",
+              "DOMAIN_BINDING",
+              "EVIDENCE",
+            ],
       },
     });
     expect(result).not.toHaveProperty("recommendation");
     expect(result).not.toHaveProperty("decision");
     expect(result).not.toHaveProperty("ranking");
+  });
+
+  it.each([
+    {
+      candidates: [
+        "AUTOMOBILE_PURCHASE_OPTION_DISCOVERY_RECOMMENDATION",
+        "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON",
+      ],
+      status: "ADDITIONAL_CONTEXT_REQUIRED",
+      code: "CLASSIFICATION_AMBIGUOUS",
+    },
+    {
+      candidates: [],
+      status: "UNRESOLVED",
+      code: "CLASSIFICATION_UNSUPPORTED",
+    },
+  ] as const)("preserves fail-closed classification outcome $code", async ({ candidates, status, code }) => {
+    parseMock.mockResolvedValue({
+      output_parsed: { candidateDecisionTypes: candidates },
+    });
+
+    const result = await runCarsRuntime({
+      requestId: "request-1",
+      contextReference: "context-1",
+      query: "request",
+    });
+
+    expect(result.status).toBe(status);
+    expect(result.reasons[0].code).toBe(code);
+    expect(result.lineage.stoppedAt).toBe("CLASSIFICATION");
   });
 });

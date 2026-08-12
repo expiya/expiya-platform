@@ -1,18 +1,20 @@
-"use client";
-
-import { Suspense, useId } from "react";
-import { useSearchParams } from "next/navigation";
+import { randomUUID } from "node:crypto";
 import { createDecisionContext } from "@/features/decision/context/createDecisionContext";
 import { runCarsRuntime } from "@/features/decision/runtime/runCarsRuntime";
 
-function AnalysisContent() {
-  const searchParams = useSearchParams();
-  const query = searchParams.get("query") ?? "";
-  const runtimeReference = useId();
+export default async function AnalysisPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ query?: string | string[] }>;
+}) {
+  const queryValue = (await searchParams).query;
+  const query = Array.isArray(queryValue) ? queryValue[0] ?? "" : queryValue ?? "";
+  const runtimeReference = randomUUID();
   const decisionContext = createDecisionContext(query);
-  const runtimeResult = runCarsRuntime({
+  const runtimeResult = await runCarsRuntime({
     requestId: `analysis-request-${runtimeReference}`,
     contextReference: `analysis-context-${runtimeReference}`,
+    query,
   });
 
   return (
@@ -41,13 +43,5 @@ function AnalysisContent() {
         </section>
       </div>
     </main>
-  );
-}
-
-export default function AnalysisPage() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <AnalysisContent />
-    </Suspense>
   );
 }

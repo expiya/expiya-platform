@@ -5,12 +5,32 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { CarsOrchestrationResult } from "@/types/carsOrchestration";
 
 const mocks = vi.hoisted(() => ({
+  produceCarsDecisionTypeClassificationInput: vi.fn(),
+  produceCarsMaterialityAssessments: vi.fn(),
+  buildCarsRuntimeContextDependencies: vi.fn(),
+  resolveCarsRuntimeDomainRequirements: vi.fn(),
   orchestrateCarsDecision: vi.fn(),
   getRecommendedCars: vi.fn(),
   evaluateCar: vi.fn(),
   defaultRanking: vi.fn(),
 }));
 
+vi.mock("@/features/decision/context/classification/produceCarsDecisionTypeClassificationInput", () => ({
+  produceCarsDecisionTypeClassificationInput:
+    mocks.produceCarsDecisionTypeClassificationInput,
+}));
+vi.mock("@/features/decision/context/materiality/produceCarsMaterialityAssessments", () => ({
+  produceCarsMaterialityAssessments:
+    mocks.produceCarsMaterialityAssessments,
+}));
+vi.mock("./buildCarsRuntimeContextDependencies", () => ({
+  buildCarsRuntimeContextDependencies:
+    mocks.buildCarsRuntimeContextDependencies,
+}));
+vi.mock("./resolveCarsRuntimeDomainRequirements", () => ({
+  resolveCarsRuntimeDomainRequirements:
+    mocks.resolveCarsRuntimeDomainRequirements,
+}));
 vi.mock("@/features/decision/orchestration/orchestrateCarsDecision", () => ({
   orchestrateCarsDecision: mocks.orchestrateCarsDecision,
 }));
@@ -46,33 +66,86 @@ function result(status: CarsOrchestrationResult["status"]): CarsOrchestrationRes
 const input = {
   requestId: "request-1",
   contextReference: "context-1",
+  query: "Find me a suitable car.",
 } as const;
 
 describe("runCarsRuntime", () => {
   beforeEach(() => {
     vi.clearAllMocks();
+    mocks.produceCarsDecisionTypeClassificationInput.mockResolvedValue({
+      status: "READY",
+      candidateDecisionTypes: [
+        "AUTOMOBILE_PURCHASE_OPTION_DISCOVERY_RECOMMENDATION",
+      ],
+    });
+    mocks.produceCarsMaterialityAssessments.mockResolvedValue([]);
+    mocks.buildCarsRuntimeContextDependencies.mockResolvedValue({
+      populationResult: {
+        ok: true,
+        context: {
+          decisionNeed: input.query,
+          userContext: {
+            needs: [], priorities: [], preferences: [], constraints: [], usageConditions: [],
+          },
+          evaluationContext: { decisionCriteria: [] },
+          domainContext: {},
+        },
+        appliedCandidates: [],
+        rejectedCandidates: [],
+      },
+      rejectionAssessments: [],
+      limitedSupportAssessment: { outcome: "NOT_PERMITTED", limitations: [] },
+    });
+    mocks.resolveCarsRuntimeDomainRequirements.mockReturnValue({
+      status: "RESOLVED",
+      resolutions: [],
+      requirements: [],
+      limitations: [],
+      errors: [],
+    });
   });
 
   it.each([
     "ADDITIONAL_CONTEXT_REQUIRED",
     "UNRESOLVED",
     "FAILED",
-  ] as const)("preserves the %s fail-closed disposition", (status) => {
+  ] as const)("preserves the %s fail-closed disposition", async (status) => {
     const orchestrationResult = result(status);
     mocks.orchestrateCarsDecision.mockReturnValue(orchestrationResult);
 
-    expect(runCarsRuntime(input)).toEqual(orchestrationResult);
+    await expect(runCarsRuntime(input)).resolves.toEqual(orchestrationResult);
     expect(mocks.orchestrateCarsDecision).toHaveBeenCalledOnce();
     expect(mocks.orchestrateCarsDecision).toHaveBeenCalledWith({
-      ...input,
-      dependencies: {},
+      requestId: input.requestId,
+      contextReference: input.contextReference,
+      dependencies: {
+        classification: {
+          status: "CLASSIFIED",
+          decisionType:
+            "AUTOMOBILE_PURCHASE_OPTION_DISCOVERY_RECOMMENDATION",
+        },
+        materialityAssessments: [],
+        rejectionAssessments: [],
+        limitedSupportAssessment: {
+          outcome: "NOT_PERMITTED",
+          limitations: [],
+        },
+        domainFactResolution: {
+          status: "RESOLVED",
+          resolutions: [],
+          requirements: [],
+          limitations: [],
+          errors: [],
+        },
+        evidence: { status: "UNAVAILABLE" },
+      },
     });
   });
 
-  it("never executes the legacy recommendation, engine, or ranking path", () => {
+  it("never executes the legacy recommendation, engine, or ranking path", async () => {
     mocks.orchestrateCarsDecision.mockReturnValue(result("UNRESOLVED"));
 
-    runCarsRuntime(input);
+    await runCarsRuntime(input);
 
     expect(mocks.getRecommendedCars).not.toHaveBeenCalled();
     expect(mocks.evaluateCar).not.toHaveBeenCalled();
