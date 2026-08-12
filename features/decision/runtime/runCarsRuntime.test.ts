@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -95,5 +95,12 @@ describe("runCarsRuntime", () => {
       expect(runtimeSource).not.toContain(forbiddenDependency);
       expect(analysisSource).not.toContain(forbiddenDependency);
     }
+  });
+
+  it("has no active legacy success bypass routes", () => {
+    const appRoot = fileURLToPath(new URL("../../../app/", import.meta.url));
+
+    expect(existsSync(`${appRoot}result/page.tsx`)).toBe(false);
+    expect(existsSync(`${appRoot}api/analyze/route.ts`)).toBe(false);
   });
 });
