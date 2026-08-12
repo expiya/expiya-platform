@@ -47,12 +47,6 @@ export async function runCarsRuntime(
     });
   const classification = classifyCarsDecisionType(classificationInput);
   const policy = selectCarsSufficiencyPolicy(classification);
-  const materialityAssessments = policy
-    ? await produceCarsMaterialityAssessments({
-        query: input.query,
-        policy,
-      })
-    : undefined;
   const typeBIdentity =
     classification.status === "CLASSIFIED" &&
     classification.decisionType ===
@@ -63,16 +57,22 @@ export async function runCarsRuntime(
           candidateId: `${input.contextReference}:decision-options`,
         })
       : undefined;
-  const contextDependencies = policy
-    ? await buildCarsRuntimeContextDependencies({
-        query: input.query,
-        requestId: input.requestId,
-        contextReference: input.contextReference,
-        typeBProduction: typeBIdentity?.status === "RESOLVED"
-          ? typeBIdentity.production
-          : undefined,
-      })
-    : undefined;
+  const [materialityAssessments, contextDependencies] = policy
+    ? await Promise.all([
+        produceCarsMaterialityAssessments({
+          query: input.query,
+          policy,
+        }),
+        buildCarsRuntimeContextDependencies({
+          query: input.query,
+          requestId: input.requestId,
+          contextReference: input.contextReference,
+          typeBProduction: typeBIdentity?.status === "RESOLVED"
+            ? typeBIdentity.production
+            : undefined,
+        }),
+      ])
+    : [undefined, undefined];
   const domainFactResolution =
     policy && materialityAssessments && contextDependencies
       ? resolveCarsRuntimeDomainRequirements({

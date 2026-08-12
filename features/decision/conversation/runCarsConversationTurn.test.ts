@@ -29,6 +29,23 @@ describe("runCarsConversationTurn", () => {
     expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
   });
 
+  it("asks for a budget in Turkish instead of recommending from usage alone", async () => {
+    const response = await runCarsConversationTurn({
+      conversationId: "conversation-1",
+      messages: [{
+        id: "1",
+        role: "user",
+        content: "İşe gidiş geliş için kullanacağım. Park yeri bulmak zor, küçük olsun.",
+      }],
+    });
+
+    expect(response).toEqual({
+      kind: "QUESTION",
+      message: expect.stringMatching(/bütçe|fiyat/iu),
+    });
+    expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+  });
+
   it("re-runs the governed runtime with accumulated user answers", async () => {
     mocks.runCarsRuntime.mockResolvedValue({
       status: "ADDITIONAL_CONTEXT_REQUIRED",
@@ -74,6 +91,29 @@ describe("runCarsConversationTurn", () => {
     });
   });
 
+  it("keeps successful assistant responses in the user's Turkish language", async () => {
+    mocks.runCarsRuntime.mockResolvedValue({
+      status: "SUCCEEDED",
+      recommendations: [{ car: { id: "1" } }],
+      reasons: [],
+      lineage: { ...lineage, stoppedAt: "AUTHORIZATION" },
+    });
+
+    const response = await runCarsConversationTurn({
+      conversationId: "conversation-1",
+      messages: [{
+        id: "1",
+        role: "user",
+        content: "Şehir içinde kullanacağım, bütçem 1.4 milyon TL.",
+      }],
+    });
+
+    expect(response).toMatchObject({
+      kind: "RECOMMENDATIONS",
+      message: expect.stringMatching(/bilgilere göre/iu),
+    });
+  });
+
   it("converts runtime failures to a user-facing error without leaking codes", async () => {
     mocks.runCarsRuntime.mockResolvedValue({
       status: "FAILED",
@@ -83,7 +123,11 @@ describe("runCarsConversationTurn", () => {
 
     const response = await runCarsConversationTurn({
       conversationId: "conversation-1",
-      messages: [{ id: "1", role: "user", content: "Find a car." }],
+      messages: [{
+        id: "1",
+        role: "user",
+        content: "Find a compact city car under 1.5 million TL.",
+      }],
     });
 
     expect(response).toMatchObject({ kind: "ERROR" });

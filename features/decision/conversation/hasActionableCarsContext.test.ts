@@ -1,6 +1,11 @@
 import { describe, expect, it } from "vitest";
 
-import { hasActionableCarsContext } from "./hasActionableCarsContext";
+import {
+  hasActionableCarsContext,
+  hasExplicitBudget,
+  hasUsageOrPreference,
+  resolveCarsConversationLocale,
+} from "./hasActionableCarsContext";
 
 function user(content: string) {
   return { id: content, role: "user" as const, content };
@@ -30,5 +35,16 @@ describe("hasActionableCarsContext", () => {
       { id: "question", role: "assistant", content: "What matters most?" },
       user("Mostly city driving, under 1.5 million TL."),
     ])).toBe(true);
+  });
+
+  it("detects Turkish conversation language without requiring Turkish characters", () => {
+    expect(resolveCarsConversationLocale([user("araba almak istiyorum")])).toBe("tr");
+  });
+
+  it("distinguishes usage context from an explicit budget", () => {
+    const messages = [user("İşe gidiş geliş için kullanacağım, park zor olduğu için küçük olsun.")];
+    expect(hasUsageOrPreference(messages)).toBe(true);
+    expect(hasExplicitBudget(messages)).toBe(false);
+    expect(hasExplicitBudget([...messages, user("Bütçem en fazla 1.4 milyon TL")])).toBe(true);
   });
 });

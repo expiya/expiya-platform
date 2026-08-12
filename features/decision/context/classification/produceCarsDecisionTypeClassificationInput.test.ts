@@ -19,6 +19,30 @@ describe("produceCarsDecisionTypeClassificationInput", () => {
     parseMock.mockReset();
   });
 
+  it("classifies an explicit Turkish purchase conversation without a provider call", async () => {
+    await expect(produceCarsDecisionTypeClassificationInput({
+      text: [
+        "Automobile decision conversation (oldest to newest):",
+        "User turn 1: Araba almak istiyorum.",
+        "User turn 2: İşe gidip gelmek için küçük olsun.",
+      ].join("\n"),
+    })).resolves.toEqual({
+      status: "READY",
+      candidateDecisionTypes: ["AUTOMOBILE_PURCHASE_OPTION_DISCOVERY_RECOMMENDATION"],
+    });
+    expect(parseMock).not.toHaveBeenCalled();
+  });
+
+  it("classifies explicit comparison intent without a provider call", async () => {
+    await expect(produceCarsDecisionTypeClassificationInput({
+      text: "Toyota Corolla ile Honda Civic'i karşılaştır.",
+    })).resolves.toEqual({
+      status: "READY",
+      candidateDecisionTypes: ["AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON"],
+    });
+    expect(parseMock).not.toHaveBeenCalled();
+  });
+
   it.each([
     "AUTOMOBILE_PURCHASE_OPTION_DISCOVERY_RECOMMENDATION",
     "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON",

@@ -8,7 +8,7 @@ export interface CarsConversationMessage {
 }
 
 export interface PersistedCarsConversation {
-  readonly version: 2;
+  readonly version: 3;
   readonly conversationId: string;
   readonly messages: readonly CarsConversationMessage[];
 }

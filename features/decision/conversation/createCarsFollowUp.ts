@@ -1,9 +1,37 @@
 import type { CarsBlockedRuntimeResult } from "@/features/decision/runtime/runCarsRuntime";
+import type { CarsConversationLocale } from "./hasActionableCarsContext";
 
 export function createCarsFollowUp(
   result: CarsBlockedRuntimeResult,
+  locale: CarsConversationLocale = "en",
 ): string {
   const reason = result.reasons[0];
+
+  if (locale === "tr") {
+    if (result.status === "FAILED") {
+      return "Analizi şu anda tamamlayamadım. Son cevabınızı birazdan yeniden gönderebilirsiniz; konuşmanız korunuyor.";
+    }
+
+    switch (reason?.stage) {
+      case "CLASSIFICATION":
+        return "Size uygun araçları keşfetmemi mi, yoksa belirli araçları karşılaştırmamı mı istersiniz?";
+      case "TYPE_B_IDENTITY":
+        return "Karşılaştırmak istediğiniz en az iki aracın marka ve modelini yazar mısınız?";
+      case "MATERIALITY":
+      case "LIMITED_SUPPORT":
+        return "Kararınızda en önemli ölçüt nedir? Örneğin bütçe, yakıt türü, gövde tipi veya kullanım amacı olabilir.";
+      case "REJECTION_RELEVANCE":
+      case "CONFLICT":
+        return "Bilgiler arasında bir çelişki buldum. Bundan sonra hangi son tercihinizi kullanmamı istersiniz?";
+      case "DOMAIN_BINDING":
+      case "DOMAIN_SUFFICIENCY":
+        return "Aracın mutlaka karşılaması gereken en önemli ihtiyacınız nedir?";
+      case "EVIDENCE":
+        return "Araçları güvenilir biçimde değerlendirmek için bütçenizi veya düşündüğünüz kesin modelleri paylaşır mısınız?";
+      default:
+        return "İhtiyacınızı biraz daha ayrıntılı anlatır mısınız?";
+    }
+  }
 
   if (result.status === "FAILED") {
     return "I couldn't complete that analysis just now. Please try your last answer again in a moment.";

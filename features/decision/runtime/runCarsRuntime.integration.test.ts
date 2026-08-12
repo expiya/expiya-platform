@@ -31,8 +31,6 @@ describe("runCarsRuntime integration", () => {
       ? candidateComparisonPolicy
       : optionDiscoveryRecommendationPolicy;
     parseMock.mockResolvedValueOnce({
-      output_parsed: { candidateDecisionTypes: [decisionType] },
-    }).mockResolvedValueOnce({
       output_parsed: {
         determinations: policy.requirements.map((requirement) => ({
           requirementId: requirement.requirementId,
