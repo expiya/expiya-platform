@@ -8,10 +8,18 @@ import type {
 
 import { buildCarsConversationQuery } from "./buildCarsConversationQuery";
 import { createCarsFollowUp } from "./createCarsFollowUp";
+import { hasActionableCarsContext } from "./hasActionableCarsContext";
 
 export async function runCarsConversationTurn(
   input: CarsConversationRequest,
 ): Promise<CarsConversationResponse> {
+  if (!hasActionableCarsContext(input.messages)) {
+    return {
+      kind: "QUESTION",
+      message: "Aracı en çok nasıl kullanacaksınız ve sizin için en önemli ölçüt nedir? Örneğin bütçe, şehir içi kullanım, yakıt türü veya genişlikten birini paylaşabilirsiniz.",
+    };
+  }
+
   const query = buildCarsConversationQuery(input.messages);
   const turnId = randomUUID();
   const result = await runCarsRuntime({

@@ -18,6 +18,17 @@ const lineage = {
 describe("runCarsConversationTurn", () => {
   beforeEach(() => vi.clearAllMocks());
 
+  it("asks for a concrete decision factor before entering the governed runtime", async () => {
+    const response = await runCarsConversationTurn({
+      conversationId: "conversation-1",
+      messages: [{ id: "1", role: "user", content: "araba almak istiyorum." }],
+    });
+
+    expect(response).toMatchObject({ kind: "QUESTION" });
+    expect(response.message).toMatch(/bütçe|kullan/iu);
+    expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+  });
+
   it("re-runs the governed runtime with accumulated user answers", async () => {
     mocks.runCarsRuntime.mockResolvedValue({
       status: "ADDITIONAL_CONTEXT_REQUIRED",

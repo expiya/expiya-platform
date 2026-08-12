@@ -17,7 +17,7 @@ function newMessage(role: CarsConversationMessage["role"], content: string) {
   return { id: crypto.randomUUID(), role, content } as const;
 }
 
-const storageKey = "expiya:cars-conversation:v1";
+const storageKey = "expiya:cars-conversation:v2";
 
 function readPersistedConversation(): PersistedCarsConversation | null {
   try {
@@ -25,7 +25,7 @@ function readPersistedConversation(): PersistedCarsConversation | null {
     if (!value || typeof value !== "object") return null;
     const candidate = value as Partial<PersistedCarsConversation>;
     if (
-      candidate.version !== 1
+      candidate.version !== 2
       || typeof candidate.conversationId !== "string"
       || !Array.isArray(candidate.messages)
       || !candidate.messages.every((message) => (
@@ -102,7 +102,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   useEffect(() => {
     if (!isRestored || !conversationId.current) return;
     localStorage.setItem(storageKey, JSON.stringify({
-      version: 1,
+      version: 2,
       conversationId: conversationId.current,
       messages,
     } satisfies PersistedCarsConversation));
