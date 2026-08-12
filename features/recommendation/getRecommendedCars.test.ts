@@ -105,4 +105,25 @@ describe("getRecommendedCars", () => {
 
     expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(expectedIds);
   });
+
+  it.each([
+    ["İşimde yük taşımak için araç arıyorum.", ["11", "12", "13", "14"]],
+    ["Düzenli personel servisi yapacağım.", ["13", "14"]],
+    ["Karavan çekmek için araç istiyorum.", ["8", "9", "10", "11", "12", "19"]],
+  ])("enforces functional suitability for %s", (decisionNeed, expectedIds) => {
+    getRecommendedCars({ ...context, decisionNeed });
+
+    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(expectedIds);
+    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.bodyType)).not.toContain("Sedan");
+  });
+
+  it("returns no misleading candidate when hard requirements contradict", () => {
+    const result = getRecommendedCars({
+      ...context,
+      decisionNeed: "Yük taşıyacağım ama mutlaka küçük hatchback olsun.",
+    });
+
+    expect(result).toEqual([]);
+    expect(mocks.evaluateCar).not.toHaveBeenCalled();
+  });
 });

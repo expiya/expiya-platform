@@ -7,6 +7,10 @@ import {
 } from "@/types/decision";
 import { calculateConfidence } from "@/features/decision/confidence";
 import { decisionStore } from "@/features/decision/store/decisionStore";
+import {
+  describeUseRequirement,
+  resolveVehicleUseRequirements,
+} from "@/features/recommendation/resolveVehicleUseRequirements";
 
 let decisionSequence = 0;
 
@@ -15,7 +19,11 @@ function createDecisionId(): string {
   return `dec_${Date.now()}${decisionSequence}`;
 }
 
-export function calculateDecisionScore(car: Car): number {
+function decisionContextText(context: DecisionContext): string {
+  return JSON.stringify(context);
+}
+
+export function calculateDecisionScore(car: Car, context?: DecisionContext): number {
   let score = 100;
 
   // Daha eski araçlar puan kaybeder.
@@ -26,6 +34,10 @@ export function calculateDecisionScore(car: Car): number {
 
   // Fiyat arttıkça puan düşer.
   score -= Math.floor(car.price / 500000);
+
+  if (context) {
+    score += Math.min(15, resolveVehicleUseRequirements(decisionContextText(context)).length * 8);
+  }
 
   return Math.max(0, Math.min(100, score));
 }
@@ -46,7 +58,7 @@ function getRecommendation(score: number): Recommendation {
   return "Consider Carefully";
 }
 
-function buildReasons(car: Car): DecisionReason[] {
+function buildReasons(car: Car, context: DecisionContext): DecisionReason[] {
   const reasons: DecisionReason[] = [];
 
   if (car.year >= 2023) {
@@ -85,6 +97,10 @@ function buildReasons(car: Car): DecisionReason[] {
     });
   }
 
+  for (const requirement of resolveVehicleUseRequirements(decisionContextText(context))) {
+    reasons.push({ code: "USE_CASE_MATCH", message: describeUseRequirement(requirement) });
+  }
+
   return reasons;
 }
 
@@ -92,8 +108,8 @@ export function evaluateCar(
   car: Car,
   context: DecisionContext,
 ): DecisionResult {
-  const score = calculateDecisionScore(car);
-  const reasons = buildReasons(car);
+  const score = calculateDecisionScore(car, context);
+  const reasons = buildReasons(car, context);
 
   const decision: DecisionResult = {
     decisionId: createDecisionId(),

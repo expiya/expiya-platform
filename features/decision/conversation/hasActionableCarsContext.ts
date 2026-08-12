@@ -77,6 +77,6 @@ export function hasUsageOrPreference(
   messages: readonly CarsConversationMessage[],
 ): boolean {
   const text = userText(messages);
-  return /(?:işe|gidiş|geliş|şehir|uzun yol|aile|çocuk|park|küçük|kompakt|büyük|geniş|yakıt|benzin|dizel|hibrit|elektrik|otomatik|manuel)/iu.test(text)
-    || /\b(?:suv|sedan|hatchback|commut|city|highway|family|children|parking|small|compact|large|spacious|fuel|gasoline|diesel|hybrid|electric|automatic|manual)\b/iu.test(text);
+  return /(?:işe|gidiş|geliş|şehir|uzun yol|aile|çocuk|park|küçük|kompakt|büyük|geniş|yük|eşya|malzeme|koli|ekipman|yolcu|personel|servis|römork|karavan|arazi|yakıt|benzin|dizel|hibrit|elektrik|otomatik|manuel)/iu.test(text)
+    || /\b(?:suv|sedan|hatchback|pickup|van|commut|city|highway|family|children|parking|cargo|haul|towing|off-road|small|compact|large|spacious|fuel|gasoline|diesel|hybrid|electric|automatic|manual)\b/iu.test(text);
 }

@@ -14,7 +14,8 @@ export type DecisionReasonCode =
   | "LOW_MILEAGE"
   | "HIGH_MILEAGE"
   | "GOOD_PRICE"
-  | "HIGH_PRICE";
+  | "HIGH_PRICE"
+  | "USE_CASE_MATCH";
 
 export interface DecisionReason {
   code: DecisionReasonCode;

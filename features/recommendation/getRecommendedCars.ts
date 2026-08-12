@@ -5,6 +5,10 @@ import { evaluateCar } from "@/features/decision/engine";
 import { defaultRanking } from "@/features/recommendation/ranking/defaultRanking";
 import { RecommendedCar } from "@/types/recommendation";
 import { consumerExperienceByCarId } from "@/data/consumerExperience";
+import {
+  carSatisfiesUseRequirements,
+  resolveVehicleUseRequirements,
+} from "@/features/recommendation/resolveVehicleUseRequirements";
 
 function contextText(context: DecisionContext): string {
   return [
@@ -41,6 +45,9 @@ function matchesExplicitContext(car: (typeof cars)[number], text: string): boole
   const kmLimit = requestedMaximum(text, "km");
   if (priceLimit !== undefined && car.price > priceLimit) return false;
   if (kmLimit !== undefined && car.km > kmLimit) return false;
+
+  const useRequirements = resolveVehicleUseRequirements(text);
+  if (!carSatisfiesUseRequirements(car, useRequirements)) return false;
 
   const exclusiveFuel: [RegExp, string[]][] = [
     [/(?:sadece|yalnızca|only)[^.!?]{0,40}(?:benzinli\s*\/\s*hibrit|gasoline\s*(?:or|\/)\s*hybrid)/i, ["Gasoline", "Hybrid"]],

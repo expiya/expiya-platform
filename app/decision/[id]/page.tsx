@@ -18,6 +18,14 @@ const reasonTranslations: Record<string, string> = {
   "High mileage": "Yüksek kilometre",
   "Competitive price": "Rekabetçi fiyat",
   "Premium pricing": "Yüksek fiyat seviyesi",
+  "Yük taşıma amacına uygun gövde tipi": "Yük taşıma amacına uygun gövde tipi",
+  "Düzenli yolcu taşıma amacına uygun gövde tipi": "Düzenli yolcu taşıma amacına uygun gövde tipi",
+  "Çekme ihtiyacına uygun araç sınıfı": "Çekme ihtiyacına uygun araç sınıfı",
+  "Arazi kullanımına uygun araç sınıfı": "Arazi kullanımına uygun araç sınıfı",
+  "Aile kullanımına uygun gövde tipi": "Aile kullanımına uygun gövde tipi",
+  "Dar alan ve park ihtiyacına uygun kompakt gövde": "Dar alan ve park ihtiyacına uygun kompakt gövde",
+  "Klasik araç isteğiyle uyumlu model yılı": "Klasik araç isteğiyle uyumlu model yılı",
+  "Performans odaklı kullanıma uygun araç sınıfı": "Performans odaklı kullanıma uygun araç sınıfı",
 };
 const fuelTranslations: Record<string, string> = {
   Gasoline: "Benzin",
