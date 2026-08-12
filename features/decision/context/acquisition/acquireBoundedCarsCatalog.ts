@@ -11,9 +11,11 @@ export const CARS_CATALOG_SOURCE_ID = "repo:data/car.ts" as const;
 export const CARS_CATALOG_APPROVED_SNAPSHOT =
   "b59169f29f974369a51ca607cb7dbd201683578b" as const;
 export const CARS_CATALOG_REVISION =
-  "git-blob:32edbf2ed189b2936cf468d5489c97e07a094d42" as const;
+  "git-blob:bb93a2944ec8924fd349df077e0405b4bc89df01" as const;
 
-const APPROVED_CATALOG_IDS = new Set(["1", "2", "3"]);
+const APPROVED_CATALOG_IDS = new Set(
+  Array.from({ length: 20 }, (_, index) => String(index + 1)),
+);
 
 const carSchema = z.strictObject({
   id: z.string(),

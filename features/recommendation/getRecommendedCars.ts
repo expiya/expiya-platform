@@ -43,15 +43,33 @@ function matchesExplicitContext(car: (typeof cars)[number], text: string): boole
   if (kmLimit !== undefined && car.km > kmLimit) return false;
 
   const exclusiveFuel: [RegExp, string[]][] = [
-    [/(?:sadece|yalnızca|only)[^.!?]{0,30}(?:electric|elektrik)|(?:electric|elektrikli)[^.!?]{0,20}(?:istiyorum|olsun|tercih|only)/i, ["Electric"]],
-    [/(?:sadece|yalnızca|only)[^.!?]{0,30}(?:gasoline|petrol|benzin)|(?:gasoline|petrol|benzinli)[^.!?]{0,20}(?:istiyorum|olsun|tercih|only)/i, ["Gasoline"]],
     [/(?:sadece|yalnızca|only)[^.!?]{0,40}(?:benzinli\s*\/\s*hibrit|gasoline\s*(?:or|\/)\s*hybrid)/i, ["Gasoline", "Hybrid"]],
+    [/(?:sadece|yalnızca|only)[^.!?]{0,30}(?:electric|elektrik)|(?:electric|elektrikli)[^.!?]{0,20}(?:istiyorum|olsun|tercih|only)/i, ["Electric"]],
+    [/(?:sadece|yalnızca|only)[^.!?]{0,30}(?:gasoline|petrol|benzin)|(?:gasoline|petrol|benzinli)[^.!?]{0,20}(?:istiyorum|olsun|tercih|only|car|araç)/i, ["Gasoline"]],
     [/(?:hybrid|hibrit)[^.!?]{0,20}(?:istiyorum|olsun|tercih|only)/i, ["Hybrid"]],
   ];
   const requestedFuels = exclusiveFuel.find(([pattern]) => pattern.test(text))?.[1];
   if (requestedFuels && !requestedFuels.includes(car.fuel)) return false;
   if (/(?:elektrik(?:li)?|electric)[^.!?]{0,20}(?:istemiyorum|olmasın|hariç|no electric)/i.test(text) && car.fuel === "Electric") return false;
   if (/\b(?:automatic|otomatik)\b/i.test(text) && car.transmission !== "Automatic") return false;
+  if (/\b(?:manual|manuel|düz vites)\b/i.test(text) && car.transmission !== "Manual") return false;
+
+  const requestedBodyType: [RegExp, (typeof car.bodyType)[]][] = [
+    [/\b(?:pick-up|pickup|kamyonet)\b/i, ["Pickup"]],
+    [/\b(?:van|minibüs|ticari araç)\b/i, ["Van"]],
+    [/\b(?:suv)\b/i, ["SUV"]],
+    [/\b(?:coupe|kup|roadster|spor araba)\b/i, ["Coupe"]],
+    [/\b(?:hatchback|küçük araba|kompakt araba|şehir otomobili)\b/i, ["Hatchback"]],
+    [/\b(?:sedan)\b/i, ["Sedan"]],
+  ];
+  const bodyTypes = requestedBodyType.find(([pattern]) => pattern.test(text))?.[1];
+  if (bodyTypes && !bodyTypes.includes(car.bodyType)) return false;
+
+  if (/\b(?:klasik|classic|nostaljik)\b/i.test(text) && car.year > 1999) return false;
+  if (/\b(?:off-road|offroad|arazi|4x4)\b/i.test(text)) {
+    const offRoadModels = new Set(["Duster", "Wrangler", "Defender 110"]);
+    if (!offRoadModels.has(car.model)) return false;
+  }
 
   return true;
 }

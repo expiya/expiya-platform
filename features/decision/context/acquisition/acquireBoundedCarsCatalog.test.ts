@@ -27,8 +27,10 @@ function car(id: string): Car {
 }
 
 function approvedPayload(): Car[] {
-  return [car("1"), car("2"), car("3")];
+  return Array.from({ length: 20 }, (_, index) => car(String(index + 1)));
 }
+
+const approvedIds = Array.from({ length: 20 }, (_, index) => String(index + 1));
 
 function validate(payload: unknown, revision: string = CARS_CATALOG_REVISION) {
   return validateBoundedCarsCatalogPayload(payload, revision);
@@ -41,12 +43,12 @@ describe("bounded runtime Cars catalog acquisition", () => {
     expect(result.ok).toBe(true);
     if (!result.ok) throw new Error("Expected acquisition success.");
 
-    expect(result.value.catalog.map((item) => item.id)).toEqual(["1", "2", "3"]);
+    expect(result.value.catalog.map((item) => item.id)).toEqual(approvedIds);
     expect(result.value.trace).toEqual({
       sourceId: CARS_CATALOG_SOURCE_ID,
       approvedSnapshot: CARS_CATALOG_APPROVED_SNAPSHOT,
       catalogRevision: CARS_CATALOG_REVISION,
-      acquiredOptionIds: ["1", "2", "3"],
+      acquiredOptionIds: approvedIds,
       limitations: [
         "catalog-only",
         "v0.1-authoritative-evidence-source",
@@ -98,15 +100,14 @@ describe("bounded runtime Cars catalog acquisition", () => {
   it("fails closed for an empty catalog", () => {
     expect(validate([])).toEqual({
       ok: false,
-      errors: [
-        { code: "APPROVED_CATALOG_ID_MISSING", referenceId: "1" },
-        { code: "APPROVED_CATALOG_ID_MISSING", referenceId: "2" },
-        { code: "APPROVED_CATALOG_ID_MISSING", referenceId: "3" },
-      ],
+      errors: approvedIds.map((referenceId) => ({
+        code: "APPROVED_CATALOG_ID_MISSING",
+        referenceId,
+      })),
     });
   });
 
-  it.each(["1", "2", "3"])("fails when approved ID %s is missing", (id) => {
+  it.each(approvedIds)("fails when approved ID %s is missing", (id) => {
     const payload = approvedPayload().filter((item) => item.id !== id);
 
     expect(validate(payload)).toEqual({
@@ -116,9 +117,9 @@ describe("bounded runtime Cars catalog acquisition", () => {
   });
 
   it("fails when an unexpected ID is present", () => {
-    expect(validate([...approvedPayload(), car("4")])).toEqual({
+    expect(validate([...approvedPayload(), car("21")])).toEqual({
       ok: false,
-      errors: [{ code: "UNEXPECTED_CATALOG_ID", referenceId: "4" }],
+      errors: [{ code: "UNEXPECTED_CATALOG_ID", referenceId: "21" }],
     });
   });
 
@@ -166,12 +167,14 @@ describe("bounded runtime Cars catalog acquisition", () => {
   });
 
   it("preserves catalog order without treating it as ID authority", () => {
-    const result = validate([car("3"), car("1"), car("2")]);
+    const reordered = approvedPayload();
+    reordered.unshift(reordered.pop()!);
+    const result = validate(reordered);
 
     expect(result.ok).toBe(true);
     if (!result.ok) throw new Error("Expected acquisition success.");
-    expect(result.value.catalog.map((item) => item.id)).toEqual(["3", "1", "2"]);
-    expect(result.value.trace.acquiredOptionIds).toEqual(["3", "1", "2"]);
+    expect(result.value.catalog.map((item) => item.id)).toEqual(["20", ...approvedIds.slice(0, -1)]);
+    expect(result.value.trace.acquiredOptionIds).toEqual(["20", ...approvedIds.slice(0, -1)]);
   });
 
   it("does not mutate inputs and returns isolated frozen structures", () => {

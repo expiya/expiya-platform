@@ -45,7 +45,10 @@ describe("getRecommendedCars", () => {
   it("evaluates the complete bounded catalog for discovery", () => {
     const result = getRecommendedCars(context);
 
-    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(["1", "2", "3"]);
+    expect(mocks.evaluateCar).toHaveBeenCalledTimes(20);
+    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(
+      Array.from({ length: 20 }, (_, index) => String(index + 1)),
+    );
     expect(result[0].consumerExperience).toMatchObject({
       sourceName: "NHTSA tüketici şikâyetleri",
       market: "ABD",
@@ -58,7 +61,7 @@ describe("getRecommendedCars", () => {
       decisionNeed: "Find a gasoline car with a budget up to 1.3 million TL.",
     });
 
-    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(["2"]);
+    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(["2", "4", "18"]);
   });
 
   it("applies the newest corrected budget carried in the decision context", () => {
@@ -67,7 +70,9 @@ describe("getRecommendedCars", () => {
       decisionNeed: "My budget is 1.2 million TL. Correction: budget up to 1.5 million TL.",
     });
 
-    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(["1", "2"]);
+    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual([
+      "1", "2", "4", "5", "6", "9", "13", "18", "20",
+    ]);
   });
 
   it("evaluates only Tesla for an explicit electric-only preference", () => {
@@ -85,6 +90,19 @@ describe("getRecommendedCars", () => {
       decisionNeed: "Elektrikli istemiyorum; sadece benzinli/hibrit düşüneyim.",
     });
 
-    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(["1", "2"]);
+    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual([
+      "1", "2", "4", "6", "7", "10", "15", "16", "17", "18", "20",
+    ]);
+  });
+
+  it.each([
+    ["Klasik bir otomobil istiyorum.", ["17", "18", "19", "20"]],
+    ["Arazide kullanmak için off-road araç istiyorum.", ["9", "10", "19"]],
+    ["İşim için bir pick-up arıyorum.", ["11", "12"]],
+    ["Parkı kolay küçük araba istiyorum.", ["4", "6", "7"]],
+  ])("filters the catalog for a distinct usage: %s", (decisionNeed, expectedIds) => {
+    getRecommendedCars({ ...context, decisionNeed });
+
+    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(expectedIds);
   });
 });

@@ -43,4 +43,89 @@ export const cars: Car[] = [
     createdAt: "2026-08-01",
     updatedAt: "2026-08-01",
   },
+  {
+    id: "4", brand: "Renault", model: "Clio", year: 2023, price: 1050000,
+    km: 18000, fuel: "Gasoline", transmission: "Automatic", bodyType: "Hatchback",
+    image: "/cars/renault-clio.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "5", brand: "Fiat", model: "Egea", year: 2022, price: 980000,
+    km: 35000, fuel: "Diesel", transmission: "Manual", bodyType: "Sedan",
+    image: "/cars/fiat-egea.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "6", brand: "Volkswagen", model: "Golf", year: 2021, price: 1450000,
+    km: 42000, fuel: "Gasoline", transmission: "Automatic", bodyType: "Hatchback",
+    image: "/cars/volkswagen-golf.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "7", brand: "Toyota", model: "Yaris Hybrid", year: 2023, price: 1550000,
+    km: 12000, fuel: "Hybrid", transmission: "Automatic", bodyType: "Hatchback",
+    image: "/cars/toyota-yaris-hybrid.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "8", brand: "Hyundai", model: "Tucson", year: 2022, price: 1850000,
+    km: 30000, fuel: "Diesel", transmission: "Automatic", bodyType: "SUV",
+    image: "/cars/hyundai-tucson.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "9", brand: "Dacia", model: "Duster", year: 2021, price: 1250000,
+    km: 48000, fuel: "Diesel", transmission: "Manual", bodyType: "SUV",
+    image: "/cars/dacia-duster.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "10", brand: "Jeep", model: "Wrangler", year: 2019, price: 2900000,
+    km: 62000, fuel: "Gasoline", transmission: "Automatic", bodyType: "SUV",
+    image: "/cars/jeep-wrangler.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "11", brand: "Ford", model: "Ranger", year: 2022, price: 2150000,
+    km: 38000, fuel: "Diesel", transmission: "Automatic", bodyType: "Pickup",
+    image: "/cars/ford-ranger.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "12", brand: "Toyota", model: "Hilux", year: 2021, price: 1950000,
+    km: 55000, fuel: "Diesel", transmission: "Automatic", bodyType: "Pickup",
+    image: "/cars/toyota-hilux.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "13", brand: "Ford", model: "Transit Custom", year: 2020, price: 1450000,
+    km: 85000, fuel: "Diesel", transmission: "Manual", bodyType: "Van",
+    image: "/cars/ford-transit-custom.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "14", brand: "Mercedes-Benz", model: "Vito", year: 2021, price: 2350000,
+    km: 70000, fuel: "Diesel", transmission: "Automatic", bodyType: "Van",
+    image: "/cars/mercedes-vito.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "15", brand: "BMW", model: "320i", year: 2022, price: 2650000,
+    km: 25000, fuel: "Gasoline", transmission: "Automatic", bodyType: "Sedan",
+    image: "/cars/bmw-320i.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "16", brand: "Mazda", model: "MX-5", year: 2020, price: 2200000,
+    km: 32000, fuel: "Gasoline", transmission: "Manual", bodyType: "Coupe",
+    image: "/cars/mazda-mx5.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "17", brand: "Porsche", model: "911 Carrera", year: 1985, price: 4750000,
+    km: 145000, fuel: "Gasoline", transmission: "Manual", bodyType: "Coupe",
+    image: "/cars/porsche-911-1985.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "18", brand: "Volkswagen", model: "Beetle", year: 1974, price: 1100000,
+    km: 120000, fuel: "Gasoline", transmission: "Manual", bodyType: "Coupe",
+    image: "/cars/volkswagen-beetle-1974.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "19", brand: "Land Rover", model: "Defender 110", year: 1997, price: 3250000,
+    km: 180000, fuel: "Diesel", transmission: "Manual", bodyType: "SUV",
+    image: "/cars/land-rover-defender-1997.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
+  {
+    id: "20", brand: "Volvo", model: "240", year: 1992, price: 1350000,
+    km: 210000, fuel: "Gasoline", transmission: "Manual", bodyType: "Sedan",
+    image: "/cars/volvo-240-1992.jpg", createdAt: "2026-08-13", updatedAt: "2026-08-13",
+  },
 ];
