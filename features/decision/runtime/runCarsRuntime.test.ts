@@ -46,7 +46,6 @@ function result(status: CarsOrchestrationResult["status"]): CarsOrchestrationRes
 const input = {
   requestId: "request-1",
   contextReference: "context-1",
-  dependencies: {},
 } as const;
 
 describe("runCarsRuntime", () => {
@@ -64,7 +63,10 @@ describe("runCarsRuntime", () => {
 
     expect(runCarsRuntime(input)).toEqual(orchestrationResult);
     expect(mocks.orchestrateCarsDecision).toHaveBeenCalledOnce();
-    expect(mocks.orchestrateCarsDecision).toHaveBeenCalledWith(input);
+    expect(mocks.orchestrateCarsDecision).toHaveBeenCalledWith({
+      ...input,
+      dependencies: {},
+    });
   });
 
   it("never executes the legacy recommendation, engine, or ranking path", () => {

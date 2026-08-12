@@ -1,10 +1,14 @@
 import { orchestrateCarsDecision } from "@/features/decision/orchestration/orchestrateCarsDecision";
 import type {
-  CarsOrchestrationInput,
   CarsOrchestrationLineage,
   CarsOrchestrationReason,
   CarsOrchestrationResult,
 } from "@/types/carsOrchestration";
+
+export interface CarsRuntimeInput {
+  readonly requestId: string;
+  readonly contextReference: string;
+}
 
 export interface CarsFailClosedRuntimeResult {
   readonly status: CarsOrchestrationResult["status"];
@@ -13,9 +17,13 @@ export interface CarsFailClosedRuntimeResult {
 }
 
 export function runCarsRuntime(
-  input: CarsOrchestrationInput,
+  input: CarsRuntimeInput,
 ): CarsFailClosedRuntimeResult {
-  const result = orchestrateCarsDecision(input);
+  const result = orchestrateCarsDecision({
+    requestId: input.requestId,
+    contextReference: input.contextReference,
+    dependencies: {},
+  });
 
   return {
     status: result.status,

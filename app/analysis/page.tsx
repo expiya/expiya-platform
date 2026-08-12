@@ -13,7 +13,6 @@ function AnalysisContent() {
   const runtimeResult = runCarsRuntime({
     requestId: `analysis-request-${runtimeReference}`,
     contextReference: `analysis-context-${runtimeReference}`,
-    dependencies: {},
   });
 
   return (
