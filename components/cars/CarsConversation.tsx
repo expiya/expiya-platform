@@ -66,6 +66,9 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
 
       const assistantMessage = {
         ...newMessage("assistant", content),
+        quickReplies: response.ok && "kind" in payload && payload.kind === "QUESTION"
+          ? payload.options
+          : undefined,
         recommendations: response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS"
           ? payload.recommendations
           : undefined,
@@ -128,6 +131,15 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     void continueConversation(nextMessages);
   }
 
+  function submitContent(content: string) {
+    if (!content.trim() || isLoading) return;
+    const userMessage = newMessage("user", content.trim());
+    const nextMessages = [...messages, userMessage];
+    setMessages(nextMessages);
+    setDraft("");
+    void continueConversation(nextMessages);
+  }
+
   return (
     <main className="min-h-screen bg-neutral-50">
       <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14">
@@ -165,6 +177,21 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                     <div className="mt-4 grid gap-4 text-neutral-900">
                       {message.recommendations.map((recommendation) => (
                         <CarCard key={recommendation.car.id} recommendedCar={recommendation} />
+                      ))}
+                    </div>
+                  )}
+                  {message.role === "assistant" && message.quickReplies && (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {message.quickReplies.map((option) => (
+                        <button
+                          key={option}
+                          type="button"
+                          onClick={() => submitContent(option)}
+                          disabled={isLoading || message !== messages[messages.length - 1]}
+                          className="rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-sm text-neutral-800 transition hover:border-neutral-600 disabled:cursor-not-allowed disabled:opacity-50"
+                        >
+                          {option}
+                        </button>
                       ))}
                     </div>
                   )}

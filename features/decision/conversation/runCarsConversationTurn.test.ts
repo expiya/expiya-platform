@@ -39,9 +39,50 @@ describe("runCarsConversationTurn", () => {
       }],
     });
 
-    expect(response).toEqual({
+    expect(response).toMatchObject({
       kind: "QUESTION",
       message: expect.stringMatching(/bütçe|fiyat/iu),
+    });
+    expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+  });
+
+  it("does not repeat the usage question when the user says they do not know", async () => {
+    const response = await runCarsConversationTurn({
+      conversationId: "conversation-1",
+      messages: [
+        { id: "1", role: "user", content: "Araba almak istiyorum." },
+        {
+          id: "2",
+          role: "assistant",
+          content: "Aracı en çok nasıl kullanacaksınız ve sizin için hangi özellik önemli?",
+        },
+        { id: "3", role: "user", content: "bilmiyorum" },
+      ],
+    });
+
+    expect(response).toMatchObject({
+      kind: "QUESTION",
+      message: expect.stringMatching(/bütçe/iu),
+      options: expect.arrayContaining(["1–1,5 milyon TL"]),
+    });
+    expect(response.message).not.toMatch(/nasıl kullanacaksınız/iu);
+    expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+  });
+
+  it("moves from an unknown budget to guided preference choices", async () => {
+    const response = await runCarsConversationTurn({
+      conversationId: "conversation-1",
+      messages: [
+        { id: "1", role: "user", content: "Araba almak istiyorum." },
+        { id: "2", role: "assistant", content: "Yaklaşık bütçeniz nedir?" },
+        { id: "3", role: "user", content: "Bütçemi de bilmiyorum" },
+      ],
+    });
+
+    expect(response).toMatchObject({
+      kind: "QUESTION",
+      message: expect.stringMatching(/özelliği seçelim/iu),
+      options: expect.arrayContaining(["Parkı kolay küçük araç"]),
     });
     expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
   });

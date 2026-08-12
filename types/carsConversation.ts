@@ -5,6 +5,7 @@ export interface CarsConversationMessage {
   readonly role: "user" | "assistant";
   readonly content: string;
   readonly recommendations?: readonly RecommendedCar[];
+  readonly quickReplies?: readonly string[];
 }
 
 export interface PersistedCarsConversation {
@@ -22,6 +23,7 @@ export type CarsConversationResponse =
   | {
       readonly kind: "QUESTION";
       readonly message: string;
+      readonly options?: readonly string[];
     }
   | {
       readonly kind: "RECOMMENDATIONS";

@@ -29,6 +29,24 @@ function userText(messages: readonly CarsConversationMessage[]): string {
     .join("\n");
 }
 
+export function latestUserDoesNotKnow(
+  messages: readonly CarsConversationMessage[],
+): boolean {
+  const latest = [...messages].reverse().find((message) => message.role === "user");
+  return Boolean(latest && /(?:bilmiyorum|emin değilim|fikrim yok|kararsızım|i don'?t know|not sure)[.!]?$/iu.test(latest.content.trim()));
+}
+
+export function lastAssistantQuestionTopic(
+  messages: readonly CarsConversationMessage[],
+): "USAGE" | "BUDGET" | "PREFERENCE" | undefined {
+  const latest = [...messages].reverse().find((message) => message.role === "assistant");
+  if (!latest) return undefined;
+  if (/(?:bütçe|fiyat|budget|price)/iu.test(latest.content)) return "BUDGET";
+  if (/(?:nasıl kullan|işe gid|şehir içi|how will you use)/iu.test(latest.content)) return "USAGE";
+  if (/(?:özellik|önemli|tercih|feature|matter most)/iu.test(latest.content)) return "PREFERENCE";
+  return undefined;
+}
+
 export function resolveCarsConversationLocale(
   messages: readonly CarsConversationMessage[],
 ): CarsConversationLocale {
