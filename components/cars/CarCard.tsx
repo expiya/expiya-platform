@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { RecommendedCar } from "@/types/recommendation";
 interface CarCardProps {
   recommendedCar: RecommendedCar;
@@ -47,12 +48,22 @@ const translations: Record<string, string> = {
   Manual: "Manuel",
 };
 
-export function CarCard({ recommendedCar, locale = "en" }: CarCardProps) {
+export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
   const { car, decision, isTopPick } = recommendedCar;
   const t = (value: string) => locale === "tr" ? translations[value] ?? value : value;
 
   return (
-    <article className="rounded-xl border border-neutral-200 p-6">
+    <article className="overflow-hidden rounded-xl border border-neutral-200 bg-white">
+      <div className="relative aspect-[16/9] bg-neutral-100">
+        <Image
+          src={car.image}
+          alt={`${car.brand} ${car.model}`}
+          fill
+          sizes="(max-width: 768px) 100vw, 520px"
+          className="object-cover"
+        />
+      </div>
+      <div className="p-6">
       {isTopPick && (
         <span className="mb-3 inline-block rounded-full bg-amber-100 px-2.5 py-0.5 text-xs text-amber-800">
           🏆 {t("Top Pick")}
@@ -128,6 +139,7 @@ export function CarCard({ recommendedCar, locale = "en" }: CarCardProps) {
 >
   {t("Inspect Decision")}
 </Link>
+      </div>
       </div>
     </article>
   );

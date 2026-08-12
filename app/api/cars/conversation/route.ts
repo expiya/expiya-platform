@@ -8,6 +8,7 @@ const requestSchema = z.object({
     id: z.string().min(1).max(100),
     role: z.enum(["user", "assistant"]),
     content: z.string().trim().min(1).max(4_000),
+    recommendationIds: z.array(z.string().min(1).max(100)).max(10).optional(),
   })).min(1).max(40),
 });
 

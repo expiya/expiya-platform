@@ -13,10 +13,14 @@ import {
   hasExplicitBudget,
   hasUsageOrPreference,
   isCandidateComparisonConversation,
-  resolveCarsConversationLocale,
 } from "./hasActionableCarsContext";
 
 const MAX_USER_TURNS = 10;
+
+function latestUserRejectedRecommendations(input: CarsConversationRequest): boolean {
+  const latest = [...input.messages].reverse().find((message) => message.role === "user");
+  return Boolean(latest && /(?:beğenmedim|hoşuma gitmedi|istemiyorum|başka seçenek|bunlar olmaz|not like|don'?t like|different options)/iu.test(latest.content));
+}
 
 function fallbackGuidance(
   input: CarsConversationRequest,
@@ -58,26 +62,34 @@ function runtimeGap(result: Awaited<ReturnType<typeof runCarsRuntime>>): string 
 export async function runCarsConversationTurn(
   input: CarsConversationRequest,
 ): Promise<CarsConversationResponse> {
-  const locale = resolveCarsConversationLocale(input.messages);
+  const locale = "tr" as const;
   const isTurkish = locale === "tr";
   const userTurnCount = input.messages.filter((message) => message.role === "user").length;
   const comparison = isCandidateComparisonConversation(input.messages);
   const minimumTurns = comparison ? 2 : 3;
   const recommendationAllowed = userTurnCount >= minimumTurns;
   const atTurnLimit = userTurnCount >= MAX_USER_TURNS;
+  const hasPriorRecommendations = input.messages.some(
+    (message) => (message.recommendationIds?.length ?? 0) > 0,
+  );
+  const rejectedRecommendations = hasPriorRecommendations
+    && latestUserRejectedRecommendations(input);
+  const effectiveRecommendationAllowed = recommendationAllowed && !rejectedRecommendations;
 
   const guidance = await createCarsConversationGuidance({
     messages: input.messages,
     locale,
-    recommendationAllowed,
+    recommendationAllowed: effectiveRecommendationAllowed,
     remainingUserTurns: Math.max(0, MAX_USER_TURNS - userTurnCount),
+    hasPriorRecommendations,
+    latestUserRejectedRecommendations: rejectedRecommendations,
   });
 
   if (!guidance) return fallbackGuidance(input, locale);
   if (guidance.action === "REDIRECT") {
     return { kind: "QUESTION", message: guidance.message, options: guidance.options };
   }
-  if (!atTurnLimit && (guidance.action === "ASK" || !recommendationAllowed)) {
+  if (!atTurnLimit && (guidance.action === "ASK" || !effectiveRecommendationAllowed)) {
     return { kind: "QUESTION", message: guidance.message, options: guidance.options };
   }
 
@@ -121,6 +133,8 @@ export async function runCarsConversationTurn(
     recommendationAllowed: false,
     remainingUserTurns: MAX_USER_TURNS - userTurnCount,
     runtimeGap: runtimeGap(result),
+    hasPriorRecommendations,
+    latestUserRejectedRecommendations: rejectedRecommendations,
   });
   return followUp
     ? { kind: "QUESTION", message: followUp.message, options: followUp.options }

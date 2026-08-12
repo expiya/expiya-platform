@@ -41,12 +41,15 @@ function matchesExplicitContext(car: (typeof cars)[number], text: string): boole
   if (priceLimit !== undefined && car.price > priceLimit) return false;
   if (kmLimit !== undefined && car.km > kmLimit) return false;
 
-  const fuelRequests: [RegExp, string][] = [
-    [/\b(?:gasoline|petrol|benzin(?:li)?)\b/i, "Gasoline"],
-    [/\b(?:electric|elektrik(?:li)?)\b/i, "Electric"],
+  const exclusiveFuel: [RegExp, string[]][] = [
+    [/(?:sadece|yalnızca|only)[^.!?]{0,30}(?:electric|elektrik)|(?:electric|elektrikli)[^.!?]{0,20}(?:istiyorum|olsun|tercih|only)/i, ["Electric"]],
+    [/(?:sadece|yalnızca|only)[^.!?]{0,30}(?:gasoline|petrol|benzin)|(?:gasoline|petrol|benzinli)[^.!?]{0,20}(?:istiyorum|olsun|tercih|only)/i, ["Gasoline"]],
+    [/(?:sadece|yalnızca|only)[^.!?]{0,40}(?:benzinli\s*\/\s*hibrit|gasoline\s*(?:or|\/)\s*hybrid)/i, ["Gasoline", "Hybrid"]],
+    [/(?:hybrid|hibrit)[^.!?]{0,20}(?:istiyorum|olsun|tercih|only)/i, ["Hybrid"]],
   ];
-  const requestedFuel = fuelRequests.find(([pattern]) => pattern.test(text));
-  if (requestedFuel && car.fuel !== requestedFuel[1]) return false;
+  const requestedFuels = exclusiveFuel.find(([pattern]) => pattern.test(text))?.[1];
+  if (requestedFuels && !requestedFuels.includes(car.fuel)) return false;
+  if (/(?:elektrik(?:li)?|electric)[^.!?]{0,20}(?:istemiyorum|olmasın|hariç|no electric)/i.test(text) && car.fuel === "Electric") return false;
   if (/\b(?:automatic|otomatik)\b/i.test(text) && car.transmission !== "Automatic") return false;
 
   return true;

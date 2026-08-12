@@ -65,4 +65,22 @@ describe("getRecommendedCars", () => {
 
     expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(["1", "2"]);
   });
+
+  it("evaluates only Tesla for an explicit electric-only preference", () => {
+    getRecommendedCars({
+      ...context,
+      decisionNeed: "Şehir içinde kullanacağım. Sadece elektrikli araç istiyorum.",
+    });
+
+    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(["3"]);
+  });
+
+  it("excludes electric cars when the user explicitly rejects charging", () => {
+    getRecommendedCars({
+      ...context,
+      decisionNeed: "Elektrikli istemiyorum; sadece benzinli/hibrit düşüneyim.",
+    });
+
+    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(["1", "2"]);
+  });
 });

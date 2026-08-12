@@ -29,6 +29,8 @@ describe("createCarsConversationGuidance", () => {
       locale: "tr",
       recommendationAllowed: false,
       remainingUserTurns: 9,
+      hasPriorRecommendations: false,
+      latestUserRejectedRecommendations: false,
     })).resolves.toMatchObject({ action: "ASK" });
 
     const systemMessage = mocks.parse.mock.calls[0][0].input[0].content;
@@ -45,6 +47,8 @@ describe("createCarsConversationGuidance", () => {
       locale: "tr",
       recommendationAllowed: false,
       remainingUserTurns: 9,
+      hasPriorRecommendations: false,
+      latestUserRejectedRecommendations: false,
     })).resolves.toBeUndefined();
   });
 });

@@ -77,6 +77,36 @@ describe("runCarsConversationTurn", () => {
     expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
   });
 
+  it("does not repeat prior recommendations when the user rejects them", async () => {
+    mocks.createCarsConversationGuidance.mockResolvedValue({
+      action: "PROCEED",
+      message: "Aynı sonuçları tekrarlamayayım. Bu araçlarda sizi rahatsız eden temel nokta neydi?",
+      options: ["Fiyat", "Boyut", "Yakıt", "Tasarım"],
+    });
+    const messages = [
+      { id: "1", role: "user" as const, content: "Şehir için araba istiyorum." },
+      { id: "2", role: "assistant" as const, content: "Bütçeniz?" },
+      { id: "3", role: "user" as const, content: "1.5 milyon TL." },
+      {
+        id: "4",
+        role: "assistant" as const,
+        content: "En güçlü seçenekler bunlar.",
+        recommendationIds: ["1", "2", "3"],
+      },
+      { id: "5", role: "user" as const, content: "Bu seçenekleri beğenmedim." },
+    ];
+
+    const response = await runCarsConversationTurn({ conversationId: "conversation-1", messages });
+
+    expect(response).toMatchObject({ kind: "QUESTION", message: expect.stringMatching(/rahatsız eden/iu) });
+    expect(mocks.createCarsConversationGuidance).toHaveBeenCalledWith(expect.objectContaining({
+      recommendationAllowed: false,
+      hasPriorRecommendations: true,
+      latestUserRejectedRecommendations: true,
+    }));
+    expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+  });
+
   it("asks for a budget in Turkish instead of recommending from usage alone", async () => {
     const response = await runCarsConversationTurn({
       conversationId: "conversation-1",

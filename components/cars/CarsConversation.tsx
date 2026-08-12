@@ -8,7 +8,6 @@ import type {
   CarsConversationResponse,
   PersistedCarsConversation,
 } from "@/types/carsConversation";
-import { resolveCarsConversationLocale } from "@/features/decision/conversation/hasActionableCarsContext";
 
 interface CarsConversationProps {
   readonly initialQuery: string;
@@ -49,8 +48,8 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   const [draft, setDraft] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isRestored, setIsRestored] = useState(false);
-  const locale = resolveCarsConversationLocale(messages);
-  const isTurkish = locale === "tr";
+  const locale = "tr" as const;
+  const isTurkish = true;
 
   const continueConversation = useCallback(async (nextMessages: CarsConversationMessage[]) => {
     setIsLoading(true);
@@ -76,6 +75,9 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
           : undefined,
         recommendations: response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS"
           ? payload.recommendations
+          : undefined,
+        recommendationIds: response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS"
+          ? payload.recommendations.map((item) => item.car.id)
           : undefined,
       };
       setMessages((current) => [...current, assistantMessage]);
@@ -217,8 +219,14 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
             ))}
             {isLoading && (
               <div className="flex justify-start">
-                <div className="rounded-2xl bg-neutral-100 px-4 py-3 text-neutral-500">
-                  {isTurkish ? "Konuştuklarımızı değerlendiriyorum…" : "Thinking through our conversation…"}
+                <div className="flex items-center gap-1 rounded-2xl bg-neutral-100 px-4 py-4" role="status" aria-label="Yanıt hazırlanıyor">
+                  {[0, 1, 2].map((index) => (
+                    <span
+                      key={index}
+                      className="h-2 w-2 animate-bounce rounded-full bg-neutral-500"
+                      style={{ animationDelay: `${index * 140}ms` }}
+                    />
+                  ))}
                 </div>
               </div>
             )}

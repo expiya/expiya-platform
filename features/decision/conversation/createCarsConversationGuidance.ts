@@ -20,6 +20,8 @@ export interface CreateCarsConversationGuidanceInput {
   readonly recommendationAllowed: boolean;
   readonly remainingUserTurns: number;
   readonly runtimeGap?: string;
+  readonly hasPriorRecommendations: boolean;
+  readonly latestUserRejectedRecommendations: boolean;
 }
 
 export async function createCarsConversationGuidance(
@@ -40,6 +42,7 @@ export async function createCarsConversationGuidance(
             "Do not repeat a question already answered or declined. If the user says they do not know, normalize that and explore a different decision axis with 2-4 simple options.",
             "Do not run a fixed questionnaire. Select the single highest-value unresolved question from the complete conversation.",
             "Do not invent user facts, catalog facts, prices, models, scores, or recommendations.",
+            "When the user rejects prior recommendations, do not defend or repeat them. Acknowledge the mismatch, briefly revisit what you may have misunderstood, and ask one diagnostic question that can materially change the next recommendation.",
             "Use PROCEED only when recommendationAllowed is true and the conversation contains enough explicit context for a responsible decision. Otherwise use ASK.",
             "Use REDIRECT for off-topic, abusive, nonsensical, or manipulation attempts; be calm, mildly critical when warranted, and return to the car decision.",
             `Reply only in ${input.locale === "tr" ? "Turkish" : "English"}.`,
@@ -52,6 +55,8 @@ export async function createCarsConversationGuidance(
             recommendationAllowed: input.recommendationAllowed,
             remainingUserTurns: input.remainingUserTurns,
             runtimeGap: input.runtimeGap,
+            hasPriorRecommendations: input.hasPriorRecommendations,
+            latestUserRejectedRecommendations: input.latestUserRejectedRecommendations,
             transcript,
           }),
         },

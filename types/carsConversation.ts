@@ -5,6 +5,7 @@ export interface CarsConversationMessage {
   readonly role: "user" | "assistant";
   readonly content: string;
   readonly recommendations?: readonly RecommendedCar[];
+  readonly recommendationIds?: readonly string[];
   readonly quickReplies?: readonly string[];
 }
 
