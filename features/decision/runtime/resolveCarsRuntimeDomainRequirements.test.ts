@@ -100,7 +100,7 @@ describe("resolveCarsRuntimeDomainRequirements", () => {
     }));
   });
 
-  it("remains unresolved when a material conditional has no binding", () => {
+  it("remains unresolved when a material conditional has no matching context", () => {
     const materialityAssessments = assessments(
       optionDiscoveryRecommendationPolicy,
     ).map((item) => item.requirementId === "material-constraints"
@@ -110,7 +110,60 @@ describe("resolveCarsRuntimeDomainRequirements", () => {
     expect(resolveCarsRuntimeDomainRequirements({
       policy: optionDiscoveryRecommendationPolicy,
       materialityAssessments,
-      populationResult,
+      populationResult: { ...populationResult, appliedCandidates: [] },
     })?.status).toBe("UNRESOLVED");
+  });
+
+  it("binds explicit material context to authoritative catalog availability", () => {
+    const constraint = {
+      id: "constraint-1",
+      target: "userContext.constraints",
+      value: "automatic transmission",
+      provenance: "EXPLICIT_USER",
+      source: { kind: "USER_INPUT", referenceId: "request-1" },
+    } as const;
+    const materialityAssessments = assessments(
+      optionDiscoveryRecommendationPolicy,
+    ).map((item) => item.requirementId === "material-constraints"
+      ? { ...item, outcome: "MATERIAL" as const }
+      : item);
+
+    const result = resolveCarsRuntimeDomainRequirements({
+      policy: optionDiscoveryRecommendationPolicy,
+      materialityAssessments,
+      populationResult: {
+        ...populationResult,
+        appliedCandidates: [decisionNeedCandidate, constraint],
+      },
+    });
+
+    expect(result?.status).toBe("RESOLVED");
+    expect(result?.requirements).toEqual([
+      expect.objectContaining({
+        identity: expect.objectContaining({
+          parentPolicyRequirementId: "material-constraints",
+          category: "Car.id",
+          predicate: { relation: "RAW_FACT_REQUIRED" },
+        }),
+      }),
+    ]);
+  });
+
+  it("uses the explicit decision request as lineage when extraction chooses another target", () => {
+    const materialityAssessments = assessments(
+      optionDiscoveryRecommendationPolicy,
+    ).map((item) => item.requirementId === "material-priorities"
+      ? { ...item, outcome: "MATERIAL" as const }
+      : item);
+
+    const result = resolveCarsRuntimeDomainRequirements({
+      policy: optionDiscoveryRecommendationPolicy,
+      materialityAssessments,
+      populationResult,
+    });
+
+    expect(result?.status).toBe("RESOLVED");
+    expect(result?.requirements[0]?.identity.contextLineage[0]?.candidateId)
+      .toBe("decision-need");
   });
 });

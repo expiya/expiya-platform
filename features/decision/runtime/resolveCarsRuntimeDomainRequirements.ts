@@ -6,6 +6,7 @@ import type { CarsTypeBCanonicalCandidateProduction } from "@/features/decision/
 import { resolveCarsDomainFactRequirements } from "@/features/decision/context/sufficiency/resolveCarsDomainFactRequirements";
 import type { PopulationResult } from "@/types/contextPopulation";
 import type { CarsDomainFactRequirementResolutionResult } from "@/types/carsDomainFactRequirement";
+import type { CarsDomainFactBinding } from "@/types/carsDomainFactRequirement";
 import type {
   CarsSufficiencyPolicy,
   MaterialityAssessment,
@@ -16,6 +17,46 @@ export interface ResolveCarsRuntimeDomainRequirementsInput {
   readonly materialityAssessments: readonly MaterialityAssessment[];
   readonly populationResult: PopulationResult;
   readonly typeBProduction?: CarsTypeBCanonicalCandidateProduction;
+}
+
+function buildMaterialContextBindings(
+  input: ResolveCarsRuntimeDomainRequirementsInput,
+): CarsDomainFactBinding[] {
+  return input.materialityAssessments.flatMap((assessment) => {
+    if (assessment.outcome !== "MATERIAL") return [];
+    const requirement = input.policy.requirements.find(
+      (item) => item.requirementId === assessment.requirementId,
+    );
+    if (!requirement || requirement.mode !== "CONDITIONAL") return [];
+
+    const targetCandidates = input.populationResult.appliedCandidates.filter(
+      (candidate) => candidate.target === requirement.target,
+    );
+    const candidates = targetCandidates.length > 0
+      ? targetCandidates
+      : input.populationResult.appliedCandidates.filter(
+          (candidate) => candidate.target === "decisionNeed",
+        );
+
+    return candidates.map((candidate, index): CarsDomainFactBinding => {
+      const bindingReferenceId = `${candidate.id}:catalog-availability`;
+      return {
+        parentPolicyRequirementId: requirement.requirementId,
+        contextLineage: [{
+          candidateId: candidate.id,
+          bindingReferenceId,
+          contextSourceOccurrence: index,
+          candidateInputOccurrence: index,
+          relationSourceOccurrence: 0,
+        }],
+        optionScope: { kind: "ALL_RESOLVED_OPTIONS" },
+        category: "Car.id",
+        predicate: { relation: "RAW_FACT_REQUIRED" },
+        bindingSourceOccurrence: index,
+        relationSourceOccurrence: 0,
+      };
+    });
+  });
 }
 
 export function resolveCarsRuntimeDomainRequirements(
@@ -50,6 +91,6 @@ export function resolveCarsRuntimeDomainRequirements(
     appliedCandidates: input.populationResult.appliedCandidates,
     resolvedOptionIds,
     candidateIdentityCoverage,
-    bindings: [],
+    bindings: buildMaterialContextBindings(input),
   });
 }

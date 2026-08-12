@@ -103,6 +103,12 @@ describe("produceCarsMaterialityAssessments", () => {
     expect(systemMessage).toContain("using only the user's explicit request");
     expect(systemMessage).toContain("Do not infer unstated user needs");
     expect(systemMessage).toContain(
+      "does not mention or otherwise make a conditional target relevant",
+    );
+    expect(systemMessage).toContain(
+      "A later user turn may make a previously NOT_MATERIAL target MATERIAL",
+    );
+    expect(systemMessage).toContain(
       "Do not recommend, rank, score, evaluate, or authorize any vehicle.",
     );
   });

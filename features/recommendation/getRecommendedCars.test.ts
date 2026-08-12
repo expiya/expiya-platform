@@ -47,4 +47,22 @@ describe("getRecommendedCars", () => {
 
     expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(["1", "2", "3"]);
   });
+
+  it("filters discovery options by explicit budget and fuel constraints", () => {
+    getRecommendedCars({
+      ...context,
+      decisionNeed: "Find a gasoline car with a budget up to 1.3 million TL.",
+    });
+
+    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(["2"]);
+  });
+
+  it("applies the newest corrected budget carried in the decision context", () => {
+    getRecommendedCars({
+      ...context,
+      decisionNeed: "My budget is 1.2 million TL. Correction: budget up to 1.5 million TL.",
+    });
+
+    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(["1", "2"]);
+  });
 });
