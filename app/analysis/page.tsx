@@ -1,7 +1,4 @@
-import { randomUUID } from "node:crypto";
-import { createDecisionContext } from "@/features/decision/context/createDecisionContext";
-import { runCarsRuntime } from "@/features/decision/runtime/runCarsRuntime";
-import { CarCard } from "@/components/cars/CarCard";
+import { CarsConversation } from "@/components/cars/CarsConversation";
 
 export default async function AnalysisPage({
   searchParams,
@@ -10,52 +7,5 @@ export default async function AnalysisPage({
 }) {
   const queryValue = (await searchParams).query;
   const query = Array.isArray(queryValue) ? queryValue[0] ?? "" : queryValue ?? "";
-  const runtimeReference = randomUUID();
-  const decisionContext = createDecisionContext(query);
-  const runtimeResult = await runCarsRuntime({
-    requestId: `analysis-request-${runtimeReference}`,
-    contextReference: `analysis-context-${runtimeReference}`,
-    query,
-  });
-
-  return (
-    <main className="min-h-screen bg-neutral-50">
-      <div className="mx-auto max-w-6xl px-6 py-12">
-        <h1 className="text-4xl font-bold tracking-tight">
-          Expiya Decision Engine
-        </h1>
-
-        <p className="mt-6 text-neutral-600">
-          User Request
-        </p>
-
-        <div className="mt-2 rounded-xl border p-6">
-          {decisionContext.decisionNeed}
-        </div>
-
-        <section className="mt-12" aria-live="polite">
-          <h2 className="text-2xl font-semibold tracking-tight">
-            {runtimeResult.status === "SUCCEEDED"
-              ? "Recommended Cars"
-              : "Decision Status"}
-          </h2>
-
-          {runtimeResult.status === "SUCCEEDED" ? (
-            <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {runtimeResult.recommendations.map((recommendation) => (
-                <CarCard
-                  key={recommendation.car.id}
-                  recommendedCar={recommendation}
-                />
-              ))}
-            </div>
-          ) : (
-            <div className="mt-6 rounded-xl border p-6">
-              {runtimeResult.status}
-            </div>
-          )}
-        </section>
-      </div>
-    </main>
-  );
+  return <CarsConversation initialQuery={query} />;
 }

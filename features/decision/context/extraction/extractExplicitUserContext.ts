@@ -27,6 +27,8 @@ export async function extractExplicitUserContext(
           "Return zero facts when there is no explicit extractable decision-context information.",
           "Each fact must use exactly one allowed target from the supplied schema.",
           "Preserve the user's meaning; do not add interpretation.",
+          "The input may contain multiple labeled user turns from one conversation.",
+          "When a later turn explicitly corrects or changes an earlier fact, keep only the latest value for that fact.",
         ].join("\n"),
       },
       {
