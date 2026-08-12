@@ -232,7 +232,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
           </p>
         </div>
 
-        <section className="mt-10 max-w-3xl rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm sm:p-6" aria-label="Car decision conversation">
+        <section className="mt-10 rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm sm:p-6" aria-label="Car decision conversation">
           <div className="min-h-64 space-y-4" aria-live="polite">
             {messages.length === 0 && (
               <div className="rounded-2xl bg-neutral-100 p-4 text-neutral-700">
@@ -246,14 +246,14 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                 key={message.id}
                 className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
               >
-                <div className={`max-w-[88%] rounded-2xl px-4 py-3 leading-6 ${
+                <div className={`${message.recommendations?.length ? "w-full" : "max-w-[88%]"} rounded-2xl px-4 py-3 leading-6 ${
                   message.role === "user"
                     ? "bg-neutral-900 text-white"
                     : "bg-neutral-100 text-neutral-800"
                 }`}>
                   {message.content}
                   {message.recommendations && message.recommendations.length > 0 && (
-                    <div className="mt-4 grid gap-4 text-neutral-900">
+                    <div className="mt-4 grid gap-4 text-neutral-900 sm:grid-cols-2 lg:grid-cols-3">
                       {message.recommendations.map((recommendation) => (
                         <CarCard key={recommendation.car.id} recommendedCar={recommendation} locale={locale} />
                       ))}
