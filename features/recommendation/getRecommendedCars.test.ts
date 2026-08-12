@@ -43,9 +43,13 @@ describe("getRecommendedCars", () => {
   });
 
   it("evaluates the complete bounded catalog for discovery", () => {
-    getRecommendedCars(context);
+    const result = getRecommendedCars(context);
 
     expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(["1", "2", "3"]);
+    expect(result[0].consumerExperience).toMatchObject({
+      sourceName: "NHTSA tüketici şikâyetleri",
+      market: "ABD",
+    });
   });
 
   it("filters discovery options by explicit budget and fuel constraints", () => {

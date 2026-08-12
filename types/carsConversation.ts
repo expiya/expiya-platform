@@ -7,6 +7,12 @@ export interface CarsConversationMessage {
   readonly recommendations?: readonly RecommendedCar[];
   readonly recommendationIds?: readonly string[];
   readonly quickReplies?: readonly string[];
+  readonly satisfaction?: "HELPFUL" | "NOT_HELPFUL";
+  readonly sellerResearchRequest?: {
+    readonly province: string;
+    readonly district: string;
+    readonly status: "PLANNED_V0_2";
+  };
 }
 
 export interface PersistedCarsConversation {

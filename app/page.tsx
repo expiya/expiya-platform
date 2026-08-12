@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { FormEvent, useState } from "react";
+import { FormEvent, KeyboardEvent, useState } from "react";
 export default function Home() {
   const router = useRouter();
   const [query, setQuery] = useState("");
@@ -10,6 +10,12 @@ export default function Home() {
     event.preventDefault();
     if (!query.trim()) return;
     router.push(`/analysis?query=${encodeURIComponent(query.trim())}`);
+  }
+
+  function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
+    event.preventDefault();
+    if (query.trim()) router.push(`/analysis?query=${encodeURIComponent(query.trim())}`);
   }
 
   return (
@@ -37,6 +43,7 @@ export default function Home() {
   id="initial-car-message"
   value={query}
   onChange={(e) => setQuery(e.target.value)}
+  onKeyDown={handleKeyDown}
   placeholder="Hadi başlayalım… Aklınızdaki aracı veya ihtiyacınızı anlatın."
   className="mt-10 h-40 w-full max-w-3xl rounded-2xl border border-neutral-300 p-6 text-lg outline-none focus:border-black"
 />

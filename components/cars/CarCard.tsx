@@ -133,6 +133,19 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
             </ul>
           </div>
         )}
+        {recommendedCar.consumerExperience && (
+          <div className="mt-5 rounded-2xl bg-amber-50 p-4 text-sm text-amber-950">
+            <p className="font-semibold">Gerçek tüketici deneyimi sinyalleri</p>
+            <p className="mt-2">
+              {recommendedCar.consumerExperience.market} pazarındaki {recommendedCar.consumerExperience.complaintCount} resmî tüketici kaydında tekrar eden başlıklar:
+            </p>
+            <p className="mt-1 font-medium">{recommendedCar.consumerExperience.recurringRiskThemes.join(", ")}</p>
+            <p className="mt-2 text-xs leading-5 text-amber-800">{recommendedCar.consumerExperience.limitation}</p>
+            <a href={recommendedCar.consumerExperience.sourceUrl} target="_blank" rel="noreferrer" className="mt-2 inline-flex font-semibold underline">
+              Kaynağı incele
+            </a>
+          </div>
+        )}
         <Link
   href={`/decision/${decision.decisionId}`}
   className="mt-6 inline-flex rounded-xl bg-black px-5 py-3 text-sm font-semibold text-white transition hover:bg-neutral-800"

@@ -9,6 +9,12 @@ const requestSchema = z.object({
     role: z.enum(["user", "assistant"]),
     content: z.string().trim().min(1).max(4_000),
     recommendationIds: z.array(z.string().min(1).max(100)).max(10).optional(),
+    satisfaction: z.enum(["HELPFUL", "NOT_HELPFUL"]).optional(),
+    sellerResearchRequest: z.object({
+      province: z.string().min(1).max(100),
+      district: z.string().min(1).max(100),
+      status: z.literal("PLANNED_V0_2"),
+    }).optional(),
   })).min(1).max(40),
 });
 

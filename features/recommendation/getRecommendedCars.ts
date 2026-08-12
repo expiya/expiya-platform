@@ -4,6 +4,7 @@ import { createDecisionSummary } from "@/features/decision/createDecisionSummary
 import { evaluateCar } from "@/features/decision/engine";
 import { defaultRanking } from "@/features/recommendation/ranking/defaultRanking";
 import { RecommendedCar } from "@/types/recommendation";
+import { consumerExperienceByCarId } from "@/data/consumerExperience";
 
 function contextText(context: DecisionContext): string {
   return [
@@ -71,6 +72,7 @@ export function getRecommendedCars(
       car,
       decision: createDecisionSummary(decision),
       isTopPick: false,
+      consumerExperience: consumerExperienceByCarId[car.id],
     };
   });
 
