@@ -1,9 +1,16 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-const mocks = vi.hoisted(() => ({ runCarsRuntime: vi.fn() }));
+const mocks = vi.hoisted(() => ({
+  runCarsRuntime: vi.fn(),
+  createCarsConversationGuidance: vi.fn(),
+}));
 
 vi.mock("@/features/decision/runtime/runCarsRuntime", () => ({
   runCarsRuntime: mocks.runCarsRuntime,
+}));
+
+vi.mock("./createCarsConversationGuidance", () => ({
+  createCarsConversationGuidance: mocks.createCarsConversationGuidance,
 }));
 
 import { runCarsConversationTurn } from "./runCarsConversationTurn";
@@ -16,7 +23,14 @@ const lineage = {
 };
 
 describe("runCarsConversationTurn", () => {
-  beforeEach(() => vi.clearAllMocks());
+  beforeEach(() => {
+    vi.clearAllMocks();
+    mocks.createCarsConversationGuidance.mockResolvedValue({
+      action: "ASK",
+      message: "Aracı nasıl kullanacağınızı biraz anlatır mısınız?",
+      options: [],
+    });
+  });
 
   it("asks for a concrete decision factor before entering the governed runtime", async () => {
     const response = await runCarsConversationTurn({
@@ -25,7 +39,41 @@ describe("runCarsConversationTurn", () => {
     });
 
     expect(response).toMatchObject({ kind: "QUESTION" });
-    expect(response.message).toMatch(/bütçe|kullan/iu);
+    expect(response.message).toMatch(/kullan/iu);
+    expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+  });
+
+  it("keeps an off-topic request inside the Cars domain", async () => {
+    mocks.createCarsConversationGuidance.mockResolvedValue({
+      action: "REDIRECT",
+      message: "Borsa tavsiyesi veremem; ama araç bütçenizin nakit akışına etkisini konuşabiliriz.",
+      options: [],
+    });
+
+    const response = await runCarsConversationTurn({
+      conversationId: "conversation-1",
+      messages: [{ id: "1", role: "user", content: "Bana hisse senedi öner." }],
+    });
+
+    expect(response).toMatchObject({ kind: "QUESTION", message: expect.stringMatching(/araç.*bütçe/iu) });
+    expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+  });
+
+  it("does not allow the model to proceed before minimum conversation maturity", async () => {
+    mocks.createCarsConversationGuidance.mockResolvedValue({
+      action: "PROCEED", message: "Hazırım.", options: [],
+    });
+
+    const response = await runCarsConversationTurn({
+      conversationId: "conversation-1",
+      messages: [{
+        id: "1",
+        role: "user",
+        content: "Şehir için küçük otomatik araba, bütçem 1.5 milyon TL.",
+      }],
+    });
+
+    expect(response.kind).toBe("QUESTION");
     expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
   });
 
@@ -39,14 +87,16 @@ describe("runCarsConversationTurn", () => {
       }],
     });
 
-    expect(response).toMatchObject({
-      kind: "QUESTION",
-      message: expect.stringMatching(/bütçe|fiyat/iu),
-    });
+    expect(response).toMatchObject({ kind: "QUESTION" });
     expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
   });
 
   it("does not repeat the usage question when the user says they do not know", async () => {
+    mocks.createCarsConversationGuidance.mockResolvedValue({
+      action: "ASK",
+      message: "Sorun değil. Bunun yerine rahat edeceğiniz bütçeyi konuşalım.",
+      options: ["1–1,5 milyon TL"],
+    });
     const response = await runCarsConversationTurn({
       conversationId: "conversation-1",
       messages: [
@@ -70,6 +120,11 @@ describe("runCarsConversationTurn", () => {
   });
 
   it("moves from an unknown budget to guided preference choices", async () => {
+    mocks.createCarsConversationGuidance.mockResolvedValue({
+      action: "ASK",
+      message: "Sorun değil. Sizi rahatlatacak özelliği seçelim.",
+      options: ["Parkı kolay küçük araç"],
+    });
     const response = await runCarsConversationTurn({
       conversationId: "conversation-1",
       messages: [
@@ -88,6 +143,9 @@ describe("runCarsConversationTurn", () => {
   });
 
   it("re-runs the governed runtime with accumulated user answers", async () => {
+    mocks.createCarsConversationGuidance
+      .mockResolvedValueOnce({ action: "PROCEED", message: "Hazırım.", options: [] })
+      .mockResolvedValueOnce({ action: "ASK", message: "Bir noktayı daha netleştirelim.", options: [] });
     mocks.runCarsRuntime.mockResolvedValue({
       status: "ADDITIONAL_CONTEXT_REQUIRED",
       reasons: [{
@@ -104,6 +162,8 @@ describe("runCarsConversationTurn", () => {
         { id: "1", role: "user", content: "Find me a family car." },
         { id: "2", role: "assistant", content: "What is your budget?" },
         { id: "3", role: "user", content: "My budget is 1.5 million TL." },
+        { id: "4", role: "assistant", content: "What matters most?" },
+        { id: "5", role: "user", content: "Low running costs matter most." },
       ],
     });
 
@@ -115,6 +175,9 @@ describe("runCarsConversationTurn", () => {
   });
 
   it("returns recommendations only after governed runtime success", async () => {
+    mocks.createCarsConversationGuidance.mockResolvedValue({
+      action: "PROCEED", message: "Ready.", options: [],
+    });
     const recommendations = [{ car: { id: "1" } }];
     mocks.runCarsRuntime.mockResolvedValue({
       status: "SUCCEEDED",
@@ -125,7 +188,11 @@ describe("runCarsConversationTurn", () => {
 
     await expect(runCarsConversationTurn({
       conversationId: "conversation-1",
-      messages: [{ id: "1", role: "user", content: "Compare Corolla and Civic." }],
+      messages: [
+        { id: "1", role: "user", content: "Compare Corolla and Civic." },
+        { id: "2", role: "assistant", content: "What matters most?" },
+        { id: "3", role: "user", content: "Running costs." },
+      ],
     })).resolves.toMatchObject({
       kind: "RECOMMENDATIONS",
       recommendations,
@@ -133,6 +200,9 @@ describe("runCarsConversationTurn", () => {
   });
 
   it("keeps successful assistant responses in the user's Turkish language", async () => {
+    mocks.createCarsConversationGuidance.mockResolvedValue({
+      action: "PROCEED", message: "Hazırım.", options: [],
+    });
     mocks.runCarsRuntime.mockResolvedValue({
       status: "SUCCEEDED",
       recommendations: [{ car: { id: "1" } }],
@@ -142,20 +212,25 @@ describe("runCarsConversationTurn", () => {
 
     const response = await runCarsConversationTurn({
       conversationId: "conversation-1",
-      messages: [{
-        id: "1",
-        role: "user",
-        content: "Şehir içinde kullanacağım, bütçem 1.4 milyon TL.",
-      }],
+      messages: [
+        { id: "1", role: "user", content: "Şehir içinde kullanacağım." },
+        { id: "2", role: "assistant", content: "Bütçeniz nedir?" },
+        { id: "3", role: "user", content: "Bütçem 1.4 milyon TL." },
+        { id: "4", role: "assistant", content: "En önemli konu nedir?" },
+        { id: "5", role: "user", content: "Park kolaylığı." },
+      ],
     });
 
     expect(response).toMatchObject({
       kind: "RECOMMENDATIONS",
-      message: expect.stringMatching(/bilgilere göre/iu),
+      message: expect.stringMatching(/konuştuklarımızı/iu),
     });
   });
 
   it("converts runtime failures to a user-facing error without leaking codes", async () => {
+    mocks.createCarsConversationGuidance.mockResolvedValue({
+      action: "PROCEED", message: "Ready.", options: [],
+    });
     mocks.runCarsRuntime.mockResolvedValue({
       status: "FAILED",
       reasons: [{ code: "CLASSIFICATION_FAILED", stage: "CLASSIFICATION", referenceIds: [] }],
@@ -164,14 +239,36 @@ describe("runCarsConversationTurn", () => {
 
     const response = await runCarsConversationTurn({
       conversationId: "conversation-1",
-      messages: [{
-        id: "1",
-        role: "user",
-        content: "Find a compact city car under 1.5 million TL.",
-      }],
+      messages: [
+        { id: "1", role: "user", content: "Find a compact city car." },
+        { id: "2", role: "assistant", content: "Budget?" },
+        { id: "3", role: "user", content: "Under 1.5 million TL." },
+        { id: "4", role: "assistant", content: "Priority?" },
+        { id: "5", role: "user", content: "Easy parking." },
+      ],
     });
 
     expect(response).toMatchObject({ kind: "ERROR" });
     expect(response.message).not.toContain("CLASSIFICATION_FAILED");
+  });
+
+  it("ends safely when the turn limit is reached without runtime sufficiency", async () => {
+    mocks.createCarsConversationGuidance.mockResolvedValue({
+      action: "ASK", message: "Bir soru daha.", options: [],
+    });
+    mocks.runCarsRuntime.mockResolvedValue({
+      status: "ADDITIONAL_CONTEXT_REQUIRED",
+      reasons: [{ code: "DOMAIN_SUFFICIENCY_INSUFFICIENT", stage: "DOMAIN_SUFFICIENCY", referenceIds: [] }],
+      lineage,
+    });
+    const messages = Array.from({ length: 10 }, (_, index) => ({
+      id: `user-${index}`,
+      role: "user" as const,
+      content: index === 0 ? "Araba almak istiyorum." : `Cevap ${index}`,
+    }));
+
+    const response = await runCarsConversationTurn({ conversationId: "conversation-1", messages });
+
+    expect(response).toMatchObject({ kind: "ERROR", message: expect.stringMatching(/tur sınır/iu) });
   });
 });

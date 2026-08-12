@@ -7,90 +7,83 @@ import type {
 } from "@/types/carsConversation";
 
 import { buildCarsConversationQuery } from "./buildCarsConversationQuery";
+import { createCarsConversationGuidance } from "./createCarsConversationGuidance";
 import { createCarsFollowUp } from "./createCarsFollowUp";
 import {
-  hasActionableCarsContext,
   hasExplicitBudget,
   hasUsageOrPreference,
   isCandidateComparisonConversation,
-  lastAssistantQuestionTopic,
-  latestUserDoesNotKnow,
   resolveCarsConversationLocale,
 } from "./hasActionableCarsContext";
+
+const MAX_USER_TURNS = 10;
+
+function fallbackGuidance(
+  input: CarsConversationRequest,
+  locale: "tr" | "en",
+): CarsConversationResponse {
+  const isTurkish = locale === "tr";
+  if (!hasUsageOrPreference(input.messages)) {
+    return {
+      kind: "QUESTION",
+      message: isTurkish
+        ? "Sizi doğru anladığımdan emin olmak istiyorum: Bu araç günlük hayatınızda en çok hangi işi kolaylaştırmalı?"
+        : "I want to understand you correctly: what should this car make easier in your daily life?",
+      options: isTurkish
+        ? ["İşe gidip gelme", "Aile kullanımı", "Uzun yol", "Henüz bilmiyorum"]
+        : ["Commuting", "Family use", "Long trips", "I am not sure yet"],
+    };
+  }
+  if (!hasExplicitBudget(input.messages)) {
+    return {
+      kind: "QUESTION",
+      message: isTurkish
+        ? "Anladım. Bu ihtiyacı karşılamak için rahat edeceğiniz yaklaşık üst bütçe nedir? Bilmiyorsanız bunu da söyleyebilirsiniz."
+        : "Understood. What approximate maximum budget would feel comfortable? It is fine if you do not know yet.",
+    };
+  }
+  return {
+    kind: "QUESTION",
+    message: isTurkish
+      ? "Kararı gerçekten değiştirecek son noktayı netleştirelim: Sizin için vazgeçilmez olan özellik nedir?"
+      : "Let's clarify the last decision-changing point: which quality is non-negotiable for you?",
+  };
+}
+
+function runtimeGap(result: Awaited<ReturnType<typeof runCarsRuntime>>): string {
+  const reason = result.reasons[0];
+  return reason ? `${reason.stage}: ${reason.code}` : "The governed runtime needs more explicit context.";
+}
 
 export async function runCarsConversationTurn(
   input: CarsConversationRequest,
 ): Promise<CarsConversationResponse> {
   const locale = resolveCarsConversationLocale(input.messages);
   const isTurkish = locale === "tr";
-  const previousQuestion = lastAssistantQuestionTopic(input.messages);
-  const userDoesNotKnow = latestUserDoesNotKnow(input.messages);
+  const userTurnCount = input.messages.filter((message) => message.role === "user").length;
+  const comparison = isCandidateComparisonConversation(input.messages);
+  const minimumTurns = comparison ? 2 : 3;
+  const recommendationAllowed = userTurnCount >= minimumTurns;
+  const atTurnLimit = userTurnCount >= MAX_USER_TURNS;
 
-  if (userDoesNotKnow && previousQuestion === "USAGE") {
-    return {
-      kind: "QUESTION",
-      message: isTurkish
-        ? "Sorun değil; kullanım şekli zamanla netleşebilir. Yaklaşık bütçenizi seçerek ilerleyelim."
-        : "No problem; your usage can become clearer later. Let's continue with your approximate budget.",
-      options: isTurkish
-        ? ["1 milyon TL altı", "1–1,5 milyon TL", "1,5–2 milyon TL", "2 milyon TL üzeri", "Bütçemi de bilmiyorum"]
-        : ["Under 1M TL", "1–1.5M TL", "1.5–2M TL", "Over 2M TL", "I don't know my budget"],
-    };
+  const guidance = await createCarsConversationGuidance({
+    messages: input.messages,
+    locale,
+    recommendationAllowed,
+    remainingUserTurns: Math.max(0, MAX_USER_TURNS - userTurnCount),
+  });
+
+  if (!guidance) return fallbackGuidance(input, locale);
+  if (guidance.action === "REDIRECT") {
+    return { kind: "QUESTION", message: guidance.message, options: guidance.options };
   }
-
-  if (userDoesNotKnow && previousQuestion === "BUDGET") {
-    return {
-      kind: "QUESTION",
-      message: isTurkish
-        ? "Sorun değil. O halde sizi en çok rahatlatacak özelliği seçelim; daha sonra bütçeyi birlikte daraltabiliriz."
-        : "No problem. Choose the quality that would help you most, and we can narrow the budget later.",
-      options: isTurkish
-        ? ["Parkı kolay küçük araç", "Az yakıt tüketimi", "Geniş iç hacim", "Uzun yolda konfor", "Belirli araçları karşılaştırmak istiyorum"]
-        : ["Small and easy to park", "Low fuel use", "Spacious interior", "Long-distance comfort", "Compare specific cars"],
-    };
-  }
-
-  if (!hasActionableCarsContext(input.messages)) {
-    return {
-      kind: "QUESTION",
-      message: isTurkish
-        ? "Aracı en çok nasıl kullanacaksınız? Örneğin işe gidip gelme, şehir içi, uzun yol veya aile kullanımı olabilir."
-        : "How will you use the car most—for commuting, city driving, long trips, or family use?",
-      options: isTurkish
-        ? ["İşe gidip gelme", "Şehir içi günlük kullanım", "Uzun yol", "Aile kullanımı", "Bilmiyorum"]
-        : ["Commuting", "Daily city driving", "Long trips", "Family use", "I don't know"],
-    };
-  }
-
-  if (!isCandidateComparisonConversation(input.messages)) {
-    if (!hasUsageOrPreference(input.messages)) {
-      return {
-        kind: "QUESTION",
-        message: isTurkish
-          ? "Aracı en çok nasıl kullanacaksınız ve sizin için hangi özellik önemli?"
-          : "How will you use the car, and which feature matters most to you?",
-        options: isTurkish
-          ? ["İşe gidip gelme", "Şehir içi günlük kullanım", "Uzun yol", "Aile kullanımı", "Bilmiyorum"]
-          : ["Commuting", "Daily city driving", "Long trips", "Family use", "I don't know"],
-      };
-    }
-    if (!hasExplicitBudget(input.messages)) {
-      return {
-        kind: "QUESTION",
-        message: isTurkish
-          ? "Yaklaşık bütçeniz veya çıkmak istemediğiniz üst fiyat sınırı nedir?"
-          : "What is your approximate budget or maximum price?",
-        options: isTurkish
-          ? ["1 milyon TL altı", "1–1,5 milyon TL", "1,5–2 milyon TL", "2 milyon TL üzeri", "Bilmiyorum"]
-          : ["Under 1M TL", "1–1.5M TL", "1.5–2M TL", "Over 2M TL", "I don't know"],
-      };
-    }
+  if (!atTurnLimit && (guidance.action === "ASK" || !recommendationAllowed)) {
+    return { kind: "QUESTION", message: guidance.message, options: guidance.options };
   }
 
   const query = buildCarsConversationQuery(input.messages);
-  const turnId = randomUUID();
   const result = await runCarsRuntime({
-    requestId: `${input.conversationId}:turn:${turnId}`,
+    requestId: `${input.conversationId}:turn:${randomUUID()}`,
     contextReference: `${input.conversationId}:context`,
     query,
   });
@@ -100,11 +93,11 @@ export async function runCarsConversationTurn(
       kind: "RECOMMENDATIONS",
       message: result.recommendations.length > 0
         ? isTurkish
-          ? "Paylaştığınız bilgilere göre en güçlü eşleşmeler bunlar. Tercihlerinizi değiştirirseniz yeniden değerlendirebilirim."
-          : "Based on everything you've told me, these are the strongest matches. You can still change any preference or ask me to compare them."
+          ? "Konuştuklarımızı birlikte tartınca şu an en güçlü karar seçenekleri bunlar. Nedenlerini inceleyebilir veya bana itiraz edip sohbete devam edebilirsiniz."
+          : "Weighing everything we discussed, these are the strongest decisions right now. You can inspect the reasoning, challenge it, or keep talking."
         : isTurkish
-          ? "Yeterli bilgi var ancak mevcut katalogda koşullarınıza uyan araç bulunamadı. Bir koşulu değiştirirseniz yeniden bakabilirim."
-          : "I have enough context, but there are no matching cars in the current catalog. You can relax or change a requirement and I'll check again.",
+          ? "Konuştuklarımız yeterince net, fakat mevcut katalogda koşullarınızı dürüstçe karşılayan bir araç yok. İsterseniz hangi koşulun esneyebileceğini konuşalım."
+          : "Our conversation is clear enough, but no current catalog car honestly meets it. We can discuss which constraint could flex.",
       recommendations: result.recommendations,
     };
   }
@@ -113,5 +106,23 @@ export async function runCarsConversationTurn(
     return { kind: "ERROR", message: createCarsFollowUp(result, locale) };
   }
 
-  return { kind: "QUESTION", message: createCarsFollowUp(result, locale) };
+  if (atTurnLimit) {
+    return {
+      kind: "ERROR",
+      message: isTurkish
+        ? "Bu görüşme için güvenli tur sınırına ulaştık; elimizdeki bilgiler hâlâ güvenilir bir karar için yeterli değil. Yeni bir görüşmede bütçe, kullanım ve vazgeçilmez ihtiyacınızı birlikte yazarak başlayabilirsiniz."
+        : "We reached this conversation's safe turn limit without enough information for a reliable decision. Start a new conversation with your budget, usage, and one non-negotiable need.",
+    };
+  }
+
+  const followUp = await createCarsConversationGuidance({
+    messages: input.messages,
+    locale,
+    recommendationAllowed: false,
+    remainingUserTurns: MAX_USER_TURNS - userTurnCount,
+    runtimeGap: runtimeGap(result),
+  });
+  return followUp
+    ? { kind: "QUESTION", message: followUp.message, options: followUp.options }
+    : { kind: "QUESTION", message: createCarsFollowUp(result, locale) };
 }

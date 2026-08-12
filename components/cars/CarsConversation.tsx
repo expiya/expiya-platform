@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useRef, useState } from "react";
+import { FormEvent, KeyboardEvent, useCallback, useEffect, useRef, useState } from "react";
 
 import { CarCard } from "@/components/cars/CarCard";
 import type {
@@ -8,6 +8,7 @@ import type {
   CarsConversationResponse,
   PersistedCarsConversation,
 } from "@/types/carsConversation";
+import { resolveCarsConversationLocale } from "@/features/decision/conversation/hasActionableCarsContext";
 
 interface CarsConversationProps {
   readonly initialQuery: string;
@@ -17,7 +18,7 @@ function newMessage(role: CarsConversationMessage["role"], content: string) {
   return { id: crypto.randomUUID(), role, content } as const;
 }
 
-const storageKey = "expiya:cars-conversation:v3";
+const storageKey = "expiya:cars-conversation:v4";
 
 function readPersistedConversation(): PersistedCarsConversation | null {
   try {
@@ -25,7 +26,7 @@ function readPersistedConversation(): PersistedCarsConversation | null {
     if (!value || typeof value !== "object") return null;
     const candidate = value as Partial<PersistedCarsConversation>;
     if (
-      candidate.version !== 3
+      candidate.version !== 4
       || typeof candidate.conversationId !== "string"
       || !Array.isArray(candidate.messages)
       || !candidate.messages.every((message) => (
@@ -48,8 +49,10 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   const [draft, setDraft] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isRestored, setIsRestored] = useState(false);
+  const locale = resolveCarsConversationLocale(messages);
+  const isTurkish = locale === "tr";
 
-  async function continueConversation(nextMessages: CarsConversationMessage[]) {
+  const continueConversation = useCallback(async (nextMessages: CarsConversationMessage[]) => {
     setIsLoading(true);
 
     try {
@@ -62,7 +65,9 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
         }),
       });
       const payload = await response.json() as CarsConversationResponse | { message?: string };
-      const content = payload.message ?? "I couldn't process that answer. Please try again.";
+      const content = payload.message ?? (isTurkish
+        ? "Cevabınızı işleyemedim. Lütfen yeniden deneyin."
+        : "I couldn't process that answer. Please try again.");
 
       const assistantMessage = {
         ...newMessage("assistant", content),
@@ -77,12 +82,14 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     } catch {
       setMessages((current) => [
         ...current,
-        newMessage("assistant", "I couldn't reach the decision service. Please try again."),
+        newMessage("assistant", isTurkish
+          ? "Karar servisine şu anda ulaşamıyorum. Konuşmanız korundu; lütfen yeniden deneyin."
+          : "I couldn't reach the decision service. Your conversation is safe; please try again."),
       ]);
     } finally {
       setIsLoading(false);
     }
-  }
+  }, [isTurkish]);
 
   useEffect(() => {
     const persisted = readPersistedConversation();
@@ -105,7 +112,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   useEffect(() => {
     if (!isRestored || !conversationId.current) return;
     localStorage.setItem(storageKey, JSON.stringify({
-      version: 3,
+      version: 4,
       conversationId: conversationId.current,
       messages,
     } satisfies PersistedCarsConversation));
@@ -117,7 +124,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     const firstMessage = newMessage("user", initialQuery.trim());
     setMessages([firstMessage]);
     void continueConversation([firstMessage]);
-  }, [initialQuery, isRestored]);
+  }, [continueConversation, initialQuery, isRestored]);
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -140,6 +147,12 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     void continueConversation(nextMessages);
   }
 
+  function handleDraftKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
+    if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
+    event.preventDefault();
+    submitContent(draft);
+  }
+
   return (
     <main className="min-h-screen bg-neutral-50">
       <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14">
@@ -148,10 +161,12 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
             Expiya Cars
           </p>
           <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-            Let&apos;s find the right car together.
+            {isTurkish ? "Doğru arabayı birlikte bulalım." : "Let's find the right car together."}
           </h1>
           <p className="mt-4 text-neutral-600">
-            Tell me what you need, answer one question at a time, and update any preference whenever you like.
+            {isTurkish
+              ? "Sizi dinleyip seçenekleri birlikte tartacağım; hazır olduğumuzda net bir karar çıkaracağız."
+              : "I will listen, weigh the tradeoffs with you, and reach a clear decision when we are ready."}
           </p>
         </div>
 
@@ -159,7 +174,9 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
           <div className="min-h-64 space-y-4" aria-live="polite">
             {messages.length === 0 && (
               <div className="rounded-2xl bg-neutral-100 p-4 text-neutral-700">
-                Describe the car you need, or name the cars you want to compare.
+                {isTurkish
+                  ? "Nasıl bir araç düşündüğünüzü anlatın veya karşılaştırmak istediğiniz araçları yazın."
+                  : "Describe the car you need, or name the cars you want to compare."}
               </div>
             )}
             {messages.map((message) => (
@@ -176,7 +193,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                   {message.recommendations && message.recommendations.length > 0 && (
                     <div className="mt-4 grid gap-4 text-neutral-900">
                       {message.recommendations.map((recommendation) => (
-                        <CarCard key={recommendation.car.id} recommendedCar={recommendation} />
+                        <CarCard key={recommendation.car.id} recommendedCar={recommendation} locale={locale} />
                       ))}
                     </div>
                   )}
@@ -201,20 +218,21 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
             {isLoading && (
               <div className="flex justify-start">
                 <div className="rounded-2xl bg-neutral-100 px-4 py-3 text-neutral-500">
-                  Reviewing the full conversation…
+                  {isTurkish ? "Konuştuklarımızı değerlendiriyorum…" : "Thinking through our conversation…"}
                 </div>
               </div>
             )}
           </div>
 
           <form onSubmit={submit} className="mt-6 border-t border-neutral-200 pt-5">
-            <label htmlFor="cars-reply" className="sr-only">Your answer</label>
+            <label htmlFor="cars-reply" className="sr-only">{isTurkish ? "Mesajınız" : "Your message"}</label>
             <div className="flex flex-col gap-3 sm:flex-row">
               <textarea
                 id="cars-reply"
                 value={draft}
                 onChange={(event) => setDraft(event.target.value)}
-                placeholder="Add a preference, answer the question, or correct something…"
+                onKeyDown={handleDraftKeyDown}
+                placeholder={isTurkish ? "Bir şey anlatın, sorun veya önceki bilginizi düzeltin…" : "Tell me something, ask, or correct an earlier detail…"}
                 rows={2}
                 className="min-h-14 flex-1 resize-none rounded-2xl border border-neutral-300 px-4 py-3 outline-none focus:border-neutral-900"
               />
@@ -223,7 +241,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                 disabled={isLoading || !draft.trim()}
                 className="rounded-2xl bg-black px-6 py-3 font-semibold text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-300"
               >
-                Send
+                {isTurkish ? "Gönder" : "Send"}
               </button>
             </div>
           </form>
