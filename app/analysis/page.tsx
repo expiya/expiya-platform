@@ -1,16 +1,20 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useId } from "react";
 import { useSearchParams } from "next/navigation";
-import { CarCard } from "@/components/cars/CarCard";
-import { getRecommendedCars } from "@/features/recommendation/getRecommendedCars";
 import { createDecisionContext } from "@/features/decision/context/createDecisionContext";
+import { runCarsRuntime } from "@/features/decision/runtime/runCarsRuntime";
 
 function AnalysisContent() {
   const searchParams = useSearchParams();
   const query = searchParams.get("query") ?? "";
-const decisionContext = createDecisionContext(query);
-  const recommendedCars = getRecommendedCars(decisionContext);
+  const runtimeReference = useId();
+  const decisionContext = createDecisionContext(query);
+  const runtimeResult = runCarsRuntime({
+    requestId: `analysis-request-${runtimeReference}`,
+    contextReference: `analysis-context-${runtimeReference}`,
+    dependencies: {},
+  });
 
   return (
     <main className="min-h-screen bg-neutral-50">
@@ -27,18 +31,13 @@ const decisionContext = createDecisionContext(query);
           {decisionContext.decisionNeed}
         </div>
 
-        <section className="mt-12">
+        <section className="mt-12" aria-live="polite">
           <h2 className="text-2xl font-semibold tracking-tight">
-            Recommended Cars
+            Decision Status
           </h2>
 
-          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
-            {recommendedCars.map((recommendedCar) => (
-              <CarCard
-                key={recommendedCar.car.id}
-                recommendedCar={recommendedCar}
-              />
-            ))}
+          <div className="mt-6 rounded-xl border p-6">
+            {runtimeResult.status}
           </div>
         </section>
       </div>
