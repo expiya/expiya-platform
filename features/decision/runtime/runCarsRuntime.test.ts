@@ -9,6 +9,7 @@ const mocks = vi.hoisted(() => ({
   produceCarsMaterialityAssessments: vi.fn(),
   buildCarsRuntimeContextDependencies: vi.fn(),
   resolveCarsRuntimeDomainRequirements: vi.fn(),
+  buildCarsRuntimeEvidenceDependencies: vi.fn(),
   orchestrateCarsDecision: vi.fn(),
   getRecommendedCars: vi.fn(),
   evaluateCar: vi.fn(),
@@ -30,6 +31,10 @@ vi.mock("./buildCarsRuntimeContextDependencies", () => ({
 vi.mock("./resolveCarsRuntimeDomainRequirements", () => ({
   resolveCarsRuntimeDomainRequirements:
     mocks.resolveCarsRuntimeDomainRequirements,
+}));
+vi.mock("./buildCarsRuntimeEvidenceDependencies", () => ({
+  buildCarsRuntimeEvidenceDependencies:
+    mocks.buildCarsRuntimeEvidenceDependencies,
 }));
 vi.mock("@/features/decision/orchestration/orchestrateCarsDecision", () => ({
   orchestrateCarsDecision: mocks.orchestrateCarsDecision,
@@ -103,6 +108,29 @@ describe("runCarsRuntime", () => {
       limitations: [],
       errors: [],
     });
+    mocks.buildCarsRuntimeEvidenceDependencies.mockReturnValue({
+      evidence: {
+        status: "AVAILABLE",
+        linkage: {
+          ok: true,
+          value: {
+            optionIds: [],
+            requirementResolution: {
+              status: "RESOLVED",
+              resolutions: [], requirements: [], limitations: [], errors: [],
+            },
+            assertions: [], requirementLinks: [], conflicts: [], optionMatches: [],
+          },
+        },
+      },
+      domainAssessment: {
+        policyId: "cars.option-discovery-recommendation",
+        decisionType: "AUTOMOBILE_PURCHASE_OPTION_DISCOVERY_RECOMMENDATION",
+        evaluableOptionIds: [], outcome: "SUFFICIENT",
+        missingDomainRequirements: [], evidenceLimitations: [],
+        relevantConflicts: [], diagnostics: [],
+      },
+    });
   });
 
   it.each([
@@ -137,7 +165,9 @@ describe("runCarsRuntime", () => {
           limitations: [],
           errors: [],
         },
-        evidence: { status: "UNAVAILABLE" },
+        evidence: mocks.buildCarsRuntimeEvidenceDependencies.mock.results[0].value.evidence,
+        domainAssessment:
+          mocks.buildCarsRuntimeEvidenceDependencies.mock.results[0].value.domainAssessment,
       },
     });
   });

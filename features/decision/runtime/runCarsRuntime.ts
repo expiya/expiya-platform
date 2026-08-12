@@ -5,6 +5,7 @@ import { classifyCarsDecisionType } from "@/features/decision/context/sufficienc
 import { selectCarsSufficiencyPolicy } from "@/features/decision/context/sufficiency/selectCarsSufficiencyPolicy";
 import { orchestrateCarsDecision } from "@/features/decision/orchestration/orchestrateCarsDecision";
 import { buildCarsRuntimeContextDependencies } from "./buildCarsRuntimeContextDependencies";
+import { buildCarsRuntimeEvidenceDependencies } from "./buildCarsRuntimeEvidenceDependencies";
 import { resolveCarsRuntimeDomainRequirements } from "./resolveCarsRuntimeDomainRequirements";
 import type {
   CarsOrchestrationLineage,
@@ -70,6 +71,18 @@ export async function runCarsRuntime(
             : undefined,
         })
       : undefined;
+  const evidenceDependencies =
+    classification.status === "CLASSIFIED" &&
+    policy && domainFactResolution
+      ? buildCarsRuntimeEvidenceDependencies({
+          decisionType: classification.decisionType,
+          policy,
+          requirementResolution: domainFactResolution,
+          typeBProduction: typeBIdentity?.status === "RESOLVED"
+            ? typeBIdentity.production
+            : undefined,
+        })
+      : undefined;
   const result = orchestrateCarsDecision({
     requestId: input.requestId,
     contextReference: input.contextReference,
@@ -83,9 +96,11 @@ export async function runCarsRuntime(
       limitedSupportAssessment:
         contextDependencies?.limitedSupportAssessment,
       domainFactResolution,
-      evidence: domainFactResolution
-        ? { status: "UNAVAILABLE" }
-        : undefined,
+      evidence: evidenceDependencies?.evidence,
+      domainAssessment:
+        evidenceDependencies && "domainAssessment" in evidenceDependencies
+          ? evidenceDependencies.domainAssessment
+          : undefined,
     },
   });
 

@@ -39,7 +39,10 @@ export interface CarsCatalogAcquisition {
     readonly approvedSnapshot: typeof CARS_CATALOG_APPROVED_SNAPSHOT;
     readonly catalogRevision: typeof CARS_CATALOG_REVISION;
     readonly acquiredOptionIds: readonly string[];
-    readonly limitations: readonly ["catalog-only", "no evidence authority"];
+    readonly limitations: readonly [
+      "catalog-only",
+      "v0.1-authoritative-evidence-source",
+    ];
   };
 }
 
@@ -129,7 +132,7 @@ export function validateBoundedCarsCatalogPayload(
   const acquiredOptionIds = Object.freeze(catalog.map((car) => car.id));
   const limitations = Object.freeze([
     "catalog-only",
-    "no evidence authority",
+    "v0.1-authoritative-evidence-source",
   ] as const);
 
   return {

@@ -47,7 +47,10 @@ describe("bounded runtime Cars catalog acquisition", () => {
       approvedSnapshot: CARS_CATALOG_APPROVED_SNAPSHOT,
       catalogRevision: CARS_CATALOG_REVISION,
       acquiredOptionIds: ["1", "2", "3"],
-      limitations: ["catalog-only", "no evidence authority"],
+      limitations: [
+        "catalog-only",
+        "v0.1-authoritative-evidence-source",
+      ],
     });
   });
 

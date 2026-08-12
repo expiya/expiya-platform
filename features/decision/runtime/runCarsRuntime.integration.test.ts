@@ -57,14 +57,14 @@ describe("runCarsRuntime integration", () => {
     expect(result).toEqual({
       status: "UNRESOLVED",
       reasons: [{
-        code: "EVIDENCE_PROVIDER_UNAVAILABLE",
-        stage: "EVIDENCE",
+        code: "SCOPE_A_AUTHORIZATION_BLOCKED",
+        stage: "AUTHORIZATION",
         referenceIds: [],
       }],
       lineage: {
         requestId: "request-1",
         contextReference: "context-1",
-        stoppedAt: "EVIDENCE",
+        stoppedAt: "AUTHORIZATION",
         inspectedStages: decisionType === "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON"
           ? [
               "CLASSIFICATION",
@@ -74,6 +74,8 @@ describe("runCarsRuntime integration", () => {
               "LIMITED_SUPPORT",
               "DOMAIN_BINDING",
               "EVIDENCE",
+              "DOMAIN_SUFFICIENCY",
+              "AUTHORIZATION",
             ]
           : [
               "CLASSIFICATION",
@@ -82,6 +84,8 @@ describe("runCarsRuntime integration", () => {
               "LIMITED_SUPPORT",
               "DOMAIN_BINDING",
               "EVIDENCE",
+              "DOMAIN_SUFFICIENCY",
+              "AUTHORIZATION",
             ],
       },
     });
