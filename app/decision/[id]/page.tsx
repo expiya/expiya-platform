@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { saveFeedback } from "@/features/decision/feedback/saveFeedback";
+import { interpretRecommendation } from "@/features/decision/interpretRecommendation";
 import type { PersistedCarsConversation } from "@/types/carsConversation";
 import type { RecommendedCar } from "@/types/recommendation";
 
@@ -17,6 +18,12 @@ const reasonTranslations: Record<string, string> = {
   "High mileage": "Yüksek kilometre",
   "Competitive price": "Rekabetçi fiyat",
   "Premium pricing": "Yüksek fiyat seviyesi",
+};
+const fuelTranslations: Record<string, string> = {
+  Gasoline: "Benzin",
+  Diesel: "Dizel",
+  Hybrid: "Hibrit",
+  Electric: "Elektrik",
 };
 
 function readRecommendation(decisionId: string): RecommendedCar | null {
@@ -64,6 +71,7 @@ export default function DecisionDetailPage() {
   }
 
   const { car, decision } = recommendation;
+  const interpretation = interpretRecommendation(recommendation);
 
   function handleFeedback(helpful: boolean) {
     saveFeedback({ decisionId, helpful });
@@ -76,7 +84,7 @@ export default function DecisionDetailPage() {
         <Link href="/analysis" className="text-sm font-semibold text-neutral-600 hover:text-black">
           ← Görüşmeye dön
         </Link>
-        <h1 className="mt-5 text-4xl font-bold">Karar detayı</h1>
+        <h1 className="mt-5 text-4xl font-bold">Bu araç sizin için ne ifade ediyor?</h1>
 
         <article className="mt-8 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm">
           <div className="relative aspect-[16/9]">
@@ -85,7 +93,12 @@ export default function DecisionDetailPage() {
           <div className="p-6 sm:p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Önerilen araç</p>
             <h2 className="mt-2 text-3xl font-bold">{car.brand} {car.model}</h2>
-            <p className="mt-2 text-neutral-600">{car.year} · {car.fuel === "Electric" ? "Elektrik" : "Benzin"} · {car.transmission === "Automatic" ? "Otomatik" : "Manuel"}</p>
+            <p className="mt-2 text-neutral-600">{car.year} · {fuelTranslations[car.fuel]} · {car.transmission === "Automatic" ? "Otomatik" : "Manuel"}</p>
+
+            <div className="mt-6 rounded-2xl bg-neutral-950 p-5 text-white">
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-neutral-400">Kısa yorum</p>
+              <p className="mt-2 text-lg leading-7">{interpretation.verdict}</p>
+            </div>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <div className="rounded-2xl bg-neutral-100 p-5">
@@ -98,12 +111,59 @@ export default function DecisionDetailPage() {
               </div>
             </div>
 
-            <section className="mt-8">
-              <h3 className="text-lg font-semibold">Bu kararın dayanakları</h3>
+            <section className="mt-8 grid gap-5 md:grid-cols-2">
+              <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5">
+                <h3 className="text-lg font-semibold text-emerald-950">İyi tarafları</h3>
+                <ul className="mt-3 space-y-3 text-sm leading-6 text-emerald-950">
+                  {interpretation.strengths.map((item) => <li key={item}>✓ {item}</li>)}
+                </ul>
+              </div>
+              <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
+                <h3 className="text-lg font-semibold text-amber-950">Dikkat edilmesi gerekenler</h3>
+                <ul className="mt-3 space-y-3 text-sm leading-6 text-amber-950">
+                  {interpretation.tradeoffs.map((item) => <li key={item}>! {item}</li>)}
+                </ul>
+              </div>
+            </section>
+
+            {interpretation.experienceAnalysis ? (
+              <section className="mt-8 rounded-2xl border border-neutral-200 p-5 sm:p-6">
+                <p className="text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500">Gerçek tüketici deneyimi</p>
+                <h3 className="mt-2 text-xl font-semibold">Olumsuz yorum ve şikâyet sinyalleri</h3>
+                <p className="mt-3 leading-7 text-neutral-700">{interpretation.experienceAnalysis.summary}</p>
+
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {interpretation.experienceAnalysis.recurringConcerns.map((theme) => (
+                    <span key={theme} className="rounded-full bg-red-50 px-3 py-1.5 text-sm font-medium text-red-800">{theme}</span>
+                  ))}
+                </div>
+
+                <h4 className="mt-6 font-semibold">Test sürüşünde ve ekspertizde neye bakmalı?</h4>
+                <ul className="mt-3 space-y-3 text-sm leading-6 text-neutral-700">
+                  {interpretation.experienceAnalysis.testDriveChecks.map((item) => <li key={item}>• {item}</li>)}
+                </ul>
+
+                <div className="mt-6 rounded-xl bg-neutral-100 p-4 text-sm leading-6 text-neutral-600">
+                  <strong>Veriyi doğru okuyalım:</strong> {interpretation.experienceAnalysis.evidenceNote}
+                </div>
+                <a href={recommendation.consumerExperience?.sourceUrl} target="_blank" rel="noreferrer" className="mt-4 inline-flex font-semibold underline">
+                  Ham kaynağı incele
+                </a>
+              </section>
+            ) : (
+              <section className="mt-8 rounded-2xl border border-dashed border-neutral-300 p-5">
+                <h3 className="font-semibold">Gerçek kullanıcı deneyimi verisi henüz yok</h3>
+                <p className="mt-2 text-sm leading-6 text-neutral-600">Bu araç için doğrulanmış olumlu/olumsuz yorum kaynağı bağlanmadığından kullanıcı görüşü uydurmuyoruz. Şimdiki yorum yalnızca katalog özelliklerine dayanıyor.</p>
+              </section>
+            )}
+
+            <details className="mt-8 rounded-2xl border border-neutral-200 p-5">
+              <summary className="cursor-pointer font-semibold">Teknik puanın dayanaklarını göster</summary>
               <ul className="mt-3 space-y-2 text-neutral-700">
                 {decision.reasons.map((reason) => <li key={reason}>• {reasonTranslations[reason] ?? reason}</li>)}
               </ul>
-            </section>
+              <p className="mt-4 text-sm leading-6 text-neutral-500">Karar puanı araç kalitesinin mutlak ölçüsü değildir; model yılı, kilometre ve fiyat gibi katalog değişkenleriyle adayları karşılaştırmak için kullanılır.</p>
+            </details>
 
             <section className="mt-8 border-t border-neutral-200 pt-6">
               <h3 className="font-semibold">Bu karar yardımcı oldu mu?</h3>
