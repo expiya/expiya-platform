@@ -6,8 +6,8 @@ import { CarCard } from "@/components/cars/CarCard";
 import type {
   CarsConversationMessage,
   CarsConversationResponse,
+  PersistedCarsConversation,
 } from "@/types/carsConversation";
-import type { RecommendedCar } from "@/types/recommendation";
 
 interface CarsConversationProps {
   readonly initialQuery: string;
@@ -17,17 +17,40 @@ function newMessage(role: CarsConversationMessage["role"], content: string) {
   return { id: crypto.randomUUID(), role, content } as const;
 }
 
+const storageKey = "expiya:cars-conversation:v1";
+
+function readPersistedConversation(): PersistedCarsConversation | null {
+  try {
+    const value: unknown = JSON.parse(localStorage.getItem(storageKey) ?? "null");
+    if (!value || typeof value !== "object") return null;
+    const candidate = value as Partial<PersistedCarsConversation>;
+    if (
+      candidate.version !== 1
+      || typeof candidate.conversationId !== "string"
+      || !Array.isArray(candidate.messages)
+      || !candidate.messages.every((message) => (
+        message
+        && typeof message.id === "string"
+        && (message.role === "user" || message.role === "assistant")
+        && typeof message.content === "string"
+      ))
+    ) return null;
+    return candidate as PersistedCarsConversation;
+  } catch {
+    return null;
+  }
+}
+
 export function CarsConversation({ initialQuery }: CarsConversationProps) {
-  const conversationId = useRef<string>(crypto.randomUUID());
+  const conversationId = useRef<string>("");
   const initialRequestStarted = useRef(false);
   const [messages, setMessages] = useState<CarsConversationMessage[]>([]);
   const [draft, setDraft] = useState("");
-  const [recommendations, setRecommendations] = useState<readonly RecommendedCar[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [isRestored, setIsRestored] = useState(false);
 
   async function continueConversation(nextMessages: CarsConversationMessage[]) {
     setIsLoading(true);
-    setRecommendations([]);
 
     try {
       const response = await fetch("/api/cars/conversation", {
@@ -41,10 +64,13 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
       const payload = await response.json() as CarsConversationResponse | { message?: string };
       const content = payload.message ?? "I couldn't process that answer. Please try again.";
 
-      setMessages((current) => [...current, newMessage("assistant", content)]);
-      if (response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS") {
-        setRecommendations(payload.recommendations);
-      }
+      const assistantMessage = {
+        ...newMessage("assistant", content),
+        recommendations: response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS"
+          ? payload.recommendations
+          : undefined,
+      };
+      setMessages((current) => [...current, assistantMessage]);
     } catch {
       setMessages((current) => [
         ...current,
@@ -56,12 +82,39 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   }
 
   useEffect(() => {
-    if (!initialQuery.trim() || initialRequestStarted.current) return;
+    const persisted = readPersistedConversation();
+    const normalizedInitialQuery = initialQuery.trim();
+    const persistedInitialQuery = persisted?.messages.find((message) => message.role === "user")?.content.trim();
+
+    if (persisted && (!normalizedInitialQuery || persistedInitialQuery === normalizedInitialQuery)) {
+      conversationId.current = persisted.conversationId;
+      initialRequestStarted.current = true;
+      queueMicrotask(() => {
+        setMessages([...persisted.messages]);
+        setIsRestored(true);
+      });
+    } else {
+      conversationId.current = crypto.randomUUID();
+      queueMicrotask(() => setIsRestored(true));
+    }
+  }, [initialQuery]);
+
+  useEffect(() => {
+    if (!isRestored || !conversationId.current) return;
+    localStorage.setItem(storageKey, JSON.stringify({
+      version: 1,
+      conversationId: conversationId.current,
+      messages,
+    } satisfies PersistedCarsConversation));
+  }, [isRestored, messages]);
+
+  useEffect(() => {
+    if (!isRestored || !initialQuery.trim() || initialRequestStarted.current) return;
     initialRequestStarted.current = true;
     const firstMessage = newMessage("user", initialQuery.trim());
     setMessages([firstMessage]);
     void continueConversation([firstMessage]);
-  }, [initialQuery]);
+  }, [initialQuery, isRestored]);
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -108,6 +161,13 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                     : "bg-neutral-100 text-neutral-800"
                 }`}>
                   {message.content}
+                  {message.recommendations && message.recommendations.length > 0 && (
+                    <div className="mt-4 grid gap-4 text-neutral-900">
+                      {message.recommendations.map((recommendation) => (
+                        <CarCard key={recommendation.car.id} recommendedCar={recommendation} />
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -142,18 +202,6 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
           </form>
         </section>
 
-        {recommendations.length > 0 && (
-          <section className="mt-12" aria-labelledby="recommendations-title">
-            <h2 id="recommendations-title" className="text-2xl font-semibold tracking-tight">
-              Your current matches
-            </h2>
-            <div className="mt-6 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {recommendations.map((recommendation) => (
-                <CarCard key={recommendation.car.id} recommendedCar={recommendation} />
-              ))}
-            </div>
-          </section>
-        )}
       </div>
     </main>
   );

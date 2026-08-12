@@ -4,6 +4,13 @@ export interface CarsConversationMessage {
   readonly id: string;
   readonly role: "user" | "assistant";
   readonly content: string;
+  readonly recommendations?: readonly RecommendedCar[];
+}
+
+export interface PersistedCarsConversation {
+  readonly version: 1;
+  readonly conversationId: string;
+  readonly messages: readonly CarsConversationMessage[];
 }
 
 export interface CarsConversationRequest {
