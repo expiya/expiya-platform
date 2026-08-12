@@ -1,7 +1,7 @@
 import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
 
-import { openai } from "@/lib/openai";
+import { getOpenAIClient } from "@/lib/openai";
 import { assessMateriality } from "@/features/decision/context/sufficiency/assessMateriality";
 import type {
   CarsSufficiencyPolicy,
@@ -30,7 +30,7 @@ export async function produceCarsMaterialityAssessments(
       target: requirement.target,
       mode: requirement.mode,
     }));
-    const response = await openai.responses.parse({
+    const response = await getOpenAIClient().responses.parse({
       model: "gpt-5.5",
       input: [
         {

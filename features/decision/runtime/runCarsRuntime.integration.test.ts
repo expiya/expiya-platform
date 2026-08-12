@@ -5,11 +5,11 @@ const { parseMock } = vi.hoisted(() => ({
 }));
 
 vi.mock("@/lib/openai", () => ({
-  openai: {
+  getOpenAIClient: () => ({
     responses: {
       parse: parseMock,
     },
-  },
+  }),
 }));
 
 import { runCarsRuntime } from "./runCarsRuntime";

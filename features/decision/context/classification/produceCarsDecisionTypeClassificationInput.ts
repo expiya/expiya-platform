@@ -1,7 +1,7 @@
 import { zodTextFormat } from "openai/helpers/zod";
 import { z } from "zod";
 
-import { openai } from "@/lib/openai";
+import { getOpenAIClient } from "@/lib/openai";
 
 import type { CarsDecisionTypeClassificationInput } from "../sufficiency/classifyCarsDecisionType";
 
@@ -59,7 +59,7 @@ export async function produceCarsDecisionTypeClassificationInput(
   if (explicitClassification) return explicitClassification;
 
   try {
-    const response = await openai.responses.parse({
+    const response = await getOpenAIClient().responses.parse({
       model: "gpt-5.5",
       input: [
         {

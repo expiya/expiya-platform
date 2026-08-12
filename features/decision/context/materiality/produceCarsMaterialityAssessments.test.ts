@@ -7,7 +7,7 @@ const { parseMock } = vi.hoisted(() => ({
 }));
 
 vi.mock("@/lib/openai", () => ({
-  openai: { responses: { parse: parseMock } },
+  getOpenAIClient: () => ({ responses: { parse: parseMock } }),
 }));
 
 import { produceCarsMaterialityAssessments } from "./produceCarsMaterialityAssessments";

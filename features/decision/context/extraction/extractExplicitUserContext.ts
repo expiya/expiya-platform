@@ -1,6 +1,6 @@
 import { zodTextFormat } from "openai/helpers/zod";
 
-import { openai } from "@/lib/openai";
+import { getOpenAIClient } from "@/lib/openai";
 
 import {
   explicitExtractionOutputSchema,
@@ -15,7 +15,7 @@ export interface ExplicitExtractionInput {
 export async function extractExplicitUserContext(
   input: ExplicitExtractionInput,
 ): Promise<ExplicitExtractionOutput> {
-  const response = await openai.responses.parse({
+  const response = await getOpenAIClient().responses.parse({
     model: "gpt-5.5",
     input: [
       {
