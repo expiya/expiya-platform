@@ -78,6 +78,7 @@ export interface TurkeyVehicleVariant {
     readonly combinedLitresPer100Km?: SourcedValue<number>;
     readonly combinedKwhPer100Km?: SourcedValue<number>;
     readonly electricRangeKm?: SourcedValue<number>;
+    readonly batteryCapacityKwh?: SourcedValue<number>;
     readonly batteryUsableKwh?: SourcedValue<number>;
     readonly maxDcChargeKw?: SourcedValue<number>;
   };

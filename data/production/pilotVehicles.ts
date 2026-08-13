@@ -1,4 +1,4 @@
-import type { PriceObservation } from "@/types/productionVehicle";
+import type { PriceObservation, ProvenanceRecord, TurkeyVehicleVariant } from "@/types/productionVehicle";
 import type { ProductionVehicleIdentity } from "@/features/vehicle-data/validateProductionVehicle";
 
 const hyundaiAugust2026 = {
@@ -18,9 +18,20 @@ const sourced = <T>(value: T) => ({
   confidence: "HIGH" as const,
 });
 
+const technicalSource = (sourceUrl: string, documentVersion: string): ProvenanceRecord => ({
+  sourceId: "hyundai-tr", sourceUrl, accessedAt: "2026-08-13T00:00:00.000Z",
+  documentVersion, extractionMethod: "DOCUMENT_IMPORT", confidence: "HIGH",
+  limitations: ["Manufacturer values; real-world results vary with conditions and driving style"],
+});
+
+const technical = <T>(value: T, provenance: ProvenanceRecord) => ({
+  value, provenance: [provenance] as [ProvenanceRecord], confidence: "HIGH" as const,
+});
+
 export interface PilotVehicleRecord {
   readonly identity: ProductionVehicleIdentity;
   readonly prices: readonly PriceObservation[];
+  readonly technicalVariant?: TurkeyVehicleVariant;
 }
 
 export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
@@ -49,6 +60,31 @@ export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
       validFrom: "2026-08-05T00:00:00.000Z", validUntil: "2026-08-31T23:59:59.999Z",
       sellerType: "DISTRIBUTOR", provenance: [hyundaiAugust2026], confidence: "HIGH",
     }],
+    technicalVariant: (() => {
+      const source = technicalSource(
+        "https://www.hyundai.com/content/dam/hyundai/downloads/tr/tr/brosurler/ioniq5-digital-brosur.pdf",
+        "IONIQ 5 Türkiye digital brochure, accessed 2026-08-13",
+      );
+      return {
+        id: "87e30119-f0d5-4c98-8324-cbd65156974b", market: "TR", lifecycleStatus: "ON_SALE",
+        brand: technical("Hyundai", source), model: technical("IONIQ 5", source),
+        bodyStyle: technical("SUV", source), trim: technical("Dynamic Vision Roof 125 kW 4X2", source),
+        modelYear: technical(2026, source),
+        powertrain: {
+          fuelType: technical("BEV" as const, source), powerKw: technical(125, source),
+          torqueNm: technical(350, source), transmission: technical("Single-speed reduction gear", source),
+          drivenWheels: technical("RWD", source),
+        },
+        dimensions: {},
+        efficiency: {
+          protocol: technical("WLTP" as const, source), batteryCapacityKwh: technical(63, source),
+          electricRangeKm: technical(440, source),
+        },
+        safetyFeatureCodes: ["AEB", "LKA", "LFA", "BCA", "RCCA", "SCC", "TPMS", "ECALL"]
+          .map((code) => technical(code, source)),
+        createdAt: "2026-08-13T00:00:00.000Z", updatedAt: "2026-08-13T00:00:00.000Z",
+      } satisfies TurkeyVehicleVariant;
+    })(),
   },
   {
     identity: {
@@ -62,5 +98,33 @@ export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
       validFrom: "2026-08-05T00:00:00.000Z", validUntil: "2026-08-31T23:59:59.999Z",
       sellerType: "DISTRIBUTOR", provenance: [hyundaiAugust2026], confidence: "HIGH",
     }],
+    technicalVariant: (() => {
+      const source = technicalSource(
+        "https://www.hyundai.com/content/dam/hyundai/downloads/tr/tr/brosurler/ioniq9-digital-brosur.pdf",
+        "IONIQ 9 Türkiye digital brochure, accessed 2026-08-13",
+      );
+      return {
+        id: "a3728e65-51b2-447f-a6c3-a1f64db8a310", market: "TR", lifecycleStatus: "ON_SALE",
+        brand: technical("Hyundai", source), model: technical("IONIQ 9", source),
+        bodyStyle: technical("SUV", source), trim: technical("Progressive 160 kW 4X2", source),
+        modelYear: technical(2026, source),
+        powertrain: {
+          fuelType: technical("BEV" as const, source), powerKw: technical(160, source),
+          torqueNm: technical(350, source), transmission: technical("Single-speed reduction gear", source),
+          drivenWheels: technical("RWD", source),
+        },
+        dimensions: {
+          lengthMm: technical(5060, source), widthMm: technical(1980, source),
+          heightMm: technical(1790, source), wheelbaseMm: technical(3130, source),
+          luggageLitres: technical(338, source),
+        },
+        efficiency: {
+          protocol: technical("WLTP" as const, source), combinedKwhPer100Km: technical(19.9, source),
+          electricRangeKm: technical(620, source), batteryCapacityKwh: technical(110.3, source),
+          maxDcChargeKw: technical(350, source),
+        },
+        safetyFeatureCodes: [], createdAt: "2026-08-13T00:00:00.000Z", updatedAt: "2026-08-13T00:00:00.000Z",
+      } satisfies TurkeyVehicleVariant;
+    })(),
   },
 ];
