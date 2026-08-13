@@ -8,6 +8,7 @@ describe("scrubSentryEvent", () => {
       breadcrumbs: [{ message: "Bütçem 1 milyon TL" }],
       extra: { conversation: "özel görüşme" },
       message: "Unexpected failure",
+      type: undefined,
       request: {
         cookies: { session: "secret" },
         data: { messages: ["özel görüşme"] },

@@ -33,6 +33,7 @@ Uygulama kişisel veriyi loglamaz; güvenlik olayları JSON olarak `type=securit
 ### Sentry
 
 - Sentry yalnızca `SENTRY_DSN` / `NEXT_PUBLIC_SENTRY_DSN` tanımlı production deployment'larında çalışır. Replay, performans tracing ve varsayılan PII gönderimi kapalıdır.
+- Next.js 16.3 Turbopack build'i Sentry derleme eklentisi ve deneysel SRI ile tamamlanmadığı için production build komutu doğrulanmış Webpack yoluna sabitlenmiştir.
 - Event temizleyici query string, header, cookie, request body, kullanıcı, breadcrumb ve `extra` alanlarını gönderimden önce kaldırır. Sohbet ve ilan içeriğini manuel `capture*` çağrılarına eklemeyin.
 - Dağıtık rate-limit backend hatası `security_event=rate_limit_backend_error` etiketiyle error seviyesinde raporlanır. Olağan 429 reddetmeleri alarm gürültüsü ve saldırgan kontrollü maliyet oluşturmaması için Sentry'ye gönderilmez.
 - Sentry organizasyonunda EU veri bölgesi, IP address scrubbing ve default data scrubbing etkin tutulmalıdır. Yeni issue ve `security_event=rate_limit_backend_error` için e-posta alarmı oluşturun.
