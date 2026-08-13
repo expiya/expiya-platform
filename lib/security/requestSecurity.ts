@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import * as Sentry from "@sentry/nextjs";
 
 interface Bucket { count: number; resetAt: number }
 const buckets = new Map<string, Bucket>();
@@ -29,6 +30,13 @@ function rateLimitResponse(retryAfter: number): Response {
 
 function logSecurityEvent(event: string, fields: Record<string, string | number>): void {
   console.warn(JSON.stringify({ type: "security", event, ...fields }));
+  if (event === "rate_limit_backend_error") {
+    Sentry.captureMessage("Distributed rate-limit backend failed", {
+      level: "error",
+      tags: { security_event: event },
+      extra: fields,
+    });
+  }
 }
 
 export function verifySameOrigin(request: Request): Response | undefined {

@@ -30,6 +30,14 @@ Uygulama kişisel veriyi loglamaz; güvenlik olayları JSON olarak `type=securit
 4. Runtime 5xx oranı 5 dakikada %2'yi aşarsa alarm; OpenAI 429/5xx artışı varsa maliyet/anahtar olay prosedürü başlatın.
 5. Log drain kullanılıyorsa token, istek gövdesi, sohbet metni, ilan içeriği ve tam IP'yi ingest etmeden önce redakte edin. Güvenlik loglarını 30 gün, agregaları 90 gün saklayıp sonra otomatik silin.
 
+### Sentry
+
+- Sentry yalnızca `SENTRY_DSN` / `NEXT_PUBLIC_SENTRY_DSN` tanımlı production deployment'larında çalışır. Replay, performans tracing ve varsayılan PII gönderimi kapalıdır.
+- Event temizleyici query string, header, cookie, request body, kullanıcı, breadcrumb ve `extra` alanlarını gönderimden önce kaldırır. Sohbet ve ilan içeriğini manuel `capture*` çağrılarına eklemeyin.
+- Dağıtık rate-limit backend hatası `security_event=rate_limit_backend_error` etiketiyle error seviyesinde raporlanır. Olağan 429 reddetmeleri alarm gürültüsü ve saldırgan kontrollü maliyet oluşturmaması için Sentry'ye gönderilmez.
+- Sentry organizasyonunda EU veri bölgesi, IP address scrubbing ve default data scrubbing etkin tutulmalıdır. Yeni issue ve `security_event=rate_limit_backend_error` için e-posta alarmı oluşturun.
+- `SENTRY_AUTH_TOKEN` yalnızca build-time source map yüklemek için Vercel Production secret olarak tutulur; repoya veya tarayıcı bundle'ına eklenmez.
+
 ## OpenAI anahtar ve bütçe kontrolü
 
 1. Production ve Preview için ayrı OpenAI project oluşturun; her biri için ayrı service-account anahtarı üretin.
