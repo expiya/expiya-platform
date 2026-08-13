@@ -16,7 +16,7 @@ vi.mock("@/features/recommendation/ranking/defaultRanking", () => ({
   defaultRanking: mocks.defaultRanking,
 }));
 
-import { getRecommendedCars } from "./getRecommendedCars";
+import { getRecommendedCars, getRecommendedCarsFromRepository } from "./getRecommendedCars";
 
 const context = {
   decisionNeed: "Toyota Corolla ile Honda Civic'i karşılaştır.",
@@ -190,5 +190,21 @@ describe("getRecommendedCars", () => {
     }, ["4", "5"]);
 
     expect(result.map((item) => item.car.id)).toEqual(["4"]);
+  });
+
+  it("runs the recommendation engine against a repository-backed production catalog", async () => {
+    const databaseCar = {
+      id: "8af2278c-4168-4a1b-a915-6b72b9cd6f48", brand: "Toyota", model: "Corolla Vision Plus",
+      year: 2026, price: 1_850_000, km: 0, fuel: "Gasoline" as const,
+      transmission: "Automatic" as const, bodyType: "Sedan" as const,
+      image: "/cars/production-placeholder.svg", createdAt: "2026-08-13T00:00:00.000Z",
+      updatedAt: "2026-08-14T00:00:00.000Z",
+    };
+    const repository = { readPublishedCatalog: async () => ({
+      mode: "production" as const, cars: [databaseCar], limitations: [],
+    }) };
+    const result = await getRecommendedCarsFromRepository(context, repository);
+    expect(result.catalog.mode).toBe("production");
+    expect(result.recommendations.map(({ car }) => car.id)).toEqual([databaseCar.id]);
   });
 });

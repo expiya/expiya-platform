@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { configuredCarsCatalogMode, resolveRecommendationCatalog } from "@/features/vehicle-data/resolveRecommendationCatalog";
+import { configuredCarsCatalogMode, resolveRecommendationCatalog, resolveRecommendationCatalogFromRepository } from "@/features/vehicle-data/resolveRecommendationCatalog";
 
 describe("resolveRecommendationCatalog", () => {
   it("defaults unknown configuration to the isolated fixture", () => {
@@ -20,5 +20,19 @@ describe("resolveRecommendationCatalog", () => {
     expect(catalog.cars).toHaveLength(4);
     expect(catalog.cars[0].model).toContain("Yaris");
     expect(catalog.limitations).toHaveLength(3);
+  });
+
+  it("uses the database repository for production without fixture fallback", async () => {
+    const repository = { readPublishedCatalog: async () => ({
+      mode: "production" as const, cars: [], limitations: ["DATABASE_EMPTY"],
+    }) };
+    await expect(resolveRecommendationCatalogFromRepository("production", repository))
+      .resolves.toEqual({ mode: "production", cars: [], limitations: ["DATABASE_EMPTY"] });
+  });
+
+  it("propagates production database failures", async () => {
+    const repository = { readPublishedCatalog: async () => { throw new Error("database unavailable"); } };
+    await expect(resolveRecommendationCatalogFromRepository("production", repository))
+      .rejects.toThrow("database unavailable");
   });
 });

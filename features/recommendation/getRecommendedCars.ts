@@ -13,7 +13,10 @@ import {
   type CarsCatalogMode,
   configuredCarsCatalogMode,
   resolveRecommendationCatalog,
+  resolveRecommendationCatalogFromRepository,
+  type RecommendationCatalogResolution,
 } from "@/features/vehicle-data/resolveRecommendationCatalog";
+import type { VehicleCatalogReadRepository } from "@/features/vehicle-data/catalogReadRepository";
 
 export interface CarsRecommendationDataOptions {
   readonly catalogMode?: CarsCatalogMode;
@@ -97,10 +100,18 @@ export function getRecommendedCars(
   optionIds?: readonly string[],
   dataOptions: CarsRecommendationDataOptions = {},
 ): RecommendedCar[] {
-  const cars = resolveRecommendationCatalog(
+  const resolution = resolveRecommendationCatalog(
     dataOptions.catalogMode ?? configuredCarsCatalogMode(),
     dataOptions.at,
-  ).cars;
+  );
+  return getRecommendedCarsFromCatalog(context, resolution.cars, optionIds);
+}
+
+export function getRecommendedCarsFromCatalog(
+  context: DecisionContext,
+  cars: readonly Car[],
+  optionIds?: readonly string[],
+): RecommendedCar[] {
   const scopedCars = optionIds
     ? cars.filter((car) => optionIds.includes(car.id))
     : cars;
@@ -127,4 +138,19 @@ export function getRecommendedCars(
     ...recommendedCar,
     isTopPick: index === 0,
   }));
+}
+
+export interface RepositoryRecommendationResult {
+  readonly recommendations: readonly RecommendedCar[];
+  readonly catalog: RecommendationCatalogResolution;
+}
+
+export async function getRecommendedCarsFromRepository(
+  context: DecisionContext,
+  repository: VehicleCatalogReadRepository,
+  optionIds?: readonly string[],
+  at = new Date(),
+): Promise<RepositoryRecommendationResult> {
+  const catalog = await resolveRecommendationCatalogFromRepository("production", repository, at);
+  return { catalog, recommendations: getRecommendedCarsFromCatalog(context, catalog.cars, optionIds) };
 }

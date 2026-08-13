@@ -3,6 +3,7 @@ import { pilotVehicleRecords } from "@/data/production/pilotVehicles";
 import { adaptPublishedCatalogToCars } from "@/features/vehicle-data/adaptPublishedCatalogToCars";
 import { buildPublishedCatalog } from "@/features/vehicle-data/buildPublishedCatalog";
 import type { Car } from "@/types/car";
+import type { VehicleCatalogReadRepository } from "@/features/vehicle-data/catalogReadRepository";
 
 export type CarsCatalogMode = "fixture" | "production";
 
@@ -33,4 +34,13 @@ export function resolveRecommendationCatalog(
 
 export function configuredCarsCatalogMode(value = process.env.EXPIYA_CARS_CATALOG_MODE): CarsCatalogMode {
   return value === "production" ? "production" : "fixture";
+}
+
+export async function resolveRecommendationCatalogFromRepository(
+  mode: CarsCatalogMode,
+  repository: VehicleCatalogReadRepository,
+  at = new Date(),
+): Promise<RecommendationCatalogResolution> {
+  if (mode === "fixture") return resolveRecommendationCatalog(mode, at);
+  return repository.readPublishedCatalog(at);
 }
