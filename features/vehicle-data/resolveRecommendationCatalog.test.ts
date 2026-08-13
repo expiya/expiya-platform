@@ -24,10 +24,10 @@ describe("resolveRecommendationCatalog", () => {
 
   it("uses the database repository for production without fixture fallback", async () => {
     const repository = { readPublishedCatalog: async () => ({
-      mode: "production" as const, cars: [], limitations: ["DATABASE_EMPTY"],
+      mode: "production" as const, cars: [], identities: [], limitations: ["DATABASE_EMPTY"],
     }) };
     await expect(resolveRecommendationCatalogFromRepository("production", repository))
-      .resolves.toEqual({ mode: "production", cars: [], limitations: ["DATABASE_EMPTY"] });
+      .resolves.toEqual({ mode: "production", cars: [], identities: [], limitations: ["DATABASE_EMPTY"] });
   });
 
   it("propagates production database failures", async () => {

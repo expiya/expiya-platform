@@ -7,7 +7,17 @@ import type { ProductionFuelType } from "@/types/productionVehicle";
 import { getPostgresDatabase } from "@/lib/server/postgres";
 
 export interface VehicleCatalogReadRepository {
-  readPublishedCatalog(at: Date): Promise<RecommendationCatalogResolution>;
+  readPublishedCatalog(at: Date): Promise<VehicleCatalogReadResult>;
+}
+
+export interface PublishedVehicleIdentity {
+  readonly id: string;
+  readonly brand: string;
+  readonly model: string;
+}
+
+export interface VehicleCatalogReadResult extends RecommendationCatalogResolution {
+  readonly identities: readonly PublishedVehicleIdentity[];
 }
 
 const rowSchema = z.object({
@@ -128,9 +138,10 @@ order by vv.brand, vv.model, vv.trim`;
 export class PostgresVehicleCatalogReadRepository implements VehicleCatalogReadRepository {
   constructor(private readonly database: SqlQueryable) {}
 
-  async readPublishedCatalog(at: Date): Promise<RecommendationCatalogResolution> {
+  async readPublishedCatalog(at: Date): Promise<VehicleCatalogReadResult> {
     const result = await this.database.query(PUBLISHED_CATALOG_SQL, [at.toISOString()]) as { rows?: unknown[] };
     const cars: Car[] = [];
+    const identities: PublishedVehicleIdentity[] = [];
     const limitations: string[] = [];
     for (const [index, rawRow] of (result.rows ?? []).entries()) {
       const parsed = rowSchema.safeParse(rawRow);
@@ -139,10 +150,18 @@ export class PostgresVehicleCatalogReadRepository implements VehicleCatalogReadR
         continue;
       }
       const car = adaptRow(parsed.data);
-      if (car) cars.push(car);
+      if (car) {
+        cars.push(car);
+        identities.push({ id: parsed.data.id, brand: parsed.data.brand, model: parsed.data.model });
+      }
       else limitations.push(`${parsed.data.id}:LEGACY_ADAPTATION_FAILED`);
     }
-    return { mode: "production", cars: Object.freeze(cars), limitations: Object.freeze(limitations) };
+    return {
+      mode: "production",
+      cars: Object.freeze(cars),
+      identities: Object.freeze(identities),
+      limitations: Object.freeze(limitations),
+    };
   }
 }
 

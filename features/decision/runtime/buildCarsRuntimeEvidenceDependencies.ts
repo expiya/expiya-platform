@@ -30,6 +30,12 @@ export interface BuildCarsRuntimeEvidenceDependenciesInput {
   readonly policy: CarsSufficiencyPolicy;
   readonly requirementResolution: CarsDomainFactRequirementResolutionResult;
   readonly typeBProduction?: CarsTypeBCanonicalCandidateProduction;
+  readonly catalog?: {
+    readonly cars: readonly Readonly<Car>[];
+    readonly sourceId: string;
+    readonly revision: string;
+    readonly limitations: readonly string[];
+  };
 }
 
 function assertionValue(car: Readonly<Car>, category: CarsDomainFactCategory): unknown {
@@ -49,15 +55,20 @@ export function buildCarsRuntimeEvidenceDependencies(
 ): CarsRuntimeEvidenceDependencies {
   const acquisition = acquireBoundedCarsCatalog();
 
-  if (!acquisition.ok || input.requirementResolution.status !== "RESOLVED") {
+  if ((!input.catalog && !acquisition.ok) || input.requirementResolution.status !== "RESOLVED") {
     return { evidence: { status: "UNAVAILABLE" } };
   }
 
+  const catalog = input.catalog?.cars ?? (acquisition.ok ? acquisition.value.catalog : []);
+  const sourceId = input.catalog?.sourceId ?? (acquisition.ok ? acquisition.value.trace.sourceId : "unavailable");
+  const revision = input.catalog?.revision ?? (acquisition.ok ? acquisition.value.trace.catalogRevision : "unavailable");
+  const limitations = input.catalog?.limitations ?? (acquisition.ok ? acquisition.value.trace.limitations : []);
+
   const optionIds = input.typeBProduction
     ? input.typeBProduction.selectionTrace.map((item) => item.optionId)
-    : [...acquisition.value.trace.acquiredOptionIds];
+    : catalog.map((car) => car.id);
   const carsById = new Map(
-    acquisition.value.catalog.map((car) => [car.id, car] as const),
+    catalog.map((car) => [car.id, car] as const),
   );
 
   if (optionIds.some((optionId) => !carsById.has(optionId))) {
@@ -79,11 +90,11 @@ export function buildCarsRuntimeEvidenceDependencies(
         availability: "AVAILABLE",
         assertion: assertionValue(car, requirement.identity.category),
         source: {
-          sourceId: acquisition.value.trace.sourceId,
-          reference: `${acquisition.value.trace.catalogRevision}#${optionId}`,
+          sourceId,
+          reference: `${revision}#${optionId}`,
         },
         provenance: "AUTHORITATIVE_SOURCE",
-        limitations: [...acquisition.value.trace.limitations],
+        limitations: [...limitations],
         conflictReferences: [],
       });
       requirementLinks.push({

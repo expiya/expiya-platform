@@ -1,15 +1,18 @@
 import {
   getRecommendedCars,
+  getRecommendedCarsFromCatalog,
   getRecommendedCarsFromRepository,
 } from "@/features/recommendation/getRecommendedCars";
 import { configuredCarsCatalogMode } from "@/features/vehicle-data/resolveRecommendationCatalog";
 import { createConfiguredVehicleCatalogReadRepository } from "@/features/vehicle-data/catalogReadRepository";
+import type { VehicleCatalogReadResult } from "@/features/vehicle-data/catalogReadRepository";
 import type { DecisionContext } from "@/types/decisionContext";
 import type { RecommendedCar } from "@/types/recommendation";
 
 export interface ExecuteAuthorizedCarsRecommendationInput {
   readonly context: DecisionContext;
   readonly optionIds?: readonly string[];
+  readonly productionCatalog?: VehicleCatalogReadResult;
 }
 
 export class ProductionCatalogUnavailableError extends Error {
@@ -25,11 +28,18 @@ export async function executeAuthorizedCarsRecommendation(
     return getRecommendedCars(input.context, input.optionIds);
   }
   try {
-    const result = await getRecommendedCarsFromRepository(
-      input.context,
-      createConfiguredVehicleCatalogReadRepository(),
-      input.optionIds,
-    );
+    const result = input.productionCatalog
+      ? {
+          catalog: input.productionCatalog,
+          recommendations: getRecommendedCarsFromCatalog(
+            input.context, input.productionCatalog.cars, input.optionIds,
+          ),
+        }
+      : await getRecommendedCarsFromRepository(
+          input.context,
+          createConfiguredVehicleCatalogReadRepository(),
+          input.optionIds,
+        );
     if (result.catalog.cars.length === 0) {
       throw new ProductionCatalogUnavailableError(result.catalog.limitations);
     }

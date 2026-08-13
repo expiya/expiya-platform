@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { resolveExplicitCarsTypeBIdentity } from "./resolveExplicitCarsTypeBIdentity";
+import { resolveExplicitCarsTypeBIdentity, resolveExplicitCarsTypeBIdentityFromCatalog } from "./resolveExplicitCarsTypeBIdentity";
 
 function resolve(query: string) {
   return resolveExplicitCarsTypeBIdentity({
@@ -62,5 +62,24 @@ describe("resolveExplicitCarsTypeBIdentity", () => {
       status: "UNRESOLVED",
       reason: "TOO_FEW_EXPLICIT_CANDIDATES",
     });
+  });
+
+  it("maps mentioned production nameplates to every published variant UUID", () => {
+    const result = resolveExplicitCarsTypeBIdentityFromCatalog({
+      query: "Toyota Corolla ile Toyota Yaris'i karşılaştır",
+      userConfirmationReferenceId: "request-db", candidateId: "candidate-db",
+    }, [
+      { id: "corolla-gasoline", brand: "Toyota", model: "Corolla" },
+      { id: "corolla-hybrid", brand: "Toyota", model: "Corolla" },
+      { id: "yaris-hybrid", brand: "Toyota", model: "Yaris" },
+    ], "postgres:vehicle-read-model");
+    expect(result.status).toBe("RESOLVED");
+    if (result.status === "RESOLVED") {
+      expect(result.production.selectionTrace.map(({ optionId }) => optionId)).toEqual([
+        "corolla-gasoline", "corolla-hybrid", "yaris-hybrid",
+      ]);
+      expect(result.production.selectionTrace[0].domainSourceReferenceId)
+        .toBe("postgres:vehicle-read-model#corolla-gasoline");
+    }
   });
 });

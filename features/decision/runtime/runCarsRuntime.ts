@@ -1,5 +1,5 @@
 import { produceCarsDecisionTypeClassificationInput } from "@/features/decision/context/classification/produceCarsDecisionTypeClassificationInput";
-import { resolveExplicitCarsTypeBIdentity } from "@/features/decision/context/identity/resolveExplicitCarsTypeBIdentity";
+import { resolveExplicitCarsTypeBIdentity, resolveExplicitCarsTypeBIdentityFromCatalog } from "@/features/decision/context/identity/resolveExplicitCarsTypeBIdentity";
 import { produceCarsMaterialityAssessments } from "@/features/decision/context/materiality/produceCarsMaterialityAssessments";
 import { classifyCarsDecisionType } from "@/features/decision/context/sufficiency/classifyCarsDecisionType";
 import { selectCarsSufficiencyPolicy } from "@/features/decision/context/sufficiency/selectCarsSufficiencyPolicy";
@@ -14,6 +14,8 @@ import type {
   CarsOrchestrationResult,
 } from "@/types/carsOrchestration";
 import type { RecommendedCar } from "@/types/recommendation";
+import { configuredCarsCatalogMode } from "@/features/vehicle-data/resolveRecommendationCatalog";
+import { createConfiguredVehicleCatalogReadRepository, type VehicleCatalogReadResult } from "@/features/vehicle-data/catalogReadRepository";
 
 export interface CarsRuntimeInput {
   readonly requestId: string;
@@ -47,15 +49,32 @@ export async function runCarsRuntime(
     });
   const classification = classifyCarsDecisionType(classificationInput);
   const policy = selectCarsSufficiencyPolicy(classification);
+  const productionCatalogReadAt = new Date();
+  let productionCatalog: VehicleCatalogReadResult | undefined;
+  if (configuredCarsCatalogMode() === "production") {
+    try {
+      productionCatalog = await createConfiguredVehicleCatalogReadRepository().readPublishedCatalog(productionCatalogReadAt);
+    } catch {
+      productionCatalog = {
+        mode: "production", cars: [], identities: [], limitations: ["database-read-failed"],
+      };
+    }
+  }
   const typeBIdentity =
     classification.status === "CLASSIFIED" &&
     classification.decisionType ===
       "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON"
-      ? resolveExplicitCarsTypeBIdentity({
-          query: input.query,
-          userConfirmationReferenceId: input.requestId,
-          candidateId: `${input.contextReference}:decision-options`,
-        })
+      ? productionCatalog
+        ? resolveExplicitCarsTypeBIdentityFromCatalog({
+            query: input.query,
+            userConfirmationReferenceId: input.requestId,
+            candidateId: `${input.contextReference}:decision-options`,
+          }, productionCatalog.identities, "postgres:vehicle-read-model")
+        : resolveExplicitCarsTypeBIdentity({
+            query: input.query,
+            userConfirmationReferenceId: input.requestId,
+            candidateId: `${input.contextReference}:decision-options`,
+          })
       : undefined;
   const [materialityAssessments, contextDependencies] = policy
     ? await Promise.all([
@@ -94,6 +113,12 @@ export async function runCarsRuntime(
           typeBProduction: typeBIdentity?.status === "RESOLVED"
             ? typeBIdentity.production
             : undefined,
+          ...(productionCatalog ? { catalog: {
+            cars: productionCatalog.cars,
+            sourceId: "postgres:vehicle-read-model",
+            revision: productionCatalogReadAt.toISOString(),
+            limitations: productionCatalog.limitations,
+          } } : {}),
         })
       : undefined;
   const result = orchestrateCarsDecision({
@@ -143,6 +168,7 @@ export async function runCarsRuntime(
                 )
               : []
             : undefined,
+        ...(productionCatalog ? { productionCatalog } : {}),
       });
       return { status: "SUCCEEDED", recommendations, reasons: [], lineage: result.lineage };
     } catch {

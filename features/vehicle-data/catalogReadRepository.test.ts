@@ -21,6 +21,8 @@ describe("PostgresVehicleCatalogReadRepository", () => {
       .readPublishedCatalog(new Date("2026-08-14T00:00:00.000Z"));
     expect(result).toMatchObject({ mode: "production", limitations: [], cars: [{
       brand: "Toyota", model: "Corolla Vision Plus", price: 1_850_000, fuel: "Gasoline",
+    }], identities: [{
+      id: "8af2278c-4168-4a1b-a915-6b72b9cd6f48", brand: "Toyota", model: "Corolla",
     }] });
     expect(calls[0].sql).toContain("eligible_documents");
     expect(calls[0].sql).toContain("price_provenance");

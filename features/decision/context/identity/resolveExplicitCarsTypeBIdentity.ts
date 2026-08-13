@@ -20,6 +20,12 @@ export interface ResolveExplicitCarsTypeBIdentityInput {
   readonly candidateId: string;
 }
 
+export interface CarsIdentityCatalogEntry {
+  readonly id: string;
+  readonly brand: string;
+  readonly model: string;
+}
+
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -57,14 +63,34 @@ export function resolveExplicitCarsTypeBIdentity(
     };
   }
 
-  const selections = acquisition.value.catalog
+  return resolveExplicitCarsTypeBIdentityFromCatalog(
+    input,
+    acquisition.value.catalog,
+    acquisition.value.trace.sourceId,
+  );
+}
+
+export function resolveExplicitCarsTypeBIdentityFromCatalog(
+  input: ResolveExplicitCarsTypeBIdentityInput,
+  catalog: readonly CarsIdentityCatalogEntry[],
+  sourceId: string,
+): ExplicitCarsTypeBIdentityResult {
+  const mentionedNameplates = new Set(
+    catalog
+      .filter((car) => explicitlyMentions(input.query, car.brand, car.model))
+      .map((car) => `${car.brand}\u0000${car.model}`),
+  );
+  if (mentionedNameplates.size < 2) {
+    return { status: "UNRESOLVED", reason: "TOO_FEW_EXPLICIT_CANDIDATES" };
+  }
+
+  const selections = catalog
     .filter((car) =>
       explicitlyMentions(input.query, car.brand, car.model),
     )
     .map((car) => ({
       optionId: car.id,
-      domainSourceReferenceId:
-        `${acquisition.value.trace.sourceId}#${car.id}`,
+      domainSourceReferenceId: `${sourceId}#${car.id}`,
     }));
 
   if (selections.length < 2) {

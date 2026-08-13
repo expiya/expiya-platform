@@ -201,7 +201,8 @@ describe("getRecommendedCars", () => {
       updatedAt: "2026-08-14T00:00:00.000Z",
     };
     const repository = { readPublishedCatalog: async () => ({
-      mode: "production" as const, cars: [databaseCar], limitations: [],
+      mode: "production" as const, cars: [databaseCar],
+      identities: [{ id: databaseCar.id, brand: "Toyota", model: "Corolla" }], limitations: [],
     }) };
     const result = await getRecommendedCarsFromRepository(context, repository);
     expect(result.catalog.mode).toBe("production");
