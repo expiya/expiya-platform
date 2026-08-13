@@ -74,8 +74,8 @@ describe("buildCarsRuntimeEvidenceDependencies", () => {
               assertion: "Gasoline",
               provenance: "AUTHORITATIVE_SOURCE",
               limitations: [
-                "catalog-only",
-                "v0.1-authoritative-evidence-source",
+                "test-fixture-only",
+                "not-production-evidence",
               ],
             }],
           },

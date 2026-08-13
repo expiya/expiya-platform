@@ -7,7 +7,7 @@ import {
 } from "@/features/decision/context/sufficiency/validateCarsCatalogIdentity";
 import type { Car } from "@/types/car";
 
-export const CARS_CATALOG_SOURCE_ID = "repo:data/car.ts" as const;
+export const CARS_CATALOG_SOURCE_ID = "fixture:data/car.ts" as const;
 export const CARS_CATALOG_APPROVED_SNAPSHOT =
   "6e59417e408e9f69cbd32496bf2b4ed7b4739a34" as const;
 export const CARS_CATALOG_REVISION =
@@ -42,8 +42,8 @@ export interface CarsCatalogAcquisition {
     readonly catalogRevision: typeof CARS_CATALOG_REVISION;
     readonly acquiredOptionIds: readonly string[];
     readonly limitations: readonly [
-      "catalog-only",
-      "v0.1-authoritative-evidence-source",
+      "test-fixture-only",
+      "not-production-evidence",
     ];
   };
 }
@@ -133,8 +133,8 @@ export function validateBoundedCarsCatalogPayload(
   );
   const acquiredOptionIds = Object.freeze(catalog.map((car) => car.id));
   const limitations = Object.freeze([
-    "catalog-only",
-    "v0.1-authoritative-evidence-source",
+    "test-fixture-only",
+    "not-production-evidence",
   ] as const);
 
   return {
