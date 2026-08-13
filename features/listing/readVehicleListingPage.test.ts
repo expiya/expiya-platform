@@ -16,6 +16,9 @@ describe("listing URL safety", () => {
     "https://localhost/secret",
     "https://user:pass@8.8.8.8/vehicle/1",
     "https://8.8.8.8:8443/vehicle/1",
+    "https://[::ffff:127.0.0.1]/secret",
+    "https://[fe80::1]/secret",
+    "https://[fc00::1]/secret",
   ])("rejects unsafe URL %s", async (url) => {
     await expect(assertPublicListingUrl(url)).rejects.toThrow();
   });

@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, KeyboardEvent, useCallback, useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 
 import { CarCard } from "@/components/cars/CarCard";
 import type {
@@ -21,7 +22,9 @@ const storageKey = "expiya:cars-conversation:v4";
 
 function readPersistedConversation(): PersistedCarsConversation | null {
   try {
-    const value: unknown = JSON.parse(localStorage.getItem(storageKey) ?? "null");
+    // Session storage avoids leaving sensitive conversation context on a shared device.
+    localStorage.removeItem(storageKey);
+    const value: unknown = JSON.parse(sessionStorage.getItem(storageKey) ?? "null");
     if (!value || typeof value !== "object") return null;
     const candidate = value as Partial<PersistedCarsConversation>;
     if (
@@ -42,6 +45,7 @@ function readPersistedConversation(): PersistedCarsConversation | null {
 }
 
 export function CarsConversation({ initialQuery }: CarsConversationProps) {
+  const router = useRouter();
   const conversationId = useRef<string>("");
   const initialRequestStarted = useRef(false);
   const conversationEndRef = useRef<HTMLDivElement>(null);
@@ -114,7 +118,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
 
   useEffect(() => {
     if (!isRestored || !conversationId.current) return;
-    localStorage.setItem(storageKey, JSON.stringify({
+    sessionStorage.setItem(storageKey, JSON.stringify({
       version: 4,
       conversationId: conversationId.current,
       messages,
@@ -168,6 +172,11 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     submitContent(draft);
   }
 
+  function clearConversation() {
+    sessionStorage.removeItem(storageKey);
+    router.push("/");
+  }
+
   return (
     <main className="min-h-screen bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
       <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14">
@@ -183,6 +192,10 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
               ? "Sizi dinleyip seçenekleri birlikte tartacağım; hazır olduğumuzda net bir karar çıkaracağız."
               : "I will listen, weigh the tradeoffs with you, and reach a clear decision when we are ready."}
           </p>
+          <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400">
+            <span>Görüşme yalnızca bu sekme açıkken tarayıcınızda tutulur.</span>
+            <button type="button" onClick={clearConversation} className="font-semibold underline underline-offset-4">Görüşmeyi sil</button>
+          </div>
         </div>
 
         <section className="mt-10 rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 sm:p-6" aria-label="Car decision conversation">

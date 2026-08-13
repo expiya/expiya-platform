@@ -38,7 +38,7 @@ const fuelTranslations: Record<string, string> = {
 function readRecommendation(decisionId: string): RecommendedCar | null {
   try {
     const conversation = JSON.parse(
-      localStorage.getItem(storageKey) ?? "null",
+      sessionStorage.getItem(storageKey) ?? "null",
     ) as PersistedCarsConversation | null;
     if (!conversation || conversation.version !== 4) return null;
     return conversation.messages
@@ -51,7 +51,7 @@ function readRecommendation(decisionId: string): RecommendedCar | null {
 
 function readUserContext(): string {
   try {
-    const conversation = JSON.parse(localStorage.getItem(storageKey) ?? "null") as PersistedCarsConversation | null;
+    const conversation = JSON.parse(sessionStorage.getItem(storageKey) ?? "null") as PersistedCarsConversation | null;
     return conversation?.messages.filter((message) => message.role === "user").map((message) => message.content).join("\n") ?? "";
   } catch { return ""; }
 }
@@ -60,14 +60,14 @@ function updateDecisionMessage(
   decisionId: string,
   patch: Pick<PersistedCarsConversation["messages"][number], "satisfaction" | "sellerResearchRequest">,
 ): void {
-  const conversation = JSON.parse(localStorage.getItem(storageKey) ?? "null") as PersistedCarsConversation | null;
+  const conversation = JSON.parse(sessionStorage.getItem(storageKey) ?? "null") as PersistedCarsConversation | null;
   if (!conversation || conversation.version !== 4) return;
   const messages = conversation.messages.map((message) => (
     message.recommendations?.some((item) => item.decision.decisionId === decisionId)
       ? { ...message, ...patch }
       : message
   ));
-  localStorage.setItem(storageKey, JSON.stringify({ ...conversation, messages }));
+  sessionStorage.setItem(storageKey, JSON.stringify({ ...conversation, messages }));
 }
 
 export default function DecisionDetailPage() {

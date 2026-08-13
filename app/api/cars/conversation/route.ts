@@ -20,10 +20,14 @@ const requestSchema = z.object({
 });
 
 export async function POST(request: Request): Promise<Response> {
-  const rejected = verifySameOrigin(request) ?? enforceRateLimit(request, "cars-conversation", 30, 10 * 60_000);
+  const originRejected = verifySameOrigin(request);
+  if (originRejected) return originRejected;
+  const rejected = await enforceRateLimit(request, { scope: "cars-conversation", limit: 20, windowMs: 10 * 60_000 });
   if (rejected) return rejected;
   try {
     const input = requestSchema.parse(await readJsonWithLimit(request, 150_000));
+    const conversationRejected = await enforceRateLimit(request, { scope: "cars-conversation-id", subject: input.conversationId, limit: 24, windowMs: 60 * 60_000 });
+    if (conversationRejected) return conversationRejected;
     const response = await runCarsConversationTurn(input);
     return Response.json(response);
   } catch (error) {

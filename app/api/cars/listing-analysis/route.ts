@@ -7,7 +7,9 @@ import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/sec
 const requestSchema = z.object({ url: z.string().trim().url().max(2_000), userContext: z.string().trim().min(1).max(20_000) });
 
 export async function POST(request: Request): Promise<Response> {
-  const rejected = verifySameOrigin(request) ?? enforceRateLimit(request, "listing-analysis", 8, 10 * 60_000);
+  const originRejected = verifySameOrigin(request);
+  if (originRejected) return originRejected;
+  const rejected = await enforceRateLimit(request, { scope: "listing-analysis", limit: 5, windowMs: 10 * 60_000 });
   if (rejected) return rejected;
   try {
     const input = requestSchema.parse(await readJsonWithLimit(request, 30_000));
