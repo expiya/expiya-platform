@@ -42,6 +42,7 @@ describe("POST /api/cars/conversation", () => {
   it("rejects malformed input before the governed boundary", async () => {
     const response = await POST(new Request("http://localhost/api/cars/conversation", {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ conversationId: "", messages: [] }),
     }));
 

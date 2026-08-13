@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import { runCarsConversationTurn } from "@/features/decision/conversation/runCarsConversationTurn";
+import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
 
 const requestSchema = z.object({
   conversationId: z.string().min(1).max(100),
@@ -19,12 +20,14 @@ const requestSchema = z.object({
 });
 
 export async function POST(request: Request): Promise<Response> {
+  const rejected = verifySameOrigin(request) ?? enforceRateLimit(request, "cars-conversation", 30, 10 * 60_000);
+  if (rejected) return rejected;
   try {
-    const input = requestSchema.parse(await request.json());
+    const input = requestSchema.parse(await readJsonWithLimit(request, 150_000));
     const response = await runCarsConversationTurn(input);
     return Response.json(response);
   } catch (error) {
-    if (error instanceof z.ZodError) {
+    if (error instanceof z.ZodError || error instanceof SyntaxError || error instanceof Error && error.message === "REQUEST_BODY_TOO_LARGE") {
       return Response.json(
         { message: "Please send a non-empty message to continue." },
         { status: 400 },

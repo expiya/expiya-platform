@@ -2,12 +2,15 @@ import { z } from "zod";
 
 import { analyzeVehicleListing } from "@/features/listing/analyzeVehicleListing";
 import { readVehicleListingPage } from "@/features/listing/readVehicleListingPage";
+import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
 
 const requestSchema = z.object({ url: z.string().trim().url().max(2_000), userContext: z.string().trim().min(1).max(20_000) });
 
 export async function POST(request: Request): Promise<Response> {
+  const rejected = verifySameOrigin(request) ?? enforceRateLimit(request, "listing-analysis", 8, 10 * 60_000);
+  if (rejected) return rejected;
   try {
-    const input = requestSchema.parse(await request.json());
+    const input = requestSchema.parse(await readJsonWithLimit(request, 30_000));
     const page = await readVehicleListingPage(input.url);
     return Response.json(await analyzeVehicleListing({ sourceUrl: page.url, pageContent: page.content, userContext: input.userContext }));
   } catch (error) {
