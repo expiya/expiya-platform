@@ -15,6 +15,13 @@ export const vehicleDataSources: readonly DataSource[] = [
     reviewNotes: ["Dated prices and campaign validity are required", "Automation requires a separate permission review"],
   },
   {
+    id: "renault-tr", name: "Renault Türkiye", authority: "PRIMARY",
+    homepageUrl: "https://www.renault.com.tr/", robotsUrl: "https://www.renault.com.tr/robots.txt",
+    termsUrl: "https://www.renault.com.tr/yasal-bilgi.html", usagePermission: "PUBLIC_FACTS_ONLY",
+    reviewedAt: "2026-08-14T00:00:00.000Z",
+    reviewNotes: ["Use dated price lists and exact Turkey trim pages", "Manual fact capture only; no broad automated crawl", "Do not reproduce copyrighted images or brochure text"],
+  },
+  {
     id: "euro-ncap", name: "Euro NCAP", authority: "OFFICIAL",
     homepageUrl: "https://www.euroncap.com/", termsUrl: "https://www.euroncap.com/terms-conditions/",
     usagePermission: "PERMISSION_REQUIRED", reviewedAt: "2026-08-13T00:00:00.000Z",

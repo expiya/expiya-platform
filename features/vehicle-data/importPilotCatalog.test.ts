@@ -10,7 +10,7 @@ describe("importPilotCatalog", () => {
     const repository = { upsertPilotRecord: vi.fn() };
     const report = await importPilotCatalog(pilotVehicleRecords, repository, at, { dryRun: true });
     expect(report).toMatchObject({ dryRun: true, importedCount: 0, rejected: [] });
-    expect(report.acceptedVehicleVariantIds).toHaveLength(7);
+    expect(report.acceptedVehicleVariantIds).toHaveLength(10);
     expect(repository.upsertPilotRecord).not.toHaveBeenCalled();
   });
 

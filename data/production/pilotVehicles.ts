@@ -106,6 +106,83 @@ function createCorollaPilotRecord(input: CorollaPilotInput): PilotVehicleRecord 
   };
 }
 
+interface RenaultPilotInput {
+  readonly id: string;
+  readonly priceId: string;
+  readonly model: string;
+  readonly bodyStyle: string;
+  readonly trim: string;
+  readonly technicalUrl: string;
+  readonly priceTry: number;
+  readonly fuelType: "GASOLINE" | "MHEV";
+  readonly engineDisplacementCc: number;
+  readonly powerKw: number;
+  readonly powerKwDerivedFromPs?: number;
+  readonly torqueNm: number;
+  readonly transmission: string;
+  readonly combinedLitresPer100Km: number;
+  readonly dimensions: { lengthMm: number; widthMm: number; heightMm: number; wheelbaseMm?: number; luggageLitres: number; seats: number; payloadKg?: number; brakedTowingKg?: number };
+  readonly safetyFeatureCodes: readonly string[];
+  readonly consumptionConflict?: { alternateValue: number; conflictGroupId: string };
+}
+
+function createRenaultPilotRecord(input: RenaultPilotInput): PilotVehicleRecord {
+  const technicalEvidence = technicalSource(
+    "renault-tr", input.technicalUrl,
+    `${input.model} ${input.trim} live Turkey technical page, accessed 2026-08-14`,
+  );
+  const priceEvidence: ProvenanceRecord = {
+    sourceId: "renault-tr",
+    sourceUrl: "https://www.renault.com.tr/renault-fiyat-listeleri/binek-arac-fiyat-listesi.html",
+    accessedAt: "2026-08-14T00:00:00.000Z", publishedAt: "2026-08-14T00:00:00.000Z",
+    documentVersion: "Renault passenger price list, valid 14 August 2026",
+    extractionMethod: "MANUAL", confidence: "HIGH",
+    limitations: ["Prices may change without notice", "Participating-dealer availability applies", "0.2% initial-registration charge is excluded"],
+  };
+  const consumption = input.consumptionConflict ? {
+    value: input.combinedLitresPer100Km,
+    provenance: [technicalEvidence, {
+      ...technicalEvidence, confidence: "MEDIUM" as const,
+      limitations: [...technicalEvidence.limitations, `The same page also displayed ${input.consumptionConflict.alternateValue} L/100 km; retained as an unresolved conflicting observation`],
+    }] as [ProvenanceRecord, ProvenanceRecord],
+    confidence: "MEDIUM" as const,
+    conflictGroupId: input.consumptionConflict.conflictGroupId,
+  } : technical(input.combinedLitresPer100Km, technicalEvidence);
+
+  return {
+    identity: {
+      id: input.id, market: "TR", lifecycleStatus: "ON_SALE",
+      brand: identityTechnical("Renault", technicalEvidence), model: identityTechnical(input.model, technicalEvidence),
+      bodyStyle: identityTechnical(input.bodyStyle, technicalEvidence), trim: identityTechnical(input.trim, technicalEvidence),
+      modelYear: identityTechnical(2026, technicalEvidence),
+    },
+    prices: [{
+      id: input.priceId, vehicleVariantId: input.id, market: "TR", condition: "NEW",
+      amountTry: input.priceTry, priceType: "LIST", validFrom: "2026-08-14T00:00:00.000Z",
+      sellerType: "DISTRIBUTOR", provenance: [priceEvidence], confidence: "HIGH",
+    }],
+    technicalVariant: {
+      id: input.id, market: "TR", lifecycleStatus: "ON_SALE",
+      brand: technical("Renault", technicalEvidence), model: technical(input.model, technicalEvidence),
+      bodyStyle: technical(input.bodyStyle, technicalEvidence), trim: technical(input.trim, technicalEvidence),
+      modelYear: technical(2026, technicalEvidence),
+      powertrain: {
+        fuelType: technical(input.fuelType, technicalEvidence),
+        engineDisplacementCc: technical(input.engineDisplacementCc, technicalEvidence),
+        powerKw: input.powerKwDerivedFromPs
+          ? derivedTechnical(input.powerKw, technicalEvidence, `Converted from the published ${input.powerKwDerivedFromPs} PS using 1 PS = 0.73549875 kW`)
+          : technical(input.powerKw, technicalEvidence),
+        torqueNm: technical(input.torqueNm, technicalEvidence),
+        transmission: technical(input.transmission, technicalEvidence), drivenWheels: technical("FWD", technicalEvidence),
+      },
+      dimensions: Object.fromEntries(Object.entries(input.dimensions).map(([key, value]) => [key, technical(value, technicalEvidence)])),
+      efficiency: { protocol: technical("WLTP", technicalEvidence), combinedLitresPer100Km: consumption },
+      safetyFeatureCodes: input.safetyFeatureCodes.map((code) => technical(code, technicalEvidence)),
+      createdAt: "2026-08-14T00:00:00.000Z", updatedAt: "2026-08-14T00:00:00.000Z",
+    } as TurkeyVehicleVariant,
+  };
+}
+
 export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
   {
     identity: {
@@ -383,5 +460,33 @@ export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
     trim: "Flame X-Pack Hybrid 1.8 140 HP e-CVT",
     fuelType: "HEV", powerPs: 140, powerKw: 103,
     combinedLitresPer100Km: 4.7, campaignPriceTry: 2_500_000, listPriceTry: 3_228_000,
+  }),
+  createRenaultPilotRecord({
+    id: "1eb75421-a038-4679-977e-7cd4e4608863", priceId: "06996f53-26bd-454c-89b1-e64ec181970a",
+    model: "Clio", bodyStyle: "Hatchback", trim: "evolution plus TCe EDC 115 hp",
+    technicalUrl: "https://www.renault.com.tr/hybrid-araclar/yeni-clio/teknik-bilgiler.html",
+    priceTry: 1_830_000, fuelType: "GASOLINE", engineDisplacementCc: 1199, powerKw: 85, torqueNm: 190,
+    transmission: "6-speed dual-clutch automatic", combinedLitresPer100Km: 5.1,
+    dimensions: { lengthMm: 4116, widthMm: 1768, heightMm: 1451, wheelbaseMm: 2591, luggageLitres: 391, seats: 5, payloadKg: 453, brakedTowingKg: 900 },
+    safetyFeatureCodes: ["DRIVER_FATIGUE_DETECTION", "FORWARD_COLLISION_WARNING", "ECALL", "INTELLIGENT_SPEED_ASSIST", "AEB", "ISOFIX", "ABS", "LKA", "SIDE_CURTAIN_AIRBAGS", "ACC"],
+    consumptionConflict: { alternateValue: 5.0, conflictGroupId: "renault-clio-evolution-plus-2026-wltp-combined" },
+  }),
+  createRenaultPilotRecord({
+    id: "62465336-2cfb-4ccd-b9a7-36467d63497f", priceId: "53d7463d-d404-4c6b-8d4d-f14ec1dc4380",
+    model: "Captur", bodyStyle: "SUV", trim: "techno mild hybrid EDC 140 hp",
+    technicalUrl: "https://www.renault.com.tr/hybrid-araclar/captur-e-tech/teknik-bilgiler.html",
+    priceTry: 2_325_000, fuelType: "MHEV", engineDisplacementCc: 1332, powerKw: 104, torqueNm: 245,
+    transmission: "7-speed dual-clutch automatic", combinedLitresPer100Km: 6.0,
+    dimensions: { lengthMm: 4239, widthMm: 1797, heightMm: 1575, wheelbaseMm: 2639, luggageLitres: 616, seats: 5 },
+    safetyFeatureCodes: ["DISTANCE_WARNING", "AEBS", "ECALL", "LDW", "ABS", "EBA", "SIDE_CURTAIN_AIRBAGS", "ISOFIX", "TPMS", "DRIVER_ATTENTION_WARNING", "REAR_CAMERA", "ACC"],
+  }),
+  createRenaultPilotRecord({
+    id: "f81b0873-f3a7-454a-9f34-4d5ad273708d", priceId: "7de66e9f-bc0c-48b0-a3aa-754cc33be5df",
+    model: "Megane Sedan", bodyStyle: "Sedan", trim: "Touch 1.3 TCe EDC 140 bg",
+    technicalUrl: "https://www.renault.com.tr/binek-araclar/megane-sedan/teknik-bilgiler.html",
+    priceTry: 2_199_000, fuelType: "GASOLINE", engineDisplacementCc: 1332, powerKw: 103, powerKwDerivedFromPs: 140, torqueNm: 240,
+    transmission: "7-speed dual-clutch automatic", combinedLitresPer100Km: 6.3,
+    dimensions: { lengthMm: 4632, widthMm: 1814, heightMm: 1443, luggageLitres: 503, seats: 5 },
+    safetyFeatureCodes: ["INTELLIGENT_SPEED_ASSIST", "FRONT_AIRBAGS", "ABS", "EBA", "SIDE_CURTAIN_AIRBAGS", "AEBS", "LKA", "DISTANCE_WARNING", "ISOFIX", "HSA", "CRUISE_CONTROL", "REAR_CAMERA", "DRIVER_FATIGUE_DETECTION"],
   }),
 ];

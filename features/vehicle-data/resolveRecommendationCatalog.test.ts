@@ -10,14 +10,14 @@ describe("resolveRecommendationCatalog", () => {
 
   it("requires an explicit production setting", () => {
     expect(configuredCarsCatalogMode("production")).toBe("production");
-    const catalog = resolveRecommendationCatalog("production", new Date("2026-08-13T12:00:00.000Z"));
-    expect(catalog.cars).toHaveLength(7);
+    const catalog = resolveRecommendationCatalog("production", new Date("2026-08-14T12:00:00.000Z"));
+    expect(catalog.cars).toHaveLength(10);
     expect(catalog.limitations).toEqual([]);
   });
 
   it("does not fall back to fixtures when campaign observations expire", () => {
     const catalog = resolveRecommendationCatalog("production", new Date("2026-09-01T00:00:00.000Z"));
-    expect(catalog.cars).toHaveLength(4);
+    expect(catalog.cars).toHaveLength(7);
     expect(catalog.cars[0].model).toContain("Yaris");
     expect(catalog.limitations).toHaveLength(3);
   });
