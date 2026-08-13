@@ -261,7 +261,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
               <button
                 type="submit"
                 disabled={isLoading || !draft.trim()}
-                className="rounded-2xl bg-black px-6 py-3 font-semibold text-white transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-300 disabled:text-neutral-500 dark:bg-white dark:text-black dark:hover:bg-neutral-200 dark:disabled:bg-neutral-700 dark:disabled:text-neutral-400"
+                className="rounded-2xl bg-neutral-950 px-6 py-3 font-semibold text-white! transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-300 disabled:text-neutral-500! dark:bg-neutral-800 dark:text-white! dark:hover:bg-neutral-700 dark:disabled:bg-neutral-700 dark:disabled:text-neutral-400!"
               >
                 {isTurkish ? "Gönder" : "Send"}
               </button>
