@@ -9,6 +9,7 @@ import { saveFeedback } from "@/features/decision/feedback/saveFeedback";
 import { interpretRecommendation } from "@/features/decision/interpretRecommendation";
 import type { PersistedCarsConversation } from "@/types/carsConversation";
 import type { RecommendedCar } from "@/types/recommendation";
+import type { VehicleListingAnalysis } from "@/types/listingAnalysis";
 
 const storageKey = "expiya:cars-conversation:v4";
 const reasonTranslations: Record<string, string> = {
@@ -48,6 +49,13 @@ function readRecommendation(decisionId: string): RecommendedCar | null {
   }
 }
 
+function readUserContext(): string {
+  try {
+    const conversation = JSON.parse(localStorage.getItem(storageKey) ?? "null") as PersistedCarsConversation | null;
+    return conversation?.messages.filter((message) => message.role === "user").map((message) => message.content).join("\n") ?? "";
+  } catch { return ""; }
+}
+
 function updateDecisionMessage(
   decisionId: string,
   patch: Pick<PersistedCarsConversation["messages"][number], "satisfaction" | "sellerResearchRequest">,
@@ -71,6 +79,10 @@ export default function DecisionDetailPage() {
   const [province, setProvince] = useState("");
   const [district, setDistrict] = useState("");
   const [sellerRequest, setSellerRequest] = useState<{ province: string; district: string }>();
+  const [listingUrl, setListingUrl] = useState("");
+  const [listingAnalysis, setListingAnalysis] = useState<VehicleListingAnalysis>();
+  const [listingError, setListingError] = useState("");
+  const [isAnalyzingListing, setIsAnalyzingListing] = useState(false);
 
   useEffect(() => {
     queueMicrotask(() => setRecommendation(readRecommendation(decisionId)));
@@ -113,6 +125,19 @@ export default function DecisionDetailPage() {
       sellerResearchRequest: { ...request, status: "PLANNED_V0_2" },
     });
     setSellerRequest(request);
+  }
+
+  async function handleListingAnalysis(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    if (!listingUrl.trim() || isAnalyzingListing) return;
+    setIsAnalyzingListing(true); setListingError(""); setListingAnalysis(undefined);
+    try {
+      const response = await fetch("/api/cars/listing-analysis", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ url: listingUrl.trim(), userContext: readUserContext() || `${car.brand} ${car.model} için mevcut karar ayrıntısı` }) });
+      const payload = await response.json() as VehicleListingAnalysis | { message?: string };
+      if (!response.ok || !("userFit" in payload)) throw new Error("message" in payload ? payload.message ?? "İlan analiz edilemedi." : "İlan analiz edilemedi.");
+      setListingAnalysis(payload);
+    } catch (error) { setListingError(error instanceof Error ? error.message : "İlan analiz edilemedi."); }
+    finally { setIsAnalyzingListing(false); }
   }
 
   return (
@@ -210,6 +235,31 @@ export default function DecisionDetailPage() {
                 <div className="mt-3 flex gap-3">
                   <button type="button" onClick={() => handleFeedback(true)} className="rounded-xl border border-neutral-300 px-4 py-2 font-medium hover:border-black dark:border-neutral-600 dark:hover:border-white">Evet</button>
                   <button type="button" onClick={() => handleFeedback(false)} className="rounded-xl border border-neutral-300 px-4 py-2 font-medium hover:border-black dark:border-neutral-600 dark:hover:border-white">Hayır</button>
+                </div>
+              )}
+            </section>
+
+            <section className="mt-8 rounded-2xl border border-neutral-200 p-5 dark:border-neutral-700 sm:p-6">
+              <p className="text-sm font-semibold uppercase tracking-[0.14em] text-neutral-500 dark:text-neutral-400">İlan değerlendirmesi</p>
+              <h3 className="mt-2 text-xl font-semibold">Bir araç ilanını ihtiyaçlarınıza göre inceleyin</h3>
+              <p className="mt-2 text-sm leading-6 text-neutral-600 dark:text-neutral-300">İlan bağlantısını okuyup beyan edilen özellikleri konuşmadaki ihtiyaçlarınızla karşılaştırırım. Bu bir ekspertiz veya “al/alma” kararı değildir.</p>
+              <form onSubmit={handleListingAnalysis} className="mt-4 flex flex-col gap-3 sm:flex-row">
+                <label className="sr-only" htmlFor="listing-url">Araç ilanı bağlantısı</label>
+                <input id="listing-url" type="url" required value={listingUrl} onChange={(event) => setListingUrl(event.target.value)} placeholder="https://… araç ilanı bağlantısı" className="min-w-0 flex-1 rounded-xl border border-neutral-300 bg-white px-4 py-3 text-sm text-neutral-950 dark:border-neutral-600 dark:bg-neutral-950 dark:text-neutral-50" />
+                <button type="submit" disabled={!listingUrl.trim() || isAnalyzingListing} className="rounded-xl bg-neutral-950 px-5 py-3 text-sm font-semibold text-white! disabled:opacity-50 dark:bg-white dark:text-black!">{isAnalyzingListing ? "İnceleniyor…" : "İlanı değerlendir"}</button>
+              </form>
+              {listingError && <p role="alert" className="mt-4 rounded-xl bg-red-50 p-4 text-sm text-red-800 dark:bg-red-950/50 dark:text-red-200">{listingError}</p>}
+              {listingAnalysis && (
+                <div className="mt-6 space-y-5 border-t border-neutral-200 pt-5 dark:border-neutral-700">
+                  <div><p className="text-sm text-neutral-500 dark:text-neutral-400">İlan</p><h4 className="mt-1 text-lg font-semibold">{listingAnalysis.title}</h4><a href={listingAnalysis.sourceUrl} target="_blank" rel="noreferrer" className="mt-1 inline-flex text-sm underline">Kaynağı aç ({listingAnalysis.sourceHost})</a></div>
+                  <div className="rounded-xl bg-neutral-100 p-4 dark:bg-neutral-800"><p className="font-semibold">Uyum: {{ STRONG: "Güçlü", PARTIAL: "Kısmi", WEAK: "Zayıf", UNCLEAR: "Belirsiz" }[listingAnalysis.userFit]}</p><p className="mt-2 text-sm leading-6">{listingAnalysis.summary}</p></div>
+                  {listingAnalysis.matches.length > 0 && <div><h4 className="font-semibold text-emerald-700 dark:text-emerald-300">İhtiyaçlarınızla örtüşenler</h4><ul className="mt-2 space-y-1 text-sm">{listingAnalysis.matches.map((item) => <li key={item}>✓ {item}</li>)}</ul></div>}
+                  {listingAnalysis.mismatches.length > 0 && <div><h4 className="font-semibold text-amber-700 dark:text-amber-300">Ödünler ve uyumsuzluklar</h4><ul className="mt-2 space-y-1 text-sm">{listingAnalysis.mismatches.map((item) => <li key={item}>! {item}</li>)}</ul></div>}
+                  <div className="grid gap-5 md:grid-cols-2">
+                    <div><h4 className="font-semibold">İlanda eksik kalanlar</h4><ul className="mt-2 space-y-1 text-sm">{listingAnalysis.missingInformation.map((item) => <li key={item}>• {item}</li>)}</ul></div>
+                    <div><h4 className="font-semibold">Satıcıya sorun</h4><ul className="mt-2 space-y-1 text-sm">{listingAnalysis.sellerQuestions.map((item) => <li key={item}>• {item}</li>)}</ul></div>
+                  </div>
+                  <p className="rounded-xl bg-neutral-100 p-4 text-xs leading-5 text-neutral-600 dark:bg-neutral-800 dark:text-neutral-300">{listingAnalysis.disclaimer}</p>
                 </div>
               )}
             </section>
