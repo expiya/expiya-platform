@@ -29,7 +29,7 @@ export default function PrivacyPage() {
           <p className="text-neutral-700 dark:text-neutral-300">
             6698 sayılı Kişisel Verilerin Korunması Kanunu (&quot;KVKK&quot;) kapsamında veri sorumlusu
             <strong> SKYBIT YAZILIM VE BİLGİ TEKNOLOJİLERİ DANIŞMANLIĞI LİMİTED ŞİRKETİ</strong>&apos;dir.
-            KVKK başvuruları için iletişim adresi: <a className="font-semibold underline underline-offset-4" href="mailto:serdar@expiya.com">serdar@expiya.com</a>.
+            KVKK başvuruları için iletişim adresi henüz belirlenmemiştir.
           </p>
         </section>
 
@@ -108,7 +108,7 @@ export default function PrivacyPage() {
         <section className={sectionClass}>
           <h2 className={headingClass}>8. Başvuru yöntemi</h2>
           <p className="text-neutral-700 dark:text-neutral-300">
-            Talebinizi <a className="font-semibold underline underline-offset-4" href="mailto:serdar@expiya.com">serdar@expiya.com</a> adresine “KVKK Başvurusu” konusuyla iletebilirsiniz. Başvuruda talebinizi açıkça belirtin ve kimliğinizi doğrulamaya yetecek bilgileri paylaşın; gereğinden fazla kişisel veri göndermeyin. Başvurular niteliklerine göre en kısa sürede ve en geç 30 gün içinde sonuçlandırılır. Kimlik doğrulanamayan veya başkasının verisine erişim riski doğuran taleplerde ek doğrulama istenebilir.
+            KVKK başvuru kanalı henüz belirlenmemiştir. İletişim adresi yayımlandığında başvurunuzda talebinizi açıkça belirtmeniz ve kimliğinizi doğrulamaya yetecek bilgileri paylaşmanız istenecektir; gereğinden fazla kişisel veri göndermeyin. Başvurular niteliklerine göre en kısa sürede ve en geç 30 gün içinde sonuçlandırılır. Kimlik doğrulanamayan veya başkasının verisine erişim riski doğuran taleplerde ek doğrulama istenebilir.
           </p>
         </section>
       </article>
