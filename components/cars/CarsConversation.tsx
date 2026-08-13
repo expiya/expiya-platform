@@ -98,6 +98,7 @@ function readPersistedConversation(): PersistedCarsConversation | null {
 export function CarsConversation({ initialQuery }: CarsConversationProps) {
   const conversationId = useRef<string>("");
   const initialRequestStarted = useRef(false);
+  const conversationEndRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<CarsConversationMessage[]>([]);
   const [draft, setDraft] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -181,6 +182,18 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     setMessages([firstMessage]);
     void continueConversation([firstMessage]);
   }, [continueConversation, initialQuery, isRestored]);
+
+  useEffect(() => {
+    if (!isRestored || messages.length === 0) return;
+    const frame = requestAnimationFrame(() => {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      conversationEndRef.current?.scrollIntoView({
+        behavior: reduceMotion ? "auto" : "smooth",
+        block: "end",
+      });
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [isLoading, isRestored, messages]);
 
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -293,6 +306,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                 </div>
               </div>
             )}
+            <div ref={conversationEndRef} aria-hidden="true" />
           </div>
 
           <form onSubmit={submit} className="mt-6 border-t border-neutral-200 pt-5 dark:border-neutral-700">

@@ -51,7 +51,7 @@ export default function Home() {
         <button
   type="submit"
   disabled={!query.trim()}
-  className="mt-8 rounded-xl bg-black px-8 py-4 font-semibold text-white transition hover:bg-neutral-800 disabled:opacity-40 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
+  className="mt-8 rounded-xl bg-neutral-950 px-8 py-4 font-semibold text-white! transition hover:bg-neutral-800 disabled:opacity-40 dark:bg-neutral-800 dark:text-white! dark:hover:bg-neutral-700"
 >
   Aracımı Bul
 </button>
