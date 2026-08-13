@@ -253,7 +253,7 @@ describe("runCarsConversationTurn", () => {
 
     expect(response).toMatchObject({
       kind: "RECOMMENDATIONS",
-      message: expect.stringMatching(/konuştuklarımızı/iu),
+      message: expect.stringMatching(/konuştuklarımıza/iu),
     });
   });
 

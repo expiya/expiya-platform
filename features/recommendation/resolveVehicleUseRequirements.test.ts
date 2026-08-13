@@ -15,6 +15,7 @@ describe("vehicle use requirements", () => {
     ["Bozuk köy yollarında kullanacağım", "OFF_ROAD"],
     ["Çocuk koltuğu ve aile kullanımı", "FAMILY"],
     ["Park yeri dar, küçük araba olsun", "COMPACT_CITY"],
+    ["Çok küçük şehir arabası da olur", "COMPACT_CITY"],
   ])("recognizes %s as %s", (text, requirement) => {
     expect(resolveVehicleUseRequirements(text)).toContain(requirement);
   });

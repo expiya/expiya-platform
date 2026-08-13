@@ -85,10 +85,7 @@ describe("runCarsRuntime integration", () => {
     expect(result.recommendations.map((item) => item.car.id)).toEqual(
       decisionType === "AUTOMOBILE_PURCHASE_CANDIDATE_COMPARISON"
         ? ["1", "2"]
-        : [
-            "4", "3", "7", "1", "5", "8", "11", "15", "2", "6",
-            "9", "12", "16", "14", "13", "10", "19", "20", "17", "18",
-          ],
+        : ["4", "3", "7"],
     );
     expect(result.recommendations[0].isTopPick).toBe(true);
   });

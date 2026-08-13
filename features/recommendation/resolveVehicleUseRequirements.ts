@@ -27,7 +27,7 @@ const patterns: readonly [VehicleUseRequirement, RegExp][] = [
   ["TOWING", /(?:römork|karavan|tekne)\s*(?:çek|çekmek|çekeceğ)|\b(?:tow|towing|trailer)\b/iu],
   ["OFF_ROAD", /\b(?:off-road|offroad|4x4)\b|(?:arazi|köy yol|bozuk yol|dağ yol)/iu],
   ["FAMILY", /(?:aile|çocuk|bebek|çocuk koltuğu)|\b(?:family|children|child seat|baby)\b/iu],
-  ["COMPACT_CITY", /(?:park\w*\s*(?:zor|dar|kolay)|küçük araba|kompakt araba|şehir otomobili|dar sokak)|\b(?:easy parking|compact car|small car|tight parking)\b/iu],
+  ["COMPACT_CITY", /(?:park\w*\s*(?:zor|dar|kolay)|(?:çok\s+)?küçük(?:\s+şehir)?\s+(?:arabası|araba|araç)|kompakt(?:\s+şehir)?\s+(?:arabası|araba|araç)|şehir\s+(?:otomobili|arabası|aracı)|dar sokak)|\b(?:easy parking|compact (?:city )?car|small (?:city )?car|tight parking)\b/iu],
   ["CLASSIC", /\b(?:klasik|classic|nostaljik|vintage)\b/iu],
   ["PERFORMANCE", /(?:spor araba|performans|pist|roadster)|\b(?:sports car|performance car|track car)\b/iu],
 ];

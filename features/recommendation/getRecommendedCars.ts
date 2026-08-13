@@ -45,6 +45,7 @@ function matchesExplicitContext(car: (typeof cars)[number], text: string): boole
   const kmLimit = requestedMaximum(text, "km");
   if (priceLimit !== undefined && car.price > priceLimit) return false;
   if (kmLimit !== undefined && car.km > kmLimit) return false;
+  if (/(?:^|\b)(?:sıfır|0\s*km|zero[ -]?kilomet(?:er|re)|brand new)(?:\b|$)/iu.test(text) && car.km !== 0) return false;
 
   const useRequirements = resolveVehicleUseRequirements(text);
   if (!carSatisfiesUseRequirements(car, useRequirements)) return false;
@@ -102,8 +103,12 @@ export function getRecommendedCars(
   });
 
   const rankedCars = defaultRanking(evaluatedCars);
+  const prioritizesLowestPrice = /(?:en\s+ucuz|en\s+düşük\s+(?:fiyat|satın alma maliyet)|lowest\s+(?:price|purchase cost)|cheapest)/iu.test(text);
+  const orderedCars = prioritizesLowestPrice
+    ? [...rankedCars].sort((a, b) => a.car.price - b.car.price || b.decision.score - a.decision.score)
+    : rankedCars;
 
-  return rankedCars.map((recommendedCar, index) => ({
+  return orderedCars.slice(0, 3).map((recommendedCar, index) => ({
     ...recommendedCar,
     isTopPick: index === 0,
   }));

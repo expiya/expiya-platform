@@ -105,7 +105,9 @@ export async function runCarsConversationTurn(
       kind: "RECOMMENDATIONS",
       message: result.recommendations.length > 0
         ? isTurkish
-          ? "Konuştuklarımızı birlikte tartınca şu an en güçlü karar seçenekleri bunlar. Nedenlerini inceleyebilir veya bana itiraz edip sohbete devam edebilirsiniz."
+          ? result.recommendations.length === 1
+            ? "Konuştuklarımıza göre net seçimim bu araç. Kartı açarak gerekçelerini inceleyebilir veya bana itiraz edip sohbete devam edebilirsiniz."
+            : "Konuştuklarımıza göre ilk araç net seçimim; diğerleri yalnızca güçlü alternatifler. En fazla üç sonuç gösteriyorum. Kartları açarak gerekçeleri inceleyebilirsiniz."
           : "Weighing everything we discussed, these are the strongest decisions right now. You can inspect the reasoning, challenge it, or keep talking."
         : isTurkish
           ? "Konuştuklarımız yeterince net, fakat mevcut katalogda koşullarınızı dürüstçe karşılayan bir araç yok. İsterseniz hangi koşulun esneyebileceğini konuşalım."

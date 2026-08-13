@@ -49,6 +49,7 @@ describe("getRecommendedCars", () => {
     expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual(
       Array.from({ length: 20 }, (_, index) => String(index + 1)),
     );
+    expect(result).toHaveLength(3);
     expect(result[0].consumerExperience).toMatchObject({
       sourceName: "NHTSA tüketici şikâyetleri",
       market: "ABD",
@@ -125,5 +126,44 @@ describe("getRecommendedCars", () => {
 
     expect(result).toEqual([]);
     expect(mocks.evaluateCar).not.toHaveBeenCalled();
+  });
+
+  it("returns at most three compact automatic cars ordered by the user's cheapest priority", () => {
+    const result = getRecommendedCars({
+      ...context,
+      decisionNeed: [
+        "Clio mu Egea mı, ne dersin?",
+        "En düşük toplam maliyet önemli.",
+        "Yılda 10 bin km altı, çoğu şehir içi.",
+        "Çoğunlukla 1-2 kişiyiz, küçük bagaj yeter.",
+        "Otomatik istiyorum.",
+        "En ucuz otomatik hangisiyse.",
+        "Başka en ucuz otomatiklere de açığım.",
+        "Çok küçük şehir arabası da olur.",
+      ].join("\n"),
+    });
+
+    expect(result.map((item) => item.car.id)).toEqual(["4", "6", "7"]);
+    expect(result.map((item) => item.car.bodyType)).toEqual(["Hatchback", "Hatchback", "Hatchback"]);
+    expect(result.every((item) => item.car.transmission === "Automatic")).toBe(true);
+  });
+
+  it("does not present used catalog records when the user explicitly requires a zero-kilometre car", () => {
+    const result = getRecommendedCars({
+      ...context,
+      decisionNeed: "Sıfır bakıyorum. Otomatik, çok küçük şehir arabası ve en ucuz seçenek olsun.",
+    });
+
+    expect(result).toEqual([]);
+    expect(mocks.evaluateCar).not.toHaveBeenCalled();
+  });
+
+  it("selects Clio alone when the Clio-Egea comparison is constrained to automatic", () => {
+    const result = getRecommendedCars({
+      ...context,
+      decisionNeed: "Clio mu Egea mı? Otomatik istiyorum; en ucuz otomatik hangisiyse.",
+    }, ["4", "5"]);
+
+    expect(result.map((item) => item.car.id)).toEqual(["4"]);
   });
 });

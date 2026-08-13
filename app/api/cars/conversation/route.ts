@@ -8,7 +8,7 @@ const requestSchema = z.object({
     id: z.string().min(1).max(100),
     role: z.enum(["user", "assistant"]),
     content: z.string().trim().min(1).max(4_000),
-    recommendationIds: z.array(z.string().min(1).max(100)).max(10).optional(),
+    recommendationIds: z.array(z.string().min(1).max(100)).max(3).optional(),
     satisfaction: z.enum(["HELPFUL", "NOT_HELPFUL"]).optional(),
     sellerResearchRequest: z.object({
       province: z.string().min(1).max(100),
