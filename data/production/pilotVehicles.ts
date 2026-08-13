@@ -46,6 +46,66 @@ export interface PilotVehicleRecord {
   readonly technicalVariant?: TurkeyVehicleVariant;
 }
 
+interface CorollaPilotInput {
+  readonly id: string;
+  readonly campaignPriceId: string;
+  readonly listPriceId: string;
+  readonly trim: string;
+  readonly fuelType: "GASOLINE" | "HEV";
+  readonly powerPs: number;
+  readonly powerKw: number;
+  readonly combinedLitresPer100Km: number;
+  readonly campaignPriceTry: number;
+  readonly listPriceTry: number;
+}
+
+function createCorollaPilotRecord(input: CorollaPilotInput): PilotVehicleRecord {
+  const modelUrl = "https://www.toyota.com.tr/araba-modelleri/corolla-sedan";
+  const identitySource = technicalSource("toyota-tr", modelUrl, `Corolla ${input.trim} live model page, accessed 2026-08-13`);
+  const priceSource: ProvenanceRecord = {
+    sourceId: "toyota-tr", sourceUrl: modelUrl, accessedAt: "2026-08-13T00:00:00.000Z",
+    documentVersion: "Corolla campaign, 01–31 August 2026", extractionMethod: "MANUAL", confidence: "HIGH",
+    limitations: ["Observed on the public model page on 2026-08-13", "Price is non-binding and stock/dealer dependent"],
+  };
+
+  return {
+    identity: {
+      id: input.id, market: "TR", lifecycleStatus: "ON_SALE",
+      brand: identityTechnical("Toyota", identitySource), model: identityTechnical("Corolla", identitySource),
+      bodyStyle: identityTechnical("Sedan", identitySource), trim: identityTechnical(input.trim, identitySource),
+      modelYear: identityTechnical(2026, identitySource),
+    },
+    prices: [{
+      id: input.campaignPriceId, vehicleVariantId: input.id, market: "TR", condition: "NEW",
+      amountTry: input.campaignPriceTry, priceType: "CAMPAIGN", validFrom: "2026-08-01T00:00:00.000Z",
+      validUntil: "2026-08-31T23:59:59.999Z", sellerType: "DISTRIBUTOR", provenance: [priceSource], confidence: "HIGH",
+    }, {
+      id: input.listPriceId, vehicleVariantId: input.id, market: "TR", condition: "NEW",
+      amountTry: input.listPriceTry, priceType: "LIST", validFrom: "2026-08-01T00:00:00.000Z",
+      sellerType: "DISTRIBUTOR", provenance: [priceSource], confidence: "HIGH",
+    }],
+    technicalVariant: {
+      id: input.id, market: "TR", lifecycleStatus: "ON_SALE",
+      brand: technical("Toyota", identitySource), model: technical("Corolla", identitySource),
+      bodyStyle: technical("Sedan", identitySource), trim: technical(input.trim, identitySource),
+      modelYear: technical(2026, identitySource),
+      powertrain: {
+        fuelType: technical(input.fuelType, identitySource),
+        powerKw: derivedTechnical(input.powerKw, identitySource, `Converted from the published ${input.powerPs} PS using 1 PS = 0.73549875 kW`),
+        transmission: technical(input.fuelType === "HEV" ? "e-CVT automatic" : "Multidrive S automatic", identitySource),
+        drivenWheels: technical("FWD", identitySource),
+      },
+      dimensions: {},
+      efficiency: {
+        protocol: technical("WLTP", identitySource),
+        combinedLitresPer100Km: technical(input.combinedLitresPer100Km, identitySource),
+      },
+      safetyFeatureCodes: [technical("TSS3", identitySource)],
+      createdAt: "2026-08-13T00:00:00.000Z", updatedAt: "2026-08-13T00:00:00.000Z",
+    },
+  };
+}
+
 export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
   {
     identity: {
@@ -308,4 +368,20 @@ export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
       } satisfies TurkeyVehicleVariant;
     })(),
   },
+  createCorollaPilotRecord({
+    id: "8af2278c-4168-4a1b-a915-6b72b9cd6f48",
+    campaignPriceId: "43f01ddd-7eb8-4816-bfb2-93dc87798743",
+    listPriceId: "59a9b19c-2596-4457-95b6-798957264c06",
+    trim: "Vision Plus 1.5 125 HP Multidrive S",
+    fuelType: "GASOLINE", powerPs: 125, powerKw: 91.9,
+    combinedLitresPer100Km: 6.3, campaignPriceTry: 1_850_000, listPriceTry: 2_284_000,
+  }),
+  createCorollaPilotRecord({
+    id: "db2d6503-f10f-41a4-ad11-b2ca71e59d32",
+    campaignPriceId: "d857cf51-61fe-49b0-9861-eaefbaff6848",
+    listPriceId: "4c591bed-15bc-4bac-bf85-dcbecc25e63b",
+    trim: "Flame X-Pack Hybrid 1.8 140 HP e-CVT",
+    fuelType: "HEV", powerPs: 140, powerKw: 103,
+    combinedLitresPer100Km: 4.7, campaignPriceTry: 2_500_000, listPriceTry: 3_228_000,
+  }),
 ];

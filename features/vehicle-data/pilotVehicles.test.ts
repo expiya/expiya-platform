@@ -14,4 +14,11 @@ describe("production pilot records", () => {
       expect(validatePriceObservations(record.prices)).toEqual([]);
     }
   });
+
+  it("keeps Corolla gasoline and hybrid variants distinct", () => {
+    const corollas = pilotVehicleRecords.filter((record) => record.identity.model.value === "Corolla");
+    expect(corollas).toHaveLength(2);
+    expect(corollas.map((record) => record.technicalVariant?.powertrain.fuelType.value)).toEqual(["GASOLINE", "HEV"]);
+    expect(corollas.map((record) => record.prices[0].amountTry)).toEqual([1_850_000, 2_500_000]);
+  });
 });
