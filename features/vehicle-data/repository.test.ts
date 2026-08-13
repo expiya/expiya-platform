@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { pilotVehicleRecords } from "@/data/production/pilotVehicles";
 import { PostgresVehicleDataRepository } from "@/features/vehicle-data/repository";
@@ -26,5 +26,21 @@ describe("PostgresVehicleDataRepository", () => {
     await expect(new PostgresVehicleDataRepository(database).upsertPilotRecord(pilotVehicleRecords[0]))
       .rejects.toThrow("SOURCE_DOCUMENT_INSERT_FAILED");
     expect(calls.at(-1)).toBe("rollback");
+  });
+
+  it("pins pooled transaction queries to one connection and releases it", async () => {
+    const poolQuery = vi.fn();
+    const connectionQuery = vi.fn(async (sql: string) =>
+      sql.includes("returning id") ? { rows: [{ id: "persisted-id" }] } : {});
+    const release = vi.fn();
+    const database = {
+      query: poolQuery,
+      connect: async () => ({ query: connectionQuery, release }),
+    };
+    await new PostgresVehicleDataRepository(database).upsertPilotRecord(pilotVehicleRecords[0]);
+    expect(poolQuery).not.toHaveBeenCalled();
+    expect(connectionQuery.mock.calls[0][0]).toBe("begin");
+    expect(connectionQuery.mock.calls.at(-1)?.[0]).toBe("commit");
+    expect(release).toHaveBeenCalledOnce();
   });
 });

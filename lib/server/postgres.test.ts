@@ -1,11 +1,10 @@
 import { afterEach, describe, expect, it } from "vitest";
 
-import { getPostgresDatabase, requirePostgresConnectionString } from "@/lib/server/postgres";
+import { closePostgresDatabase, getPostgresDatabase, requirePostgresConnectionString } from "@/lib/server/postgres";
 
 describe("PostgreSQL server connection", () => {
   afterEach(async () => {
-    await globalThis.expiyaPostgresPool?.end();
-    globalThis.expiyaPostgresPool = undefined;
+    await closePostgresDatabase();
   });
 
   it("requires a private PostgreSQL connection URL", () => {

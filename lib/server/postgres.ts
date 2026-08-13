@@ -32,6 +32,15 @@ export function getPostgresDatabase(
     DATABASE_POOL_MAX: process.env.DATABASE_POOL_MAX,
   },
 ): SqlQueryable {
+  return getPostgresPool(environment);
+}
+
+export function getPostgresPool(
+  environment: PostgresEnvironment = {
+    DATABASE_URL: process.env.DATABASE_URL,
+    DATABASE_POOL_MAX: process.env.DATABASE_POOL_MAX,
+  },
+): Pool {
   const connectionString = requirePostgresConnectionString(environment);
   if (!globalThis.expiyaPostgresPool) {
     globalThis.expiyaPostgresPool = new Pool({
@@ -43,4 +52,10 @@ export function getPostgresDatabase(
     });
   }
   return globalThis.expiyaPostgresPool;
+}
+
+export async function closePostgresDatabase(): Promise<void> {
+  const pool = globalThis.expiyaPostgresPool;
+  globalThis.expiyaPostgresPool = undefined;
+  await pool?.end();
 }

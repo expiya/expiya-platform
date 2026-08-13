@@ -9,16 +9,24 @@ export interface VehicleDataRepository {
 
 export interface SqlQueryable {
   query(sql: string, values?: readonly unknown[]): Promise<unknown>;
+  connect?(): Promise<SqlConnection>;
+}
+
+export interface SqlConnection {
+  query(sql: string, values?: readonly unknown[]): Promise<unknown>;
+  release(): void;
 }
 
 export class PostgresVehicleDataRepository implements VehicleDataRepository {
   constructor(private readonly database: SqlQueryable) {}
 
   async upsertPilotRecord(record: PilotVehicleRecord): Promise<void> {
+    const pooledConnection = this.database.connect ? await this.database.connect() : undefined;
+    const connection = pooledConnection ?? this.database;
     const { identity } = record;
-    await this.database.query("begin");
+    await connection.query("begin");
     try {
-      await this.database.query(
+      await connection.query(
         `insert into vehicle_variants
           (id, market, brand, model, body_style, trim, model_year, lifecycle_status)
          values ($1,$2,$3,$4,$5,$6,$7,$8)
@@ -39,7 +47,7 @@ export class PostgresVehicleDataRepository implements VehicleDataRepository {
 
         const source = vehicleDataSourceById.get(provenance.sourceId);
         if (!source) throw new Error(`UNKNOWN_SOURCE:${provenance.sourceId}`);
-        await this.database.query(
+        await connection.query(
           `insert into data_sources
             (id, name, authority, homepage_url, terms_url, robots_url,
              usage_permission, license, reviewed_at, review_notes)
@@ -53,7 +61,7 @@ export class PostgresVehicleDataRepository implements VehicleDataRepository {
             source.termsUrl ?? null, source.robotsUrl ?? null, source.usagePermission,
             source.license ?? null, source.reviewedAt, JSON.stringify(source.reviewNotes)],
         );
-        const result = await this.database.query(
+        const result = await connection.query(
           `insert into source_documents
             (source_id, source_url, accessed_at, published_at, document_version,
              content_sha256, extraction_method, limitations)
@@ -78,7 +86,7 @@ export class PostgresVehicleDataRepository implements VehicleDataRepository {
       for (const sourcedValue of identityValues) {
         for (const provenance of sourcedValue.provenance) {
           const sourceDocumentId = await persistDocument(provenance);
-          await this.database.query(
+          await connection.query(
             `insert into variant_provenance (vehicle_variant_id, source_document_id)
              values ($1,$2) on conflict do nothing`,
             [identity.id, sourceDocumentId],
@@ -88,7 +96,7 @@ export class PostgresVehicleDataRepository implements VehicleDataRepository {
 
       if (record.technicalVariant) {
         for (const fact of flattenVariantFacts(record.technicalVariant)) {
-          const factResult = await this.database.query(
+          const factResult = await connection.query(
             `insert into vehicle_facts
               (vehicle_variant_id, fact_key, value, unit, confidence, valid_from,
                conflict_group_id, ingestion_key)
@@ -104,7 +112,7 @@ export class PostgresVehicleDataRepository implements VehicleDataRepository {
           if (!factId) throw new Error("VEHICLE_FACT_INSERT_FAILED");
           for (const provenance of fact.provenance) {
             const sourceDocumentId = await persistDocument(provenance);
-            await this.database.query(
+            await connection.query(
               `insert into fact_provenance (fact_id, source_document_id)
                values ($1,$2) on conflict do nothing`,
               [factId, sourceDocumentId],
@@ -116,7 +124,7 @@ export class PostgresVehicleDataRepository implements VehicleDataRepository {
       for (const price of record.prices) {
         const sourceDocumentId = await persistDocument(price.provenance[0]);
 
-        await this.database.query(
+        await connection.query(
           `insert into price_observations
             (id, vehicle_variant_id, source_document_id, condition, amount_try,
              price_type, valid_from, valid_until, mileage_km, seller_type, confidence)
@@ -128,17 +136,19 @@ export class PostgresVehicleDataRepository implements VehicleDataRepository {
         );
         for (const provenance of price.provenance) {
           const provenanceDocumentId = await persistDocument(provenance);
-          await this.database.query(
+          await connection.query(
             `insert into price_provenance (price_observation_id, source_document_id)
              values ($1,$2) on conflict do nothing`,
             [price.id, provenanceDocumentId],
           );
         }
       }
-      await this.database.query("commit");
+      await connection.query("commit");
     } catch (error) {
-      await this.database.query("rollback");
+      await connection.query("rollback");
       throw error;
+    } finally {
+      pooledConnection?.release();
     }
   }
 }

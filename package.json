@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
+    "db:migrate:vehicles": "tsx scripts/migrate-vehicle-data.ts",
+    "db:import:vehicles": "tsx scripts/import-pilot-vehicles.ts",
     "verify:cars-catalog-blob": "node scripts/verify-cars-catalog-blob.mjs"
   },
   "dependencies": {
@@ -28,6 +30,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
     "tailwindcss": "^4",
+    "tsx": "^4.23.12",
     "typescript": "^5",
     "vitest": "^4.1.10"
   },

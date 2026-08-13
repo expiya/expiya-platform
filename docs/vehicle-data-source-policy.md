@@ -72,3 +72,21 @@ read model containing only in-market, non-expired observations. Ranking must dec
 facts per use case, lower confidence for missing/stale/conflicting evidence, expose price date and
 type, and abstain when evidence is insufficient. No user-experience signal affects ranking until
 moderated and normalized or explicitly labelled qualitative.
+
+## Database deployment runbook
+
+Keep `DATABASE_URL` server-only; never expose it with a `NEXT_PUBLIC_` prefix or commit it to an
+environment file. Apply schema migrations before importing data:
+
+```sh
+npm run db:migrate:vehicles
+npm run db:import:vehicles -- --at=2026-08-14T00:00:00.000Z
+npm run db:import:vehicles -- --apply --at=2026-08-14T00:00:00.000Z
+```
+
+The first import command is a local quality dry-run and does not require a database connection.
+`--apply` requires the latest migration, reruns the same quality gate, and then writes each vehicle
+in a pinned transaction. Migration checksums are immutable: editing an already applied SQL file
+fails deployment instead of silently changing history. After import verification, set
+`EXPIYA_CARS_CATALOG_MODE=production`; an unavailable database fails closed and never falls back
+to the test fixture.
