@@ -18,14 +18,20 @@ const sourced = <T>(value: T) => ({
   confidence: "HIGH" as const,
 });
 
-const technicalSource = (sourceUrl: string, documentVersion: string): ProvenanceRecord => ({
-  sourceId: "hyundai-tr", sourceUrl, accessedAt: "2026-08-13T00:00:00.000Z",
+const technicalSource = (sourceId: string, sourceUrl: string, documentVersion: string): ProvenanceRecord => ({
+  sourceId, sourceUrl, accessedAt: "2026-08-13T00:00:00.000Z",
   documentVersion, extractionMethod: "DOCUMENT_IMPORT", confidence: "HIGH",
   limitations: ["Manufacturer values; real-world results vary with conditions and driving style"],
 });
 
 const technical = <T>(value: T, provenance: ProvenanceRecord) => ({
   value, provenance: [provenance] as [ProvenanceRecord], confidence: "HIGH" as const,
+});
+
+const identityTechnical = <T>(value: T, provenance: ProvenanceRecord) => ({
+  value,
+  provenance: [{ ...provenance, limitations: [...provenance.limitations] }],
+  confidence: "HIGH" as const,
 });
 
 const derivedTechnical = <T>(value: T, provenance: ProvenanceRecord, limitation: string) => ({
@@ -54,7 +60,7 @@ export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
       sellerType: "DISTRIBUTOR", provenance: [hyundaiAugust2026], confidence: "HIGH",
     }],
     technicalVariant: (() => {
-      const source = technicalSource(
+      const source = technicalSource("hyundai-tr",
         "https://www.hyundai.com/content/dam/hyundai/tr/tr/data/marketing/brochure/product/yeni-tucson-fl/Yeni-Tucson-Facelift-Brosur-New.pdf",
         "Yeni TUCSON Facelift Türkiye brochure, current download verified 2026-08-13",
       );
@@ -96,7 +102,7 @@ export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
       sellerType: "DISTRIBUTOR", provenance: [hyundaiAugust2026], confidence: "HIGH",
     }],
     technicalVariant: (() => {
-      const source = technicalSource(
+      const source = technicalSource("hyundai-tr",
         "https://www.hyundai.com/content/dam/hyundai/downloads/tr/tr/brosurler/ioniq5-digital-brosur.pdf",
         "IONIQ 5 Türkiye digital brochure, accessed 2026-08-13",
       );
@@ -134,7 +140,7 @@ export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
       sellerType: "DISTRIBUTOR", provenance: [hyundaiAugust2026], confidence: "HIGH",
     }],
     technicalVariant: (() => {
-      const source = technicalSource(
+      const source = technicalSource("hyundai-tr",
         "https://www.hyundai.com/content/dam/hyundai/downloads/tr/tr/brosurler/ioniq9-digital-brosur.pdf",
         "IONIQ 9 Türkiye digital brochure, accessed 2026-08-13",
       );
@@ -159,6 +165,81 @@ export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
           maxDcChargeKw: technical(350, source),
         },
         safetyFeatureCodes: ["ABS", "ESC", "TPMS", "MCB", "SVM", "SEA", "SCC", "LKA", "LFA", "FCA", "BCA", "RCCA", "ECALL"]
+          .map((code) => technical(code, source)),
+        createdAt: "2026-08-13T00:00:00.000Z", updatedAt: "2026-08-13T00:00:00.000Z",
+      } satisfies TurkeyVehicleVariant;
+    })(),
+  },
+  {
+    identity: (() => {
+      const source = technicalSource(
+        "toyota-tr",
+        "https://www.toyota.com.tr/araba-modelleri/yaris/olustur",
+        "Yaris Flame Hybrid live configurator, accessed 2026-08-13",
+      );
+      return {
+        id: "c8d535d0-6c04-4dcb-8cf6-2bad5bd037e8", market: "TR", lifecycleStatus: "ON_SALE",
+        brand: identityTechnical("Toyota", source), model: identityTechnical("Yaris", source),
+        bodyStyle: identityTechnical("Hatchback", source), trim: identityTechnical("Flame Hybrid 1.5 116 HP e-CVT", source),
+        modelYear: identityTechnical(2026, source),
+      } satisfies ProductionVehicleIdentity;
+    })(),
+    prices: (() => {
+      const source: ProvenanceRecord = {
+        sourceId: "toyota-tr", sourceUrl: "https://www.toyota.com.tr/araba-modelleri/yaris/olustur",
+        accessedAt: "2026-08-13T00:00:00.000Z", documentVersion: "Yaris Hybrid August campaign",
+        extractionMethod: "MANUAL", confidence: "MEDIUM",
+        limitations: ["Observed in the public configurator on 2026-08-13", "Campaign end inferred from the displayed August campaign label", "Price is non-binding and stock/dealer dependent"],
+      };
+      return [{
+        id: "a177947a-eacd-4a71-8fcf-4ae96d42aa16", vehicleVariantId: "c8d535d0-6c04-4dcb-8cf6-2bad5bd037e8",
+        market: "TR" as const, condition: "NEW" as const, amountTry: 1_995_000, priceType: "CAMPAIGN" as const,
+        validFrom: "2026-08-13T00:00:00.000Z", validUntil: "2026-08-31T23:59:59.999Z",
+        sellerType: "DISTRIBUTOR" as const, provenance: [source] as [ProvenanceRecord], confidence: "MEDIUM" as const,
+      }, {
+        id: "06cf2a96-64f0-49ad-81a2-e37316c17bb9", vehicleVariantId: "c8d535d0-6c04-4dcb-8cf6-2bad5bd037e8",
+        market: "TR" as const, condition: "NEW" as const, amountTry: 2_245_000, priceType: "LIST" as const,
+        validFrom: "2026-08-13T00:00:00.000Z", sellerType: "DISTRIBUTOR" as const,
+        provenance: [source] as [ProvenanceRecord], confidence: "MEDIUM" as const,
+      }];
+    })(),
+    technicalVariant: (() => {
+      const source = technicalSource(
+        "toyota-tr",
+        "https://turkiye.toyota.com.tr/middle/Toyota_Yaris_Teknik_%C3%96zellikler_Fiyatl%C4%B1_%2801.06.2026%29.pdf",
+        "Yaris Hybrid Türkiye technical and equipment PDF, June 2026",
+      );
+      return {
+        id: "c8d535d0-6c04-4dcb-8cf6-2bad5bd037e8", market: "TR", lifecycleStatus: "ON_SALE",
+        brand: technical("Toyota", source), model: technical("Yaris", source),
+        bodyStyle: technical("Hatchback", source), trim: technical("Flame Hybrid 1.5 116 HP e-CVT", source),
+        modelYear: technical(2026, source),
+        powertrain: {
+          fuelType: technical("HEV" as const, source), engineDisplacementCc: technical(1490, source),
+          powerKw: technical(85, source),
+          transmission: technical("e-CVT automatic", source), drivenWheels: technical("FWD", source),
+        },
+        dimensions: {
+          lengthMm: technical(3940, source), widthMm: technical(1745, source),
+          heightMm: technical(1500, source), wheelbaseMm: technical(2560, source),
+          luggageLitres: technical(286, source),
+        },
+        efficiency: {
+          protocol: technical("WLTP" as const, source),
+          combinedLitresPer100Km: {
+            value: 3.9,
+            provenance: [source, {
+              ...source,
+              sourceUrl: "https://www.toyota.com.tr/araba-modelleri/yaris/olustur",
+              documentVersion: "Yaris Flame Hybrid live configurator, accessed 2026-08-13",
+              confidence: "MEDIUM",
+              limitations: ["Live configurator displayed 3.8 l/100 km; retained as an unresolved conflicting observation"],
+            }],
+            confidence: "MEDIUM",
+            conflictGroupId: "toyota-yaris-flame-2026-wltp-combined",
+          },
+        },
+        safetyFeatureCodes: ["TSS3", "PCS", "ESA", "ACC", "LTA", "ABS", "VSC", "TPWS", "HAC", "ECALL", "ISOFIX"]
           .map((code) => technical(code, source)),
         createdAt: "2026-08-13T00:00:00.000Z", updatedAt: "2026-08-13T00:00:00.000Z",
       } satisfies TurkeyVehicleVariant;

@@ -70,6 +70,17 @@ describe("getRecommendedCars", () => {
     expect(result.every(({ car }) => car.km === 0 && car.fuel === "Electric")).toBe(true);
   });
 
+  it("uses the sourced Toyota campaign price in production budget filtering", () => {
+    const result = getRecommendedCars(
+      { ...context, decisionNeed: "2 milyon TL bütçeyle sadece hibrit sıfır araç istiyorum." },
+      undefined,
+      { catalogMode: "production", at: new Date("2026-08-13T12:00:00.000Z") },
+    );
+
+    expect(result.map(({ car }) => car.id)).toEqual(["c8d535d0-6c04-4dcb-8cf6-2bad5bd037e8"]);
+    expect(result[0].car).toMatchObject({ brand: "Toyota", price: 1_995_000, km: 0, fuel: "Hybrid" });
+  });
+
   it("filters discovery options by explicit budget and fuel constraints", () => {
     getRecommendedCars({
       ...context,
