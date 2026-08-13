@@ -62,5 +62,7 @@ Deployment sonrasında:
 ## Düzenli tarama
 
 - Her pull request'te `npm audit --omit=dev`, test, lint ve production build çalıştırın.
-- Haftalık olarak `git grep` tabanlı secret taraması; tercihen GitHub secret scanning/push protection ve Dependabot alerts etkinleştirin.
+- GitHub Dependabot alerts/security updates, secret scanning ve push protection aktiftir. `non-provider patterns` ve validity checks mevcut hesap özelliğinde kapalıdır.
+- `.github/dependabot.yml` npm bağımlılıklarını her pazartesi haftalık olarak kontrol eder; güvenlik güncellemelerini birleştirmeden önce test, lint ve production build çalıştırın.
+- Haftalık olarak yerel `git grep` tabanlı secret taramasını da sürdürün; sağlayıcı tarafından tanınmayan secret kalıpları GitHub'ın mevcut taramasında kapsanmayabilir.
 - Aylık olarak dış bağımlılıkları ve canlı başlıkları tekrar doğrulayın. SSRF test setine IPv4/IPv6 özel, link-local, mapped IPv6, redirect ve DNS değişimi vakalarını ekleyin.
