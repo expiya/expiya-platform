@@ -25,6 +25,9 @@ export default withSentryConfig(nextConfig, {
   org: "expiya",
   project: "expiya-platform",
   authToken: process.env.SENTRY_AUTH_TOKEN,
+  // Shared client chunks can contain application frames too. Upload them so
+  // production errors outside route-specific bundles can be symbolicated.
+  widenClientFileUpload: true,
   silent: true,
   telemetry: false,
   sourcemaps: { deleteSourcemapsAfterUpload: true },
