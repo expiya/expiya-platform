@@ -40,6 +40,8 @@ export const productionVehicleIdentitySchema = z.strictObject({
   modelYear: sourcedIntegerSchema.refine((field) => field.value >= 1950 && field.value <= 2100),
 });
 
+export type ProductionVehicleIdentity = z.infer<typeof productionVehicleIdentitySchema>;
+
 export type ProductionPublishabilityErrorCode =
   | "INVALID_PAYLOAD" | "UNKNOWN_SOURCE" | "SOURCE_NOT_APPROVED" | "STALE_SOURCE_REVIEW";
 
