@@ -4,15 +4,20 @@ import { pilotVehicleRecords } from "@/data/production/pilotVehicles";
 import { PostgresVehicleDataRepository } from "@/features/vehicle-data/repository";
 
 describe("PostgresVehicleDataRepository", () => {
-  it("persists identity, provenance and new price atomically", async () => {
+  it("persists identity, technical facts, all provenance and new prices atomically", async () => {
     const calls: { sql: string; values?: readonly unknown[] }[] = [];
     const database = { query: async (sql: string, values?: readonly unknown[]) => {
       calls.push({ sql, values });
       return sql.includes("returning id") ? { rows: [{ id: "document-id" }] } : {};
     } };
-    await new PostgresVehicleDataRepository(database).upsertPilotRecord(pilotVehicleRecords[0]);
-    expect(calls.map(({ sql }) => sql.trim().split(/\s+/)[0])).toEqual(["begin", "insert", "insert", "insert", "insert", "insert", "commit"]);
-    expect(calls[5].values).toContain("NEW");
+    await new PostgresVehicleDataRepository(database).upsertPilotRecord(pilotVehicleRecords[3]);
+    expect(calls[0].sql).toBe("begin");
+    expect(calls.at(-1)?.sql).toBe("commit");
+    expect(calls.some(({ sql }) => sql.includes("insert into vehicle_facts"))).toBe(true);
+    expect(calls.some(({ sql }) => sql.includes("insert into fact_provenance"))).toBe(true);
+    expect(calls.some(({ sql }) => sql.includes("insert into price_provenance"))).toBe(true);
+    expect(calls.filter(({ sql }) => sql.includes("insert into source_documents"))).toHaveLength(3);
+    expect(calls.find(({ sql }) => sql.includes("insert into price_observations"))?.values).toContain("NEW");
   });
 
   it("rolls back if a source document cannot be persisted", async () => {
