@@ -130,9 +130,8 @@ export async function runCarsRuntime(
       };
     }
 
-    return {
-      status: "SUCCEEDED",
-      recommendations: executeAuthorizedCarsRecommendation({
+    try {
+      const recommendations = await executeAuthorizedCarsRecommendation({
         context: contextDependencies.populationResult.context,
         optionIds:
           classification.status === "CLASSIFIED" &&
@@ -144,10 +143,19 @@ export async function runCarsRuntime(
                 )
               : []
             : undefined,
-      }),
-      reasons: [],
-      lineage: result.lineage,
-    };
+      });
+      return { status: "SUCCEEDED", recommendations, reasons: [], lineage: result.lineage };
+    } catch {
+      return {
+        status: "FAILED",
+        reasons: [{
+          code: "EXECUTION_CONTEXT_UNAVAILABLE",
+          stage: "AUTHORIZATION",
+          referenceIds: ["production-vehicle-catalog"],
+        }],
+        lineage: result.lineage,
+      };
+    }
   }
 
   return {

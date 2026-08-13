@@ -202,6 +202,19 @@ describe("runCarsRuntime", () => {
     });
   });
 
+  it("fails closed when the production recommendation catalog cannot be read", async () => {
+    mocks.orchestrateCarsDecision.mockReturnValue({
+      status: "AUTHORIZED", reasons: [],
+      lineage: { requestId: input.requestId, contextReference: input.contextReference, stoppedAt: "AUTHORIZATION", inspectedStages: ["CLASSIFICATION", "AUTHORIZATION"] },
+    });
+    mocks.executeAuthorizedCarsRecommendation.mockRejectedValue(new Error("PRODUCTION_CATALOG_UNAVAILABLE"));
+
+    await expect(runCarsRuntime(input)).resolves.toMatchObject({
+      status: "FAILED",
+      reasons: [{ code: "EXECUTION_CONTEXT_UNAVAILABLE", referenceIds: ["production-vehicle-catalog"] }],
+    });
+  });
+
   it("fails closed if an authorized result has no populated execution context", async () => {
     mocks.buildCarsRuntimeContextDependencies.mockResolvedValue({
       populationResult: {

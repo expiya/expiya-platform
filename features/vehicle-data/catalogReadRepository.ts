@@ -4,6 +4,7 @@ import type { RecommendationCatalogResolution } from "@/features/vehicle-data/re
 import type { SqlQueryable } from "@/features/vehicle-data/repository";
 import type { BodyType, Car, FuelType, Transmission } from "@/types/car";
 import type { ProductionFuelType } from "@/types/productionVehicle";
+import { getPostgresDatabase } from "@/lib/server/postgres";
 
 export interface VehicleCatalogReadRepository {
   readPublishedCatalog(at: Date): Promise<RecommendationCatalogResolution>;
@@ -143,4 +144,8 @@ export class PostgresVehicleCatalogReadRepository implements VehicleCatalogReadR
     }
     return { mode: "production", cars: Object.freeze(cars), limitations: Object.freeze(limitations) };
   }
+}
+
+export function createConfiguredVehicleCatalogReadRepository(): VehicleCatalogReadRepository {
+  return new PostgresVehicleCatalogReadRepository(getPostgresDatabase());
 }
