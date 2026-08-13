@@ -48,11 +48,29 @@ function readRecommendation(decisionId: string): RecommendedCar | null {
   }
 }
 
+function updateDecisionMessage(
+  decisionId: string,
+  patch: Pick<PersistedCarsConversation["messages"][number], "satisfaction" | "sellerResearchRequest">,
+): void {
+  const conversation = JSON.parse(localStorage.getItem(storageKey) ?? "null") as PersistedCarsConversation | null;
+  if (!conversation || conversation.version !== 4) return;
+  const messages = conversation.messages.map((message) => (
+    message.recommendations?.some((item) => item.decision.decisionId === decisionId)
+      ? { ...message, ...patch }
+      : message
+  ));
+  localStorage.setItem(storageKey, JSON.stringify({ ...conversation, messages }));
+}
+
 export default function DecisionDetailPage() {
   const params = useParams<{ id: string }>();
   const decisionId = params.id;
   const [recommendation, setRecommendation] = useState<RecommendedCar | null>();
   const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
+  const [showLocation, setShowLocation] = useState(false);
+  const [province, setProvince] = useState("");
+  const [district, setDistrict] = useState("");
+  const [sellerRequest, setSellerRequest] = useState<{ province: string; district: string }>();
 
   useEffect(() => {
     queueMicrotask(() => setRecommendation(readRecommendation(decisionId)));
@@ -83,7 +101,18 @@ export default function DecisionDetailPage() {
 
   function handleFeedback(helpful: boolean) {
     saveFeedback({ decisionId, helpful });
+    updateDecisionMessage(decisionId, { satisfaction: helpful ? "HELPFUL" : "NOT_HELPFUL" });
     setFeedbackSubmitted(true);
+  }
+
+  function handleSellerRequest(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const request = { province: province.trim(), district: district.trim() };
+    if (!request.province || !request.district) return;
+    updateDecisionMessage(decisionId, {
+      sellerResearchRequest: { ...request, status: "PLANNED_V0_2" },
+    });
+    setSellerRequest(request);
   }
 
   return (
@@ -182,6 +211,24 @@ export default function DecisionDetailPage() {
                   <button type="button" onClick={() => handleFeedback(true)} className="rounded-xl border border-neutral-300 px-4 py-2 font-medium hover:border-black dark:border-neutral-600 dark:hover:border-white">Evet</button>
                   <button type="button" onClick={() => handleFeedback(false)} className="rounded-xl border border-neutral-300 px-4 py-2 font-medium hover:border-black dark:border-neutral-600 dark:hover:border-white">Hayır</button>
                 </div>
+              )}
+            </section>
+
+            <section className="mt-8 rounded-2xl bg-neutral-950 p-5 text-white sm:p-6">
+              <h3 className="text-lg font-semibold">Bu aracı Türkiye’nin güvenilir satıcılarında araştırmamı ister misiniz?</h3>
+              <p className="mt-2 text-sm leading-6 text-neutral-300">{car.brand} {car.model} için konumunuza göre satıcı, fiyat teklifi ve test sürüşü araştırması v0.2’de açılacak.</p>
+              {sellerRequest ? (
+                <p className="mt-4 text-sm font-medium">Talep kaydedildi: {sellerRequest.province} / {sellerRequest.district}</p>
+              ) : showLocation ? (
+                <form onSubmit={handleSellerRequest} className="mt-4 grid gap-3 sm:grid-cols-[1fr_1fr_auto]">
+                  <label className="sr-only" htmlFor="seller-province">İl</label>
+                  <input id="seller-province" value={province} onChange={(event) => setProvince(event.target.value)} placeholder="İl" className="rounded-xl bg-white px-4 py-3 text-sm text-black" />
+                  <label className="sr-only" htmlFor="seller-district">İlçe</label>
+                  <input id="seller-district" value={district} onChange={(event) => setDistrict(event.target.value)} placeholder="İlçe" className="rounded-xl bg-white px-4 py-3 text-sm text-black" />
+                  <button type="submit" disabled={!province.trim() || !district.trim()} className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black disabled:opacity-50">Kaydet</button>
+                </form>
+              ) : (
+                <button type="button" onClick={() => setShowLocation(true)} className="mt-4 rounded-xl bg-white px-5 py-3 text-sm font-semibold text-black">Evet, konumumu paylaşayım</button>
               )}
             </section>
           </div>

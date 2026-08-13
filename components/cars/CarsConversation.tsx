@@ -13,60 +13,6 @@ interface CarsConversationProps {
   readonly initialQuery: string;
 }
 
-interface RecommendationActionsProps {
-  readonly message: CarsConversationMessage;
-  readonly onUpdate: (patch: Partial<CarsConversationMessage>) => void;
-}
-
-function RecommendationActions({ message, onUpdate }: RecommendationActionsProps) {
-  const [showLocation, setShowLocation] = useState(false);
-  const [province, setProvince] = useState("");
-  const [district, setDistrict] = useState("");
-
-  return (
-    <div className="mt-5 space-y-4 border-t border-neutral-200 pt-4 dark:border-neutral-700">
-      <div>
-        <p className="text-sm font-semibold">Bu karar size yardımcı oldu mu?</p>
-        {message.satisfaction ? (
-          <p className="mt-2 text-sm text-neutral-600 dark:text-neutral-300">
-            {message.satisfaction === "HELPFUL" ? "Bunu duymak güzel. Geri bildiriminiz kaydedildi." : "Anladım. Neyi beğenmediğinizi yazın; seçenekleri yeniden değerlendireyim."}
-          </p>
-        ) : (
-          <div className="mt-2 flex gap-2">
-            <button type="button" onClick={() => onUpdate({ satisfaction: "HELPFUL" })} className="rounded-full border border-neutral-300 px-3 py-1.5 text-sm hover:border-black dark:border-neutral-600 dark:hover:border-white">Evet</button>
-            <button type="button" onClick={() => onUpdate({ satisfaction: "NOT_HELPFUL" })} className="rounded-full border border-neutral-300 px-3 py-1.5 text-sm hover:border-black dark:border-neutral-600 dark:hover:border-white">Hayır</button>
-          </div>
-        )}
-      </div>
-
-      <div className="rounded-2xl bg-neutral-900 p-4 text-white">
-        <p className="font-semibold">Bu aracı Türkiye’nin güvenilir satıcılarında araştırmamı ister misiniz?</p>
-        <p className="mt-1 text-sm text-neutral-300">Konumunuza göre satıcı, fiyat teklifi ve test sürüşü araştırması v0.2’de açılacak.</p>
-        {message.sellerResearchRequest ? (
-          <p className="mt-3 text-sm font-medium">Talep kaydedildi: {message.sellerResearchRequest.province} / {message.sellerResearchRequest.district}</p>
-        ) : showLocation ? (
-          <form
-            className="mt-3 grid gap-2 sm:grid-cols-[1fr_1fr_auto]"
-            onSubmit={(event) => {
-              event.preventDefault();
-              if (!province.trim() || !district.trim()) return;
-              onUpdate({ sellerResearchRequest: { province: province.trim(), district: district.trim(), status: "PLANNED_V0_2" } });
-            }}
-          >
-            <label className="sr-only" htmlFor={`province-${message.id}`}>İl</label>
-            <input id={`province-${message.id}`} value={province} onChange={(event) => setProvince(event.target.value)} placeholder="İl" className="rounded-xl bg-white px-3 py-2 text-sm text-black" />
-            <label className="sr-only" htmlFor={`district-${message.id}`}>İlçe</label>
-            <input id={`district-${message.id}`} value={district} onChange={(event) => setDistrict(event.target.value)} placeholder="İlçe" className="rounded-xl bg-white px-3 py-2 text-sm text-black" />
-            <button type="submit" disabled={!province.trim() || !district.trim()} className="rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black disabled:opacity-50">Kaydet</button>
-          </form>
-        ) : (
-          <button type="button" onClick={() => setShowLocation(true)} className="mt-3 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black">Evet, konumumu paylaşayım</button>
-        )}
-      </div>
-    </div>
-  );
-}
-
 function newMessage(role: CarsConversationMessage["role"], content: string) {
   return { id: crypto.randomUUID(), role, content } as const;
 }
@@ -216,12 +162,6 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     void continueConversation(nextMessages);
   }
 
-  function updateMessage(messageId: string, patch: Partial<CarsConversationMessage>) {
-    setMessages((current) => current.map((message) => (
-      message.id === messageId ? { ...message, ...patch } : message
-    )));
-  }
-
   function handleDraftKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
     if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
     event.preventDefault();
@@ -286,9 +226,6 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                         </button>
                       ))}
                     </div>
-                  )}
-                  {message.role === "assistant" && message.recommendations && message.recommendations.length > 0 && (
-                    <RecommendationActions message={message} onUpdate={(patch) => updateMessage(message.id, patch)} />
                   )}
                 </div>
               </div>
