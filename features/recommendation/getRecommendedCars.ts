@@ -1,5 +1,5 @@
-import { cars } from "@/data/car";
 import { DecisionContext } from "@/types/decisionContext";
+import type { Car } from "@/types/car";
 import { createDecisionSummary } from "@/features/decision/createDecisionSummary";
 import { evaluateCar } from "@/features/decision/engine";
 import { defaultRanking } from "@/features/recommendation/ranking/defaultRanking";
@@ -9,6 +9,16 @@ import {
   carSatisfiesUseRequirements,
   resolveVehicleUseRequirements,
 } from "@/features/recommendation/resolveVehicleUseRequirements";
+import {
+  type CarsCatalogMode,
+  configuredCarsCatalogMode,
+  resolveRecommendationCatalog,
+} from "@/features/vehicle-data/resolveRecommendationCatalog";
+
+export interface CarsRecommendationDataOptions {
+  readonly catalogMode?: CarsCatalogMode;
+  readonly at?: Date;
+}
 
 function contextText(context: DecisionContext): string {
   return [
@@ -40,7 +50,7 @@ function requestedMaximum(text: string, unit: "price" | "km"): number | undefine
   }
 }
 
-function matchesExplicitContext(car: (typeof cars)[number], text: string): boolean {
+function matchesExplicitContext(car: Car, text: string): boolean {
   const priceLimit = requestedMaximum(text, "price");
   const kmLimit = requestedMaximum(text, "km");
   if (priceLimit !== undefined && car.price > priceLimit) return false;
@@ -85,7 +95,12 @@ function matchesExplicitContext(car: (typeof cars)[number], text: string): boole
 export function getRecommendedCars(
   context: DecisionContext,
   optionIds?: readonly string[],
+  dataOptions: CarsRecommendationDataOptions = {},
 ): RecommendedCar[] {
+  const cars = resolveRecommendationCatalog(
+    dataOptions.catalogMode ?? configuredCarsCatalogMode(),
+    dataOptions.at,
+  ).cars;
   const scopedCars = optionIds
     ? cars.filter((car) => optionIds.includes(car.id))
     : cars;

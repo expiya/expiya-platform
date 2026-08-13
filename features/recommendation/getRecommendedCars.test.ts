@@ -56,6 +56,20 @@ describe("getRecommendedCars", () => {
     });
   });
 
+  it("evaluates only publishable real records when production mode is explicit", () => {
+    const result = getRecommendedCars(
+      { ...context, decisionNeed: "Sıfır elektrikli SUV istiyorum." },
+      undefined,
+      { catalogMode: "production", at: new Date("2026-08-13T12:00:00.000Z") },
+    );
+
+    expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual([
+      "87e30119-f0d5-4c98-8324-cbd65156974b",
+      "a3728e65-51b2-447f-a6c3-a1f64db8a310",
+    ]);
+    expect(result.every(({ car }) => car.km === 0 && car.fuel === "Electric")).toBe(true);
+  });
+
   it("filters discovery options by explicit budget and fuel constraints", () => {
     getRecommendedCars({
       ...context,

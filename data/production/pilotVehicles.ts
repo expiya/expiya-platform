@@ -28,6 +28,12 @@ const technical = <T>(value: T, provenance: ProvenanceRecord) => ({
   value, provenance: [provenance] as [ProvenanceRecord], confidence: "HIGH" as const,
 });
 
+const derivedTechnical = <T>(value: T, provenance: ProvenanceRecord, limitation: string) => ({
+  value,
+  provenance: [{ ...provenance, confidence: "MEDIUM" as const, limitations: [...provenance.limitations, limitation] }] as [ProvenanceRecord],
+  confidence: "MEDIUM" as const,
+});
+
 export interface PilotVehicleRecord {
   readonly identity: ProductionVehicleIdentity;
   readonly prices: readonly PriceObservation[];
@@ -47,6 +53,35 @@ export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
       validFrom: "2026-08-05T00:00:00.000Z", validUntil: "2026-08-31T23:59:59.999Z",
       sellerType: "DISTRIBUTOR", provenance: [hyundaiAugust2026], confidence: "HIGH",
     }],
+    technicalVariant: (() => {
+      const source = technicalSource(
+        "https://www.hyundai.com/content/dam/hyundai/tr/tr/data/marketing/brochure/product/yeni-tucson-fl/Yeni-Tucson-Facelift-Brosur-New.pdf",
+        "Yeni TUCSON Facelift Türkiye brochure, current download verified 2026-08-13",
+      );
+      return {
+        id: "5d3538b1-c726-44f5-8160-41a64d33eb8e", market: "TR", lifecycleStatus: "ON_SALE",
+        brand: technical("Hyundai", source), model: technical("TUCSON", source),
+        bodyStyle: technical("SUV", source), trim: technical("1.6 T-GDI Comfort 4X2 DCT", source),
+        modelYear: technical(2026, source),
+        powertrain: {
+          fuelType: technical("GASOLINE" as const, source), engineDisplacementCc: technical(1598, source),
+          powerKw: derivedTechnical(117.7, source, "Converted from the published 160 PS using 1 PS = 0.73549875 kW"),
+          torqueNm: technical(265, source), transmission: technical("7-speed dual-clutch automatic", source),
+          drivenWheels: technical("FWD", source),
+        },
+        dimensions: {
+          lengthMm: technical(4510, source), widthMm: technical(1865, source),
+          heightMm: technical(1650, source), wheelbaseMm: technical(2680, source),
+          luggageLitres: technical(620, source),
+        },
+        efficiency: {
+          protocol: technical("WLTP" as const, source), combinedLitresPer100Km: technical(7.0, source),
+        },
+        safetyFeatureCodes: ["ABS", "ESC", "TPMS", "HAC", "DBC", "MCB", "FRONT_AIRBAGS", "SIDE_CURTAIN_AIRBAGS", "REAR_CAMERA"]
+          .map((code) => technical(code, source)),
+        createdAt: "2026-08-13T00:00:00.000Z", updatedAt: "2026-08-13T00:00:00.000Z",
+      } satisfies TurkeyVehicleVariant;
+    })(),
   },
   {
     identity: {
@@ -123,7 +158,9 @@ export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
           electricRangeKm: technical(620, source), batteryCapacityKwh: technical(110.3, source),
           maxDcChargeKw: technical(350, source),
         },
-        safetyFeatureCodes: [], createdAt: "2026-08-13T00:00:00.000Z", updatedAt: "2026-08-13T00:00:00.000Z",
+        safetyFeatureCodes: ["ABS", "ESC", "TPMS", "MCB", "SVM", "SEA", "SCC", "LKA", "LFA", "FCA", "BCA", "RCCA", "ECALL"]
+          .map((code) => technical(code, source)),
+        createdAt: "2026-08-13T00:00:00.000Z", updatedAt: "2026-08-13T00:00:00.000Z",
       } satisfies TurkeyVehicleVariant;
     })(),
   },

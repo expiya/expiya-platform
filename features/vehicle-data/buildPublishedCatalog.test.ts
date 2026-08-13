@@ -6,12 +6,9 @@ import { buildPublishedCatalog } from "@/features/vehicle-data/buildPublishedCat
 describe("buildPublishedCatalog", () => {
   it("publishes only complete records with active prices", () => {
     const catalog = buildPublishedCatalog(pilotVehicleRecords, new Date("2026-08-13T12:00:00.000Z"));
-    expect(catalog.records.map(({ variant }) => variant.model.value)).toEqual(["IONIQ 5"]);
-    expect(catalog.records[0].activeNewPrice.amountTry).toBe(2_484_602);
-    expect(catalog.rejected).toEqual([
-      { vehicleVariantId: pilotVehicleRecords[0].identity.id, issues: ["TECHNICAL_VARIANT_MISSING"] },
-      { vehicleVariantId: pilotVehicleRecords[2].identity.id, issues: ["SAFETY_EVIDENCE_MISSING"] },
-    ]);
+    expect(catalog.records.map(({ variant }) => variant.model.value)).toEqual(["TUCSON", "IONIQ 5", "IONIQ 9"]);
+    expect(catalog.records[1].activeNewPrice.amountTry).toBe(2_484_602);
+    expect(catalog.rejected).toEqual([]);
   });
 
   it("publishes no stale prices", () => {

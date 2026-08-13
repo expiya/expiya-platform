@@ -10,9 +10,9 @@ describe("assessCatalogReadiness", () => {
     expect(assessCatalogReadiness(pilotVehicleRecords[1], duringCampaign)).toMatchObject({ ready: true, issues: [] });
   });
 
-  it("keeps incomplete variants out of the production read model", () => {
+  it("allows the sourced TUCSON variant", () => {
     expect(assessCatalogReadiness(pilotVehicleRecords[0], duringCampaign)).toMatchObject({
-      ready: false, issues: ["TECHNICAL_VARIANT_MISSING"],
+      ready: true, issues: [],
     });
   });
 
@@ -22,9 +22,9 @@ describe("assessCatalogReadiness", () => {
     });
   });
 
-  it("requires safety evidence before publishing", () => {
+  it("allows IONIQ 9 after its trim-level safety evidence is present", () => {
     expect(assessCatalogReadiness(pilotVehicleRecords[2], duringCampaign)).toMatchObject({
-      ready: false, issues: ["SAFETY_EVIDENCE_MISSING"],
+      ready: true, issues: [],
     });
   });
 });
