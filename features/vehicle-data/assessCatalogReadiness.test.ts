@@ -27,4 +27,19 @@ describe("assessCatalogReadiness", () => {
       ready: true, issues: [],
     });
   });
+
+  it("rejects a record whose identity and technical variant disagree", () => {
+    const original = pilotVehicleRecords[4];
+    const inconsistent = {
+      ...original,
+      technicalVariant: original.technicalVariant && {
+        ...original.technicalVariant,
+        model: { ...original.technicalVariant.model, value: "Not Yaris" },
+      },
+    };
+
+    expect(assessCatalogReadiness(inconsistent, duringCampaign)).toMatchObject({
+      ready: false, issues: ["RECORD_INCONSISTENT"],
+    });
+  });
 });

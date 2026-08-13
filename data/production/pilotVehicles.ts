@@ -187,20 +187,20 @@ export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
     prices: (() => {
       const source: ProvenanceRecord = {
         sourceId: "toyota-tr", sourceUrl: "https://www.toyota.com.tr/araba-modelleri/yaris/olustur",
-        accessedAt: "2026-08-13T00:00:00.000Z", documentVersion: "Yaris Hybrid August campaign",
-        extractionMethod: "MANUAL", confidence: "MEDIUM",
-        limitations: ["Observed in the public configurator on 2026-08-13", "Campaign end inferred from the displayed August campaign label", "Price is non-binding and stock/dealer dependent"],
+        accessedAt: "2026-08-13T00:00:00.000Z", documentVersion: "Yaris Hybrid campaign, 01–31 August 2026",
+        extractionMethod: "MANUAL", confidence: "HIGH",
+        limitations: ["Observed on the public model page on 2026-08-13", "Price is non-binding and stock/dealer dependent"],
       };
       return [{
         id: "a177947a-eacd-4a71-8fcf-4ae96d42aa16", vehicleVariantId: "c8d535d0-6c04-4dcb-8cf6-2bad5bd037e8",
         market: "TR" as const, condition: "NEW" as const, amountTry: 1_995_000, priceType: "CAMPAIGN" as const,
-        validFrom: "2026-08-13T00:00:00.000Z", validUntil: "2026-08-31T23:59:59.999Z",
-        sellerType: "DISTRIBUTOR" as const, provenance: [source] as [ProvenanceRecord], confidence: "MEDIUM" as const,
+        validFrom: "2026-08-01T00:00:00.000Z", validUntil: "2026-08-31T23:59:59.999Z",
+        sellerType: "DISTRIBUTOR" as const, provenance: [source] as [ProvenanceRecord], confidence: "HIGH" as const,
       }, {
         id: "06cf2a96-64f0-49ad-81a2-e37316c17bb9", vehicleVariantId: "c8d535d0-6c04-4dcb-8cf6-2bad5bd037e8",
         market: "TR" as const, condition: "NEW" as const, amountTry: 2_245_000, priceType: "LIST" as const,
-        validFrom: "2026-08-13T00:00:00.000Z", sellerType: "DISTRIBUTOR" as const,
-        provenance: [source] as [ProvenanceRecord], confidence: "MEDIUM" as const,
+        validFrom: "2026-08-01T00:00:00.000Z", sellerType: "DISTRIBUTOR" as const,
+        provenance: [source] as [ProvenanceRecord], confidence: "HIGH" as const,
       }];
     })(),
     technicalVariant: (() => {
@@ -238,6 +238,69 @@ export const pilotVehicleRecords: readonly PilotVehicleRecord[] = [
             confidence: "MEDIUM",
             conflictGroupId: "toyota-yaris-flame-2026-wltp-combined",
           },
+        },
+        safetyFeatureCodes: ["TSS3", "PCS", "ESA", "ACC", "LTA", "ABS", "VSC", "TPWS", "HAC", "ECALL", "ISOFIX"]
+          .map((code) => technical(code, source)),
+        createdAt: "2026-08-13T00:00:00.000Z", updatedAt: "2026-08-13T00:00:00.000Z",
+      } satisfies TurkeyVehicleVariant;
+    })(),
+  },
+  {
+    identity: (() => {
+      const source = technicalSource(
+        "toyota-tr",
+        "https://www.toyota.com.tr/araba-modelleri/yaris",
+        "Yaris Passion X-Pack Hybrid live model page, accessed 2026-08-13",
+      );
+      return {
+        id: "4c22cb31-e980-4dc8-8525-c47363783d96", market: "TR", lifecycleStatus: "ON_SALE",
+        brand: identityTechnical("Toyota", source), model: identityTechnical("Yaris", source),
+        bodyStyle: identityTechnical("Hatchback", source), trim: identityTechnical("Passion X-Pack Hybrid 1.5 130 HP e-CVT", source),
+        modelYear: identityTechnical(2026, source),
+      } satisfies ProductionVehicleIdentity;
+    })(),
+    prices: (() => {
+      const source: ProvenanceRecord = {
+        sourceId: "toyota-tr", sourceUrl: "https://www.toyota.com.tr/araba-modelleri/yaris",
+        accessedAt: "2026-08-13T00:00:00.000Z", documentVersion: "Yaris Hybrid campaign, 01–31 August 2026",
+        extractionMethod: "MANUAL", confidence: "HIGH",
+        limitations: ["Observed on the public model page on 2026-08-13", "Price is non-binding and stock/dealer dependent"],
+      };
+      return [{
+        id: "e0c84d42-3be8-4fa5-a95c-35992c6836fc", vehicleVariantId: "4c22cb31-e980-4dc8-8525-c47363783d96",
+        market: "TR" as const, condition: "NEW" as const, amountTry: 2_365_000, priceType: "CAMPAIGN" as const,
+        validFrom: "2026-08-01T00:00:00.000Z", validUntil: "2026-08-31T23:59:59.999Z",
+        sellerType: "DISTRIBUTOR" as const, provenance: [source] as [ProvenanceRecord], confidence: "HIGH" as const,
+      }, {
+        id: "a19d954e-d2b2-44a7-8dd4-c34ecbb91eed", vehicleVariantId: "4c22cb31-e980-4dc8-8525-c47363783d96",
+        market: "TR" as const, condition: "NEW" as const, amountTry: 2_640_000, priceType: "LIST" as const,
+        validFrom: "2026-08-01T00:00:00.000Z", sellerType: "DISTRIBUTOR" as const,
+        provenance: [source] as [ProvenanceRecord], confidence: "HIGH" as const,
+      }];
+    })(),
+    technicalVariant: (() => {
+      const source = technicalSource(
+        "toyota-tr",
+        "https://turkiye.toyota.com.tr/middle/Toyota_Yaris_Teknik_%C3%96zellikler_Fiyatl%C4%B1_%2801.06.2026%29.pdf",
+        "Yaris Hybrid Türkiye technical and equipment PDF, June 2026",
+      );
+      return {
+        id: "4c22cb31-e980-4dc8-8525-c47363783d96", market: "TR", lifecycleStatus: "ON_SALE",
+        brand: technical("Toyota", source), model: technical("Yaris", source),
+        bodyStyle: technical("Hatchback", source), trim: technical("Passion X-Pack Hybrid 1.5 130 HP e-CVT", source),
+        modelYear: technical(2026, source),
+        powertrain: {
+          fuelType: technical("HEV" as const, source), engineDisplacementCc: technical(1490, source),
+          powerKw: technical(96, source), transmission: technical("e-CVT automatic", source),
+          drivenWheels: technical("FWD", source),
+        },
+        dimensions: {
+          lengthMm: technical(3940, source), widthMm: technical(1745, source),
+          heightMm: technical(1500, source), wheelbaseMm: technical(2560, source),
+          luggageLitres: technical(286, source),
+        },
+        efficiency: {
+          protocol: technical("WLTP" as const, source), combinedLitresPer100Km: technical(3.9, source),
         },
         safetyFeatureCodes: ["TSS3", "PCS", "ESA", "ACC", "LTA", "ABS", "VSC", "TPWS", "HAC", "ECALL", "ISOFIX"]
           .map((code) => technical(code, source)),

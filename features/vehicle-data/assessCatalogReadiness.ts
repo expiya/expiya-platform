@@ -1,11 +1,13 @@
 import type { PilotVehicleRecord } from "@/data/production/pilotVehicles";
+import { validatePilotRecordConsistency } from "@/features/vehicle-data/validatePilotRecordConsistency";
 
 export type CatalogReadinessIssue =
   | "TECHNICAL_VARIANT_MISSING"
   | "ACTIVE_NEW_PRICE_MISSING"
   | "POWERTRAIN_INCOMPLETE"
   | "EFFICIENCY_INCOMPLETE"
-  | "SAFETY_EVIDENCE_MISSING";
+  | "SAFETY_EVIDENCE_MISSING"
+  | "RECORD_INCONSISTENT";
 
 export interface CatalogReadinessAssessment {
   readonly ready: boolean;
@@ -18,6 +20,7 @@ export function assessCatalogReadiness(
   at: Date,
 ): CatalogReadinessAssessment {
   const issues: CatalogReadinessIssue[] = [];
+  if (validatePilotRecordConsistency(record).length > 0) issues.push("RECORD_INCONSISTENT");
   const activePrice = record.prices.find((price) =>
     price.condition === "NEW" &&
     new Date(price.validFrom).getTime() <= at.getTime() &&
