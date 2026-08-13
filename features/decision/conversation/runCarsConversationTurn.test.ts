@@ -291,7 +291,7 @@ describe("runCarsConversationTurn", () => {
       reasons: [{ code: "DOMAIN_SUFFICIENCY_INSUFFICIENT", stage: "DOMAIN_SUFFICIENCY", referenceIds: [] }],
       lineage,
     });
-    const messages = Array.from({ length: 10 }, (_, index) => ({
+    const messages = Array.from({ length: 20 }, (_, index) => ({
       id: `user-${index}`,
       role: "user" as const,
       content: index === 0 ? "Araba almak istiyorum." : `Cevap ${index}`,
@@ -300,5 +300,21 @@ describe("runCarsConversationTurn", () => {
     const response = await runCarsConversationTurn({ conversationId: "conversation-1", messages });
 
     expect(response).toMatchObject({ kind: "ERROR", message: expect.stringMatching(/tur sınır/iu) });
+  });
+
+  it("keeps the conversation open through the nineteenth user message", async () => {
+    const messages = Array.from({ length: 19 }, (_, index) => ({
+      id: `user-${index}`,
+      role: "user" as const,
+      content: index === 0 ? "Araba almak istiyorum." : `Cevap ${index}`,
+    }));
+
+    const response = await runCarsConversationTurn({ conversationId: "conversation-1", messages });
+
+    expect(response).toMatchObject({ kind: "QUESTION" });
+    expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+    expect(mocks.createCarsConversationGuidance).toHaveBeenCalledWith(
+      expect.objectContaining({ remainingUserTurns: 1 }),
+    );
   });
 });

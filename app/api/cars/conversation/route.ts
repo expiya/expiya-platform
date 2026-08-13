@@ -15,7 +15,7 @@ const requestSchema = z.object({
       district: z.string().min(1).max(100),
       status: z.literal("PLANNED_V0_2"),
     }).optional(),
-  })).min(1).max(40),
+  })).min(1).max(80),
 });
 
 export async function POST(request: Request): Promise<Response> {

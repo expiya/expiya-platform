@@ -15,7 +15,7 @@ import {
   isCandidateComparisonConversation,
 } from "./hasActionableCarsContext";
 
-const MAX_USER_TURNS = 10;
+const MAX_USER_TURNS = 20;
 
 function latestUserRejectedRecommendations(input: CarsConversationRequest): boolean {
   const latest = [...input.messages].reverse().find((message) => message.role === "user");
