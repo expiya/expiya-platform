@@ -16,6 +16,7 @@ const schema = z.object({
 export async function analyzeVehicleListing(input: { sourceUrl: URL; pageContent: string; userContext: string }): Promise<VehicleListingAnalysis> {
   const response = await getOpenAIClient().responses.parse({
     model: "gpt-5.5",
+    store: false,
     max_output_tokens: 1_200,
     input: [{ role: "system", content: [
       "You analyze a Turkish vehicle listing against the user's stated needs.",

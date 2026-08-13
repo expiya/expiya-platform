@@ -34,7 +34,7 @@ Uygulama kişisel veriyi loglamaz; güvenlik olayları JSON olarak `type=securit
 
 1. Production ve Preview için ayrı OpenAI project oluşturun; her biri için ayrı service-account anahtarı üretin.
 2. Anahtarı yalnızca Vercel encrypted environment variable olarak tutun. Tarayıcıya açılan `NEXT_PUBLIC_*` isim kullanmayın.
-3. Project budget için düşük bir aylık soft alert (%50, %75, %90, %100) tanımlayın. OpenAI bütçesi tek başına kesin hard cap kabul edilmemelidir; Cloudflare ve Redis sınırları maliyet kontrolünün asıl uygulama katmanıdır.
+3. Project spend limit'i üretimde 10 USD hard limit olarak ayarlanmıştır; %50, %80 ve %100 e-posta alarmları aktiftir. Limit dolduğunda model isteklerinin kesileceğini ürün hata durumu olarak izleyin. Cloudflare ve Redis sınırları dakikalık kötüye kullanımı daha erken kesen uygulama katmanlarıdır.
 4. Usage ekranında model ve project bazında günlük maliyeti izleyin. Günlük beklenen değerin 3 katına çıkış için alarm kurun.
 5. Anahtarı 90 günde bir ve şüpheli log/harcama halinde hemen döndürün: yeni anahtar ekle, redeploy et, smoke test yap, eski anahtarı iptal et.
 6. Anahtar sızıntısında Cloudflare API POST'larını geçici Block yapın, anahtarı iptal edin, Vercel deployment/log erişimlerini inceleyin ve olay kaydı açın.
@@ -43,6 +43,7 @@ Uygulama kişisel veriyi loglamaz; güvenlik olayları JSON olarak `type=securit
 
 - Sohbet ve karar verisi artık sunucuda kalıcı saklanmaz; aynı sekmenin `sessionStorage` alanında tutulur ve sekme kapanınca tarayıcı tarafından kaldırılır. Kullanıcı arayüzündeki “Görüşmeyi sil” eylemi alanı hemen temizler.
 - İstek işlenirken sohbet metni OpenAI'ye gönderilir. Gizlilik politikası veri kategorilerini, amacı, hukuki dayanağı, OpenAI/Vercel/Cloudflare alt işleyenlerini, uluslararası aktarımı ve kullanıcı haklarını açıkça belirtmelidir.
+- OpenAI Responses çağrılarının tamamı `store: false` kullanır. Organizasyon düzeyinde model feedback, evaluation/fine-tuning ve API input/output paylaşımı kapalıdır. Bu ayarlar uygulama içi kalıcı depolamayı kapatır; OpenAI'nin kötüye kullanım izleme kayıtları için geçerli sağlayıcı saklama süresini ortadan kaldırdığı varsayılmamalıdır.
 - Ham istek gövdeleri uygulama loglarına yazılmamalıdır. Sağlayıcıların kendi retention ayarları sözleşme ve ürün ayarları üzerinden ayrıca doğrulanmalıdır.
 - Kullanıcı hesabı veya server-side kayıt eklenirse kayıt başına sahiplik, export ve doğrulanmış silme endpoint'i olmadan production'a alınmamalıdır. Önerilen varsayılan süre: aktif karar verisi 30 gün, güvenlik logu 30 gün, anonim agregalar 90 gün.
 - Gizlilik talebi için iletişim kanalı, kimlik doğrulama yöntemi, 30 günlük cevap SLA'sı ve alt işleyenlere yayılmış silme prosedürü yayınlanmalıdır.

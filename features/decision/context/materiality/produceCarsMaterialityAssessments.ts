@@ -32,6 +32,7 @@ export async function produceCarsMaterialityAssessments(
     }));
     const response = await getOpenAIClient().responses.parse({
       model: "gpt-5.5",
+      store: false,
       max_output_tokens: 1_200,
       input: [
         {

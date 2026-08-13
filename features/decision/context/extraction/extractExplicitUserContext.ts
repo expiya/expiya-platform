@@ -16,8 +16,9 @@ export async function extractExplicitUserContext(
   input: ExplicitExtractionInput,
 ): Promise<ExplicitExtractionOutput> {
   const response = await getOpenAIClient().responses.parse({
-      model: "gpt-5.5",
-      max_output_tokens: 1_200,
+    model: "gpt-5.5",
+    store: false,
+    max_output_tokens: 1_200,
     input: [
       {
         role: "system",

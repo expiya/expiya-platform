@@ -31,6 +31,7 @@ export async function createCarsConversationGuidance(
     const transcript = input.messages.map(({ role, content }) => ({ role, content }));
     const response = await getOpenAIClient().responses.parse({
       model: "gpt-5.5",
+      store: false,
       max_output_tokens: 800,
       input: [
         {
