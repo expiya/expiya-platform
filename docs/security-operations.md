@@ -37,7 +37,12 @@ Uygulama kişisel veriyi loglamaz; güvenlik olayları JSON olarak `type=securit
 - Event temizleyici query string, header, cookie, request body, kullanıcı, breadcrumb ve `extra` alanlarını gönderimden önce kaldırır. Sohbet ve ilan içeriğini manuel `capture*` çağrılarına eklemeyin.
 - Dağıtık rate-limit backend hatası `security_event=rate_limit_backend_error` etiketiyle error seviyesinde raporlanır. Olağan 429 reddetmeleri alarm gürültüsü ve saldırgan kontrollü maliyet oluşturmaması için Sentry'ye gönderilmez.
 - Sentry organizasyonunda EU veri bölgesi, IP address scrubbing ve default data scrubbing etkin tutulmalıdır. Yeni issue ve `security_event=rate_limit_backend_error` için e-posta alarmı oluşturun.
-- `SENTRY_AUTH_TOKEN` yalnızca build-time source map yüklemek için Vercel Production secret olarak tutulur; repoya veya tarayıcı bundle'ına eklenmez.
+- Organizasyon genelinde zorunlu 2FA ve Enhanced Privacy etkindir; anonim issue paylaşımı, üyelik talebi ve Sentry'nin JavaScript kaynaklarını dışarıdan otomatik indirmesi kapalıdır. Kurtarma kodlarını şirket kasasında çevrimdışı yedekleyin.
+- Ham IP saklama kapalı olsa da Sentry'nin ağ bağlantısından yaklaşık şehir/ülke (`contexts.geo`) türetebildiği canlı testte doğrulandı. Advanced Data Scrubbing ile `contexts.geo` kaldırma kuralı sonucu değiştirmediği için kaldırıldı. Bu veriyi gizlilik metninde açıklayın ve Sentry sözleşmesi/veri işleme eki kapsamında değerlendirin.
+- `SENTRY_AUTH_TOKEN` yalnızca build-time source map yüklemek için Vercel Production secret olarak tutulur; repoya veya tarayıcı bundle'ına eklenmez. Genişletilmiş istemci source map yüklemesi açıktır ve dosyalar yüklemeden sonra deployment çıktısından silinir. Token'ı 90 günde bir veya olay halinde döndürün: yeni token ile deployment, symbolication smoke testi, ardından eski token iptali.
+- Sentry kaynaklarında hata olayları için 90 günlük saklama üst sınırı belgelenmiştir; geçerli sözleşme ve proje planını her yenilemede ayrıca doğrulayın. Tekil event değiştirilemez; test veya silme talebi kapsamındaki event'leri kaldırmak için ilgili issue'nun tamamını silin ve silmenin Sentry arayüzü/API'sinde tamamlandığını kayda alın.
+
+Doğrulama kaynakları: [Sentry Next.js source map rehberi](https://docs.sentry.io/platforms/javascript/guides/nextjs/sourcemaps/), [event değişmezliği ve issue silme yetkisi](https://docs.sentry.io/api/permissions/), [issue silme endpoint'i](https://docs.sentry.io/api/events/remove-an-issue/) ve [Sentry veri güvenliği belgesi](https://sentry.io/astro-assets/resources/resource-files/sentry-data-security.pdf). Son belge güncel proje sözleşmesinin yerine geçmez; bu nedenle 90 gün bir operasyonel üst sınırdır ve sözleşmeyle yeniden doğrulanmalıdır.
 
 ## OpenAI anahtar ve bütçe kontrolü
 
@@ -51,7 +56,7 @@ Uygulama kişisel veriyi loglamaz; güvenlik olayları JSON olarak `type=securit
 ## Gizlilik, saklama ve silme
 
 - Sohbet ve karar verisi artık sunucuda kalıcı saklanmaz; aynı sekmenin `sessionStorage` alanında tutulur ve sekme kapanınca tarayıcı tarafından kaldırılır. Kullanıcı arayüzündeki “Görüşmeyi sil” eylemi alanı hemen temizler.
-- İstek işlenirken sohbet metni OpenAI'ye gönderilir. Gizlilik politikası veri kategorilerini, amacı, hukuki dayanağı, OpenAI/Vercel/Cloudflare alt işleyenlerini, uluslararası aktarımı ve kullanıcı haklarını açıkça belirtmelidir.
+- İstek işlenirken sohbet metni OpenAI'ye gönderilir. Gizlilik politikası veri kategorilerini, amacı, hukuki dayanağı, OpenAI/Vercel/Cloudflare/Upstash/Sentry alt işleyenlerini, uluslararası aktarımı ve kullanıcı haklarını açıkça belirtmelidir.
 - OpenAI Responses çağrılarının tamamı `store: false` kullanır. Organizasyon düzeyinde model feedback, evaluation/fine-tuning ve API input/output paylaşımı kapalıdır. Bu ayarlar uygulama içi kalıcı depolamayı kapatır; OpenAI'nin kötüye kullanım izleme kayıtları için geçerli sağlayıcı saklama süresini ortadan kaldırdığı varsayılmamalıdır.
 - Ham istek gövdeleri uygulama loglarına yazılmamalıdır. Sağlayıcıların kendi retention ayarları sözleşme ve ürün ayarları üzerinden ayrıca doğrulanmalıdır.
 - Kullanıcı hesabı veya server-side kayıt eklenirse kayıt başına sahiplik, export ve doğrulanmış silme endpoint'i olmadan production'a alınmamalıdır. Önerilen varsayılan süre: aktif karar verisi 30 gün, güvenlik logu 30 gün, anonim agregalar 90 gün.

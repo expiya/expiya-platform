@@ -40,6 +40,7 @@ export default function PrivacyPage() {
             <li>İncelenmesini istediğiniz ilan bağlantısı, ilandan okunan metin ve karşılaştırma için gönderilen kullanıcı bağlamı.</li>
             <li>Rastgele oluşturulan görüşme kimliği, istek zamanı, yanıt durumu ve kötüye kullanım önleme sayaçları.</li>
             <li>IP adresi ve benzeri bağlantı verileri; altyapı sağlayıcıları tarafından güvenlik ve hizmet sunumu için işlenebilir. Uygulama içi oran sınırlamada IP adresinin kısaltılmış SHA-256 özeti kullanılır.</li>
+            <li>Hata teşhisi sırasında sayfa yolu, uygulama sürümü, tarayıcı/çalışma zamanı bilgileri ve hata yığını. Sentry&apos;de ham IP saklama kapalıdır; buna rağmen sağlayıcı bağlantı verisinden yaklaşık şehir ve ülke türetebilir.</li>
           </ul>
           <p className="text-neutral-700 dark:text-neutral-300">
             Mesajlarınıza kimlik, iletişim, sağlık, finans veya başka hassas bilgiler yazmamanızı öneririz. Expiya Cars araç kararı için bu bilgilere ihtiyaç duymaz.
@@ -68,6 +69,7 @@ export default function PrivacyPage() {
             <li><strong>Vercel:</strong> uygulamanın barındırılması ve çalışma zamanı altyapısı.</li>
             <li><strong>Cloudflare:</strong> trafik iletimi, DDoS ve bot koruması.</li>
             <li><strong>Upstash:</strong> IP adresinden türetilmiş özet anahtarlarla dağıtık oran sınırlama sayaçları.</li>
+            <li><strong>Sentry:</strong> hata izleme ve güvenlik alarmı; EU veri bölgesi kullanılmasına rağmen hizmet yurt dışı aktarım niteliği taşıyabilir.</li>
           </ul>
           <p className="text-neutral-700 dark:text-neutral-300">
             Bu sağlayıcıların altyapıları yurt dışında bulunabilir. Aktarımlar KVKK madde 9 kapsamındaki geçerli aktarım mekanizmaları ve gerekli teknik/idari tedbirler gözetilerek yürütülmelidir.
@@ -81,6 +83,7 @@ export default function PrivacyPage() {
             <li>“Görüşmeyi sil” düğmesi tarayıcıdaki görüşme verisini hemen kaldırır.</li>
             <li>Oran sınırlama anahtarları mesaj içeriği taşımaz ve ilgili güvenlik penceresi dolduğunda otomatik silinir; mevcut en uzun pencere bir saattir.</li>
             <li>OpenAI Responses çağrıları <code>store=false</code> ile gönderilir ve model geliştirme amaçlı veri paylaşımı kapalıdır. OpenAI, kötüye kullanım izleme kayıtlarını kendi geçerli politikası kapsamında varsayılan olarak 30 güne kadar tutabilir.</li>
+            <li>Sentry hata kayıtları için operasyonel üst sınır 90 gün kabul edilir; sağlayıcının yürürlükteki sözleşmesi veya proje planı daha kısa bir süre belirleyebilir. Silme gerektiğinde ilgili hata kaydının bağlı olduğu issue bütünüyle silinir.</li>
             <li>Uygulama ham sohbet metnini kendi güvenlik loglarına yazmaz. Altyapı sağlayıcılarının zorunlu teknik ve güvenlik kayıtları kendi sözleşme, plan ve saklama ayarlarına tabidir.</li>
           </ul>
         </section>
