@@ -9,14 +9,14 @@ Vercel > Project > Settings > Environment Variables altında Production, Preview
 - `OPENAI_API_KEY`: yalnızca server-side secret. Preview için ayrı proje/anahtar kullanın.
 - `UPSTASH_REDIS_REST_URL` ve `UPSTASH_REDIS_REST_TOKEN`: global, kalıcı rate limiting için aynı Redis veritabanına ait REST bilgileri.
 
-Değişkenleri ekledikten sonra yeni production deployment başlatın. Vercel loglarında `rate_limit_backend_error` görülmediğini ve Redis'te `ratelimit:*` anahtarlarının TTL ile oluştuğunu doğrulayın. Redis arızasında kod instance belleğine düşer; Cloudflare dış sınırı bu nedenle ayrıca zorunludur.
+Değişkenleri ekledikten sonra yeni production deployment başlatın. Vercel loglarında `rate_limit_backend_error` görülmediğini ve Redis'te `ratelimit:*` anahtarlarının TTL ile oluştuğunu doğrulayın. Redis arızasında kod instance belleğine düşer; Cloudflare edge rate-limit kuralı bu nedenle ayrıca zorunludur.
 
 ## Cloudflare
 
 1. Rules > Transform Rules > Modify Response Header bölümünde `Access-Control-Allow-Origin: *` ekleyen kuralı bulun ve kaldırın/devre dışı bırakın. Bu uygulama üçüncü taraf tarayıcı origin'lerine API sunmuyor.
 2. Rules > Rate limiting rules altında yalnızca `POST` ve URI path `/api/cars/conversation` için IP başına 10 dakikada 20 istek; `/api/cars/listing-analysis` için 10 dakikada 5 istek sınırı oluşturun. Eşik aşımında önce 10 dakika Managed Challenge, tekrarda Block kullanın.
 3. Security > Bots altında Bot Fight Mode/uygun ücretli plandaki Super Bot Fight Mode'u etkinleştirin. Doğrulanmış iyi botlara izin verin; API POST yollarında otomasyon sinyallerini challenge edin.
-4. WAF Managed Rules altında Cloudflare Managed Ruleset'i etkinleştirin. API yollarında yöntem allowlist'i `POST` ve `OPTIONS` ile sınırlayın; `Content-Type` değeri `application/json` olmayan POST'ları engelleyin.
+4. Mevcut Free planda Cloudflare belgelerine göre otomatik uygulanan **Cloudflare Free Managed Ruleset** kullanılır. Tam Cloudflare Managed Ruleset ve OWASP Core Ruleset Pro ve üzeri plan gerektirir; bunların etkin olduğu iddia edilmemelidir. Kullanıcı hesabı, ödeme, kalıcı hassas veri veya düzenli WAF saldırı sinyali ortaya çıktığında Pro yükseltmesini yeniden değerlendirin. Tam WAF'ın bulunmaması kabul edilmiş kalan risktir; uygulama doğrulamalarının veya edge rate limit'in yerine geçtiği varsayılmamalıdır.
 5. Security > Events ekranında API path, 429, challenge ve block olayları için haftalık inceleme yapın. Hesap planı destekliyorsa Logpush'u bir SIEM/log hedefine açın.
 6. Değişiklikten sonra `curl -I https://www.expiya.com` çıktısında `access-control-allow-origin` bulunmadığını; kötü origin ile API POST'un 403 verdiğini doğrulayın.
 

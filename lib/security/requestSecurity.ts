@@ -94,7 +94,7 @@ export async function enforceRateLimit(request: Request, policy: RateLimitPolicy
     return undefined;
   } catch (error) {
     logSecurityEvent("rate_limit_backend_error", { scope: policy.scope, error: error instanceof Error ? error.message : "unknown" });
-    // Availability fallback. Cloudflare WAF remains the required outer fail-safe.
+    // Availability fallback. The Cloudflare edge rate limit remains the outer fail-safe.
     return enforceMemoryRateLimit(request, policy);
   }
 }
