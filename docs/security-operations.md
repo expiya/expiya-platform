@@ -11,6 +11,8 @@ Vercel > Project > Settings > Environment Variables altında Production, Preview
 
 Değişkenleri ekledikten sonra yeni production deployment başlatın. Vercel loglarında `rate_limit_backend_error` görülmediğini ve Redis'te `ratelimit:*` anahtarlarının TTL ile oluştuğunu doğrulayın. Redis arızasında kod instance belleğine düşer; Cloudflare edge rate-limit kuralı bu nedenle ayrıca zorunludur.
 
+13 Ağustos 2026 canlı doğrulamasında, OpenAI çağrısından önce şema doğrulamasında `400` dönen kontrollü bir istek `ratelimit:cars-conversation:<istemci-özeti>:client` anahtarını `1` değeriyle oluşturdu. TTL önce `9m 38s`, sonraki okumada `9m 28s` görüldü; bu, production deployment'ın Upstash dağıtık backend'ini ve 10 dakikalık otomatik sona erme penceresini kullandığını doğrular. Anahtar istemci IP'sini değil 24 karakterlik SHA-256 özetini taşır.
+
 ## Cloudflare
 
 1. Rules > Transform Rules > Modify Response Header bölümünde `Access-Control-Allow-Origin: *` ekleyen kuralı bulun ve kaldırın/devre dışı bırakın. Bu uygulama üçüncü taraf tarayıcı origin'lerine API sunmuyor.
