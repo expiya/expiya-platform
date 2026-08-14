@@ -82,9 +82,12 @@ export function suppressRepeatedCarsResponse(
   inputMessages: readonly CarsConversationMessage[],
   response: CarsConversationResponse,
 ): CarsConversationResponse {
+  const discriminatorChoices = "discriminatorChoices" in response
+    ? (response as { readonly discriminatorChoices?: unknown }).discriminatorChoices
+    : undefined;
   const structuredChoiceResponse = response.kind === "QUESTION"
-    && "discriminatorChoices" in response
-    && Boolean(response.discriminatorChoices?.length);
+    && Array.isArray(discriminatorChoices)
+    && discriminatorChoices.length > 0;
   const finalDiscriminatorState = response.kind === "QUESTION"
     && (response.decision as { readonly conversationState?: string } | undefined)?.conversationState === "FINAL_DISCRIMINATOR_REQUIRED";
   if (response.kind !== "QUESTION" || structuredChoiceResponse || finalDiscriminatorState) {
