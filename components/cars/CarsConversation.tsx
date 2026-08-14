@@ -4,6 +4,7 @@ import { FormEvent, KeyboardEvent, useCallback, useEffect, useRef, useState } fr
 import { useRouter } from "next/navigation";
 
 import { CarCard } from "@/components/cars/CarCard";
+import type { VehicleListingAnalysis } from "@/types/listingAnalysis";
 import type {
   CarsConversationMessage,
   CarsConversationResponse,
@@ -19,6 +20,23 @@ function newMessage(role: CarsConversationMessage["role"], content: string) {
 }
 
 const storageKey = "expiya:cars-conversation:v4";
+
+function findListingUrl(content: string): string | undefined {
+  return content.match(/https:\/\/[^\s<]+/i)?.[0]?.replace(/[),.;!?]+$/, "");
+}
+
+function formatListingAnalysis(analysis: VehicleListingAnalysis): string {
+  const fit = { STRONG: "Güçlü", PARTIAL: "Kısmi", WEAK: "Zayıf", UNCLEAR: "Belirsiz" }[analysis.userFit];
+  const section = (title: string, items: readonly string[]) => items.length
+    ? `\n\n${title}\n${items.map((item) => `• ${item}`).join("\n")}`
+    : "";
+  return `İlanı konuşmadaki ihtiyaçlarınıza göre inceledim.\n\n${analysis.title}\nUyum: ${fit}\n${analysis.summary}`
+    + section("İhtiyaçlarınızla örtüşenler", analysis.matches)
+    + section("Ödünler ve uyumsuzluklar", analysis.mismatches)
+    + section("İlanda eksik kalanlar", analysis.missingInformation)
+    + section("Satıcıya sorulacaklar", analysis.sellerQuestions)
+    + `\n\n${analysis.disclaimer}`;
+}
 
 function readPersistedConversation(): PersistedCarsConversation | null {
   try {
@@ -98,6 +116,35 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     }
   }, [isTurkish]);
 
+  const analyzeListingInConversation = useCallback(async (nextMessages: CarsConversationMessage[], url: string) => {
+    setIsLoading(true);
+    try {
+      const userContext = nextMessages
+        .filter((message) => message.role === "user")
+        .map((message) => message.content)
+        .join("\n");
+      const response = await fetch("/api/cars/listing-analysis", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url, userContext }),
+      });
+      const payload = await response.json() as VehicleListingAnalysis | { message?: string };
+      if (!response.ok || !("userFit" in payload)) {
+        throw new Error("message" in payload ? payload.message : undefined);
+      }
+      setMessages((current) => [...current, newMessage("assistant", formatListingAnalysis(payload))]);
+    } catch (error) {
+      setMessages((current) => [...current, newMessage(
+        "assistant",
+        error instanceof Error && error.message
+          ? error.message
+          : "İlanı şu anda okuyamadım. Bağlantıyı kontrol edip yeniden gönderebilirsiniz.",
+      )]);
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
   useEffect(() => {
     const persisted = readPersistedConversation();
     const normalizedInitialQuery = initialQuery.trim();
@@ -130,8 +177,9 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     initialRequestStarted.current = true;
     const firstMessage = newMessage("user", initialQuery.trim());
     setMessages([firstMessage]);
-    void continueConversation([firstMessage]);
-  }, [continueConversation, initialQuery, isRestored]);
+    const listingUrl = findListingUrl(firstMessage.content);
+    void (listingUrl ? analyzeListingInConversation([firstMessage], listingUrl) : continueConversation([firstMessage]));
+  }, [analyzeListingInConversation, continueConversation, initialQuery, isRestored]);
 
   useEffect(() => {
     if (!isRestored || messages.length === 0) return;
@@ -154,7 +202,8 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     const nextMessages = [...messages, userMessage];
     setMessages(nextMessages);
     setDraft("");
-    void continueConversation(nextMessages);
+    const listingUrl = findListingUrl(content);
+    void (listingUrl ? analyzeListingInConversation(nextMessages, listingUrl) : continueConversation(nextMessages));
   }
 
   function submitContent(content: string) {
@@ -163,7 +212,8 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     const nextMessages = [...messages, userMessage];
     setMessages(nextMessages);
     setDraft("");
-    void continueConversation(nextMessages);
+    const listingUrl = findListingUrl(content);
+    void (listingUrl ? analyzeListingInConversation(nextMessages, listingUrl) : continueConversation(nextMessages));
   }
 
   function handleDraftKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
@@ -217,7 +267,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                     ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-950"
                     : "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100"
                 }`}>
-                  {message.content}
+                  <span className="whitespace-pre-wrap">{message.content}</span>
                   {message.recommendations && message.recommendations.length > 0 && (
                     <div className="mt-4 grid gap-4 text-neutral-900 dark:text-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
                       {message.recommendations.map((recommendation) => (
