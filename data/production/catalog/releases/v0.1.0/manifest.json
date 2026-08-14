@@ -1,0 +1,44 @@
+{
+  "approval": {
+    "at": "2026-08-14T12:00:00.000Z",
+    "reference": "expiya-catalog-bootstrap-approval-v0.1",
+    "state": "APPROVED"
+  },
+  "catalog_payload_hash": "sha256:3d64b3140f72d3d67bfd71eee62a849d9543a7657727ac43aac8b0be2a31b1e3",
+  "catalog_release_version": "0.1.0",
+  "catalog_schema_version": "0.1",
+  "declared_limitations": [
+    "bootstrap-governance-references-are-not-individual-identities",
+    "eligibility-evaluated-at-pinned-bootstrap-instant",
+    "staged-only-not-active",
+    "vehicle-evidence-and-identity-mapping-remain-separately-governed"
+  ],
+  "effective_as_of": "2026-08-14T12:00:00.000Z",
+  "generator_version": "production-catalog-release-generator:0.1.0",
+  "included_variant_ids": [
+    "1eb75421-a038-4679-977e-7cd4e4608863",
+    "4c22cb31-e980-4dc8-8525-c47363783d96",
+    "5d3538b1-c726-44f5-8160-41a64d33eb8e",
+    "62465336-2cfb-4ccd-b9a7-36467d63497f",
+    "87e30119-f0d5-4c98-8324-cbd65156974b",
+    "8af2278c-4168-4a1b-a915-6b72b9cd6f48",
+    "a3728e65-51b2-447f-a6c3-a1f64db8a310",
+    "c8d535d0-6c04-4dcb-8cf6-2bad5bd037e8",
+    "db2d6503-f10f-41a4-ad11-b2ca71e59d32",
+    "f81b0873-f3a7-454a-9f34-4d5ad273708d"
+  ],
+  "market": "TR",
+  "previous_release": null,
+  "publishable_record_count": 10,
+  "record_count": 10,
+  "source_path": "data/production/pilotVehicles.ts",
+  "source_revision": "pilot-vehicles:2026-08-14",
+  "staging": {
+    "actor_reference": "expiya-controlled-staging-v0.1",
+    "at": "2026-08-14T12:00:00.000Z",
+    "state": "STAGED",
+    "target": "INTERNAL_INTEGRATION_NON_PRODUCTION"
+  },
+  "validator_status": "PASS",
+  "validator_version": "production-catalog-release-validator:0.1.0"
+}
