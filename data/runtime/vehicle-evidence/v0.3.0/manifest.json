@@ -1,0 +1,23 @@
+{
+  "artifactVersion": "0.3.0",
+  "artifactPath": "data/runtime/vehicle-evidence/v0.3.0/artifact.json",
+  "artifactSha256": "745b55fa1053ddc4d1bd67babb29f5574dda1f10ac34a8d8d8601419bd00885b",
+  "mappingVersion": "0.2.1",
+  "mappingHash": "3833bdc222152b47a759034e04856cc8b963e4911715c14de295401cf0a7b982",
+  "mappingPath": "data/runtime/vehicle-candidate-identity-maps/v0.2.1/mapping.json",
+  "catalogReleaseVersion": "0.2.0",
+  "catalogPayloadHash": "393b548307e9e117415a4c54bf0d3d8c3f734f33518ed5bd5cd37be5158c18ba",
+  "datasetVersion": "0.4.1",
+  "datasetReleaseHash": "910507ec41cbb82a16a7b5ab31e37e0275c8d868a0c0baeb8275f0d29d18a7de",
+  "dictionaryRevision": "vehicle-evidence-0.4.1:data_dictionary.csv",
+  "dictionaryHash": "7aa8579ccd0a118c0bf98075f62ac7e62ee8297f44422125f40be956db676a95",
+  "migratedCategories": [
+    "seats",
+    "cargo_volume_l"
+  ],
+  "activeMappedCandidateCount": 5,
+  "seatsEvaluableCandidateCount": 3,
+  "cargoEvaluableCandidateCount": 4,
+  "validationStatus": "PASS",
+  "previousArtifactRelease": "0.2.0"
+}

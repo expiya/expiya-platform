@@ -5,12 +5,12 @@ const hash = (b) => createHash("sha256").update(b).digest("hex");
 const readJson = async (f) => { const bytes = await readFile(path.resolve(f)); return { bytes, value: JSON.parse(bytes) }; };
 const catalog = await readJson("data/production/catalog/releases/v0.2.0/catalog.json");
 const cm = (await readJson("data/production/catalog/releases/v0.2.0/manifest.json")).value;
-const em = (await readJson("data/cars/vehicle_evidence/releases/v0.4.0/manifest.json")).value;
-const mapping = await readJson("data/runtime/vehicle-candidate-identity-maps/v0.2.0/mapping.json");
-const mm = (await readJson("data/runtime/vehicle-candidate-identity-maps/v0.2.0/manifest.json")).value;
-const artifact = await readJson("data/runtime/vehicle-evidence/v0.2.0/artifact.json");
-const am = (await readJson("data/runtime/vehicle-evidence/v0.2.0/manifest.json")).value;
-const dictionaryHash = hash(await readFile("data/cars/vehicle_evidence/releases/v0.4.0/tables/data_dictionary.csv"));
+const em = (await readJson("data/cars/vehicle_evidence/releases/v0.4.1/manifest.json")).value;
+const mapping = await readJson("data/runtime/vehicle-candidate-identity-maps/v0.2.1/mapping.json");
+const mm = (await readJson("data/runtime/vehicle-candidate-identity-maps/v0.2.1/manifest.json")).value;
+const artifact = await readJson("data/runtime/vehicle-evidence/v0.3.0/artifact.json");
+const am = (await readJson("data/runtime/vehicle-evidence/v0.3.0/manifest.json")).value;
+const dictionaryHash = hash(await readFile("data/cars/vehicle_evidence/releases/v0.4.1/tables/data_dictionary.csv"));
 function verifyPins(a, m) {
   if (m.catalogReleaseVersion !== cm.catalog_release_version || m.catalogPayloadHash !== hash(catalog.bytes)) throw new Error("CATALOG_PIN_MISMATCH");
   if (m.vehicleEvidenceDatasetVersion !== em.dataset_version || m.vehicleEvidenceReleaseHash !== em.master_sha256) throw new Error("DATASET_PIN_MISMATCH");
@@ -23,10 +23,10 @@ if (mapping.value.records.length !== 5 || mapping.value.counts.ambiguous !== 0 |
 for (const key of ["runtimeVehicleCandidateId", "vehicleVariantId", "configurationId"]) if (new Set(mapping.value.records.map((r) => r[key])).size !== 5) throw new Error(`DUPLICATE_${key}`);
 const catalogIds = new Set(catalog.value.records.map((r) => r.variant.id));
 if (mapping.value.records.some((r) => !catalogIds.has(r.vehicleVariantId))) throw new Error("CATALOG_RELEASE_ORPHAN");
-if (artifact.value.candidates.length !== 5 || artifact.value.policy.migratedCategories.join() !== "seats" || artifact.value.candidates.some((r) => !mapping.value.records.some((m) => m.runtimeVehicleCandidateId === r.runtimeVehicleCandidateId && m.vehicleVariantId === r.vehicleVariantId && m.configurationId === r.configurationId))) throw new Error("ARTIFACT_MEMBERSHIP_OR_SCOPE_MISMATCH");
+if (artifact.value.candidates.length !== 5 || artifact.value.policy.migratedCategories.join() !== "seats,cargo_volume_l" || artifact.value.candidates.some((r) => !mapping.value.records.some((m) => m.runtimeVehicleCandidateId === r.runtimeVehicleCandidateId && m.vehicleVariantId === r.vehicleVariantId && m.configurationId === r.configurationId))) throw new Error("ARTIFACT_MEMBERSHIP_OR_SCOPE_MISMATCH");
 verifyPins(artifact.value, mapping.value);
-const oldMapping = (await readJson("data/runtime/vehicle-candidate-identity-maps/v0.1.0/mapping.json")).value;
-if (JSON.stringify(mapping.value.records.slice(0, 2)) !== JSON.stringify(oldMapping.records)) throw new Error("RUNTIME_ID_REBINDING");
+const oldMapping = (await readJson("data/runtime/vehicle-candidate-identity-maps/v0.2.0/mapping.json")).value;
+if (JSON.stringify(mapping.value.records) !== JSON.stringify(oldMapping.records)) throw new Error("RUNTIME_ID_REBINDING");
 const attempts = [
   () => verifyPins(artifact.value, { ...mapping.value, catalogReleaseVersion: "0.1.0" }),
   () => verifyPins(artifact.value, oldMapping),

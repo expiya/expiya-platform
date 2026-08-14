@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build --webpack",
+    "build": "npm run verify:vehicle-evidence-runtime-artifact && next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
@@ -13,7 +13,16 @@
     "db:import:catalog-candidates": "tsx scripts/import-manual-catalog-candidates.ts",
     "db:import:marketplace-pilot": "tsx scripts/import-marketplace-candidate-pilot.ts",
     "db:report:catalog-candidates": "tsx scripts/report-catalog-candidates.ts",
-    "verify:cars-catalog-blob": "node scripts/verify-cars-catalog-blob.mjs"
+    "verify:cars-catalog-blob": "node scripts/verify-cars-catalog-blob.mjs",
+    "catalog:release:generate": "node --import tsx scripts/generate-production-catalog-release.ts",
+    "catalog:release:verify": "node --import tsx scripts/verify-production-catalog-release.ts"
+    ,"verify:vehicle-evidence-runtime-artifact": "node scripts/verify-vehicle-evidence-runtime-artifact.mjs && node scripts/verify-release-pinned-vehicle-evidence.mjs"
+    ,"vehicle-evidence:validate": "node --import tsx scripts/vehicle-evidence.ts validate data/cars/vehicle_evidence/releases/v0.4.1/tables"
+    ,"vehicle-evidence:reconcile": "node --import tsx scripts/generate-release-pinned-vehicle-evidence.ts"
+    ,"vehicle-evidence:next-id": "node --import tsx scripts/vehicle-evidence.ts next-id"
+    ,"vehicle-evidence:manifest": "node --import tsx scripts/vehicle-evidence.ts manifest"
+    ,"vehicle-evidence:snapshot-sources": "node --import tsx scripts/snapshot-vehicle-evidence-sources.ts"
+    ,"vehicle-evidence:apply-hardening": "node --import tsx scripts/apply-post-batch01-hardening.ts"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.70.0",

@@ -1,0 +1,27 @@
+{
+  "mappingVersion": "0.2.1",
+  "mappingHash": "3833bdc222152b47a759034e04856cc8b963e4911715c14de295401cf0a7b982",
+  "mappingPath": "data/runtime/vehicle-candidate-identity-maps/v0.2.1/mapping.json",
+  "catalogReleaseVersion": "0.2.0",
+  "catalogPayloadHash": "393b548307e9e117415a4c54bf0d3d8c3f734f33518ed5bd5cd37be5158c18ba",
+  "catalogSchemaVersion": "0.1",
+  "datasetVersion": "0.4.1",
+  "datasetReleaseHash": "910507ec41cbb82a16a7b5ab31e37e0275c8d868a0c0baeb8275f0d29d18a7de",
+  "datasetSchemaVersion": "0.1",
+  "dictionaryRevision": "vehicle-evidence-0.4.1:data_dictionary.csv",
+  "dictionaryHash": "7aa8579ccd0a118c0bf98075f62ac7e62ee8297f44422125f40be956db676a95",
+  "activeMappingCount": 5,
+  "statusCounts": {
+    "considered": 13,
+    "verifiedOneToOne": 5,
+    "unmapped": 7,
+    "ambiguous": 0,
+    "ineligible": 1
+  },
+  "validator": {
+    "version": "vehicle-candidate-identity-map:v4",
+    "status": "PASS"
+  },
+  "previousMappingRelease": "0.2.0",
+  "approvalReviewReference": "vehicle-evidence-v0.4.1-compatible-pin-2026-08-15"
+}

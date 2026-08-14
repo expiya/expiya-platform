@@ -7,7 +7,9 @@ export type CarsDomainFactCategory =
   | "year"
   | "fuel"
   | "transmission"
-  | "bodyType";
+  | "bodyType"
+  | "seats"
+  | "cargo_volume_l";
 
 export type CarsCanonicalScalar = string | number;
 
@@ -30,6 +32,11 @@ export type CarsDomainFactPredicate =
         | "ON_OR_BEFORE"
         | "AFTER"
         | "ON_OR_AFTER";
+      readonly operand: number;
+    }
+  | {
+      readonly relation: "ORDERED_NUMERIC_COMPARISON";
+      readonly direction: "LESS_THAN" | "AT_MOST" | "GREATER_THAN" | "AT_LEAST";
       readonly operand: number;
     }
   | {

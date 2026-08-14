@@ -14,6 +14,7 @@ import type {
   CarsDomainSufficiencyAssessment,
   CarsSufficiencyPolicy,
 } from "@/types/contextSufficiency";
+import type { RuntimeVehicleCandidateId, VehicleEvidenceReadPort } from "@/types/runtimeVehicleEvidence";
 
 export type CarsRuntimeEvidenceDependencies =
   | { readonly evidence: { readonly status: "UNAVAILABLE" } }
@@ -36,7 +37,20 @@ export interface BuildCarsRuntimeEvidenceDependenciesInput {
     readonly revision: string;
     readonly limitations: readonly string[];
   };
+  readonly vehicleEvidenceReadPort?: VehicleEvidenceReadPort;
 }
+
+export const CARS_RUNTIME_CATEGORY_AUTHORITY = Object.freeze({
+  "Car.id": "RUNTIME_IDENTITY",
+  brand: "LEGACY_CATALOG",
+  model: "LEGACY_CATALOG",
+  year: "LEGACY_CATALOG",
+  fuel: "LEGACY_CATALOG",
+  transmission: "LEGACY_CATALOG",
+  bodyType: "LEGACY_CATALOG",
+  seats: "VEHICLE_EVIDENCE",
+  cargo_volume_l: "VEHICLE_EVIDENCE",
+} as const satisfies Record<CarsDomainFactCategory, string>);
 
 function assertionValue(car: Readonly<Car>, category: CarsDomainFactCategory): unknown {
   switch (category) {
@@ -47,6 +61,8 @@ function assertionValue(car: Readonly<Car>, category: CarsDomainFactCategory): u
     case "fuel": return car.fuel;
     case "transmission": return car.transmission;
     case "bodyType": return car.bodyType;
+    case "seats":
+    case "cargo_volume_l": return undefined;
   }
 }
 
@@ -71,7 +87,14 @@ export function buildCarsRuntimeEvidenceDependencies(
     catalog.map((car) => [car.id, car] as const),
   );
 
-  if (optionIds.some((optionId) => !carsById.has(optionId))) {
+  const migratedCategories = new Set<CarsDomainFactCategory>(
+    Object.entries(CARS_RUNTIME_CATEGORY_AUTHORITY)
+      .filter(([, authority]) => authority === "VEHICLE_EVIDENCE")
+      .map(([category]) => category as CarsDomainFactCategory),
+  );
+  if (input.requirementResolution.requirements.some((requirement) =>
+    !migratedCategories.has(requirement.identity.category) &&
+    requirement.identity.optionIds.some((optionId) => !carsById.has(optionId)))) {
     return { evidence: { status: "UNAVAILABLE" } };
   }
 
@@ -81,8 +104,37 @@ export function buildCarsRuntimeEvidenceDependencies(
   for (const requirement of input.requirementResolution.requirements) {
     for (const optionId of requirement.identity.optionIds) {
       const car = carsById.get(optionId);
-      if (!car) return { evidence: { status: "UNAVAILABLE" } };
       const evidenceId = `${requirement.id}:${optionId}`;
+      if (requirement.identity.category === "seats" || requirement.identity.category === "cargo_volume_l") {
+        if (!input.vehicleEvidenceReadPort) return { evidence: { status: "UNAVAILABLE" } };
+        const resolution = input.vehicleEvidenceReadPort.readFact(
+          optionId as RuntimeVehicleCandidateId,
+          requirement.identity.category,
+        );
+        assertions.push({
+          evidenceId,
+          optionId,
+          category: requirement.identity.category,
+          availability: resolution.status === "AVAILABLE" ? "AVAILABLE" :
+            resolution.status === "MISSING" ? "MISSING" : "UNRESOLVED",
+          ...(resolution.status === "AVAILABLE" ? { assertion: resolution.value === undefined ? {
+            valueMin: resolution.valueMin, valueMax: resolution.valueMax,
+            rangeSemantics: resolution.rangeSemantics,
+          } : resolution.value } : {}),
+          ...(resolution.status === "AVAILABLE" ? {
+            source: {
+              sourceId: resolution.sourceIds.join(","),
+              reference: `${resolution.artifactVersion}#${resolution.assertionIds.join(",")}`,
+            },
+            provenance: "AUTHORITATIVE_SOURCE" as const,
+          } : {}),
+          limitations: [...resolution.limitations],
+          conflictReferences: [],
+        });
+        requirementLinks.push({ evidenceId, requirementId: requirement.id });
+        continue;
+      }
+      if (!car) return { evidence: { status: "UNAVAILABLE" } };
       assertions.push({
         evidenceId,
         optionId,

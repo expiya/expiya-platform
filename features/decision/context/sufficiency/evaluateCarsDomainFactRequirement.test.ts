@@ -15,6 +15,17 @@ function evidence(value: unknown, category: CarsDomainEvidenceAssertion["categor
 
 describe("evaluateCarsDomainFactRequirement", () => {
   it.each([
+    [450, "SATISFIED"],
+    [650, "NEGATIVE"],
+    [550, "UNRESOLVED"],
+  ] as const)("evaluates a fail-safe MIN_MAX cargo range against >= %i", (operand, status) => {
+    expect(evaluateCarsDomainFactRequirement(
+      requirement({ relation: "ORDERED_NUMERIC_COMPARISON", direction: "AT_LEAST", operand }, "cargo_volume_l"),
+      evidence({ valueMin: 484, valueMax: 616, rangeSemantics: "MIN_MAX" }, "cargo_volume_l"),
+    ).status).toBe(status);
+  });
+
+  it.each([
     [{ relation: "EXACT_EQUAL", operand: "diesel" }, "diesel"],
     [{ relation: "EXACT_NOT_EQUAL", operand: "petrol" }, "diesel"],
     [{ relation: "IN_SET", operand: ["diesel", "hybrid"] }, "hybrid"],

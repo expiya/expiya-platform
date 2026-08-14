@@ -51,6 +51,32 @@ export function evaluateCarsDomainFactRequirement(
       else return { status: "UNRESOLVED", reason: "UNSUPPORTED_RELATION_EVALUATION" };
       break;
     }
+    case "ORDERED_NUMERIC_COMPARISON": {
+      if (typeof value === "object" && value !== null &&
+          "rangeSemantics" in value && value.rangeSemantics === "MIN_MAX" &&
+          "valueMin" in value && "valueMax" in value &&
+          typeof value.valueMin === "number" && typeof value.valueMax === "number" &&
+          Number.isFinite(value.valueMin) && Number.isFinite(value.valueMax) &&
+          value.valueMin <= value.valueMax) {
+        if (predicate.direction !== "AT_LEAST") {
+          return { status: "UNRESOLVED", reason: "UNSUPPORTED_RELATION_EVALUATION" };
+        }
+        if (value.valueMin >= predicate.operand) return { status: "SATISFIED" };
+        if (value.valueMax < predicate.operand) {
+          return { status: "NEGATIVE", reason: "CONSTRAINT_MISMATCH" };
+        }
+        return { status: "UNRESOLVED", reason: "EVIDENCE_UNRESOLVED" };
+      }
+      if (typeof value !== "number" || !Number.isFinite(value) || !Number.isFinite(predicate.operand)) {
+        return { status: "UNRESOLVED", reason: "UNSUPPORTED_RELATION_EVALUATION" };
+      }
+      if (predicate.direction === "LESS_THAN") matches = value < predicate.operand;
+      else if (predicate.direction === "AT_MOST") matches = value <= predicate.operand;
+      else if (predicate.direction === "GREATER_THAN") matches = value > predicate.operand;
+      else if (predicate.direction === "AT_LEAST") matches = value >= predicate.operand;
+      else return { status: "UNRESOLVED", reason: "UNSUPPORTED_RELATION_EVALUATION" };
+      break;
+    }
     case "RAW_FACT_REQUIRED":
       return value === undefined
         ? { status: "UNRESOLVED", reason: "UNSUPPORTED_RELATION_EVALUATION" }
