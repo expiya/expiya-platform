@@ -9,6 +9,10 @@ export const CATALOG_SOURCE_PATH = "data/production/pilotVehicles.ts";
 export const CATALOG_BOOTSTRAP_INSTANT = "2026-08-14T12:00:00.000Z";
 export const CATALOG_GENERATOR_VERSION = "production-catalog-release-generator:0.1.0";
 export const CATALOG_VALIDATOR_VERSION = "production-catalog-release-validator:0.1.0";
+export const SECOND_CATALOG_RELEASE_VERSION = "0.2.0";
+export const SECOND_CATALOG_RELEASE_AS_OF = "2026-08-14T20:00:00.000Z";
+export const SECOND_CATALOG_SOURCE_REVISION = "staged-catalog-expansion-batch-01:2026-08-14";
+export const SECOND_CATALOG_SOURCE_PATH = "data/production/stagedCatalogBatch01.ts";
 
 export const FIRST_RELEASE_VARIANT_IDS = Object.freeze([
   "1eb75421-a038-4679-977e-7cd4e4608863",
@@ -26,7 +30,7 @@ export const FIRST_RELEASE_VARIANT_IDS = Object.freeze([
 export interface ProductionCatalogReleasePayload {
   readonly catalog_schema_version: typeof CATALOG_SCHEMA_VERSION;
   readonly market: "TR";
-  readonly effective_as_of: typeof CATALOG_BOOTSTRAP_INSTANT;
+  readonly effective_as_of: string;
   readonly records: readonly PublishedVehicleRecord[];
 }
 
@@ -55,7 +59,7 @@ export interface ProductionCatalogReleaseManifest {
     readonly actor_reference: string;
     readonly target: "INTERNAL_INTEGRATION_NON_PRODUCTION";
   };
-  readonly previous_release: null;
+  readonly previous_release: string | null;
   readonly declared_limitations: readonly string[];
 }
 
@@ -131,6 +135,51 @@ export function createFirstReleaseManifest(payload: ProductionCatalogReleasePayl
   };
 }
 
+export function createSecondReleasePayload(records: readonly PublishedVehicleRecord[]): ProductionCatalogReleasePayload {
+  const ids = records.map(({ variant }) => variant.id);
+  if (records.length !== 13) throw new Error(`Expected 13 publishable records, received ${records.length}`);
+  if (new Set(ids).size !== ids.length) throw new Error("Duplicate catalog variant IDs are forbidden");
+  for (const id of FIRST_RELEASE_VARIANT_IDS) {
+    if (!ids.includes(id)) throw new Error(`Previous release member missing: ${id}`);
+  }
+  return {
+    catalog_schema_version: CATALOG_SCHEMA_VERSION,
+    market: "TR",
+    effective_as_of: SECOND_CATALOG_RELEASE_AS_OF,
+    records: [...records].sort((left, right) => left.variant.id.localeCompare(right.variant.id, "en")),
+  };
+}
+
+export function createSecondReleaseManifest(payload: ProductionCatalogReleasePayload): ProductionCatalogReleaseManifest {
+  return {
+    catalog_release_version: SECOND_CATALOG_RELEASE_VERSION,
+    catalog_schema_version: CATALOG_SCHEMA_VERSION,
+    catalog_payload_hash: catalogPayloadHash(serializeCanonical(payload)),
+    market: "TR",
+    source_revision: SECOND_CATALOG_SOURCE_REVISION,
+    source_path: SECOND_CATALOG_SOURCE_PATH,
+    effective_as_of: SECOND_CATALOG_RELEASE_AS_OF,
+    record_count: payload.records.length,
+    publishable_record_count: payload.records.length,
+    included_variant_ids: payload.records.map(({ variant }) => variant.id).sort(),
+    generator_version: CATALOG_GENERATOR_VERSION,
+    validator_version: CATALOG_VALIDATOR_VERSION,
+    validator_status: "PASS",
+    approval: { state: "APPROVED", at: SECOND_CATALOG_RELEASE_AS_OF, reference: "small-staged-catalog-expansion-batch-01" },
+    staging: {
+      state: "STAGED", at: SECOND_CATALOG_RELEASE_AS_OF,
+      actor_reference: "controlled-catalog-staging-process", target: "INTERNAL_INTEGRATION_NON_PRODUCTION",
+    },
+    previous_release: FIRST_CATALOG_RELEASE_VERSION,
+    declared_limitations: [
+      "staged-only-not-active",
+      "default-recommendation-remains-pinned-to-authoring-baseline-v0.1.0",
+      "vehicle-evidence-used-for-reconciliation-only-not-publication-authority",
+      "identity-mapping-and-runtime-evidence-artifacts-unchanged",
+    ],
+  };
+}
+
 export function validateProductionCatalogRelease(
   payload: ProductionCatalogReleasePayload,
   manifest: ProductionCatalogReleaseManifest,
@@ -150,8 +199,14 @@ export function validateProductionCatalogRelease(
   if (manifest.catalog_release_version === FIRST_CATALOG_RELEASE_VERSION && JSON.stringify(sortedIds) !== JSON.stringify(FIRST_RELEASE_VARIANT_IDS)) errors.push("FIRST_RELEASE_MEMBERSHIP_MISMATCH");
   if (payload.market !== "TR" || manifest.market !== "TR") errors.push("MARKET_MISMATCH");
   if (!manifest.source_revision) errors.push("SOURCE_REVISION_MISSING");
-  if (manifest.source_path !== CATALOG_SOURCE_PATH) errors.push("SOURCE_AUTHORITY_INVALID");
-  if (payload.effective_as_of !== CATALOG_BOOTSTRAP_INSTANT || manifest.effective_as_of !== CATALOG_BOOTSTRAP_INSTANT) errors.push("BOOTSTRAP_INSTANT_MISMATCH");
+  const expectedSourcePath = manifest.catalog_release_version === FIRST_CATALOG_RELEASE_VERSION
+    ? CATALOG_SOURCE_PATH : SECOND_CATALOG_SOURCE_PATH;
+  if (manifest.source_path !== expectedSourcePath) errors.push("SOURCE_AUTHORITY_INVALID");
+  if (payload.effective_as_of !== manifest.effective_as_of) errors.push("EFFECTIVE_AS_OF_MISMATCH");
+  if (manifest.catalog_release_version === FIRST_CATALOG_RELEASE_VERSION && payload.effective_as_of !== CATALOG_BOOTSTRAP_INSTANT) errors.push("BOOTSTRAP_INSTANT_MISMATCH");
+  if (manifest.catalog_release_version === SECOND_CATALOG_RELEASE_VERSION && (
+    payload.effective_as_of !== SECOND_CATALOG_RELEASE_AS_OF || manifest.previous_release !== FIRST_CATALOG_RELEASE_VERSION
+  )) errors.push("SECOND_RELEASE_LINEAGE_INVALID");
   if (manifest.validator_status !== "PASS") errors.push("VALIDATOR_NOT_PASS");
   if (!manifest.approval || manifest.approval.state !== "APPROVED" || !manifest.approval.reference) errors.push("APPROVAL_EVIDENCE_MISSING");
   if (!manifest.staging || manifest.staging.state !== "STAGED" || !manifest.staging.actor_reference) errors.push("STAGING_EVIDENCE_MISSING");

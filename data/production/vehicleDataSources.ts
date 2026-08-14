@@ -22,6 +22,18 @@ export const vehicleDataSources: readonly DataSource[] = [
     reviewNotes: ["Use dated price lists and exact Turkey trim pages", "Manual fact capture only; no broad automated crawl", "Do not reproduce copyrighted images or brochure text"],
   },
   {
+    id: "opel-tr", name: "Opel Türkiye", authority: "PRIMARY",
+    homepageUrl: "https://www.opel.com.tr/", usagePermission: "PUBLIC_FACTS_ONLY",
+    reviewedAt: "2026-08-14T20:00:00.000Z",
+    reviewNotes: ["Use exact MY26 price-list rows and Turkey equipment pages", "Manual public-fact capture only"],
+  },
+  {
+    id: "bmw-tr", name: "BMW Türkiye / Borusan Otomotiv", authority: "PRIMARY",
+    homepageUrl: "https://www.bmw.com.tr/", usagePermission: "PUBLIC_FACTS_ONLY",
+    reviewedAt: "2026-08-14T20:00:00.000Z",
+    reviewNotes: ["Use current distributor price-list rows and exact Turkey model pages", "Manual public-fact capture only"],
+  },
+  {
     id: "euro-ncap", name: "Euro NCAP", authority: "OFFICIAL",
     homepageUrl: "https://www.euroncap.com/", termsUrl: "https://www.euroncap.com/terms-conditions/",
     usagePermission: "PERMISSION_REQUIRED", reviewedAt: "2026-08-13T00:00:00.000Z",

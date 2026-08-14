@@ -1,0 +1,47 @@
+{
+  "approval": {
+    "at": "2026-08-14T20:00:00.000Z",
+    "reference": "small-staged-catalog-expansion-batch-01",
+    "state": "APPROVED"
+  },
+  "catalog_payload_hash": "sha256:393b548307e9e117415a4c54bf0d3d8c3f734f33518ed5bd5cd37be5158c18ba",
+  "catalog_release_version": "0.2.0",
+  "catalog_schema_version": "0.1",
+  "declared_limitations": [
+    "default-recommendation-remains-pinned-to-authoring-baseline-v0.1.0",
+    "identity-mapping-and-runtime-evidence-artifacts-unchanged",
+    "staged-only-not-active",
+    "vehicle-evidence-used-for-reconciliation-only-not-publication-authority"
+  ],
+  "effective_as_of": "2026-08-14T20:00:00.000Z",
+  "generator_version": "production-catalog-release-generator:0.1.0",
+  "included_variant_ids": [
+    "01a559dd-917f-4f49-a4cf-84fe78e9de40",
+    "06d935f4-6d33-4bc7-9e89-375b8db885df",
+    "1eb75421-a038-4679-977e-7cd4e4608863",
+    "4c22cb31-e980-4dc8-8525-c47363783d96",
+    "5d3538b1-c726-44f5-8160-41a64d33eb8e",
+    "62465336-2cfb-4ccd-b9a7-36467d63497f",
+    "87e30119-f0d5-4c98-8324-cbd65156974b",
+    "8af2278c-4168-4a1b-a915-6b72b9cd6f48",
+    "a3728e65-51b2-447f-a6c3-a1f64db8a310",
+    "c8d535d0-6c04-4dcb-8cf6-2bad5bd037e8",
+    "db2d6503-f10f-41a4-ad11-b2ca71e59d32",
+    "e3248126-f374-44ff-9dbe-5378ab308a02",
+    "f81b0873-f3a7-454a-9f34-4d5ad273708d"
+  ],
+  "market": "TR",
+  "previous_release": "0.1.0",
+  "publishable_record_count": 13,
+  "record_count": 13,
+  "source_path": "data/production/stagedCatalogBatch01.ts",
+  "source_revision": "staged-catalog-expansion-batch-01:2026-08-14",
+  "staging": {
+    "actor_reference": "controlled-catalog-staging-process",
+    "at": "2026-08-14T20:00:00.000Z",
+    "state": "STAGED",
+    "target": "INTERNAL_INTEGRATION_NON_PRODUCTION"
+  },
+  "validator_status": "PASS",
+  "validator_version": "production-catalog-release-validator:0.1.0"
+}

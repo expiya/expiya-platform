@@ -4,6 +4,8 @@ import path from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 
 import { pilotVehicleRecords } from "@/data/production/pilotVehicles";
+import { stagedCatalogBatch01Records } from "@/data/production/stagedCatalogBatch01";
+import { vehicleDataSourceById } from "@/data/production/vehicleDataSources";
 import { buildPublishedCatalog } from "@/features/vehicle-data/buildPublishedCatalog";
 import { resolveRecommendationCatalog } from "@/features/vehicle-data/resolveRecommendationCatalog";
 import {
@@ -12,6 +14,11 @@ import {
 } from "@/features/vehicle-data/productionCatalogRelease";
 import { generateFirstProductionCatalogRelease } from "@/scripts/generate-production-catalog-release";
 import { verifyProductionCatalogRelease } from "@/scripts/verify-production-catalog-release";
+import { generateStagedProductionCatalogRelease } from "@/scripts/generate-staged-production-catalog-release";
+import { validateProductionVehicleIdentity } from "@/features/vehicle-data/validateProductionVehicle";
+import {
+  SECOND_CATALOG_RELEASE_AS_OF, createSecondReleaseManifest, createSecondReleasePayload,
+} from "@/features/vehicle-data/productionCatalogRelease";
 
 const temporaryRoots: string[] = [];
 afterEach(async () => Promise.all(temporaryRoots.splice(0).map((root) => rm(root, { recursive: true, force: true }))));
@@ -92,5 +99,35 @@ describe("first immutable production catalog release", () => {
     expect(resolveRecommendationCatalog("fixture", new Date(CATALOG_BOOTSTRAP_INSTANT))).toMatchObject({
       mode: "fixture", limitations: ["test-fixture-only", "not-production-evidence"],
     });
+  });
+});
+
+describe("small staged catalog expansion v0.2.0", () => {
+  it("publishes exactly three independently sourced additions", () => {
+    expect(stagedCatalogBatch01Records).toHaveLength(3);
+    for (const record of stagedCatalogBatch01Records) {
+      expect(validateProductionVehicleIdentity(record.identity, vehicleDataSourceById, new Date(SECOND_CATALOG_RELEASE_AS_OF)))
+        .toEqual({ ok: true });
+    }
+    const published = buildPublishedCatalog(
+      [...pilotVehicleRecords, ...stagedCatalogBatch01Records], new Date(SECOND_CATALOG_RELEASE_AS_OF),
+    );
+    expect(published.rejected).toEqual([]);
+    const payload = createSecondReleasePayload(published.records);
+    const manifest = createSecondReleaseManifest(payload);
+    expect(payload.records).toHaveLength(13);
+    expect(manifest).toMatchObject({ catalog_release_version: "0.2.0", previous_release: "0.1.0" });
+    expect(validateProductionCatalogRelease(payload, manifest, serializeCanonical(payload))).toEqual([]);
+  });
+
+  it("generates immutably without changing the default ten-candidate runtime", async () => {
+    const before = resolveRecommendationCatalog("production", new Date(CATALOG_BOOTSTRAP_INSTANT)).cars.map(({ id }) => id);
+    const root = await mkdtemp(path.join(tmpdir(), "staged-catalog-release-test-"));
+    temporaryRoots.push(root);
+    const destination = path.join(root, "v0.2.0");
+    await expect(generateStagedProductionCatalogRelease(destination)).resolves.toBe("created");
+    await expect(verifyProductionCatalogRelease(destination)).resolves.toMatchObject({ version: "0.2.0", records: 13 });
+    expect(resolveRecommendationCatalog("production", new Date(CATALOG_BOOTSTRAP_INSTANT)).cars.map(({ id }) => id)).toEqual(before);
+    expect(before).toHaveLength(10);
   });
 });
