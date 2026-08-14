@@ -1,0 +1,138 @@
+{
+  "reportVersion": "0.1.0",
+  "generatedAt": "2026-08-14T21:00:00.000Z",
+  "result": "CATALOG_VEHICLE_EVIDENCE_RECONCILIATION_VERIFIED",
+  "inputs": {
+    "catalogReleaseVersion": "0.1.0",
+    "catalogPayloadHash": "3d64b3140f72d3d67bfd71eee62a849d9543a7657727ac43aac8b0be2a31b1e3",
+    "datasetVersion": "0.4.0",
+    "datasetReleaseHash": "b3ee43a0e1245a2c3b0954c1698d0c2d424e2cc38861ffef4fb315b9c8bdcfeb"
+  },
+  "metrics": {
+    "considered": 10,
+    "verifiedOneToOne": 2,
+    "unmapped": 7,
+    "ambiguous": 0,
+    "ineligible": 1
+  },
+  "reconciliation": [
+    {
+      "catalogVariantId": "5d3538b1-c726-44f5-8160-41a64d33eb8e",
+      "catalogVehicle": "Hyundai TUCSON 1.6 T-GDI Comfort 4X2 DCT, MY2026",
+      "candidateConfigurationId": null,
+      "evidenceVehicle": null,
+      "status": "UNMAPPED",
+      "reason": "NO_EXACT_CONFIGURATION_IN_RELEASE",
+      "candidateConfigurationStatus": null
+    },
+    {
+      "catalogVariantId": "87e30119-f0d5-4c98-8324-cbd65156974b",
+      "catalogVehicle": "Hyundai IONIQ 5 Dynamic Vision Roof 125 kW 4X2, MY2026",
+      "candidateConfigurationId": "CFG-000036",
+      "evidenceVehicle": "Hyundai IONIQ 5 N IONIQ 5 N 448 kW 4x4, MY2025",
+      "status": "UNMAPPED",
+      "reason": "MODEL_ONLY_IDENTITY_FIELDS_DIFFER",
+      "candidateConfigurationStatus": "VERIFIED"
+    },
+    {
+      "catalogVariantId": "a3728e65-51b2-447f-a6c3-a1f64db8a310",
+      "catalogVehicle": "Hyundai IONIQ 9 Progressive 160 kW 4X2, MY2026",
+      "candidateConfigurationId": "CFG-000037",
+      "evidenceVehicle": "Hyundai IONIQ 9 IONIQ 9 Progressive 160 kW 4x2, MY2026",
+      "status": "VERIFIED_ONE_TO_ONE",
+      "reason": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "candidateConfigurationStatus": "VERIFIED"
+    },
+    {
+      "catalogVariantId": "c8d535d0-6c04-4dcb-8cf6-2bad5bd037e8",
+      "catalogVehicle": "Toyota Yaris Flame Hybrid 1.5 116 HP e-CVT, MY2026",
+      "candidateConfigurationId": "CFG-000058",
+      "evidenceVehicle": "Toyota Yaris Cross Yaris Cross Hybrid Dream 1.5 130 HP e-CVT, MY2026",
+      "status": "UNMAPPED",
+      "reason": "RELATED_NAME_ONLY_MODEL_TRIM_POWER_DIFFER",
+      "candidateConfigurationStatus": "VERIFIED"
+    },
+    {
+      "catalogVariantId": "4c22cb31-e980-4dc8-8525-c47363783d96",
+      "catalogVehicle": "Toyota Yaris Passion X-Pack Hybrid 1.5 130 HP e-CVT, MY2026",
+      "candidateConfigurationId": "CFG-000058",
+      "evidenceVehicle": "Toyota Yaris Cross Yaris Cross Hybrid Dream 1.5 130 HP e-CVT, MY2026",
+      "status": "UNMAPPED",
+      "reason": "RELATED_NAME_ONLY_MODEL_AND_TRIM_DIFFER",
+      "candidateConfigurationStatus": "VERIFIED"
+    },
+    {
+      "catalogVariantId": "8af2278c-4168-4a1b-a915-6b72b9cd6f48",
+      "catalogVehicle": "Toyota Corolla Vision Plus 1.5 125 HP Multidrive S, MY2026",
+      "candidateConfigurationId": "CFG-000003",
+      "evidenceVehicle": "Toyota Corolla Sedan Corolla 1.8 Hybrid Dream e-CVT, MY2026",
+      "status": "UNMAPPED",
+      "reason": "MODEL_FAMILY_ONLY_TRIM_AND_POWERTRAIN_DIFFER",
+      "candidateConfigurationStatus": "PROVISIONAL"
+    },
+    {
+      "catalogVariantId": "db2d6503-f10f-41a4-ad11-b2ca71e59d32",
+      "catalogVehicle": "Toyota Corolla Flame X-Pack Hybrid 1.8 140 HP e-CVT, MY2026",
+      "candidateConfigurationId": "CFG-000003",
+      "evidenceVehicle": "Toyota Corolla Sedan Corolla 1.8 Hybrid Dream e-CVT, MY2026",
+      "status": "UNMAPPED",
+      "reason": "MODEL_AND_POWERTRAIN_ONLY_TRIM_DIFFERS",
+      "candidateConfigurationStatus": "PROVISIONAL"
+    },
+    {
+      "catalogVariantId": "1eb75421-a038-4679-977e-7cd4e4608863",
+      "catalogVehicle": "Renault Clio evolution plus TCe EDC 115 hp, MY2026",
+      "candidateConfigurationId": "CFG-000001",
+      "evidenceVehicle": "Renault Clio Yeni Renault Clio evolution plus TCe EDC 115 hp, MY2026",
+      "status": "INELIGIBLE",
+      "reason": "EXACT_IDENTITY_CONFIGURATION_PROVISIONAL",
+      "candidateConfigurationStatus": "PROVISIONAL"
+    },
+    {
+      "catalogVariantId": "62465336-2cfb-4ccd-b9a7-36467d63497f",
+      "catalogVehicle": "Renault Captur techno mild hybrid EDC 140 hp, MY2026",
+      "candidateConfigurationId": "CFG-000055",
+      "evidenceVehicle": "Renault Captur CAPTUR techno mild hybrid EDC 140 hp, MY2026",
+      "status": "VERIFIED_ONE_TO_ONE",
+      "reason": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "candidateConfigurationStatus": "VERIFIED"
+    },
+    {
+      "catalogVariantId": "f81b0873-f3a7-454a-9f34-4d5ad273708d",
+      "catalogVehicle": "Renault Megane Sedan Touch 1.3 TCe EDC 140 bg, MY2026",
+      "candidateConfigurationId": null,
+      "evidenceVehicle": null,
+      "status": "UNMAPPED",
+      "reason": "NO_EXACT_CONFIGURATION_IN_RELEASE",
+      "candidateConfigurationStatus": null
+    }
+  ],
+  "activeMappings": [
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0001",
+      "vehicleVariantId": "a3728e65-51b2-447f-a6c3-a1f64db8a310",
+      "configurationId": "CFG-000037",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000050"
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0002",
+      "vehicleVariantId": "62465336-2cfb-4ccd-b9a7-36467d63497f",
+      "configurationId": "CFG-000055",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000065"
+    }
+  ],
+  "mappingRelease": {
+    "version": "0.1.0",
+    "hash": "7049530bc52842301f8d5f7d8a7c2f8fadeb3fc34ecf0d81184ae505a1cef967"
+  },
+  "artifactRelease": {
+    "version": "0.1.1",
+    "hash": "5b36c9c9ea2843f23f18a786d3143da2d38a7fa1dd4197b6ed1aefc72bb564c8"
+  }
+}
