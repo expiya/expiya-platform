@@ -1,0 +1,11 @@
+{
+  "verdict": "TARGETED VEHICLE EVIDENCE ENRICHMENT VERIFIED WITH NON-BLOCKING NOTES",
+  "dataset_release": { "version": "0.4.1", "schema_version": "0.1", "batch_id": "RUNTIME_CANDIDATE_ENRICHMENT_01", "sha256": "910507ec41cbb82a16a7b5ab31e37e0275c8d868a0c0baeb8275f0d29d18a7de" },
+  "changes": [
+    { "fact_id": "FAC-000299", "configuration_id": "CFG-000055", "fact_key": "cargo_volume_l", "value_min": 484, "value_max": 616, "unit": "L", "range_semantics": "MIN_MAX", "source_value_semantics": "EXACT_RANGE", "assertion_id": "AST-000495", "source_id": "SRC-000079", "evidence_state": "VERIFIED", "applicability": "EXACT" },
+    { "fact_id": "FAC-000300", "configuration_id": "CFG-000063", "fact_key": "cargo_volume_l", "value": 480, "unit": "L", "range_semantics": "NONE", "source_value_semantics": "EXACT_SCALAR", "assertion_id": "AST-000496", "source_id": "SRC-000080", "evidence_state": "VERIFIED", "applicability": "EXACT" }
+  ],
+  "coverage": { "cargo_before": "2/5", "cargo_after": "4/5", "seats_before": "3/5", "seats_after": "3/5" },
+  "cargo_migration_readiness": "CARGO MIGRATION READY WITH PARTIAL COVERAGE",
+  "next_gate": "READY FOR CARGO RUNTIME MIGRATION"
+}
