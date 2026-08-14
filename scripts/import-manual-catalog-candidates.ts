@@ -27,9 +27,9 @@ async function run(): Promise<void> {
   const database = getPostgresDatabase();
   try {
     const migration = await database.query(
-      "select name from vehicle_data_schema_migrations where name = $1", ["0004_catalog_candidates.sql"],
+      "select name from vehicle_data_schema_migrations where name = $1", ["0005_candidate_source_governance.sql"],
     ) as { rows?: { name: string }[] };
-    if (migration.rows?.length !== 1) throw new Error("CATALOG_CANDIDATE_MIGRATION_REQUIRED");
+    if (migration.rows?.length !== 1) throw new Error("CATALOG_CANDIDATE_MIGRATIONS_REQUIRED");
     await new PostgresManualCatalogCandidateRepository(database).importBatch({
       id: randomUUID(), sourcePlatform: report.accepted[0].sourcePlatform, suppliedBy: suppliedBy!,
       capturedAt: report.accepted[0].capturedAt, originalFilename: path.basename(fileArgument!),

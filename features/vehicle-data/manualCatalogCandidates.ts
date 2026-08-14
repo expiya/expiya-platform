@@ -20,7 +20,7 @@ export interface ManualCatalogCandidate {
   readonly occurrenceCount: number;
   readonly sourceCategoryUrl?: string;
   readonly notes?: string;
-  readonly usageAttestation: typeof manualIndexAttestation;
+  readonly usageAttestation: string;
   readonly normalizedBrand: string;
   readonly normalizedModel: string;
   readonly aliasText: string;
