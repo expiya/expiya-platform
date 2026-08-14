@@ -114,7 +114,11 @@ async function createCarsConversationTurn(
   const effectiveRecommendationAllowed = recommendationAllowed && !rejectedRecommendations;
 
   const latestUser = [...input.messages].reverse().find((message) => message.role === "user");
-  if (userTurnCount === 1 && latestUser && /(?:arazi|off-road|off road|kötü yol|rough road)/iu.test(latestUser.content)) {
+  if (
+    userTurnCount === 1
+    && latestUser
+    && /(?:arazi|off-road|off road|stabilize|kamp yolu|kötü yol|rough road)/iu.test(latestUser.content)
+  ) {
     return {
       kind: "QUESTION",
       message: "Evet, arazi ve kötü yol kullanımına uygun araçları değerlendirebiliriz. Daha çok kamp ve stabilize yol mu, çamurlu/kötü yollar mı, yoksa ciddi arazi kullanımı mı düşünüyorsunuz?",
