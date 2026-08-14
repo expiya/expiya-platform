@@ -10,6 +10,7 @@
     "test": "vitest run",
     "db:migrate:vehicles": "tsx scripts/migrate-vehicle-data.ts",
     "db:import:vehicles": "tsx scripts/import-pilot-vehicles.ts",
+    "db:import:catalog-candidates": "tsx scripts/import-manual-catalog-candidates.ts",
     "verify:cars-catalog-blob": "node scripts/verify-cars-catalog-blob.mjs"
   },
   "dependencies": {
