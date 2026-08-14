@@ -1,0 +1,150 @@
+{
+  "artifactVersion": "0.2.0",
+  "datasetVersion": "0.4.0",
+  "datasetReleaseHash": "b3ee43a0e1245a2c3b0954c1698d0c2d424e2cc38861ffef4fb315b9c8bdcfeb",
+  "schemaVersion": "0.1",
+  "mappingVersion": "0.2.0",
+  "mappingHash": "dfd04d9bf513e6a6c09fb4020850df71a7dd1e4fd5e40d0226ae70eebe83ba71",
+  "dictionaryRevision": "vehicle-evidence-0.4.0:data_dictionary.csv",
+  "dictionaryHash": "7aa8579ccd0a118c0bf98075f62ac7e62ee8297f44422125f40be956db676a95",
+  "productionCatalogRevision": "staged-catalog-expansion-batch-01:2026-08-14",
+  "generatedAt": "2026-08-15T00:00:00.000Z",
+  "generatorVersion": "vehicle-evidence-runtime-artifact:v3",
+  "validationStatus": "PASS",
+  "evidenceValidator": {
+    "version": "vehicle-evidence:v0.4.0",
+    "status": "PASS"
+  },
+  "mappingValidator": {
+    "version": "vehicle-candidate-identity-map:v3",
+    "status": "PASS"
+  },
+  "policy": {
+    "id": "cars.requirement-to-evidence",
+    "version": "0.1.0",
+    "migratedCategories": [
+      "seats"
+    ]
+  },
+  "candidates": [
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0001",
+      "vehicleVariantId": "a3728e65-51b2-447f-a6c3-a1f64db8a310",
+      "configurationId": "CFG-000037",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000050",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "value": 7,
+          "factId": "FAC-000178",
+          "assertionIds": [
+            "AST-000332"
+          ],
+          "sourceIds": [
+            "SRC-000050"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "limitations": []
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0002",
+      "vehicleVariantId": "62465336-2cfb-4ccd-b9a7-36467d63497f",
+      "configurationId": "CFG-000055",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000065",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "value": 5,
+          "factId": "FAC-000251",
+          "assertionIds": [
+            "AST-000447"
+          ],
+          "sourceIds": [
+            "SRC-000065"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "limitations": []
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0003",
+      "vehicleVariantId": "e3248126-f374-44ff-9dbe-5378ab308a02",
+      "configurationId": "CFG-000058",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000068",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "value": 5,
+          "factId": "FAC-000257",
+          "assertionIds": [
+            "AST-000453"
+          ],
+          "sourceIds": [
+            "SRC-000068"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "limitations": []
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0004",
+      "vehicleVariantId": "01a559dd-917f-4f49-a4cf-84fe78e9de40",
+      "configurationId": "CFG-000054",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000064",
+      "facts": {
+        "seats": {
+          "status": "MISSING",
+          "assertionIds": [],
+          "sourceIds": [],
+          "limitations": [
+            "SEATS_EVIDENCE_UNKNOWN_IN_VEHICLE_EVIDENCE_V0.4.0"
+          ]
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0005",
+      "vehicleVariantId": "06d935f4-6d33-4bc7-9e89-375b8db885df",
+      "configurationId": "CFG-000063",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000073",
+      "facts": {
+        "seats": {
+          "status": "MISSING",
+          "assertionIds": [],
+          "sourceIds": [],
+          "limitations": [
+            "SEATS_EVIDENCE_UNKNOWN_IN_VEHICLE_EVIDENCE_V0.4.0"
+          ]
+        }
+      }
+    }
+  ],
+  "catalogReleaseVersion": "0.2.0",
+  "catalogPayloadHash": "393b548307e9e117415a4c54bf0d3d8c3f734f33518ed5bd5cd37be5158c18ba",
+  "catalogSchemaVersion": "0.1"
+}

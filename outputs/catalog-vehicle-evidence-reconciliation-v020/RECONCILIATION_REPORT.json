@@ -1,0 +1,286 @@
+{
+  "reportVersion": "0.2.0",
+  "generatedAt": "2026-08-15T00:00:00.000Z",
+  "result": "CATALOG_V020_VEHICLE_EVIDENCE_V040_RECONCILIATION_VERIFIED",
+  "inputs": {
+    "catalogReleaseVersion": "0.2.0",
+    "catalogPayloadHash": "393b548307e9e117415a4c54bf0d3d8c3f734f33518ed5bd5cd37be5158c18ba",
+    "datasetVersion": "0.4.0",
+    "datasetReleaseHash": "b3ee43a0e1245a2c3b0954c1698d0c2d424e2cc38861ffef4fb315b9c8bdcfeb"
+  },
+  "metrics": {
+    "considered": 13,
+    "verifiedOneToOne": 5,
+    "unmapped": 7,
+    "ambiguous": 0,
+    "ineligible": 1,
+    "seatsEvaluable": 3,
+    "seatsUnknown": 2
+  },
+  "reconciliation": [
+    {
+      "catalogVariantId": "1eb75421-a038-4679-977e-7cd4e4608863",
+      "catalogVehicle": "Renault Clio evolution plus TCe EDC 115 hp, MY2026",
+      "candidateConfigurationId": "CFG-000001",
+      "evidenceConfigurationStatus": "PROVISIONAL",
+      "result": "INELIGIBLE",
+      "reason": "EXACT_IDENTITY_CONFIGURATION_PROVISIONAL",
+      "runtimeVehicleCandidateId": null
+    },
+    {
+      "catalogVariantId": "8af2278c-4168-4a1b-a915-6b72b9cd6f48",
+      "catalogVehicle": "Toyota Corolla Vision Plus 1.5 125 HP Multidrive S, MY2026",
+      "candidateConfigurationId": "CFG-000003",
+      "evidenceConfigurationStatus": "PROVISIONAL",
+      "result": "UNMAPPED",
+      "reason": "MODEL_FAMILY_ONLY_TRIM_AND_POWERTRAIN_DIFFER",
+      "runtimeVehicleCandidateId": null
+    },
+    {
+      "catalogVariantId": "c8d535d0-6c04-4dcb-8cf6-2bad5bd037e8",
+      "catalogVehicle": "Toyota Yaris Flame Hybrid 1.5 116 HP e-CVT, MY2026",
+      "candidateConfigurationId": "CFG-000058",
+      "evidenceConfigurationStatus": "VERIFIED",
+      "result": "UNMAPPED",
+      "reason": "RELATED_NAME_ONLY_MODEL_TRIM_POWER_DIFFER",
+      "runtimeVehicleCandidateId": null
+    },
+    {
+      "catalogVariantId": "01a559dd-917f-4f49-a4cf-84fe78e9de40",
+      "catalogVehicle": "Opel Corsa Hybrid 1.2 145 (136 HP) GS, MY2026",
+      "candidateConfigurationId": "CFG-000054",
+      "evidenceConfigurationStatus": "VERIFIED",
+      "result": "VERIFIED_ONE_TO_ONE",
+      "reason": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "runtimeVehicleCandidateId": "RVC-PILOT-0004"
+    },
+    {
+      "catalogVariantId": "f81b0873-f3a7-454a-9f34-4d5ad273708d",
+      "catalogVehicle": "Renault Megane Sedan Touch 1.3 TCe EDC 140 bg, MY2026",
+      "candidateConfigurationId": null,
+      "evidenceConfigurationStatus": null,
+      "result": "UNMAPPED",
+      "reason": "NO_EXACT_CONFIGURATION_IN_RELEASE",
+      "runtimeVehicleCandidateId": null
+    },
+    {
+      "catalogVariantId": "62465336-2cfb-4ccd-b9a7-36467d63497f",
+      "catalogVehicle": "Renault Captur techno mild hybrid EDC 140 hp, MY2026",
+      "candidateConfigurationId": "CFG-000055",
+      "evidenceConfigurationStatus": "VERIFIED",
+      "result": "VERIFIED_ONE_TO_ONE",
+      "reason": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "runtimeVehicleCandidateId": "RVC-PILOT-0002"
+    },
+    {
+      "catalogVariantId": "4c22cb31-e980-4dc8-8525-c47363783d96",
+      "catalogVehicle": "Toyota Yaris Passion X-Pack Hybrid 1.5 130 HP e-CVT, MY2026",
+      "candidateConfigurationId": "CFG-000058",
+      "evidenceConfigurationStatus": "VERIFIED",
+      "result": "UNMAPPED",
+      "reason": "RELATED_NAME_ONLY_MODEL_AND_TRIM_DIFFER",
+      "runtimeVehicleCandidateId": null
+    },
+    {
+      "catalogVariantId": "5d3538b1-c726-44f5-8160-41a64d33eb8e",
+      "catalogVehicle": "Hyundai TUCSON 1.6 T-GDI Comfort 4X2 DCT, MY2026",
+      "candidateConfigurationId": null,
+      "evidenceConfigurationStatus": null,
+      "result": "UNMAPPED",
+      "reason": "NO_EXACT_CONFIGURATION_IN_RELEASE",
+      "runtimeVehicleCandidateId": null
+    },
+    {
+      "catalogVariantId": "87e30119-f0d5-4c98-8324-cbd65156974b",
+      "catalogVehicle": "Hyundai IONIQ 5 Dynamic Vision Roof 125 kW 4X2, MY2026",
+      "candidateConfigurationId": "CFG-000036",
+      "evidenceConfigurationStatus": "VERIFIED",
+      "result": "UNMAPPED",
+      "reason": "MODEL_ONLY_IDENTITY_FIELDS_DIFFER",
+      "runtimeVehicleCandidateId": null
+    },
+    {
+      "catalogVariantId": "db2d6503-f10f-41a4-ad11-b2ca71e59d32",
+      "catalogVehicle": "Toyota Corolla Flame X-Pack Hybrid 1.8 140 HP e-CVT, MY2026",
+      "candidateConfigurationId": "CFG-000003",
+      "evidenceConfigurationStatus": "PROVISIONAL",
+      "result": "UNMAPPED",
+      "reason": "MODEL_AND_POWERTRAIN_ONLY_TRIM_DIFFERS",
+      "runtimeVehicleCandidateId": null
+    },
+    {
+      "catalogVariantId": "e3248126-f374-44ff-9dbe-5378ab308a02",
+      "catalogVehicle": "Toyota Yaris Cross Hybrid Dream 1.5 130 HP e-CVT, MY2026",
+      "candidateConfigurationId": "CFG-000058",
+      "evidenceConfigurationStatus": "VERIFIED",
+      "result": "VERIFIED_ONE_TO_ONE",
+      "reason": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "runtimeVehicleCandidateId": "RVC-PILOT-0003"
+    },
+    {
+      "catalogVariantId": "a3728e65-51b2-447f-a6c3-a1f64db8a310",
+      "catalogVehicle": "Hyundai IONIQ 9 Progressive 160 kW 4X2, MY2026",
+      "candidateConfigurationId": "CFG-000037",
+      "evidenceConfigurationStatus": "VERIFIED",
+      "result": "VERIFIED_ONE_TO_ONE",
+      "reason": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "runtimeVehicleCandidateId": "RVC-PILOT-0001"
+    },
+    {
+      "catalogVariantId": "06d935f4-6d33-4bc7-9e89-375b8db885df",
+      "catalogVehicle": "BMW 320i Sedan M Sport, MY2026",
+      "candidateConfigurationId": "CFG-000063",
+      "evidenceConfigurationStatus": "VERIFIED",
+      "result": "VERIFIED_ONE_TO_ONE",
+      "reason": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "runtimeVehicleCandidateId": "RVC-PILOT-0005"
+    }
+  ],
+  "activeMappings": [
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0001",
+      "vehicleVariantId": "a3728e65-51b2-447f-a6c3-a1f64db8a310",
+      "configurationId": "CFG-000037",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000050"
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0002",
+      "vehicleVariantId": "62465336-2cfb-4ccd-b9a7-36467d63497f",
+      "configurationId": "CFG-000055",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000065"
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0003",
+      "vehicleVariantId": "e3248126-f374-44ff-9dbe-5378ab308a02",
+      "configurationId": "CFG-000058",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000068"
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0004",
+      "vehicleVariantId": "01a559dd-917f-4f49-a4cf-84fe78e9de40",
+      "configurationId": "CFG-000054",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000064"
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0005",
+      "vehicleVariantId": "06d935f4-6d33-4bc7-9e89-375b8db885df",
+      "configurationId": "CFG-000063",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000073"
+    }
+  ],
+  "categoryCoverage": {
+    "cargo_volume_l": [
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0001",
+        "configurationId": "CFG-000037",
+        "verifiedExact": true
+      },
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0002",
+        "configurationId": "CFG-000055",
+        "verifiedExact": false
+      },
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0003",
+        "configurationId": "CFG-000058",
+        "verifiedExact": true
+      },
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0004",
+        "configurationId": "CFG-000054",
+        "verifiedExact": false
+      },
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0005",
+        "configurationId": "CFG-000063",
+        "verifiedExact": false
+      }
+    ],
+    "ground_clearance_mm": [
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0001",
+        "configurationId": "CFG-000037",
+        "verifiedExact": false
+      },
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0002",
+        "configurationId": "CFG-000055",
+        "verifiedExact": false
+      },
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0003",
+        "configurationId": "CFG-000058",
+        "verifiedExact": false
+      },
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0004",
+        "configurationId": "CFG-000054",
+        "verifiedExact": false
+      },
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0005",
+        "configurationId": "CFG-000063",
+        "verifiedExact": false
+      }
+    ],
+    "official_fuel_consumption_combined": [
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0001",
+        "configurationId": "CFG-000037",
+        "verifiedExact": false
+      },
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0002",
+        "configurationId": "CFG-000055",
+        "verifiedExact": true
+      },
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0003",
+        "configurationId": "CFG-000058",
+        "verifiedExact": true
+      },
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0004",
+        "configurationId": "CFG-000054",
+        "verifiedExact": false
+      },
+      {
+        "runtimeVehicleCandidateId": "RVC-PILOT-0005",
+        "configurationId": "CFG-000063",
+        "verifiedExact": true
+      }
+    ]
+  },
+  "auditNotes": [
+    {
+      "code": "BMW_FUEL_CONSUMPTION_DISAGREEMENT",
+      "catalogVariantId": "06d935f4-6d33-4bc7-9e89-375b8db885df",
+      "catalogValueLPer100Km": 7.6,
+      "vehicleEvidenceValueLPer100Km": 7.3,
+      "disposition": "PRESERVED_NOT_MIGRATED_NON_BLOCKING_FOR_IDENTITY"
+    }
+  ],
+  "mappingRelease": {
+    "version": "0.2.0",
+    "hash": "dfd04d9bf513e6a6c09fb4020850df71a7dd1e4fd5e40d0226ae70eebe83ba71"
+  },
+  "artifactRelease": {
+    "version": "0.2.0",
+    "hash": "9f7aab33892c409b7507d3fbe4979d4d46e75ebf7d4bf7971859ebef2e06c933"
+  }
+}

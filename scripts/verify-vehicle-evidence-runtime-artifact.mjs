@@ -1,0 +1,11 @@
+import { createHash } from "node:crypto";
+import { readFile } from "node:fs/promises";
+const hash = (b) => createHash("sha256").update(b).digest("hex");
+const manifest = JSON.parse(await readFile("data/runtime/vehicle-evidence/v0.2.0/manifest.json", "utf8"));
+const bytes = await readFile(manifest.artifactPath); const artifact = JSON.parse(bytes);
+if (hash(bytes) !== manifest.artifactSha256) throw new Error("VEHICLE_EVIDENCE_ARTIFACT_HASH_MISMATCH");
+if (artifact.validationStatus !== "PASS" || artifact.candidates.length !== 5 || artifact.policy?.migratedCategories?.join() !== "seats") throw new Error("VEHICLE_EVIDENCE_ARTIFACT_NOT_ACTIVATION_ELIGIBLE");
+for (const key of ["runtimeVehicleCandidateId", "vehicleVariantId", "configurationId"]) if (new Set(artifact.candidates.map((x) => x[key])).size !== 5) throw new Error(`DUPLICATE_${key}`);
+const statuses = artifact.candidates.map((c) => c.facts.seats.status);
+if (statuses.filter((s) => s === "AVAILABLE").length !== 3 || statuses.filter((s) => s === "MISSING").length !== 2) throw new Error("SEATS_EVALUABILITY_DRIFT");
+console.log(`Vehicle Evidence runtime artifact verified: ${artifact.artifactVersion} ${hash(bytes)}; mappings=5 seats-evaluable=3 seats-unknown=2`);

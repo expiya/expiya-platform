@@ -16,5 +16,9 @@ export async function verifyProductionCatalogRelease(directory = path.resolve("d
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  verifyProductionCatalogRelease().then((result) => console.log(`Verified catalog release v${result.version}: ${result.records} records, ${result.hash}`));
+  const releaseIndex = process.argv.indexOf("--release");
+  const release = releaseIndex >= 0 ? process.argv[releaseIndex + 1] : FIRST_CATALOG_RELEASE_VERSION;
+  if (!release || !/^\d+\.\d+\.\d+$/.test(release)) throw new Error("INVALID_CATALOG_RELEASE_ARGUMENT");
+  verifyProductionCatalogRelease(path.resolve("data/production/catalog/releases", `v${release}`))
+    .then((result) => console.log(`Verified catalog release v${result.version}: ${result.records} records, ${result.hash}`));
 }
