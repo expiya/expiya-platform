@@ -13,6 +13,10 @@ import type {
 } from "@/types/carsConversation";
 
 import { buildCarsConversationQuery } from "./buildCarsConversationQuery";
+import {
+  createCarsClarificationRepair,
+  suppressRepeatedCarsResponse,
+} from "./carsConversationRepair";
 import { createCarsConversationGuidance } from "./createCarsConversationGuidance";
 import { createCarsFollowUp } from "./createCarsFollowUp";
 import {
@@ -75,7 +79,7 @@ function fallbackGuidance(
     return {
       kind: "QUESTION",
       message: isTurkish
-        ? "Anladım. Bu ihtiyacı karşılamak için rahat edeceğiniz yaklaşık üst bütçe nedir? Bilmiyorsanız bunu da söyleyebilirsiniz."
+        ? "Anladım. Bu ihtiyacı karşılamak için rahat edeceğiniz yaklaşık üst bütçe nedir? Henüz belli değilse bütçeyi şimdilik açık bırakabiliriz."
         : "Understood. What approximate maximum budget would feel comfortable? It is fine if you do not know yet.",
     };
   }
@@ -92,7 +96,7 @@ function runtimeGap(result: Awaited<ReturnType<typeof runCarsRuntime>>): string 
   return reason ? `${reason.stage}: ${reason.code}` : "The governed runtime needs more explicit context.";
 }
 
-export async function runCarsConversationTurn(
+async function createCarsConversationTurn(
   input: CarsConversationRequest,
 ): Promise<CarsConversationResponse> {
   const locale = "tr" as const;
@@ -108,6 +112,15 @@ export async function runCarsConversationTurn(
   const rejectedRecommendations = hasPriorRecommendations
     && latestUserRejectedRecommendations(input);
   const effectiveRecommendationAllowed = recommendationAllowed && !rejectedRecommendations;
+
+  const latestUser = [...input.messages].reverse().find((message) => message.role === "user");
+  if (userTurnCount === 1 && latestUser && /(?:arazi|off-road|off road|kötü yol|rough road)/iu.test(latestUser.content)) {
+    return {
+      kind: "QUESTION",
+      message: "Evet, arazi ve kötü yol kullanımına uygun araçları değerlendirebiliriz. Daha çok kamp ve stabilize yol mu, çamurlu/kötü yollar mı, yoksa ciddi arazi kullanımı mı düşünüyorsunuz?",
+      options: ["Kamp ve stabilize yol", "Çamurlu/kötü yol", "Ciddi arazi kullanımı"],
+    };
+  }
 
   const query = buildCarsConversationQuery(input.messages);
   const bridge = deriveCarsEvidenceBackedRequirementsFromQuery(query);
@@ -155,6 +168,9 @@ export async function runCarsConversationTurn(
       ? "Birden fazla araç zorunlu şartlarınızı karşılıyor. Kararı ayırabilecek başka bir zorunlu tercihiniz var mı?"
       : "More than one vehicle meets your requirements. Do you have another must-have that could separate them?"), decision: structured };
   }
+
+  const clarificationRepair = createCarsClarificationRepair(input.messages);
+  if (clarificationRepair) return clarificationRepair;
 
   const guidance = await createCarsConversationGuidance({
     messages: input.messages,
@@ -220,4 +236,11 @@ export async function runCarsConversationTurn(
   return followUp
     ? { kind: "QUESTION", message: followUp.message, options: followUp.options }
     : { kind: "QUESTION", message: createCarsFollowUp(result, locale) };
+}
+
+export async function runCarsConversationTurn(
+  input: CarsConversationRequest,
+): Promise<CarsConversationResponse> {
+  const response = await createCarsConversationTurn(input);
+  return suppressRepeatedCarsResponse(input.messages, response);
 }

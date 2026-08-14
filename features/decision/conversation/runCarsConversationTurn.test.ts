@@ -43,6 +43,65 @@ describe("runCarsConversationTurn", () => {
     expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
   });
 
+  it("answers off-road intent first and explains the usage question on repair", async () => {
+    mocks.createCarsConversationGuidance.mockResolvedValue(undefined);
+    const first = await runCarsConversationTurn({
+      conversationId: "off-road-loop",
+      messages: [{ id: "1", role: "user", content: "merhaba. arazi aracı var mı sizde?" }],
+    });
+    const second = await runCarsConversationTurn({
+      conversationId: "off-road-loop",
+      messages: [
+        { id: "1", role: "user", content: "merhaba. arazi aracı var mı sizde?" },
+        { id: "2", role: "assistant", content: first.message },
+        { id: "3", role: "user", content: "ne gibi?" },
+      ],
+    });
+
+    expect(first.message).toMatch(/arazi ve kötü yol/iu);
+    expect(first.message).toMatch(/kamp.*stabilize/iu);
+    expect(first.message).not.toMatch(/bütçe/iu);
+    expect(second.message).toMatch(/örneğin.*stabilize/iu);
+    expect(second.message).not.toBe(first.message);
+    expect(second).not.toHaveProperty("decision");
+  });
+
+  it.each(["ne gibi?", "nasıl yani?"])("explains a budget question after repair phrase: %s", async (repair) => {
+    const response = await runCarsConversationTurn({
+      conversationId: "budget-repair",
+      messages: [
+        { id: "1", role: "user", content: "Araba almak istiyorum." },
+        { id: "2", role: "assistant", content: "Yaklaşık üst bütçeniz nedir?" },
+        { id: "3", role: "user", content: repair },
+      ],
+    });
+
+    expect(response.message).toMatch(/örneğin 1,5 milyon TL/iu);
+    expect(response.message).toMatch(/açık bırakabiliriz/iu);
+    expect(response.message).not.toBe("Yaklaşık üst bütçeniz nedir?");
+    expect(response.message).not.toMatch(/bütçeniz 1,5/iu);
+    expect(mocks.createCarsConversationGuidance).not.toHaveBeenCalled();
+  });
+
+  it("suppresses an exact repeated assistant response server-side", async () => {
+    mocks.createCarsConversationGuidance.mockResolvedValue({
+      action: "ASK",
+      message: "Yaklaşık üst bütçeniz nedir?",
+      options: [],
+    });
+    const response = await runCarsConversationTurn({
+      conversationId: "repeat-guard",
+      messages: [
+        { id: "1", role: "user", content: "Şehir içinde küçük araç istiyorum." },
+        { id: "2", role: "assistant", content: "Yaklaşık üst bütçeniz nedir?" },
+        { id: "3", role: "user", content: "Bu konuda henüz bir şey ekleyemem." },
+      ],
+    });
+
+    expect(response.message).not.toBe("Yaklaşık üst bütçeniz nedir?");
+    expect(response.message).toMatch(/aralık|açık bırak/iu);
+  });
+
   it("keeps an off-topic request inside the Cars domain", async () => {
     mocks.createCarsConversationGuidance.mockResolvedValue({
       action: "REDIRECT",

@@ -36,6 +36,8 @@ describe("createCarsConversationGuidance", () => {
     const systemMessage = mocks.parse.mock.calls[0][0].input[0].content;
     expect(systemMessage).toContain("acknowledge the concrete meaning");
     expect(systemMessage).toContain("Do not repeat a question");
+    expect(systemMessage).toContain("Every turn must ANSWER, CLARIFY, ADVANCE, or DECIDE");
+    expect(systemMessage).toContain("Short clarification requests");
     expect(systemMessage).toContain("Stay strictly within");
   });
 
