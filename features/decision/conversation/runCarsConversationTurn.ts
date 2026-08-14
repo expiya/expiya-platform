@@ -1,6 +1,12 @@
 import { randomUUID } from "node:crypto";
 
 import { runCarsRuntime } from "@/features/decision/runtime/runCarsRuntime";
+import {
+  deriveCarsEvidenceBackedRequirementsFromQuery,
+  runCarsEvidenceBackedDecision,
+  type CarsEvidenceBackedDecisionResult,
+} from "@/features/decision/runtime/runCarsEvidenceBackedDecision";
+import { generatedVehicleEvidenceReadPort } from "@/features/vehicle-evidence/generatedVehicleEvidenceReadPort";
 import type {
   CarsConversationRequest,
   CarsConversationResponse,
@@ -16,6 +22,33 @@ import {
 } from "./hasActionableCarsContext";
 
 const MAX_USER_TURNS = 20;
+
+function evidenceDecision(result: CarsEvidenceBackedDecisionResult) {
+  return {
+    conversationState: result.status === "DECISION_READY" ? "DECISION_READY" as const
+      : result.status === "INSUFFICIENT_VEHICLE_EVIDENCE" ? "EVIDENCE_INSUFFICIENT" as const
+        : result.status === "NO_ELIGIBLE_CANDIDATE" ? "NO_ELIGIBLE_CANDIDATE" as const : "FOLLOW_UP" as const,
+    decisionStatus: result.status,
+    evidenceBacked: result.status === "DECISION_READY",
+    selectedRuntimeVehicleCandidateId: result.selectedRuntimeVehicleCandidateId,
+    selectedVehicle: result.selectedVehicle,
+    requirements: result.materialRequirements.map(({ factKey, predicate, value }) => ({ factKey, predicate, value })),
+    candidateDispositions: result.candidateEvaluations.map(({ runtimeVehicleCandidateId, disposition }) => ({ runtimeVehicleCandidateId, disposition })),
+    evidenceTrace: { candidateIds: result.evidenceTrace.candidateIds, artifactVersion: result.evidenceTrace.authority.artifactVersion },
+    followUpQuestion: result.followUpQuestion,
+    limitations: result.status === "INSUFFICIENT_VEHICLE_EVIDENCE"
+      ? ["Bu araç için gerekli doğrulanmış veri yeterli değil."] : undefined,
+  };
+}
+
+function missingEvidenceDimensionQuestion(hasSeats: boolean, isTurkish: boolean): string {
+  if (hasSeats) return isTurkish
+    ? "Bagaj için zorunlu bir minimum hacim beklentiniz var mı? Varsa litre olarak belirtir misiniz?"
+    : "Do you have a required minimum cargo volume? If so, please give it in litres.";
+  return isTurkish
+    ? "En az kaç koltuk olmasını istiyorsunuz?"
+    : "What is the minimum number of seats you require?";
+}
 
 function latestUserRejectedRecommendations(input: CarsConversationRequest): boolean {
   const latest = [...input.messages].reverse().find((message) => message.role === "user");
@@ -76,6 +109,53 @@ export async function runCarsConversationTurn(
     && latestUserRejectedRecommendations(input);
   const effectiveRecommendationAllowed = recommendationAllowed && !rejectedRecommendations;
 
+  const query = buildCarsConversationQuery(input.messages);
+  const bridge = deriveCarsEvidenceBackedRequirementsFromQuery(query);
+  const hasEvidenceConversation = bridge.requirements.length > 0
+    || bridge.materialPreferencesWithoutThreshold.length > 0
+    || bridge.partySize !== undefined;
+
+  if (hasEvidenceConversation) {
+    const result = runCarsEvidenceBackedDecision({ query, vehicleEvidenceReadPort: generatedVehicleEvidenceReadPort });
+    const structured = evidenceDecision(result);
+    if (result.status === "NO_ELIGIBLE_CANDIDATE") {
+      return { kind: "QUESTION", message: isTurkish
+        ? "Şu anda doğrulanmış verileriyle değerlendirdiğim araçların hiçbiri zorunlu şartınızı karşılamıyor. Şartlardan hangisinin esneyebileceğini konuşabiliriz."
+        : "None of the vehicles I can currently evaluate with verified data meets that requirement. We can discuss which constraint could flex.", decision: structured };
+    }
+    if (result.status === "INSUFFICIENT_VEHICLE_EVIDENCE") {
+      return { kind: "QUESTION", message: isTurkish
+        ? "Güvenilir bir seçim için gereken doğrulanmış araç verisi şu anda yeterli değil. Bu nedenle bir araç önermeyeceğim."
+        : "The verified vehicle data needed for a reliable decision is not sufficient right now, so I will not recommend a vehicle.", decision: structured };
+    }
+    const hasSeats = bridge.requirements.some((item) => item.factKey === "seats");
+    const hasCargo = bridge.requirements.some((item) => item.factKey === "cargo_volume_l");
+    if (!hasSeats || !hasCargo) {
+      const message = bridge.partySize !== undefined && !hasSeats
+        ? isTurkish
+          ? `${bridge.partySize} kişi olduğunuzu anladım. En az ${bridge.partySize} koltuk sizin için zorunlu mu?`
+          : `I understand there are ${bridge.partySize} people. Is at least ${bridge.partySize} seats a firm requirement?`
+        : bridge.materialPreferencesWithoutThreshold.includes("cargo_volume_l") && !hasCargo
+          ? isTurkish ? "Bagajın önemli olduğunu anladım. Zorunlu bir minimum hacim beklentiniz var mı? Varsa litre olarak belirtir misiniz?" : "I understand cargo space matters. Do you have a required minimum volume in litres?"
+          : missingEvidenceDimensionQuestion(hasSeats, isTurkish);
+      return { kind: "QUESTION", message, decision: {
+        ...structured,
+        conversationState: "FOLLOW_UP",
+        decisionStatus: "NEEDS_MORE_USER_CONTEXT",
+        evidenceBacked: false,
+        selectedRuntimeVehicleCandidateId: undefined,
+        selectedVehicle: undefined,
+        followUpQuestion: message,
+      } };
+    }
+    if (result.status === "DECISION_READY") {
+      return { kind: "QUESTION", message: result.userFacingExplanation ?? "Güvenilir seçim hazır.", decision: structured };
+    }
+    return { kind: "QUESTION", message: result.followUpQuestion ?? (isTurkish
+      ? "Birden fazla araç zorunlu şartlarınızı karşılıyor. Kararı ayırabilecek başka bir zorunlu tercihiniz var mı?"
+      : "More than one vehicle meets your requirements. Do you have another must-have that could separate them?"), decision: structured };
+  }
+
   const guidance = await createCarsConversationGuidance({
     messages: input.messages,
     locale,
@@ -93,7 +173,6 @@ export async function runCarsConversationTurn(
     return { kind: "QUESTION", message: guidance.message, options: guidance.options };
   }
 
-  const query = buildCarsConversationQuery(input.messages);
   const result = await runCarsRuntime({
     requestId: `${input.conversationId}:turn:${randomUUID()}`,
     contextReference: `${input.conversationId}:context`,

@@ -79,4 +79,24 @@ describe("runCarsEvidenceBackedDecision", () => {
     expect(family.materialRequirements).toEqual([]);
     expect(family.followUpQuestion).toContain("kaç kişilik koltuk");
   });
+
+  it("supports bounded natural seat variants and lets the latest explicit correction win", () => {
+    const natural = runCarsEvidenceBackedDecision({
+      query: "minimum 7 kişilik olsun ve 300 litre bagaj istiyorum.",
+      vehicleEvidenceReadPort: generatedVehicleEvidenceReadPort,
+    });
+    expect(natural.status).toBe("DECISION_READY");
+
+    const corrected = runCarsEvidenceBackedDecision({
+      query: "User turn 1: En az 7 koltuk istiyorum.\nUser turn 2: Hayır, 5 koltuk yeter.\nUser turn 3: Bagaj en az 350 litre olsun.",
+      vehicleEvidenceReadPort: generatedVehicleEvidenceReadPort,
+    });
+    expect(corrected.materialRequirements).toEqual(expect.arrayContaining([
+      expect.objectContaining({ factKey: "seats", value: 5 }),
+      expect.objectContaining({ factKey: "cargo_volume_l", value: 350 }),
+    ]));
+    expect(corrected.materialRequirements).not.toEqual(expect.arrayContaining([
+      expect.objectContaining({ factKey: "seats", value: 7 }),
+    ]));
+  });
 });

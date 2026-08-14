@@ -44,11 +44,16 @@ export function deriveCarsEvidenceBackedRequirements(context: DecisionContext): 
   let seatsMaterial = false;
   for (const sourceText of texts) {
     const normalized = sourceText.toLocaleLowerCase("tr-TR");
-    const seats = normalized.match(/(?:en az|minimum|at least)\s+(\d{1,2})\s*(?:koltuk|koltuklu|seat)/i);
-    const cargo = normalized.match(/(?:en az|minimum|at least)\s+(?:yaklaşık|around)?\s*(\d{2,4})\s*(?:litre|liter|litres|liters|l)\b(?:[^.\n]*(?:bagaj|boot|cargo))?/i)
-      ?? normalized.match(/(?:bagaj|boot|cargo)[^.\n]*?(?:en az|minimum|at least|around|yaklaşık)\s*(\d{2,4})\s*(?:litre|liter|litres|liters|l)\b/i);
+    const seatMatches = [...normalized.matchAll(/(?:(?:en az|minimum|at least)\s+(\d{1,2})\s*(?:koltuk|koltuklu|kişilik|seats?)|(?:^|[\s,:;.!?])\s*(\d{1,2})\s*(?:koltuk|koltuklu|seats?)\s*(?:lazım|gerekli|istiyorum|isterim|olsun|yeter|olur|required|needed|is enough))/giu)];
+    const cargoMatches = [
+      ...normalized.matchAll(/(?:en az|minimum|at least)\s+(?:yaklaşık|around)?\s*(\d{2,4})\s*(?:litre|liter|litres|liters|l)\b(?:[^.\n]*(?:bagaj|boot|cargo))?/giu),
+      ...normalized.matchAll(/(?:bagaj|boot|cargo)[^.\n]*?(?:en az|minimum|at least)\s*(?:yaklaşık|around)?\s*(\d{2,4})\s*(?:litre|liter|litres|liters|l)\b/giu),
+      ...normalized.matchAll(/(\d{2,4})\s*(?:litre|liter|litres|liters|l)\s*(?:bagaj|boot|cargo)[^.\n]*?(?:istiyorum|isterim|olsun|lazım|gerekli|required|needed)/giu),
+    ].sort((left, right) => (left.index ?? 0) - (right.index ?? 0));
+    const seats = seatMatches.at(-1);
+    const cargo = cargoMatches.at(-1);
     const party = normalized.match(/(?:^|\s)(\d{1,2})\s*(?:kişiyiz|kişilik(?:\s+(?:aileyiz|ail(?:e|eyiz)))?|people|person family)(?:\s|[,.!?]|$)/i);
-    if (seats) requirements.set("seats", { factKey: "seats", predicate: "AT_LEAST", value: Number(seats[1]), materiality: "HARD_CONSTRAINT", sourceText });
+    if (seats) requirements.set("seats", { factKey: "seats", predicate: "AT_LEAST", value: Number(seats[1] ?? seats[2]), materiality: "HARD_CONSTRAINT", sourceText });
     if (cargo) requirements.set("cargo_volume_l", { factKey: "cargo_volume_l", predicate: "AT_LEAST", value: Number(cargo[1]), materiality: "HARD_CONSTRAINT", sourceText });
     if (party) partySize = Number(party[1]);
     cargoMaterial ||= /(bagaj|boot|cargo)/i.test(normalized) && /(önemli|important|priority|öncelik)/i.test(normalized);
@@ -61,6 +66,10 @@ export function deriveCarsEvidenceBackedRequirements(context: DecisionContext): 
       ...(cargoMaterial && !requirements.has("cargo_volume_l") ? ["cargo_volume_l" as const] : []),
     ],
   };
+}
+
+export function deriveCarsEvidenceBackedRequirementsFromQuery(query: string): CarsEvidenceBackedRequirementBridgeResult {
+  return deriveCarsEvidenceBackedRequirements(contextFromQuery(query).context);
 }
 
 function contextFromQuery(query: string): { context: DecisionContext; candidates: readonly ContextCandidate[] } {
@@ -134,7 +143,7 @@ function assertionFromFact(requirementId: string, fact: VehicleEvidenceFactResol
     limitations: [...fact.limitations], conflictReferences: [] };
 }
 
-/** Controlled internal MVP entry point. The default Cars runtime does not call this function. */
+/** Governed evidence-backed Cars MVP decision entry point. */
 export function runCarsEvidenceBackedDecision(input: { readonly query: string; readonly vehicleEvidenceReadPort?: VehicleEvidenceReadPort }): CarsEvidenceBackedDecisionResult {
   const { context } = contextFromQuery(input.query);
   const bridge = deriveCarsEvidenceBackedRequirements(context);

@@ -317,4 +317,69 @@ describe("runCarsConversationTurn", () => {
       expect.objectContaining({ remainingUserTurns: 1 }),
     );
   });
+
+  it("collects supported material requirements across turns and returns the grounded unique decision", async () => {
+    const first = await runCarsConversationTurn({ conversationId: "evidence-journey", messages: [
+      { id: "1", role: "user", content: "En az 7 koltuk istiyorum." },
+    ] });
+    expect(first).toMatchObject({ kind: "QUESTION", decision: { decisionStatus: "NEEDS_MORE_USER_CONTEXT", evidenceBacked: false } });
+    expect(first.message).toMatch(/bagaj/iu);
+
+    const final = await runCarsConversationTurn({ conversationId: "evidence-journey", messages: [
+      { id: "1", role: "user", content: "En az 7 koltuk istiyorum." },
+      { id: "2", role: "assistant", content: first.message },
+      { id: "3", role: "user", content: "Bagaj en az 300 litre olsun." },
+    ] });
+    expect(final).toMatchObject({ kind: "QUESTION", decision: {
+      conversationState: "DECISION_READY", decisionStatus: "DECISION_READY", evidenceBacked: true,
+      selectedRuntimeVehicleCandidateId: "RVC-PILOT-0001", selectedVehicle: { brand: "Hyundai", model: "IONIQ 9" },
+    } });
+    expect(final.message).toMatch(/7 koltuk.*338 L bagaj/iu);
+    expect(final.message).not.toMatch(/güvenli|ekonomik|konforlu|aileler için ideal/iu);
+    expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+  });
+
+  it("does not use legacy ranking when multiple governed candidates remain", async () => {
+    const response = await runCarsConversationTurn({ conversationId: "multiple", messages: [
+      { id: "1", role: "user", content: "En az 5 koltuk ve en az 350 litre bagaj istiyorum." },
+    ] });
+    expect(response).toMatchObject({ kind: "QUESTION", decision: { decisionStatus: "NEEDS_MORE_USER_CONTEXT", evidenceBacked: false } });
+    expect(response.message).toMatch(/birden fazla|ayırt edici/iu);
+    expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+  });
+
+  it("keeps party size non-atomic and asks for a numeric cargo threshold", async () => {
+    const party = await runCarsConversationTurn({ conversationId: "party", messages: [
+      { id: "1", role: "user", content: "5 kişiyiz, bagaj da önemli." },
+    ] });
+    expect(party.kind).not.toBe("ERROR");
+    if (party.kind === "ERROR") return;
+    expect(party.message).toMatch(/5 koltuk.*zorunlu/iu);
+    expect(party.decision?.requirements).toHaveLength(0);
+
+    const cargo = await runCarsConversationTurn({ conversationId: "cargo", messages: [
+      { id: "1", role: "user", content: "Bagaj önemli." },
+    ] });
+    expect(cargo.message).toMatch(/minimum.*hacim|litre/iu);
+  });
+
+  it("does not select unknown candidates for an eight-seat requirement", async () => {
+    const response = await runCarsConversationTurn({ conversationId: "none", messages: [
+      { id: "1", role: "user", content: "8 koltuk lazım." },
+    ] });
+    expect(response).toMatchObject({ decision: { decisionStatus: "INSUFFICIENT_VEHICLE_EVIDENCE", evidenceBacked: false } });
+    expect(response.message).toMatch(/doğrulanmış.*yeterli değil/iu);
+    expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+  });
+
+  it("applies the latest explicit correction", async () => {
+    const response = await runCarsConversationTurn({ conversationId: "correction", messages: [
+      { id: "1", role: "user", content: "En az 7 koltuk istiyorum." },
+      { id: "2", role: "assistant", content: "Bagaj beklentiniz?" },
+      { id: "3", role: "user", content: "Hayır, 5 koltuk yeter." },
+    ] });
+    expect(response.kind).not.toBe("ERROR");
+    if (response.kind === "ERROR") return;
+    expect(response.decision?.requirements).toEqual([expect.objectContaining({ factKey: "seats", value: 5 })]);
+  });
 });
