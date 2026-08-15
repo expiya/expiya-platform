@@ -23,6 +23,7 @@
     ,"vehicle-evidence:next-id": "node --import tsx scripts/vehicle-evidence.ts next-id"
     ,"vehicle-evidence:manifest": "node --import tsx scripts/vehicle-evidence.ts manifest"
     ,"vehicle-evidence:snapshot-sources": "node --import tsx scripts/snapshot-vehicle-evidence-sources.ts"
+    ,"vehicle-evidence:collect-hyundai": "node --import tsx scripts/collect-hyundai-brand-batch.ts"
     ,"vehicle-evidence:apply-hardening": "node --import tsx scripts/apply-post-batch01-hardening.ts"
   },
   "dependencies": {

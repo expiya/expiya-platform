@@ -1,0 +1,99 @@
+{
+  "batchId": "HYUNDAI_BATCH_01",
+  "observedAt": "2026-08-15T21:58:10.751Z",
+  "observedDateTr": "2026-08-16",
+  "market": "TR",
+  "condition": "NEW",
+  "sourcePage": "https://www.hyundai.com/tr/tr/satis/fiyat-listesi.html",
+  "sourceEndpoint": "https://org-eu-www.hyundai.com/eu/papi",
+  "sourcePageSha256": "7715210a337a58cdd646a820684682f72efdd7665c1091122ffb5d12f93874ef",
+  "modelEndpointCount": 14,
+  "priceRowCount": 44,
+  "modelCount": 14,
+  "sourceFiles": [
+    {
+      "modelId": "SW|S6||",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-SW_S6__.json",
+      "sha256": "24cc5c57d252551179e220b3b50de2f2d2d1a43b4972b0b08255e2474c28ddb2",
+      "rowCount": 10
+    },
+    {
+      "modelId": "G4|S6||",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-G4_S6__.json",
+      "sha256": "2e6eb65c236d7def0a53b00a240d5b4eb3c109d409c1be471525cfb9b3e66a7f",
+      "rowCount": 2
+    },
+    {
+      "modelId": "SW|W5||",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-SW_W5__.json",
+      "sha256": "7e110dc1154d96b47222b69fc839eb6c5103811d50b353a26495e31191c7821a",
+      "rowCount": 9
+    },
+    {
+      "modelId": "1E|W5||",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-1E_W5__.json",
+      "sha256": "7d55359c3caa4022dc7a292f6a1eef925b1b48a860b706ad62a505c87a459183",
+      "rowCount": 2
+    },
+    {
+      "modelId": "GT|W5||",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-GT_W5__.json",
+      "sha256": "ae111607b9e4f3bffb494d476a7085a8240a19eb98871eea805df39a5a86c17b",
+      "rowCount": 6
+    },
+    {
+      "modelId": "6X|S5||",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-6X_S5__.json",
+      "sha256": "88eb51e2763817d6f2c47ac4320ab908837b82afb30c6f2a7d206173cd83c811",
+      "rowCount": 3
+    },
+    {
+      "modelId": "7F|W5||",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-7F_W5__.json",
+      "sha256": "64472ab6abb1f64eb0e66f326c6f26eb3445dbb06e46c293fbcf4a42d0d724eb",
+      "rowCount": 2
+    },
+    {
+      "modelId": "GI|W5||",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-GI_W5__.json",
+      "sha256": "d7b0c6c100a9b3a5b4067f0ac91018e596d6a26235c3f753fab6ce9b2774de74",
+      "rowCount": 2
+    },
+    {
+      "modelId": "9I|W5||",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-9I_W5__.json",
+      "sha256": "2309e6ecdf27ef5327bc2dfbc33b3cd87c66c67a2d96005feec21f1e5d155c71",
+      "rowCount": 1
+    },
+    {
+      "modelId": "AL|*||",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-AL_ALL__.json",
+      "sha256": "306f82699f3fe42ffcace98e06fbe6101df69363412ef1b39652a79b811366e3",
+      "rowCount": 2
+    },
+    {
+      "modelId": "GO|*||",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-GO_ALL__.json",
+      "sha256": "3430fe0d32f54a823a95bc91eeafa98bf2d8b5feaf6b3f824c90321b18690408",
+      "rowCount": 2
+    },
+    {
+      "modelId": "JF|W5|EV1|",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-JF_W5_EV1_.json",
+      "sha256": "0386793c937395f664ddc02054bcbd91b42c189a3ef2bce497c3bd3e6787ff73",
+      "rowCount": 1
+    },
+    {
+      "modelId": "HK|*|EV1|",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-HK_ALL_EV1_.json",
+      "sha256": "3af59c62c2f4809929045cffcb22ee018ac1f140d854134de6c730ec631154b0",
+      "rowCount": 1
+    },
+    {
+      "modelId": "7R|B9|*|",
+      "file": "data/cars/vehicle_evidence/working/HYUNDAI_BATCH_01/snapshots/2026-08-16/prices-7R_B9_ALL_.json",
+      "sha256": "dfad6a6e820c9d8b711574861df6c5fcde845206143b765a44902999b570ff8f",
+      "rowCount": 1
+    }
+  ]
+}
