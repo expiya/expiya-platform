@@ -1,7 +1,7 @@
 import catalogPayload from "@/data/production/catalog/releases/v0.2.0/catalog.json";
 import { adaptPublishedCatalogToCars } from "@/features/vehicle-data/adaptPublishedCatalogToCars";
 import type { PublishedCatalog } from "@/features/vehicle-data/buildPublishedCatalog";
-import type { CarsConversationTrace } from "@/types/carsConversation";
+import type { CarsConversationTrace, CarsPriceValidityStatus } from "@/types/carsConversation";
 import type { RecommendedCar } from "@/types/recommendation";
 import type { CarsEvidenceBackedDecisionResult } from "@/features/decision/runtime/runCarsEvidenceBackedDecision";
 
@@ -52,6 +52,8 @@ export function presentGovernedRecommendation(input: {
         amountTry: price.amountTry,
         priceType: price.priceType,
         validFrom: record.activeNewPrice.validFrom,
+        validUntil: record.activeNewPrice.validUntil,
+        validityStatus: price.validityStatus,
         caveat: informationalPriceCaveat(price),
       }
       : undefined,
@@ -77,13 +79,14 @@ export function recommendationRevealCopy(input: {
   readonly memory: CarsConversationTrace;
   readonly amountTry?: number;
   readonly priceType?: "LIST" | "CAMPAIGN";
+  readonly validityStatus?: CarsPriceValidityStatus;
   readonly caveat?: string;
 }): string {
   const intro = input.memory.offerPurpose === "NEW_CONFIGURATION_OFFER"
     ? `Tavanına uyan sıfır önerim ${input.identity}.`
     : `İhtiyacına uyan sıfır önerim ${input.identity}.`;
   const priceLine = input.amountTry !== undefined
-    ? `Güncel ${priceTypeLabel(input.priceType)} fiyatı ${formatTryConsumer(input.amountTry)}.`
+    ? `${input.validityStatus === "EXPIRED" ? "Kayıtlı" : "Güncel"} ${priceTypeLabel(input.priceType)} fiyatı ${formatTryConsumer(input.amountTry)}.`
     : undefined;
   return [intro, input.reasons.join(" "), priceLine, input.caveat].filter(Boolean).join("\n\n");
 }

@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import type { RecommendedCar } from "@/types/recommendation";
+import { priceFreshnessWarning } from "@/components/cars/priceFreshnessWarning";
 
 interface CarCardProps {
   recommendedCar: RecommendedCar;
@@ -23,6 +24,7 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
     ? (isTurkish ? "Kampanya" : "Campaign")
     : (isTurkish ? "Liste" : "List");
   const formattedPrice = (pricePresentation?.amountTry ?? car.price).toLocaleString(isTurkish ? "tr-TR" : "en-US");
+  const freshnessWarning = priceFreshnessWarning(pricePresentation, locale);
 
   return (
     <Link
@@ -63,6 +65,14 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
               </p>
               {pricePresentation?.caveat && (
                 <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">{pricePresentation.caveat}</p>
+              )}
+              {freshnessWarning && (
+                <p
+                  role="note"
+                  className="mt-2 break-words rounded-lg border border-amber-300 bg-amber-50 px-2.5 py-2 text-xs font-medium leading-5 text-amber-950 dark:border-amber-800 dark:bg-amber-950/50 dark:text-amber-100"
+                >
+                  {freshnessWarning}
+                </p>
               )}
             </div>
             <div className="shrink-0 text-right">

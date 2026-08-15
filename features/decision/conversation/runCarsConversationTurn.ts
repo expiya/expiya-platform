@@ -463,6 +463,7 @@ function revealAuthorizedCard(
     memory,
     amountTry: price?.amountTry,
     priceType: price?.priceType,
+    validityStatus: price?.validityStatus,
     caveat: memory.offerPurpose === "NEW_CONFIGURATION_OFFER" ? price?.caveat : price?.caveat,
   });
   const revealedMemory = stampAcquisitionAuthority({
