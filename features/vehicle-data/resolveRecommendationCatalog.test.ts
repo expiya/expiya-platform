@@ -10,16 +10,16 @@ describe("resolveRecommendationCatalog", () => {
 
   it("requires an explicit production setting", () => {
     expect(configuredCarsCatalogMode("production")).toBe("production");
-    const catalog = resolveRecommendationCatalog("production", new Date("2026-08-14T12:00:00.000Z"));
-    expect(catalog.cars).toHaveLength(10);
+    const catalog = resolveRecommendationCatalog("production", new Date("2026-08-16T00:00:00.000Z"));
+    expect(catalog.cars).toHaveLength(13);
     expect(catalog.limitations).toEqual([]);
   });
 
   it("does not fall back to fixtures when campaign observations expire", () => {
     const catalog = resolveRecommendationCatalog("production", new Date("2026-09-01T00:00:00.000Z"));
-    expect(catalog.cars).toHaveLength(7);
-    expect(catalog.cars[0].model).toContain("Yaris");
-    expect(catalog.limitations).toHaveLength(3);
+    expect(catalog.cars).toHaveLength(6);
+    expect(catalog.cars.some(({ model }) => model.includes("Yaris Cross"))).toBe(true);
+    expect(catalog.limitations).toHaveLength(7);
   });
 
   it("uses the database repository for production without fixture fallback", async () => {

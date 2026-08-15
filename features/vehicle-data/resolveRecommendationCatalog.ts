@@ -1,7 +1,16 @@
 import { cars as fixtureCars } from "@/data/car";
-import { pilotVehicleRecords } from "@/data/production/pilotVehicles";
+import activeCatalogPointer from "@/data/production/catalog/active.json";
+import activeCatalogPayload from "@/data/production/catalog/releases/v0.2.0/catalog.json";
+import activeCatalogManifest from "@/data/production/catalog/releases/v0.2.0/manifest.json";
 import { adaptPublishedCatalogToCars } from "@/features/vehicle-data/adaptPublishedCatalogToCars";
-import { buildPublishedCatalog } from "@/features/vehicle-data/buildPublishedCatalog";
+import type { PublishedCatalog, PublishedVehicleRecord } from "@/features/vehicle-data/buildPublishedCatalog";
+import {
+  validateProductionCatalogActivation,
+  validateProductionCatalogRelease,
+  type ProductionCatalogActivation,
+  type ProductionCatalogReleaseManifest,
+  type ProductionCatalogReleasePayload,
+} from "@/features/vehicle-data/productionCatalogRelease";
 import type { Car } from "@/types/car";
 import type { VehicleCatalogReadRepository } from "@/features/vehicle-data/catalogReadRepository";
 
@@ -20,7 +29,29 @@ export function resolveRecommendationCatalog(
   if (mode === "fixture") {
     return { mode, cars: fixtureCars, limitations: ["test-fixture-only", "not-production-evidence"] };
   }
-  const published = buildPublishedCatalog(pilotVehicleRecords, at);
+  const payload = activeCatalogPayload as unknown as ProductionCatalogReleasePayload;
+  const manifest = activeCatalogManifest as unknown as ProductionCatalogReleaseManifest;
+  const activation = activeCatalogPointer as ProductionCatalogActivation;
+  const authorityErrors = [
+    ...validateProductionCatalogRelease(payload, manifest),
+    ...validateProductionCatalogActivation(activation, manifest),
+  ];
+  if (authorityErrors.length > 0) {
+    throw new Error(`ACTIVE_PRODUCTION_CATALOG_INVALID:${authorityErrors.join(",")}`);
+  }
+  const activeRecords: PublishedVehicleRecord[] = [];
+  const rejected: PublishedCatalog["rejected"][number][] = [];
+  for (const record of payload.records) {
+    const validFrom = new Date(record.activeNewPrice.validFrom);
+    const validUntil = record.activeNewPrice.validUntil ? new Date(record.activeNewPrice.validUntil) : undefined;
+    if (validFrom <= at && (!validUntil || at <= validUntil)) activeRecords.push(record);
+    else rejected.push({ vehicleVariantId: record.variant.id, issues: ["ACTIVE_NEW_PRICE_MISSING"] });
+  }
+  const published: PublishedCatalog = {
+    records: Object.freeze(activeRecords),
+    rejected: Object.freeze(rejected),
+    generatedAt: at.toISOString(),
+  };
   const adapted = adaptPublishedCatalogToCars(published);
   return {
     mode,

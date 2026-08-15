@@ -63,6 +63,17 @@ export interface ProductionCatalogReleaseManifest {
   readonly declared_limitations: readonly string[];
 }
 
+export interface ProductionCatalogActivation {
+  readonly market: "TR";
+  readonly state: "ACTIVE";
+  readonly active_catalog_release_version: string;
+  readonly catalog_payload_hash: string;
+  readonly activated_at: string;
+  readonly activation_reference: string;
+  readonly previous_active_release: string;
+  readonly rollback_release: string;
+}
+
 function compareCanonical(left: unknown, right: unknown): number {
   return JSON.stringify(left).localeCompare(JSON.stringify(right), "en");
 }
@@ -211,5 +222,22 @@ export function validateProductionCatalogRelease(
   if (!manifest.approval || manifest.approval.state !== "APPROVED" || !manifest.approval.reference) errors.push("APPROVAL_EVIDENCE_MISSING");
   if (!manifest.staging || manifest.staging.state !== "STAGED" || !manifest.staging.actor_reference) errors.push("STAGING_EVIDENCE_MISSING");
   if (!manifest.staging || manifest.staging.target !== "INTERNAL_INTEGRATION_NON_PRODUCTION") errors.push("STAGING_TARGET_INVALID");
+  return errors;
+}
+
+export function validateProductionCatalogActivation(
+  activation: ProductionCatalogActivation,
+  manifest: ProductionCatalogReleaseManifest,
+): readonly string[] {
+  const errors: string[] = [];
+  if (activation.market !== "TR" || activation.market !== manifest.market) errors.push("ACTIVATION_MARKET_MISMATCH");
+  if (activation.state !== "ACTIVE") errors.push("ACTIVATION_STATE_INVALID");
+  if (activation.active_catalog_release_version !== manifest.catalog_release_version) errors.push("ACTIVATION_RELEASE_MISMATCH");
+  if (activation.catalog_payload_hash !== manifest.catalog_payload_hash) errors.push("ACTIVATION_HASH_MISMATCH");
+  if (!activation.activation_reference) errors.push("ACTIVATION_REFERENCE_MISSING");
+  if (!Number.isFinite(Date.parse(activation.activated_at))) errors.push("ACTIVATION_TIMESTAMP_INVALID");
+  if (activation.previous_active_release !== manifest.previous_release) errors.push("PREVIOUS_ACTIVE_RELEASE_MISMATCH");
+  if (activation.rollback_release !== manifest.previous_release) errors.push("ROLLBACK_RELEASE_INVALID");
+  if (manifest.validator_status !== "PASS" || manifest.approval.state !== "APPROVED") errors.push("RELEASE_NOT_ACTIVATION_ELIGIBLE");
   return errors;
 }
