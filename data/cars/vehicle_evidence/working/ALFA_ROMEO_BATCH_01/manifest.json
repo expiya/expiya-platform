@@ -1,0 +1,23 @@
+{
+  "batchId": "ALFA_ROMEO_BATCH_01",
+  "observedAt": "2026-08-15T22:32:57.544Z",
+  "observedDateTr": "2026-08-16",
+  "market": "TR",
+  "condition": "NEW",
+  "sourcePage": "https://www.alfaromeo.com.tr/alfa-romeo-fiyat-listesi",
+  "sourceEndpoint": "https://arjfiyat.tofas.com.tr/pricelists?brand=alfa-romeo",
+  "priceEffectiveFrom": "2026-08-03",
+  "modelYear": 2026,
+  "modelCount": 2,
+  "configurationCount": 4,
+  "sourceFiles": [
+    {
+      "file": "data/cars/vehicle_evidence/working/ALFA_ROMEO_BATCH_01/snapshots/2026-08-16/price-page.html",
+      "sha256": "dceb2bcc7fdf0385af3be36556e0519ca2b4f565d6c36220b0478b853f58ed70"
+    },
+    {
+      "file": "data/cars/vehicle_evidence/working/ALFA_ROMEO_BATCH_01/snapshots/2026-08-16/official-price-list.html",
+      "sha256": "af3d2ebbe55bab0c8df0231de73d989718b4d02f851d8fc361e3461fb63d9e79"
+    }
+  ]
+}
