@@ -75,6 +75,24 @@ No new variant was activated in this pass. The next controlled step is determini
 of the 41 matching rows into proposed facts/assertions, followed by the two model-year reviews
 and the TUCSON supersession decision.
 
+## Staged production slice 01A
+
+The first low-ambiguity structured slice now contains `21` MY2026 configurations:
+
+- i20: 10 (manual/DCT and exact Jump, Style, Elite, GSR2C and E-Call identities)
+- BAYON: 9 (manual/DCT and exact Jump, Style, Elite, GSR2C and E-Call identities)
+- i30: 2 (Comfort and Prime)
+
+Every record has deterministic identity and price UUIDs, official brochure hash provenance,
+official price-API provenance, powertrain facts, WLTP combined consumption, core dimensions,
+luggage volume and configuration-applicable safety evidence. Both list and lower campaign
+prices are retained when they differ. The price observation has no artificial expiry gate.
+
+All 21 records pass record-consistency and production-readiness validation as of the observation
+date. They remain in `stagedHyundaiBatch01Records`; this module is deliberately not referenced
+by the active v0.2.0 catalog pointer. Activation requires an immutable next release and its
+explicit release gate, so a partially reviewed brand batch cannot leak into recommendations.
+
 ### Brochure source
 
 - Index: https://www.hyundai.com/tr/tr/satis/brosurler.html
