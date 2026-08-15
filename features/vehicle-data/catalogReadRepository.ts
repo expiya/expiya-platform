@@ -75,7 +75,6 @@ with eligible_documents as (
   from price_observations po
   where po.condition = 'NEW'
     and po.valid_from <= $1
-    and (po.valid_until is null or po.valid_until >= $1)
     and exists (
       select 1 from price_provenance pp
       join eligible_documents ed on ed.id = pp.source_document_id

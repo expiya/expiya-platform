@@ -43,8 +43,7 @@ export function resolveRecommendationCatalog(
   const rejected: PublishedCatalog["rejected"][number][] = [];
   for (const record of payload.records) {
     const validFrom = new Date(record.activeNewPrice.validFrom);
-    const validUntil = record.activeNewPrice.validUntil ? new Date(record.activeNewPrice.validUntil) : undefined;
-    if (validFrom <= at && (!validUntil || at <= validUntil)) activeRecords.push(record);
+    if (validFrom <= at) activeRecords.push(record);
     else rejected.push({ vehicleVariantId: record.variant.id, issues: ["ACTIVE_NEW_PRICE_MISSING"] });
   }
   const published: PublishedCatalog = {

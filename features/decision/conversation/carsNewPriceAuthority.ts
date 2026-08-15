@@ -98,11 +98,11 @@ function sourceAuthoritative(price: PriceObservation): boolean {
   return price.provenance.length > 0;
 }
 
-function currentNewObservations(observations: readonly PriceObservation[], at: Date): PriceObservation[] {
+function availableNewObservations(observations: readonly PriceObservation[], at: Date): PriceObservation[] {
   return observations.filter((price) => (
     price.condition === "NEW"
     && price.market === "TR"
-    && validityStatus(price, at) === "CURRENT"
+    && new Date(price.validFrom).getTime() <= at.getTime()
   ));
 }
 
@@ -167,15 +167,15 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
   const observations = input.observations ?? publishedNewPriceObservations(variantId);
   const budgetTry = input.budgetTry;
   if (budgetTry === undefined) {
-    const current = currentNewObservations(observations, at);
-    const selected = preferGuaranteedPrice(current);
+    const available = availableNewObservations(observations, at);
+    const selected = preferGuaranteedPrice(available);
     return evaluation({
       candidateId,
       catalogVariantId: variantId,
       priceObservationId: selected?.id,
       amountTry: selected?.amountTry,
       priceType: selected?.priceType,
-      validityStatus: selected ? "CURRENT" : observations.length ? validityStatus(observations[0], at) : "ABSENT",
+      validityStatus: selected ? validityStatus(selected, at) : observations.length ? validityStatus(observations[0], at) : "ABSENT",
       sourceAuthorityResult: selected && sourceAuthoritative(selected) ? "AUTHORITATIVE" : "INSUFFICIENT",
       campaignApplicabilityResult: selected ? campaignApplicability(selected) : "UNKNOWN",
       feeInclusionUncertainty: selected ? parsedExcludedFeePercent(selected) === undefined && mentionsUnquantifiedFee(selected) : false,
@@ -214,8 +214,8 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
     });
   }
 
-  const current = currentNewObservations(observations, at);
-  if (current.length === 0) {
+  const available = availableNewObservations(observations, at);
+  if (available.length === 0) {
     return evaluation({
       candidateId,
       catalogVariantId: variantId,
@@ -231,7 +231,7 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
     });
   }
 
-  const lists = current.filter((price) => price.priceType === "LIST");
+  const lists = available.filter((price) => price.priceType === "LIST");
   if (lists.some((price) => price.market !== "TR")) {
     return evaluation({
       candidateId,
@@ -257,7 +257,7 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
     });
   }
 
-  const above = current.filter((price) => price.amountTry > budgetTry);
+  const above = available.filter((price) => price.amountTry > budgetTry);
   if (above.length > 0) {
     const selected = preferGuaranteedPrice(above) ?? above[0];
     return evaluation({
@@ -266,7 +266,7 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
       priceObservationId: selected.id,
       amountTry: selected.amountTry,
       priceType: selected.priceType,
-      validityStatus: "CURRENT",
+      validityStatus: validityStatus(selected, at),
       sourceAuthorityResult: sourceAuthoritative(selected) ? "AUTHORITATIVE" : "INSUFFICIENT",
       campaignApplicabilityResult: campaignApplicability(selected),
       feeInclusionUncertainty: false,
@@ -276,7 +276,7 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
     });
   }
 
-  const selected = preferGuaranteedPrice(current);
+  const selected = preferGuaranteedPrice(available);
   if (!selected || !sourceAuthoritative(selected)) {
     return evaluation({
       candidateId,
@@ -284,7 +284,7 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
       priceObservationId: selected?.id,
       amountTry: selected?.amountTry,
       priceType: selected?.priceType,
-      validityStatus: "CURRENT",
+      validityStatus: selected ? validityStatus(selected, at) : "ABSENT",
       campaignApplicabilityResult: selected ? campaignApplicability(selected) : "UNKNOWN",
       feeInclusionUncertainty: false,
       budgetCeilingTry: input.budgetTry,
@@ -302,7 +302,7 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
         priceObservationId: selected.id,
         amountTry: selected.amountTry,
         priceType: selected.priceType,
-        validityStatus: "CURRENT",
+        validityStatus: validityStatus(selected, at),
         sourceAuthorityResult: "AUTHORITATIVE",
         campaignApplicabilityResult: applicability,
         feeInclusionUncertainty: false,
@@ -321,7 +321,7 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
       priceObservationId: selected.id,
       amountTry: selected.amountTry,
       priceType: selected.priceType,
-      validityStatus: "CURRENT",
+      validityStatus: validityStatus(selected, at),
       sourceAuthorityResult: "AUTHORITATIVE",
       campaignApplicabilityResult: campaignApplicability(selected),
       feeInclusionUncertainty: true,
@@ -338,7 +338,7 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
       priceObservationId: selected.id,
       amountTry: selected.amountTry,
       priceType: selected.priceType,
-      validityStatus: "CURRENT",
+      validityStatus: validityStatus(selected, at),
       sourceAuthorityResult: "AUTHORITATIVE",
       campaignApplicabilityResult: campaignApplicability(selected),
       feeInclusionUncertainty: true,
@@ -354,7 +354,7 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
     priceObservationId: selected.id,
     amountTry: selected.amountTry,
     priceType: selected.priceType,
-    validityStatus: "CURRENT",
+    validityStatus: validityStatus(selected, at),
     sourceAuthorityResult: "AUTHORITATIVE",
     campaignApplicabilityResult: campaignApplicability(selected),
     feeInclusionUncertainty: false,

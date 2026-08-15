@@ -68,7 +68,9 @@ only approved observations flow to read models used by the decision engine. The 
 ## Decision-engine transition
 
 The present 20-record array remains a fixture. The production engine should consume a repository
-read model containing only in-market, non-expired observations. Ranking must declare required
+read model containing only in-market observations whose `validFrom` date has begun. A price
+`validUntil` date is retained as freshness metadata and does not remove the observation from
+the decision catalog. Ranking must declare required
 facts per use case, lower confidence for missing/stale/conflicting evidence, expose price date and
 type, and abstain when evidence is insufficient. No user-experience signal affects ranking until
 moderated and normalized or explicitly labelled qualitative.

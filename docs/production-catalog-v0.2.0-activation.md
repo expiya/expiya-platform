@@ -22,6 +22,7 @@ Activation gates:
 Production catalog reads fail closed if the active pointer, release version, payload hash,
 approval, validator result, market or rollback target disagree.
 
-Runtime price validity remains request-time scoped. A variant stays part of the immutable
-active release, but it is not recommended when its included new-price observation is outside
-its validity interval.
+Runtime price freshness remains request-time scoped and informational: a passed `validUntil`
+date does not filter a variant or its last sourced price out of the decision catalog. A variant
+stays part of the immutable active release, and an expired price remains usable while carrying
+its original observation and validity dates.

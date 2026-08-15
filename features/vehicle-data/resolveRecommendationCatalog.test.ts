@@ -15,11 +15,11 @@ describe("resolveRecommendationCatalog", () => {
     expect(catalog.limitations).toEqual([]);
   });
 
-  it("does not fall back to fixtures when campaign observations expire", () => {
+  it("keeps variants in production when price end dates pass", () => {
     const catalog = resolveRecommendationCatalog("production", new Date("2026-09-01T00:00:00.000Z"));
-    expect(catalog.cars).toHaveLength(6);
+    expect(catalog.cars).toHaveLength(13);
     expect(catalog.cars.some(({ model }) => model.includes("Yaris Cross"))).toBe(true);
-    expect(catalog.limitations).toHaveLength(7);
+    expect(catalog.limitations).toEqual([]);
   });
 
   it("uses the database repository for production without fixture fallback", async () => {

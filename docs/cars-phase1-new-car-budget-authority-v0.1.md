@@ -51,7 +51,7 @@ A price evaluation is `PASS` | `FAIL` | `UNKNOWN` | `NOT_REQUESTED`.
 
 `FAIL` is returned when a current applicable new price is above the ceiling. A campaign above budget is still `FAIL` for that observed offer.
 
-`UNKNOWN` covers absent, stale/expired, inexact identity, material conflicts, campaign eligibility uncertainty, fee uncertainty that could cross the ceiling, and insufficient source or current-sale status. `UNKNOWN` never passes a hard budget. Expired campaigns are not current. Stale prices are not silent fallbacks.
+`UNKNOWN` covers absent, not-yet-effective, inexact identity, material conflicts, campaign eligibility uncertainty, fee uncertainty that could cross the ceiling, and insufficient source or current-sale status. `UNKNOWN` never passes a hard budget. A passed `validUntil` date is exposed as `EXPIRED` freshness metadata but does not, by itself, remove a sourced price from the hard-budget comparison. Campaign eligibility uncertainty continues to prevent an unconditional pass.
 
 Internal IDs stay in trace. They are not consumer copy.
 

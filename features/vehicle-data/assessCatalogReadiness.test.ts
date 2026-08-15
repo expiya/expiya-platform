@@ -16,9 +16,9 @@ describe("assessCatalogReadiness", () => {
     });
   });
 
-  it("expires records when their price observation is no longer active", () => {
+  it("retains records when their informational price end date passes", () => {
     expect(assessCatalogReadiness(pilotVehicleRecords[1], new Date("2026-09-01T00:00:00.000Z"))).toMatchObject({
-      ready: false, issues: ["ACTIVE_NEW_PRICE_MISSING"],
+      ready: true, issues: [],
     });
   });
 

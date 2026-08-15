@@ -23,8 +23,7 @@ export function assessCatalogReadiness(
   if (validatePilotRecordConsistency(record).length > 0) issues.push("RECORD_INCONSISTENT");
   const activePrice = record.prices.find((price) =>
     price.condition === "NEW" &&
-    new Date(price.validFrom).getTime() <= at.getTime() &&
-    (price.validUntil === undefined || new Date(price.validUntil).getTime() >= at.getTime()),
+    new Date(price.validFrom).getTime() <= at.getTime(),
   );
   if (!activePrice) issues.push("ACTIVE_NEW_PRICE_MISSING");
 

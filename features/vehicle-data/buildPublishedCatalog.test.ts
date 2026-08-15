@@ -14,12 +14,11 @@ describe("buildPublishedCatalog", () => {
     expect(catalog.rejected).toEqual([]);
   });
 
-  it("expires campaigns while retaining an open-ended list-price observation", () => {
+  it("retains published prices after their informational end dates", () => {
     const catalog = buildPublishedCatalog(pilotVehicleRecords, new Date("2026-09-01T00:00:00.000Z"));
-    expect(catalog.records.map(({ variant }) => variant.model.value)).toEqual(["Yaris", "Yaris", "Corolla", "Corolla", "Clio", "Captur", "Megane Sedan"]);
-    expect(catalog.records[0].activeNewPrice.priceType).toBe("LIST");
-    expect(catalog.records[2].activeNewPrice).toMatchObject({ amountTry: 2_284_000, priceType: "LIST" });
-    expect(catalog.rejected).toHaveLength(3);
-    expect(catalog.rejected.every(({ issues }) => issues.includes("ACTIVE_NEW_PRICE_MISSING"))).toBe(true);
+    expect(catalog.records).toHaveLength(10);
+    expect(catalog.records[1].activeNewPrice).toMatchObject({ amountTry: 2_484_602, priceType: "CAMPAIGN" });
+    expect(catalog.records[5].activeNewPrice).toMatchObject({ amountTry: 1_850_000, priceType: "CAMPAIGN" });
+    expect(catalog.rejected).toEqual([]);
   });
 });

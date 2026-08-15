@@ -27,6 +27,7 @@ describe("PostgresVehicleCatalogReadRepository", () => {
     expect(calls[0].sql).toContain("eligible_documents");
     expect(calls[0].sql).toContain("price_provenance");
     expect(calls[0].sql).toContain("ineligible_documents");
+    expect(calls[0].sql).not.toContain("po.valid_until >= $1");
     expect(calls[0].values).toEqual(["2026-08-14T00:00:00.000Z"]);
   });
 

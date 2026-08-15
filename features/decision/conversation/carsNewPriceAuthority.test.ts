@@ -87,7 +87,7 @@ describe("governed new-price authority", () => {
     expect(result.reasonCode).toBe("PRICE_ABSENT");
   });
 
-  it("returns UNKNOWN for a stale or expired price", () => {
+  it("uses an expired list price while preserving its expired status", () => {
     const result = evaluateNewVehiclePrice({
       runtimeVehicleCandidateId: IONIQ,
       vehicleVariantId: VARIANT,
@@ -100,8 +100,27 @@ describe("governed new-price authority", () => {
         validUntil: "2026-07-31T23:59:59.999Z",
       })],
     });
-    expect(result.result).toBe("UNKNOWN");
-    expect(result.reasonCode).toBe("PRICE_STALE_OR_EXPIRED");
+    expect(result.result).toBe("PASS");
+    expect(result.reasonCode).toBe("AMOUNT_WITHIN_CEILING");
+    expect(result.validityStatus).toBe("EXPIRED");
+  });
+
+  it("still rejects an over-budget vehicle when its price end date has passed", () => {
+    const result = evaluateNewVehiclePrice({
+      runtimeVehicleCandidateId: IONIQ,
+      vehicleVariantId: VARIANT,
+      budgetTry: 2_000_000,
+      at: AT,
+      observations: [observation({
+        amountTry: 2_100_000,
+        priceType: "LIST",
+        validFrom: "2026-01-01T00:00:00.000Z",
+        validUntil: "2026-07-31T23:59:59.999Z",
+      })],
+    });
+    expect(result.result).toBe("FAIL");
+    expect(result.reasonCode).toBe("AMOUNT_ABOVE_CEILING");
+    expect(result.validityStatus).toBe("EXPIRED");
   });
 
   it("does not treat campaign eligibility uncertainty as an unconditional PASS", () => {
@@ -136,7 +155,7 @@ describe("governed new-price authority", () => {
     expect(result.reasonCode).toBe("AMOUNT_ABOVE_CEILING");
   });
 
-  it("does not treat an expired campaign as current", () => {
+  it("uses an expired campaign for filtering while preserving campaign uncertainty", () => {
     const result = evaluateNewVehiclePrice({
       runtimeVehicleCandidateId: IONIQ,
       vehicleVariantId: VARIANT,
@@ -152,7 +171,7 @@ describe("governed new-price authority", () => {
     });
     expect(result.validityStatus).toBe("EXPIRED");
     expect(result.result).toBe("UNKNOWN");
-    expect(result.reasonCode).toBe("PRICE_STALE_OR_EXPIRED");
+    expect(result.reasonCode).toBe("CAMPAIGN_ELIGIBILITY_UNKNOWN");
   });
 
   it("computes the exact gap and percentage without a fixed 20%", () => {
