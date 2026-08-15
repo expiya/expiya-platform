@@ -13,8 +13,10 @@ import {
   answeredPurposesFrom,
   carsQuestionPurpose,
   conversationStateFromPhase,
+  budgetCategoryFromText,
   extractDeterministicFacts,
   isAffirmative,
+  isHardBudgetCeiling,
   isNegative,
   pendingQuestionFromAssistant,
   upsertRequirement,
@@ -188,9 +190,20 @@ export function hydrateCarsConversationMemory(input: {
       })) capturedHere.push("MIN_SEATS");
     }
     for (const fact of facts) {
-      if (upsertRequirement(entries, { ...fact, sourceTurn: userTurn, sourceText: message.content })) {
+      const category = fact.key === "BUDGET_MAX_TRY" ? budgetCategoryFromText(message.content) : undefined;
+      if (upsertRequirement(entries, { ...fact, sourceTurn: userTurn, sourceText: message.content, category })) {
         capturedHere.push(fact.key);
       }
+    }
+    if (isHardBudgetCeiling(message.content)) {
+      const existing = entries.get("BUDGET_MAX_TRY");
+      if (existing && upsertRequirement(entries, {
+        key: "BUDGET_MAX_TRY",
+        value: existing.value,
+        sourceTurn: userTurn,
+        sourceText: message.content,
+        category: "HARD_UNEVALUATED_CONSTRAINT",
+      })) capturedHere.push("BUDGET_MAX_TRY");
     }
     if (/(?:beğenmedim|hoşuma gitmedi|istemiyorum|başka seçenek|bunlar olmaz)/iu.test(message.content)) {
       const prior = [...input.messages].slice(0, input.messages.indexOf(message)).reverse()

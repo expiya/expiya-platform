@@ -30,6 +30,11 @@ const ROBOTIC = [
   /son söylediğiniz noktayı kaçırmadım/iu,
   /isters(?:eniz|en) oradan devam ederiz/iu,
   /kullanım bağlamınız duruyor/iu,
+  /isim uyduramam/iu,
+  /burada durabiliriz/iu,
+  /rastgele (?:isim saymam|model uydur)/iu,
+  /sana model atamam/iu,
+  /daha fazla bilgi verirsen belki/iu,
 ];
 
 export function evaluateCarsConversationQuality(input: {

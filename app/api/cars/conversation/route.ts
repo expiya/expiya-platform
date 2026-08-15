@@ -93,7 +93,9 @@ const requestSchema = z.object({
       ]),
       category: z.enum([
         "HARD_CONSTRAINT",
+        "HARD_UNEVALUATED_CONSTRAINT",
         "SOFT_PREFERENCE",
+        "SOFT_CONTEXT",
         "USAGE_CONTEXT",
         "BUDGET_CONTEXT",
         "REJECTION",
@@ -169,6 +171,12 @@ const requestSchema = z.object({
       budgetEvaluated: z.boolean().optional(),
       unevaluatedBudgetPresent: z.boolean().optional(),
       heldDespiteUnevaluatedBudget: z.boolean().optional(),
+      hardUnevaluatedConstraints: z.array(z.string().max(40)).max(12).optional(),
+      recommendationBlockedByHardConstraint: z.boolean().optional(),
+      blockedConstraintKinds: z.array(z.string().max(40)).max(8).optional(),
+      candidateHeld: z.boolean().optional(),
+      offerAuthorized: z.boolean().optional(),
+      cardRevealAuthorized: z.boolean().optional(),
     }).optional(),
   }).optional(),
   messages: z.array(z.object({

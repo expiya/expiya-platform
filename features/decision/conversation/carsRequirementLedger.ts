@@ -52,6 +52,20 @@ export function budgetValue(text: string): number | undefined {
   return digits ? Number(digits) : undefined;
 }
 
+export function isHardBudgetCeiling(text: string): boolean {
+  return /(?:üzerine|üstüne)\s+(?:kesinlikle\s+)?(?:çıkmak istemiyorum|çıkmam|çıkamam)/iu.test(text)
+    || /kesinlikle\s+(?:üzerine|üstüne)\s+çıkmak/iu.test(text)
+    || /en fazla\s+\d/iu.test(text)
+    || /kesin üst sınır/iu.test(text)
+    || /üst sınırım/iu.test(text)
+    || /(?:bütçeyi\s+)?aşamam/iu.test(text)
+    || /tavan(?:ım|ı)\b/iu.test(text);
+}
+
+export function budgetCategoryFromText(text: string): CarsRequirementCategory {
+  return isHardBudgetCeiling(text) ? "HARD_UNEVALUATED_CONSTRAINT" : "SOFT_CONTEXT";
+}
+
 export function extractDeterministicFacts(text: string): readonly { key: CarsRequirementKey; value: string | number }[] {
   const found: { key: CarsRequirementKey; value: string | number }[] = [];
   if (/\bciddi arazi\b/iu.test(text)) found.push({ key: "USAGE_SERIOUS_OFF_ROAD", value: "SERIOUS_OFF_ROAD" });
@@ -81,7 +95,7 @@ export function extractDeterministicFacts(text: string): readonly { key: CarsReq
 
 export function categoryFor(key: CarsRequirementKey): CarsRequirementCategory {
   if (USAGE_KEYS.has(key)) return "USAGE_CONTEXT";
-  if (key === "BUDGET_MAX_TRY") return "BUDGET_CONTEXT";
+  if (key === "BUDGET_MAX_TRY") return "SOFT_CONTEXT";
   if (key === "MIN_SEATS" || key === "MIN_CARGO_L" || key === "DRIVETRAIN" || key === "TRANSMISSION") return "HARD_CONSTRAINT";
   if (key === "PARTY_SIZE") return "UNRESOLVED";
   return "SOFT_PREFERENCE";
@@ -148,13 +162,32 @@ export function upsertRequirement(
   },
 ): boolean {
   const previous = entries.get(input.key);
-  if (previous && previous.value === input.value && previous.evaluability !== "SUPERSEDED") return false;
+  const hardBudget = input.key === "BUDGET_MAX_TRY" && (
+    isHardBudgetCeiling(input.sourceText)
+    || input.category === "HARD_UNEVALUATED_CONSTRAINT"
+    || previous?.category === "HARD_UNEVALUATED_CONSTRAINT"
+  );
+  if (previous && previous.value === input.value && previous.evaluability !== "SUPERSEDED") {
+    if (hardBudget && previous.category !== "HARD_UNEVALUATED_CONSTRAINT") {
+      entries.set(input.key, {
+        ...previous,
+        category: "HARD_UNEVALUATED_CONSTRAINT",
+        sourceTurn: input.sourceTurn,
+        sourceText: input.sourceText,
+      });
+      return true;
+    }
+    return false;
+  }
   const evaluability = input.evaluability ?? evaluabilityFor(input.key);
+  const category = hardBudget
+    ? "HARD_UNEVALUATED_CONSTRAINT"
+    : input.category ?? (previous && previous.value !== input.value ? "CORRECTION" : categoryFor(input.key));
   entries.set(input.key, {
     key: input.key,
     value: input.value,
     status: statusFor(input.key),
-    category: input.category ?? (previous && previous.value !== input.value ? "CORRECTION" : categoryFor(input.key)),
+    category,
     evaluability: previous && previous.value !== input.value ? "EVALUABLE_NOW" === evaluability ? evaluability : evaluability : evaluability,
     sourceTurn: input.sourceTurn,
     sourceText: input.sourceText,
@@ -165,7 +198,7 @@ export function upsertRequirement(
   if (previous && previous.value !== input.value) {
     entries.set(input.key, {
       ...entries.get(input.key)!,
-      category: "CORRECTION",
+      category: hardBudget ? "HARD_UNEVALUATED_CONSTRAINT" : "CORRECTION",
       evaluability: previous.evaluability === "EVALUABLE_NOW" || evaluability === "EVALUABLE_NOW"
         ? evaluability
         : previous.evaluability,

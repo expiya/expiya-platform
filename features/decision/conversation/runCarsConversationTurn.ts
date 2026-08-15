@@ -29,7 +29,7 @@ import {
   closeDeferredQuestions,
   hydrateCarsConversationMemory,
 } from "./carsConversationMemory";
-import { extractDeterministicFacts, isFrustration, upsertRequirement } from "./carsRequirementLedger";
+import { extractDeterministicFacts, isFrustration, upsertRequirement, budgetCategoryFromText } from "./carsRequirementLedger";
 import { cannotRepeatQuestion, isSemanticLoop } from "./carsSemanticLoopGuard";
 import {
   createCarsBoundedRecovery,
@@ -54,6 +54,9 @@ import {
   type PlanCarsConversationTurnResult,
 } from "./planCarsConversationTurn";
 import {
+  blockedConstraintKinds,
+  hardConstraintBlockMessage,
+  hardUnevaluatedConstraints,
   presentGovernedRecommendation,
   unevaluatedBudgetPresent,
   unsupportedHardRequirementBlocksRecommendation,
@@ -107,7 +110,7 @@ function applyPlanFacts(trace: CarsConversationTrace, plan: CarsConversationTurn
       value,
       sourceTurn,
       sourceText,
-      category: fact.category,
+      category: fact.key === "BUDGET_MAX_TRY" ? budgetCategoryFromText(sourceText) : fact.category,
       evaluability: fact.evaluability,
     })) captured.push(fact.key as CarsRequirementKey);
   }
@@ -148,6 +151,44 @@ function fallbackUsageOptions(purpose: CarsQuestionPurpose, turn: number, messag
   };
 }
 
+function authorizationSafety(
+  memory: CarsConversationTrace,
+  blocked = unsupportedHardRequirementBlocksRecommendation(memory),
+): Pick<
+  CarsTurnProvenance,
+  | "hardUnevaluatedConstraints"
+  | "recommendationBlockedByHardConstraint"
+  | "blockedConstraintKinds"
+  | "candidateHeld"
+  | "offerAuthorized"
+  | "cardRevealAuthorized"
+> {
+  const exposedHold = Boolean(memory.heldAuthorization) && (
+    memory.recommendationOfferStatus === "AWAITING_CONSENT"
+    || memory.recommendationOfferStatus === "REVEALED"
+  ) && !blocked;
+  return {
+    hardUnevaluatedConstraints: hardUnevaluatedConstraints(memory).map((entry) => entry.key),
+    recommendationBlockedByHardConstraint: blocked,
+    blockedConstraintKinds: blocked ? blockedConstraintKinds(memory) : [],
+    candidateHeld: exposedHold,
+    offerAuthorized: memory.recommendationOfferStatus === "AWAITING_CONSENT" && !blocked,
+    cardRevealAuthorized: memory.recommendationOfferStatus === "REVEALED" && !blocked,
+  };
+}
+
+function withoutExposedHold(memory: CarsConversationTrace): CarsConversationTrace {
+  return {
+    ...memory,
+    heldAuthorization: undefined,
+    recommendationOfferStatus: "NONE",
+    humanReady: false,
+    advisorStage: "NOT_RECOMMENDABLE",
+    phase: "LIMITED_BY_EVIDENCE",
+    state: "INSUFFICIENT_SUPPORTED_EVIDENCE",
+  };
+}
+
 function withProvenance(trace: CarsConversationTrace, provenance: CarsTurnProvenance): CarsConversationTrace {
   return { ...trace, turnProvenance: provenance };
 }
@@ -183,6 +224,7 @@ function withProgress(
     recommendationAction: Boolean(input.recommendationAction),
   });
   const budget = unevaluatedBudgetPresent(input.memory);
+  const blocked = unsupportedHardRequirementBlocksRecommendation(input.memory);
   return {
     ...provenance,
     forwardProgressType: progress.forwardProgressType,
@@ -193,10 +235,11 @@ function withProgress(
     directRecommendationCoverage: input.coverage,
     budgetEvaluated: false,
     unevaluatedBudgetPresent: budget,
-    heldDespiteUnevaluatedBudget: budget && (
+    heldDespiteUnevaluatedBudget: budget && !blocked && (
       input.memory.recommendationOfferStatus === "AWAITING_CONSENT"
       || input.memory.recommendationOfferStatus === "REVEALED"
     ),
+    ...authorizationSafety(input.memory, blocked),
   };
 }
 
@@ -219,11 +262,55 @@ function invalidateHeld(memory: CarsConversationTrace): CarsConversationTrace {
   };
 }
 
+function respondBlockedByHardConstraint(
+  input: CarsConversationRequest,
+  memory: CarsConversationTrace,
+  provenance?: Partial<CarsTurnProvenance>,
+): CarsConversationResponse {
+  const requestedModel = resolveCarsConversationModel().requestedModel;
+  const blockedMemory = withoutExposedHold(memory);
+  const message = hardConstraintBlockMessage(memory);
+  const latestAct = interpretLatestUserAct(input.messages, blockedMemory);
+  const conversation = withProvenance(applyAssistantMove(blockedMemory, {
+    phase: "LIMITED_BY_EVIDENCE",
+    prompt: message,
+    progressEvent: "hard-constraint-block",
+    advisorStage: "NOT_RECOMMENDABLE",
+    clearPendingQuestion: true,
+  }), withProgress({
+    modelAttempted: provenance?.modelAttempted ?? false,
+    requestedModel: provenance?.requestedModel ?? requestedModel,
+    selectedModel: provenance?.selectedModel,
+    structuredPlan: provenance?.structuredPlan ?? false,
+    parseOutcome: provenance?.parseOutcome ?? "NOT_ATTEMPTED",
+    userFacingOrigin: provenance?.userFacingOrigin ?? "DETERMINISTIC_EVIDENCE",
+    deterministicOverride: false,
+    conversationMove: "EXPLAIN_LIMITATION",
+    latestMessageAcknowledged: true,
+    latestPrimaryAct: latestAct.primaryAct,
+    advisorStage: "NOT_RECOMMENDABLE",
+  }, {
+    messages: input.messages,
+    latestUser: [...input.messages].reverse().find((item) => item.role === "user")?.content ?? "",
+    assistantMessage: message,
+    latestAct,
+    memory: blockedMemory,
+    statedLimitation: true,
+    stateChanged: true,
+  }));
+  return {
+    kind: "QUESTION",
+    message,
+    conversation: { ...conversation, state: "INSUFFICIENT_SUPPORTED_EVIDENCE", textInputAllowed: true },
+  };
+}
+
 function holdAuthorizedCandidate(
   input: CarsConversationRequest,
   memory: CarsConversationTrace,
   result: CarsEvidenceBackedDecisionResult,
 ): CarsConversationTrace {
+  if (unsupportedHardRequirementBlocksRecommendation(memory)) return withoutExposedHold(memory);
   const selected = result.candidateEvaluations.find((candidate) => (
     candidate.runtimeVehicleCandidateId === result.selectedRuntimeVehicleCandidateId
   ));
@@ -253,6 +340,9 @@ function revealAuthorizedCard(
   message: string,
   provenance: CarsTurnProvenance,
 ): CarsConversationResponse {
+  if (unsupportedHardRequirementBlocksRecommendation(memory)) {
+    return respondBlockedByHardConstraint(input, memory, provenance);
+  }
   const opened = heldAuthorizationIsUsable({
     token: memory.heldAuthorization,
     conversationId: input.conversationId,
@@ -316,6 +406,11 @@ function revealAuthorizedCard(
     directQuestionAnswered: true,
     semanticRepetitionDetected: false,
     repairApplied: false,
+    ...authorizationSafety({
+      ...memory,
+      recommendationOfferStatus: "REVEALED",
+      heldAuthorization: memory.heldAuthorization,
+    }),
   });
   return {
     kind: "RECOMMENDATIONS",
@@ -336,7 +431,13 @@ async function offerAuthorizedCandidate(
   result: CarsEvidenceBackedDecisionResult,
   userTurnCount: number,
 ): Promise<CarsConversationResponse> {
+  if (unsupportedHardRequirementBlocksRecommendation(memory)) {
+    return respondBlockedByHardConstraint(input, memory);
+  }
   const held = holdAuthorizedCandidate(input, memory, result);
+  if (!held.heldAuthorization) {
+    return respondBlockedByHardConstraint(input, memory);
+  }
   const requestedModel = resolveCarsConversationModel().requestedModel;
   const planned = await planTurn({
     conversationId: input.conversationId,
@@ -384,6 +485,10 @@ async function offerAuthorizedCandidate(
     latestMessageAcknowledged: true,
     latestPrimaryAct: interpretLatestUserAct(input.messages, held).primaryAct,
     advisorStage: "OFFER_AWAITING_CONSENT",
+    budgetEvaluated: false,
+    unevaluatedBudgetPresent: unevaluatedBudgetPresent(held),
+    heldDespiteUnevaluatedBudget: unevaluatedBudgetPresent(held),
+    ...authorizationSafety(held),
   });
   return {
     kind: "QUESTION",
@@ -398,14 +503,7 @@ function respondWithEvidence(
   memory: CarsConversationTrace,
 ): CarsConversationResponse | Promise<CarsConversationResponse> {
   if (unsupportedHardRequirementBlocksRecommendation(memory)) {
-    const message = "Bu tercihiniz seçimi gerçekten değiştirir ve şu anda güvenilir biçimde doğrulayamadığım için bir araç önermeyeceğim. Bunu esnetebilir miyiz, yoksa ayrı doğrulatmak mı istersiniz?";
-    const conversation = applyAssistantMove(memory, {
-      phase: "LIMITED_BY_EVIDENCE",
-      prompt: message,
-      advisorStage: "NOT_RECOMMENDABLE",
-      clearPendingQuestion: true,
-    });
-    return { kind: "QUESTION", message, conversation: { ...conversation, state: "INSUFFICIENT_SUPPORTED_EVIDENCE" } };
+    return respondBlockedByHardConstraint(input, memory);
   }
   const result = evaluateGoverned(input);
   const structuredFollowUp = evidenceDecisionProjection(result, { revealIdentity: false });

@@ -141,7 +141,9 @@ export type CarsRequirementKey =
 
 export type CarsRequirementCategory =
   | "HARD_CONSTRAINT"
+  | "HARD_UNEVALUATED_CONSTRAINT"
   | "SOFT_PREFERENCE"
+  | "SOFT_CONTEXT"
   | "USAGE_CONTEXT"
   | "BUDGET_CONTEXT"
   | "REJECTION"
@@ -234,6 +236,12 @@ export interface CarsTurnProvenance {
   readonly budgetEvaluated?: boolean;
   readonly unevaluatedBudgetPresent?: boolean;
   readonly heldDespiteUnevaluatedBudget?: boolean;
+  readonly hardUnevaluatedConstraints?: readonly string[];
+  readonly recommendationBlockedByHardConstraint?: boolean;
+  readonly blockedConstraintKinds?: readonly string[];
+  readonly candidateHeld?: boolean;
+  readonly offerAuthorized?: boolean;
+  readonly cardRevealAuthorized?: boolean;
 }
 
 export interface CarsConversationTrace {

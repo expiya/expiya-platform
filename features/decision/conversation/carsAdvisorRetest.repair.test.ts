@@ -293,7 +293,9 @@ describe("advisor retest repair — conversation turns", () => {
     });
     expect(first.conversation?.turnProvenance?.latestPrimaryAct).toBe("DIRECT_RECOMMENDATION_REQUEST");
     expect(first.conversation?.turnProvenance?.directRecommendationCoverage).toBe("DIRECT_RECOMMENDATION_BLOCKED_BY_COVERAGE");
-    expect(first.message).toMatch(/alternatif yok|uydurmak/iu);
+    expect(first.message).toMatch(/makul|güvenilir biçimde isimli/iu);
+    expect(first.message).not.toMatch(/uyduramam|uydurmak|burada durabiliriz|rastgele isim|model atamam|daha fazla bilgi verirsen belki/iu);
+    expect(first.message).not.toMatch(/küçük otomatik hatchback|parkı kolay|piyasası canlı/iu);
     expect(first.message).not.toMatch(/evidence|runtime|schema|doğrulanmış karar/iu);
     const second = await runCarsConversationTurn({
       conversationId: "clio-block",
@@ -306,6 +308,7 @@ describe("advisor retest repair — conversation turns", () => {
     });
     expect(second.message).not.toBe(first.message);
     expect(second.message.length).toBeLessThan(first.message.length + 10);
+    expect(second.message).not.toMatch(/uyduramam|burada durabiliriz|rastgele isim|model atamam|küçük otomatik hatchback/iu);
     expect(second.conversation?.turnProvenance?.directRecommendationCoverage).toBe("DIRECT_RECOMMENDATION_BLOCKED_BY_COVERAGE");
     expect(second.conversation?.turnProvenance?.latestPrimaryAct).toBe("DIRECT_RECOMMENDATION_REQUEST");
   });
@@ -316,10 +319,12 @@ describe("advisor retest repair — conversation turns", () => {
       messages: [{ id: "1", role: "user", content: "Bütçem 2 milyon TL. En az 7 koltuk ve en az 300 litre bagaj istiyorum." }],
     });
     expect(offer.conversation?.requirements).toEqual(expect.arrayContaining([
-      expect.objectContaining({ key: "BUDGET_MAX_TRY", value: 2_000_000, evaluability: "UNDERSTOOD_NOT_EVALUABLE" }),
+      expect.objectContaining({ key: "BUDGET_MAX_TRY", value: 2_000_000, evaluability: "UNDERSTOOD_NOT_EVALUABLE", category: "SOFT_CONTEXT" }),
       expect.objectContaining({ key: "MIN_SEATS", value: 7 }),
       expect.objectContaining({ key: "MIN_CARGO_L", value: 300 }),
     ]));
+    expect(offer.conversation?.turnProvenance?.recommendationBlockedByHardConstraint).toBe(false);
+    expect(offer.conversation?.turnProvenance?.offerAuthorized).toBe(true);
     const accepted = await runCarsConversationTurn({
       conversationId: "budget-safety",
       conversation: offer.conversation,
@@ -336,6 +341,8 @@ describe("advisor retest repair — conversation turns", () => {
     expect(accepted.conversation?.turnProvenance?.budgetEvaluated).toBe(false);
     expect(accepted.conversation?.turnProvenance?.unevaluatedBudgetPresent).toBe(true);
     expect(accepted.conversation?.turnProvenance?.heldDespiteUnevaluatedBudget).toBe(true);
+    expect(accepted.conversation?.turnProvenance?.recommendationBlockedByHardConstraint).toBe(false);
+    expect(accepted.conversation?.turnProvenance?.cardRevealAuthorized).toBe(true);
     expect(accepted.decision?.governedReasons?.join(" ")).toMatch(/koltuk|bagaj/iu);
     expect(accepted.decision?.governedReasons?.join(" ")).not.toMatch(/bütçe/iu);
   });
