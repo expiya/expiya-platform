@@ -402,9 +402,31 @@ describe("runCarsConversationTurn", () => {
     const response = await runCarsConversationTurn({ conversationId: "multiple", messages: [
       { id: "1", role: "user", content: "En az 5 koltuk ve en az 350 litre bagaj istiyorum." },
     ] });
-    expect(response).toMatchObject({ kind: "QUESTION", decision: { decisionStatus: "NEEDS_MORE_USER_CONTEXT", evidenceBacked: false } });
+    expect(response).toMatchObject({
+      kind: "QUESTION",
+      discriminatorChoices: [
+        { id: "MAX_CARGO", label: "Daha fazla bagaj alanı" },
+      ],
+      decision: { conversationState: "FINAL_DISCRIMINATOR_REQUIRED", decisionStatus: "NEEDS_MORE_USER_CONTEXT", evidenceBacked: false },
+    });
     expect(response.message).toMatch(/birden fazla|ayırt edici/iu);
     expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+  });
+
+  it("turns a structured final discriminator into a grounded decision", async () => {
+    const response = await runCarsConversationTurn({
+      conversationId: "multiple",
+      choiceId: "MAX_CARGO",
+      messages: [
+        { id: "1", role: "user", content: "En az 5 koltuk ve en az 350 litre bagaj istiyorum." },
+        { id: "2", role: "assistant", content: "Ayırt edici seçeneği seçin." },
+        { id: "3", role: "user", content: "Daha fazla bagaj alanı" },
+      ],
+    });
+    expect(response).toMatchObject({ kind: "QUESTION", decision: {
+      conversationState: "DECISION_READY", decisionStatus: "DECISION_READY", evidenceBacked: true,
+      selectedRuntimeVehicleCandidateId: "RVC-PILOT-0002",
+    } });
   });
 
   it("keeps party size non-atomic and asks for a numeric cargo threshold", async () => {

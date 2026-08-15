@@ -4,10 +4,12 @@ import { FormEvent, KeyboardEvent, useCallback, useEffect, useRef, useState } fr
 import { useRouter } from "next/navigation";
 
 import { CarCard } from "@/components/cars/CarCard";
+import { hasActiveFinalDiscriminator } from "@/features/decision/conversation/carsConversationUiState";
 import type { VehicleListingAnalysis } from "@/types/listingAnalysis";
 import type {
   CarsConversationMessage,
   CarsConversationResponse,
+  CarsFinalDiscriminatorChoice,
   PersistedCarsConversation,
 } from "@/types/carsConversation";
 
@@ -74,7 +76,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   const locale = "tr" as const;
   const isTurkish = true;
 
-  const continueConversation = useCallback(async (nextMessages: CarsConversationMessage[]) => {
+  const continueConversation = useCallback(async (nextMessages: CarsConversationMessage[], choiceId?: CarsFinalDiscriminatorChoice["id"]) => {
     setIsLoading(true);
 
     try {
@@ -84,6 +86,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
         body: JSON.stringify({
           conversationId: conversationId.current,
           messages: nextMessages,
+          choiceId,
         }),
       });
       const payload = await response.json() as CarsConversationResponse | { message?: string };
@@ -95,6 +98,9 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
         ...newMessage("assistant", content),
         quickReplies: response.ok && "kind" in payload && payload.kind === "QUESTION"
           ? payload.options
+          : undefined,
+        discriminatorChoices: response.ok && "kind" in payload && payload.kind === "QUESTION"
+          ? payload.discriminatorChoices
           : undefined,
         recommendations: response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS"
           ? payload.recommendations
@@ -216,6 +222,17 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     void (listingUrl ? analyzeListingInConversation(nextMessages, listingUrl) : continueConversation(nextMessages));
   }
 
+  function submitDiscriminatorChoice(choice: CarsFinalDiscriminatorChoice) {
+    if (isLoading) return;
+    const userMessage = newMessage("user", choice.label);
+    const nextMessages = [...messages, userMessage];
+    setMessages(nextMessages);
+    setDraft("");
+    void continueConversation(nextMessages, choice.id);
+  }
+
+  const isFinalDiscriminatorRequired = hasActiveFinalDiscriminator(messages);
+
   function handleDraftKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
     if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
     event.preventDefault();
@@ -290,6 +307,21 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                       ))}
                     </div>
                   )}
+                  {message.role === "assistant" && message.discriminatorChoices && (
+                    <div className="mt-3 flex flex-wrap gap-2" aria-label="Karar seçenekleri">
+                      {message.discriminatorChoices.map((choice) => (
+                        <button
+                          key={choice.id}
+                          type="button"
+                          onClick={() => submitDiscriminatorChoice(choice)}
+                          disabled={isLoading || message !== messages[messages.length - 1]}
+                          className="rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-sm font-semibold text-neutral-800 transition hover:border-neutral-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:border-neutral-400"
+                        >
+                          {choice.label}
+                        </button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -317,13 +349,14 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                 value={draft}
                 onChange={(event) => setDraft(event.target.value)}
                 onKeyDown={handleDraftKeyDown}
-                placeholder={isTurkish ? "Bir şey anlatın, sorun veya önceki bilginizi düzeltin…" : "Tell me something, ask, or correct an earlier detail…"}
+                disabled={isFinalDiscriminatorRequired}
+                placeholder={isFinalDiscriminatorRequired ? "Devam etmek için yukarıdaki seçeneklerden birini seçin." : isTurkish ? "Bir şey anlatın, sorun veya önceki bilginizi düzeltin…" : "Tell me something, ask, or correct an earlier detail…"}
                 rows={2}
-                className="min-h-14 flex-1 resize-none rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-neutral-950 outline-none focus:border-neutral-900 dark:border-neutral-600 dark:bg-neutral-950 dark:text-neutral-50 dark:focus:border-neutral-300"
+                className="min-h-14 flex-1 resize-none rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-neutral-950 outline-none focus:border-neutral-900 disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:text-neutral-500 dark:border-neutral-600 dark:bg-neutral-950 dark:text-neutral-50 dark:focus:border-neutral-300 dark:disabled:bg-neutral-800 dark:disabled:text-neutral-400"
               />
               <button
                 type="submit"
-                disabled={isLoading || !draft.trim()}
+                disabled={isLoading || isFinalDiscriminatorRequired || !draft.trim()}
                 className="rounded-2xl bg-neutral-950 px-6 py-3 font-semibold text-white! transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-300 disabled:text-neutral-500! dark:bg-neutral-800 dark:text-white! dark:hover:bg-neutral-700 dark:disabled:bg-neutral-700 dark:disabled:text-neutral-400!"
               >
                 {isTurkish ? "Gönder" : "Send"}

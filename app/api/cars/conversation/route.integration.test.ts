@@ -3,6 +3,40 @@ import { describe, expect, it } from "vitest";
 import { POST } from "./route";
 
 describe("POST /api/cars/conversation evidence-backed journey", () => {
+  it("retains unsupported requirements and repairs the exact public-route failure without looping", async () => {
+    const response = await POST(new Request("http://localhost/api/cars/conversation", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-forwarded-for": "10.30.0.1" },
+      body: JSON.stringify({ conversationId: "http-exact-loop-regression", messages: [
+        { id: "1", role: "user", content: "arazi aracı bakıyorum" },
+        { id: "2", role: "assistant", content: "Kamp ve stabilize yol mu?" },
+        { id: "3", role: "user", content: "Kamp ve stabilize yol" },
+        { id: "4", role: "assistant", content: "Yaklaşık üst bütçeniz nedir?" },
+        { id: "5", role: "user", content: "2 milyon tl" },
+        { id: "6", role: "assistant", content: "Sizin için vazgeçilmez özellik nedir?" },
+        { id: "7", role: "user", content: "4x4 olmalı" },
+        { id: "8", role: "assistant", content: "4x4 şartınızı kaydettim. En az kaç koltuk gerekli?" },
+        { id: "9", role: "user", content: "pick up araç tercihim" },
+        { id: "10", role: "assistant", content: "Pickup tercihinizi kaydettim." },
+        { id: "11", role: "user", content: "pick up dedim ya. anlamdın mı?" },
+      ] }),
+    }));
+
+    expect(response.status).toBe(200);
+    const payload = await response.json();
+    expect(payload.message).toMatch(/pickup.*anladım.*kayıtlı.*tekrar sormayacağım/iu);
+    expect(payload.message).not.toMatch(/vazgeçilmez|günlük hayatınızdan/iu);
+    expect(payload.conversation).toMatchObject({
+      state: "INSUFFICIENT_SUPPORTED_EVIDENCE",
+      didConversationProgress: false,
+      requirements: expect.arrayContaining([
+        expect.objectContaining({ key: "BUDGET_MAX_TRY", value: 2_000_000, sourceTurn: 3 }),
+        expect.objectContaining({ key: "DRIVETRAIN", value: "AWD_OR_4X4", sourceTurn: 4, status: "UNDERSTOOD_BUT_UNSUPPORTED" }),
+        expect.objectContaining({ key: "BODY_TYPE", value: "PICKUP", sourceTurn: 5, status: "UNDERSTOOD_BUT_UNSUPPORTED" }),
+      ]),
+    });
+  });
+
   it.each([
     "arazi aracı var mı sizde",
     "off-road araç bakıyorum",
@@ -87,5 +121,40 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
       ],
     } });
     expect(payload.message).toMatch(/7 koltuk.*338 L bagaj/iu);
+  });
+
+  it("exposes and enforces the structured final discriminator through the public handler", async () => {
+    const first = await POST(new Request("http://localhost/api/cars/conversation", {
+      method: "POST", headers: { "Content-Type": "application/json", "x-forwarded-for": "10.30.0.2" },
+      body: JSON.stringify({ conversationId: "http-final-discriminator", messages: [
+        { id: "1", role: "user", content: "En az 5 koltuk ve 350 litre bagaj istiyorum." },
+      ] }),
+    }));
+    const firstPayload = await first.json();
+    expect(firstPayload).toMatchObject({
+      discriminatorChoices: [{ id: "MAX_CARGO", label: "Daha fazla bagaj alanı" }],
+      conversation: { state: "FINAL_DISCRIMINATOR_REQUIRED", textInputAllowed: false },
+    });
+
+    const messages = [
+      { id: "1", role: "user", content: "En az 5 koltuk ve 350 litre bagaj istiyorum." },
+      { id: "2", role: "assistant", content: firstPayload.message, discriminatorChoices: firstPayload.discriminatorChoices },
+      { id: "3", role: "user", content: "serbest metin" },
+    ];
+    const rejected = await POST(new Request("http://localhost/api/cars/conversation", {
+      method: "POST", headers: { "Content-Type": "application/json", "x-forwarded-for": "10.30.0.3" },
+      body: JSON.stringify({ conversationId: "http-final-discriminator", messages }),
+    }));
+    expect(rejected.status).toBe(409);
+
+    const selected = await POST(new Request("http://localhost/api/cars/conversation", {
+      method: "POST", headers: { "Content-Type": "application/json", "x-forwarded-for": "10.30.0.4" },
+      body: JSON.stringify({ conversationId: "http-final-discriminator", choiceId: "MAX_CARGO", messages: [
+        ...messages.slice(0, 2), { id: "4", role: "user", content: "Daha fazla bagaj alanı" },
+      ] }),
+    }));
+    expect(await selected.json()).toMatchObject({ decision: {
+      conversationState: "DECISION_READY", selectedRuntimeVehicleCandidateId: "RVC-PILOT-0002",
+    }, conversation: { didConversationProgress: true, textInputAllowed: true } });
   });
 });

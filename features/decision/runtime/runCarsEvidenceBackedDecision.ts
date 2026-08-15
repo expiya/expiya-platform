@@ -10,6 +10,7 @@ import type { DecisionContext } from "@/types/decisionContext";
 import type { CarsDomainFactRequirement, CarsDomainFactRequirementResolutionResult } from "@/types/carsDomainFactRequirement";
 import type { CarsDomainEvidenceAssertion } from "@/types/carsDomainEvidence";
 import type { RuntimeVehicleCandidateId, VehicleEvidenceFactResolution, VehicleEvidenceReadPort } from "@/types/runtimeVehicleEvidence";
+import type { CarsFinalDiscriminatorChoice, CarsFinalDiscriminatorChoiceId } from "@/types/carsConversation";
 import { buildCarsRuntimeEvidenceDependencies } from "./buildCarsRuntimeEvidenceDependencies";
 
 const AUTHORITY = Object.freeze({
@@ -127,6 +128,35 @@ export interface CarsEvidenceBackedDecisionResult {
   readonly explanationInput: readonly string[];
   readonly userFacingExplanation?: string;
   readonly followUpQuestion?: string;
+  readonly discriminatorChoices?: readonly CarsFinalDiscriminatorChoice[];
+}
+
+function availableBounds(fact: VehicleEvidenceFactResolution | undefined): { min: number; max: number } | undefined {
+  if (!fact || fact.status !== "AVAILABLE") return undefined;
+  if (fact.value !== undefined) return { min: fact.value, max: fact.value };
+  if (fact.valueMin !== undefined && fact.valueMax !== undefined) return { min: fact.valueMin, max: fact.valueMax };
+  return undefined;
+}
+
+function discriminatorWinner(
+  candidates: readonly CarsEvidenceBackedCandidateEvaluation[],
+  factKey: CarsEvidenceBackedRequirement["factKey"],
+): CarsEvidenceBackedCandidateEvaluation | undefined {
+  const values = candidates.map((candidate) => ({
+    candidate,
+    bounds: availableBounds(candidate.requirements.find((item) => item.requirement.factKey === factKey)?.fact),
+  }));
+  if (values.some((item) => !item.bounds)) return undefined;
+  return values.find((item) => values.every((other) => (
+    other === item || item.bounds!.min > other.bounds!.max
+  )))?.candidate;
+}
+
+function finalDiscriminatorChoices(candidates: readonly CarsEvidenceBackedCandidateEvaluation[]): readonly CarsFinalDiscriminatorChoice[] {
+  return [
+    ...(discriminatorWinner(candidates, "seats") ? [{ id: "MAX_SEATS" as const, label: "Daha fazla koltuk" }] : []),
+    ...(discriminatorWinner(candidates, "cargo_volume_l") ? [{ id: "MAX_CARGO" as const, label: "Daha fazla bagaj alanı" }] : []),
+  ];
 }
 
 function presentation(vehicleVariantId: string) {
@@ -144,7 +174,7 @@ function assertionFromFact(requirementId: string, fact: VehicleEvidenceFactResol
 }
 
 /** Governed evidence-backed Cars MVP decision entry point. */
-export function runCarsEvidenceBackedDecision(input: { readonly query: string; readonly vehicleEvidenceReadPort?: VehicleEvidenceReadPort }): CarsEvidenceBackedDecisionResult {
+export function runCarsEvidenceBackedDecision(input: { readonly query: string; readonly vehicleEvidenceReadPort?: VehicleEvidenceReadPort; readonly discriminatorChoiceId?: CarsFinalDiscriminatorChoiceId }): CarsEvidenceBackedDecisionResult {
   const { context } = contextFromQuery(input.query);
   const bridge = deriveCarsEvidenceBackedRequirements(context);
   const baseTrace = { authority: AUTHORITY, candidateIds: artifactPayload.candidates.map((item) => item.runtimeVehicleCandidateId as RuntimeVehicleCandidateId) };
@@ -196,9 +226,25 @@ export function runCarsEvidenceBackedDecision(input: { readonly query: string; r
       materialRequirements: bridge.requirements, candidateEvaluations: evaluations, recommendationAuthorization: { authorized: true, authorizedCandidateIds: [selected.runtimeVehicleCandidateId] },
       evidenceTrace: baseTrace, explanationInput: facts, userFacingExplanation: explanation };
   }
-  if (authorized.length > 1) return { status: "NEEDS_MORE_USER_CONTEXT", materialRequirements: bridge.requirements, candidateEvaluations: evaluations,
-    recommendationAuthorization: { authorized: false, authorizedCandidateIds: authorized.map((item) => item.runtimeVehicleCandidateId) }, evidenceTrace: baseTrace, explanationInput: [],
-    followUpQuestion: "Birden fazla araç tüm zorunlu şartları karşılıyor. Sizin için ayırt edici bir başka zorunlu kriter var mı?" };
+  if (authorized.length > 1) {
+    const choices = finalDiscriminatorChoices(authorized);
+    if (input.discriminatorChoiceId && choices.some((choice) => choice.id === input.discriminatorChoiceId)) {
+      const selected = input.discriminatorChoiceId === "MAX_SEATS"
+        ? discriminatorWinner(authorized, "seats")
+        : discriminatorWinner(authorized, "cargo_volume_l");
+      if (selected) return {
+        status: "DECISION_READY", selectedRuntimeVehicleCandidateId: selected.runtimeVehicleCandidateId, selectedVehicle: selected.presentationIdentity,
+        materialRequirements: bridge.requirements, candidateEvaluations: evaluations,
+        recommendationAuthorization: { authorized: true, authorizedCandidateIds: [selected.runtimeVehicleCandidateId] }, evidenceTrace: baseTrace,
+        explanationInput: [input.discriminatorChoiceId],
+        userFacingExplanation: `${selected.presentationIdentity.brand} ${selected.presentationIdentity.model}, seçtiğiniz ${input.discriminatorChoiceId === "MAX_SEATS" ? "daha fazla koltuk" : "daha fazla bagaj alanı"} kriteriyle ayrıştığı için seçildi.`,
+      };
+    }
+    return { status: "NEEDS_MORE_USER_CONTEXT", materialRequirements: bridge.requirements, candidateEvaluations: evaluations,
+      recommendationAuthorization: { authorized: false, authorizedCandidateIds: authorized.map((item) => item.runtimeVehicleCandidateId) }, evidenceTrace: baseTrace, explanationInput: [],
+      discriminatorChoices: choices,
+      followUpQuestion: "Birden fazla araç tüm zorunlu şartlarınızı karşılıyor; ayırt edici ve kararı değiştirecek seçeneği seçin." };
+  }
   const hasUnknown = evaluations.some((item) => item.disposition === "NOT_EVALUABLE");
   return { status: hasUnknown ? "INSUFFICIENT_VEHICLE_EVIDENCE" : "NO_ELIGIBLE_CANDIDATE", materialRequirements: bridge.requirements, candidateEvaluations: evaluations,
     recommendationAuthorization: { authorized: false, authorizedCandidateIds: [] }, evidenceTrace: baseTrace, explanationInput: [],

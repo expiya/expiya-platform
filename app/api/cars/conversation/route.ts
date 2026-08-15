@@ -5,10 +5,15 @@ import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/sec
 
 const requestSchema = z.object({
   conversationId: z.string().min(1).max(100),
+  choiceId: z.enum(["MAX_SEATS", "MAX_CARGO"]).optional(),
   messages: z.array(z.object({
     id: z.string().min(1).max(100),
     role: z.enum(["user", "assistant"]),
     content: z.string().trim().min(1).max(4_000),
+    discriminatorChoices: z.array(z.object({
+      id: z.enum(["MAX_SEATS", "MAX_CARGO"]),
+      label: z.string().trim().min(1).max(100),
+    })).max(3).optional(),
     recommendationIds: z.array(z.string().min(1).max(100)).max(3).optional(),
     satisfaction: z.enum(["HELPFUL", "NOT_HELPFUL"]).optional(),
     sellerResearchRequest: z.object({
@@ -26,6 +31,21 @@ export async function POST(request: Request): Promise<Response> {
   if (rejected) return rejected;
   try {
     const input = requestSchema.parse(await readJsonWithLimit(request, 150_000));
+    const latestAssistant = [...input.messages].reverse().find((message) => message.role === "assistant");
+    const activeChoices = latestAssistant?.discriminatorChoices;
+    if (activeChoices?.length) {
+      if (!input.choiceId || !activeChoices.some((choice) => choice.id === input.choiceId)) {
+        return Response.json(
+          { message: "Bu adımda yalnızca sunulan karar seçeneklerinden biri kullanılabilir." },
+          { status: 409 },
+        );
+      }
+    } else if (input.choiceId) {
+      return Response.json(
+        { message: "Bu karar seçeneği mevcut conversation state için geçerli değil." },
+        { status: 409 },
+      );
+    }
     const conversationRejected = await enforceRateLimit(request, { scope: "cars-conversation-id", subject: input.conversationId, limit: 24, windowMs: 60 * 60_000 });
     if (conversationRejected) return conversationRejected;
     const response = await runCarsConversationTurn(input);

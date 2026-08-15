@@ -42,6 +42,19 @@ describe("runCarsEvidenceBackedDecision", () => {
     expect(result.selectedRuntimeVehicleCandidateId).toBeUndefined();
     expect(result.recommendationAuthorization.authorizedCandidateIds).toEqual(["RVC-PILOT-0002", "RVC-PILOT-0003"]);
     expect(result.followUpQuestion).toContain("ayırt edici");
+    expect(result.discriminatorChoices).toEqual([
+      { id: "MAX_CARGO", label: "Daha fazla bagaj alanı" },
+    ]);
+  });
+
+  it("executes only supported deterministic discriminators", () => {
+    const input = { query: "En az 5 koltuk ve minimum 300 litre bagaj istiyorum.", vehicleEvidenceReadPort: generatedVehicleEvidenceReadPort };
+    const pending = runCarsEvidenceBackedDecision(input);
+    expect(pending.discriminatorChoices?.map((choice) => choice.id)).toEqual(["MAX_SEATS", "MAX_CARGO"]);
+
+    const cargo = runCarsEvidenceBackedDecision({ ...input, discriminatorChoiceId: "MAX_CARGO" });
+    expect(cargo).toMatchObject({ status: "DECISION_READY", selectedRuntimeVehicleCandidateId: "RVC-PILOT-0002" });
+
   });
 
   it("preserves range uncertainty and missing seats as NOT_EVALUABLE", () => {
