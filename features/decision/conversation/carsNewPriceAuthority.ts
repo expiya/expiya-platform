@@ -1,4 +1,4 @@
-import catalogPayload from "@/data/production/catalog/releases/v0.5.0/catalog.json";
+import catalogPayload from "@/data/production/catalog/releases/v0.6.0/catalog.json";
 import artifactPayload from "@/data/runtime/vehicle-evidence/v0.4.0/artifact.json";
 import type { PublishedCatalog } from "@/features/vehicle-data/buildPublishedCatalog";
 import type { PriceObservation } from "@/types/productionVehicle";
@@ -112,6 +112,8 @@ function preferGuaranteedPrice(current: readonly PriceObservation[]): PriceObser
   if (lists.length > 1) return undefined;
   const campaigns = current.filter((price) => price.priceType === "CAMPAIGN");
   if (campaigns.length === 1) return campaigns[0];
+  const estimates = current.filter((price) => price.priceType === "ESTIMATE");
+  if (estimates.length === 1) return estimates[0];
   return current[0];
 }
 
@@ -272,25 +274,34 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
       feeInclusionUncertainty: false,
       budgetCeilingTry: input.budgetTry,
       result: "FAIL",
-      reasonCode: "AMOUNT_ABOVE_CEILING",
+      reasonCode: selected.priceType === "ESTIMATE" ? "ESTIMATED_AMOUNT_ABOVE_CEILING" : "AMOUNT_ABOVE_CEILING",
     });
   }
 
   const selected = preferGuaranteedPrice(available);
-  if (!selected || !sourceAuthoritative(selected)) {
+  if (!selected) {
     return evaluation({
       candidateId,
       catalogVariantId: variantId,
-      priceObservationId: selected?.id,
-      amountTry: selected?.amountTry,
-      priceType: selected?.priceType,
-      validityStatus: selected ? validityStatus(selected, at) : "ABSENT",
-      campaignApplicabilityResult: selected ? campaignApplicability(selected) : "UNKNOWN",
+      validityStatus: "ABSENT",
+      campaignApplicabilityResult: "UNKNOWN",
       feeInclusionUncertainty: false,
       budgetCeilingTry: input.budgetTry,
       result: "UNKNOWN",
       reasonCode: "SOURCE_INSUFFICIENT",
     });
+  }
+
+  if (selected.priceType === "ESTIMATE") {
+    return evaluation({ candidateId, catalogVariantId: variantId, priceObservationId: selected.id, amountTry: selected.amountTry,
+      priceType: selected.priceType, validityStatus: validityStatus(selected, at), sourceAuthorityResult: "INSUFFICIENT",
+      campaignApplicabilityResult: "NOT_CAMPAIGN", feeInclusionUncertainty: false, budgetCeilingTry: input.budgetTry,
+      result: "PASS", reasonCode: "ESTIMATED_AMOUNT_WITHIN_CEILING" });
+  }
+  if (!sourceAuthoritative(selected)) {
+    return evaluation({ candidateId, catalogVariantId: variantId, priceObservationId: selected.id, amountTry: selected.amountTry,
+      priceType: selected.priceType, validityStatus: validityStatus(selected, at), campaignApplicabilityResult: campaignApplicability(selected),
+      feeInclusionUncertainty: false, budgetCeilingTry: input.budgetTry, result: "UNKNOWN", reasonCode: "SOURCE_INSUFFICIENT" });
   }
 
   if (selected.priceType === "CAMPAIGN") {

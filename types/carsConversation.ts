@@ -253,6 +253,8 @@ export type CarsPriceReasonCode =
   | "SOURCE_INSUFFICIENT"
   | "AMOUNT_ABOVE_CEILING"
   | "AMOUNT_WITHIN_CEILING"
+  | "ESTIMATED_AMOUNT_ABOVE_CEILING"
+  | "ESTIMATED_AMOUNT_WITHIN_CEILING"
   | "MARKET_NOT_TR"
   | "NOT_CURRENT_SALE";
 
@@ -261,7 +263,7 @@ export interface CarsCandidatePriceEvaluation {
   readonly catalogVariantId: string;
   readonly priceObservationId?: string;
   readonly amountTry?: number;
-  readonly priceType?: "LIST" | "CAMPAIGN" | "ASKING" | "TRANSACTION" | "VALUATION";
+  readonly priceType?: "LIST" | "CAMPAIGN" | "ASKING" | "TRANSACTION" | "VALUATION" | "ESTIMATE";
   readonly validityStatus: CarsPriceValidityStatus;
   readonly sourceAuthorityResult: "AUTHORITATIVE" | "INSUFFICIENT";
   readonly campaignApplicabilityResult: CarsCampaignApplicability;

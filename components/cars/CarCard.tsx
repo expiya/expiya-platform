@@ -60,9 +60,11 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
               <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
                 {car.year} · {isTurkish ? fuelTranslations[car.fuel] : car.fuel} · {isTurkish ? "Sıfır" : "New"}
               </p>
-              <p className="mt-1 text-sm font-medium text-neutral-800 dark:text-neutral-200">
-                {formattedPrice} TL · {priceTypeLabel}
-              </p>
+              {car.priceDisplayAllowed !== false && (
+                <p className="mt-1 text-sm font-medium text-neutral-800 dark:text-neutral-200">
+                  {formattedPrice} TL · {priceTypeLabel}
+                </p>
+              )}
               {pricePresentation?.caveat && (
                 <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">{pricePresentation.caveat}</p>
               )}

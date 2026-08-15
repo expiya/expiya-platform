@@ -25,6 +25,10 @@ export const FIFTH_CATALOG_RELEASE_VERSION = "0.5.0";
 export const FIFTH_CATALOG_RELEASE_AS_OF = "2026-08-16T21:00:00.000Z";
 export const FIFTH_CATALOG_SOURCE_REVISION = "alpine-brand-batch-01:2026-08-16";
 export const FIFTH_CATALOG_SOURCE_PATH = "data/production/alpineBatch01.ts";
+export const SIXTH_CATALOG_RELEASE_VERSION = "0.6.0";
+export const SIXTH_CATALOG_RELEASE_AS_OF = "2026-08-16T22:00:00.000Z";
+export const SIXTH_CATALOG_SOURCE_REVISION = "estimated-price-backfill-01:2026-08-16";
+export const SIXTH_CATALOG_SOURCE_PATH = "data/production/estimatedPriceBackfill01.ts";
 
 export const FIRST_RELEASE_VARIANT_IDS = Object.freeze([
   "1eb75421-a038-4679-977e-7cd4e4608863",
@@ -288,6 +292,15 @@ export function createFifthReleaseManifest(payload: ProductionCatalogReleasePayl
   };
 }
 
+export function createSixthReleasePayload(records: readonly PublishedVehicleRecord[]): ProductionCatalogReleasePayload {
+  if (records.length !== 63) throw new Error(`Expected 63 publishable records, received ${records.length}`);
+  const ids=records.map(({variant})=>variant.id); if(new Set(ids).size!==ids.length) throw new Error("Duplicate catalog variant IDs are forbidden");
+  return {catalog_schema_version:CATALOG_SCHEMA_VERSION,market:"TR",effective_as_of:SIXTH_CATALOG_RELEASE_AS_OF,records:[...records].sort((a,b)=>a.variant.id.localeCompare(b.variant.id,"en"))};
+}
+export function createSixthReleaseManifest(payload: ProductionCatalogReleasePayload): ProductionCatalogReleaseManifest {
+  return {catalog_release_version:SIXTH_CATALOG_RELEASE_VERSION,catalog_schema_version:CATALOG_SCHEMA_VERSION,catalog_payload_hash:catalogPayloadHash(serializeCanonical(payload)),market:"TR",source_revision:SIXTH_CATALOG_SOURCE_REVISION,source_path:SIXTH_CATALOG_SOURCE_PATH,effective_as_of:SIXTH_CATALOG_RELEASE_AS_OF,record_count:payload.records.length,publishable_record_count:payload.records.length,included_variant_ids:payload.records.map(({variant})=>variant.id).sort(),generator_version:CATALOG_GENERATOR_VERSION,validator_version:CATALOG_VALIDATOR_VERSION,validator_status:"PASS",approval:{state:"APPROVED",at:SIXTH_CATALOG_RELEASE_AS_OF,reference:"user-directed-estimated-price-backfill-01"},staging:{state:"STAGED",at:SIXTH_CATALOG_RELEASE_AS_OF,actor_reference:"controlled-estimated-price-backfill",target:"INTERNAL_INTEGRATION_NON_PRODUCTION"},previous_release:FIFTH_CATALOG_RELEASE_VERSION,declared_limitations:["four-price-estimates-are-internal-only-and-not-consumer-display-authority","estimated-prices-participate-in-decision-filtering-with-low-confidence","official-price-always-supersedes-estimate","a290-gts-promoted-with-official-price-not-estimate"]};
+}
+
 export function validateProductionCatalogRelease(
   payload: ProductionCatalogReleasePayload,
   manifest: ProductionCatalogReleaseManifest,
@@ -312,7 +325,8 @@ export function validateProductionCatalogRelease(
       ? SECOND_CATALOG_SOURCE_PATH : manifest.catalog_release_version === THIRD_CATALOG_RELEASE_VERSION
         ? THIRD_CATALOG_SOURCE_PATH : manifest.catalog_release_version === FOURTH_CATALOG_RELEASE_VERSION
           ? FOURTH_CATALOG_SOURCE_PATH : manifest.catalog_release_version === FIFTH_CATALOG_RELEASE_VERSION
-            ? FIFTH_CATALOG_SOURCE_PATH : undefined;
+            ? FIFTH_CATALOG_SOURCE_PATH : manifest.catalog_release_version === SIXTH_CATALOG_RELEASE_VERSION
+              ? SIXTH_CATALOG_SOURCE_PATH : undefined;
   if (manifest.source_path !== expectedSourcePath) errors.push("SOURCE_AUTHORITY_INVALID");
   if (payload.effective_as_of !== manifest.effective_as_of) errors.push("EFFECTIVE_AS_OF_MISMATCH");
   if (manifest.catalog_release_version === FIRST_CATALOG_RELEASE_VERSION && payload.effective_as_of !== CATALOG_BOOTSTRAP_INSTANT) errors.push("BOOTSTRAP_INSTANT_MISMATCH");
@@ -328,6 +342,7 @@ export function validateProductionCatalogRelease(
   if (manifest.catalog_release_version === FIFTH_CATALOG_RELEASE_VERSION && (
     payload.effective_as_of !== FIFTH_CATALOG_RELEASE_AS_OF || manifest.previous_release !== FOURTH_CATALOG_RELEASE_VERSION
   )) errors.push("FIFTH_RELEASE_LINEAGE_INVALID");
+  if (manifest.catalog_release_version === SIXTH_CATALOG_RELEASE_VERSION && (payload.effective_as_of !== SIXTH_CATALOG_RELEASE_AS_OF || manifest.previous_release !== FIFTH_CATALOG_RELEASE_VERSION)) errors.push("SIXTH_RELEASE_LINEAGE_INVALID");
   if (manifest.validator_status !== "PASS") errors.push("VALIDATOR_NOT_PASS");
   if (!manifest.approval || manifest.approval.state !== "APPROVED" || !manifest.approval.reference) errors.push("APPROVAL_EVIDENCE_MISSING");
   if (!manifest.staging || manifest.staging.state !== "STAGED" || !manifest.staging.actor_reference) errors.push("STAGING_EVIDENCE_MISSING");

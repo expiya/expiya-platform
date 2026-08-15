@@ -24,6 +24,8 @@ export interface Car {
 
   year: number;
   price: number;
+  /** Price may participate in ranking/filtering but must not be rendered when false. */
+  priceDisplayAllowed?: boolean;
   km: number;
 
   fuel: FuelType;

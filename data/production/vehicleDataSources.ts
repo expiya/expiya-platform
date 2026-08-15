@@ -3,6 +3,11 @@ import type { DataSource } from "@/types/productionVehicle";
 // A source being listed does not mean it is publishable. The ingestion gate uses usagePermission.
 export const vehicleDataSources: readonly DataSource[] = [
   {
+    id: "expiya-internal-estimate", name: "Expiya internal price estimate", authority: "COMMUNITY",
+    homepageUrl: "https://www.expiya.com", usagePermission: "INTERNAL_ONLY", reviewedAt: "2026-08-16T22:00:00.000Z",
+    reviewNotes: ["Never render estimated amounts to users", "Use only as a temporary decision-filter input", "Official Turkey price observations always supersede estimates"],
+  },
+  {
     id: "toyota-tr", name: "Toyota Türkiye", authority: "PRIMARY",
     homepageUrl: "https://www.toyota.com.tr/", robotsUrl: "https://www.toyota.com.tr/robots.txt",
     usagePermission: "PUBLIC_FACTS_ONLY", reviewedAt: "2026-08-13T00:00:00.000Z",

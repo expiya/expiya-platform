@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 
-import catalogPayload from "@/data/production/catalog/releases/v0.5.0/catalog.json";
+import catalogPayload from "@/data/production/catalog/releases/v0.6.0/catalog.json";
 import { runCarsRuntime } from "@/features/decision/runtime/runCarsRuntime";
 import {
   deriveCarsEvidenceBackedRequirementsFromQuery,
@@ -1059,11 +1059,14 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
       const affordability = ceiling === undefined
         ? "NOT_REQUESTED" as const
         : evaluation.result;
-      const message = ceiling === undefined && evaluation.amountTry !== undefined
+      const publicPrice = evaluation.priceType === "LIST" || evaluation.priceType === "CAMPAIGN";
+      const message = evaluation.priceType === "ESTIMATE"
+        ? `${identity} değerlendirmeye alındı. Doğrulanmış kullanıcıya gösterilebilir sıfır fiyat henüz bulunmuyor.`
+        : ceiling === undefined && evaluation.amountTry !== undefined
         ? `${identity} güncel sıfır ${evaluation.priceType === "CAMPAIGN" ? "kampanya" : "liste"} fiyatı ${formatTryConsumer(evaluation.amountTry)}.${evaluation.priceType === "CAMPAIGN" ? " Kampanya stok ve yetkili satıcıya göre değişebilir." : ""}`
         : shownCandidateAffordabilityMessage({
           identity,
-          amountTry: evaluation.amountTry,
+          amountTry: publicPrice ? evaluation.amountTry : undefined,
           priceType: evaluation.priceType === "LIST" || evaluation.priceType === "CAMPAIGN" ? evaluation.priceType : undefined,
           ceilingTry: ceiling ?? 0,
           result: affordability,

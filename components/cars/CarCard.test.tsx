@@ -44,4 +44,15 @@ describe("CarCard price freshness", () => {
     expect(html).toContain("1.830.000 TL");
     expect(html).not.toContain("Güncel olmayabilir");
   });
+
+  it("never renders an internal-only estimate", () => {
+    const estimated = recommendation("CURRENT");
+    estimated.car.price = 9_999_999;
+    estimated.car.priceDisplayAllowed = false;
+    estimated.pricePresentation = undefined;
+    const html = renderToStaticMarkup(<CarCard recommendedCar={estimated} />);
+    expect(html).toContain("Renault Clio");
+    expect(html).not.toContain("9.999.999");
+    expect(html).not.toContain("Liste");
+  });
 });

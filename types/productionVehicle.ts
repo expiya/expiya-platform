@@ -93,7 +93,10 @@ export interface PriceObservation {
   readonly market: "TR";
   readonly condition: "NEW" | "USED";
   readonly amountTry: number;
-  readonly priceType: "LIST" | "CAMPAIGN" | "ASKING" | "TRANSACTION" | "VALUATION";
+  readonly priceType: "LIST" | "CAMPAIGN" | "ASKING" | "TRANSACTION" | "VALUATION" | "ESTIMATE";
+  /** ESTIMATE prices must always be INTERNAL_ONLY and must never be rendered to users. */
+  readonly consumerVisibility?: "PUBLIC" | "INTERNAL_ONLY";
+  readonly estimationMethod?: string;
   readonly validFrom: string;
   readonly validUntil?: string;
   readonly mileageKm?: number;

@@ -37,6 +37,7 @@ export function adaptPublishedCatalogToCars(catalog: PublishedCatalog): CarsCata
       model: `${variant.model.value} ${variant.trim.value}`,
       year: variant.modelYear.value,
       price: activeNewPrice.amountTry,
+      priceDisplayAllowed: activeNewPrice.priceType !== "ESTIMATE" && activeNewPrice.consumerVisibility !== "INTERNAL_ONLY",
       km: 0,
       fuel,
       transmission,
