@@ -1,7 +1,7 @@
 import { cars as fixtureCars } from "@/data/car";
 import activeCatalogPointer from "@/data/production/catalog/active.json";
-import activeCatalogPayload from "@/data/production/catalog/releases/v0.2.0/catalog.json";
-import activeCatalogManifest from "@/data/production/catalog/releases/v0.2.0/manifest.json";
+import activeCatalogPayload from "@/data/production/catalog/releases/v0.3.0/catalog.json";
+import activeCatalogManifest from "@/data/production/catalog/releases/v0.3.0/manifest.json";
 import { adaptPublishedCatalogToCars } from "@/features/vehicle-data/adaptPublishedCatalogToCars";
 import type { PublishedCatalog, PublishedVehicleRecord } from "@/features/vehicle-data/buildPublishedCatalog";
 import {

@@ -63,14 +63,18 @@ const candidates: readonly Candidate[] = [
 
 function createRecord(input: Candidate): PilotVehicleRecord {
   const key = `${input.model}|${input.modelYear}|${input.powertrainLabel}|${input.trim}`;
-  const id = deterministicHyundaiUuid(`variant:${key}`);
+  const stableExistingIds: Readonly<Record<string, string>> = {
+    "IONIQ 5|2026|125 kW|Dynamic Visionroof": "87e30119-f0d5-4c98-8324-cbd65156974b",
+    "IONIQ 9|2026|160kW (218PS) 4x2|Progressive": "a3728e65-51b2-447f-a6c3-a1f64db8a310",
+  };
+  const id = stableExistingIds[key] ?? deterministicHyundaiUuid(`variant:${key}`);
   const technical = { sourceId: "hyundai-tr", sourceUrl: input.brochureUrl, accessedAt: ACCESSED_AT, documentVersion: input.brochureVersion, contentHash: `sha256:${input.brochureHash}`, extractionMethod: "DOCUMENT_IMPORT" as const, confidence: "HIGH" as const, limitations: ["Official Turkey-market brochure facts", "Battery capacity is retained as reported; gross/usable semantics are not inferred", "PS-to-kW conversions are deterministic where the source publishes system power only in PS"] };
   const priceSource = { sourceId: "hyundai-tr", sourceUrl: PRICE_URL, accessedAt: ACCESSED_AT, documentVersion: "Hyundai Türkiye HppPriceListTR API observation, 2026-08-16", extractionMethod: "API" as const, confidence: "HIGH" as const, limitations: ["Observed distributor price; may change without notice", "Campaign price can depend on stock and dealer participation"] };
   const sourced = <T>(value: T) => ({ value, provenance: [technical] as [typeof technical], confidence: "HIGH" as const });
   const dimensions = Object.fromEntries(Object.entries(input.dimensions).map(([name, value]) => [name, sourced(value)])) as TurkeyVehicleVariant["dimensions"];
   const variant: TurkeyVehicleVariant = { id, market: "TR", lifecycleStatus: "ON_SALE", brand: sourced("Hyundai"), model: sourced(input.model), bodyStyle: sourced(input.bodyStyle), trim: sourced(`${input.powertrainLabel} ${input.trim}`), modelYear: sourced(input.modelYear), powertrain: { fuelType: sourced(input.fuelType), ...(input.engineDisplacementCc === undefined ? {} : { engineDisplacementCc: sourced(input.engineDisplacementCc) }), powerKw: sourced(input.powerKw), torqueNm: sourced(input.torqueNm), transmission: sourced(input.transmission), drivenWheels: sourced(input.drivenWheels) }, dimensions, efficiency: { protocol: sourced("WLTP"), ...(input.combinedLitresPer100Km === undefined ? {} : { combinedLitresPer100Km: sourced(input.combinedLitresPer100Km) }), ...(input.combinedKwhPer100Km === undefined ? {} : { combinedKwhPer100Km: sourced(input.combinedKwhPer100Km) }), ...(input.electricRangeKm === undefined ? {} : { electricRangeKm: sourced(input.electricRangeKm) }), ...(input.batteryCapacityKwh === undefined ? {} : { batteryCapacityKwh: sourced(input.batteryCapacityKwh) }) }, safetyFeatureCodes: input.safety.map(sourced), createdAt: ACCESSED_AT, updatedAt: ACCESSED_AT };
-  const price = (priceType: "LIST" | "CAMPAIGN", amountTry: number): PriceObservation => ({ id: deterministicHyundaiUuid(`price:${key}:${priceType}`), vehicleVariantId: id, market: "TR", condition: "NEW", amountTry, priceType, validFrom: ACCESSED_AT, sellerType: "DISTRIBUTOR", provenance: [priceSource], confidence: "HIGH" });
-  const prices = input.campaignPriceTry < input.listPriceTry ? [price("CAMPAIGN", input.campaignPriceTry), price("LIST", input.listPriceTry)] : [price("LIST", input.listPriceTry)];
+  const price = (priceType: "LIST" | "CAMPAIGN", amountTry: number): PriceObservation => ({ id: deterministicHyundaiUuid(`price:${key}:${priceType}`), vehicleVariantId: id, market: "TR", condition: "NEW", amountTry, priceType, validFrom: stableExistingIds[key] ? "2026-08-05T00:00:00.000Z" : ACCESSED_AT, sellerType: "DISTRIBUTOR", provenance: [priceSource], confidence: "HIGH" });
+  const prices = [price("CAMPAIGN", input.campaignPriceTry), price("LIST", input.listPriceTry)];
   return { identity: { id, market: "TR", lifecycleStatus: "ON_SALE", brand: sourced("Hyundai"), model: sourced(input.model), bodyStyle: sourced(input.bodyStyle), trim: sourced(`${input.powertrainLabel} ${input.trim}`), modelYear: sourced(input.modelYear) }, prices, technicalVariant: variant };
 }
 

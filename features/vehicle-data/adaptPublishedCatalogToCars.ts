@@ -9,7 +9,7 @@ const fuelMap: Readonly<Record<ProductionFuelType, FuelType | undefined>> = {
 
 const bodyMap: Readonly<Record<string, BodyType | undefined>> = {
   SEDAN: "Sedan", HATCHBACK: "Hatchback", SUV: "SUV", COUPE: "Coupe",
-  PICKUP: "Pickup", VAN: "Van",
+  PICKUP: "Pickup", VAN: "Van", MPV: "Van",
 };
 
 export interface CarsCatalogAdaptation {
@@ -25,7 +25,8 @@ export function adaptPublishedCatalogToCars(catalog: PublishedCatalog): CarsCata
     const fuel = fuelMap[variant.powertrain.fuelType.value];
     const bodyType = bodyMap[variant.bodyStyle.value.toUpperCase()];
     const transmission: Transmission | undefined = /automatic|dual-clutch|reduction gear/i
-      .test(variant.powertrain.transmission.value) ? "Automatic" : undefined;
+      .test(variant.powertrain.transmission.value) ? "Automatic"
+      : /manual/i.test(variant.powertrain.transmission.value) ? "Manual" : undefined;
     if (!fuel || !bodyType || !transmission) {
       rejectedVehicleVariantIds.push(variant.id);
       continue;

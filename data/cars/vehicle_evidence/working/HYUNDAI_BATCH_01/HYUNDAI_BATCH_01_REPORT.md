@@ -118,6 +118,22 @@ All 15 records pass consistency and production-readiness validation. Together, s
 MY2025 and the TUCSON petrol/diesel/hybrid family; they stay outside this slice pending the
 model-year and existing-power-conflict closure.
 
+## Final closure and production activation
+
+Six TUCSON records passed the closing gate: five MY2026 petrol/diesel configurations and one
+independently price-verified MY2025 hybrid configuration. The existing TUCSON Comfort vehicle
+UUID was retained for runtime identity continuity; its former 160 PS fact was superseded by the
+current official 180 PS / 132.4 kW assertion. It was not silently overwritten without a recorded
+reason. The already-active IONIQ 5 and IONIQ 9 exact identities also retain their stable UUIDs.
+
+The immutable production catalog `v0.3.0` contains 52 records, of which 42 are Hyundai. It is
+the active catalog with `v0.2.0` as rollback. Two of the 44 official Hyundai price rows remain
+withheld: KONA MY2025 and TUCSON diesel MY2025. Their current price identity is known, but the
+newer technical brochure was not back-applied without explicit model-year evidence.
+
+Production activation verification: `PASS` (95 test files / 754 tests, TypeScript, canonical
+release hash, active-pointer lineage and rollback validation).
+
 ### Brochure source
 
 - Index: https://www.hyundai.com/tr/tr/satis/brosurler.html

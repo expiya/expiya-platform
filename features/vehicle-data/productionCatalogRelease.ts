@@ -13,6 +13,10 @@ export const SECOND_CATALOG_RELEASE_VERSION = "0.2.0";
 export const SECOND_CATALOG_RELEASE_AS_OF = "2026-08-14T20:00:00.000Z";
 export const SECOND_CATALOG_SOURCE_REVISION = "staged-catalog-expansion-batch-01:2026-08-14";
 export const SECOND_CATALOG_SOURCE_PATH = "data/production/stagedCatalogBatch01.ts";
+export const THIRD_CATALOG_RELEASE_VERSION = "0.3.0";
+export const THIRD_CATALOG_RELEASE_AS_OF = "2026-08-16T12:00:00.000Z";
+export const THIRD_CATALOG_SOURCE_REVISION = "hyundai-brand-batch-01:2026-08-16";
+export const THIRD_CATALOG_SOURCE_PATH = "data/production/hyundaiBatch01*.ts";
 
 export const FIRST_RELEASE_VARIANT_IDS = Object.freeze([
   "1eb75421-a038-4679-977e-7cd4e4608863",
@@ -191,6 +195,36 @@ export function createSecondReleaseManifest(payload: ProductionCatalogReleasePay
   };
 }
 
+export function createThirdReleasePayload(records: readonly PublishedVehicleRecord[]): ProductionCatalogReleasePayload {
+  const ids = records.map(({ variant }) => variant.id);
+  if (records.length !== 52) throw new Error(`Expected 52 publishable records, received ${records.length}`);
+  if (new Set(ids).size !== ids.length) throw new Error("Duplicate catalog variant IDs are forbidden");
+  for (const id of FIRST_RELEASE_VARIANT_IDS) {
+    if (!ids.includes(id)) throw new Error(`Previous member missing: ${id}`);
+  }
+  return { catalog_schema_version: CATALOG_SCHEMA_VERSION, market: "TR", effective_as_of: THIRD_CATALOG_RELEASE_AS_OF, records: [...records].sort((left, right) => left.variant.id.localeCompare(right.variant.id, "en")) };
+}
+
+export function createThirdReleaseManifest(payload: ProductionCatalogReleasePayload): ProductionCatalogReleaseManifest {
+  return {
+    catalog_release_version: THIRD_CATALOG_RELEASE_VERSION, catalog_schema_version: CATALOG_SCHEMA_VERSION,
+    catalog_payload_hash: catalogPayloadHash(serializeCanonical(payload)), market: "TR",
+    source_revision: THIRD_CATALOG_SOURCE_REVISION, source_path: THIRD_CATALOG_SOURCE_PATH,
+    effective_as_of: THIRD_CATALOG_RELEASE_AS_OF, record_count: payload.records.length,
+    publishable_record_count: payload.records.length, included_variant_ids: payload.records.map(({ variant }) => variant.id).sort(),
+    generator_version: CATALOG_GENERATOR_VERSION, validator_version: CATALOG_VALIDATOR_VERSION, validator_status: "PASS",
+    approval: { state: "APPROVED", at: THIRD_CATALOG_RELEASE_AS_OF, reference: "user-directed-hyundai-brand-batch-01" },
+    staging: { state: "STAGED", at: THIRD_CATALOG_RELEASE_AS_OF, actor_reference: "controlled-hyundai-brand-batch-process", target: "INTERNAL_INTEGRATION_NON_PRODUCTION" },
+    previous_release: SECOND_CATALOG_RELEASE_VERSION,
+    declared_limitations: [
+      "kona-my2025-withheld-model-year-applicability-unresolved",
+      "tucson-diesel-my2025-withheld-model-year-applicability-unresolved",
+      "tucson-comfort-160ps-fact-superseded-by-current-180ps-evidence-with-stable-identity",
+      "manufacturer-reported-battery-capacity-not-interpreted-as-gross-or-usable",
+    ],
+  };
+}
+
 export function validateProductionCatalogRelease(
   payload: ProductionCatalogReleasePayload,
   manifest: ProductionCatalogReleaseManifest,
@@ -211,13 +245,18 @@ export function validateProductionCatalogRelease(
   if (payload.market !== "TR" || manifest.market !== "TR") errors.push("MARKET_MISMATCH");
   if (!manifest.source_revision) errors.push("SOURCE_REVISION_MISSING");
   const expectedSourcePath = manifest.catalog_release_version === FIRST_CATALOG_RELEASE_VERSION
-    ? CATALOG_SOURCE_PATH : SECOND_CATALOG_SOURCE_PATH;
+    ? CATALOG_SOURCE_PATH : manifest.catalog_release_version === SECOND_CATALOG_RELEASE_VERSION
+      ? SECOND_CATALOG_SOURCE_PATH : manifest.catalog_release_version === THIRD_CATALOG_RELEASE_VERSION
+        ? THIRD_CATALOG_SOURCE_PATH : undefined;
   if (manifest.source_path !== expectedSourcePath) errors.push("SOURCE_AUTHORITY_INVALID");
   if (payload.effective_as_of !== manifest.effective_as_of) errors.push("EFFECTIVE_AS_OF_MISMATCH");
   if (manifest.catalog_release_version === FIRST_CATALOG_RELEASE_VERSION && payload.effective_as_of !== CATALOG_BOOTSTRAP_INSTANT) errors.push("BOOTSTRAP_INSTANT_MISMATCH");
   if (manifest.catalog_release_version === SECOND_CATALOG_RELEASE_VERSION && (
     payload.effective_as_of !== SECOND_CATALOG_RELEASE_AS_OF || manifest.previous_release !== FIRST_CATALOG_RELEASE_VERSION
   )) errors.push("SECOND_RELEASE_LINEAGE_INVALID");
+  if (manifest.catalog_release_version === THIRD_CATALOG_RELEASE_VERSION && (
+    payload.effective_as_of !== THIRD_CATALOG_RELEASE_AS_OF || manifest.previous_release !== SECOND_CATALOG_RELEASE_VERSION
+  )) errors.push("THIRD_RELEASE_LINEAGE_INVALID");
   if (manifest.validator_status !== "PASS") errors.push("VALIDATOR_NOT_PASS");
   if (!manifest.approval || manifest.approval.state !== "APPROVED" || !manifest.approval.reference) errors.push("APPROVAL_EVIDENCE_MISSING");
   if (!manifest.staging || manifest.staging.state !== "STAGED" || !manifest.staging.actor_reference) errors.push("STAGING_EVIDENCE_MISSING");

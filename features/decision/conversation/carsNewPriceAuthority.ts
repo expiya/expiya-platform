@@ -1,4 +1,4 @@
-import catalogPayload from "@/data/production/catalog/releases/v0.2.0/catalog.json";
+import catalogPayload from "@/data/production/catalog/releases/v0.3.0/catalog.json";
 import artifactPayload from "@/data/runtime/vehicle-evidence/v0.4.0/artifact.json";
 import type { PublishedCatalog } from "@/features/vehicle-data/buildPublishedCatalog";
 import type { PriceObservation } from "@/types/productionVehicle";

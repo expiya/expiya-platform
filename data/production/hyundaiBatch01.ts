@@ -99,9 +99,7 @@ function createHyundaiRecord(input: HyundaiStagedInput): PilotVehicleRecord {
     amountTry, priceType: type, validFrom: ACCESSED_AT, sellerType: "DISTRIBUTOR",
     provenance: [priceProvenance], confidence: "HIGH",
   });
-  const prices = input.campaignPriceTry < input.listPriceTry
-    ? [price("CAMPAIGN", input.campaignPriceTry), price("LIST", input.listPriceTry)]
-    : [price("LIST", input.listPriceTry)];
+  const prices = [price("CAMPAIGN", input.campaignPriceTry), price("LIST", input.listPriceTry)];
   return {
     identity: { id, market: "TR", lifecycleStatus: "ON_SALE", brand: sourced("Hyundai"), model: sourced(input.model), bodyStyle: sourced(input.bodyStyle), trim: sourced(`${input.powertrainLabel} ${input.trim}`), modelYear: sourced(2026) },
     prices, technicalVariant: variant,

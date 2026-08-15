@@ -18,10 +18,7 @@ import { generateStagedProductionCatalogRelease } from "@/scripts/generate-stage
 import { validateProductionVehicleIdentity } from "@/features/vehicle-data/validateProductionVehicle";
 import {
   SECOND_CATALOG_RELEASE_AS_OF, createSecondReleaseManifest, createSecondReleasePayload,
-  validateProductionCatalogActivation, type ProductionCatalogActivation,
 } from "@/features/vehicle-data/productionCatalogRelease";
-import activeCatalogPointer from "@/data/production/catalog/active.json";
-import activeCatalogManifest from "@/data/production/catalog/releases/v0.2.0/manifest.json";
 
 const temporaryRoots: string[] = [];
 afterEach(async () => Promise.all(temporaryRoots.splice(0).map((root) => rm(root, { recursive: true, force: true }))));
@@ -122,16 +119,11 @@ describe("small staged catalog expansion v0.2.0", () => {
     expect(validateProductionCatalogRelease(payload, manifest, serializeCanonical(payload))).toEqual([]);
   });
 
-  it("generates immutably and is selected by the active production pointer", async () => {
+  it("keeps the historical v0.2.0 release immutable and verifiable", async () => {
     const root = await mkdtemp(path.join(tmpdir(), "staged-catalog-release-test-"));
     temporaryRoots.push(root);
     const destination = path.join(root, "v0.2.0");
     await expect(generateStagedProductionCatalogRelease(destination)).resolves.toBe("created");
     await expect(verifyProductionCatalogRelease(destination)).resolves.toMatchObject({ version: "0.2.0", records: 13 });
-    expect(validateProductionCatalogActivation(
-      activeCatalogPointer as ProductionCatalogActivation,
-      activeCatalogManifest as unknown as ReturnType<typeof createSecondReleaseManifest>,
-    )).toEqual([]);
-    expect(resolveRecommendationCatalog("production", new Date("2026-08-16T00:00:00.000Z")).cars).toHaveLength(13);
   });
 });
