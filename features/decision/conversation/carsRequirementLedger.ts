@@ -87,7 +87,7 @@ export function extractDeterministicFacts(text: string): readonly { key: CarsReq
   if (/\bsedan\b/iu.test(text)) found.push({ key: "BODY_TYPE", value: "SEDAN" });
   if (/(?:donanım(?:ı)?\s+(?:yüksek|dolu)|(?:yüksek|dolu)\s+donanım)/iu.test(text)) found.push({ key: "EQUIPMENT_LEVEL", value: "HIGH" });
   if (/(?:küçük\s+olmasın|küçük\s+(?:araç\s+)?istemiyorum|ufak\s+olmasın)/iu.test(text)) found.push({ key: "SIZE_PREFERENCE", value: "NOT_SMALL" });
-  if (/(?:küçük dış ölç|kompakt(?: dış ölç| olsun)|şehir içinde hantal olmasın|dışarıdan küçük)/iu.test(text)) found.push({ key: "SIZE_PREFERENCE", value: "COMPACT_EXTERIOR" });
+  if (/(?:küçük dış ölç|kompakt(?: dış ölç| olsun)|şehir içinde hantal olmasın|dışarıdan küçük|park ederken zorlamasın)/iu.test(text)) found.push({ key: "SIZE_PREFERENCE", value: "COMPACT_EXTERIOR" });
   if (/(?:\botomatik\b|automatic)/iu.test(text)) found.push({ key: "TRANSMISSION", value: "AUTOMATIC" });
   if (/(?:\bmanuel\b|\bmanual\b)/iu.test(text)) found.push({ key: "TRANSMISSION", value: "MANUAL" });
   const numberWords: Record<string, number> = { iki: 2, üç: 3, dört: 4, beş: 5, altı: 6, yedi: 7 };

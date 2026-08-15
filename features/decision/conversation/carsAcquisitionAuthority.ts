@@ -19,7 +19,7 @@ const NEW_ONLY = /(?:ikinci el istemiyorum|yalnız sıfır|sıfır araç (?:bak�
 const USED_ONLY = /(?:sıfıra gerek yok|ikinci el bakıyorum|(?:^|[,.]\s*)temiz ikinci el olur)/iu;
 const AFFORDABILITY_MATERIAL = /(?:bütçeye uyar|bütçeme uyar|alabilir miyim|satın al(?:abilir miyim|ırım)?|bu fiyata|fiyatına alır|ödeyebilir|karşıl(?:ar|ıyor) mu\s+bütçe|2 milyona (?:alır|bulunur)|ilan bul|nereden (?:al|bul)|bütçeme uygun|bütçemi aşıyor|fiyatı ne kadar|tavanımın altında|sıfırı kaç para|bütçem yeter|artırırsam olur)/iu;
 const DIRECT_AFFORDABILITY = /(?:bütçeme uygun mu|bütçemi aşıyor mu|fiyatı ne kadar|bu fiyat benim tavanımın altında mı|sıfırı kaç para|bu aracı almaya bütçem yeter mi|\d+(?:[.,]\d+)?\s*milyona? olur mu|bu araç .{0,24}uygun mu|bütçemi biraz artırırsam)/iu;
-const USED_PURCHASE_REQUEST = /(?:ikinci el(?:\s+bir)?\s+(?:araç|araba)|ikinci el (?:arıyorum|bakıyorum)|used (?:car|vehicle)|galeriden ikinci el)/iu;
+const USED_PURCHASE_REQUEST = /(?:ikinci el(?:[\s,;:.-]+(?:\d{4}\s+model\s+)?(?:bir\s+)?(?:araç|araba)|\s+(?:arıyorum|bakıyorum|istiyorum))|used (?:car|vehicle)|galeriden ikinci el)/iu;
 const LISTING_URL = /https:\/\/[^\s<]+/iu;
 const FORBIDDEN_AFFORDABILITY = /(?:bütçene uyuyor|satın alabilirsin|bu fiyat aralığında|bütçenin içinde|ikinci elde bulunur|galeride vardır|(?:bütçe.{0,24}ulaşılabilir)|ulaşılabilir bir (?:fiyat|araç))/iu;
 

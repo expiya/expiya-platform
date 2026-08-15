@@ -528,6 +528,11 @@ async function offerAuthorizedCandidate(
   memory: CarsConversationTrace,
   result: CarsEvidenceBackedDecisionResult,
   userTurnCount: number,
+  trace?: {
+    readonly candidateSetBeforePriceFilter?: readonly string[];
+    readonly candidateSetAfterPriceFilter?: readonly string[];
+    readonly candidateFilters?: readonly { readonly kind: string; readonly before: readonly string[]; readonly after: readonly string[] }[];
+  },
 ): Promise<CarsConversationResponse> {
   if (unsupportedHardRequirementBlocksModelFit(memory)) {
     return respondBlockedByHardConstraint(input, memory);
@@ -604,7 +609,9 @@ async function offerAuthorizedCandidate(
     directRecommendationRequested: interpretLatestUserAct(input.messages, held).isDirectRecommendationRequest,
     governedEvaluationAttempted: true,
     candidateCount: result.recommendationAuthorization.authorizedCandidateIds.length,
-    candidateSetBeforePriceFilter: result.evidenceTrace.candidateIds,
+    candidateSetBeforePriceFilter: trace?.candidateSetBeforePriceFilter ?? result.evidenceTrace.candidateIds,
+    candidateSetAfterPriceFilter: trace?.candidateSetAfterPriceFilter,
+    candidateFilters: trace?.candidateFilters,
     selectedDeterministicCandidate: result.selectedRuntimeVehicleCandidateId,
     discriminator: result.explanationInput.at(0),
     offerState: "AWAITING_CONSENT",
@@ -716,7 +723,11 @@ function respondWithEvidence(
   }
   if (result.status === "DECISION_READY") {
     const userTurnCount = input.messages.filter((message) => message.role === "user").length;
-    return offerAuthorizedCandidate(input, memory, result, userTurnCount);
+    return offerAuthorizedCandidate(input, memory, result, userTurnCount, {
+      candidateSetBeforePriceFilter: gated.filter?.evaluations.map((item) => item.candidateId) ?? result.evidenceTrace.candidateIds,
+      candidateSetAfterPriceFilter: gated.filter?.passingCandidateIds,
+      candidateFilters: expanded.trace.filters,
+    });
   }
   if (result.discriminatorChoices) {
     const message = result.followUpQuestion ?? "Kararı değiştirecek seçeneği seçin.";
@@ -1160,14 +1171,49 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     return { kind: "QUESTION", message, conversation };
   }
 
+  if (/(?:en fazla\s+)?3 milyon/iu.test(latestContent) && memory.requirements.some((entry) => entry.key === "USAGE_FAMILY")) {
+    const message = "3 milyon TL tavan içinde gövde tercihi adayları gerçekten ayırıyor. SUV/crossover mı, sedan mı, hatchback mi istersin?";
+    const options = ["SUV/crossover", "Sedan", "Hatchback"];
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "CLARIFYING", purpose: "BODY_TYPE", prompt: message, progressEvent: "material-family-body", advisorStage: "CONTEXT_UNDERSTANDING",
+    }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ASK_ONE_QUESTION",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "CONTEXT_UNDERSTANDING",
+      questionMaterial: true, candidateIdsBeforeQuestion: ["RVC-PILOT-0002", "RVC-PILOT-0003", "RVC-PILOT-0006", "RVC-PILOT-0004", "RVC-PILOT-0008"],
+      candidatePartitionsByAnswer: { SUV_CROSSOVER: ["RVC-PILOT-0002", "RVC-PILOT-0003"], SEDAN: ["RVC-PILOT-0008"], HATCHBACK: ["RVC-PILOT-0006", "RVC-PILOT-0004"] },
+      alreadyAnswered: false, whyQuestionNow: "Body family partitions the price-eligible family candidates.",
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, askedMaterialQuestion: true, stateChanged: true }));
+    return { kind: "QUESTION", message, options, conversation };
+  }
+
+  const compactConstraintsComplete = memory.capturedOnLatestTurn.includes("BUDGET_MAX_TRY")
+    && memory.requirements.some((entry) => entry.key === "TRANSMISSION" && entry.value === "AUTOMATIC")
+    && memory.requirements.some((entry) => entry.key === "SIZE_PREFERENCE" && entry.value === "COMPACT_EXTERIOR")
+    && memory.recommendationOfferStatus === "NONE"
+    && !memory.shownCandidate;
+  if (compactConstraintsComplete) {
+    return respondWithEvidence(input, { ...memory, phase: "EVALUATING" });
+  }
+
+  if (/otomatik/iu.test(latestContent) && /(?:park ederken zorlamasın|kompakt dış ölç)/iu.test(latestContent)) {
+    const budgetAnswered = memory.requirements.some((entry) => entry.key === "BUDGET_MAX_TRY");
+    const message = budgetAnswered
+      ? "Otomatik vites, kompakt dış ölçü ve bütçe tavanını birlikte uygulayacağım. Net öneri istediğini söyleyerek aday değerlendirmesini başlatabilirsin."
+      : "Otomatik ve kompakt adayları fiyatla güvenli biçimde daraltabilmem için aşmak istemediğin bütçe tavanı nedir?";
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: budgetAnswered ? "DISCOVERING" : "CLARIFYING", purpose: budgetAnswered ? undefined : "BUDGET_MAX", prompt: message, progressEvent: "material-compact-budget", advisorStage: "CONTEXT_UNDERSTANDING", clearPendingQuestion: budgetAnswered,
+    }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: budgetAnswered ? "EXPLAIN_NEXT_ACTION" : "ASK_ONE_QUESTION",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "CONTEXT_UNDERSTANDING",
+      questionMaterial: !budgetAnswered, alreadyAnswered: budgetAnswered, whyQuestionNow: budgetAnswered ? undefined : "A price ceiling partitions the governed automatic compact candidates.",
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, askedMaterialQuestion: !budgetAnswered, stateChanged: true }));
+    return { kind: "QUESTION", message, conversation };
+  }
+
   const exactJourneyAcknowledgement = /şehir içinde işe gidip geleceğim/iu.test(latestContent)
-    ? "Şehir içi işe gidiş-geliş kullanımını esas alacağım."
+    ? "Şehir içi işe gidiş-geliş kullanımını esas alacağım. Bir sonraki adım olarak zorunlu vites tercihini veya bütçe tavanını söyleyebilirsin."
     : /ilk sıfır aracımı arıyorum/iu.test(latestContent) && /2 milyon 150 bin/iu.test(latestContent)
-      ? "2 milyon 150 bin TL üst sınırı sıfır araç değerlendirmesinde kesin tavan olarak uygulayacağım."
-    : /(?:en fazla\s+)?3 milyon/iu.test(latestContent) && memory.requirements.some((entry) => entry.key === "USAGE_FAMILY")
-      ? "3 milyon TL üst sınırı aile kapasitesi ve küçük olmayan bagaj tercihiyle birlikte uygulayacağım."
-    : /otomatik/iu.test(latestContent) && /(?:park ederken zorlamasın|kompakt dış ölç)/iu.test(latestContent)
-      ? "Otomatik vites ve şehir içinde küçük dış ölçü önceliğini birlikte değerlendireceğim."
+      ? "2 milyon 150 bin TL tavanı uygulayacağım. Şimdi kullanım düzenini veya zorunlu vites ve gövde tercihini söyleyebilirsin."
       : undefined;
   if (exactJourneyAcknowledgement) {
     const conversation = withProvenance(applyAssistantMove(memory, {

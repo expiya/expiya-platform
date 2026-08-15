@@ -57,6 +57,22 @@ describe("Phase 1 new-car scope", () => {
     expect(isUsedPurchaseRequest("İkinci el bir araç arıyorum.")).toBe(true);
   });
 
+  it("gives the new-car boundary precedence for a punctuated model-year used request", async () => {
+    const response = await runCarsConversationTurn({
+      conversationId: "used-request-model-year",
+      messages: [{ id: "1", role: "user", content: "İkinci el, 2021 model bir araç arıyorum. Ne önerirsin?" }],
+    });
+    expect(response.message).toBe("Şu an sıfır araçlarla bakıyorum. İkinci el ilan veya stok önermiyorum; istersen ihtiyaçlarına uyan sıfır bir yapılandırmaya bakabiliriz.");
+    expect(response.kind).not.toBe("RECOMMENDATIONS");
+    expect(response.conversation?.turnProvenance).toMatchObject({
+      modelAttempted: false,
+      usedPurchaseRequestDetected: true,
+      activePhase1Market: "NEW_ONLY",
+      cardRevealAuthorized: false,
+    });
+    expect(isUsedPurchaseRequest("İkinci el, 2021 model bir araç arıyorum. Ne önerirsin?")).toBe(true);
+  });
+
   it("fails closed on a used listing URL without fetching or recommending purchase", async () => {
     const response = await runCarsConversationTurn({
       conversationId: "listing-url",

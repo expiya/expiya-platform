@@ -626,6 +626,80 @@ describe("runCarsConversationTurn", () => {
     });
   });
 
+  it("asks a material body question after the family budget instead of stopping at acknowledgement", async () => {
+    const first = await runCarsConversationTurn({ conversationId: "family-forward", messages: [
+      { id: "u1", role: "user", content: "Dört kişilik aile için şehir içinde sıfır araç arıyorum. Bagajı küçük olmasın." },
+    ] });
+    const second = await runCarsConversationTurn({ conversationId: "family-forward", conversation: first.conversation, messages: [
+      { id: "u1", role: "user", content: "Dört kişilik aile için şehir içinde sıfır araç arıyorum. Bagajı küçük olmasın." },
+      { id: "a1", role: "assistant", content: first.message },
+      { id: "u2", role: "user", content: "Bütçem en fazla 3 milyon." },
+    ] });
+    expect(second.message).toMatch(/SUV\/crossover mı, sedan mı, hatchback mi/iu);
+    expect(second.kind).toBe("QUESTION");
+    if (second.kind !== "QUESTION") throw new Error("EXPECTED_FAMILY_BODY_QUESTION");
+    expect(second.options).toEqual(["SUV/crossover", "Sedan", "Hatchback"]);
+    expect(second.conversation?.turnProvenance).toMatchObject({ questionMaterial: true, alreadyAnswered: false });
+  });
+
+  it("gives a clear next action after city use and asks one material budget question after automatic parking", async () => {
+    const city = await runCarsConversationTurn({ conversationId: "compact-forward", messages: [
+      { id: "u1", role: "user", content: "Şehir içinde işe gidip geleceğim." },
+    ] });
+    expect(city.message).toMatch(/Bir sonraki adım olarak/iu);
+    const automatic = await runCarsConversationTurn({ conversationId: "compact-forward", conversation: city.conversation, messages: [
+      { id: "u1", role: "user", content: "Şehir içinde işe gidip geleceğim." },
+      { id: "a1", role: "assistant", content: city.message },
+      { id: "u2", role: "user", content: "Otomatik olsun, park ederken zorlamasın." },
+    ] });
+    expect(automatic.message).toMatch(/bütçe tavanı nedir\?/iu);
+    expect((automatic.message.match(/\?/gu) ?? [])).toHaveLength(1);
+    expect(automatic.conversation?.turnProvenance).toMatchObject({ questionMaterial: true, alreadyAnswered: false });
+  });
+
+  it("completes compact discrimination after budget and reveals the sealed winner after consent", async () => {
+    const users = [
+      "İlk arabam olacak.",
+      "Şehir içinde işe gidip geleceğim.",
+      "Otomatik olsun, park ederken zorlamasın.",
+      "Bütçem en fazla 2 milyon 150 bin TL.",
+    ];
+    let conversation;
+    const messages: Array<{ id: string; role: "user" | "assistant"; content: string }> = [];
+    let response;
+    for (const [index, content] of users.entries()) {
+      messages.push({ id: `u${index}`, role: "user", content });
+      response = await runCarsConversationTurn({ conversationId: "compact-complete", messages, conversation });
+      conversation = response.conversation;
+      messages.push({ id: `a${index}`, role: "assistant", content: response.message });
+    }
+    expect(conversation?.answeredQuestionPurposes).toContain("SIZE");
+    expect(response?.conversation?.turnProvenance).toMatchObject({
+      discriminator: "COMPACT_FOOTPRINT_LENGTH_THEN_WIDTH",
+      selectedDeterministicCandidate: "RVC-PILOT-0004",
+      offerState: "AWAITING_CONSENT",
+      cardState: "HIDDEN",
+    });
+    expect(response?.conversation?.turnProvenance?.candidateSetBeforePriceFilter).toBeDefined();
+    expect(response?.conversation?.turnProvenance?.candidateSetAfterPriceFilter).toEqual(["RVC-PILOT-0006", "RVC-PILOT-0004"]);
+    expect(response?.conversation?.turnProvenance?.candidateFilters).toEqual(expect.arrayContaining([
+      expect.objectContaining({ kind: "AUTOMATIC" }),
+    ]));
+    expect(response?.conversation?.recommendationOfferStatus).toBe("AWAITING_CONSENT");
+
+    messages.push({ id: "u4", role: "user", content: "Tamam, göster." });
+    const reveal = await runCarsConversationTurn({ conversationId: "compact-complete", messages, conversation });
+    expect(reveal.kind).toBe("RECOMMENDATIONS");
+    if (reveal.kind !== "RECOMMENDATIONS") throw new Error("EXPECTED_COMPACT_CARD");
+    expect(reveal.recommendations).toHaveLength(1);
+    expect(reveal.recommendations[0]?.car.model).toMatch(/Corsa/iu);
+    expect(reveal.conversation?.turnProvenance).toMatchObject({
+      selectedDeterministicCandidate: "RVC-PILOT-0004",
+      offerState: "REVEALED",
+      cardState: "REVEALED",
+    });
+  });
+
   it("ends safely when the turn limit is reached", async () => {
     const messages = Array.from({ length: 20 }, (_, index) => ({
       id: `user-${index}`,
