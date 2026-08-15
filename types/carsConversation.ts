@@ -39,11 +39,15 @@ export type CarsConversationState =
 
 export type CarsRequirementKey =
   | "USAGE_CAMP"
+  | "USAGE_SERIOUS_OFF_ROAD"
   | "USAGE_ROUGH_ROAD"
   | "USAGE_STABILIZED_ROAD"
   | "BUDGET_MAX_TRY"
   | "DRIVETRAIN"
   | "BODY_TYPE"
+  | "EQUIPMENT_LEVEL"
+  | "SIZE_PREFERENCE"
+  | "PARTY_SIZE"
   | "MIN_SEATS"
   | "MIN_CARGO_L";
 

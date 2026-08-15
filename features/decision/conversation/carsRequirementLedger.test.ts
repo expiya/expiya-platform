@@ -44,4 +44,27 @@ describe("buildCarsRequirementLedger", () => {
     expect(repeated.didConversationProgress).toBe(false);
     expect(repeated.requirements).toContainEqual(expect.objectContaining({ key: "BODY_TYPE", sourceTurn: 1 }));
   });
+
+  it("binds a short affirmative answer to the pending numeric seats confirmation", () => {
+    const trace = buildCarsRequirementLedger([
+      { id: "1", role: "user", content: "Ciddi arazi kullanımı" },
+      { id: "2", role: "assistant", content: "Vazgeçilmez özellik nedir?" },
+      { id: "3", role: "user", content: "donanım yüksek olsun" },
+      { id: "4", role: "assistant", content: "Kaç kişi taşınacak?" },
+      { id: "5", role: "user", content: "4 kişilik olsun, küçük olmasın" },
+      { id: "6", role: "assistant", content: "4 kişi olduğunuzu anladım. En az 4 koltuk sizin için zorunlu mu?" },
+      { id: "7", role: "user", content: "evet" },
+    ]);
+
+    expect(trace.requirements).toEqual(expect.arrayContaining([
+      expect.objectContaining({ key: "USAGE_SERIOUS_OFF_ROAD", value: "SERIOUS_OFF_ROAD", sourceTurn: 1 }),
+      expect.objectContaining({ key: "EQUIPMENT_LEVEL", value: "HIGH", sourceTurn: 2 }),
+      expect.objectContaining({ key: "PARTY_SIZE", value: 4, sourceTurn: 3, status: "SUPPORTED_NOT_YET_EVALUABLE" }),
+      expect.objectContaining({ key: "SIZE_PREFERENCE", value: "NOT_SMALL", sourceTurn: 3 }),
+      expect.objectContaining({ key: "MIN_SEATS", value: 4, sourceTurn: 4, sourceText: "evet", status: "SUPPORTED_EVALUABLE" }),
+    ]));
+    expect(trace.capturedOnLatestTurn).toEqual(["MIN_SEATS"]);
+    expect(trace.didConversationProgress).toBe(true);
+    expect(trace.answeredQuestionPurposes).toContain("MIN_SEATS");
+  });
 });

@@ -110,6 +110,7 @@ function unsupportedRequirementResponse(input: CarsConversationRequest): CarsCon
   const latestUser = [...input.messages].reverse().find((message) => message.role === "user")?.content ?? "";
   const drivetrain = latestRequirement(trace, "DRIVETRAIN");
   const bodyType = latestRequirement(trace, "BODY_TYPE");
+  const equipment = latestRequirement(trace, "EQUIPMENT_LEVEL");
   const latestCaptured = new Set(trace.capturedOnLatestTurn);
   const frustration = /(?:dedim ya|anlamadın mı|anlamdın mı|az önce söyledim|salaksın|aptal)/iu.test(latestUser);
 
@@ -126,6 +127,11 @@ function unsupportedRequirementResponse(input: CarsConversationRequest): CarsCon
   if (latestCaptured.has("BODY_TYPE") && bodyType) return {
     kind: "QUESTION",
     message: "Pickup tercihinizi kaydettim. Mevcut doğrulanmış karar verisi gövde tipini bu karar akışında güvenilir biçimde değerlendirmiyor; bu nedenle pickup tercihinizi yok sayarak seçim yapmayacağım. Bagaj için zorunlu bir minimum hacminiz varsa litre olarak belirtebilirsiniz.",
+    conversation: withCarsConversationState(trace, "COLLECTING_CONTEXT"),
+  };
+  if (latestCaptured.has("EQUIPMENT_LEVEL") && equipment) return {
+    kind: "QUESTION",
+    message: "Yüksek donanım tercihinizi kaydettim. Mevcut doğrulanmış karar verisi donanım seviyesini adaylar arasında güvenilir biçimde değerlendirmiyor; bu nedenle değerlendirmiş gibi davranmayacağım. Araç düzenli olarak kaç kişiyi taşımalı?",
     conversation: withCarsConversationState(trace, "COLLECTING_CONTEXT"),
   };
 }
@@ -191,7 +197,14 @@ async function createCarsConversationTurn(
     const hasSeats = bridge.requirements.some((item) => item.factKey === "seats");
     const hasCargo = bridge.requirements.some((item) => item.factKey === "cargo_volume_l");
     if (!hasSeats || !hasCargo) {
-      const message = bridge.partySize !== undefined && !hasSeats
+      const ledger = buildCarsRequirementLedger(input.messages);
+      const confirmedSeatsOnLatestTurn = ledger.capturedOnLatestTurn.includes("MIN_SEATS")
+        && /^(?:evet|aynen|doğru|olur|yes|correct)[.!\s]*$/iu.test(latestUser?.content.trim() ?? "");
+      const message = confirmedSeatsOnLatestTurn && hasSeats && !hasCargo
+        ? isTurkish
+          ? `${latestRequirement(ledger, "MIN_SEATS")?.value} koltuk şartınızı onayladım. Bagaj için zorunlu bir minimum hacminiz var mı? Varsa litre olarak belirtir misiniz?`
+          : `I confirmed your ${latestRequirement(ledger, "MIN_SEATS")?.value}-seat requirement. Do you have a required minimum cargo volume in litres?`
+        : bridge.partySize !== undefined && !hasSeats
         ? isTurkish
           ? `${bridge.partySize} kişi olduğunuzu anladım. En az ${bridge.partySize} koltuk sizin için zorunlu mu?`
           : `I understand there are ${bridge.partySize} people. Is at least ${bridge.partySize} seats a firm requirement?`
@@ -206,6 +219,7 @@ async function createCarsConversationTurn(
         selectedRuntimeVehicleCandidateId: undefined,
         selectedVehicle: undefined,
         followUpQuestion: message,
+        discriminatorChoices: undefined,
       } };
     }
     if (result.status === "DECISION_READY") {

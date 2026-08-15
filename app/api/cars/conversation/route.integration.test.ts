@@ -37,6 +37,40 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
     });
   });
 
+  it("binds yes to the prior four-seat confirmation through the public route", async () => {
+    const response = await POST(new Request("http://localhost/api/cars/conversation", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "x-forwarded-for": "10.30.0.5" },
+      body: JSON.stringify({ conversationId: "http-party-confirmation", messages: [
+        { id: "1", role: "user", content: "arazi aracı lazım" },
+        { id: "2", role: "assistant", content: "Ciddi arazi mi?" },
+        { id: "3", role: "user", content: "Ciddi arazi kullanımı" },
+        { id: "4", role: "assistant", content: "Bütçeniz?" },
+        { id: "5", role: "user", content: "3 milyon" },
+        { id: "6", role: "assistant", content: "Vazgeçilmez özellik nedir?" },
+        { id: "7", role: "user", content: "donanım yüksek olsun" },
+        { id: "8", role: "assistant", content: "Kaç kişi taşınacak?" },
+        { id: "9", role: "user", content: "4 kişilik olsun, küçük olmasın" },
+        { id: "10", role: "assistant", content: "4 kişi olduğunuzu anladım. En az 4 koltuk sizin için zorunlu mu?" },
+        { id: "11", role: "user", content: "evet" },
+      ] }),
+    }));
+
+    expect(response.status).toBe(200);
+    const payload = await response.json();
+    expect(payload.message).toMatch(/4 koltuk şartınızı onayladım.*bagaj/iu);
+    expect(payload.decision.requirements).toEqual([expect.objectContaining({ factKey: "seats", value: 4 })]);
+    expect(payload.conversation).toMatchObject({ didConversationProgress: true });
+    expect(payload.conversation.requirements).toEqual(expect.arrayContaining([
+      expect.objectContaining({ key: "USAGE_SERIOUS_OFF_ROAD", value: "SERIOUS_OFF_ROAD" }),
+      expect.objectContaining({ key: "BUDGET_MAX_TRY", value: 3_000_000 }),
+      expect.objectContaining({ key: "EQUIPMENT_LEVEL", value: "HIGH" }),
+      expect.objectContaining({ key: "SIZE_PREFERENCE", value: "NOT_SMALL" }),
+      expect.objectContaining({ key: "PARTY_SIZE", value: 4 }),
+      expect.objectContaining({ key: "MIN_SEATS", value: 4, sourceTurn: 6 }),
+    ]));
+  });
+
   it.each([
     "arazi aracı var mı sizde",
     "off-road araç bakıyorum",
