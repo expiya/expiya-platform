@@ -108,6 +108,7 @@ import {
   coverageLimitationMessage,
   coverageLimitationRepeat,
   shownCandidateNoAlternativeMessage,
+  unsupportedSoftPreferenceBoundaryMessage,
 } from "./carsDirectRecommendation";
 
 const MAX_USER_TURNS = 20;
@@ -1145,8 +1146,11 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
       return respondWithEvidence(input, { ...memory, phase: "EVALUATING" });
     }
     const stated = alreadyStatedCoverageLimitation(input.messages);
+    const softPreferenceBoundary = unsupportedSoftPreferenceBoundaryMessage(memory);
     const message = memory.shownCandidate
       ? shownCandidateNoAlternativeMessage(memory.addressForm)
+      : softPreferenceBoundary
+      ? softPreferenceBoundary
       : stated
       ? coverageLimitationRepeat(memory.addressForm)
       : coverageLimitationMessage(latestAct.namedModel, memory.addressForm);

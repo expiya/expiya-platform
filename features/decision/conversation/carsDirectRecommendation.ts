@@ -25,6 +25,19 @@ export function coverageLimitationMessage(namedModel?: string, addressForm?: "SE
   return `${model} için net bir alternatif ${asked}; bu makul. Şu an doğrulanmış sıfır seçkisinde güvenilir biçimde isimli bir alternatif çıkaramıyorum. Genel tavsiyeyi tekrar etmek de yardımcı olmaz.`;
 }
 
+export function unsupportedSoftPreferenceBoundaryMessage(
+  memory: CarsConversationTrace,
+): string | undefined {
+  const comfort = memory.requirements.find((entry) => (
+    entry.evaluability === "UNDERSTOOD_NOT_EVALUABLE"
+    && /konfor|rahat|sessiz|yumuşak/iu.test([entry.key, entry.value, entry.sourceText].join(" "))
+  ));
+  if (!comfort) return undefined;
+  return memory.addressForm === "SIZ"
+    ? "Sürüş yumuşaklığı ve kabin sessizliği için donanım seviyesinde karşılaştırılabilir verim yok; bu yüzden konfor kazananı uydurmayacağım. Mevcut sıfır araçlarda güvenilir olarak otomatik vites, SUV gövde, güncel fiyat, koltuk, bagaj ve dış boyutlarla ilerleyebilirim. Minimum bagaj ihtiyacınızı litre olarak söylerseniz bu yol aday setini gerçekten değiştirir."
+    : "Sürüş yumuşaklığı ve kabin sessizliği için donanım seviyesinde karşılaştırılabilir verim yok; bu yüzden konfor kazananı uydurmayacağım. Mevcut sıfır araçlarda güvenilir olarak otomatik vites, SUV gövde, güncel fiyat, koltuk, bagaj ve dış boyutlarla ilerleyebilirim. Minimum bagaj ihtiyacını litre olarak söylersen bu yol aday setini gerçekten değiştirir.";
+}
+
 export function alreadyStatedCoverageLimitation(messages: readonly { role: string; content: string }[]): boolean {
   return messages.some((message) => (
     message.role === "assistant"
