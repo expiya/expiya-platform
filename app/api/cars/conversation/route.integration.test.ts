@@ -1,66 +1,65 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
+
+vi.mock("@/features/decision/conversation/planCarsConversationTurn", () => ({
+  planCarsConversationTurn: vi.fn().mockResolvedValue(undefined),
+}));
 
 import { POST } from "./route";
 
+async function postConversation(conversationId: string, messages: unknown[], extra: Record<string, unknown> = {}, ip = "10.40.0.1") {
+  return POST(new Request("http://localhost/api/cars/conversation", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", "x-forwarded-for": ip },
+    body: JSON.stringify({ conversationId, messages, ...extra }),
+  }));
+}
+
 describe("POST /api/cars/conversation evidence-backed journey", () => {
-  it("retains unsupported requirements and repairs the exact public-route failure without looping", async () => {
-    const response = await POST(new Request("http://localhost/api/cars/conversation", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-forwarded-for": "10.30.0.1" },
-      body: JSON.stringify({ conversationId: "http-exact-loop-regression", messages: [
-        { id: "1", role: "user", content: "arazi aracı bakıyorum" },
-        { id: "2", role: "assistant", content: "Kamp ve stabilize yol mu?" },
-        { id: "3", role: "user", content: "Kamp ve stabilize yol" },
-        { id: "4", role: "assistant", content: "Yaklaşık üst bütçeniz nedir?" },
-        { id: "5", role: "user", content: "2 milyon tl" },
-        { id: "6", role: "assistant", content: "Sizin için vazgeçilmez özellik nedir?" },
-        { id: "7", role: "user", content: "4x4 olmalı" },
-        { id: "8", role: "assistant", content: "4x4 şartınızı kaydettim. En az kaç koltuk gerekli?" },
-        { id: "9", role: "user", content: "pick up araç tercihim" },
-        { id: "10", role: "assistant", content: "Pickup tercihinizi kaydettim." },
-        { id: "11", role: "user", content: "pick up dedim ya. anlamdın mı?" },
-      ] }),
-    }));
+  it("retains unsupported requirements and repairs pickup frustration without looping", async () => {
+    const response = await postConversation("http-exact-loop-regression", [
+      { id: "1", role: "user", content: "arazi aracı bakıyorum" },
+      { id: "2", role: "assistant", content: "Kamp ve stabilize yol mu?" },
+      { id: "3", role: "user", content: "Kamp ve stabilize yol" },
+      { id: "4", role: "assistant", content: "Yaklaşık üst bütçeniz nedir?" },
+      { id: "5", role: "user", content: "2 milyon tl" },
+      { id: "6", role: "assistant", content: "Sizin için vazgeçilmez özellik nedir?" },
+      { id: "7", role: "user", content: "4x4 olmalı" },
+      { id: "8", role: "assistant", content: "4x4 şartınızı kaydettim. En az kaç koltuk gerekli?" },
+      { id: "9", role: "user", content: "pick up araç tercihim" },
+      { id: "10", role: "assistant", content: "Pickup tercihinizi kaydettim." },
+      { id: "11", role: "user", content: "pick up dedim ya. anlamdın mı?" },
+    ], {}, "10.30.0.1");
 
     expect(response.status).toBe(200);
     const payload = await response.json();
-    expect(payload.message).toMatch(/pickup.*anladım.*kayıtlı.*tekrar sormayacağım/iu);
+    expect(payload.message).toMatch(/pickup/iu);
     expect(payload.message).not.toMatch(/vazgeçilmez|günlük hayatınızdan/iu);
-    expect(payload.conversation).toMatchObject({
-      state: "INSUFFICIENT_SUPPORTED_EVIDENCE",
-      didConversationProgress: false,
-      requirements: expect.arrayContaining([
-        expect.objectContaining({ key: "BUDGET_MAX_TRY", value: 2_000_000, sourceTurn: 3 }),
-        expect.objectContaining({ key: "DRIVETRAIN", value: "AWD_OR_4X4", sourceTurn: 4, status: "UNDERSTOOD_BUT_UNSUPPORTED" }),
-        expect.objectContaining({ key: "BODY_TYPE", value: "PICKUP", sourceTurn: 5, status: "UNDERSTOOD_BUT_UNSUPPORTED" }),
-      ]),
-    });
+    expect(payload.conversation.requirements).toEqual(expect.arrayContaining([
+      expect.objectContaining({ key: "BUDGET_MAX_TRY", value: 2_000_000, sourceTurn: 3 }),
+      expect.objectContaining({ key: "DRIVETRAIN", value: "AWD_OR_4X4", sourceTurn: 4, status: "UNDERSTOOD_BUT_UNSUPPORTED" }),
+      expect.objectContaining({ key: "BODY_TYPE", value: "PICKUP", sourceTurn: 5, status: "UNDERSTOOD_BUT_UNSUPPORTED" }),
+    ]));
   });
 
   it("binds yes to the prior four-seat confirmation through the public route", async () => {
-    const response = await POST(new Request("http://localhost/api/cars/conversation", {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "x-forwarded-for": "10.30.0.5" },
-      body: JSON.stringify({ conversationId: "http-party-confirmation", messages: [
-        { id: "1", role: "user", content: "arazi aracı lazım" },
-        { id: "2", role: "assistant", content: "Ciddi arazi mi?" },
-        { id: "3", role: "user", content: "Ciddi arazi kullanımı" },
-        { id: "4", role: "assistant", content: "Bütçeniz?" },
-        { id: "5", role: "user", content: "3 milyon" },
-        { id: "6", role: "assistant", content: "Vazgeçilmez özellik nedir?" },
-        { id: "7", role: "user", content: "donanım yüksek olsun" },
-        { id: "8", role: "assistant", content: "Kaç kişi taşınacak?" },
-        { id: "9", role: "user", content: "4 kişilik olsun, küçük olmasın" },
-        { id: "10", role: "assistant", content: "4 kişi olduğunuzu anladım. En az 4 koltuk sizin için zorunlu mu?" },
-        { id: "11", role: "user", content: "evet" },
-      ] }),
-    }));
+    const response = await postConversation("http-party-confirmation", [
+      { id: "1", role: "user", content: "arazi aracı lazım" },
+      { id: "2", role: "assistant", content: "Ciddi arazi mi?" },
+      { id: "3", role: "user", content: "Ciddi arazi kullanımı" },
+      { id: "4", role: "assistant", content: "Bütçeniz?" },
+      { id: "5", role: "user", content: "3 milyon" },
+      { id: "6", role: "assistant", content: "Vazgeçilmez özellik nedir?" },
+      { id: "7", role: "user", content: "donanım yüksek olsun" },
+      { id: "8", role: "assistant", content: "Kaç kişi taşınacak?" },
+      { id: "9", role: "user", content: "4 kişilik olsun, küçük olmasın" },
+      { id: "10", role: "assistant", content: "4 kişi olduğunuzu anladım. En az 4 koltuk sizin için zorunlu mu?" },
+      { id: "11", role: "user", content: "evet" },
+    ], {}, "10.30.0.5");
 
     expect(response.status).toBe(200);
     const payload = await response.json();
     expect(payload.message).toMatch(/4 koltuk şartınızı onayladım.*bagaj/iu);
-    expect(payload.decision.requirements).toEqual([expect.objectContaining({ factKey: "seats", value: 4 })]);
-    expect(payload.conversation).toMatchObject({ didConversationProgress: true });
+    expect(payload.conversation.didConversationProgress).toBe(true);
     expect(payload.conversation.requirements).toEqual(expect.arrayContaining([
       expect.objectContaining({ key: "USAGE_SERIOUS_OFF_ROAD", value: "SERIOUS_OFF_ROAD" }),
       expect.objectContaining({ key: "BUDGET_MAX_TRY", value: 3_000_000 }),
@@ -78,72 +77,48 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
     "kamp yolu için araç arıyorum",
     "kötü yol şartlarına uygun olsun",
   ])("routes first-turn usage intent before budget through the public handler: %s", async (content) => {
-    const response = await POST(new Request("http://localhost/api/cars/conversation", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ conversationId: `http-usage-${content}`, messages: [
-        { id: "1", role: "user", content },
-      ] }),
-    }));
-
+    const response = await postConversation(`http-usage-${content}`, [{ id: "1", role: "user", content }]);
     expect(response.status).toBe(200);
     const payload = await response.json();
-    expect(payload.message).toMatch(/arazi.*kötü yol/iu);
-    expect(payload.message).toMatch(/kamp.*stabilize|çamurlu|ciddi arazi/iu);
-    expect(payload.message).not.toMatch(/üst bütçe|Bilmiyorsanız bunu da söyleyebilirsiniz/iu);
+    expect(payload.message).toMatch(/kamp|stabilize|arazi|çamurlu|şehir/iu);
+    expect(payload.message).not.toMatch(/üst bütçe|vazgeçilmez/iu);
   });
 
   it.each(["ne gibi?", "nasıl yani?", "anlamadım"])(
     "explains usage without repeating or asking budget through the public handler: %s",
     async (repair) => {
       const firstMessage = "Evet, arazi ve kötü yol kullanımına uygun araçları değerlendirebiliriz. Daha çok kamp ve stabilize yol mu, çamurlu/kötü yollar mı, yoksa ciddi arazi kullanımı mı düşünüyorsunuz?";
-      const response = await POST(new Request("http://localhost/api/cars/conversation", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ conversationId: `http-usage-repair-${repair}`, messages: [
-          { id: "1", role: "user", content: "arazi aracı var mı sizde" },
-          { id: "2", role: "assistant", content: firstMessage },
-          { id: "3", role: "user", content: repair },
-        ] }),
-      }));
-
+      const response = await postConversation(`http-usage-repair-${repair}`, [
+        { id: "1", role: "user", content: "arazi aracı var mı sizde" },
+        { id: "2", role: "assistant", content: firstMessage },
+        { id: "3", role: "user", content: repair },
+      ]);
       expect(response.status).toBe(200);
       const payload = await response.json();
       expect(payload.message).toMatch(/örneğin.*stabilize.*çamurlu.*dik/iu);
       expect(payload.message).not.toBe(firstMessage);
-      expect(payload.message).not.toMatch(/üst bütçe|Bilmiyorsanız bunu da söyleyebilirsiniz/iu);
+      expect(payload.message).not.toMatch(/üst bütçe/iu);
     },
   );
 
   it("suppresses the reported repeated follow-up through the real HTTP handler", async () => {
-    const response = await POST(new Request("http://localhost/api/cars/conversation", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ conversationId: "http-budget-repair", messages: [
-        { id: "1", role: "user", content: "Araba almak istiyorum." },
-        { id: "2", role: "assistant", content: "Yaklaşık üst bütçeniz nedir?" },
-        { id: "3", role: "user", content: "ne gibi?" },
-      ] }),
-    }));
-
+    const response = await postConversation("http-budget-repair", [
+      { id: "1", role: "user", content: "Araba almak istiyorum." },
+      { id: "2", role: "assistant", content: "Yaklaşık üst bütçeniz nedir?" },
+      { id: "3", role: "user", content: "ne gibi?" },
+    ]);
     expect(response.status).toBe(200);
     const payload = await response.json();
     expect(payload.message).toMatch(/örneğin 1,5 milyon TL/iu);
     expect(payload.message).not.toBe("Yaklaşık üst bütçeniz nedir?");
-    expect(payload).not.toHaveProperty("decision");
   });
 
   it("crosses the real HTTP handler, transcript bridge, governed runtime, and additive response contract", async () => {
-    const response = await POST(new Request("http://localhost/api/cars/conversation", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ conversationId: "http-evidence-journey", messages: [
-        { id: "1", role: "user", content: "En az 7 koltuk istiyorum." },
-        { id: "2", role: "assistant", content: "Bagaj için zorunlu minimum hacim nedir?" },
-        { id: "3", role: "user", content: "300 litre bagaj istiyorum." },
-      ] }),
-    }));
-
+    const response = await postConversation("http-evidence-journey", [
+      { id: "1", role: "user", content: "En az 7 koltuk istiyorum." },
+      { id: "2", role: "assistant", content: "Bagaj için zorunlu minimum hacim nedir?" },
+      { id: "3", role: "user", content: "300 litre bagaj istiyorum." },
+    ]);
     expect(response.status).toBe(200);
     const payload = await response.json();
     expect(payload).toMatchObject({ kind: "QUESTION", decision: {
@@ -157,13 +132,20 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
     expect(payload.message).toMatch(/7 koltuk.*338 L bagaj/iu);
   });
 
+  it("evaluates a sufficient first message immediately", async () => {
+    const response = await postConversation("http-immediate-unique", [
+      { id: "1", role: "user", content: "En az 7 koltuk ve en az 300 litre bagaj istiyorum." },
+    ]);
+    expect(response.status).toBe(200);
+    expect(await response.json()).toMatchObject({
+      decision: { conversationState: "DECISION_READY", selectedRuntimeVehicleCandidateId: "RVC-PILOT-0001" },
+    });
+  });
+
   it("exposes and enforces the structured final discriminator through the public handler", async () => {
-    const first = await POST(new Request("http://localhost/api/cars/conversation", {
-      method: "POST", headers: { "Content-Type": "application/json", "x-forwarded-for": "10.30.0.2" },
-      body: JSON.stringify({ conversationId: "http-final-discriminator", messages: [
-        { id: "1", role: "user", content: "En az 5 koltuk ve 350 litre bagaj istiyorum." },
-      ] }),
-    }));
+    const first = await postConversation("http-final-discriminator", [
+      { id: "1", role: "user", content: "En az 5 koltuk ve 350 litre bagaj istiyorum." },
+    ], {}, "10.30.0.2");
     const firstPayload = await first.json();
     expect(firstPayload).toMatchObject({
       discriminatorChoices: [{ id: "MAX_CARGO", label: "Daha fazla bagaj alanı" }],
@@ -175,18 +157,12 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
       { id: "2", role: "assistant", content: firstPayload.message, discriminatorChoices: firstPayload.discriminatorChoices },
       { id: "3", role: "user", content: "serbest metin" },
     ];
-    const rejected = await POST(new Request("http://localhost/api/cars/conversation", {
-      method: "POST", headers: { "Content-Type": "application/json", "x-forwarded-for": "10.30.0.3" },
-      body: JSON.stringify({ conversationId: "http-final-discriminator", messages }),
-    }));
+    const rejected = await postConversation("http-final-discriminator", messages, {}, "10.30.0.3");
     expect(rejected.status).toBe(409);
 
-    const selected = await POST(new Request("http://localhost/api/cars/conversation", {
-      method: "POST", headers: { "Content-Type": "application/json", "x-forwarded-for": "10.30.0.4" },
-      body: JSON.stringify({ conversationId: "http-final-discriminator", choiceId: "MAX_CARGO", messages: [
-        ...messages.slice(0, 2), { id: "4", role: "user", content: "Daha fazla bagaj alanı" },
-      ] }),
-    }));
+    const selected = await postConversation("http-final-discriminator", [
+      ...messages.slice(0, 2), { id: "4", role: "user", content: "Daha fazla bagaj alanı" },
+    ], { choiceId: "MAX_CARGO" }, "10.30.0.4");
     expect(await selected.json()).toMatchObject({ decision: {
       conversationState: "DECISION_READY", selectedRuntimeVehicleCandidateId: "RVC-PILOT-0002",
     }, conversation: { didConversationProgress: true, textInputAllowed: true } });

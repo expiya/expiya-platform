@@ -9,6 +9,7 @@ import type { VehicleListingAnalysis } from "@/types/listingAnalysis";
 import type {
   CarsConversationMessage,
   CarsConversationResponse,
+  CarsConversationTrace,
   CarsFinalDiscriminatorChoice,
   PersistedCarsConversation,
 } from "@/types/carsConversation";
@@ -21,7 +22,8 @@ function newMessage(role: CarsConversationMessage["role"], content: string) {
   return { id: crypto.randomUUID(), role, content } as const;
 }
 
-const storageKey = "expiya:cars-conversation:v4";
+const storageKey = "expiya:cars-conversation:v5";
+const legacyStorageKey = "expiya:cars-conversation:v4";
 
 function findListingUrl(content: string): string | undefined {
   return content.match(/https:\/\/[^\s<]+/i)?.[0]?.replace(/[),.;!?]+$/, "");
@@ -44,11 +46,13 @@ function readPersistedConversation(): PersistedCarsConversation | null {
   try {
     // Session storage avoids leaving sensitive conversation context on a shared device.
     localStorage.removeItem(storageKey);
-    const value: unknown = JSON.parse(sessionStorage.getItem(storageKey) ?? "null");
+    localStorage.removeItem(legacyStorageKey);
+    const raw = sessionStorage.getItem(storageKey) ?? sessionStorage.getItem(legacyStorageKey);
+    const value: unknown = JSON.parse(raw ?? "null");
     if (!value || typeof value !== "object") return null;
     const candidate = value as Partial<PersistedCarsConversation>;
     if (
-      candidate.version !== 4
+      (candidate.version !== 4 && candidate.version !== 5)
       || typeof candidate.conversationId !== "string"
       || !Array.isArray(candidate.messages)
       || !candidate.messages.every((message) => (
@@ -70,13 +74,21 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   const initialRequestStarted = useRef(false);
   const conversationEndRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState<CarsConversationMessage[]>([]);
+  const [conversation, setConversation] = useState<CarsConversationTrace | undefined>();
   const [draft, setDraft] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isRestored, setIsRestored] = useState(false);
   const locale = "tr" as const;
   const isTurkish = true;
 
-  const continueConversation = useCallback(async (nextMessages: CarsConversationMessage[], choiceId?: CarsFinalDiscriminatorChoice["id"]) => {
+  const conversationRef = useRef<CarsConversationTrace | undefined>(undefined);
+  conversationRef.current = conversation;
+
+  const continueConversation = useCallback(async (
+    nextMessages: CarsConversationMessage[],
+    choiceId?: CarsFinalDiscriminatorChoice["id"],
+    selectedOptionId?: string,
+  ) => {
     setIsLoading(true);
 
     try {
@@ -87,6 +99,8 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
           conversationId: conversationId.current,
           messages: nextMessages,
           choiceId,
+          selectedOptionId,
+          conversation: conversationRef.current,
         }),
       });
       const payload = await response.json() as CarsConversationResponse | { message?: string };
@@ -94,10 +108,14 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
         ? "Cevabınızı işleyemedim. Lütfen yeniden deneyin."
         : "I couldn't process that answer. Please try again.");
 
+      if (response.ok && "conversation" in payload) setConversation(payload.conversation);
       const assistantMessage = {
         ...newMessage("assistant", content),
         quickReplies: response.ok && "kind" in payload && payload.kind === "QUESTION"
           ? payload.options
+          : undefined,
+        optionSet: response.ok && "kind" in payload && payload.kind === "QUESTION"
+          ? payload.conversation?.activeOptionSet
           : undefined,
         discriminatorChoices: response.ok && "kind" in payload && payload.kind === "QUESTION"
           ? payload.discriminatorChoices
@@ -161,6 +179,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
       initialRequestStarted.current = true;
       queueMicrotask(() => {
         setMessages([...persisted.messages]);
+        setConversation(persisted.conversation);
         setIsRestored(true);
       });
     } else {
@@ -172,11 +191,12 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   useEffect(() => {
     if (!isRestored || !conversationId.current) return;
     sessionStorage.setItem(storageKey, JSON.stringify({
-      version: 4,
+      version: 5,
       conversationId: conversationId.current,
       messages,
+      conversation,
     } satisfies PersistedCarsConversation));
-  }, [isRestored, messages]);
+  }, [conversation, isRestored, messages]);
 
   useEffect(() => {
     if (!isRestored || !initialQuery.trim() || initialRequestStarted.current) return;
@@ -212,14 +232,14 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     void (listingUrl ? analyzeListingInConversation(nextMessages, listingUrl) : continueConversation(nextMessages));
   }
 
-  function submitContent(content: string) {
+  function submitContent(content: string, selectedOptionId?: string) {
     if (!content.trim() || isLoading) return;
     const userMessage = newMessage("user", content.trim());
     const nextMessages = [...messages, userMessage];
     setMessages(nextMessages);
     setDraft("");
     const listingUrl = findListingUrl(content);
-    void (listingUrl ? analyzeListingInConversation(nextMessages, listingUrl) : continueConversation(nextMessages));
+    void (listingUrl ? analyzeListingInConversation(nextMessages, listingUrl) : continueConversation(nextMessages, undefined, selectedOptionId));
   }
 
   function submitDiscriminatorChoice(choice: CarsFinalDiscriminatorChoice) {
@@ -241,6 +261,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
 
   function clearConversation() {
     sessionStorage.removeItem(storageKey);
+    sessionStorage.removeItem(legacyStorageKey);
     router.push("/");
   }
 
@@ -298,7 +319,10 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                         <button
                           key={option}
                           type="button"
-                          onClick={() => submitContent(option)}
+                          onClick={() => submitContent(
+                            option,
+                            message.optionSet?.options.find((item) => item.label === option)?.id,
+                          )}
                           disabled={isLoading || message !== messages[messages.length - 1]}
                           className="rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-sm text-neutral-800 transition hover:border-neutral-600 disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100 dark:hover:border-neutral-400"
                         >

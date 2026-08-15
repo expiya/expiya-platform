@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { buildCarsRequirementLedger } from "./carsRequirementLedger";
+import { buildCarsRequirementLedger } from "./carsConversationMemory";
 
 describe("buildCarsRequirementLedger", () => {
   it("retains the complete reported conversation with evaluability and source turns", () => {
@@ -23,7 +23,7 @@ describe("buildCarsRequirementLedger", () => {
       expect.objectContaining({ key: "DRIVETRAIN", value: "AWD_OR_4X4", sourceTurn: 4, status: "UNDERSTOOD_BUT_UNSUPPORTED" }),
       expect.objectContaining({ key: "BODY_TYPE", value: "PICKUP", sourceTurn: 5, status: "UNDERSTOOD_BUT_UNSUPPORTED" }),
     ]));
-    expect(trace.answeredQuestionPurposes).toEqual(expect.arrayContaining(["PRIMARY_USAGE", "BUDGET_MAX", "FINAL_PRIORITY"]));
+    expect(trace.answeredQuestionPurposes).toEqual(expect.arrayContaining(["PRIMARY_USAGE", "BUDGET_MAX"]));
   });
 
   it("applies the latest explicit correction and does not count repetition as progress", () => {

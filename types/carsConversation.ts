@@ -1,5 +1,39 @@
 import type { RecommendedCar } from "@/types/recommendation";
 
+export interface CarsConversationOption {
+  readonly id: string;
+  readonly label: string;
+  readonly semanticValue: string;
+}
+
+export type CarsOptionSelectionSource = "button" | "text" | "paraphrase" | "confirmation" | "ordinal";
+
+export type CarsQuestionPurpose =
+  | "PRIMARY_USAGE"
+  | "USAGE_DETAIL"
+  | "BUDGET_MAX"
+  | "MIN_SEATS"
+  | "MIN_CARGO"
+  | "PARTY_CONFIRMATION"
+  | "DAILY_VS_OFFROAD"
+  | "EQUIPMENT_SCOPE"
+  | "BODY_TYPE"
+  | "DRIVETRAIN"
+  | "SIZE"
+  | "REJECTION_DIAGNOSTIC"
+  | "OFF_TOPIC_REDIRECT"
+  | "FINAL_PRIORITY";
+
+export interface CarsActiveOptionSet {
+  readonly id: string;
+  readonly purpose: CarsQuestionPurpose;
+  readonly options: readonly CarsConversationOption[];
+  readonly sourceAssistantTurn: number;
+  readonly active: boolean;
+  readonly selectedOptionId?: string;
+  readonly selectionSource?: CarsOptionSelectionSource;
+}
+
 export interface CarsConversationMessage {
   readonly id: string;
   readonly role: "user" | "assistant";
@@ -7,6 +41,7 @@ export interface CarsConversationMessage {
   readonly recommendations?: readonly RecommendedCar[];
   readonly recommendationIds?: readonly string[];
   readonly quickReplies?: readonly string[];
+  readonly optionSet?: CarsActiveOptionSet;
   readonly discriminatorChoices?: readonly CarsFinalDiscriminatorChoice[];
   readonly satisfaction?: "HELPFUL" | "NOT_HELPFUL";
   readonly sellerResearchRequest?: {
@@ -17,16 +52,29 @@ export interface CarsConversationMessage {
 }
 
 export interface PersistedCarsConversation {
-  readonly version: 4;
+  readonly version: 4 | 5;
   readonly conversationId: string;
   readonly messages: readonly CarsConversationMessage[];
+  readonly conversation?: CarsConversationTrace;
 }
 
 export interface CarsConversationRequest {
   readonly conversationId: string;
   readonly messages: readonly CarsConversationMessage[];
   readonly choiceId?: CarsFinalDiscriminatorChoiceId;
+  readonly selectedOptionId?: string;
+  readonly conversation?: CarsConversationTrace;
 }
+
+export type CarsConversationPhase =
+  | "DISCOVERING"
+  | "CLARIFYING"
+  | "READY_TO_EVALUATE"
+  | "EVALUATING"
+  | "FINAL_TRADEOFF"
+  | "DECISION_READY"
+  | "LIMITED_BY_EVIDENCE"
+  | "RECOVERING";
 
 export type CarsConversationState =
   | "COLLECTING_CONTEXT"
@@ -42,14 +90,36 @@ export type CarsRequirementKey =
   | "USAGE_SERIOUS_OFF_ROAD"
   | "USAGE_ROUGH_ROAD"
   | "USAGE_STABILIZED_ROAD"
+  | "USAGE_CITY"
+  | "USAGE_HIGHWAY"
+  | "USAGE_FAMILY"
   | "BUDGET_MAX_TRY"
   | "DRIVETRAIN"
   | "BODY_TYPE"
   | "EQUIPMENT_LEVEL"
   | "SIZE_PREFERENCE"
+  | "TRANSMISSION"
+  | "FUEL"
   | "PARTY_SIZE"
   | "MIN_SEATS"
   | "MIN_CARGO_L";
+
+export type CarsRequirementCategory =
+  | "HARD_CONSTRAINT"
+  | "SOFT_PREFERENCE"
+  | "USAGE_CONTEXT"
+  | "BUDGET_CONTEXT"
+  | "REJECTION"
+  | "CORRECTION"
+  | "UNRESOLVED"
+  | "CONVERSATIONAL_REPAIR";
+
+export type CarsRequirementEvaluability =
+  | "EVALUABLE_NOW"
+  | "UNDERSTOOD_NOT_EVALUABLE"
+  | "NEEDS_CLARIFICATION"
+  | "CONFLICTING"
+  | "SUPERSEDED";
 
 export type CarsRequirementStatus =
   | "SUPPORTED_EVALUABLE"
@@ -57,20 +127,31 @@ export type CarsRequirementStatus =
   | "UNDERSTOOD_BUT_UNSUPPORTED"
   | "NEEDS_CLARIFICATION";
 
-export type CarsQuestionPurpose = "PRIMARY_USAGE" | "BUDGET_MAX" | "MIN_SEATS" | "MIN_CARGO" | "FINAL_PRIORITY";
-
 export interface CarsRequirementLedgerEntry {
   readonly key: CarsRequirementKey;
   readonly value: string | number;
   readonly status: CarsRequirementStatus;
+  readonly category: CarsRequirementCategory;
+  readonly evaluability: CarsRequirementEvaluability;
   readonly sourceTurn: number;
   readonly sourceText: string;
   readonly previousValue?: string | number;
   readonly usedInDecision: boolean;
+  readonly confirmedFromAssistantTurn?: number;
+}
+
+export interface CarsPendingQuestion {
+  readonly purpose: CarsQuestionPurpose;
+  readonly prompt: string;
+  readonly pendingValue?: string | number;
+  readonly yesImplies?: { readonly key: CarsRequirementKey; readonly value: string | number };
+  readonly noImplies?: { readonly key: CarsRequirementKey; readonly value: string | number };
 }
 
 export interface CarsConversationTrace {
+  readonly version: 1;
   readonly state: CarsConversationState;
+  readonly phase: CarsConversationPhase;
   readonly requirements: readonly CarsRequirementLedgerEntry[];
   readonly askedQuestionPurposes: readonly CarsQuestionPurpose[];
   readonly answeredQuestionPurposes: readonly CarsQuestionPurpose[];
@@ -78,6 +159,13 @@ export interface CarsConversationTrace {
   readonly capturedOnLatestTurn: readonly CarsRequirementKey[];
   readonly didConversationProgress: boolean;
   readonly textInputAllowed: boolean;
+  readonly lastAssistantQuestion?: CarsPendingQuestion;
+  readonly activeOptionSet?: CarsActiveOptionSet;
+  readonly optionHistory: readonly CarsActiveOptionSet[];
+  readonly rejectedRecommendationIds: readonly string[];
+  readonly lastProgressEvent?: string;
+  readonly semanticFingerprint: string;
+  readonly loopCount: number;
 }
 
 export type CarsFinalDiscriminatorChoiceId = "MAX_SEATS" | "MAX_CARGO";

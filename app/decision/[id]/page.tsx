@@ -10,7 +10,8 @@ import { interpretRecommendation } from "@/features/decision/interpretRecommenda
 import type { PersistedCarsConversation } from "@/types/carsConversation";
 import type { RecommendedCar } from "@/types/recommendation";
 
-const storageKey = "expiya:cars-conversation:v4";
+const storageKey = "expiya:cars-conversation:v5";
+const legacyStorageKey = "expiya:cars-conversation:v4";
 const reasonTranslations: Record<string, string> = {
   "Recent model year": "Yeni model yılı",
   "Older model year": "Eski model yılı",
@@ -37,9 +38,9 @@ const fuelTranslations: Record<string, string> = {
 function readRecommendation(decisionId: string): RecommendedCar | null {
   try {
     const conversation = JSON.parse(
-      sessionStorage.getItem(storageKey) ?? "null",
+      sessionStorage.getItem(storageKey) ?? sessionStorage.getItem(legacyStorageKey) ?? "null",
     ) as PersistedCarsConversation | null;
-    if (!conversation || conversation.version !== 4) return null;
+    if (!conversation || (conversation.version !== 4 && conversation.version !== 5)) return null;
     return conversation.messages
       .flatMap((message) => message.recommendations ?? [])
       .find((item) => item.decision.decisionId === decisionId) ?? null;
@@ -50,7 +51,7 @@ function readRecommendation(decisionId: string): RecommendedCar | null {
 
 function readConversation(): PersistedCarsConversation | null {
   try {
-    return JSON.parse(sessionStorage.getItem(storageKey) ?? "null") as PersistedCarsConversation | null;
+    return JSON.parse(sessionStorage.getItem(storageKey) ?? sessionStorage.getItem(legacyStorageKey) ?? "null") as PersistedCarsConversation | null;
   } catch { return null; }
 }
 
@@ -58,8 +59,8 @@ function updateDecisionMessage(
   decisionId: string,
   patch: Pick<PersistedCarsConversation["messages"][number], "satisfaction" | "sellerResearchRequest">,
 ): void {
-  const conversation = JSON.parse(sessionStorage.getItem(storageKey) ?? "null") as PersistedCarsConversation | null;
-  if (!conversation || conversation.version !== 4) return;
+  const conversation = JSON.parse(sessionStorage.getItem(storageKey) ?? sessionStorage.getItem(legacyStorageKey) ?? "null") as PersistedCarsConversation | null;
+  if (!conversation || (conversation.version !== 4 && conversation.version !== 5)) return;
   const messages = conversation.messages.map((message) => (
     message.recommendations?.some((item) => item.decision.decisionId === decisionId)
       ? { ...message, ...patch }

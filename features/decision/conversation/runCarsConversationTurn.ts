@@ -8,27 +8,39 @@ import {
 } from "@/features/decision/runtime/runCarsEvidenceBackedDecision";
 import { generatedVehicleEvidenceReadPort } from "@/features/vehicle-evidence/generatedVehicleEvidenceReadPort";
 import type {
+  CarsActiveOptionSet,
   CarsConversationRequest,
   CarsConversationResponse,
+  CarsConversationTrace,
+  CarsQuestionPurpose,
+  CarsRequirementKey,
 } from "@/types/carsConversation";
 
+import { assessCarsConversationSufficiency } from "./assessCarsConversationSufficiency";
 import { buildCarsConversationQuery } from "./buildCarsConversationQuery";
 import {
   createCarsClarificationRepair,
   isCarsClarificationRepair,
-  suppressRepeatedCarsResponse,
 } from "./carsConversationRepair";
-import { createCarsConversationGuidance } from "./createCarsConversationGuidance";
-import { createCarsFollowUp } from "./createCarsFollowUp";
 import {
-  isCandidateComparisonConversation,
-} from "./hasActionableCarsContext";
+  applyAssistantMove,
+  hydrateCarsConversationMemory,
+} from "./carsConversationMemory";
 import {
-  buildCarsRequirementLedger,
-  carsQuestionPurpose,
-  latestRequirement,
-  withCarsConversationState,
+  conversationStateFromPhase,
+  extractDeterministicFacts,
+  isFrustration,
+  isOffTopic,
+  upsertRequirement,
 } from "./carsRequirementLedger";
+import { cannotRepeatQuestion, isSemanticLoop } from "./carsSemanticLoopGuard";
+import { createCarsBoundedRecovery, discoveryUsageOptions } from "./createCarsBoundedRecovery";
+import { createCarsFollowUp } from "./createCarsFollowUp";
+import { isCandidateComparisonConversation } from "./hasActionableCarsContext";
+import {
+  planCarsConversationTurn,
+  type CarsConversationTurnPlan,
+} from "./planCarsConversationTurn";
 
 const MAX_USER_TURNS = 20;
 
@@ -52,292 +64,289 @@ function evidenceDecision(result: CarsEvidenceBackedDecisionResult) {
   };
 }
 
-function missingEvidenceDimensionQuestion(hasSeats: boolean, isTurkish: boolean): string {
-  if (hasSeats) return isTurkish
-    ? "Bagaj için zorunlu bir minimum hacim beklentiniz var mı? Varsa litre olarak belirtir misiniz?"
-    : "Do you have a required minimum cargo volume? If so, please give it in litres.";
-  return isTurkish
-    ? "En az kaç koltuk olmasını istiyorsunuz?"
-    : "What is the minimum number of seats you require?";
-}
-
 function latestUserRejectedRecommendations(input: CarsConversationRequest): boolean {
   const latest = [...input.messages].reverse().find((message) => message.role === "user");
   return Boolean(latest && /(?:beğenmedim|hoşuma gitmedi|istemiyorum|başka seçenek|bunlar olmaz|not like|don'?t like|different options)/iu.test(latest.content));
 }
 
-function fallbackGuidance(
-  input: CarsConversationRequest,
-  locale: "tr" | "en",
-): CarsConversationResponse {
-  const isTurkish = locale === "tr";
-  const trace = buildCarsRequirementLedger(input.messages);
-  if (!trace.answeredQuestionPurposes.includes("PRIMARY_USAGE")) {
-    return {
-      kind: "QUESTION",
-      message: isTurkish
-        ? "Sizi doğru anladığımdan emin olmak istiyorum: Bu araç günlük hayatınızda en çok hangi işi kolaylaştırmalı?"
-        : "I want to understand you correctly: what should this car make easier in your daily life?",
-      options: isTurkish
-        ? ["İşe gidip gelme", "Aile kullanımı", "Uzun yol", "Henüz bilmiyorum"]
-        : ["Commuting", "Family use", "Long trips", "I am not sure yet"],
-    };
+function applyPlanFacts(trace: CarsConversationTrace, plan: CarsConversationTurnPlan, sourceTurn: number, sourceText: string): CarsConversationTrace {
+  const entries = new Map(trace.requirements.map((entry) => [entry.key, entry] as const));
+  const captured = [...trace.capturedOnLatestTurn];
+  for (const fact of plan.facts) {
+    const deterministicKeys = new Set(extractDeterministicFacts(sourceText).map((item) => item.key));
+    if (deterministicKeys.has(fact.key) && (fact.key === "MIN_SEATS" || fact.key === "MIN_CARGO_L" || fact.key === "BUDGET_MAX_TRY")) {
+      continue;
+    }
+    const value = fact.numericValue ?? fact.valueText;
+    if (value === "" || value === null) continue;
+    if (upsertRequirement(entries, {
+      key: fact.key as CarsRequirementKey,
+      value,
+      sourceTurn,
+      sourceText,
+      category: fact.category,
+      evaluability: fact.evaluability,
+    })) captured.push(fact.key as CarsRequirementKey);
   }
-  if (!trace.answeredQuestionPurposes.includes("BUDGET_MAX")) {
-    return {
-      kind: "QUESTION",
-      message: isTurkish
-        ? "Anladım. Bu ihtiyacı karşılamak için rahat edeceğiniz yaklaşık üst bütçe nedir? Bütçeniz henüz net değilse şimdilik açık bırakabiliriz."
-        : "Understood. What approximate maximum budget would feel comfortable? It is fine if you do not know yet.",
-    };
-  }
-  if (!trace.answeredQuestionPurposes.includes("FINAL_PRIORITY") && !trace.askedQuestionPurposes.includes("FINAL_PRIORITY")) return {
-    kind: "QUESTION",
-    message: isTurkish
-      ? "Kararı gerçekten değiştirecek son noktayı netleştirelim: Sizin için vazgeçilmez olan özellik nedir?"
-      : "Let's clarify the last decision-changing point: which quality is non-negotiable for you?",
-  };
+  const requirements = [...entries.values()];
   return {
-    kind: "QUESTION",
-    message: isTurkish
-      ? "Verdiğiniz ihtiyaçları koruyorum. Mevcut doğrulanmış karar kapsamım koltuk ve bagaj eşiklerini değerlendirebiliyor; bunlardan biri sizin için zorunluysa sayısal eşiği söyleyebilirsiniz. Aksi halde bu bilgilerle güvenilir bir araç seçemem."
-      : "I am retaining your requirements. The current verified decision scope can evaluate seat and cargo thresholds; provide one if it is mandatory. Otherwise I cannot make a reliable selection from this context.",
+    ...trace,
+    requirements,
+    capturedOnLatestTurn: [...new Set(captured)],
+    didConversationProgress: captured.length > 0 || trace.didConversationProgress,
   };
 }
 
-function unsupportedRequirementResponse(input: CarsConversationRequest): CarsConversationResponse | undefined {
-  const trace = buildCarsRequirementLedger(input.messages);
-  const latestUser = [...input.messages].reverse().find((message) => message.role === "user")?.content ?? "";
-  const drivetrain = latestRequirement(trace, "DRIVETRAIN");
-  const bodyType = latestRequirement(trace, "BODY_TYPE");
-  const equipment = latestRequirement(trace, "EQUIPMENT_LEVEL");
-  const latestCaptured = new Set(trace.capturedOnLatestTurn);
-  const frustration = /(?:dedim ya|anlamadın mı|anlamdın mı|az önce söyledim|salaksın|aptal)/iu.test(latestUser);
-
-  if (frustration && bodyType) return {
-    kind: "QUESTION",
-    message: "Pickup tercihinizi anladım ve kayıtlı; tekrar sormayacağım. Mevcut doğrulanmış karar verisi pickup gövde tipini adaylar arasında güvenilir biçimde değerlendirmediği için bu tercihi yok sayarak araç seçmeyeceğim.",
-    conversation: withCarsConversationState(trace, "INSUFFICIENT_SUPPORTED_EVIDENCE"),
-  };
-  if (latestCaptured.has("DRIVETRAIN") && drivetrain) return {
-    kind: "QUESTION",
-    message: "4x4/AWD şartınızı kaydettim. Mevcut doğrulanmış karar verisinde bunu kontrollü adayların tamamı için güvenilir biçimde değerlendiremiyorum; bu nedenle yok sayarak karar vermeyeceğim. Kararı desteklenen bir boyutta ilerletmek için en az kaç koltuk gerekli?",
-    conversation: withCarsConversationState(trace, "COLLECTING_CONTEXT"),
-  };
-  if (latestCaptured.has("BODY_TYPE") && bodyType) return {
-    kind: "QUESTION",
-    message: "Pickup tercihinizi kaydettim. Mevcut doğrulanmış karar verisi gövde tipini bu karar akışında güvenilir biçimde değerlendirmiyor; bu nedenle pickup tercihinizi yok sayarak seçim yapmayacağım. Bagaj için zorunlu bir minimum hacminiz varsa litre olarak belirtebilirsiniz.",
-    conversation: withCarsConversationState(trace, "COLLECTING_CONTEXT"),
-  };
-  if (latestCaptured.has("EQUIPMENT_LEVEL") && equipment) return {
-    kind: "QUESTION",
-    message: "Yüksek donanım tercihinizi kaydettim. Mevcut doğrulanmış karar verisi donanım seviyesini adaylar arasında güvenilir biçimde değerlendirmiyor; bu nedenle değerlendirmiş gibi davranmayacağım. Araç düzenli olarak kaç kişiyi taşımalı?",
-    conversation: withCarsConversationState(trace, "COLLECTING_CONTEXT"),
+function optionSetFromPlan(
+  plan: CarsConversationTurnPlan,
+  purpose: CarsQuestionPurpose,
+  sourceAssistantTurn: number,
+): CarsActiveOptionSet | undefined {
+  if (plan.options.length === 0) return undefined;
+  return {
+    id: `opt-${purpose}-${sourceAssistantTurn}`,
+    purpose,
+    options: plan.options,
+    sourceAssistantTurn,
+    active: true,
   };
 }
 
-function runtimeGap(result: Awaited<ReturnType<typeof runCarsRuntime>>): string {
-  const reason = result.reasons[0];
-  return reason ? `${reason.stage}: ${reason.code}` : "The governed runtime needs more explicit context.";
+function phaseForAction(plan: CarsConversationTurnPlan, ready: boolean): CarsConversationTrace["phase"] {
+  if (plan.nextAction === "LIMIT") return "LIMITED_BY_EVIDENCE";
+  if (plan.nextAction === "REPAIR") return "RECOVERING";
+  if (plan.nextAction === "REDIRECT") return "DISCOVERING";
+  if (plan.nextAction === "EVALUATE" && ready) return "READY_TO_EVALUATE";
+  if (plan.nextAction === "ASK") return "CLARIFYING";
+  return "DISCOVERING";
 }
 
-async function createCarsConversationTurn(
+function respondWithEvidence(
   input: CarsConversationRequest,
-): Promise<CarsConversationResponse> {
-  const locale = "tr" as const;
-  const isTurkish = locale === "tr";
-  const userTurnCount = input.messages.filter((message) => message.role === "user").length;
-  const comparison = isCandidateComparisonConversation(input.messages);
-  const minimumTurns = comparison ? 2 : 3;
-  const recommendationAllowed = userTurnCount >= minimumTurns;
-  const atTurnLimit = userTurnCount >= MAX_USER_TURNS;
-  const hasPriorRecommendations = input.messages.some(
-    (message) => (message.recommendationIds?.length ?? 0) > 0,
-  );
-  const rejectedRecommendations = hasPriorRecommendations
-    && latestUserRejectedRecommendations(input);
-  const effectiveRecommendationAllowed = recommendationAllowed && !rejectedRecommendations;
-
-  const latestUser = [...input.messages].reverse().find((message) => message.role === "user");
-  if (
-    userTurnCount === 1
-    && latestUser
-    && /(?:arazi|off-road|off road|stabilize|kamp yolu|kötü yol|rough road)/iu.test(latestUser.content)
-  ) {
+  memory: CarsConversationTrace,
+  messageOverride?: string,
+): CarsConversationResponse {
+  const query = buildCarsConversationQuery(input.messages);
+  const result = runCarsEvidenceBackedDecision({
+    query,
+    vehicleEvidenceReadPort: generatedVehicleEvidenceReadPort,
+    discriminatorChoiceId: input.choiceId,
+  });
+  const structured = evidenceDecision(result);
+  if (result.status === "NO_ELIGIBLE_CANDIDATE") {
+    const conversation = applyAssistantMove(memory, {
+      phase: "LIMITED_BY_EVIDENCE",
+      prompt: result.followUpQuestion ?? "Zorunlu şartlarınızı karşılayan doğrulanmış aday yok.",
+    });
     return {
       kind: "QUESTION",
-      message: "Evet, arazi ve kötü yol kullanımına uygun araçları değerlendirebiliriz. Daha çok kamp ve stabilize yol mu, çamurlu/kötü yollar mı, yoksa ciddi arazi kullanımı mı düşünüyorsunuz?",
-      options: ["Kamp ve stabilize yol", "Çamurlu/kötü yol", "Ciddi arazi kullanımı"],
-      conversation: buildCarsRequirementLedger(input.messages),
+      message: "Şu anda doğrulanmış verileriyle değerlendirdiğim araçların hiçbiri zorunlu şartınızı karşılmıyor. Şartlardan hangisinin esneyebileceğini konuşabiliriz.",
+      decision: structured,
+      conversation: { ...conversation, state: "NO_SUPPORTED_CANDIDATE" },
     };
   }
+  if (result.status === "INSUFFICIENT_VEHICLE_EVIDENCE") {
+    const message = "Güvenilir bir seçim için gereken doğrulanmış araç verisi şu anda yeterli değil. Bu nedenle bir araç önermeyeceğim.";
+    const conversation = applyAssistantMove(memory, { phase: "LIMITED_BY_EVIDENCE", prompt: message });
+    return { kind: "QUESTION", message, decision: structured, conversation: { ...conversation, state: "INSUFFICIENT_SUPPORTED_EVIDENCE" } };
+  }
+  if (result.status === "DECISION_READY") {
+    const message = messageOverride && !/öner|tavsiye ettiğim model/iu.test(messageOverride)
+      ? `${messageOverride}\n\n${result.userFacingExplanation}`
+      : result.userFacingExplanation ?? "Güvenilir seçim hazır.";
+    const conversation = applyAssistantMove(memory, { phase: "DECISION_READY", prompt: message, progressEvent: "decision-ready" });
+    return { kind: "QUESTION", message, decision: structured, conversation: { ...conversation, state: "DECISION_READY" } };
+  }
+  if (result.discriminatorChoices) {
+    const message = result.followUpQuestion ?? "Kararı değiştirecek seçeneği seçin.";
+    const conversation = applyAssistantMove(memory, {
+      phase: "FINAL_TRADEOFF",
+      purpose: "MIN_CARGO",
+      prompt: message,
+    });
+    return {
+      kind: "QUESTION",
+      message,
+      discriminatorChoices: result.discriminatorChoices,
+      decision: { ...structured, conversationState: "FINAL_DISCRIMINATOR_REQUIRED" },
+      conversation: { ...conversation, state: "FINAL_DISCRIMINATOR_REQUIRED", textInputAllowed: false },
+    };
+  }
+  const message = result.followUpQuestion ?? "Birden fazla araç zorunlu şartlarınızı karşılıyor. Kararı ayırabilecek başka bir zorunlu tercihiniz var mı?";
+  const conversation = applyAssistantMove(memory, { phase: "CLARIFYING", prompt: message });
+  return { kind: "QUESTION", message, decision: structured, conversation };
+}
 
-  const unsupportedResponse = unsupportedRequirementResponse(input);
-  if (unsupportedResponse) return unsupportedResponse;
+function validatePurpose(trace: CarsConversationTrace, purpose: CarsQuestionPurpose | "NONE"): CarsQuestionPurpose | undefined {
+  if (purpose === "NONE" || purpose === "FINAL_PRIORITY") return undefined;
+  if (cannotRepeatQuestion(trace, purpose)) return undefined;
+  return purpose;
+}
 
+function fallbackUsageOptions(purpose: CarsQuestionPurpose, turn: number): CarsActiveOptionSet | undefined {
+  if (purpose !== "USAGE_DETAIL") return undefined;
+  return {
+    id: `opt-usage-detail-${turn}`,
+    purpose,
+    options: discoveryUsageOptions,
+    sourceAssistantTurn: turn,
+    active: true,
+  };
+}
+
+async function createCarsConversationTurn(input: CarsConversationRequest): Promise<CarsConversationResponse> {
+  const userTurnCount = input.messages.filter((message) => message.role === "user").length;
+  const atTurnLimit = userTurnCount >= MAX_USER_TURNS;
+  const latestUser = [...input.messages].reverse().find((message) => message.role === "user");
+  const latestContent = latestUser?.content ?? "";
+  const hasPriorRecommendations = input.messages.some((message) => (message.recommendationIds?.length ?? 0) > 0);
+  const rejectedRecommendations = hasPriorRecommendations && latestUserRejectedRecommendations(input);
+
+  let memory = hydrateCarsConversationMemory({
+    messages: input.messages,
+    conversation: input.conversation,
+    selectedOptionId: input.selectedOptionId,
+  });
+
+  if (input.choiceId) memory = { ...memory, didConversationProgress: true, lastProgressEvent: `choice:${input.choiceId}` };
+
+  const sufficiency = assessCarsConversationSufficiency(memory);
   const query = buildCarsConversationQuery(input.messages);
   const bridge = deriveCarsEvidenceBackedRequirementsFromQuery(query);
-  const hasEvidenceConversation = bridge.requirements.length > 0
-    || bridge.materialPreferencesWithoutThreshold.length > 0
-    || bridge.partySize !== undefined;
+  const canEvaluateNow = sufficiency.readyToEvaluate
+    || Boolean(input.choiceId && (bridge.requirements.length > 0));
 
-  if (hasEvidenceConversation) {
-    const result = runCarsEvidenceBackedDecision({ query, vehicleEvidenceReadPort: generatedVehicleEvidenceReadPort, discriminatorChoiceId: input.choiceId });
-    const structured = evidenceDecision(result);
-    if (result.status === "NO_ELIGIBLE_CANDIDATE") {
-      return { kind: "QUESTION", message: isTurkish
-        ? "Şu anda doğrulanmış verileriyle değerlendirdiğim araçların hiçbiri zorunlu şartınızı karşılamıyor. Şartlardan hangisinin esneyebileceğini konuşabiliriz."
-        : "None of the vehicles I can currently evaluate with verified data meets that requirement. We can discuss which constraint could flex.", decision: structured };
-    }
-    if (result.status === "INSUFFICIENT_VEHICLE_EVIDENCE") {
-      return { kind: "QUESTION", message: isTurkish
-        ? "Güvenilir bir seçim için gereken doğrulanmış araç verisi şu anda yeterli değil. Bu nedenle bir araç önermeyeceğim."
-        : "The verified vehicle data needed for a reliable decision is not sufficient right now, so I will not recommend a vehicle.", decision: structured };
-    }
-    const hasSeats = bridge.requirements.some((item) => item.factKey === "seats");
-    const hasCargo = bridge.requirements.some((item) => item.factKey === "cargo_volume_l");
-    if (!hasSeats || !hasCargo) {
-      const ledger = buildCarsRequirementLedger(input.messages);
-      const confirmedSeatsOnLatestTurn = ledger.capturedOnLatestTurn.includes("MIN_SEATS")
-        && /^(?:evet|aynen|doğru|olur|yes|correct)[.!\s]*$/iu.test(latestUser?.content.trim() ?? "");
-      const message = confirmedSeatsOnLatestTurn && hasSeats && !hasCargo
-        ? isTurkish
-          ? `${latestRequirement(ledger, "MIN_SEATS")?.value} koltuk şartınızı onayladım. Bagaj için zorunlu bir minimum hacminiz var mı? Varsa litre olarak belirtir misiniz?`
-          : `I confirmed your ${latestRequirement(ledger, "MIN_SEATS")?.value}-seat requirement. Do you have a required minimum cargo volume in litres?`
-        : bridge.partySize !== undefined && !hasSeats
-        ? isTurkish
-          ? `${bridge.partySize} kişi olduğunuzu anladım. En az ${bridge.partySize} koltuk sizin için zorunlu mu?`
-          : `I understand there are ${bridge.partySize} people. Is at least ${bridge.partySize} seats a firm requirement?`
-        : bridge.materialPreferencesWithoutThreshold.includes("cargo_volume_l") && !hasCargo
-          ? isTurkish ? "Bagajın önemli olduğunu anladım. Zorunlu bir minimum hacim beklentiniz var mı? Varsa litre olarak belirtir misiniz?" : "I understand cargo space matters. Do you have a required minimum volume in litres?"
-          : missingEvidenceDimensionQuestion(hasSeats, isTurkish);
-      return { kind: "QUESTION", message, decision: {
-        ...structured,
-        conversationState: "FOLLOW_UP",
-        decisionStatus: "NEEDS_MORE_USER_CONTEXT",
-        evidenceBacked: false,
-        selectedRuntimeVehicleCandidateId: undefined,
-        selectedVehicle: undefined,
-        followUpQuestion: message,
-        discriminatorChoices: undefined,
-      } };
-    }
-    if (result.status === "DECISION_READY") {
-      return { kind: "QUESTION", message: result.userFacingExplanation ?? "Güvenilir seçim hazır.", decision: structured };
-    }
-    if (result.discriminatorChoices) return {
-      kind: "QUESTION",
-      message: result.followUpQuestion ?? "Kararı değiştirecek seçeneği seçin.",
-      discriminatorChoices: result.discriminatorChoices,
-      decision: structured,
-    };
-    return { kind: "QUESTION", message: result.followUpQuestion ?? (isTurkish
-      ? "Birden fazla araç zorunlu şartlarınızı karşılıyor. Kararı ayırabilecek başka bir zorunlu tercihiniz var mı?"
-      : "More than one vehicle meets your requirements. Do you have another must-have that could separate them?"), decision: structured };
+  if (canEvaluateNow && !rejectedRecommendations) {
+    return respondWithEvidence(input, { ...memory, phase: "EVALUATING" });
   }
 
-  const clarificationRepair = createCarsClarificationRepair(input.messages);
-  if (clarificationRepair) return clarificationRepair;
+  if (isCarsClarificationRepair(latestContent)) {
+    const repair = createCarsClarificationRepair(input.messages);
+    if (repair && repair.kind === "QUESTION") {
+      const purpose = repair.options?.length ? "USAGE_DETAIL" as const : memory.lastAssistantQuestion?.purpose;
+      const options = repair.options?.length
+        ? fallbackUsageOptions("USAGE_DETAIL", userTurnCount)
+        : undefined;
+      const conversation = applyAssistantMove(memory, {
+        phase: "CLARIFYING",
+        purpose,
+        prompt: repair.message,
+        options,
+        progressEvent: "clarification-repair",
+      });
+      return { ...repair, options: repair.options, conversation };
+    }
+  }
 
-  const guidance = await createCarsConversationGuidance({
+  if (isOffTopic(latestContent) && memory.requirements.length > 0) {
+    const message = "Kısa cevap: bugünün havasına bakamam. Araç tarafında duran ihtiyaçlarınız yerinde; kaldığınız yerden devam edebiliriz.";
+    const conversation = applyAssistantMove(memory, {
+      phase: memory.phase,
+      purpose: "OFF_TOPIC_REDIRECT",
+      prompt: message,
+      progressEvent: "off-topic-preserved",
+    });
+    return { kind: "QUESTION", message, conversation };
+  }
+
+  const plan = await planCarsConversationTurn({
+    conversationId: input.conversationId,
     messages: input.messages,
-    locale,
-    recommendationAllowed: effectiveRecommendationAllowed,
+    memory,
     remainingUserTurns: Math.max(0, MAX_USER_TURNS - userTurnCount),
-    hasPriorRecommendations,
-    latestUserRejectedRecommendations: rejectedRecommendations,
   });
 
-  if (!guidance) return fallbackGuidance(input, locale);
-  if (guidance.action === "REDIRECT") {
-    return { kind: "QUESTION", message: guidance.message, options: guidance.options };
-  }
-  if (!atTurnLimit && (guidance.action === "ASK" || !effectiveRecommendationAllowed)) {
-    return { kind: "QUESTION", message: guidance.message, options: guidance.options };
-  }
-
-  const result = await runCarsRuntime({
-    requestId: `${input.conversationId}:turn:${randomUUID()}`,
-    contextReference: `${input.conversationId}:context`,
-    query,
-  });
-
-  if (result.status === "SUCCEEDED") {
+  if (plan) {
+    memory = applyPlanFacts(memory, plan, userTurnCount, latestContent);
+    const afterPlan = assessCarsConversationSufficiency(memory);
+    const purpose = validatePurpose(memory, plan.questionPurpose);
+    if ((plan.nextAction === "EVALUATE" || afterPlan.readyToEvaluate) && afterPlan.readyToEvaluate && !rejectedRecommendations) {
+      return respondWithEvidence(input, memory, plan.assistantMessage);
+    }
+    if (purpose && isSemanticLoop(memory, purpose)) {
+      const recovery = createCarsBoundedRecovery({ ...memory, didConversationProgress: false }, latestContent);
+      return { ...recovery.response, conversation: { ...recovery.conversation, loopCount: memory.loopCount + 1 } };
+    }
+    if (plan.replyKind === "FRUSTRATION" || isFrustration(latestContent)) {
+      const recovery = createCarsBoundedRecovery(memory, latestContent);
+      return {
+        kind: "QUESTION",
+        message: plan.assistantMessage || recovery.response.message,
+        conversation: applyAssistantMove(memory, {
+          phase: "LIMITED_BY_EVIDENCE",
+          purpose: "OFF_TOPIC_REDIRECT",
+          prompt: plan.assistantMessage,
+          progressEvent: "frustration-repair",
+        }),
+      };
+    }
+    const options = purpose ? optionSetFromPlan(plan, purpose, userTurnCount) ?? fallbackUsageOptions(purpose, userTurnCount) : undefined;
+    const conversation = applyAssistantMove(memory, {
+      phase: phaseForAction(plan, afterPlan.readyToEvaluate),
+      purpose,
+      prompt: plan.assistantMessage,
+      options,
+      progressEvent: plan.replyKind.toLowerCase(),
+    });
     return {
-      kind: "RECOMMENDATIONS",
-      message: result.recommendations.length > 0
-        ? isTurkish
-          ? result.recommendations.length === 1
-            ? "Konuştuklarımıza göre net seçimim bu araç. Kartı açarak gerekçelerini inceleyebilir veya bana itiraz edip sohbete devam edebilirsiniz."
-            : "Konuştuklarımıza göre ilk araç net seçimim; diğerleri yalnızca güçlü alternatifler. En fazla üç sonuç gösteriyorum. Kartları açarak gerekçeleri inceleyebilirsiniz."
-          : "Weighing everything we discussed, these are the strongest decisions right now. You can inspect the reasoning, challenge it, or keep talking."
-        : isTurkish
-          ? "Konuştuklarımız yeterince net, fakat mevcut katalogda koşullarınızı dürüstçe karşılayan bir araç yok. İsterseniz hangi koşulun esneyebileceğini konuşalım."
-          : "Our conversation is clear enough, but no current catalog car honestly meets it. We can discuss which constraint could flex.",
-      recommendations: result.recommendations,
+      kind: "QUESTION",
+      message: plan.assistantMessage,
+      options: options?.options.map((option) => option.label),
+      conversation,
     };
   }
 
-  if (result.status === "FAILED") {
-    return { kind: "ERROR", message: createCarsFollowUp(result, locale) };
+  if (isCandidateComparisonConversation(input.messages) && userTurnCount >= 2 && !rejectedRecommendations) {
+    const result = await runCarsRuntime({
+      requestId: `${input.conversationId}:turn:${randomUUID()}`,
+      contextReference: `${input.conversationId}:context`,
+      query,
+    });
+    if (result.status === "SUCCEEDED") {
+      const conversation = applyAssistantMove(memory, { phase: "DECISION_READY", prompt: "Karşılaştırma sonucu hazır." });
+      return {
+        kind: "RECOMMENDATIONS",
+        message: result.recommendations.length > 0
+          ? "Konuştuklarımıza göre ilk araç net seçimim; diğerleri yalnızca güçlü alternatifler. Kartları açarak gerekçeleri inceleyebilirsiniz."
+          : "Konuştuklarımız yeterince net, fakat mevcut katalogda koşullarınızı dürüstçe karşılayan bir araç yok.",
+        recommendations: result.recommendations,
+        conversation: { ...conversation, state: "DECISION_READY" },
+      };
+    }
+    if (result.status === "FAILED") {
+      return { kind: "ERROR", message: createCarsFollowUp(result, "tr"), conversation: { ...memory, phase: "RECOVERING", state: "SYSTEM_FAILURE" } };
+    }
   }
 
   if (atTurnLimit) {
     return {
       kind: "ERROR",
-      message: isTurkish
-        ? "Bu görüşme için güvenli tur sınırına ulaştık; elimizdeki bilgiler hâlâ güvenilir bir karar için yeterli değil. Yeni bir görüşmede bütçe, kullanım ve vazgeçilmez ihtiyacınızı birlikte yazarak başlayabilirsiniz."
-        : "We reached this conversation's safe turn limit without enough information for a reliable decision. Start a new conversation with your budget, usage, and one non-negotiable need.",
+      message: "Bu görüşme için güvenli tur sınırına ulaştık; elimizdeki bilgiler hâlâ güvenilir bir karar için yeterli değil.",
+      conversation: { ...memory, phase: "RECOVERING", state: "SYSTEM_FAILURE" },
     };
   }
 
-  const followUp = await createCarsConversationGuidance({
-    messages: input.messages,
-    locale,
-    recommendationAllowed: false,
-    remainingUserTurns: MAX_USER_TURNS - userTurnCount,
-    runtimeGap: runtimeGap(result),
-    hasPriorRecommendations,
-    latestUserRejectedRecommendations: rejectedRecommendations,
-  });
-  return followUp
-    ? { kind: "QUESTION", message: followUp.message, options: followUp.options }
-    : { kind: "QUESTION", message: createCarsFollowUp(result, locale) };
+  const recovery = createCarsBoundedRecovery(memory, latestContent);
+  if (sufficiency.readyToEvaluate) return respondWithEvidence(input, memory);
+  return recovery.response;
 }
 
 export async function runCarsConversationTurn(
   input: CarsConversationRequest,
 ): Promise<CarsConversationResponse> {
   const response = await createCarsConversationTurn(input);
-  const repaired = suppressRepeatedCarsResponse(input.messages, response);
-  if ("conversation" in repaired && repaired.conversation) return repaired;
-  const baseTrace = buildCarsRequirementLedger(input.messages);
-  const trace = input.choiceId
-    ? { ...baseTrace, didConversationProgress: true }
-    : baseTrace;
-  const latestUserContent = [...input.messages].reverse().find((message) => message.role === "user")?.content ?? "";
-  if (
-    repaired.kind === "QUESTION"
-    && !repaired.discriminatorChoices
-    && !repaired.decision
-    && response === repaired
-    && !isCarsClarificationRepair(latestUserContent)
-  ) {
-    const purpose = carsQuestionPurpose(repaired.message);
-    const answered = purpose && trace.answeredQuestionPurposes.includes(purpose);
-    const stalledRepeat = purpose && trace.askedQuestionPurposes.includes(purpose) && !trace.didConversationProgress;
-    if (answered || stalledRepeat) return {
-      kind: "QUESTION",
-      message: "Bu bilgiyi daha önce verdiniz; aynı soruyu tekrar sormayacağım. Kayıtlı ihtiyaçlarınız mevcut doğrulanmış karar boyutlarıyla güvenilir bir seçim üretmeye yetmiyorsa, eksik kapasiteyi açıkça belirterek burada duracağım.",
-      conversation: withCarsConversationState(trace, "INSUFFICIENT_SUPPORTED_EVIDENCE"),
+  if (response.conversation) {
+    return {
+      ...response,
+      conversation: {
+        ...response.conversation,
+        state: response.conversation.state,
+        textInputAllowed: response.conversation.phase !== "FINAL_TRADEOFF"
+          && response.conversation.state !== "FINAL_DISCRIMINATOR_REQUIRED",
+        semanticFingerprint: response.conversation.semanticFingerprint,
+      },
     };
   }
-  const state = repaired.kind === "RECOMMENDATIONS" ? "DECISION_READY"
-    : repaired.kind === "ERROR" ? "SYSTEM_FAILURE"
-      : repaired.decision?.conversationState === "FINAL_DISCRIMINATOR_REQUIRED" ? "FINAL_DISCRIMINATOR_REQUIRED"
-        : repaired.decision?.conversationState === "DECISION_READY" ? "DECISION_READY"
-          : repaired.decision?.conversationState === "EVIDENCE_INSUFFICIENT" ? "INSUFFICIENT_SUPPORTED_EVIDENCE"
-            : repaired.decision?.conversationState === "NO_ELIGIBLE_CANDIDATE" ? "NO_SUPPORTED_CANDIDATE"
-              : "COLLECTING_CONTEXT";
-  return { ...repaired, conversation: withCarsConversationState(trace, state) } as CarsConversationResponse;
+  const trace = hydrateCarsConversationMemory({ messages: input.messages, conversation: input.conversation });
+  return { ...response, conversation: { ...trace, state: conversationStateFromPhase(trace.phase) } };
 }

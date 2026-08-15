@@ -1,5 +1,5 @@
 import type { CarsConversationMessage } from "@/types/carsConversation";
-import { buildCarsRequirementLedger } from "./carsRequirementLedger";
+import { buildCarsRequirementLedger } from "./carsConversationMemory";
 
 export function buildCarsConversationQuery(
   messages: readonly CarsConversationMessage[],
