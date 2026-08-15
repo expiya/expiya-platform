@@ -54,5 +54,16 @@ describe("CarCard price freshness", () => {
     expect(html).toContain("Renault Clio");
     expect(html).not.toContain("9.999.999");
     expect(html).not.toContain("Liste");
+    expect(html).toContain("Güncel fiyat doğrulanıyor");
+  });
+
+  it("renders a public list presentation even if the fallback car price is internal", () => {
+    const mixed = recommendation("CURRENT");
+    mixed.car.price = 9_999_999;
+    mixed.car.priceDisplayAllowed = false;
+    mixed.pricePresentation = { amountTry: 1_830_000, priceType: "LIST", validityStatus: "CURRENT" };
+    const html = renderToStaticMarkup(<CarCard recommendedCar={mixed} />);
+    expect(html).toContain("1.830.000 TL");
+    expect(html).not.toContain("9.999.999");
   });
 });

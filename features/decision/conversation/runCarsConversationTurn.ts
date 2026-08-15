@@ -80,6 +80,7 @@ import {
   hardUnevaluatedConstraints,
   presentGovernedRecommendation,
   recommendationRevealCopy,
+  internalEstimateDisclosure,
   unevaluatedBudgetPresent,
   unsupportedHardRequirementBlocksModelFit,
   unverifiedPreferenceNote,
@@ -464,6 +465,9 @@ function revealAuthorizedCard(
     amountTry: price?.amountTry,
     priceType: price?.priceType,
     validityStatus: price?.validityStatus,
+    internalEstimateResult: recommendation.car.priceDisplayAllowed === false
+      ? memory.affordabilityState === "AFFORDABILITY_PASS" ? "PASS" : "NOT_REQUESTED"
+      : undefined,
     caveat: memory.offerPurpose === "NEW_CONFIGURATION_OFFER" ? price?.caveat : price?.caveat,
   });
   const revealedMemory = stampAcquisitionAuthority({
@@ -655,7 +659,11 @@ function respondWithEvidence(
   }
   if (result.status === "NO_ELIGIBLE_CANDIDATE" && gated.filter && hardBudgetPresent(memory)) {
     const ceiling = hardBudgetCeilingTry(memory) ?? 0;
-    const message = noAffordableMatchMessage(memory, ceiling, gated.filter.nearestGapPercent);
+    const estimateOnlyFailure = gated.filter.evaluations.some((item) => item.result === "FAIL")
+      && gated.filter.evaluations.filter((item) => item.result === "FAIL").every((item) => item.priceType === "ESTIMATE");
+    const message = estimateOnlyFailure
+      ? internalEstimateDisclosure("FAIL")
+      : noAffordableMatchMessage(memory, ceiling, gated.filter.nearestGapPercent);
     const stamped = stampAcquisitionAuthority({
       ...withoutExposedHold(memory),
       offerPurpose: "NO_AFFORDABLE_MATCH",
@@ -1003,7 +1011,9 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
       const nearest = memory.priceEvaluations?.find((item) => item.result === "FAIL" && item.amountTry !== undefined);
       const gapTry = nearest && ceiling ? nearest.amountTry! - ceiling : memory.turnProvenance?.nearestVerifiedPriceGapTry;
       const gapPercent = nearest && ceiling ? (nearest.amountTry! - ceiling) / ceiling * 100 : memory.turnProvenance?.nearestVerifiedPriceGapPercent;
-      const message = budgetFlexibilityMessage(ceiling ?? 0, gapTry, gapPercent);
+      const message = nearest?.priceType === "ESTIMATE"
+        ? internalEstimateDisclosure("FAIL")
+        : budgetFlexibilityMessage(ceiling ?? 0, gapTry, gapPercent);
       const conversation = withProvenance(applyAssistantMove(memory, {
         phase: "LIMITED_BY_EVIDENCE",
         prompt: message,
@@ -1061,7 +1071,7 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
         : evaluation.result;
       const publicPrice = evaluation.priceType === "LIST" || evaluation.priceType === "CAMPAIGN";
       const message = evaluation.priceType === "ESTIMATE"
-        ? `${identity} değerlendirmeye alındı. Doğrulanmış kullanıcıya gösterilebilir sıfır fiyat henüz bulunmuyor.`
+        ? `${identity}: ${internalEstimateDisclosure(affordability === "PASS" || affordability === "FAIL" ? affordability : "NOT_REQUESTED")}`
         : ceiling === undefined && evaluation.amountTry !== undefined
         ? `${identity} güncel sıfır ${evaluation.priceType === "CAMPAIGN" ? "kampanya" : "liste"} fiyatı ${formatTryConsumer(evaluation.amountTry)}.${evaluation.priceType === "CAMPAIGN" ? " Kampanya stok ve yetkili satıcıya göre değişebilir." : ""}`
         : shownCandidateAffordabilityMessage({

@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import type { RecommendedCarPricePresentation } from "@/types/recommendation";
 
 import { priceFreshnessWarning } from "./priceFreshnessWarning";
-import { recommendationRevealCopy } from "@/features/decision/conversation/presentGovernedRecommendation";
+import { internalEstimateDisclosure, recommendationRevealCopy } from "@/features/decision/conversation/presentGovernedRecommendation";
 
 const basePrice: RecommendedCarPricePresentation = {
   amountTry: 1_830_000,
@@ -42,5 +42,19 @@ describe("priceFreshnessWarning", () => {
       priceType: "LIST",
       validityStatus: "EXPIRED",
     })).toContain("Kayıtlı liste fiyatı");
+  });
+
+  it("never includes the internal estimate amount in recommendation or budget disclosures", () => {
+    const recommendation = recommendationRevealCopy({
+      identity: "Alpine A110",
+      reasons: [],
+      memory: { offerPurpose: "NEW_CONFIGURATION_OFFER" } as never,
+      internalEstimateResult: "PASS",
+    });
+    expect(recommendation).toContain("yaklaşık bütçe aralığında");
+    expect(recommendation).not.toMatch(/5[.]500[.]000|5,5 milyon|tahmini fiyat/iu);
+    expect(internalEstimateDisclosure("FAIL")).toBe(
+      "Araç yaklaşık fiyat konumlandırmasına göre bütçe dışında değerlendirildi; güncel fiyat doğrulanmalıdır.",
+    );
   });
 });

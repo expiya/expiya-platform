@@ -259,9 +259,8 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
     });
   }
 
-  const above = available.filter((price) => price.amountTry > budgetTry);
-  if (above.length > 0) {
-    const selected = preferGuaranteedPrice(above) ?? above[0];
+  const selected = preferGuaranteedPrice(available);
+  if (selected && selected.amountTry > budgetTry) {
     return evaluation({
       candidateId,
       catalogVariantId: variantId,
@@ -278,7 +277,6 @@ export function evaluateNewVehiclePrice(input: CarsPriceAuthorityInput): CarsCan
     });
   }
 
-  const selected = preferGuaranteedPrice(available);
   if (!selected) {
     return evaluation({
       candidateId,

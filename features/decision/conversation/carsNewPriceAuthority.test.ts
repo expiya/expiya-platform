@@ -69,6 +69,20 @@ describe("governed new-price authority", () => {
     expect(result).toMatchObject({ result: "PASS", reasonCode: "ESTIMATED_AMOUNT_WITHIN_CEILING", priceType: "ESTIMATE", sourceAuthorityResult: "INSUFFICIENT" });
   });
 
+  it("prefers a public list price when list and estimate observations coexist", () => {
+    const result = evaluateNewVehiclePrice({
+      runtimeVehicleCandidateId: IONIQ,
+      vehicleVariantId: VARIANT,
+      budgetTry: 2_000_000,
+      at: AT,
+      observations: [
+        observation({ id: "estimate", amountTry: 2_700_000, priceType: "ESTIMATE", confidence: "LOW", consumerVisibility: "INTERNAL_ONLY" }),
+        observation({ id: "list", amountTry: 1_800_000, priceType: "LIST" }),
+      ],
+    });
+    expect(result).toMatchObject({ priceObservationId: "list", priceType: "LIST", amountTry: 1_800_000 });
+  });
+
   it("returns FAIL when the current applicable price is above budget", () => {
     const result = evaluateNewVehiclePrice({
       runtimeVehicleCandidateId: IONIQ,

@@ -43,6 +43,7 @@ export function presentGovernedRecommendation(input: {
   });
   const budgetCompatible = input.memory.offerPurpose === "NEW_CONFIGURATION_OFFER"
     || input.memory.affordabilityState === "AFFORDABILITY_PASS";
+  const usesInternalEstimate = price.priceType === "ESTIMATE";
   return {
     car,
     isTopPick: budgetCompatible,
@@ -66,7 +67,9 @@ export function presentGovernedRecommendation(input: {
         value: 92,
         level: "high",
         explanation: budgetCompatible
-          ? "Seçim doğrulanmış koltuk, bagaj ve güncel sıfır fiyat eşiğine göre belirlendi."
+          ? usesInternalEstimate
+            ? "Seçim doğrulanmış araç özellikleri ve yaklaşık fiyat konumlandırmasına göre belirlendi; güncel satış fiyatı doğrulanmalıdır."
+            : "Seçim doğrulanmış koltuk, bagaj ve güncel sıfır fiyat eşiğine göre belirlendi."
           : "Seçim yalnızca doğrulanmış koltuk ve bagaj eşiğine göre belirlendi.",
       },
     },
@@ -80,6 +83,7 @@ export function recommendationRevealCopy(input: {
   readonly amountTry?: number;
   readonly priceType?: "LIST" | "CAMPAIGN";
   readonly validityStatus?: CarsPriceValidityStatus;
+  readonly internalEstimateResult?: "PASS" | "FAIL" | "NOT_REQUESTED";
   readonly caveat?: string;
 }): string {
   const intro = input.memory.offerPurpose === "NEW_CONFIGURATION_OFFER"
@@ -88,7 +92,20 @@ export function recommendationRevealCopy(input: {
   const priceLine = input.amountTry !== undefined
     ? `${input.validityStatus === "EXPIRED" ? "Kayıtlı" : "Güncel"} ${priceTypeLabel(input.priceType)} fiyatı ${formatTryConsumer(input.amountTry)}.`
     : undefined;
-  return [intro, input.reasons.join(" "), priceLine, input.caveat].filter(Boolean).join("\n\n");
+  const verificationLine = input.internalEstimateResult
+    ? internalEstimateDisclosure(input.internalEstimateResult)
+    : undefined;
+  return [intro, input.reasons.join(" "), priceLine, verificationLine, input.caveat].filter(Boolean).join("\n\n");
+}
+
+export function internalEstimateDisclosure(result: "PASS" | "FAIL" | "NOT_REQUESTED"): string {
+  if (result === "PASS") {
+    return "Araç yaklaşık bütçe aralığında değerlendirildi; güncel fiyat doğrulanmalıdır.";
+  }
+  if (result === "FAIL") {
+    return "Araç yaklaşık fiyat konumlandırmasına göre bütçe dışında değerlendirildi; güncel fiyat doğrulanmalıdır.";
+  }
+  return "Bu araç değerlendirmeye dahil edildi ancak doğrulanmış güncel satış fiyatı henüz bulunmuyor. Güncel fiyat ve stok durumu için yetkili satıcıdan bilgi alın.";
 }
 
 export function unverifiedPreferenceNote(memory: CarsConversationTrace): string | undefined {

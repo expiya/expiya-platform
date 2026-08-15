@@ -23,7 +23,10 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
   const priceTypeLabel = pricePresentation?.priceType === "CAMPAIGN"
     ? (isTurkish ? "Kampanya" : "Campaign")
     : (isTurkish ? "Liste" : "List");
-  const formattedPrice = (pricePresentation?.amountTry ?? car.price).toLocaleString(isTurkish ? "tr-TR" : "en-US");
+  const showPrice = Boolean(pricePresentation) || car.priceDisplayAllowed !== false;
+  const formattedPrice = showPrice
+    ? (pricePresentation?.amountTry ?? car.price).toLocaleString(isTurkish ? "tr-TR" : "en-US")
+    : undefined;
   const freshnessWarning = priceFreshnessWarning(pricePresentation, locale);
 
   return (
@@ -60,9 +63,13 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
               <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
                 {car.year} · {isTurkish ? fuelTranslations[car.fuel] : car.fuel} · {isTurkish ? "Sıfır" : "New"}
               </p>
-              {car.priceDisplayAllowed !== false && (
+              {showPrice && formattedPrice ? (
                 <p className="mt-1 text-sm font-medium text-neutral-800 dark:text-neutral-200">
                   {formattedPrice} TL · {priceTypeLabel}
+                </p>
+              ) : (
+                <p className="mt-1 text-sm font-medium text-neutral-600 dark:text-neutral-300">
+                  {isTurkish ? "Güncel fiyat doğrulanıyor" : "Current price being verified"}
                 </p>
               )}
               {pricePresentation?.caveat && (

@@ -179,7 +179,7 @@ const requestSchema = z.object({
       catalogVariantId: z.string().max(80),
       priceObservationId: z.string().max(80).optional(),
       amountTry: z.number().optional(),
-      priceType: z.enum(["LIST", "CAMPAIGN", "ASKING", "TRANSACTION", "VALUATION"]).optional(),
+      priceType: z.enum(["LIST", "CAMPAIGN", "ASKING", "TRANSACTION", "VALUATION", "ESTIMATE"]).optional(),
       validityStatus: z.enum(["CURRENT", "EXPIRED", "NOT_YET_VALID", "ABSENT", "NOT_EVALUATED"]),
       sourceAuthorityResult: z.enum(["AUTHORITATIVE", "INSUFFICIENT"]),
       campaignApplicabilityResult: z.enum(["NOT_CAMPAIGN", "GENERALLY_APPLICABLE", "CONDITIONAL", "UNKNOWN"]),
