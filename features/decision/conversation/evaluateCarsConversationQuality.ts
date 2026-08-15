@@ -21,6 +21,9 @@ const ROBOTIC = [
   /sizin için vazgeçilmez özellik nedir/iu,
   /aynı soruyu tekrarlamayayım/iu,
   /günlük hayatınızdan bir örnek verir misiniz/iu,
+  /koltuk veya bagaj için sayısal eşik/iu,
+  /mevcut doğrulanmış (?:karar )?(?:veri|kapsam)/iu,
+  /minimum hacmi.*litre/iu,
 ];
 
 export function evaluateCarsConversationQuality(input: {

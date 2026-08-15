@@ -72,6 +72,8 @@ function selectHighestValueQuestion(
   flags: { usageUnderstood: boolean; seats: boolean; cargo: boolean; party: boolean },
 ): CarsQuestionPurpose | undefined {
   const unused = (purpose: CarsQuestionPurpose) => !asked.has(purpose) && !answered.has(purpose);
+  const deferredDailyUse = trace.questionMemory?.some((entry) => entry.purpose === "DAILY_VS_OFFROAD" && entry.status === "DEFERRED");
+  if (deferredDailyUse && !flags.seats && !flags.cargo) return "DAILY_VS_OFFROAD";
   if (latestRequirement(trace, "USAGE_ROUGH_ROAD") && !answered.has("USAGE_DETAIL") && unused("USAGE_DETAIL") && !flags.seats && !flags.cargo) {
     return "USAGE_DETAIL";
   }

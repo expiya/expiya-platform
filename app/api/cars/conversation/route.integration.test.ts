@@ -58,7 +58,7 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
 
     expect(response.status).toBe(200);
     const payload = await response.json();
-    expect(payload.message).toMatch(/4 koltuk şartınızı onayladım.*bagaj/iu);
+    expect(payload.message).toMatch(/4 kişilik kullanım.*bagajda.*ne taşı/iu);
     expect(payload.conversation.didConversationProgress).toBe(true);
     expect(payload.conversation.requirements).toEqual(expect.arrayContaining([
       expect.objectContaining({ key: "USAGE_SERIOUS_OFF_ROAD", value: "SERIOUS_OFF_ROAD" }),

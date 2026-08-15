@@ -24,6 +24,7 @@ import {
 } from "./carsConversationRepair";
 import {
   applyAssistantMove,
+  closeDeferredQuestions,
   hydrateCarsConversationMemory,
 } from "./carsConversationMemory";
 import {
@@ -72,7 +73,7 @@ function latestUserRejectedRecommendations(input: CarsConversationRequest): bool
 function applyPlanFacts(trace: CarsConversationTrace, plan: CarsConversationTurnPlan, sourceTurn: number, sourceText: string): CarsConversationTrace {
   const entries = new Map(trace.requirements.map((entry) => [entry.key, entry] as const));
   const captured = [...trace.capturedOnLatestTurn];
-  for (const fact of plan.facts) {
+  for (const fact of plan.newFacts) {
     const deterministicKeys = new Set(extractDeterministicFacts(sourceText).map((item) => item.key));
     if (deterministicKeys.has(fact.key) && (fact.key === "MIN_SEATS" || fact.key === "MIN_CARGO_L" || fact.key === "BUDGET_MAX_TRY")) {
       continue;
@@ -113,12 +114,31 @@ function optionSetFromPlan(
 }
 
 function phaseForAction(plan: CarsConversationTurnPlan, ready: boolean): CarsConversationTrace["phase"] {
-  if (plan.nextAction === "LIMIT") return "LIMITED_BY_EVIDENCE";
-  if (plan.nextAction === "REPAIR") return "RECOVERING";
-  if (plan.nextAction === "REDIRECT") return "DISCOVERING";
-  if (plan.nextAction === "EVALUATE" && ready) return "READY_TO_EVALUATE";
-  if (plan.nextAction === "ASK") return "CLARIFYING";
+  if (plan.conversationMove === "EXPLAIN_DECISION_LIMIT") return "LIMITED_BY_EVIDENCE";
+  if (plan.conversationMove === "REPAIR_MISUNDERSTANDING") return "RECOVERING";
+  if (plan.conversationMove === "REDIRECT") return "DISCOVERING";
+  if (plan.conversationMove === "PROCEED_TO_EVALUATION" && ready) return "READY_TO_EVALUATE";
+  if (plan.nextQuestionPurpose !== "NONE") return "CLARIFYING";
   return "DISCOVERING";
+}
+
+const DISCOVERY_FORBIDDEN = /(?:koltuk veya bagaj için sayısal eşik|mevcut doğrulanmış (?:karar )?(?:veri|kapsam)|supported decision dimension|minimum hacmi litre|litre olarak belirt)/iu;
+
+function modelPlanIsSafe(plan: CarsConversationTurnPlan, memory: CarsConversationTrace): boolean {
+  if (DISCOVERY_FORBIDDEN.test(plan.assistantMessage)) return false;
+  if ((plan.assistantMessage.match(/\?/gu) ?? []).length > 1) return false;
+  const captured = new Set(memory.capturedOnLatestTurn);
+  if (captured.has("BUDGET_MAX_TRY") && !/(?:bütçe|milyon|tl|₺)/iu.test(plan.assistantMessage)) return false;
+  if (captured.has("EQUIPMENT_LEVEL") && !/(?:donanım|konfor|sürüş destek|multimedya|arazi ekipman)/iu.test(plan.assistantMessage)) return false;
+  if (captured.has("PARTY_SIZE") && !/(?:4|dört|kişi|aile|yolcu)/iu.test(plan.assistantMessage)) return false;
+  return true;
+}
+
+function withProvenance(
+  trace: CarsConversationTrace,
+  provenance: NonNullable<CarsConversationTrace["turnProvenance"]>,
+): CarsConversationTrace {
+  return { ...trace, turnProvenance: provenance };
 }
 
 function respondWithEvidence(
@@ -217,7 +237,12 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     || Boolean(input.choiceId && (bridge.requirements.length > 0));
 
   if (canEvaluateNow && !rejectedRecommendations) {
-    return respondWithEvidence(input, { ...memory, phase: "EVALUATING" });
+    memory = closeDeferredQuestions(memory, "Supported constraints now authorize governed evaluation; this discovery question no longer changes the decision.");
+    const response = respondWithEvidence(input, { ...memory, phase: "EVALUATING" });
+    return response.conversation ? { ...response, conversation: withProvenance(response.conversation, {
+      modelAttempted: false, structuredPlan: false, userFacingOrigin: "DETERMINISTIC_EVIDENCE",
+      deterministicOverride: false, latestMessageAcknowledged: true,
+    }) } : response;
   }
 
   if (isCarsClarificationRepair(latestContent)) {
@@ -259,9 +284,17 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
   if (plan) {
     memory = applyPlanFacts(memory, plan, userTurnCount, latestContent);
     const afterPlan = assessCarsConversationSufficiency(memory);
-    const purpose = validatePurpose(memory, plan.questionPurpose);
-    if ((plan.nextAction === "EVALUATE" || afterPlan.readyToEvaluate) && afterPlan.readyToEvaluate && !rejectedRecommendations) {
+    const purpose = validatePurpose(memory, plan.nextQuestionPurpose);
+    if ((plan.conversationMove === "PROCEED_TO_EVALUATION" || afterPlan.readyToEvaluate) && afterPlan.readyToEvaluate && !rejectedRecommendations) {
       return respondWithEvidence(input, memory, plan.assistantMessage);
+    }
+    if (!modelPlanIsSafe(plan, memory)) {
+      const recovery = createCarsBoundedRecovery(memory, latestContent);
+      return { ...recovery.response, conversation: withProvenance(recovery.conversation, {
+        modelAttempted: true, selectedModel: plan.plannerModel, structuredPlan: true,
+        userFacingOrigin: "BOUNDED_FALLBACK", deterministicOverride: true,
+        fallbackReason: "MODEL_RESPONSE_VALIDATION_FAILED", latestMessageAcknowledged: true,
+      }) };
     }
     if (purpose && isSemanticLoop(memory, purpose)) {
       const recovery = createCarsBoundedRecovery({ ...memory, didConversationProgress: false }, latestContent);
@@ -281,12 +314,17 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
       };
     }
     const options = purpose ? optionSetFromPlan(plan, purpose, userTurnCount) ?? fallbackUsageOptions(purpose, userTurnCount) : undefined;
-    const conversation = applyAssistantMove(memory, {
+    const conversation = withProvenance(applyAssistantMove(memory, {
       phase: phaseForAction(plan, afterPlan.readyToEvaluate),
       purpose,
       prompt: plan.assistantMessage,
       options,
       progressEvent: plan.replyKind.toLowerCase(),
+    }), {
+      modelAttempted: true, selectedModel: plan.plannerModel, structuredPlan: true,
+      userFacingOrigin: "MODEL", deterministicOverride: false,
+      conversationMove: plan.conversationMove, nextQuestionPurpose: purpose,
+      latestMessageAcknowledged: true,
     });
     return {
       kind: "QUESTION",
@@ -328,7 +366,12 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
 
   const recovery = createCarsBoundedRecovery(memory, latestContent);
   if (sufficiency.readyToEvaluate) return respondWithEvidence(input, memory);
-  return recovery.response;
+  return { ...recovery.response, conversation: withProvenance(recovery.conversation, {
+    modelAttempted: true, selectedModel: "gpt-5.6", structuredPlan: false,
+    userFacingOrigin: "BOUNDED_FALLBACK", deterministicOverride: false,
+    fallbackReason: "MODEL_UNAVAILABLE_OR_SCHEMA_FAILURE", nextQuestionPurpose: recovery.conversation.lastAssistantQuestion?.purpose,
+    latestMessageAcknowledged: true,
+  }) };
 }
 
 export async function runCarsConversationTurn(

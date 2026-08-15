@@ -20,15 +20,16 @@ describe("planCarsConversationTurn", () => {
   it("uses Responses API structured output with a privacy-preserving store=false call", async () => {
     mocks.parse.mockResolvedValue({
       output_parsed: {
-        latestUserMeaning: "Kullanıcı ciddi arazi istiyor.",
+        latestMessageInterpretation: "Kullanıcı ciddi arazi istiyor.",
         replyKind: "NEW_FACTS",
         bindsToActiveQuestion: false,
         selectedOptionId: null,
-        facts: [],
-        readyToEvaluate: false,
-        readyToEvaluateReason: "Seats and cargo are missing.",
-        nextAction: "ASK",
-        questionPurpose: "USAGE_DETAIL",
+        newFacts: [], corrections: [], confirmedAnswers: [], rejectedAssumptions: [],
+        answeredQuestionPurpose: "NONE", stillOpenQuestionPurposes: [],
+        conversationMove: "ACKNOWLEDGE_AND_EXPLORE", nextQuestionPurpose: "USAGE_DETAIL",
+        whyThisQuestionNow: "Kullanımı anlamak için.",
+        decisionReadiness: { ready: false, reason: "Seats and cargo are missing." },
+        unsupportedButUnderstood: [],
         options: [{ id: "usage-camp", label: "Kamp ve stabilize yol", semanticValue: "CAMP" }],
         assistantMessage: "Arazi kullanımını netleştirelim: kamp yolu mı, ciddi arazi mi?",
       },
@@ -39,13 +40,13 @@ describe("planCarsConversationTurn", () => {
       messages: [{ id: "1", role: "user", content: "arazi aracı lazım" }],
       memory: emptyConversationTrace(),
       remainingUserTurns: 19,
-    })).resolves.toMatchObject({ nextAction: "ASK", questionPurpose: "USAGE_DETAIL" });
+    })).resolves.toMatchObject({ conversationMove: "ACKNOWLEDGE_AND_EXPLORE", nextQuestionPurpose: "USAGE_DETAIL", plannerModel: "gpt-5.6" });
 
     expect(mocks.parse).toHaveBeenCalledWith(expect.objectContaining({
       model: "gpt-5.6",
       store: false,
       reasoning: { effort: "low" },
-      prompt_cache_key: "expiya-cars-conversation-turn-v1",
+      prompt_cache_key: "expiya-cars-conversation-turn-v2",
     }), expect.objectContaining({ timeout: 20_000 }));
   });
 
@@ -54,15 +55,15 @@ describe("planCarsConversationTurn", () => {
       .mockResolvedValueOnce({ output_parsed: null, status: "incomplete", incomplete_details: { reason: "max_output_tokens" } })
       .mockResolvedValueOnce({
         output_parsed: {
-          latestUserMeaning: "Kullanıcı arazi arıyor.",
+          latestMessageInterpretation: "Kullanıcı arazi arıyor.",
           replyKind: "NEW_FACTS",
           bindsToActiveQuestion: false,
           selectedOptionId: null,
-          facts: [],
-          readyToEvaluate: false,
-          readyToEvaluateReason: "Seats missing.",
-          nextAction: "ASK",
-          questionPurpose: "USAGE_DETAIL",
+          newFacts: [], corrections: [], confirmedAnswers: [], rejectedAssumptions: [],
+          answeredQuestionPurpose: "NONE", stillOpenQuestionPurposes: [],
+          conversationMove: "ACKNOWLEDGE_AND_EXPLORE", nextQuestionPurpose: "USAGE_DETAIL",
+          whyThisQuestionNow: "Kullanımı anlamak için.",
+          decisionReadiness: { ready: false, reason: "Seats missing." }, unsupportedButUnderstood: [],
           options: [],
           assistantMessage: "Arazi kullanımını netleştirelim.",
         },

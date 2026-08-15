@@ -30,6 +30,7 @@ export function cannotRepeatQuestion(
   purpose: CarsQuestionPurpose,
 ): boolean {
   if (purpose === "FINAL_PRIORITY") return true;
+  if (trace.questionMemory?.some((entry) => entry.purpose === purpose && entry.status === "DEFERRED")) return false;
   const asked = trace.askedQuestionPurposes.includes(purpose);
   const answered = trace.answeredQuestionPurposes.includes(purpose);
   const corrected = trace.capturedOnLatestTurn.some((key) => (

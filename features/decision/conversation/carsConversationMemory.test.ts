@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { buildCarsRequirementLedger, matchOptionSelection } from "./carsConversationMemory";
+import { buildCarsRequirementLedger, closeDeferredQuestions, matchOptionSelection } from "./carsConversationMemory";
 import { evaluateCarsConversationQuality } from "./evaluateCarsConversationQuality";
 
 const usageOptions = {
@@ -63,6 +63,17 @@ describe("option and short-answer binding", () => {
 });
 
 describe("requirement ledger rebuild", () => {
+  it("keeps an unanswered question deferred and can close it as no longer material", () => {
+    const trace = buildCarsRequirementLedger([
+      { id: "1", role: "user", content: "ciddi arazi aracı lazım" },
+      { id: "2", role: "assistant", content: "Aracı günlük şehirde de kullanacak mısınız?" },
+      { id: "3", role: "user", content: "3 milyon bütçem var" },
+    ]);
+    expect(trace.questionMemory).toContainEqual(expect.objectContaining({ purpose: "DAILY_VS_OFFROAD", status: "DEFERRED" }));
+    expect(closeDeferredQuestions(trace, "evaluation ready").questionMemory).toContainEqual(expect.objectContaining({
+      purpose: "DAILY_VS_OFFROAD", status: "NO_LONGER_MATERIAL", transitionReason: "evaluation ready",
+    }));
+  });
   it("retains the complete reported conversation with evaluability and source turns", () => {
     const trace = buildCarsRequirementLedger([
       { id: "1", role: "user", content: "arazi aracı bakıyorum" },

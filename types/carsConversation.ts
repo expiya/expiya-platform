@@ -148,6 +148,29 @@ export interface CarsPendingQuestion {
   readonly noImplies?: { readonly key: CarsRequirementKey; readonly value: string | number };
 }
 
+export type CarsQuestionStatus = "OPEN" | "ANSWERED" | "DEFERRED" | "SUPERSEDED" | "NO_LONGER_MATERIAL";
+
+export interface CarsQuestionMemoryEntry {
+  readonly purpose: CarsQuestionPurpose;
+  readonly prompt: string;
+  readonly status: CarsQuestionStatus;
+  readonly sourceAssistantTurn: number;
+  readonly updatedOnUserTurn?: number;
+  readonly transitionReason?: string;
+}
+
+export interface CarsTurnProvenance {
+  readonly modelAttempted: boolean;
+  readonly selectedModel?: string;
+  readonly structuredPlan: boolean;
+  readonly userFacingOrigin: "MODEL" | "DETERMINISTIC_EVIDENCE" | "BOUNDED_FALLBACK" | "DETERMINISTIC_REPAIR";
+  readonly deterministicOverride: boolean;
+  readonly fallbackReason?: string;
+  readonly conversationMove?: string;
+  readonly nextQuestionPurpose?: CarsQuestionPurpose;
+  readonly latestMessageAcknowledged: boolean;
+}
+
 export interface CarsConversationTrace {
   readonly version: 1;
   readonly state: CarsConversationState;
@@ -155,6 +178,7 @@ export interface CarsConversationTrace {
   readonly requirements: readonly CarsRequirementLedgerEntry[];
   readonly askedQuestionPurposes: readonly CarsQuestionPurpose[];
   readonly answeredQuestionPurposes: readonly CarsQuestionPurpose[];
+  readonly questionMemory?: readonly CarsQuestionMemoryEntry[];
   readonly latestUserTurn: number;
   readonly capturedOnLatestTurn: readonly CarsRequirementKey[];
   readonly didConversationProgress: boolean;
@@ -166,6 +190,7 @@ export interface CarsConversationTrace {
   readonly lastProgressEvent?: string;
   readonly semanticFingerprint: string;
   readonly loopCount: number;
+  readonly turnProvenance?: CarsTurnProvenance;
 }
 
 export type CarsFinalDiscriminatorChoiceId = "MAX_SEATS" | "MAX_CARGO";

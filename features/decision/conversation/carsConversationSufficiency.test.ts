@@ -26,7 +26,7 @@ describe("dynamic sufficiency", () => {
     expect(assessment.nextPurpose).not.toBe("FINAL_PRIORITY");
   });
 
-  it("does not re-ask daily vs off-road after later budget facts", () => {
+  it("defers daily vs off-road when the user supplies a budget instead", () => {
     const trace = buildCarsRequirementLedger([
       { id: "1", role: "user", content: "arazi aracı lazım" },
       { id: "2", role: "assistant", content: "Hangisine daha yakınsınız: kamp ve stabilize yol, çamurlu/kötü yol, ciddi arazi mi?" },
@@ -35,8 +35,9 @@ describe("dynamic sufficiency", () => {
       { id: "5", role: "user", content: "3 milyon" },
     ]);
     expect(trace.askedQuestionPurposes).toContain("DAILY_VS_OFFROAD");
-    expect(cannotRepeatQuestion(trace, "DAILY_VS_OFFROAD")).toBe(true);
-    expect(assessCarsConversationSufficiency(trace).nextPurpose).toBe("MIN_SEATS");
+    expect(cannotRepeatQuestion(trace, "DAILY_VS_OFFROAD")).toBe(false);
+    expect(trace.questionMemory).toContainEqual(expect.objectContaining({ purpose: "DAILY_VS_OFFROAD", status: "DEFERRED" }));
+    expect(assessCarsConversationSufficiency(trace).nextPurpose).toBe("DAILY_VS_OFFROAD");
   });
 
   it("asks party confirmation rather than evaluating party size as seats", () => {

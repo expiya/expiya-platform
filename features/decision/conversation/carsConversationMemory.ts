@@ -3,6 +3,7 @@ import type {
   CarsConversationMessage,
   CarsConversationTrace,
   CarsOptionSelectionSource,
+  CarsQuestionMemoryEntry,
   CarsQuestionPurpose,
   CarsRequirementKey,
   CarsRequirementLedgerEntry,
@@ -96,19 +97,20 @@ export function hydrateCarsConversationMemory(input: {
   const entries = new Map<CarsRequirementKey, CarsRequirementLedgerEntry>();
   const asked = new Set<CarsQuestionPurpose>();
   const optionHistory: CarsActiveOptionSet[] = [];
+  const questionMemory: CarsQuestionMemoryEntry[] = [...(input.conversation?.questionMemory ?? [])];
   const rejected = new Set<string>(input.conversation?.rejectedRecommendationIds ?? []);
   const userMessages = input.messages.filter((message) => message.role === "user");
   const latestUserTurn = userMessages.length;
   const capturedOnLatestTurn: CarsRequirementKey[] = [];
-  let userTurn = 0;
-  let assistantTurn = 0;
+  const replayFromMessages = !input.conversation || input.conversation.requirements.length === 0;
+  let userTurn = replayFromMessages ? 0 : Math.max(0, latestUserTurn - 1);
+  let assistantTurn = replayFromMessages ? 0 : input.messages.filter((message) => message.role === "assistant").length;
   let pending = input.conversation?.lastAssistantQuestion;
   let activeOptionSet = input.conversation?.activeOptionSet && input.conversation.activeOptionSet.active
     ? { ...input.conversation.activeOptionSet }
     : undefined;
   let lastProgressEvent = input.conversation?.lastProgressEvent;
   const loopCount = input.conversation?.loopCount ?? 0;
-  const replayFromMessages = !input.conversation || input.conversation.requirements.length === 0;
 
   if (input.conversation) {
     for (const requirement of input.conversation.requirements) entries.set(requirement.key, requirement);
@@ -117,11 +119,15 @@ export function hydrateCarsConversationMemory(input: {
   }
 
   for (const message of input.messages) {
+    if (!replayFromMessages && message !== userMessages.at(-1)) continue;
     if (message.role === "assistant") {
       assistantTurn += 1;
       const purpose = message.optionSet?.purpose ?? carsQuestionPurpose(message.content);
       if (purpose) asked.add(purpose);
       pending = pendingQuestionFromAssistant(message.content) ?? (purpose ? { purpose, prompt: message.content } : pending);
+      if (purpose && !questionMemory.some((entry) => entry.sourceAssistantTurn === assistantTurn && entry.purpose === purpose)) {
+        questionMemory.push({ purpose, prompt: message.content, status: "OPEN", sourceAssistantTurn: assistantTurn });
+      }
       if (message.optionSet) {
         activeOptionSet = {
           ...message.optionSet,
@@ -132,8 +138,9 @@ export function hydrateCarsConversationMemory(input: {
       continue;
     }
     userTurn += 1;
-    if (!replayFromMessages && userTurn < latestUserTurn) continue;
     const capturedHere: CarsRequirementKey[] = [];
+    const pendingAtStart = pending;
+    let directlyAnsweredPending = false;
     const selection = matchOptionSelection(
       message.content,
       activeOptionSet,
@@ -149,7 +156,7 @@ export function hydrateCarsConversationMemory(input: {
       };
       optionHistory.push(activeOptionSet);
       lastProgressEvent = `option:${selection.optionId}:${selection.source}`;
-      pending = undefined;
+      directlyAnsweredPending = true;
     }
     const facts = [...extractDeterministicFacts(message.content)];
     if ((isAffirmative(message.content) || /^evet\b/iu.test(message.content.trim())) && pending?.yesImplies) {
@@ -162,9 +169,11 @@ export function hydrateCarsConversationMemory(input: {
         confirmedFromAssistantTurn: assistantTurn,
       })) capturedHere.push(implied.key);
       lastProgressEvent = `confirm:${implied.key}`;
+      directlyAnsweredPending = true;
     }
     if (isNegative(message.content) && pending?.yesImplies) {
       lastProgressEvent = `reject:${pending.yesImplies.key}`;
+      directlyAnsweredPending = true;
     }
     const correction = message.content.match(/^(?:hayır|aslında)[,.]?\s+(\d{1,2})\s*(?:koltuk\s+)?yeter/iu);
     if (correction && (pending?.purpose === "MIN_SEATS" || pending?.purpose === "PARTY_CONFIRMATION" || entries.has("MIN_SEATS") || entries.has("PARTY_SIZE"))) {
@@ -189,7 +198,23 @@ export function hydrateCarsConversationMemory(input: {
       lastProgressEvent = "recommendation-rejected";
     }
     if (userTurn === latestUserTurn) capturedOnLatestTurn.push(...capturedHere);
-    if (facts.length > 0 || capturedHere.length > 0) pending = undefined;
+    if (pendingAtStart) {
+      directlyAnsweredPending ||= purposeAnsweredByKeys(pendingAtStart.purpose, capturedHere);
+      const status = directlyAnsweredPending ? "ANSWERED" : capturedHere.length > 0 ? "DEFERRED" : "OPEN";
+      const index = [...questionMemory].reverse().findIndex((entry) => entry.purpose === pendingAtStart.purpose && entry.status === "OPEN");
+      const actualIndex = index < 0 ? -1 : questionMemory.length - 1 - index;
+      if (actualIndex >= 0) questionMemory[actualIndex] = {
+        ...questionMemory[actualIndex],
+        status,
+        updatedOnUserTurn: userTurn,
+        transitionReason: status === "ANSWERED"
+          ? "The user answered or confirmed this question."
+          : status === "DEFERRED"
+            ? "The user supplied a different useful fact; the question remains material for reconsideration."
+            : "The latest message did not resolve this question.",
+      };
+      if (status !== "OPEN") pending = undefined;
+    }
   }
 
   if (entries.has("MIN_SEATS")) {
@@ -216,6 +241,7 @@ export function hydrateCarsConversationMemory(input: {
     requirements,
     askedQuestionPurposes: [...asked],
     answeredQuestionPurposes: answered,
+    questionMemory,
     latestUserTurn,
     capturedOnLatestTurn: [...new Set(capturedOnLatestTurn)],
     didConversationProgress,
@@ -236,11 +262,37 @@ export function hydrateCarsConversationMemory(input: {
   };
 }
 
+function purposeAnsweredByKeys(purpose: CarsQuestionPurpose, keys: readonly CarsRequirementKey[]): boolean {
+  if (purpose === "DAILY_VS_OFFROAD") return keys.includes("USAGE_CITY");
+  if (purpose === "MIN_SEATS" || purpose === "PARTY_CONFIRMATION") return keys.includes("MIN_SEATS");
+  if (purpose === "MIN_CARGO") return keys.includes("MIN_CARGO_L");
+  if (purpose === "BUDGET_MAX") return keys.includes("BUDGET_MAX_TRY");
+  if (purpose === "EQUIPMENT_SCOPE") return keys.includes("EQUIPMENT_LEVEL");
+  if (purpose === "SIZE") return keys.includes("SIZE_PREFERENCE");
+  if (purpose === "BODY_TYPE") return keys.includes("BODY_TYPE");
+  if (purpose === "DRIVETRAIN") return keys.includes("DRIVETRAIN");
+  if (purpose === "USAGE_DETAIL") return keys.some((key) => ["USAGE_CAMP", "USAGE_SERIOUS_OFF_ROAD", "USAGE_STABILIZED_ROAD"].includes(key));
+  if (purpose === "PRIMARY_USAGE") return keys.some((key) => key.startsWith("USAGE_"));
+  return false;
+}
+
 export function buildCarsRequirementLedger(
   messages: readonly CarsConversationMessage[],
   conversation?: CarsConversationTrace,
 ): CarsConversationTrace {
   return hydrateCarsConversationMemory({ messages, conversation });
+}
+
+export function closeDeferredQuestions(
+  trace: CarsConversationTrace,
+  reason: string,
+): CarsConversationTrace {
+  return {
+    ...trace,
+    questionMemory: trace.questionMemory?.map((entry) => entry.status === "DEFERRED"
+      ? { ...entry, status: "NO_LONGER_MATERIAL" as const, transitionReason: reason }
+      : entry),
+  };
 }
 
 export function applyAssistantMove(
@@ -255,20 +307,35 @@ export function applyAssistantMove(
 ): CarsConversationTrace {
   const asked = new Set(trace.askedQuestionPurposes);
   if (input.purpose) asked.add(input.purpose);
+  const inferredPending = pendingQuestionFromAssistant(input.prompt);
   const pending = input.purpose
-    ? pendingQuestionFromAssistant(input.prompt) ?? {
+    ? {
       purpose: input.purpose,
       prompt: input.prompt,
-      yesImplies: input.purpose === "PARTY_CONFIRMATION"
-        ? latestNumericImplication(trace, input.prompt)
-        : undefined,
+      pendingValue: inferredPending?.purpose === input.purpose ? inferredPending.pendingValue : undefined,
+      yesImplies: inferredPending?.purpose === input.purpose
+        ? inferredPending.yesImplies
+        : input.purpose === "PARTY_CONFIRMATION" ? latestNumericImplication(trace, input.prompt) : undefined,
     }
     : undefined;
+  const questionMemory = [...(trace.questionMemory ?? [])];
+  if (input.purpose) {
+    questionMemory.push({
+      purpose: input.purpose,
+      prompt: input.prompt,
+      status: "OPEN",
+      sourceAssistantTurn: trace.latestUserTurn,
+      transitionReason: questionMemory.some((entry) => entry.purpose === input.purpose && entry.status === "DEFERRED")
+        ? "A deferred material question was resumed in the current context."
+        : "The assistant asked one focused question.",
+    });
+  }
   return {
     ...trace,
     phase: input.phase,
     state: conversationStateFromPhase(input.phase),
     askedQuestionPurposes: [...asked],
+    questionMemory,
     lastAssistantQuestion: pending,
     activeOptionSet: input.options,
     optionHistory: input.options ? [...trace.optionHistory, input.options] : trace.optionHistory,

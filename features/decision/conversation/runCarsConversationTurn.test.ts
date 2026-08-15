@@ -18,17 +18,18 @@ import { evaluateCarsConversationQuality } from "./evaluateCarsConversationQuali
 
 function plan(overrides: Record<string, unknown> = {}) {
   return {
-    latestUserMeaning: "anlam",
+    latestMessageInterpretation: "anlam",
     replyKind: "NEW_FACTS",
     bindsToActiveQuestion: false,
     selectedOptionId: null,
-    facts: [],
-    readyToEvaluate: false,
-    readyToEvaluateReason: "not yet",
-    nextAction: "ASK",
-    questionPurpose: "PRIMARY_USAGE",
+    newFacts: [], corrections: [], confirmedAnswers: [], rejectedAssumptions: [],
+    answeredQuestionPurpose: "NONE", stillOpenQuestionPurposes: [],
+    conversationMove: "ACKNOWLEDGE_AND_EXPLORE",
+    nextQuestionPurpose: "PRIMARY_USAGE", whyThisQuestionNow: "material",
+    decisionReadiness: { ready: false, reason: "not yet" }, unsupportedButUnderstood: [],
     options: [],
     assistantMessage: "Aracı gününüzde asıl hangi iş için kullanacaksınız?",
+    plannerModel: "gpt-5.6",
     ...overrides,
   };
 }
@@ -95,7 +96,7 @@ describe("runCarsConversationTurn", () => {
   });
 
   it("does not let the model skip to catalog ranking without evaluable evidence", async () => {
-    mocks.planCarsConversationTurn.mockResolvedValue(plan({ nextAction: "EVALUATE", readyToEvaluate: true }));
+    mocks.planCarsConversationTurn.mockResolvedValue(plan({ conversationMove: "PROCEED_TO_EVALUATION", decisionReadiness: { ready: true, reason: "model says ready" } }));
     const response = await runCarsConversationTurn({
       conversationId: "conversation-1",
       messages: [{
@@ -106,6 +107,37 @@ describe("runCarsConversationTurn", () => {
     });
     expect(response.kind).toBe("QUESTION");
     expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+  });
+
+  it("publishes a valid model realization without deterministic copy overriding it", async () => {
+    const modelMessage = "3 milyon TL sınırınız net. Ciddi arazi ana kullanım olacaksa araç hafta içinde şehirde de çalışacak mı?";
+    mocks.planCarsConversationTurn.mockResolvedValue(plan({
+      conversationMove: "REFLECT_TRADEOFF",
+      nextQuestionPurpose: "DAILY_VS_OFFROAD",
+      assistantMessage: modelMessage,
+    }));
+    const response = await runCarsConversationTurn({ conversationId: "model-natural", messages: [
+      { id: "1", role: "user", content: "ciddi arazi aracı lazım" },
+      { id: "2", role: "assistant", content: "Şehirde de kullanacak mısınız?" },
+      { id: "3", role: "user", content: "3 milyon bütçem var" },
+    ] });
+    expect(response.message).toBe(modelMessage);
+    expect(response.conversation?.turnProvenance).toMatchObject({
+      userFacingOrigin: "MODEL", selectedModel: "gpt-5.6", structuredPlan: true, deterministicOverride: false,
+    });
+  });
+
+  it("retains unsupported equipment preference without an immediate evidence disclaimer", async () => {
+    const response = await runCarsConversationTurn({ conversationId: "equipment-natural", messages: [
+      { id: "1", role: "user", content: "ciddi arazi aracı lazım" },
+      { id: "2", role: "assistant", content: "Şehirde de kullanacak mısınız?" },
+      { id: "3", role: "user", content: "donanımı yüksek olsun" },
+    ] });
+    expect(response.conversation?.requirements).toContainEqual(expect.objectContaining({
+      key: "EQUIPMENT_LEVEL", evaluability: "UNDERSTOOD_NOT_EVALUABLE",
+    }));
+    expect(response.message).toMatch(/donanım|sürüş destek|kabin konfor/iu);
+    expect(response.message).not.toMatch(/doğrulanmış|sayısal eşik|değerlendirmeye geçebilirim/iu);
   });
 
   it("evaluates a sufficient first message without extra lifestyle questions", async () => {
@@ -174,7 +206,7 @@ describe("runCarsConversationTurn", () => {
     const party = await runCarsConversationTurn({ conversationId: "party", messages: [
       { id: "1", role: "user", content: "5 kişiyiz, bagaj da önemli." },
     ] });
-    expect(party.message).toMatch(/5.*koltuk.*zorunlu/iu);
+    expect(party.message).toMatch(/5.*koltuğun.*kesin şart/iu);
     expect(party.kind).not.toBe("ERROR");
     if (party.kind === "ERROR") return;
     expect(party.decision?.requirements ?? []).toHaveLength(0);
@@ -208,7 +240,7 @@ describe("runCarsConversationTurn", () => {
       { id: "10", role: "assistant", content: "4 kişi olduğunuzu anladım. En az 4 koltuk sizin için zorunlu mu?" },
       { id: "11", role: "user", content: "evet" },
     ] });
-    expect(confirmed.message).toMatch(/4 koltuk şartınızı onayladım.*bagaj/iu);
+    expect(confirmed.message).toMatch(/4 kişilik kullanım.*bagajda.*ne taşı/iu);
     expect(confirmed.message).not.toMatch(/vazgeçilmez|günlük hayatınızdan/iu);
     expect(confirmed.conversation?.requirements).toEqual(expect.arrayContaining([
       expect.objectContaining({ key: "EQUIPMENT_LEVEL", value: "HIGH" }),
@@ -271,8 +303,8 @@ describe("runCarsConversationTurn", () => {
   it("does not repeat prior recommendations when the user rejects them", async () => {
     mocks.planCarsConversationTurn.mockResolvedValue(plan({
       replyKind: "RECOMMENDATION_REJECTION",
-      nextAction: "ASK",
-      questionPurpose: "REJECTION_DIAGNOSTIC",
+      conversationMove: "ACKNOWLEDGE_AND_CLARIFY",
+      nextQuestionPurpose: "REJECTION_DIAGNOSTIC",
       assistantMessage: "Bu araçlarda sizi asıl rahatsız eden nokta neydi?",
       options: [{ id: "price", label: "Fiyat", semanticValue: "PRICE" }],
     }));
@@ -317,7 +349,7 @@ describe("runCarsConversationTurn", () => {
       expect.objectContaining({ key: "EQUIPMENT_LEVEL", value: "HIGH" }),
       expect.objectContaining({ key: "MIN_SEATS", value: 4 }),
     ]));
-    expect(last?.message).toMatch(/4 koltuk/iu);
+    expect(last?.message).toMatch(/4 kişilik kullanım.*bagaj/iu);
   });
 
   it("walks the camping/pickup journey with frustration repair and no generic loop", async () => {

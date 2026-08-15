@@ -24,7 +24,7 @@ const USAGE_KEYS = new Set<CarsRequirementKey>([
 ]);
 
 export function carsQuestionPurpose(content: string): CarsQuestionPurpose | undefined {
-  if (/(?:en az\s+\d+\s+koltuk.*zorunlu mu|zorunlu mu\?)/iu.test(content) && /koltuk|kişi/iu.test(content)) {
+  if (/(?:en az\s+\d+\s+koltuk.*zorunlu mu|zorunlu mu\?|koltuğun.*kesin şart mı)/iu.test(content) && /koltuk|kişi/iu.test(content)) {
     return "PARTY_CONFIRMATION";
   }
   if (/(?:şehirde de mi kullanıl|günlük şehir|günlük.*arazi|arazi önceliği|asıl işi arazi)/iu.test(content)) {
