@@ -21,6 +21,10 @@ export const FOURTH_CATALOG_RELEASE_VERSION = "0.4.0";
 export const FOURTH_CATALOG_RELEASE_AS_OF = "2026-08-16T18:00:00.000Z";
 export const FOURTH_CATALOG_SOURCE_REVISION = "alfa-romeo-brand-batch-01:2026-08-16";
 export const FOURTH_CATALOG_SOURCE_PATH = "data/production/alfaRomeoBatch01.ts";
+export const FIFTH_CATALOG_RELEASE_VERSION = "0.5.0";
+export const FIFTH_CATALOG_RELEASE_AS_OF = "2026-08-16T21:00:00.000Z";
+export const FIFTH_CATALOG_SOURCE_REVISION = "alpine-brand-batch-01:2026-08-16";
+export const FIFTH_CATALOG_SOURCE_PATH = "data/production/alpineBatch01.ts";
 
 export const FIRST_RELEASE_VARIANT_IDS = Object.freeze([
   "1eb75421-a038-4679-977e-7cd4e4608863",
@@ -256,6 +260,34 @@ export function createFourthReleaseManifest(payload: ProductionCatalogReleasePay
   };
 }
 
+export function createFifthReleasePayload(records: readonly PublishedVehicleRecord[]): ProductionCatalogReleasePayload {
+  const ids = records.map(({ variant }) => variant.id);
+  if (records.length !== 58) throw new Error(`Expected 58 publishable records, received ${records.length}`);
+  if (new Set(ids).size !== ids.length) throw new Error("Duplicate catalog variant IDs are forbidden");
+  return { catalog_schema_version: CATALOG_SCHEMA_VERSION, market: "TR", effective_as_of: FIFTH_CATALOG_RELEASE_AS_OF, records: [...records].sort((left, right) => left.variant.id.localeCompare(right.variant.id, "en")) };
+}
+
+export function createFifthReleaseManifest(payload: ProductionCatalogReleasePayload): ProductionCatalogReleaseManifest {
+  return {
+    catalog_release_version: FIFTH_CATALOG_RELEASE_VERSION, catalog_schema_version: CATALOG_SCHEMA_VERSION,
+    catalog_payload_hash: catalogPayloadHash(serializeCanonical(payload)), market: "TR",
+    source_revision: FIFTH_CATALOG_SOURCE_REVISION, source_path: FIFTH_CATALOG_SOURCE_PATH,
+    effective_as_of: FIFTH_CATALOG_RELEASE_AS_OF, record_count: payload.records.length,
+    publishable_record_count: payload.records.length, included_variant_ids: payload.records.map(({ variant }) => variant.id).sort(),
+    generator_version: CATALOG_GENERATOR_VERSION, validator_version: CATALOG_VALIDATOR_VERSION, validator_status: "PASS",
+    approval: { state: "APPROVED", at: FIFTH_CATALOG_RELEASE_AS_OF, reference: "user-directed-alpine-brand-batch-01" },
+    staging: { state: "STAGED", at: FIFTH_CATALOG_RELEASE_AS_OF, actor_reference: "controlled-alpine-brand-batch-process", target: "INTERNAL_INTEGRATION_NON_PRODUCTION" },
+    previous_release: FOURTH_CATALOG_RELEASE_VERSION,
+    declared_limitations: [
+      "a110-gt-and-a110-s-withheld-last-units-no-current-public-exact-price",
+      "a290-gts-withheld-no-current-public-exact-configurator-price",
+      "a290-gt-performance-official-range-conflict-retained-current-configurator-361km-homologation-pdf-362km",
+      "manufacturer-reported-battery-capacity-not-interpreted-as-gross-or-usable",
+      "model-year-is-current-2026-catalog-observation-configurator-has-no-explicit-my-label",
+    ],
+  };
+}
+
 export function validateProductionCatalogRelease(
   payload: ProductionCatalogReleasePayload,
   manifest: ProductionCatalogReleaseManifest,
@@ -279,7 +311,8 @@ export function validateProductionCatalogRelease(
     ? CATALOG_SOURCE_PATH : manifest.catalog_release_version === SECOND_CATALOG_RELEASE_VERSION
       ? SECOND_CATALOG_SOURCE_PATH : manifest.catalog_release_version === THIRD_CATALOG_RELEASE_VERSION
         ? THIRD_CATALOG_SOURCE_PATH : manifest.catalog_release_version === FOURTH_CATALOG_RELEASE_VERSION
-          ? FOURTH_CATALOG_SOURCE_PATH : undefined;
+          ? FOURTH_CATALOG_SOURCE_PATH : manifest.catalog_release_version === FIFTH_CATALOG_RELEASE_VERSION
+            ? FIFTH_CATALOG_SOURCE_PATH : undefined;
   if (manifest.source_path !== expectedSourcePath) errors.push("SOURCE_AUTHORITY_INVALID");
   if (payload.effective_as_of !== manifest.effective_as_of) errors.push("EFFECTIVE_AS_OF_MISMATCH");
   if (manifest.catalog_release_version === FIRST_CATALOG_RELEASE_VERSION && payload.effective_as_of !== CATALOG_BOOTSTRAP_INSTANT) errors.push("BOOTSTRAP_INSTANT_MISMATCH");
@@ -292,6 +325,9 @@ export function validateProductionCatalogRelease(
   if (manifest.catalog_release_version === FOURTH_CATALOG_RELEASE_VERSION && (
     payload.effective_as_of !== FOURTH_CATALOG_RELEASE_AS_OF || manifest.previous_release !== THIRD_CATALOG_RELEASE_VERSION
   )) errors.push("FOURTH_RELEASE_LINEAGE_INVALID");
+  if (manifest.catalog_release_version === FIFTH_CATALOG_RELEASE_VERSION && (
+    payload.effective_as_of !== FIFTH_CATALOG_RELEASE_AS_OF || manifest.previous_release !== FOURTH_CATALOG_RELEASE_VERSION
+  )) errors.push("FIFTH_RELEASE_LINEAGE_INVALID");
   if (manifest.validator_status !== "PASS") errors.push("VALIDATOR_NOT_PASS");
   if (!manifest.approval || manifest.approval.state !== "APPROVED" || !manifest.approval.reference) errors.push("APPROVAL_EVIDENCE_MISSING");
   if (!manifest.staging || manifest.staging.state !== "STAGED" || !manifest.staging.actor_reference) errors.push("STAGING_EVIDENCE_MISSING");

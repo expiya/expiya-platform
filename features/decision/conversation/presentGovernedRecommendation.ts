@@ -1,4 +1,4 @@
-import catalogPayload from "@/data/production/catalog/releases/v0.4.0/catalog.json";
+import catalogPayload from "@/data/production/catalog/releases/v0.5.0/catalog.json";
 import { adaptPublishedCatalogToCars } from "@/features/vehicle-data/adaptPublishedCatalogToCars";
 import type { PublishedCatalog } from "@/features/vehicle-data/buildPublishedCatalog";
 import type { CarsConversationTrace, CarsPriceValidityStatus } from "@/types/carsConversation";

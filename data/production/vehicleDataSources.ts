@@ -40,6 +40,12 @@ export const vehicleDataSources: readonly DataSource[] = [
     reviewNotes: ["Use exact MY2026 Tofaş price-circular rows and Turkey model pages", "Extract public facts only; do not reproduce copyrighted imagery or prose", "Publisher CDN blocks direct PDF retrieval in some automated environments; record this limitation rather than bypassing it"],
   },
   {
+    id: "alpine-tr", name: "Alpine Türkiye / Renault Group", authority: "PRIMARY",
+    homepageUrl: "https://www.alpinecars.com.tr/", termsUrl: "https://www.alpinecars.com.tr/yasal-bilgiler.html",
+    usagePermission: "PUBLIC_FACTS_ONLY", reviewedAt: "2026-08-16T00:00:00.000Z",
+    reviewNotes: ["Use exact Turkey configurator prices and configuration pages", "Retain homologation-document conflicts instead of silently merging them", "Extract public facts only; do not reproduce copyrighted imagery or prose"],
+  },
+  {
     id: "euro-ncap", name: "Euro NCAP", authority: "OFFICIAL",
     homepageUrl: "https://www.euroncap.com/", termsUrl: "https://www.euroncap.com/terms-conditions/",
     usagePermission: "PERMISSION_REQUIRED", reviewedAt: "2026-08-13T00:00:00.000Z",
