@@ -25,12 +25,12 @@ describe("Vehicle Evidence governed runtime shadow verification", () => {
       mode: "NON_AUTHORITATIVE_SHADOW",
       requirement: { category: "seats", relation: "AT_LEAST", operand: 7 },
       artifactIdentity: {
-        artifactVersion: "0.3.0",
-        artifactHash: "745b55fa1053ddc4d1bd67babb29f5574dda1f10ac34a8d8d8601419bd00885b",
+        artifactVersion: "0.4.0",
+        artifactHash: "1a6ad63598db04076fc3c871dff31acd1da3f3301edff5cf0c3230b8df495bad",
         catalogReleaseVersion: "0.2.0",
         catalogPayloadHash: "393b548307e9e117415a4c54bf0d3d8c3f734f33518ed5bd5cd37be5158c18ba",
-        mappingVersion: "0.2.1",
-        mappingHash: "3833bdc222152b47a759034e04856cc8b963e4911715c14de295401cf0a7b982",
+        mappingVersion: "0.3.0",
+        mappingHash: "468d1728c4aabd94c6faa7a202b2e7ac4ae4c7bda0198f5b74788c8121f5c0ed",
       },
       scenarios: [
         {

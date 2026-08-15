@@ -158,7 +158,7 @@ describe("advisor retest repair — recovery and forward progress", () => {
     expect(progress.semanticRepetitionDetected).toBe(true);
   });
 
-  it("blocks named Clio alternatives by catalog coverage", () => {
+  it("asks for material context before naming a Clio alternative", () => {
     expect(assessDirectRecommendationCoverage({
       namedModel: "clio",
       wantsNamedAlternatives: true,

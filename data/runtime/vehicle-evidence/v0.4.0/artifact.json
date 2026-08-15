@@ -1,0 +1,436 @@
+{
+  "artifactVersion": "0.4.0",
+  "datasetVersion": "0.5.0",
+  "datasetReleaseHash": "435c8a7fbe4f67c8c43665afc314803607e8deb1d7a968fc92506239a06ba7f1",
+  "schemaVersion": "0.1",
+  "mappingVersion": "0.3.0",
+  "mappingHash": "468d1728c4aabd94c6faa7a202b2e7ac4ae4c7bda0198f5b74788c8121f5c0ed",
+  "dictionaryRevision": "vehicle-evidence-0.4.1:data_dictionary.csv+compact-family-closure:1",
+  "dictionaryHash": "7aa8579ccd0a118c0bf98075f62ac7e62ee8297f44422125f40be956db676a95",
+  "productionCatalogRevision": "staged-catalog-expansion-batch-01:2026-08-14",
+  "generatedAt": "2026-08-15T12:00:00.000Z",
+  "generatorVersion": "vehicle-evidence-runtime-artifact:v5",
+  "validationStatus": "PASS",
+  "evidenceValidator": {
+    "version": "compact-family-closure:1",
+    "status": "PASS"
+  },
+  "mappingValidator": {
+    "version": "vehicle-candidate-identity-map:v5",
+    "status": "PASS"
+  },
+  "policy": {
+    "id": "cars.requirement-to-evidence",
+    "version": "0.1.0",
+    "migratedCategories": [
+      "seats",
+      "cargo_volume_l"
+    ]
+  },
+  "candidates": [
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0001",
+      "vehicleVariantId": "a3728e65-51b2-447f-a6c3-a1f64db8a310",
+      "configurationId": "CFG-000037",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000050",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "factId": "FAC-000178",
+          "assertionIds": [
+            "AST-000332"
+          ],
+          "sourceIds": [
+            "SRC-000050"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "unit": "count",
+          "measurementContext": "Turkey trim-specific seating",
+          "limitations": [],
+          "value": 7
+        },
+        "cargo_volume_l": {
+          "status": "AVAILABLE",
+          "factId": "FAC-000182",
+          "assertionIds": [
+            "AST-000336"
+          ],
+          "sourceIds": [
+            "SRC-000050"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "unit": "L",
+          "measurementContext": "all rows upright",
+          "limitations": [],
+          "value": 338
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0002",
+      "vehicleVariantId": "62465336-2cfb-4ccd-b9a7-36467d63497f",
+      "configurationId": "CFG-000055",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000065",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "factId": "FAC-000251",
+          "assertionIds": [
+            "AST-000447"
+          ],
+          "sourceIds": [
+            "SRC-000065"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "unit": "count",
+          "measurementContext": "official configurator",
+          "limitations": [],
+          "value": 5
+        },
+        "cargo_volume_l": {
+          "status": "AVAILABLE",
+          "factId": "FAC-000299",
+          "assertionIds": [
+            "AST-000495"
+          ],
+          "sourceIds": [
+            "SRC-000079"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "unit": "L",
+          "measurementContext": "rear seats upright; sliding bench rearward-to-forward endpoints; VDA ISO 3832",
+          "limitations": [],
+          "valueMin": 484,
+          "valueMax": 616,
+          "rangeSemantics": "MIN_MAX"
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0003",
+      "vehicleVariantId": "e3248126-f374-44ff-9dbe-5378ab308a02",
+      "configurationId": "CFG-000058",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-000068",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "factId": "FAC-000257",
+          "assertionIds": [
+            "AST-000453"
+          ],
+          "sourceIds": [
+            "SRC-000068"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "unit": "count",
+          "measurementContext": "official specs",
+          "limitations": [],
+          "value": 5
+        },
+        "cargo_volume_l": {
+          "status": "AVAILABLE",
+          "factId": "FAC-000258",
+          "assertionIds": [
+            "AST-000454"
+          ],
+          "sourceIds": [
+            "SRC-000068"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "unit": "L",
+          "measurementContext": "rear seats upright",
+          "limitations": [],
+          "value": 397
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0006",
+      "vehicleVariantId": "1eb75421-a038-4679-977e-7cd4e4608863",
+      "configurationId": "CFG-000001",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_TR_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-CF-0001",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "factId": "FAC-CF-0001",
+          "assertionIds": [
+            "AST-FAC-CF-0001"
+          ],
+          "sourceIds": [
+            "SRC-CF-0001"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "value": 5,
+          "unit": "count",
+          "limitations": []
+        },
+        "cargo_volume_l": {
+          "status": "AVAILABLE",
+          "factId": "FAC-CF-0002",
+          "assertionIds": [
+            "AST-FAC-CF-0002"
+          ],
+          "sourceIds": [
+            "SRC-CF-0001"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "value": 391,
+          "unit": "L",
+          "measurementContext": "rear seats upright; petrol TCe configuration",
+          "limitations": []
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0004",
+      "vehicleVariantId": "01a559dd-917f-4f49-a4cf-84fe78e9de40",
+      "configurationId": "CFG-000054",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_TR_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-CF-0002",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "factId": "FAC-CF-0003",
+          "assertionIds": [
+            "AST-FAC-CF-0003"
+          ],
+          "sourceIds": [
+            "SRC-CF-0002"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "value": 5,
+          "unit": "count",
+          "limitations": []
+        },
+        "cargo_volume_l": {
+          "status": "AVAILABLE",
+          "factId": "FAC-CF-0004",
+          "assertionIds": [
+            "AST-FAC-CF-0004"
+          ],
+          "sourceIds": [
+            "SRC-CF-0002"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "value": 309,
+          "unit": "L",
+          "measurementContext": "rear seats upright; current Corsa Hybrid",
+          "limitations": []
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0007",
+      "vehicleVariantId": "c8d535d0-6c04-4dcb-8cf6-2bad5bd037e8",
+      "configurationId": "CFG-000069",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_TR_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-CF-0003",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "factId": "FAC-CF-0005",
+          "assertionIds": [
+            "AST-FAC-CF-0005"
+          ],
+          "sourceIds": [
+            "SRC-CF-0003"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "value": 5,
+          "unit": "count",
+          "limitations": []
+        },
+        "cargo_volume_l": {
+          "status": "AVAILABLE",
+          "factId": "FAC-CF-0006",
+          "assertionIds": [
+            "AST-FAC-CF-0006"
+          ],
+          "sourceIds": [
+            "SRC-CF-0003"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "value": 286,
+          "unit": "L",
+          "measurementContext": "rear seats upright",
+          "limitations": []
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0008",
+      "vehicleVariantId": "f81b0873-f3a7-454a-9f34-4d5ad273708d",
+      "configurationId": "CFG-000070",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_TR_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-CF-0004",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "factId": "FAC-CF-0007",
+          "assertionIds": [
+            "AST-FAC-CF-0007"
+          ],
+          "sourceIds": [
+            "SRC-CF-0004"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "value": 5,
+          "unit": "count",
+          "limitations": []
+        },
+        "cargo_volume_l": {
+          "status": "AVAILABLE",
+          "factId": "FAC-CF-0008",
+          "assertionIds": [
+            "AST-FAC-CF-0008"
+          ],
+          "sourceIds": [
+            "SRC-CF-0004"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "value": 503,
+          "unit": "L",
+          "measurementContext": "rear seats upright",
+          "limitations": []
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0009",
+      "vehicleVariantId": "5d3538b1-c726-44f5-8160-41a64d33eb8e",
+      "configurationId": "CFG-000071",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_TR_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-CF-0005",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "factId": "FAC-CF-0009",
+          "assertionIds": [
+            "AST-FAC-CF-0009"
+          ],
+          "sourceIds": [
+            "SRC-CF-0005"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "value": 5,
+          "unit": "count",
+          "limitations": []
+        },
+        "cargo_volume_l": {
+          "status": "AVAILABLE",
+          "factId": "FAC-CF-0010",
+          "assertionIds": [
+            "AST-FAC-CF-0010"
+          ],
+          "sourceIds": [
+            "SRC-CF-0005"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "value": 620,
+          "unit": "L",
+          "measurementContext": "rear seats upright; petrol 4x2",
+          "limitations": []
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0005",
+      "vehicleVariantId": "06d935f4-6d33-4bc7-9e89-375b8db885df",
+      "configurationId": "CFG-000063",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "mappingBasis": "EXACT_REVIEWED_CROSSWALK",
+      "reasonCode": "EXACT_TR_MARKET_MODEL_YEAR_TRIM_POWERTRAIN",
+      "reviewReference": "SRC-CF-0006",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "factId": "FAC-CF-0011",
+          "assertionIds": [
+            "AST-FAC-CF-0011"
+          ],
+          "sourceIds": [
+            "SRC-CF-0006"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "value": 5,
+          "unit": "count",
+          "limitations": []
+        },
+        "cargo_volume_l": {
+          "status": "AVAILABLE",
+          "factId": "FAC-CF-0012",
+          "assertionIds": [
+            "AST-FAC-CF-0012"
+          ],
+          "sourceIds": [
+            "SRC-CF-0006"
+          ],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "value": 480,
+          "unit": "L",
+          "measurementContext": "rear seats upright",
+          "limitations": []
+        }
+      }
+    }
+  ],
+  "catalogReleaseVersion": "0.2.0",
+  "catalogPayloadHash": "393b548307e9e117415a4c54bf0d3d8c3f734f33518ed5bd5cd37be5158c18ba",
+  "catalogSchemaVersion": "0.1"
+}

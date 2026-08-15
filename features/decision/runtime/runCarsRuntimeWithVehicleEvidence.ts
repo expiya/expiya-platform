@@ -6,15 +6,15 @@ import type { VehicleEvidenceReadPort } from "@/types/runtimeVehicleEvidence";
 import { buildCarsRuntimeEvidenceDependencies } from "./buildCarsRuntimeEvidenceDependencies";
 
 const ACTIVE_AUTHORITY = Object.freeze({
-  artifactVersion: "0.3.0",
-  artifactHash: "745b55fa1053ddc4d1bd67babb29f5574dda1f10ac34a8d8d8601419bd00885b",
+  artifactVersion: "0.4.0",
+  artifactHash: "1a6ad63598db04076fc3c871dff31acd1da3f3301edff5cf0c3230b8df495bad",
   catalogReleaseVersion: "0.2.0",
   catalogPayloadHash: "393b548307e9e117415a4c54bf0d3d8c3f734f33518ed5bd5cd37be5158c18ba",
-  datasetVersion: "0.4.1",
-  datasetReleaseHash: "910507ec41cbb82a16a7b5ab31e37e0275c8d868a0c0baeb8275f0d29d18a7de",
-  mappingVersion: "0.2.1",
-  mappingHash: "3833bdc222152b47a759034e04856cc8b963e4911715c14de295401cf0a7b982",
-  dictionaryRevision: "vehicle-evidence-0.4.1:data_dictionary.csv",
+  datasetVersion: "0.5.0",
+  datasetReleaseHash: "435c8a7fbe4f67c8c43665afc314803607e8deb1d7a968fc92506239a06ba7f1",
+  mappingVersion: "0.3.0",
+  mappingHash: "468d1728c4aabd94c6faa7a202b2e7ac4ae4c7bda0198f5b74788c8121f5c0ed",
+  dictionaryRevision: "vehicle-evidence-0.4.1:data_dictionary.csv+compact-family-closure:1",
   dictionaryHash: "7aa8579ccd0a118c0bf98075f62ac7e62ee8297f44422125f40be956db676a95",
 });
 

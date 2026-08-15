@@ -187,7 +187,7 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
     ], { conversation: selectedPayload.conversation }, "10.30.0.6");
     expect(await accepted.json()).toMatchObject({
       kind: "RECOMMENDATIONS",
-      decision: { conversationState: "DECISION_READY", selectedRuntimeVehicleCandidateId: "RVC-PILOT-0002" },
+      decision: { conversationState: "DECISION_READY", selectedRuntimeVehicleCandidateId: "RVC-PILOT-0009" },
     });
   });
 

@@ -15,9 +15,9 @@ describe("generatedVehicleEvidenceReadPort", () => {
     expect(generatedVehicleEvidenceReadPort.resolveCatalogVariantId("not-mapped")).toBeUndefined();
   });
 
-  it("preserves mapped identity when seats evidence is unknown", () => {
+  it("publishes newly verified Corsa seats evidence", () => {
     expect(generatedVehicleEvidenceReadPort.readFact("RVC-PILOT-0004" as RuntimeVehicleCandidateId, "seats"))
-      .toMatchObject({ status: "MISSING", configurationId: "CFG-000054", limitations: ["SEATS_EVIDENCE_UNKNOWN_IN_VEHICLE_EVIDENCE_V0.4.1"] });
+      .toMatchObject({ status: "AVAILABLE", configurationId: "CFG-000054", value: 5 });
   });
 
   it("returns configuration-scoped verified seats with pinned lineage", () => {
@@ -30,7 +30,7 @@ describe("generatedVehicleEvidenceReadPort", () => {
       factId: "FAC-000251", evidenceState: "VERIFIED", applicability: "EXACT",
       assertionIds: ["AST-000447"], sourceIds: ["SRC-000065"],
       unit: "count", measurementContext: "official configurator", limitations: [],
-      artifactVersion: "0.3.0",
+      artifactVersion: "0.4.0",
     });
   });
 
@@ -41,13 +41,13 @@ describe("generatedVehicleEvidenceReadPort", () => {
     )).toMatchObject({ status: "UNRESOLVED" });
   });
 
-  it("preserves scalar, range, and missing cargo evidence", () => {
+  it("preserves scalar and range cargo evidence and closes Corsa cargo", () => {
     expect(generatedVehicleEvidenceReadPort.readFact("RVC-PILOT-0003" as RuntimeVehicleCandidateId, "cargo_volume_l"))
       .toMatchObject({ status: "AVAILABLE", value: 397, unit: "L", factId: "FAC-000258" });
     expect(generatedVehicleEvidenceReadPort.readFact("RVC-PILOT-0002" as RuntimeVehicleCandidateId, "cargo_volume_l"))
       .toMatchObject({ status: "AVAILABLE", valueMin: 484, valueMax: 616, rangeSemantics: "MIN_MAX", unit: "L", factId: "FAC-000299" });
     expect(generatedVehicleEvidenceReadPort.readFact("RVC-PILOT-0004" as RuntimeVehicleCandidateId, "cargo_volume_l"))
-      .toMatchObject({ status: "MISSING", configurationId: "CFG-000054" });
+      .toMatchObject({ status: "AVAILABLE", configurationId: "CFG-000054", value: 309 });
   });
 
   it("adapts Type B catalog IDs by exact mapping and rejects partial coverage", () => {

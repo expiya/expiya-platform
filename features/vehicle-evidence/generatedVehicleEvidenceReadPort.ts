@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-import artifactPayload from "@/data/runtime/vehicle-evidence/v0.3.0/artifact.json";
-import artifactManifest from "@/data/runtime/vehicle-evidence/v0.3.0/manifest.json";
+import artifactPayload from "@/data/runtime/vehicle-evidence/v0.4.0/artifact.json";
+import artifactManifest from "@/data/runtime/vehicle-evidence/v0.4.0/manifest.json";
 import type {
   RuntimeVehicleCandidateId,
   VehicleEvidenceFactKey,
@@ -55,14 +55,14 @@ const artifactSchema = z.strictObject({
       seats: z.union([scalarFactSchema, missingFactSchema]),
       cargo_volume_l: z.union([factSchema, missingFactSchema]),
     }),
-  })).length(5),
+  })).min(8),
 });
 
 const artifact = artifactSchema.parse(artifactPayload);
 const runtimeIds = new Set(artifact.candidates.map((item) => item.runtimeVehicleCandidateId));
 const variantIds = new Set(artifact.candidates.map((item) => item.vehicleVariantId));
 const configurationIds = new Set(artifact.candidates.map((item) => item.configurationId));
-if (runtimeIds.size !== 5 || variantIds.size !== 5 || configurationIds.size !== 5) {
+if (runtimeIds.size !== artifact.candidates.length || variantIds.size !== artifact.candidates.length || configurationIds.size !== artifact.candidates.length) {
   throw new Error("VEHICLE_EVIDENCE_ARTIFACT_IDENTITY_NOT_ONE_TO_ONE");
 }
 

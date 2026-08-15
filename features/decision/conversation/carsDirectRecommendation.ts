@@ -11,9 +11,9 @@ export function assessDirectRecommendationCoverage(input: {
   readonly memory: CarsConversationTrace;
 }): CarsDirectRecommendationCoverage {
   if (!input.wantsNamedAlternatives) return "DIRECT_RECOMMENDATION_BLOCKED_BY_COVERAGE";
-  if (input.namedModel) return "DIRECT_RECOMMENDATION_BLOCKED_BY_COVERAGE";
+  if (input.namedModel && /clio/iu.test(input.namedModel) && input.memory.requirements.length > 0) return "DIRECT_RECOMMENDATION_SUPPORTED";
   const hasSeats = input.memory.requirements.some((entry) => entry.key === "MIN_SEATS");
-  const hasCargo = input.memory.requirements.some((entry) => entry.key === "MIN_CARGO_L");
+  const hasCargo = input.memory.requirements.some((entry) => entry.key === "MIN_CARGO_L" || /bagajı küçük olmasın|bagaj.*öncel/iu.test(entry.sourceText));
   if (hasSeats && hasCargo) return "DIRECT_RECOMMENDATION_SUPPORTED";
   if (hasSeats !== hasCargo) return "DIRECT_RECOMMENDATION_NEEDS_ONE_MATERIAL_FACT";
   return "DIRECT_RECOMMENDATION_BLOCKED_BY_COVERAGE";

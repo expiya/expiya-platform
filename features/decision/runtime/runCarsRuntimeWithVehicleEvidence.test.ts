@@ -44,10 +44,10 @@ describe("controlled seats activation", () => {
   });
 
   it.each([[CORSA, "RVC-PILOT-0004", "CFG-000054"], [BMW_320I, "RVC-PILOT-0005", "CFG-000063"]])(
-    "keeps exact identity %s active while UNKNOWN seats is not evaluable",
+    "evaluates newly closed seats evidence for exact identity %s",
     (variantId, runtimeId, configurationId) => {
       expect(runCarsRuntimeWithVehicleEvidence({ catalogVehicleVariantId: variantId, minimumSeats: 5, vehicleEvidenceReadPort: generatedVehicleEvidenceReadPort }))
-        .toMatchObject({ runtimeVehicleCandidateId: runtimeId, configurationId, evidenceSufficiency: "INSUFFICIENT", requirementResult: "NOT_EVALUABLE", telemetry: ["VEHICLE_EVIDENCE_UNAVAILABLE"] });
+        .toMatchObject({ runtimeVehicleCandidateId: runtimeId, configurationId, evidenceSufficiency: "SUFFICIENT", requirementResult: "SATISFIED", telemetry: ["VEHICLE_EVIDENCE_USED", "VEHICLE_EVIDENCE_REQUIREMENT_SATISFIED"] });
     },
   );
 
@@ -136,11 +136,11 @@ describe("controlled seats activation", () => {
       configurationId: "CFG-000037", factId: "FAC-000178", assertionIds: ["AST-000332"],
       sourceIds: ["SRC-000050"], evidenceState: "VERIFIED", applicability: "EXACT",
       artifactIdentity: {
-        artifactVersion: "0.3.0", artifactHash: "745b55fa1053ddc4d1bd67babb29f5574dda1f10ac34a8d8d8601419bd00885b",
+        artifactVersion: "0.4.0", artifactHash: "1a6ad63598db04076fc3c871dff31acd1da3f3301edff5cf0c3230b8df495bad",
         catalogReleaseVersion: "0.2.0", catalogPayloadHash: "393b548307e9e117415a4c54bf0d3d8c3f734f33518ed5bd5cd37be5158c18ba",
-        datasetVersion: "0.4.1", datasetReleaseHash: "910507ec41cbb82a16a7b5ab31e37e0275c8d868a0c0baeb8275f0d29d18a7de",
-        mappingVersion: "0.2.1", mappingHash: "3833bdc222152b47a759034e04856cc8b963e4911715c14de295401cf0a7b982",
-        dictionaryRevision: "vehicle-evidence-0.4.1:data_dictionary.csv", dictionaryHash: "7aa8579ccd0a118c0bf98075f62ac7e62ee8297f44422125f40be956db676a95",
+        datasetVersion: "0.5.0", datasetReleaseHash: "435c8a7fbe4f67c8c43665afc314803607e8deb1d7a968fc92506239a06ba7f1",
+        mappingVersion: "0.3.0", mappingHash: "468d1728c4aabd94c6faa7a202b2e7ac4ae4c7bda0198f5b74788c8121f5c0ed",
+        dictionaryRevision: "vehicle-evidence-0.4.1:data_dictionary.csv+compact-family-closure:1", dictionaryHash: "7aa8579ccd0a118c0bf98075f62ac7e62ee8297f44422125f40be956db676a95",
       },
       predicate: { relation: "ORDERED_NUMERIC_COMPARISON", direction: "AT_LEAST", operand: 7 },
       requirementResult: "SATISFIED",

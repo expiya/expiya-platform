@@ -180,7 +180,7 @@ describe("buildCarsRuntimeEvidenceDependencies", () => {
         optionIds: ["RVC-PILOT-0001"],
         assertions: [{
           category: "seats", assertion: 7, provenance: "AUTHORITATIVE_SOURCE",
-              source: { sourceId: "SRC-000050", reference: "0.3.0#AST-000332" },
+              source: { sourceId: "SRC-000050", reference: "0.4.0#AST-000332" },
         }],
       } } },
       domainAssessment: { outcome: "SUFFICIENT", evaluableOptionIds: ["RVC-PILOT-0001"] },

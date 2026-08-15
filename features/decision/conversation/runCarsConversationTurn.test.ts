@@ -427,7 +427,7 @@ describe("runCarsConversationTurn", () => {
     });
     expect(accepted.kind).toBe("RECOMMENDATIONS");
     if (accepted.kind !== "RECOMMENDATIONS") return;
-    expect(accepted.decision?.selectedRuntimeVehicleCandidateId).toBe("RVC-PILOT-0002");
+    expect(accepted.decision?.selectedRuntimeVehicleCandidateId).toBe("RVC-PILOT-0009");
   });
 
   it("keeps party size non-atomic", async () => {

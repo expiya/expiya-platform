@@ -1143,7 +1143,8 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
       memory,
     });
     if (coverage === "DIRECT_RECOMMENDATION_SUPPORTED" && !memory.shownCandidate) {
-      return respondWithEvidence(input, { ...memory, phase: "EVALUATING" });
+      const cargoPreferred = memory.requirements.some((entry) => /bagajı küçük olmasın|bagaj.*öncel/iu.test(entry.sourceText));
+      return respondWithEvidence(cargoPreferred ? { ...input, choiceId: "MAX_CARGO" } : input, { ...memory, phase: "EVALUATING" });
     }
     const stated = alreadyStatedCoverageLimitation(input.messages);
     const softPreferenceBoundary = unsupportedSoftPreferenceBoundaryMessage(memory);
