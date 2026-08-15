@@ -45,6 +45,12 @@ export const vehicleDataSources: readonly DataSource[] = [
     reviewNotes: ["Use Turkey technical brochures and exact dated price-list rows", "Retain battery-capacity wording without inferring usable or gross semantics", "Extract public facts only; do not reproduce copyrighted imagery or brochure prose"],
   },
   {
+    id: "chery-tr", name: "Chery Türkiye", authority: "PRIMARY",
+    homepageUrl: "https://www.cherytr.com/", termsUrl: "https://www.cherytr.com/kullanim-kosullari/",
+    usagePermission: "PUBLIC_FACTS_ONLY", reviewedAt: "2026-08-17T02:00:00.000Z",
+    reviewNotes: ["Use the current Turkey model pages and dated price list", "Do not carry discontinued OMODA or PRO MAX configurations into the current catalog without fresh sales evidence", "Extract public facts only; no broad automated crawl or copyrighted asset reuse"],
+  },
+  {
     id: "alfa-romeo-tr", name: "Alfa Romeo Türkiye / Tofaş", authority: "PRIMARY",
     homepageUrl: "https://www.alfaromeo.com.tr/", termsUrl: "https://www.alfaromeo.com.tr/kullanim-kosullari",
     usagePermission: "PUBLIC_FACTS_ONLY", reviewedAt: "2026-08-16T00:00:00.000Z",
