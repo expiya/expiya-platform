@@ -3,6 +3,7 @@ import type { CarsConversationTrace } from "@/types/carsConversation";
 import type { CarsConversationTurnPlan } from "./carsConversationPlanSchema";
 import type { CarsLatestAct } from "./carsSocialIntent";
 import { isDiscoveryQuestion, isPureGreetingText } from "./carsSocialIntent";
+import { isVagueContinuityPhrase } from "./carsForwardProgress";
 import { messageRevealsCandidateIdentity } from "./publicCarsDecision";
 import { offerIsActive } from "./carsAdvisorState";
 
@@ -17,7 +18,13 @@ export type CarsPlanValidationFailure =
   | "EXPOSED_INTERNAL_TERMINOLOGY"
   | "UNSUPPORTED_HARD_REQUIREMENT_CLAIMED"
   | "REJECTED_CANDIDATE_SUBSTITUTION"
-  | "SOCIAL_FORCED_REDIRECT";
+  | "SOCIAL_FORCED_REDIRECT"
+  | "CAPABILITY_THEN_GREETING"
+  | "CAPABILITY_THEN_DISCOVERY"
+  | "CAPABILITY_UNSUPPORTED_PROMISE"
+  | "VAGUE_CONTINUITY"
+  | "SEMANTIC_REPETITION"
+  | "BUDGET_CLAIMED_AS_EVALUATED";
 
 const INTERNAL_TERMS = /(?:koltuk veya bagaj için sayısal eşik|mevcut doğrulanmış (?:karar )?(?:veri|kapsam)|supported decision dimension|minimum hacmi litre|litre olarak belirt|evidence|runtime vehicle|artifact version|RVC-PILOT)/iu;
 const STATUS_LANGUAGE = /(?:kaydettim|not ettim)/iu;
@@ -48,6 +55,20 @@ export function validateCarsConversationPlan(input: {
   }
   if (input.latestAct.isPureSocial && !input.latestAct.hasVehicleIntent && isDiscoveryQuestion(message)) {
     return "SOCIAL_FORCED_REDIRECT";
+  }
+  if (input.latestAct.isCapabilityQuestion) {
+    if (/merhaba|hoş geldiniz/iu.test(message)) return "CAPABILITY_THEN_GREETING";
+    if (isDiscoveryQuestion(message) && !input.latestAct.secondaryActs.includes("VEHICLE_INTENT")) {
+      return "CAPABILITY_THEN_DISCOVERY";
+    }
+    if (/ilan.{0,40}(?:risk|yorum|değerlendir)|mevcut ilan|şu anki ilan|ilanları (?:değerlendir|yorumla|incele)/iu.test(message)) {
+      return "CAPABILITY_UNSUPPORTED_PROMISE";
+    }
+  }
+  if (isVagueContinuityPhrase(message)) return "VAGUE_CONTINUITY";
+  if (/tüm (?:şart|ihtiyac)|bütçenizi karşıl|bütçe.*karşılıyor/iu.test(message)
+    && input.memory.requirements.some((entry) => entry.key === "BUDGET_MAX_TRY" && entry.evaluability === "UNDERSTOOD_NOT_EVALUABLE")) {
+    return "BUDGET_CLAIMED_AS_EVALUATED";
   }
   if (INTERNAL_TERMS.test(message) || STATUS_LANGUAGE.test(message)) return "EXPOSED_INTERNAL_TERMINOLOGY";
   if (INVENTED_FACTS.test(message)) return "INVENTED_CANDIDATE_FACTS";

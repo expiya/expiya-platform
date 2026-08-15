@@ -34,6 +34,7 @@ import { cannotRepeatQuestion, isSemanticLoop } from "./carsSemanticLoopGuard";
 import {
   createCarsBoundedRecovery,
   discoveryUsageOptions,
+  FALLBACK_CAPABILITY,
   FALLBACK_OFFER,
 } from "./createCarsBoundedRecovery";
 import { createCarsFollowUp } from "./createCarsFollowUp";
@@ -54,12 +55,28 @@ import {
 } from "./planCarsConversationTurn";
 import {
   presentGovernedRecommendation,
+  unevaluatedBudgetPresent,
   unsupportedHardRequirementBlocksRecommendation,
   unverifiedPreferenceNote,
 } from "./presentGovernedRecommendation";
 import { evidenceDecisionProjection, messageRevealsCandidateIdentity } from "./publicCarsDecision";
-import { interpretLatestUserAct, textHasVehicleIntent } from "./carsSocialIntent";
+import {
+  interpretLatestUserAct,
+  resolveConversationAddressForm,
+  textHasVehicleIntent,
+} from "./carsSocialIntent";
 import { validateCarsConversationPlan } from "./validateCarsConversationPlan";
+import {
+  assessForwardProgress,
+  isVagueContinuityPhrase,
+  recentAssistantTexts,
+} from "./carsForwardProgress";
+import {
+  alreadyStatedCoverageLimitation,
+  assessDirectRecommendationCoverage,
+  coverageLimitationMessage,
+  coverageLimitationRepeat,
+} from "./carsDirectRecommendation";
 
 const MAX_USER_TURNS = 20;
 
@@ -133,6 +150,54 @@ function fallbackUsageOptions(purpose: CarsQuestionPurpose, turn: number, messag
 
 function withProvenance(trace: CarsConversationTrace, provenance: CarsTurnProvenance): CarsConversationTrace {
   return { ...trace, turnProvenance: provenance };
+}
+
+function withProgress(
+  provenance: CarsTurnProvenance,
+  input: {
+    readonly messages: CarsConversationRequest["messages"];
+    readonly latestUser: string;
+    readonly assistantMessage: string;
+    readonly latestAct: ReturnType<typeof interpretLatestUserAct>;
+    readonly memory: CarsConversationTrace;
+    readonly stateChanged?: boolean;
+    readonly askedMaterialQuestion?: boolean;
+    readonly statedLimitation?: boolean;
+    readonly repaired?: boolean;
+    readonly recommendationAction?: boolean;
+    readonly coverage?: CarsTurnProvenance["directRecommendationCoverage"];
+  },
+): CarsTurnProvenance {
+  const progress = assessForwardProgress({
+    latestUser: input.latestUser,
+    assistantMessage: input.assistantMessage,
+    recentAssistant: recentAssistantTexts(input.messages),
+    directQuestionAnswered: input.latestAct.isCapabilityQuestion
+      || input.latestAct.isDirectModelComparison
+      || input.latestAct.isRecommendationAcceptance
+      || Boolean(input.statedLimitation),
+    stateChanged: Boolean(input.stateChanged),
+    askedMaterialQuestion: Boolean(input.askedMaterialQuestion),
+    statedLimitation: Boolean(input.statedLimitation),
+    repaired: Boolean(input.repaired),
+    recommendationAction: Boolean(input.recommendationAction),
+  });
+  const budget = unevaluatedBudgetPresent(input.memory);
+  return {
+    ...provenance,
+    forwardProgressType: progress.forwardProgressType,
+    newInformationComparedWithRecentTurns: progress.newInformationComparedWithRecentTurns,
+    directQuestionAnswered: progress.directQuestionAnswered,
+    semanticRepetitionDetected: progress.semanticRepetitionDetected,
+    repairApplied: Boolean(input.repaired) || progress.semanticRepetitionDetected,
+    directRecommendationCoverage: input.coverage,
+    budgetEvaluated: false,
+    unevaluatedBudgetPresent: budget,
+    heldDespiteUnevaluatedBudget: budget && (
+      input.memory.recommendationOfferStatus === "AWAITING_CONSENT"
+      || input.memory.recommendationOfferStatus === "REVEALED"
+    ),
+  };
 }
 
 function evaluateGoverned(input: CarsConversationRequest): CarsEvidenceBackedDecisionResult {
@@ -221,12 +286,15 @@ function revealAuthorizedCard(
   }
   const recommendation = presentGovernedRecommendation({ result, authorization: opened, memory });
   const identity = `${recommendation.car.brand} ${recommendation.car.model}`.trim();
+  const budgetUnevaluated = unevaluatedBudgetPresent(memory);
   const note = unverifiedPreferenceNote(memory);
   const reasons = recommendation.decision.reasons.slice(0, 3);
+  const intro = budgetUnevaluated
+    ? "Koltuk ve bagaj eşiğine göre önerim şu:"
+    : message;
   const body = [
-    identity ? `${message} ${identity}.` : message,
+    identity ? `${intro} ${identity}.` : intro,
     reasons.join(" "),
-    note,
   ].filter(Boolean).join("\n\n");
   const conversation = withProvenance(applyAssistantMove(memory, {
     phase: "RECOMMENDATION_SHOWN",
@@ -238,7 +306,17 @@ function revealAuthorizedCard(
     clearPendingQuestion: true,
     humanReady: true,
     governedReady: true,
-  }), provenance);
+  }), {
+    ...provenance,
+    budgetEvaluated: false,
+    unevaluatedBudgetPresent: budgetUnevaluated,
+    heldDespiteUnevaluatedBudget: budgetUnevaluated,
+    forwardProgressType: "SUPPORTED_RECOMMENDATION_ACTION",
+    newInformationComparedWithRecentTurns: true,
+    directQuestionAnswered: true,
+    semanticRepetitionDetected: false,
+    repairApplied: false,
+  });
   return {
     kind: "RECOMMENDATIONS",
     message: body,
@@ -398,6 +476,10 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     conversation: input.conversation,
     selectedOptionId: input.selectedOptionId,
   });
+  memory = {
+    ...memory,
+    addressForm: resolveConversationAddressForm(input.messages, memory),
+  };
   const latestAct = interpretLatestUserAct(input.messages, memory);
   if (latestAct.hasVehicleIntent || latestAct.primaryAct === "VEHICLE_INTENT") {
     memory = { ...memory, vehicleIntentEstablished: true };
@@ -459,17 +541,20 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
   }
 
   if (latestAct.isRecommendationDecline) {
+    const declineMessage = memory.addressForm === "SEN"
+      ? "Tamam, şimdilik göstermiyorum. İstersen konuşmaya devam ederiz, istersen burada dururuz."
+      : "Tamam, şimdilik göstermiyorum. İsterseniz konuşmaya devam ederiz, isterseniz burada durabilirsiniz.";
     const conversation = withProvenance(applyAssistantMove({
       ...memory,
       heldAuthorization: resealHeldAuthorization(memory.heldAuthorization, "DECLINED") ?? memory.heldAuthorization,
     }, {
       phase: "RECOMMENDATION_DECLINED",
-      prompt: "Tabii. İsterseniz konuşmaya devam ederiz, isterseniz burada durabiliriz.",
+      prompt: declineMessage,
       progressEvent: "recommendation-declined",
       advisorStage: "RECOMMENDATION_DECLINED",
       recommendationOfferStatus: "DECLINED",
       clearPendingQuestion: true,
-    }), {
+    }), withProgress({
       modelAttempted: false,
       requestedModel,
       structuredPlan: false,
@@ -480,8 +565,112 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
       latestMessageAcknowledged: true,
       latestPrimaryAct: latestAct.primaryAct,
       advisorStage: "RECOMMENDATION_DECLINED",
+    }, {
+      messages: input.messages,
+      latestUser: latestContent,
+      assistantMessage: declineMessage,
+      latestAct,
+      memory,
+      stateChanged: true,
+    }));
+    return { kind: "QUESTION", message: declineMessage, conversation };
+  }
+
+  const conversationAlreadyOpen = input.messages.some((message) => message.role === "assistant");
+  if (latestAct.isCapabilityQuestion && !textHasVehicleIntent(latestContent)) {
+    const planned = await planTurn({
+      conversationId: input.conversationId,
+      messages: input.messages,
+      memory,
+      remainingUserTurns: Math.max(0, MAX_USER_TURNS - userTurnCount),
+      latestAct,
+      recommendationMayBeOffered: false,
+      candidateMayBeRevealed: false,
     });
-    return { kind: "QUESTION", message: conversation.lastProgressEvent ? "Tabii. İsterseniz konuşmaya devam ederiz, isterseniz burada durabiliriz." : "Tabii.", conversation };
+    const failure = planned.plan ? validateCarsConversationPlan({
+      plan: planned.plan,
+      memory,
+      latestAct,
+      latestUserText: latestContent,
+      recommendationMayBeOffered: false,
+      candidateMayBeRevealed: false,
+    }) : "CAPABILITY_THEN_GREETING";
+    const modelMessage = planned.plan && !failure ? planned.plan.assistantMessage : undefined;
+    const greetsAgain = conversationAlreadyOpen && /merhaba|hoş geldiniz/iu.test(modelMessage ?? "");
+    const message = modelMessage && !greetsAgain ? modelMessage : FALLBACK_CAPABILITY;
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: memory.vehicleIntentEstablished ? "SOCIAL_DETOUR" : "SOCIAL_OPEN",
+      prompt: message,
+      progressEvent: "capability",
+      advisorStage: memory.vehicleIntentEstablished ? "SOCIAL_DETOUR" : "SOCIAL_OPEN",
+      clearPendingQuestion: true,
+    }), withProgress({
+      modelAttempted: true,
+      requestedModel: planned.requestedModel,
+      selectedModel: planned.selectedModel,
+      structuredPlan: Boolean(modelMessage && !greetsAgain),
+      parseOutcome: planned.parseOutcome,
+      userFacingOrigin: modelMessage && !greetsAgain ? "MODEL" : "BOUNDED_FALLBACK",
+      deterministicOverride: Boolean(failure || greetsAgain),
+      fallbackReason: greetsAgain ? "CAPABILITY_THEN_GREETING" : failure ?? undefined,
+      conversationMove: "ANSWER_DIRECTLY",
+      latestMessageAcknowledged: true,
+      latestPrimaryAct: latestAct.primaryAct,
+      advisorStage: memory.vehicleIntentEstablished ? "SOCIAL_DETOUR" : "SOCIAL_OPEN",
+    }, {
+      messages: input.messages,
+      latestUser: latestContent,
+      assistantMessage: message,
+      latestAct,
+      memory,
+      stateChanged: true,
+    }));
+    return { kind: "QUESTION", message, conversation };
+  }
+
+  if (latestAct.isDirectRecommendationRequest) {
+    const coverage = assessDirectRecommendationCoverage({
+      namedModel: latestAct.namedModel,
+      wantsNamedAlternatives: true,
+      memory,
+    });
+    if (coverage === "DIRECT_RECOMMENDATION_SUPPORTED") {
+      return respondWithEvidence(input, { ...memory, phase: "EVALUATING" });
+    }
+    const stated = alreadyStatedCoverageLimitation(input.messages);
+    const message = stated
+      ? coverageLimitationRepeat(memory.addressForm)
+      : latestAct.isImpatient
+        ? coverageLimitationMessage(latestAct.namedModel, memory.addressForm)
+        : coverageLimitationMessage(latestAct.namedModel, memory.addressForm);
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "LIMITED_BY_EVIDENCE",
+      prompt: message,
+      progressEvent: "direct-rec-coverage-block",
+      advisorStage: "NOT_RECOMMENDABLE",
+      clearPendingQuestion: true,
+    }), withProgress({
+      modelAttempted: false,
+      requestedModel,
+      structuredPlan: false,
+      parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "BOUNDED_FALLBACK",
+      deterministicOverride: false,
+      conversationMove: "EXPLAIN_LIMITATION",
+      latestMessageAcknowledged: true,
+      latestPrimaryAct: latestAct.primaryAct,
+      advisorStage: "NOT_RECOMMENDABLE",
+    }, {
+      messages: input.messages,
+      latestUser: latestContent,
+      assistantMessage: message,
+      latestAct,
+      memory,
+      statedLimitation: true,
+      stateChanged: true,
+      coverage,
+    }));
+    return { kind: "QUESTION", message, conversation };
   }
 
   const rejectedRecommendations = latestUserRejectedRecommendations(input, memory);
@@ -504,16 +693,24 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     && !latestAct.isPureSocial
     && latestAct.primaryAct !== "GREETING"
     && latestAct.primaryAct !== "THANKS"
-    && !latestAct.isRecommendationDecline;
+    && latestAct.primaryAct !== "SOCIAL_CHECK_IN"
+    && latestAct.primaryAct !== "CAPABILITY_QUESTION"
+    && !latestAct.isRecommendationDecline
+    && !latestAct.isReturnToVehicle
+    && !latestAct.isCapabilityQuestion
+    && memory.recommendationOfferStatus !== "AWAITING_CONSENT"
+    && memory.recommendationOfferStatus !== "DECLINED";
 
   if (input.choiceId && canEvaluateNow && !rejectedRecommendations) {
     return respondWithEvidence(input, { ...memory, phase: "EVALUATING" });
   }
 
   const socialOnlyTurn = (latestAct.isPureGreeting || latestAct.primaryAct === "THANKS"
-    || latestAct.primaryAct === "CASUAL" || latestAct.primaryAct === "HUMOUR")
+    || latestAct.primaryAct === "CASUAL" || latestAct.primaryAct === "HUMOUR"
+    || latestAct.primaryAct === "SOCIAL_CHECK_IN" || latestAct.primaryAct === "CONVERSATION_EXIT")
     && !latestAct.hasVehicleIntent
-    && !textHasVehicleIntent(latestContent);
+    && !textHasVehicleIntent(latestContent)
+    && !latestAct.isCapabilityQuestion;
   if (socialOnlyTurn) {
     const planned = await planTurn({
       conversationId: input.conversationId,
@@ -615,6 +812,95 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     }) };
   }
 
+  if (latestAct.isReturnToVehicle) {
+    const plannedReturn = await planTurn({
+      conversationId: input.conversationId,
+      messages: input.messages,
+      memory,
+      remainingUserTurns: Math.max(0, MAX_USER_TURNS - userTurnCount),
+      latestAct,
+      recommendationMayBeOffered: false,
+      candidateMayBeRevealed: false,
+    });
+    const returnFailure = plannedReturn.plan ? validateCarsConversationPlan({
+      plan: plannedReturn.plan,
+      memory,
+      latestAct,
+      latestUserText: latestContent,
+      recommendationMayBeOffered: false,
+      candidateMayBeRevealed: false,
+    }) : "VAGUE_CONTINUITY";
+    const modelMessage = plannedReturn.plan && !returnFailure ? plannedReturn.plan.assistantMessage : undefined;
+    const repeats = modelMessage
+      ? assessForwardProgress({
+        latestUser: latestContent,
+        assistantMessage: modelMessage,
+        recentAssistant: recentAssistantTexts(input.messages),
+        directQuestionAnswered: false,
+        stateChanged: false,
+        askedMaterialQuestion: Boolean(plannedReturn.plan?.question),
+        statedLimitation: false,
+        repaired: false,
+        recommendationAction: false,
+      }).semanticRepetitionDetected
+      : false;
+    if (modelMessage && !isVagueContinuityPhrase(modelMessage) && !repeats) {
+      const purpose = validatePurpose(memory, plannedReturn.plan?.question?.purpose);
+      const conversation = withProvenance(applyAssistantMove(memory, {
+        phase: "DISCOVERING",
+        purpose,
+        prompt: modelMessage,
+        progressEvent: "return-to-topic",
+        advisorStage: "CONTEXT_UNDERSTANDING",
+        vehicleIntentEstablished: true,
+        clearPendingQuestion: !purpose,
+      }), withProgress({
+        modelAttempted: true,
+        requestedModel: plannedReturn.requestedModel,
+        selectedModel: plannedReturn.selectedModel,
+        structuredPlan: true,
+        parseOutcome: plannedReturn.parseOutcome,
+        userFacingOrigin: "MODEL",
+        deterministicOverride: false,
+        conversationMove: plannedReturn.plan?.move,
+        latestMessageAcknowledged: true,
+        latestPrimaryAct: latestAct.primaryAct,
+        advisorStage: "CONTEXT_UNDERSTANDING",
+      }, {
+        messages: input.messages,
+        latestUser: latestContent,
+        assistantMessage: modelMessage,
+        latestAct,
+        memory,
+        askedMaterialQuestion: Boolean(purpose),
+        stateChanged: true,
+      }));
+      return { kind: "QUESTION", message: modelMessage, conversation };
+    }
+    const recovery = createCarsBoundedRecovery(memory, latestContent, latestAct);
+    return { ...recovery.response, conversation: withProvenance(recovery.conversation, withProgress({
+      modelAttempted: true,
+      requestedModel: plannedReturn.requestedModel,
+      selectedModel: plannedReturn.selectedModel,
+      structuredPlan: Boolean(plannedReturn.plan),
+      parseOutcome: plannedReturn.parseOutcome,
+      userFacingOrigin: "BOUNDED_FALLBACK",
+      deterministicOverride: true,
+      fallbackReason: returnFailure ?? "VAGUE_CONTINUITY",
+      latestMessageAcknowledged: true,
+      latestPrimaryAct: latestAct.primaryAct,
+      advisorStage: recovery.conversation.advisorStage,
+    }, {
+      messages: input.messages,
+      latestUser: latestContent,
+      assistantMessage: recovery.response.message,
+      latestAct,
+      memory,
+      repaired: true,
+      askedMaterialQuestion: Boolean(recovery.conversation.lastAssistantQuestion),
+    })) };
+  }
+
   if (canEvaluateNow && !rejectedRecommendations && memory.recommendationOfferStatus !== "DECLINED") {
     memory = closeDeferredQuestions(memory, "Supported constraints now authorize governed evaluation; this discovery question no longer changes the decision.");
     return respondWithEvidence(input, { ...memory, phase: "EVALUATING" });
@@ -647,7 +933,10 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     const afterPlan = assessCarsConversationSufficiency(memory);
     memory = { ...memory, humanReady: planned.plan.readiness.humanReady || afterPlan.humanReady, governedReady: afterPlan.governedReady };
     const purpose = validatePurpose(memory, planned.plan.question?.purpose);
-    if (afterPlan.governedReady && !rejectedRecommendations) {
+    if (afterPlan.governedReady && !rejectedRecommendations
+      && memory.recommendationOfferStatus !== "AWAITING_CONSENT"
+      && memory.recommendationOfferStatus !== "DECLINED"
+      && !latestAct.isReturnToVehicle) {
       return respondWithEvidence(input, memory);
     }
     const failure = validateCarsConversationPlan({
@@ -692,27 +981,60 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
       };
     }
     const options = purpose ? optionSetFromPlan(planned.plan, purpose, userTurnCount) ?? fallbackUsageOptions(purpose, userTurnCount, planned.plan.assistantMessage) : undefined;
+    let message = planned.plan.assistantMessage;
+    let repaired = false;
+    const progress = assessForwardProgress({
+      latestUser: latestContent,
+      assistantMessage: message,
+      recentAssistant: recentAssistantTexts(input.messages),
+      directQuestionAnswered: latestAct.isDirectModelComparison || latestAct.isCapabilityQuestion,
+      stateChanged: false,
+      askedMaterialQuestion: Boolean(purpose),
+      statedLimitation: false,
+      repaired: false,
+      recommendationAction: false,
+    });
+    if (progress.semanticRepetitionDetected || isVagueContinuityPhrase(message)) {
+      const recovery = createCarsBoundedRecovery(memory, latestContent, latestAct);
+      message = recovery.response.message;
+      repaired = true;
+    } else if (latestAct.isImpatient && message.length > 320) {
+      const recovery = createCarsBoundedRecovery(memory, latestContent, latestAct);
+      message = recovery.response.message;
+      repaired = true;
+    }
     const conversation = withProvenance(applyAssistantMove(memory, {
       phase: planned.plan.move === "PAUSE" ? "PAUSED" : purpose ? "CLARIFYING" : "DISCOVERING",
-      purpose,
-      prompt: planned.plan.assistantMessage,
-      options,
+      purpose: repaired ? undefined : purpose,
+      prompt: message,
+      options: repaired ? undefined : options,
       progressEvent: planned.plan.latestMessage.primaryAct.toLowerCase(),
       advisorStage: latestAct.primaryAct === "VEHICLE_INTENT" ? "VEHICLE_INTENT" : "CONTEXT_UNDERSTANDING",
       vehicleIntentEstablished: true,
       humanReady: planned.plan.readiness.humanReady,
-      clearPendingQuestion: !purpose,
-    }), {
+      clearPendingQuestion: repaired || !purpose,
+    }), withProgress({
       modelAttempted: true, requestedModel: planned.requestedModel, selectedModel: planned.selectedModel,
-      structuredPlan: true, parseOutcome: planned.parseOutcome, userFacingOrigin: "MODEL",
-      deterministicOverride: false, conversationMove: planned.plan.move, nextQuestionPurpose: purpose,
+      structuredPlan: !repaired, parseOutcome: planned.parseOutcome,
+      userFacingOrigin: repaired ? "BOUNDED_FALLBACK" : "MODEL",
+      deterministicOverride: repaired, conversationMove: planned.plan.move, nextQuestionPurpose: purpose,
+      fallbackReason: repaired ? "SEMANTIC_REPETITION" : undefined,
       latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct,
       advisorStage: latestAct.primaryAct === "VEHICLE_INTENT" ? "VEHICLE_INTENT" : "CONTEXT_UNDERSTANDING",
-    });
+    }, {
+      messages: input.messages,
+      latestUser: latestContent,
+      assistantMessage: message,
+      latestAct,
+      memory,
+      askedMaterialQuestion: Boolean(purpose) && !repaired,
+      repaired,
+      stateChanged: repaired,
+    }));
     return {
       kind: "QUESTION",
-      message: planned.plan.assistantMessage,
-      options: options?.options.map((option) => option.label),
+      message,
+      options: repaired ? undefined : options?.options.map((option) => option.label),
       conversation,
     };
   }

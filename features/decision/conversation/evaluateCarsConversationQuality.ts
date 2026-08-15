@@ -27,6 +27,9 @@ const ROBOTIC = [
   /(?:kaydettim|not ettim)/iu,
   /minimum hacmi.*litre/iu,
   /USAGE_[A-Z_]+,\s*[A-Z_]+,\s*[A-Z_]+/,
+  /son söylediğiniz noktayı kaçırmadım/iu,
+  /isters(?:eniz|en) oradan devam ederiz/iu,
+  /kullanım bağlamınız duruyor/iu,
 ];
 
 export function evaluateCarsConversationQuality(input: {

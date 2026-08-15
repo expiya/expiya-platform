@@ -218,6 +218,7 @@ export function emptyConversationTrace(): CarsConversationTrace {
     rejectedRecommendationIds: [],
     semanticFingerprint: "",
     loopCount: 0,
+    addressForm: undefined,
   };
 }
 

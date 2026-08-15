@@ -47,22 +47,14 @@ export function presentGovernedRecommendation(input: {
 }
 
 export function unverifiedPreferenceNote(memory: CarsConversationTrace): string | undefined {
-  const unverified = memory.requirements.filter((entry) => (
-    entry.evaluability === "UNDERSTOOD_NOT_EVALUABLE" && entry.category !== "CORRECTION"
+  void memory;
+  return undefined;
+}
+
+export function unevaluatedBudgetPresent(memory: CarsConversationTrace): boolean {
+  return memory.requirements.some((entry) => (
+    entry.key === "BUDGET_MAX_TRY" && entry.evaluability === "UNDERSTOOD_NOT_EVALUABLE"
   ));
-  if (unverified.length === 0) return undefined;
-  const labels = unverified.map((entry) => {
-    if (entry.key === "BODY_TYPE") return "gövde tercihiniz";
-    if (entry.key === "DRIVETRAIN") return "çekiş tercihiniz";
-    if (entry.key === "EQUIPMENT_LEVEL") return "donanım beklentiniz";
-    if (entry.key === "BUDGET_MAX_TRY") return "bütçe sınırınız";
-    if (entry.key === "FUEL") return "yakıt tercihiniz";
-    if (entry.key === "TRANSMISSION") return "vites tercihiniz";
-    if (entry.key.startsWith("USAGE_")) return "kullanım bağlamınız";
-    return "diğer tercihleriniz";
-  });
-  const unique = [...new Set(labels)].slice(0, 2).join(" ve ");
-  return `${unique.charAt(0).toUpperCase()}${unique.slice(1)} duruyor; bu seçimde onları henüz karşılaştırmadım.`;
 }
 
 export function unsupportedHardRequirementBlocksRecommendation(memory: CarsConversationTrace): boolean {

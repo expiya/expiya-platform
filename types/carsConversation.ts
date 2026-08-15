@@ -194,6 +194,23 @@ export interface CarsQuestionMemoryEntry {
   readonly transitionReason?: string;
 }
 
+export type CarsAddressForm = "SEN" | "SIZ";
+
+export type CarsForwardProgressType =
+  | "ANSWERED_DIRECT_QUESTION"
+  | "NEW_DISTINCTION"
+  | "SUPPORTED_RECOMMENDATION_ACTION"
+  | "STATED_LIMITATION"
+  | "ASKED_MATERIAL_QUESTION"
+  | "REPAIRED_MISUNDERSTANDING"
+  | "CHANGED_STATE"
+  | "NONE";
+
+export type CarsDirectRecommendationCoverage =
+  | "DIRECT_RECOMMENDATION_SUPPORTED"
+  | "DIRECT_RECOMMENDATION_BLOCKED_BY_COVERAGE"
+  | "DIRECT_RECOMMENDATION_NEEDS_ONE_MATERIAL_FACT";
+
 export interface CarsTurnProvenance {
   readonly modelAttempted: boolean;
   readonly requestedModel?: string;
@@ -208,6 +225,15 @@ export interface CarsTurnProvenance {
   readonly latestMessageAcknowledged: boolean;
   readonly latestPrimaryAct?: string;
   readonly advisorStage?: CarsAdvisorStage;
+  readonly forwardProgressType?: CarsForwardProgressType;
+  readonly newInformationComparedWithRecentTurns?: boolean;
+  readonly directQuestionAnswered?: boolean;
+  readonly semanticRepetitionDetected?: boolean;
+  readonly repairApplied?: boolean;
+  readonly directRecommendationCoverage?: CarsDirectRecommendationCoverage;
+  readonly budgetEvaluated?: boolean;
+  readonly unevaluatedBudgetPresent?: boolean;
+  readonly heldDespiteUnevaluatedBudget?: boolean;
 }
 
 export interface CarsConversationTrace {
@@ -235,6 +261,7 @@ export interface CarsConversationTrace {
   readonly lastProgressEvent?: string;
   readonly semanticFingerprint: string;
   readonly loopCount: number;
+  readonly addressForm?: CarsAddressForm;
   readonly turnProvenance?: CarsTurnProvenance;
 }
 

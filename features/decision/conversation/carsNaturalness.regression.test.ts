@@ -11,6 +11,8 @@ const FORBIDDEN = [
   "Size uygun aracı birlikte daraltalım",
   "Kaydettim",
   "Not ettim",
+  "Son söylediğiniz noktayı kaçırmadım. İsterseniz oradan devam ederiz.",
+  "Kullanım bağlamınız duruyor; bu seçimde onları henüz karşılaştırmadım.",
 ];
 
 describe("naturalness regression", () => {

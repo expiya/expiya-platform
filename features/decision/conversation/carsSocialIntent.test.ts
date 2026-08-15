@@ -32,7 +32,8 @@ describe("social intent", () => {
   });
 
   it("treats Nasılsın? as ordinary social conversation", () => {
-    expect(interpretLatestUserAct(user("Nasılsın?")).primaryAct).toBe("CASUAL");
+    expect(interpretLatestUserAct(user("Nasılsın?")).primaryAct).toBe("SOCIAL_CHECK_IN");
+    expect(interpretLatestUserAct(user("Nasılsın?")).secondaryActs).toContain("CASUAL");
   });
 
   it("treats Teşekkürler as thanks", () => {

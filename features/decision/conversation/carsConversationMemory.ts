@@ -266,6 +266,7 @@ export function hydrateCarsConversationMemory(input: {
       offer: advisor.recommendationOfferStatus,
     }),
     loopCount,
+    addressForm: input.conversation?.addressForm,
   };
 }
 
