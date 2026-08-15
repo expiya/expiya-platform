@@ -30,6 +30,7 @@
     ,"catalog:release:generate-alfa-romeo": "node --import tsx scripts/generate-alfa-romeo-production-catalog-release.ts"
     ,"catalog:release:generate-alpine": "node --import tsx scripts/generate-alpine-production-catalog-release.ts"
     ,"catalog:release:generate-estimated-backfill": "node --import tsx scripts/generate-estimated-price-backfill-release.ts"
+    ,"catalog:release:generate-bmw": "node --import tsx scripts/generate-bmw-production-catalog-release.ts"
     ,"vehicle-evidence:apply-hardening": "node --import tsx scripts/apply-post-batch01-hardening.ts"
   },
   "dependencies": {
