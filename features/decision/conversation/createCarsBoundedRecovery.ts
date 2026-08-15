@@ -5,10 +5,11 @@ import type {
   CarsQuestionPurpose,
 } from "@/types/carsConversation";
 
-import { assessCarsConversationSufficiency } from "./assessCarsConversationSufficiency";
 import { applyAssistantMove } from "./carsConversationMemory";
 import { cannotRepeatQuestion } from "./carsSemanticLoopGuard";
 import { isFrustration, latestRequirement } from "./carsRequirementLedger";
+import type { CarsLatestAct } from "./carsSocialIntent";
+import { textHasVehicleIntent } from "./carsSocialIntent";
 
 const USAGE_DETAIL_OPTIONS: CarsActiveOptionSet["options"] = [
   { id: "usage-camp", label: "Kamp ve stabilize yol", semanticValue: "CAMP" },
@@ -16,38 +17,26 @@ const USAGE_DETAIL_OPTIONS: CarsActiveOptionSet["options"] = [
   { id: "usage-serious", label: "Ciddi arazi kullanımı", semanticValue: "SERIOUS_OFF_ROAD" },
 ];
 
+export const FALLBACK_GREETING = "Merhaba! Hoş geldiniz. Nasıl yardımcı olabilirim?";
+export const FALLBACK_THANKS = "Rica ederim.";
+export const FALLBACK_OFFER = "Konuştuklarımızdan hareketle size güçlü bir önerim var. Görmek ister misiniz?";
+
 export function createCarsBoundedRecovery(
   trace: CarsConversationTrace,
   latestUser: string,
+  latestAct?: CarsLatestAct,
 ): { response: CarsConversationResponse; conversation: CarsConversationTrace } {
-  const sufficiency = assessCarsConversationSufficiency(trace);
-  const frustration = isFrustration(latestUser);
-  if (frustration) {
-    const message = latestRequirement(trace, "BODY_TYPE")
-      ? "Haklısınız; pickup tercihiniz net ve konuşmanın merkezinde. Önceki soruyu şimdilik kenara bırakıyorum; bundan sonra pickup ve yol dışı kullanımınızı birlikte esas alacağım."
-      : "Sizi aynı yere döndürdüm. Son söylediğiniz ihtiyacı esas alıp buradan daha somut ilerleyelim.";
-    const conversation = applyAssistantMove(trace, {
-      phase: "LIMITED_BY_EVIDENCE",
-      purpose: "OFF_TOPIC_REDIRECT",
-      prompt: message,
-      progressEvent: "repair",
-    });
-    return {
-      response: { kind: "QUESTION", message, conversation: { ...conversation, state: "INSUFFICIENT_SUPPORTED_EVIDENCE" } },
-      conversation,
-    };
-  }
-
-  const purpose = sufficiency.nextPurpose && !cannotRepeatQuestion(trace, sufficiency.nextPurpose)
-    ? sufficiency.nextPurpose
-    : undefined;
-  const move = recoveryMove(trace, purpose, latestUser);
+  const move = recoveryMove(trace, latestUser, latestAct);
   const conversation = applyAssistantMove(trace, {
-    phase: sufficiency.readyToEvaluate ? "READY_TO_EVALUATE" : purpose ? "CLARIFYING" : "LIMITED_BY_EVIDENCE",
+    phase: move.phase ?? (trace.vehicleIntentEstablished ? "DISCOVERING" : "SOCIAL_OPEN"),
     purpose: move.purpose,
     prompt: move.message,
     options: move.options,
     progressEvent: "bounded-recovery",
+    advisorStage: move.advisorStage ?? (trace.vehicleIntentEstablished ? "CONTEXT_UNDERSTANDING" : "SOCIAL_OPEN"),
+    vehicleIntentEstablished: trace.vehicleIntentEstablished || Boolean(latestAct?.hasVehicleIntent),
+    clearPendingQuestion: !move.purpose,
+    recommendationOfferStatus: move.offer ? "AWAITING_CONSENT" : trace.recommendationOfferStatus,
   });
   return {
     response: {
@@ -62,119 +51,158 @@ export function createCarsBoundedRecovery(
 
 function recoveryMove(
   trace: CarsConversationTrace,
-  purpose: CarsQuestionPurpose | undefined,
   latestUser: string,
-): { message: string; purpose?: CarsQuestionPurpose; options?: CarsActiveOptionSet } {
-  const budget = latestRequirement(trace, "BUDGET_MAX_TRY");
-  if (trace.capturedOnLatestTurn.includes("BUDGET_MAX_TRY") && budget) {
-    const serious = latestRequirement(trace, "USAGE_SERIOUS_OFF_ROAD");
+  latestAct?: CarsLatestAct,
+): {
+  message: string;
+  purpose?: CarsQuestionPurpose;
+  options?: CarsActiveOptionSet;
+  phase?: CarsConversationTrace["phase"];
+  advisorStage?: CarsConversationTrace["advisorStage"];
+  offer?: boolean;
+} {
+  if (latestAct?.isPureGreeting && !textHasVehicleIntent(latestUser)) {
+    return { message: FALLBACK_GREETING, phase: "SOCIAL_OPEN", advisorStage: "SOCIAL_OPEN" };
+  }
+  if (latestAct?.primaryAct === "THANKS") {
+    return { message: FALLBACK_THANKS, phase: trace.vehicleIntentEstablished ? "SOCIAL_DETOUR" : "SOCIAL_OPEN", advisorStage: trace.vehicleIntentEstablished ? "SOCIAL_DETOUR" : "SOCIAL_OPEN" };
+  }
+  if (latestAct?.isRecommendationDecline) {
     return {
-      purpose: "DAILY_VS_OFFROAD",
-      message: serious
-        ? `${Number(budget.value).toLocaleString("tr-TR")} TL üst sınır net. Ciddi arazi ana iş olacaksa şehir konforundan ne kadar ödün verebileceğiniz seçimi değiştirir; araç hafta içinde de düzenli kullanılacak mı?`
-        : `${Number(budget.value).toLocaleString("tr-TR")} TL üst sınır net. Kamp ve yol dışı kullanımın yanında araç hafta içinde şehirde de düzenli çalışacak mı?`,
+      message: "Tabii. İsterseniz konuşmaya devam ederiz, isterseniz burada durabiliriz.",
+      phase: "RECOMMENDATION_DECLINED",
+      advisorStage: "RECOMMENDATION_DECLINED",
+    };
+  }
+  if (isFrustration(latestUser) || latestAct?.isFrustration) {
+    const message = latestRequirement(trace, "BODY_TYPE")
+      ? "Haklısınız; pickup tercihiniz net ve konuşmanın merkezinde. Önceki soruyu şimdilik kenara bırakıyorum; bundan sonra pickup ve yol dışı kullanımınızı birlikte esas alacağım."
+      : "Sizi aynı yere döndürdüm. Son söylediğiniz ihtiyacı esas alıp buradan daha somut ilerleyelim.";
+    return { message, phase: "RECOVERING", advisorStage: "RECOVERY" };
+  }
+  if (latestAct?.isCorrection) {
+    const seats = latestRequirement(trace, "MIN_SEATS");
+    return {
+      message: seats
+        ? `Tamam, ${seats.value} koltuk olarak güncelledim.`
+        : "Tamam, son düzeltmenizi esas alıyorum.",
+      phase: "DISCOVERING",
+      advisorStage: "CONTEXT_UNDERSTANDING",
+    };
+  }
+  if (
+    (latestAct?.isSocialDetour || (latestAct?.isPureSocial && trace.vehicleIntentEstablished))
+    && trace.capturedOnLatestTurn.length === 0
+    && latestAct?.primaryAct !== "ANSWER"
+    && latestAct?.primaryAct !== "INFORMATION"
+    && latestAct?.primaryAct !== "VEHICLE_INTENT"
+  ) {
+    return {
+      message: /hava/iu.test(latestUser)
+        ? "Bugünün havasına bakamam."
+        : latestAct?.primaryAct === "CASUAL"
+          ? "İyiyim, teşekkürler."
+          : "Tabii. Dilediğinizde kaldığımız yerden devam ederiz.",
+      phase: "SOCIAL_DETOUR",
+      advisorStage: "SOCIAL_DETOUR",
+    };
+  }
+  if (trace.capturedOnLatestTurn.includes("BUDGET_MAX_TRY")) {
+    const budget = latestRequirement(trace, "BUDGET_MAX_TRY");
+    return {
+      message: budget
+        ? `${Number(budget.value).toLocaleString("tr-TR")} TL üst sınır net.`
+        : "Bütçe sınırınız net.",
+      phase: "DISCOVERING",
+      advisorStage: "CONTEXT_UNDERSTANDING",
     };
   }
   if (trace.capturedOnLatestTurn.includes("EQUIPMENT_LEVEL")) {
     return {
-      purpose: "EQUIPMENT_SCOPE",
+      purpose: cannotRepeatQuestion(trace, "EQUIPMENT_SCOPE") ? undefined : "EQUIPMENT_SCOPE",
       message: "Donanım tarafında önceliğiniz hangisi: sürüş destekleri ve görüş mü, kabin konforu mu, yoksa araziye yarayan ekipman mı?",
     };
   }
-  if (trace.capturedOnLatestTurn.includes("PARTY_SIZE")) {
-    const party = latestRequirement(trace, "PARTY_SIZE")?.value;
+  if (
+    trace.capturedOnLatestTurn.includes("PARTY_SIZE")
+    || (trace.capturedOnLatestTurn.includes("MIN_SEATS") && latestRequirement(trace, "PARTY_SIZE") && latestUser.trim().toLowerCase() === "evet")
+  ) {
+    const party = latestRequirement(trace, "PARTY_SIZE")?.value ?? latestRequirement(trace, "MIN_SEATS")?.value;
+    if (latestUser.trim().toLowerCase() === "evet" && latestRequirement(trace, "MIN_SEATS")) {
+      return {
+        message: `${party} kişilik kullanım net. Bu araçta sizi asıl zorlayacak şey yol, yük, yoksa günlük konfor mu?`,
+        phase: "DISCOVERING",
+        advisorStage: "CONTEXT_UNDERSTANDING",
+      };
+    }
     return {
       purpose: "PARTY_CONFIRMATION",
       message: `${party} kişinin rahat edeceği, küçük hissettirmeyen bir araç arıyorsunuz. ${party} koltuğun her zaman kullanılabilir olması kesin şart mı?`,
     };
   }
+  if (trace.capturedOnLatestTurn.includes("BODY_TYPE")) {
+    return {
+      message: "Pickup tercihi net. Kasayı daha çok kamp yükü için mi, iş ve ekipman taşımak için mi düşünüyorsunuz?",
+      purpose: cannotRepeatQuestion(trace, "BODY_TYPE") ? undefined : "BODY_TYPE",
+    };
+  }
   if (trace.capturedOnLatestTurn.includes("DRIVETRAIN")) {
     return {
-      purpose: "DAILY_VS_OFFROAD",
       message: "4x4 beklentisi kullanım yönünü iyice netleştiriyor. Araç hafta içinde şehirde de çalışacak mı, yoksa önceliği kamp ve yol dışı kullanım mı?",
     };
   }
-  if (trace.capturedOnLatestTurn.includes("BODY_TYPE")) {
+  if (/aile/iu.test(latestUser) && !cannotRepeatQuestion(trace, "PRIMARY_USAGE") && !trace.askedQuestionPurposes.includes("USAGE_DETAIL")) {
     return {
-      purpose: "BODY_TYPE",
-      message: "Pickup tercihi net. Kasayı daha çok kamp yükü için mi, iş ve ekipman taşımak için mi düşünüyorsunuz?",
+      purpose: "PRIMARY_USAGE",
+      message: "Aile kullanımı öne çıkıyor. Günlük hayatta bu araç sizin için asıl ne işi görecek?",
     };
   }
-  if (purpose === "USAGE_DETAIL") {
-    const message = /arazi|off-road|kötü yol/iu.test(latestUser)
-      ? "Arazi tarafını konuşabiliriz; kamp ve stabilize yol, çamurlu/kötü yol ve ciddi arazi birbirinden farklı araç ister. Hangisine daha yakınsınız?"
-      : "Kullanımı netleştirelim: kamp ve stabilize yol, çamurlu/kötü yol, yoksa ciddi arazi mi öne çıkıyor?";
+  if ((latestAct?.primaryAct === "VEHICLE_INTENT" || latestAct?.hasVehicleIntent) && /arazi|off-road|kötü yol|kamp|stabilize/iu.test(latestUser)
+    && !trace.askedQuestionPurposes.includes("USAGE_DETAIL")) {
     return {
-      message,
-      purpose,
+      purpose: "USAGE_DETAIL",
+      message: /arazi|off-road|kötü yol/iu.test(latestUser)
+        ? "Arazi tarafını konuşabiliriz; kamp ve stabilize yol, çamurlu/kötü yol ve ciddi arazi birbirinden farklı araç ister. Hangisine daha yakınsınız?"
+        : "Kullanımı netleştirelim: kamp ve stabilize yol, çamurlu/kötü yol, yoksa ciddi arazi mi öne çıkıyor?",
       options: {
         id: "opt-usage-detail",
-        purpose,
+        purpose: "USAGE_DETAIL",
         options: USAGE_DETAIL_OPTIONS,
         sourceAssistantTurn: trace.latestUserTurn,
         active: true,
       },
     };
   }
-  if (purpose === "PARTY_CONFIRMATION") {
-    const party = latestRequirement(trace, "PARTY_SIZE")?.value;
+  if (trace.capturedOnLatestTurn.some((key) => key.startsWith("USAGE_"))) {
     return {
-      purpose,
-      message: `${party} kişinin rahat edeceği, küçük hissettirmeyen bir araç arıyorsunuz. ${party} koltuğun her zaman kullanılabilir olması kesin şart mı?`,
-    };
-  }
-  if (purpose === "MIN_SEATS") {
-    const equipment = latestRequirement(trace, "EQUIPMENT_LEVEL");
-    return {
-      purpose,
-      message: equipment
-        ? "Yüksek donanım isteğinizi kaydettim; mevcut doğrulanmış veriyle donanım seviyesini kıyaslayamıyorum. Aracı düzenli olarak kaç kişi kullanacak?"
-        : "Aracı düzenli olarak kaç kişi kullanacak? En az kaç koltuk gerekli?",
-    };
-  }
-  if (purpose === "MIN_CARGO") {
-    const seats = latestRequirement(trace, "MIN_SEATS")?.value;
-    return {
-      purpose,
-      message: seats
-        ? `${seats} kişilik kullanım tamam. Araç doluyken bagajda genelde ne taşıyacaksınız: kamp ekipmanı, büyük valizler, çocuk arabası, yoksa günlük birkaç parça mı?`
-        : "Bagajda günlük olarak ne taşıyacaksınız: kamp ekipmanı, büyük valizler, çocuk arabası, yoksa birkaç küçük parça mı?",
-    };
-  }
-  if (purpose === "PRIMARY_USAGE") {
-    return { purpose, message: "Bu araç sizin gününüzde asıl hangi işi görmeli: işe gidiş, aile, uzun yol, yoksa henüz net değil mi?" };
-  }
-  if (purpose === "DAILY_VS_OFFROAD") {
-    return {
-      purpose,
+      purpose: cannotRepeatQuestion(trace, "DAILY_VS_OFFROAD") ? undefined : "DAILY_VS_OFFROAD",
       message: latestRequirement(trace, "USAGE_SERIOUS_OFF_ROAD")
-        ? "Ciddi arazi isteğiniz kaydı duruyor. Aracı yine de günlük şehirde de kullanacak mısınız, yoksa arazi önceliği açık ara daha mı yüksek?"
-        : "Kamp ve stabilize yol ihtiyacınız duruyor. Bu araç günlük şehir işlerinde de mi kullanılacak, yoksa asıl işi arazi ve yol dışı mı?",
+        ? "Ciddi arazi kullanımı net. Bu araç günlük hayatta da mı iş görecek, yoksa asıl işi arazi mi?"
+        : "Kullanım yönü netleşti. Günlük hayatta da mı iş görecek, yoksa asıl işi yol dışı mı?",
     };
   }
-  if (!purpose && latestRequirement(trace, "PARTY_SIZE") && !latestRequirement(trace, "MIN_SEATS")) {
-    const party = latestRequirement(trace, "PARTY_SIZE")?.value;
+  if (
+    (latestAct?.primaryAct === "VEHICLE_INTENT" || latestAct?.hasVehicleIntent)
+    && !cannotRepeatQuestion(trace, "PRIMARY_USAGE")
+    && !trace.askedQuestionPurposes.includes("USAGE_DETAIL")
+    && !trace.requirements.some((entry) => entry.key.startsWith("USAGE_"))
+  ) {
     return {
-      purpose: "PARTY_CONFIRMATION",
-      message: `${party} kişinin rahat edeceği, küçük hissettirmeyen bir araç arıyorsunuz. ${party} koltuğun her zaman kullanılabilir olması kesin şart mı?`,
+      purpose: "PRIMARY_USAGE",
+      message: /aile/iu.test(latestUser)
+        ? "Aile kullanımı öne çıkıyor. Günlük hayatta bu araç sizin için asıl ne işi görecek?"
+        : "Araba bakıyorsunuz. Bu araç sizin gününüzde asıl hangi işi görmeli?",
     };
   }
-  if (!purpose && latestRequirement(trace, "EQUIPMENT_LEVEL") && !latestRequirement(trace, "MIN_SEATS")) {
-    return {
-      purpose: trace.askedQuestionPurposes.includes("MIN_SEATS") ? undefined : "MIN_SEATS",
-      message: "Donanımın boş kalmaması önemli. Sizin için daha belirleyici olan sürüş destekleri mi, kabin konforu mu, yoksa arazi ekipmanı mı?",
-    };
-  }
-  if (!purpose && (latestRequirement(trace, "DRIVETRAIN") || latestRequirement(trace, "BODY_TYPE"))) {
-    return {
-      message: latestRequirement(trace, "BODY_TYPE")
-        ? "Pickup net; kasayı daha çok kamp yükü için mi, iş ve ekipman taşımak için mi kullanacaksınız?"
-        : "4x4 isteğiniz ciddi arazi kullanımıyla örtüşüyor. Araç hafta içinde şehirde de kullanılacak mı?",
-    };
+  if (latestAct?.primaryAct === "HESITATION") {
+    return { message: "Acele etmeyin. Düşündüğünüzde kaldığınız yerden devam ederiz.", phase: "PAUSED", advisorStage: "PAUSED" };
   }
   return {
-    purpose: "OFF_TOPIC_REDIRECT",
-    message: "Son söylediğiniz noktayı kaçırmadım. Aracı en çok zorlayacak gerçek kullanım anını anlatırsanız doğru yerden devam edebiliriz.",
+    message: textHasVehicleIntent(latestUser) || trace.vehicleIntentEstablished
+      ? "Son söylediğiniz noktayı kaçırmadım. İsterseniz oradan devam ederiz."
+      : FALLBACK_GREETING,
+    phase: textHasVehicleIntent(latestUser) || trace.vehicleIntentEstablished ? "DISCOVERING" : "SOCIAL_OPEN",
+    advisorStage: textHasVehicleIntent(latestUser) || trace.vehicleIntentEstablished ? "CONTEXT_UNDERSTANDING" : "SOCIAL_OPEN",
   };
 }
 

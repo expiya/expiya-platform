@@ -195,11 +195,18 @@ export function answeredPurposesFrom(requirements: readonly CarsRequirementLedge
   return [...answered];
 }
 
+export { conversationStateFromPhase } from "./carsAdvisorState";
+
 export function emptyConversationTrace(): CarsConversationTrace {
   return {
     version: 1,
-    state: "COLLECTING_CONTEXT",
-    phase: "DISCOVERING",
+    state: "SOCIAL_OPEN",
+    phase: "SOCIAL_OPEN",
+    advisorStage: "SOCIAL_OPEN",
+    vehicleIntentEstablished: false,
+    humanReady: false,
+    governedReady: false,
+    recommendationOfferStatus: "NONE",
     requirements: [],
     askedQuestionPurposes: [],
     answeredQuestionPurposes: [],
@@ -214,27 +221,21 @@ export function emptyConversationTrace(): CarsConversationTrace {
   };
 }
 
-export function conversationStateFromPhase(phase: CarsConversationPhase): CarsConversationState {
-  if (phase === "FINAL_TRADEOFF") return "FINAL_DISCRIMINATOR_REQUIRED";
-  if (phase === "DECISION_READY") return "DECISION_READY";
-  if (phase === "LIMITED_BY_EVIDENCE") return "INSUFFICIENT_SUPPORTED_EVIDENCE";
-  if (phase === "RECOVERING") return "SYSTEM_FAILURE";
-  if (phase === "CLARIFYING") return "CLARIFICATION_REQUIRED";
-  return "COLLECTING_CONTEXT";
-}
-
 export function withCarsConversationState(
   trace: CarsConversationTrace,
   state: CarsConversationState,
 ): CarsConversationTrace {
   const phase: CarsConversationPhase = state === "FINAL_DISCRIMINATOR_REQUIRED" ? "FINAL_TRADEOFF"
-    : state === "DECISION_READY" ? "DECISION_READY"
-      : state === "INSUFFICIENT_SUPPORTED_EVIDENCE" ? "LIMITED_BY_EVIDENCE"
-        : state === "SYSTEM_FAILURE" ? "RECOVERING"
-          : state === "CLARIFICATION_REQUIRED" ? "CLARIFYING"
-            : trace.phase === "READY_TO_EVALUATE" || trace.phase === "EVALUATING" || trace.phase === "DISCOVERING"
-              ? trace.phase
-              : "DISCOVERING";
+    : state === "OFFER_AWAITING_CONSENT" ? "OFFERING"
+      : state === "RECOMMENDATION_SHOWN" || state === "DECISION_READY" ? "RECOMMENDATION_SHOWN"
+        : state === "SOCIAL_OPEN" ? "SOCIAL_OPEN"
+          : state === "SOCIAL_DETOUR" ? "SOCIAL_DETOUR"
+            : state === "INSUFFICIENT_SUPPORTED_EVIDENCE" ? "LIMITED_BY_EVIDENCE"
+              : state === "SYSTEM_FAILURE" ? "RECOVERING"
+                : state === "CLARIFICATION_REQUIRED" ? "CLARIFYING"
+                  : trace.phase === "READY_TO_EVALUATE" || trace.phase === "EVALUATING" || trace.phase === "DISCOVERING"
+                    ? trace.phase
+                    : "DISCOVERING";
   return {
     ...trace,
     state,

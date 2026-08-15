@@ -37,7 +37,8 @@ describe("dynamic sufficiency", () => {
     expect(trace.askedQuestionPurposes).toContain("DAILY_VS_OFFROAD");
     expect(cannotRepeatQuestion(trace, "DAILY_VS_OFFROAD")).toBe(false);
     expect(trace.questionMemory).toContainEqual(expect.objectContaining({ purpose: "DAILY_VS_OFFROAD", status: "DEFERRED" }));
-    expect(assessCarsConversationSufficiency(trace).nextPurpose).toBe("DAILY_VS_OFFROAD");
+    expect(assessCarsConversationSufficiency(trace).nextPurpose).not.toBe("DAILY_VS_OFFROAD");
+    expect(assessCarsConversationSufficiency(trace).readyToEvaluate).toBe(false);
   });
 
   it("asks party confirmation rather than evaluating party size as seats", () => {

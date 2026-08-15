@@ -1,7 +1,11 @@
 import { describe, expect, it, vi } from "vitest";
 
 vi.mock("@/features/decision/conversation/planCarsConversationTurn", () => ({
-  planCarsConversationTurn: vi.fn().mockResolvedValue(undefined),
+  planCarsConversationTurn: vi.fn().mockResolvedValue({
+    requestedModel: "gpt-5.5",
+    parseOutcome: "UNAVAILABLE",
+    fallbackUsed: false,
+  }),
 }));
 
 import { POST } from "./route";
@@ -58,7 +62,8 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
 
     expect(response.status).toBe(200);
     const payload = await response.json();
-    expect(payload.message).toMatch(/4 kişilik kullanım.*bagajda.*ne taşı/iu);
+    expect(payload.message).toMatch(/4 kişilik kullanım/iu);
+    expect(payload.message).not.toMatch(/litre olarak|minimum hacmi/iu);
     expect(payload.conversation.didConversationProgress).toBe(true);
     expect(payload.conversation.requirements).toEqual(expect.arrayContaining([
       expect.objectContaining({ key: "USAGE_SERIOUS_OFF_ROAD", value: "SERIOUS_OFF_ROAD" }),
@@ -122,24 +127,27 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
     expect(response.status).toBe(200);
     const payload = await response.json();
     expect(payload).toMatchObject({ kind: "QUESTION", decision: {
-      conversationState: "DECISION_READY", decisionStatus: "DECISION_READY", evidenceBacked: true,
-      selectedRuntimeVehicleCandidateId: "RVC-PILOT-0001", selectedVehicle: { brand: "Hyundai", model: "IONIQ 9" },
+      conversationState: "OFFER_AWAITING_CONSENT", decisionStatus: "DECISION_READY",
       requirements: [
         { factKey: "seats", predicate: "AT_LEAST", value: 7 },
         { factKey: "cargo_volume_l", predicate: "AT_LEAST", value: 300 },
       ],
     } });
-    expect(payload.message).toMatch(/7 koltuk.*338 L bagaj/iu);
+    expect(payload.decision.selectedRuntimeVehicleCandidateId).toBeUndefined();
+    expect(payload.decision.selectedVehicle).toBeUndefined();
+    expect(payload.message).not.toMatch(/Hyundai|IONIQ|RVC-/i);
+    expect(payload.conversation.heldAuthorization).toBeTruthy();
   });
 
-  it("evaluates a sufficient first message immediately", async () => {
+  it("evaluates a sufficient first message as an offer without revealing identity", async () => {
     const response = await postConversation("http-immediate-unique", [
       { id: "1", role: "user", content: "En az 7 koltuk ve en az 300 litre bagaj istiyorum." },
     ]);
     expect(response.status).toBe(200);
-    expect(await response.json()).toMatchObject({
-      decision: { conversationState: "DECISION_READY", selectedRuntimeVehicleCandidateId: "RVC-PILOT-0001" },
-    });
+    const payload = await response.json();
+    expect(payload.decision.conversationState).toBe("OFFER_AWAITING_CONSENT");
+    expect(payload.decision.selectedRuntimeVehicleCandidateId).toBeUndefined();
+    expect(payload.kind).toBe("QUESTION");
   });
 
   it("exposes and enforces the structured final discriminator through the public handler", async () => {
@@ -163,8 +171,54 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
     const selected = await postConversation("http-final-discriminator", [
       ...messages.slice(0, 2), { id: "4", role: "user", content: "Daha fazla bagaj alanı" },
     ], { choiceId: "MAX_CARGO" }, "10.30.0.4");
-    expect(await selected.json()).toMatchObject({ decision: {
-      conversationState: "DECISION_READY", selectedRuntimeVehicleCandidateId: "RVC-PILOT-0002",
-    }, conversation: { didConversationProgress: true, textInputAllowed: true } });
+    const selectedPayload = await selected.json();
+    expect(selectedPayload).toMatchObject({
+      kind: "QUESTION",
+      decision: { conversationState: "OFFER_AWAITING_CONSENT" },
+      conversation: { didConversationProgress: true, textInputAllowed: true },
+    });
+    expect(selectedPayload.decision.selectedRuntimeVehicleCandidateId).toBeUndefined();
+
+    const accepted = await postConversation("http-final-discriminator", [
+      ...messages.slice(0, 2),
+      { id: "4", role: "user", content: "Daha fazla bagaj alanı" },
+      { id: "5", role: "assistant", content: selectedPayload.message },
+      { id: "6", role: "user", content: "evet" },
+    ], { conversation: selectedPayload.conversation }, "10.30.0.6");
+    expect(await accepted.json()).toMatchObject({
+      kind: "RECOMMENDATIONS",
+      decision: { conversationState: "DECISION_READY", selectedRuntimeVehicleCandidateId: "RVC-PILOT-0002" },
+    });
+  });
+
+  it("keeps a pure greeting social through the public route", async () => {
+    const response = await postConversation("http-greeting", [
+      { id: "1", role: "user", content: "Merhaba" },
+    ], {}, "10.30.0.7");
+    expect(response.status).toBe(200);
+    const payload = await response.json();
+    expect(payload.message).toMatch(/merhaba|hoş geldiniz|yardımcı/iu);
+    expect(payload.message).not.toMatch(/hangi senaryo|daraltalım|kaç koltuk/iu);
+    expect(payload.conversation.requirements).toEqual([]);
+    expect(payload.conversation.vehicleIntentEstablished).toBe(false);
+    expect(payload.options).toBeUndefined();
+  });
+
+  it("reveals the held card after typed acceptance through the public route", async () => {
+    const offer = await postConversation("http-consent", [
+      { id: "1", role: "user", content: "En az 7 koltuk ve en az 300 litre bagaj istiyorum." },
+    ], {}, "10.30.0.8");
+    const offerPayload = await offer.json();
+    expect(offerPayload.kind).toBe("QUESTION");
+    expect(offerPayload.decision.selectedRuntimeVehicleCandidateId).toBeUndefined();
+    const accepted = await postConversation("http-consent", [
+      { id: "1", role: "user", content: "En az 7 koltuk ve en az 300 litre bagaj istiyorum." },
+      { id: "2", role: "assistant", content: offerPayload.message },
+      { id: "3", role: "user", content: "evet" },
+    ], { conversation: offerPayload.conversation }, "10.30.0.9");
+    const acceptedPayload = await accepted.json();
+    expect(acceptedPayload.kind).toBe("RECOMMENDATIONS");
+    expect(acceptedPayload.recommendations).toHaveLength(1);
+    expect(acceptedPayload.decision.selectedRuntimeVehicleCandidateId).toBe("RVC-PILOT-0001");
   });
 });

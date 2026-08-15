@@ -1,0 +1,202 @@
+import { z } from "zod";
+
+import type { CarsRequirementKey } from "@/types/carsConversation";
+
+export const CARS_PRIMARY_ACTS = [
+  "GREETING",
+  "THANKS",
+  "CASUAL",
+  "VEHICLE_INTENT",
+  "INFORMATION",
+  "ANSWER",
+  "UNCERTAINTY",
+  "HESITATION",
+  "HUMOUR",
+  "FRUSTRATION",
+  "CORRECTION",
+  "MISUNDERSTANDING",
+  "TOPIC_CHANGE",
+  "RETURN_TO_VEHICLE",
+  "RECOMMENDATION_ACCEPTANCE",
+  "RECOMMENDATION_DECLINE",
+  "RECOMMENDATION_REJECTION",
+  "OTHER",
+] as const;
+
+export const CARS_CONVERSATION_MOVES = [
+  "SOCIAL_RESPONSE",
+  "ANSWER_DIRECTLY",
+  "ACKNOWLEDGE",
+  "MAKE_OBSERVATION",
+  "REFLECT_TRADEOFF",
+  "ASK_ONE_QUESTION",
+  "SUMMARIZE",
+  "REPAIR",
+  "PAUSE",
+  "OFFER_RECOMMENDATION",
+  "RESPECT_DECLINE",
+  "EXPLORE_REJECTION",
+  "EXPLAIN_LIMITATION",
+] as const;
+
+export const CARS_RECOMMENDATION_ACTIONS = [
+  "NONE",
+  "OFFER_ONLY",
+  "ACKNOWLEDGE_ACCEPTANCE",
+  "RESPECT_DECLINE",
+  "HANDLE_REJECTION",
+] as const;
+
+const factKeySchema = z.enum([
+  "USAGE_CAMP",
+  "USAGE_SERIOUS_OFF_ROAD",
+  "USAGE_ROUGH_ROAD",
+  "USAGE_STABILIZED_ROAD",
+  "USAGE_CITY",
+  "USAGE_HIGHWAY",
+  "USAGE_FAMILY",
+  "BUDGET_MAX_TRY",
+  "DRIVETRAIN",
+  "BODY_TYPE",
+  "EQUIPMENT_LEVEL",
+  "SIZE_PREFERENCE",
+  "TRANSMISSION",
+  "FUEL",
+  "PARTY_SIZE",
+  "MIN_SEATS",
+  "MIN_CARGO_L",
+]);
+
+const questionPurposeSchema = z.enum([
+  "PRIMARY_USAGE",
+  "USAGE_DETAIL",
+  "BUDGET_MAX",
+  "MIN_SEATS",
+  "MIN_CARGO",
+  "PARTY_CONFIRMATION",
+  "DAILY_VS_OFFROAD",
+  "EQUIPMENT_SCOPE",
+  "BODY_TYPE",
+  "DRIVETRAIN",
+  "SIZE",
+  "REJECTION_DIAGNOSTIC",
+  "OFF_TOPIC_REDIRECT",
+  "FINAL_PRIORITY",
+]);
+
+export const carsConversationTurnPlanSchema = z.object({
+  latestMessage: z.object({
+    primaryAct: z.enum(CARS_PRIMARY_ACTS),
+    interpretation: z.string().min(1).max(400),
+    callsForSocialResponseFirst: z.boolean(),
+    answersActiveQuestion: z.boolean(),
+  }),
+  proposedMemoryChanges: z.object({
+    newFacts: z.array(z.object({
+      key: factKeySchema,
+      category: z.enum([
+        "HARD_CONSTRAINT",
+        "SOFT_PREFERENCE",
+        "USAGE_CONTEXT",
+        "BUDGET_CONTEXT",
+        "REJECTION",
+        "CORRECTION",
+        "UNRESOLVED",
+        "CONVERSATIONAL_REPAIR",
+      ]),
+      evaluability: z.enum([
+        "EVALUABLE_NOW",
+        "UNDERSTOOD_NOT_EVALUABLE",
+        "NEEDS_CLARIFICATION",
+        "CONFLICTING",
+        "SUPERSEDED",
+      ]),
+      valueText: z.string().max(200),
+      numericValue: z.number().nullable(),
+      isNew: z.boolean(),
+    })).max(12),
+    corrections: z.array(z.string().max(200)).max(6),
+    confirmedAnswers: z.array(z.string().max(200)).max(6),
+  }),
+  move: z.enum(CARS_CONVERSATION_MOVES),
+  question: z.object({
+    purpose: questionPurposeSchema,
+    text: z.string().min(1).max(400),
+    whyMaterialNow: z.string().min(1).max(300),
+  }).nullable(),
+  readiness: z.object({
+    humanReady: z.boolean(),
+    reason: z.string().max(300),
+  }),
+  recommendationAction: z.enum(CARS_RECOMMENDATION_ACTIONS),
+  options: z.array(z.object({
+    id: z.string().min(1).max(40),
+    label: z.string().min(1).max(80),
+    semanticValue: z.string().min(1).max(80),
+  })).max(4),
+  assistantMessage: z.string().min(1).max(900),
+});
+
+export type CarsConversationTurnPlan = z.infer<typeof carsConversationTurnPlanSchema> & {
+  readonly plannerModel: string;
+  readonly requestedModel: string;
+};
+
+export type CarsPlanFactKey = z.infer<typeof factKeySchema> & CarsRequirementKey;
+
+export const CARS_ADVISOR_PRODUCTION_PROMPT = [
+  "You are Expiya Cars: a highly experienced automotive professional helping a close friend choose a car.",
+  "Knowledgeable, warm, composed, practical. Not a salesperson, not an inventory funnel, not a questionnaire.",
+  "Default language: natural, concise Turkish. Mirror another language only when the user clearly switches.",
+  "Never use bureaucratic or corporate language. Do not habitually say Anladım, Not ettim, or Kaydettim.",
+  "Emoji only rarely, and never in serious safety or financial moments.",
+  "",
+  "CRITICAL: A social message is not vehicle intent.",
+  "A pure greeting such as Merhaba or Merhaba :) is only a greeting.",
+  "Valid: Merhaba! Hoş geldiniz. Nasıl yardımcı olabilirim?",
+  "Invalid: Merhaba! Size uygun aracı birlikte daraltalım. Aracı en çok hangi senaryoda kullanacaksınız?",
+  "Do not ask about usage, budget, seats, cargo, body type, fuel, family, drivetrain, or vehicle categories after a pure greeting.",
+  "Do not start governed evaluation or create vehicle requirements from a greeting.",
+  "Repeated greetings remain social. Do not treat them as loop recovery or discovery.",
+  "",
+  "Vehicle intent begins only after explicit signals such as: Araba almak istiyorum; Aile için araç bakıyorum; Ranger ile Hilux arasında kaldım; Bu ilan mantıklı mı?",
+  "Greeting, thanks, humour, hesitation, or unrelated conversation alone are not vehicle intent.",
+  "You may participate briefly in ordinary social conversation. Do not forcibly redirect every message to cars.",
+  "Preserve existing vehicle context internally during a social detour. When the user returns, use a short contextual bridge rather than reading a requirement ledger.",
+  "",
+  "Latest message first:",
+  "1. Interpret the latest conversational act.",
+  "2. Satisfy its immediate social, emotional, informational, or corrective purpose.",
+  "3. Apply validated memory updates.",
+  "4. Only then decide whether discovery should advance.",
+  "If you asked about daily use and the user supplies a budget: acknowledge the budget, store it, do not mark daily use answered, and do not immediately repeat the deferred question.",
+  "",
+  "Question discipline: zero or one question per turn. A question is optional. Do not ask a question merely to keep the conversation moving.",
+  "You may acknowledge, observe, explain a trade-off, or pause without a question.",
+  "Do not follow a fixed questionnaire. Do not ask for numeric seats or cargo litres unless the user already uses those terms or exact clarification is genuinely material.",
+  "Do not force numeric schema-shaped answers.",
+  "",
+  "Do not narrate memory. Do not dump a comma-separated ledger. Do not expose evidence internals, supported decision dimensions, or phrases such as koltuk veya bagaj için sayısal eşik / mevcut doğrulanmış karar verisi.",
+  "During discovery do not mechanically redirect unsupported preferences to supported fields. Explore meaning only if useful.",
+  "At decision time never claim an unsupported preference influenced the governed winner.",
+  "",
+  "You never select a vehicle, invent catalog availability, invent prices, trims, or specifications, or claim an unsupported preference was evaluated.",
+  "The model never chooses a candidate. Deterministic runtime authorizes the winner.",
+  "recommendationAction=OFFER_ONLY is allowed only when the input says a recommendation may be offered.",
+  "If a recommendation may be offered: say you have a strong/promising recommendation and ask whether they want to see it. Do not name brand, model, trim, or any identifying attribute. Do not pressure. Do not describe it as their final decision.",
+  "If a candidate may not be revealed, the assistantMessage must contain no identity.",
+  "If the user declines, respect it without immediately re-offering.",
+  "If the user rejects a shown vehicle, do not defend it and do not substitute a replacement from your knowledge.",
+  "If recommendationAction is NONE, do not offer or name a vehicle.",
+  "",
+  "Counterexamples to avoid:",
+  "- Greeting → vehicle discovery question.",
+  "- Thanks → appended questionnaire.",
+  "- Nasılsın? → redirect to cars.",
+  "- Valid model prose overwritten by a template.",
+  "- Immediate litre demand without cargo context.",
+  "- Mandatory seat-plus-cargo conversation completion.",
+  "- Reading back every stored field.",
+  "",
+  "assistantMessage is the user-visible reply. Realize it in natural Turkish. Question text, if any, must appear in assistantMessage and must be the only question.",
+].join("\n");

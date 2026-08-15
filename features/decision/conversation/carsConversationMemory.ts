@@ -19,6 +19,7 @@ import {
   pendingQuestionFromAssistant,
   upsertRequirement,
 } from "./carsRequirementLedger";
+import { advisorDefaults } from "./carsAdvisorState";
 
 function normalize(text: string): string {
   return text.toLocaleLowerCase("tr-TR").replace(/[^\p{L}\p{N}\s]/gu, " ").replace(/\s+/g, " ").trim();
@@ -233,11 +234,15 @@ export function hydrateCarsConversationMemory(input: {
   const answered = answeredPurposesFrom(requirements);
   const didConversationProgress = capturedOnLatestTurn.length > 0
     || Boolean(activeOptionSet?.selectedOptionId && !activeOptionSet.active);
+  const advisor = advisorDefaults(input.conversation);
 
   return {
     version: 1,
     state: conversationStateFromPhase("DISCOVERING"),
     phase: "DISCOVERING",
+    ...advisor,
+    vehicleIntentEstablished: advisor.vehicleIntentEstablished || requirements.length > 0,
+    heldAuthorization: input.conversation?.heldAuthorization,
     requirements,
     askedQuestionPurposes: [...asked],
     answeredQuestionPurposes: answered,
@@ -257,6 +262,8 @@ export function hydrateCarsConversationMemory(input: {
       pending: pending?.purpose,
       option: activeOptionSet?.id,
       selected: activeOptionSet?.selectedOptionId,
+      advisor: advisor.advisorStage,
+      offer: advisor.recommendationOfferStatus,
     }),
     loopCount,
   };
@@ -303,21 +310,30 @@ export function applyAssistantMove(
     readonly prompt: string;
     readonly options?: CarsActiveOptionSet;
     readonly progressEvent?: string;
+    readonly advisorStage?: CarsConversationTrace["advisorStage"];
+    readonly vehicleIntentEstablished?: boolean;
+    readonly humanReady?: boolean;
+    readonly governedReady?: boolean;
+    readonly recommendationOfferStatus?: CarsConversationTrace["recommendationOfferStatus"];
+    readonly heldAuthorization?: string;
+    readonly clearPendingQuestion?: boolean;
   },
 ): CarsConversationTrace {
   const asked = new Set(trace.askedQuestionPurposes);
   if (input.purpose) asked.add(input.purpose);
   const inferredPending = pendingQuestionFromAssistant(input.prompt);
-  const pending = input.purpose
-    ? {
-      purpose: input.purpose,
-      prompt: input.prompt,
-      pendingValue: inferredPending?.purpose === input.purpose ? inferredPending.pendingValue : undefined,
-      yesImplies: inferredPending?.purpose === input.purpose
-        ? inferredPending.yesImplies
-        : input.purpose === "PARTY_CONFIRMATION" ? latestNumericImplication(trace, input.prompt) : undefined,
-    }
-    : undefined;
+  const pending = input.clearPendingQuestion
+    ? undefined
+    : input.purpose
+      ? {
+        purpose: input.purpose,
+        prompt: input.prompt,
+        pendingValue: inferredPending?.purpose === input.purpose ? inferredPending.pendingValue : undefined,
+        yesImplies: inferredPending?.purpose === input.purpose
+          ? inferredPending.yesImplies
+          : input.purpose === "PARTY_CONFIRMATION" ? latestNumericImplication(trace, input.prompt) : undefined,
+      }
+      : undefined;
   const questionMemory = [...(trace.questionMemory ?? [])];
   if (input.purpose) {
     questionMemory.push({
@@ -334,6 +350,12 @@ export function applyAssistantMove(
     ...trace,
     phase: input.phase,
     state: conversationStateFromPhase(input.phase),
+    advisorStage: input.advisorStage ?? trace.advisorStage,
+    vehicleIntentEstablished: input.vehicleIntentEstablished ?? trace.vehicleIntentEstablished,
+    humanReady: input.humanReady ?? trace.humanReady,
+    governedReady: input.governedReady ?? trace.governedReady,
+    recommendationOfferStatus: input.recommendationOfferStatus ?? trace.recommendationOfferStatus,
+    heldAuthorization: input.heldAuthorization !== undefined ? input.heldAuthorization : trace.heldAuthorization,
     askedQuestionPurposes: [...asked],
     questionMemory,
     lastAssistantQuestion: pending,
@@ -346,6 +368,7 @@ export function applyAssistantMove(
       asked: [...asked].sort(),
       pending: pending?.purpose,
       option: input.options?.id,
+      offer: input.recommendationOfferStatus ?? trace.recommendationOfferStatus,
     }),
   };
 }

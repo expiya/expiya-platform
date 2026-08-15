@@ -67,23 +67,58 @@ export interface CarsConversationRequest {
 }
 
 export type CarsConversationPhase =
+  | "SOCIAL_OPEN"
   | "DISCOVERING"
   | "CLARIFYING"
   | "READY_TO_EVALUATE"
   | "EVALUATING"
   | "FINAL_TRADEOFF"
+  | "OFFERING"
   | "DECISION_READY"
+  | "RECOMMENDATION_SHOWN"
+  | "RECOMMENDATION_DECLINED"
+  | "RECOMMENDATION_REJECTED"
+  | "SOCIAL_DETOUR"
+  | "PAUSED"
   | "LIMITED_BY_EVIDENCE"
   | "RECOVERING";
 
 export type CarsConversationState =
+  | "SOCIAL_OPEN"
   | "COLLECTING_CONTEXT"
   | "CLARIFICATION_REQUIRED"
   | "FINAL_DISCRIMINATOR_REQUIRED"
+  | "OFFER_AWAITING_CONSENT"
   | "DECISION_READY"
+  | "RECOMMENDATION_SHOWN"
+  | "SOCIAL_DETOUR"
   | "INSUFFICIENT_SUPPORTED_EVIDENCE"
   | "NO_SUPPORTED_CANDIDATE"
   | "SYSTEM_FAILURE";
+
+export type CarsAdvisorStage =
+  | "SOCIAL_OPEN"
+  | "VEHICLE_INTENT"
+  | "CONTEXT_UNDERSTANDING"
+  | "TRADEOFF_RESOLUTION"
+  | "HUMAN_READY"
+  | "NOT_RECOMMENDABLE"
+  | "AUTHORIZED_CANDIDATE_HELD"
+  | "OFFER_AWAITING_CONSENT"
+  | "RECOMMENDATION_SHOWN"
+  | "RECOMMENDATION_DECLINED"
+  | "RECOMMENDATION_REJECTED"
+  | "SOCIAL_DETOUR"
+  | "RECOVERY"
+  | "PAUSED"
+  | "SYSTEM_LIMITED";
+
+export type CarsRecommendationOfferStatus =
+  | "NONE"
+  | "AWAITING_CONSENT"
+  | "DECLINED"
+  | "REVEALED"
+  | "INVALIDATED";
 
 export type CarsRequirementKey =
   | "USAGE_CAMP"
@@ -161,20 +196,30 @@ export interface CarsQuestionMemoryEntry {
 
 export interface CarsTurnProvenance {
   readonly modelAttempted: boolean;
+  readonly requestedModel?: string;
   readonly selectedModel?: string;
   readonly structuredPlan: boolean;
+  readonly parseOutcome?: "SUCCESS" | "EMPTY" | "SCHEMA_FAILURE" | "UNAVAILABLE" | "NOT_ATTEMPTED";
   readonly userFacingOrigin: "MODEL" | "DETERMINISTIC_EVIDENCE" | "BOUNDED_FALLBACK" | "DETERMINISTIC_REPAIR";
   readonly deterministicOverride: boolean;
   readonly fallbackReason?: string;
   readonly conversationMove?: string;
   readonly nextQuestionPurpose?: CarsQuestionPurpose;
   readonly latestMessageAcknowledged: boolean;
+  readonly latestPrimaryAct?: string;
+  readonly advisorStage?: CarsAdvisorStage;
 }
 
 export interface CarsConversationTrace {
   readonly version: 1;
   readonly state: CarsConversationState;
   readonly phase: CarsConversationPhase;
+  readonly advisorStage: CarsAdvisorStage;
+  readonly vehicleIntentEstablished: boolean;
+  readonly humanReady: boolean;
+  readonly governedReady: boolean;
+  readonly recommendationOfferStatus: CarsRecommendationOfferStatus;
+  readonly heldAuthorization?: string;
   readonly requirements: readonly CarsRequirementLedgerEntry[];
   readonly askedQuestionPurposes: readonly CarsQuestionPurpose[];
   readonly answeredQuestionPurposes: readonly CarsQuestionPurpose[];
@@ -201,9 +246,10 @@ export interface CarsFinalDiscriminatorChoice {
 }
 
 export interface CarsConversationEvidenceDecision {
-  readonly conversationState: "FOLLOW_UP" | "FINAL_DISCRIMINATOR_REQUIRED" | "DECISION_READY" | "EVIDENCE_INSUFFICIENT" | "NO_ELIGIBLE_CANDIDATE";
+  readonly conversationState: "FOLLOW_UP" | "FINAL_DISCRIMINATOR_REQUIRED" | "OFFER_AWAITING_CONSENT" | "DECISION_READY" | "EVIDENCE_INSUFFICIENT" | "NO_ELIGIBLE_CANDIDATE";
   readonly decisionStatus: "NEEDS_MORE_USER_CONTEXT" | "DECISION_READY" | "INSUFFICIENT_VEHICLE_EVIDENCE" | "NO_ELIGIBLE_CANDIDATE";
   readonly evidenceBacked: boolean;
+  readonly recommendationOfferStatus?: CarsRecommendationOfferStatus;
   readonly selectedRuntimeVehicleCandidateId?: string;
   readonly selectedVehicle?: { readonly brand: string; readonly model: string; readonly trim: string };
   readonly requirements: readonly { readonly factKey: "seats" | "cargo_volume_l"; readonly predicate: "AT_LEAST"; readonly value: number }[];
@@ -212,6 +258,8 @@ export interface CarsConversationEvidenceDecision {
   readonly followUpQuestion?: string;
   readonly limitations?: readonly string[];
   readonly discriminatorChoices?: readonly CarsFinalDiscriminatorChoice[];
+  readonly governedReasons?: readonly string[];
+  readonly unverifiedPreferenceNote?: string;
 }
 
 export type CarsConversationResponse =

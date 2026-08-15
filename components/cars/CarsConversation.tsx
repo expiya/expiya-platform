@@ -4,7 +4,10 @@ import { FormEvent, KeyboardEvent, useCallback, useEffect, useRef, useState } fr
 import { useRouter } from "next/navigation";
 
 import { CarCard } from "@/components/cars/CarCard";
-import { hasActiveFinalDiscriminator } from "@/features/decision/conversation/carsConversationUiState";
+import {
+  hasActiveFinalDiscriminator,
+  shouldShowVehicleQuickReplies,
+} from "@/features/decision/conversation/carsConversationUiState";
 import type { VehicleListingAnalysis } from "@/types/listingAnalysis";
 import type {
   CarsConversationMessage,
@@ -112,6 +115,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
       const assistantMessage = {
         ...newMessage("assistant", content),
         quickReplies: response.ok && "kind" in payload && payload.kind === "QUESTION"
+          && shouldShowVehicleQuickReplies(nextMessages.filter((item) => item.role === "user").at(-1)?.content ?? "", payload.options)
           ? payload.options
           : undefined,
         optionSet: response.ok && "kind" in payload && payload.kind === "QUESTION"
@@ -313,7 +317,10 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                       ))}
                     </div>
                   )}
-                  {message.role === "assistant" && message.quickReplies && (
+                  {message.role === "assistant" && shouldShowVehicleQuickReplies(
+                    messages.slice(0, messages.indexOf(message)).reverse().find((item) => item.role === "user")?.content ?? "",
+                    message.quickReplies,
+                  ) && message.quickReplies && (
                     <div className="mt-3 flex flex-wrap gap-2">
                       {message.quickReplies.map((option) => (
                         <button
