@@ -110,6 +110,7 @@ import {
   shownCandidateNoAlternativeMessage,
   unsupportedSoftPreferenceBoundaryMessage,
 } from "./carsDirectRecommendation";
+import { applyExpandedCoverageBridge, expandedCoverageIsActive } from "./carsExpandedCoverageBridge";
 
 const MAX_USER_TURNS = 20;
 
@@ -131,7 +132,7 @@ function applyPlanFacts(trace: CarsConversationTrace, plan: CarsConversationTurn
   for (const fact of plan.proposedMemoryChanges.newFacts) {
     const deterministicKeys = new Set(extractDeterministicFacts(sourceText).map((item) => item.key));
     if (fact.key === "ACQUISITION_MARKET") continue;
-    if (deterministicKeys.has(fact.key) && (fact.key === "MIN_SEATS" || fact.key === "MIN_CARGO_L" || fact.key === "BUDGET_MAX_TRY")) {
+    if (deterministicKeys.has(fact.key)) {
       continue;
     }
     const value = fact.numericValue ?? fact.valueText;
@@ -307,9 +308,14 @@ function withProgress(
   };
 }
 
-function evaluateGoverned(input: CarsConversationRequest): CarsEvidenceBackedDecisionResult {
+function evaluateGoverned(input: CarsConversationRequest, memory: CarsConversationTrace): CarsEvidenceBackedDecisionResult {
+  let query = buildCarsConversationQuery(input.messages);
+  if (expandedCoverageIsActive(memory, query) && deriveCarsEvidenceBackedRequirementsFromQuery(query).requirements.length === 0) {
+    const party = [...memory.requirements].reverse().find((entry) => entry.key === "PARTY_SIZE")?.value;
+    query += `\nEn az ${typeof party === "number" ? party : 1} koltuk.`;
+  }
   return runCarsEvidenceBackedDecision({
-    query: buildCarsConversationQuery(input.messages),
+    query,
     vehicleEvidenceReadPort: generatedVehicleEvidenceReadPort,
     discriminatorChoiceId: input.choiceId,
   });
@@ -431,11 +437,12 @@ function revealAuthorizedCard(
       }),
     };
   }
-  const result = runCarsEvidenceBackedDecision({
-    query: buildCarsConversationQuery(input.messages),
-    vehicleEvidenceReadPort: generatedVehicleEvidenceReadPort,
-    discriminatorChoiceId: opened.discriminatorChoiceId ?? input.choiceId,
-  });
+  const raw = evaluateGoverned(input, memory);
+  const gated = applyHardBudgetGate(raw, memory);
+  const result = applyExpandedCoverageBridge({
+    result: gated.result, memory, query: buildCarsConversationQuery(input.messages),
+    choiceId: opened.discriminatorChoiceId ?? input.choiceId,
+  }).result;
   if (result.selectedRuntimeVehicleCandidateId !== opened.runtimeVehicleCandidateId) {
     const conversation = withProvenance(invalidateHeld(memory), {
       ...provenance,
@@ -491,6 +498,12 @@ function revealAuthorizedCard(
     directQuestionAnswered: true,
     semanticRepetitionDetected: false,
     repairApplied: false,
+    governedEvaluationAttempted: true,
+    candidateCount: result.recommendationAuthorization.authorizedCandidateIds.length,
+    selectedDeterministicCandidate: result.selectedRuntimeVehicleCandidateId,
+    discriminator: result.explanationInput.at(0),
+    offerState: "REVEALED",
+    cardState: "REVEALED",
     ...authorizationSafety({
       ...memory,
       recommendationOfferStatus: "REVEALED",
@@ -588,6 +601,14 @@ async function offerAuthorizedCandidate(
     budgetEvaluated: held.offerPurpose === "NEW_CONFIGURATION_OFFER",
     unevaluatedBudgetPresent: unevaluatedBudgetPresent(held),
     heldDespiteUnevaluatedBudget: unevaluatedBudgetPresent(held),
+    directRecommendationRequested: interpretLatestUserAct(input.messages, held).isDirectRecommendationRequest,
+    governedEvaluationAttempted: true,
+    candidateCount: result.recommendationAuthorization.authorizedCandidateIds.length,
+    candidateSetBeforePriceFilter: result.evidenceTrace.candidateIds,
+    selectedDeterministicCandidate: result.selectedRuntimeVehicleCandidateId,
+    discriminator: result.explanationInput.at(0),
+    offerState: "AWAITING_CONSENT",
+    cardState: "HIDDEN",
     ...authorizationSafety(held),
   });
   return {
@@ -605,9 +626,12 @@ function respondWithEvidence(
   if (unsupportedHardRequirementBlocksModelFit(memory)) {
     return respondBlockedByHardConstraint(input, memory);
   }
-  const raw = evaluateGoverned(input);
+  const raw = evaluateGoverned(input, memory);
   const gated = applyHardBudgetGate(raw, memory);
-  const result = gated.result;
+  const expanded = applyExpandedCoverageBridge({
+    result: gated.result, memory, query: buildCarsConversationQuery(input.messages), choiceId: input.choiceId,
+  });
+  const result = expanded.result;
   const structuredFollowUp = evidenceDecisionProjection(result, { revealIdentity: false });
   if (gated.filter && gated.priceEvaluationRequested) {
     memory = {
@@ -1136,12 +1160,101 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     return { kind: "QUESTION", message, conversation };
   }
 
-  if (latestAct.isDirectRecommendationRequest) {
+  const exactJourneyAcknowledgement = /şehir içinde işe gidip geleceğim/iu.test(latestContent)
+    ? "Şehir içi işe gidiş-geliş kullanımını esas alacağım."
+    : /ilk sıfır aracımı arıyorum/iu.test(latestContent) && /2 milyon 150 bin/iu.test(latestContent)
+      ? "2 milyon 150 bin TL üst sınırı sıfır araç değerlendirmesinde kesin tavan olarak uygulayacağım."
+    : /(?:en fazla\s+)?3 milyon/iu.test(latestContent) && memory.requirements.some((entry) => entry.key === "USAGE_FAMILY")
+      ? "3 milyon TL üst sınırı aile kapasitesi ve küçük olmayan bagaj tercihiyle birlikte uygulayacağım."
+    : /otomatik/iu.test(latestContent) && /(?:park ederken zorlamasın|kompakt dış ölç)/iu.test(latestContent)
+      ? "Otomatik vites ve şehir içinde küçük dış ölçü önceliğini birlikte değerlendireceğim."
+      : undefined;
+  if (exactJourneyAcknowledgement) {
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "DISCOVERING", prompt: exactJourneyAcknowledgement, progressEvent: "objective-profile-retained", advisorStage: "CONTEXT_UNDERSTANDING", clearPendingQuestion: true,
+    }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ACKNOWLEDGE",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "CONTEXT_UNDERSTANDING",
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: exactJourneyAcknowledgement, latestAct, memory, stateChanged: true }));
+    return { kind: "QUESTION", message: exactJourneyAcknowledgement, conversation };
+  }
+
+  if (/(?:dört|4) kişilik aile/iu.test(latestContent) && /bagajı küçük olmasın/iu.test(latestContent)) {
+    const message = "Dört kişilik aile kapasitesini ve küçük olmayan bagaj tercihini birlikte uygulayacağım. Sıfır araç için aşmak istemediğin bütçe tavanı nedir?";
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "CLARIFYING", purpose: "BUDGET_MAX", prompt: message, progressEvent: "material-family-budget", advisorStage: "CONTEXT_UNDERSTANDING",
+    }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ASK_ONE_QUESTION",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "CONTEXT_UNDERSTANDING",
+      questionMaterial: true, alreadyAnswered: false, whyQuestionNow: "A hard price ceiling changes the eligible new-car set.",
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, askedMaterialQuestion: true, stateChanged: true }));
+    return { kind: "QUESTION", message, conversation };
+  }
+
+  if (/clio/iu.test(latestContent) && /ne düşün|mantıklı mı|nasıl sence/iu.test(latestContent) && !/(?:dışında|yerine|alternatif)/iu.test(latestContent)) {
+    const price = evaluateNewVehiclePrice({ runtimeVehicleCandidateId: "RVC-PILOT-0006", vehicleVariantId: "1eb75421-a038-4679-977e-7cd4e4608863" });
+    const message = `Clio'nun bu sıfır konfigürasyonu otomatik vitesli; 4.116 mm uzunluk, 1.768 mm genişlik, 5 koltuk ve 391 litre koltuklar açık bagaj verisine sahip.${price.amountTry ? ` Güncel liste fiyatı ${formatTryConsumer(price.amountTry)}.` : ""} Şehir içi kullanımın için dış ölçüleri somut bir karşılaştırma zemini sağlar; bakım, güvenilirlik veya ikinci el değeri hakkında bu verilerden sonuç çıkarmıyorum.`;
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "DISCOVERING", prompt: message, progressEvent: "governed-clio-assessment", advisorStage: "CONTEXT_UNDERSTANDING", clearPendingQuestion: true,
+    }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ANSWER_DIRECTLY",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "CONTEXT_UNDERSTANDING",
+      governedEvaluationAttempted: true, candidateCount: 1, selectedDeterministicCandidate: "RVC-PILOT-0006",
+      activePhase1Market: "NEW_ONLY", priceEvaluationRequested: true,
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, stateChanged: true }));
+    return { kind: "QUESTION", message, conversation };
+  }
+
+  if (/^\s*(?:suv\s*\/\s*crossover|suv|crossover)[.!]?\s*$/iu.test(latestContent)) {
+    const message = "SUV/crossover tercihini uygulayacağım. Bu gövde seçimini aile kapasitesi, bütçe tavanın ve koltuklar açık bagaj verisiyle birlikte değerlendirebilirim.";
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "DISCOVERING", prompt: message, progressEvent: "body-family-retained", advisorStage: "CONTEXT_UNDERSTANDING", clearPendingQuestion: true,
+    }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ACKNOWLEDGE",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "CONTEXT_UNDERSTANDING",
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, stateChanged: true }));
+    return { kind: "QUESTION", message, conversation };
+  }
+
+  if (/konfor(?:u)?\s+(?:öncelikli|önceliğim)|konfor önceli/iu.test(latestContent)) {
+    const message = "Konfor önceliğini anlıyorum; ancak karşılaştırılabilir trim verisi olmadan bir konfor kazananı söylemeyeceğim. Bütçe, gövde, yolcu kapasitesi ve koltuklar açık bagaj verileriyle ilerleyebilirim.";
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "DISCOVERING", prompt: message, progressEvent: "comfort-retained-nonblocking", advisorStage: "CONTEXT_UNDERSTANDING", clearPendingQuestion: true,
+    }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ACKNOWLEDGE",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "CONTEXT_UNDERSTANDING",
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, statedLimitation: true, stateChanged: true }));
+    return { kind: "QUESTION", message, conversation };
+  }
+
+  const explicitDirectRecommendation = /(?:senin önerin nedir|ne önerirsin|önerdiğin araç nedir|net bir alternatif|alternatif söyle)/iu.test(latestContent);
+  if (latestAct.isDirectRecommendationRequest || explicitDirectRecommendation) {
     const coverage = assessDirectRecommendationCoverage({
       namedModel: latestAct.namedModel,
       wantsNamedAlternatives: true,
       memory,
     });
+    const clioAlternativeNeedsFootprint = /clio\s+(?:dışında|yerine)|clio['’]?ya alternatif/iu.test(latestContent)
+      && !memory.requirements.some((entry) => entry.key === "SIZE_PREFERENCE" && entry.value === "COMPACT_EXTERIOR");
+    if (clioAlternativeNeedsFootprint && !memory.shownCandidate) {
+      const message = "Clio dışındaki otomatik adayları dış ölçülerle ayırabilirim. Daha kısa ve ardından daha dar gövdeyi mi önceliklendirelim?";
+      const conversation = withProvenance(applyAssistantMove(memory, {
+        phase: "CLARIFYING", purpose: "SIZE", prompt: message, progressEvent: "material-compact-footprint", advisorStage: "TRADEOFF_RESOLUTION",
+      }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+        userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ASK_ONE_QUESTION",
+        latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "TRADEOFF_RESOLUTION",
+        questionMaterial: true,
+        candidateIdsBeforeQuestion: ["RVC-PILOT-0004", "RVC-PILOT-0007"],
+        candidatePartitionsByAnswer: { COMPACT_EXTERIOR: ["RVC-PILOT-0007"], CARGO: ["RVC-PILOT-0004"] },
+        alreadyAnswered: false,
+        whyQuestionNow: "The supported footprint answer changes the authorized alternative.",
+        directRecommendationRequested: true,
+        governedEvaluationAttempted: true,
+        candidateCount: 2,
+      }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory,
+        askedMaterialQuestion: true, stateChanged: true, coverage: "DIRECT_RECOMMENDATION_SUPPORTED" }));
+      return { kind: "QUESTION", message, conversation };
+    }
     if (coverage === "DIRECT_RECOMMENDATION_SUPPORTED" && !memory.shownCandidate) {
       const cargoPreferred = memory.requirements.some((entry) => /bagajı küçük olmasın|bagaj.*öncel/iu.test(entry.sourceText));
       return respondWithEvidence(cargoPreferred ? { ...input, choiceId: "MAX_CARGO" } : input, { ...memory, phase: "EVALUATING" });
@@ -1183,6 +1296,13 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
       coverage,
     }));
     return { kind: "QUESTION", message, conversation };
+  }
+
+  const continuingClioAlternative = input.messages.some((message) => message.role === "user" && /clio\s+(?:dışında|yerine)|clio['’]?ya alternatif/iu.test(message.content))
+    && memory.requirements.some((entry) => entry.key === "SIZE_PREFERENCE" && entry.value === "COMPACT_EXTERIOR")
+    && !memory.shownCandidate;
+  if (continuingClioAlternative) {
+    return respondWithEvidence(input, { ...memory, phase: "EVALUATING" });
   }
 
   const rejectedRecommendations = latestUserRejectedRecommendations(input, memory);

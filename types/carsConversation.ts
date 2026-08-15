@@ -343,6 +343,18 @@ export interface CarsTurnProvenance {
   readonly nearestVerifiedPriceGapPercent?: number;
   readonly shownCandidateKnown?: boolean;
   readonly activePhase1Market?: CarsAcquisitionMarket;
+  readonly directRecommendationRequested?: boolean;
+  readonly governedEvaluationAttempted?: boolean;
+  readonly candidateCount?: number;
+  readonly candidateFilters?: readonly { readonly kind: string; readonly before: readonly string[]; readonly after: readonly string[] }[];
+  readonly discriminator?: string;
+  readonly questionMaterial?: boolean;
+  readonly candidateIdsBeforeQuestion?: readonly string[];
+  readonly candidatePartitionsByAnswer?: Readonly<Record<string, readonly string[]>>;
+  readonly alreadyAnswered?: boolean;
+  readonly whyQuestionNow?: string;
+  readonly offerState?: CarsRecommendationOfferStatus;
+  readonly cardState?: "HIDDEN" | "REVEALED";
 }
 
 export interface CarsConversationTrace {

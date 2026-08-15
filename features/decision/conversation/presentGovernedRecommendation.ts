@@ -27,14 +27,16 @@ export function presentGovernedRecommendation(input: {
   const adapted = adaptPublishedCatalogToCars({ records: [record], rejected: [], generatedAt: record.variant.updatedAt });
   const car = adapted.cars[0];
   if (!car) throw new Error("HELD_CANDIDATE_NOT_ADAPTABLE");
-  const reasons = selected.requirements.map((item) => (
+  const governedReason = input.result.explanationInput.includes("COMPACT_FOOTPRINT_LENGTH_THEN_WIDTH")
+    ? (() => { const [length, width] = input.result.explanationInput.find((item) => item.startsWith("DIMENSIONS_MM="))?.slice(14).split("x") ?? []; return `${length} mm uzunluk ve ${width} mm genişlikle uygun adaylar içinde dış ölçü sıralamasında öne çıkıyor.`; })()
+    : input.result.explanationInput.includes("MAX_CARGO")
+      ? `${input.result.explanationInput.find((item) => item.startsWith("CARGO_L="))?.slice(8)} litre koltuklar açık bagaj hacmiyle uygun adaylar içinde ayrışıyor.`
+      : undefined;
+  const reasons = [governedReason, ...selected.requirements.filter((item) => item.requirement.value > 1).map((item) => (
     item.requirement.factKey === "seats"
       ? `${item.fact?.value} koltuk, istediğiniz en az ${item.requirement.value} koltuğu karşılıyor.`
       : `${item.fact?.value ?? `${item.fact?.valueMin}-${item.fact?.valueMax}`} litre bagaj, istediğiniz en az ${item.requirement.value} litreyi karşılıyor.`
-  )).slice(0, 3);
-  if (reasons.length < 2 && selected.presentationIdentity.trim) {
-    reasons.push(`${selected.presentationIdentity.trim} donanımı, doğrulanmış koltuk ve bagaj eşiğinizle uyumlu tek aday.`);
-  }
+  ))].filter((item): item is string => Boolean(item)).slice(0, 3);
   const price = evaluateNewVehiclePrice({
     runtimeVehicleCandidateId: selected.runtimeVehicleCandidateId,
     vehicleVariantId: selected.vehicleVariantId,
@@ -119,6 +121,10 @@ export function unsupportedHardRequirementBlocksModelFit(memory: CarsConversatio
     && entry.key !== "MIN_SEATS"
     && entry.key !== "MIN_CARGO_L"
     && entry.key !== "BUDGET_MAX_TRY"
+    && entry.key !== "PARTY_SIZE"
+    && entry.key !== "TRANSMISSION"
+    && !(entry.key === "BODY_TYPE" && ["SUV_CROSSOVER", "HATCHBACK", "SEDAN"].includes(String(entry.value)))
+    && entry.key !== "SIZE_PREFERENCE"
   ));
 }
 

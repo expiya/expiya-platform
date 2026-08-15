@@ -41,11 +41,12 @@ describe("dynamic sufficiency", () => {
     expect(assessCarsConversationSufficiency(trace).readyToEvaluate).toBe(false);
   });
 
-  it("asks party confirmation rather than evaluating party size as seats", () => {
+  it("uses an explicit party size without redundant party confirmation", () => {
     const trace = buildCarsRequirementLedger([
       { id: "1", role: "user", content: "5 kişiyiz, bagaj da önemli." },
     ]);
-    expect(assessCarsConversationSufficiency(trace).nextPurpose).toBe("PARTY_CONFIRMATION");
+    expect(trace.requirements).toContainEqual(expect.objectContaining({ key: "PARTY_SIZE", value: 5, evaluability: "EVALUABLE_NOW" }));
+    expect(assessCarsConversationSufficiency(trace).nextPurpose).not.toBe("PARTY_CONFIRMATION");
     expect(assessCarsConversationSufficiency(trace).readyToEvaluate).toBe(false);
   });
 });

@@ -11,7 +11,9 @@ import type {
   CarsRequirementStatus,
 } from "@/types/carsConversation";
 
-const EVALUABLE_KEYS = new Set<CarsRequirementKey>(["MIN_SEATS", "MIN_CARGO_L"]);
+const EVALUABLE_KEYS = new Set<CarsRequirementKey>([
+  "MIN_SEATS", "MIN_CARGO_L", "PARTY_SIZE", "TRANSMISSION", "SIZE_PREFERENCE",
+]);
 
 const USAGE_KEYS = new Set<CarsRequirementKey>([
   "USAGE_CAMP",
@@ -45,8 +47,8 @@ export function carsQuestionPurpose(content: string): CarsQuestionPurpose | unde
 }
 
 export function budgetValue(text: string): number | undefined {
-  const million = text.match(/(\d+(?:[.,]\d+)?)\s*(?:milyon|million)\s*(?:tl|try|₺)?/iu);
-  if (million) return Math.round(Number(million[1].replace(",", ".")) * 1_000_000);
+  const million = text.match(/(\d+(?:[.,]\d+)?)\s*(?:milyon|million)(?:\s+(\d{1,3})\s*bin)?\s*(?:tl|try|₺)?/iu);
+  if (million) return Math.round(Number(million[1].replace(",", ".")) * 1_000_000) + Number(million[2] ?? 0) * 1_000;
   const explicit = text.match(/(\d[\d.\s,]*)\s*(?:tl|try|₺|lira)\b/iu);
   if (!explicit) return undefined;
   const digits = explicit[1].replace(/[^\d]/g, "");
@@ -80,12 +82,17 @@ export function extractDeterministicFacts(text: string): readonly { key: CarsReq
   if (budget !== undefined) found.push({ key: "BUDGET_MAX_TRY", value: budget });
   if (/(?:\b4\s*[x×]\s*4\b|\bawd\b|dört çeker)/iu.test(text)) found.push({ key: "DRIVETRAIN", value: "AWD_OR_4X4" });
   if (/(?:\bpick[\s-]?up\b|\bpikap\b)/iu.test(text)) found.push({ key: "BODY_TYPE", value: "PICKUP" });
+  if (/(?:\bsuv\b|cross[\s-]?over)/iu.test(text)) found.push({ key: "BODY_TYPE", value: "SUV_CROSSOVER" });
+  if (/\bhatchback\b/iu.test(text)) found.push({ key: "BODY_TYPE", value: "HATCHBACK" });
+  if (/\bsedan\b/iu.test(text)) found.push({ key: "BODY_TYPE", value: "SEDAN" });
   if (/(?:donanım(?:ı)?\s+(?:yüksek|dolu)|(?:yüksek|dolu)\s+donanım)/iu.test(text)) found.push({ key: "EQUIPMENT_LEVEL", value: "HIGH" });
   if (/(?:küçük\s+olmasın|küçük\s+(?:araç\s+)?istemiyorum|ufak\s+olmasın)/iu.test(text)) found.push({ key: "SIZE_PREFERENCE", value: "NOT_SMALL" });
+  if (/(?:küçük dış ölç|kompakt(?: dış ölç| olsun)|şehir içinde hantal olmasın|dışarıdan küçük)/iu.test(text)) found.push({ key: "SIZE_PREFERENCE", value: "COMPACT_EXTERIOR" });
   if (/(?:\botomatik\b|automatic)/iu.test(text)) found.push({ key: "TRANSMISSION", value: "AUTOMATIC" });
   if (/(?:\bmanuel\b|\bmanual\b)/iu.test(text)) found.push({ key: "TRANSMISSION", value: "MANUAL" });
-  const party = text.match(/(?:^|\s)(\d{1,2})\s*(?:kişi(?:lik)?|kişiyiz)(?:\s|[,.;:!?]|$)/iu);
-  if (party) found.push({ key: "PARTY_SIZE", value: Number(party[1]) });
+  const numberWords: Record<string, number> = { iki: 2, üç: 3, dört: 4, beş: 5, altı: 6, yedi: 7 };
+  const party = text.match(/(?:^|\s)(\d{1,2}|iki|üç|dört|beş|altı|yedi)\s*(?:kişi(?:lik)?|kişiyiz)(?:\s|[,.;:!?]|$)/iu);
+  if (party) found.push({ key: "PARTY_SIZE", value: Number(party[1]) || numberWords[party[1].toLocaleLowerCase("tr-TR")] });
   const seats = text.match(/(?:en az\s+)?(\d{1,2})\s*(?:koltuk|koltuklu)(?:\s+(?:lazım|gerekli|istiyorum|olsun|yeter))?/iu);
   if (seats) found.push({ key: "MIN_SEATS", value: Number(seats[1]) });
   const cargo = text.match(/(?:en az\s+)?(\d{2,4})\s*(?:litre|liter|l)\s*(?:bagaj|cargo)/iu)
@@ -99,17 +106,15 @@ export function categoryFor(key: CarsRequirementKey): CarsRequirementCategory {
   if (key === "BUDGET_MAX_TRY") return "SOFT_CONTEXT";
   if (key === "ACQUISITION_MARKET") return "USAGE_CONTEXT";
   if (key === "MIN_SEATS" || key === "MIN_CARGO_L" || key === "DRIVETRAIN" || key === "TRANSMISSION") return "HARD_CONSTRAINT";
-  if (key === "PARTY_SIZE") return "UNRESOLVED";
+  if (key === "PARTY_SIZE") return "HARD_CONSTRAINT";
   return "SOFT_PREFERENCE";
 }
 
 export function evaluabilityFor(key: CarsRequirementKey): CarsRequirementEvaluability {
-  if (key === "PARTY_SIZE") return "NEEDS_CLARIFICATION";
   return EVALUABLE_KEYS.has(key) ? "EVALUABLE_NOW" : "UNDERSTOOD_NOT_EVALUABLE";
 }
 
 export function statusFor(key: CarsRequirementKey): CarsRequirementStatus {
-  if (key === "PARTY_SIZE") return "NEEDS_CLARIFICATION";
   return EVALUABLE_KEYS.has(key) ? "SUPPORTED_EVALUABLE" : "UNDERSTOOD_BUT_UNSUPPORTED";
 }
 
@@ -181,20 +186,21 @@ export function upsertRequirement(
     }
     return false;
   }
-  const evaluability = input.evaluability ?? evaluabilityFor(input.key);
+  const supportedBody = input.key === "BODY_TYPE" && ["SUV_CROSSOVER", "HATCHBACK", "SEDAN"].includes(String(input.value));
+  const evaluability = input.evaluability ?? (supportedBody ? "EVALUABLE_NOW" : evaluabilityFor(input.key));
   const category = hardBudget
     ? "HARD_UNEVALUATED_CONSTRAINT"
     : input.category ?? (previous && previous.value !== input.value ? "CORRECTION" : categoryFor(input.key));
   entries.set(input.key, {
     key: input.key,
     value: input.value,
-    status: statusFor(input.key),
+    status: supportedBody ? "SUPPORTED_EVALUABLE" : statusFor(input.key),
     category,
     evaluability: previous && previous.value !== input.value ? "EVALUABLE_NOW" === evaluability ? evaluability : evaluability : evaluability,
     sourceTurn: input.sourceTurn,
     sourceText: input.sourceText,
     previousValue: previous && previous.value !== input.value ? previous.value : previous?.previousValue,
-    usedInDecision: EVALUABLE_KEYS.has(input.key),
+    usedInDecision: EVALUABLE_KEYS.has(input.key) || supportedBody,
     confirmedFromAssistantTurn: input.confirmedFromAssistantTurn,
   });
   if (previous && previous.value !== input.value) {
@@ -219,7 +225,7 @@ export function answeredPurposesFrom(requirements: readonly CarsRequirementLedge
   }
   if (requirements.some((entry) => entry.key === "BUDGET_MAX_TRY")) answered.add("BUDGET_MAX");
   if (requirements.some((entry) => entry.key === "ACQUISITION_MARKET")) answered.add("ACQUISITION_MARKET");
-  if (requirements.some((entry) => entry.key === "MIN_SEATS")) {
+  if (requirements.some((entry) => entry.key === "MIN_SEATS" || entry.key === "PARTY_SIZE")) {
     answered.add("MIN_SEATS");
     answered.add("PARTY_CONFIRMATION");
   }

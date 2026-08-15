@@ -29,10 +29,12 @@ export type CarsPlanValidationFailure =
   | "PHASE1_MARKET_QUESTION"
   | "AFFORDABILITY_CLAIMED_WITHOUT_PASS";
 
-const INTERNAL_TERMS = /(?:koltuk veya bagaj için sayısal eşik|mevcut doğrulanmış (?:karar )?(?:veri|kapsam)|supported decision dimension|minimum hacmi litre|litre olarak belirt|evidence|runtime vehicle|artifact version|RVC-PILOT)/iu;
+
+const INTERNAL_TERMS = /(?:koltuk veya bagaj için sayısal eşik|mevcut doğrulanmış (?:karar )?(?:veri|kapsam)|doğrulanmış (?:aile|ihtiyaç|aday|model)|supported decision dimension|minimum hacmi litre|litre olarak belirt|evidence|runtime vehicle|artifact version|RVC-PILOT)/iu;
 const STATUS_LANGUAGE = /(?:kaydettim|not ettim)/iu;
 const INVENTED_FACTS = /(?:fiyatı\s+\d|stokta\s+\d|şu anda \d+ adet|katalogda yokmuş gibi uydur)/iu;
 const FORCED_REDIRECT = /size uygun aracı birlikte daraltalım/iu;
+const UNSUPPORTED_ADVISOR_CLAIM = /(?:masraf (?:riski|potansiyeli)|bakım (?:riski|maliyeti)|güvenilirlik|ikinci el değeri|yeniden satış|süspansiyon|yalıtım|kabin (?:yalıtımı|sessizliği)|koltuk konforu|jant.{0,12}lastik.{0,12}konfor)/iu;
 
 function questionCount(text: string): number {
   return (text.match(/\?/gu) ?? []).length;
@@ -49,6 +51,15 @@ export function validateCarsConversationPlan(input: {
   const message = input.plan.assistantMessage;
   if (questionCount(message) > 1) return "MULTIPLE_QUESTIONS";
   if (input.plan.move === "ASK_ONE_QUESTION" && !input.plan.question) return "MULTIPLE_QUESTIONS";
+  if (input.plan.question && input.memory.answeredQuestionPurposes.includes(input.plan.question.purpose)) return "SEMANTIC_REPETITION";
+  if (input.plan.question?.purpose === "DAILY_VS_OFFROAD" && !input.memory.requirements.some((entry) => (
+    entry.key === "USAGE_ROUGH_ROAD" || entry.key === "USAGE_SERIOUS_OFF_ROAD" || entry.key === "USAGE_STABILIZED_ROAD"
+  ))) return "UNSUPPORTED_HARD_REQUIREMENT_CLAIMED";
+  if (/(?:yol dışı|off[\s-]?road|arazi)/iu.test(message)
+    && input.memory.requirements.some((entry) => entry.key === "USAGE_CITY")
+    && !input.memory.requirements.some((entry) => entry.key === "USAGE_ROUGH_ROAD" || entry.key === "USAGE_SERIOUS_OFF_ROAD")) {
+    return "UNSUPPORTED_HARD_REQUIREMENT_CLAIMED";
+  }
   if (input.latestAct.isPureGreeting || isPureGreetingText(input.latestUserText)) {
     if (input.plan.move === "ASK_ONE_QUESTION" && input.plan.question && isDiscoveryQuestion(input.plan.question.text)) {
       return "GREETING_THEN_DISCOVERY";
@@ -80,6 +91,7 @@ export function validateCarsConversationPlan(input: {
     return "PHASE1_MARKET_QUESTION";
   }
   if (INTERNAL_TERMS.test(message) || STATUS_LANGUAGE.test(message)) return "EXPOSED_INTERNAL_TERMINOLOGY";
+  if (UNSUPPORTED_ADVISOR_CLAIM.test(message)) return "INVENTED_CANDIDATE_FACTS";
   if (INVENTED_FACTS.test(message)) return "INVENTED_CANDIDATE_FACTS";
   if (!input.candidateMayBeRevealed && messageRevealsCandidateIdentity(message)) return "IDENTITY_BEFORE_CONSENT";
   if (input.plan.recommendationAction === "OFFER_ONLY") {
