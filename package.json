@@ -27,6 +27,7 @@
     ,"vehicle-evidence:collect-hyundai-brochures": "node --import tsx scripts/collect-hyundai-brochures.ts"
     ,"vehicle-evidence:collect-alfa-romeo": "node --import tsx scripts/collect-alfa-romeo-brand-batch.ts"
     ,"catalog:release:generate-hyundai": "node --import tsx scripts/generate-hyundai-production-catalog-release.ts"
+    ,"catalog:release:generate-alfa-romeo": "node --import tsx scripts/generate-alfa-romeo-production-catalog-release.ts"
     ,"vehicle-evidence:apply-hardening": "node --import tsx scripts/apply-post-batch01-hardening.ts"
   },
   "dependencies": {

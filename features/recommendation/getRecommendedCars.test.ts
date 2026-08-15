@@ -64,6 +64,7 @@ describe("getRecommendedCars", () => {
     );
 
     expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual([
+      "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
       "87e30119-f0d5-4c98-8324-cbd65156974b",
       "a3728e65-51b2-447f-a6c3-a1f64db8a310",
     ]);

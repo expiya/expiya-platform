@@ -34,6 +34,12 @@ export const vehicleDataSources: readonly DataSource[] = [
     reviewNotes: ["Use current distributor price-list rows and exact Turkey model pages", "Manual public-fact capture only"],
   },
   {
+    id: "alfa-romeo-tr", name: "Alfa Romeo Türkiye / Tofaş", authority: "PRIMARY",
+    homepageUrl: "https://www.alfaromeo.com.tr/", termsUrl: "https://www.alfaromeo.com.tr/kullanim-kosullari",
+    usagePermission: "PUBLIC_FACTS_ONLY", reviewedAt: "2026-08-16T00:00:00.000Z",
+    reviewNotes: ["Use exact MY2026 Tofaş price-circular rows and Turkey model pages", "Extract public facts only; do not reproduce copyrighted imagery or prose", "Publisher CDN blocks direct PDF retrieval in some automated environments; record this limitation rather than bypassing it"],
+  },
+  {
     id: "euro-ncap", name: "Euro NCAP", authority: "OFFICIAL",
     homepageUrl: "https://www.euroncap.com/", termsUrl: "https://www.euroncap.com/terms-conditions/",
     usagePermission: "PERMISSION_REQUIRED", reviewedAt: "2026-08-13T00:00:00.000Z",
