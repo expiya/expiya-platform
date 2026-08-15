@@ -16,7 +16,7 @@ import {
 } from "./carsAcquisitionAuthority";
 import { runCarsConversationTurn } from "./runCarsConversationTurn";
 
-const AFFORDABILITY = /bütçene uyuyor|satın alabilirsin|bu fiyat aralığında|bütçenin içinde|ikinci elde bulunur|galeride vardır|5[,.]81/iu;
+const AFFORDABILITY = /bütçene uyuyor|satın alabilirsin|bu fiyat aralığında|bütçenin içinde|ikinci elde bulunur|galeride vardır/iu;
 const IDENTITY = /Hyundai|IONIQ|RVC-/i;
 
 describe("acquisition-market binders", () => {
@@ -38,24 +38,24 @@ describe("acquisition-market binders", () => {
     expect(detectAcquisitionMarket(text)).toBe(market);
   });
 
-  it("does not treat a budget ceiling as new-only", () => {
+  it("does not treat a budget ceiling as new-only user intent, but Phase 1 stays NEW_ONLY", () => {
     expect(detectAcquisitionMarket("Bütçem en fazla 2 milyon.")).toBeUndefined();
     const trace = buildCarsRequirementLedger([
       { id: "1", role: "user", content: "Bütçem en fazla 2 milyon." },
     ]);
-    expect(trace.acquisitionMarket).toBe("UNRESOLVED");
+    expect(trace.acquisitionMarket).toBe("NEW_ONLY");
     expect(trace.requirements).toEqual(expect.arrayContaining([
       expect.objectContaining({ key: "BUDGET_MAX_TRY", category: "HARD_UNEVALUATED_CONSTRAINT" }),
     ]));
     expect(trace.requirements.some((entry) => entry.key === "ACQUISITION_MARKET")).toBe(false);
   });
 
-  it("supersedes a prior market intent", () => {
+  it("records dormant used intent without activating a used-market product path", () => {
     const trace = buildCarsRequirementLedger([
       { id: "1", role: "user", content: "Sıfır istiyorum." },
       { id: "2", role: "user", content: "Aslında ikinci el de düşünebilirim." },
     ]);
-    expect(trace.acquisitionMarket).toBe("NEW_OR_USED");
+    expect(trace.acquisitionMarket).toBe("NEW_ONLY");
     expect(trace.requirements).toEqual(expect.arrayContaining([
       expect.objectContaining({ key: "ACQUISITION_MARKET", value: "NEW_OR_USED", previousValue: "NEW_ONLY" }),
     ]));
@@ -93,7 +93,7 @@ describe("budget is optional for unique technical fit", () => {
 });
 
 describe("new and used scoping", () => {
-  it("does not use a new price to disprove used-market fit and does not invent a listing", async () => {
+  it("does not open a used-market recommendation path when the user allows used", async () => {
     const offer = await runCarsConversationTurn({
       conversationId: "used-allowed",
       messages: [{
@@ -102,10 +102,10 @@ describe("new and used scoping", () => {
         content: "Temiz ikinci el de olabilir. Bütçem en fazla 2 milyon. En az 7 koltuk ve en az 300 litre bagaj istiyorum.",
       }],
     });
-    expect(offer.conversation?.acquisitionMarket).toBe("NEW_OR_USED");
-    expect(offer.conversation?.recommendationLevel).toBe("USED_MODEL_GUIDANCE");
+    expect(offer.conversation?.acquisitionMarket).toBe("NEW_ONLY");
+    expect(offer.conversation?.recommendationLevel).not.toBe("USED_MODEL_GUIDANCE");
     expect(offer.message).not.toMatch(AFFORDABILITY);
-    expect(offer.message).not.toMatch(/5[,.]81|aktif yeni fiyat/iu);
+    expect(offer.message).not.toMatch(/aktif yeni fiyat/iu);
     expect(offer.kind).toBe("QUESTION");
     expect(offer.message).not.toMatch(IDENTITY);
   });
@@ -122,9 +122,9 @@ describe("new and used scoping", () => {
     expect(offer.conversation?.acquisitionMarket).toBe("NEW_ONLY");
     expect(offer.conversation?.turnProvenance?.purchasableUnitAuthorized).toBe(false);
     expect(offer.conversation?.turnProvenance?.affordabilityState).not.toBe("AFFORDABILITY_PASS");
-    expect(offer.conversation?.recommendationLevel).toBe("MODEL_FIT_GUIDANCE");
     expect(offer.message).not.toMatch(AFFORDABILITY);
     expect(offer.kind).not.toBe("RECOMMENDATIONS");
+    expect(offer.conversation?.recommendationOfferStatus).not.toBe("AWAITING_CONSENT");
   });
 });
 
@@ -140,8 +140,8 @@ describe("listing claims", () => {
       messages: [{ id: "1", role: "user", content: "Bir galeride 1,9 milyona IONIQ 9 gördüm." }],
     });
     expect(response.kind).toBe("QUESTION");
-    expect(response.message).toMatch(/bağlantı|ilan/iu);
-    expect(response.message).toMatch(/al demiyorum|satın al/iu);
+    expect(response.message).toMatch(/sıfır|ilan/iu);
+    expect(response.message).toMatch(/alım önerisi|değerlendirmiyorum/iu);
     expect(response.message).not.toMatch(/5[,.]81/iu);
     expect(response.message).not.toMatch(AFFORDABILITY);
     expect(response.conversation?.turnProvenance?.listingClaimDetected).toBe(true);

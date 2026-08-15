@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 import { analyzeVehicleListing } from "@/features/listing/analyzeVehicleListing";
+import { PHASE1_USED_LISTING_ANALYSIS_ACTIVE } from "@/features/listing/phase1ListingAnalysisGate";
 import { readVehicleListingPage } from "@/features/listing/readVehicleListingPage";
 import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
 
@@ -11,6 +12,13 @@ export async function POST(request: Request): Promise<Response> {
   if (originRejected) return originRejected;
   const rejected = await enforceRateLimit(request, { scope: "listing-analysis", limit: 5, windowMs: 10 * 60_000 });
   if (rejected) return rejected;
+  if (!PHASE1_USED_LISTING_ANALYSIS_ACTIVE) {
+    return Response.json({
+      gated: true,
+      product: "NEW_CAR_CONFIGURATION",
+      message: "Paylaşılan bağlantıyı satın alma önerisine çevirmiyorum. Şu an resmi sıfır yapılandırmalar üzerinden bakıyorum.",
+    }, { status: 409 });
+  }
   try {
     const input = requestSchema.parse(await readJsonWithLimit(request, 30_000));
     const page = await readVehicleListingPage(input.url);

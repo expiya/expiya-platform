@@ -22,9 +22,9 @@ export function shouldShowVehicleQuickReplies(
 
 export function shouldRenderRecommendationCards(
   kind: CarsConversationResponse["kind"] | undefined,
-  offerPurpose?: "MODEL_FIT_OFFER" | "PURCHASE_OPTION_OFFER",
+  offerPurpose?: "MODEL_FIT_OFFER" | "NEW_CONFIGURATION_OFFER" | "PURCHASE_OPTION_OFFER" | "NO_AFFORDABLE_MATCH",
 ): boolean {
-  return kind === "RECOMMENDATIONS" && offerPurpose !== "PURCHASE_OPTION_OFFER";
+  return kind === "RECOMMENDATIONS" && offerPurpose !== "PURCHASE_OPTION_OFFER" && offerPurpose !== "NO_AFFORDABLE_MATCH";
 }
 
 export function shouldLockTextInput(messages: readonly CarsConversationMessage[]): boolean {

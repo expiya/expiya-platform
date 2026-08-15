@@ -6,6 +6,12 @@ import type { RecommendedCar } from "@/types/recommendation";
 import type { CarsEvidenceBackedDecisionResult } from "@/features/decision/runtime/runCarsEvidenceBackedDecision";
 
 import type { CarsHeldCandidateAuthorization } from "./carsHeldAuthorization";
+import {
+  evaluateNewVehiclePrice,
+  formatTryConsumer,
+  informationalPriceCaveat,
+  priceTypeLabel,
+} from "./carsNewPriceAuthority";
 
 export function presentGovernedRecommendation(input: {
   readonly result: CarsEvidenceBackedDecisionResult;
@@ -29,9 +35,24 @@ export function presentGovernedRecommendation(input: {
   if (reasons.length < 2 && selected.presentationIdentity.trim) {
     reasons.push(`${selected.presentationIdentity.trim} donanımı, doğrulanmış koltuk ve bagaj eşiğinizle uyumlu tek aday.`);
   }
+  const price = evaluateNewVehiclePrice({
+    runtimeVehicleCandidateId: selected.runtimeVehicleCandidateId,
+    vehicleVariantId: selected.vehicleVariantId,
+  });
+  const budgetCompatible = input.memory.offerPurpose === "NEW_CONFIGURATION_OFFER"
+    || input.memory.affordabilityState === "AFFORDABILITY_PASS";
   return {
     car,
-    isTopPick: true,
+    isTopPick: budgetCompatible,
+    configurationKind: "NEW_VEHICLE_CONFIGURATION",
+    pricePresentation: price.amountTry !== undefined && (price.priceType === "LIST" || price.priceType === "CAMPAIGN")
+      ? {
+        amountTry: price.amountTry,
+        priceType: price.priceType,
+        validFrom: record.activeNewPrice.validFrom,
+        caveat: informationalPriceCaveat(price),
+      }
+      : undefined,
     decision: {
       decisionId: `governed:${selected.runtimeVehicleCandidateId}`,
       score: 100,
@@ -40,10 +61,29 @@ export function presentGovernedRecommendation(input: {
       confidence: {
         value: 92,
         level: "high",
-        explanation: "Seçim yalnızca doğrulanmış koltuk ve bagaj eşiğine göre belirlendi.",
+        explanation: budgetCompatible
+          ? "Seçim doğrulanmış koltuk, bagaj ve güncel sıfır fiyat eşiğine göre belirlendi."
+          : "Seçim yalnızca doğrulanmış koltuk ve bagaj eşiğine göre belirlendi.",
       },
     },
   };
+}
+
+export function recommendationRevealCopy(input: {
+  readonly identity: string;
+  readonly reasons: readonly string[];
+  readonly memory: CarsConversationTrace;
+  readonly amountTry?: number;
+  readonly priceType?: "LIST" | "CAMPAIGN";
+  readonly caveat?: string;
+}): string {
+  const intro = input.memory.offerPurpose === "NEW_CONFIGURATION_OFFER"
+    ? `Tavanına uyan sıfır önerim ${input.identity}.`
+    : `İhtiyacına uyan sıfır önerim ${input.identity}.`;
+  const priceLine = input.amountTry !== undefined
+    ? `Güncel ${priceTypeLabel(input.priceType)} fiyatı ${formatTryConsumer(input.amountTry)}.`
+    : undefined;
+  return [intro, input.reasons.join(" "), priceLine, input.caveat].filter(Boolean).join("\n\n");
 }
 
 export function unverifiedPreferenceNote(memory: CarsConversationTrace): string | undefined {
@@ -52,6 +92,11 @@ export function unverifiedPreferenceNote(memory: CarsConversationTrace): string 
 }
 
 export function unevaluatedBudgetPresent(memory: CarsConversationTrace): boolean {
+  if (memory.affordabilityState === "AFFORDABILITY_PASS"
+    || memory.affordabilityState === "AFFORDABILITY_FAIL"
+    || memory.affordabilityState === "AFFORDABILITY_UNKNOWN") {
+    return false;
+  }
   return memory.requirements.some((entry) => (
     entry.key === "BUDGET_MAX_TRY" && entry.evaluability === "UNDERSTOOD_NOT_EVALUABLE"
   ));

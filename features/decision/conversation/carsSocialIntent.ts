@@ -1,6 +1,11 @@
 import type { CarsConversationMessage, CarsConversationTrace } from "@/types/carsConversation";
 
-import { isDealerListingClaim } from "./carsAcquisitionAuthority";
+import {
+  isDealerListingClaim,
+  isDirectAffordabilityQuestion,
+  isListingUrlSubmission,
+  isUsedPurchaseRequest,
+} from "./carsAcquisitionAuthority";
 import { isOffTopic, latestRequirement } from "./carsRequirementLedger";
 
 export type CarsPrimaryAct =
@@ -55,6 +60,9 @@ export interface CarsLatestAct {
   readonly isDirectRecommendationRequest: boolean;
   readonly isDirectModelComparison: boolean;
   readonly isListingClaim: boolean;
+  readonly isDirectAffordabilityQuestion: boolean;
+  readonly isUsedPurchaseRequest: boolean;
+  readonly isListingUrlSubmission: boolean;
   readonly isImpatient: boolean;
   readonly namedModel?: string;
 }
@@ -306,11 +314,24 @@ export function interpretLatestUserAct(
       hasVehicleIntent: true,
     });
   }
-  if (isDealerListingClaim(content)) {
-    return act("LISTING_CLAIM", ["INFORMATION"], "User reported a dealer or listing price observation.", false, false, {
+  if (isDealerListingClaim(content) || isListingUrlSubmission(content)) {
+    return act("LISTING_CLAIM", ["INFORMATION"], "User reported a dealer listing or submitted a listing URL.", false, false, {
       hasVehicleIntent: true,
       isListingClaim: true,
+      isListingUrlSubmission: isListingUrlSubmission(content),
       namedModel,
+    });
+  }
+  if (isUsedPurchaseRequest(content)) {
+    return act("INFORMATION", ["VEHICLE_INTENT"], "User asked for a used-vehicle purchase path.", false, false, {
+      hasVehicleIntent: true,
+      isUsedPurchaseRequest: true,
+    });
+  }
+  if (isDirectAffordabilityQuestion(content) && (shown || offerActive || !hasVehicleIntentInMessage || /bütçeme uygun|fiyatı ne kadar|artırırsam olur/iu.test(content))) {
+    return act("INFORMATION", ["FACT_PROVISION"], "User asked a direct affordability or price question.", false, false, {
+      hasVehicleIntent: true,
+      isDirectAffordabilityQuestion: true,
     });
   }
   if (isImpatientText(content) && (isDirectRecommendationRequestText(content) || priorDirectRecommendationRequest(messages))) {
@@ -440,6 +461,9 @@ function act(
     isDirectRecommendationRequest: false,
     isDirectModelComparison: false,
     isListingClaim: false,
+    isDirectAffordabilityQuestion: false,
+    isUsedPurchaseRequest: false,
+    isListingUrlSubmission: false,
     isImpatient: false,
     ...flags,
   };

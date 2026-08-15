@@ -9,7 +9,6 @@ import {
   shouldRenderRecommendationCards,
   shouldShowVehicleQuickReplies,
 } from "@/features/decision/conversation/carsConversationUiState";
-import type { VehicleListingAnalysis } from "@/types/listingAnalysis";
 import type {
   CarsConversationMessage,
   CarsConversationResponse,
@@ -28,23 +27,6 @@ function newMessage(role: CarsConversationMessage["role"], content: string) {
 
 const storageKey = "expiya:cars-conversation:v5";
 const legacyStorageKey = "expiya:cars-conversation:v4";
-
-function findListingUrl(content: string): string | undefined {
-  return content.match(/https:\/\/[^\s<]+/i)?.[0]?.replace(/[),.;!?]+$/, "");
-}
-
-function formatListingAnalysis(analysis: VehicleListingAnalysis): string {
-  const fit = { STRONG: "Güçlü", PARTIAL: "Kısmi", WEAK: "Zayıf", UNCLEAR: "Belirsiz" }[analysis.userFit];
-  const section = (title: string, items: readonly string[]) => items.length
-    ? `\n\n${title}\n${items.map((item) => `• ${item}`).join("\n")}`
-    : "";
-  return `İlanı konuşmadaki ihtiyaçlarınıza göre inceledim.\n\n${analysis.title}\nUyum: ${fit}\n${analysis.summary}`
-    + section("İhtiyaçlarınızla örtüşenler", analysis.matches)
-    + section("Ödünler ve uyumsuzluklar", analysis.mismatches)
-    + section("İlanda eksik kalanlar", analysis.missingInformation)
-    + section("Satıcıya sorulacaklar", analysis.sellerQuestions)
-    + `\n\n${analysis.disclaimer}`;
-}
 
 function readPersistedConversation(): PersistedCarsConversation | null {
   try {
@@ -86,7 +68,9 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   const isTurkish = true;
 
   const conversationRef = useRef<CarsConversationTrace | undefined>(undefined);
-  conversationRef.current = conversation;
+  useEffect(() => {
+    conversationRef.current = conversation;
+  }, [conversation]);
 
   const continueConversation = useCallback(async (
     nextMessages: CarsConversationMessage[],
@@ -145,35 +129,6 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     }
   }, [isTurkish]);
 
-  const analyzeListingInConversation = useCallback(async (nextMessages: CarsConversationMessage[], url: string) => {
-    setIsLoading(true);
-    try {
-      const userContext = nextMessages
-        .filter((message) => message.role === "user")
-        .map((message) => message.content)
-        .join("\n");
-      const response = await fetch("/api/cars/listing-analysis", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, userContext }),
-      });
-      const payload = await response.json() as VehicleListingAnalysis | { message?: string };
-      if (!response.ok || !("userFit" in payload)) {
-        throw new Error("message" in payload ? payload.message : undefined);
-      }
-      setMessages((current) => [...current, newMessage("assistant", formatListingAnalysis(payload))]);
-    } catch (error) {
-      setMessages((current) => [...current, newMessage(
-        "assistant",
-        error instanceof Error && error.message
-          ? error.message
-          : "İlanı şu anda okuyamadım. Bağlantıyı kontrol edip yeniden gönderebilirsiniz.",
-      )]);
-    } finally {
-      setIsLoading(false);
-    }
-  }, []);
-
   useEffect(() => {
     const persisted = readPersistedConversation();
     const normalizedInitialQuery = initialQuery.trim();
@@ -208,9 +163,8 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     initialRequestStarted.current = true;
     const firstMessage = newMessage("user", initialQuery.trim());
     setMessages([firstMessage]);
-    const listingUrl = findListingUrl(firstMessage.content);
-    void (listingUrl ? analyzeListingInConversation([firstMessage], listingUrl) : continueConversation([firstMessage]));
-  }, [analyzeListingInConversation, continueConversation, initialQuery, isRestored]);
+    void continueConversation([firstMessage]);
+  }, [continueConversation, initialQuery, isRestored]);
 
   useEffect(() => {
     if (!isRestored || messages.length === 0) return;
@@ -233,8 +187,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     const nextMessages = [...messages, userMessage];
     setMessages(nextMessages);
     setDraft("");
-    const listingUrl = findListingUrl(content);
-    void (listingUrl ? analyzeListingInConversation(nextMessages, listingUrl) : continueConversation(nextMessages));
+    void continueConversation(nextMessages);
   }
 
   function submitContent(content: string, selectedOptionId?: string) {
@@ -243,8 +196,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     const nextMessages = [...messages, userMessage];
     setMessages(nextMessages);
     setDraft("");
-    const listingUrl = findListingUrl(content);
-    void (listingUrl ? analyzeListingInConversation(nextMessages, listingUrl) : continueConversation(nextMessages, undefined, selectedOptionId));
+    void continueConversation(nextMessages, undefined, selectedOptionId);
   }
 
   function submitDiscriminatorChoice(choice: CarsFinalDiscriminatorChoice) {

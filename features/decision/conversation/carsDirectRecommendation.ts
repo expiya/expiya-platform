@@ -22,17 +22,23 @@ export function assessDirectRecommendationCoverage(input: {
 export function coverageLimitationMessage(namedModel?: string, addressForm?: "SEN" | "SIZ"): string {
   const model = namedModel ? namedModel.charAt(0).toUpperCase() + namedModel.slice(1) : "bu model";
   const asked = addressForm === "SIZ" ? "istediniz" : "istedin";
-  return `${model} için net bir alternatif ${asked}; bu makul. Şu an güvenilir biçimde isimli bir alternatif çıkaramıyorum. Genel tavsiyeyi tekrar etmek de yardımcı olmaz.`;
+  return `${model} için net bir alternatif ${asked}; bu makul. Şu an doğrulanmış sıfır seçkisinde güvenilir biçimde isimli bir alternatif çıkaramıyorum. Genel tavsiyeyi tekrar etmek de yardımcı olmaz.`;
 }
 
 export function alreadyStatedCoverageLimitation(messages: readonly { role: string; content: string }[]): boolean {
   return messages.some((message) => (
     message.role === "assistant"
-    && /güvenilir biçimde isimli|güvenilir isimli bir alternatif yok|güvenilir bir isimli alternatif|rastgele model uydurmak/iu.test(message.content)
+    && /güvenilir biçimde isimli|güvenilir isimli bir alternatif yok|güvenilir bir isimli alternatif|doğrulanmış sıfır seçkisinde|rastgele model uydurmak/iu.test(message.content)
   ));
 }
 
 export function coverageLimitationRepeat(addressForm?: "SEN" | "SIZ"): string {
   const asked = addressForm === "SIZ" ? "istediniz" : "istedin";
-  return `İsmi net ${asked}, anlıyorum. Güvenilir bir isimli alternatif hâlâ veremiyorum; bu sınır bende.`;
+  return `İsmi net ${asked}, anlıyorum. Doğrulanmış sıfır seçkisinde güvenilir bir isimli alternatif hâlâ veremiyorum; bu sınır bende.`;
+}
+
+export function shownCandidateNoAlternativeMessage(addressForm?: "SEN" | "SIZ"): string {
+  return addressForm === "SIZ"
+    ? "Gösterdiğim dışında, şu an doğrulanmış sıfır seçkisinde güvenilir başka bir isimli alternatif çıkaramıyorum."
+    : "Gösterdiğim dışında, şu an doğrulanmış sıfır seçkisinde güvenilir başka bir isimli alternatif çıkaramıyorum.";
 }

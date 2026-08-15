@@ -16,9 +16,13 @@ const fuelTranslations: Record<string, string> = {
 };
 
 export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
-  const { car, decision, isTopPick } = recommendedCar;
+  const { car, decision, isTopPick, pricePresentation } = recommendedCar;
   const isTurkish = locale === "tr";
   const title = `${car.brand} ${car.model}`;
+  const priceTypeLabel = pricePresentation?.priceType === "CAMPAIGN"
+    ? (isTurkish ? "Kampanya" : "Campaign")
+    : (isTurkish ? "Liste" : "List");
+  const formattedPrice = (pricePresentation?.amountTry ?? car.price).toLocaleString(isTurkish ? "tr-TR" : "en-US");
 
   return (
     <Link
@@ -40,6 +44,11 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
               {isTurkish ? "En güçlü aday" : "Top candidate"}
             </span>
           )}
+          {!isTopPick && recommendedCar.configurationKind === "NEW_VEHICLE_CONFIGURATION" && (
+            <span className="absolute left-3 top-3 rounded-full bg-neutral-900/80 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+              {isTurkish ? "Sıfır yapılandırma" : "New configuration"}
+            </span>
+          )}
         </div>
 
         <div className="p-4">
@@ -47,8 +56,14 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
             <div className="min-w-0">
               <h2 className="truncate text-lg font-semibold tracking-tight text-neutral-950 dark:text-neutral-50">{title}</h2>
               <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
-                {car.year} · {isTurkish ? fuelTranslations[car.fuel] : car.fuel}
+                {car.year} · {isTurkish ? fuelTranslations[car.fuel] : car.fuel} · {isTurkish ? "Sıfır" : "New"}
               </p>
+              <p className="mt-1 text-sm font-medium text-neutral-800 dark:text-neutral-200">
+                {formattedPrice} TL · {priceTypeLabel}
+              </p>
+              {pricePresentation?.caveat && (
+                <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">{pricePresentation.caveat}</p>
+              )}
             </div>
             <div className="shrink-0 text-right">
               <p className="text-xs text-neutral-500 dark:text-neutral-400">{isTurkish ? "Güven" : "Confidence"}</p>

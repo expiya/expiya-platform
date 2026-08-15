@@ -14,7 +14,7 @@ export interface CarsHeldCandidateAuthorization {
 }
 
 const HOLD_TTL_MS = 60 * 60_000;
-const MATERIAL_KEYS: readonly CarsRequirementKey[] = ["MIN_SEATS", "MIN_CARGO_L"];
+const MATERIAL_KEYS: readonly CarsRequirementKey[] = ["MIN_SEATS", "MIN_CARGO_L", "BUDGET_MAX_TRY"];
 
 function holdKey(): Buffer {
   const configured = process.env.CARS_CONVERSATION_HOLD_SECRET?.trim()

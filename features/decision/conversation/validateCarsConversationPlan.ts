@@ -26,6 +26,7 @@ export type CarsPlanValidationFailure =
   | "VAGUE_CONTINUITY"
   | "SEMANTIC_REPETITION"
   | "BUDGET_CLAIMED_AS_EVALUATED"
+  | "PHASE1_MARKET_QUESTION"
   | "AFFORDABILITY_CLAIMED_WITHOUT_PASS";
 
 const INTERNAL_TERMS = /(?:koltuk veya bagaj için sayısal eşik|mevcut doğrulanmış (?:karar )?(?:veri|kapsam)|supported decision dimension|minimum hacmi litre|litre olarak belirt|evidence|runtime vehicle|artifact version|RVC-PILOT)/iu;
@@ -74,6 +75,9 @@ export function validateCarsConversationPlan(input: {
   }
   if (messageClaimsAffordability(message) && input.memory.affordabilityState !== "AFFORDABILITY_PASS") {
     return "AFFORDABILITY_CLAIMED_WITHOUT_PASS";
+  }
+  if (input.plan.question?.purpose === "ACQUISITION_MARKET" || /sıfır mı düşünüyorsun|ikinci el de olur mu/iu.test(message)) {
+    return "PHASE1_MARKET_QUESTION";
   }
   if (INTERNAL_TERMS.test(message) || STATUS_LANGUAGE.test(message)) return "EXPOSED_INTERNAL_TERMINOLOGY";
   if (INVENTED_FACTS.test(message)) return "INVENTED_CANDIDATE_FACTS";

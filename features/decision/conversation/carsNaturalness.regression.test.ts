@@ -20,6 +20,10 @@ const FORBIDDEN = [
   "bütçene uyuyor",
   "satın alabilirsin",
   "ikinci elde bulunur",
+  "Bu bir satış ilanı değil",
+  "fiyat tavanını bu öneriyle henüz kıyaslamadım",
+  "fiyat/ilan uygunluğu iddiası değil",
+  "teknik olarak ihtiyaçlarına uyan",
 ];
 
 describe("naturalness regression", () => {

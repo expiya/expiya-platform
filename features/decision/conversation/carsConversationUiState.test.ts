@@ -34,6 +34,8 @@ describe("consent UI helpers", () => {
     expect(shouldRenderRecommendationCards("RECOMMENDATIONS")).toBe(true);
     expect(shouldRenderRecommendationCards("RECOMMENDATIONS", "MODEL_FIT_OFFER")).toBe(true);
     expect(shouldRenderRecommendationCards("RECOMMENDATIONS", "PURCHASE_OPTION_OFFER")).toBe(false);
+    expect(shouldRenderRecommendationCards("RECOMMENDATIONS", "NO_AFFORDABLE_MATCH")).toBe(false);
+    expect(shouldRenderRecommendationCards("RECOMMENDATIONS", "NEW_CONFIGURATION_OFFER")).toBe(true);
     expect(shouldRenderRecommendationCards("ERROR")).toBe(false);
   });
 

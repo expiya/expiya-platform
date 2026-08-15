@@ -67,8 +67,8 @@ describe("hard vs soft unsupported budget language", () => {
   });
 });
 
-describe("hard unsupported budget scopes affordability, not model-fit", () => {
-  it("permits model-fit guidance and blocks affordability claims for a hard 2M ceiling plus seats/cargo", async () => {
+describe("hard budget filters affordability before a budget-compatible offer", () => {
+  it("does not offer an over-budget unique technical match as the winning candidate", async () => {
     const first = await runCarsConversationTurn({
       conversationId: "hard-budget-block",
       messages: [{
@@ -80,35 +80,16 @@ describe("hard unsupported budget scopes affordability, not model-fit", () => {
     expect(first.kind).toBe("QUESTION");
     expect(first.message).not.toMatch(IDENTITY);
     expect(first.message).not.toMatch(/bütçene uyuyor|satın alabilirsin|bu fiyat aralığında|bütçenin içinde|ikinci elde bulunur|galeride vardır/iu);
-    expect(first.message).not.toMatch(/kaç koltuk|kaç litre/iu);
-    expect(first.conversation?.recommendationOfferStatus).toBe("AWAITING_CONSENT");
-    expect(first.conversation?.heldAuthorization).toBeTruthy();
-    expect(first.conversation?.offerPurpose).toBe("MODEL_FIT_OFFER");
-    expect(first.conversation?.turnProvenance?.hardUnevaluatedConstraints).toEqual(["BUDGET_MAX_TRY"]);
+    expect(first.conversation?.recommendationOfferStatus).not.toBe("AWAITING_CONSENT");
+    expect(first.conversation?.heldAuthorization).toBeFalsy();
+    expect(first.conversation?.offerPurpose).toBe("NO_AFFORDABLE_MATCH");
     expect(first.conversation?.turnProvenance?.affordabilityClaimAuthorized).toBe(false);
     expect(first.conversation?.turnProvenance?.purchasableUnitAuthorized).toBe(false);
-    expect(first.conversation?.turnProvenance?.offerAuthorized).toBe(true);
+    expect(first.conversation?.turnProvenance?.offerAuthorized).toBe(false);
     expect(first.conversation?.turnProvenance?.cardRevealAuthorized).toBe(false);
-    expect(first.conversation?.turnProvenance?.budgetEvaluated).toBe(false);
-    expect(first.conversation?.turnProvenance?.acquisitionMarket).toBe("UNRESOLVED");
-
-    const shown = await runCarsConversationTurn({
-      conversationId: "hard-budget-block",
-      conversation: first.conversation,
-      messages: [
-        { id: "1", role: "user", content: "Bütçem 2 milyon, üzerine kesinlikle çıkmak istemiyorum. En az 7 koltuk ve en az 300 litre bagaj istiyorum." },
-        { id: "2", role: "assistant", content: first.message },
-        { id: "3", role: "user", content: "Göster." },
-      ],
-    });
-    expect(shown.kind).toBe("RECOMMENDATIONS");
-    if (shown.kind !== "RECOMMENDATIONS") return;
-    expect(shown.message).toMatch(/Hyundai|IONIQ 9/i);
-    expect(shown.message).not.toMatch(/bütçene uyuyor|satın alabilirsin|bu fiyat aralığında|bütçenin içinde|ikinci elde bulunur|galeride vardır|5[,.]81/iu);
-    expect(shown.conversation?.turnProvenance?.cardRevealAuthorized).toBe(true);
-    expect(shown.conversation?.turnProvenance?.affordabilityClaimAuthorized).toBe(false);
-    expect(shown.conversation?.turnProvenance?.purchasableUnitAuthorized).toBe(false);
-    expect(shown.conversation?.offerPurpose).toBe("MODEL_FIT_OFFER");
+    expect(first.conversation?.turnProvenance?.budgetEvaluated).toBe(true);
+    expect(first.conversation?.turnProvenance?.acquisitionMarket).toBe("NEW_ONLY");
+    expect(first.conversation?.priceEvaluations?.some((item) => item.result === "FAIL")).toBe(true);
   });
 
   it("does not let a soft budget silently claim evaluation", async () => {

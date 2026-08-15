@@ -288,10 +288,15 @@ export function hydrateCarsConversationMemory(input: {
     }),
     loopCount,
     addressForm: input.conversation?.addressForm,
-    acquisitionMarket: input.conversation?.acquisitionMarket,
+    acquisitionMarket: input.conversation?.acquisitionMarket ?? "NEW_ONLY",
     affordabilityState: input.conversation?.affordabilityState,
     recommendationLevel: input.conversation?.recommendationLevel,
     offerPurpose: input.conversation?.offerPurpose,
+    shownCandidate: input.conversation?.shownCandidate,
+    usedPurchaseRequestDetected: input.conversation?.usedPurchaseRequestDetected,
+    usedScopeBoundaryStated: input.conversation?.usedScopeBoundaryStated,
+    noAffordableMatchStatus: input.conversation?.noAffordableMatchStatus,
+    priceEvaluations: input.conversation?.priceEvaluations,
   };
   return stampAcquisitionAuthority(trace);
 }

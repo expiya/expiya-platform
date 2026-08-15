@@ -219,7 +219,63 @@ export type CarsAffordabilityState =
   | "AFFORDABILITY_FAIL"
   | "AFFORDABILITY_UNKNOWN";
 
-export type CarsOfferPurpose = "MODEL_FIT_OFFER" | "PURCHASE_OPTION_OFFER";
+export type CarsOfferPurpose =
+  | "MODEL_FIT_OFFER"
+  | "NEW_CONFIGURATION_OFFER"
+  | "PURCHASE_OPTION_OFFER"
+  | "NO_AFFORDABLE_MATCH";
+
+/** Phase 1 active market is always NEW_ONLY. USED_ONLY and NEW_OR_USED remain dormant Phase 2 states. */
+export const PHASE1_ACTIVE_ACQUISITION_MARKET: CarsAcquisitionMarket = "NEW_ONLY";
+
+export type CarsPriceEvaluationResult = "PASS" | "FAIL" | "UNKNOWN" | "NOT_REQUESTED";
+
+export type CarsNoAffordableMatchStatus =
+  | "NO_AFFORDABLE_EXACT_MATCH"
+  | "NEAREST_OVER_BUDGET_AVAILABLE"
+  | "PRICE_UNKNOWN_FOR_TECHNICAL_MATCH";
+
+export type CarsCampaignApplicability = "NOT_CAMPAIGN" | "GENERALLY_APPLICABLE" | "CONDITIONAL" | "UNKNOWN";
+
+export type CarsPriceValidityStatus = "CURRENT" | "EXPIRED" | "NOT_YET_VALID" | "ABSENT" | "NOT_EVALUATED";
+
+export type CarsPriceReasonCode =
+  | "NO_BUDGET"
+  | "SOFT_BUDGET_NOT_APPLIED"
+  | "EXACT_MAPPING_MISSING"
+  | "CONDITION_NOT_NEW"
+  | "PRICE_ABSENT"
+  | "PRICE_STALE_OR_EXPIRED"
+  | "IDENTITY_NOT_EXACT"
+  | "PRICE_CONFLICT"
+  | "CAMPAIGN_ELIGIBILITY_UNKNOWN"
+  | "MANDATORY_FEE_UNCERTAINTY"
+  | "SOURCE_INSUFFICIENT"
+  | "AMOUNT_ABOVE_CEILING"
+  | "AMOUNT_WITHIN_CEILING"
+  | "MARKET_NOT_TR"
+  | "NOT_CURRENT_SALE";
+
+export interface CarsCandidatePriceEvaluation {
+  readonly candidateId: string;
+  readonly catalogVariantId: string;
+  readonly priceObservationId?: string;
+  readonly amountTry?: number;
+  readonly priceType?: "LIST" | "CAMPAIGN" | "ASKING" | "TRANSACTION" | "VALUATION";
+  readonly validityStatus: CarsPriceValidityStatus;
+  readonly sourceAuthorityResult: "AUTHORITATIVE" | "INSUFFICIENT";
+  readonly campaignApplicabilityResult: CarsCampaignApplicability;
+  readonly feeInclusionUncertainty: boolean;
+  readonly budgetCeilingTry?: number;
+  readonly result: CarsPriceEvaluationResult;
+  readonly reasonCode: CarsPriceReasonCode;
+}
+
+export interface CarsShownCandidateState {
+  readonly runtimeVehicleCandidateId: string;
+  readonly vehicleVariantId: string;
+  readonly revealedOnUserTurn: number;
+}
 
 export type CarsForwardProgressType =
   | "ANSWERED_DIRECT_QUESTION"
@@ -274,6 +330,19 @@ export interface CarsTurnProvenance {
   readonly purchasableUnitAuthorized?: boolean;
   readonly modelFitAuthorized?: boolean;
   readonly listingClaimDetected?: boolean;
+  readonly usedPurchaseRequestDetected?: boolean;
+  readonly listingUrlSubmissionDetected?: boolean;
+  readonly directAffordabilityQuestionDetected?: boolean;
+  readonly priceEvaluationRequested?: boolean;
+  readonly budgetCeilingTry?: number;
+  readonly candidateSetBeforePriceFilter?: readonly string[];
+  readonly candidateSetAfterPriceFilter?: readonly string[];
+  readonly selectedDeterministicCandidate?: string;
+  readonly noAffordableMatchStatus?: CarsNoAffordableMatchStatus;
+  readonly nearestVerifiedPriceGapTry?: number;
+  readonly nearestVerifiedPriceGapPercent?: number;
+  readonly shownCandidateKnown?: boolean;
+  readonly activePhase1Market?: CarsAcquisitionMarket;
 }
 
 export interface CarsConversationTrace {
@@ -306,6 +375,11 @@ export interface CarsConversationTrace {
   readonly affordabilityState?: CarsAffordabilityState;
   readonly recommendationLevel?: CarsRecommendationLevel;
   readonly offerPurpose?: CarsOfferPurpose;
+  readonly shownCandidate?: CarsShownCandidateState;
+  readonly usedPurchaseRequestDetected?: boolean;
+  readonly usedScopeBoundaryStated?: boolean;
+  readonly noAffordableMatchStatus?: CarsNoAffordableMatchStatus;
+  readonly priceEvaluations?: readonly CarsCandidatePriceEvaluation[];
   readonly turnProvenance?: CarsTurnProvenance;
 }
 

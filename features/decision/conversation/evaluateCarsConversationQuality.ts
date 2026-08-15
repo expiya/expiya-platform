@@ -41,6 +41,10 @@ const ROBOTIC = [
   /bütçenin içinde/iu,
   /ikinci elde bulunur/iu,
   /galeride vardır/iu,
+  /bu bir satış ilanı değil/iu,
+  /fiyat tavanını bu öneriyle henüz kıyaslamadım/iu,
+  /fiyat\/ilan uygunluğu iddiası değil/iu,
+  /teknik olarak ihtiyaçlarına uyan/iu,
 ];
 
 export function evaluateCarsConversationQuality(input: {

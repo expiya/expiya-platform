@@ -255,7 +255,7 @@ export function emptyConversationTrace(): CarsConversationTrace {
     semanticFingerprint: "",
     loopCount: 0,
     addressForm: undefined,
-    acquisitionMarket: "UNRESOLVED",
+    acquisitionMarket: "NEW_ONLY",
     affordabilityState: "AFFORDABILITY_NOT_REQUESTED",
   };
 }

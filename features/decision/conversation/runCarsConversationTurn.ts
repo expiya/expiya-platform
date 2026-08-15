@@ -1,5 +1,6 @@
 import { randomUUID } from "node:crypto";
 
+import catalogPayload from "@/data/production/catalog/releases/v0.2.0/catalog.json";
 import { runCarsRuntime } from "@/features/decision/runtime/runCarsRuntime";
 import {
   deriveCarsEvidenceBackedRequirementsFromQuery,
@@ -12,6 +13,7 @@ import type {
   CarsConversationRequest,
   CarsConversationResponse,
   CarsConversationTrace,
+  CarsOfferPurpose,
   CarsQuestionPurpose,
   CarsRequirementKey,
   CarsTurnProvenance,
@@ -29,19 +31,24 @@ import {
   closeDeferredQuestions,
   hydrateCarsConversationMemory,
 } from "./carsConversationMemory";
-import { extractDeterministicFacts, isFrustration, upsertRequirement, budgetCategoryFromText } from "./carsRequirementLedger";
+import { extractDeterministicFacts, isFrustration, upsertRequirement, budgetCategoryFromText, latestRequirement } from "./carsRequirementLedger";
 import {
   affordabilityClaimAuthorized,
-  affordabilityUnavailableMessage,
+  affordabilityQuestionCeilingTry,
+  budgetFlexibilityMessage,
   deriveRecommendationLevel,
+  hardBudgetPresent,
   isAffordabilityMaterial,
   listingClaimMessage,
-  marketClarificationMessage,
+  listingUrlGateMessage,
   messageClaimsAffordability,
-  modelFitRevealNote,
+  noAffordableMatchMessage,
   purchasableUnitAuthorized,
   resolveAcquisitionMarket,
+  shownCandidateAffordabilityMessage,
   stampAcquisitionAuthority,
+  usedVehicleScopeMessage,
+  usedVehicleScopeRepeat,
 } from "./carsAcquisitionAuthority";
 import { cannotRepeatQuestion, isSemanticLoop } from "./carsSemanticLoopGuard";
 import {
@@ -72,11 +79,18 @@ import {
   hardConstraintBlockMessage,
   hardUnevaluatedConstraints,
   presentGovernedRecommendation,
+  recommendationRevealCopy,
   unevaluatedBudgetPresent,
   unsupportedHardRequirementBlocksModelFit,
   unverifiedPreferenceNote,
 } from "./presentGovernedRecommendation";
 import { evidenceDecisionProjection, messageRevealsCandidateIdentity } from "./publicCarsDecision";
+import { applyHardBudgetGate, hardBudgetCeilingTry } from "./applyCarsHardBudgetGate";
+import {
+  evaluateNewVehiclePrice,
+  formatTryConsumer,
+  informationalPriceCaveat,
+} from "./carsNewPriceAuthority";
 import {
   interpretLatestUserAct,
   resolveConversationAddressForm,
@@ -93,6 +107,7 @@ import {
   assessDirectRecommendationCoverage,
   coverageLimitationMessage,
   coverageLimitationRepeat,
+  shownCandidateNoAlternativeMessage,
 } from "./carsDirectRecommendation";
 
 const MAX_USER_TURNS = 20;
@@ -186,6 +201,10 @@ function authorizationSafety(
   | "purchasableUnitAuthorized"
   | "modelFitAuthorized"
   | "listingClaimDetected"
+  | "usedPurchaseRequestDetected"
+  | "shownCandidateKnown"
+  | "activePhase1Market"
+  | "noAffordableMatchStatus"
 > {
   const exposedHold = Boolean(memory.heldAuthorization) && (
     memory.recommendationOfferStatus === "AWAITING_CONSENT"
@@ -210,6 +229,10 @@ function authorizationSafety(
     purchasableUnitAuthorized: purchasableUnitAuthorized(),
     modelFitAuthorized: exposedHold,
     listingClaimDetected: memory.recommendationLevel === "LISTING_ANALYSIS_ONLY",
+    usedPurchaseRequestDetected: memory.usedPurchaseRequestDetected,
+    shownCandidateKnown: Boolean(memory.shownCandidate),
+    activePhase1Market: resolveAcquisitionMarket(memory),
+    noAffordableMatchStatus: memory.noAffordableMatchStatus,
   };
 }
 
@@ -251,6 +274,7 @@ function withProgress(
     recentAssistant: recentAssistantTexts(input.messages),
     directQuestionAnswered: input.latestAct.isCapabilityQuestion
       || input.latestAct.isDirectModelComparison
+      || input.latestAct.isDirectAffordabilityQuestion
       || input.latestAct.isRecommendationAcceptance
       || Boolean(input.statedLimitation),
     stateChanged: Boolean(input.stateChanged),
@@ -269,7 +293,10 @@ function withProgress(
     semanticRepetitionDetected: progress.semanticRepetitionDetected,
     repairApplied: Boolean(input.repaired) || progress.semanticRepetitionDetected,
     directRecommendationCoverage: input.coverage,
-    budgetEvaluated: false,
+    budgetEvaluated: provenance.budgetEvaluated === true
+      || input.memory.affordabilityState === "AFFORDABILITY_PASS"
+      || input.memory.affordabilityState === "AFFORDABILITY_FAIL"
+      || input.memory.affordabilityState === "AFFORDABILITY_UNKNOWN",
     unevaluatedBudgetPresent: budget,
     heldDespiteUnevaluatedBudget: budget && !blocked && (
       input.memory.recommendationOfferStatus === "AWAITING_CONSENT"
@@ -345,12 +372,14 @@ function holdAuthorizedCandidate(
   input: CarsConversationRequest,
   memory: CarsConversationTrace,
   result: CarsEvidenceBackedDecisionResult,
+  offerPurpose: CarsOfferPurpose = "MODEL_FIT_OFFER",
 ): CarsConversationTrace {
   if (unsupportedHardRequirementBlocksModelFit(memory)) return withoutExposedHold(memory);
+  const selectedId = result.selectedRuntimeVehicleCandidateId;
   const selected = result.candidateEvaluations.find((candidate) => (
-    candidate.runtimeVehicleCandidateId === result.selectedRuntimeVehicleCandidateId
+    candidate.runtimeVehicleCandidateId === selectedId
   ));
-  if (!selected || !result.selectedRuntimeVehicleCandidateId) return memory;
+  if (!selected || !selectedId) return memory;
   const token = sealHeldAuthorization({
     conversationId: input.conversationId,
     runtimeVehicleCandidateId: selected.runtimeVehicleCandidateId,
@@ -367,6 +396,10 @@ function holdAuthorizedCandidate(
     advisorStage: "OFFER_AWAITING_CONSENT",
     phase: "OFFERING",
     state: "OFFER_AWAITING_CONSENT",
+    offerPurpose,
+    recommendationLevel: offerPurpose === "NEW_CONFIGURATION_OFFER"
+      ? "NEW_CONFIGURATION_RECOMMENDATION"
+      : deriveRecommendationLevel({ memory }),
   }, "Governed authorization is ready; remaining discovery questions no longer change the winner.");
 }
 
@@ -415,17 +448,26 @@ function revealAuthorizedCard(
   const budgetUnevaluated = unevaluatedBudgetPresent(memory);
   const preferenceNote = unverifiedPreferenceNote(memory);
   const reasons = recommendation.decision.reasons.slice(0, 3);
-  const intro = "Koltuk ve bagaj ihtiyacına teknik olarak uyan önerim şu:";
-  const fitNote = modelFitRevealNote(memory);
-  const body = [
-    identity ? `${intro} ${identity}.` : intro,
-    reasons.join(" "),
-    fitNote,
-  ].filter(Boolean).join("\n\n");
+  const price = recommendation.pricePresentation;
+  const body = recommendationRevealCopy({
+    identity,
+    reasons,
+    memory,
+    amountTry: price?.amountTry,
+    priceType: price?.priceType,
+    caveat: memory.offerPurpose === "NEW_CONFIGURATION_OFFER" ? price?.caveat : price?.caveat,
+  });
   const revealedMemory = stampAcquisitionAuthority({
     ...memory,
-    offerPurpose: "MODEL_FIT_OFFER",
-    recommendationLevel: deriveRecommendationLevel({ memory }),
+    offerPurpose: memory.offerPurpose === "NEW_CONFIGURATION_OFFER" ? "NEW_CONFIGURATION_OFFER" : "MODEL_FIT_OFFER",
+    recommendationLevel: memory.offerPurpose === "NEW_CONFIGURATION_OFFER"
+      ? "NEW_CONFIGURATION_RECOMMENDATION"
+      : deriveRecommendationLevel({ memory }),
+    shownCandidate: {
+      runtimeVehicleCandidateId: opened.runtimeVehicleCandidateId,
+      vehicleVariantId: opened.vehicleVariantId,
+      revealedOnUserTurn: input.messages.filter((item) => item.role === "user").length,
+    },
   }, { latestUser: [...input.messages].reverse().find((item) => item.role === "user")?.content ?? "" });
   void message;
   const conversation = withProvenance(applyAssistantMove(revealedMemory, {
@@ -476,8 +518,15 @@ async function offerAuthorizedCandidate(
   if (unsupportedHardRequirementBlocksModelFit(memory)) {
     return respondBlockedByHardConstraint(input, memory);
   }
-  const held = stampAcquisitionAuthority(holdAuthorizedCandidate(input, memory, result), {
-    offerPurpose: "MODEL_FIT_OFFER",
+  const offerPurpose: CarsOfferPurpose = hardBudgetPresent(memory) && memory.affordabilityState === "AFFORDABILITY_PASS"
+    ? "NEW_CONFIGURATION_OFFER"
+    : hardBudgetPresent(memory)
+      ? "NEW_CONFIGURATION_OFFER"
+      : "MODEL_FIT_OFFER";
+  const held = stampAcquisitionAuthority(holdAuthorizedCandidate(input, memory, result, offerPurpose), {
+    offerPurpose,
+    budgetCompatible: offerPurpose === "NEW_CONFIGURATION_OFFER",
+    affordabilityState: offerPurpose === "NEW_CONFIGURATION_OFFER" ? "AFFORDABILITY_PASS" : memory.affordabilityState,
   });
   if (!held.heldAuthorization) {
     return respondBlockedByHardConstraint(input, memory);
@@ -506,7 +555,12 @@ async function offerAuthorizedCandidate(
     candidateMayBeRevealed: false,
   }) && plan.recommendationAction === "OFFER_ONLY" && !messageRevealsCandidateIdentity(plan.assistantMessage)
     && !messageClaimsAffordability(plan.assistantMessage);
-  const message = valid ? plan.assistantMessage : FALLBACK_OFFER;
+  const fallback = held.offerPurpose === "NEW_CONFIGURATION_OFFER"
+    ? (held.addressForm === "SIZ"
+      ? "Tavanınıza uyan net bir sıfır önerim var. Görmek ister misiniz?"
+      : "Tavanına uyan net bir sıfır önerim var. Görmek ister misin?")
+    : FALLBACK_OFFER;
+  const message = valid ? plan.assistantMessage : fallback;
   const conversation = withProvenance(applyAssistantMove(held, {
     phase: "OFFERING",
     prompt: message,
@@ -530,7 +584,7 @@ async function offerAuthorizedCandidate(
     latestMessageAcknowledged: true,
     latestPrimaryAct: interpretLatestUserAct(input.messages, held).primaryAct,
     advisorStage: "OFFER_AWAITING_CONSENT",
-    budgetEvaluated: false,
+    budgetEvaluated: held.offerPurpose === "NEW_CONFIGURATION_OFFER",
     unevaluatedBudgetPresent: unevaluatedBudgetPresent(held),
     heldDespiteUnevaluatedBudget: unevaluatedBudgetPresent(held),
     ...authorizationSafety(held),
@@ -550,8 +604,73 @@ function respondWithEvidence(
   if (unsupportedHardRequirementBlocksModelFit(memory)) {
     return respondBlockedByHardConstraint(input, memory);
   }
-  const result = evaluateGoverned(input);
+  const raw = evaluateGoverned(input);
+  const gated = applyHardBudgetGate(raw, memory);
+  const result = gated.result;
   const structuredFollowUp = evidenceDecisionProjection(result, { revealIdentity: false });
+  if (gated.filter && gated.priceEvaluationRequested) {
+    memory = {
+      ...memory,
+      priceEvaluations: gated.filter.evaluations,
+      noAffordableMatchStatus: gated.filter.noAffordableMatchStatus,
+      affordabilityState: gated.filter.passingCandidateIds.length > 0
+        ? "AFFORDABILITY_PASS"
+        : gated.filter.noAffordableMatchStatus === "PRICE_UNKNOWN_FOR_TECHNICAL_MATCH"
+          ? "AFFORDABILITY_UNKNOWN"
+          : "AFFORDABILITY_FAIL",
+    };
+  }
+  if (result.status === "NO_ELIGIBLE_CANDIDATE" && gated.filter && hardBudgetPresent(memory)) {
+    const ceiling = hardBudgetCeilingTry(memory) ?? 0;
+    const message = noAffordableMatchMessage(memory, ceiling, gated.filter.nearestGapPercent);
+    const stamped = stampAcquisitionAuthority({
+      ...withoutExposedHold(memory),
+      offerPurpose: "NO_AFFORDABLE_MATCH",
+      noAffordableMatchStatus: gated.filter.noAffordableMatchStatus ?? "NO_AFFORDABLE_EXACT_MATCH",
+      priceEvaluations: gated.filter.evaluations,
+    }, { latestUser: [...input.messages].reverse().find((item) => item.role === "user")?.content ?? "", affordabilityState: memory.affordabilityState });
+    const conversation = withProvenance(applyAssistantMove(stamped, {
+      phase: "LIMITED_BY_EVIDENCE",
+      prompt: message,
+      advisorStage: "NOT_RECOMMENDABLE",
+      progressEvent: "no-affordable-match",
+      clearPendingQuestion: true,
+    }), withProgress({
+      modelAttempted: false,
+      requestedModel: resolveCarsConversationModel().requestedModel,
+      structuredPlan: false,
+      parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE",
+      deterministicOverride: true,
+      conversationMove: "EXPLAIN_LIMITATION",
+      latestMessageAcknowledged: true,
+      latestPrimaryAct: interpretLatestUserAct(input.messages, stamped).primaryAct,
+      advisorStage: "NOT_RECOMMENDABLE",
+      budgetEvaluated: true,
+      priceEvaluationRequested: true,
+      budgetCeilingTry: ceiling,
+      candidateSetBeforePriceFilter: gated.filter.evaluations.map((item) => item.candidateId),
+      candidateSetAfterPriceFilter: gated.filter.passingCandidateIds,
+      noAffordableMatchStatus: gated.filter.noAffordableMatchStatus,
+      nearestVerifiedPriceGapTry: gated.filter.nearestGapTry,
+      nearestVerifiedPriceGapPercent: gated.filter.nearestGapPercent,
+      activePhase1Market: "NEW_ONLY",
+    }, {
+      messages: input.messages,
+      latestUser: [...input.messages].reverse().find((item) => item.role === "user")?.content ?? "",
+      assistantMessage: message,
+      latestAct: interpretLatestUserAct(input.messages, stamped),
+      memory: stamped,
+      statedLimitation: true,
+      stateChanged: true,
+    }));
+    return {
+      kind: "QUESTION",
+      message,
+      decision: structuredFollowUp,
+      conversation: { ...conversation, state: "NO_SUPPORTED_CANDIDATE" },
+    };
+  }
   if (result.status === "NO_ELIGIBLE_CANDIDATE") {
     const conversation = applyAssistantMove(memory, {
       phase: "LIMITED_BY_EVIDENCE",
@@ -576,12 +695,38 @@ function respondWithEvidence(
   }
   if (result.discriminatorChoices) {
     const message = result.followUpQuestion ?? "Kararı değiştirecek seçeneği seçin.";
-    const conversation = applyAssistantMove(memory, {
+    const latestUser = [...input.messages].reverse().find((item) => item.role === "user")?.content ?? "";
+    const conversation = withProvenance(applyAssistantMove(memory, {
       phase: "FINAL_TRADEOFF",
       purpose: "MIN_CARGO",
       prompt: message,
       advisorStage: "TRADEOFF_RESOLUTION",
-    });
+    }), withProgress({
+      modelAttempted: false,
+      requestedModel: resolveCarsConversationModel().requestedModel,
+      structuredPlan: false,
+      parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE",
+      deterministicOverride: true,
+      conversationMove: "ASK_ONE_QUESTION",
+      latestMessageAcknowledged: true,
+      latestPrimaryAct: interpretLatestUserAct(input.messages, memory).primaryAct,
+      advisorStage: "TRADEOFF_RESOLUTION",
+      budgetEvaluated: gated.priceEvaluationRequested,
+      priceEvaluationRequested: gated.priceEvaluationRequested,
+      budgetCeilingTry: hardBudgetCeilingTry(memory),
+      candidateSetBeforePriceFilter: gated.filter?.evaluations.map((item) => item.candidateId),
+      candidateSetAfterPriceFilter: gated.filter?.passingCandidateIds,
+      activePhase1Market: "NEW_ONLY",
+    }, {
+      messages: input.messages,
+      latestUser,
+      assistantMessage: message,
+      latestAct: interpretLatestUserAct(input.messages, memory),
+      memory,
+      askedMaterialQuestion: true,
+      stateChanged: true,
+    }));
     return {
       kind: "QUESTION",
       message,
@@ -596,7 +741,7 @@ function respondWithEvidence(
 }
 
 function validatePurpose(trace: CarsConversationTrace, purpose: CarsQuestionPurpose | undefined): CarsQuestionPurpose | undefined {
-  if (!purpose || purpose === "FINAL_PRIORITY") return undefined;
+  if (!purpose || purpose === "FINAL_PRIORITY" || purpose === "ACQUISITION_MARKET") return undefined;
   if (cannotRepeatQuestion(trace, purpose)) return undefined;
   return purpose;
 }
@@ -630,11 +775,14 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
   memory = stampAcquisitionAuthority(memory, {
     latestUser: latestContent,
     listingClaim: latestAct.isListingClaim,
+    usedPurchaseRequest: latestAct.isUsedPurchaseRequest,
   });
   if (input.choiceId) memory = { ...memory, didConversationProgress: true, lastProgressEvent: `choice:${input.choiceId}` };
 
   if (latestAct.isListingClaim) {
-    const message = listingClaimMessage(memory.addressForm);
+    const message = latestAct.isListingUrlSubmission
+      ? listingUrlGateMessage(memory.addressForm)
+      : listingClaimMessage(memory.addressForm);
     const conversation = withProvenance(applyAssistantMove(stampAcquisitionAuthority(memory, {
       latestUser: latestContent,
       listingClaim: true,
@@ -656,15 +804,60 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
       latestPrimaryAct: "LISTING_CLAIM",
       advisorStage: "CONTEXT_UNDERSTANDING",
       listingClaimDetected: true,
+      listingUrlSubmissionDetected: latestAct.isListingUrlSubmission,
       recommendationLevel: "LISTING_ANALYSIS_ONLY",
       purchasableUnitAuthorized: false,
       affordabilityClaimAuthorized: false,
+      activePhase1Market: "NEW_ONLY",
     }, {
       messages: input.messages,
       latestUser: latestContent,
       assistantMessage: message,
       latestAct,
       memory,
+      statedLimitation: true,
+      stateChanged: true,
+    }));
+    return { kind: "QUESTION", message, conversation };
+  }
+
+  if (latestAct.isUsedPurchaseRequest) {
+    const message = memory.usedScopeBoundaryStated
+      ? usedVehicleScopeRepeat(memory.addressForm)
+      : usedVehicleScopeMessage(memory.addressForm);
+    const stamped = stampAcquisitionAuthority({
+      ...memory,
+      usedScopeBoundaryStated: true,
+      usedPurchaseRequestDetected: true,
+    }, { latestUser: latestContent, usedPurchaseRequest: true });
+    const conversation = withProvenance(applyAssistantMove(stamped, {
+      phase: "LIMITED_BY_EVIDENCE",
+      prompt: message,
+      progressEvent: "used-scope-boundary",
+      advisorStage: "CONTEXT_UNDERSTANDING",
+      clearPendingQuestion: true,
+    }), withProgress({
+      modelAttempted: false,
+      requestedModel,
+      structuredPlan: false,
+      parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "BOUNDED_FALLBACK",
+      deterministicOverride: false,
+      conversationMove: "EXPLAIN_LIMITATION",
+      latestMessageAcknowledged: true,
+      latestPrimaryAct: latestAct.primaryAct,
+      advisorStage: "CONTEXT_UNDERSTANDING",
+      usedPurchaseRequestDetected: true,
+      recommendationLevel: "LISTING_ANALYSIS_ONLY",
+      purchasableUnitAuthorized: false,
+      affordabilityClaimAuthorized: false,
+      activePhase1Market: "NEW_ONLY",
+    }, {
+      messages: input.messages,
+      latestUser: latestContent,
+      assistantMessage: message,
+      latestAct,
+      memory: stamped,
       statedLimitation: true,
       stateChanged: true,
     }));
@@ -701,8 +894,8 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     }
   }
 
-  const materialCorrection = latestAct.isCorrection && memory.capturedOnLatestTurn.some((key) => key === "MIN_SEATS" || key === "MIN_CARGO_L");
-  if ((materialCorrection || memory.capturedOnLatestTurn.some((key) => key === "MIN_SEATS" || key === "MIN_CARGO_L"))
+  const materialCorrection = latestAct.isCorrection && memory.capturedOnLatestTurn.some((key) => key === "MIN_SEATS" || key === "MIN_CARGO_L" || key === "BUDGET_MAX_TRY");
+  if ((materialCorrection || memory.capturedOnLatestTurn.some((key) => key === "MIN_SEATS" || key === "MIN_CARGO_L" || key === "BUDGET_MAX_TRY"))
     && memory.heldAuthorization && memory.recommendationOfferStatus === "AWAITING_CONSENT") {
     const opened = openHeldAuthorization(memory.heldAuthorization);
     if (opened && opened.requirementFingerprint !== requirementFingerprint(memory)) {
@@ -761,78 +954,133 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     return { kind: "QUESTION", message: declineMessage, conversation };
   }
 
-  if (isAffordabilityMaterial(latestContent) && memory.recommendationOfferStatus === "REVEALED") {
-    const market = resolveAcquisitionMarket(memory);
-    if (market === "UNRESOLVED" && !cannotRepeatQuestion(memory, "ACQUISITION_MARKET")) {
-      const message = marketClarificationMessage(memory.addressForm);
-      const stamped = stampAcquisitionAuthority({
-        ...memory,
-        affordabilityState: "AFFORDABILITY_MARKET_UNRESOLVED",
-      }, { latestUser: latestContent });
-      const conversation = withProvenance(applyAssistantMove(stamped, {
-        phase: "CLARIFYING",
-        purpose: "ACQUISITION_MARKET",
+  if (latestAct.isDirectAffordabilityQuestion || (
+    isAffordabilityMaterial(latestContent)
+    && (memory.shownCandidate || memory.recommendationOfferStatus === "REVEALED" || memory.offerPurpose === "NO_AFFORDABLE_MATCH")
+  )) {
+    const ceiling = affordabilityQuestionCeilingTry(latestContent)
+      ?? (typeof latestRequirement(memory, "BUDGET_MAX_TRY")?.value === "number"
+        ? Number(latestRequirement(memory, "BUDGET_MAX_TRY")?.value)
+        : undefined);
+    if (memory.offerPurpose === "NO_AFFORDABLE_MATCH" && /artırırsam olur/iu.test(latestContent)) {
+      const nearest = memory.priceEvaluations?.find((item) => item.result === "FAIL" && item.amountTry !== undefined);
+      const gapTry = nearest && ceiling ? nearest.amountTry! - ceiling : memory.turnProvenance?.nearestVerifiedPriceGapTry;
+      const gapPercent = nearest && ceiling ? (nearest.amountTry! - ceiling) / ceiling * 100 : memory.turnProvenance?.nearestVerifiedPriceGapPercent;
+      const message = budgetFlexibilityMessage(ceiling ?? 0, gapTry, gapPercent);
+      const conversation = withProvenance(applyAssistantMove(memory, {
+        phase: "LIMITED_BY_EVIDENCE",
         prompt: message,
-        progressEvent: "acquisition-market",
-        advisorStage: "CONTEXT_UNDERSTANDING",
+        progressEvent: "budget-flexibility",
+        advisorStage: "NOT_RECOMMENDABLE",
+        clearPendingQuestion: true,
       }), withProgress({
         modelAttempted: false,
         requestedModel,
         structuredPlan: false,
         parseOutcome: "NOT_ATTEMPTED",
-        userFacingOrigin: "BOUNDED_FALLBACK",
-        deterministicOverride: false,
-        conversationMove: "ASK_ONE_QUESTION",
+        userFacingOrigin: "DETERMINISTIC_EVIDENCE",
+        deterministicOverride: true,
+        conversationMove: "ANSWER_DIRECTLY",
         latestMessageAcknowledged: true,
         latestPrimaryAct: latestAct.primaryAct,
-        advisorStage: "CONTEXT_UNDERSTANDING",
-        affordabilityState: "AFFORDABILITY_MARKET_UNRESOLVED",
+        advisorStage: "NOT_RECOMMENDABLE",
+        directAffordabilityQuestionDetected: true,
+        directQuestionAnswered: true,
+        budgetEvaluated: true,
+        priceEvaluationRequested: true,
+        budgetCeilingTry: ceiling,
+        noAffordableMatchStatus: memory.noAffordableMatchStatus,
+        shownCandidateKnown: Boolean(memory.shownCandidate),
+        activePhase1Market: "NEW_ONLY",
+      }, {
+        messages: input.messages,
+        latestUser: latestContent,
+        assistantMessage: message,
+        latestAct,
+        memory,
+        statedLimitation: true,
+      }));
+      return { kind: "QUESTION", message, conversation };
+    }
+    const shown = memory.shownCandidate ?? (() => {
+      const opened = openHeldAuthorization(memory.heldAuthorization);
+      return opened
+        ? { runtimeVehicleCandidateId: opened.runtimeVehicleCandidateId, vehicleVariantId: opened.vehicleVariantId, revealedOnUserTurn: 0 }
+        : undefined;
+    })();
+    if (shown && memory.recommendationOfferStatus === "REVEALED") {
+      const evaluation = evaluateNewVehiclePrice({
+        runtimeVehicleCandidateId: shown.runtimeVehicleCandidateId,
+        vehicleVariantId: shown.vehicleVariantId,
+        budgetTry: ceiling,
+      });
+      const record = (catalogPayload.records as { variant: { id: string; brand: { value: string }; model: { value: string } } }[])
+        .find((item) => item.variant.id === shown.vehicleVariantId);
+      const identity = record
+        ? `${record.variant.brand.value} ${record.variant.model.value}`
+        : "Bu araç";
+      const affordability = ceiling === undefined
+        ? "NOT_REQUESTED" as const
+        : evaluation.result;
+      const message = ceiling === undefined && evaluation.amountTry !== undefined
+        ? `${identity} güncel sıfır ${evaluation.priceType === "CAMPAIGN" ? "kampanya" : "liste"} fiyatı ${formatTryConsumer(evaluation.amountTry)}.${evaluation.priceType === "CAMPAIGN" ? " Kampanya stok ve yetkili satıcıya göre değişebilir." : ""}`
+        : shownCandidateAffordabilityMessage({
+          identity,
+          amountTry: evaluation.amountTry,
+          priceType: evaluation.priceType === "LIST" || evaluation.priceType === "CAMPAIGN" ? evaluation.priceType : undefined,
+          ceilingTry: ceiling ?? 0,
+          result: affordability,
+          caveat: informationalPriceCaveat(evaluation),
+        });
+      const stamped = stampAcquisitionAuthority({
+        ...memory,
+        affordabilityState: affordability === "PASS" ? "AFFORDABILITY_PASS"
+          : affordability === "FAIL" ? "AFFORDABILITY_FAIL"
+            : affordability === "UNKNOWN" ? "AFFORDABILITY_UNKNOWN"
+              : memory.affordabilityState,
+        priceEvaluations: [evaluation],
+        shownCandidate: shown,
+      }, { latestUser: latestContent, affordabilityState: affordability === "NOT_REQUESTED" ? memory.affordabilityState : (
+        affordability === "PASS" ? "AFFORDABILITY_PASS" : affordability === "FAIL" ? "AFFORDABILITY_FAIL" : "AFFORDABILITY_UNKNOWN"
+      ) });
+      const conversation = withProvenance(applyAssistantMove(stamped, {
+        phase: "RECOMMENDATION_SHOWN",
+        prompt: message,
+        progressEvent: "direct-affordability",
+        advisorStage: "RECOMMENDATION_SHOWN",
+        clearPendingQuestion: true,
+      }), withProgress({
+        modelAttempted: false,
+        requestedModel,
+        structuredPlan: false,
+        parseOutcome: "NOT_ATTEMPTED",
+        userFacingOrigin: "DETERMINISTIC_EVIDENCE",
+        deterministicOverride: true,
+        conversationMove: "ANSWER_DIRECTLY",
+        latestMessageAcknowledged: true,
+        latestPrimaryAct: latestAct.primaryAct,
+        advisorStage: "RECOMMENDATION_SHOWN",
+        directAffordabilityQuestionDetected: true,
+        directQuestionAnswered: true,
+        budgetEvaluated: ceiling !== undefined,
+        priceEvaluationRequested: true,
+        budgetCeilingTry: ceiling,
+        shownCandidateKnown: true,
+        selectedDeterministicCandidate: shown.runtimeVehicleCandidateId,
+        activePhase1Market: "NEW_ONLY",
+        affordabilityState: stamped.affordabilityState,
+        cardRevealAuthorized: false,
+        offerAuthorized: false,
       }, {
         messages: input.messages,
         latestUser: latestContent,
         assistantMessage: message,
         latestAct,
         memory: stamped,
-        askedMaterialQuestion: true,
-        stateChanged: true,
+        statedLimitation: affordability !== "PASS",
       }));
       return { kind: "QUESTION", message, conversation };
     }
-    const unavailable = affordabilityUnavailableMessage(market);
-    const stamped = stampAcquisitionAuthority({
-      ...memory,
-      affordabilityState: "AFFORDABILITY_EVALUATION_UNAVAILABLE",
-    }, { latestUser: latestContent });
-    const conversation = withProvenance(applyAssistantMove(stamped, {
-      phase: "LIMITED_BY_EVIDENCE",
-      prompt: unavailable,
-      progressEvent: "affordability-unavailable",
-      advisorStage: "CONTEXT_UNDERSTANDING",
-      clearPendingQuestion: true,
-    }), withProgress({
-      modelAttempted: false,
-      requestedModel,
-      structuredPlan: false,
-      parseOutcome: "NOT_ATTEMPTED",
-      userFacingOrigin: "BOUNDED_FALLBACK",
-      deterministicOverride: false,
-      conversationMove: "EXPLAIN_LIMITATION",
-      latestMessageAcknowledged: true,
-      latestPrimaryAct: latestAct.primaryAct,
-      advisorStage: "CONTEXT_UNDERSTANDING",
-      affordabilityState: "AFFORDABILITY_EVALUATION_UNAVAILABLE",
-      purchasableUnitAuthorized: false,
-      affordabilityClaimAuthorized: false,
-    }, {
-      messages: input.messages,
-      latestUser: latestContent,
-      assistantMessage: unavailable,
-      latestAct,
-      memory: stamped,
-      statedLimitation: true,
-      stateChanged: true,
-    }));
-    return { kind: "QUESTION", message: unavailable, conversation };
   }
 
   const conversationAlreadyOpen = input.messages.some((message) => message.role === "assistant");
@@ -893,15 +1141,15 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
       wantsNamedAlternatives: true,
       memory,
     });
-    if (coverage === "DIRECT_RECOMMENDATION_SUPPORTED") {
+    if (coverage === "DIRECT_RECOMMENDATION_SUPPORTED" && !memory.shownCandidate) {
       return respondWithEvidence(input, { ...memory, phase: "EVALUATING" });
     }
     const stated = alreadyStatedCoverageLimitation(input.messages);
-    const message = stated
+    const message = memory.shownCandidate
+      ? shownCandidateNoAlternativeMessage(memory.addressForm)
+      : stated
       ? coverageLimitationRepeat(memory.addressForm)
-      : latestAct.isImpatient
-        ? coverageLimitationMessage(latestAct.namedModel, memory.addressForm)
-        : coverageLimitationMessage(latestAct.namedModel, memory.addressForm);
+      : coverageLimitationMessage(latestAct.namedModel, memory.addressForm);
     const conversation = withProvenance(applyAssistantMove(memory, {
       phase: "LIMITED_BY_EVIDENCE",
       prompt: message,
