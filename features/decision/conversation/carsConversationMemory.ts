@@ -21,6 +21,7 @@ import {
   pendingQuestionFromAssistant,
   upsertRequirement,
 } from "./carsRequirementLedger";
+import { acquisitionMarketFact, stampAcquisitionAuthority } from "./carsAcquisitionAuthority";
 import { advisorDefaults } from "./carsAdvisorState";
 
 function normalize(text: string): string {
@@ -205,6 +206,13 @@ export function hydrateCarsConversationMemory(input: {
         category: "HARD_UNEVALUATED_CONSTRAINT",
       })) capturedHere.push("BUDGET_MAX_TRY");
     }
+    const market = acquisitionMarketFact(message.content);
+    if (market && upsertRequirement(entries, {
+      ...market,
+      sourceTurn: userTurn,
+      sourceText: message.content,
+      category: "USAGE_CONTEXT",
+    })) capturedHere.push("ACQUISITION_MARKET");
     if (/(?:beğenmedim|hoşuma gitmedi|istemiyorum|başka seçenek|bunlar olmaz)/iu.test(message.content)) {
       const prior = [...input.messages].slice(0, input.messages.indexOf(message)).reverse()
         .find((item) => item.role === "assistant" && item.recommendationIds?.length);
@@ -249,10 +257,10 @@ export function hydrateCarsConversationMemory(input: {
     || Boolean(activeOptionSet?.selectedOptionId && !activeOptionSet.active);
   const advisor = advisorDefaults(input.conversation);
 
-  return {
-    version: 1,
+  const trace = {
+    version: 1 as const,
     state: conversationStateFromPhase("DISCOVERING"),
-    phase: "DISCOVERING",
+    phase: "DISCOVERING" as const,
     ...advisor,
     vehicleIntentEstablished: advisor.vehicleIntentEstablished || requirements.length > 0,
     heldAuthorization: input.conversation?.heldAuthorization,
@@ -280,7 +288,12 @@ export function hydrateCarsConversationMemory(input: {
     }),
     loopCount,
     addressForm: input.conversation?.addressForm,
+    acquisitionMarket: input.conversation?.acquisitionMarket,
+    affordabilityState: input.conversation?.affordabilityState,
+    recommendationLevel: input.conversation?.recommendationLevel,
+    offerPurpose: input.conversation?.offerPurpose,
   };
+  return stampAcquisitionAuthority(trace);
 }
 
 function purposeAnsweredByKeys(purpose: CarsQuestionPurpose, keys: readonly CarsRequirementKey[]): boolean {
@@ -288,6 +301,7 @@ function purposeAnsweredByKeys(purpose: CarsQuestionPurpose, keys: readonly Cars
   if (purpose === "MIN_SEATS" || purpose === "PARTY_CONFIRMATION") return keys.includes("MIN_SEATS");
   if (purpose === "MIN_CARGO") return keys.includes("MIN_CARGO_L");
   if (purpose === "BUDGET_MAX") return keys.includes("BUDGET_MAX_TRY");
+  if (purpose === "ACQUISITION_MARKET") return keys.includes("ACQUISITION_MARKET");
   if (purpose === "EQUIPMENT_SCOPE") return keys.includes("EQUIPMENT_LEVEL");
   if (purpose === "SIZE") return keys.includes("SIZE_PREFERENCE");
   if (purpose === "BODY_TYPE") return keys.includes("BODY_TYPE");

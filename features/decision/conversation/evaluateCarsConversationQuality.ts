@@ -35,6 +35,12 @@ const ROBOTIC = [
   /rastgele (?:isim saymam|model uydur)/iu,
   /sana model atamam/iu,
   /daha fazla bilgi verirsen belki/iu,
+  /bütçene uyuyor/iu,
+  /satın alabilirsin/iu,
+  /bu fiyat aralığında/iu,
+  /bütçenin içinde/iu,
+  /ikinci elde bulunur/iu,
+  /galeride vardır/iu,
 ];
 
 export function evaluateCarsConversationQuality(input: {

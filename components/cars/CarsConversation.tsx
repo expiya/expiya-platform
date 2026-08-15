@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { CarCard } from "@/components/cars/CarCard";
 import {
   hasActiveFinalDiscriminator,
+  shouldRenderRecommendationCards,
   shouldShowVehicleQuickReplies,
 } from "@/features/decision/conversation/carsConversationUiState";
 import type { VehicleListingAnalysis } from "@/types/listingAnalysis";
@@ -310,7 +311,8 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                     : "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100"
                 }`}>
                   <span className="whitespace-pre-wrap">{message.content}</span>
-                  {message.recommendations && message.recommendations.length > 0 && (
+                  {message.recommendations && message.recommendations.length > 0
+                    && shouldRenderRecommendationCards("RECOMMENDATIONS", conversation?.offerPurpose) && (
                     <div className="mt-4 grid gap-4 text-neutral-900 dark:text-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
                       {message.recommendations.map((recommendation) => (
                         <CarCard key={recommendation.car.id} recommendedCar={recommendation} locale={locale} />

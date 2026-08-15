@@ -5,6 +5,7 @@ import type { CarsLatestAct } from "./carsSocialIntent";
 import { isDiscoveryQuestion, isPureGreetingText } from "./carsSocialIntent";
 import { isVagueContinuityPhrase } from "./carsForwardProgress";
 import { messageRevealsCandidateIdentity } from "./publicCarsDecision";
+import { messageClaimsAffordability } from "./carsAcquisitionAuthority";
 import { offerIsActive } from "./carsAdvisorState";
 
 export type CarsPlanValidationFailure =
@@ -24,7 +25,8 @@ export type CarsPlanValidationFailure =
   | "CAPABILITY_UNSUPPORTED_PROMISE"
   | "VAGUE_CONTINUITY"
   | "SEMANTIC_REPETITION"
-  | "BUDGET_CLAIMED_AS_EVALUATED";
+  | "BUDGET_CLAIMED_AS_EVALUATED"
+  | "AFFORDABILITY_CLAIMED_WITHOUT_PASS";
 
 const INTERNAL_TERMS = /(?:koltuk veya bagaj için sayısal eşik|mevcut doğrulanmış (?:karar )?(?:veri|kapsam)|supported decision dimension|minimum hacmi litre|litre olarak belirt|evidence|runtime vehicle|artifact version|RVC-PILOT)/iu;
 const STATUS_LANGUAGE = /(?:kaydettim|not ettim)/iu;
@@ -69,6 +71,9 @@ export function validateCarsConversationPlan(input: {
   if (/tüm (?:şart|ihtiyac)|bütçenizi karşıl|bütçe.*karşılıyor/iu.test(message)
     && input.memory.requirements.some((entry) => entry.key === "BUDGET_MAX_TRY" && entry.evaluability === "UNDERSTOOD_NOT_EVALUABLE")) {
     return "BUDGET_CLAIMED_AS_EVALUATED";
+  }
+  if (messageClaimsAffordability(message) && input.memory.affordabilityState !== "AFFORDABILITY_PASS") {
+    return "AFFORDABILITY_CLAIMED_WITHOUT_PASS";
   }
   if (INTERNAL_TERMS.test(message) || STATUS_LANGUAGE.test(message)) return "EXPOSED_INTERNAL_TERMINOLOGY";
   if (INVENTED_FACTS.test(message)) return "INVENTED_CANDIDATE_FACTS";

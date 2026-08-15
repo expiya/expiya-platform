@@ -22,7 +22,8 @@ export type CarsQuestionPurpose =
   | "SIZE"
   | "REJECTION_DIAGNOSTIC"
   | "OFF_TOPIC_REDIRECT"
-  | "FINAL_PRIORITY";
+  | "FINAL_PRIORITY"
+  | "ACQUISITION_MARKET";
 
 export interface CarsActiveOptionSet {
   readonly id: string;
@@ -137,7 +138,8 @@ export type CarsRequirementKey =
   | "FUEL"
   | "PARTY_SIZE"
   | "MIN_SEATS"
-  | "MIN_CARGO_L";
+  | "MIN_CARGO_L"
+  | "ACQUISITION_MARKET";
 
 export type CarsRequirementCategory =
   | "HARD_CONSTRAINT"
@@ -198,6 +200,27 @@ export interface CarsQuestionMemoryEntry {
 
 export type CarsAddressForm = "SEN" | "SIZ";
 
+export type CarsAcquisitionMarket = "UNRESOLVED" | "NEW_ONLY" | "USED_ONLY" | "NEW_OR_USED";
+
+export type CarsRecommendationLevel =
+  | "MODEL_FIT_GUIDANCE"
+  | "NEW_CONFIGURATION_RECOMMENDATION"
+  | "USED_MODEL_GUIDANCE"
+  | "LISTING_ANALYSIS_ONLY"
+  | "PURCHASABLE_UNIT_RECOMMENDATION";
+
+export type CarsDecisionKind = "VEHICLE_FIT" | "ACQUISITION_FIT";
+
+export type CarsAffordabilityState =
+  | "AFFORDABILITY_NOT_REQUESTED"
+  | "AFFORDABILITY_MARKET_UNRESOLVED"
+  | "AFFORDABILITY_EVALUATION_UNAVAILABLE"
+  | "AFFORDABILITY_PASS"
+  | "AFFORDABILITY_FAIL"
+  | "AFFORDABILITY_UNKNOWN";
+
+export type CarsOfferPurpose = "MODEL_FIT_OFFER" | "PURCHASE_OPTION_OFFER";
+
 export type CarsForwardProgressType =
   | "ANSWERED_DIRECT_QUESTION"
   | "NEW_DISTINCTION"
@@ -242,6 +265,15 @@ export interface CarsTurnProvenance {
   readonly candidateHeld?: boolean;
   readonly offerAuthorized?: boolean;
   readonly cardRevealAuthorized?: boolean;
+  readonly acquisitionMarket?: CarsAcquisitionMarket;
+  readonly recommendationLevel?: CarsRecommendationLevel;
+  readonly affordabilityState?: CarsAffordabilityState;
+  readonly offerPurpose?: CarsOfferPurpose;
+  readonly decisionKind?: CarsDecisionKind;
+  readonly affordabilityClaimAuthorized?: boolean;
+  readonly purchasableUnitAuthorized?: boolean;
+  readonly modelFitAuthorized?: boolean;
+  readonly listingClaimDetected?: boolean;
 }
 
 export interface CarsConversationTrace {
@@ -270,6 +302,10 @@ export interface CarsConversationTrace {
   readonly semanticFingerprint: string;
   readonly loopCount: number;
   readonly addressForm?: CarsAddressForm;
+  readonly acquisitionMarket?: CarsAcquisitionMarket;
+  readonly affordabilityState?: CarsAffordabilityState;
+  readonly recommendationLevel?: CarsRecommendationLevel;
+  readonly offerPurpose?: CarsOfferPurpose;
   readonly turnProvenance?: CarsTurnProvenance;
 }
 

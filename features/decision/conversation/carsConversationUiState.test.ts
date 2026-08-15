@@ -32,6 +32,8 @@ describe("consent UI helpers", () => {
   it("renders a vehicle card only after a recommendations response", () => {
     expect(shouldRenderRecommendationCards("QUESTION")).toBe(false);
     expect(shouldRenderRecommendationCards("RECOMMENDATIONS")).toBe(true);
+    expect(shouldRenderRecommendationCards("RECOMMENDATIONS", "MODEL_FIT_OFFER")).toBe(true);
+    expect(shouldRenderRecommendationCards("RECOMMENDATIONS", "PURCHASE_OPTION_OFFER")).toBe(false);
     expect(shouldRenderRecommendationCards("ERROR")).toBe(false);
   });
 

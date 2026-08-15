@@ -67,8 +67,8 @@ describe("hard vs soft unsupported budget language", () => {
   });
 });
 
-describe("hard unsupported budget blocks recommendation authorization", () => {
-  it("blocks offer, hold, identity, and card reveal for a hard 2M ceiling plus seats/cargo", async () => {
+describe("hard unsupported budget scopes affordability, not model-fit", () => {
+  it("permits model-fit guidance and blocks affordability claims for a hard 2M ceiling plus seats/cargo", async () => {
     const first = await runCarsConversationTurn({
       conversationId: "hard-budget-block",
       messages: [{
@@ -77,19 +77,20 @@ describe("hard unsupported budget blocks recommendation authorization", () => {
         content: "Bütçem 2 milyon, üzerine kesinlikle çıkmak istemiyorum. En az 7 koltuk ve en az 300 litre bagaj istiyorum.",
       }],
     });
-    expect(first.kind).not.toBe("RECOMMENDATIONS");
+    expect(first.kind).toBe("QUESTION");
     expect(first.message).not.toMatch(IDENTITY);
-    expect(first.message).not.toMatch(/evidence|runtime|schema|mapping|katalog|governance/iu);
+    expect(first.message).not.toMatch(/bütçene uyuyor|satın alabilirsin|bu fiyat aralığında|bütçenin içinde|ikinci elde bulunur|galeride vardır/iu);
     expect(first.message).not.toMatch(/kaç koltuk|kaç litre/iu);
-    expect(first.conversation?.heldAuthorization).toBeFalsy();
-    expect(first.conversation?.recommendationOfferStatus ?? "NONE").toBe("NONE");
+    expect(first.conversation?.recommendationOfferStatus).toBe("AWAITING_CONSENT");
+    expect(first.conversation?.heldAuthorization).toBeTruthy();
+    expect(first.conversation?.offerPurpose).toBe("MODEL_FIT_OFFER");
     expect(first.conversation?.turnProvenance?.hardUnevaluatedConstraints).toEqual(["BUDGET_MAX_TRY"]);
-    expect(first.conversation?.turnProvenance?.recommendationBlockedByHardConstraint).toBe(true);
-    expect(first.conversation?.turnProvenance?.blockedConstraintKinds).toEqual(["BUDGET"]);
-    expect(first.conversation?.turnProvenance?.candidateHeld).toBe(false);
-    expect(first.conversation?.turnProvenance?.offerAuthorized).toBe(false);
+    expect(first.conversation?.turnProvenance?.affordabilityClaimAuthorized).toBe(false);
+    expect(first.conversation?.turnProvenance?.purchasableUnitAuthorized).toBe(false);
+    expect(first.conversation?.turnProvenance?.offerAuthorized).toBe(true);
     expect(first.conversation?.turnProvenance?.cardRevealAuthorized).toBe(false);
     expect(first.conversation?.turnProvenance?.budgetEvaluated).toBe(false);
+    expect(first.conversation?.turnProvenance?.acquisitionMarket).toBe("UNRESOLVED");
 
     const shown = await runCarsConversationTurn({
       conversationId: "hard-budget-block",
@@ -100,15 +101,14 @@ describe("hard unsupported budget blocks recommendation authorization", () => {
         { id: "3", role: "user", content: "Göster." },
       ],
     });
-    expect(shown.kind).not.toBe("RECOMMENDATIONS");
-    expect(shown.message).not.toMatch(IDENTITY);
-    expect(shown.conversation?.heldAuthorization).toBeFalsy();
-    expect(shown.conversation?.recommendationOfferStatus ?? "NONE").toBe("NONE");
-    expect(shown.conversation?.turnProvenance?.candidateHeld).toBe(false);
-    expect(shown.conversation?.turnProvenance?.offerAuthorized).toBe(false);
-    expect(shown.conversation?.turnProvenance?.cardRevealAuthorized).toBe(false);
-    expect(shown.conversation?.turnProvenance?.recommendationBlockedByHardConstraint).toBe(true);
-    expect(shown.kind).not.toBe("RECOMMENDATIONS");
+    expect(shown.kind).toBe("RECOMMENDATIONS");
+    if (shown.kind !== "RECOMMENDATIONS") return;
+    expect(shown.message).toMatch(/Hyundai|IONIQ 9/i);
+    expect(shown.message).not.toMatch(/bütçene uyuyor|satın alabilirsin|bu fiyat aralığında|bütçenin içinde|ikinci elde bulunur|galeride vardır|5[,.]81/iu);
+    expect(shown.conversation?.turnProvenance?.cardRevealAuthorized).toBe(true);
+    expect(shown.conversation?.turnProvenance?.affordabilityClaimAuthorized).toBe(false);
+    expect(shown.conversation?.turnProvenance?.purchasableUnitAuthorized).toBe(false);
+    expect(shown.conversation?.offerPurpose).toBe("MODEL_FIT_OFFER");
   });
 
   it("does not let a soft budget silently claim evaluation", async () => {

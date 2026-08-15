@@ -35,6 +35,7 @@ export function carsQuestionPurpose(content: string): CarsQuestionPurpose | unde
   }
   if (/(?:günlük hayatınızda en çok|nasıl kullan|işe gid|şehir içi|how will you use)/iu.test(content)) return "PRIMARY_USAGE";
   if (/(?:bütçe|üst sınır|fiyat|budget|maximum)/iu.test(content)) return "BUDGET_MAX";
+  if (/(?:sıfır mı|ikinci el de olur mu|yeni mi ikinci el|sıfır mı düşün)/iu.test(content)) return "ACQUISITION_MARKET";
   if (/(?:kaç koltuk|(?:minimum|en az).*koltuk|minimum number of seats)/iu.test(content)) return "MIN_SEATS";
   if (/(?:kaç kişi|kaç kişiyi taşımalı|party size|passenger)/iu.test(content)) return "PARTY_CONFIRMATION";
   if (/(?:bagaj.*minimum|minimum.*bagaj|cargo volume|litre olarak)/iu.test(content)) return "MIN_CARGO";
@@ -96,6 +97,7 @@ export function extractDeterministicFacts(text: string): readonly { key: CarsReq
 export function categoryFor(key: CarsRequirementKey): CarsRequirementCategory {
   if (USAGE_KEYS.has(key)) return "USAGE_CONTEXT";
   if (key === "BUDGET_MAX_TRY") return "SOFT_CONTEXT";
+  if (key === "ACQUISITION_MARKET") return "USAGE_CONTEXT";
   if (key === "MIN_SEATS" || key === "MIN_CARGO_L" || key === "DRIVETRAIN" || key === "TRANSMISSION") return "HARD_CONSTRAINT";
   if (key === "PARTY_SIZE") return "UNRESOLVED";
   return "SOFT_PREFERENCE";
@@ -216,6 +218,7 @@ export function answeredPurposesFrom(requirements: readonly CarsRequirementLedge
     }
   }
   if (requirements.some((entry) => entry.key === "BUDGET_MAX_TRY")) answered.add("BUDGET_MAX");
+  if (requirements.some((entry) => entry.key === "ACQUISITION_MARKET")) answered.add("ACQUISITION_MARKET");
   if (requirements.some((entry) => entry.key === "MIN_SEATS")) {
     answered.add("MIN_SEATS");
     answered.add("PARTY_CONFIRMATION");
@@ -252,6 +255,8 @@ export function emptyConversationTrace(): CarsConversationTrace {
     semanticFingerprint: "",
     loopCount: 0,
     addressForm: undefined,
+    acquisitionMarket: "UNRESOLVED",
+    affordabilityState: "AFFORDABILITY_NOT_REQUESTED",
   };
 }
 

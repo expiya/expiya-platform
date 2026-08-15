@@ -67,32 +67,25 @@ export function blockedConstraintKinds(memory: CarsConversationTrace): readonly 
   )))];
 }
 
-export function unsupportedHardRequirementBlocksRecommendation(memory: CarsConversationTrace): boolean {
-  if (hardUnevaluatedConstraints(memory).length > 0) return true;
+export function unsupportedHardRequirementBlocksModelFit(memory: CarsConversationTrace): boolean {
   return memory.requirements.some((entry) => (
     entry.category === "HARD_CONSTRAINT"
     && entry.evaluability === "UNDERSTOOD_NOT_EVALUABLE"
     && entry.key !== "MIN_SEATS"
     && entry.key !== "MIN_CARGO_L"
+    && entry.key !== "BUDGET_MAX_TRY"
   ));
 }
 
-function formatBudgetCeiling(value: string | number): string {
-  if (typeof value !== "number") return "bu üst sınır";
-  const millions = value / 1_000_000;
-  if (millions >= 1) {
-    const label = Number.isInteger(millions) ? String(millions) : String(millions).replace(".", ",");
-    return `${label} milyon TL`;
-  }
-  return `${value.toLocaleString("tr-TR")} TL`;
+export function unsupportedHardRequirementBlocksRecommendation(memory: CarsConversationTrace): boolean {
+  return unsupportedHardRequirementBlocksModelFit(memory);
+}
+
+export function hardBudgetBlocksAffordabilityClaim(memory: CarsConversationTrace): boolean {
+  return hardUnevaluatedConstraints(memory).some((entry) => entry.key === "BUDGET_MAX_TRY");
 }
 
 export function hardConstraintBlockMessage(memory: CarsConversationTrace): string {
-  const budget = memory.requirements.find((entry) => (
-    entry.key === "BUDGET_MAX_TRY" && entry.category === "HARD_UNEVALUATED_CONSTRAINT"
-  ));
-  if (budget) {
-    return `${formatBudgetCeiling(budget.value)} üst sınırın duruyor. Koltuk ve bagajı değerlendirebiliyorum ama bu tavanı henüz güvenilir biçimde kıyaslayamadığım için bir araç önermeyeceğim.`;
-  }
+  void memory;
   return "Bu zorunlu şartı henüz güvenilir biçimde kıyaslayamadığım için bir araç önermeyeceğim.";
 }

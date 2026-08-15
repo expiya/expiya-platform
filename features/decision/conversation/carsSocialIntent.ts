@@ -1,5 +1,6 @@
 import type { CarsConversationMessage, CarsConversationTrace } from "@/types/carsConversation";
 
+import { isDealerListingClaim } from "./carsAcquisitionAuthority";
 import { isOffTopic, latestRequirement } from "./carsRequirementLedger";
 
 export type CarsPrimaryAct =
@@ -29,6 +30,7 @@ export type CarsPrimaryAct =
   | "OFFER_ACCEPTANCE"
   | "OFFER_DECLINE"
   | "RECOMMENDATION_REJECTION"
+  | "LISTING_CLAIM"
   | "CONVERSATION_EXIT"
   | "OTHER";
 
@@ -52,6 +54,7 @@ export interface CarsLatestAct {
   readonly isHelpStart: boolean;
   readonly isDirectRecommendationRequest: boolean;
   readonly isDirectModelComparison: boolean;
+  readonly isListingClaim: boolean;
   readonly isImpatient: boolean;
   readonly namedModel?: string;
 }
@@ -303,6 +306,13 @@ export function interpretLatestUserAct(
       hasVehicleIntent: true,
     });
   }
+  if (isDealerListingClaim(content)) {
+    return act("LISTING_CLAIM", ["INFORMATION"], "User reported a dealer or listing price observation.", false, false, {
+      hasVehicleIntent: true,
+      isListingClaim: true,
+      namedModel,
+    });
+  }
   if (isImpatientText(content) && (isDirectRecommendationRequestText(content) || priorDirectRecommendationRequest(messages))) {
     return act("DIRECT_RECOMMENDATION_REQUEST", ["FRUSTRATION"], "User is impatient for a named recommendation.", false, false, {
       hasVehicleIntent: true,
@@ -429,6 +439,7 @@ function act(
     isHelpStart: false,
     isDirectRecommendationRequest: false,
     isDirectModelComparison: false,
+    isListingClaim: false,
     isImpatient: false,
     ...flags,
   };

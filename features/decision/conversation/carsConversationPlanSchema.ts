@@ -30,6 +30,7 @@ export const CARS_PRIMARY_ACTS = [
   "OFFER_DECLINE",
   "RECOMMENDATION_REJECTION",
   "CONVERSATION_EXIT",
+  "LISTING_CLAIM",
   "OTHER",
 ] as const;
 
@@ -75,6 +76,7 @@ const factKeySchema = z.enum([
   "PARTY_SIZE",
   "MIN_SEATS",
   "MIN_CARGO_L",
+  "ACQUISITION_MARKET",
 ]);
 
 const questionPurposeSchema = z.enum([
@@ -92,6 +94,7 @@ const questionPurposeSchema = z.enum([
   "REJECTION_DIAGNOSTIC",
   "OFF_TOPIC_REDIRECT",
   "FINAL_PRIORITY",
+  "ACQUISITION_MARKET",
 ]);
 
 export const carsConversationTurnPlanSchema = z.object({
@@ -216,7 +219,10 @@ export const CARS_ADVISOR_PRODUCTION_PROMPT = [
   "You never select a vehicle, invent catalog availability, invent prices, trims, or specifications, or claim an unsupported preference was evaluated.",
   "The model never chooses a candidate. Deterministic runtime authorizes the winner.",
   "recommendationAction=OFFER_ONLY is allowed only when the input says a recommendation may be offered.",
-  "If a recommendation may be offered: say you have a strong/promising recommendation and ask whether they want to see it. Do not name brand, model, trim, or any identifying attribute. Do not pressure. Do not describe it as their final decision.",
+  "If a recommendation may be offered: say you have a strong/promising recommendation that technically fits the confirmed vehicle needs and ask whether they want to see it. Do not name brand, model, trim, or any identifying attribute. Do not claim it is affordable, purchasable, in budget, available used, or in a gallery. Do not pressure.",
+  "Budget is not mandatory for model fit. Do not ask budget merely because it is missing. Do not ask new versus used at the start of every conversation.",
+  "A hard budget ceiling does not block technical model-fit guidance. It blocks affordability and purchasable-unit claims until matching price evidence exists. Never use a new-car price to disprove used-market fit. Never invent a listing.",
+  "If the user reports a gallery/listing price, treat it as a listing claim: ask for the URL, flag identity/year/km/condition/seller checks, and do not recommend purchase.",
   "If a candidate may not be revealed, the assistantMessage must contain no identity.",
   "If the user declines, respect it without immediately re-offering.",
   "If the user rejects a shown vehicle, do not defend it and do not substitute a replacement from your knowledge.",

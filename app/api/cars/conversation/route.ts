@@ -19,6 +19,7 @@ const questionPurposeSchema = z.enum([
   "REJECTION_DIAGNOSTIC",
   "OFF_TOPIC_REDIRECT",
   "FINAL_PRIORITY",
+  "ACQUISITION_MARKET",
 ]);
 
 const optionSetSchema = z.object({
@@ -144,6 +145,23 @@ const requestSchema = z.object({
     semanticFingerprint: z.string().max(4_000),
     loopCount: z.number().int().nonnegative(),
     addressForm: z.enum(["SEN", "SIZ"]).optional(),
+    acquisitionMarket: z.enum(["UNRESOLVED", "NEW_ONLY", "USED_ONLY", "NEW_OR_USED"]).optional(),
+    affordabilityState: z.enum([
+      "AFFORDABILITY_NOT_REQUESTED",
+      "AFFORDABILITY_MARKET_UNRESOLVED",
+      "AFFORDABILITY_EVALUATION_UNAVAILABLE",
+      "AFFORDABILITY_PASS",
+      "AFFORDABILITY_FAIL",
+      "AFFORDABILITY_UNKNOWN",
+    ]).optional(),
+    recommendationLevel: z.enum([
+      "MODEL_FIT_GUIDANCE",
+      "NEW_CONFIGURATION_RECOMMENDATION",
+      "USED_MODEL_GUIDANCE",
+      "LISTING_ANALYSIS_ONLY",
+      "PURCHASABLE_UNIT_RECOMMENDATION",
+    ]).optional(),
+    offerPurpose: z.enum(["MODEL_FIT_OFFER", "PURCHASE_OPTION_OFFER"]).optional(),
     turnProvenance: z.object({
       modelAttempted: z.boolean(),
       requestedModel: z.string().max(40).optional(),
@@ -177,6 +195,28 @@ const requestSchema = z.object({
       candidateHeld: z.boolean().optional(),
       offerAuthorized: z.boolean().optional(),
       cardRevealAuthorized: z.boolean().optional(),
+      acquisitionMarket: z.enum(["UNRESOLVED", "NEW_ONLY", "USED_ONLY", "NEW_OR_USED"]).optional(),
+      recommendationLevel: z.enum([
+        "MODEL_FIT_GUIDANCE",
+        "NEW_CONFIGURATION_RECOMMENDATION",
+        "USED_MODEL_GUIDANCE",
+        "LISTING_ANALYSIS_ONLY",
+        "PURCHASABLE_UNIT_RECOMMENDATION",
+      ]).optional(),
+      affordabilityState: z.enum([
+        "AFFORDABILITY_NOT_REQUESTED",
+        "AFFORDABILITY_MARKET_UNRESOLVED",
+        "AFFORDABILITY_EVALUATION_UNAVAILABLE",
+        "AFFORDABILITY_PASS",
+        "AFFORDABILITY_FAIL",
+        "AFFORDABILITY_UNKNOWN",
+      ]).optional(),
+      offerPurpose: z.enum(["MODEL_FIT_OFFER", "PURCHASE_OPTION_OFFER"]).optional(),
+      decisionKind: z.enum(["VEHICLE_FIT", "ACQUISITION_FIT"]).optional(),
+      affordabilityClaimAuthorized: z.boolean().optional(),
+      purchasableUnitAuthorized: z.boolean().optional(),
+      modelFitAuthorized: z.boolean().optional(),
+      listingClaimDetected: z.boolean().optional(),
     }).optional(),
   }).optional(),
   messages: z.array(z.object({

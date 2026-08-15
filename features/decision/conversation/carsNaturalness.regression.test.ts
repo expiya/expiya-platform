@@ -17,6 +17,9 @@ const FORBIDDEN = [
   "Rastgele isim saymam",
   "Sana model atamam",
   "Daha fazla bilgi verirsen belki",
+  "bütçene uyuyor",
+  "satın alabilirsin",
+  "ikinci elde bulunur",
 ];
 
 describe("naturalness regression", () => {
