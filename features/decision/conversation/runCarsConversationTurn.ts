@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 
-import catalogPayload from "@/data/production/catalog/releases/v0.7.0/catalog.json";
+import catalogPayload from "@/data/production/catalog/releases/v0.8.0/catalog.json";
 import { runCarsRuntime } from "@/features/decision/runtime/runCarsRuntime";
 import {
   deriveCarsEvidenceBackedRequirementsFromQuery,
