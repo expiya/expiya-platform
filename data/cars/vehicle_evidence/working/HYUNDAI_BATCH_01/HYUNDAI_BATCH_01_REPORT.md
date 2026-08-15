@@ -93,6 +93,31 @@ date. They remain in `stagedHyundaiBatch01Records`; this module is deliberately 
 by the active v0.2.0 catalog pointer. Activation requires an immutable next release and its
 explicit release gate, so a partially reviewed brand batch cannot leak into recommendations.
 
+## Staged production slice 01B
+
+The second structured slice adds `15` official price configurations:
+
+- KONA MY2026: 1
+- KONA Elektrik MY2025/MY2026: 2
+- INSTER MY2025: 3
+- IONIQ 5 MY2026: 2
+- IONIQ 5 N MY2025: 1
+- Yeni IONIQ 6 MY2026: 2
+- IONIQ 9 MY2026: 2
+- SANTA FE Hibrit MY2026: 1
+- STARIA Hibrit MY2025: 1
+
+The 12 BEV records retain the manufacturer-reported battery capacity without relabelling it as
+gross or usable capacity. WLTP combined range and energy consumption are configuration-specific.
+Charging-station power examples were not imported as vehicle maximum-DC-power facts. SANTA FE
+and STARIA retain system-level hybrid power and explicit seating/cargo facts from their Turkey
+brochures.
+
+All 15 records pass consistency and production-readiness validation. Together, slices 01A and
+01B contain `36` staged configurations. The remaining eight official price rows are KONA
+MY2025 and the TUCSON petrol/diesel/hybrid family; they stay outside this slice pending the
+model-year and existing-power-conflict closure.
+
 ### Brochure source
 
 - Index: https://www.hyundai.com/tr/tr/satis/brosurler.html
