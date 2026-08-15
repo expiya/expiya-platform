@@ -39,6 +39,12 @@ export const vehicleDataSources: readonly DataSource[] = [
     reviewNotes: ["Use current distributor price-list rows and exact Turkey model pages", "Manual public-fact capture only"],
   },
   {
+    id: "byd-tr", name: "BYD Türkiye / ALJ", authority: "PRIMARY",
+    homepageUrl: "https://www.bydauto.com.tr/", usagePermission: "PUBLIC_FACTS_ONLY",
+    reviewedAt: "2026-08-17T01:00:00.000Z",
+    reviewNotes: ["Use Turkey technical brochures and exact dated price-list rows", "Retain battery-capacity wording without inferring usable or gross semantics", "Extract public facts only; do not reproduce copyrighted imagery or brochure prose"],
+  },
+  {
     id: "alfa-romeo-tr", name: "Alfa Romeo Türkiye / Tofaş", authority: "PRIMARY",
     homepageUrl: "https://www.alfaromeo.com.tr/", termsUrl: "https://www.alfaromeo.com.tr/kullanim-kosullari",
     usagePermission: "PUBLIC_FACTS_ONLY", reviewedAt: "2026-08-16T00:00:00.000Z",

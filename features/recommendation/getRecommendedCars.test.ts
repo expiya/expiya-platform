@@ -66,6 +66,8 @@ describe("getRecommendedCars", () => {
     expect(mocks.evaluateCar.mock.calls.map(([car]) => car.id)).toEqual([
       "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
       "87e30119-f0d5-4c98-8324-cbd65156974b",
+      "2f2bcd17-2257-52ff-b01a-49753b02a151",
+      "74a34f58-abad-585e-bd56-6c320ba8fb5c",
       "a3728e65-51b2-447f-a6c3-a1f64db8a310",
     ]);
     expect(result.every(({ car }) => car.km === 0 && car.fuel === "Electric")).toBe(true);
