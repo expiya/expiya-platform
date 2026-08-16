@@ -1,5 +1,6 @@
 import type { RecommendedCar } from "@/types/recommendation";
 import type { VehiclePersonaTrait } from "@/types/vehiclePersona";
+import type { DecisionUse, InterpretationClass, RankingEffect, UsageContext } from "@/types/technicalDailyLife";
 
 export interface CarsConversationOption {
   readonly id: string;
@@ -379,6 +380,18 @@ export interface CarsTurnProvenance {
   readonly affectedRanking?: boolean;
   readonly sourceAuthority?: "OWNER_EDITORIAL";
   readonly decisionUse?: "SOFT_PREFERENCE_ONLY";
+  readonly technicalDailyLifeMappingId?: string;
+  readonly technicalDailyLifeField?: string;
+  readonly technicalDailyLifeInterpretationClass?: InterpretationClass;
+  readonly technicalDailyLifeRankingEffect?: RankingEffect;
+  readonly technicalDailyLifeApproximationConfidence?: number;
+  readonly technicalDailyLifeAffectedRanking?: boolean;
+  readonly technicalDailyLifeActivationSource?: "USER_TEXT" | "ADVISOR_OPTION";
+  readonly technicalDailyLifeMatchedSignal?: string;
+  readonly technicalDailyLifeSelectedUsageContexts?: readonly UsageContext[];
+  readonly technicalDailyLifeConfirmedForHardFilter?: boolean;
+  readonly technicalDailyLifeSourceAuthority?: "OWNER_EDITORIAL";
+  readonly technicalDailyLifeDecisionUse?: readonly DecisionUse[];
 }
 
 export interface CarsPersonaPreferenceState {
@@ -386,6 +399,22 @@ export interface CarsPersonaPreferenceState {
   readonly activationSource?: "USER_EXPLICIT" | "ADVISOR_PROMPT_RESPONSE";
   readonly requestedTraits: readonly VehiclePersonaTrait[];
   readonly sourceTurn?: number;
+}
+
+export interface CarsTechnicalDailyLifeInterpretation {
+  readonly mappingId: string;
+  readonly technicalField: string;
+  readonly interpretationClass: InterpretationClass;
+  readonly rankingEffect: RankingEffect;
+  readonly approximationConfidence: number;
+  readonly sourceTurn: number;
+  readonly sourceText: string;
+  readonly activationSource: "USER_TEXT" | "ADVISOR_OPTION";
+  readonly matchedSignal?: string;
+  readonly selectedUsageContexts: readonly UsageContext[];
+  readonly confirmedForHardFilter: boolean;
+  readonly sourceAuthority: "OWNER_EDITORIAL";
+  readonly decisionUse: readonly DecisionUse[];
 }
 
 export interface CarsConversationTrace {
@@ -424,6 +453,7 @@ export interface CarsConversationTrace {
   readonly noAffordableMatchStatus?: CarsNoAffordableMatchStatus;
   readonly priceEvaluations?: readonly CarsCandidatePriceEvaluation[];
   readonly personaPreference?: CarsPersonaPreferenceState;
+  readonly technicalDailyLifeInterpretations?: readonly CarsTechnicalDailyLifeInterpretation[];
   readonly turnProvenance?: CarsTurnProvenance;
 }
 

@@ -43,7 +43,11 @@ export function presentGovernedRecommendation(input: {
   const personaReason = personaMatch && personaMatch.score > 0
     ? `Bu seçim yalnızca karakter tercihiyle yapılmadı; önce somut ihtiyaçların uygulandı. Kalan adaylar arasında ${neutralPersonaLabels(personaMatch.matchedTraits).join(", ")} karakter tercihin son sıralamada etkili oldu.`
     : undefined;
-  const reasons = [governedReason, personaReason, ...selected.requirements.filter((item) => item.requirement.value > 1).map((item) => (
+  const dailyLife = input.memory.technicalDailyLifeInterpretations?.at(-1);
+  const dailyLifeReason = dailyLife?.rankingEffect === "SOFT_UNTIL_CONFIRMED"
+    ? `“${dailyLife.sourceText}” ifadesini kesin teknik sınır değil, yaklaşık günlük kullanım tercihi olarak değerlendirdim; somut şartlarının önüne geçmedi.`
+    : undefined;
+  const reasons = [governedReason, personaReason, dailyLifeReason, ...selected.requirements.filter((item) => item.requirement.value > 1).map((item) => (
     item.requirement.factKey === "seats"
       ? `${item.fact?.value} koltuk, istediğiniz en az ${item.requirement.value} koltuğu karşılıyor.`
       : `${item.fact?.value ?? `${item.fact?.valueMin}-${item.fact?.valueMax}`} litre bagaj, istediğiniz en az ${item.requirement.value} litreyi karşılıyor.`

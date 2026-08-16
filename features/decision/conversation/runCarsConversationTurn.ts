@@ -334,6 +334,7 @@ function withProgress(
   });
   const budget = unevaluatedBudgetPresent(input.memory);
   const blocked = unsupportedHardRequirementBlocksModelFit(input.memory);
+  const latestTechnicalDailyLife = input.memory.technicalDailyLifeInterpretations?.at(-1);
   return {
     ...provenance,
     forwardProgressType: progress.forwardProgressType,
@@ -351,6 +352,17 @@ function withProgress(
       input.memory.recommendationOfferStatus === "AWAITING_CONSENT"
       || input.memory.recommendationOfferStatus === "REVEALED"
     ),
+    technicalDailyLifeMappingId: latestTechnicalDailyLife?.mappingId,
+    technicalDailyLifeField: latestTechnicalDailyLife?.technicalField,
+    technicalDailyLifeInterpretationClass: latestTechnicalDailyLife?.interpretationClass,
+    technicalDailyLifeRankingEffect: latestTechnicalDailyLife?.rankingEffect,
+    technicalDailyLifeApproximationConfidence: latestTechnicalDailyLife?.approximationConfidence,
+    technicalDailyLifeActivationSource: latestTechnicalDailyLife?.activationSource,
+    technicalDailyLifeMatchedSignal: latestTechnicalDailyLife?.matchedSignal,
+    technicalDailyLifeSelectedUsageContexts: latestTechnicalDailyLife?.selectedUsageContexts,
+    technicalDailyLifeConfirmedForHardFilter: latestTechnicalDailyLife?.confirmedForHardFilter,
+    technicalDailyLifeSourceAuthority: latestTechnicalDailyLife?.sourceAuthority,
+    technicalDailyLifeDecisionUse: latestTechnicalDailyLife?.decisionUse,
     ...authorizationSafety(input.memory, blocked),
   };
 }
@@ -608,6 +620,12 @@ async function offerAuthorizedCandidate(
     readonly matchedPersonaTraits?: CarsTurnProvenance["matchedPersonaTraits"];
     readonly personaScore?: number;
     readonly affectedRanking?: boolean;
+    readonly technicalDailyLifeMappingId?: string;
+    readonly technicalDailyLifeField?: string;
+    readonly technicalDailyLifeInterpretationClass?: CarsTurnProvenance["technicalDailyLifeInterpretationClass"];
+    readonly technicalDailyLifeRankingEffect?: CarsTurnProvenance["technicalDailyLifeRankingEffect"];
+    readonly technicalDailyLifeApproximationConfidence?: number;
+    readonly technicalDailyLifeAffectedRanking?: boolean;
   },
 ): Promise<CarsConversationResponse> {
   if (unsupportedHardRequirementBlocksModelFit(memory)) {
@@ -656,6 +674,7 @@ async function offerAuthorizedCandidate(
       : "Tavanına uyan net bir sıfır önerim var. Görmek ister misin?")
     : FALLBACK_OFFER;
   const message = valid ? plan.assistantMessage : fallback;
+  const offerDailyLife = held.technicalDailyLifeInterpretations?.at(-1);
   const conversation = withProvenance(applyAssistantMove(held, {
     phase: "OFFERING",
     prompt: message,
@@ -697,6 +716,18 @@ async function offerAuthorizedCandidate(
     affectedRanking: trace?.affectedRanking,
     sourceAuthority: trace?.personaActivated ? "OWNER_EDITORIAL" : undefined,
     decisionUse: trace?.personaActivated ? "SOFT_PREFERENCE_ONLY" : undefined,
+    technicalDailyLifeMappingId: trace?.technicalDailyLifeMappingId,
+    technicalDailyLifeField: trace?.technicalDailyLifeField,
+    technicalDailyLifeInterpretationClass: trace?.technicalDailyLifeInterpretationClass,
+    technicalDailyLifeRankingEffect: trace?.technicalDailyLifeRankingEffect,
+    technicalDailyLifeApproximationConfidence: trace?.technicalDailyLifeApproximationConfidence,
+    technicalDailyLifeAffectedRanking: trace?.technicalDailyLifeAffectedRanking,
+    technicalDailyLifeActivationSource: offerDailyLife?.activationSource,
+    technicalDailyLifeMatchedSignal: offerDailyLife?.matchedSignal,
+    technicalDailyLifeSelectedUsageContexts: offerDailyLife?.selectedUsageContexts,
+    technicalDailyLifeConfirmedForHardFilter: offerDailyLife?.confirmedForHardFilter,
+    technicalDailyLifeSourceAuthority: offerDailyLife?.sourceAuthority,
+    technicalDailyLifeDecisionUse: offerDailyLife?.decisionUse,
     selectedDeterministicCandidate: result.selectedRuntimeVehicleCandidateId,
     discriminator: result.explanationInput.at(0),
     offerState: "AWAITING_CONSENT",
@@ -1348,8 +1379,22 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
   if (catalogFacetActive && catalogFacetEvaluation.nextQuestion) {
     const next = catalogFacetEvaluation.nextQuestion;
     const message = next.text;
+    const technicalDailyLifeOptionSet: CarsActiveOptionSet | undefined = next.technicalDailyLifeMappingIds?.length === next.options.length
+      ? {
+        id: `technical-daily-life-${userTurnCount}-${next.purpose}`,
+        purpose: next.purpose,
+        options: next.options.map((label, index) => ({
+          id: `technical-daily-life-${index}`,
+          label,
+          semanticValue: `TECHNICAL_DAILY_LIFE:${next.technicalDailyLifeMappingIds?.[index]}`,
+        })),
+        sourceAssistantTurn: userTurnCount,
+        active: true,
+      }
+      : undefined;
     const conversation = withProvenance(applyAssistantMove(memory, {
-      phase: "CLARIFYING", purpose: next.purpose, prompt: message, progressEvent: `catalog-facet-${next.purpose.toLocaleLowerCase("en-US")}`, advisorStage: "TRADEOFF_RESOLUTION",
+      phase: "CLARIFYING", purpose: next.purpose, prompt: message, options: technicalDailyLifeOptionSet,
+      progressEvent: `catalog-facet-${next.purpose.toLocaleLowerCase("en-US")}`, advisorStage: "TRADEOFF_RESOLUTION",
     }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
       userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ASK_ONE_QUESTION",
       latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "TRADEOFF_RESOLUTION",
@@ -1394,6 +1439,10 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
       const withoutPersona = preference?.activated
         ? selectCatalogFacetWinner({ ...memory, personaPreference: { activated: false, requestedTraits: [] } }, catalogFacetEvaluation.candidates)
         : selected;
+      const technicalDailyLife = memory.technicalDailyLifeInterpretations?.at(-1);
+      const withoutTechnicalDailyLife = technicalDailyLife
+        ? selectCatalogFacetWinner({ ...memory, technicalDailyLifeInterpretations: [] }, catalogFacetEvaluation.candidates)
+        : selected;
       return offerAuthorizedCandidate(input, { ...memory, governedReady: true, humanReady: true }, catalogFacetDecisionResult(selected, catalogFacetEvaluation), userTurnCount, {
         candidateSetBeforePriceFilter: catalogFacetEvaluation.appliedFilters.length > 0
           ? Array.from({ length: Math.min(catalogFacetEvaluation.appliedFilters[0].before, 12) }, (_, index) => `COUNT:${index + 1}`)
@@ -1408,6 +1457,12 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
         matchedPersonaTraits: personaMatch?.matchedTraits,
         personaScore: personaMatch?.score,
         affectedRanking: preference?.activated === true && withoutPersona?.id !== selected.id,
+        technicalDailyLifeMappingId: technicalDailyLife?.mappingId,
+        technicalDailyLifeField: technicalDailyLife?.technicalField,
+        technicalDailyLifeInterpretationClass: technicalDailyLife?.interpretationClass,
+        technicalDailyLifeRankingEffect: technicalDailyLife?.rankingEffect,
+        technicalDailyLifeApproximationConfidence: technicalDailyLife?.approximationConfidence,
+        technicalDailyLifeAffectedRanking: technicalDailyLife !== undefined && withoutTechnicalDailyLife?.id !== selected.id,
       });
     }
   }

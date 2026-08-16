@@ -8,6 +8,7 @@ import {
   valueAtPath,
 } from "./carsDecisionFacetCatalog";
 import { scoreVehiclePersonaTraits } from "@/features/vehicle-data/vehiclePersona";
+import { getTechnicalDailyLifeMappings, resolveTechnicalDailyLifeMappings } from "@/features/vehicle-data/technicalDailyLifeResolver";
 
 type RecordItem = PublishedCatalog["records"][number];
 
@@ -33,6 +34,7 @@ export interface CatalogFacetQuestion {
   readonly text: string;
   readonly options: readonly string[];
   readonly partitions: Readonly<Record<string, number>>;
+  readonly technicalDailyLifeMappingIds?: readonly string[];
 }
 
 export interface CatalogFacetEvaluation {
@@ -127,6 +129,39 @@ function questionScore(question: CatalogFacetQuestion, total: number): number {
   return total - largest;
 }
 
+const FACET_DAILY_LIFE_FIELDS: Readonly<Record<string, string>> = {
+  power_min_kw: "motorPower",
+  seats_min: "seats",
+  luggage_min_l: "luggageVolume",
+  consumption_max_l_100km: "combinedFuelConsumption",
+};
+
+function sentenceCase(text: string): string {
+  return text ? `${text[0].toLocaleUpperCase("tr-TR")}${text.slice(1)}` : text;
+}
+
+function dailyLifeQuestionContent(definitionId: string): { text: string; options: readonly string[]; mappingIds: readonly string[] } | undefined {
+  const technicalField = FACET_DAILY_LIFE_FIELDS[definitionId];
+  if (!technicalField) return undefined;
+  const mappings = getTechnicalDailyLifeMappings(technicalField).filter((mapping) => (
+    mapping.interpretationClass === "GUIDED_APPROXIMATION"
+    && mapping.technicalCondition.operator === "RANGE"
+    && mapping.decisionUse.includes("ASK_USER_FRIENDLY_QUESTION")
+  ));
+  if (mappings.length < 2) return undefined;
+  const firstSignals = mappings.map((mapping) => mapping.userIntentSignals[0] ?? "");
+  const signalsAreDistinct = new Set(firstSignals.map((signal) => signal.toLocaleLowerCase("tr-TR"))).size === mappings.length;
+  const options = mappings.map((mapping, index) => sentenceCase(
+    signalsAreDistinct
+      ? firstSignals[index]
+      : mapping.userFacingExplanations.find((item) => item.level === "SHORT")?.text.replace(/\s*\([^)]*\)\.?$/u, "") ?? firstSignals[index],
+  ));
+  const question = mappings.flatMap((mapping) => mapping.advisorQuestions)
+    .find((item) => item.tone === "FRIENDLY")?.text
+    ?? mappings[0].advisorQuestions[0]?.text;
+  return question ? { text: question, options, mappingIds: mappings.map((mapping) => mapping.mappingId) } : undefined;
+}
+
 function nextQuestion(trace: CarsConversationTrace, candidates: readonly CatalogFacetCandidate[]): CatalogFacetQuestion | undefined {
   const answered = new Set([...trace.answeredQuestionPurposes, ...trace.askedQuestionPurposes]);
   const conversationText = trace.requirements.map((entry) => entry.sourceText).join(" ");
@@ -172,17 +207,15 @@ function nextQuestion(trace: CarsConversationTrace, candidates: readonly Catalog
     const lower = values.filter((value) => value <= pivot).length;
     const upper = values.filter((value) => value > pivot).length;
     if (lower === 0 || upper === 0) continue;
-    const questionText = definition.id === "consumption_max_l_100km"
-      ? "Yakıt tüketiminde hangisi sana daha yakın: ekonomi öncelikli (yaklaşık 5 L/100 km ve altı), dengeli (yaklaşık 5–7 L/100 km), yoksa tüketim senin için önemli değil mi?"
-      : definition.question;
-    const questionOptions = definition.id === "consumption_max_l_100km"
-      ? ["Ekonomi öncelikli — yaklaşık 5 L/100 km ve altı", "Dengeli tüketim — yaklaşık 5–7 L/100 km", "Tüketim önemli değil"]
-      : definition.answerMappings?.map((mapping) => mapping.label) ?? [];
+    const dailyLife = dailyLifeQuestionContent(definition.id);
+    const questionText = dailyLife?.text ?? definition.question;
+    const questionOptions = dailyLife?.options ?? definition.answerMappings?.map((mapping) => mapping.label) ?? [];
     questions.push({
       purpose,
       text: questionText,
       options: questionOptions,
       partitions: { [`≤ ${pivot}`]: lower, [`> ${pivot}`]: upper },
+      technicalDailyLifeMappingIds: dailyLife?.mappingIds,
     });
   }
   return questions.sort((left, right) => questionScore(right, candidates.length) - questionScore(left, candidates.length))[0];
@@ -229,13 +262,31 @@ export function selectCatalogFacetWinner(trace: CarsConversationTrace, candidate
   if (candidates.length === 0) return undefined;
   const text = trace.requirements.map((entry) => entry.sourceText).join(" ");
   const ranked = [...candidates];
+  const dailyLifePreferences = (trace.technicalDailyLifeInterpretations ?? []).filter((item) => item.rankingEffect === "SOFT_UNTIL_CONFIRMED");
+  const dailyLifeValue = (item: CatalogFacetCandidate, technicalField: string): unknown => {
+    if (technicalField === "motorPower") return item.powerKw;
+    if (technicalField === "luggageVolume") return item.luggageLitres;
+    if (technicalField === "combinedFuelConsumption") return item.consumption;
+    if (technicalField === "seats") return item.seats;
+    return undefined;
+  };
+  const dailyLifeDifference = (a: CatalogFacetCandidate, b: CatalogFacetCandidate) => dailyLifePreferences.reduce((difference, preference) => {
+    if (difference !== 0) return difference;
+    const dependent = (item: CatalogFacetCandidate) => ({ fuelType: item.fuel, bodyStyle: item.body, seats: item.seats });
+    const matches = (item: CatalogFacetCandidate) => resolveTechnicalDailyLifeMappings({
+      technicalField: preference.technicalField,
+      technicalValue: dailyLifeValue(item, preference.technicalField),
+      dependentFieldValues: dependent(item),
+    }).some((mapping) => mapping.mappingId === preference.mappingId);
+    return Number(matches(b)) - Number(matches(a));
+  }, 0);
   const requestedTraits = trace.personaPreference?.activated ? trace.personaPreference.requestedTraits : [];
   const personaDifference = (a: CatalogFacetCandidate, b: CatalogFacetCandidate) => requestedTraits.length > 0
     ? scoreVehiclePersonaTraits(b.brand, b.model, requestedTraits).score - scoreVehiclePersonaTraits(a.brand, a.model, requestedTraits).score
     : 0;
-  if (/0\s*[-–]?\s*100|performans|güç|hız/iu.test(text)) ranked.sort((a, b) => b.powerKw - a.powerKw || personaDifference(a, b) || a.priceTry - b.priceTry || a.id.localeCompare(b.id));
-  else if (/az yak|tüketim|ekonomi/iu.test(text)) ranked.sort((a, b) => (a.consumption ?? Number.POSITIVE_INFINITY) - (b.consumption ?? Number.POSITIVE_INFINITY) || personaDifference(a, b) || a.priceTry - b.priceTry || a.id.localeCompare(b.id));
-  else if (/bagaj/iu.test(text)) ranked.sort((a, b) => (b.luggageLitres ?? -1) - (a.luggageLitres ?? -1) || personaDifference(a, b) || a.priceTry - b.priceTry || a.id.localeCompare(b.id));
-  else ranked.sort((a, b) => personaDifference(a, b) || a.priceTry - b.priceTry || b.powerKw - a.powerKw || a.id.localeCompare(b.id));
+  if (/0\s*[-–]?\s*100|performans|güç|hız/iu.test(text)) ranked.sort((a, b) => dailyLifeDifference(a, b) || b.powerKw - a.powerKw || personaDifference(a, b) || a.priceTry - b.priceTry || a.id.localeCompare(b.id));
+  else if (/az yak|tüketim|ekonomi/iu.test(text)) ranked.sort((a, b) => dailyLifeDifference(a, b) || (a.consumption ?? Number.POSITIVE_INFINITY) - (b.consumption ?? Number.POSITIVE_INFINITY) || personaDifference(a, b) || a.priceTry - b.priceTry || a.id.localeCompare(b.id));
+  else if (/bagaj|bavul|valiz|puset/iu.test(text)) ranked.sort((a, b) => dailyLifeDifference(a, b) || (b.luggageLitres ?? -1) - (a.luggageLitres ?? -1) || personaDifference(a, b) || a.priceTry - b.priceTry || a.id.localeCompare(b.id));
+  else ranked.sort((a, b) => dailyLifeDifference(a, b) || personaDifference(a, b) || a.priceTry - b.priceTry || b.powerKw - a.powerKw || a.id.localeCompare(b.id));
   return ranked[0];
 }

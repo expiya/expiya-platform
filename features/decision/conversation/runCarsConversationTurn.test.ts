@@ -205,7 +205,7 @@ describe("runCarsConversationTurn", () => {
     ];
     let conversation;
     let response = await runCarsConversationTurn({ conversationId, messages });
-    for (let index = 0; index < 8 && !/kW|motor gücü/iu.test(response.message); index += 1) {
+    for (let index = 0; index < 8 && response.conversation?.lastAssistantQuestion?.purpose !== "CATALOG_FACET:power_min_kw"; index += 1) {
       expect(response.kind).toBe("QUESTION");
       if (response.kind !== "QUESTION") break;
       const answer = response.options?.[0] ?? (/bagaj/iu.test(response.message) ? "iki bavul" : "farketmez");
@@ -214,7 +214,8 @@ describe("runCarsConversationTurn", () => {
       conversation = response.conversation;
       response = await runCarsConversationTurn({ conversationId, conversation, messages });
     }
-    expect(response.message).toMatch(/kW|motor gücü/iu);
+    expect(response.conversation?.lastAssistantQuestion?.purpose).toBe("CATALOG_FACET:power_min_kw");
+    expect(response.message).not.toMatch(/alt sınırın kaç kW/iu);
     messages.push({ id: "a-power", role: "assistant", content: response.message });
     messages.push({ id: "u-explain", role: "user", content: "kW ile kastettiğin nedir? Bu konuda bilgim yok, açıklar mısın?" });
     const explained = await runCarsConversationTurn({ conversationId, conversation: response.conversation, messages });

@@ -82,8 +82,23 @@ describe("catalog facet engine", () => {
       askedQuestionPurposes: [...trace.askedQuestionPurposes, "BODY_TYPE", "FUEL", "CATALOG_FACET:price_max_try"],
     });
     expect(result.nextQuestion?.purpose).toBe("CATALOG_FACET:consumption_max_l_100km");
-    expect(result.nextQuestion?.text).toMatch(/5 L\/100 km[\s\S]*5–7 L\/100 km/iu);
-    expect(result.nextQuestion?.options).toContain("Tüketim önemli değil");
+    expect(result.nextQuestion?.text).toMatch(/yılda yaklaşık kaç kilometre/iu);
+    expect(result.nextQuestion?.options).toContain("Yakıt gideri ile diğer beklentiler arasında denge kuran birleşik tüketim");
+    expect(result.nextQuestion?.technicalDailyLifeMappingIds).toContain("combined-fuel-consumption--non-phev-2");
+  });
+
+  it("builds luggage questions and option mappings from the production daily-life layer", () => {
+    const trace = buildCarsRequirementLedger([
+      { id: "1", role: "user", content: "5 milyon TL altında hibrit araç bakıyorum, bagaj önemli" },
+    ]);
+    const result = evaluateCatalogFacets({
+      ...trace,
+      askedQuestionPurposes: [...trace.askedQuestionPurposes, "BODY_TYPE", "FUEL", "CATALOG_FACET:price_max_try"],
+    });
+    expect(result.nextQuestion?.purpose).toBe("CATALOG_FACET:luggage_min_l");
+    expect(result.nextQuestion?.text).toMatch(/kabin boy bavul|büyük bavul/iu);
+    expect(result.nextQuestion?.options).toContain("Dört kişilik kısa tatil");
+    expect(result.nextQuestion?.technicalDailyLifeMappingIds).toContain("luggage-volume--400-499");
   });
 
   it("removes a rejected full-catalog variant without changing technical filters", () => {

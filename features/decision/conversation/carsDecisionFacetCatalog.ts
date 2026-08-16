@@ -54,13 +54,6 @@ export function extractDeclarativeFacetFacts(
 ): readonly { key: string; value: number }[] {
   const facts: { key: string; value: number }[] = [];
   for (const definition of definitions) {
-    const mapped = definition.answerMappings?.find((mapping) => (
-      mapping.patterns.some((source) => new RegExp(source, "iu").test(text))
-    ));
-    if (mapped) {
-      facts.push({ key: definition.requirementKey, value: mapped.value });
-      continue;
-    }
     for (const source of definition.inputPatterns) {
       const match = text.match(new RegExp(source, "iu"));
       if (!match?.[1]) continue;

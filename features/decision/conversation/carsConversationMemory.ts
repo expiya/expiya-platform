@@ -2,6 +2,7 @@ import type {
   CarsActiveOptionSet,
   CarsConversationMessage,
   CarsConversationTrace,
+  CarsTechnicalDailyLifeInterpretation,
   CarsOptionSelectionSource,
   CarsQuestionMemoryEntry,
   CarsQuestionPurpose,
@@ -25,6 +26,13 @@ import {
 } from "./carsRequirementLedger";
 import { acquisitionMarketFact, stampAcquisitionAuthority } from "./carsAcquisitionAuthority";
 import { advisorDefaults } from "./carsAdvisorState";
+import {
+  directTechnicalDailyLifeInterpretations,
+  interpretationFromOption,
+  interpretTechnicalDailyLifeText,
+  mentionedTechnicalDailyLifeFields,
+  technicalDailyLifeFieldForQuestionPurpose,
+} from "./carsTechnicalDailyLife";
 
 function normalize(text: string): string {
   return text.toLocaleLowerCase("tr-TR").replace(/[^\p{L}\p{N}\s]/gu, " ").replace(/\s+/g, " ").trim();
@@ -79,6 +87,7 @@ function applyOptionSemantics(
 ): CarsRequirementKey[] {
   const option = optionSet.options.find((item) => item.id === optionId);
   if (!option) return [];
+  if (option.semanticValue.startsWith("TECHNICAL_DAILY_LIFE:")) return [];
   const captured: CarsRequirementKey[] = [];
   const semanticFacts = [
     ...extractDeterministicFacts(`${option.label} ${option.semanticValue.replaceAll("_", " ")}`),
@@ -103,6 +112,9 @@ export function hydrateCarsConversationMemory(input: {
   const entries = new Map<CarsRequirementKey, CarsRequirementLedgerEntry>();
   const asked = new Set<CarsQuestionPurpose>();
   const optionHistory: CarsActiveOptionSet[] = [];
+  const technicalDailyLifeInterpretations: CarsTechnicalDailyLifeInterpretation[] = [
+    ...(input.conversation?.technicalDailyLifeInterpretations ?? []),
+  ];
   const questionMemory: CarsQuestionMemoryEntry[] = [...(input.conversation?.questionMemory ?? [])];
   const rejected = new Set<string>(input.conversation?.rejectedRecommendationIds ?? []);
   const userMessages = input.messages.filter((message) => message.role === "user");
@@ -152,8 +164,19 @@ export function hydrateCarsConversationMemory(input: {
       activeOptionSet,
       userTurn === latestUserTurn ? input.selectedOptionId : undefined,
     );
+    let selectedTechnicalDailyLifeOption = false;
     if (selection && activeOptionSet) {
+      const selectedOption = activeOptionSet.options.find((option) => option.id === selection.optionId);
       capturedHere.push(...applyOptionSemantics(entries, activeOptionSet, selection.optionId, userTurn, message.content));
+      const interpretation = selectedOption
+        ? interpretationFromOption(selectedOption.semanticValue, userTurn, message.content)
+        : undefined;
+      if (interpretation) {
+        selectedTechnicalDailyLifeOption = true;
+        const priorIndex = technicalDailyLifeInterpretations.findIndex((item) => item.technicalField === interpretation.technicalField);
+        if (priorIndex >= 0) technicalDailyLifeInterpretations.splice(priorIndex, 1);
+        technicalDailyLifeInterpretations.push(interpretation);
+      }
       activeOptionSet = {
         ...activeOptionSet,
         active: false,
@@ -164,7 +187,25 @@ export function hydrateCarsConversationMemory(input: {
       lastProgressEvent = `option:${selection.optionId}:${selection.source}`;
       directlyAnsweredPending = true;
     }
-    const facts = [...extractDeterministicFacts(message.content)];
+    const facts = selectedTechnicalDailyLifeOption ? [] : [...extractDeterministicFacts(message.content)];
+    const skipsPendingDailyLife = /(?:fark etmez|önemli değil|filtreleme|bunu geç|atla)/iu.test(message.content);
+    const skippedTechnicalFields = skipsPendingDailyLife
+      ? [technicalDailyLifeFieldForQuestionPurpose(pendingAtStart?.purpose), ...mentionedTechnicalDailyLifeFields(message.content)]
+        .filter((field): field is string => Boolean(field))
+      : [];
+    if (skippedTechnicalFields.length > 0) {
+      for (const field of new Set(skippedTechnicalFields)) {
+        const priorIndex = technicalDailyLifeInterpretations.findIndex((item) => item.technicalField === field);
+        if (priorIndex >= 0) technicalDailyLifeInterpretations.splice(priorIndex, 1);
+      }
+    } else if (!selection) {
+      const interpretation = interpretTechnicalDailyLifeText(message.content, userTurn);
+      if (interpretation) {
+        const priorIndex = technicalDailyLifeInterpretations.findIndex((item) => item.technicalField === interpretation.technicalField);
+        if (priorIndex >= 0) technicalDailyLifeInterpretations.splice(priorIndex, 1);
+        technicalDailyLifeInterpretations.push(interpretation);
+      }
+    }
     if ((isAffirmative(message.content) || /^evet\b/iu.test(message.content.trim())) && pending?.yesImplies) {
       const implied = pending.yesImplies;
       if (upsertRequirement(entries, {
@@ -197,6 +238,11 @@ export function hydrateCarsConversationMemory(input: {
       if (upsertRequirement(entries, { ...fact, sourceTurn: userTurn, sourceText: message.content, category })) {
         capturedHere.push(fact.key);
       }
+    }
+    for (const interpretation of directTechnicalDailyLifeInterpretations(capturedHere, userTurn, message.content)) {
+      const priorIndex = technicalDailyLifeInterpretations.findIndex((item) => item.technicalField === interpretation.technicalField);
+      if (priorIndex >= 0) technicalDailyLifeInterpretations.splice(priorIndex, 1);
+      technicalDailyLifeInterpretations.push(interpretation);
     }
     if (isHardBudgetCeiling(message.content)) {
       const existing = entries.get("BUDGET_MAX_TRY");
@@ -289,6 +335,7 @@ export function hydrateCarsConversationMemory(input: {
       advisor: advisor.advisorStage,
       offer: advisor.recommendationOfferStatus,
       persona: personaPreference.activated ? personaPreference.requestedTraits : [],
+      technicalDailyLife: technicalDailyLifeInterpretations.map((item) => `${item.technicalField}:${item.mappingId}`),
     }),
     loopCount,
     addressForm: input.conversation?.addressForm,
@@ -302,6 +349,7 @@ export function hydrateCarsConversationMemory(input: {
     noAffordableMatchStatus: input.conversation?.noAffordableMatchStatus,
     priceEvaluations: input.conversation?.priceEvaluations,
     personaPreference,
+    technicalDailyLifeInterpretations,
   };
   return stampAcquisitionAuthority(trace);
 }

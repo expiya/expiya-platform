@@ -1,0 +1,30 @@
+{
+  "releaseId": "v2.1-0.55.0-2026-08-16",
+  "schemaVersion": 1,
+  "compatibleCatalogRelease": "v0.55.0",
+  "producedAt": "2026-08-16",
+  "source": {
+    "identity": "technical-daily-life-layer-v2.1.json",
+    "repositoryPath": "outputs/technical-daily-life-layer-v2.1-v0.55.0-2026-08-16/technical-daily-life-layer-v2.1.json",
+    "sourceHead": "97a88e7bb75cd0a614a4c5ec232cb0e29d5552c4"
+  },
+  "counts": {
+    "technicalFields": 31,
+    "mappings": 117,
+    "dailyLifeExamples": 220,
+    "advisorQuestions": 321,
+    "interpretationClasses": {
+      "DECISION_SAFE": 13,
+      "GUIDED_APPROXIMATION": 56,
+      "ILLUSTRATIVE_ONLY": 48
+    },
+    "rankingEffects": {
+      "DIRECT_FILTER": 13,
+      "SOFT_UNTIL_CONFIRMED": 56,
+      "NONE": 48
+    }
+  },
+  "contentChecksum": "sha256:eff82cd3565ed1605c7cdb0b330804ceea930666d396b28c0dc1dc720d025677",
+  "sourceAuthority": "OWNER_EDITORIAL",
+  "validationStatus": "VALIDATED"
+}
