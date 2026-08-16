@@ -21,6 +21,7 @@ const units: Readonly<Record<string, string>> = {
   "dimensions.wheelbaseMm": "mm",
   "dimensions.seats": "count",
   "dimensions.luggageLitres": "L",
+  "dimensions.cargoVolumeLitres": "L",
   "dimensions.payloadKg": "kg",
   "dimensions.brakedTowingKg": "kg",
   "efficiency.combinedLitresPer100Km": "L/100km",
@@ -47,6 +48,7 @@ export function flattenVariantFacts(variant: TurkeyVehicleVariant): readonly Var
   add("generation", variant.generation);
   add("onSaleFrom", variant.onSaleFrom);
   add("onSaleUntil", variant.onSaleUntil);
+  add("vehicleUseClass", variant.vehicleUseClass);
   for (const [key, value] of Object.entries(variant.powertrain)) add(`powertrain.${key}`, value);
   for (const [key, value] of Object.entries(variant.dimensions)) add(`dimensions.${key}`, value);
   for (const [key, value] of Object.entries(variant.efficiency)) add(`efficiency.${key}`, value);

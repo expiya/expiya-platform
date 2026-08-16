@@ -47,6 +47,7 @@ export interface TurkeyVehicleVariant {
   readonly id: string;
   readonly market: "TR";
   readonly lifecycleStatus: "ANNOUNCED" | "ON_SALE" | "ORDER_CLOSED" | "DISCONTINUED";
+  readonly vehicleUseClass?: SourcedValue<"PASSENGER" | "LIGHT_COMMERCIAL" | "HEAVY_COMMERCIAL">;
   readonly brand: SourcedValue<string>;
   readonly model: SourcedValue<string>;
   readonly generation?: SourcedValue<string>;
@@ -70,6 +71,7 @@ export interface TurkeyVehicleVariant {
     readonly wheelbaseMm?: SourcedValue<number>;
     readonly seats?: SourcedValue<number>;
     readonly luggageLitres?: SourcedValue<number>;
+    readonly cargoVolumeLitres?: SourcedValue<number>;
     readonly payloadKg?: SourcedValue<number>;
     readonly brakedTowingKg?: SourcedValue<number>;
   };
