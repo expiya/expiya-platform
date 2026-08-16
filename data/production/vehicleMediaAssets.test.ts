@@ -6,7 +6,7 @@ import { validateVehicleMediaAsset } from "@/features/vehicle-data/validateVehic
 describe("productionVehicleMediaAssets", () => {
   it("contains unique, publishable, auditable media records", () => {
     expect(new Set(productionVehicleMediaAssets.map((asset) => asset.id)).size).toBe(productionVehicleMediaAssets.length);
-    expect(productionVehicleMediaAssets).toHaveLength(2);
+    expect(productionVehicleMediaAssets).toHaveLength(333);
     for (const asset of productionVehicleMediaAssets) {
       expect(asset.publicationState).toBe("PUBLISHED");
       expect(asset.storagePath).toMatch(/^https:\/\/wylflrzf7gws55yp\.public\.blob\.vercel-storage\.com\/cars\/v0\.55\.0\//);

@@ -1,4 +1,5 @@
 import type { VehicleMediaAsset } from "@/types/vehicleMedia";
+import wikimediaVehicleMedia from "@/data/production/media/wikimedia-vehicle-media.json";
 
 /**
  * Runtime media registry. Only PUBLISHED assets with an accepted permission
@@ -13,7 +14,7 @@ const ownerAttestation = {
   permittedUses: ["COMMERCIAL_DISPLAY"] as const,
 };
 
-export const productionVehicleMediaAssets: readonly VehicleMediaAsset[] = Object.freeze([
+const officialOwnerAttestedAssets: readonly VehicleMediaAsset[] = [
   {
     id: "media-alfa-romeo-junior-suv-v055",
     market: "TR",
@@ -58,4 +59,11 @@ export const productionVehicleMediaAssets: readonly VehicleMediaAsset[] = Object
     fileHash: "sha256:a6af9ec2e612f58f7704dbc612167e508a8e49e272cc524a84005de5f387073a",
     applicabilityNotes: ["Official Turkey-market Tonale 2026 colorizer asset", "Representative across Tonale SUV configurations; trim and color may differ"],
   },
+];
+
+const openLicenseAssets = wikimediaVehicleMedia.assets as readonly VehicleMediaAsset[];
+
+export const productionVehicleMediaAssets: readonly VehicleMediaAsset[] = Object.freeze([
+  ...officialOwnerAttestedAssets,
+  ...openLicenseAssets,
 ]);
