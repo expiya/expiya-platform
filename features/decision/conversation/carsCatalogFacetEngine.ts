@@ -172,10 +172,16 @@ function nextQuestion(trace: CarsConversationTrace, candidates: readonly Catalog
     const lower = values.filter((value) => value <= pivot).length;
     const upper = values.filter((value) => value > pivot).length;
     if (lower === 0 || upper === 0) continue;
+    const questionText = definition.id === "consumption_max_l_100km"
+      ? "Yakıt tüketiminde hangisi sana daha yakın: ekonomi öncelikli (yaklaşık 5 L/100 km ve altı), dengeli (yaklaşık 5–7 L/100 km), yoksa tüketim senin için önemli değil mi?"
+      : definition.question;
+    const questionOptions = definition.id === "consumption_max_l_100km"
+      ? ["Ekonomi öncelikli — yaklaşık 5 L/100 km ve altı", "Dengeli tüketim — yaklaşık 5–7 L/100 km", "Tüketim önemli değil"]
+      : definition.answerMappings?.map((mapping) => mapping.label) ?? [];
     questions.push({
       purpose,
-      text: definition.question,
-      options: definition.answerMappings?.map((mapping) => mapping.label) ?? [],
+      text: questionText,
+      options: questionOptions,
       partitions: { [`≤ ${pivot}`]: lower, [`> ${pivot}`]: upper },
     });
   }

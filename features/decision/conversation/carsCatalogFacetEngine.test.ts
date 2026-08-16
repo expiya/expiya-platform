@@ -73,6 +73,19 @@ describe("catalog facet engine", () => {
     expect(result.nextQuestion?.purpose).not.toBe("DRIVETRAIN");
   });
 
+  it("presents a requested consumption tradeoff in everyday ranges", () => {
+    const trace = buildCarsRequirementLedger([
+      { id: "1", role: "user", content: "5 milyon TL altında hibrit ve az yakan bir araç öner" },
+    ]);
+    const result = evaluateCatalogFacets({
+      ...trace,
+      askedQuestionPurposes: [...trace.askedQuestionPurposes, "BODY_TYPE", "FUEL", "CATALOG_FACET:price_max_try"],
+    });
+    expect(result.nextQuestion?.purpose).toBe("CATALOG_FACET:consumption_max_l_100km");
+    expect(result.nextQuestion?.text).toMatch(/5 L\/100 km[\s\S]*5–7 L\/100 km/iu);
+    expect(result.nextQuestion?.options).toContain("Tüketim önemli değil");
+  });
+
   it("removes a rejected full-catalog variant without changing technical filters", () => {
     const trace = buildCarsRequirementLedger([{ id: "1", role: "user", content: "3 milyon TL altında hibrit araç öner" }]);
     const first = evaluateCatalogFacets(trace);

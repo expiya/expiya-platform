@@ -1262,7 +1262,7 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     return { kind: "QUESTION", message, conversation };
   }
 
-  const catalogFacetEvaluation = evaluateCatalogFacets(memory);
+  let catalogFacetEvaluation = evaluateCatalogFacets(memory);
   const catalogFacetActive = memory.vehicleIntentEstablished && (
     latestAct.isDirectRecommendationRequest
     || memory.requirements.some((entry) => [
@@ -1275,8 +1275,23 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
   const pendingFacet = pendingFacetPurpose?.startsWith("CATALOG_FACET:")
     ? carsDecisionFacetDefinitions.find((definition) => definition.questionPurpose === pendingFacetPurpose)
     : undefined;
-  const asksForTechnicalExplanation = /(?:ne demek|nedir|ne anlama|kastettiğin|bilgim yok[^.!?]*(?:açıkla|yardımcı ol)|açıkla|yardımcı ol)/iu.test(latestContent);
-  if (catalogFacetActive && pendingFacet && asksForTechnicalExplanation) {
+  const technicalAnswerUnknown = /(?:^|\b)(?:bilmiyorum|bir fikrim yok|emin değilim|teknik terimlere? (?:çok )?hâkim değilim)(?:\b|$)/iu.test(latestContent);
+  const asksForTechnicalExplanation = technicalAnswerUnknown
+    || /(?:ne demek|nedir|ne anlama|kastettiğin|kaç litre|normal şartlarda|normalde|beni yönlendir|açıkla|yardımcı ol)/iu.test(latestContent);
+  const facetWasAlreadyExplained = pendingFacet
+    ? memory.lastProgressEvent === `catalog-facet-explained-${pendingFacet.id}`
+    : false;
+  const explicitlySkipsFacet = /(?:fark etmez|önemli değil|filtreleme|sen seç|en mantıklısını seç)/iu.test(latestContent);
+  if (catalogFacetActive && pendingFacet && (explicitlySkipsFacet || (technicalAnswerUnknown && facetWasAlreadyExplained))) {
+    memory = applyAssistantMove(memory, {
+      phase: "CLARIFYING",
+      prompt: "",
+      progressEvent: `catalog-facet-skipped-${pendingFacet.id}`,
+      advisorStage: "TRADEOFF_RESOLUTION",
+      clearPendingQuestion: true,
+    });
+    catalogFacetEvaluation = evaluateCatalogFacets(memory);
+  } else if (catalogFacetActive && pendingFacet && asksForTechnicalExplanation) {
     const explanation = pendingFacet.id === "power_min_kw"
       ? "kW, motor gücünün ölçüsüdür. Beygir gücüne benzer; yaklaşık olarak 100 kW 136 bg, 160 kW 218 bg, 250 kW ise 340 bg civarındadır. Tek başına hızlanmayı garanti etmez ama seçenekleri güç seviyesine göre ayırmamıza yardımcı olur."
       : pendingFacet.id === "luggage_min_l"
@@ -1284,8 +1299,15 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
         : pendingFacet.id === "consumption_max_l_100km"
           ? "Tüketim araç sınıfına ve kullanıma göre değişir. Kabaca 5 L/100 km ve altı ekonomi öncelikli, 5–7 litre dengeli, 7–9 litre normal-yüksek sayılabilir. Bu konu senin için önemli değilse ‘tüketim önemli değil’ diyebilirsin; filtre uygulamam."
         : "Bu teknik değer seçenekleri aynı ölçüyle karşılaştırmamıza yarıyor; tam sayıyı bilmiyorsan gündelik beklentini seçebilirsin.";
-    const message = `${explanation}\n\n${pendingFacet.question}`;
-    const options = pendingFacet.answerMappings?.map((mapping) => mapping.label) ?? [];
+    const options = pendingFacet.id === "consumption_max_l_100km"
+      ? ["Ekonomi öncelikli — yaklaşık 5 L/100 km ve altı", "Dengeli tüketim — yaklaşık 5–7 L/100 km", "Tüketim önemli değil"]
+      : pendingFacet.answerMappings?.map((mapping) => mapping.label) ?? [];
+    const followUp = pendingFacet.id === "consumption_max_l_100km"
+      ? "Günlük beklentine hangisi daha yakın? Emin değilsen ‘tüketim önemli değil’ deyip bu filtreyi atlayabilirsin."
+      : pendingFacet.id === "power_min_kw"
+        ? "Rakam seçmene gerek yok; günlük kullanımda canlı, belirgin şekilde güçlü veya çok yüksek performans seçeneklerinden hangisi sana yakın?"
+        : pendingFacet.question;
+    const message = `${explanation}\n\n${followUp}`;
     const conversation = withProvenance(applyAssistantMove(memory, {
       phase: "CLARIFYING", purpose: pendingFacetPurpose, prompt: message,
       progressEvent: `catalog-facet-explained-${pendingFacet.id}`, advisorStage: "TRADEOFF_RESOLUTION",

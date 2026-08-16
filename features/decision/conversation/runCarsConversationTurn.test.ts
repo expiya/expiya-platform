@@ -238,14 +238,20 @@ describe("runCarsConversationTurn", () => {
     const explained = await runCarsConversationTurn({ conversationId: "consumption-explain", conversation: waiting, messages: [
       { id: "u1", role: "user", content: initial },
       { id: "a1", role: "assistant", content: prompt },
-      { id: "u2", role: "user", content: "Bilmiyorum. Açıkla." },
+      { id: "u2", role: "user", content: "Bilmiyorum." },
     ] });
     expect(explained.message).toMatch(/5 L\/100 km[\s\S]*5–7 litre[\s\S]*7–9 litre/iu);
     expect(explained.message).toMatch(/tüketim önemli değil/iu);
+    expect(explained.message).not.toMatch(/üst sınırın kaç L\/100 km/iu);
+    if (explained.kind === "QUESTION") expect(explained.options).toEqual([
+      "Ekonomi öncelikli — yaklaşık 5 L/100 km ve altı",
+      "Dengeli tüketim — yaklaşık 5–7 L/100 km",
+      "Tüketim önemli değil",
+    ]);
     const continued = await runCarsConversationTurn({ conversationId: "consumption-explain", conversation: explained.conversation, messages: [
       { id: "u1", role: "user", content: initial },
       { id: "a1", role: "assistant", content: prompt },
-      { id: "u2", role: "user", content: "Bilmiyorum. Açıkla." },
+      { id: "u2", role: "user", content: "Bilmiyorum." },
       { id: "a2", role: "assistant", content: explained.message },
       { id: "u3", role: "user", content: "Bilmiyorum, sen söyle." },
     ] });
