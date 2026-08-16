@@ -311,6 +311,7 @@ function purposeAnsweredByKeys(purpose: CarsQuestionPurpose, keys: readonly Cars
   if (purpose === "SIZE") return keys.includes("SIZE_PREFERENCE");
   if (purpose === "BODY_TYPE") return keys.includes("BODY_TYPE");
   if (purpose === "DRIVETRAIN") return keys.includes("DRIVETRAIN");
+  if (purpose === "FUEL") return keys.includes("FUEL");
   if (purpose === "USAGE_DETAIL") return keys.some((key) => ["USAGE_CAMP", "USAGE_SERIOUS_OFF_ROAD", "USAGE_STABILIZED_ROAD"].includes(key));
   if (purpose === "PRIMARY_USAGE") return keys.some((key) => key.startsWith("USAGE_"));
   return false;

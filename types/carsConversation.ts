@@ -19,6 +19,7 @@ export type CarsQuestionPurpose =
   | "EQUIPMENT_SCOPE"
   | "BODY_TYPE"
   | "DRIVETRAIN"
+  | "FUEL"
   | "SIZE"
   | "REJECTION_DIAGNOSTIC"
   | "OFF_TOPIC_REDIRECT"

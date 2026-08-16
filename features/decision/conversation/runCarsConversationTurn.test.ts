@@ -642,6 +642,18 @@ describe("runCarsConversationTurn", () => {
     expect(second.conversation?.turnProvenance).toMatchObject({ questionMaterial: true, alreadyAnswered: false });
   });
 
+  it("asks the material fuel question immediately after a body preference", async () => {
+    const response = await runCarsConversationTurn({ conversationId: "body-then-fuel", messages: [
+      { id: "u1", role: "user", content: "Sedan istiyorum" },
+    ] });
+    expect(response.message).toMatch(/Yakıt tarafında benzin, dizel, hibrit veya elektrik/iu);
+    expect(response.kind).toBe("QUESTION");
+    if (response.kind !== "QUESTION") throw new Error("EXPECTED_FUEL_QUESTION");
+    expect(response.options).toEqual(["Benzin", "Dizel", "Hibrit", "Elektrik"]);
+    expect(response.conversation?.lastAssistantQuestion?.purpose).toBe("FUEL");
+    expect(response.conversation?.turnProvenance).toMatchObject({ questionMaterial: true, alreadyAnswered: false });
+  });
+
   it("gives a clear next action after city use and asks one material budget question after automatic parking", async () => {
     const city = await runCarsConversationTurn({ conversationId: "compact-forward", messages: [
       { id: "u1", role: "user", content: "Şehir içinde işe gidip geleceğim." },

@@ -53,4 +53,16 @@ describe("expanded advisor coverage bridge", () => {
     expect(decision.trace.discriminator).toBe("MAX_CARGO");
     expect(decision.result.userFacingExplanation).not.toMatch(/en konforlu|sessiz|yumuşak/iu);
   });
+
+  it("filters governed candidates by the explicit fuel preference", () => {
+    const trace = memory([
+      { key: "BODY_TYPE", value: "SUV_CROSSOVER", sourceText: "SUV" },
+      { key: "FUEL", value: "HYBRID", sourceText: "Hibrit olsun" },
+    ]);
+    const decision = applyExpandedCoverageBridge({ result: base(), memory: trace, query: "SUV ve hibrit olsun" });
+    expect(decision.trace.filters.find((item) => item.kind === "FUEL_HYBRID")?.after).not.toEqual([]);
+    expect(decision.result.candidateEvaluations
+      .filter((candidate) => decision.result.recommendationAuthorization.authorizedCandidateIds.includes(candidate.runtimeVehicleCandidateId))
+      .every((candidate) => /yaris|captur/iu.test(candidate.presentationIdentity.model))).toBe(true);
+  });
 });

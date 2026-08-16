@@ -30,24 +30,29 @@ export function assessCarsConversationSufficiency(
   const seats = latestRequirement(trace, "MIN_SEATS");
   const cargo = latestRequirement(trace, "MIN_CARGO_L");
   const party = latestRequirement(trace, "PARTY_SIZE");
+  const body = latestRequirement(trace, "BODY_TYPE");
+  const fuel = latestRequirement(trace, "FUEL");
   const usageUnderstood = USAGE_KEYS.some((key) => latestRequirement(trace, key));
   const hasEvaluableHardConstraint = Boolean(seats || cargo);
   const bothEvaluable = Boolean(seats && cargo);
   const asked = new Set(trace.askedQuestionPurposes);
   const answered = new Set(trace.answeredQuestionPurposes);
-  const governedReady = bothEvaluable;
-  const humanReady = bothEvaluable;
+  const objectiveProfileReady = Boolean(body && fuel);
+  const governedReady = bothEvaluable || objectiveProfileReady;
+  const humanReady = governedReady;
 
-  if (bothEvaluable) {
+  if (governedReady) {
     return {
       readyToEvaluate: true,
       governedReady: true,
       humanReady: true,
       phase: "READY_TO_EVALUATE",
       usageUnderstood,
-      hasEvaluableHardConstraint: true,
+      hasEvaluableHardConstraint: bothEvaluable,
       materialAmbiguityRemains: false,
-      reason: "Supported seat and cargo thresholds are both explicit, so further discovery will not change governed authorization.",
+      reason: bothEvaluable
+        ? "Supported seat and cargo thresholds are both explicit, so further discovery will not change governed authorization."
+        : "Body and fuel preferences form an evaluable objective profile.",
     };
   }
 
@@ -56,6 +61,8 @@ export function assessCarsConversationSufficiency(
     seats: Boolean(seats),
     cargo: Boolean(cargo),
     party: Boolean(party),
+    body: Boolean(body),
+    fuel: Boolean(fuel),
   });
 
   return {
@@ -77,7 +84,7 @@ function selectHighestValueQuestion(
   trace: CarsConversationTrace,
   asked: Set<CarsQuestionPurpose>,
   answered: Set<CarsQuestionPurpose>,
-  flags: { usageUnderstood: boolean; seats: boolean; cargo: boolean; party: boolean },
+  flags: { usageUnderstood: boolean; seats: boolean; cargo: boolean; party: boolean; body: boolean; fuel: boolean },
 ): CarsQuestionPurpose | undefined {
   const unused = (purpose: CarsQuestionPurpose) => !asked.has(purpose) && !answered.has(purpose);
   if (latestRequirement(trace, "USAGE_ROUGH_ROAD") && !answered.has("USAGE_DETAIL") && unused("USAGE_DETAIL") && !flags.seats && !flags.cargo) {
@@ -86,6 +93,7 @@ function selectHighestValueQuestion(
   if (flags.party && !flags.seats && !answered.has("PARTY_CONFIRMATION") && !answered.has("MIN_SEATS")) {
     return "PARTY_CONFIRMATION";
   }
+  if (flags.body && !flags.fuel && unused("FUEL")) return "FUEL";
   if (!flags.usageUnderstood && unused("PRIMARY_USAGE") && unused("USAGE_DETAIL")) {
     return "PRIMARY_USAGE";
   }

@@ -26,6 +26,27 @@ describe("dynamic sufficiency", () => {
     expect(assessment.nextPurpose).not.toBe("FINAL_PRIORITY");
   });
 
+  it("asks fuel after body type and evaluates once both are explicit", () => {
+    const bodyOnly = buildCarsRequirementLedger([
+      { id: "1", role: "user", content: "Sedan istiyorum" },
+    ]);
+    expect(assessCarsConversationSufficiency(bodyOnly)).toMatchObject({
+      readyToEvaluate: false,
+      nextPurpose: "FUEL",
+    });
+
+    const bodyAndFuel = buildCarsRequirementLedger([
+      { id: "1", role: "user", content: "Sedan istiyorum" },
+      { id: "2", role: "assistant", content: "Yakıt tercihin benzin, hibrit ya da elektrik mi?" },
+      { id: "3", role: "user", content: "Benzinli olsun" },
+    ]);
+    expect(assessCarsConversationSufficiency(bodyAndFuel)).toMatchObject({
+      readyToEvaluate: true,
+      governedReady: true,
+      phase: "READY_TO_EVALUATE",
+    });
+  });
+
   it("defers daily vs off-road when the user supplies a budget instead", () => {
     const trace = buildCarsRequirementLedger([
       { id: "1", role: "user", content: "arazi aracı lazım" },

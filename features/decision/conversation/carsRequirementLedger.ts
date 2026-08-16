@@ -12,7 +12,7 @@ import type {
 } from "@/types/carsConversation";
 
 const EVALUABLE_KEYS = new Set<CarsRequirementKey>([
-  "MIN_SEATS", "MIN_CARGO_L", "PARTY_SIZE", "TRANSMISSION", "SIZE_PREFERENCE",
+  "MIN_SEATS", "MIN_CARGO_L", "PARTY_SIZE", "TRANSMISSION", "SIZE_PREFERENCE", "FUEL",
 ]);
 
 const USAGE_KEYS = new Set<CarsRequirementKey>([
@@ -42,6 +42,7 @@ export function carsQuestionPurpose(content: string): CarsQuestionPurpose | unde
   if (/(?:kaç kişi|kaç kişiyi taşımalı|party size|passenger)/iu.test(content)) return "PARTY_CONFIRMATION";
   if (/(?:bagaj.*minimum|minimum.*bagaj|cargo volume|litre olarak)/iu.test(content)) return "MIN_CARGO";
   if (/(?:sürüş destek|multimedya|iklim konfor|donanım.*belirleyici)/iu.test(content)) return "EQUIPMENT_SCOPE";
+  if (/(?:yakıt(?: türü| tipi| tercihi)?|benzin(?:li)?|dizel|hibrit|elektrik(?:li)?)/iu.test(content)) return "FUEL";
   if (/(?:vazgeçilmez|kararı.*değiştirecek|en çok değiştirecek|non-negotiable)/iu.test(content)) return "FINAL_PRIORITY";
   if (/(?:beğenmedi|rahatsız eden|hangi noktada uymadı)/iu.test(content)) return "REJECTION_DIAGNOSTIC";
 }
@@ -85,6 +86,10 @@ export function extractDeterministicFacts(text: string): readonly { key: CarsReq
   if (/(?:\bsuv\b|cross[\s-]?over)/iu.test(text)) found.push({ key: "BODY_TYPE", value: "SUV_CROSSOVER" });
   if (/\bhatchback\b/iu.test(text)) found.push({ key: "BODY_TYPE", value: "HATCHBACK" });
   if (/\bsedan\b/iu.test(text)) found.push({ key: "BODY_TYPE", value: "SEDAN" });
+  if (/(?:\bbenzin(?:li)?\b|\bgasoline\b|\bpetrol\b)/iu.test(text)) found.push({ key: "FUEL", value: "GASOLINE" });
+  if (/(?:\bdizel\b|\bdiesel\b)/iu.test(text)) found.push({ key: "FUEL", value: "DIESEL" });
+  if (/(?:\bhibrit\b|\bhybrid\b|\bhev\b|\bmhev\b)/iu.test(text)) found.push({ key: "FUEL", value: "HYBRID" });
+  if (/(?:\belektrik(?:li)?\b|\belectric\b|\bbev\b)/iu.test(text)) found.push({ key: "FUEL", value: "ELECTRIC" });
   if (/(?:donanım(?:ı)?\s+(?:yüksek|dolu)|(?:yüksek|dolu)\s+donanım)/iu.test(text)) found.push({ key: "EQUIPMENT_LEVEL", value: "HIGH" });
   if (/(?:küçük\s+olmasın|küçük\s+(?:araç\s+)?istemiyorum|ufak\s+olmasın)/iu.test(text)) found.push({ key: "SIZE_PREFERENCE", value: "NOT_SMALL" });
   if (/(?:küçük dış ölç|kompakt(?: dış ölç| olsun)|şehir içinde hantal olmasın|dışarıdan küçük|park ederken zorlamasın)/iu.test(text)) found.push({ key: "SIZE_PREFERENCE", value: "COMPACT_EXTERIOR" });
@@ -232,6 +237,7 @@ export function answeredPurposesFrom(requirements: readonly CarsRequirementLedge
   if (requirements.some((entry) => entry.key === "MIN_CARGO_L")) answered.add("MIN_CARGO");
   if (requirements.some((entry) => entry.key === "BODY_TYPE")) answered.add("BODY_TYPE");
   if (requirements.some((entry) => entry.key === "DRIVETRAIN")) answered.add("DRIVETRAIN");
+  if (requirements.some((entry) => entry.key === "FUEL")) answered.add("FUEL");
   if (requirements.some((entry) => entry.key === "SIZE_PREFERENCE")) answered.add("SIZE");
   if (requirements.some((entry) => entry.key === "EQUIPMENT_LEVEL")) answered.add("EQUIPMENT_SCOPE");
   return [...answered];

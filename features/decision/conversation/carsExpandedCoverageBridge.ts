@@ -12,9 +12,19 @@ export interface ExpandedCoverageTrace {
   readonly discriminator?: "COMPACT_FOOTPRINT_LENGTH_THEN_WIDTH" | "MAX_CARGO";
 }
 
-const profiles = new Map(pilotVehicleRecords.flatMap((record) => record.technicalVariant ? [[record.identity.id, {
+interface CandidateProfile {
+  readonly body: string;
+  readonly transmission: string;
+  readonly fuel: string;
+  readonly length?: number;
+  readonly width?: number;
+  readonly cargo?: number;
+}
+
+const profiles = new Map<string, CandidateProfile>(pilotVehicleRecords.flatMap((record) => record.technicalVariant ? [[record.identity.id, {
   body: record.technicalVariant.bodyStyle.value.toLocaleUpperCase("tr-TR"),
   transmission: record.technicalVariant.powertrain.transmission.value,
+  fuel: record.technicalVariant.powertrain.fuelType.value,
   length: record.technicalVariant.dimensions.lengthMm?.value,
   width: record.technicalVariant.dimensions.widthMm?.value,
   cargo: record.technicalVariant.dimensions.luggageLitres?.value,
@@ -23,6 +33,7 @@ for (const configuration of closure.configurations) {
   profiles.set(configuration.vehicleVariantId, {
     body: configuration.identity.bodyFamily,
     transmission: configuration.identity.transmission,
+    fuel: configuration.identity.fuel,
     length: configuration.facts.lengthMm,
     width: configuration.facts.widthMm,
     cargo: configuration.facts.cargoLitres,
@@ -34,7 +45,7 @@ function latest(memory: CarsConversationTrace, key: string) {
 }
 
 export function expandedCoverageIsActive(memory: CarsConversationTrace, query: string): boolean {
-  return memory.requirements.some((entry) => ["PARTY_SIZE", "TRANSMISSION", "BODY_TYPE", "SIZE_PREFERENCE"].includes(entry.key))
+  return memory.requirements.some((entry) => ["PARTY_SIZE", "TRANSMISSION", "BODY_TYPE", "FUEL", "SIZE_PREFERENCE"].includes(entry.key))
     || /clio\s+(?:dışında|yerine)|bagajı küçük olmasın|bagaj.*öncel|kompakt|küçük dış ölç/iu.test(query);
 }
 
@@ -63,6 +74,11 @@ export function applyExpandedCoverageBridge(input: {
   if (body === "SUV_CROSSOVER") apply("BODY_SUV_CROSSOVER", (variantId) => /suv|crossover/iu.test(profiles.get(variantId)?.body ?? ""));
   if (body === "HATCHBACK") apply("BODY_HATCHBACK", (variantId) => /hatchback/iu.test(profiles.get(variantId)?.body ?? ""));
   if (body === "SEDAN") apply("BODY_SEDAN", (variantId) => /sedan/iu.test(profiles.get(variantId)?.body ?? ""));
+  const fuel = latest(input.memory, "FUEL")?.value;
+  if (fuel === "GASOLINE") apply("FUEL_GASOLINE", (variantId) => /gasoline|petrol/iu.test(profiles.get(variantId)?.fuel ?? ""));
+  if (fuel === "DIESEL") apply("FUEL_DIESEL", (variantId) => /diesel/iu.test(profiles.get(variantId)?.fuel ?? ""));
+  if (fuel === "HYBRID") apply("FUEL_HYBRID", (variantId) => /hev|mhev|phev|hybrid/iu.test(profiles.get(variantId)?.fuel ?? ""));
+  if (fuel === "ELECTRIC") apply("FUEL_ELECTRIC", (variantId) => /bev|electric/iu.test(profiles.get(variantId)?.fuel ?? ""));
   if (/clio\s+(?:dışında|yerine)|clio['’]?ya alternatif/iu.test(input.query)) apply("EXCLUDE_CLIO_ANCHOR", (variantId) => !/clio/iu.test(input.result.candidateEvaluations.find((item) => item.vehicleVariantId === variantId)?.presentationIdentity.model ?? ""));
 
   let discriminator: ExpandedCoverageTrace["discriminator"];

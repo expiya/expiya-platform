@@ -67,4 +67,15 @@ describe("buildCarsRequirementLedger", () => {
     expect(trace.didConversationProgress).toBe(true);
     expect(trace.answeredQuestionPurposes).toContain("MIN_SEATS");
   });
+
+  it("captures and supersedes an explicit fuel preference", () => {
+    const trace = buildCarsRequirementLedger([
+      { id: "1", role: "user", content: "Benzinli olsun" },
+      { id: "2", role: "user", content: "Aslında hibrit tercih ederim" },
+    ]);
+    expect(trace.requirements).toContainEqual(expect.objectContaining({
+      key: "FUEL", value: "HYBRID", previousValue: "GASOLINE", evaluability: "EVALUABLE_NOW",
+    }));
+    expect(trace.answeredQuestionPurposes).toContain("FUEL");
+  });
 });

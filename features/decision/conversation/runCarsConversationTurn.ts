@@ -1209,6 +1209,20 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     return respondWithEvidence(input, { ...memory, phase: "EVALUATING" });
   }
 
+  const bodyCapturedWithoutFuel = memory.capturedOnLatestTurn.includes("BODY_TYPE")
+    && !memory.requirements.some((entry) => entry.key === "FUEL");
+  if (bodyCapturedWithoutFuel) {
+    const message = "Gövde tipi net. Yakıt tarafında benzin, dizel, hibrit veya elektrik tercihin var mı?";
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "CLARIFYING", purpose: "FUEL", prompt: message, progressEvent: "material-fuel", advisorStage: "CONTEXT_UNDERSTANDING",
+    }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ASK_ONE_QUESTION",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "CONTEXT_UNDERSTANDING",
+      questionMaterial: true, alreadyAnswered: false, whyQuestionNow: "Fuel preference partitions the governed candidates within the selected body type.",
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, askedMaterialQuestion: true, stateChanged: true }));
+    return { kind: "QUESTION", message, options: ["Benzin", "Dizel", "Hibrit", "Elektrik"], conversation };
+  }
+
   if (/otomatik/iu.test(latestContent) && /(?:park ederken zorlamasın|kompakt dış ölç)/iu.test(latestContent)) {
     const budgetAnswered = memory.requirements.some((entry) => entry.key === "BUDGET_MAX_TRY");
     const message = budgetAnswered
