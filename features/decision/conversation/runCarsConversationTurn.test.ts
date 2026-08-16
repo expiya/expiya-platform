@@ -654,6 +654,66 @@ describe("runCarsConversationTurn", () => {
     expect(response.conversation?.turnProvenance).toMatchObject({ questionMaterial: true, alreadyAnswered: false });
   });
 
+  it("does not substitute power for an unavailable 0-100 requirement", async () => {
+    const response = await runCarsConversationTurn({ conversationId: "acceleration-boundary", messages: [
+      { id: "u1", role: "user", content: "10 milyonum var, 0-100 maksimum 3.5 saniye bir araba istiyorum" },
+    ] });
+    expect(response.message).toMatch(/doğrulanmış 0-100 süresi bulunmadığı/iu);
+    expect(response.message).not.toMatch(/dört çeker elektrikli|yüksek performanslı benzinli/iu);
+    expect(response.conversation?.turnProvenance).toMatchObject({ candidateHeld: false, advisorStage: "NOT_RECOMMENDABLE" });
+  });
+
+  it("starts full-catalog faceting for an explicit recommendation request with electric exclusion", async () => {
+    const response = await runCarsConversationTurn({ conversationId: "megane-efficient", messages: [
+      { id: "u1", role: "user", content: "Renault Megane aracımı değiştirip çok daha az yakan, elektrikli olmayan ve en az 300 litre bagajlı araç istiyorum; tavsiyen nedir?" },
+    ] });
+    expect(response.kind).toBe("QUESTION");
+    if (response.kind !== "QUESTION") throw new Error("EXPECTED_CATALOG_FACET_QUESTION");
+    expect(response.message).not.toMatch(/Birden fazla araç tüm zorunlu şartlarınızı karşılıyor/iu);
+    expect(response.message).not.toMatch(/Please send a non-empty message/iu);
+    expect(response.options?.length).toBeGreaterThan(1);
+    expect(response.conversation?.requirements).toEqual(expect.arrayContaining([
+      expect.objectContaining({ key: "FUEL_EXCLUDED", value: "ELECTRIC" }),
+      expect.objectContaining({ key: "MIN_CARGO_L", value: 300 }),
+    ]));
+    expect(response.conversation?.turnProvenance?.candidateCount).toBeGreaterThan(0);
+    expect(response.conversation?.turnProvenance?.candidateCount).toBeLessThan(577);
+  });
+
+  it("reaches a sealed full-catalog variant and reveals its exact card only after consent", async () => {
+    const conversationId = "catalog-facet-consent";
+    const messages: Array<{ id: string; role: "user" | "assistant"; content: string }> = [
+      { id: "u0", role: "user", content: "3 milyon TL altında elektrikli olmayan sıfır araç tavsiyen nedir?" },
+    ];
+    let conversation;
+    let response = await runCarsConversationTurn({ conversationId, messages });
+    for (let index = 0; index < 10 && response.conversation?.recommendationOfferStatus !== "AWAITING_CONSENT"; index += 1) {
+      expect(response.kind).toBe("QUESTION");
+      if (response.kind !== "QUESTION") break;
+      const purpose = response.conversation?.lastAssistantQuestion?.purpose;
+      const answer = response.options?.[0]
+        ?? (purpose === "MIN_SEATS" || /koltuk/iu.test(response.message) ? "4 koltuk"
+          : purpose === "MIN_CARGO" || /bagaj/iu.test(response.message) ? "300 litre"
+            : purpose === "MIN_POWER_KW" || /güç/iu.test(response.message) ? "100 kW"
+              : purpose === "MAX_CONSUMPTION_L_100KM" || /tüketim/iu.test(response.message) ? "8 L/100 km"
+                : undefined);
+      if (!answer) break;
+      messages.push({ id: `a${index}`, role: "assistant", content: response.message });
+      messages.push({ id: `u${index + 1}`, role: "user", content: answer });
+      conversation = response.conversation;
+      response = await runCarsConversationTurn({ conversationId, conversation, messages });
+    }
+    expect(response.conversation?.recommendationOfferStatus).toBe("AWAITING_CONSENT");
+    expect(response.message).not.toMatch(/BMW|Renault|Toyota|Hyundai|Opel|Citroën/iu);
+    messages.push({ id: "a-offer", role: "assistant", content: response.message });
+    messages.push({ id: "u-consent", role: "user", content: "Göster" });
+    const revealed = await runCarsConversationTurn({ conversationId, conversation: response.conversation, messages });
+    expect(revealed.kind).toBe("RECOMMENDATIONS");
+    if (revealed.kind !== "RECOMMENDATIONS") return;
+    expect(revealed.recommendations).toHaveLength(1);
+    expect(revealed.recommendations[0].car.id).toBe(revealed.conversation?.shownCandidate?.vehicleVariantId);
+  });
+
   it("gives a clear next action after city use and asks one material budget question after automatic parking", async () => {
     const city = await runCarsConversationTurn({ conversationId: "compact-forward", messages: [
       { id: "u1", role: "user", content: "Şehir içinde işe gidip geleceğim." },

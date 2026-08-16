@@ -4,7 +4,7 @@ import { runCarsConversationTurn } from "@/features/decision/conversation/runCar
 import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
 import type { CarsConversationRequest } from "@/types/carsConversation";
 
-const questionPurposeSchema = z.enum([
+const builtInQuestionPurposeSchema = z.enum([
   "PRIMARY_USAGE",
   "USAGE_DETAIL",
   "BUDGET_MAX",
@@ -15,11 +15,17 @@ const questionPurposeSchema = z.enum([
   "EQUIPMENT_SCOPE",
   "BODY_TYPE",
   "DRIVETRAIN",
+  "TRANSMISSION",
+  "FUEL",
   "SIZE",
   "REJECTION_DIAGNOSTIC",
   "OFF_TOPIC_REDIRECT",
   "FINAL_PRIORITY",
   "ACQUISITION_MARKET",
+]);
+const questionPurposeSchema = z.union([
+  builtInQuestionPurposeSchema,
+  z.string().regex(/^CATALOG_FACET:[A-Za-z0-9_]+$/).max(80),
 ]);
 
 const optionSetSchema = z.object({
@@ -308,11 +314,17 @@ export async function POST(request: Request): Promise<Response> {
     const response = await runCarsConversationTurn(input as CarsConversationRequest);
     return Response.json(response);
   } catch (error) {
-    if (error instanceof z.ZodError || error instanceof SyntaxError || error instanceof Error && error.message === "REQUEST_BODY_TOO_LARGE") {
+    if (error instanceof z.ZodError) {
+      const emptyMessage = error.issues.some((issue) => issue.path.at(-1) === "content" && issue.code === "too_small");
       return Response.json(
-        { message: "Please send a non-empty message to continue." },
+        { message: emptyMessage
+          ? "Lütfen devam etmek için boş olmayan bir mesaj gönderin."
+          : "Konuşma durumu doğrulanamadı. Sayfayı yenileyip son mesajınızı yeniden gönderin." },
         { status: 400 },
       );
+    }
+    if (error instanceof SyntaxError || error instanceof Error && error.message === "REQUEST_BODY_TOO_LARGE") {
+      return Response.json({ message: "İstek okunamadı. Lütfen yeniden deneyin." }, { status: 400 });
     }
 
     return Response.json(

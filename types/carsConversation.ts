@@ -9,6 +9,7 @@ export interface CarsConversationOption {
 export type CarsOptionSelectionSource = "button" | "text" | "paraphrase" | "confirmation" | "ordinal";
 
 export type CarsQuestionPurpose =
+  | `CATALOG_FACET:${string}`
   | "PRIMARY_USAGE"
   | "USAGE_DETAIL"
   | "BUDGET_MAX"
@@ -19,7 +20,12 @@ export type CarsQuestionPurpose =
   | "EQUIPMENT_SCOPE"
   | "BODY_TYPE"
   | "DRIVETRAIN"
+  | "TRANSMISSION"
   | "FUEL"
+  | "FUEL_EXCLUDED"
+  | "MAX_ACCELERATION_0_100_S"
+  | "MIN_POWER_KW"
+  | "MAX_CONSUMPTION_L_100KM"
   | "SIZE"
   | "REJECTION_DIAGNOSTIC"
   | "OFF_TOPIC_REDIRECT"
@@ -123,6 +129,7 @@ export type CarsRecommendationOfferStatus =
   | "INVALIDATED";
 
 export type CarsRequirementKey =
+  | `CATALOG_FACET:${string}`
   | "USAGE_CAMP"
   | "USAGE_SERIOUS_OFF_ROAD"
   | "USAGE_ROUGH_ROAD"
@@ -137,6 +144,10 @@ export type CarsRequirementKey =
   | "SIZE_PREFERENCE"
   | "TRANSMISSION"
   | "FUEL"
+  | "FUEL_EXCLUDED"
+  | "MAX_ACCELERATION_0_100_S"
+  | "MIN_POWER_KW"
+  | "MAX_CONSUMPTION_L_100KM"
   | "PARTY_SIZE"
   | "MIN_SEATS"
   | "MIN_CARGO_L"

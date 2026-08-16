@@ -38,7 +38,7 @@ describe("hard vs soft unsupported budget language", () => {
         key: "BUDGET_MAX_TRY",
         value: 2_500_000,
         category: "SOFT_CONTEXT",
-        evaluability: "UNDERSTOOD_NOT_EVALUABLE",
+        evaluability: "EVALUABLE_NOW",
       }),
     ]));
   });
@@ -48,7 +48,7 @@ describe("hard vs soft unsupported budget language", () => {
     "En fazla 2 milyon.",
     "2 milyon kesin üst sınırım.",
     "2 milyon, bütçeyi aşamam.",
-  ])("treats %s as a hard unevaluated constraint", (text) => {
+  ])("treats %s as a hard catalog filter", (text) => {
     expect(isHardBudgetCeiling(text)).toBe(true);
     expect(budgetCategoryFromText(text)).toBe("HARD_UNEVALUATED_CONSTRAINT");
     const trace = buildCarsRequirementLedger([{ id: "1", role: "user", content: text }]);
@@ -57,7 +57,7 @@ describe("hard vs soft unsupported budget language", () => {
         key: "BUDGET_MAX_TRY",
         value: 2_000_000,
         category: "HARD_UNEVALUATED_CONSTRAINT",
-        evaluability: "UNDERSTOOD_NOT_EVALUABLE",
+        evaluability: "EVALUABLE_NOW",
       }),
     ]));
   });
@@ -92,14 +92,14 @@ describe("hard budget filters affordability before a budget-compatible offer", (
     expect(first.conversation?.priceEvaluations?.some((item) => item.result === "FAIL")).toBe(true);
   });
 
-  it("does not let a soft budget silently claim evaluation", async () => {
+  it("evaluates a soft budget against active catalog prices without turning it into a hard conflict", async () => {
     const offer = await runCarsConversationTurn({
       conversationId: "soft-budget-no-claim",
       messages: [{ id: "1", role: "user", content: "Bütçem yaklaşık 2,5 milyon. En az 7 koltuk ve en az 300 litre bagaj istiyorum." }],
     });
     expect(offer.conversation?.recommendationOfferStatus).toBe("AWAITING_CONSENT");
-    expect(offer.conversation?.turnProvenance?.budgetEvaluated).toBe(false);
-    expect(offer.conversation?.turnProvenance?.unevaluatedBudgetPresent).toBe(true);
+    expect(offer.conversation?.turnProvenance?.budgetEvaluated).toBe(true);
+    expect(offer.conversation?.turnProvenance?.unevaluatedBudgetPresent).toBe(false);
     expect(offer.conversation?.turnProvenance?.recommendationBlockedByHardConstraint).toBe(false);
     expect(offer.message).not.toMatch(/bütçenizi karşıl|bütçe.*karşılıyor|tüm (?:şart|ihtiyac)/iu);
   });
@@ -149,15 +149,15 @@ describe("coverage-block tone", () => {
     }).roboticTemplateHits).toBe(0);
   });
 
-  it("gives one concise coverage response, then a respectful non-generic follow-up", async () => {
+  it("uses concise, non-generic full-catalog questions without repeating a facet", async () => {
     const first = await runCarsConversationTurn({
       conversationId: "clio-tone",
       messages: [{ id: "1", role: "user", content: "Clio harici marka-model söyle." }],
     });
-    expect(first.message).toMatch(/makul|güvenilir biçimde isimli/iu);
+    expect(first.conversation?.turnProvenance?.questionMaterial).toBe(true);
     expect(first.message).not.toMatch(DISMISSIVE);
     expect(first.message).not.toMatch(GENERIC_HATCH);
-    expect(alreadyStatedCoverageLimitation([{ role: "assistant", content: first.message }])).toBe(true);
+    expect(alreadyStatedCoverageLimitation([{ role: "assistant", content: first.message }])).toBe(false);
 
     const second = await runCarsConversationTurn({
       conversationId: "clio-tone",
@@ -172,6 +172,6 @@ describe("coverage-block tone", () => {
     expect(second.message).not.toMatch(DISMISSIVE);
     expect(second.message).not.toMatch(GENERIC_HATCH);
     expect(second.message).not.toMatch(/Hyundai|IONIQ|Corolla|Civic|Captur/i);
-    expect(second.conversation?.turnProvenance?.directRecommendationCoverage).toBe("DIRECT_RECOMMENDATION_BLOCKED_BY_COVERAGE");
+    expect(second.conversation?.turnProvenance?.questionMaterial).toBe(true);
   });
 });

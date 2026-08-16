@@ -10,10 +10,14 @@ import type {
   CarsRequirementLedgerEntry,
   CarsRequirementStatus,
 } from "@/types/carsConversation";
+import { carsDecisionFacetDefinitions, extractDeclarativeFacetFacts } from "./carsDecisionFacetCatalog";
 
 const EVALUABLE_KEYS = new Set<CarsRequirementKey>([
   "MIN_SEATS", "MIN_CARGO_L", "PARTY_SIZE", "TRANSMISSION", "SIZE_PREFERENCE", "FUEL",
+  ...carsDecisionFacetDefinitions.map((definition) => definition.requirementKey as CarsRequirementKey),
 ]);
+
+const DECLARATIVE_KEYS = new Set(carsDecisionFacetDefinitions.map((definition) => definition.requirementKey));
 
 const USAGE_KEYS = new Set<CarsRequirementKey>([
   "USAGE_CAMP",
@@ -42,6 +46,9 @@ export function carsQuestionPurpose(content: string): CarsQuestionPurpose | unde
   if (/(?:kaç kişi|kaç kişiyi taşımalı|party size|passenger)/iu.test(content)) return "PARTY_CONFIRMATION";
   if (/(?:bagaj.*minimum|minimum.*bagaj|cargo volume|litre olarak)/iu.test(content)) return "MIN_CARGO";
   if (/(?:sürüş destek|multimedya|iklim konfor|donanım.*belirleyici)/iu.test(content)) return "EQUIPMENT_SCOPE";
+  if (/(?:gövde tipi|suv.*sedan|sedan.*hatchback|hangisi sana daha yakın)/iu.test(content)) return "BODY_TYPE";
+  if (/(?:otomatik mi|manuel mi|vites tercihi)/iu.test(content)) return "TRANSMISSION";
+  if (/(?:çekiş düzeni|önden çekiş.*arkadan|dört çeker tercihi)/iu.test(content)) return "DRIVETRAIN";
   if (/(?:yakıt(?: türü| tipi| tercihi)?|benzin(?:li)?|dizel|hibrit|elektrik(?:li)?)/iu.test(content)) return "FUEL";
   if (/(?:vazgeçilmez|kararı.*değiştirecek|en çok değiştirecek|non-negotiable)/iu.test(content)) return "FINAL_PRIORITY";
   if (/(?:beğenmedi|rahatsız eden|hangi noktada uymadı)/iu.test(content)) return "REJECTION_DIAGNOSTIC";
@@ -72,6 +79,7 @@ export function budgetCategoryFromText(text: string): CarsRequirementCategory {
 
 export function extractDeterministicFacts(text: string): readonly { key: CarsRequirementKey; value: string | number }[] {
   const found: { key: CarsRequirementKey; value: string | number }[] = [];
+  for (const fact of extractDeclarativeFacetFacts(text)) found.push({ key: fact.key as CarsRequirementKey, value: fact.value });
   if (/\bciddi arazi\b/iu.test(text)) found.push({ key: "USAGE_SERIOUS_OFF_ROAD", value: "SERIOUS_OFF_ROAD" });
   if (/(?:\barazi\b|off[\s-]?road|kötü yol|rough road)/iu.test(text)) found.push({ key: "USAGE_ROUGH_ROAD", value: "ROUGH_ROAD" });
   if (/\bkamp\b/iu.test(text)) found.push({ key: "USAGE_CAMP", value: "CAMP" });
@@ -82,14 +90,25 @@ export function extractDeterministicFacts(text: string): readonly { key: CarsReq
   const budget = budgetValue(text);
   if (budget !== undefined) found.push({ key: "BUDGET_MAX_TRY", value: budget });
   if (/(?:\b4\s*[x×]\s*4\b|\bawd\b|dört çeker)/iu.test(text)) found.push({ key: "DRIVETRAIN", value: "AWD_OR_4X4" });
+  if (/(?:önden çekiş|\bfwd\b)/iu.test(text)) found.push({ key: "DRIVETRAIN", value: "FWD" });
+  if (/(?:arkadan itiş|\brwd\b)/iu.test(text)) found.push({ key: "DRIVETRAIN", value: "RWD" });
   if (/(?:\bpick[\s-]?up\b|\bpikap\b)/iu.test(text)) found.push({ key: "BODY_TYPE", value: "PICKUP" });
   if (/(?:\bsuv\b|cross[\s-]?over)/iu.test(text)) found.push({ key: "BODY_TYPE", value: "SUV_CROSSOVER" });
   if (/\bhatchback\b/iu.test(text)) found.push({ key: "BODY_TYPE", value: "HATCHBACK" });
   if (/\bsedan\b/iu.test(text)) found.push({ key: "BODY_TYPE", value: "SEDAN" });
-  if (/(?:\bbenzin(?:li)?\b|\bgasoline\b|\bpetrol\b)/iu.test(text)) found.push({ key: "FUEL", value: "GASOLINE" });
-  if (/(?:\bdizel\b|\bdiesel\b)/iu.test(text)) found.push({ key: "FUEL", value: "DIESEL" });
-  if (/(?:\bhibrit\b|\bhybrid\b|\bhev\b|\bmhev\b)/iu.test(text)) found.push({ key: "FUEL", value: "HYBRID" });
-  if (/(?:\belektrik(?:li)?\b|\belectric\b|\bbev\b)/iu.test(text)) found.push({ key: "FUEL", value: "ELECTRIC" });
+  if (/(?:\bcoupe\b|\bkup(?:e)?\b|\broadster\b)/iu.test(text)) found.push({ key: "BODY_TYPE", value: "COUPE" });
+  const electricRejected = /(?:elektrik(?:li)?|electric)[^.!?]{0,24}(?:istemiyorum|olmasın|olmayan|hariç|düşünmüyorum)|(?:istemiyorum|olmasın|olmayan)[^.!?]{0,24}(?:elektrik(?:li)?|electric)/iu.test(text);
+  if (electricRejected) found.push({ key: "FUEL_EXCLUDED", value: "ELECTRIC" });
+  const mentionedFuels = [
+    { value: "GASOLINE", matches: /(?:\bbenzin(?:li)?\b|\bgasoline\b|\bpetrol\b)/iu.test(text) },
+    { value: "DIESEL", matches: /(?:\bdizel\b|\bdiesel\b)/iu.test(text) },
+    { value: "HYBRID", matches: /(?:\bhibrit\b|\bhybrid\b|\bhev\b|\bmhev\b)/iu.test(text) },
+    { value: "ELECTRIC", matches: !electricRejected && /(?:\belektrik(?:li)?\b|\belectric\b|\bbev\b)/iu.test(text) },
+  ].filter((item) => item.matches);
+  if (mentionedFuels.length === 1) found.push({ key: "FUEL", value: mentionedFuels[0].value });
+  const acceleration = text.match(/0\s*[-–]?\s*100[^\d]{0,30}(?:maksimum|en fazla|altı|≤)?\s*(\d+(?:[.,]\d+)?)\s*(?:saniye|sn|sec)/iu)
+    ?? text.match(/(\d+(?:[.,]\d+)?)\s*(?:saniye|sn|sec)[^.!?]{0,20}0\s*[-–]?\s*100/iu);
+  if (acceleration) found.push({ key: "MAX_ACCELERATION_0_100_S", value: Number(acceleration[1].replace(",", ".")) });
   if (/(?:donanım(?:ı)?\s+(?:yüksek|dolu)|(?:yüksek|dolu)\s+donanım)/iu.test(text)) found.push({ key: "EQUIPMENT_LEVEL", value: "HIGH" });
   if (/(?:küçük\s+olmasın|küçük\s+(?:araç\s+)?istemiyorum|ufak\s+olmasın)/iu.test(text)) found.push({ key: "SIZE_PREFERENCE", value: "NOT_SMALL" });
   if (/(?:küçük dış ölç|kompakt(?: dış ölç| olsun)|şehir içinde hantal olmasın|dışarıdan küçük|park ederken zorlamasın)/iu.test(text)) found.push({ key: "SIZE_PREFERENCE", value: "COMPACT_EXTERIOR" });
@@ -103,10 +122,11 @@ export function extractDeterministicFacts(text: string): readonly { key: CarsReq
   const cargo = text.match(/(?:en az\s+)?(\d{2,4})\s*(?:litre|liter|l)\s*(?:bagaj|cargo)/iu)
     ?? text.match(/(?:bagaj|cargo)[^\d]{0,30}(?:en az\s+)?(\d{2,4})\s*(?:litre|liter|l)/iu);
   if (cargo) found.push({ key: "MIN_CARGO_L", value: Number(cargo[1]) });
-  return found;
+  return [...new Map(found.map((fact) => [fact.key, fact])).values()];
 }
 
 export function categoryFor(key: CarsRequirementKey): CarsRequirementCategory {
+  if (DECLARATIVE_KEYS.has(key)) return "HARD_CONSTRAINT";
   if (USAGE_KEYS.has(key)) return "USAGE_CONTEXT";
   if (key === "BUDGET_MAX_TRY") return "SOFT_CONTEXT";
   if (key === "ACQUISITION_MARKET") return "USAGE_CONTEXT";
@@ -237,6 +257,7 @@ export function answeredPurposesFrom(requirements: readonly CarsRequirementLedge
   if (requirements.some((entry) => entry.key === "MIN_CARGO_L")) answered.add("MIN_CARGO");
   if (requirements.some((entry) => entry.key === "BODY_TYPE")) answered.add("BODY_TYPE");
   if (requirements.some((entry) => entry.key === "DRIVETRAIN")) answered.add("DRIVETRAIN");
+  if (requirements.some((entry) => entry.key === "TRANSMISSION")) answered.add("TRANSMISSION");
   if (requirements.some((entry) => entry.key === "FUEL")) answered.add("FUEL");
   if (requirements.some((entry) => entry.key === "SIZE_PREFERENCE")) answered.add("SIZE");
   if (requirements.some((entry) => entry.key === "EQUIPMENT_LEVEL")) answered.add("EQUIPMENT_SCOPE");

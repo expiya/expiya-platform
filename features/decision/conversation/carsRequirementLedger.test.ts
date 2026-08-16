@@ -19,7 +19,7 @@ describe("buildCarsRequirementLedger", () => {
     expect(trace.requirements).toEqual(expect.arrayContaining([
       expect.objectContaining({ key: "USAGE_CAMP", value: "CAMP", sourceTurn: 2, status: "UNDERSTOOD_BUT_UNSUPPORTED" }),
       expect.objectContaining({ key: "USAGE_STABILIZED_ROAD", value: "STABILIZED_ROAD", sourceTurn: 2 }),
-      expect.objectContaining({ key: "BUDGET_MAX_TRY", value: 2_000_000, sourceTurn: 3, status: "UNDERSTOOD_BUT_UNSUPPORTED" }),
+      expect.objectContaining({ key: "BUDGET_MAX_TRY", value: 2_000_000, sourceTurn: 3, status: "SUPPORTED_EVALUABLE" }),
       expect.objectContaining({ key: "DRIVETRAIN", value: "AWD_OR_4X4", sourceTurn: 4, status: "UNDERSTOOD_BUT_UNSUPPORTED" }),
       expect.objectContaining({ key: "BODY_TYPE", value: "PICKUP", sourceTurn: 5, status: "UNDERSTOOD_BUT_UNSUPPORTED" }),
     ]));

@@ -204,6 +204,27 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
     expect(payload.options).toBeUndefined();
   });
 
+  it("accepts persisted FUEL state on the next public request", async () => {
+    const first = await postConversation("http-fuel-state", [
+      { id: "1", role: "user", content: "Sedan istiyorum" },
+    ], {}, "10.30.1.1");
+    const firstPayload = await first.json();
+    expect(first.status).toBe(200);
+    expect(firstPayload.conversation.lastAssistantQuestion.purpose).toBe("FUEL");
+
+    const second = await postConversation("http-fuel-state", [
+      { id: "1", role: "user", content: "Sedan istiyorum" },
+      { id: "2", role: "assistant", content: firstPayload.message },
+      { id: "3", role: "user", content: "Benzinli olsun" },
+    ], { conversation: firstPayload.conversation }, "10.30.1.2");
+    const secondPayload = await second.json();
+    expect(second.status).toBe(200);
+    expect(secondPayload.message).not.toMatch(/non-empty message/iu);
+    expect(secondPayload.conversation.requirements).toEqual(expect.arrayContaining([
+      expect.objectContaining({ key: "FUEL", value: "GASOLINE" }),
+    ]));
+  });
+
   it("reveals the held card after typed acceptance through the public route", async () => {
     const offer = await postConversation("http-consent", [
       { id: "1", role: "user", content: "En az 7 koltuk ve en az 300 litre bagaj istiyorum." },

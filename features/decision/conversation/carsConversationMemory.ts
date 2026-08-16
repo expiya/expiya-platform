@@ -8,6 +8,7 @@ import type {
   CarsRequirementKey,
   CarsRequirementLedgerEntry,
 } from "@/types/carsConversation";
+import { carsDecisionFacetDefinitions } from "./carsDecisionFacetCatalog";
 
 import {
   answeredPurposesFrom,
@@ -302,6 +303,10 @@ export function hydrateCarsConversationMemory(input: {
 }
 
 function purposeAnsweredByKeys(purpose: CarsQuestionPurpose, keys: readonly CarsRequirementKey[]): boolean {
+  if (purpose.startsWith("CATALOG_FACET:")) {
+    const facetId = purpose.slice("CATALOG_FACET:".length);
+    return keys.some((key) => key === carsDecisionFacetDefinitions.find((definition) => definition.id === facetId)?.requirementKey);
+  }
   if (purpose === "DAILY_VS_OFFROAD") return keys.includes("USAGE_CITY");
   if (purpose === "MIN_SEATS" || purpose === "PARTY_CONFIRMATION") return keys.includes("MIN_SEATS");
   if (purpose === "MIN_CARGO") return keys.includes("MIN_CARGO_L");
@@ -311,6 +316,7 @@ function purposeAnsweredByKeys(purpose: CarsQuestionPurpose, keys: readonly Cars
   if (purpose === "SIZE") return keys.includes("SIZE_PREFERENCE");
   if (purpose === "BODY_TYPE") return keys.includes("BODY_TYPE");
   if (purpose === "DRIVETRAIN") return keys.includes("DRIVETRAIN");
+  if (purpose === "TRANSMISSION") return keys.includes("TRANSMISSION");
   if (purpose === "FUEL") return keys.includes("FUEL");
   if (purpose === "USAGE_DETAIL") return keys.some((key) => ["USAGE_CAMP", "USAGE_SERIOUS_OFF_ROAD", "USAGE_STABILIZED_ROAD"].includes(key));
   if (purpose === "PRIMARY_USAGE") return keys.some((key) => key.startsWith("USAGE_"));

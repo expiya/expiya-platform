@@ -1,4 +1,4 @@
-import catalogPayload from "@/data/production/catalog/releases/v0.55.0/catalog.json";
+import { activeCatalogPayload as catalogPayload } from "@/data/production/catalog/activeCatalog.generated";
 import artifactPayload from "@/data/runtime/vehicle-evidence/v0.4.0/artifact.json";
 import type { PublishedCatalog } from "@/features/vehicle-data/buildPublishedCatalog";
 import type { PriceObservation } from "@/types/productionVehicle";
@@ -47,6 +47,7 @@ function mappingFor(candidateId: string) {
 }
 
 function isExactMapping(candidateId: string, variantId: string): boolean {
+  if (candidateId === `CATALOG:${variantId}`) return true;
   const mapping = mappingFor(candidateId);
   if (!mapping) return false;
   if (mapping.vehicleVariantId !== variantId) return false;

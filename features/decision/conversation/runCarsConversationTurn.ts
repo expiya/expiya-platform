@@ -1,6 +1,6 @@
 import { randomUUID } from "node:crypto";
 
-import catalogPayload from "@/data/production/catalog/releases/v0.55.0/catalog.json";
+import { activeCatalogPayload as catalogPayload, activeCatalogReleaseVersion } from "@/data/production/catalog/activeCatalog.generated";
 import { runCarsRuntime } from "@/features/decision/runtime/runCarsRuntime";
 import {
   deriveCarsEvidenceBackedRequirementsFromQuery,
@@ -112,8 +112,51 @@ import {
   unsupportedSoftPreferenceBoundaryMessage,
 } from "./carsDirectRecommendation";
 import { applyExpandedCoverageBridge, expandedCoverageIsActive } from "./carsExpandedCoverageBridge";
+import {
+  evaluateCatalogFacets,
+  selectCatalogFacetWinner,
+  type CatalogFacetCandidate,
+  type CatalogFacetEvaluation,
+} from "./carsCatalogFacetEngine";
 
 const MAX_USER_TURNS = 20;
+
+function catalogFacetDecisionResult(
+  selected: CatalogFacetCandidate,
+  evaluation: CatalogFacetEvaluation,
+): CarsEvidenceBackedDecisionResult {
+  const runtimeVehicleCandidateId = `CATALOG:${selected.id}`;
+  return {
+    status: "DECISION_READY",
+    selectedRuntimeVehicleCandidateId: runtimeVehicleCandidateId,
+    selectedVehicle: { brand: selected.brand, model: selected.model, trim: selected.trim },
+    materialRequirements: [],
+    candidateEvaluations: [{
+      runtimeVehicleCandidateId,
+      vehicleVariantId: selected.id,
+      configurationId: selected.id,
+      presentationIdentity: { brand: selected.brand, model: selected.model, trim: selected.trim },
+      requirements: [],
+      disposition: "ELIGIBLE",
+      recommendationAuthorized: true,
+      eliminationReasons: [],
+      insufficientEvidenceReasons: [],
+    }],
+    recommendationAuthorization: { authorized: true, authorizedCandidateIds: [runtimeVehicleCandidateId] },
+    evidenceTrace: {
+      authority: {
+        artifactVersion: "catalog-facets-v1", artifactHash: "active-catalog-v0.55.0",
+        catalogReleaseVersion: activeCatalogReleaseVersion, catalogPayloadHash: `active-catalog-v${activeCatalogReleaseVersion}`,
+        datasetVersion: "catalog-facets-v1", datasetReleaseHash: "active-catalog-v0.55.0",
+        mappingVersion: "catalog-direct", mappingHash: "catalog-direct",
+        dictionaryRevision: "production-catalog-schema", dictionaryHash: "production-catalog-schema",
+      },
+      candidateIds: [runtimeVehicleCandidateId],
+    },
+    explanationInput: ["CATALOG_FACETS", ...evaluation.appliedFilters.map((item) => `${item.key}=${item.value}`)],
+    userFacingExplanation: `${evaluation.initialCount} varyant, açık tercihler yeniden uygulanarak tek öneriye indirildi.`,
+  } as unknown as CarsEvidenceBackedDecisionResult;
+}
 
 async function planTurn(input: PlanCarsConversationTurnInput): Promise<PlanCarsConversationTurnResult> {
   const result = await planCarsConversationTurn(input);
@@ -438,12 +481,23 @@ function revealAuthorizedCard(
       }),
     };
   }
-  const raw = evaluateGoverned(input, memory);
-  const gated = applyHardBudgetGate(raw, memory);
-  const result = applyExpandedCoverageBridge({
-    result: gated.result, memory, query: buildCarsConversationQuery(input.messages),
-    choiceId: opened.discriminatorChoiceId ?? input.choiceId,
-  }).result;
+  const result = opened.runtimeVehicleCandidateId.startsWith("CATALOG:")
+    ? (() => {
+      const evaluation = evaluateCatalogFacets(memory);
+      const selected = selectCatalogFacetWinner(memory, evaluation.candidates);
+      return selected ? catalogFacetDecisionResult(selected, evaluation) : undefined;
+    })()
+    : (() => {
+      const raw = evaluateGoverned(input, memory);
+      const gated = applyHardBudgetGate(raw, memory);
+      return applyExpandedCoverageBridge({
+        result: gated.result, memory, query: buildCarsConversationQuery(input.messages),
+        choiceId: opened.discriminatorChoiceId ?? input.choiceId,
+      }).result;
+    })();
+  if (!result) {
+    return { kind: "QUESTION", message: "Tercihler değiştiği için önceki öneri artık geçerli değil. Güncel tercihlerinden devam edelim.", conversation: invalidateHeld(memory) };
+  }
   if (result.selectedRuntimeVehicleCandidateId !== opened.runtimeVehicleCandidateId) {
     const conversation = withProvenance(invalidateHeld(memory), {
       ...provenance,
@@ -495,7 +549,7 @@ function revealAuthorizedCard(
     governedReady: true,
   }), {
     ...provenance,
-    budgetEvaluated: false,
+    budgetEvaluated: memory.requirements.some((entry) => entry.key === "BUDGET_MAX_TRY" && entry.evaluability === "EVALUABLE_NOW"),
     unevaluatedBudgetPresent: budgetUnevaluated,
     heldDespiteUnevaluatedBudget: budgetUnevaluated,
     forwardProgressType: "SUPPORTED_RECOMMENDATION_ACTION",
@@ -608,7 +662,8 @@ async function offerAuthorizedCandidate(
     latestMessageAcknowledged: true,
     latestPrimaryAct: interpretLatestUserAct(input.messages, held).primaryAct,
     advisorStage: "OFFER_AWAITING_CONSENT",
-    budgetEvaluated: held.offerPurpose === "NEW_CONFIGURATION_OFFER",
+    budgetEvaluated: held.offerPurpose === "NEW_CONFIGURATION_OFFER"
+      || held.requirements.some((entry) => entry.key === "BUDGET_MAX_TRY" && entry.evaluability === "EVALUABLE_NOW"),
     unevaluatedBudgetPresent: unevaluatedBudgetPresent(held),
     heldDespiteUnevaluatedBudget: unevaluatedBudgetPresent(held),
     directRecommendationRequested: interpretLatestUserAct(input.messages, held).isDirectRecommendationRequest,
@@ -1130,6 +1185,72 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
         statedLimitation: affordability !== "PASS",
       }));
       return { kind: "QUESTION", message, conversation };
+    }
+  }
+
+  const catalogFacetEvaluation = evaluateCatalogFacets(memory);
+  const catalogFacetActive = memory.vehicleIntentEstablished && (
+    latestAct.isDirectRecommendationRequest
+    || memory.requirements.some((entry) => [
+      "FUEL", "FUEL_EXCLUDED", "MAX_ACCELERATION_0_100_S", "MIN_POWER_KW", "MAX_CONSUMPTION_L_100KM",
+    ].includes(entry.key))
+    || openHeldAuthorization(memory.heldAuthorization)?.runtimeVehicleCandidateId.startsWith("CATALOG:")
+  );
+  if (catalogFacetActive && catalogFacetEvaluation.unsupportedAccelerationSeconds !== undefined) {
+    const message = `0-100 için ${catalogFacetEvaluation.unsupportedAccelerationSeconds} saniye sınırını anladım; ancak aktif katalogda doğrulanmış 0-100 süresi bulunmadığı için bu şartla güvenilir bir araç seçemem. Güç verisini hızlanma süresi yerine koymayacağım.`;
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "LIMITED_BY_EVIDENCE", prompt: message, progressEvent: "catalog-facet-unsupported-acceleration", advisorStage: "NOT_RECOMMENDABLE", clearPendingQuestion: true,
+    }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "EXPLAIN_LIMITATION",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "NOT_RECOMMENDABLE",
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, statedLimitation: true, stateChanged: true }));
+    return { kind: "QUESTION", message, conversation };
+  }
+  if (catalogFacetActive && catalogFacetEvaluation.candidates.length === 0) {
+    const lastFilter = catalogFacetEvaluation.appliedFilters.at(-1);
+    const message = lastFilter
+      ? `Son tercihinle birlikte uygun varyant kalmadı. ${lastFilter.before} seçenek, bu filtre uygulandığında sıfıra indi. Hangi tercihi esnetmek istersin?`
+      : "Bu tercihler birlikte uygulandığında uygun sıfır varyant kalmadı. Hangi tercihi esnetmek istersin?";
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "CLARIFYING", prompt: message, progressEvent: "catalog-facet-empty", advisorStage: "TRADEOFF_RESOLUTION", clearPendingQuestion: true,
+    }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ASK_ONE_QUESTION",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "TRADEOFF_RESOLUTION",
+      candidateCount: 0, candidateFilters: catalogFacetEvaluation.appliedFilters.map((item) => ({
+        kind: item.key, before: [`COUNT:${item.before}`], after: [`COUNT:${item.after}`],
+      })),
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, askedMaterialQuestion: true, stateChanged: true }));
+    return { kind: "QUESTION", message, conversation };
+  }
+  if (catalogFacetActive && catalogFacetEvaluation.nextQuestion) {
+    const next = catalogFacetEvaluation.nextQuestion;
+    const message = next.text;
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "CLARIFYING", purpose: next.purpose, prompt: message, progressEvent: `catalog-facet-${next.purpose.toLocaleLowerCase("en-US")}`, advisorStage: "TRADEOFF_RESOLUTION",
+    }), withProgress({ modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ASK_ONE_QUESTION",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "TRADEOFF_RESOLUTION",
+      questionMaterial: true, alreadyAnswered: false,
+      whyQuestionNow: `This facet maximizes reduction across ${catalogFacetEvaluation.candidates.length} remaining catalog variants.`,
+      candidateCount: catalogFacetEvaluation.candidates.length, candidateFilters: catalogFacetEvaluation.appliedFilters.map((item) => ({
+        kind: item.key, before: [`COUNT:${item.before}`], after: [`COUNT:${item.after}`],
+      })),
+      candidatePartitionsByAnswer: Object.fromEntries(Object.entries(next.partitions).map(([key, count]) => [key, [`COUNT:${count}`]])),
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, askedMaterialQuestion: true, stateChanged: true }));
+    return { kind: "QUESTION", message, options: next.options, conversation };
+  }
+  if (catalogFacetActive && catalogFacetEvaluation.candidates.length > 0 && memory.recommendationOfferStatus === "NONE") {
+    const selected = selectCatalogFacetWinner(memory, catalogFacetEvaluation.candidates);
+    if (selected) {
+      return offerAuthorizedCandidate(input, { ...memory, governedReady: true, humanReady: true }, catalogFacetDecisionResult(selected, catalogFacetEvaluation), userTurnCount, {
+        candidateSetBeforePriceFilter: catalogFacetEvaluation.appliedFilters.length > 0
+          ? Array.from({ length: Math.min(catalogFacetEvaluation.appliedFilters[0].before, 12) }, (_, index) => `COUNT:${index + 1}`)
+          : undefined,
+        candidateSetAfterPriceFilter: catalogFacetEvaluation.candidates.slice(0, 12).map((item) => `CATALOG:${item.id}`),
+        candidateFilters: catalogFacetEvaluation.appliedFilters.map((item) => ({
+          kind: item.key, before: [`COUNT:${item.before}`], after: [`COUNT:${item.after}`],
+        })),
+      });
     }
   }
 
