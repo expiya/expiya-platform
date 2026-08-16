@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "0.1.0",
+  "catalogRelease": "v0.55.0",
+  "publicationState": "CANDIDATE",
+  "records": [
+    {
+      "familyKey": "Alfa Romeo|Junior|SUV",
+      "brand": "Alfa Romeo",
+      "model": "Junior",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.alfaromeo.com.tr/arac-modelleri/junior-elettrica",
+      "originalAssetUrl": "https://www.alfaromeo.com.tr/content/dam/alfa/tr/anasayfa/model-card/model-junior/Junior_Elettrica_1_580x344.png",
+      "localCandidatePath": "data/production/media/candidates/alfa-romeo-junior.png",
+      "contentType": "image/png",
+      "width": 580,
+      "height": 344,
+      "sha256": "28a51dc688aa1af4513c0abd805baf2e5fb98c377209d979ed1a901ead8fbdea",
+      "applicability": "MODEL_BODY",
+      "reviewNote": "Exact current Turkey model page asset; OWNER_ATTESTED declaration and durable storage path still required before publication."
+    },
+    {
+      "familyKey": "Alfa Romeo|Tonale|SUV",
+      "brand": "Alfa Romeo",
+      "model": "Tonale",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.alfaromeo.com.tr/arac-modelleri/yeni-tonale",
+      "originalAssetUrl": "https://www.alfaromeo.com.tr/content/dam/alfa/tr/modeller/tonale-2026/renk/s1-a3-b12-c2.jpg",
+      "localCandidatePath": "data/production/media/candidates/alfa-romeo-tonale.png",
+      "contentType": "image/png",
+      "width": 2032,
+      "height": 1080,
+      "sha256": "a6af9ec2e612f58f7704dbc612167e508a8e49e272cc524a84005de5f387073a",
+      "applicability": "MODEL_BODY",
+      "reviewNote": "Exact current Turkey model page colorizer asset; OWNER_ATTESTED declaration and durable storage path still required before publication."
+    }
+  ],
+  "unresolved": [
+    {
+      "familyKey": "Alfa Romeo|Giulia|Sedan",
+      "reason": "Official Turkey catalog URL currently returns 404."
+    },
+    {
+      "familyKey": "Alfa Romeo|Stelvio|SUV",
+      "reason": "Official Turkey catalog URL currently redirects to the brand home page without an exact Stelvio asset."
+    }
+  ]
+}

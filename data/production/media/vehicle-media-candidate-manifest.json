@@ -1,0 +1,3815 @@
+{
+  "schemaVersion": "0.1.0",
+  "generatedAt": "2026-08-16T10:07:46.659Z",
+  "catalogRelease": "v0.55.0",
+  "policy": "CANDIDATE_ONLY_OWNER_ATTESTATION_REQUIRED_FOR_PUBLICATION",
+  "totals": {
+    "DOWNLOADED": 88,
+    "NO_IMAGE_METADATA": 110,
+    "SOURCE_FETCH_FAILED": 187,
+    "ASSET_FETCH_FAILED": 16
+  },
+  "records": [
+    {
+      "familyKey": "Alfa Romeo|Giulia|Sedan",
+      "brand": "Alfa Romeo",
+      "model": "Giulia",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.alfaromeo.com.tr/arac-modelleri/giulia",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Alfa Romeo|Junior|SUV",
+      "brand": "Alfa Romeo",
+      "model": "Junior",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.alfaromeo.com.tr/arac-modelleri/junior-elettrica",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Alfa Romeo|Stelvio|SUV",
+      "brand": "Alfa Romeo",
+      "model": "Stelvio",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.alfaromeo.com.tr/arac-modelleri/stelvio",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Alfa Romeo|Tonale|SUV",
+      "brand": "Alfa Romeo",
+      "model": "Tonale",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.alfaromeo.com.tr/arac-modelleri/yeni-tonale",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Alpine|A110|Coupe",
+      "brand": "Alpine",
+      "model": "A110",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.alpinecars.com.tr/modeller/a110-gt.html",
+      "discoveredAssetUrl": "https://cdn.group.renault.com/alp/master/alpine-new-cars/product-plans/a110gt/hero-zone/alpine-a110-gt-001-mobile-manufactured-in-europe_pp-flag-tr.jpg.ximg.small.jpg/e8394641d8.jpg",
+      "localPath": "data/production/media/candidates/8bd7f90764925781168d28fc344a7e25e3769f786e5109f79aac0e75ede57e52.jpg",
+      "sha256": "8bd7f90764925781168d28fc344a7e25e3769f786e5109f79aac0e75ede57e52",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Alpine|A290|Hatchback",
+      "brand": "Alpine",
+      "model": "A290",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.alpinecars.com.tr/elektrikli-modeler/a290/konfigurator.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Alpine|A390|SUV",
+      "brand": "Alpine",
+      "model": "A390",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.alpinecars.com.tr/elektrikli-modeler/a390/konfigurator.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Aston Martin|DB12|Convertible",
+      "brand": "Aston Martin",
+      "model": "DB12",
+      "bodyStyle": "Convertible",
+      "sourcePageUrl": "https://www.astonmartin.com.tr/Modeller",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Aston Martin|DB12|Coupe",
+      "brand": "Aston Martin",
+      "model": "DB12",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.astonmartin.com.tr/Modeller",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Aston Martin|DBX|SUV",
+      "brand": "Aston Martin",
+      "model": "DBX",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.astonmartin.com.tr/Modeller",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Aston Martin|Vanquish|Coupe",
+      "brand": "Aston Martin",
+      "model": "Vanquish",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.astonmartin.com.tr/Modeller",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Aston Martin|Vantage|Convertible",
+      "brand": "Aston Martin",
+      "model": "Vantage",
+      "bodyStyle": "Convertible",
+      "sourcePageUrl": "https://www.astonmartin.com.tr/Modeller",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Aston Martin|Vantage|Coupe",
+      "brand": "Aston Martin",
+      "model": "Vantage",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.astonmartin.com.tr/Modeller",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Audi|A3 Sedan|Sedan",
+      "brand": "Audi",
+      "model": "A3 Sedan",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|A3 Sportback|Hatchback",
+      "brand": "Audi",
+      "model": "A3 Sportback",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|A5 Avant|Station Wagon",
+      "brand": "Audi",
+      "model": "A5 Avant",
+      "bodyStyle": "Station Wagon",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|A5 Sedan|Liftback",
+      "brand": "Audi",
+      "model": "A5 Sedan",
+      "bodyStyle": "Liftback",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|A6 Avant e-tron|Station Wagon",
+      "brand": "Audi",
+      "model": "A6 Avant e-tron",
+      "bodyStyle": "Station Wagon",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|A6 Sedan|Sedan",
+      "brand": "Audi",
+      "model": "A6 Sedan",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|A6 Sportback e-tron|Liftback",
+      "brand": "Audi",
+      "model": "A6 Sportback e-tron",
+      "bodyStyle": "Liftback",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|A8 L|Sedan",
+      "brand": "Audi",
+      "model": "A8 L",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|e-tron GT|Sedan",
+      "brand": "Audi",
+      "model": "e-tron GT",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|Q2|SUV",
+      "brand": "Audi",
+      "model": "Q2",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|Q3 Sportback|Fastback SUV",
+      "brand": "Audi",
+      "model": "Q3 Sportback",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|Q3|SUV",
+      "brand": "Audi",
+      "model": "Q3",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|Q4 e-tron|SUV",
+      "brand": "Audi",
+      "model": "Q4 e-tron",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|Q4 Sportback e-tron|Fastback SUV",
+      "brand": "Audi",
+      "model": "Q4 Sportback e-tron",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|Q5 Sportback|Fastback SUV",
+      "brand": "Audi",
+      "model": "Q5 Sportback",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|Q5|SUV",
+      "brand": "Audi",
+      "model": "Q5",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|Q6 e-tron|SUV",
+      "brand": "Audi",
+      "model": "Q6 e-tron",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|Q6 Sportback e-tron|Fastback SUV",
+      "brand": "Audi",
+      "model": "Q6 Sportback e-tron",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|Q7|SUV",
+      "brand": "Audi",
+      "model": "Q7",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Audi|Q8|Fastback SUV",
+      "brand": "Audi",
+      "model": "Q8",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 503"
+    },
+    {
+      "familyKey": "Bentley|Bentayga EWB|SUV",
+      "brand": "Bentley",
+      "model": "Bentayga EWB",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://istanbul.bentleymotors.com/eu/tr/",
+      "discoveredAssetUrl": "https://www.bentleymotors.com/content/dam/bm/websites/bmcom/bentleymotors-com/about-bentley/factory-tour-/Updated%20Hero%20Main.jpg/_jcr_content/renditions/original.image_file.1120.480.file/Updated%20Hero%20Main.jpg",
+      "localPath": "data/production/media/candidates/bd4c8bf6a0e42f0a6d42b059e84613a62520c24cccb3d6d7afa8a5977872d598.jpg",
+      "sha256": "bd4c8bf6a0e42f0a6d42b059e84613a62520c24cccb3d6d7afa8a5977872d598",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Bentley|Bentayga|SUV",
+      "brand": "Bentley",
+      "model": "Bentayga",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://istanbul.bentleymotors.com/eu/tr/",
+      "discoveredAssetUrl": "https://www.bentleymotors.com/content/dam/bm/websites/bmcom/bentleymotors-com/about-bentley/factory-tour-/Updated%20Hero%20Main.jpg/_jcr_content/renditions/original.image_file.1120.480.file/Updated%20Hero%20Main.jpg",
+      "localPath": "data/production/media/candidates/bd4c8bf6a0e42f0a6d42b059e84613a62520c24cccb3d6d7afa8a5977872d598.jpg",
+      "sha256": "bd4c8bf6a0e42f0a6d42b059e84613a62520c24cccb3d6d7afa8a5977872d598",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Bentley|Continental GT|Coupe",
+      "brand": "Bentley",
+      "model": "Continental GT",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://istanbul.bentleymotors.com/eu/tr/",
+      "discoveredAssetUrl": "https://www.bentleymotors.com/content/dam/bm/websites/bmcom/bentleymotors-com/about-bentley/factory-tour-/Updated%20Hero%20Main.jpg/_jcr_content/renditions/original.image_file.1120.480.file/Updated%20Hero%20Main.jpg",
+      "localPath": "data/production/media/candidates/bd4c8bf6a0e42f0a6d42b059e84613a62520c24cccb3d6d7afa8a5977872d598.jpg",
+      "sha256": "bd4c8bf6a0e42f0a6d42b059e84613a62520c24cccb3d6d7afa8a5977872d598",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Bentley|Continental GTC|Convertible",
+      "brand": "Bentley",
+      "model": "Continental GTC",
+      "bodyStyle": "Convertible",
+      "sourcePageUrl": "https://istanbul.bentleymotors.com/eu/tr/",
+      "discoveredAssetUrl": "https://www.bentleymotors.com/content/dam/bm/websites/bmcom/bentleymotors-com/about-bentley/factory-tour-/Updated%20Hero%20Main.jpg/_jcr_content/renditions/original.image_file.1120.480.file/Updated%20Hero%20Main.jpg",
+      "localPath": "data/production/media/candidates/bd4c8bf6a0e42f0a6d42b059e84613a62520c24cccb3d6d7afa8a5977872d598.jpg",
+      "sha256": "bd4c8bf6a0e42f0a6d42b059e84613a62520c24cccb3d6d7afa8a5977872d598",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Bentley|Flying Spur|Sedan",
+      "brand": "Bentley",
+      "model": "Flying Spur",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://istanbul.bentleymotors.com/eu/tr/",
+      "discoveredAssetUrl": "https://www.bentleymotors.com/content/dam/bm/websites/bmcom/bentleymotors-com/about-bentley/factory-tour-/Updated%20Hero%20Main.jpg/_jcr_content/renditions/original.image_file.1120.480.file/Updated%20Hero%20Main.jpg",
+      "localPath": "data/production/media/candidates/bd4c8bf6a0e42f0a6d42b059e84613a62520c24cccb3d6d7afa8a5977872d598.jpg",
+      "sha256": "bd4c8bf6a0e42f0a6d42b059e84613a62520c24cccb3d6d7afa8a5977872d598",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "BMW|1 Serisi|Hatchback",
+      "brand": "BMW",
+      "model": "1 Serisi",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|2 Serisi Active Tourer|MPV",
+      "brand": "BMW",
+      "model": "2 Serisi Active Tourer",
+      "bodyStyle": "MPV",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|2 Serisi Gran Coupe|Sedan",
+      "brand": "BMW",
+      "model": "2 Serisi Gran Coupe",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|320i Sedan|Sedan",
+      "brand": "BMW",
+      "model": "320i Sedan",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.bmw.com.tr/tr/all-models/3-series/sedan/bmw-3-serisi-sedan.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "BMW|4 Serisi Cabrio|Coupe",
+      "brand": "BMW",
+      "model": "4 Serisi Cabrio",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|4 Serisi Coupe|Coupe",
+      "brand": "BMW",
+      "model": "4 Serisi Coupe",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|4 Serisi Gran Coupe|Coupe",
+      "brand": "BMW",
+      "model": "4 Serisi Gran Coupe",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|5 Serisi Sedan|Sedan",
+      "brand": "BMW",
+      "model": "5 Serisi Sedan",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|7 Serisi Sedan|Sedan",
+      "brand": "BMW",
+      "model": "7 Serisi Sedan",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|i4 Gran Coupe|Coupe",
+      "brand": "BMW",
+      "model": "i4 Gran Coupe",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.bmw.com.tr/tr/all-models/i-series/i4/i4-gran-coupe-2024-g26bev-teknik-veri.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "BMW|i5 Sedan|Sedan",
+      "brand": "BMW",
+      "model": "i5 Sedan",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.bmw.com.tr/content/bmw/marketTR/bmw_com_tr/tr/all-models/m-serisi/i5-m60-xdrive/bmw-i5-m60-xdrive-teknik-veriler.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "BMW|i5 Touring|Hatchback",
+      "brand": "BMW",
+      "model": "i5 Touring",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.bmw.com.tr/tr/all-models/i-series/i5/bmw-i5-touring.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "BMW|i7|Sedan",
+      "brand": "BMW",
+      "model": "i7",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.bmw.com.tr/tr/more-bmw/exclusive-models.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "BMW|iX1|SUV",
+      "brand": "BMW",
+      "model": "iX1",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.bmw.com.tr/tr_TR/all-models/i-series/ix1/ix1-2025-u11-bev-technical-data.html/bmw-ix1-edrive20.bmw",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "BMW|iX2|SUV",
+      "brand": "BMW",
+      "model": "iX2",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.bmw.com.tr/tr/all-models/i-series/ix2/bmw-ix2-genel-bakis.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "BMW|M3 Sedan|Sedan",
+      "brand": "BMW",
+      "model": "M3 Sedan",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|M3 Touring|Hatchback",
+      "brand": "BMW",
+      "model": "M3 Touring",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|M4 Cabrio|Coupe",
+      "brand": "BMW",
+      "model": "M4 Cabrio",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|M4 Coupe|Coupe",
+      "brand": "BMW",
+      "model": "M4 Coupe",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|M5 Sedan|Sedan",
+      "brand": "BMW",
+      "model": "M5 Sedan",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|M5 Touring|Hatchback",
+      "brand": "BMW",
+      "model": "M5 Touring",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|X1|SUV",
+      "brand": "BMW",
+      "model": "X1",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|X2|SUV",
+      "brand": "BMW",
+      "model": "X2",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|X3|SUV",
+      "brand": "BMW",
+      "model": "X3",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|X5 M|SUV",
+      "brand": "BMW",
+      "model": "X5 M",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|X5|SUV",
+      "brand": "BMW",
+      "model": "X5",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|X6 M|SUV",
+      "brand": "BMW",
+      "model": "X6 M",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|X6|SUV",
+      "brand": "BMW",
+      "model": "X6",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|X7|SUV",
+      "brand": "BMW",
+      "model": "X7",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://bmwnibul.bmw.com.tr/tasarla-ve-rezerve-et",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "BMW|Yeni iX|SUV",
+      "brand": "BMW",
+      "model": "Yeni iX",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.bmw.com.tr/content/bmw/marketTR/bmw_com_tr/tr/all-models/i-series/ix/bmw-ix-technical-data.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "BMW|Yeni iX1|SUV",
+      "brand": "BMW",
+      "model": "Yeni iX1",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.bmw.com.tr/tr/all-models/i-series/ix1/bmw-ix1-technical-data.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "BMW|Yeni iX2|SUV",
+      "brand": "BMW",
+      "model": "Yeni iX2",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.bmw.com.tr/content/dam/bmw/marketTR/bmw_com_tr/pdf/BMW_iX2_Brosur_Digital.pdf",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "BMW|Yeni iX3|SUV",
+      "brand": "BMW",
+      "model": "Yeni iX3",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.bmw.com.tr/tr/all-models/x-serisi/ix3/bmw-ix3-technical-data.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "BYD|ATTO 2|SUV",
+      "brand": "BYD",
+      "model": "ATTO 2",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.bydauto.com.tr/storage/pdf/2025-0139-byd-atto2-teknik-brosur-4.pdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "BYD|ATTO 3|SUV",
+      "brand": "BYD",
+      "model": "ATTO 3",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.bydauto.com.tr/storage/pdf/byd-atto-3-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "BYD|DOLPHIN|Hatchback",
+      "brand": "BYD",
+      "model": "DOLPHIN",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.bydauto.com.tr/storage/pdf/teknik/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-01-02-26.pdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "BYD|HAN|Sedan",
+      "brand": "BYD",
+      "model": "HAN",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.bydauto.com.tr/storage/pdf/byd-han-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "BYD|SEAL U DM-i|SUV",
+      "brand": "BYD",
+      "model": "SEAL U DM-i",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.bydauto.com.tr/storage/pdf/teknik/byd-seal-u-dm-i-teknik-ozellikler-ve-donanim-tablosu-23-01-26.pdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "BYD|SEAL U EV|SUV",
+      "brand": "BYD",
+      "model": "SEAL U EV",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.bydauto.com.tr/storage/pdf/byd-seal-u-ev-teknik-ozellikler-ve-donanim-tablosu-210525.pdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "BYD|SEAL|Sedan",
+      "brand": "BYD",
+      "model": "SEAL",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.bydauto.com.tr/storage/pdf/byd-seal-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "BYD|SEALION 7|SUV",
+      "brand": "BYD",
+      "model": "SEALION 7",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.bydauto.com.tr/storage/pdf/byd-sealion-7-teknik-brosur.pdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "BYD|TANG|SUV",
+      "brand": "BYD",
+      "model": "TANG",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.bydauto.com.tr/storage/pdf/byd-tang-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Chery|TIGGO7|SUV",
+      "brand": "Chery",
+      "model": "TIGGO7",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.cherytr.com/tiggo-7/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Chery|TIGGO8|SUV",
+      "brand": "Chery",
+      "model": "TIGGO8",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.cherytr.com/tiggo-8/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Citroën|Berlingo Van|Panel Van",
+      "brand": "Citroën",
+      "model": "Berlingo Van",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/yeni-berlingo-van",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|Berlingo|MPV",
+      "brand": "Citroën",
+      "model": "Berlingo",
+      "bodyStyle": "MPV",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/yeni-berlingo",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|C3 Aircross Hybrid 145|SUV",
+      "brand": "Citroën",
+      "model": "C3 Aircross Hybrid 145",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/yeni-c3-aircross-suv",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|C4 Hybrid 145|Hatchback",
+      "brand": "Citroën",
+      "model": "C4 Hybrid 145",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/c4",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|C4 X Hybrid 145|Sedan",
+      "brand": "Citroën",
+      "model": "C4 X Hybrid 145",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/c4x",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|C5 Aircross Hybrid 145|SUV",
+      "brand": "Citroën",
+      "model": "C5 Aircross Hybrid 145",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/yeni-c5-aircross-hibrit",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|ë-C3 Aircross|SUV",
+      "brand": "Citroën",
+      "model": "ë-C3 Aircross",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/e-c3-aircross",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|ë-C3|Hatchback",
+      "brand": "Citroën",
+      "model": "ë-C3",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/yeni-ec3",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|ë-C4 X|Sedan",
+      "brand": "Citroën",
+      "model": "ë-C4 X",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/e-c4x",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|ë-C4|Hatchback",
+      "brand": "Citroën",
+      "model": "ë-C4",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/e-c4/teknik-ozellikler",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|ë-C5 Aircross|SUV",
+      "brand": "Citroën",
+      "model": "ë-C5 Aircross",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/yeni-e-c5-aircross",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|Jumper|Panel Van",
+      "brand": "Citroën",
+      "model": "Jumper",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/jumper",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|Jumpy Kamyonet|Chassis Cab",
+      "brand": "Citroën",
+      "model": "Jumpy Kamyonet",
+      "bodyStyle": "Chassis Cab",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/jumpy-kamyonet",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|Jumpy Van|Panel Van",
+      "brand": "Citroën",
+      "model": "Jumpy Van",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/jumpy-van",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Citroën|SpaceTourer|Passenger Van",
+      "brand": "Citroën",
+      "model": "SpaceTourer",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://talep.citroen.com.tr/dijital-katalog/spacetourer",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "CUPRA|Ateca|SUV",
+      "brand": "CUPRA",
+      "model": "Ateca",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.cupraofficial.com.tr/modeller/cupra-ateca",
+      "discoveredAssetUrl": "https://www.cupraofficial.com.tr/content/dam/public/cupra-website/generic/rrss-share/cupra-logo-facebook-og.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 200; text/html"
+    },
+    {
+      "familyKey": "CUPRA|Born|Hatchback",
+      "brand": "CUPRA",
+      "model": "Born",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.cupraofficial.com.tr/modeller/cupra-born",
+      "discoveredAssetUrl": "https://www.cupraofficial.com.tr/content/dam/public/cupra-website/generic/rrss-share/cupra-logo-facebook-og.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 200; text/html"
+    },
+    {
+      "familyKey": "CUPRA|Formentor|SUV",
+      "brand": "CUPRA",
+      "model": "Formentor",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.cupraofficial.com.tr/modeller/yeni-cupra-formentor",
+      "discoveredAssetUrl": "https://www.cupraofficial.com.tr/content/dam/public/cupra-website/generic/rrss-share/cupra-logo-facebook-og.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 200; text/html"
+    },
+    {
+      "familyKey": "CUPRA|Leon|Hatchback",
+      "brand": "CUPRA",
+      "model": "Leon",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.cupraofficial.com.tr/modeller/yeni-cupra-leon",
+      "discoveredAssetUrl": "https://www.cupraofficial.com.tr/content/dam/public/cupra-website/generic/rrss-share/cupra-logo-facebook-og.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 200; text/html"
+    },
+    {
+      "familyKey": "CUPRA|Tavascan|SUV",
+      "brand": "CUPRA",
+      "model": "Tavascan",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.cupraofficial.com.tr/modeller/cupra-tavascan/tavascan-endurance",
+      "discoveredAssetUrl": "https://www.cupraofficial.com.tr/content/dam/public/cupra-website/generic/rrss-share/cupra-logo-facebook-og.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 200; text/html"
+    },
+    {
+      "familyKey": "CUPRA|Terramar|SUV",
+      "brand": "CUPRA",
+      "model": "Terramar",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.cupraofficial.com.tr/modeller/cupra-terramar",
+      "discoveredAssetUrl": "https://www.cupraofficial.com.tr/content/dam/public/cupra-website/generic/rrss-share/cupra-logo-facebook-og.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 200; text/html"
+    },
+    {
+      "familyKey": "Dacia|Bigster|SUV",
+      "brand": "Dacia",
+      "model": "Bigster",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.dacia.com.tr/modeller/bigster.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "Dacia|Duster|SUV",
+      "brand": "Dacia",
+      "model": "Duster",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-duster.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Dacia|Jogger|MPV",
+      "brand": "Dacia",
+      "model": "Jogger",
+      "bodyStyle": "MPV",
+      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-jogger.html",
+      "discoveredAssetUrl": "https://cdn.group.renault.com/dac/master/dacia-vn/vehicules/rji/jogger-ri1-ph2/herozone-banners/jogger-ri1-ph2-herozone-001-desktop.jpg.ximg.large.jpg/458f9ef69f.jpg",
+      "localPath": "data/production/media/candidates/50a4ee3e7188aa6021d76b4f37823fd49a41f7307c13bcc7a048f98eaae2e2bc.jpg",
+      "sha256": "50a4ee3e7188aa6021d76b4f37823fd49a41f7307c13bcc7a048f98eaae2e2bc",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Dacia|Logan|Sedan",
+      "brand": "Dacia",
+      "model": "Logan",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-logan/konfigurator-yeni.html",
+      "discoveredAssetUrl": "https://3dv1.renault.com/Image?databaseId=871ff57b-0b57-4b73-92cf-a75f2d4982fb&snapshotId=9c36f4e3-72d8-2662-a133-3cf43c611436",
+      "localPath": "data/production/media/candidates/06e631293beccc2998541b4799848966821e35bb7e306c07e1ab3db41a3effbe.jpg",
+      "sha256": "06e631293beccc2998541b4799848966821e35bb7e306c07e1ab3db41a3effbe",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Dacia|Sandero Stepway|SUV",
+      "brand": "Dacia",
+      "model": "Sandero Stepway",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-sandero-stepway.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Dacia|Sandero|Hatchback",
+      "brand": "Dacia",
+      "model": "Sandero",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-sandero-bi1-ph2/konfigurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "Dacia|Spring|Hatchback",
+      "brand": "Dacia",
+      "model": "Spring",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-dacia-spring.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "DFSK|E5|SUV",
+      "brand": "DFSK",
+      "model": "E5",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.dfsk-tr.com/tr/e5",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TimeoutError: The operation was aborted due to timeout"
+    },
+    {
+      "familyKey": "DS Automobiles|DS 7|SUV",
+      "brand": "DS Automobiles",
+      "model": "DS 7",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.dsautomobiles.com.tr/modeller/ds-7.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "DS Automobiles|N°4|Hatchback",
+      "brand": "DS Automobiles",
+      "model": "N°4",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.dsautomobiles.com.tr/modeller/ds-n4.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "DS Automobiles|N°8|Fastback SUV",
+      "brand": "DS Automobiles",
+      "model": "N°8",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.dsautomobiles.com.tr/modeller/ds-n8.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Ferrari|12Cilindri|Coupe",
+      "brand": "Ferrari",
+      "model": "12Cilindri",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.ferrari.com/tr-TR/auto/car-range",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Ferrari|296 GTB|Coupe",
+      "brand": "Ferrari",
+      "model": "296 GTB",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.ferrari.com/tr-TR/auto/car-range",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Ferrari|296 GTS|Convertible",
+      "brand": "Ferrari",
+      "model": "296 GTS",
+      "bodyStyle": "Convertible",
+      "sourcePageUrl": "https://www.ferrari.com/tr-TR/auto/car-range",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Ferrari|Amalfi|Coupe",
+      "brand": "Ferrari",
+      "model": "Amalfi",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.ferrari.com/tr-TR/auto/car-range",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Ferrari|Purosangue|SUV",
+      "brand": "Ferrari",
+      "model": "Purosangue",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.ferrari.com/tr-TR/auto/car-range",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Ferrari|Roma Spider|Convertible",
+      "brand": "Ferrari",
+      "model": "Roma Spider",
+      "bodyStyle": "Convertible",
+      "sourcePageUrl": "https://www.ferrari.com/tr-TR/auto/car-range",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|500e|Convertible",
+      "brand": "Fiat",
+      "model": "500e",
+      "bodyStyle": "Convertible",
+      "sourcePageUrl": "https://www.fiat.com.tr/modeller/500e",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|500e|Hatchback",
+      "brand": "Fiat",
+      "model": "500e",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.fiat.com.tr/modeller/500e",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|600|SUV",
+      "brand": "Fiat",
+      "model": "600",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.fiat.com.tr/modeller/600",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|600e|SUV",
+      "brand": "Fiat",
+      "model": "600e",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.fiat.com.tr/modeller/600-elektrikli",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|Doblo Cargo|Panel Van",
+      "brand": "Fiat",
+      "model": "Doblo Cargo",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.fiat.com.tr/professional",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|Doblo|MPV",
+      "brand": "Fiat",
+      "model": "Doblo",
+      "bodyStyle": "MPV",
+      "sourcePageUrl": "https://www.fiat.com.tr/modeller/doblo-combi",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|Ducato Kamyonet|Chassis Cab",
+      "brand": "Fiat",
+      "model": "Ducato Kamyonet",
+      "bodyStyle": "Chassis Cab",
+      "sourcePageUrl": "https://www.fiat.com.tr/professional",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|Ducato Minibüs|Passenger Van",
+      "brand": "Fiat",
+      "model": "Ducato Minibüs",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://www.fiat.com.tr/professional",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|Ducato Van|Panel Van",
+      "brand": "Fiat",
+      "model": "Ducato Van",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.fiat.com.tr/professional",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|E-Doblo Cargo|Panel Van",
+      "brand": "Fiat",
+      "model": "E-Doblo Cargo",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.fiat.com.tr/professional",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|E-Scudo|Panel Van",
+      "brand": "Fiat",
+      "model": "E-Scudo",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.fiat.com.tr/professional",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|Egea Cross|Crossover",
+      "brand": "Fiat",
+      "model": "Egea Cross",
+      "bodyStyle": "Crossover",
+      "sourcePageUrl": "https://www.fiat.com.tr/modeller/egea-cross",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|Egea Sedan|Sedan",
+      "brand": "Fiat",
+      "model": "Egea Sedan",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.fiat.com.tr/modeller/egea",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|Grande Panda|Hatchback",
+      "brand": "Fiat",
+      "model": "Grande Panda",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.fiat.com.tr/modeller/grande-panda",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|Scudo Kamyonet|Chassis Cab",
+      "brand": "Fiat",
+      "model": "Scudo Kamyonet",
+      "bodyStyle": "Chassis Cab",
+      "sourcePageUrl": "https://www.fiat.com.tr/professional",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|Scudo Van|Panel Van",
+      "brand": "Fiat",
+      "model": "Scudo Van",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.fiat.com.tr/professional",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|Topolino|Quadricycle",
+      "brand": "Fiat",
+      "model": "Topolino",
+      "bodyStyle": "Quadricycle",
+      "sourcePageUrl": "https://www.fiat.com.tr/modeller/topolino",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Fiat|Ulysse|Passenger Van",
+      "brand": "Fiat",
+      "model": "Ulysse",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://www.fiat.com.tr/modeller/ulysse",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Ford|Capri|Fastback SUV",
+      "brand": "Ford",
+      "model": "Capri",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.ford.com.tr/otomobiller/yeni-elektrikli-capri",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "Ford|E-Tourneo Courier|MPV",
+      "brand": "Ford",
+      "model": "E-Tourneo Courier",
+      "bodyStyle": "MPV",
+      "sourcePageUrl": "https://www.ford.com.tr/ticari-araclar/e-tourneo-courier",
+      "discoveredAssetUrl": "https://cdnepws.azureedge.net/ford/media/ford/images/logos/ford.png",
+      "localPath": "data/production/media/candidates/b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b.png",
+      "sha256": "b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Ford|E-Transit Courier|Panel Van",
+      "brand": "Ford",
+      "model": "E-Transit Courier",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.ford.com.tr/ticari-araclar",
+      "discoveredAssetUrl": "https://cdnepws.azureedge.net/ford/media/ford/images/logos/ford.png",
+      "localPath": "data/production/media/candidates/b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b.png",
+      "sha256": "b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Ford|E-Transit Custom|Panel Van",
+      "brand": "Ford",
+      "model": "E-Transit Custom",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.ford.com.tr/ticari-araclar",
+      "discoveredAssetUrl": "https://cdnepws.azureedge.net/ford/media/ford/images/logos/ford.png",
+      "localPath": "data/production/media/candidates/b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b.png",
+      "sha256": "b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Ford|Explorer|SUV",
+      "brand": "Ford",
+      "model": "Explorer",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.ford.com.tr/otomobiller/yeni-elektrikli-explorer",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "Ford|Kuga|SUV",
+      "brand": "Ford",
+      "model": "Kuga",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.ford.com.tr/otomobiller/kuga",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "Ford|Mustang Mach-E|SUV",
+      "brand": "Ford",
+      "model": "Mustang Mach-E",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.ford.com.tr/otomobiller/mustang-mach-e",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "Ford|Puma Gen-E|SUV",
+      "brand": "Ford",
+      "model": "Puma Gen-E",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.ford.com.tr/otomobiller/puma-gen-e",
+      "discoveredAssetUrl": "https://cdnepws.azureedge.net/ford/media/ford/images/logos/ford.png",
+      "localPath": "data/production/media/candidates/b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b.png",
+      "sha256": "b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Ford|Puma|SUV",
+      "brand": "Ford",
+      "model": "Puma",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.ford.com.tr/otomobiller/puma",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "Ford|Ranger|Pickup",
+      "brand": "Ford",
+      "model": "Ranger",
+      "bodyStyle": "Pickup",
+      "sourcePageUrl": "https://www.ford.com.tr/ticari-araclar",
+      "discoveredAssetUrl": "https://cdnepws.azureedge.net/ford/media/ford/images/logos/ford.png",
+      "localPath": "data/production/media/candidates/b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b.png",
+      "sha256": "b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Ford|Tourneo Courier|MPV",
+      "brand": "Ford",
+      "model": "Tourneo Courier",
+      "bodyStyle": "MPV",
+      "sourcePageUrl": "https://www.ford.com.tr/ticari-araclar/tourneo-courier",
+      "discoveredAssetUrl": "https://cdnepws.azureedge.net/ford/media/ford/images/logos/ford.png",
+      "localPath": "data/production/media/candidates/b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b.png",
+      "sha256": "b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Ford|Transit Connect|Panel Van",
+      "brand": "Ford",
+      "model": "Transit Connect",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.ford.com.tr/ticari-araclar",
+      "discoveredAssetUrl": "https://cdnepws.azureedge.net/ford/media/ford/images/logos/ford.png",
+      "localPath": "data/production/media/candidates/b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b.png",
+      "sha256": "b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Ford|Transit Courier|Panel Van",
+      "brand": "Ford",
+      "model": "Transit Courier",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.ford.com.tr/ticari-araclar",
+      "discoveredAssetUrl": "https://cdnepws.azureedge.net/ford/media/ford/images/logos/ford.png",
+      "localPath": "data/production/media/candidates/b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b.png",
+      "sha256": "b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Ford|Transit Custom|Panel Van",
+      "brand": "Ford",
+      "model": "Transit Custom",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.ford.com.tr/ticari-araclar",
+      "discoveredAssetUrl": "https://cdnepws.azureedge.net/ford/media/ford/images/logos/ford.png",
+      "localPath": "data/production/media/candidates/b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b.png",
+      "sha256": "b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Ford|Transit|Chassis Cab",
+      "brand": "Ford",
+      "model": "Transit",
+      "bodyStyle": "Chassis Cab",
+      "sourcePageUrl": "https://www.ford.com.tr/ticari-araclar",
+      "discoveredAssetUrl": "https://cdnepws.azureedge.net/ford/media/ford/images/logos/ford.png",
+      "localPath": "data/production/media/candidates/b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b.png",
+      "sha256": "b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Ford|Transit|Panel Van",
+      "brand": "Ford",
+      "model": "Transit",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.ford.com.tr/ticari-araclar",
+      "discoveredAssetUrl": "https://cdnepws.azureedge.net/ford/media/ford/images/logos/ford.png",
+      "localPath": "data/production/media/candidates/b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b.png",
+      "sha256": "b582ac6fbb8f67d930c83ce711d695818898c0349b339433237cf4cddc90362b",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Honda|CR-V|SUV",
+      "brand": "Honda",
+      "model": "CR-V",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.honda.com.tr/otomobil/modeller/honda-cr-v",
+      "discoveredAssetUrl": "https://cdn.v5.honda.com.tr/img/otomobil/crv-hibrit/crv-banner-2026.jpg?format=jpeg&width=1200&height=630",
+      "localPath": "data/production/media/candidates/0efd5df5117064d0997c7ca229142ba769985e1f6dea4b2be58ff9e59ebf0989.jpg",
+      "sha256": "0efd5df5117064d0997c7ca229142ba769985e1f6dea4b2be58ff9e59ebf0989",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Honda|HR-V|SUV",
+      "brand": "Honda",
+      "model": "HR-V",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.honda.com.tr/otomobil/modeller/honda-hr-v",
+      "discoveredAssetUrl": "https://cdn.v5.honda.com.tr/img/otomobil/hrv-hibrit/hrv-banner-slide-1.jpg?format=jpeg&width=1200&height=630",
+      "localPath": "data/production/media/candidates/537ce3fb864cf7870167658d5191fe24240458adece3a9c179bdd0f693a2bd6f.jpg",
+      "sha256": "537ce3fb864cf7870167658d5191fe24240458adece3a9c179bdd0f693a2bd6f",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Honda|Jazz|Hatchback",
+      "brand": "Honda",
+      "model": "Jazz",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.honda.com.tr/otomobil/modeller/honda-jazz",
+      "discoveredAssetUrl": "https://cdn.v5.honda.com.tr/img/common/otomobil-share-img.jpg",
+      "localPath": "data/production/media/candidates/ea4a3c3f92f1793aeed3c2f8aac71f9aa585d9ea2485c18dd89669ef3078f5b1.jpg",
+      "sha256": "ea4a3c3f92f1793aeed3c2f8aac71f9aa585d9ea2485c18dd89669ef3078f5b1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Honda|Prelude|Coupe",
+      "brand": "Honda",
+      "model": "Prelude",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.honda.com.tr/otomobil/modeller/honda-prelude",
+      "discoveredAssetUrl": "https://cdn.v5.honda.com.tr/img/common/otomobil-share-img.jpg",
+      "localPath": "data/production/media/candidates/ea4a3c3f92f1793aeed3c2f8aac71f9aa585d9ea2485c18dd89669ef3078f5b1.jpg",
+      "sha256": "ea4a3c3f92f1793aeed3c2f8aac71f9aa585d9ea2485c18dd89669ef3078f5b1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Honda|ZR-V|SUV",
+      "brand": "Honda",
+      "model": "ZR-V",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.honda.com.tr/otomobil/modeller/honda-zr-v",
+      "discoveredAssetUrl": "https://cdn.v5.honda.com.tr/img/common/otomobil-share-img.jpg",
+      "localPath": "data/production/media/candidates/ea4a3c3f92f1793aeed3c2f8aac71f9aa585d9ea2485c18dd89669ef3078f5b1.jpg",
+      "sha256": "ea4a3c3f92f1793aeed3c2f8aac71f9aa585d9ea2485c18dd89669ef3078f5b1",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Hongqi|E-HS9|SUV",
+      "brand": "Hongqi",
+      "model": "E-HS9",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.hongqi-auto.com/pages/cartype/cartype_E-hs9_new.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Hongqi|E-QM5|Sedan",
+      "brand": "Hongqi",
+      "model": "E-QM5",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.hongqi-auto.com/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Hongqi|H9|Sedan",
+      "brand": "Hongqi",
+      "model": "H9",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.hongqi-auto.com/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Hongqi|HS5|SUV",
+      "brand": "Hongqi",
+      "model": "HS5",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.hongqi-auto.com/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Hyundai|BAYON|SUV",
+      "brand": "Hyundai",
+      "model": "BAYON",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/bayon-digital-brosurpdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Hyundai|INSTER|Hatchback",
+      "brand": "Hyundai",
+      "model": "INSTER",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/inster-brosurpdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Hyundai|IONIQ 5 N|SUV",
+      "brand": "Hyundai",
+      "model": "IONIQ 5 N",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/ioniq5n-dijital-brosurpdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Hyundai|IONIQ 5|SUV",
+      "brand": "Hyundai",
+      "model": "IONIQ 5",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/ioniq5-digital-brosur",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Hyundai|IONIQ 9|SUV",
+      "brand": "Hyundai",
+      "model": "IONIQ 9",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/ioniq9-digital-brosur",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Hyundai|i20|Hatchback",
+      "brand": "Hyundai",
+      "model": "i20",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/i20-dijital-brosurpdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Hyundai|i30|Hatchback",
+      "brand": "Hyundai",
+      "model": "i30",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/i30-digital-brosurpdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Hyundai|KONA Elektrik|SUV",
+      "brand": "Hyundai",
+      "model": "KONA Elektrik",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/kona-ev-digital-brosur",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TimeoutError: The operation was aborted due to timeout"
+    },
+    {
+      "familyKey": "Hyundai|KONA|SUV",
+      "brand": "Hyundai",
+      "model": "KONA",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/kona-digital-brosurpdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Hyundai|SANTA FE Hibrit|SUV",
+      "brand": "Hyundai",
+      "model": "SANTA FE Hibrit",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/santa-fe-digital-brosurpdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Hyundai|STARIA Hibrit|MPV",
+      "brand": "Hyundai",
+      "model": "STARIA Hibrit",
+      "bodyStyle": "MPV",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/staria-digital-brosur",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Hyundai|TUCSON Hibrit|SUV",
+      "brand": "Hyundai",
+      "model": "TUCSON Hibrit",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/tucson-digital-brosurpdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Hyundai|TUCSON|SUV",
+      "brand": "Hyundai",
+      "model": "TUCSON",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/tucson-digital-brosurpdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Hyundai|Yeni IONIQ 6|Sedan",
+      "brand": "Hyundai",
+      "model": "Yeni IONIQ 6",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/ioniq-6-digital-brosurpdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Isuzu|BIG.e|Panel Van",
+      "brand": "Isuzu",
+      "model": "BIG.e",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.isuzu.com.tr/satis/fiyat-listesi/big-e",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Isuzu|D-Max|Pickup",
+      "brand": "Isuzu",
+      "model": "D-Max",
+      "bodyStyle": "Pickup",
+      "sourcePageUrl": "https://isuzu.com.tr/satis/fiyat-listesi/d-max",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Isuzu|NLR|Chassis Cab",
+      "brand": "Isuzu",
+      "model": "NLR",
+      "bodyStyle": "Chassis Cab",
+      "sourcePageUrl": "https://www.isuzu.com.tr/satis/fiyat-listesi/kamyonet",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "JAECOO|JAECOO 7|SUV",
+      "brand": "JAECOO",
+      "model": "JAECOO 7",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.omodajaecoo.com.tr/",
+      "discoveredAssetUrl": "https://www.omodajaecoo.com.tr/wp-content/uploads/2026/01/opengraph-omodajaecoo.png",
+      "localPath": "data/production/media/candidates/a31cf7ff4803ee0a139e48411b626756d4179dab34d73cf11c3b74d0ac0edce6.webp",
+      "sha256": "a31cf7ff4803ee0a139e48411b626756d4179dab34d73cf11c3b74d0ac0edce6",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Jaguar|E-PACE|SUV",
+      "brand": "Jaguar",
+      "model": "E-PACE",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.jaguar.com.tr/jaguar-modelleri",
+      "discoveredAssetUrl": "https://media.cdn-jaguarlandrover.com/api/v2/images/24730/w/1600.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 404; text/html"
+    },
+    {
+      "familyKey": "Jaguar|F-PACE|SUV",
+      "brand": "Jaguar",
+      "model": "F-PACE",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.jaguar.com.tr/jaguar-modelleri",
+      "discoveredAssetUrl": "https://media.cdn-jaguarlandrover.com/api/v2/images/24730/w/1600.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 404; text/html"
+    },
+    {
+      "familyKey": "Jaguar|I-PACE|SUV",
+      "brand": "Jaguar",
+      "model": "I-PACE",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.jaguar.com.tr/jaguar-modelleri",
+      "discoveredAssetUrl": "https://media.cdn-jaguarlandrover.com/api/v2/images/24730/w/1600.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 404; text/html"
+    },
+    {
+      "familyKey": "Jeep|Avenger|SUV",
+      "brand": "Jeep",
+      "model": "Avenger",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.jeep.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "KGM|Actyon|SUV",
+      "brand": "KGM",
+      "model": "Actyon",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.ssangyong.com.tr/public/kataloglar",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "KGM|Korando|SUV",
+      "brand": "KGM",
+      "model": "Korando",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.ssangyong.com.tr/public/kataloglar",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "KGM|Musso Grand|Pickup",
+      "brand": "KGM",
+      "model": "Musso Grand",
+      "bodyStyle": "Pickup",
+      "sourcePageUrl": "https://ssangyong.com.tr/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "KGM|Rexton|SUV",
+      "brand": "KGM",
+      "model": "Rexton",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.ssangyong.com.tr/public/kataloglar",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "KGM|Tivoli|SUV",
+      "brand": "KGM",
+      "model": "Tivoli",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.ssangyong.com.tr/public/kataloglar",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "KGM|Torres EVX|SUV",
+      "brand": "KGM",
+      "model": "Torres EVX",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.ssangyong.com.tr/public/kataloglar",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "KGM|Torres|SUV",
+      "brand": "KGM",
+      "model": "Torres",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.ssangyong.com.tr/public/kataloglar",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Kia|EV3|SUV",
+      "brand": "Kia",
+      "model": "EV3",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.kia.com/tr/anasayfa.html",
+      "discoveredAssetUrl": "https://www.kia.com/content/dam/kwcms/tr/tr/images/anasayfa/Anasayfa-K%C4%B0A.jpg",
+      "localPath": "data/production/media/candidates/0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5.avif",
+      "sha256": "0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5",
+      "contentType": "image/avif",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Kia|EV6|Crossover",
+      "brand": "Kia",
+      "model": "EV6",
+      "bodyStyle": "Crossover",
+      "sourcePageUrl": "https://www.kia.com/tr/anasayfa.html",
+      "discoveredAssetUrl": "https://www.kia.com/content/dam/kwcms/tr/tr/images/anasayfa/Anasayfa-K%C4%B0A.jpg",
+      "localPath": "data/production/media/candidates/0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5.avif",
+      "sha256": "0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5",
+      "contentType": "image/avif",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Kia|EV9|SUV",
+      "brand": "Kia",
+      "model": "EV9",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.kia.com/tr/anasayfa.html",
+      "discoveredAssetUrl": "https://www.kia.com/content/dam/kwcms/tr/tr/images/anasayfa/Anasayfa-K%C4%B0A.jpg",
+      "localPath": "data/production/media/candidates/0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5.avif",
+      "sha256": "0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5",
+      "contentType": "image/avif",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Kia|Niro EV|SUV",
+      "brand": "Kia",
+      "model": "Niro EV",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.kia.com/tr/anasayfa.html",
+      "discoveredAssetUrl": "https://www.kia.com/content/dam/kwcms/tr/tr/images/anasayfa/Anasayfa-K%C4%B0A.jpg",
+      "localPath": "data/production/media/candidates/0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5.avif",
+      "sha256": "0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5",
+      "contentType": "image/avif",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Kia|Picanto|Hatchback",
+      "brand": "Kia",
+      "model": "Picanto",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.kia.com/tr/anasayfa.html",
+      "discoveredAssetUrl": "https://www.kia.com/content/dam/kwcms/tr/tr/images/anasayfa/Anasayfa-K%C4%B0A.jpg",
+      "localPath": "data/production/media/candidates/0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5.avif",
+      "sha256": "0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5",
+      "contentType": "image/avif",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Kia|Sorento|SUV",
+      "brand": "Kia",
+      "model": "Sorento",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.kia.com/tr/anasayfa.html",
+      "discoveredAssetUrl": "https://www.kia.com/content/dam/kwcms/tr/tr/images/anasayfa/Anasayfa-K%C4%B0A.jpg",
+      "localPath": "data/production/media/candidates/0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5.avif",
+      "sha256": "0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5",
+      "contentType": "image/avif",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Kia|Sportage|SUV",
+      "brand": "Kia",
+      "model": "Sportage",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.kia.com/tr/anasayfa.html",
+      "discoveredAssetUrl": "https://www.kia.com/content/dam/kwcms/tr/tr/images/anasayfa/Anasayfa-K%C4%B0A.jpg",
+      "localPath": "data/production/media/candidates/0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5.avif",
+      "sha256": "0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5",
+      "contentType": "image/avif",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Kia|Stonic|SUV",
+      "brand": "Kia",
+      "model": "Stonic",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.kia.com/tr/modeller/stonic/fiyat-listesi.html",
+      "discoveredAssetUrl": "https://www.kia.com/content/dam/kwcms/tr/tr/images/showroom/Stonic_ICE_BL_MY26_ClearCut_34%20Front_CMYK.png",
+      "localPath": "data/production/media/candidates/4447d50016605105eaa924102476277f3fe4337c4fb79bb07f606ba889e54e79.avif",
+      "sha256": "4447d50016605105eaa924102476277f3fe4337c4fb79bb07f606ba889e54e79",
+      "contentType": "image/avif",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Kia|XCeed|Crossover",
+      "brand": "Kia",
+      "model": "XCeed",
+      "bodyStyle": "Crossover",
+      "sourcePageUrl": "https://www.kia.com/tr/anasayfa.html",
+      "discoveredAssetUrl": "https://www.kia.com/content/dam/kwcms/tr/tr/images/anasayfa/Anasayfa-K%C4%B0A.jpg",
+      "localPath": "data/production/media/candidates/0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5.avif",
+      "sha256": "0529946838a6068b01968ea6e387ed9e304e95b32e1f0dfbb606e188b3cd2ef5",
+      "contentType": "image/avif",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Lamborghini|Revuelto|Coupe",
+      "brand": "Lamborghini",
+      "model": "Revuelto",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.lamborghini.com/en-en/models",
+      "discoveredAssetUrl": "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/models_gw/2025/hero.jpg",
+      "localPath": "data/production/media/candidates/c7c5facd040c692b207a2e567231f9f25d7f9cdeb538bf411c3754045ee549a9.webp",
+      "sha256": "c7c5facd040c692b207a2e567231f9f25d7f9cdeb538bf411c3754045ee549a9",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Lamborghini|Temerario|Coupe",
+      "brand": "Lamborghini",
+      "model": "Temerario",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.lamborghini.com/en-en/models",
+      "discoveredAssetUrl": "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/models_gw/2025/hero.jpg",
+      "localPath": "data/production/media/candidates/c7c5facd040c692b207a2e567231f9f25d7f9cdeb538bf411c3754045ee549a9.webp",
+      "sha256": "c7c5facd040c692b207a2e567231f9f25d7f9cdeb538bf411c3754045ee549a9",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Lamborghini|Urus SE|SUV",
+      "brand": "Lamborghini",
+      "model": "Urus SE",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.lamborghini.com/en-en/models",
+      "discoveredAssetUrl": "https://www.lamborghini.com/sites/it-en/files/DAM/lamborghini/facelift_2019/models_gw/2025/hero.jpg",
+      "localPath": "data/production/media/candidates/c7c5facd040c692b207a2e567231f9f25d7f9cdeb538bf411c3754045ee549a9.webp",
+      "sha256": "c7c5facd040c692b207a2e567231f9f25d7f9cdeb538bf411c3754045ee549a9",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Land Rover|Defender 110|SUV",
+      "brand": "Land Rover",
+      "model": "Defender 110",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.landrover.com.tr/",
+      "discoveredAssetUrl": "https://media.cdn-jaguarlandrover.com/api/v2/images/105475/w/1600.jpg",
+      "localPath": "data/production/media/candidates/d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf.webp",
+      "sha256": "d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Land Rover|Defender 130|SUV",
+      "brand": "Land Rover",
+      "model": "Defender 130",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.landrover.com.tr/",
+      "discoveredAssetUrl": "https://media.cdn-jaguarlandrover.com/api/v2/images/105475/w/1600.jpg",
+      "localPath": "data/production/media/candidates/d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf.webp",
+      "sha256": "d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Land Rover|Discovery Sport|SUV",
+      "brand": "Land Rover",
+      "model": "Discovery Sport",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.landrover.com.tr/",
+      "discoveredAssetUrl": "https://media.cdn-jaguarlandrover.com/api/v2/images/105475/w/1600.jpg",
+      "localPath": "data/production/media/candidates/d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf.webp",
+      "sha256": "d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Land Rover|Discovery|SUV",
+      "brand": "Land Rover",
+      "model": "Discovery",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.landrover.com.tr/",
+      "discoveredAssetUrl": "https://media.cdn-jaguarlandrover.com/api/v2/images/105475/w/1600.jpg",
+      "localPath": "data/production/media/candidates/d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf.webp",
+      "sha256": "d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Land Rover|Range Rover Evoque|SUV",
+      "brand": "Land Rover",
+      "model": "Range Rover Evoque",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.landrover.com.tr/",
+      "discoveredAssetUrl": "https://media.cdn-jaguarlandrover.com/api/v2/images/105475/w/1600.jpg",
+      "localPath": "data/production/media/candidates/d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf.webp",
+      "sha256": "d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Land Rover|Range Rover Sport|SUV",
+      "brand": "Land Rover",
+      "model": "Range Rover Sport",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.landrover.com.tr/",
+      "discoveredAssetUrl": "https://media.cdn-jaguarlandrover.com/api/v2/images/105475/w/1600.jpg",
+      "localPath": "data/production/media/candidates/d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf.webp",
+      "sha256": "d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Land Rover|Range Rover Velar|SUV",
+      "brand": "Land Rover",
+      "model": "Range Rover Velar",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.landrover.com.tr/",
+      "discoveredAssetUrl": "https://media.cdn-jaguarlandrover.com/api/v2/images/105475/w/1600.jpg",
+      "localPath": "data/production/media/candidates/d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf.webp",
+      "sha256": "d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Land Rover|Range Rover|SUV",
+      "brand": "Land Rover",
+      "model": "Range Rover",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.landrover.com.tr/build-and-price/range-rover-fiyat-listesi",
+      "discoveredAssetUrl": "https://media.cdn-jaguarlandrover.com/api/v2/images/105475/w/1600.jpg",
+      "localPath": "data/production/media/candidates/d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf.webp",
+      "sha256": "d48e6b725f13ec639cdbf3b39c22d5945cb7aee1359ca3e5f4192e12b10c43cf",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Leapmotor|T03|Hatchback",
+      "brand": "Leapmotor",
+      "model": "T03",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.leapmotor.com.tr/",
+      "discoveredAssetUrl": "https://www.leapmotor.com.tr/assets/images/leaplogo.png",
+      "localPath": "data/production/media/candidates/9ae63d8f54fe93091fede1b767e79a984d045ab4bfbc8784d44dd3e75cc866ab.png",
+      "sha256": "9ae63d8f54fe93091fede1b767e79a984d045ab4bfbc8784d44dd3e75cc866ab",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Lexus|ES|Sedan",
+      "brand": "Lexus",
+      "model": "ES",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.lexus.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-lexus-1?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/e44028f9794b5fbdfe0af1534103ef00bc855a744d9b03c29e571b21e178907f.webp",
+      "sha256": "e44028f9794b5fbdfe0af1534103ef00bc855a744d9b03c29e571b21e178907f",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Lexus|LBX|SUV",
+      "brand": "Lexus",
+      "model": "LBX",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.lexus.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-lexus-1?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/e44028f9794b5fbdfe0af1534103ef00bc855a744d9b03c29e571b21e178907f.webp",
+      "sha256": "e44028f9794b5fbdfe0af1534103ef00bc855a744d9b03c29e571b21e178907f",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Lexus|LM|MPV",
+      "brand": "Lexus",
+      "model": "LM",
+      "bodyStyle": "MPV",
+      "sourcePageUrl": "https://www.lexus.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-lexus-1?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/e44028f9794b5fbdfe0af1534103ef00bc855a744d9b03c29e571b21e178907f.webp",
+      "sha256": "e44028f9794b5fbdfe0af1534103ef00bc855a744d9b03c29e571b21e178907f",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Lexus|NX|SUV",
+      "brand": "Lexus",
+      "model": "NX",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.lexus.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-lexus-1?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/e44028f9794b5fbdfe0af1534103ef00bc855a744d9b03c29e571b21e178907f.webp",
+      "sha256": "e44028f9794b5fbdfe0af1534103ef00bc855a744d9b03c29e571b21e178907f",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Lexus|RX|SUV",
+      "brand": "Lexus",
+      "model": "RX",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.lexus.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-lexus-1?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/e44028f9794b5fbdfe0af1534103ef00bc855a744d9b03c29e571b21e178907f.webp",
+      "sha256": "e44028f9794b5fbdfe0af1534103ef00bc855a744d9b03c29e571b21e178907f",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Maserati|GranTurismo Folgore|Coupe",
+      "brand": "Maserati",
+      "model": "GranTurismo Folgore",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.maserati.com/tr/tr/models",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Maserati|GranTurismo|Coupe",
+      "brand": "Maserati",
+      "model": "GranTurismo",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.maserati.com/tr/tr/models",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Maserati|Grecale Folgore|SUV",
+      "brand": "Maserati",
+      "model": "Grecale Folgore",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.maserati.com/tr/tr/models",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Maserati|Grecale|SUV",
+      "brand": "Maserati",
+      "model": "Grecale",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.maserati.com/tr/tr/models",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Mercedes-Benz|A-Serisi|Hatchback",
+      "brand": "Mercedes-Benz",
+      "model": "A-Serisi",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|AMG GT|Coupe",
+      "brand": "Mercedes-Benz",
+      "model": "AMG GT",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|C-Serisi|Sedan",
+      "brand": "Mercedes-Benz",
+      "model": "C-Serisi",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|Citan Panelvan|Panel Van",
+      "brand": "Mercedes-Benz",
+      "model": "Citan Panelvan",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/vans",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|CLA|Coupe",
+      "brand": "Mercedes-Benz",
+      "model": "CLA",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|CLE|Convertible",
+      "brand": "Mercedes-Benz",
+      "model": "CLE",
+      "bodyStyle": "Convertible",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|E-Serisi|Sedan",
+      "brand": "Mercedes-Benz",
+      "model": "E-Serisi",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://prefiyat.mercedes-benz.com.tr/model/e-serisi/fiyat",
+      "discoveredAssetUrl": "https://assets.oneweb.mercedes-benz.com/global/1.15.0/favicon/android-chrome-192x192.png?v=tfC62RUetn",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|eCitan Panelvan|Panel Van",
+      "brand": "Mercedes-Benz",
+      "model": "eCitan Panelvan",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/vans",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|EQA|SUV",
+      "brand": "Mercedes-Benz",
+      "model": "EQA",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|EQB|SUV",
+      "brand": "Mercedes-Benz",
+      "model": "EQB",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|EQE SUV|SUV",
+      "brand": "Mercedes-Benz",
+      "model": "EQE SUV",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|EQE|Sedan",
+      "brand": "Mercedes-Benz",
+      "model": "EQE",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|EQS SUV|SUV",
+      "brand": "Mercedes-Benz",
+      "model": "EQS SUV",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|EQS|Liftback",
+      "brand": "Mercedes-Benz",
+      "model": "EQS",
+      "bodyStyle": "Liftback",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|eVito Panelvan|Panel Van",
+      "brand": "Mercedes-Benz",
+      "model": "eVito Panelvan",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/vans",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|G-Serisi Electric|SUV",
+      "brand": "Mercedes-Benz",
+      "model": "G-Serisi Electric",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|G-Serisi|SUV",
+      "brand": "Mercedes-Benz",
+      "model": "G-Serisi",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|GLA|SUV",
+      "brand": "Mercedes-Benz",
+      "model": "GLA",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|GLB|SUV",
+      "brand": "Mercedes-Benz",
+      "model": "GLB",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|GLC|SUV",
+      "brand": "Mercedes-Benz",
+      "model": "GLC",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|GLE|SUV",
+      "brand": "Mercedes-Benz",
+      "model": "GLE",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|GLS|SUV",
+      "brand": "Mercedes-Benz",
+      "model": "GLS",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|S-Serisi|Sedan",
+      "brand": "Mercedes-Benz",
+      "model": "S-Serisi",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/passengercars/configurator.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|Sprinter Panelvan|Panel Van",
+      "brand": "Mercedes-Benz",
+      "model": "Sprinter Panelvan",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/vans",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|Sprinter Şasi|Chassis Cab",
+      "brand": "Mercedes-Benz",
+      "model": "Sprinter Şasi",
+      "bodyStyle": "Chassis Cab",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/vans",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mercedes-Benz|Vito Panelvan|Panel Van",
+      "brand": "Mercedes-Benz",
+      "model": "Vito Panelvan",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.mercedes-benz.com.tr/vans",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "MG|Cyberster|Convertible",
+      "brand": "MG",
+      "model": "Cyberster",
+      "bodyStyle": "Convertible",
+      "sourcePageUrl": "https://www.mg-turkey.com/tr/modeller.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "MG|E-HS|SUV",
+      "brand": "MG",
+      "model": "E-HS",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mg-turkey.com/tr/modeller.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "MG|HS|SUV",
+      "brand": "MG",
+      "model": "HS",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mg-turkey.com/tr/modeller.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "MG|MG3|Hatchback",
+      "brand": "MG",
+      "model": "MG3",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.mg-turkey.com/tr/modeller.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "MG|MG4|Hatchback",
+      "brand": "MG",
+      "model": "MG4",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.mg-turkey.com/tr/modeller.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "MG|MG7|Liftback",
+      "brand": "MG",
+      "model": "MG7",
+      "bodyStyle": "Liftback",
+      "sourcePageUrl": "https://www.mg-turkey.com/tr/modeller.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "MG|MGS5 EV|SUV",
+      "brand": "MG",
+      "model": "MGS5 EV",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mg-turkey.com/tr/modeller.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "MG|ZS|SUV",
+      "brand": "MG",
+      "model": "ZS",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mg-turkey.com/tr/modeller.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "MINI|Aceman|SUV",
+      "brand": "MINI",
+      "model": "Aceman",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mini.com.tr/tr_TR/home.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "MINI|Cooper 5 Kapı|Hatchback",
+      "brand": "MINI",
+      "model": "Cooper 5 Kapı",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.mini.com.tr/tr_TR/home.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "MINI|Cooper Cabrio|Convertible",
+      "brand": "MINI",
+      "model": "Cooper Cabrio",
+      "bodyStyle": "Convertible",
+      "sourcePageUrl": "https://www.mini.com.tr/tr_TR/home.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "MINI|Cooper Electric|Hatchback",
+      "brand": "MINI",
+      "model": "Cooper Electric",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.mini.com.tr/tr_TR/home.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "MINI|Cooper|Hatchback",
+      "brand": "MINI",
+      "model": "Cooper",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.mini.com.tr/tr_TR/home.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "MINI|Countryman Electric|SUV",
+      "brand": "MINI",
+      "model": "Countryman Electric",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mini.com.tr/tr_TR/home.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "MINI|Countryman|SUV",
+      "brand": "MINI",
+      "model": "Countryman",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mini.com.tr/tr_TR/home.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Mitsubishi|ASX|SUV",
+      "brand": "Mitsubishi",
+      "model": "ASX",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mitsubishi-motors.com.tr/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Mitsubishi|Colt|Hatchback",
+      "brand": "Mitsubishi",
+      "model": "Colt",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.mitsubishi-motors.com.tr/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Mitsubishi|Outlander|SUV",
+      "brand": "Mitsubishi",
+      "model": "Outlander",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.mitsubishi-motors.com.tr/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Nissan|Juke|SUV",
+      "brand": "Nissan",
+      "model": "Juke",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.nissan.com.tr/araclar/yeni-araclar.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "Nissan|Qashqai|SUV",
+      "brand": "Nissan",
+      "model": "Qashqai",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.nissan.com.tr/araclar/yeni-araclar.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "Nissan|Townstar Combi|Passenger Van",
+      "brand": "Nissan",
+      "model": "Townstar Combi",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://www.nissan.com.tr/araclar/yeni-araclar.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "Nissan|Townstar EV Van|Panel Van",
+      "brand": "Nissan",
+      "model": "Townstar EV Van",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.nissan.com.tr/",
+      "discoveredAssetUrl": "https://www.nissan.com.tr/etc/designs/nissan_next_v4/26.08.30.NISSAN-12/common-assets/img/logo/logo.png",
+      "localPath": "data/production/media/candidates/c9a43e45f79177948360f2c9725c40a222c33256bbb855bdd2878f1c6be1e484.png",
+      "sha256": "c9a43e45f79177948360f2c9725c40a222c33256bbb855bdd2878f1c6be1e484",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Nissan|Townstar Van|Panel Van",
+      "brand": "Nissan",
+      "model": "Townstar Van",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.nissan.com.tr/",
+      "discoveredAssetUrl": "https://www.nissan.com.tr/etc/designs/nissan_next_v4/26.08.30.NISSAN-12/common-assets/img/logo/logo.png",
+      "localPath": "data/production/media/candidates/c9a43e45f79177948360f2c9725c40a222c33256bbb855bdd2878f1c6be1e484.png",
+      "sha256": "c9a43e45f79177948360f2c9725c40a222c33256bbb855bdd2878f1c6be1e484",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Nissan|X-Trail|SUV",
+      "brand": "Nissan",
+      "model": "X-Trail",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.nissan.com.tr/araclar/yeni-araclar.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 404"
+    },
+    {
+      "familyKey": "OMODA|OMODA 5|SUV",
+      "brand": "OMODA",
+      "model": "OMODA 5",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.omodajaecoo.com.tr/",
+      "discoveredAssetUrl": "https://www.omodajaecoo.com.tr/wp-content/uploads/2026/01/opengraph-omodajaecoo.png",
+      "localPath": "data/production/media/candidates/fd6515a6a9eeb195bfb4490036b5a2f054778fb114d86ea60f35c578109c9dc9.png",
+      "sha256": "fd6515a6a9eeb195bfb4490036b5a2f054778fb114d86ea60f35c578109c9dc9",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "OMODA|OMODA 7|SUV",
+      "brand": "OMODA",
+      "model": "OMODA 7",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.omodajaecoo.com.tr/",
+      "discoveredAssetUrl": "https://www.omodajaecoo.com.tr/wp-content/uploads/2026/01/opengraph-omodajaecoo.png",
+      "localPath": "data/production/media/candidates/a31cf7ff4803ee0a139e48411b626756d4179dab34d73cf11c3b74d0ac0edce6.webp",
+      "sha256": "a31cf7ff4803ee0a139e48411b626756d4179dab34d73cf11c3b74d0ac0edce6",
+      "contentType": "image/webp",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Opel|Astra Electric|Hatchback",
+      "brand": "Opel",
+      "model": "Astra Electric",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.opel.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Opel|Astra Sports Tourer|Station Wagon",
+      "brand": "Opel",
+      "model": "Astra Sports Tourer",
+      "bodyStyle": "Station Wagon",
+      "sourcePageUrl": "https://www.opel.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Opel|Astra|Hatchback",
+      "brand": "Opel",
+      "model": "Astra",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.opel.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Opel|Combo Cargo|Panel Van",
+      "brand": "Opel",
+      "model": "Combo Cargo",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://fiyatlisteleri.opel.com.tr/ticari-araclar",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Opel|Combo Electric|Panel Van",
+      "brand": "Opel",
+      "model": "Combo Electric",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://fiyatlisteleri.opel.com.tr/ticari-araclar",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Opel|Corsa Electric|Hatchback",
+      "brand": "Opel",
+      "model": "Corsa Electric",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.opel.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Opel|Corsa|Hatchback",
+      "brand": "Opel",
+      "model": "Corsa",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.opel.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Opel|Frontera Electric|SUV",
+      "brand": "Opel",
+      "model": "Frontera Electric",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.opel.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Opel|Frontera|SUV",
+      "brand": "Opel",
+      "model": "Frontera",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.opel.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Opel|Grandland Electric|SUV",
+      "brand": "Opel",
+      "model": "Grandland Electric",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.opel.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Opel|Grandland|SUV",
+      "brand": "Opel",
+      "model": "Grandland",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.opel.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Opel|Mokka Electric|SUV",
+      "brand": "Opel",
+      "model": "Mokka Electric",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.opel.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Opel|Mokka|SUV",
+      "brand": "Opel",
+      "model": "Mokka",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.opel.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Opel|Movano|Panel Van",
+      "brand": "Opel",
+      "model": "Movano",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://fiyatlisteleri.opel.com.tr/ticari-araclar",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Opel|Vivaro Cargo|Panel Van",
+      "brand": "Opel",
+      "model": "Vivaro Cargo",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://fiyatlisteleri.opel.com.tr/ticari-araclar",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Opel|Vivaro Kamyonet|Chassis Cab",
+      "brand": "Opel",
+      "model": "Vivaro Kamyonet",
+      "bodyStyle": "Chassis Cab",
+      "sourcePageUrl": "https://fiyatlisteleri.opel.com.tr/ticari-araclar",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Opel|Zafira|Passenger Van",
+      "brand": "Opel",
+      "model": "Zafira",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://fiyatlisteleri.opel.com.tr/ticari-araclar",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Peugeot|2008|SUV",
+      "brand": "Peugeot",
+      "model": "2008",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.peugeot.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|208|Hatchback",
+      "brand": "Peugeot",
+      "model": "208",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.peugeot.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|3008|Fastback SUV",
+      "brand": "Peugeot",
+      "model": "3008",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.peugeot.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|308|Hatchback",
+      "brand": "Peugeot",
+      "model": "308",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.peugeot.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|408|Liftback",
+      "brand": "Peugeot",
+      "model": "408",
+      "bodyStyle": "Liftback",
+      "sourcePageUrl": "https://www.peugeot.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|5008|SUV",
+      "brand": "Peugeot",
+      "model": "5008",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.peugeot.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|Boxer Van|Panel Van",
+      "brand": "Peugeot",
+      "model": "Boxer Van",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.peugeot.com.tr/modeller/ticari-araclar.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|E-2008|SUV",
+      "brand": "Peugeot",
+      "model": "E-2008",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.peugeot.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|E-208|Hatchback",
+      "brand": "Peugeot",
+      "model": "E-208",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.peugeot.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|E-3008|Fastback SUV",
+      "brand": "Peugeot",
+      "model": "E-3008",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.peugeot.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|E-308|Hatchback",
+      "brand": "Peugeot",
+      "model": "E-308",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.peugeot.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|E-5008|SUV",
+      "brand": "Peugeot",
+      "model": "E-5008",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.peugeot.com.tr/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|E-Partner|Panel Van",
+      "brand": "Peugeot",
+      "model": "E-Partner",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.peugeot.com.tr/modeller/ticari-araclar.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|Expert Kamyonet|Chassis Cab",
+      "brand": "Peugeot",
+      "model": "Expert Kamyonet",
+      "bodyStyle": "Chassis Cab",
+      "sourcePageUrl": "https://www.peugeot.com.tr/modeller/ticari-araclar.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|Expert Van|Panel Van",
+      "brand": "Peugeot",
+      "model": "Expert Van",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.peugeot.com.tr/modeller/ticari-araclar.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|Partner Van|Panel Van",
+      "brand": "Peugeot",
+      "model": "Partner Van",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.peugeot.com.tr/modeller/ticari-araclar.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Peugeot|Traveller|Passenger Van",
+      "brand": "Peugeot",
+      "model": "Traveller",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://www.peugeot.com.tr/modeller/ticari-araclar.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Porsche|718 Boxster|Convertible",
+      "brand": "Porsche",
+      "model": "718 Boxster",
+      "bodyStyle": "Convertible",
+      "sourcePageUrl": "https://www.porsche.com.tr/modeller",
+      "discoveredAssetUrl": "https://www.porsche.com.tr/img/porsche-logo.png",
+      "localPath": "data/production/media/candidates/05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda.png",
+      "sha256": "05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Porsche|718 Cayman|Coupe",
+      "brand": "Porsche",
+      "model": "718 Cayman",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.porsche.com.tr/modeller",
+      "discoveredAssetUrl": "https://www.porsche.com.tr/img/porsche-logo.png",
+      "localPath": "data/production/media/candidates/05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda.png",
+      "sha256": "05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Porsche|911|Coupe",
+      "brand": "Porsche",
+      "model": "911",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.porsche.com.tr/modeller",
+      "discoveredAssetUrl": "https://www.porsche.com.tr/img/porsche-logo.png",
+      "localPath": "data/production/media/candidates/05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda.png",
+      "sha256": "05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Porsche|Cayenne Coupe|Fastback SUV",
+      "brand": "Porsche",
+      "model": "Cayenne Coupe",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.porsche.com.tr/modeller",
+      "discoveredAssetUrl": "https://www.porsche.com.tr/img/porsche-logo.png",
+      "localPath": "data/production/media/candidates/05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda.png",
+      "sha256": "05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Porsche|Cayenne|SUV",
+      "brand": "Porsche",
+      "model": "Cayenne",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.porsche.com.tr/modeller",
+      "discoveredAssetUrl": "https://www.porsche.com.tr/img/porsche-logo.png",
+      "localPath": "data/production/media/candidates/05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda.png",
+      "sha256": "05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Porsche|Macan|SUV",
+      "brand": "Porsche",
+      "model": "Macan",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.porsche.com.tr/modeller",
+      "discoveredAssetUrl": "https://www.porsche.com.tr/img/porsche-logo.png",
+      "localPath": "data/production/media/candidates/05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda.png",
+      "sha256": "05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Porsche|Panamera|Liftback",
+      "brand": "Porsche",
+      "model": "Panamera",
+      "bodyStyle": "Liftback",
+      "sourcePageUrl": "https://www.porsche.com.tr/modeller",
+      "discoveredAssetUrl": "https://www.porsche.com.tr/img/porsche-logo.png",
+      "localPath": "data/production/media/candidates/05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda.png",
+      "sha256": "05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Porsche|Taycan|Sedan",
+      "brand": "Porsche",
+      "model": "Taycan",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.porsche.com.tr/modeller",
+      "discoveredAssetUrl": "https://www.porsche.com.tr/img/porsche-logo.png",
+      "localPath": "data/production/media/candidates/05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda.png",
+      "sha256": "05e16edebd997667ff928376e78feccb7f5a370f8ab61310a588f77ecda74eda",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Renault|Austral|SUV",
+      "brand": "Renault",
+      "model": "Austral",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.renault.com.tr/konfigurator-tum-modeller.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Captur|SUV",
+      "brand": "Renault",
+      "model": "Captur",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.renault.com.tr/konfigurator-tum-modeller.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Clio|Hatchback",
+      "brand": "Renault",
+      "model": "Clio",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.renault.com.tr/hybrid-araclar/yeni-clio/teknik-bilgiler.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Kangoo Multix|Passenger Van",
+      "brand": "Renault",
+      "model": "Kangoo Multix",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://ticari.renault.com.tr/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Kangoo Van|Panel Van",
+      "brand": "Renault",
+      "model": "Kangoo Van",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://ticari.renault.com.tr/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Master Kamyonet|Chassis Cab",
+      "brand": "Renault",
+      "model": "Master Kamyonet",
+      "bodyStyle": "Chassis Cab",
+      "sourcePageUrl": "https://ticari.renault.com.tr/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Master Van|Panel Van",
+      "brand": "Renault",
+      "model": "Master Van",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://ticari.renault.com.tr/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Megane E-Tech|Hatchback",
+      "brand": "Renault",
+      "model": "Megane E-Tech",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.renault.com.tr/konfigurator-tum-modeller.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Megane Sedan|Sedan",
+      "brand": "Renault",
+      "model": "Megane Sedan",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.renault.com.tr/binek-araclar/megane-sedan/teknik-bilgiler.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Rafale|Fastback SUV",
+      "brand": "Renault",
+      "model": "Rafale",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.renault.com.tr/konfigurator-tum-modeller.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Renault 5 E-Tech|Hatchback",
+      "brand": "Renault",
+      "model": "Renault 5 E-Tech",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.renault.com.tr/konfigurator-tum-modeller.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Symbioz|SUV",
+      "brand": "Renault",
+      "model": "Symbioz",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.renault.com.tr/konfigurator-tum-modeller.html",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Trafic Combi|Passenger Van",
+      "brand": "Renault",
+      "model": "Trafic Combi",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://ticari.renault.com.tr/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Renault|Trafic Panelvan|Panel Van",
+      "brand": "Renault",
+      "model": "Trafic Panelvan",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://ticari.renault.com.tr/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Rolls-Royce|Cullinan|SUV",
+      "brand": "Rolls-Royce",
+      "model": "Cullinan",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.rolls-roycemotorcars.com/istanbul/en_GB/showroom.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Rolls-Royce|Ghost Extended|Sedan",
+      "brand": "Rolls-Royce",
+      "model": "Ghost Extended",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.rolls-roycemotorcars.com/istanbul/en_GB/showroom.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Rolls-Royce|Ghost|Sedan",
+      "brand": "Rolls-Royce",
+      "model": "Ghost",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.rolls-roycemotorcars.com/istanbul/en_GB/showroom.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Rolls-Royce|Phantom Extended|Sedan",
+      "brand": "Rolls-Royce",
+      "model": "Phantom Extended",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.rolls-roycemotorcars.com/istanbul/en_GB/showroom.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Rolls-Royce|Phantom|Sedan",
+      "brand": "Rolls-Royce",
+      "model": "Phantom",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.rolls-roycemotorcars.com/istanbul/en_GB/showroom.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "Rolls-Royce|Spectre|Coupe",
+      "brand": "Rolls-Royce",
+      "model": "Spectre",
+      "bodyStyle": "Coupe",
+      "sourcePageUrl": "https://www.rolls-roycemotorcars.com/istanbul/en_GB/showroom.html",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
+    },
+    {
+      "familyKey": "SEAT|Arona|SUV",
+      "brand": "SEAT",
+      "model": "Arona",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.seat.com.tr/",
+      "discoveredAssetUrl": "https://www.seat.com.tr/seatweb_files/20199416137218__jcr_content.resizedViewPort.scale.assetRootM.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 200; text/html"
+    },
+    {
+      "familyKey": "SEAT|Ateca|SUV",
+      "brand": "SEAT",
+      "model": "Ateca",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.seat.com.tr/",
+      "discoveredAssetUrl": "https://www.seat.com.tr/seatweb_files/20199416137218__jcr_content.resizedViewPort.scale.assetRootM.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 200; text/html"
+    },
+    {
+      "familyKey": "SEAT|Ibiza|Hatchback",
+      "brand": "SEAT",
+      "model": "Ibiza",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.seat.com.tr/",
+      "discoveredAssetUrl": "https://www.seat.com.tr/seatweb_files/20199416137218__jcr_content.resizedViewPort.scale.assetRootM.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 200; text/html"
+    },
+    {
+      "familyKey": "SEAT|Leon|Hatchback",
+      "brand": "SEAT",
+      "model": "Leon",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.seat.com.tr/",
+      "discoveredAssetUrl": "https://www.seat.com.tr/seatweb_files/20199416137218__jcr_content.resizedViewPort.scale.assetRootM.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 200; text/html"
+    },
+    {
+      "familyKey": "Škoda|Elroq|SUV",
+      "brand": "Škoda",
+      "model": "Elroq",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.skoda.com.tr/arac-karsilastirma",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Škoda|Enyaq Coupe|Fastback SUV",
+      "brand": "Škoda",
+      "model": "Enyaq Coupe",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.skoda.com.tr/arac-karsilastirma",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Škoda|Enyaq|SUV",
+      "brand": "Škoda",
+      "model": "Enyaq",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.skoda.com.tr/arac-karsilastirma",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Škoda|Fabia|Hatchback",
+      "brand": "Škoda",
+      "model": "Fabia",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.skoda.com.tr/arac-karsilastirma",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Škoda|Kamiq|SUV",
+      "brand": "Škoda",
+      "model": "Kamiq",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.skoda.com.tr/arac-karsilastirma",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Škoda|Karoq|SUV",
+      "brand": "Škoda",
+      "model": "Karoq",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.skoda.com.tr/arac-karsilastirma",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Škoda|Kodiaq|SUV",
+      "brand": "Škoda",
+      "model": "Kodiaq",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.skoda.com.tr/arac-karsilastirma",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Škoda|Octavia|Liftback",
+      "brand": "Škoda",
+      "model": "Octavia",
+      "bodyStyle": "Liftback",
+      "sourcePageUrl": "https://www.skoda.com.tr/arac-karsilastirma",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Škoda|Scala|Hatchback",
+      "brand": "Škoda",
+      "model": "Scala",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.skoda.com.tr/arac-karsilastirma",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Škoda|Superb|Liftback",
+      "brand": "Škoda",
+      "model": "Superb",
+      "bodyStyle": "Liftback",
+      "sourcePageUrl": "https://www.skoda.com.tr/arac-karsilastirma",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Subaru|Crosstrek|SUV",
+      "brand": "Subaru",
+      "model": "Crosstrek",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://subaru.com.tr/index",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Subaru|Forester|SUV",
+      "brand": "Subaru",
+      "model": "Forester",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://subaru.com.tr/index",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Subaru|Solterra|SUV",
+      "brand": "Subaru",
+      "model": "Solterra",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://subaru.com.tr/index",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Suzuki|Swift|Hatchback",
+      "brand": "Suzuki",
+      "model": "Swift",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.suzuki.com.tr/tr/otomobil/",
+      "discoveredAssetUrl": "https://cdn.suzuki.com.tr/%3C?=(https://cdn.suzuki.com.tr/);?%3Easset/share.webp?003",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 403; text/html"
+    },
+    {
+      "familyKey": "Suzuki|Vitara|SUV",
+      "brand": "Suzuki",
+      "model": "Vitara",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.suzuki.com.tr/tr/otomobil/",
+      "discoveredAssetUrl": "https://cdn.suzuki.com.tr/%3C?=(https://cdn.suzuki.com.tr/);?%3Easset/share.webp?003",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 403; text/html"
+    },
+    {
+      "familyKey": "Tesla|Model 3|Sedan",
+      "brand": "Tesla",
+      "model": "Model 3",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.tesla.com/tr_TR",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Tesla|Model Y|SUV",
+      "brand": "Tesla",
+      "model": "Model Y",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.tesla.com/tr_TR",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Togg|T10F|Liftback",
+      "brand": "Togg",
+      "model": "T10F",
+      "bodyStyle": "Liftback",
+      "sourcePageUrl": "https://togg.com.tr/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Togg|T10X|SUV",
+      "brand": "Togg",
+      "model": "T10X",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://togg.com.tr/",
+      "status": "NO_IMAGE_METADATA"
+    },
+    {
+      "familyKey": "Toyota|Corolla Cross|SUV",
+      "brand": "Toyota",
+      "model": "Corolla Cross",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.toyota.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|Corolla Hatchback|Hatchback",
+      "brand": "Toyota",
+      "model": "Corolla Hatchback",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.toyota.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|Corolla|Sedan",
+      "brand": "Toyota",
+      "model": "Corolla",
+      "bodyStyle": "Sedan",
+      "sourcePageUrl": "https://www.toyota.com.tr/araba-modelleri/corolla-sedan",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|GR Yaris|Hatchback",
+      "brand": "Toyota",
+      "model": "GR Yaris",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://www.toyota.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|Hilux|Pickup",
+      "brand": "Toyota",
+      "model": "Hilux",
+      "bodyStyle": "Pickup",
+      "sourcePageUrl": "https://www.toyota.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|Land Cruiser Prado|SUV",
+      "brand": "Toyota",
+      "model": "Land Cruiser Prado",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.toyota.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|Proace Cargo|Panel Van",
+      "brand": "Toyota",
+      "model": "Proace Cargo",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.toyota.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|Proace City Cargo|Panel Van",
+      "brand": "Toyota",
+      "model": "Proace City Cargo",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.toyota.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|Proace City|Passenger Van",
+      "brand": "Toyota",
+      "model": "Proace City",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://www.toyota.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|Proace Max|Panel Van",
+      "brand": "Toyota",
+      "model": "Proace Max",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://www.toyota.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|Proace Verso|Passenger Van",
+      "brand": "Toyota",
+      "model": "Proace Verso",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://www.toyota.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|RAV4|SUV",
+      "brand": "Toyota",
+      "model": "RAV4",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.toyota.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|Toyota C-HR|Fastback SUV",
+      "brand": "Toyota",
+      "model": "Toyota C-HR",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.toyota.com.tr/",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|Yaris Cross|SUV",
+      "brand": "Toyota",
+      "model": "Yaris Cross",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.toyota.com.tr/araba-modelleri/yaris-cross",
+      "discoveredAssetUrl": "https://scene7.toyota.eu/is/image/toyotaeurope/large-logo-toyota?wid=1920&hei=1080&fit=hfit,1",
+      "localPath": "data/production/media/candidates/b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28.jpg",
+      "sha256": "b33e43f67de1c1a028b2e3e56a8109a8ad16047a955bdc78a053496ce9498d28",
+      "contentType": "image/jpeg",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Toyota|Yaris|Hatchback",
+      "brand": "Toyota",
+      "model": "Yaris",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://turkiye.toyota.com.tr/middle/Toyota_Yaris_Teknik_%C3%96zellikler_Fiyatl%C4%B1_%2801.06.2026%29.pdf",
+      "status": "NO_IMAGE_METADATA",
+      "note": "PDF requires brochure extraction"
+    },
+    {
+      "familyKey": "Volkswagen|Amarok|Pickup",
+      "brand": "Volkswagen",
+      "model": "Amarok",
+      "bodyStyle": "Pickup",
+      "sourcePageUrl": "https://ticariarac.vw.com.tr/modeller",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volkswagen|Caddy Cargo|Panel Van",
+      "brand": "Volkswagen",
+      "model": "Caddy Cargo",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://ticariarac.vw.com.tr/modeller",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volkswagen|Caravelle|Passenger Van",
+      "brand": "Volkswagen",
+      "model": "Caravelle",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://ticariarac.vw.com.tr/modeller",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volkswagen|Crafter Panelvan|Panel Van",
+      "brand": "Volkswagen",
+      "model": "Crafter Panelvan",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://ticariarac.vw.com.tr/modeller",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volkswagen|Golf|Hatchback",
+      "brand": "Volkswagen",
+      "model": "Golf",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://binekarac.vw.com.tr/tr/modeller-fiyatlar/arac-modelleri.html",
+      "discoveredAssetUrl": "https://binekarac.vw.com.tr/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/img/vw-logo-2x.png",
+      "localPath": "data/production/media/candidates/09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db.png",
+      "sha256": "09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Volkswagen|ID.4|SUV",
+      "brand": "Volkswagen",
+      "model": "ID.4",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://binekarac.vw.com.tr/tr/modeller-fiyatlar/arac-modelleri.html",
+      "discoveredAssetUrl": "https://binekarac.vw.com.tr/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/img/vw-logo-2x.png",
+      "localPath": "data/production/media/candidates/09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db.png",
+      "sha256": "09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Volkswagen|ID.7|Liftback",
+      "brand": "Volkswagen",
+      "model": "ID.7",
+      "bodyStyle": "Liftback",
+      "sourcePageUrl": "https://binekarac.vw.com.tr/tr/modeller-fiyatlar/arac-modelleri.html",
+      "discoveredAssetUrl": "https://binekarac.vw.com.tr/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/img/vw-logo-2x.png",
+      "localPath": "data/production/media/candidates/09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db.png",
+      "sha256": "09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Volkswagen|ID.Buzz Cargo|Panel Van",
+      "brand": "Volkswagen",
+      "model": "ID.Buzz Cargo",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://ticariarac.vw.com.tr/modeller",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volkswagen|Multivan|Passenger Van",
+      "brand": "Volkswagen",
+      "model": "Multivan",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://ticariarac.vw.com.tr/modeller",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volkswagen|Passat|Station Wagon",
+      "brand": "Volkswagen",
+      "model": "Passat",
+      "bodyStyle": "Station Wagon",
+      "sourcePageUrl": "https://binekarac.vw.com.tr/tr/modeller-fiyatlar/arac-modelleri.html",
+      "discoveredAssetUrl": "https://binekarac.vw.com.tr/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/img/vw-logo-2x.png",
+      "localPath": "data/production/media/candidates/09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db.png",
+      "sha256": "09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Volkswagen|Polo|Hatchback",
+      "brand": "Volkswagen",
+      "model": "Polo",
+      "bodyStyle": "Hatchback",
+      "sourcePageUrl": "https://binekarac.vw.com.tr/tr/modeller-fiyatlar/arac-modelleri.html",
+      "discoveredAssetUrl": "https://binekarac.vw.com.tr/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/img/vw-logo-2x.png",
+      "localPath": "data/production/media/candidates/09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db.png",
+      "sha256": "09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Volkswagen|T-Cross|SUV",
+      "brand": "Volkswagen",
+      "model": "T-Cross",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://binekarac.vw.com.tr/tr/modeller-fiyatlar/arac-modelleri.html",
+      "discoveredAssetUrl": "https://binekarac.vw.com.tr/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/img/vw-logo-2x.png",
+      "localPath": "data/production/media/candidates/09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db.png",
+      "sha256": "09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Volkswagen|T-Roc|SUV",
+      "brand": "Volkswagen",
+      "model": "T-Roc",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://binekarac.vw.com.tr/tr/modeller-fiyatlar/arac-modelleri.html",
+      "discoveredAssetUrl": "https://binekarac.vw.com.tr/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/img/vw-logo-2x.png",
+      "localPath": "data/production/media/candidates/09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db.png",
+      "sha256": "09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Volkswagen|Taigo|Fastback SUV",
+      "brand": "Volkswagen",
+      "model": "Taigo",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://binekarac.vw.com.tr/tr/modeller-fiyatlar/arac-modelleri.html",
+      "discoveredAssetUrl": "https://binekarac.vw.com.tr/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/img/vw-logo-2x.png",
+      "localPath": "data/production/media/candidates/09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db.png",
+      "sha256": "09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Volkswagen|Tayron|SUV",
+      "brand": "Volkswagen",
+      "model": "Tayron",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://binekarac.vw.com.tr/tr/modeller-fiyatlar/arac-modelleri.html",
+      "discoveredAssetUrl": "https://binekarac.vw.com.tr/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/img/vw-logo-2x.png",
+      "localPath": "data/production/media/candidates/09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db.png",
+      "sha256": "09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Volkswagen|Tiguan|SUV",
+      "brand": "Volkswagen",
+      "model": "Tiguan",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://binekarac.vw.com.tr/tr/modeller-fiyatlar/arac-modelleri.html",
+      "discoveredAssetUrl": "https://binekarac.vw.com.tr/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/img/vw-logo-2x.png",
+      "localPath": "data/production/media/candidates/09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db.png",
+      "sha256": "09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Volkswagen|Touareg|SUV",
+      "brand": "Volkswagen",
+      "model": "Touareg",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://binekarac.vw.com.tr/tr/modeller-fiyatlar/arac-modelleri.html",
+      "discoveredAssetUrl": "https://binekarac.vw.com.tr/etc.clientlibs/clientlibs/vwa-ngw18/ngw18-frontend/apps/resources/statics/img/vw-logo-2x.png",
+      "localPath": "data/production/media/candidates/09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db.png",
+      "sha256": "09f1717a1fbe4e90e11864fef0fb7a1d9e595c3f2f86d1a330f7e61f04a232db",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
+    },
+    {
+      "familyKey": "Volkswagen|Transporter Kombi|Passenger Van",
+      "brand": "Volkswagen",
+      "model": "Transporter Kombi",
+      "bodyStyle": "Passenger Van",
+      "sourcePageUrl": "https://ticariarac.vw.com.tr/modeller",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volkswagen|Transporter Panelvan|Panel Van",
+      "brand": "Volkswagen",
+      "model": "Transporter Panelvan",
+      "bodyStyle": "Panel Van",
+      "sourcePageUrl": "https://ticariarac.vw.com.tr/modeller",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volkswagen|Transporter Pikap|Pickup",
+      "brand": "Volkswagen",
+      "model": "Transporter Pikap",
+      "bodyStyle": "Pickup",
+      "sourcePageUrl": "https://ticariarac.vw.com.tr/modeller",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volvo|EC40|Fastback SUV",
+      "brand": "Volvo",
+      "model": "EC40",
+      "bodyStyle": "Fastback SUV",
+      "sourcePageUrl": "https://www.volvocars.com/tr/cars/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volvo|EX30|SUV",
+      "brand": "Volvo",
+      "model": "EX30",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.volvocars.com/tr/cars/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volvo|EX40|SUV",
+      "brand": "Volvo",
+      "model": "EX40",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.volvocars.com/tr/cars/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volvo|EX90|SUV",
+      "brand": "Volvo",
+      "model": "EX90",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.volvocars.com/tr/cars/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volvo|V60|Station Wagon",
+      "brand": "Volvo",
+      "model": "V60",
+      "bodyStyle": "Station Wagon",
+      "sourcePageUrl": "https://www.volvocars.com/tr/cars/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volvo|XC60|SUV",
+      "brand": "Volvo",
+      "model": "XC60",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.volvocars.com/tr/cars/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    },
+    {
+      "familyKey": "Volvo|XC90|SUV",
+      "brand": "Volvo",
+      "model": "XC90",
+      "bodyStyle": "SUV",
+      "sourcePageUrl": "https://www.volvocars.com/tr/cars/",
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "HTTP 403"
+    }
+  ]
+}
