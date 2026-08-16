@@ -5,6 +5,7 @@ import type { SqlQueryable } from "@/features/vehicle-data/repository";
 import type { BodyType, Car, FuelType, Transmission } from "@/types/car";
 import type { ProductionFuelType } from "@/types/productionVehicle";
 import { getPostgresDatabase } from "@/lib/server/postgres";
+import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
 
 export interface VehicleCatalogReadRepository {
   readPublishedCatalog(at: Date): Promise<VehicleCatalogReadResult>;
@@ -49,10 +50,15 @@ function adaptRow(row: z.infer<typeof rowSchema>): Car | undefined {
   const transmission: Transmission | undefined = typeof transmissionValue === "string" &&
     /automatic|dual-clutch|reduction gear|multidrive|e-cvt/i.test(transmissionValue) ? "Automatic" : undefined;
   if (!fuel || !bodyType || !transmission) return undefined;
+  const resolvedImage = resolveVehicleImage({
+    variantId: row.id, brand: row.brand, model: row.model,
+    bodyStyle: row.body_style, modelYear: row.model_year,
+  });
   return {
     id: row.id, brand: row.brand, model: `${row.model} ${row.trim}`, year: row.model_year,
     price: row.amount_try, km: 0, fuel, transmission, bodyType,
-    image: "/cars/production-placeholder.svg", createdAt: row.created_at, updatedAt: row.updated_at,
+    image: resolvedImage.path, imageStatus: resolvedImage.status,
+    imageAttribution: resolvedImage.attributionText, createdAt: row.created_at, updatedAt: row.updated_at,
   };
 }
 

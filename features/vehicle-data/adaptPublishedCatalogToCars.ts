@@ -1,6 +1,7 @@
 import type { PublishedCatalog } from "@/features/vehicle-data/buildPublishedCatalog";
 import type { BodyType, Car, FuelType, Transmission } from "@/types/car";
 import type { ProductionFuelType } from "@/types/productionVehicle";
+import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
 
 const fuelMap: Readonly<Record<ProductionFuelType, FuelType | undefined>> = {
   GASOLINE: "Gasoline", DIESEL: "Diesel", LPG: "Gasoline", MHEV: "Hybrid",
@@ -34,6 +35,10 @@ export function adaptPublishedCatalogToCars(catalog: PublishedCatalog): CarsCata
       rejectedVehicleVariantIds.push(variant.id);
       continue;
     }
+    const resolvedImage = resolveVehicleImage({
+      variantId: variant.id, brand: variant.brand.value, model: variant.model.value,
+      generation: variant.generation?.value, bodyStyle: variant.bodyStyle.value, modelYear: variant.modelYear.value,
+    });
     cars.push({
       id: variant.id,
       brand: variant.brand.value,
@@ -45,7 +50,9 @@ export function adaptPublishedCatalogToCars(catalog: PublishedCatalog): CarsCata
       fuel,
       transmission,
       bodyType,
-      image: "/cars/production-placeholder.svg",
+      image: resolvedImage.path,
+      imageStatus: resolvedImage.status,
+      imageAttribution: resolvedImage.attributionText,
       createdAt: variant.createdAt,
       updatedAt: variant.updatedAt,
     });

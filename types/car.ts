@@ -33,6 +33,9 @@ export interface Car {
   bodyType: BodyType;
 
   image: string;
+  /** Exactness of the vehicle image; representative images must be labelled in UI. */
+  imageStatus?: "EXACT" | "REPRESENTATIVE" | "PLACEHOLDER";
+  imageAttribution?: string;
 
   createdAt: string;
   updatedAt: string;

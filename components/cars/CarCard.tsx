@@ -44,6 +44,16 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             className="object-cover transition duration-300 group-hover:scale-[1.025]"
           />
+          {car.imageStatus === "REPRESENTATIVE" && (
+            <span className="absolute bottom-3 right-3 rounded-full bg-black/70 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur">
+              {isTurkish ? "Temsilî görsel" : "Representative image"}
+            </span>
+          )}
+          {car.imageStatus === "PLACEHOLDER" && (
+            <span className="absolute bottom-3 right-3 rounded-full bg-black/70 px-2.5 py-1 text-[11px] font-medium text-white backdrop-blur">
+              {isTurkish ? "Görsel hazırlanıyor" : "Image pending"}
+            </span>
+          )}
           {isTopPick && (
             <span className="absolute left-3 top-3 rounded-full bg-black/85 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
               {isTurkish ? "En güçlü aday" : "Top candidate"}
