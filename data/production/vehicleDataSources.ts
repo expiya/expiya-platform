@@ -51,6 +51,12 @@ export const vehicleDataSources: readonly DataSource[] = [
     reviewNotes: ["Use the current Turkey model pages and dated price list", "Do not carry discontinued OMODA or PRO MAX configurations into the current catalog without fresh sales evidence", "Extract public facts only; no broad automated crawl or copyrighted asset reuse"],
   },
   {
+    id: "citroen-tr", name: "Citroën Türkiye / Tofaş", authority: "PRIMARY",
+    homepageUrl: "https://www.citroen.com.tr/", termsUrl: "https://www.citroen.com.tr/kullanim-kosullari.html",
+    usagePermission: "PUBLIC_FACTS_ONLY", reviewedAt: "2026-08-17T03:00:00.000Z",
+    reviewNotes: ["Use exact Turkey digital catalogs and dated Tofaş price-list rows", "Passenger and commercial configurations require separate collection batches", "Extract public facts only; do not reproduce copyrighted imagery or brochure prose"],
+  },
+  {
     id: "alfa-romeo-tr", name: "Alfa Romeo Türkiye / Tofaş", authority: "PRIMARY",
     homepageUrl: "https://www.alfaromeo.com.tr/", termsUrl: "https://www.alfaromeo.com.tr/kullanim-kosullari",
     usagePermission: "PUBLIC_FACTS_ONLY", reviewedAt: "2026-08-16T00:00:00.000Z",
