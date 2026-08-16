@@ -129,6 +129,9 @@ function questionScore(question: CatalogFacetQuestion, total: number): number {
 
 function nextQuestion(trace: CarsConversationTrace, candidates: readonly CatalogFacetCandidate[]): CatalogFacetQuestion | undefined {
   const answered = new Set([...trace.answeredQuestionPurposes, ...trace.askedQuestionPurposes]);
+  const conversationText = trace.requirements.map((entry) => entry.sourceText).join(" ");
+  const transmissionMaterial = /otomatik|manuel|vites|şanzıman/iu.test(conversationText);
+  const drivetrainMaterial = /4\s*[x×]\s*4|dört çeker|awd|rwd|fwd|çekiş|arazi|bozuk yol/iu.test(conversationText);
   const questions: CatalogFacetQuestion[] = [
     !latest(trace, "BODY_TYPE") && !answered.has("BODY_TYPE") ? categoricalQuestion(candidates, "BODY_TYPE", [
       { label: "SUV/crossover", matches: (item) => /SUV|CROSSOVER/iu.test(item.body) },
@@ -143,11 +146,11 @@ function nextQuestion(trace: CarsConversationTrace, candidates: readonly Catalog
       { label: "Hibrit", matches: (item) => fuelGroup(item.fuel) === "HYBRID" },
       { label: "Elektrik", matches: (item) => fuelGroup(item.fuel) === "ELECTRIC" },
     ], "Kalan seçenekleri en çok yakıt tercihi ayırıyor. Benzin, dizel, hibrit veya elektrikten hangisini istersin?") : undefined,
-    !latest(trace, "TRANSMISSION") && !answered.has("TRANSMISSION") ? categoricalQuestion(candidates, "TRANSMISSION", [
+    transmissionMaterial && !latest(trace, "TRANSMISSION") && !answered.has("TRANSMISSION") ? categoricalQuestion(candidates, "TRANSMISSION", [
       { label: "Otomatik", matches: (item) => item.transmission === "AUTOMATIC" },
       { label: "Manuel", matches: (item) => item.transmission === "MANUAL" },
     ], "Kalan araçlarda vites tercihi belirleyici. Otomatik mi, manuel mi istersin?") : undefined,
-    !latest(trace, "DRIVETRAIN") && !answered.has("DRIVETRAIN") ? categoricalQuestion(candidates, "DRIVETRAIN", [
+    drivetrainMaterial && !latest(trace, "DRIVETRAIN") && !answered.has("DRIVETRAIN") ? categoricalQuestion(candidates, "DRIVETRAIN", [
       { label: "Önden çekiş", matches: (item) => /FWD/iu.test(item.drivetrain) },
       { label: "Arkadan itiş", matches: (item) => /RWD/iu.test(item.drivetrain) },
       { label: "Dört çeker", matches: (item) => /AWD|4X4/iu.test(item.drivetrain) },
@@ -156,6 +159,9 @@ function nextQuestion(trace: CarsConversationTrace, candidates: readonly Catalog
   for (const definition of carsDecisionFacetDefinitions) {
     const purpose = definition.questionPurpose as CarsQuestionPurpose;
     if (latest(trace, definition.requirementKey) || answered.has(purpose)) continue;
+    if (definition.requirementKey === "MIN_SEATS" && latest(trace, "PARTY_SIZE")) continue;
+    const questionTriggered = definition.askByDefault || definition.questionTriggers?.some((source) => new RegExp(source, "iu").test(conversationText));
+    if (!questionTriggered) continue;
     const values = candidates
       .map((item) => valueAtPath(item.record, definition.valuePath))
       .filter((value): value is number => typeof value === "number" && Number.isFinite(value))
@@ -179,6 +185,10 @@ function nextQuestion(trace: CarsConversationTrace, candidates: readonly Catalog
 export function evaluateCatalogFacets(trace: CarsConversationTrace): CatalogFacetEvaluation {
   let candidates: readonly CatalogFacetCandidate[] = allCandidates;
   const appliedFilters: { key: string; value: string | number; before: number; after: number }[] = [];
+  const rejectedIds = new Set(trace.rejectedRecommendationIds.map((id) => id.replace(/^CATALOG:/u, "")));
+  if (rejectedIds.size > 0) {
+    candidates = applyFilter(candidates, appliedFilters, "REJECTED_CANDIDATES", rejectedIds.size, (item) => !rejectedIds.has(item.id));
+  }
   for (const definition of carsDecisionFacetDefinitions) {
     const requirement = latest(trace, definition.requirementKey)?.value;
     if (requirement === undefined) continue;

@@ -34,7 +34,7 @@ export function presentGovernedRecommendation(input: {
     : input.result.explanationInput.includes("MAX_CARGO")
       ? `${input.result.explanationInput.find((item) => item.startsWith("CARGO_L="))?.slice(8)} litre koltuklar açık bagaj hacmiyle uygun adaylar içinde ayrışıyor.`
       : input.result.explanationInput.includes("CATALOG_FACETS")
-        ? "Açık tercihlerin aktif sıfır araç kataloğuna birlikte uygulanmasıyla kalan seçenekler arasından deterministik olarak ayrışıyor."
+        ? "Bütçe ve açık tercihlerin birlikte değerlendirildiğinde kalan uygun sıfır araçlar arasında öne çıkıyor."
         : undefined;
   const preference = input.memory.personaPreference;
   const personaMatch = preference?.activated

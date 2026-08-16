@@ -36,8 +36,23 @@ describe("controlled vehicle persona decision layer", () => {
 
   it("maps masculine wording to neutral design traits without demographic language", () => {
     const traits = explicitPersonaTraits("Erkeksi görünen bir SUV istiyorum");
-    expect(traits).toEqual(expect.arrayContaining(["DESIGN", "DRIVING_ENGAGEMENT"]));
+    expect(traits).toEqual(["DESIGN"]);
     expect(neutralPersonaLabels(traits).join(" ")).not.toMatch(/erkek|kadın|aile babası/iu);
+  });
+
+  it("treats elegance as calm design rather than forced sportiness", () => {
+    const traits = explicitPersonaTraits("Erkeksi olsun ama sürüşü zarif olsun");
+    expect(traits).toEqual(expect.arrayContaining(["DESIGN", "COMFORT", "MINIMALISM"]));
+    expect(traits).not.toContain("DRIVING_ENGAGEMENT");
+  });
+
+  it("replaces a rejected sporty direction with premium and elegant traits", () => {
+    const changed = derivePersonaPreference([
+      { id: "u1", role: "user", content: "Spor ve havalı görünsün" },
+      { id: "u2", role: "user", content: "Premium ve şık duruş olsun" },
+    ]);
+    expect(changed.requestedTraits).toEqual(expect.arrayContaining(["PRESTIGE", "DESIGN"]));
+    expect(changed.requestedTraits).not.toContain("DRIVING_ENGAGEMENT");
   });
 
   it("never changes the hard-filtered candidate pool", () => {

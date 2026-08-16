@@ -15,6 +15,8 @@ const definitionSchema = z.object({
     patterns: z.array(z.string().min(1)).min(1),
     value: z.number(),
   })).optional(),
+  askByDefault: z.boolean().default(false),
+  questionTriggers: z.array(z.string().min(1)).optional(),
   scale: z.number().positive().default(1),
 });
 

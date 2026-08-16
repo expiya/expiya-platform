@@ -76,7 +76,7 @@ const EXIT_ONLY = /^(?:görüşürüz|hoşça kal(?:ın)?|bye|kapat(?:ıyorum)?|
 
 const VEHICLE_INTENT = /(?:araba|araç|otomobil|ilan|suv|sedan|pickup|pikap|4x4|koltuk|bagaj|bütçe|milyon|donanım|kişi(?:lik)?|ranger|hilux|corolla|civic|ioniq|clio|araba almak|araç bak|karşılaştır|kıyasla|\bvs\.?\b|versus|arazi|off-road|kötü yol|kamp|stabilize|kullanacağım|bakıyorum)/iu;
 const DISCOVERY_QUESTION = /(?:hangi senaryo|nasıl kullan|kaç koltuk|kaç litre|üst bütçe|bagaj|gövde tipi|yakıt|vites|daraltalım|en çok hangi|kaç kişi)/iu;
-const CAPABILITY = /(?:ne yapabildiğini|ne yapabiliyorsun|neler yapabilirsin|ne işe yararsın|bana nasıl yardımcı|ne konuda yardımcı|yeteneklerin|ne yapıyorsun sen)/iu;
+const CAPABILITY = /(?:ne yapabildiğini|ne yapabiliyorsun|neler yapabilirsin|ne işe yararsın|bana nasıl yardımcı|ne konuda yardımcı|benim için ne yap(?:acaksın|arsın)|yeteneklerin|ne yapıyorsun sen)/iu;
 const HELP_START = /(?:nereden başla|nereden başlamalıyım|nereden başlayacağımı|nereden başlayayım|nasıl başlarım|nereden tutayım)/iu;
 const RETURN_TO_TOPIC = /(?:arabaya dön|araca dön|konumuza dön|araba(?:ya)? dönelim|nerede kalmıştık|kaldığımız yer|neyse[,.]?\s*araba)/iu;
 const DIRECT_NAMED_ALT = /(?:harici ne var|dışında ne var|yerine ne var|alternatif(?:in|ler)?(?:i|ini)?\s*(?:söyle|ver|nedir)|isim ver|model(?:\s+adı)?\s*(?:söyle|ver)|ne önerirsin(?:\s+söyle)?|hangi (?:arabayı|aracı) öneriyorsun|önerin ne|tavsiyen nedir|başka ne(?:\s+var)?\s*söyle)/iu;

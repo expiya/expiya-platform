@@ -989,6 +989,22 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     return { kind: "QUESTION", message, conversation };
   }
 
+  const positiveRecommendationFeedback = (memory.recommendationOfferStatus === "REVEALED" || memory.shownCandidate)
+    && /(?:şimdi oldu|hoşuma gitti|beğendim|tam aradığım|iyi öneri|güzel öneri|bu oldu)/iu.test(latestContent);
+  if (positiveRecommendationFeedback) {
+    const message = "Süper, içine sinmesine sevindim 🙂 Şimdiden hayırlı olsun. İstersen sıradaki adımda bu aracın donanımını veya güncel fiyat durumunu birlikte değerlendirebiliriz.";
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "RECOMMENDATION_SHOWN", prompt: message, progressEvent: "recommendation-satisfied",
+      advisorStage: "RECOMMENDATION_SHOWN", clearPendingQuestion: true,
+    }), withProgress({
+      modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ACKNOWLEDGE",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "RECOMMENDATION_SHOWN",
+      directQuestionAnswered: true, shownCandidateKnown: true,
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, stateChanged: true }));
+    return { kind: "QUESTION", message, conversation };
+  }
+
   if (atTurnLimit && !input.choiceId && !latestAct.isRecommendationAcceptance) {
     return {
       kind: "ERROR",
@@ -1213,6 +1229,20 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     }
   }
 
+  if (/[İIıi]lk\s+(?:arabam|aracım)/u.test(latestContent)) {
+    const message = "Şimdiden hayırlı olsun 😁 İlk araba gerçekten heyecanlı bir eşik; hem içine sinsin hem de günlük hayatta seni yormasın. En çok şehir içinde mi kullanacaksın, yoksa düzenli uzun yol da olacak mı?";
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "DISCOVERING", purpose: "PRIMARY_USAGE", prompt: message,
+      progressEvent: "first-car-congratulation", advisorStage: "CONTEXT_UNDERSTANDING",
+    }), withProgress({
+      modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ASK_ONE_QUESTION",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "CONTEXT_UNDERSTANDING",
+      questionMaterial: true, alreadyAnswered: false,
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, askedMaterialQuestion: true, stateChanged: true }));
+    return { kind: "QUESTION", message, conversation };
+  }
+
   if (latestAct.isSocialDetour) {
     const pending = memory.lastAssistantQuestion;
     const lead = /hava/iu.test(latestContent)
@@ -1245,12 +1275,14 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
   const pendingFacet = pendingFacetPurpose?.startsWith("CATALOG_FACET:")
     ? carsDecisionFacetDefinitions.find((definition) => definition.questionPurpose === pendingFacetPurpose)
     : undefined;
-  const asksForTechnicalExplanation = /(?:ne demek|nedir|ne anlama|kastettiğin|bilmiyorum|bilgim yok|açıkla|yardımcı ol)/iu.test(latestContent);
+  const asksForTechnicalExplanation = /(?:ne demek|nedir|ne anlama|kastettiğin|bilgim yok[^.!?]*(?:açıkla|yardımcı ol)|açıkla|yardımcı ol)/iu.test(latestContent);
   if (catalogFacetActive && pendingFacet && asksForTechnicalExplanation) {
     const explanation = pendingFacet.id === "power_min_kw"
       ? "kW, motor gücünün ölçüsüdür. Beygir gücüne benzer; yaklaşık olarak 100 kW 136 bg, 160 kW 218 bg, 250 kW ise 340 bg civarındadır. Tek başına hızlanmayı garanti etmez ama seçenekleri güç seviyesine göre ayırmamıza yardımcı olur."
       : pendingFacet.id === "luggage_min_l"
         ? "Bagaj litresi, bagajın standart ölçümle bulunan hacmidir; bavulun biçimine göre gerçek kullanım değişebilir. Bu yüzden litre bilmeden gündelik yükünü söylemen yeterli."
+        : pendingFacet.id === "consumption_max_l_100km"
+          ? "Tüketim araç sınıfına ve kullanıma göre değişir. Kabaca 5 L/100 km ve altı ekonomi öncelikli, 5–7 litre dengeli, 7–9 litre normal-yüksek sayılabilir. Bu konu senin için önemli değilse ‘tüketim önemli değil’ diyebilirsin; filtre uygulamam."
         : "Bu teknik değer seçenekleri aynı ölçüyle karşılaştırmamıza yarıyor; tam sayıyı bilmiyorsan gündelik beklentini seçebilirsin.";
     const message = `${explanation}\n\n${pendingFacet.question}`;
     const options = pendingFacet.answerMappings?.map((mapping) => mapping.label) ?? [];

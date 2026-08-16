@@ -11,11 +11,12 @@ export const PERSONA_OPTIONS: readonly { readonly label: string; readonly traits
 ];
 
 const EXPLICIT_RULES: readonly [readonly VehiclePersonaTrait[], RegExp][] = [
-  [["DESIGN", "DRIVING_ENGAGEMENT"], /erkeksi|güçlü ve köşeli|heybetli|agresif tasarım/iu],
-  [["DESIGN"], /zarif|(?<!\p{L})şık(?!\p{L})|tasarım odaklı|dikkat çekici|tarz(?:ı|lı)|karakter(?:i|li)|imaj/iu],
+  [["DESIGN"], /erkeksi|güçlü ve köşeli|heybetli|agresif tasarım/iu],
+  [["DESIGN", "COMFORT", "MINIMALISM"], /zarif|sakin ve şık|temiz ve şık/iu],
+  [["DESIGN"], /(?<!\p{L})şık(?!\p{L})|havalı|tasarım odaklı|dikkat çekici|tarz(?:ı|lı)|karakter(?:i|li)|imaj/iu],
   [["DRIVING_ENGAGEMENT", "DESIGN"], /sportif|genç ve dinamik|dinamik görün/iu],
   [["MINIMALISM"], /gösterişsiz|gösterişten uzak|sade ve entelektüel|minimal/iu],
-  [["PRESTIGE"], /prestijli|premium dursun|lüks görünsün/iu],
+  [["PRESTIGE"], /prestijli|(?<!\p{L})premium(?!\p{L})|lüks görünsün/iu],
   [["ADVENTURE"], /macera ruhu|doğa ve macera/iu],
   [["TECHNOLOGY"], /teknolojik ve fütüristik|fütüristik his|dijital karakter/iu],
   [["DESIGN", "MINIMALISM"], /çok kurumsal görünmesin|sıradan bir aile otomobili istemiyorum/iu],

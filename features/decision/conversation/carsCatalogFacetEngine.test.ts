@@ -57,4 +57,29 @@ describe("catalog facet engine", () => {
     expect(Object.values(result.nextQuestion?.partitions ?? {}).filter((count) => count > 0).length).toBeGreaterThan(1);
     expect(Object.values(result.nextQuestion?.partitions ?? {}).reduce((sum, count) => sum + count, 0)).toBeLessThanOrEqual(result.candidates.length);
   });
+
+  it("does not turn every catalog column into a questionnaire", () => {
+    const trace = buildCarsRequirementLedger([
+      { id: "1", role: "user", content: "3 milyon TL altında hibrit ve şık bir araba öner" },
+    ]);
+    const result = evaluateCatalogFacets({
+      ...trace,
+      askedQuestionPurposes: [...trace.askedQuestionPurposes, "BODY_TYPE", "FUEL", "CATALOG_FACET:price_max_try"],
+    });
+    expect(result.nextQuestion?.purpose).not.toBe("CATALOG_FACET:consumption_max_l_100km");
+    expect(result.nextQuestion?.purpose).not.toBe("CATALOG_FACET:power_min_kw");
+    expect(result.nextQuestion?.purpose).not.toBe("CATALOG_FACET:seats_min");
+    expect(result.nextQuestion?.purpose).not.toBe("TRANSMISSION");
+    expect(result.nextQuestion?.purpose).not.toBe("DRIVETRAIN");
+  });
+
+  it("removes a rejected full-catalog variant without changing technical filters", () => {
+    const trace = buildCarsRequirementLedger([{ id: "1", role: "user", content: "3 milyon TL altında hibrit araç öner" }]);
+    const first = evaluateCatalogFacets(trace);
+    const rejected = first.candidates[0];
+    expect(rejected).toBeDefined();
+    const second = evaluateCatalogFacets({ ...trace, rejectedRecommendationIds: [rejected.id] });
+    expect(second.candidates.some((item) => item.id === rejected.id)).toBe(false);
+    expect(second.appliedFilters).toContainEqual(expect.objectContaining({ key: "REJECTED_CANDIDATES", before: first.initialCount, after: first.initialCount - 1 }));
+  });
 });

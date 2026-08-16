@@ -157,6 +157,28 @@ describe("runCarsConversationTurn", () => {
     expect(mocks.planCarsConversationTurn).not.toHaveBeenCalled();
   });
 
+  it("answers what it can do instead of treating it as a social check-in", async () => {
+    const response = await runCarsConversationTurn({ conversationId: "capability-natural", messages: [
+      { id: "u1", role: "user", content: "Merhaba" },
+      { id: "a1", role: "assistant", content: "Merhaba!" },
+      { id: "u2", role: "user", content: "Benim için ne yapacaksın?" },
+    ] });
+    expect(response.message).toMatch(/ihtiyaç|bütçe|uygun sıfır araç/iu);
+    expect(response.message).not.toBe("İyiyim, teşekkürler.");
+    expect(response.conversation?.turnProvenance?.latestPrimaryAct).toBe("CAPABILITY_QUESTION");
+  });
+
+  it("congratulates a first-time buyer before asking one usage question", async () => {
+    const response = await runCarsConversationTurn({ conversationId: "first-car-human", messages: [
+      { id: "u1", role: "user", content: "Araba almak istiyorum" },
+      { id: "a1", role: "assistant", content: "En çok ne için kullanacaksın?" },
+      { id: "u2", role: "user", content: "İlk arabam olacak" },
+    ] });
+    expect(response.message).toMatch(/şimdiden hayırlı olsun/iu);
+    expect(response.message).toMatch(/şehir içinde.*uzun yol/iu);
+    expect((response.message.match(/\?/gu) ?? [])).toHaveLength(1);
+  });
+
   it("keeps an off-topic request inside the Cars domain and preserves facts", async () => {
     const response = await runCarsConversationTurn({
       conversationId: "off-topic",
@@ -178,7 +200,7 @@ describe("runCarsConversationTurn", () => {
 
   it("explains kW with familiar choices instead of silently advancing", async () => {
     const conversationId = "power-explanation";
-    const messages: Array<{ id: string; role: "user" | "assistant"; content: string }> = [
+    const messages: Array<{ id: string; role: "user" | "assistant"; content: string; recommendationIds?: string[] }> = [
       { id: "u0", role: "user", content: "5 milyon TL altında elektrikli SUV, performanslı bir sıfır araç öner" },
     ];
     let conversation;
@@ -202,6 +224,32 @@ describe("runCarsConversationTurn", () => {
     if (explained.kind === "QUESTION") expect(explained.options).toEqual([
       "Günlük kullanımda canlı", "Belirgin şekilde güçlü", "Çok yüksek performans",
     ]);
+  });
+
+  it("explains consumption with reference ranges once and then allows the user to skip it", async () => {
+    const initial = "3 milyon TL altında az yakan hibrit bir araç öner";
+    const base = buildCarsRequirementLedger([{ id: "u1", role: "user", content: initial }]);
+    const prompt = "Ortalama tüketim için üst sınırın kaç L/100 km olsun?";
+    const waiting = {
+      ...base,
+      askedQuestionPurposes: [...base.askedQuestionPurposes, "CATALOG_FACET:consumption_max_l_100km" as const],
+      lastAssistantQuestion: { purpose: "CATALOG_FACET:consumption_max_l_100km" as const, prompt },
+    };
+    const explained = await runCarsConversationTurn({ conversationId: "consumption-explain", conversation: waiting, messages: [
+      { id: "u1", role: "user", content: initial },
+      { id: "a1", role: "assistant", content: prompt },
+      { id: "u2", role: "user", content: "Bilmiyorum. Açıkla." },
+    ] });
+    expect(explained.message).toMatch(/5 L\/100 km[\s\S]*5–7 litre[\s\S]*7–9 litre/iu);
+    expect(explained.message).toMatch(/tüketim önemli değil/iu);
+    const continued = await runCarsConversationTurn({ conversationId: "consumption-explain", conversation: explained.conversation, messages: [
+      { id: "u1", role: "user", content: initial },
+      { id: "a1", role: "assistant", content: prompt },
+      { id: "u2", role: "user", content: "Bilmiyorum. Açıkla." },
+      { id: "a2", role: "assistant", content: explained.message },
+      { id: "u3", role: "user", content: "Bilmiyorum, sen söyle." },
+    ] });
+    expect(continued.message).not.toBe(explained.message);
   });
 
   it("does not let the model skip to catalog ranking without evaluable evidence", async () => {
@@ -713,7 +761,7 @@ describe("runCarsConversationTurn", () => {
 
   it("reaches a sealed full-catalog variant and reveals its exact card only after consent", async () => {
     const conversationId = "catalog-facet-consent";
-    const messages: Array<{ id: string; role: "user" | "assistant"; content: string }> = [
+    const messages: Array<{ id: string; role: "user" | "assistant"; content: string; recommendationIds?: string[] }> = [
       { id: "u0", role: "user", content: "3 milyon TL altında elektrikli olmayan sıfır araç tavsiyen nedir?" },
     ];
     let conversation;
@@ -744,6 +792,16 @@ describe("runCarsConversationTurn", () => {
     expect(revealed.recommendations).toHaveLength(1);
     expect(revealed.recommendations[0].car.id).toBe(revealed.conversation?.shownCandidate?.vehicleVariantId);
     expect(revealed.recommendations[0].decision.reasons.join(" ")).not.toMatch(/karakter tercihi|persona/iu);
+
+    const rejectedId = revealed.recommendations[0].car.id;
+    messages.push({ id: "a-card", role: "assistant", content: revealed.message, recommendationIds: [rejectedId] });
+    messages.push({ id: "u-reject", role: "user", content: "Bu olmadı, daha zarif bir şey öner" });
+    const rejected = await runCarsConversationTurn({ conversationId, conversation: revealed.conversation, messages });
+    messages.push({ id: "a-reject", role: "assistant", content: rejected.message });
+    messages.push({ id: "u-again", role: "user", content: "Sen bana başka bir araç öner" });
+    const retried = await runCarsConversationTurn({ conversationId, conversation: rejected.conversation, messages });
+    expect(retried.message).not.toMatch(/Birden fazla araç tüm zorunlu şartlarınızı karşılıyor|Daha fazla koltuk/iu);
+    expect(retried.conversation?.turnProvenance?.selectedDeterministicCandidate).not.toBe(`CATALOG:${rejectedId}`);
   });
 
   it("records explicitly activated persona as a secondary ranking signal", async () => {
@@ -873,5 +931,23 @@ describe("runCarsConversationTurn", () => {
     }));
     const response = await runCarsConversationTurn({ conversationId: "limit", messages });
     expect(response).toMatchObject({ kind: "ERROR", message: expect.stringMatching(/tur sınır/iu) });
+  });
+
+  it("acknowledges positive recommendation feedback before enforcing the turn limit", async () => {
+    const messages = Array.from({ length: 20 }, (_, index) => ({
+      id: `user-${index}`,
+      role: "user" as const,
+      content: index === 19 ? "Şimdi oldu, bu öneri hoşuma gitti." : `Araç bilgisi ${index}`,
+    }));
+    const base = buildCarsRequirementLedger(messages.slice(0, 19));
+    const response = await runCarsConversationTurn({ conversationId: "satisfied-at-limit", messages, conversation: {
+      ...base,
+      recommendationOfferStatus: "REVEALED",
+      advisorStage: "RECOMMENDATION_SHOWN",
+      shownCandidate: { runtimeVehicleCandidateId: "CATALOG:test", vehicleVariantId: "test", revealedOnUserTurn: 19 },
+    } });
+    expect(response.kind).toBe("QUESTION");
+    expect(response.message).toMatch(/içine sinmesine sevindim|hayırlı olsun/iu);
+    expect(response.message).not.toMatch(/tur sınır/iu);
   });
 });

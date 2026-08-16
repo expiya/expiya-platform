@@ -15,6 +15,7 @@ const syntheticFacet: CarsDecisionFacetDefinition = {
   questionPurpose: "CATALOG_FACET:synthetic_range",
   question: "Sentetik menzil alt sınırı nedir?",
   inputPatterns: ["(?:en az)\\s*(\\d+)\\s*sentetik"],
+  askByDefault: false,
   scale: 1,
 };
 

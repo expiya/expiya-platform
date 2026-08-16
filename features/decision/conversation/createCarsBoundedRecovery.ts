@@ -21,7 +21,7 @@ const USAGE_DETAIL_OPTIONS: CarsActiveOptionSet["options"] = [
 export const FALLBACK_GREETING = "Merhaba! Hoş geldiniz. Nasıl yardımcı olabilirim?";
 export const FALLBACK_THANKS = "Rica ederim.";
 export const FALLBACK_OFFER = "Konuştuklarımızdan hareketle ihtiyacına uyan net bir önerim var. Görmek ister misin?";
-export const FALLBACK_CAPABILITY = "İhtiyaçlarını dinleyip uygun arabayı birlikte daraltmana yardım ederim; satış baskısı yok. İlan ezberi veya rastgele model listesi uydurmam.";
+export const FALLBACK_CAPABILITY = "Nasıl kullanacağını, bütçeni ve gerçekten önemsediğin şeyleri dinleyip uygun sıfır araçları birlikte daraltırım. Hazır olduğumuzda da nedenini açıklayarak net bir öneri sunarım.";
 export const FALLBACK_HELP_START = "En temiz başlangıç günlük hayat: araba daha çok şehir içi mi iş görecek, yoksa hafta sonu aile çıkışları da var mı?";
 export const VAGUE_CONTINUITY = "Son söylediğiniz noktayı kaçırmadım. İsterseniz oradan devam ederiz.";
 
