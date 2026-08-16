@@ -11,6 +11,7 @@ const bodyMap: Readonly<Record<string, BodyType | undefined>> = {
   SEDAN: "Sedan", HATCHBACK: "Hatchback", SUV: "SUV", COUPE: "Coupe",
   PICKUP: "Pickup", VAN: "Van", MPV: "Van",
   "PANEL VAN": "Van", "PASSENGER VAN": "Van", "CHASSIS CAB": "Pickup",
+  CROSSOVER: "SUV", "FASTBACK SUV": "SUV", CONVERTIBLE: "Coupe", QUADRICYCLE: "Hatchback",
 };
 
 export interface CarsCatalogAdaptation {

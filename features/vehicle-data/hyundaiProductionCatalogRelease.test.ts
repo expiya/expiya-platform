@@ -8,7 +8,7 @@ import { THIRD_CATALOG_RELEASE_AS_OF, createThirdReleaseManifest, createThirdRel
 import { generateHyundaiProductionCatalogRelease, hyundaiReleaseSourceRecords } from "@/scripts/generate-hyundai-production-catalog-release";
 import { verifyProductionCatalogRelease } from "@/scripts/verify-production-catalog-release";
 import activeCatalogPointer from "@/data/production/catalog/active.json";
-import activeCatalogManifest from "@/data/production/catalog/releases/v0.13.0/manifest.json";
+import activeCatalogManifest from "@/data/production/catalog/releases/v0.20.0/manifest.json";
 import { resolveRecommendationCatalog } from "@/features/vehicle-data/resolveRecommendationCatalog";
 import { validateProductionCatalogActivation, type ProductionCatalogActivation, type ProductionCatalogReleaseManifest } from "@/features/vehicle-data/productionCatalogRelease";
 
@@ -38,6 +38,6 @@ describe("Hyundai catalog expansion release v0.3.0", () => {
 
   it("remains present after the active catalog advances to the Citroën commercial release", () => {
     expect(validateProductionCatalogActivation(activeCatalogPointer as ProductionCatalogActivation, activeCatalogManifest as unknown as ProductionCatalogReleaseManifest)).toEqual([]);
-    expect(resolveRecommendationCatalog("production", new Date("2026-09-01T01:00:00.000Z")).cars).toHaveLength(168);
+    expect(resolveRecommendationCatalog("production", new Date("2026-09-01T01:00:00.000Z")).cars).toHaveLength(235);
   });
 });
