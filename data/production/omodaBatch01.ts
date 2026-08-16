@@ -1,0 +1,3 @@
+import{createBrandBatch,type BrandCandidate as C}from"@/data/production/createBrandBatch";const A="2026-08-18T05:00:00.000Z",P="https://www.omodajaecoo.com.tr/fiyat-listesi/",U="https://www.omodajaecoo.com.tr/";const c:readonly C[]=[
+{model:"OMODA 5",trim:"Ultima 1.6 TGDI DCT",body:"SUV",fuel:"GASOLINE",kw:108,nm:275,cc:1598,trans:"7-speed dual-clutch automatic",price:2_350_000,url:U,litres:7,luggage:378},{model:"OMODA 7",trim:"Neo 1.6 TGDI DCT",body:"SUV",fuel:"GASOLINE",kw:108,nm:275,cc:1598,trans:"7-speed dual-clutch automatic",price:2_850_000,url:U,litres:7.3,luggage:639}
+];export const omodaBatch01Records=createBrandBatch("OMODA","omoda-tr",A,P,c);
