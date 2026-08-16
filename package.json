@@ -15,29 +15,31 @@
     "db:report:catalog-candidates": "tsx scripts/report-catalog-candidates.ts",
     "verify:cars-catalog-blob": "node scripts/verify-cars-catalog-blob.mjs",
     "catalog:release:generate": "node --import tsx scripts/generate-production-catalog-release.ts",
-    "catalog:release:verify": "node --import tsx scripts/verify-production-catalog-release.ts"
-    ,"verify:active-production-catalog": "node --import tsx scripts/verify-active-production-catalog.ts"
-    ,"verify:vehicle-evidence-runtime-artifact": "node scripts/verify-vehicle-evidence-runtime-artifact.mjs && node scripts/verify-release-pinned-vehicle-evidence.mjs"
-    ,"vehicle-evidence:validate": "node --import tsx scripts/vehicle-evidence.ts validate data/cars/vehicle_evidence/releases/v0.4.1/tables"
-    ,"vehicle-evidence:reconcile": "node --import tsx scripts/generate-release-pinned-vehicle-evidence.ts"
-    ,"vehicle-evidence:next-id": "node --import tsx scripts/vehicle-evidence.ts next-id"
-    ,"vehicle-evidence:manifest": "node --import tsx scripts/vehicle-evidence.ts manifest"
-    ,"vehicle-evidence:snapshot-sources": "node --import tsx scripts/snapshot-vehicle-evidence-sources.ts"
-    ,"vehicle-evidence:collect-hyundai": "node --import tsx scripts/collect-hyundai-brand-batch.ts"
-    ,"vehicle-evidence:collect-hyundai-brochures": "node --import tsx scripts/collect-hyundai-brochures.ts"
-    ,"vehicle-evidence:collect-alfa-romeo": "node --import tsx scripts/collect-alfa-romeo-brand-batch.ts"
-    ,"vehicle-media:queue": "node --import tsx scripts/generate-vehicle-media-queue.ts"
-    ,"vehicle-media:collect-candidates": "node --import tsx scripts/collect-vehicle-media-candidates.ts"
-    ,"catalog:release:generate-hyundai": "node --import tsx scripts/generate-hyundai-production-catalog-release.ts"
-    ,"catalog:release:generate-alfa-romeo": "node --import tsx scripts/generate-alfa-romeo-production-catalog-release.ts"
-    ,"catalog:release:generate-alpine": "node --import tsx scripts/generate-alpine-production-catalog-release.ts"
-    ,"catalog:release:generate-estimated-backfill": "node --import tsx scripts/generate-estimated-price-backfill-release.ts"
-    ,"catalog:release:generate-bmw": "node --import tsx scripts/generate-bmw-production-catalog-release.ts"
-    ,"catalog:release:generate-bmw-electric": "node --import tsx scripts/generate-bmw-electric-production-catalog-release.ts"
-    ,"vehicle-evidence:apply-hardening": "node --import tsx scripts/apply-post-batch01-hardening.ts"
+    "catalog:release:verify": "node --import tsx scripts/verify-production-catalog-release.ts",
+    "verify:active-production-catalog": "node --import tsx scripts/verify-active-production-catalog.ts",
+    "verify:vehicle-evidence-runtime-artifact": "node scripts/verify-vehicle-evidence-runtime-artifact.mjs && node scripts/verify-release-pinned-vehicle-evidence.mjs",
+    "vehicle-evidence:validate": "node --import tsx scripts/vehicle-evidence.ts validate data/cars/vehicle_evidence/releases/v0.4.1/tables",
+    "vehicle-evidence:reconcile": "node --import tsx scripts/generate-release-pinned-vehicle-evidence.ts",
+    "vehicle-evidence:next-id": "node --import tsx scripts/vehicle-evidence.ts next-id",
+    "vehicle-evidence:manifest": "node --import tsx scripts/vehicle-evidence.ts manifest",
+    "vehicle-evidence:snapshot-sources": "node --import tsx scripts/snapshot-vehicle-evidence-sources.ts",
+    "vehicle-evidence:collect-hyundai": "node --import tsx scripts/collect-hyundai-brand-batch.ts",
+    "vehicle-evidence:collect-hyundai-brochures": "node --import tsx scripts/collect-hyundai-brochures.ts",
+    "vehicle-evidence:collect-alfa-romeo": "node --import tsx scripts/collect-alfa-romeo-brand-batch.ts",
+    "vehicle-media:queue": "node --import tsx scripts/generate-vehicle-media-queue.ts",
+    "vehicle-media:collect-candidates": "node --import tsx scripts/collect-vehicle-media-candidates.ts",
+    "vehicle-media:upload-verified": "node --env-file=.env.local --import tsx scripts/upload-verified-vehicle-media.ts",
+    "catalog:release:generate-hyundai": "node --import tsx scripts/generate-hyundai-production-catalog-release.ts",
+    "catalog:release:generate-alfa-romeo": "node --import tsx scripts/generate-alfa-romeo-production-catalog-release.ts",
+    "catalog:release:generate-alpine": "node --import tsx scripts/generate-alpine-production-catalog-release.ts",
+    "catalog:release:generate-estimated-backfill": "node --import tsx scripts/generate-estimated-price-backfill-release.ts",
+    "catalog:release:generate-bmw": "node --import tsx scripts/generate-bmw-production-catalog-release.ts",
+    "catalog:release:generate-bmw-electric": "node --import tsx scripts/generate-bmw-electric-production-catalog-release.ts",
+    "vehicle-evidence:apply-hardening": "node --import tsx scripts/apply-post-batch01-hardening.ts"
   },
   "dependencies": {
     "@sentry/nextjs": "^10.70.0",
+    "@vercel/blob": "^2.8.0",
     "next": "16.3.0",
     "openai": "^7.4.0",
     "pg": "^8.23.0",
