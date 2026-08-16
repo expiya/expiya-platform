@@ -161,7 +161,7 @@ export function isOffTopic(text: string): boolean {
   if (/(?:araba|araç|otomobil|koltuk|bagaj|bütçe|arazi|kamp|pickup|pikap|donanım|4x4|suv|sedan|car|vehicle|seat|cargo|budget)/iu.test(normalized)) {
     return false;
   }
-  return /(?:hava nasıl|saat kaç|borsa|bitcoin|tarif|yemek|film|maç kaç)/iu.test(normalized);
+  return /(?:hava nasıl|saat kaç|borsa|bitcoin|kripto|yatırım|tarif|yemek|film|dizi|maç|futbol|siyaset|seçim|ilişki|sevgili|şiir|hikaye|fıkra|şaka|oyun|müzik|şarkı|kitap|programlama|doktor|sağlık)/iu.test(normalized);
 }
 
 export function pendingQuestionFromAssistant(content: string): CarsPendingQuestion | undefined {

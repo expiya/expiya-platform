@@ -118,6 +118,7 @@ import {
   type CatalogFacetCandidate,
   type CatalogFacetEvaluation,
 } from "./carsCatalogFacetEngine";
+import { carsDecisionFacetDefinitions } from "./carsDecisionFacetCatalog";
 
 const MAX_USER_TURNS = 20;
 
@@ -1188,6 +1189,25 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     }
   }
 
+  if (latestAct.isSocialDetour) {
+    const pending = memory.lastAssistantQuestion;
+    const lead = /hava/iu.test(latestContent)
+      ? "Canlı hava bilgisine bakamıyorum."
+      : "Kısa bir mola oldu; araç seçimine dönelim.";
+    const message = pending ? `${lead}\n\nKaldığımız yer: ${pending.prompt}` : `${lead} Nasıl bir araç aradığınla devam edelim.`;
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "SOCIAL_DETOUR", purpose: pending?.purpose, prompt: message,
+      advisorStage: "SOCIAL_DETOUR", progressEvent: "social-detour-redirect",
+    }), {
+      modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true,
+      conversationMove: pending ? "ASK_ONE_QUESTION" : "ACKNOWLEDGE",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "SOCIAL_DETOUR",
+      questionMaterial: Boolean(pending), alreadyAnswered: false,
+    });
+    return { kind: "QUESTION", message, conversation };
+  }
+
   const catalogFacetEvaluation = evaluateCatalogFacets(memory);
   const catalogFacetActive = memory.vehicleIntentEstablished && (
     latestAct.isDirectRecommendationRequest
@@ -1196,6 +1216,30 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     ].includes(entry.key))
     || openHeldAuthorization(memory.heldAuthorization)?.runtimeVehicleCandidateId.startsWith("CATALOG:")
   );
+  const pendingFacetPurpose = memory.lastAssistantQuestion?.purpose;
+  const pendingFacet = pendingFacetPurpose?.startsWith("CATALOG_FACET:")
+    ? carsDecisionFacetDefinitions.find((definition) => definition.questionPurpose === pendingFacetPurpose)
+    : undefined;
+  const asksForTechnicalExplanation = /(?:ne demek|nedir|ne anlama|kastettiğin|bilmiyorum|bilgim yok|açıkla|yardımcı ol)/iu.test(latestContent);
+  if (catalogFacetActive && pendingFacet && asksForTechnicalExplanation) {
+    const explanation = pendingFacet.id === "power_min_kw"
+      ? "kW, motor gücünün ölçüsüdür. Beygir gücüne benzer; yaklaşık olarak 100 kW 136 bg, 160 kW 218 bg, 250 kW ise 340 bg civarındadır. Tek başına hızlanmayı garanti etmez ama seçenekleri güç seviyesine göre ayırmamıza yardımcı olur."
+      : pendingFacet.id === "luggage_min_l"
+        ? "Bagaj litresi, bagajın standart ölçümle bulunan hacmidir; bavulun biçimine göre gerçek kullanım değişebilir. Bu yüzden litre bilmeden gündelik yükünü söylemen yeterli."
+        : "Bu teknik değer seçenekleri aynı ölçüyle karşılaştırmamıza yarıyor; tam sayıyı bilmiyorsan gündelik beklentini seçebilirsin.";
+    const message = `${explanation}\n\n${pendingFacet.question}`;
+    const options = pendingFacet.answerMappings?.map((mapping) => mapping.label) ?? [];
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "CLARIFYING", purpose: pendingFacetPurpose, prompt: message,
+      progressEvent: `catalog-facet-explained-${pendingFacet.id}`, advisorStage: "TRADEOFF_RESOLUTION",
+    }), withProgress({
+      modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ANSWER_DIRECTLY",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "TRADEOFF_RESOLUTION",
+      questionMaterial: true, alreadyAnswered: false,
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, askedMaterialQuestion: true, stateChanged: true }));
+    return { kind: "QUESTION", message, options, conversation };
+  }
   if (catalogFacetActive && catalogFacetEvaluation.unsupportedAccelerationSeconds !== undefined) {
     const message = `0-100 için ${catalogFacetEvaluation.unsupportedAccelerationSeconds} saniye sınırını anladım; ancak aktif katalogda doğrulanmış 0-100 süresi bulunmadığı için bu şartla güvenilir bir araç seçemem. Güç verisini hızlanma süresi yerine koymayacağım.`;
     const conversation = withProvenance(applyAssistantMove(memory, {
@@ -1591,51 +1635,6 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
       latestMessageAcknowledged: true,
       latestPrimaryAct: latestAct.primaryAct,
       advisorStage: recovery.conversation.advisorStage,
-    }) };
-  }
-
-  if (latestAct.isSocialDetour) {
-    const planned = await planTurn({
-      conversationId: input.conversationId,
-      messages: input.messages,
-      memory,
-      remainingUserTurns: Math.max(0, MAX_USER_TURNS - userTurnCount),
-      latestAct,
-      recommendationMayBeOffered: false,
-      candidateMayBeRevealed: false,
-    });
-    const message = planned.plan && !validateCarsConversationPlan({
-      plan: planned.plan, memory, latestAct, latestUserText: latestContent,
-      recommendationMayBeOffered: false, candidateMayBeRevealed: false,
-    }) ? planned.plan.assistantMessage : undefined;
-    if (message) {
-      const conversation = withProvenance(applyAssistantMove(memory, {
-        phase: "SOCIAL_DETOUR",
-        prompt: message,
-        advisorStage: "SOCIAL_DETOUR",
-        clearPendingQuestion: true,
-        progressEvent: "social-detour",
-      }), {
-        modelAttempted: true,
-        requestedModel: planned.requestedModel,
-        selectedModel: planned.selectedModel,
-        structuredPlan: true,
-        parseOutcome: planned.parseOutcome,
-        userFacingOrigin: "MODEL",
-        deterministicOverride: false,
-        conversationMove: planned.plan?.move,
-        latestMessageAcknowledged: true,
-        latestPrimaryAct: latestAct.primaryAct,
-        advisorStage: "SOCIAL_DETOUR",
-      });
-      return { kind: "QUESTION", message, conversation };
-    }
-    const recovery = createCarsBoundedRecovery(memory, latestContent, latestAct);
-    return { ...recovery.response, conversation: withProvenance(recovery.conversation, {
-      modelAttempted: true, requestedModel: planned.requestedModel, selectedModel: planned.selectedModel,
-      structuredPlan: false, parseOutcome: planned.parseOutcome, userFacingOrigin: "BOUNDED_FALLBACK",
-      deterministicOverride: false, fallbackReason: "MODEL_UNAVAILABLE_OR_SCHEMA_FAILURE",
-      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "SOCIAL_DETOUR",
     }) };
   }
 

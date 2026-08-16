@@ -165,7 +165,12 @@ function nextQuestion(trace: CarsConversationTrace, candidates: readonly Catalog
     const lower = values.filter((value) => value <= pivot).length;
     const upper = values.filter((value) => value > pivot).length;
     if (lower === 0 || upper === 0) continue;
-    questions.push({ purpose, text: definition.question, options: [], partitions: { [`≤ ${pivot}`]: lower, [`> ${pivot}`]: upper } });
+    questions.push({
+      purpose,
+      text: definition.question,
+      options: definition.answerMappings?.map((mapping) => mapping.label) ?? [],
+      partitions: { [`≤ ${pivot}`]: lower, [`> ${pivot}`]: upper },
+    });
   }
   return questions.sort((left, right) => questionScore(right, candidates.length) - questionScore(left, candidates.length))[0];
 }

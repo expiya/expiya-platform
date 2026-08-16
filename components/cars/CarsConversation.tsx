@@ -96,6 +96,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
         ? "Cevabınızı işleyemedim. Lütfen yeniden deneyin."
         : "I couldn't process that answer. Please try again.");
 
+      const responseConversation = response.ok && "conversation" in payload ? payload.conversation : conversationRef.current;
       if (response.ok && "conversation" in payload) setConversation(payload.conversation);
       const assistantMessage = {
         ...newMessage("assistant", content),
@@ -116,7 +117,15 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
           ? payload.recommendations.map((item) => item.car.id)
           : undefined,
       };
-      setMessages((current) => [...current, assistantMessage]);
+      const updatedMessages = [...nextMessages, assistantMessage];
+      setMessages(updatedMessages);
+      // Persist before the card can be clicked; the effect-based write can lose this race during navigation.
+      sessionStorage.setItem(storageKey, JSON.stringify({
+        version: 5,
+        conversationId: conversationId.current,
+        messages: updatedMessages,
+        conversation: responseConversation,
+      } satisfies PersistedCarsConversation));
     } catch {
       setMessages((current) => [
         ...current,

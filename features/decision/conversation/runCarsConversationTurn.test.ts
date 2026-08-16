@@ -166,11 +166,41 @@ describe("runCarsConversationTurn", () => {
       ],
     });
     expect(response.message).toMatch(/hava/iu);
+    expect(response.message).toMatch(/kaldığımız yer/iu);
     expect(response.message).not.toMatch(/kaç koltuk|kaç litre|daraltalım/iu);
     expect(response.conversation?.requirements).toEqual(expect.arrayContaining([
       expect.objectContaining({ key: "USAGE_ROUGH_ROAD" }),
     ]));
     expect(mocks.runCarsRuntime).not.toHaveBeenCalled();
+    expect(mocks.planCarsConversationTurn).not.toHaveBeenCalled();
+  });
+
+  it("explains kW with familiar choices instead of silently advancing", async () => {
+    const conversationId = "power-explanation";
+    const messages: Array<{ id: string; role: "user" | "assistant"; content: string }> = [
+      { id: "u0", role: "user", content: "5 milyon TL altında elektrikli SUV, performanslı bir sıfır araç öner" },
+    ];
+    let conversation;
+    let response = await runCarsConversationTurn({ conversationId, messages });
+    for (let index = 0; index < 8 && !/kW|motor gücü/iu.test(response.message); index += 1) {
+      expect(response.kind).toBe("QUESTION");
+      if (response.kind !== "QUESTION") break;
+      const answer = response.options?.[0] ?? (/bagaj/iu.test(response.message) ? "iki bavul" : "farketmez");
+      messages.push({ id: `a${index}`, role: "assistant", content: response.message });
+      messages.push({ id: `u${index + 1}`, role: "user", content: answer });
+      conversation = response.conversation;
+      response = await runCarsConversationTurn({ conversationId, conversation, messages });
+    }
+    expect(response.message).toMatch(/kW|motor gücü/iu);
+    messages.push({ id: "a-power", role: "assistant", content: response.message });
+    messages.push({ id: "u-explain", role: "user", content: "kW ile kastettiğin nedir? Bu konuda bilgim yok, açıklar mısın?" });
+    const explained = await runCarsConversationTurn({ conversationId, conversation: response.conversation, messages });
+    expect(explained.message).toMatch(/100 kW 136 bg/iu);
+    expect(explained.message).not.toMatch(/çekiş düzeni/iu);
+    expect(explained.kind).toBe("QUESTION");
+    if (explained.kind === "QUESTION") expect(explained.options).toEqual([
+      "Günlük kullanımda canlı", "Belirgin şekilde güçlü", "Çok yüksek performans",
+    ]);
   });
 
   it("does not let the model skip to catalog ranking without evaluable evidence", async () => {

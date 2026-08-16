@@ -32,4 +32,13 @@ describe("catalog decision facet metadata", () => {
     expect(() => validateDecisionFacetCoverage([{ variant: {} }], [syntheticFacet]))
       .toThrow("DECISION_FACET_WITHOUT_CATALOG_VALUES:synthetic_range");
   });
+
+  it("translates everyday luggage and performance language into catalog filters", () => {
+    expect(extractDeclarativeFacetFacts("en azından 2 bavul kapasitesi olsun")).toContainEqual({
+      key: "MIN_CARGO_L", value: 300,
+    });
+    expect(extractDeclarativeFacetFacts("belirgin şekilde güçlü olsun")).toContainEqual({
+      key: "MIN_POWER_KW", value: 160,
+    });
+  });
 });

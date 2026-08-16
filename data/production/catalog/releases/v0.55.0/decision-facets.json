@@ -17,8 +17,13 @@
       "valuePath": "variant.powertrain.powerKw.value",
       "operator": "MIN",
       "questionPurpose": "CATALOG_FACET:power_min_kw",
-      "question": "Güç için alt sınırın kaç kW olsun?",
+      "question": "Elektrikli araçta nasıl bir performans seviyesi istersin? kW motor gücünü anlatır; sayı büyüdükçe araç genellikle daha güçlüdür. Günlük kullanımda canlı, belirgin şekilde güçlü veya çok yüksek performans seçeneklerinden hangisi sana yakın?",
       "inputPatterns": ["(?:en az|min(?:imum)?)\\s*(\\d+(?:[.,]\\d+)?)\\s*kW", "^\\s*(\\d+(?:[.,]\\d+)?)\\s*kW\\s*$"],
+      "answerMappings": [
+        { "label": "Günlük kullanımda canlı", "patterns": ["günlük kullanımda canlı", "yeterince canlı"], "value": 110 },
+        { "label": "Belirgin şekilde güçlü", "patterns": ["belirgin(?: şekilde)? güçlü", "güçlü olsun"], "value": 160 },
+        { "label": "Çok yüksek performans", "patterns": ["çok yüksek performans", "en yüksek performans"], "value": 250 }
+      ],
       "scale": 1
     },
     {
@@ -37,8 +42,13 @@
       "valuePath": "variant.dimensions.luggageLitres.value",
       "operator": "MIN",
       "questionPurpose": "CATALOG_FACET:luggage_min_l",
-      "question": "Bagaj için alt sınırın kaç litre olsun?",
+      "question": "Bagaj ihtiyacını litre bilmeden de söyleyebilirsin: iki kabin boy bavul, iki büyük bavul veya aile tatili yükü gibi hangisi sana daha yakın?",
       "inputPatterns": ["(?:en az|min(?:imum)?)\\s*(\\d+)\\s*(?:litre|liter|l)\\s*(?:bagaj|cargo)", "^\\s*(\\d+)\\s*(?:litre|liter|l)\\s*$"],
+      "answerMappings": [
+        { "label": "İki kabin boy bavul", "patterns": ["(?:en az(?:ından)?\\s*)?(?:iki|2)\\s*(?:kabin boy\\s*)?bavul"], "value": 300 },
+        { "label": "İki büyük bavul", "patterns": ["(?:iki|2)\\s*büyük bavul"], "value": 400 },
+        { "label": "Aile tatili yükü", "patterns": ["aile tatili yükü", "kalabalık tatil bagajı"], "value": 500 }
+      ],
       "scale": 1
     },
     {
