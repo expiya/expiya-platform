@@ -57,6 +57,12 @@ export const vehicleDataSources: readonly DataSource[] = [
     reviewNotes: ["Use exact Turkey digital catalogs and dated Tofaş price-list rows", "Passenger and commercial configurations require separate collection batches", "Extract public facts only; do not reproduce copyrighted imagery or brochure prose"],
   },
   {
+    id: "cupra-tr", name: "CUPRA Türkiye / Doğuş Otomotiv", authority: "PRIMARY",
+    homepageUrl: "https://www.cupraofficial.com.tr/", termsUrl: "https://www.cupraofficial.com.tr/genel/kullanim-sartlari-ve-gizlilik-politikasi",
+    usagePermission: "PUBLIC_FACTS_ONLY", reviewedAt: "2026-08-17T05:00:00.000Z",
+    reviewNotes: ["Use current Turkey model pages, official catalogs and dated price-list rows", "Keep official range or power conflicts as provenance limitations", "Extract public facts only; do not reproduce copyrighted imagery or brochure prose"],
+  },
+  {
     id: "alfa-romeo-tr", name: "Alfa Romeo Türkiye / Tofaş", authority: "PRIMARY",
     homepageUrl: "https://www.alfaromeo.com.tr/", termsUrl: "https://www.alfaromeo.com.tr/kullanim-kosullari",
     usagePermission: "PUBLIC_FACTS_ONLY", reviewedAt: "2026-08-16T00:00:00.000Z",

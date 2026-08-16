@@ -10,14 +10,14 @@ describe("resolveRecommendationCatalog", () => {
 
   it("requires an explicit production setting", () => {
     expect(configuredCarsCatalogMode("production")).toBe("production");
-    const catalog = resolveRecommendationCatalog("production", new Date("2026-08-17T04:00:00.000Z"));
-    expect(catalog.cars).toHaveLength(155);
+    const catalog = resolveRecommendationCatalog("production", new Date("2026-08-17T05:00:00.000Z"));
+    expect(catalog.cars).toHaveLength(168);
     expect(catalog.limitations).toEqual([]);
   });
 
   it("keeps variants in production when price end dates pass", () => {
     const catalog = resolveRecommendationCatalog("production", new Date("2026-09-01T00:00:00.000Z"));
-    expect(catalog.cars).toHaveLength(155);
+    expect(catalog.cars).toHaveLength(168);
     expect(catalog.cars.some(({ model }) => model.includes("Yaris Cross"))).toBe(true);
     expect(catalog.limitations).toEqual([]);
   });
