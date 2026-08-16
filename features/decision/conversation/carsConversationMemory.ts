@@ -9,6 +9,7 @@ import type {
   CarsRequirementLedgerEntry,
 } from "@/types/carsConversation";
 import { carsDecisionFacetDefinitions } from "./carsDecisionFacetCatalog";
+import { derivePersonaPreference } from "./carsPersonaPreference";
 
 import {
   answeredPurposesFrom,
@@ -253,6 +254,7 @@ export function hydrateCarsConversationMemory(input: {
   }
 
   const requirements = [...entries.values()];
+  const personaPreference = derivePersonaPreference(input.messages);
   const answered = answeredPurposesFrom(requirements);
   const didConversationProgress = capturedOnLatestTurn.length > 0
     || Boolean(activeOptionSet?.selectedOptionId && !activeOptionSet.active);
@@ -286,6 +288,7 @@ export function hydrateCarsConversationMemory(input: {
       selected: activeOptionSet?.selectedOptionId,
       advisor: advisor.advisorStage,
       offer: advisor.recommendationOfferStatus,
+      persona: personaPreference.activated ? personaPreference.requestedTraits : [],
     }),
     loopCount,
     addressForm: input.conversation?.addressForm,
@@ -298,6 +301,7 @@ export function hydrateCarsConversationMemory(input: {
     usedScopeBoundaryStated: input.conversation?.usedScopeBoundaryStated,
     noAffordableMatchStatus: input.conversation?.noAffordableMatchStatus,
     priceEvaluations: input.conversation?.priceEvaluations,
+    personaPreference,
   };
   return stampAcquisitionAuthority(trace);
 }

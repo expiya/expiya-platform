@@ -22,6 +22,7 @@ const builtInQuestionPurposeSchema = z.enum([
   "OFF_TOPIC_REDIRECT",
   "FINAL_PRIORITY",
   "ACQUISITION_MARKET",
+  "PERSONA",
 ]);
 const questionPurposeSchema = z.union([
   builtInQuestionPurposeSchema,
@@ -35,7 +36,7 @@ const optionSetSchema = z.object({
     id: z.string().min(1).max(40),
     label: z.string().min(1).max(80),
     semanticValue: z.string().min(1).max(80),
-  })).max(4),
+  })).max(6),
   sourceAssistantTurn: z.number().int().nonnegative(),
   active: z.boolean(),
   selectedOptionId: z.string().max(40).optional(),
@@ -194,6 +195,12 @@ const requestSchema = z.object({
       result: z.enum(["PASS", "FAIL", "UNKNOWN", "NOT_REQUESTED"]),
       reasonCode: z.string().max(80),
     })).max(12).optional(),
+    personaPreference: z.object({
+      activated: z.boolean(),
+      activationSource: z.enum(["USER_EXPLICIT", "ADVISOR_PROMPT_RESPONSE"]).optional(),
+      requestedTraits: z.array(z.enum(["DESIGN", "DRIVING_ENGAGEMENT", "COMFORT", "PRACTICALITY", "TECHNOLOGY", "PRESTIGE", "VALUE", "ADVENTURE", "FAMILY", "URBAN", "COMMERCIAL", "SUSTAINABILITY", "MINIMALISM"])).max(13),
+      sourceTurn: z.number().int().positive().optional(),
+    }).optional(),
     turnProvenance: z.object({
       modelAttempted: z.boolean(),
       requestedModel: z.string().max(40).optional(),
@@ -266,6 +273,14 @@ const requestSchema = z.object({
       nearestVerifiedPriceGapPercent: z.number().optional(),
       shownCandidateKnown: z.boolean().optional(),
       activePhase1Market: z.enum(["UNRESOLVED", "NEW_ONLY", "USED_ONLY", "NEW_OR_USED"]).optional(),
+      personaActivated: z.boolean().optional(),
+      activationSource: z.enum(["USER_EXPLICIT", "ADVISOR_PROMPT_RESPONSE"]).optional(),
+      requestedPersonaTraits: z.array(z.enum(["DESIGN", "DRIVING_ENGAGEMENT", "COMFORT", "PRACTICALITY", "TECHNOLOGY", "PRESTIGE", "VALUE", "ADVENTURE", "FAMILY", "URBAN", "COMMERCIAL", "SUSTAINABILITY", "MINIMALISM"])).max(13).optional(),
+      matchedPersonaTraits: z.array(z.enum(["DESIGN", "DRIVING_ENGAGEMENT", "COMFORT", "PRACTICALITY", "TECHNOLOGY", "PRESTIGE", "VALUE", "ADVENTURE", "FAMILY", "URBAN", "COMMERCIAL", "SUSTAINABILITY", "MINIMALISM"])).max(13).optional(),
+      personaScore: z.number().int().nonnegative().optional(),
+      affectedRanking: z.boolean().optional(),
+      sourceAuthority: z.literal("OWNER_EDITORIAL").optional(),
+      decisionUse: z.literal("SOFT_PREFERENCE_ONLY").optional(),
     }).optional(),
   }).optional(),
   messages: z.array(z.object({

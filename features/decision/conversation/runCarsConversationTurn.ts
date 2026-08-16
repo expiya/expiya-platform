@@ -119,6 +119,8 @@ import {
   type CatalogFacetEvaluation,
 } from "./carsCatalogFacetEngine";
 import { carsDecisionFacetDefinitions } from "./carsDecisionFacetCatalog";
+import { PERSONA_OPTIONS, shouldAskPersonaQuestion } from "./carsPersonaPreference";
+import { scoreVehiclePersonaTraits } from "@/features/vehicle-data/vehiclePersona";
 
 const MAX_USER_TURNS = 20;
 
@@ -553,6 +555,14 @@ function revealAuthorizedCard(
     budgetEvaluated: memory.requirements.some((entry) => entry.key === "BUDGET_MAX_TRY" && entry.evaluability === "EVALUABLE_NOW"),
     unevaluatedBudgetPresent: budgetUnevaluated,
     heldDespiteUnevaluatedBudget: budgetUnevaluated,
+    personaActivated: memory.personaPreference?.activated === true,
+    activationSource: memory.personaPreference?.activationSource,
+    requestedPersonaTraits: memory.personaPreference?.requestedTraits,
+    matchedPersonaTraits: memory.turnProvenance?.matchedPersonaTraits,
+    personaScore: memory.turnProvenance?.personaScore,
+    affectedRanking: memory.turnProvenance?.affectedRanking,
+    sourceAuthority: memory.personaPreference?.activated ? "OWNER_EDITORIAL" : undefined,
+    decisionUse: memory.personaPreference?.activated ? "SOFT_PREFERENCE_ONLY" : undefined,
     forwardProgressType: "SUPPORTED_RECOMMENDATION_ACTION",
     newInformationComparedWithRecentTurns: true,
     directQuestionAnswered: true,
@@ -592,6 +602,12 @@ async function offerAuthorizedCandidate(
     readonly candidateSetBeforePriceFilter?: readonly string[];
     readonly candidateSetAfterPriceFilter?: readonly string[];
     readonly candidateFilters?: readonly { readonly kind: string; readonly before: readonly string[]; readonly after: readonly string[] }[];
+    readonly personaActivated?: boolean;
+    readonly activationSource?: "USER_EXPLICIT" | "ADVISOR_PROMPT_RESPONSE";
+    readonly requestedPersonaTraits?: CarsTurnProvenance["requestedPersonaTraits"];
+    readonly matchedPersonaTraits?: CarsTurnProvenance["matchedPersonaTraits"];
+    readonly personaScore?: number;
+    readonly affectedRanking?: boolean;
   },
 ): Promise<CarsConversationResponse> {
   if (unsupportedHardRequirementBlocksModelFit(memory)) {
@@ -673,6 +689,14 @@ async function offerAuthorizedCandidate(
     candidateSetBeforePriceFilter: trace?.candidateSetBeforePriceFilter ?? result.evidenceTrace.candidateIds,
     candidateSetAfterPriceFilter: trace?.candidateSetAfterPriceFilter,
     candidateFilters: trace?.candidateFilters,
+    personaActivated: trace?.personaActivated ?? false,
+    activationSource: trace?.activationSource,
+    requestedPersonaTraits: trace?.requestedPersonaTraits,
+    matchedPersonaTraits: trace?.matchedPersonaTraits,
+    personaScore: trace?.personaScore,
+    affectedRanking: trace?.affectedRanking,
+    sourceAuthority: trace?.personaActivated ? "OWNER_EDITORIAL" : undefined,
+    decisionUse: trace?.personaActivated ? "SOFT_PREFERENCE_ONLY" : undefined,
     selectedDeterministicCandidate: result.selectedRuntimeVehicleCandidateId,
     discriminator: result.explanationInput.at(0),
     offerState: "AWAITING_CONSENT",
@@ -1214,6 +1238,7 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     || memory.requirements.some((entry) => [
       "FUEL", "FUEL_EXCLUDED", "MAX_ACCELERATION_0_100_S", "MIN_POWER_KW", "MAX_CONSUMPTION_L_100KM",
     ].includes(entry.key))
+    || memory.personaPreference?.activated === true
     || openHeldAuthorization(memory.heldAuthorization)?.runtimeVehicleCandidateId.startsWith("CATALOG:")
   );
   const pendingFacetPurpose = memory.lastAssistantQuestion?.purpose;
@@ -1283,9 +1308,38 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
     }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, askedMaterialQuestion: true, stateChanged: true }));
     return { kind: "QUESTION", message, options: next.options, conversation };
   }
+  if (catalogFacetActive && shouldAskPersonaQuestion(memory, catalogFacetEvaluation.candidates.length, Boolean(catalogFacetEvaluation.nextQuestion))) {
+    const message = "Teknik ihtiyaçlarını karşılayan birkaç farklı karakterde araç kaldı. İstersen son sıralamayı karakter tercihinle inceltebiliriz; hangisi sana daha yakın?";
+    const options = PERSONA_OPTIONS.map((option) => option.label);
+    const optionSet: CarsActiveOptionSet = {
+      id: `persona-${userTurnCount}`,
+      purpose: "PERSONA",
+      options: PERSONA_OPTIONS.map((option, index) => ({ id: `persona-${index}`, label: option.label, semanticValue: option.label })),
+      sourceAssistantTurn: userTurnCount,
+      active: true,
+    };
+    const conversation = withProvenance(applyAssistantMove(memory, {
+      phase: "FINAL_TRADEOFF", purpose: "PERSONA", prompt: message, options: optionSet,
+      progressEvent: "persona-soft-preference-question", advisorStage: "TRADEOFF_RESOLUTION",
+    }), withProgress({
+      modelAttempted: false, requestedModel, structuredPlan: false, parseOutcome: "NOT_ATTEMPTED",
+      userFacingOrigin: "DETERMINISTIC_EVIDENCE", deterministicOverride: true, conversationMove: "ASK_ONE_QUESTION",
+      latestMessageAcknowledged: true, latestPrimaryAct: latestAct.primaryAct, advisorStage: "TRADEOFF_RESOLUTION",
+      questionMaterial: true, alreadyAnswered: false, personaActivated: false,
+      whyQuestionNow: "Technical and functional filters are complete; persona is an optional soft tie-breaker only.",
+    }, { messages: input.messages, latestUser: latestContent, assistantMessage: message, latestAct, memory, askedMaterialQuestion: true, stateChanged: true }));
+    return { kind: "QUESTION", message, options, conversation };
+  }
   if (catalogFacetActive && catalogFacetEvaluation.candidates.length > 0 && memory.recommendationOfferStatus === "NONE") {
     const selected = selectCatalogFacetWinner(memory, catalogFacetEvaluation.candidates);
     if (selected) {
+      const preference = memory.personaPreference;
+      const personaMatch = preference?.activated
+        ? scoreVehiclePersonaTraits(selected.brand, selected.model, preference.requestedTraits)
+        : undefined;
+      const withoutPersona = preference?.activated
+        ? selectCatalogFacetWinner({ ...memory, personaPreference: { activated: false, requestedTraits: [] } }, catalogFacetEvaluation.candidates)
+        : selected;
       return offerAuthorizedCandidate(input, { ...memory, governedReady: true, humanReady: true }, catalogFacetDecisionResult(selected, catalogFacetEvaluation), userTurnCount, {
         candidateSetBeforePriceFilter: catalogFacetEvaluation.appliedFilters.length > 0
           ? Array.from({ length: Math.min(catalogFacetEvaluation.appliedFilters[0].before, 12) }, (_, index) => `COUNT:${index + 1}`)
@@ -1294,6 +1348,12 @@ async function createCarsConversationTurn(input: CarsConversationRequest): Promi
         candidateFilters: catalogFacetEvaluation.appliedFilters.map((item) => ({
           kind: item.key, before: [`COUNT:${item.before}`], after: [`COUNT:${item.after}`],
         })),
+        personaActivated: preference?.activated === true,
+        activationSource: preference?.activationSource,
+        requestedPersonaTraits: preference?.requestedTraits,
+        matchedPersonaTraits: personaMatch?.matchedTraits,
+        personaScore: personaMatch?.score,
+        affectedRanking: preference?.activated === true && withoutPersona?.id !== selected.id,
       });
     }
   }

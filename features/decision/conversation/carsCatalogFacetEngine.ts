@@ -7,7 +7,7 @@ import {
   validateDecisionFacetCoverage,
   valueAtPath,
 } from "./carsDecisionFacetCatalog";
-import { matchVehiclePersona } from "@/features/vehicle-data/vehiclePersona";
+import { scoreVehiclePersonaTraits } from "@/features/vehicle-data/vehiclePersona";
 
 type RecordItem = PublishedCatalog["records"][number];
 
@@ -213,12 +213,13 @@ export function selectCatalogFacetWinner(trace: CarsConversationTrace, candidate
   if (candidates.length === 0) return undefined;
   const text = trace.requirements.map((entry) => entry.sourceText).join(" ");
   const ranked = [...candidates];
-  const personaDifference = (a: CatalogFacetCandidate, b: CatalogFacetCandidate) => (
-    matchVehiclePersona(b.brand, b.model, text).score - matchVehiclePersona(a.brand, a.model, text).score
-  );
-  if (/0\s*[-–]?\s*100|performans|güç|hız/iu.test(text)) ranked.sort((a, b) => b.powerKw - a.powerKw || a.priceTry - b.priceTry || a.id.localeCompare(b.id));
-  else if (/az yak|tüketim|ekonomi/iu.test(text)) ranked.sort((a, b) => (a.consumption ?? Number.POSITIVE_INFINITY) - (b.consumption ?? Number.POSITIVE_INFINITY) || a.priceTry - b.priceTry || a.id.localeCompare(b.id));
-  else if (/bagaj/iu.test(text)) ranked.sort((a, b) => (b.luggageLitres ?? -1) - (a.luggageLitres ?? -1) || a.priceTry - b.priceTry || a.id.localeCompare(b.id));
+  const requestedTraits = trace.personaPreference?.activated ? trace.personaPreference.requestedTraits : [];
+  const personaDifference = (a: CatalogFacetCandidate, b: CatalogFacetCandidate) => requestedTraits.length > 0
+    ? scoreVehiclePersonaTraits(b.brand, b.model, requestedTraits).score - scoreVehiclePersonaTraits(a.brand, a.model, requestedTraits).score
+    : 0;
+  if (/0\s*[-–]?\s*100|performans|güç|hız/iu.test(text)) ranked.sort((a, b) => b.powerKw - a.powerKw || personaDifference(a, b) || a.priceTry - b.priceTry || a.id.localeCompare(b.id));
+  else if (/az yak|tüketim|ekonomi/iu.test(text)) ranked.sort((a, b) => (a.consumption ?? Number.POSITIVE_INFINITY) - (b.consumption ?? Number.POSITIVE_INFINITY) || personaDifference(a, b) || a.priceTry - b.priceTry || a.id.localeCompare(b.id));
+  else if (/bagaj/iu.test(text)) ranked.sort((a, b) => (b.luggageLitres ?? -1) - (a.luggageLitres ?? -1) || personaDifference(a, b) || a.priceTry - b.priceTry || a.id.localeCompare(b.id));
   else ranked.sort((a, b) => personaDifference(a, b) || a.priceTry - b.priceTry || b.powerKw - a.powerKw || a.id.localeCompare(b.id));
   return ranked[0];
 }

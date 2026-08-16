@@ -101,6 +101,7 @@ const questionPurposeSchema = z.enum([
   "OFF_TOPIC_REDIRECT",
   "FINAL_PRIORITY",
   "ACQUISITION_MARKET",
+  "PERSONA",
 ]);
 
 export const carsConversationTurnPlanSchema = z.object({

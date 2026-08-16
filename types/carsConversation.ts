@@ -1,4 +1,5 @@
 import type { RecommendedCar } from "@/types/recommendation";
+import type { VehiclePersonaTrait } from "@/types/vehiclePersona";
 
 export interface CarsConversationOption {
   readonly id: string;
@@ -30,7 +31,8 @@ export type CarsQuestionPurpose =
   | "REJECTION_DIAGNOSTIC"
   | "OFF_TOPIC_REDIRECT"
   | "FINAL_PRIORITY"
-  | "ACQUISITION_MARKET";
+  | "ACQUISITION_MARKET"
+  | "PERSONA";
 
 export interface CarsActiveOptionSet {
   readonly id: string;
@@ -369,6 +371,21 @@ export interface CarsTurnProvenance {
   readonly whyQuestionNow?: string;
   readonly offerState?: CarsRecommendationOfferStatus;
   readonly cardState?: "HIDDEN" | "REVEALED";
+  readonly personaActivated?: boolean;
+  readonly activationSource?: "USER_EXPLICIT" | "ADVISOR_PROMPT_RESPONSE";
+  readonly requestedPersonaTraits?: readonly VehiclePersonaTrait[];
+  readonly matchedPersonaTraits?: readonly VehiclePersonaTrait[];
+  readonly personaScore?: number;
+  readonly affectedRanking?: boolean;
+  readonly sourceAuthority?: "OWNER_EDITORIAL";
+  readonly decisionUse?: "SOFT_PREFERENCE_ONLY";
+}
+
+export interface CarsPersonaPreferenceState {
+  readonly activated: boolean;
+  readonly activationSource?: "USER_EXPLICIT" | "ADVISOR_PROMPT_RESPONSE";
+  readonly requestedTraits: readonly VehiclePersonaTrait[];
+  readonly sourceTurn?: number;
 }
 
 export interface CarsConversationTrace {
@@ -406,6 +423,7 @@ export interface CarsConversationTrace {
   readonly usedScopeBoundaryStated?: boolean;
   readonly noAffordableMatchStatus?: CarsNoAffordableMatchStatus;
   readonly priceEvaluations?: readonly CarsCandidatePriceEvaluation[];
+  readonly personaPreference?: CarsPersonaPreferenceState;
   readonly turnProvenance?: CarsTurnProvenance;
 }
 

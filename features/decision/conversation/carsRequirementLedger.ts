@@ -51,6 +51,7 @@ export function carsQuestionPurpose(content: string): CarsQuestionPurpose | unde
   if (/(?:çekiş düzeni|önden çekiş.*arkadan|dört çeker tercihi)/iu.test(content)) return "DRIVETRAIN";
   if (/(?:yakıt(?: türü| tipi| tercihi)?|benzin(?:li)?|dizel|hibrit|elektrik(?:li)?)/iu.test(content)) return "FUEL";
   if (/(?:vazgeçilmez|kararı.*değiştirecek|en çok değiştirecek|non-negotiable)/iu.test(content)) return "FINAL_PRIORITY";
+  if (/(?:farklı karakterde|sade ve rasyonel|sportif ve dinamik|teknolojik ve fütüristik)/iu.test(content)) return "PERSONA";
   if (/(?:beğenmedi|rahatsız eden|hangi noktada uymadı)/iu.test(content)) return "REJECTION_DIAGNOSTIC";
 }
 

@@ -4,7 +4,8 @@ import type { PublishedCatalog } from "@/features/vehicle-data/buildPublishedCat
 import type { CarsConversationTrace, CarsPriceValidityStatus } from "@/types/carsConversation";
 import type { RecommendedCar } from "@/types/recommendation";
 import type { CarsEvidenceBackedDecisionResult } from "@/features/decision/runtime/runCarsEvidenceBackedDecision";
-import { vehiclePersonaReason } from "@/features/vehicle-data/vehiclePersona";
+import { scoreVehiclePersonaTraits } from "@/features/vehicle-data/vehiclePersona";
+import { neutralPersonaLabels } from "./carsPersonaPreference";
 
 import type { CarsHeldCandidateAuthorization } from "./carsHeldAuthorization";
 import {
@@ -35,8 +36,13 @@ export function presentGovernedRecommendation(input: {
       : input.result.explanationInput.includes("CATALOG_FACETS")
         ? "Açık tercihlerin aktif sıfır araç kataloğuna birlikte uygulanmasıyla kalan seçenekler arasından deterministik olarak ayrışıyor."
         : undefined;
-  const userText = input.memory.requirements.map((entry) => entry.sourceText).join(" ");
-  const personaReason = vehiclePersonaReason(selected.presentationIdentity.brand, selected.presentationIdentity.model, userText);
+  const preference = input.memory.personaPreference;
+  const personaMatch = preference?.activated
+    ? scoreVehiclePersonaTraits(selected.presentationIdentity.brand, selected.presentationIdentity.model, preference.requestedTraits)
+    : undefined;
+  const personaReason = personaMatch && personaMatch.score > 0
+    ? `Bu seçim yalnızca karakter tercihiyle yapılmadı; önce somut ihtiyaçların uygulandı. Kalan adaylar arasında ${neutralPersonaLabels(personaMatch.matchedTraits).join(", ")} karakter tercihin son sıralamada etkili oldu.`
+    : undefined;
   const reasons = [governedReason, personaReason, ...selected.requirements.filter((item) => item.requirement.value > 1).map((item) => (
     item.requirement.factKey === "seats"
       ? `${item.fact?.value} koltuk, istediğiniz en az ${item.requirement.value} koltuğu karşılıyor.`

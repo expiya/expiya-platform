@@ -90,6 +90,17 @@ export function matchVehiclePersona(brand: string, model: string, userText: stri
   return { score: matchedTraits.length, matchedTraits, persona };
 }
 
+export function scoreVehiclePersonaTraits(
+  brand: string,
+  model: string,
+  requestedTraits: readonly VehiclePersonaTrait[],
+): VehiclePersonaMatch {
+  const persona = resolveVehiclePersona(brand, model);
+  if (!persona) return { score: 0, matchedTraits: [] };
+  const matchedTraits = requestedTraits.filter((trait) => persona.traits.includes(trait));
+  return { score: matchedTraits.length, matchedTraits, persona };
+}
+
 const traitLabels: Readonly<Record<VehiclePersonaTrait, string>> = {
   DESIGN: "tasarım", DRIVING_ENGAGEMENT: "sürüş karakteri", COMFORT: "konfor",
   PRACTICALITY: "pratiklik", TECHNOLOGY: "teknoloji", PRESTIGE: "prestij", VALUE: "fiyat/değer dengesi",

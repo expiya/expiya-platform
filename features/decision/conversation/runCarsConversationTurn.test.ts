@@ -14,6 +14,7 @@ vi.mock("./planCarsConversationTurn", () => ({
 }));
 
 import { runCarsConversationTurn } from "./runCarsConversationTurn";
+import { buildCarsRequirementLedger } from "./carsConversationMemory";
 import { evaluateCarsConversationQuality } from "./evaluateCarsConversationQuality";
 import { messageRevealsCandidateIdentity } from "./publicCarsDecision";
 
@@ -742,6 +743,68 @@ describe("runCarsConversationTurn", () => {
     if (revealed.kind !== "RECOMMENDATIONS") return;
     expect(revealed.recommendations).toHaveLength(1);
     expect(revealed.recommendations[0].car.id).toBe(revealed.conversation?.shownCandidate?.vehicleVariantId);
+    expect(revealed.recommendations[0].decision.reasons.join(" ")).not.toMatch(/karakter tercihi|persona/iu);
+  });
+
+  it("records explicitly activated persona as a secondary ranking signal", async () => {
+    const conversationId = "persona-provenance";
+    const messages: Array<{ id: string; role: "user" | "assistant"; content: string }> = [
+      { id: "u0", role: "user", content: "5 milyon TL altında, şehirde 4 kişi kullanacağımız elektrikli SUV öner; prestijli ve şık dursun" },
+    ];
+    let conversation;
+    let response = await runCarsConversationTurn({ conversationId, messages });
+    for (let index = 0; index < 10 && response.conversation?.recommendationOfferStatus !== "AWAITING_CONSENT"; index += 1) {
+      expect(response.kind).toBe("QUESTION");
+      if (response.kind !== "QUESTION") break;
+      const answer = response.options?.[0]
+        ?? (/koltuk/iu.test(response.message) ? "4 koltuk"
+          : /bagaj/iu.test(response.message) ? "iki bavul"
+            : /güç/iu.test(response.message) ? "Günlük kullanımda canlı"
+              : /tüketim/iu.test(response.message) ? "20 L/100 km"
+                : "fark etmez");
+      messages.push({ id: `a${index}`, role: "assistant", content: response.message });
+      messages.push({ id: `u${index + 1}`, role: "user", content: answer });
+      conversation = response.conversation;
+      response = await runCarsConversationTurn({ conversationId, conversation, messages });
+    }
+    expect(response.conversation?.turnProvenance).toMatchObject({
+      personaActivated: true,
+      activationSource: "USER_EXPLICIT",
+      requestedPersonaTraits: expect.arrayContaining(["PRESTIGE", "DESIGN"]),
+      sourceAuthority: "OWNER_EDITORIAL",
+      decisionUse: "SOFT_PREFERENCE_ONLY",
+      personaScore: expect.any(Number),
+      affectedRanking: expect.any(Boolean),
+    });
+    expect(response.conversation?.turnProvenance?.candidateCount).toBeGreaterThan(0);
+  });
+
+  it("offers a late optional persona question and disables it on fark etmez", async () => {
+    const content = "5 milyon TL altında, şehirde 4 kişi için en az 300 litre bagajlı elektrikli SUV öner";
+    const base = buildCarsRequirementLedger([{ id: "u1", role: "user", content }]);
+    const exhausted = {
+      ...base,
+      askedQuestionPurposes: [
+        ...base.askedQuestionPurposes,
+        "BODY_TYPE", "FUEL", "TRANSMISSION", "DRIVETRAIN",
+        "CATALOG_FACET:price_max_try", "CATALOG_FACET:power_min_kw", "CATALOG_FACET:seats_min",
+        "CATALOG_FACET:luggage_min_l", "CATALOG_FACET:consumption_max_l_100km",
+      ] as const,
+    };
+    const prompted = await runCarsConversationTurn({ conversationId: "persona-optional", conversation: exhausted, messages: [
+      { id: "u1", role: "user", content },
+    ] });
+    expect(prompted.kind).toBe("QUESTION");
+    expect(prompted.conversation?.lastAssistantQuestion?.purpose).toBe("PERSONA");
+    if (prompted.kind !== "QUESTION") return;
+    expect(prompted.options).toContain("Sportif ve dinamik");
+    const declined = await runCarsConversationTurn({ conversationId: "persona-optional", conversation: prompted.conversation, messages: [
+      { id: "u1", role: "user", content },
+      { id: "a1", role: "assistant", content: prompted.message, optionSet: prompted.conversation?.activeOptionSet },
+      { id: "u2", role: "user", content: "Fark etmez" },
+    ] });
+    expect(declined.conversation?.personaPreference?.activated).toBe(false);
+    expect(declined.conversation?.lastAssistantQuestion?.purpose).not.toBe("PERSONA");
   });
 
   it("gives a clear next action after city use and asks one material budget question after automatic parking", async () => {
