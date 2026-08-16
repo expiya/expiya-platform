@@ -51,7 +51,16 @@ describe("resolveVehicleImage", () => {
   });
 
   it("does not cross body styles or model-year applicability", () => {
-    expect(resolveVehicleImage(identity, [{ ...base, bodyStyle: "Hatchback" }]).status).toBe("PLACEHOLDER");
-    expect(resolveVehicleImage(identity, [{ ...base, modelYearTo: 2025 }]).status).toBe("PLACEHOLDER");
+    expect(resolveVehicleImage(identity, [{ ...base, bodyStyle: "Hatchback" }]).status).toBe("APPROXIMATE");
+    expect(resolveVehicleImage(identity, [{ ...base, modelYearTo: 2025 }]).status).toBe("APPROXIMATE");
+  });
+
+  it("selects the closest publishable same-brand image and exposes what it represents", () => {
+    const suv: VehicleMediaAsset = { ...base, id: "media-rav4", model: "RAV4", bodyStyle: "SUV", storagePath: "/media/rav4.webp" };
+    const sedan: VehicleMediaAsset = { ...base, id: "media-camry", model: "Camry", storagePath: "/media/camry.webp" };
+    const missing = { ...identity, model: "C-HR", bodyStyle: "SUV" };
+    expect(resolveVehicleImage(missing, [sedan, suv])).toMatchObject({
+      path: "/media/rav4.webp", status: "APPROXIMATE", representedModel: "Toyota RAV4",
+    });
   });
 });

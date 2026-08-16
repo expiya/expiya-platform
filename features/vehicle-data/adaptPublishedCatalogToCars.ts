@@ -53,6 +53,7 @@ export function adaptPublishedCatalogToCars(catalog: PublishedCatalog): CarsCata
       image: resolvedImage.path,
       imageStatus: resolvedImage.status,
       imageAttribution: resolvedImage.attributionText,
+      imageRepresentativeOf: resolvedImage.representedModel,
       createdAt: variant.createdAt,
       updatedAt: variant.updatedAt,
     });

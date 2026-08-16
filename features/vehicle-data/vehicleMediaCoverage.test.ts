@@ -11,8 +11,8 @@ describe("v0.55.0 vehicle media coverage", () => {
       variantId: variant.id, brand: variant.brand.value, model: variant.model.value,
       generation: variant.generation?.value, bodyStyle: variant.bodyStyle.value, modelYear: variant.modelYear.value,
     }));
-    const covered = resolutions.filter((resolution) => resolution.status !== "PLACEHOLDER");
-    expect(covered).toHaveLength(491);
-    expect(covered.every((resolution) => resolution.status === "REPRESENTATIVE")).toBe(true);
+    expect(resolutions.filter((resolution) => resolution.status === "REPRESENTATIVE")).toHaveLength(491);
+    expect(resolutions.filter((resolution) => resolution.status === "APPROXIMATE")).toHaveLength(86);
+    expect(resolutions.filter((resolution) => resolution.status === "PLACEHOLDER")).toHaveLength(0);
   });
 });

@@ -58,7 +58,8 @@ function adaptRow(row: z.infer<typeof rowSchema>): Car | undefined {
     id: row.id, brand: row.brand, model: `${row.model} ${row.trim}`, year: row.model_year,
     price: row.amount_try, km: 0, fuel, transmission, bodyType,
     image: resolvedImage.path, imageStatus: resolvedImage.status,
-    imageAttribution: resolvedImage.attributionText, createdAt: row.created_at, updatedAt: row.updated_at,
+    imageAttribution: resolvedImage.attributionText, imageRepresentativeOf: resolvedImage.representedModel,
+    createdAt: row.created_at, updatedAt: row.updated_at,
   };
 }
 

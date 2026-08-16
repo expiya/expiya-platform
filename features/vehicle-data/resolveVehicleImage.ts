@@ -15,9 +15,10 @@ export interface VehicleImageIdentity {
 
 export interface ResolvedVehicleImage {
   readonly path: string;
-  readonly status: "EXACT" | "REPRESENTATIVE" | "PLACEHOLDER";
+  readonly status: "EXACT" | "REPRESENTATIVE" | "APPROXIMATE" | "PLACEHOLDER";
   readonly assetId?: string;
   readonly attributionText?: string;
+  readonly representedModel?: string;
 }
 
 const normalize = (value: string | undefined) => value?.trim().toLocaleUpperCase("tr-TR");
@@ -38,17 +39,64 @@ const scopePriority: Readonly<Record<VehicleMediaAsset["scope"], number>> = {
   VARIANT: 4, GENERATION_BODY: 3, MODEL_BODY: 2, MODEL: 1,
 };
 
+const comparableTokens = (value: string) => new Set(normalize(value)?.replace(/[^A-Z0-9ÇĞİÖŞÜ]+/g, " ").split(" ")
+  .filter((token) => token.length > 1 && !["YENİ", "NEW", "ELECTRIC", "ELEKTRİK", "HYBRID", "HİBRİT"].includes(token)) ?? []);
+
+function similarityScore(asset: VehicleMediaAsset, identity: VehicleImageIdentity): number {
+  const targetTokens = comparableTokens(identity.model), assetTokens = comparableTokens(asset.model);
+  const commonTokens = [...targetTokens].filter((token) => assetTokens.has(token)).length;
+  const unionSize = new Set([...targetTokens, ...assetTokens]).size || 1;
+  const bodyScore = normalize(asset.bodyStyle) === normalize(identity.bodyStyle) ? 100 : 0;
+  const brandScore = normalize(asset.brand) === normalize(identity.brand) ? 200 : 0;
+  const generationScore = identity.generation && normalize(asset.generation) === normalize(identity.generation) ? 30 : 0;
+  const familyScore = Math.round((commonTokens / unionSize) * 60);
+  const assetYear = asset.modelYearFrom ?? asset.modelYearTo ?? identity.modelYear;
+  const yearScore = Math.max(0, 10 - Math.abs(identity.modelYear - assetYear));
+  return brandScore + bodyScore + generationScore + familyScore + yearScore;
+}
+
+const eligibleAssetsCache = new WeakMap<object, readonly VehicleMediaAsset[]>();
+
+function eligibleAssets(assets: readonly VehicleMediaAsset[]): readonly VehicleMediaAsset[] {
+  const cached = eligibleAssetsCache.get(assets);
+  if (cached) return cached;
+  const eligible = assets.filter((candidate) => candidate.market === "TR" && isPublishableVehicleMediaAsset(candidate)
+    && candidate.isPrimary && candidate.kind === "HERO_EXTERIOR");
+  eligibleAssetsCache.set(assets, eligible);
+  return eligible;
+}
+
 export function resolveVehicleImage(
   identity: VehicleImageIdentity,
   assets: readonly VehicleMediaAsset[] = productionVehicleMediaAssets,
 ): ResolvedVehicleImage {
-  const asset = assets.filter((candidate) => matches(candidate, identity))
+  const candidates = eligibleAssets(assets);
+  const asset = candidates.filter((candidate) => matches(candidate, identity))
     .sort((left, right) => scopePriority[right.scope] - scopePriority[left.scope])[0];
-  if (!asset) return { path: PRODUCTION_VEHICLE_PLACEHOLDER, status: "PLACEHOLDER" };
+  if (!asset) {
+    let fallback: VehicleMediaAsset | undefined;
+    let fallbackScore = Number.NEGATIVE_INFINITY;
+    for (const candidate of candidates) {
+      const score = similarityScore(candidate, identity);
+      if (score > fallbackScore || (score === fallbackScore && candidate.id.localeCompare(fallback?.id ?? "", "en") < 0)) {
+        fallback = candidate;
+        fallbackScore = score;
+      }
+    }
+    if (!fallback) return { path: PRODUCTION_VEHICLE_PLACEHOLDER, status: "PLACEHOLDER" };
+    return {
+      path: fallback.storagePath,
+      status: "APPROXIMATE",
+      assetId: fallback.id,
+      attributionText: fallback.attributionText,
+      representedModel: `${fallback.brand} ${fallback.model}`,
+    };
+  }
   return {
     path: asset.storagePath,
     status: asset.scope === "VARIANT" ? "EXACT" : "REPRESENTATIVE",
     assetId: asset.id,
     attributionText: asset.attributionText,
+    representedModel: asset.scope === "VARIANT" ? undefined : `${asset.brand} ${asset.model}`,
   };
 }

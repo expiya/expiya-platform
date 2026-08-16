@@ -34,8 +34,10 @@ export interface Car {
 
   image: string;
   /** Exactness of the vehicle image; representative images must be labelled in UI. */
-  imageStatus?: "EXACT" | "REPRESENTATIVE" | "PLACEHOLDER";
+  imageStatus?: "EXACT" | "REPRESENTATIVE" | "APPROXIMATE" | "PLACEHOLDER";
   imageAttribution?: string;
+  /** Actual model represented when an approximate image fallback is used. */
+  imageRepresentativeOf?: string;
 
   createdAt: string;
   updatedAt: string;
