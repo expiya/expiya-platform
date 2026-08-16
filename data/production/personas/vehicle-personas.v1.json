@@ -1,0 +1,1070 @@
+{
+  "schemaVersion": "1.0.0",
+  "datasetVersion": "2026.08.16-owner-editorial-v1",
+  "locale": "tr-TR",
+  "authority": "OWNER_EDITORIAL",
+  "decisionUse": "SOFT_PREFERENCE_ONLY",
+  "disclaimer": "Personalar editoryal yorumdur; teknik gerçek veya kullanıcı demografisi değildir. Güvenli, nötr özellik etiketleri karar sıralamasında yalnız yumuşak tercih olarak kullanılabilir.",
+  "brands": [
+    {
+      "brand": "Alfa Romeo",
+      "brandPersona": "\"Ruh hastası sevgili.\" Kusursuz bir estetik ve sürüş hazzı sunar ancak kaprislidir. Sanayiye gitmeyi göze alan tutkulu tasarım aşıklarının markasıdır.",
+      "series": [
+        {
+          "group": "Giulia",
+          "persona": "İtalyan şıklığı taşıyan, BMW sürücülerine \"asıl elit performans budur\" diyen entelektüel hız tutkunu."
+        },
+        {
+          "group": "Junior",
+          "persona": "Şehirli, genç, tasarım odaklı ve influencer ruhlu yeni nesil Alfista."
+        },
+        {
+          "group": "Stelvio",
+          "persona": "Geleneksel lüks SUV'ları sıkıcı bulan, viraj yapmayı seven estetik meraklısı aile reisi."
+        },
+        {
+          "group": "Tonale",
+          "persona": "Tasarıma aşık ama nispeten mantıklı ve ekonomik kalmak isteyen beyaz yakalı yöneticiler."
+        }
+      ]
+    },
+    {
+      "brand": "Alpine",
+      "brandPersona": "\"Ralli nostaljisi ve safkan hafiflik.\" Mühendislik dehasına hayran, saf sürüş keyfi arayan safkan yarış ruhu.",
+      "series": [
+        {
+          "group": "A110",
+          "persona": "Porsche'yi fazla popüler bulan, pist günlerinin gizli kahramanı, minimalist hız tutkunu."
+        },
+        {
+          "group": "A290",
+          "persona": "Şehirde sessizce ve çılgınca makas atmak isteyen, nostaljik elektrikli hot-hatch meraklısı."
+        },
+        {
+          "group": "A390",
+          "persona": "Aile kurmuş ama geçmişteki ralli ruhunu elektrikli bir crossover içinde yaşatmak isteyen tasarımcı."
+        }
+      ]
+    },
+    {
+      "brand": "Aston Martin",
+      "brandPersona": "\"İngiliz ajanı ve aristokrasi.\" Güçlü, asil, pahalı ısmarlama takım elbiseler giyen ve asla bağırmayan bir zenginlik.",
+      "series": [
+        {
+          "group": "DB12",
+          "persona": "Gerçek bir centilmen. Sanata, lükse ve kıtalararası konforlu hızlı yolculuklara (Grand Tourer) tapan milyoner."
+        },
+        {
+          "group": "DBX",
+          "persona": "Hafta sonu malikanesine giderken bile asaletinden ve performansından ödün vermeyen elit SUV kullanıcısı."
+        },
+        {
+          "group": "Vanquish",
+          "persona": "Gücün ve zirvenin nihai sembolü. Koleksiyoner ve safkan V12 gürültüsü aşığı aristokrat."
+        },
+        {
+          "group": "Vantage",
+          "persona": "Pist günlerini seven, daha genç, hırslı ve dinamik Aston Martin elitisti."
+        }
+      ]
+    },
+    {
+      "brand": "Audi",
+      "brandPersona": "\"Teknokrat ve plaza hırsı.\" Soğukkanlı, kurumsal, dijital dünyaya entegre ve yolda sabırsız üst düzey profesyoneller.",
+      "series": [
+        {
+          "group": "A3",
+          "persona": "Şehir içi dinamik, sürekli bir yerlere yetişmeye çalışan agresif genç kurumsal çalışan."
+        },
+        {
+          "group": "A5",
+          "persona": "Tasarıma önem veren, sportif ama kurumsal çizgiden çıkmayan kıdemli müdür veya şık avukat."
+        },
+        {
+          "group": "A6",
+          "persona": "\"Şirket bana bunu tahsis etti\" diyen veya gri takım elbiseli, hırslı orta-üst düzey yöneticiler."
+        },
+        {
+          "group": "A8",
+          "persona": "Görünmez olmak isteyen holding CEO'su veya devlet protokolünün arka koltuk sakini."
+        },
+        {
+          "group": "e-tron GT",
+          "persona": "Geleceğin teknolojisine milyarlar yatıran, sessiz ama yırtıcı teknoloji şirketi ortağı."
+        },
+        {
+          "group": "Q2",
+          "persona": "Audi dünyasına giriş yapmış, premium hissetmek isteyen genç şehirli kadınlar."
+        },
+        {
+          "group": "Q3",
+          "persona": "Şehir içi pratiklik arayan, çocuklu ve modern genç anneler."
+        },
+        {
+          "group": "Q4 e-tron",
+          "persona": "Karbon ayak izine dikkat eden, teknolojik ve modern çekirdek aile."
+        },
+        {
+          "group": "Q5",
+          "persona": "Müteahhitlikten kurumsallığa geçiş yapmış veya konfor arayan oturmuş orta yaşlı burjuvazi."
+        },
+        {
+          "group": "Q6 e-tron",
+          "persona": "Yeni nesil dijital trendleri yakından takip eden, premium elektrikli SUV meraklısı."
+        },
+        {
+          "group": "Q7",
+          "persona": "Geniş, heybetli, yoldaki herkesin ona yol vermesini bekleyen kalabalık zengin aile."
+        },
+        {
+          "group": "Q8",
+          "persona": "Lüks SUV dünyasında \"ben buradayım\" diyen, dikkat çekmeyi seven hırslı iş insanı."
+        }
+      ]
+    },
+    {
+      "brand": "Bentley",
+      "brandPersona": "\"Kraliyet lüksü ve sınırsız konfor.\" Nesiller boyu aktarılan servetin, deri ve ahşap kokan en yüksek zirvesi.",
+      "series": [
+        {
+          "group": "Bentayga",
+          "persona": "\"En lüks SUV bende olmalı\" diyen, ultra zengin iş insanı veya futbolcu."
+        },
+        {
+          "group": "Continental GT",
+          "persona": "Kumarhaneler şehri Monako'da veya özel jet pistinde görülen, hız ve ultra lüks hastası milyarder."
+        },
+        {
+          "group": "Flying Spur",
+          "persona": "Şoförlü kullanıma uygun, dünya finans merkezlerini yöneten ağırbaşlı ve görkemli milyarder."
+        }
+      ]
+    },
+    {
+      "brand": "BMW",
+      "brandPersona": "\"Serseri, agresif ve makasçı.\" Adrenalin bağımlısı, arka arkaya selektör yapmayı seven, yolların asi ve dominant çocuğu.",
+      "series": [
+        {
+          "group": "1 Serisi",
+          "persona": "BMW ruhuna adım atmış, şehirde agresif turlar atan üniversiteli veya yeni mezun genç."
+        },
+        {
+          "group": "2 Serisi",
+          "persona": "Klasik sedanlardan sıkılmış, tarz ve drift odaklı yaşayan marjinal BMW'ci."
+        },
+        {
+          "group": "3 Serisi",
+          "persona": "Makas videolarının başrolü, yanlamayı hayat felsefesi yapmış ikonik \"Serseri Ruh\"."
+        },
+        {
+          "group": "4 Serisi",
+          "persona": "Gösterişli devasa ızgarasıyla \"bana bakın\" diyen, gecelerin şık ve hızlı yüzü."
+        },
+        {
+          "group": "5 Serisi",
+          "persona": "İş hayatında hızla yükselmiş ama içindeki o agresif makasçı ruhu tamamen öldürememiş yönetici."
+        },
+        {
+          "group": "7 Serisi",
+          "persona": "Fütüristik lüksü ve teknolojik gücü sonuna kadar kullanan, yollara hükmeden mafyatik veya teknokrat patron."
+        },
+        {
+          "group": "i4",
+          "persona": "Benzine para vermek istemeyen ama BMW'nin o agresif gaz tepkisinden de vazgeçemeyen elektrikli makasçı."
+        },
+        {
+          "group": "i5",
+          "persona": "Modern, sessiz ve çevreci plaza direktörü."
+        },
+        {
+          "group": "i7",
+          "persona": "Arka koltuktaki devasa sinema ekranında iş toplantılarını takip eden fütüristik holding sahibi."
+        },
+        {
+          "group": "iX",
+          "persona": "Tasarımıyla bilim kurgu filmlerinden fırlamış gibi duran, geleneksel çizgileri reddeden zengin kripto yatırımcısı."
+        },
+        {
+          "group": "iX1 / iX2 / iX3",
+          "persona": "Şehirli, premium elektrikli dünyaya geçmiş, şarj istasyonlarında sosyalleşen modern aileler."
+        },
+        {
+          "group": "M3 / M4 / M5",
+          "persona": "Safkan adrenalin bağımlısı. Lastik yakmayı, motor sesini ve pist sürelerini her şeyin üstünde tutan zengin sokak yarışçısı."
+        },
+        {
+          "group": "X1 / X2 / X3",
+          "persona": "Şehirli, aktif yaşayan, hafta sonu tenis veya golf kursuna giden premium aile üyeleri."
+        },
+        {
+          "group": "X5",
+          "persona": "Yoldaki en sol şeridin mutlak sahibi, heybetli ve otoriter iş insanı/müteahhit klasiği."
+        },
+        {
+          "group": "X6",
+          "persona": "Agresif SUV-Coupe tasarımının mucidi; yolda korku ve saygı uyandırmayı seven dominant karakter."
+        },
+        {
+          "group": "X7",
+          "persona": "Amerika boyutlarında yaşayan, şatafata ve devasa hacme tapan çok çocuklu ultra zengin aile."
+        }
+      ]
+    },
+    {
+      "brand": "BYD",
+      "brandPersona": "\"Teknoloji devrimi ve akıllı mantık.\" Tesla'ya meydan okuyan, Çin'in teknolojik gücüne güvenen rasyonel fütürist.",
+      "series": [
+        {
+          "group": "ATTO 2 / ATTO 3 / DOLPHIN",
+          "persona": "Telefon değiştirir gibi araba değiştiren, ekran boyutuna beygirden çok önem veren genç teknoloji meraklıları."
+        },
+        {
+          "group": "HAN",
+          "persona": "Çin lüksünü ve performansını premium Avrupalılara tercih eden, ezber bozan iş insanı."
+        },
+        {
+          "group": "SEAL / SEALION 7",
+          "persona": "Spor tasarımı ve elektrikli gücü mantıklı fiyatla birleştiren fütürist genç profesyoneller."
+        },
+        {
+          "group": "SEAL U / TANG",
+          "persona": "Geniş, menzil endişesi olmayan, bütçesini yönetmeyi bilen akıllı ve teknolojik geniş aile SUV'u."
+        }
+      ]
+    },
+    {
+      "brand": "Chery",
+      "brandPersona": "\"Fiyat/Performans canavarı ve donanım çılgını.\" Az paraya en çok ekranı ve oyuncağı almak isteyen, geleneksel markalara meydan okuyan pratik tüketici.",
+      "series": [
+        {
+          "group": "TIGGO 7",
+          "persona": "\"Bu fiyata bu dolulukta araba yok\" diyen orta sınıf Türk aile babası."
+        },
+        {
+          "group": "TIGGO 8",
+          "persona": "Uygun fiyata 7 kişilik devasa bir SUV alıp geniş geniş gezmek isteyen bütçe dostu büyük aileler."
+        }
+      ]
+    },
+    {
+      "brand": "Citroën",
+      "brandPersona": "\"Fransız marjinalliği ve mutlak konfor.\" Standart kalıplardan nefret eden, amortisör rahatlığına tapan, yaratıcı ve rahat ruhlar.",
+      "series": [
+        {
+          "group": "Berlingo",
+          "persona": "Hafta içi esnaf, hafta sonu mangal ve piknik aşığı, içi genişlikten ibaret olan Türk aile klasiği."
+        },
+        {
+          "group": "C3 / C3 Aircross",
+          "persona": "Renkli tavan seçenekleriyle dikkat çeken, şehre uygun, neşeli ve sempatik genç kadın arabası."
+        },
+        {
+          "group": "C4 / C4 X",
+          "persona": "Tasarımı SUV mu sedan mı anlaşılamayan, ezber bozan, konfor düşkünü memur ve beyaz yakalılar."
+        },
+        {
+          "group": "C5 Aircross",
+          "persona": "\"Uçan halı\" konforunda seyahat etmek isteyen, bel fıtığı riski olan rahatına düşkün aileler."
+        },
+        {
+          "group": "Jumper / Jumpy / SpaceTourer",
+          "persona": "Turizm taşımacılığı yapan, geniş aileleri taşıyan veya karavan yapma hayali kuran özgür ruhlu emekliler."
+        }
+      ]
+    },
+    {
+      "brand": "CUPRA",
+      "brandPersona": "\"Asi İspanyol ve sokak modası.\" SEAT'ın içinden çıkan, mat renkleri ve bronz detaylarıyla \"ben sıradan değilim\" diyen modern sokak kültürünün temsilcisi.",
+      "series": [
+        {
+          "group": "Ateca / Terramar",
+          "persona": "Aile babası olmuş ama gençlikteki performans ve modifiye tutkusunu bırakamamış dinamik babalar."
+        },
+        {
+          "group": "Born / Tavascan",
+          "persona": "Tasarım odaklı, elektrikli çağın en hırslı ve marjinal şehirli gençleri."
+        },
+        {
+          "group": "Formentor",
+          "persona": "Türkiye'nin en popüler \"tarz\" SUV'u. Geceleri popüler mekanların önünde park halinde görülen, genç ve havalı kitle."
+        },
+        {
+          "group": "Leon",
+          "persona": "Golf'ü fazla sıkıcı bulan, egzoz sesini ve agresif tasarımı seven ateşli hatchback tutkunu."
+        }
+      ]
+    },
+    {
+      "brand": "Dacia",
+      "brandPersona": "\"Gösterişsiz mantık ve doğanın askeri.\" Plastik kalitesini umursamayan, sadece amaca odaklanan rasyonel ve bütçe dostu dağ-taş insanı.",
+      "series": [
+        {
+          "group": "Bigster / Duster",
+          "persona": "Şantiyelerin, dağ yollarının, avcıların ve \"bana masraf çıkarmasın\" diyen Anadolu insanının vazgeçilmezi."
+        },
+        {
+          "group": "Jogger",
+          "persona": "Türkiye'de 7 kişilik en ucuz araç arayan, çocukları ve eşyaları doldurup memlekete giden geniş aileler."
+        },
+        {
+          "group": "Logan / Sandero / Stepway",
+          "persona": "İlk arabasını alan gençler, emekliler veya şehiriçi ayağını yerden kesmek isteyen pratik sürücüler."
+        },
+        {
+          "group": "Spring",
+          "persona": "Dünyanın en ucuz ve en minimalist elektrikli deneyimiyle sadece işe gidip gelen ekonomik şehir içi sürücüsü."
+        }
+      ]
+    },
+    {
+      "brand": "DFSK",
+      "brandPersona": "\"Alternatif bütçe SUV'u.\" Çin pazarının sunduğu genişlik ve hibrit teknolojisini en dip fiyatla yakalamaya çalışan pragmatik sürücü.",
+      "series": [
+        {
+          "group": "E5",
+          "persona": "Geniş hacimli plug-in hibrit dünyasına bütçesini sarsmadan girmek isteyen rasyonel aile reisi."
+        }
+      ]
+    },
+    {
+      "brand": "DS Automobiles",
+      "brandPersona": "\"Paris modası ve avangart lüks.\" Standart Alman lüksünden (Audi, BMW) sıkılmış, saat işçiliğine ve tasarıma tapan entelektüel zenginlik.",
+      "series": [
+        {
+          "group": "DS 7",
+          "persona": "Şık restoranların valelerine en çok bırakılan, kristal detay hayranı, lüks mimar veya doktor SUV'u."
+        },
+        {
+          "group": "N°4 / N°8",
+          "persona": "Fransız couture tasarımını yollara taşımak isteyen, mücevher gibi parıldayan marjinal premium sedan severler."
+        }
+      ]
+    },
+    {
+      "brand": "Ferrari",
+      "brandPersona": "\"Yarış kırmızı tutkusu ve safkan güç.\" Paranın satın alabileceği en yüksek hız, İtalyan senfonisi ve dünya üzerindeki en büyük otomotiv egosu.",
+      "series": [
+        {
+          "group": "12Cilindri",
+          "persona": "Geleneksel safkan V12 motor sesine tapan, eski ekol Ferrari koleksiyoneri milyarder."
+        },
+        {
+          "group": "296",
+          "persona": "Hibrit çağın yeni nesil pist canavarı; pist süreleriyle kafayı bozmuş genç zengin hız tutkunu."
+        },
+        {
+          "group": "Amalfi / Roma Spider",
+          "persona": "İtalya sahillerinde rüzgarı hissetmek isteyen, lüksü yaşam tarzı haline getirmiş estetik aşığı zengin."
+        },
+        {
+          "group": "Purosangue",
+          "persona": "SUV konseptine karşı çıkan Ferrari'nin, pratiklik isteyen ama performansından asla ödün vermeyen en elit müşterisi."
+        }
+      ]
+    },
+    {
+      "brand": "Fiat",
+      "brandPersona": "\"Halkın kahramanı ve Türkiye'nin tekerleği.\" Parçası ucuz, her köşe başında tamircisi olan, bu toprakların en fedakar ve yaygın markası.",
+      "series": [
+        {
+          "group": "500e / Topolino",
+          "persona": "Şehir içinde park yeri aramayan, sevimli, minimalist, İtalyan esintili tarz sahibi influencer ve üniversiteliler."
+        },
+        {
+          "group": "600 / Grande Panda",
+          "persona": "Retro tasarımı modern şehir hayatıyla birleştiren, bütçe dostu fütürist gençler."
+        },
+        {
+          "group": "Doblo / Ducato / Scudo / Ulysse",
+          "persona": "\"Eniştenin arabası.\" Bagajı geniş, ticarette kurşun geçirmeyen, memleket yükü taşıyan esnaf ve geniş aile efsanesi."
+        },
+        {
+          "group": "Egea Sedan / Cross",
+          "persona": "Türkiye'nin milli aracı. Şirket filoları, taksiler, ezberci memurlar ve ilk arabasını alan geniş halk kitlesi."
+        }
+      ]
+    },
+    {
+      "brand": "Ford",
+      "brandPersona": "\"Mühendislik temelli aile ve iş gücü.\" Sürüş dinamikleri harika olan, gösterişten uzak, sadık ve çalışkan Amerikan-Alman kırması ruh.",
+      "series": [
+        {
+          "group": "Capri / Explorer",
+          "persona": "Nostaljik isimleri elektrikli gelecekle buluşturan, sıradanlıktan uzaklaşmak isteyen orta-üst düzey aileler."
+        },
+        {
+          "group": "Kuga",
+          "persona": "Geniş iç hacmi ve güvenli sürüşüyle tam bir Amerikan tarzı Türk aile babası SUV'u."
+        },
+        {
+          "group": "Mustang Mach-E",
+          "persona": "Elektrikli dünyaya geçerken vahşi at ambleminden ve kaslı duruştan vazgeçemeyen fütürist performans sürücüsü."
+        },
+        {
+          "group": "Puma",
+          "persona": "Şehir içi pratik, kıvrak ve eğlenceli sürüş arayan tarz sahibi genç kadınlar ve şehir insanları."
+        },
+        {
+          "group": "Ranger",
+          "persona": "Arkasına ATV veya jet-ski bağlayan, şehirde heybetli gezen, hafta sonu kamp ve çamur aşığı macera adamı."
+        },
+        {
+          "group": "Tourneo Courier / Transit Serisi (Connect, Courier, Custom)",
+          "persona": "Türkiye'nin ticaretini sırtında taşıyan, şeritlerin görünmez hakimi, çalışkan esnaf ve usta ruhu."
+        }
+      ]
+    },
+    {
+      "brand": "Honda",
+      "brandPersona": "\"VTEC açan Japon mühendisliği.\" Motoruna asla zeval gelmeyen, modifiye kültürüne yatkın ama bir o kadar da sadık rasyonel kitle.",
+      "series": [
+        {
+          "group": "CR-V / ZR-V",
+          "persona": "\"Sorunsuz araba istiyorum\" diyen, sanayinin yolunu unutan olgun, elit ve sakin Japon SUV severler."
+        },
+        {
+          "group": "HR-V",
+          "persona": "Hibrit teknolojisini seven, minimalist ve modern çekirdek şehirli aileler."
+        },
+        {
+          "group": "Jazz",
+          "persona": "Sihirli koltuklarıyla dünyanın eşyasını taşıyan, pratiklik abidesi, genellikle emekliler veya hanımlar tarafından tercih edilen verimlilik kraliçesi."
+        },
+        {
+          "group": "Prelude",
+          "persona": "Eski spor efsanesinin dönüşünü kutlayan, nostaljik sürüş hazzı arayan Japon performans hayranı."
+        }
+      ]
+    },
+    {
+      "brand": "Hongqi",
+      "brandPersona": "\"Çin'in Rolls-Royce'u.\" Devasa ızgaralar, aşırı gösteriş ve \"ben çok farklı ve zengin biriyim\" demenin en fütüristik ve uzak doğulu yolu.",
+      "series": [
+        {
+          "group": "E-HS9",
+          "persona": "Yolda yürüyen bir gökdelen gibi duran, koruma araçlarıyla gezen Çinli bürokrat veya fütürist iş insanı imajı."
+        },
+        {
+          "group": "E-QM5 / H9 / HS5",
+          "persona": "Premium Avrupalı sedanlara meydan okuyan, makam arabası hissini farklı bir kültürle yaşamak isteyenler."
+        }
+      ]
+    },
+    {
+      "brand": "Hyundai",
+      "brandPersona": "\"Kore fırtınası ve bitmeyen gelişim.\" Teknolojik olarak kendini aşmış, tasarımıyla her segmentte ezber bozan mantıklı vizyoner.",
+      "series": [
+        {
+          "group": "BAYON / i20",
+          "persona": "Yerli üretim gururu, şehir içi pratiklik arayan gençlerin ve yeni sürücülerin güvenli limanı."
+        },
+        {
+          "group": "INSTER",
+          "persona": "Şehrin dar sokaklarında elektrikli ve sevimli bir kutuyla gezmek isteyen fütürist minimalist."
+        },
+        {
+          "group": "IONIQ 5 / IONIQ 6",
+          "persona": "Siberpunk filmlerinden fırlamış pikselli tasarımlarıyla sokakta tüm bakışları üzerine çeken teknoloji fetişistleri."
+        },
+        {
+          "group": "IONIQ 9",
+          "persona": "Tesla Model X ve büyük Avrupalılara meydan okuyan, devasa elektrikli aile kalesi."
+        },
+        {
+          "group": "i30",
+          "persona": "Golf'e mantıklı ve donanımlı bir alternatif arayan, gizli performans tutkunu hatchback sever."
+        },
+        {
+          "group": "KONA / TUCSON",
+          "persona": "Türkiye'de orta sınıfın ve plazacıların en sevdiği, fütüristik ışık çizgileriyle parıldayan popüler aile SUV'ları."
+        },
+        {
+          "group": "SANTA FE",
+          "persona": "Amerikanvari devasa tasarımıyla \"ben buradayım\" diyen premium aile reisi."
+        },
+        {
+          "group": "STARIA",
+          "persona": "Uzay mekiği tasarımlı VIP taşımacılık ikonu; bilim kurgu hayranı kalabalık aile babası."
+        }
+      ]
+    },
+    {
+      "brand": "Isuzu",
+      "brandPersona": "\"Ticari dayanıklılık ve ağır işçi.\" Kırılmayan, dökülmeyen, kamyonet dünyasının ölümsüz Japon tankı.",
+      "series": [
+        {
+          "group": "BIG.e / NLR",
+          "persona": "Şehir içi lojistiğin, dağıtım ağlarının ve dar sokakların çalışkan lojistik kahramanları."
+        },
+        {
+          "group": "D-Max",
+          "persona": "Şantiyede beton döken, tarlada yük taşıyan, hafta sonu da çamura giren tavizsiz arazi çalışkanı."
+        }
+      ]
+    },
+    {
+      "brand": "JAECOO",
+      "brandPersona": "\"Şehirli Land Rover taklitçisi.\" Chery grubunun askeri ve köşeli tasarımlarla premium hissettiren yeni nesil arazi görünümlü şehirli çocuğu.",
+      "series": [
+        {
+          "group": "JAECOO 7",
+          "persona": "Range Rover alamayan ama yolda o sert ve dikiz aynasında korkutan heybetli duruşu arayan popüler kültür takipçisi."
+        }
+      ]
+    },
+    {
+      "brand": "Jaguar",
+      "brandPersona": "\"Gözden düşmüş İngiliz asili.\" Eski şatafatlı günlerini özleyen ama hala aristokratik bir yırtıcılığa sahip olan şık karakter.",
+      "series": [
+        {
+          "group": "E-PACE / F-PACE",
+          "persona": "Audi ve BMW'yi fazla sıradan bulan, estetik ve asil bir İngiliz SUV'u ile fark yaratmak isteyen şık kadınlar/erkekler."
+        },
+        {
+          "group": "I-PACE",
+          "persona": "Elektrikli lüks dünyasının ilk fütüristik ve asi yırtıcı kedisi."
+        }
+      ]
+    },
+    {
+      "brand": "Jeep",
+      "brandPersona": "\"Arazi kültürünün isim babası.\" Şehirde yaşasa bile ruhu her an çamura batmaya hazır Amerikan özgürlük simgesi.",
+      "series": [
+        {
+          "group": "Avenger",
+          "persona": "Jeep markasının en şehirli, elektrikli ve sevimli küçük üyesi; hafta sonu kaçamakları yapan modern gençler."
+        }
+      ]
+    },
+    {
+      "brand": "KGM",
+      "brandPersona": "\"Koreli heybet ve gizli fiyat/performans.\" Güney Kore'nin tank gibi sağlam ama adı yeni değişen, bilenlerin vazgeçemediği rasyonel markası.",
+      "series": [
+        {
+          "group": "Actyon / Torres",
+          "persona": "Bilim kurgu filmlerindeki askeri araçlara benzeyen, aşırı kaslı ve agresif duruşu seven marjinal SUV sürücüleri."
+        },
+        {
+          "group": "Korando / Tivoli",
+          "persona": "Bütçe dostu, sağlam ve güvenlik odaklı yaşayan ailelerin mantık evliliği araçları."
+        },
+        {
+          "group": "Musso Grand / Rexton",
+          "persona": "Dev boyutlarıyla yoldaki küçük araçları ezen, bütçesini düşünen ağır arazi ve şantiye kralları."
+        }
+      ]
+    },
+    {
+      "brand": "Kia",
+      "brandPersona": "\"Kore'nin dinamik ve şık yüzü.\" Hyundai ile kardeş ama tasarımı her zaman daha sportif, keskin ve Avrupalı duran vizyoner marka.",
+      "series": [
+        {
+          "group": "EV3 / EV6 / EV9",
+          "persona": "Elektrikli çağın tasarım ödüllü, fütüristik, uzay gemisi görünümlü ve yüksek teknolojili seyahat makineleri."
+        },
+        {
+          "group": "Niro / XCeed / Stonic",
+          "persona": "Tasarım odaklı, kompakt hibrit dünyasını seven, neşeli ve modern şehir insanları."
+        },
+        {
+          "group": "Picanto",
+          "persona": "Şehrin en sevimli, park sorunu olmayan, genellikle genç hanımların ilk arabası olan minik kutu."
+        },
+        {
+          "group": "Sorento / Sportage",
+          "persona": "Türkiye'de uzun yıllardır \"Zengin SUV'u\" algısını koruyan, keskin hatlı, prestijli ve konforlu aile kaleleri."
+        }
+      ]
+    },
+    {
+      "brand": "Lamborghini",
+      "brandPersona": "\"Duvar afişi ve yırtıcı boğa.\" Çocukların odalarını süsleyen, aşırı gürültülü, köşeli, agresif ve sosyal medyada şov yapmayı seven safkan ego.",
+      "series": [
+        {
+          "group": "Revuelto / Temerario",
+          "persona": "Pistleri ve otobanları birbirine katan, bin beygirlik ses senfonisiyle kulakları sağır eden ultra zengin hız çılgını."
+        },
+        {
+          "group": "Urus",
+          "persona": "Futbolcuların, sosyal medya fenomenlerinin ve Dubai zenginlerinin en sevdiği fiyaka ve statü SUV'u."
+        }
+      ]
+    },
+    {
+      "brand": "Land Rover",
+      "brandPersona": "\"Aristokrat çamur banyosu.\" Hem kraliyet sarayının önüne hem de balçık dolu bir bataklığa aynı asaletle yakışan İngiliz lüks zirvesi.",
+      "series": [
+        {
+          "group": "Defender",
+          "persona": "Gerçek bir arazi efsanesinin modern ve zengin hali. Şehirde bile safariye gidiyormuş gibi gezen elit maceracı."
+        },
+        {
+          "group": "Discovery / Discovery Sport",
+          "persona": "Hafta sonu çocukları doğaya götüren, geniş, konforlu ve köklü aile yapısı."
+        },
+        {
+          "group": "Range Rover (Vogue)",
+          "persona": "Dünyanın en prestijli SUV'u. İçinde ya bir kral, ya bir büyükelçi ya da ülkenin en büyük holding sahibi vardır. Acele etmez."
+        },
+        {
+          "group": "Range Rover Evoque",
+          "persona": "Şehrin lüks semtlerinde (Nişantaşı, Bağdat Caddesi) şık hanımların kullandığı moda ikonu kompakt lüks SUV."
+        },
+        {
+          "group": "Range Rover Sport / Velar",
+          "persona": "Tasarıma aşık, yolda agresif süren, genç iş insanları ve estetik düşkünü zenginlerin favorisi."
+        }
+      ]
+    },
+    {
+      "brand": "Leapmotor",
+      "brandPersona": "\"Ultra-ekonomik elektrikli kapsül.\" Sadece işlevselliğe odaklanan, akaryakıt zamlarına inat şehir içinde bedavaya yakın gezmek isteyen pragmatik zihin.",
+      "series": [
+        {
+          "group": "T03",
+          "persona": "Şehir içi kuryeler, ev-iş arası mekik dokuyanlar ve bütçe optimizasyonunun kitabını yazan akıllı sürücüler."
+        }
+      ]
+    },
+    {
+      "brand": "Lexus",
+      "brandPersona": "\"Kusursuz Japon sessizliği ve zanaat.\" Toyota'nın zirvesi; sanayiye gitmekten nefret eden ama ultra lüks ve Takumi el işçiliği arayan entelektüel zenginlik.",
+      "series": [
+        {
+          "group": "ES",
+          "persona": "Mercedes E Serisi'ne \"Almanlar çok kaba\" diyerek meydan okuyan, sessizlik hastası olgun iş insanı."
+        },
+        {
+          "group": "LBX / NX",
+          "persona": "Premium hibrit dünyasını keşfetmek isteyen, farklı ve rafine zevklere sahip şehirli elitler."
+        },
+        {
+          "group": "LM",
+          "persona": "Arka koltuğunda business-class uçak koltuğu barındıran, şoförlü seyahat eden holding sahiplerinin yürüyen dinlenme odası."
+        },
+        {
+          "group": "RX",
+          "persona": "Büyük, güvenli ve lüks Japon SUV klasiği; gösterişten uzak ama çok zengin doktor veya profesör aracı."
+        }
+      ]
+    },
+    {
+      "brand": "Maserati",
+      "brandPersona": "\"İtalyan operası ve Akdeniz rüzgarı.\" Ferrari motorunun sesini şık bir takım elbiseyle birleştiren, vahşi ama centilmen karakter.",
+      "series": [
+        {
+          "group": "GranTurismo",
+          "persona": "Otobanda kükreyerek giden, estetik hastası, lüks yaşamı sanata dönüştürmüş zengin beyefendi."
+        },
+        {
+          "group": "Grecale",
+          "persona": "Porsche Macan'ı sıradan bulan, İtalyan şıklığı ve egzoz sesiyle öne çıkmak isteyen lüks şehirli SUV kullanıcısı."
+        }
+      ]
+    },
+    {
+      "brand": "Mercedes-Benz",
+      "brandPersona": "\"Mutlak asalet ve otorite.\" Otomobil dünyasının mucidi, başarının ve ağırbaşlı gücün dünyadaki en net karşılığı.",
+      "series": [
+        {
+          "group": "A Serisi / CLA",
+          "persona": "Mercedes dünyasına adım atmış, tarzına önem veren genç plazacılar ve başarılı influencer'lar."
+        },
+        {
+          "group": "AMG GT",
+          "persona": "Pistleri ağlatan, hırçın, zengin ve safkan performans hastası adrenalin tutkunu."
+        },
+        {
+          "group": "C Serisi / CLE",
+          "persona": "Genç girişimciler, başarılı avukatlar ve köklü ailelerin üniversiteyi bitiren çocuklarının rüya aracı."
+        },
+        {
+          "group": "E Serisi",
+          "persona": "Gerçek Mercedes ruhu. Türkiye'de unvan sahibi olmuş bürokratlar, sanayiciler ve olgun başarının sembolü."
+        },
+        {
+          "group": "EQA / EQB / EQE / EQS",
+          "persona": "Elektrikli geleceğe geçen ama yıldız ambleminin o ağırbaşlı konforundan asla taviz vermeyen fütürist elitler."
+        },
+        {
+          "group": "G Serisi (G-Wagon)",
+          "persona": "Tuğla tasarımlı mafyatik efsane. Yoldaki en dominant, en korkutucu ve en yüksek statülü zenginlik göstergesi."
+        },
+        {
+          "group": "GLA / GLB / GLC / GLE / GLS",
+          "persona": "Şehir içi pratiklikten devasa aile kalelerine uzanan, lüks semtlerin okul çıkışlarında kuyruk oluşturan zengin anne/baba SUV serisi."
+        },
+        {
+          "group": "S Serisi",
+          "persona": "Dünyanın en iyi arabası iddiasının sahibi. Arka koltuğunda dünyayı yöneten liderlerin veya ülkenin en büyük holding başkanlarının oturduğu zirve."
+        },
+        {
+          "group": "Sprinter / Vito",
+          "persona": "Protokol taşımacılığı yapan, içi milyon liralık lüks odalara dönüştürülmüş VIP taşımacılık ve turizm efsaneleri."
+        }
+      ]
+    },
+    {
+      "brand": "MG",
+      "brandPersona": "\"İngiliz genetikli Çinli fırtına.\" Nostaljik amblemi elektrikli ve ulaşılabilir teknolojiyle birleştiren mantıklı ve popüler kitle.",
+      "series": [
+        {
+          "group": "Cyberster",
+          "persona": "Sokaklarda makas atan elektrikli spor arabalara meydan okuyan, uygun fiyatlı havalı roadster çılgınlığı."
+        },
+        {
+          "group": "E-HS / HS / MG3 / MG7 / ZS",
+          "persona": "Fiyatına göre sunduğu devasa donanımlarla Avrupalı rakiplerine \"boşuna marka algısına fazla para ödemeyin\" diyen rasyonel aileler."
+        },
+        {
+          "group": "MG4 / MGS5 EV",
+          "persona": "Elektrikli hatchback dünyasının fırıldak ve teknolojik, bütçe dostu modern şehirli çocukları."
+        }
+      ]
+    },
+    {
+      "brand": "MINI",
+      "brandPersona": "\"Karting ruhu ve İngiliz tarzı.\" Büyük arabalardan nefret eden, tasarım, moda ve viraj heyecanıyla yaşayan kıpır kıpır şehirli karakter.",
+      "series": [
+        {
+          "group": "Aceman / Cooper",
+          "persona": "Tarz giyinen, kahvesini elinden düşürmeyen, şehirde eğlenceli ve hızlı turlar atan reklamcı veya kreatif direktör."
+        },
+        {
+          "group": "Countryman",
+          "persona": "Evlenip çocuk sahibi olmuş ama MINI'nin o çılgın retro ruhunu bırakamamış büyük çocuk modundaki ebeveynler."
+        }
+      ]
+    },
+    {
+      "brand": "Mitsubishi",
+      "brandPersona": "\"Kırılmayan Japon mekaniği.\" Gösterişten tamamen uzak, ralli geçmişi olan ve zor şartlara meydan okuyan mühendislik sadakati.",
+      "series": [
+        {
+          "group": "Colt / ASX",
+          "persona": "Renault ortaklığıyla hayata dönen, sorunsuzluk ve pratiklik arayan şehir içi mantık sürücüleri."
+        },
+        {
+          "group": "Outlander",
+          "persona": "Zorlu kış şartlarında ve dağ yollarında ailesini güvenle taşımak isteyen köklü Japon teknolojisi hayranı."
+        }
+      ]
+    },
+    {
+      "brand": "Nissan",
+      "brandPersona": "\"SUV dünyasının öncüsü.\" Şehir içi Crossover çılgınlığını başlatan, aile dostu ve pratik Japon zekası.",
+      "series": [
+        {
+          "group": "Juke",
+          "persona": "Sıra dışı tasarımıyla uzaylı gibi duran, marjinal şehir içi sürücüleri ve genç hanımlar."
+        },
+        {
+          "group": "Qashqai",
+          "persona": "\"Türkiye'nin enişte SUV'u.\" Altın günü çıkışlarında, site otoparklarında en çok görülen rasyonel orta sınıf aile ikonu."
+        },
+        {
+          "group": "Townstar",
+          "persona": "Hem ticari işleri gören hem de Nissan konforu sunan pratik esnaf dostu."
+        },
+        {
+          "group": "X-Trail",
+          "persona": "Dağa taşa meydan okuyan e-POWER teknolojili, kamp yapmayı seven teknolojik büyük aile SUV'u."
+        }
+      ]
+    },
+    {
+      "brand": "OMODA",
+      "brandPersona": "\"Siberpunk şehirli.\" Chery grubunun fütüristik hatlarla gençleri yakalamaya çalışan tasarım odaklı yüzü.",
+      "series": [
+        {
+          "group": "OMODA 5 / OMODA 7",
+          "persona": "Gece ışıkları altında parıldayan, arkası coupe gibi inen, tasarımına göre fiyatı şaşırtan genç plazacı SUV'u."
+        }
+      ]
+    },
+    {
+      "brand": "Opel",
+      "brandPersona": "\"Alman disiplini ve rasyonel çizgi.\" Net, köşeli, maceradan uzak ama her zaman sağlam hissettiren mantıklı Avrupalı.",
+      "series": [
+        {
+          "group": "Astra / Corsa",
+          "persona": "\"Ben Golf veya Polo'ya o kadar para vermem\" diyen, keskin vizör tasarımlı şehirli gençler ve beyaz yakalılar."
+        },
+        {
+          "group": "Frontera / Mokka / Grandland",
+          "persona": "Opel'in yeni nesil köşeli ve fütüristik SUV ordusu. Tam kararında yaşayan rasyonel çekirdek aileler."
+        },
+        {
+          "group": "Combo / Movano / Vivaro / Zafira",
+          "persona": "Geniş hacim isteyen esnaflar, kalabalık aileler ve Alman disipliniyle çalışan lojistik profesyonelleri."
+        }
+      ]
+    },
+    {
+      "brand": "Peugeot",
+      "brandPersona": "\"Fransız aslanı ve i-Cockpit çılgınlığı.\" Küçük direksiyonu ve fütüristik iç tasarımıyla teknoloji ve agresifliği birleştiren modern şehirli.",
+      "series": [
+        {
+          "group": "208 / 308",
+          "persona": "Şık pençe farlarıyla trafikte çok havalı duran, tasarımı performanstan önde tutan modern gençler."
+        },
+        {
+          "group": "2008 / 3008 / 5008",
+          "persona": "Türkiye'de satış rekorları kıran, plazacıların, modern annelerin ve \"içi uçak kokpiti gibi olsun\" diyen teknoloji meraklısı ailelerin gözdesi SUV ailesi."
+        },
+        {
+          "group": "408",
+          "persona": "Sedan mı SUV mu belli olmayan yırtıcı tasarımıyla ezber bozan, dikkat çekmeyi seven sıra dışı profil."
+        },
+        {
+          "group": "Boxer / Expert / Partner / Traveller",
+          "persona": "Fransız şıklığını ticarete ve VIP taşımacılığa yansıtan, çalışkan ve konforlu lojistik ortakları."
+        }
+      ]
+    },
+    {
+      "brand": "Porsche",
+      "brandPersona": "\"Safkan mühendislik ve günlük süper spor.\" Dünyanın en iyi şanzıman ve direksiyon hissine sahip, zenginliğin en rafine sürüş hali.",
+      "series": [
+        {
+          "group": "718",
+          "persona": "Pist günlerinin ve virajlı dağ yollarının tadını çıkaran safkan sürüş tutkunu genç zengin."
+        },
+        {
+          "group": "911",
+          "persona": "Otomobil dünyasının zamansız ilahı. Paranın satın alabileceği en kusursuz mühendislik harikası; gerçek koleksiyoner ve vizyoner milyarder."
+        },
+        {
+          "group": "Macan / Cayenne",
+          "persona": "\"Porsche ruhundan vazgeçemem ama ailem ve bagajım var\" diyen zengin iş insanları ve lüks cemiyet hayatı."
+        },
+        {
+          "group": "Panamera",
+          "persona": "Şoför sevmeyen, direksiyona kendi geçip otobanda fırtına gibi esmek isteyen üst düzey CEO veya patron sedanı."
+        },
+        {
+          "group": "Taycan",
+          "persona": "Elektrikli dünyada \"hız ve yol tutuş nasıl olur\" herkese gösteren, sessiz ama yırtıcı teknoloji zengini klasiği."
+        }
+      ]
+    },
+    {
+      "brand": "Renault",
+      "brandPersona": "\"Fransa'dan Anadolu'ya uzanan pratiklik.\" Az yakan, parçası her bakkalda bulunan, bu ülkenin yollarını en iyi bilen pratik halk kahramanı.",
+      "series": [
+        {
+          "group": "Austral / Rafale / Symbioz",
+          "persona": "Renault'nun \"ben artık lüks sınıftayım\" deme şekli. Fransız şıklığını teknolojik ekranlarla birleştiren yeni nesil aile SUV'ları."
+        },
+        {
+          "group": "Captur",
+          "persona": "Şehir içinde yüksekte oturmak isteyen, renkli ve pratik genç kadın sürücüler."
+        },
+        {
+          "group": "Clio / Megane",
+          "persona": "Türkiye'nin gen haritası. Kiralama şirketleri, plasiyerler, ilk arabasını alanlar ve bu ülkenin tüm orta direk aileleri."
+        },
+        {
+          "group": "Kangoo / Master / Trafic",
+          "persona": "Türkiye esnafının sağ kolu, yük taşıma şampiyonları ve sanayinin en sevdiği emektarlar."
+        },
+        {
+          "group": "Renault 5",
+          "persona": "Nostaljik efsaneyi elektrikli fütürizmle geri getiren, sokak modasına yön veren marjinal retro aşıkları."
+        }
+      ]
+    },
+    {
+      "brand": "Rolls-Royce",
+      "brandPersona": "\"Yürüyen saray ve mutlak zirve.\" Tartışmasız dünyanın en lüks otomobili. Paranın konuşmadığı, fısıldadığı en üst aristokrasi katmanı.",
+      "series": [
+        {
+          "group": "Cullinan",
+          "persona": "Çöl kumlarında veya saray yollarında sarsılmadan gitmek isteyen ultra zenginlerin lüks kalesi SUV."
+        },
+        {
+          "group": "Ghost",
+          "persona": "Direksiyonuna bazen milyarderin kendisinin de geçtiği, nispeten \"minimalist\" (Rolls-Royce standartlarında) lüks sedan."
+        },
+        {
+          "group": "Phantom",
+          "persona": "Dünyanın en zengin insanlarının, kralların ve imparatorların arka koltuğunda şampanya yudumladığı yeryüzü sarayı."
+        },
+        {
+          "group": "Spectre",
+          "persona": "Ultra lüks dünyasının tamamen sessiz, elektrikli ve fütüristik ilk başyapıtı."
+        }
+      ]
+    },
+    {
+      "brand": "SEAT",
+      "brandPersona": "\"Genç ve dinamik Volkswagen alternatifi.\" Alman mekaniğini İspanyol ateşiyle daha uygun fiyata sunan genç işi rasyonellik.",
+      "series": [
+        {
+          "group": "Ibiza / Leon",
+          "persona": "Gençlerin ilk modifiye heyecanı, Golf'ü sıkıcı bulan üniversitelilerin ve yeni mezunların popüler hatchback'leri."
+        },
+        {
+          "group": "Arona / Ateca",
+          "persona": "Bütçe dostu, gösterişten uzak ama dinamik çekirdek aile SUV'ları."
+        }
+      ]
+    },
+    {
+      "brand": "Škoda",
+      "brandPersona": "\"Simply Clever (Akıllıca).\" Volkswagen kalitesini dünyanın en zeki bagaj çözümleri ve devasa iç hacimleriyle birleştiren dahi mühendislik ruhu.",
+      "series": [
+        {
+          "group": "Elroq / Enyaq",
+          "persona": "Elektrikli dünyaya Škoda'nın akıllı çözümleri ve rasyonelliğiyle giren modern fütürist aileler."
+        },
+        {
+          "group": "Fabia / Scala",
+          "persona": "Pratik, geniş ve şehir içi her işe koşan mantıklı genç ve emekli araçları."
+        },
+        {
+          "group": "Kamiq / Karoq / Kodiaq",
+          "persona": "Türkiye'de ailelerin en sevdiği, bagajına dünyaları sığdıran, kamp malzemelerini yutan konforlu SUV ordusu."
+        },
+        {
+          "group": "Octavia / Superb",
+          "persona": "\"Passat bitti, kral biziz\" diyen; bagajı geniş, arka koltuk diz mesafesi makam arabası kıvamında olan olgun aile babaları ve bürokratlar."
+        }
+      ]
+    },
+    {
+      "brand": "Subaru",
+      "brandPersona": "\"Doğa aşığı ve ralli efsanesi.\" Boxer motor sesi, simetrik dört çeker sistemi ve karda kışta asla yolda kalmayan gerçek dağcı ruhu.",
+      "series": [
+        {
+          "group": "Crosstrek / Forester",
+          "persona": "Şehir züppeliğinden nefret eden, her hafta sonu çadırını alıp kimsenin gidemediği kamp alanlarına giden gerçek doğa insanları."
+        },
+        {
+          "group": "Solterra",
+          "persona": "Subaru sağlamlığını Toyota ortaklığıyla elektrikli çağa taşıyan çevreci arazi meraklısı."
+        }
+      ]
+    },
+    {
+      "brand": "Suzuki",
+      "brandPersona": "\"Dayanıklı küçük Japon.\" Sorunsuz, sevimli, şehre uygun ama arazide de boyundan büyük işler başaran kompakt mantık.",
+      "series": [
+        {
+          "group": "Swift",
+          "persona": "Şehrin kıvrak, az yakan, sevimli ve asla arıza yapmayan ikonik genç kadın ve üniversiteli hatchback'i."
+        },
+        {
+          "group": "Vitara",
+          "persona": "Şehirli görünüp canı sıkılınca çamura dalabilen, bütçe dostu köklü SUV klasiği."
+        }
+      ]
+    },
+    {
+      "brand": "Tesla",
+      "brandPersona": "\"Silikon Vadisi ve yürüyen bilgisayar.\" Otomobil kültürünü reddeden, tamamen teknoloji odaklı, Elon Musk hayranı vizyoner fütüristler.",
+      "series": [
+        {
+          "group": "Model 3",
+          "persona": "Şehir içi otopilot konforunu sonuna kadar yaşayan teknoloji odaklı genç profesyoneller."
+        },
+        {
+          "group": "Model Y",
+          "persona": "Türkiye'nin en popüler elektrikli SUV'u. Geleneksel arabaları sıkıcı bulan, geniş cam tavan altında büyük ekran kurcalayan modern aileler."
+        }
+      ]
+    },
+    {
+      "brand": "Togg",
+      "brandPersona": "\"Milli teknoloji gururu ve akıllı cihaz.\" Türkiye'nin yerli otomobil vizyonu; milliyetçi duygularla teknoloji aşkını birleştiren yerli fütürizm.",
+      "series": [
+        {
+          "group": "T10X",
+          "persona": "Türkiye yollarının yeni gerçeği. Geniş ekranları ve yerli ekosistemiyle gurur duyan, ev konforunda gezen Türk aileleri."
+        },
+        {
+          "group": "T10F",
+          "persona": "Genç nesli ve sedan severleri hedefleyen, fütüristik hatlara sahip yerli ve milli fastback heyecanı."
+        }
+      ]
+    },
+    {
+      "brand": "Toyota",
+      "brandPersona": "\"Kurşun geçirmez rasyonel Japon.\" Sanayinin yolunu unutturan, dünyayı fethedecek kadar dayanıklı ama bazen aşırı memur ruhlu olan mantık abidesi.",
+      "series": [
+        {
+          "group": "Corolla / Corolla Cross",
+          "persona": "Türkiye'nin efsane memur, öğretmen ve emekli arabası. Maceradan uzak, rasyonel ve ölümsüz hibrit teknolojisi."
+        },
+        {
+          "group": "C-HR / Yaris / Yaris Cross",
+          "persona": "Toyota'nın \"ben de tarz sahibi olabilirim\" deme şekli. Şehirli, fütüristik çizgileri seven genç hanımlar ve dinamik çiftler."
+        },
+        {
+          "group": "GR Yaris",
+          "persona": "Görünüşü küçük ama içindeki ralli canavarı ile pistlerde süper spor arabaları ağlatan gerçek çılgın."
+        },
+        {
+          "group": "Hilux",
+          "persona": "Dünyanın en dayanıklı aracı. Üzerine bina yıkılsa da çalışan, her türlü doğa ve ekstrem şartın ölümsüz çılgın savaşçısı."
+        },
+        {
+          "group": "Land Cruiser Prado / RAV4",
+          "persona": "Dünyanın en prestijli ve kırılmaz arazi efsaneleri. Zengin ama sanayide vakit kaybetmek istemeyen elit doğa insanları."
+        },
+        {
+          "group": "Proace Serisi (City, Max)",
+          "persona": "Toyota sorunsuzluğunu ticari hayata taşıyan çalışkan esnaf ve lojistik ortakları."
+        }
+      ]
+    },
+    {
+      "brand": "Volkswagen",
+      "brandPersona": "\"Alman memuru ve altın standart.\" Ne eksik ne fazla, her zaman değerini koruyan, Türkiye'de statü ve güvenin en risksiz limanı.",
+      "series": [
+        {
+          "group": "Golf / Polo",
+          "persona": "Otomobil dünyasının referans noktaları. Her yaşa, her statüye uyan, kalitenin zamansız hatchback'leri."
+        },
+        {
+          "group": "ID.4 / ID.7 / ID.Buzz",
+          "persona": "Volkswagen'in elektrikli geleceği. Efsanevi minibüs ruhunu (ID.Buzz) fütürizmle birleştiren hipster aileler."
+        },
+        {
+          "group": "Passat / Tayron",
+          "persona": "Türkiye'de \"Aşiret Paketi\" olarak bilinen, taşra bürokrasisi, müteahhitler ve gücü elinde tutan geleneksel aile reisleri."
+        },
+        {
+          "group": "T-Cross / T-Roc / Taigo / Tiguan",
+          "persona": "Alman kalitesini SUV yüksekliğiyle birleştiren, site otoparklarının vazgeçilmez modern aile ordusu."
+        },
+        {
+          "group": "Touareg",
+          "persona": "Gizli zenginlik. Logoyu silseniz Bentley hissi veren ama gösterişten kaçınan elit ve güçlü iş insanı SUV'u."
+        },
+        {
+          "group": "Amarok / Caddy / Caravelle / Crafter / Multivan / Transporter",
+          "persona": "Ticaretin aristokratları. Esnaflıktan holding taşımacılığına kadar uzanan, Alman disipliniyle çalışan premium yük ve insan taşıyıcıları."
+        }
+      ]
+    },
+    {
+      "brand": "Volvo",
+      "brandPersona": "\"İsveç çeliği ve entelektüel koruma.\" Hayatta en çok güvenliğe, eğitime ve insana değer veren, gösterişten uzak ama çok saygın entelektüel burjuvazi.",
+      "series": [
+        {
+          "group": "EC40 / EX30 / EX40",
+          "persona": "Çevreci, sürdürülebilirliğe inanan, karbon ayak izini düşünen modern ve vizyoner genç şehirli elitler."
+        },
+        {
+          "group": "EX90 / XC90",
+          "persona": "Çocuklarının güvenliğini dünyanın her şeyinden önde tutan holding sahipleri, elit cerrahlar ve köklü profesör aileleri."
+        },
+        {
+          "group": "V60 / XC60",
+          "persona": "Tasarıma, sanata ve iskandinav minimalizmine aşık, hafta sonu antikacılara giden şık mimar veya tasarımcı aracı."
+        }
+      ]
+    }
+  ]
+}

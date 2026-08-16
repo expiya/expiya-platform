@@ -17,6 +17,7 @@ import {
   type RecommendationCatalogResolution,
 } from "@/features/vehicle-data/resolveRecommendationCatalog";
 import type { VehicleCatalogReadRepository } from "@/features/vehicle-data/catalogReadRepository";
+import { matchVehiclePersona } from "@/features/vehicle-data/vehiclePersona";
 
 export interface CarsRecommendationDataOptions {
   readonly catalogMode?: CarsCatalogMode;
@@ -128,7 +129,10 @@ export function getRecommendedCarsFromCatalog(
     };
   });
 
-  const rankedCars = defaultRanking(evaluatedCars);
+  const rankedCars = defaultRanking(evaluatedCars).sort((left, right) => (
+    matchVehiclePersona(right.car.brand, right.car.model, text).score
+    - matchVehiclePersona(left.car.brand, left.car.model, text).score
+  ) || right.decision.score - left.decision.score);
   const prioritizesLowestPrice = /(?:en\s+ucuz|en\s+düşük\s+(?:fiyat|satın alma maliyet)|lowest\s+(?:price|purchase cost)|cheapest)/iu.test(text);
   const orderedCars = prioritizesLowestPrice
     ? [...rankedCars].sort((a, b) => a.car.price - b.car.price || b.decision.score - a.decision.score)

@@ -6,6 +6,7 @@ import type { BodyType, Car, FuelType, Transmission } from "@/types/car";
 import type { ProductionFuelType } from "@/types/productionVehicle";
 import { getPostgresDatabase } from "@/lib/server/postgres";
 import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
+import { resolveVehiclePersona } from "@/features/vehicle-data/vehiclePersona";
 
 export interface VehicleCatalogReadRepository {
   readPublishedCatalog(at: Date): Promise<VehicleCatalogReadResult>;
@@ -59,6 +60,7 @@ function adaptRow(row: z.infer<typeof rowSchema>): Car | undefined {
     price: row.amount_try, km: 0, fuel, transmission, bodyType,
     image: resolvedImage.path, imageStatus: resolvedImage.status,
     imageAttribution: resolvedImage.attributionText, imageRepresentativeOf: resolvedImage.representedModel,
+    persona: resolveVehiclePersona(row.brand, row.model),
     createdAt: row.created_at, updatedAt: row.updated_at,
   };
 }

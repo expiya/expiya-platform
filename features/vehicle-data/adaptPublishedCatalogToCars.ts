@@ -2,6 +2,7 @@ import type { PublishedCatalog } from "@/features/vehicle-data/buildPublishedCat
 import type { BodyType, Car, FuelType, Transmission } from "@/types/car";
 import type { ProductionFuelType } from "@/types/productionVehicle";
 import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
+import { resolveVehiclePersona } from "@/features/vehicle-data/vehiclePersona";
 
 const fuelMap: Readonly<Record<ProductionFuelType, FuelType | undefined>> = {
   GASOLINE: "Gasoline", DIESEL: "Diesel", LPG: "Gasoline", MHEV: "Hybrid",
@@ -54,6 +55,7 @@ export function adaptPublishedCatalogToCars(catalog: PublishedCatalog): CarsCata
       imageStatus: resolvedImage.status,
       imageAttribution: resolvedImage.attributionText,
       imageRepresentativeOf: resolvedImage.representedModel,
+      persona: resolveVehiclePersona(variant.brand.value, variant.model.value),
       createdAt: variant.createdAt,
       updatedAt: variant.updatedAt,
     });

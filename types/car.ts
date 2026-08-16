@@ -1,3 +1,5 @@
+import type { ResolvedVehiclePersona } from "@/types/vehiclePersona";
+
 export type FuelType =
   | "Gasoline"
   | "Diesel"
@@ -38,6 +40,8 @@ export interface Car {
   imageAttribution?: string;
   /** Actual model represented when an approximate image fallback is used. */
   imageRepresentativeOf?: string;
+  /** Owner-authored editorial positioning; never technical evidence or a hard constraint. */
+  persona?: ResolvedVehiclePersona;
 
   createdAt: string;
   updatedAt: string;
