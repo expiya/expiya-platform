@@ -66,4 +66,15 @@ describe("CarCard price freshness", () => {
     expect(html).toContain("1.830.000 TL");
     expect(html).not.toContain("9.999.999");
   });
+
+  it("keeps price and attribution visible with an approximate-image warning", () => {
+    const approximate = recommendation("CURRENT");
+    approximate.car.imageStatus = "APPROXIMATE";
+    approximate.car.imageRepresentativeOf = "Toyota RAV4";
+    approximate.car.imageAttribution = "Üretici medya arşivi";
+    const html = renderToStaticMarkup(<CarCard recommendedCar={approximate} />);
+    expect(html).toContain("Toyota RAV4");
+    expect(html).toContain("Üretici medya arşivi");
+    expect(html).toContain("1.830.000 TL");
+  });
 });

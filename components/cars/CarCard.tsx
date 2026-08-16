@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import type { RecommendedCar } from "@/types/recommendation";
 import { priceFreshnessWarning } from "@/components/cars/priceFreshnessWarning";
+import { VehicleImageDisclosure } from "@/components/cars/VehicleImageDisclosure";
 
 interface CarCardProps {
   recommendedCar: RecommendedCar;
@@ -54,14 +55,6 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
               {isTurkish ? "Görsel hazırlanıyor" : "Image pending"}
             </span>
           )}
-          {car.imageAttribution && (
-            <span
-              title={car.imageAttribution}
-              className="absolute bottom-3 left-3 max-w-[65%] truncate rounded bg-black/65 px-2 py-1 text-[10px] text-white backdrop-blur"
-            >
-              {isTurkish ? "Görsel" : "Image"}: {car.imageAttribution}
-            </span>
-          )}
           {isTopPick && (
             <span className="absolute left-3 top-3 rounded-full bg-black/85 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
               {isTurkish ? "En güçlü aday" : "Top candidate"}
@@ -73,6 +66,12 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
             </span>
           )}
         </div>
+        <VehicleImageDisclosure
+          imageStatus={car.imageStatus}
+          imageRepresentativeOf={car.imageRepresentativeOf}
+          imageAttribution={car.imageAttribution}
+          locale={locale}
+        />
 
         <div className="p-4">
           <div className="flex items-start justify-between gap-3">

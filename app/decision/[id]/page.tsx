@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { saveFeedback } from "@/features/decision/feedback/saveFeedback";
+import { VehicleImageDisclosure } from "@/components/cars/VehicleImageDisclosure";
 import { interpretRecommendation } from "@/features/decision/interpretRecommendation";
 import type { PersistedCarsConversation } from "@/types/carsConversation";
 import type { RecommendedCar } from "@/types/recommendation";
@@ -150,6 +151,12 @@ export default function DecisionDetailPage() {
           <div className="relative aspect-[16/9]">
             <Image src={car.image} alt={`${car.brand} ${car.model}`} fill priority sizes="(max-width: 900px) 100vw, 850px" className="object-cover" />
           </div>
+          <VehicleImageDisclosure
+            imageStatus={car.imageStatus}
+            imageRepresentativeOf={car.imageRepresentativeOf}
+            imageAttribution={car.imageAttribution}
+            locale="tr"
+          />
           <div className="p-6 sm:p-8">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500 dark:text-neutral-400">Önerilen araç</p>
             <h2 className="mt-2 text-3xl font-bold">{car.brand} {car.model}</h2>
