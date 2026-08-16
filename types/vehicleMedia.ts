@@ -1,7 +1,17 @@
 export type VehicleMediaScope = "VARIANT" | "GENERATION_BODY" | "MODEL_BODY" | "MODEL";
 export type VehicleMediaKind = "HERO_EXTERIOR" | "EXTERIOR" | "INTERIOR" | "CARGO";
 export type VehicleMediaPublicationState = "CANDIDATE" | "RIGHTS_REVIEW" | "PUBLISHED" | "REJECTED";
-export type VehicleMediaUsagePermission = "OPEN_LICENSE" | "LICENSED" | "WRITTEN_PERMISSION";
+export type VehicleMediaUsagePermission = "OPEN_LICENSE" | "LICENSED" | "WRITTEN_PERMISSION" | "OWNER_ATTESTED";
+
+export interface VehicleMediaOwnerAttestation {
+  /** Stable identifier for the person or organization making the declaration. */
+  readonly attestedBy: string;
+  readonly attestedAt: string;
+  readonly statement: string;
+  /** Ticket, signed document, upload record, or other auditable evidence reference. */
+  readonly evidenceReference: string;
+  readonly permittedUses: readonly ["COMMERCIAL_DISPLAY", ...string[]];
+}
 
 /** A publishable media record. Candidate URLs must remain outside runtime resolution. */
 export interface VehicleMediaAsset {
@@ -21,6 +31,7 @@ export interface VehicleMediaAsset {
   readonly originalAssetUrl?: string;
   readonly rightsHolder: string;
   readonly usagePermission: VehicleMediaUsagePermission;
+  readonly ownerAttestation?: VehicleMediaOwnerAttestation;
   readonly licenseName?: string;
   readonly licenseUrl?: string;
   readonly attributionText?: string;

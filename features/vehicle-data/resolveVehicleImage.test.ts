@@ -34,6 +34,22 @@ describe("resolveVehicleImage", () => {
     });
   });
 
+  it("publishes a complete owner-attested asset", () => {
+    const attested: VehicleMediaAsset = {
+      ...base, usagePermission: "OWNER_ATTESTED",
+      ownerAttestation: {
+        attestedBy: "Expiya catalog owner", attestedAt: "2026-08-16T13:00:00.000Z",
+        statement: "I attest that Expiya may display this supplied asset commercially.",
+        evidenceReference: "media-intake:2026-08-16:001", permittedUses: ["COMMERCIAL_DISPLAY"],
+      },
+    };
+    expect(resolveVehicleImage(identity, [attested]).path).toBe("/media/corolla.webp");
+  });
+
+  it("rejects an OWNER_ATTESTED asset without its declaration", () => {
+    expect(resolveVehicleImage(identity, [{ ...base, usagePermission: "OWNER_ATTESTED" }]).status).toBe("PLACEHOLDER");
+  });
+
   it("does not cross body styles or model-year applicability", () => {
     expect(resolveVehicleImage(identity, [{ ...base, bodyStyle: "Hatchback" }]).status).toBe("PLACEHOLDER");
     expect(resolveVehicleImage(identity, [{ ...base, modelYearTo: 2025 }]).status).toBe("PLACEHOLDER");

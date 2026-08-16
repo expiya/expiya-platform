@@ -1,5 +1,6 @@
 import { productionVehicleMediaAssets } from "@/data/production/vehicleMediaAssets";
 import type { VehicleMediaAsset } from "@/types/vehicleMedia";
+import { isPublishableVehicleMediaAsset } from "@/features/vehicle-data/validateVehicleMediaAsset";
 
 export const PRODUCTION_VEHICLE_PLACEHOLDER = "/cars/production-placeholder.svg";
 
@@ -22,7 +23,7 @@ export interface ResolvedVehicleImage {
 const normalize = (value: string | undefined) => value?.trim().toLocaleUpperCase("tr-TR");
 
 function matches(asset: VehicleMediaAsset, identity: VehicleImageIdentity): boolean {
-  if (asset.market !== "TR" || asset.publicationState !== "PUBLISHED" || !asset.isPrimary || asset.kind !== "HERO_EXTERIOR") return false;
+  if (asset.market !== "TR" || !isPublishableVehicleMediaAsset(asset) || !asset.isPrimary || asset.kind !== "HERO_EXTERIOR") return false;
   if (normalize(asset.brand) !== normalize(identity.brand) || normalize(asset.model) !== normalize(identity.model)) return false;
   if (asset.modelYearFrom && identity.modelYear < asset.modelYearFrom) return false;
   if (asset.modelYearTo && identity.modelYear > asset.modelYearTo) return false;
