@@ -1,4 +1,4 @@
-import catalogPayload from "@/data/production/catalog/releases/v0.40.0/catalog.json";
+import catalogPayload from "@/data/production/catalog/releases/v0.50.0/catalog.json";
 import artifactPayload from "@/data/runtime/vehicle-evidence/v0.4.0/artifact.json";
 import { populateDecisionContext } from "@/features/decision/context/population/populateDecisionContext";
 import { assessLimitedSupport } from "@/features/decision/context/sufficiency/assessLimitedSupport";
