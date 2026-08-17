@@ -51,6 +51,13 @@ describe("semantic completeness enforcement", () => {
     expect(explicit.budgetMutations).toContainEqual(expect.objectContaining({ field: "MAXIMUM_HARD_CEILING", value: { amount: 1_500_000, currency: "TRY" } }));
   });
   it("binds a bare amount to the open budget question without making it a hard ceiling", () => { const result = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "3 milyon tl", activeFieldIds: [], openMaterialQuestionField: "budget" }); expect(result.budgetMutations).toEqual(expect.arrayContaining([expect.objectContaining({ field: "PREFERRED_BUDGET", value: { amount: 3_000_000, currency: "TRY" } }), expect.objectContaining({ field: "BUDGET_UNKNOWN", value: false })])); expect(result.budgetMutations.some((item) => item.field === "MAXIMUM_HARD_CEILING")).toBe(false); });
+  it("binds available-money wording to the asked budget instead of dropping budget intent", () => {
+    const result = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "1 milyon param var", activeFieldIds: [], openMaterialQuestionField: "budget" });
+    expect(result.budgetMutations).toContainEqual(expect.objectContaining({ field: "PREFERRED_BUDGET", value: { amount: 1_000_000, currency: "TRY" } }));
+    expect(result.budgetMutations.some((item) => item.field === "AVAILABLE_CASH")).toBe(false);
+    const financed = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "1 milyon param var, üstü için kredi kullanabilirim", activeFieldIds: [], openMaterialQuestionField: "budget" });
+    expect(financed.budgetMutations.map((item) => item.field)).toEqual(expect.arrayContaining(["AVAILABLE_CASH", "FINANCE_FLEXIBILITY", "UNRESOLVED_FINANCED_CEILING"]));
+  });
   it("binds a bare daily answer only to the open usage question", () => {
     for (const userText of ["günlük", "günlük takılırız", "gündelik hayatımızda kullanacağız", "günlük işler için"]) {
       const bound = enforceInterpretationSemanticCompleteness({ result: empty(), userText, activeFieldIds: [], openMaterialQuestionField: "usageScenario" });

@@ -140,7 +140,9 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
 
   if (/bütçe (?:önemli değil|fark etmez)|bütçeyi? .*hariç/iu.test(text) && !budgets.some((item) => item.operation === "EXCLUDE_FROM_DECISION")) budgets.push({ operation: "EXCLUDE_FROM_DECISION", field: "BUDGET_UNKNOWN", sourceSpan: text });
   const amount = money(text);
-  if (amount && /\bnakit(?:im|im var| var| mevcut)?\b|\bmilyonum var\b|\bparam var\b/iu.test(text) && !budgets.some((item) => item.field === "AVAILABLE_CASH")) budgets.push({ operation: "SET", field: "AVAILABLE_CASH", value: { amount, currency: "TRY" }, sourceSpan: text });
+  const answeringBudgetQuestion = input.openMaterialQuestionField === "budget";
+  const financingLanguage = /kredi|finansman/iu.test(text);
+  if (amount && /\bnakit(?:im|im var| var| mevcut)?\b|\bmilyonum var\b|\bparam var\b/iu.test(text) && (!answeringBudgetQuestion || financingLanguage) && !budgets.some((item) => item.field === "AVAILABLE_CASH")) budgets.push({ operation: "SET", field: "AVAILABLE_CASH", value: { amount, currency: "TRY" }, sourceSpan: text });
   if (/kredi (?:kullanabilirim|olabilir)|finansman(?:a)? (?:açığım|uygun)/iu.test(text) && !budgets.some((item) => item.field === "FINANCE_FLEXIBILITY")) { budgets.push({ operation: "SET", field: "FINANCE_FLEXIBILITY", value: "YES", sourceSpan: text }); budgets.push({ operation: "SET", field: "UNRESOLVED_FINANCED_CEILING", value: true, sourceSpan: text }); }
   const explicitBudgetCeiling = /(?:en fazla|max(?:imum)?|maksimum|üstüne çıkmam|üstüne çıkamam|üzerine çıkmam|üzerine çıkamam|tavan|kesin bütçe|kesin bütçem)/iu.test(text)
     || (/(?:sadece|yalnızca)/iu.test(text) && /(?:bütçe|bütçem|param|ayırdım|verebilirim)/iu.test(text));
