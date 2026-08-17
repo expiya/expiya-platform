@@ -47,6 +47,8 @@ describe("semantic completeness enforcement", () => {
     expect(flexible.budgetMutations.some((item) => item.field === "MAXIMUM_HARD_CEILING")).toBe(false);
     const hard = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "2 milyon bütçem var sadece", activeFieldIds: ["PREFERRED_BUDGET"] });
     expect(hard.budgetMutations).toContainEqual(expect.objectContaining({ field: "MAXIMUM_HARD_CEILING", value: { amount: 2_000_000, currency: "TRY" } }));
+    const explicit = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "Kesin bütçem 1.500.000 TL", activeFieldIds: ["PREFERRED_BUDGET"] });
+    expect(explicit.budgetMutations).toContainEqual(expect.objectContaining({ field: "MAXIMUM_HARD_CEILING", value: { amount: 1_500_000, currency: "TRY" } }));
   });
   it("binds a bare amount to the open budget question without making it a hard ceiling", () => { const result = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "3 milyon tl", activeFieldIds: [], openMaterialQuestionField: "budget" }); expect(result.budgetMutations).toEqual(expect.arrayContaining([expect.objectContaining({ field: "PREFERRED_BUDGET", value: { amount: 3_000_000, currency: "TRY" } }), expect.objectContaining({ field: "BUDGET_UNKNOWN", value: false })])); expect(result.budgetMutations.some((item) => item.field === "MAXIMUM_HARD_CEILING")).toBe(false); });
   it("binds a bare daily answer only to the open usage question", () => {

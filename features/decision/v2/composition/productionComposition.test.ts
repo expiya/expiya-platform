@@ -27,6 +27,16 @@ async function discoverAndOffer(conversationId: string, composition: ReturnType<
   return output!;
 }
 describe("production V2 composition with real WP pipeline", () => {
+  it("keeps a stated preferred budget attached to a one-turn recommendation", async () => {
+    const traces: Readonly<Record<string, unknown>>[] = [];
+    const store = new InMemoryV2ConversationStore();
+    const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ budget: result("budget", ["VEHICLE_INTENT", "RECOMMENDATION_REQUEST", "BUDGET_STATEMENT"], { directAnswerRequests: [{ kind: "RECOMMENDATION_REQUEST" }] }) }), realizer, shadow: true, smokeObserver: (trace) => traces.push(trace) });
+    const output = await runCarsDecisionTurnV2({ conversationId: "preferred-budget-gap", messageId: "budget", idempotencyKey: "budget", expectedConversationRevision: 0, userMessage: "Araba almak istiyorum. Günlük kullanım, elektrikli, SUV, 1,5 milyon bütçem var.", requestTime: "2026-08-19T00:00:00.000Z" }, composition);
+    expect(output.offer).toBeUndefined();
+    expect(output.cards).toEqual([]);
+    expect(traces.findLast((trace) => trace.phase === "DECISION")).toMatchObject({ availability: "READY", offerCreated: false });
+    expect((traces.findLast((trace) => trace.phase === "DECISION")?.shortlistCandidateIds as readonly string[])).toContain("6157aea5-cda6-5784-8452-91db40fc7613");
+  });
   it("runs greeting through real snapshot, reducer, full catalog evaluation, ranking and social action", async () => { const store = new InMemoryV2ConversationStore(); const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ greeting: result("greeting", ["GREETING"], { socialSignal: { kind: "GREETING" } }) }), realizer, shadow: true }); const output = await runCarsDecisionTurnV2({ conversationId: "composition-greeting", messageId: "greeting", idempotencyKey: "greeting", expectedConversationRevision: 0, userMessage: "Merhaba", requestTime: "2026-08-19T00:00:00.000Z" }, composition); expect(output).toMatchObject({ state: "SOCIAL", cards: [] }); expect(output.message).toContain("Merhaba"); expect((await store.load("composition-greeting"))?.memory?.events.some((event) => event.eventType === "SOCIAL_INTERACTION")).toBe(true); });
   it("does not answer an unasked how-are-you question and repairs the conversational mistake", async () => {
     const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
