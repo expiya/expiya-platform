@@ -16,8 +16,9 @@ type TurnStage = "LOAD" | "CATALOG" | "OFFER_RESPONSE" | "INTERPRET" | "EVENTS" 
 async function runTurnStage<T>(stage: TurnStage, operation: () => Promise<T>): Promise<T> {
   try {
     return await operation();
-  } catch {
-    throw new TypeError(`V2_TURN_STAGE_${stage}`);
+  } catch (error) {
+    const safeDetail = error instanceof Error && /^[A-Z0-9_:,-]{1,100}$/u.test(error.message) ? `:${error.message}` : "";
+    throw new TypeError(`V2_TURN_STAGE_${stage}${safeDetail}`);
   }
 }
 
