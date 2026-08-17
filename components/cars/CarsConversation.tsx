@@ -4,6 +4,7 @@ import { FormEvent, KeyboardEvent, useCallback, useEffect, useRef, useState } fr
 import { useRouter } from "next/navigation";
 
 import { CarCard } from "@/components/cars/CarCard";
+import { V2AuthorizedCarCard } from "@/components/cars/V2AuthorizedCarCard";
 import {
   hasActiveFinalDiscriminator,
   shouldRenderRecommendationCards,
@@ -88,6 +89,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
           messages: nextMessages,
           choiceId,
           selectedOptionId,
+          v2OfferToken: [...nextMessages].reverse().find((message) => message.role === "assistant" && message.v2OfferToken)?.v2OfferToken,
           conversation: conversationRef.current,
         }),
       });
@@ -113,6 +115,9 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
         recommendations: response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS"
           ? payload.recommendations
           : undefined,
+        v2Cards: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.cards : undefined,
+        v2Options: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.options : undefined,
+        v2OfferToken: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.offer?.token : undefined,
         recommendationIds: response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS"
           ? payload.recommendations.map((item) => item.car.id)
           : undefined,
@@ -266,7 +271,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                 key={message.id}
                 className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
               >
-                <div className={`${message.recommendations?.length ? "w-full" : "max-w-[88%]"} rounded-2xl px-4 py-3 leading-6 ${
+                <div className={`${message.recommendations?.length || message.v2Cards?.length ? "w-full" : "max-w-[88%]"} rounded-2xl px-4 py-3 leading-6 ${
                   message.role === "user"
                     ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-950"
                     : "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100"
@@ -278,6 +283,16 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                       {message.recommendations.map((recommendation) => (
                         <CarCard key={recommendation.car.id} recommendedCar={recommendation} locale={locale} />
                       ))}
+                    </div>
+                  )}
+                  {message.v2Cards && message.v2Cards.length > 0 && (
+                    <div className="mt-4 grid gap-4 text-neutral-900 dark:text-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
+                      {message.v2Cards.map((card) => <V2AuthorizedCarCard key={card.exactVariantId} card={card} />)}
+                    </div>
+                  )}
+                  {message.role === "assistant" && message.v2Options && message.v2Options.length > 0 && (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {message.v2Options.map((option) => <button key={option.id} type="button" onClick={() => submitContent(option.label, option.id)} disabled={isLoading || message !== messages[messages.length - 1]} className="rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-sm text-neutral-800 disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100">{option.label}</button>)}
                     </div>
                   )}
                   {message.role === "assistant" && shouldShowVehicleQuickReplies(

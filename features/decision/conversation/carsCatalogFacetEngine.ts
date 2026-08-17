@@ -61,7 +61,10 @@ function candidate(record: RecordItem): CatalogFacetCandidate {
     brand: variant.brand.value,
     model: variant.model.value,
     trim: variant.trim.value,
-    body: variant.bodyStyle.value.toLocaleUpperCase("tr-TR"),
+    // Catalog body-style vocabulary is ASCII-controlled. Turkish locale casing
+    // turns "Pickup" into "PİCKUP", which cannot match the canonical PICKUP
+    // facet and incorrectly empties the candidate pool.
+    body: variant.bodyStyle.value.toUpperCase(),
     fuel: variant.powertrain.fuelType.value,
     transmission: transmission(variant.powertrain.transmission.value),
     drivetrain: variant.powertrain.drivenWheels?.value ?? "UNKNOWN",

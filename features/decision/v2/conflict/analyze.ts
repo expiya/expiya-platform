@@ -1,0 +1,10 @@
+import type { AnalyzeConflictInput, CandidateConflictAnalysis, ConflictRelaxationOption } from "./types";
+
+function combinations(values: readonly string[], size: number, start = 0, prefix: readonly string[] = []): string[][] { if (prefix.length === size) return [[...prefix]]; const result: string[][] = []; for (let index = start; index < values.length; index += 1) result.push(...combinations(values, size, index + 1, [...prefix, values[index]!])); return result; }
+export function analyzeHardConflict(input: AnalyzeConflictInput): CandidateConflictAnalysis | null {
+  if (input.availability !== "HARD_CONFLICT") return null;
+  const ids = [...new Set(input.activeHardConstraints.map((constraint) => constraint.constraintId))].sort(); const maximumSize = Math.min(input.maximumRelaxationSize ?? 3, ids.length); const recovered = new Map<string, readonly string[]>(); const minimal: string[][] = [];
+  for (let size = 1; size <= maximumSize; size += 1) for (const set of combinations(ids, size)) { if (minimal.some((existing) => existing.every((id) => set.includes(id)))) continue; const candidates = [...new Set(input.recomputeWithoutConstraintIds(set))].sort(); if (candidates.length) { minimal.push(set); recovered.set(set.join("|"), candidates); } }
+  const options: ConflictRelaxationOption[] = minimal.slice(0, input.maximumOptions ?? 2).map((set, index) => ({ id: `relaxation-${index + 1}`, relaxConstraintIds: set, resultingCandidateIds: recovered.get(set.join("|"))!, recoveredCandidateCount: recovered.get(set.join("|"))!.length, consequenceFactIds: [...new Set(set.flatMap((id) => input.consequenceFactIdsByConstraint?.[id] ?? []))].sort(), confidence: "VERIFIED" }));
+  return Object.freeze({ availability: input.availability, zeroingConstraintIds: ids, inclusionMinimalConflictSets: Object.freeze(minimal), relaxationOptions: Object.freeze(options), authorizedConflictFactIds: Object.freeze([...new Set(options.flatMap((option) => option.consequenceFactIds))].sort()), diagnostics: Object.freeze(options.length ? maximumSize < ids.length ? [{ code: "CONFLICT_SEARCH_BOUNDED" as const }] : [] : [{ code: "NO_RECOVERABLE_RELAXATION" as const }]) });
+}

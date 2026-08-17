@@ -187,7 +187,13 @@ export function hydrateCarsConversationMemory(input: {
       lastProgressEvent = `option:${selection.optionId}:${selection.source}`;
       directlyAnsweredPending = true;
     }
-    const facts = selectedTechnicalDailyLifeOption ? [] : [...extractDeterministicFacts(message.content)];
+    const relaxesDrivetrain = /(?:4\s*[x×]\s*4|awd|dört çeker)[^.!?]{0,24}(?:gerek yok|şart değil|zorunlu değil|fark etmez)|(?:gerek yok|şart değil|zorunlu değil|fark etmez)[^.!?]{0,24}(?:4\s*[x×]\s*4|awd|dört çeker)/iu.test(message.content);
+    const relaxesFuel = /(?:yakıt|benzin|dizel|hibrit|elektrik(?:li)?)[^.!?]{0,24}(?:fark etmez|önemli değil)|(?:fark etmez|önemli değil)[^.!?]{0,24}(?:yakıt|benzin|dizel|hibrit|elektrik(?:li)?)/iu.test(message.content);
+    if (relaxesDrivetrain) entries.delete("DRIVETRAIN");
+    if (relaxesFuel) { entries.delete("FUEL"); entries.delete("FUEL_EXCLUDED"); }
+    const additiveFuelRelaxation = entries.has("FUEL") && /\b(?:benzin|dizel|hibrit|elektrik(?:li)?)\s+de\s+olabilir\b/iu.test(message.content);
+    const facts = selectedTechnicalDailyLifeOption ? [] : [...extractDeterministicFacts(message.content)]
+      .filter((fact) => !(additiveFuelRelaxation && fact.key === "FUEL"));
     const skipsPendingDailyLife = /(?:fark etmez|önemli değil|filtreleme|bunu geç|atla)/iu.test(message.content);
     const skippedTechnicalFields = skipsPendingDailyLife
       ? [technicalDailyLifeFieldForQuestionPurpose(pendingAtStart?.purpose), ...mentionedTechnicalDailyLifeFields(message.content)]

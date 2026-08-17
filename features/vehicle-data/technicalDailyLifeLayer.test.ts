@@ -2,10 +2,10 @@ import { execFileSync } from "node:child_process";
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
-import catalog from "@/data/production/catalog/releases/v0.55.0/catalog.json";
+import catalog from "@/data/production/catalog/releases/v0.55.1/catalog.json";
 import activePointer from "@/data/production/technical-daily-life/active.json";
-import manifestJson from "@/data/production/technical-daily-life/releases/v2.1-0.55.0-2026-08-16/manifest.json";
-import layerJson from "@/data/production/technical-daily-life/releases/v2.1-0.55.0-2026-08-16/technical-daily-life.json";
+import manifestJson from "@/data/production/technical-daily-life/releases/v2.1-0.55.1-2026-08-16-compatibility-rebind/manifest.json";
+import layerJson from "@/data/production/technical-daily-life/releases/v2.1-0.55.1-2026-08-16-compatibility-rebind/technical-daily-life.json";
 import type { InterpretationClass, RankingEffect, TechnicalDailyLifeLayer, TechnicalDailyLifeManifest } from "@/types/technicalDailyLife";
 
 import {
@@ -25,16 +25,16 @@ import {
 const layer = parseTechnicalDailyLifeLayer(layerJson);
 const manifest = manifestJson as TechnicalDailyLifeManifest;
 const mappings = layer.fields.flatMap((field) => field.usageMappings);
-const rawReleasePath = "data/production/technical-daily-life/releases/v2.1-0.55.0-2026-08-16/technical-daily-life.json";
-const compatibility = (candidateLayer: TechnicalDailyLifeLayer = layer, records: readonly unknown[] = catalog.records, release = "v0.55.0") => (
-  validateTechnicalDailyLifeCatalogCompatibility({ layer: candidateLayer, records, catalogRelease: release, expectedCatalogRelease: "v0.55.0" })
+const rawReleasePath = "data/production/technical-daily-life/releases/v2.1-0.55.1-2026-08-16-compatibility-rebind/technical-daily-life.json";
+const compatibility = (candidateLayer: TechnicalDailyLifeLayer = layer, records: readonly unknown[] = catalog.records, release = "v0.55.1") => (
+  validateTechnicalDailyLifeCatalogCompatibility({ layer: candidateLayer, records, catalogRelease: release, expectedCatalogRelease: "v0.55.1" })
 );
 const mutableLayer = () => JSON.parse(JSON.stringify(layer)) as TechnicalDailyLifeLayer;
 
 describe("technical daily-life production layer v2.1", () => {
   it("1. points the active pointer to an existing compatible release", () => {
     expect(() => assertActiveTechnicalDailyLifePointer()).not.toThrow();
-    expect(activePointer).toMatchObject({ activeTechnicalDailyLifeRelease: manifest.releaseId, compatibleCatalogRelease: "v0.55.0", schemaVersion: 1 });
+    expect(activePointer).toMatchObject({ activeTechnicalDailyLifeRelease: manifest.releaseId, compatibleCatalogRelease: "v0.55.1", schemaVersion: 1 });
   });
 
   it("2. matches the manifest checksum to the canonical release bytes", () => {
@@ -169,7 +169,7 @@ describe("technical daily-life production layer v2.1", () => {
 
   it("25. exposes exact mapping lookup and active release metadata without mutation", () => {
     expect(getTechnicalDailyLifeMappingById("luggage-volume--400-499")?.mappingId).toBe("luggage-volume--400-499");
-    expect(loadActiveTechnicalDailyLifeLayer()).toMatchObject({ release: manifest.releaseId, compatibleCatalogRelease: "v0.55.0" });
+    expect(loadActiveTechnicalDailyLifeLayer()).toMatchObject({ release: manifest.releaseId, compatibleCatalogRelease: "v0.55.1" });
   });
 
   it("26. keeps generated active-module sync idempotent", () => {

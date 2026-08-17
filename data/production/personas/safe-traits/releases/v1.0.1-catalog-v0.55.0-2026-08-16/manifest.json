@@ -1,0 +1,62 @@
+{
+  "releaseVersion": "v1.0.1-catalog-v0.55.0-2026-08-16",
+  "schemaVersion": "1.1.0",
+  "authority": "OWNER_EDITORIAL",
+  "decisionUse": "SOFT_PREFERENCE_ONLY",
+  "compatibleCatalogRelease": "v0.55.0",
+  "compatibleCatalogFingerprint": "sha256:fc0c03c45dae679545dc85d3ddc2e69a2663ce688541459cd7201c9c9dcba4b3",
+  "sourcePersonaDatasetVersion": "2026.08.16-owner-editorial-v1",
+  "sourceSafeDraftRelease": "v1.0.0-catalog-v0.55.0-2026-08-16",
+  "sanitizationPolicyVersion": "1.0.0",
+  "ownerApprovalReference": "owner-approved-safe-persona-projection-v1.0.1",
+  "approvedNonEmptyFamilyCount": 232,
+  "keepEmptyFamilyCount": 165,
+  "approval": {
+    "authority": "PRODUCT_OWNER",
+    "reference": "owner-approved-safe-persona-projection-v1.0.1",
+    "approvedSourceRelease": "v1.0.0-catalog-v0.55.0-2026-08-16",
+    "approvedProposedSafeTraitsChecksum": "sha256:844fbac9b6e26c7f7c8a5ae0d79ae88545548f46260b60441ffcf46142be92db",
+    "approvedAt": "2026-08-16T18:55:59.000Z",
+    "sanitizationPolicyVersion": "1.0.0",
+    "scope": "SANITIZED_PROJECTION_ONLY"
+  },
+  "familyCount": 397,
+  "variantCount": 577,
+  "matchCounts": {
+    "MATCHED": 397,
+    "AMBIGUOUS": 0,
+    "UNMATCHED": 0
+  },
+  "emptyTraitFamilyCount": 165,
+  "emptyTraitVariantCount": 254,
+  "reviewCounts": {
+    "PROGRAMMATIC_DRAFT": 0,
+    "OWNER_REVIEW_REQUIRED": 0,
+    "OWNER_APPROVED": 397
+  },
+  "traitDistribution": {
+    "DESIGN": 46,
+    "DRIVING_ENGAGEMENT": 17,
+    "COMFORT": 0,
+    "PRACTICALITY": 0,
+    "TECHNOLOGY": 75,
+    "PRESTIGE": 47,
+    "VALUE": 0,
+    "ADVENTURE": 23,
+    "FAMILY": 0,
+    "URBAN": 59,
+    "COMMERCIAL": 58,
+    "SUSTAINABILITY": 46,
+    "MINIMALISM": 10
+  },
+  "payloadSha256": "sha256:90cd863167f5f4c76dc13d546b62df99d95ba55d6b3d76e0dc7dd5cddc938da7",
+  "validationStatus": "VALIDATED",
+  "declaredLimitations": [
+    "approval-applies-only-to-sanitized-proposed-safe-traits-checksum",
+    "raw-editorial-persona-text-is-not-approved-or-included",
+    "removed-twenty-nine-traits-remain-excluded",
+    "comfort-practicality-value-family-remain-disabled",
+    "compatible-catalog-currently-future-effective-at-2026-08-16-runtime-clock",
+    "catalog-version-or-fingerprint-change-requires-a-new-compatible-safe-persona-release"
+  ]
+}

@@ -1,6 +1,9 @@
 import { z } from "zod";
+import { after } from "next/server";
 
 import { runCarsConversationTurn } from "@/features/decision/conversation/runCarsConversationTurn";
+import { evaluateCarsDecisionV2ShadowAfterResponse } from "@/features/decision/v2/integration/routeShadow.server";
+import { tryRunCarsDecisionV2Public } from "@/features/decision/v2/integration/publicRoute.server";
 import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
 import type { CarsConversationRequest } from "@/types/carsConversation";
 
@@ -47,6 +50,7 @@ const requestSchema = z.object({
   conversationId: z.string().min(1).max(100),
   choiceId: z.enum(["MAX_SEATS", "MAX_CARGO"]).optional(),
   selectedOptionId: z.string().min(1).max(80).optional(),
+  v2OfferToken: z.string().min(1).max(8_000).optional(),
   conversation: z.object({
     version: z.literal(1),
     state: z.enum([
@@ -326,7 +330,20 @@ export async function POST(request: Request): Promise<Response> {
     }
     const conversationRejected = await enforceRateLimit(request, { scope: "cars-conversation-id", subject: input.conversationId, limit: 24, windowMs: 60 * 60_000 });
     if (conversationRejected) return conversationRejected;
+    let v2Response = null;
+    try {
+      v2Response = await tryRunCarsDecisionV2Public(input, request.signal);
+    } catch (v2Error) {
+      const safeCode = v2Error instanceof Error && /^[A-Z0-9_:,-]{1,160}$/u.test(v2Error.message) ? v2Error.message : undefined;
+      console.info("cars_decision_v2_public_fallback", { errorClass: v2Error instanceof Error ? v2Error.name : "UNKNOWN", ...(safeCode ? { errorCode: safeCode } : {}) });
+    }
+    if (v2Response) return Response.json(v2Response);
     const response = await runCarsConversationTurn(input as CarsConversationRequest);
+    try {
+      after(() => evaluateCarsDecisionV2ShadowAfterResponse(input));
+    } catch {
+      // Unit and non-Next runtimes have no request work store; public V1 remains unaffected.
+    }
     return Response.json(response);
   } catch (error) {
     if (error instanceof z.ZodError) {

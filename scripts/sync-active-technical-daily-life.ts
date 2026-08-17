@@ -13,7 +13,7 @@ async function main(): Promise<void> {
   const pointerPath = path.join(root, "data/production/technical-daily-life/active.json");
   const generatedPath = path.join(root, "data/production/technical-daily-life/activeTechnicalDailyLife.generated.ts");
   const pointer = JSON.parse(await readFile(pointerPath, "utf8")) as ActivePointer;
-  if (pointer.state !== "ACTIVE" || !/^v\d+\.\d+-\d+\.\d+\.\d+-\d{4}-\d{2}-\d{2}$/.test(pointer.activeTechnicalDailyLifeRelease)
+  if (pointer.state !== "ACTIVE" || !/^v\d+\.\d+-\d+\.\d+\.\d+-\d{4}-\d{2}-\d{2}(?:-[a-z0-9-]+)?$/.test(pointer.activeTechnicalDailyLifeRelease)
     || !/^v\d+\.\d+\.\d+$/.test(pointer.compatibleCatalogRelease) || pointer.schemaVersion !== 1) {
     throw new Error("ACTIVE_TECHNICAL_DAILY_LIFE_POINTER_INVALID");
   }

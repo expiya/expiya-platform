@@ -1,0 +1,4 @@
+import { describe, expect, it } from "vitest";
+import { bindTypedOption } from "./optionBinding";
+const options = [{ id: "automatic", label: "Otomatik", normalizedTexts: ["otomatik vites"] }, { id: "manual", label: "Manuel" }];
+describe("typed option binding", () => { it.each([["automatic", "automatic"], ["Otomatik", "automatic"], ["otomatik", "automatic"], ["Otomatik Otomatik", "automatic"], ["1", "automatic"], ["MANUEL", "manual"]])("binds %s", (message, optionId) => expect(bindTypedOption({ message, options })).toEqual({ status: "BOUND", optionId })); it("does not call a non-empty emoji message empty", () => expect(bindTypedOption({ message: "🙂", options }).status).toBe("UNBOUND")); it("only reports actual whitespace as empty", () => expect(bindTypedOption({ message: "   ", options }).status).toBe("EMPTY")); });

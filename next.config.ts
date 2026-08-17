@@ -3,7 +3,6 @@ import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
-  experimental: { sri: { algorithm: "sha256" } },
   images: {
     remotePatterns: [{
       protocol: "https",

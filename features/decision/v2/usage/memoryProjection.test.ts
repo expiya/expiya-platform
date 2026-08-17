@@ -1,0 +1,10 @@
+import { describe, expect, it } from "vitest";
+import type { ConstraintEvent } from "../domain/constraint";
+import { projectUsageCargoNeedFromConstraints } from "./memoryProjection";
+
+const event = (id: string, field: string, normalizedValue: unknown, sourceText: string, overrides: Partial<ConstraintEvent> = {}): ConstraintEvent => ({ schemaVersion: 1, conversationId: "c", id, sourceMessageId: id, sourceTurn: 1, sequence: 0, createdAt: "2026-08-19T00:00:00.000Z", eventType: "CONSTRAINT", kind: "HARD_CONSTRAINT", field, normalizedValue, sourceText, confidence: 1, authority: "USER_EXPLICIT", decisionEffect: "HARD_FILTER", status: "ACTIVE", ...overrides });
+
+describe("usage need memory projection", () => {
+  it("projects urban enclosed cargo and rear-seat softness", () => expect(projectUsageCargoNeedFromConstraints([event("a", "usageArchitecture", { operator: "EQUALS", value: "ENCLOSED_CARGO" }, "Şehir içi dağıtım için kapalı yük alanı gerekli"), event("b", "rearSeatPreference", "NOT_NEEDED", "Arka koltuklara gerek yok", { kind: "SOFT_PREFERENCE", decisionEffect: "STRONG_RANK", sequence: 1 })])).toMatchObject({ commercialScenario: "URBAN_DELIVERY", orientation: "CARGO_PRIORITY", architectureRequirement: { required: "ENCLOSED_CARGO", explicitness: "USER_EXPLICIT" }, rearSeatPreference: { requirement: "NOT_NEEDED", presenceConstraint: "NO_CONSTRAINT" } }));
+  it("uses only the terminal supersession value", () => expect(projectUsageCargoNeedFromConstraints([event("old", "usageArchitecture", { operator: "EQUALS", value: "ENCLOSED_CARGO" }, "yük"), event("new", "usageArchitecture", { operator: "EQUALS", value: "PASSENGER_CAR" }, "düzelt", { supersedesId: "old", sourceTurn: 2 })]).architectureRequirement?.required).toBe("PASSENGER_CAR"));
+});

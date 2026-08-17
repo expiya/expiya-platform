@@ -1,4 +1,5 @@
 import type { RecommendedCar } from "@/types/recommendation";
+import type { DecisionSafePublicCard } from "@/features/decision/v2/presentation/publicCardSchema";
 import type { VehiclePersonaTrait } from "@/types/vehiclePersona";
 import type { DecisionUse, InterpretationClass, RankingEffect, UsageContext } from "@/types/technicalDailyLife";
 
@@ -50,6 +51,9 @@ export interface CarsConversationMessage {
   readonly role: "user" | "assistant";
   readonly content: string;
   readonly recommendations?: readonly RecommendedCar[];
+  readonly v2Cards?: readonly DecisionSafePublicCard[];
+  readonly v2Options?: readonly { readonly id: string; readonly label: string }[];
+  readonly v2OfferToken?: string;
   readonly recommendationIds?: readonly string[];
   readonly quickReplies?: readonly string[];
   readonly optionSet?: CarsActiveOptionSet;
@@ -74,6 +78,7 @@ export interface CarsConversationRequest {
   readonly messages: readonly CarsConversationMessage[];
   readonly choiceId?: CarsFinalDiscriminatorChoiceId;
   readonly selectedOptionId?: string;
+  readonly v2OfferToken?: string;
   readonly conversation?: CarsConversationTrace;
 }
 
@@ -482,6 +487,15 @@ export interface CarsConversationEvidenceDecision {
 }
 
 export type CarsConversationResponse =
+  | {
+      readonly kind: "V2_DECISION";
+      readonly message: string;
+      readonly options: readonly { readonly id: string; readonly label: string }[];
+      readonly cards: readonly DecisionSafePublicCard[];
+      readonly offer?: { readonly token: string; readonly expiresAt: string };
+      readonly conversation?: CarsConversationTrace;
+      readonly decision?: CarsConversationEvidenceDecision;
+    }
   | {
       readonly kind: "QUESTION";
       readonly message: string;

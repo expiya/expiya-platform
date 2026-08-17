@@ -1,0 +1,47 @@
+{
+  "releaseVersion": "v1.0.0-catalog-v0.55.0-2026-08-16",
+  "schemaVersion": "1.0.0",
+  "authority": "OWNER_EDITORIAL",
+  "decisionUse": "SOFT_PREFERENCE_ONLY",
+  "compatibleCatalogRelease": "v0.55.0",
+  "compatibleCatalogFingerprint": "sha256:fc0c03c45dae679545dc85d3ddc2e69a2663ce688541459cd7201c9c9dcba4b3",
+  "sourcePersonaDatasetVersion": "2026.08.16-owner-editorial-v1",
+  "familyCount": 397,
+  "variantCount": 577,
+  "matchCounts": {
+    "MATCHED": 397,
+    "AMBIGUOUS": 0,
+    "UNMATCHED": 0
+  },
+  "emptyTraitFamilyCount": 158,
+  "emptyTraitVariantCount": 246,
+  "reviewCounts": {
+    "PROGRAMMATIC_DRAFT": 197,
+    "OWNER_REVIEW_REQUIRED": 200,
+    "OWNER_APPROVED": 0
+  },
+  "traitDistribution": {
+    "DESIGN": 48,
+    "DRIVING_ENGAGEMENT": 17,
+    "COMFORT": 0,
+    "PRACTICALITY": 0,
+    "TECHNOLOGY": 75,
+    "PRESTIGE": 49,
+    "VALUE": 0,
+    "ADVENTURE": 23,
+    "FAMILY": 0,
+    "URBAN": 59,
+    "COMMERCIAL": 83,
+    "SUSTAINABILITY": 46,
+    "MINIMALISM": 10
+  },
+  "payloadSha256": "sha256:950154aea9a5a2b6de16d7f04b71ddd4d8386ca2430eede954325cb79f001ce6",
+  "validationStatus": "VALIDATED",
+  "declaredLimitations": [
+    "safe-traits-are-owner-editorial-soft-preferences-not-technical-facts",
+    "programmatic-projections-are-not-owner-approved-by-generation",
+    "unmatched-and-ambiguous-families-carry-empty-traits",
+    "variant-projections-inherit-family-traits-without-variant-specific-inference",
+    "raw-editorial-persona-text-is-excluded-from-this-release"
+  ]
+}

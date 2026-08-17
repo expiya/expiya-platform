@@ -90,7 +90,8 @@ export function extractDeterministicFacts(text: string): readonly { key: CarsReq
   if (/(?:\baile\b|family use|çocuk)/iu.test(text)) found.push({ key: "USAGE_FAMILY", value: "FAMILY" });
   const budget = budgetValue(text);
   if (budget !== undefined) found.push({ key: "BUDGET_MAX_TRY", value: budget });
-  if (/(?:\b4\s*[x×]\s*4\b|\bawd\b|dört çeker)/iu.test(text)) found.push({ key: "DRIVETRAIN", value: "AWD_OR_4X4" });
+  const drivetrainRelaxed = /(?:4\s*[x×]\s*4|awd|dört çeker)[^.!?]{0,24}(?:gerek yok|şart değil|zorunlu değil|fark etmez)|(?:gerek yok|şart değil|zorunlu değil|fark etmez)[^.!?]{0,24}(?:4\s*[x×]\s*4|awd|dört çeker)/iu.test(text);
+  if (!drivetrainRelaxed && /(?:\b4\s*[x×]\s*4\b|\bawd\b|dört çeker)/iu.test(text)) found.push({ key: "DRIVETRAIN", value: "AWD_OR_4X4" });
   if (/(?:önden çekiş|\bfwd\b)/iu.test(text)) found.push({ key: "DRIVETRAIN", value: "FWD" });
   if (/(?:arkadan itiş|\brwd\b)/iu.test(text)) found.push({ key: "DRIVETRAIN", value: "RWD" });
   if (/(?:\bpick[\s-]?up\b|\bpikap\b)/iu.test(text)) found.push({ key: "BODY_TYPE", value: "PICKUP" });

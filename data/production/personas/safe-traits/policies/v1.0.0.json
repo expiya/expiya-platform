@@ -1,0 +1,21 @@
+{
+  "policyVersion": "1.0.0",
+  "authority": "OWNER_EDITORIAL",
+  "decisionUse": "SOFT_PREFERENCE_ONLY",
+  "automaticApproval": false,
+  "commercialVehicleUseClasses": ["LIGHT_COMMERCIAL", "HEAVY_COMMERCIAL"],
+  "commercialBodyPatterns": ["PANEL VAN", "PANELVAN", "PICKUP", "CHASSIS CAB", "KAMYONET", "PASSENGER VAN"],
+  "sustainabilityFuelTypes": ["BEV", "PHEV", "HEV", "HYDROGEN"],
+  "sustainabilityReviewFuelTypes": ["MHEV"],
+  "adventureBodyPatterns": ["SUV", "PICKUP", "OFF-ROAD", "CROSSOVER"],
+  "reviewBeforePublishingTraits": ["COMFORT", "PRACTICALITY", "VALUE", "FAMILY"],
+  "declaredRules": [
+    "No programmatic projection becomes OWNER_APPROVED.",
+    "Commercial derives from canonical vehicle architecture, never profession or social context.",
+    "Sustainability requires BEV, PHEV, HEV or HYDROGEN technical compatibility; MHEV requires review.",
+    "Dangerous-driving context cannot derive driving or adventure traits.",
+    "Prestige cannot derive solely from profession, wealth or social-class context.",
+    "Demographic context cannot derive urban, design, technology or minimalism traits.",
+    "Comfort, practicality, value and family remain unpublished pending owner review."
+  ]
+}

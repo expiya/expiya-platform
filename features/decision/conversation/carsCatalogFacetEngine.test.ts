@@ -12,6 +12,34 @@ describe("catalog facet engine", () => {
     expect(result.initialCount).toBe(activeCatalogPayload.records.length);
   });
 
+  it("keeps diesel four-wheel-drive pickups in the candidate pool", () => {
+    const trace = buildCarsRequirementLedger([
+      { id: "1", role: "user", content: "4x4 şart gibi" },
+      { id: "2", role: "user", content: "Pickup olmalı" },
+      { id: "3", role: "user", content: "Dizel" },
+    ]);
+    const result = evaluateCatalogFacets(trace);
+    expect(result.candidates).toHaveLength(7);
+    expect(result.candidates.every((item) => item.body === "PICKUP" && item.fuel === "DIESEL" && /AWD|4X4/iu.test(item.drivetrain))).toBe(true);
+    expect(result.candidates.map((item) => item.model)).toEqual(expect.arrayContaining(["D-Max", "Amarok", "Musso Grand", "Ranger", "Hilux"]));
+  });
+
+  it("widens the current pickup pool when fuel or four-wheel drive is relaxed", () => {
+    const messages = [
+      { id: "1", role: "user" as const, content: "4x4 şart gibi" },
+      { id: "2", role: "user" as const, content: "Pickup olmalı" },
+      { id: "3", role: "user" as const, content: "Dizel" },
+      { id: "4", role: "user" as const, content: "Benzin de olabilir" },
+      { id: "5", role: "user" as const, content: "4x4 olmasına gerek yok" },
+    ];
+    const trace = buildCarsRequirementLedger(messages);
+    expect(trace.requirements).toContainEqual(expect.objectContaining({ key: "FUEL", value: "DIESEL" }));
+    expect(trace.requirements.some((item) => item.key === "DRIVETRAIN")).toBe(false);
+    const result = evaluateCatalogFacets(trace);
+    expect(result.candidates).toHaveLength(9);
+    expect(result.candidates.every((item) => item.body === "PICKUP" && item.fuel === "DIESEL")).toBe(true);
+  });
+
   it("recomputes all filters from the current requirements and can widen after a budget correction", () => {
     const twoMillion = buildCarsRequirementLedger([
       { id: "1", role: "user", content: "Bütçem en fazla 1.5 milyon TL" },
