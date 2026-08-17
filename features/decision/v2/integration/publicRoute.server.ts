@@ -35,8 +35,13 @@ type PublicV2Stage = "CATALOG" | "LAYERS" | "PERSONA" | "DURABLE_STORE" | "CONVE
 async function runPublicV2Stage<T>(stage: PublicV2Stage, operation: () => Promise<T>): Promise<T> {
   try {
     return await operation();
-  } catch {
-    throw new TypeError(`CARS_DECISION_V2_STAGE_${stage}`);
+  } catch (error) {
+    const safeDetail = error instanceof Error && /^[A-Z0-9_:,-]{1,100}$/u.test(error.message)
+      ? error.message
+      : error instanceof Error
+        ? error.name.replace(/[^A-Za-z0-9]/gu, "").toUpperCase().slice(0, 40) || "ERROR"
+        : "UNKNOWN";
+    throw new TypeError(`CARS_DECISION_V2_STAGE_${stage}:${safeDetail}`);
   }
 }
 
