@@ -1,5 +1,6 @@
 import type { AuthoritativeSemanticPlan, InterpretationResult, ProposedConstraintMutation, ProposedPersonaMutation, ProviderActAuthority, UserAct } from "./types";
 import { normalizeFuelInterpretation } from "./policy";
+import { detectHumanContext } from "./humanContextPolicy";
 
 const BODY_STYLES = ["Sedan", "Hatchback", "SUV", "Coupe", "Convertible", "Crossover", "Liftback", "Station Wagon", "Pickup", "Panel Van", "Passenger Van", "MPV"] as const;
 const unique = <T>(values: readonly T[]): T[] => [...new Set(values)];
@@ -31,31 +32,52 @@ function personaTraits(text: string): ProposedPersonaMutation["traits"] {
   return unique(traits);
 }
 
-export function enforceInterpretationSemanticCompleteness(input: { readonly result: InterpretationResult; readonly userText: string; readonly activeFieldIds: readonly string[]; readonly openMaterialQuestionField?: string }): InterpretationResult {
+export function enforceInterpretationSemanticCompleteness(input: { readonly result: InterpretationResult; readonly userText: string; readonly activeFieldIds: readonly string[]; readonly openMaterialQuestionField?: string; readonly revealedCandidateReferences?: readonly string[] }): InterpretationResult {
   const text = input.userText.trim();
+  const semanticText = text.normalize("NFKC").toLocaleLowerCase("tr-TR");
   const naturalConsent = /^(?:evet|göster(?: bakalım)?|paylaş(?: bakalım)?|görelim|hadi görelim|hadi göster|olur|tamam|bakalım|önerini görmek isterim|önerileri aç|seçenekleri göster|devam et(?: öyleyse)?|edelim)[.!]?$/iu;
   if (naturalConsent.test(text)) { const acts: UserAct[] = ["OFFER_ACCEPTANCE"]; return Object.freeze({ ...input.result, acts: Object.freeze(acts), constraintMutations: Object.freeze([]), budgetMutations: Object.freeze([]), modelReferences: Object.freeze([]), personaMutations: Object.freeze([]), candidateRejection: undefined, corrections: Object.freeze([]) }); }
   if (/^(?:hayır|istemiyorum|önce biraz daha konuşalım)[.!]?$/iu.test(text)) { const acts: UserAct[] = ["OFFER_DECLINE"]; return Object.freeze({ ...input.result, acts: Object.freeze(acts), constraintMutations: Object.freeze([]), budgetMutations: Object.freeze([]), modelReferences: Object.freeze([]), personaMutations: Object.freeze([]), candidateRejection: undefined, corrections: Object.freeze([]) }); }
   const verifiedAbuse = /(salak|aptal|gerizek[aâ]lı|mal mısın|lanet)/iu.test(text); const socialHumor = /(şaka|😂|😄|🤣)/u.test(text);
+  const conversationalRepair = /(?:nasılsın diye sormadım|sana güvenmiyorum|hangi tercih\??)/iu.test(text);
   const acts: UserAct[] = input.result.acts.filter((act) => !["HARD_REQUIREMENT", "PREFERENCE_STATEMENT", "CORRECTION", "BUDGET_STATEMENT", "OFF_TOPIC", "ABUSE"].includes(act));
   if (verifiedAbuse) acts.push("ABUSE"); if (input.result.offTopicSignal?.detected && !socialHumor) acts.push("OFF_TOPIC"); if (socialHumor && !acts.includes("SOCIAL_MESSAGE")) acts.push("SOCIAL_MESSAGE");
-  const criticalFields = new Set(["fuelType", "transmission", "bodyStyle", "drivenWheels", "seats", "usageArchitecture", "rearSeatPreference"]);
+  if (conversationalRepair && !acts.includes("SOCIAL_MESSAGE")) acts.push("SOCIAL_MESSAGE");
+  const criticalFields = new Set(["usageScenario", "fuelType", "transmission", "bodyStyle", "drivenWheels", "seats", "usageArchitecture", "rearSeatPreference"]);
   const constraints = input.result.constraintMutations.filter((item) => !criticalFields.has(item.fieldId)); const budgets = [] as typeof input.result.budgetMutations[number][]; const personas = [] as typeof input.result.personaMutations[number][]; const references = [...input.result.modelReferences];
   const directAnswerRequests = [...input.result.directAnswerRequests];
   const addAct = (act: UserAct) => { if (!acts.includes(act)) acts.push(act); };
   const enforceConstraint = (value: ProposedConstraintMutation) => { const index = constraints.findIndex((item) => item.fieldId === value.fieldId); if (index >= 0) constraints[index] = value; else constraints.push(value); };
 
+  const usageScenario = input.openMaterialQuestionField === "usageScenario" && /^(?:günlük|gündelik)[.!]?$/iu.test(text) ? "URBAN_DAILY"
+    : /şehir içi (?:mal|kargo|koli) dağıt|mal dağıt|koli dağıt/iu.test(text) ? "URBAN_DELIVERY"
+    : /yolcu taşı|servis|transfer/iu.test(text) ? "PASSENGER_TRANSPORT"
+    : /genel yük|yük taşı|ticari yük/iu.test(text) ? "GENERAL_CARGO"
+    : /ciddi arazi|zorlu arazi|arazi arac[ıi]|off[- ]?road/iu.test(text) ? "SERIOUS_OFF_ROAD"
+    : /çamur|karlı? yol|kar(?:da|lı)|mud/iu.test(text) ? "MUD_SNOW"
+    : /bozuk yol|köy yol/iu.test(text) ? "ROUGH_ROAD"
+    : /uzun yol|şehirler ?arası/iu.test(text) ? "LONG_DISTANCE"
+    : /aile|çocuk(?:lar)?la/iu.test(text) ? "FAMILY"
+    : /karma kullanım|hem şehir içi hem uzun yol/iu.test(text) ? "MIXED_PASSENGER"
+    : /günlük (?:şehir içi |şehir dışı )?kullanım|günlük kullan|her gün kullan|işe gidip gel|gündelik işler|günlük şehir içi|şehir içinde (?:günlük )?kullan|şehir içi (?:araç|kullanım)|şehir içinde/u.test(semanticText) ? "URBAN_DAILY"
+    : undefined;
+  if (usageScenario && !hasField(constraints, "usageScenario")) {
+    constraints.push(mutation("usageScenario", usageScenario, text, input.activeFieldIds.includes("usageScenario") ? "CORRECT" : "ADD"));
+    addAct("USAGE_STATEMENT");
+  }
+
   const noElectric = /elektrikli\s+(?:istemiyorum|olmasın)/iu.test(text); const noHybrid = /hibrit\s+(?:istemiyorum|olmasın)/iu.test(text);
   const remainingFuelText = text.replace(/elektrikli\s+(?:istemiyorum|olmasın)/giu, "").replace(/hibrit\s+(?:istemiyorum|olmasın)/giu, "");
   const positiveFuel = normalizeFuelInterpretation(remainingFuelText);
   const fuel = positiveFuel ?? (noElectric ? { operator: "EXCLUDES" as const, value: ["BEV"] } : noHybrid ? { operator: "EXCLUDES" as const, value: ["MHEV", "HEV", "PHEV"] } : null);
-  if (/yakıt\s+(?:fark etmez|önemli değil)/iu.test(text) && input.activeFieldIds.includes("fuelType")) { enforceConstraint(mutation("fuelType", null, text, "CLEAR")); addAct("CORRECTION"); }
+  if (/yakıt\s+(?:fark etmez|önemli değil)/iu.test(text)) { enforceConstraint(mutation("fuelType", null, text, input.activeFieldIds.includes("fuelType") ? "CLEAR" : "DECLINE")); addAct(input.activeFieldIds.includes("fuelType") ? "CORRECTION" : "DECLINE_TO_ANSWER"); }
   else if (fuel) { const fuelHard = /(?:kesinlikle|mutlaka)\s+(?:hibrit|elektrikli|benzinli|dizel)|(?:hibrit|elektrikli|benzinli|dizel)(?:\s+dışında)?\s+(?:olmalı|şart|olmazsa olmaz|istemiyorum|olmasın)/iu.test(text); enforceConstraint(mutation("fuelType", fuel, text, input.activeFieldIds.includes("fuelType") ? "CORRECT" : "ADD", fuelHard)); addAct(input.activeFieldIds.includes("fuelType") ? "CORRECTION" : fuelHard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT"); }
 
   const transmission = /\botomati(?:k|ğe)\b/iu.test(text) ? "AUTOMATIC" : /\bmanuel(?:e)?\b/iu.test(text) ? "MANUAL" : undefined;
   if (transmission) { const transmissionHard = /(?:kesinlikle|mutlaka)\s+(?:otomatik|manuel)|(?:otomatik|manuel)\s+(?:olmalı|şart|olmazsa olmaz)|(?:otomatik|manuel)\s+dışında\s+istemiyorum/iu.test(text); const operation = input.activeFieldIds.includes("transmission") ? "CORRECT" : "ADD"; enforceConstraint({ ...mutation("transmission", { operator: "EQUALS", value: transmission }, text, operation), explicitness: transmissionHard ? "EXPLICIT_REQUIREMENT" : "EXPLICIT_PREFERENCE" }); addAct(operation === "CORRECT" ? "CORRECTION" : transmissionHard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT"); }
 
   const mentionedBodies = BODY_STYLES.filter((style) => new RegExp(`\\b${style.replace(" ", "[ -]?")}(?:'?(?:a|e|ya|ye))?\\b`, "iu").test(text));
+  if (/gövde(?:\s+tipi)?\s+(?:fark etmez|önemli değil)/iu.test(text)) { enforceConstraint(mutation("bodyStyle", null, text, input.activeFieldIds.includes("bodyStyle") ? "CLEAR" : "DECLINE")); addAct(input.activeFieldIds.includes("bodyStyle") ? "CORRECTION" : "DECLINE_TO_ANSWER"); }
   const affirmativeBody = [...mentionedBodies].reverse().find((style) => !new RegExp(`${style.replace(" ", "[ -]?")}(?:'?(?:den|dan))?\\s+(?:değil|demedim|istemi(?:yor|yorum)|vazgeç)`, "iu").test(text));
   if (affirmativeBody) {
     const correctionMeaning = /\b(dedim|demedim|düzelt)\b/iu.test(text); const hasActiveBody = input.activeFieldIds.includes("bodyStyle");
@@ -78,7 +100,7 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   if (cargoMeaning && !hasField(constraints, "usageArchitecture")) {
     const explicitArchitecture = /kapalı yük alanı|kapalı kasa|panel ?van|caddy tarz/iu.test(text);
     const architectureHard = explicitArchitecture && /(?:şart|olmazsa olmaz|kesinlikle|mutlaka|istiyorum|olsun|olmalı)/iu.test(text);
-    constraints.push(mutation("usageArchitecture", { operator: "EQUALS", value: "ENCLOSED_CARGO" }, text, input.activeFieldIds.includes("usageArchitecture") && /düzelt|artık|vazgeç/iu.test(text) ? "CORRECT" : "ADD", architectureHard));
+    if (explicitArchitecture) constraints.push(mutation("usageArchitecture", { operator: "EQUALS", value: "ENCLOSED_CARGO" }, text, input.activeFieldIds.includes("usageArchitecture") && /düzelt|artık|vazgeç/iu.test(text) ? "CORRECT" : "ADD", architectureHard));
     addAct("USAGE_STATEMENT"); if (architectureHard) addAct("HARD_REQUIREMENT");
   }
   if (/arka koltuk(?:ları)?\s+istemiyorum/iu.test(text)) enforceConstraint(mutation("rearSeatPreference", "MUST_NOT_HAVE", text, input.activeFieldIds.includes("rearSeatPreference") ? "CORRECT" : "ADD", true));
@@ -106,6 +128,14 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
 
   const lookup = text.match(/^\s*([\p{L}\p{N}][\p{L}\p{N}'’.-]*(?:\s+[\p{L}\p{N}][\p{L}\p{N}'’.-]*){0,2})\s+(?:katalogda\s+)?(?:var mı|mevcut mu)\??\s*$/iu);
   if (lookup && references.length === 0) { references.push({ rawText: lookup[1]!, parsedModelText: lookup[1]!, purpose: "LOOKUP_ONLY" }); addAct("MODEL_LOOKUP_REQUEST"); }
+  const descriptiveAvailabilityQuestion = /(?:arazi arac[ıi]|elektrikli araç|dizel araç|benzinli araç|hibrit araç).*(?:var mı|mevcut mu)/iu.test(text);
+  if (descriptiveAvailabilityQuestion) {
+    for (let index = acts.length - 1; index >= 0; index -= 1) if (["MODEL_LOOKUP_REQUEST", "MODEL_SUITABILITY_REQUEST"].includes(acts[index]!)) acts.splice(index, 1);
+    for (let index = references.length - 1; index >= 0; index -= 1) if (["LOOKUP_ONLY", "PREFERENCE"].includes(references[index]!.purpose)) references.splice(index, 1);
+    for (let index = directAnswerRequests.length - 1; index >= 0; index -= 1) if (["MODEL_AVAILABILITY", "MODEL_SUITABILITY"].includes(directAnswerRequests[index]!.kind)) directAnswerRequests.splice(index, 1);
+    addAct("VEHICLE_INTENT"); addAct("RECOMMENDATION_REQUEST");
+    if (!directAnswerRequests.some((request) => request.kind === "RECOMMENDATION_REQUEST")) directAnswerRequests.push({ kind: "RECOMMENDATION_REQUEST" });
+  }
   const comparison = text.match(/\b([\p{L}\p{N}][\p{L}\p{N}'’.-]{1,40})\s+m[ıiuü]\s+([\p{L}\p{N}][\p{L}\p{N}'’.-]{1,40})\s+m[ıiuü](?=\s|[?.!,]|$)/iu);
   if (comparison) {
     const names = [comparison[1]!, comparison[2]!];
@@ -126,7 +156,7 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   }
   if (technicalExplanation) { addAct("TECHNICAL_EXPLANATION_REQUEST"); if (!directAnswerRequests.some((request) => request.kind === "TECHNICAL_EXPLANATION")) directAnswerRequests.unshift({ kind: "TECHNICAL_EXPLANATION" }); }
   const implicitVehicleRequest = constraints.length > 0 && /(?:istiyorum|olsun|arıyorum|bütçem|max(?:imum)?|maksimum)/iu.test(text);
-  const explicitDiscoveryIntent = input.activeFieldIds.length === 0 && /\b(?:ilk (?:arabam|aracım|otomobilim)|(?:araba|araç|otomobil) (?:almak|almayı|alacağım|almam lazım|arıyorum|bakıyorum))\b/iu.test(text);
+  const explicitDiscoveryIntent = /(?:[İi]lk (?:arabamı?|aracımı?|otomobilimi?)|(?:kızım|oğlum|kızıma|oğluma).*(?:araba|araç|otomobil)|(?:araba|araç|otomobil) (?:almak|almayı|alacağım|almam (?:lazım|gerekiyor)|almalıyım|arıyorum|bakıyorum|lazım|gerekiyor))/iu.test(text);
   if (/(?:araç|araba|seçenek|model).*(?:arıyorum|istiyorum|öner|hazırla)|(?:öner|tavsiye).*(?:araç|araba|model)/iu.test(text) || implicitVehicleRequest || explicitDiscoveryIntent) { addAct("VEHICLE_INTENT"); addAct("RECOMMENDATION_REQUEST"); if (!comparison && !directAnswerRequests.some((request) => request.kind === "RECOMMENDATION_REQUEST")) directAnswerRequests.push({ kind: "RECOMMENDATION_REQUEST" }); }
   if (naturalConsent.test(text)) addAct("OFFER_ACCEPTANCE");
   if (/^(?:hayır|istemiyorum|önce biraz daha konuşalım)[.!]?$/iu.test(text)) addAct("OFFER_DECLINE");
@@ -140,9 +170,15 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   }
 
   const explicitRejectionReference = explicitRejection ? references.find((reference) => new RegExp(`\\b${reference.rawText.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "iu").test(text)) : undefined;
-  const candidateRejection = input.result.candidateRejection ?? (explicitRejectionReference ? { scope: "MODEL_FAMILY_EXPLICIT" as const, referenceText: explicitRejectionReference.rawText, sourceSpan: text } : undefined);
+  const revealedSetRejection = explicitRejection && (input.revealedCandidateReferences?.length ?? 0) > 0 && /(?:bunları|bu araçları|bu modelleri|hepsini|üçünü|ikisini)/iu.test(text);
+  const candidateRejection = revealedSetRejection ? { scope: "AMBIGUOUS" as const, referenceText: "REVEALED_SET", sourceSpan: text } : input.result.candidateRejection ?? (explicitRejectionReference ? { scope: "MODEL_FAMILY_EXPLICIT" as const, referenceText: explicitRejectionReference.rawText, sourceSpan: text } : undefined);
   if (candidateRejection) addAct("CANDIDATE_REJECTION");
-  return Object.freeze({ ...input.result, acts: Object.freeze(unique(acts)), directAnswerRequests: Object.freeze(directAnswerRequests), constraintMutations: Object.freeze(constraints), budgetMutations: Object.freeze(budgets), modelReferences: Object.freeze(references), personaMutations: Object.freeze(personas), ...(candidateRejection ? { candidateRejection } : {}), technicalGuidanceRequest: genericTechnicalNoviceContext ? undefined : technicalExplanation ? { fieldId: input.result.technicalGuidanceRequest?.fieldId, mode: "GUIDE_WITH_DAILY_LIFE" as const } : input.result.technicalGuidanceRequest, offTopicSignal: socialHumor ? undefined : input.result.offTopicSignal, abuseSignal: verifiedAbuse ? { detected: true as const } : undefined });
+  const humanContext = detectHumanContext(text);
+  const deterministicSocialSignal = humanContext ? { kind: humanContext.kind }
+    : conversationalRepair ? { kind: "GENERAL" as const }
+    : input.result.socialSignal;
+  if (deterministicSocialSignal && !acts.includes("SOCIAL_MESSAGE") && deterministicSocialSignal.kind !== "GREETING") acts.push("SOCIAL_MESSAGE");
+  return Object.freeze({ ...input.result, acts: Object.freeze(unique(acts)), directAnswerRequests: Object.freeze(directAnswerRequests), constraintMutations: Object.freeze(constraints), budgetMutations: Object.freeze(budgets), modelReferences: Object.freeze(references), personaMutations: Object.freeze(personas), ...(candidateRejection ? { candidateRejection } : {}), technicalGuidanceRequest: genericTechnicalNoviceContext ? undefined : technicalExplanation ? { fieldId: input.result.technicalGuidanceRequest?.fieldId, mode: "GUIDE_WITH_DAILY_LIFE" as const } : input.result.technicalGuidanceRequest, socialSignal: deterministicSocialSignal, offTopicSignal: socialHumor ? undefined : input.result.offTopicSignal, abuseSignal: verifiedAbuse ? { detected: true as const } : undefined });
 }
 
 export type SemanticCompletenessCode = "CORRECTION_MUTATION_MISSING" | "HARD_REQUIREMENT_MUTATION_MISSING" | "PREFERENCE_MUTATION_MISSING" | "BUDGET_MUTATION_MISSING" | "MODEL_REFERENCE_MISSING" | "PERSONA_MUTATION_MISSING" | "REJECTION_MUTATION_MISSING";

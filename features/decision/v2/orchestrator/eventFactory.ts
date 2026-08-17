@@ -15,9 +15,12 @@ export function createConversationEventsFromInterpretation(input: { readonly tur
   if (input.interpretation.result.acts.includes("VEHICLE_INTENT")) push({ eventType: "VEHICLE_INTENT_ESTABLISHED" });
   const openQuestion = [...(input.previous?.materialQuestionHistory ?? [])].reverse().find((item) => item.answerStatus === "OPEN");
   if (openQuestion) {
-    const declined = input.interpretation.result.acts.includes("DECLINE_TO_ANSWER") || /\b(fark etmez|önemli değil|geç)\b/iu.test(input.turn.userMessage);
-    const deferred = input.interpretation.result.acts.includes("DONT_KNOW");
-    const answered = input.interpretation.result.acts.includes("QUESTION_ANSWER") || input.interpretation.acceptedConstraintMutations.length > 0 || input.interpretation.acceptedBudgetMutations.length > 0;
+    const matchingConstraintMutation = input.interpretation.acceptedConstraintMutations.find((mutation) => mutation.fieldId === openQuestion.field);
+    const matchingBudgetMutation = openQuestion.field === "budget" && input.interpretation.acceptedBudgetMutations.length > 0;
+    const genericDecline = /^\s*(?:fark etmez|önemli değil|geç)\s*[.!]?\s*$/iu.test(input.turn.userMessage);
+    const declined = genericDecline || matchingConstraintMutation?.operation === "DECLINE";
+    const deferred = input.interpretation.result.acts.includes("DONT_KNOW") || /(?:bunu|kullanım(?: ayrıntısını)?|gövde(?:yi| tipini)?|yakıtı)\s+sonra\s+konuşalım/iu.test(input.turn.userMessage);
+    const answered = Boolean(matchingConstraintMutation || matchingBudgetMutation);
     if (declined || deferred || answered) push({ eventType: "MATERIAL_QUESTION_DISPOSITION", questionId: openQuestion.questionId, stableSemanticKey: openQuestion.stableSemanticKey, status: declined ? "DECLINED" : deferred ? "DEFERRED" : "ANSWERED" });
   }
   const priorConstraints = input.previous?.events.filter((event): event is ConstraintEvent => event.eventType === "CONSTRAINT") ?? [];
@@ -34,12 +37,14 @@ export function createConversationEventsFromInterpretation(input: { readonly tur
   });
   const rejection = input.interpretation.result.candidateRejection;
   if (rejection) {
-    const lookup = resolveProposedModelReferences(input.catalog, [{ rawText: rejection.referenceText, parsedModelText: rejection.referenceText, purpose: "PREFERENCE" }])[0];
-    if (rejection.scope === "MODEL_FAMILY_EXPLICIT" && lookup && (lookup.kind === "EXACT_MODEL_FAMILY" || lookup.kind === "EXACT_VARIANT")) push({ eventType: "CANDIDATE_REJECTION", scope: "MODEL_FAMILY", familyId: lookup.familyId, reason: "MODEL_DISLIKE", scopeExplicitlyRequested: true });
+    const revealedSetRejection = rejection.scope === "AMBIGUOUS" && rejection.referenceText === "REVEALED_SET" && (input.previous?.revealedCandidateIds.length ?? 0) > 0;
+    const lookup = revealedSetRejection ? undefined : resolveProposedModelReferences(input.catalog, [{ rawText: rejection.referenceText, parsedModelText: rejection.referenceText, purpose: "PREFERENCE" }])[0];
+    if (revealedSetRejection) for (const candidateId of input.previous!.revealedCandidateIds) push({ eventType: "CANDIDATE_REJECTION", scope: "EXACT_VARIANT", candidateId, reason: "OTHER_EXPLICIT", scopeExplicitlyRequested: true });
+    else if (rejection.scope === "MODEL_FAMILY_EXPLICIT" && lookup && (lookup.kind === "EXACT_MODEL_FAMILY" || lookup.kind === "EXACT_VARIANT")) push({ eventType: "CANDIDATE_REJECTION", scope: "MODEL_FAMILY", familyId: lookup.familyId, reason: "MODEL_DISLIKE", scopeExplicitlyRequested: true });
     else if (rejection.scope === "BRAND_EXPLICIT" && lookup?.kind === "BRAND" && lookup.familyIds[0]) push({ eventType: "CANDIDATE_REJECTION", scope: "BRAND", brandId: normalizeCatalogIdentity(lookup.canonicalBrand), reason: "BRAND_DISLIKE", scopeExplicitlyRequested: true });
     else if (rejection.scope === "EXACT_REVEALED" && lookup?.kind === "EXACT_VARIANT") push({ eventType: "CANDIDATE_REJECTION", scope: "EXACT_VARIANT", candidateId: lookup.variantId, reason: "OTHER_EXPLICIT", scopeExplicitlyRequested: true });
   }
-  if (input.interpretation.result.socialSignal) push({ eventType: "SOCIAL_INTERACTION", interaction: "SHORT_SOCIAL" });
+  if (input.interpretation.result.socialSignal) { const kind = input.interpretation.result.socialSignal.kind; push({ eventType: "SOCIAL_INTERACTION", interaction: "SHORT_SOCIAL", ...(!["GREETING", "GENERAL"].includes(kind) ? { humanContext: kind } : {}) }); }
   if (input.interpretation.result.offTopicSignal) push({ eventType: "OFF_TOPIC", transition: "DETECTED" });
   else if ((input.previous?.offTopicState.consecutiveOffTopicTurns ?? 0) > 0 && (input.interpretation.acceptedConstraintMutations.length > 0 || input.interpretation.acceptedBudgetMutations.length > 0 || input.interpretation.result.modelReferences.length > 0 || input.interpretation.result.acts.some((act) => ["VEHICLE_INTENT", "USAGE_STATEMENT", "PREFERENCE_STATEMENT", "HARD_REQUIREMENT", "CORRECTION", "RECOMMENDATION_REQUEST", "QUESTION_ANSWER"].includes(act)))) push({ eventType: "OFF_TOPIC", transition: "RETURNED_TO_VEHICLE" });
   if (input.interpretation.result.abuseSignal) push({ eventType: "ABUSE", transition: input.previous?.abuseState.level === "NONE" || !input.previous ? "BOUNDARY_SET" : input.previous.abuseState.level === "BOUNDARY_SET" ? "WARNED" : "ENDED" });

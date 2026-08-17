@@ -11,12 +11,22 @@ const variant = (id: string, body: string, fuel: "GASOLINE" | "HEV") => ({ id, e
 describe("production material-question generation", () => {
   it("derives stable consumer-facing discriminators only from the current pool", () => {
     const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [variant("v1", "Sedan", "GASOLINE"), variant("v2", "SUV", "HEV"), variant("eliminated", "Pickup", "GASOLINE")] } as unknown as CatalogSnapshot;
-    const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: ["v1", "v2"], memory: memory(), constraints: { activeHardConstraints: [], activeNonHardConstraints: [], supersessionTrace: [], diagnostics: [] }, comparisonScope: false });
+    const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: ["v1", "v2"], memory: memory(), constraints: { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "URBAN_DAILY" }], supersessionTrace: [], diagnostics: [] } as never, comparisonScope: false });
     expect(generated.unansweredDecisionFields).toEqual(expect.arrayContaining(["bodyStyle", "fuelType", "transmission", "budget"]));
     const body = generated.questionCandidates.find((candidate) => candidate.question.field === "bodyStyle")!;
     expect(body.question.options.map((option) => option.userFacingLabel)).toEqual(["Sedan", "SUV/crossover"]);
     expect(body.question.options.flatMap((option) => option.provenance.supportingCandidateIds)).not.toContain("eliminated");
     expect(assessRecommendationReadiness({ memory: memory(), candidateAvailability: "READY", candidateCount: 577, comparisonScope: false, ...generated })).toBe("NEEDS_MATERIAL_DISCRIMINATOR");
+  });
+
+  it("opens architecture before energy after usage is known", () => {
+    const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [variant("v1", "Sedan", "GASOLINE"), variant("v2", "SUV", "HEV")] } as unknown as CatalogSnapshot;
+    const constraints = { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "URBAN_DAILY" }], supersessionTrace: [], diagnostics: [] } as never;
+    const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: ["v1", "v2"], memory: memory(), constraints, comparisonScope: false });
+    expect(generated.questionCandidates.find((candidate) => candidate.question.field === "bodyStyle")?.stage).toBe("VEHICLE_ARCHITECTURE");
+    expect(generated.questionCandidates.find((candidate) => candidate.question.field === "fuelType")?.stage).toBe("ENERGY_FIT");
+    expect(generated.questionCandidates.find((candidate) => candidate.question.field === "fuelType")?.eligible).toBe(false);
+    expect(generated.stageCompletion.find((stage) => stage.stage === "VEHICLE_ARCHITECTURE")?.status).toBe("INCOMPLETE");
   });
 
   it("does not ask answered fields or single-valued facets", () => {
@@ -30,5 +40,35 @@ describe("production material-question generation", () => {
     const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [variant("v1", "Panel Van", "GASOLINE"), variant("v2", "SUV", "HEV")] } as unknown as CatalogSnapshot;
     const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: ["v1", "v2"], memory: memory(), constraints: { activeHardConstraints: [{ fieldId: "usageArchitecture" }], activeNonHardConstraints: [], supersessionTrace: [], diagnostics: [] } as never, comparisonScope: false });
     expect(generated.questionCandidates.some((candidate) => candidate.question.field === "bodyStyle")).toBe(false);
+  });
+
+  it("asks commercial architecture without passenger body options after urban delivery intent", () => {
+    const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [variant("v1", "Panel Van", "GASOLINE"), variant("v2", "Pickup", "HEV"), variant("v3", "Sedan", "GASOLINE")] } as unknown as CatalogSnapshot;
+    const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: ["v1", "v2", "v3"], memory: memory(), constraints: { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "URBAN_DELIVERY" }], supersessionTrace: [], diagnostics: [] } as never, comparisonScope: false });
+    const architecture = generated.questionCandidates.find((candidate) => candidate.stage === "VEHICLE_ARCHITECTURE")!;
+    expect(architecture.question.options.map((option) => option.semanticValue)).toEqual(["Panel Van", "Pickup"]);
+    expect(architecture.question.options.map((option) => option.semanticValue)).not.toEqual(expect.arrayContaining(["Sedan", "SUV", "Hatchback"]));
+  });
+
+  it("skips already supplied body and energy while keeping the earlier missing usage context", () => {
+    const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [variant("v1", "Hatchback", "HEV"), variant("v2", "Sedan", "GASOLINE")] } as unknown as CatalogSnapshot;
+    const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: ["v1", "v2"], memory: memory(), constraints: { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "bodyStyle", normalizedValue: { operator: "EQUALS", value: "Hatchback" } }, { fieldId: "fuelType", normalizedValue: { operator: "EQUALS", value: "BEV" } }], supersessionTrace: [], diagnostics: [] } as never, comparisonScope: false });
+    expect(generated.questionCandidates.find((candidate) => candidate.stage === "USAGE_CONTEXT")?.question.field).toBe("usageScenario");
+    expect(generated.questionCandidates.some((candidate) => candidate.question.field === "bodyStyle" || candidate.question.field === "fuelType")).toBe(false);
+    expect(generated.questionCandidates.some((candidate) => candidate.question.field === "transmission")).toBe(false);
+  });
+
+  it("keeps rough-road traction ahead of energy once architecture is answered", () => {
+    const driven = (id: string, value: string, fuel: "GASOLINE" | "HEV") => ({ ...variant(id, "SUV", fuel), decisionFacts: { ...variant(id, "SUV", fuel).decisionFacts, powertrain: { ...variant(id, "SUV", fuel).decisionFacts.powertrain, drivenWheels: fact(value) } } });
+    const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [driven("v1", "AWD", "GASOLINE"), driven("v2", "FWD", "HEV")] } as unknown as CatalogSnapshot;
+    const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: ["v1", "v2"], memory: memory(), constraints: { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "ROUGH_ROAD" }, { fieldId: "bodyStyle", normalizedValue: { operator: "EQUALS", value: "SUV" } }], supersessionTrace: [], diagnostics: [] } as never, comparisonScope: false });
+    expect(generated.questionCandidates.find((candidate) => candidate.question.field === "drivenWheels")?.stage).toBe("FUNCTIONAL_NEEDS");
+    expect(generated.questionCandidates.find((candidate) => candidate.question.field === "fuelType")?.eligible).toBe(false);
+  });
+
+  it("prioritizes passenger architectures for passenger transport", () => {
+    const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [variant("v1", "Passenger Van", "GASOLINE"), variant("v2", "MPV", "HEV"), variant("v3", "Sedan", "GASOLINE")] } as unknown as CatalogSnapshot;
+    const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: ["v1", "v2", "v3"], memory: memory(), constraints: { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "PASSENGER_TRANSPORT" }], supersessionTrace: [], diagnostics: [] } as never, comparisonScope: false });
+    expect(generated.questionCandidates.find((candidate) => candidate.stage === "VEHICLE_ARCHITECTURE")?.question.options.map((option) => option.semanticValue)).toEqual(["MPV", "Passenger Van"]);
   });
 });

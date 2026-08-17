@@ -2,6 +2,7 @@ import type { CatalogSnapshot, CatalogVariantSnapshot } from "../catalog/types";
 import type { PersistedAuthorizedCandidateRef, PersistedGovernedOffer } from "../offer/types";
 import { decisionSafePublicCardSchema, type DecisionSafePublicCard } from "./publicCardSchema";
 import { PUBLIC_CARD_REASON_TEXT, V2_PUBLIC_CARD_POLICY } from "./publicCardPolicy";
+import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
 
 export class AuthorizedCardProjectionError extends Error {
   constructor(readonly code: string) { super(code); }
@@ -21,6 +22,13 @@ function transmissionLabel(value: string): string {
 }
 
 function projectOne(variant: CatalogVariantSnapshot, ref: PersistedAuthorizedCandidateRef): DecisionSafePublicCard {
+  const resolvedImage = resolveVehicleImage({
+    variantId: variant.id,
+    brand: variant.brand,
+    model: variant.model,
+    bodyStyle: variant.decisionFacts.bodyStyle.value,
+    modelYear: variant.decisionFacts.modelYear.value,
+  });
   const observation = variant.activeNewPrice;
   const priceAllowed = ref.priceRealizationPermission === "EXACT_PUBLIC_PRICE_ALLOWED"
     && observation?.realizationSafe === true
@@ -39,8 +47,10 @@ function projectOne(variant: CatalogVariantSnapshot, ref: PersistedAuthorizedCan
     fuelLabel: fuelLabels[variant.decisionFacts.powertrain.fuelType.value],
     transmissionLabel: transmissionLabel(variant.decisionFacts.powertrain.transmission.value),
     bodyTypeLabel: variant.decisionFacts.bodyStyle.value,
-    image: V2_PUBLIC_CARD_POLICY.placeholderImage,
-    imageStatus: "PLACEHOLDER",
+    image: resolvedImage.path,
+    imageStatus: resolvedImage.status,
+    ...(resolvedImage.attributionText ? { imageAttribution: resolvedImage.attributionText } : {}),
+    ...(resolvedImage.representedModel ? { representedModel: resolvedImage.representedModel } : {}),
     decisionSummary: {
       recommendation,
       reasons: [recommendation, ...caveats],

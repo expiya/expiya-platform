@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { HUMAN_CONTEXT_KINDS } from "../domain/humanContext";
 
 import type { ConversationEvent } from "../domain/conversationEvent";
 import { VEHICLE_PERSONA_TRAITS } from "../domain/conversationEvent";
@@ -139,7 +140,7 @@ const offerLifecycleSchema = z.union([
   z.strictObject({ ...baseShape, eventType: z.literal("OFFER_LIFECYCLE"), offerId: boundedId, lifecycleState: z.enum(["CONSENTED", "REVEALED", "EXPIRED", "REVOKED"]) }),
 ]);
 
-const socialSchema = z.strictObject({ ...baseShape, eventType: z.literal("SOCIAL_INTERACTION"), interaction: z.enum(["SHORT_SOCIAL", "VEHICLE_CONTEXT_RESUMED"]) });
+const socialSchema = z.strictObject({ ...baseShape, eventType: z.literal("SOCIAL_INTERACTION"), interaction: z.enum(["SHORT_SOCIAL", "VEHICLE_CONTEXT_RESUMED"]), humanContext: z.enum(HUMAN_CONTEXT_KINDS).optional() });
 const offTopicSchema = z.strictObject({ ...baseShape, eventType: z.literal("OFF_TOPIC"), transition: z.enum(["DETECTED", "RETURNED_TO_VEHICLE", "BOUNDARY_STATED"]) });
 const abuseSchema = z.strictObject({ ...baseShape, eventType: z.literal("ABUSE"), transition: z.enum(["BOUNDARY_SET", "WARNED", "ENDED", "EXPLICIT_RESET"]) });
 const vehicleIntentSchema = z.strictObject({ ...baseShape, eventType: z.literal("VEHICLE_INTENT_ESTABLISHED") });

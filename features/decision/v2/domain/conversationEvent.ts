@@ -3,6 +3,7 @@ import type { ConstraintEvent } from "./constraint";
 import type { DecisionState } from "./decisionState";
 import type { GovernedOffer, OfferLifecycleState } from "./offer";
 import type { CandidateRejectionEvent } from "./rejection";
+import type { HumanContextKind } from "./humanContext";
 
 export interface ConversationEventBase {
   readonly schemaVersion: 1;
@@ -97,6 +98,7 @@ export type OfferLifecycleEvent = ConversationEventBase & (
 export type SocialInteractionEvent = ConversationEventBase & {
   readonly eventType: "SOCIAL_INTERACTION";
   readonly interaction: "SHORT_SOCIAL" | "VEHICLE_CONTEXT_RESUMED";
+  readonly humanContext?: HumanContextKind;
 };
 
 export type OffTopicEvent = ConversationEventBase & {

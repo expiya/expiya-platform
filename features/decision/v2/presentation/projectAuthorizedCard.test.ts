@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { PersistedGovernedOffer } from "../offer/types";
 import { loadProductionCatalogSnapshotForTest } from "../catalog/productionSnapshotFixture.testSupport";
 import { AuthorizedCardProjectionError, projectAuthorizedPublicCards } from "./projectAuthorizedCard.server";
+import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
 
 async function fixture() {
   const loaded = await loadProductionCatalogSnapshotForTest(new Date("2026-08-19T00:00:00.000Z"));
@@ -17,7 +18,8 @@ describe("decision-safe authorized card projection", () => {
   it("projects only catalog-owned public fields and verified public price", async () => {
     const f = await fixture();
     const [card] = projectAuthorizedPublicCards({ offer: f.offer, conversationId: "conversation", decisionFingerprint: "decision", snapshot: f.snapshot });
-    expect(card).toMatchObject({ exactVariantId: f.publicVariant.id, brand: f.publicVariant.brand, modelYear: f.publicVariant.decisionFacts.modelYear.value, image: "/cars/production-placeholder.svg", imageStatus: "PLACEHOLDER" });
+    const image = resolveVehicleImage({ variantId: f.publicVariant.id, brand: f.publicVariant.brand, model: f.publicVariant.model, bodyStyle: f.publicVariant.decisionFacts.bodyStyle.value, modelYear: f.publicVariant.decisionFacts.modelYear.value });
+    expect(card).toMatchObject({ exactVariantId: f.publicVariant.id, brand: f.publicVariant.brand, modelYear: f.publicVariant.decisionFacts.modelYear.value, image: image.path, imageStatus: image.status });
     expect(card!.verifiedPublicPrice?.amountTry).toBe(f.publicVariant.activeNewPrice?.amountTry);
   });
 
