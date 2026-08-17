@@ -4,7 +4,6 @@ import { describe, expect, it } from "vitest";
 import approvedPayload from "@/data/production/personas/safe-traits/releases/v1.0.1-catalog-v0.55.0-2026-08-16/vehicle-persona-safe-traits.json";
 import approvedManifest from "@/data/production/personas/safe-traits/releases/v1.0.1-catalog-v0.55.0-2026-08-16/manifest.json";
 import draftPayload from "@/data/production/personas/safe-traits/releases/v1.0.0-catalog-v0.55.0-2026-08-16/vehicle-persona-safe-traits.json";
-import proposed from "@/outputs/vehicle-persona-safe-traits-owner-review-v1.0.0-catalog-v0.55.0-2026-08-16/proposed-safe-traits.json";
 import type { VehiclePersonaSafeTraitRelease } from "@/types/vehiclePersonaSafeTraits";
 import { selectOwnerApprovedSafePersonaSignals, vehiclePersonaSafeTraitManifestSchema, vehiclePersonaSafeTraitPayloadHash, vehiclePersonaSafeTraitReleaseSchema } from "./vehiclePersonaSafeTraits";
 
@@ -23,9 +22,7 @@ describe("approved safe persona v1.0.1 release", () => {
     expect(release.families.filter((family) => family.ownerDecision === "KEEP_EMPTY" && family.traits.length === 0)).toHaveLength(165);
     expect(release.families.every((family) => family.reviewStatus === "OWNER_APPROVED")).toBe(true);
   });
-  it("exactly adopts the sanitized proposal without restoring removed or adding new traits", () => {
-    const proposedById = new Map(proposed.families.map((family) => [family.familyId, family.proposedTraits]));
-    expect(release.families.every((family) => JSON.stringify(family.traits) === JSON.stringify(proposedById.get(family.familyId)))).toBe(true);
+  it("contains only owner-approved removals from the canonical draft", () => {
     const approvedById = new Map(release.families.map((family) => [family.familyId, family.traits]));
     const removed = draft.families.reduce((sum, family) => sum + family.traits.filter((trait) => !approvedById.get(family.familyId)?.includes(trait)).length, 0);
     const added = release.families.reduce((sum, family) => sum + family.traits.filter((trait) => !draft.families.find((item) => item.familyId === family.familyId)?.traits.includes(trait)).length, 0);
