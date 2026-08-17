@@ -7,6 +7,14 @@ import type { AffordabilityCandidatePool, AffordabilityCandidateResult, Affordab
 
 function deepFreeze<T>(value: T, seen = new WeakSet<object>()): T { if (!value || typeof value !== "object" || seen.has(value as object)) return value; seen.add(value as object); for (const child of Object.values(value as object)) deepFreeze(child, seen); return Object.freeze(value); }
 function validMoney(value: MoneyTry | undefined): boolean { return value === undefined || (value.currency === "TRY" && Number.isFinite(value.amount) && value.amount > 0); }
+function preferredBudgetScore(price: number, preferred: number): number {
+  const ratio = price / preferred;
+  if (ratio <= 1) return 4 - Math.min(1, 1 - ratio);
+  if (ratio <= 1.1) return 3;
+  if (ratio <= 1.25) return 2;
+  if (ratio <= 1.5) return 1;
+  return Math.max(-2, 1 - (ratio - 1.5) * 2);
+}
 
 export function evaluateAffordabilityCandidatePool(input: { readonly snapshot: CatalogSnapshot; readonly technicalPool: TechnicalCandidatePool; readonly budget: BudgetState; readonly evaluationTime: string; readonly priceAuthorityPolicy: PriceAuthorityPolicy; readonly affordabilityPolicy: AffordabilityPolicy }): AffordabilityCandidatePool {
   const diagnostics: AffordabilityDiagnostic[] = [];
@@ -33,7 +41,8 @@ export function evaluateAffordabilityCandidatePool(input: { readonly snapshot: C
     else if (priceAuthority.decisionUse === "INTERNAL_APPROXIMATE_AFFORDABILITY" && internalEstimateAmount !== undefined) { const within = internalEstimateAmount <= input.budget.maximumHardCeiling!.amount; budgetDisposition = "NOT_EVALUABLE"; finalDisposition = within ? "ELIGIBLE_INTERNAL_ESTIMATE_WITHIN_BUDGET" : "CONDITIONALLY_ELIGIBLE_ESTIMATED_OVER_BUDGET"; tier = within ? "ESTIMATED_WITHIN_BUDGET" : "ESTIMATED_OVER_BUDGET_CONDITIONAL"; reasons.push(within ? "ESTIMATE_APPROXIMATELY_WITHIN_BUDGET" : "ESTIMATE_APPROXIMATELY_OVER_BUDGET"); }
     else { budgetDisposition = "NOT_EVALUABLE"; finalDisposition = "TECHNICALLY_ELIGIBLE_PRICE_UNRESOLVED"; tier = "PRICE_UNRESOLVED"; }
     const softSignals: AffordabilitySoftSignal[] = [];
-    if (technical.disposition === "ELIGIBLE" && priceAuthority.publicExactAmountTry !== undefined) { if (input.budget.preferredBudget) softSignals.push({ kind: priceAuthority.publicExactAmountTry <= input.budget.preferredBudget.amount ? "WITHIN_PREFERRED_BUDGET" : "OVER_PREFERRED_BUDGET", exactVariantId: technical.exactVariantId }); if (input.budget.availableCash && priceAuthority.publicExactAmountTry <= input.budget.availableCash.amount) softSignals.push({ kind: "WITHIN_AVAILABLE_CASH", exactVariantId: technical.exactVariantId }); else if (input.budget.availableCash && input.budget.financeFlexibility === "YES") softSignals.push({ kind: "FINANCING_MAY_BE_REQUIRED", exactVariantId: technical.exactVariantId }); }
+    const decisionPrice = priceAuthority.publicExactAmountTry ?? internalEstimateAmount;
+    if (technical.disposition === "ELIGIBLE" && decisionPrice !== undefined) { if (input.budget.preferredBudget) softSignals.push({ kind: decisionPrice <= input.budget.preferredBudget.amount ? "WITHIN_PREFERRED_BUDGET" : "OVER_PREFERRED_BUDGET", exactVariantId: technical.exactVariantId, rankingScore: preferredBudgetScore(decisionPrice, input.budget.preferredBudget.amount) }); if (input.budget.availableCash && decisionPrice <= input.budget.availableCash.amount) softSignals.push({ kind: "WITHIN_AVAILABLE_CASH", exactVariantId: technical.exactVariantId }); else if (input.budget.availableCash && input.budget.financeFlexibility === "YES") softSignals.push({ kind: "FINANCING_MAY_BE_REQUIRED", exactVariantId: technical.exactVariantId }); }
     else if (technical.disposition === "ELIGIBLE" && priceAuthority.decisionUse === "NO_AFFORDABILITY_USE") softSignals.push({ kind: "PRICE_UNKNOWN", exactVariantId: technical.exactVariantId });
     const selectable = ["FULLY_ELIGIBLE_VERIFIED_PRICE", "ELIGIBLE_INTERNAL_ESTIMATE_WITHIN_BUDGET", "CONDITIONALLY_ELIGIBLE_ESTIMATED_OVER_BUDGET", "ELIGIBLE_BUDGET_NOT_APPLIED"].includes(finalDisposition);
     return { exactVariantId: technical.exactVariantId, technicalDisposition: technical.disposition, priceAuthority, budgetDisposition, finalDisposition, affordabilityTier: tier, selectable, affordabilityClaimAllowed: finalDisposition === "FULLY_ELIGIBLE_VERIFIED_PRICE", priceMentionAllowed: priceAuthority.realizationPermission === "EXACT_PUBLIC_PRICE_ALLOWED", includedInMinimumBudgetIncrease: finalDisposition === "CONFIRMED_OVER_BUDGET", reasonCodes: [...new Set(reasons)], factReferences: priceAuthority.factReferences, policyReferences: [{ policyId: input.priceAuthorityPolicy.policyId, policyVersion: input.priceAuthorityPolicy.policyVersion, decisionEffect: hardCeilingValid ? "HARD_FILTER" : "EXPLANATION_ONLY" }, { policyId: input.affordabilityPolicy.policyId, policyVersion: input.affordabilityPolicy.policyVersion, decisionEffect: hardCeilingValid ? "HARD_FILTER" : "EXPLANATION_ONLY" }], softSignals };

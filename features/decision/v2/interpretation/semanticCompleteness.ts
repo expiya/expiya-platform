@@ -139,7 +139,9 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   const amount = money(text);
   if (amount && /nakit(?:im)?|(?:milyon|mn).*(?:var|nakit)/iu.test(text) && !budgets.some((item) => item.field === "AVAILABLE_CASH")) budgets.push({ operation: "SET", field: "AVAILABLE_CASH", value: { amount, currency: "TRY" }, sourceSpan: text });
   if (/kredi (?:kullanabilirim|olabilir)|finansman(?:a)? (?:açığım|uygun)/iu.test(text) && !budgets.some((item) => item.field === "FINANCE_FLEXIBILITY")) { budgets.push({ operation: "SET", field: "FINANCE_FLEXIBILITY", value: "YES", sourceSpan: text }); budgets.push({ operation: "SET", field: "UNRESOLVED_FINANCED_CEILING", value: true, sourceSpan: text }); }
-  if (amount && /(?:en fazla|max(?:imum)?|maksimum|üstüne çıkmam|üstüne çıkamam|üzerine çıkmam|üzerine çıkamam|tavan)/iu.test(text) && !budgets.some((item) => item.field === "MAXIMUM_HARD_CEILING")) budgets.push({ operation: input.activeFieldIds.includes("MAXIMUM_HARD_CEILING") ? "CORRECT" : "SET", field: "MAXIMUM_HARD_CEILING", value: { amount, currency: "TRY" }, sourceSpan: text });
+  const explicitBudgetCeiling = /(?:en fazla|max(?:imum)?|maksimum|üstüne çıkmam|üstüne çıkamam|üzerine çıkmam|üzerine çıkamam|tavan)/iu.test(text)
+    || (/(?:sadece|yalnızca)/iu.test(text) && /(?:bütçe|bütçem|param|ayırdım|verebilirim)/iu.test(text));
+  if (amount && explicitBudgetCeiling && !budgets.some((item) => item.field === "MAXIMUM_HARD_CEILING")) budgets.push({ operation: input.activeFieldIds.includes("MAXIMUM_HARD_CEILING") ? "CORRECT" : "SET", field: "MAXIMUM_HARD_CEILING", value: { amount, currency: "TRY" }, sourceSpan: text });
   if (amount && /civarı|yaklaşık/iu.test(text) && !budgets.some((item) => item.field === "PREFERRED_BUDGET")) budgets.push({ operation: "SET", field: "PREFERRED_BUDGET", value: { amount, currency: "TRY" }, sourceSpan: text });
   if (amount && /bütçem|bütçe[mn]?s*(?:de|olarak)?/iu.test(text) && !budgets.some((item) => ["AVAILABLE_CASH", "PREFERRED_BUDGET", "MAXIMUM_HARD_CEILING"].includes(item.field))) budgets.push({ operation: "SET", field: "PREFERRED_BUDGET", value: { amount, currency: "TRY" }, sourceSpan: text });
   if (amount && input.openMaterialQuestionField === "budget" && !budgets.some((item) => ["AVAILABLE_CASH", "PREFERRED_BUDGET", "MAXIMUM_HARD_CEILING"].includes(item.field))) budgets.push({ operation: "SET", field: "PREFERRED_BUDGET", value: { amount, currency: "TRY" }, sourceSpan: text });
@@ -169,7 +171,9 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
     const withoutGenericRecommendation = directAnswerRequests.filter((request) => request.kind !== "RECOMMENDATION_REQUEST");
     directAnswerRequests.splice(0, directAnswerRequests.length, { kind: "MODEL_COMPARISON" }, ...withoutGenericRecommendation.filter((request) => request.kind !== "MODEL_COMPARISON"));
   }
-  const explicitRejection = /\b(?:istemiyorum|beğenmedim|ele|çıkar|olmasın)\b/iu.test(text);
+  const revealedSetReference = /(?:bunlar(?:ı)?|bu araçlar(?:ı)?|bu modeller(?:i)?|hepsi(?:ni)?|üçü(?:nü)?|ikisi(?:ni)?)/iu.test(text);
+  const priceBasedRejection = revealedSetReference && /(?:çok pahalı|pahalı geldi|bütçemi aşıyor|bütçemin üzerinde|bütçeme uymuyor)/iu.test(text);
+  const explicitRejection = /\b(?:istemiyorum|beğenmedim|ele|çıkar|olmasın)\b/iu.test(text) || priceBasedRejection;
   const concreteTechnicalConcept = /\b(?:kw|kilowatt|tork|nm|litre|bagaj|tüketim|l\s*\/\s*100|menzil|şarj|batarya|0\s*-?\s*100|beygir|hp|ps|çekiş|şanzıman)\b/iu.test(text);
   const explicitTechnicalExplanationRequest = /\b(?:anlat|açıkla|yönlendir|izah et)\b/iu.test(text);
   const genericTechnicalNoviceContext = /(?:teknik (?:terim|değer|konu)[\p{L}]* .*?(?:bilmiyorum|anlamıyorum|h[aâ]kim değil)|teknik bilgim yok)/iu.test(text) && !concreteTechnicalConcept && !explicitTechnicalExplanationRequest;
@@ -194,7 +198,7 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   }
 
   const explicitRejectionReference = explicitRejection ? references.find((reference) => new RegExp(`\\b${reference.rawText.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "iu").test(text)) : undefined;
-  const revealedSetRejection = explicitRejection && (input.revealedCandidateReferences?.length ?? 0) > 0 && /(?:bunları|bu araçları|bu modelleri|hepsini|üçünü|ikisini)/iu.test(text);
+  const revealedSetRejection = explicitRejection && (input.revealedCandidateReferences?.length ?? 0) > 0 && revealedSetReference;
   const candidateRejection = revealedSetRejection ? { scope: "AMBIGUOUS" as const, referenceText: "REVEALED_SET", sourceSpan: text } : input.result.candidateRejection ?? (explicitRejectionReference ? { scope: "MODEL_FAMILY_EXPLICIT" as const, referenceText: explicitRejectionReference.rawText, sourceSpan: text } : undefined);
   if (candidateRejection) addAct("CANDIDATE_REJECTION");
   const humanContext = detectHumanContext(text);

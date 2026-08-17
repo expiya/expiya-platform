@@ -1,7 +1,7 @@
 import type { DecisionFieldRegistry } from "../filter/types";
 import type { InterpretationDiagnostic, InterpretationResult, ProposedBudgetMutation, ProposedPersonaMutation, ValidatedConstraintMutation, ValidatedInterpretation } from "./types";
 
-const HARD_LANGUAGE = /(en az|en fazla|kesinlikle|şart|olmazsa olmaz|istemiyorum|olmasın|olmalı|zorunda|mutlaka|max(?:imum)?|maksimum|tavan|üzerine çıkmam|üzerine çıkamam|üstüne çıkmam|üstüne çıkamam|dedim|değil|gerekiyor|gerekli)|(?:kapalı yük alanı|kapalı kasa|panel ?van|caddy tarzı).*(?:istiyorum|olsun)/iu;
+const HARD_LANGUAGE = /(en az|en fazla|kesinlikle|şart|olmazsa olmaz|istemiyorum|olmasın|olmalı|zorunda|mutlaka|max(?:imum)?|maksimum|tavan|üzerine çıkmam|üzerine çıkamam|üstüne çıkmam|üstüne çıkamam|dedim|değil|gerekiyor|gerekli|sadece|yalnızca)|(?:kapalı yük alanı|kapalı kasa|panel ?van|caddy tarzı).*(?:istiyorum|olsun)/iu;
 const PERSONA_LANGUAGE = /(premium|şık|tasarım|sportif|ağırbaşlı|prestijli|teknolojik|fütüristik|maceracı|macera\s+ruh(?:u|lu)|sade|minimalist|dikkat çekici|gösterişsiz|dinamik|erkeksi)/iu;
 export function normalizeFuelInterpretation(sourceText: string): { readonly operator: "EQUALS" | "ONE_OF"; readonly value: string | readonly string[] } | null {
   const value = sourceText.toLocaleLowerCase("tr-TR"); const fuels = new Set<string>();

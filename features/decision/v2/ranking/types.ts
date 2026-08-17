@@ -6,7 +6,7 @@ import type { TechnicalCandidatePool } from "../filter/types";
 import type { UsageSuitabilityEvaluation } from "../usage/types";
 import type { DailyLifeLayerSnapshot, LayerDiagnostic, PersonaLayerSnapshot } from "../layers/types";
 
-export type RankingTierId = "CONFIRMED_FUNCTIONAL_FIT" | "USAGE_SCENARIO_FIT" | "AFFORDABILITY_TIER" | "GUIDED_DAILY_LIFE_FIT" | "EXPLICIT_SOFT_PREFERENCE" | "PERSONA_FIT" | "VERIFIED_VALUE_SIGNAL";
+export type RankingTierId = "CONFIRMED_FUNCTIONAL_FIT" | "USAGE_SCENARIO_FIT" | "AFFORDABILITY_TIER" | "PREFERRED_BUDGET_FIT" | "GUIDED_DAILY_LIFE_FIT" | "EXPLICIT_SOFT_PREFERENCE" | "PERSONA_FIT" | "VERIFIED_VALUE_SIGNAL";
 export interface RankingTierResult { readonly tier: RankingTierId; readonly score: number; readonly authority: string; readonly reasonCodes: readonly string[] }
 export interface PersonaRankingTrace { readonly personaActivated: boolean; readonly activationSource?: "USER_EXPLICIT" | "ADVISOR_PROMPT_RESPONSE"; readonly requestedPersonaTraits: readonly VehiclePersonaTrait[]; readonly matchedPersonaTraits: readonly VehiclePersonaTrait[]; readonly personaScore: number; readonly affectedRanking: boolean; readonly sourceAuthority: string; readonly decisionUse: "LEXICOGRAPHIC_TIER_6" | "NONE" }
 export interface DailyLifeRankingTrace { readonly mappings: readonly { readonly mappingId: string; readonly authority: string; readonly mappingClass: string; readonly decisionUse: string; readonly rankingEffect: number }[]; readonly score: number; readonly affectedRanking: boolean }

@@ -41,6 +41,13 @@ describe("semantic completeness enforcement", () => {
   it("treats an electric off-road availability question as needs discovery rather than a model lookup", () => { const polluted = { ...empty(), acts: ["MODEL_SUITABILITY_REQUEST"], directAnswerRequests: [{ kind: "MODEL_SUITABILITY" }] } as InterpretationResult; const result = enforceInterpretationSemanticCompleteness({ result: polluted, userText: "Arazi aracı, elketrikli. Var mı?", activeFieldIds: [] }); expect(result.acts).toEqual(expect.arrayContaining(["VEHICLE_INTENT", "RECOMMENDATION_REQUEST", "USAGE_STATEMENT", "PREFERENCE_STATEMENT"])); expect(result.acts).not.toContain("MODEL_SUITABILITY_REQUEST"); expect(result.modelReferences).toEqual([]); expect(result.constraintMutations).toEqual(expect.arrayContaining([expect.objectContaining({ fieldId: "usageScenario", normalizedValue: "SERIOUS_OFF_ROAD" }), expect.objectContaining({ fieldId: "fuelType", normalizedValue: { operator: "EQUALS", value: "BEV" } })])); });
   it("separates cash and financing from a hard ceiling", () => { const result = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "5 milyon nakitim var, üstü için kredi kullanabilirim", activeFieldIds: [] }); expect(result.budgetMutations.map((item) => item.field)).toEqual(expect.arrayContaining(["AVAILABLE_CASH", "FINANCE_FLEXIBILITY", "UNRESOLVED_FINANCED_CEILING"])); expect(result.budgetMutations.some((item) => item.field === "MAXIMUM_HARD_CEILING")).toBe(false); });
   it("creates hard ceiling and budget exclusion only from explicit language", () => { expect(enforceInterpretationSemanticCompleteness({ result: empty(), userText: "5 milyon üstüne çıkmam", activeFieldIds: [] }).budgetMutations).toContainEqual(expect.objectContaining({ field: "MAXIMUM_HARD_CEILING" })); expect(enforceInterpretationSemanticCompleteness({ result: empty(), userText: "Bütçe önemli değil", activeFieldIds: [] }).budgetMutations).toContainEqual(expect.objectContaining({ operation: "EXCLUDE_FROM_DECISION" })); });
+  it("distinguishes a flexible budget from an explicit only-budget ceiling", () => {
+    const flexible = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "2 milyon, belki biraz üstü", activeFieldIds: [], openMaterialQuestionField: "budget" });
+    expect(flexible.budgetMutations).toContainEqual(expect.objectContaining({ field: "PREFERRED_BUDGET" }));
+    expect(flexible.budgetMutations.some((item) => item.field === "MAXIMUM_HARD_CEILING")).toBe(false);
+    const hard = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "2 milyon bütçem var sadece", activeFieldIds: ["PREFERRED_BUDGET"] });
+    expect(hard.budgetMutations).toContainEqual(expect.objectContaining({ field: "MAXIMUM_HARD_CEILING", value: { amount: 2_000_000, currency: "TRY" } }));
+  });
   it("binds a bare amount to the open budget question without making it a hard ceiling", () => { const result = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "3 milyon tl", activeFieldIds: [], openMaterialQuestionField: "budget" }); expect(result.budgetMutations).toEqual(expect.arrayContaining([expect.objectContaining({ field: "PREFERRED_BUDGET", value: { amount: 3_000_000, currency: "TRY" } }), expect.objectContaining({ field: "BUDGET_UNKNOWN", value: false })])); expect(result.budgetMutations.some((item) => item.field === "MAXIMUM_HARD_CEILING")).toBe(false); });
   it("binds a bare daily answer only to the open usage question", () => {
     for (const userText of ["günlük", "günlük takılırız", "gündelik hayatımızda kullanacağız", "günlük işler için"]) {
@@ -62,6 +69,12 @@ describe("semantic completeness enforcement", () => {
   it("binds a plural dislike to the revealed candidate set without guessing a brand or family", () => {
     const completed = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "Bunları beğenmedim, bütçem 15 milyon.", activeFieldIds: [], revealedCandidateReferences: ["v1", "v2", "v3"] });
     expect(completed.candidateRejection).toEqual({ scope: "AMBIGUOUS", referenceText: "REVEALED_SET", sourceSpan: "Bunları beğenmedim, bütçem 15 milyon." });
+    expect(completed.acts).toContain("CANDIDATE_REJECTION");
+  });
+  it("binds a too-expensive complaint to the revealed candidate set", () => {
+    const userText = "Bunlar çok pahalı. 2 milyon bütçem var sadece.";
+    const completed = enforceInterpretationSemanticCompleteness({ result: empty(), userText, activeFieldIds: [], revealedCandidateReferences: ["v1", "v2", "v3"] });
+    expect(completed.candidateRejection).toEqual({ scope: "AMBIGUOUS", referenceText: "REVEALED_SET", sourceSpan: userText });
     expect(completed.acts).toContain("CANDIDATE_REJECTION");
   });
   it("does not interpret a bare amount as budget outside a budget-question context", () => { const result = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "3 milyon tl", activeFieldIds: [] }); expect(result.budgetMutations).toEqual([]); });
