@@ -50,6 +50,24 @@ describe("production V2 composition with real WP pipeline", () => {
     expect(memory.budget.budgetUnknown).toBe(false); expect(memory.budget.preferredBudget?.amount).toBe(3_000_000);
     expect(output.state).toBe("AWAITING_CONSENT"); expect(output.offer?.token).toBeTruthy(); expect(output.cards).toEqual([]);
   });
+  it("supersedes a redirected material question and does not let it block the final offer", async () => {
+    const traces: Readonly<Record<string, unknown>>[] = []; const store = new InMemoryV2ConversationStore(); const offerStore = new InMemoryGovernedOfferStore();
+    const interpreter: StructuredInterpretationModel = { interpret: async (request) => result(request.messageId, []) };
+    const composition = createCarsDecisionV2ProductionComposition({ store, offerStore, interpreter, realizer, signer: createHmacOfferSigner({ secret: "01234567890123456789012345678901", now: () => new Date("2026-08-19T00:08:00.000Z") }), smokeObserver: (trace) => traces.push(trace) });
+    const conversationId = "redirected-question"; let revision = 0;
+    let output = await runCarsDecisionTurnV2({ conversationId, messageId: "start", idempotencyKey: "start", expectedConversationRevision: revision++, userMessage: "Evet, araba almak istiyorum", requestTime: "2026-08-19T00:00:00.000Z" }, composition);
+    expect(traces.filter((trace) => trace.phase === "DECISION").at(-1)?.selectedQuestionKey).toBe("discovery.fuelType");
+    output = await runCarsDecisionTurnV2({ conversationId, messageId: "redirect", idempotencyKey: "redirect", expectedConversationRevision: revision++, userMessage: "Yakıt tipinden önce nasıl bir araç istediğimizi belirleyelim", requestTime: "2026-08-19T00:01:00.000Z" }, composition);
+    expect(traces.filter((trace) => trace.phase === "DECISION").at(-1)?.selectedQuestionKey).toBe("discovery.bodyStyle");
+    for (let step = 0; step < 4 && !output.offer; step += 1) {
+      const key = traces.filter((trace) => trace.phase === "DECISION").at(-1)?.selectedQuestionKey;
+      const answer = key === "discovery.bodyStyle" ? "Kapalı kasa ticari" : key === "discovery.transmission" ? "Manuel" : key === "discovery.budget" ? "2 milyon" : "Fark etmez";
+      output = await runCarsDecisionTurnV2({ conversationId, messageId: `answer-${step}`, idempotencyKey: `answer-${step}`, expectedConversationRevision: revision++, userMessage: answer, requestTime: `2026-08-19T00:0${step + 2}:00.000Z` }, composition);
+    }
+    const memory = (await store.load(conversationId))!.memory!;
+    expect(memory.materialQuestionHistory.find((item) => item.field === "fuelType")?.answerStatus).toBe("SUPERSEDED");
+    expect(output.state).toBe("AWAITING_CONSENT"); expect(output.offer?.token).toBeTruthy();
+  });
   it("keeps the real manual diesel AWD pickup candidate eligible", async () => {
     const traces: Readonly<Record<string, unknown>>[] = []; const store = new InMemoryV2ConversationStore();
     const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ pickup: result("pickup", []) }), realizer, shadow: true, smokeObserver: (trace) => traces.push(trace) });

@@ -43,6 +43,11 @@ export async function runCarsDecisionTurnV2(input: DecisionTurnV2Input, dependen
     postEvents.push({ ...postBase, id: eventId(input.messageId, sequence, "DIRECT_ANSWER_FULFILLED"), sequence, eventType: "DIRECT_ANSWER_FULFILLED", obligation: evaluated.action.directAnswerObligation.kind });
   }
   if (evaluated.action.materialQuestion) {
+    const priorOpenQuestion = [...memory.materialQuestionHistory].reverse().find((item) => item.answerStatus === "OPEN");
+    if (priorOpenQuestion && priorOpenQuestion.stableSemanticKey !== evaluated.action.materialQuestion.stableSemanticKey) {
+      const dispositionSequence = events.length + postEvents.length;
+      postEvents.push({ ...postBase, id: eventId(input.messageId, dispositionSequence, "MATERIAL_QUESTION_DISPOSITION"), sequence: dispositionSequence, eventType: "MATERIAL_QUESTION_DISPOSITION", questionId: priorOpenQuestion.questionId, stableSemanticKey: priorOpenQuestion.stableSemanticKey, status: "SUPERSEDED" });
+    }
     const sequence = events.length + postEvents.length;
     const question = evaluated.action.materialQuestion;
     postEvents.push({ ...postBase, id: eventId(input.messageId, sequence, "MATERIAL_QUESTION_ASKED"), sequence, eventType: "MATERIAL_QUESTION_ASKED", questionId: question.id, stableSemanticKey: question.stableSemanticKey, field: question.field });
