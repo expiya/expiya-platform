@@ -3,6 +3,9 @@ import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  outputFileTracingIncludes: {
+    "/api/cars/conversation": ["./data/production/personas/safe-traits/**/*"],
+  },
   images: {
     remotePatterns: [{
       protocol: "https",
