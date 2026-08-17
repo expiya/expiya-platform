@@ -119,7 +119,7 @@ describe("production V2 composition with real WP pipeline", () => {
     }
     const memory = (await store.load(conversationId))!.memory!;
     expect(memory.budget.budgetUnknown).toBe(false); expect(memory.budget.preferredBudget?.amount).toBe(3_000_000);
-    expect(output.state).toBe("AWAITING_CONSENT"); expect(output.offer?.token).toBeTruthy(); expect(output.cards).toEqual([]);
+    expect(output.state).toBe("AWAITING_CONSENT"); expect(output.offer?.token).toBeTruthy(); expect(output.cards).toEqual([]); expect(output.message).toMatch(/Bütçe çerçeven net/);
   });
   it("supersedes a redirected material question and does not let it block the next stage or final offer", async () => {
     const traces: Readonly<Record<string, unknown>>[] = []; const store = new InMemoryV2ConversationStore(); const offerStore = new InMemoryGovernedOfferStore();
