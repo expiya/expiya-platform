@@ -25,10 +25,17 @@ function evaluateFact(definition: DecisionFieldDefinition, constraint: ActiveHar
   const allowed = definition.enumValues;
   const values = Array.isArray(value) ? value : [value];
   if (allowed && values.some((item) => typeof item !== "string" || !allowed.includes(item))) return { outcome: "UNKNOWN", reason: "FILTER_VALUE_TYPE_MISMATCH" };
+  const comparable = (candidate: unknown): unknown => {
+    if (definition.fieldId !== "transmission" || typeof candidate !== "string") return candidate;
+    if (/manual/iu.test(candidate)) return "MANUAL";
+    if (/automatic|otomatik|dct|cvt|e-?dct|tek oran|single.speed/iu.test(candidate)) return "AUTOMATIC";
+    return candidate.toLocaleUpperCase("tr-TR");
+  };
+  const factValue = comparable(fact.value); const comparableValues = values.map(comparable);
   let pass = false;
-  if (operator === "EQUALS") pass = fact.value === value;
-  if (operator === "ONE_OF") pass = values.includes(fact.value);
-  if (operator === "EXCLUDES") pass = !values.includes(fact.value);
+  if (operator === "EQUALS") pass = factValue === comparable(value);
+  if (operator === "ONE_OF") pass = comparableValues.includes(factValue);
+  if (operator === "EXCLUDES") pass = !comparableValues.includes(factValue);
   if (operator === "MINIMUM") pass = typeof fact.value === "number" && fact.value >= (value as number);
   if (operator === "MAXIMUM") pass = typeof fact.value === "number" && fact.value <= (value as number);
   return { outcome: pass ? "PASS" : "FAIL", reason: pass ? "TECHNICAL_FACT_MATCH" : "TECHNICAL_FACT_MISMATCH" };

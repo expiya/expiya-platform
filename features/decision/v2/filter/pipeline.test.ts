@@ -60,6 +60,15 @@ describe("WP5 full-catalog technical pipeline", () => {
     expect((await run([event("c1", "transmission", "EQUALS", "Auto")])).eligibleCandidateIds).toEqual([]);
     expect((await run([event("c1", "luggageLitres", "MINIMUM", 400, { normalizedValue: { operator: "MINIMUM", value: 400, unit: "LITRE" } })])).eligibleCandidateIds).toEqual(["v-a"]);
   });
+  it("matches canonical manual intent against a descriptive catalog transmission", async () => {
+    const result = await run([
+      event("c1", "bodyStyle", "EQUALS", "Pickup"),
+      event("c2", "fuelType", "EQUALS", "DIESEL"),
+      event("c3", "drivenWheels", "EQUALS", "AWD"),
+      event("c4", "transmission", "EQUALS", "MANUAL"),
+    ], [], need, [variant("v-manual", "Generic", "Work", "4x4 MT", { bodyStyle: sourced("Pickup"), powertrain: { fuelType: sourced("DIESEL"), powerKw: sourced(120), transmission: sourced("6-speed manual"), drivenWheels: sourced("AWD") } })]);
+    expect(result.eligibleCandidateIds).toEqual(["v-manual"]);
+  });
   it.each([
     ["fuelType", "EQUALS", "HEV", undefined, "v-a"],
     ["fuelType", "ONE_OF", ["MHEV", "HEV", "PHEV"], undefined, "v-a"],

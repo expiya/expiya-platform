@@ -31,9 +31,9 @@ function personaTraits(text: string): ProposedPersonaMutation["traits"] {
   return unique(traits);
 }
 
-export function enforceInterpretationSemanticCompleteness(input: { readonly result: InterpretationResult; readonly userText: string; readonly activeFieldIds: readonly string[] }): InterpretationResult {
+export function enforceInterpretationSemanticCompleteness(input: { readonly result: InterpretationResult; readonly userText: string; readonly activeFieldIds: readonly string[]; readonly openMaterialQuestionField?: string }): InterpretationResult {
   const text = input.userText.trim();
-  const naturalConsent = /^(?:evet|göster(?: bakalım)?|paylaş(?: bakalım)?|görelim|hadi görelim|hadi göster|olur|tamam|bakalım|önerini görmek isterim|önerileri aç|seçenekleri göster)[.!]?$/iu;
+  const naturalConsent = /^(?:evet|göster(?: bakalım)?|paylaş(?: bakalım)?|görelim|hadi görelim|hadi göster|olur|tamam|bakalım|önerini görmek isterim|önerileri aç|seçenekleri göster|devam et(?: öyleyse)?|edelim)[.!]?$/iu;
   if (naturalConsent.test(text)) { const acts: UserAct[] = ["OFFER_ACCEPTANCE"]; return Object.freeze({ ...input.result, acts: Object.freeze(acts), constraintMutations: Object.freeze([]), budgetMutations: Object.freeze([]), modelReferences: Object.freeze([]), personaMutations: Object.freeze([]), candidateRejection: undefined, corrections: Object.freeze([]) }); }
   if (/^(?:hayır|istemiyorum|önce biraz daha konuşalım)[.!]?$/iu.test(text)) { const acts: UserAct[] = ["OFFER_DECLINE"]; return Object.freeze({ ...input.result, acts: Object.freeze(acts), constraintMutations: Object.freeze([]), budgetMutations: Object.freeze([]), modelReferences: Object.freeze([]), personaMutations: Object.freeze([]), candidateRejection: undefined, corrections: Object.freeze([]) }); }
   const verifiedAbuse = /(salak|aptal|gerizek[aâ]lı|mal mısın|lanet)/iu.test(text); const socialHumor = /(şaka|😂|😄|🤣)/u.test(text);
@@ -96,6 +96,7 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   if (amount && /(?:en fazla|max(?:imum)?|maksimum|üstüne çıkmam|üstüne çıkamam|üzerine çıkmam|üzerine çıkamam|tavan)/iu.test(text) && !budgets.some((item) => item.field === "MAXIMUM_HARD_CEILING")) budgets.push({ operation: input.activeFieldIds.includes("MAXIMUM_HARD_CEILING") ? "CORRECT" : "SET", field: "MAXIMUM_HARD_CEILING", value: { amount, currency: "TRY" }, sourceSpan: text });
   if (amount && /civarı|yaklaşık/iu.test(text) && !budgets.some((item) => item.field === "PREFERRED_BUDGET")) budgets.push({ operation: "SET", field: "PREFERRED_BUDGET", value: { amount, currency: "TRY" }, sourceSpan: text });
   if (amount && /bütçem|bütçe[mn]?s*(?:de|olarak)?/iu.test(text) && !budgets.some((item) => ["AVAILABLE_CASH", "PREFERRED_BUDGET", "MAXIMUM_HARD_CEILING"].includes(item.field))) budgets.push({ operation: "SET", field: "PREFERRED_BUDGET", value: { amount, currency: "TRY" }, sourceSpan: text });
+  if (amount && input.openMaterialQuestionField === "budget" && !budgets.some((item) => ["AVAILABLE_CASH", "PREFERRED_BUDGET", "MAXIMUM_HARD_CEILING"].includes(item.field))) budgets.push({ operation: "SET", field: "PREFERRED_BUDGET", value: { amount, currency: "TRY" }, sourceSpan: text });
   if (budgets.some((item) => item.operation === "SET" || item.operation === "CORRECT") && !budgets.some((item) => item.field === "BUDGET_UNKNOWN")) budgets.push({ operation: "SET", field: "BUDGET_UNKNOWN", value: false, sourceSpan: text });
   if (budgets.length > input.result.budgetMutations.length) addAct("BUDGET_STATEMENT");
 
@@ -125,7 +126,7 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   }
   if (technicalExplanation) { addAct("TECHNICAL_EXPLANATION_REQUEST"); if (!directAnswerRequests.some((request) => request.kind === "TECHNICAL_EXPLANATION")) directAnswerRequests.unshift({ kind: "TECHNICAL_EXPLANATION" }); }
   const implicitVehicleRequest = constraints.length > 0 && /(?:istiyorum|olsun|arıyorum|bütçem|max(?:imum)?|maksimum)/iu.test(text);
-  const explicitDiscoveryIntent = input.activeFieldIds.length === 0 && /\b(?:ilk (?:arabam|aracım|otomobilim)|(?:araba|araç|otomobil) (?:almak|almayı|arıyorum|bakıyorum))\b/iu.test(text);
+  const explicitDiscoveryIntent = input.activeFieldIds.length === 0 && /\b(?:ilk (?:arabam|aracım|otomobilim)|(?:araba|araç|otomobil) (?:almak|almayı|alacağım|almam lazım|arıyorum|bakıyorum))\b/iu.test(text);
   if (/(?:araç|araba|seçenek|model).*(?:arıyorum|istiyorum|öner|hazırla)|(?:öner|tavsiye).*(?:araç|araba|model)/iu.test(text) || implicitVehicleRequest || explicitDiscoveryIntent) { addAct("VEHICLE_INTENT"); addAct("RECOMMENDATION_REQUEST"); if (!comparison && !directAnswerRequests.some((request) => request.kind === "RECOMMENDATION_REQUEST")) directAnswerRequests.push({ kind: "RECOMMENDATION_REQUEST" }); }
   if (naturalConsent.test(text)) addAct("OFFER_ACCEPTANCE");
   if (/^(?:hayır|istemiyorum|önce biraz daha konuşalım)[.!]?$/iu.test(text)) addAct("OFFER_DECLINE");
