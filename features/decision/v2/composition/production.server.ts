@@ -163,7 +163,8 @@ export function createProductionV2TurnStages(input: { readonly repositoryRoot?: 
       const currentHumanContext = currentSocialContextEvent?.humanContext;
       const humanContextAlreadyAcknowledged = currentHumanContext ? memory.events.some((event) => event.eventType === "SOCIAL_INTERACTION" && event.humanContext === currentHumanContext && event.sourceMessageId !== turn.messageId) : false;
       const contextualSocialAcknowledgement = Boolean(currentHumanContext && !humanContextAlreadyAcknowledged);
-      const preferenceAcknowledgement = createPreferenceAcknowledgement({ constraints: interpretation.acceptedConstraintMutations, budgets: interpretation.acceptedBudgetMutations });
+      const neutralChoiceAcknowledgement = /\b(?:fark etmez|önemli değil|bilmiyorum|emin değilim|atla)\b/iu.test(turn.userMessage.trim()) ? "Bu başlığı açık bırakalım; seni gereksiz yere tek seçeneğe sıkıştırmayacağım." : undefined;
+      const preferenceAcknowledgement = createPreferenceAcknowledgement({ constraints: interpretation.acceptedConstraintMutations, budgets: interpretation.acceptedBudgetMutations }) ?? neutralChoiceAcknowledgement;
       const technicalAnswerRequested = obligation?.kind === "TECHNICAL_EXPLANATION" || act === "TECHNICAL_EXPLANATION_REQUEST" || act === "UNKNOWN_TECHNICAL_CONCEPT";
       const descriptiveAvailability = /(?:arazi arac[ıi]|elektrikli araç|dizel araç|benzinli araç|hibrit araç).*(?:var mı|mevcut mu)/iu.test(turn.userMessage);
       const pluralRevealedRejection = act === "REJECTION" && /(?:bunları|bu araçları|bu modelleri|hepsini|üçünü|ikisini)/iu.test(turn.userMessage);
