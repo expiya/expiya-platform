@@ -49,8 +49,7 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   const addAct = (act: UserAct) => { if (!acts.includes(act)) acts.push(act); };
   const enforceConstraint = (value: ProposedConstraintMutation) => { const index = constraints.findIndex((item) => item.fieldId === value.fieldId); if (index >= 0) constraints[index] = value; else constraints.push(value); };
 
-  const usageScenario = input.openMaterialQuestionField === "usageScenario" && /^(?:günlük|gündelik)[.!]?$/iu.test(text) ? "URBAN_DAILY"
-    : /şehir içi (?:mal|kargo|koli) dağıt|mal dağıt|koli dağıt/iu.test(text) ? "URBAN_DELIVERY"
+  const usageScenario = /şehir içi (?:mal|kargo|koli) dağıt|mal dağıt|koli dağıt/iu.test(text) ? "URBAN_DELIVERY"
     : /yolcu taşı|servis|transfer/iu.test(text) ? "PASSENGER_TRANSPORT"
     : /genel yük|yük taşı|ticari yük/iu.test(text) ? "GENERAL_CARGO"
     : /ciddi arazi|zorlu arazi|arazi arac[ıi]|off[- ]?road/iu.test(text) ? "SERIOUS_OFF_ROAD"
@@ -59,6 +58,7 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
     : /uzun yol|şehirler ?arası/iu.test(text) ? "LONG_DISTANCE"
     : /aile|çocuk(?:lar)?la/iu.test(text) ? "FAMILY"
     : /karma kullanım|hem şehir içi hem uzun yol/iu.test(text) ? "MIXED_PASSENGER"
+    : input.openMaterialQuestionField === "usageScenario" && /^(?:günlük|gündelik)(?:\s+.{1,60})?[.!]?$/iu.test(text) ? "URBAN_DAILY"
     : /günlük (?:şehir içi |şehir dışı )?kullanım|günlük kullan|her gün kullan|işe gidip gel|gündelik işler|günlük şehir içi|şehir içinde (?:günlük )?kullan|şehir içi (?:araç|kullanım)|şehir içinde/u.test(semanticText) ? "URBAN_DAILY"
     : undefined;
   if (usageScenario && !hasField(constraints, "usageScenario")) {

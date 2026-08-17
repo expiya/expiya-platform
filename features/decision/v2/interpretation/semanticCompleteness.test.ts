@@ -43,10 +43,16 @@ describe("semantic completeness enforcement", () => {
   it("creates hard ceiling and budget exclusion only from explicit language", () => { expect(enforceInterpretationSemanticCompleteness({ result: empty(), userText: "5 milyon üstüne çıkmam", activeFieldIds: [] }).budgetMutations).toContainEqual(expect.objectContaining({ field: "MAXIMUM_HARD_CEILING" })); expect(enforceInterpretationSemanticCompleteness({ result: empty(), userText: "Bütçe önemli değil", activeFieldIds: [] }).budgetMutations).toContainEqual(expect.objectContaining({ operation: "EXCLUDE_FROM_DECISION" })); });
   it("binds a bare amount to the open budget question without making it a hard ceiling", () => { const result = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "3 milyon tl", activeFieldIds: [], openMaterialQuestionField: "budget" }); expect(result.budgetMutations).toEqual(expect.arrayContaining([expect.objectContaining({ field: "PREFERRED_BUDGET", value: { amount: 3_000_000, currency: "TRY" } }), expect.objectContaining({ field: "BUDGET_UNKNOWN", value: false })])); expect(result.budgetMutations.some((item) => item.field === "MAXIMUM_HARD_CEILING")).toBe(false); });
   it("binds a bare daily answer only to the open usage question", () => {
-    const bound = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "günlük", activeFieldIds: [], openMaterialQuestionField: "usageScenario" });
-    expect(bound.constraintMutations).toContainEqual(expect.objectContaining({ fieldId: "usageScenario", normalizedValue: "URBAN_DAILY" }));
+    for (const userText of ["günlük", "günlük takılırız", "gündelik hayatımızda kullanacağız", "günlük işler için"]) {
+      const bound = enforceInterpretationSemanticCompleteness({ result: empty(), userText, activeFieldIds: [], openMaterialQuestionField: "usageScenario" });
+      expect(bound.constraintMutations).toContainEqual(expect.objectContaining({ fieldId: "usageScenario", normalizedValue: "URBAN_DAILY" }));
+    }
     const unbound = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "günlük", activeFieldIds: [] });
     expect(unbound.constraintMutations.some((item) => item.fieldId === "usageScenario")).toBe(false);
+  });
+  it("keeps a more specific long-distance meaning ahead of an informal daily prefix", () => {
+    const result = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "günlük uzun yol yaparım", activeFieldIds: [], openMaterialQuestionField: "usageScenario" });
+    expect(result.constraintMutations).toContainEqual(expect.objectContaining({ fieldId: "usageScenario", normalizedValue: "LONG_DISTANCE" }));
   });
   it("recognizes first-car context independently of provider wording", () => {
     const completed = enforceInterpretationSemanticCompleteness({ result: empty(), userText: "İyiyim, ilk arabamı almak için heyecanlıyım.", activeFieldIds: [] });
