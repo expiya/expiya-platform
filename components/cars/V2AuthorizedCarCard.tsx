@@ -1,9 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { DecisionSafePublicCard } from "@/features/decision/v2/presentation/publicCardSchema";
 
 export function V2AuthorizedCarCard({ card }: { readonly card: DecisionSafePublicCard }) {
   const details = [card.modelYear, card.fuelLabel, card.transmissionLabel, card.bodyTypeLabel].filter(Boolean).join(" · ");
-  return <article className="overflow-hidden rounded-2xl border border-neutral-200 bg-white dark:border-neutral-700 dark:bg-neutral-900">
+  return <Link href={`/decision/v2-${encodeURIComponent(card.exactVariantId)}`} aria-label={`${card.title} ayrıntısını aç`} className="group block overflow-hidden rounded-2xl border border-neutral-200 bg-white transition hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black dark:border-neutral-700 dark:bg-neutral-900 dark:focus-visible:outline-white"><article>
     <div className="relative aspect-[16/9] bg-neutral-100 dark:bg-neutral-800"><Image src={card.image} alt={`${card.brand} ${card.model} araç görseli`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" /></div>
     <div className="space-y-2 p-4">
       {card.imageStatus !== "EXACT" && card.imageStatus !== "PLACEHOLDER" ? <p className="text-xs text-neutral-500">Temsilî görsel{card.representedModel ? `: ${card.representedModel}` : ""}</p> : null}
@@ -13,6 +14,7 @@ export function V2AuthorizedCarCard({ card }: { readonly card: DecisionSafePubli
       {card.verifiedPublicPrice ? <p className="font-medium">{card.verifiedPublicPrice.amountTry.toLocaleString("tr-TR")} TL</p> : null}
       <p className="text-sm">{card.decisionSummary.recommendation}</p>
       {card.caveats.map((caveat) => <p key={caveat} className="text-xs text-amber-700 dark:text-amber-300">{caveat}</p>)}
+      <p className="border-t border-neutral-100 pt-3 text-sm text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">Ayrıntılı analizi aç →</p>
     </div>
-  </article>;
+  </article></Link>;
 }

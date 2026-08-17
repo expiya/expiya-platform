@@ -10,6 +10,7 @@ import { VehicleImageDisclosure } from "@/components/cars/VehicleImageDisclosure
 import { interpretRecommendation } from "@/features/decision/interpretRecommendation";
 import type { PersistedCarsConversation } from "@/types/carsConversation";
 import type { RecommendedCar } from "@/types/recommendation";
+import type { DecisionSafePublicCard } from "@/features/decision/v2/presentation/publicCardSchema";
 
 const storageKey = "expiya:cars-conversation:v5";
 const legacyStorageKey = "expiya:cars-conversation:v4";
@@ -50,6 +51,40 @@ function readRecommendation(decisionId: string): RecommendedCar | null {
   }
 }
 
+function readV2Card(decisionId: string): DecisionSafePublicCard | null {
+  if (!decisionId.startsWith("v2-")) return null;
+  try {
+    const exactVariantId = decodeURIComponent(decisionId.slice(3));
+    const conversation = JSON.parse(
+      sessionStorage.getItem(storageKey) ?? sessionStorage.getItem(legacyStorageKey) ?? "null",
+    ) as PersistedCarsConversation | null;
+    return conversation?.messages.flatMap((message) => message.v2Cards ?? []).find((card) => card.exactVariantId === exactVariantId) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function V2DecisionDetail({ card }: { readonly card: DecisionSafePublicCard }) {
+  const details = [card.modelYear, card.fuelLabel, card.transmissionLabel, card.bodyTypeLabel].filter(Boolean).join(" · ");
+  return <main className="min-h-screen bg-neutral-50 p-5 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:p-10">
+    <div className="mx-auto max-w-4xl">
+      <Link href="/analysis" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
+      <article className="mt-6 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="relative aspect-[16/9]"><Image src={card.image} alt={`${card.brand} ${card.model}`} fill priority sizes="(max-width: 900px) 100vw, 850px" className="object-cover" /></div>
+        <div className="space-y-5 p-6 sm:p-8">
+          {card.imageStatus !== "EXACT" ? <p className="text-sm text-neutral-500">Temsilî görsel{card.representedModel ? `: ${card.representedModel}` : ""}</p> : null}
+          {card.imageAttribution ? <p className="text-xs text-neutral-500">Görsel: {card.imageAttribution}</p> : null}
+          <div><p className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Önerilen araç</p><h1 className="mt-2 text-3xl font-bold sm:text-4xl">{card.title}</h1>{details ? <p className="mt-2 text-neutral-600 dark:text-neutral-300">{details}</p> : null}</div>
+          {card.verifiedPublicPrice ? <p className="text-2xl font-semibold">{card.verifiedPublicPrice.amountTry.toLocaleString("tr-TR")} TL</p> : <p className="text-neutral-600 dark:text-neutral-300">Güncel fiyat doğrulanıyor.</p>}
+          <div className="rounded-2xl bg-neutral-950 p-5 text-white"><p className="text-sm font-semibold uppercase tracking-[0.14em] text-neutral-400">Kısa yorum</p><p className="mt-2 text-lg leading-7">{card.decisionSummary.recommendation}</p></div>
+          <section><h2 className="text-xl font-semibold">Neden öne çıktı?</h2><ul className="mt-3 list-disc space-y-2 pl-5">{card.decisionSummary.reasons.map((reason) => <li key={reason}>{reason}</li>)}</ul></section>
+          {card.caveats.length ? <section className="rounded-2xl border border-amber-200 bg-amber-50 p-5 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100"><h2 className="font-semibold">Dikkat edilmesi gerekenler</h2>{card.caveats.map((caveat) => <p key={caveat} className="mt-2 text-sm">{caveat}</p>)}</section> : null}
+        </div>
+      </article>
+    </div>
+  </main>;
+}
+
 function readConversation(): PersistedCarsConversation | null {
   try {
     return JSON.parse(sessionStorage.getItem(storageKey) ?? sessionStorage.getItem(legacyStorageKey) ?? "null") as PersistedCarsConversation | null;
@@ -74,6 +109,7 @@ export default function DecisionDetailPage() {
   const params = useParams<{ id: string }>();
   const decisionId = params.id;
   const [recommendation, setRecommendation] = useState<RecommendedCar | null>();
+  const [v2Card, setV2Card] = useState<DecisionSafePublicCard | null>();
   const [feedback, setFeedback] = useState<"HELPFUL" | "NOT_HELPFUL">();
   const [showLocation, setShowLocation] = useState(false);
   const [province, setProvince] = useState("");
@@ -81,12 +117,17 @@ export default function DecisionDetailPage() {
   const [sellerRequest, setSellerRequest] = useState<{ province: string; district: string }>();
 
   useEffect(() => {
-    queueMicrotask(() => setRecommendation(readRecommendation(decisionId)));
+    queueMicrotask(() => {
+      setRecommendation(readRecommendation(decisionId));
+      setV2Card(readV2Card(decisionId));
+    });
   }, [decisionId]);
 
-  if (recommendation === undefined) {
+  if (recommendation === undefined || v2Card === undefined) {
     return <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950" aria-label="Karar yükleniyor" />;
   }
+
+  if (!recommendation && v2Card) return <V2DecisionDetail card={v2Card} />;
 
   if (!recommendation) {
     return (
