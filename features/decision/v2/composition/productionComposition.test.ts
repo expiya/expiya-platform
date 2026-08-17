@@ -162,6 +162,15 @@ describe("production V2 composition with real WP pipeline", () => {
     expect(explained.message).toMatch(/FWD.*ön tekerlek.*RWD.*arka tekerlek.*AWD/iu); expect(explained.message).not.toMatch(/Clio.*katalog/iu);
   });
 
+  it("acknowledges a resolved model preference before asking the next discovery question", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const store = new InMemoryV2ConversationStore();
+    const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ prefer: result("prefer", ["VEHICLE_INTENT", "RECOMMENDATION_REQUEST", "PREFERENCE_STATEMENT"], { modelReferences: [{ rawText: "Clio", parsedModelText: "Clio", purpose: "PREFERENCE" }] }) }), realizer: fallbackRealizer, shadow: true });
+    const output = await runCarsDecisionTurnV2({ conversationId: "model-preference", messageId: "prefer", idempotencyKey: "prefer", expectedConversationRevision: 0, userMessage: "Clio almak istiyorum", requestTime: "2026-08-19T00:00:00.000Z" }, composition);
+    expect(output.message).toMatch(/Renault Clio.*başlangıç noktası/iu);
+    expect(output.options.length).toBeGreaterThan(0);
+  });
+
   it("explains kW with a bounded daily-life comparison when the provider leaves the field unspecified", async () => {
     const store = new InMemoryV2ConversationStore();
     const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ kw: result("kw", ["TECHNICAL_EXPLANATION_REQUEST"], { directAnswerRequests: [{ kind: "TECHNICAL_EXPLANATION" }], technicalGuidanceRequest: { mode: "GUIDE_WITH_DAILY_LIFE" } }) }), realizer, shadow: true });
