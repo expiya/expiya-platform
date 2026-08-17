@@ -338,6 +338,9 @@ export async function POST(request: Request): Promise<Response> {
       const safeCode = v2Error instanceof Error && /^[A-Z0-9_:,-]{1,160}$/u.test(v2Error.message) ? v2Error.message : undefined;
       if (safeCode?.startsWith("V2_OPTION_SELECTION_")) return Response.json({ message: "Bu seçim artık geçerli değil; lütfen sunulan seçeneklerden yeniden seçim yapın." }, { status: 409 });
       console.info("cars_decision_v2_public_fallback", { errorClass: v2Error instanceof Error ? v2Error.name : "UNKNOWN", ...(safeCode ? { errorCode: safeCode } : {}) });
+      if (process.env.CARS_DECISION_V2_PUBLIC === "true") {
+        return Response.json({ message: "Araç danışmanı şu anda geçici olarak kullanılamıyor. Lütfen kısa bir süre sonra yeniden deneyin." }, { status: 503 });
+      }
     }
     if (v2Response) return Response.json(v2Response);
     const response = await runCarsConversationTurn(input as CarsConversationRequest);

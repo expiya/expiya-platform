@@ -3,7 +3,7 @@ import { resolveAuthorizedOptionAnswer, selectCarsDecisionRoute } from "./public
 
 describe("public V2 route selection", () => {
   it("keeps V1 when the public flag is off", () => expect(selectCarsDecisionRoute(false, { ready: true })).toBe("V1"));
-  it("keeps V1 when any readiness check fails", () => expect(selectCarsDecisionRoute(true, { ready: false })).toBe("V1"));
+  it("fails closed instead of silently returning to V1 when public V2 is not ready", () => expect(selectCarsDecisionRoute(true, { ready: false })).toBe("V2_UNAVAILABLE"));
   it("selects V2 only for explicit flag plus complete readiness", () => expect(selectCarsDecisionRoute(true, { ready: true })).toBe("V2"));
   it("binds multiple stable option ids to server-authorized labels", () => {
     const priorOutput = { revision: 1, options: [{ id: "gasoline", label: "Benzin" }, { id: "hev", label: "Tam hibrit" }], optionSelection: { mode: "MULTIPLE", minimumSelections: 1, maximumSelections: 2 } } as never;

@@ -30,8 +30,9 @@ export type PublicRouteV2Response = {
   readonly offer?: { readonly token: string; readonly expiresAt: string };
 };
 
-export function selectCarsDecisionRoute(publicFlag: boolean, readiness: { readonly ready: boolean }): "V1" | "V2" {
-  return publicFlag && readiness.ready ? "V2" : "V1";
+export function selectCarsDecisionRoute(publicFlag: boolean, readiness: { readonly ready: boolean }): "V1" | "V2" | "V2_UNAVAILABLE" {
+  if (!publicFlag) return "V1";
+  return readiness.ready ? "V2" : "V2_UNAVAILABLE";
 }
 
 export function resolveAuthorizedOptionAnswer(input: { readonly selectedOptionId?: string; readonly selectedOptionIds?: readonly string[]; readonly priorOutput?: import("../orchestrator/types").DecisionTurnV2Output }): string | undefined {
@@ -61,9 +62,10 @@ export async function tryRunCarsDecisionV2Public(input: PublicRouteV2Request, si
   });
   const pool = database.status === "READY" ? database.pool : undefined;
   const readiness = assessCarsDecisionV2ProductionReadiness({ catalog, dailyLifeReady: layers?.dailyLife.status === "READY", personaReady: persona?.status === "READY", personaApproved: persona?.status === "READY" && Boolean(persona.release.approval), providerConfigured, durableStoreConfigured: database.status === "READY", signingSecretValid, migrationAvailable: database.status === "READY", presentationReady: true, routeContractReady: true, publicFlag: flags.public });
-  if (selectCarsDecisionRoute(flags.public, readiness) === "V1" || catalog.status !== "READY" || !pool || !signingSecret) {
+  const selectedRoute = selectCarsDecisionRoute(flags.public, readiness);
+  if (selectedRoute === "V2_UNAVAILABLE" || catalog.status !== "READY" || !pool || !signingSecret) {
     console.info("cars_decision_v2_public_fallback", { failures: readiness.failures, ...(database.status === "UNAVAILABLE" ? { durableStoreFailure: database.failure } : {}) });
-    return null;
+    throw new TypeError("CARS_DECISION_V2_NOT_READY");
   }
   const latest = [...input.messages].reverse().find((message) => message.role === "user");
   if (!latest) return null;
