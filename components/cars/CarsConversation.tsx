@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 import { CarCard } from "@/components/cars/CarCard";
 import { V2AuthorizedCarCard } from "@/components/cars/V2AuthorizedCarCard";
+import { clearSubmittedV2MultiSelection } from "@/components/cars/v2MultiSelectState";
 import {
   hasActiveFinalDiscriminator,
   shouldRenderRecommendationCards,
@@ -63,6 +64,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   const [messages, setMessages] = useState<CarsConversationMessage[]>([]);
   const [conversation, setConversation] = useState<CarsConversationTrace | undefined>();
   const [draft, setDraft] = useState("");
+  const [v2MultiSelections, setV2MultiSelections] = useState<Record<string, readonly string[]>>({});
   const [isLoading, setIsLoading] = useState(false);
   const [isRestored, setIsRestored] = useState(false);
   const locale = "tr" as const;
@@ -77,6 +79,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     nextMessages: CarsConversationMessage[],
     choiceId?: CarsFinalDiscriminatorChoice["id"],
     selectedOptionId?: string,
+    selectedOptionIds?: readonly string[],
   ) => {
     setIsLoading(true);
 
@@ -89,6 +92,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
           messages: nextMessages,
           choiceId,
           selectedOptionId,
+          selectedOptionIds,
           v2OfferToken: [...nextMessages].reverse().find((message) => message.role === "assistant" && message.v2OfferToken)?.v2OfferToken,
           conversation: conversationRef.current,
         }),
@@ -117,6 +121,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
           : undefined,
         v2Cards: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.cards : undefined,
         v2Options: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.options : undefined,
+        v2OptionSelection: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.optionSelection : undefined,
         v2OfferToken: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.offer?.token : undefined,
         recommendationIds: response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS"
           ? payload.recommendations.map((item) => item.car.id)
@@ -204,13 +209,31 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     void continueConversation(nextMessages);
   }
 
-  function submitContent(content: string, selectedOptionId?: string) {
+  function submitContent(content: string, selectedOptionId?: string, selectedOptionIds?: readonly string[]) {
     if (!content.trim() || isLoading) return;
     const userMessage = newMessage("user", content.trim());
     const nextMessages = [...messages, userMessage];
     setMessages(nextMessages);
     setDraft("");
-    void continueConversation(nextMessages, undefined, selectedOptionId);
+    void continueConversation(nextMessages, undefined, selectedOptionId, selectedOptionIds);
+  }
+
+  function toggleV2MultiOption(messageId: string, optionId: string, maximumSelections: number) {
+    setV2MultiSelections((current) => {
+      const selected = current[messageId] ?? [];
+      const next = selected.includes(optionId) ? selected.filter((id) => id !== optionId) : selected.length < maximumSelections ? [...selected, optionId] : selected;
+      return { ...current, [messageId]: next };
+    });
+  }
+
+  function submitV2MultiOptions(message: CarsConversationMessage) {
+    const ids = v2MultiSelections[message.id] ?? [];
+    const selection = message.v2OptionSelection;
+    if (!selection || ids.length < selection.minimumSelections || ids.length > selection.maximumSelections) return;
+    const labels = ids.map((id) => message.v2Options?.find((option) => option.id === id)?.label).filter((label): label is string => Boolean(label));
+    if (labels.length !== ids.length) return;
+    setV2MultiSelections((current) => clearSubmittedV2MultiSelection(current, message.id));
+    submitContent(labels.join(" veya "), undefined, ids);
   }
 
   function submitDiscriminatorChoice(choice: CarsFinalDiscriminatorChoice) {
@@ -291,8 +314,14 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                     </div>
                   )}
                   {message.role === "assistant" && message.v2Options && message.v2Options.length > 0 && (
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      {message.v2Options.map((option) => <button key={option.id} type="button" onClick={() => submitContent(option.label, option.id)} disabled={isLoading || message !== messages[messages.length - 1]} className="rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-sm text-neutral-800 disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100">{option.label}</button>)}
+                    <div role="group" aria-label={message.v2OptionSelection?.mode === "MULTIPLE" ? "Bir veya daha fazla seçenek seçin" : "Bir seçenek seçin"} className="mt-3 flex flex-wrap items-center gap-2">
+                      {message.v2Options.map((option) => {
+                        const multiple = message.v2OptionSelection?.mode === "MULTIPLE";
+                        const selected = v2MultiSelections[message.id]?.includes(option.id) ?? false;
+                        const selectionLimitReached = multiple && (v2MultiSelections[message.id]?.length ?? 0) >= message.v2OptionSelection!.maximumSelections && !selected;
+                        return <button key={option.id} type="button" aria-pressed={multiple ? selected : undefined} onClick={() => multiple ? toggleV2MultiOption(message.id, option.id, message.v2OptionSelection!.maximumSelections) : submitContent(option.label, option.id)} disabled={isLoading || message !== messages[messages.length - 1] || selectionLimitReached} className={`rounded-full border px-3 py-1.5 text-sm disabled:opacity-50 ${selected ? "border-neutral-900 bg-neutral-900 text-white dark:border-white dark:bg-white dark:text-neutral-900" : "border-neutral-300 bg-white text-neutral-800 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100"}`}>{option.label}</button>;
+                      })}
+                      {message.v2OptionSelection?.mode === "MULTIPLE" && <button type="button" onClick={() => submitV2MultiOptions(message)} disabled={isLoading || message !== messages[messages.length - 1] || (v2MultiSelections[message.id]?.length ?? 0) < message.v2OptionSelection.minimumSelections} className="rounded-full bg-blue-600 px-4 py-1.5 text-sm font-medium text-white disabled:opacity-40">Devam et</button>}
                     </div>
                   )}
                   {message.role === "assistant" && shouldShowVehicleQuickReplies(

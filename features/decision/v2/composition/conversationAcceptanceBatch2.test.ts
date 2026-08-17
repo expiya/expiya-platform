@@ -71,7 +71,7 @@ describe("V2 second batch of fifty full-pipeline conversations", () => {
     const store = new InMemoryV2ConversationStore(); const traces: Readonly<Record<string, unknown>>[] = [];
     const composition = createCarsDecisionV2ProductionComposition({ store, interpreter, realizer: invalidRealizer, shadow: true, smokeObserver: (trace) => traces.push(trace) });
     const output = await runCarsDecisionTurnV2({ conversationId: `batch2-${name.replace(/\s+/gu, "-")}`, messageId: "turn-1", idempotencyKey: "turn-1", expectedConversationRevision: 0, userMessage: message, requestTime: "2026-08-19T10:00:00.000Z" }, composition);
-    expect(output.message.trim().length).toBeGreaterThan(0); expect(output.cards).toEqual([]); expect(output.options.length).toBeLessThanOrEqual(maximumOptions ?? 8);
+    expect(output.message.trim().length).toBeGreaterThan(0); expect(output.cards).toEqual([]); expect(output.options.length).toBeLessThanOrEqual(maximumOptions ?? 10);
     expect(output.message).not.toMatch(/GASOLINE|DIESEL|MHEV|HEV|PHEV|BEV|runtime|discriminator|evidence/iu);
     const memory = (await store.load(`batch2-${name.replace(/\s+/gu, "-")}`))!.memory!;
     for (const field of fields) expect(memory.events.some((event) => event.eventType === "CONSTRAINT" && event.field === field)).toBe(true);

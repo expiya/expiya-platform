@@ -1,4 +1,5 @@
 import type { NaturalRealizationResult, RealizationInput, RealizationValidation, RealizationValidationCode } from "./types";
+import { materialQuestionText } from "./materialQuestionText";
 
 const lower = (value: string) => value.toLocaleLowerCase("tr-TR");
 const numbers = (value: string) => value.match(/\d[\d.,]*/gu) ?? [];
@@ -10,7 +11,7 @@ export function validateNaturalRealization(input: RealizationInput, result: Natu
   for (const id of result.usedExplanationFactIds) if (!authorizedFacts.has(id) || !actionFactIds.has(id)) codes.push("FACT_NOT_AUTHORIZED");
   const mentionable = new Set(input.mentionableCandidates.map((candidate) => candidate.candidateId)); for (const id of result.mentionedCandidateIds) if (!mentionable.has(id)) codes.push("CANDIDATE_NOT_AUTHORIZED");
   if (input.revealableCandidates.length || (input.actionDecision.nextAction.type === "REQUEST_REVEAL_CONSENT" && result.mentionedCandidateIds.length)) codes.push("REVEAL_NOT_ALLOWED");
-  if (input.materialQuestion) { if (result.renderedQuestionId === undefined) codes.push("ACTION_MISMATCH"); if (result.renderedQuestionId !== undefined && result.renderedQuestionId !== input.materialQuestion.id) codes.push("QUESTION_NOT_AUTHORIZED"); if (result.renderedQuestionId === input.materialQuestion.id && input.materialQuestion.options.some((option) => lower(message).includes(lower(option.userFacingLabel)))) codes.push("QUESTION_OPTIONS_REPEATED"); }
+  if (input.materialQuestion) { if (result.renderedQuestionId === undefined) codes.push("ACTION_MISMATCH"); if (result.renderedQuestionId !== undefined && result.renderedQuestionId !== input.materialQuestion.id) codes.push("QUESTION_NOT_AUTHORIZED"); if (result.renderedQuestionId === input.materialQuestion.id && !lower(message).includes(lower(materialQuestionText(input.materialQuestion)))) codes.push("QUESTION_TEXT_CHANGED"); if (result.renderedQuestionId === input.materialQuestion.id && input.materialQuestion.options.some((option) => lower(message).includes(lower(option.userFacingLabel)))) codes.push("QUESTION_OPTIONS_REPEATED"); }
   else if (result.renderedQuestionId !== undefined) codes.push("QUESTION_NOT_AUTHORIZED");
   if (!input.materialQuestion && input.actionDecision.nextAction.type !== "REQUEST_REVEAL_CONSENT" && /\?/u.test(message)) codes.push("QUESTION_NOT_AUTHORIZED");
   if (input.actionDecision.nextAction.type === "ASK_MATERIAL_QUESTION" && result.renderedQuestionId !== input.materialQuestion?.id) codes.push("ACTION_MISMATCH");

@@ -19,4 +19,15 @@ describe("conversation-local semantic recovery", () => {
   it("does not turn unrelated user language into a global learning signal", () => {
     expect(createConversationLocalSemanticRecoveryQuestion({ userText: "İçi ferah olsun", memory, snapshot, candidateIds: ["v1"], bodyStyleAlreadyInterpreted: false })).toBeNull();
   });
+
+  it("clarifies ambiguous economic language only when earlier discovery stages allow it", () => {
+    expect(createConversationLocalSemanticRecoveryQuestion({ userText: "Ekonomik olsun", memory, snapshot, candidateIds: ["v1"], bodyStyleAlreadyInterpreted: true, priceMeaningClarificationEligible: false })).toBeNull();
+    const question = createConversationLocalSemanticRecoveryQuestion({ userText: "Ekonomik olsun", memory, snapshot, candidateIds: ["v1"], bodyStyleAlreadyInterpreted: true, priceMeaningClarificationEligible: true });
+    expect(question).toMatchObject({ stage: "BUDGET", question: { stableSemanticKey: "semanticRecovery.economicMeaning", selectionMode: "SINGLE" } });
+  });
+
+  it("does not repeat a completed economic clarification", () => {
+    const completed = { turn: 2, decisionFingerprint: "decision", materialQuestionHistory: [{ stableSemanticKey: "semanticRecovery.economicMeaning", answerStatus: "ANSWERED" }] } as never;
+    expect(createConversationLocalSemanticRecoveryQuestion({ userText: "Ekonomik olsun", memory: completed, snapshot, candidateIds: ["v1"], bodyStyleAlreadyInterpreted: true, priceMeaningClarificationEligible: true })).toBeNull();
+  });
 });

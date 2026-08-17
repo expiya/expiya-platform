@@ -16,6 +16,12 @@ function activeFields(constraints: ActiveConstraintProjection): Set<string> {
   return new Set([...constraints.activeHardConstraints, ...constraints.activeNonHardConstraints].map((item) => item.fieldId));
 }
 
+function activeConstraintValue(constraints: ActiveConstraintProjection, fieldId: string): unknown {
+  const raw = constraints.activeHardConstraints.find((item) => item.fieldId === fieldId)?.value
+    ?? constraints.activeNonHardConstraints.find((item) => item.fieldId === fieldId)?.normalizedValue;
+  return typeof raw === "object" && raw !== null && "value" in raw ? (raw as { value: unknown }).value : raw;
+}
+
 function valueFor(variant: CatalogVariantSnapshot, field: string): string | undefined {
   if (field === "bodyStyle") return variant.decisionFacts.bodyStyle.value === "Crossover" ? "SUV" : variant.decisionFacts.bodyStyle.value;
   if (field === "fuelType") return variant.decisionFacts.powertrain.fuelType.value;
@@ -46,10 +52,13 @@ export function generateMaterialQuestionCandidates(input: {
   const candidateSet = new Set(input.candidateIds);
   const variants = input.snapshot.variants.filter((variant) => candidateSet.has(variant.id));
   const answered = activeFields(input.constraints);
-  // A concrete cargo/passenger architecture already answers the practical
-  // body-shape question. Asking Sedan/SUV/Panel Van again would contradict the
-  // user's stated use case even though the two facts live on separate axes.
-  if (answered.has("usageArchitecture")) answered.add("bodyStyle");
+  // A broad PASSENGER_CAR architecture does not answer the concrete body-style
+  // question: it still leaves Sedan, Hatchback, SUV and other shapes open.
+  // Only an explicitly supplied concrete non-passenger architecture may close
+  // the body question when the candidate pool itself has already converged.
+  const usageArchitecture = activeConstraintValue(input.constraints, "usageArchitecture");
+  const concreteArchitectureAnswered = ["ENCLOSED_CARGO", "OPEN_CARGO", "CAB_CHASSIS"].includes(String(usageArchitecture));
+  if (concreteArchitectureAnswered) answered.add("bodyStyle");
   const closed = new Set([
     ...input.memory.materialQuestionHistory.filter((item) => ["ANSWERED", "DECLINED", "SUPERSEDED"].includes(item.answerStatus)).map((item) => item.field),
     ...input.memory.events.filter((event): event is Extract<typeof event, { eventType: "CONSTRAINT" }> => event.eventType === "CONSTRAINT" && (event.kind === "DECLINED" || event.decisionEffect === "NONE")).map((event) => event.field),
@@ -62,7 +71,7 @@ export function generateMaterialQuestionCandidates(input: {
     ?? input.constraints.activeNonHardConstraints.find((item) => item.fieldId === "fuelType")?.normalizedValue;
   const batteryElectricSelected = typeof activeFuelPreference === "object" && activeFuelPreference !== null && "value" in activeFuelPreference
     && (activeFuelPreference as { value?: unknown }).value === "BEV";
-  const architectureAnswered = answered.has("usageArchitecture") || answered.has("bodyStyle") || input.comparisonScope;
+  const architectureAnswered = answered.has("bodyStyle") || input.comparisonScope;
   const fields = ["bodyStyle", "seats", "drivenWheels", "fuelType", "transmission"] as const;
   const candidates: QuestionCandidate[] = [];
   const unanswered: string[] = [];
@@ -131,7 +140,7 @@ export function generateMaterialQuestionCandidates(input: {
     const largest = sorted[0]?.[1].length ?? variants.length;
     const reduction = variants.length ? 1 - largest / variants.length : 0;
     candidates.push(makeCandidate({
-      question: Object.freeze({ id: `v2q.${field}.${input.memory.turn + 1}`, stableSemanticKey: `discovery.${field}`, field, promptIntent: "DISCRIMINATE_CANDIDATES", options: Object.freeze(options), answerCapabilities: Object.freeze(["ANSWER", "SKIP", "UNKNOWN", "NOT_IMPORTANT"] as const), materialityReason: input.comparisonScope ? "İki model kapsamındaki varyantları ayırır." : "Mevcut aday havuzunu anlamlı biçimde daraltır." }),
+      question: Object.freeze({ id: `v2q.${field}.${input.memory.turn + 1}`, stableSemanticKey: `discovery.${field}`, field, promptIntent: "DISCRIMINATE_CANDIDATES", options: Object.freeze(options), selectionMode: field === "bodyStyle" || field === "fuelType" ? "MULTIPLE" as const : "SINGLE" as const, minimumSelections: 1, maximumSelections: field === "bodyStyle" || field === "fuelType" ? Math.min(options.length, 5) : 1, answerCapabilities: Object.freeze(["ANSWER", "SKIP", "UNKNOWN", "NOT_IMPORTANT"] as const), materialityReason: input.comparisonScope ? "İki model kapsamındaki varyantları ayırır." : "Mevcut aday havuzunu anlamlı biçimde daraltır." }),
       stage, materiality: input.comparisonScope ? 1.5 : field === "bodyStyle" ? 2 : 1,
       informationGain: reduction, conversationalRelevance: field === "bodyStyle" ? 2 : 1,
       reasonCodes: Object.freeze([`${stage}_CANDIDATE_DISCRIMINATOR`]), candidateReductionValue: reduction * 4,

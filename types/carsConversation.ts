@@ -53,6 +53,7 @@ export interface CarsConversationMessage {
   readonly recommendations?: readonly RecommendedCar[];
   readonly v2Cards?: readonly DecisionSafePublicCard[];
   readonly v2Options?: readonly { readonly id: string; readonly label: string }[];
+  readonly v2OptionSelection?: { readonly mode: "SINGLE" | "MULTIPLE"; readonly minimumSelections: number; readonly maximumSelections: number };
   readonly v2OfferToken?: string;
   readonly recommendationIds?: readonly string[];
   readonly quickReplies?: readonly string[];
@@ -78,6 +79,7 @@ export interface CarsConversationRequest {
   readonly messages: readonly CarsConversationMessage[];
   readonly choiceId?: CarsFinalDiscriminatorChoiceId;
   readonly selectedOptionId?: string;
+  readonly selectedOptionIds?: readonly string[];
   readonly v2OfferToken?: string;
   readonly conversation?: CarsConversationTrace;
 }
@@ -491,6 +493,7 @@ export type CarsConversationResponse =
       readonly kind: "V2_DECISION";
       readonly message: string;
       readonly options: readonly { readonly id: string; readonly label: string }[];
+      readonly optionSelection?: { readonly mode: "SINGLE" | "MULTIPLE"; readonly minimumSelections: number; readonly maximumSelections: number };
       readonly cards: readonly DecisionSafePublicCard[];
       readonly offer?: { readonly token: string; readonly expiresAt: string };
       readonly conversation?: CarsConversationTrace;

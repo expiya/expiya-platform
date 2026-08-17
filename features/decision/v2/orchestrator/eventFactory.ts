@@ -15,7 +15,7 @@ export function createConversationEventsFromInterpretation(input: { readonly tur
   if (input.interpretation.result.acts.includes("VEHICLE_INTENT")) push({ eventType: "VEHICLE_INTENT_ESTABLISHED" });
   const openQuestion = [...(input.previous?.materialQuestionHistory ?? [])].reverse().find((item) => item.answerStatus === "OPEN");
   if (openQuestion) {
-    const matchingConstraintMutation = input.interpretation.acceptedConstraintMutations.find((mutation) => mutation.fieldId === openQuestion.field);
+    const matchingConstraintMutation = input.interpretation.acceptedConstraintMutations.find((mutation) => mutation.fieldId === openQuestion.field || (openQuestion.stableSemanticKey === "semanticRecovery.economicMeaning" && ["relativePriceSegment", "runningCostPreference"].includes(mutation.fieldId)));
     const matchingBudgetMutation = openQuestion.field === "budget" && input.interpretation.acceptedBudgetMutations.length > 0;
     const genericDecline = /^\s*(?:fark etmez|önemli değil|geç)\s*[.!]?\s*$/iu.test(input.turn.userMessage);
     const declined = genericDecline || matchingConstraintMutation?.operation === "DECLINE";

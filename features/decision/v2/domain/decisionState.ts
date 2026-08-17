@@ -50,6 +50,9 @@ export interface MaterialQuestion {
   readonly field: string;
   readonly promptIntent: "CLARIFY_REQUIREMENT" | "RESOLVE_CONFLICT" | "DISCRIMINATE_CANDIDATES" | "CONFIRM_INTERPRETATION" | "OPTIONAL_PERSONA";
   readonly options: readonly MaterialQuestionOption[];
+  readonly selectionMode?: "SINGLE" | "MULTIPLE";
+  readonly minimumSelections?: number;
+  readonly maximumSelections?: number;
   readonly answerCapabilities: readonly MaterialQuestionAnswerCapability[];
   readonly materialityReason: string;
 }

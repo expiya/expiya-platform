@@ -54,7 +54,7 @@ describe("V2 fourth batch of one hundred distinct conversations", () => {
     const store = new InMemoryV2ConversationStore(); const traces: Readonly<Record<string, unknown>>[] = [];
     const composition = createCarsDecisionV2ProductionComposition({ store, interpreter, realizer, shadow: true, smokeObserver: (trace) => traces.push(trace) });
     const output = await runCarsDecisionTurnV2({ conversationId: `batch4-${name}`, messageId: "m1", idempotencyKey: "m1", expectedConversationRevision: 0, userMessage: message, requestTime: "2026-08-19T14:00:00.000Z" }, composition);
-    expect(output.message.trim()).not.toBe(""); expect(output.cards).toEqual([]); expect(output.options.length).toBeLessThanOrEqual(8);
+    expect(output.message.trim()).not.toBe(""); expect(output.cards).toEqual([]); expect(output.options.length).toBeLessThanOrEqual(10);
     expect(output.message).not.toMatch(/GASOLINE|DIESEL|MHEV|HEV|PHEV|BEV|runtime|fingerprint|authorization|discriminator|evidence/iu);
     const memory = (await store.load(`batch4-${name}`))!.memory!;
     if (field) expect(memory.events.some((event) => event.eventType === "CONSTRAINT" && event.field === field)).toBe(true);

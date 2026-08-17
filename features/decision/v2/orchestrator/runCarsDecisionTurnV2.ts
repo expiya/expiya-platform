@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import type { ConversationEvent } from "../domain/conversationEvent";
 import { canonicalize } from "../fingerprint/canonicalize";
 import type { DecisionTurnV2Input, DecisionTurnV2Output, V2ConversationStore, V2TurnStages } from "./types";
-import { publicOptions } from "./types";
+import { publicOptions, publicOptionSelection } from "./types";
 
 export class V2TurnConflictError extends Error {
   constructor(readonly code: "MESSAGE_PAYLOAD_CONFLICT" | "REVISION_CONFLICT") { super(code); }
@@ -13,7 +13,7 @@ const eventId = (messageId: string, sequence: number, type: string) => `v2e_${cr
 
 export async function runCarsDecisionTurnV2(input: DecisionTurnV2Input, dependencies: { readonly store: V2ConversationStore; readonly stages: V2TurnStages }): Promise<DecisionTurnV2Output> {
   const prior = await dependencies.store.load(input.conversationId);
-  const payloadHash = canonicalize({ messageId: input.messageId, userMessage: input.userMessage, typedOptionId: input.typedOptionId, offerToken: input.offerToken });
+  const payloadHash = canonicalize({ messageId: input.messageId, userMessage: input.userMessage, typedOptionId: input.typedOptionId, typedOptionIds: input.typedOptionIds, offerToken: input.offerToken });
   const replay = prior?.messageResults[input.messageId];
   if (replay) {
     if (replay.payloadHash !== payloadHash) throw new V2TurnConflictError("MESSAGE_PAYLOAD_CONFLICT");
@@ -48,16 +48,19 @@ export async function runCarsDecisionTurnV2(input: DecisionTurnV2Input, dependen
       const dispositionSequence = events.length + postEvents.length;
       postEvents.push({ ...postBase, id: eventId(input.messageId, dispositionSequence, "MATERIAL_QUESTION_DISPOSITION"), sequence: dispositionSequence, eventType: "MATERIAL_QUESTION_DISPOSITION", questionId: priorOpenQuestion.questionId, stableSemanticKey: priorOpenQuestion.stableSemanticKey, status: "SUPERSEDED" });
     }
-    const sequence = events.length + postEvents.length;
-    const question = evaluated.action.materialQuestion;
-    postEvents.push({ ...postBase, id: eventId(input.messageId, sequence, "MATERIAL_QUESTION_ASKED"), sequence, eventType: "MATERIAL_QUESTION_ASKED", questionId: question.id, stableSemanticKey: question.stableSemanticKey, field: question.field });
+    if (priorOpenQuestion?.stableSemanticKey !== evaluated.action.materialQuestion.stableSemanticKey) {
+      const sequence = events.length + postEvents.length;
+      const question = evaluated.action.materialQuestion;
+      postEvents.push({ ...postBase, id: eventId(input.messageId, sequence, "MATERIAL_QUESTION_ASKED"), sequence, eventType: "MATERIAL_QUESTION_ASKED", questionId: question.id, stableSemanticKey: question.stableSemanticKey, field: question.field });
+    }
   }
   const finalMemory = postEvents.length ? dependencies.stages.reduceMemory({ previous: memory, events: postEvents, catalog: catalog.snapshot }) : memory;
   const allEvents = Object.freeze([...events, ...postEvents]);
   const cards = input.offerToken && dependencies.stages.authorizeCards ? await dependencies.stages.authorizeCards({ token: input.offerToken, conversationId: input.conversationId, catalog: catalog.snapshot, memory: finalMemory, now, pendingOfferTransition: evaluated.offerTransition }) : [];
   const realized = await dependencies.stages.realize({ action: evaluated.action, facts: evaluated.facts });
   const revision = (prior?.revision ?? 0) + 1;
-  const output: DecisionTurnV2Output = Object.freeze({ conversationId: input.conversationId, revision, state: evaluated.action.nextState, message: realized.message || "Bu adımı güvenli biçimde tamamlayamadım; yeniden deneyebiliriz.", options: publicOptions(evaluated.action), cards: Object.freeze([...cards]), ...(evaluated.offer && evaluated.offerToken ? { offer: { offerId: evaluated.offer.offerId, token: evaluated.offerToken, expiresAt: evaluated.offer.expiresAt } } : {}) });
+  const optionSelection = publicOptionSelection(evaluated.action);
+  const output: DecisionTurnV2Output = Object.freeze({ conversationId: input.conversationId, revision, state: evaluated.action.nextState, message: realized.message || "Bu adımı güvenli biçimde tamamlayamadım; yeniden deneyebiliriz.", options: publicOptions(evaluated.action), ...(optionSelection ? { optionSelection } : {}), cards: Object.freeze([...cards]), ...(evaluated.offer && evaluated.offerToken ? { offer: { offerId: evaluated.offer.offerId, token: evaluated.offerToken, expiresAt: evaluated.offer.expiresAt } } : {}) });
   const next = { conversationId: input.conversationId, revision, memory: finalMemory, messageResults: { ...(prior?.messageResults ?? {}), [input.messageId]: { payloadHash, output } } };
   const committed = await dependencies.store.commit({ expectedRevision: input.expectedConversationRevision, next, events: allEvents, offer: evaluated.offer, offerTransition: evaluated.offerTransition });
   if (committed.status !== "OK") throw new V2TurnConflictError("REVISION_CONFLICT");

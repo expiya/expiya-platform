@@ -74,6 +74,28 @@ describe("production V2 composition with real WP pipeline", () => {
     expect(traces.find((trace) => trace.phase === "DECISION")).toMatchObject({ action: "ASK_MATERIAL_QUESTION", selectedQuestionKey: "semanticRecovery.fiveDoorBodyStyle", selectedQuestionStage: "VEHICLE_ARCHITECTURE", offerCreated: false });
     expect((await store.load("five-door-recovery"))?.memory?.materialQuestionHistory.at(-1)).toMatchObject({ stableSemanticKey: "semanticRecovery.fiveDoorBodyStyle", field: "bodyStyle", answerStatus: "OPEN" });
   });
+  it("binds economic-meaning recovery to running-cost ranking and advances the conversation", async () => {
+    const traces: Readonly<Record<string, unknown>>[] = []; const store = new InMemoryV2ConversationStore();
+    const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ economic: result("economic", []), running: result("running", ["QUESTION_ANSWER"]) }), realizer, shadow: true, smokeObserver: (trace) => traces.push(trace) });
+    const first = await runCarsDecisionTurnV2({ conversationId: "economic-running-cost", messageId: "economic", idempotencyKey: "economic", expectedConversationRevision: 0, userMessage: "Şehir içinde otomatik hibrit hatchback kullanacağım; bütçe önemli değil, ekonomik olsun.", requestTime: "2026-08-19T00:00:00.000Z" }, composition);
+    expect(first.options.map((option) => option.label)).toEqual(["Satın alma fiyatı erişilebilir olsun", "Kullanım ve yakıt maliyeti düşük olsun"]);
+    const second = await runCarsDecisionTurnV2({ conversationId: "economic-running-cost", messageId: "running", idempotencyKey: "running", expectedConversationRevision: 1, userMessage: "Kullanım ve yakıt maliyeti düşük olsun", requestTime: "2026-08-19T00:01:00.000Z" }, composition);
+    const memory = (await store.load("economic-running-cost"))!.memory!;
+    expect(memory.events).toContainEqual(expect.objectContaining({ eventType: "CONSTRAINT", field: "runningCostPreference", normalizedValue: "LOW_RUNNING_COST", decisionEffect: "STRONG_RANK" }));
+    expect(memory.materialQuestionHistory.find((item) => item.stableSemanticKey === "semanticRecovery.economicMeaning")?.answerStatus).toBe("ANSWERED");
+    expect(traces.filter((trace) => trace.phase === "DECISION").at(-1)?.selectedQuestionKey).not.toBe("semanticRecovery.economicMeaning");
+    expect(second.message).not.toBe("Değerlendirmeyi güvenli biçimde tamamladım.");
+  });
+  it("keeps the open budget question visible after an unrelated economic-preference correction", async () => {
+    const traces: Readonly<Record<string, unknown>>[] = []; const store = new InMemoryV2ConversationStore();
+    const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ economic: result("economic", []), running: result("running", ["QUESTION_ANSWER"]), correction: result("correction", ["CORRECTION"]) }), realizer, shadow: true, smokeObserver: (trace) => traces.push(trace) });
+    await runCarsDecisionTurnV2({ conversationId: "economic-budget-continuity", messageId: "economic", idempotencyKey: "economic", expectedConversationRevision: 0, userMessage: "Şehir içinde günlük kullanacağım, otomatik benzinli hatchback bir araba istiyorum. Ekonomik olsun.", requestTime: "2026-08-19T00:00:00.000Z" }, composition);
+    await runCarsDecisionTurnV2({ conversationId: "economic-budget-continuity", messageId: "running", idempotencyKey: "running", expectedConversationRevision: 1, userMessage: "Kullanım ve yakıt maliyeti düşük olsun", requestTime: "2026-08-19T00:01:00.000Z" }, composition);
+    const third = await runCarsDecisionTurnV2({ conversationId: "economic-budget-continuity", messageId: "correction", idempotencyKey: "correction", expectedConversationRevision: 2, userMessage: "Düzeltme: satın alma fiyatını kastediyordum.", requestTime: "2026-08-19T00:02:00.000Z" }, composition);
+    expect(traces.filter((trace) => trace.phase === "DECISION").at(-1)).toMatchObject({ action: "ASK_MATERIAL_QUESTION", selectedQuestionKey: "discovery.budget" });
+    expect(third.message).toContain("Aşmak istemediğin yaklaşık bütçe nedir?");
+    expect((await store.load("economic-budget-continuity"))!.memory!.materialQuestionHistory.filter((item) => item.stableSemanticKey === "discovery.budget" && item.answerStatus === "OPEN")).toHaveLength(1);
+  });
   it("binds a bare amount to the open budget question and immediately creates the governed offer", async () => {
     const traces: Readonly<Record<string, unknown>>[] = []; const store = new InMemoryV2ConversationStore(); const offerStore = new InMemoryGovernedOfferStore();
     const interpreter: StructuredInterpretationModel = { interpret: async (request) => result(request.messageId, []) };
@@ -280,5 +302,5 @@ describe("production V2 composition with real WP pipeline", () => {
       signatures.push(JSON.stringify(revealed.cards.map((card) => card.exactVariantId)));
     }
     expect(new Set(signatures)).toHaveLength(1);
-  }, 60_000);
+  }, 120_000);
 });

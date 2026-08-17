@@ -8,6 +8,7 @@ import { createConversationLocalSemanticRecoveryQuestion } from "../action/seman
 import { assessRecommendationReadiness } from "../action/readiness";
 import { evaluateAffordabilityCandidatePool } from "../affordability/evaluate";
 import { AFFORDABILITY_POLICY_V1, PRICE_AUTHORITY_POLICY_V1 } from "../affordability/policy";
+import { projectRelativePriceSegmentsCached } from "../affordability/priceSegmentation";
 import { createProductionCatalogReleaseRepository } from "../catalog/fileSystemRepository.server";
 import { loadActiveCatalogSnapshot, loadPinnedCatalogSnapshot } from "../catalog/snapshot";
 import { classifyCandidateDecisionAvailability } from "../conflict/availability";
@@ -102,10 +103,12 @@ export function createProductionV2TurnStages(input: { readonly repositoryRoot?: 
       const safePersona = await loadActiveVehiclePersonaSafeTraits({ repositoryRoot, catalogRelease: catalog.authority.releaseVersion.startsWith("v") ? catalog.authority.releaseVersion : `v${catalog.authority.releaseVersion}`, catalogFingerprint: catalog.authority.catalogFingerprint, catalogVariantIds: catalog.variants.map((variant) => variant.id), catalogFamilies: catalog.familyIndex.values().map((family) => ({ familyId: family.familyId, variantIds: family.variantIds })) });
       const persona = safePersona.status === "READY" ? createPersonaLayerSnapshot({ catalogReleaseVersion: catalog.authority.releaseVersion, catalogFingerprint: catalog.authority.catalogFingerprint, layerVersion: safePersona.release.releaseVersion, signals: selectOwnerApprovedSafePersonaSignals(safePersona.release).signals }) : undefined;
       const functionalPreferenceSignals = createExplicitFunctionalPreferenceSignals({ snapshot: catalog, constraints: constraints.activeNonHardConstraints });
+      const requestedPriceSegment = constraints.activeNonHardConstraints.find((constraint) => constraint.fieldId === "relativePriceSegment")?.normalizedValue;
+      const priceSegmentSignals = typeof requestedPriceSegment === "string" ? projectRelativePriceSegmentsCached({ snapshot: catalog, evaluationTime: now.toISOString(), priceAuthorityPolicy: PRICE_AUTHORITY_POLICY_V1 }).projections.filter((projection) => projection.comparableCohortPriceSegment === requestedPriceSegment).map((projection) => ({ exactVariantId: projection.exactVariantId, score: 1, reasonCode: `RELATIVE_PRICE_SEGMENT_${requestedPriceSegment}`, explanationFactId: `relative-price-segment:${projection.exactVariantId}` })) : [];
       const technicallyEligibleIds = new Set(technical.eligibleCandidateIds);
       const selectableTechnicalIds = affordability.selectableCandidateIds.filter((candidateId) => technicallyEligibleIds.has(candidateId));
       const rankableAffordability = { ...affordability, selectableCandidateIds: selectableTechnicalIds };
-      const ranking = rankSelectableCandidates({ snapshot: catalog, technicalPool: technical, affordabilityPool: rankableAffordability, persona: memory.persona, confirmedFunctionalSignals: functionalPreferenceSignals, dailyLifeLayer: dailyLife, personaLayer: persona });
+      const ranking = rankSelectableCandidates({ snapshot: catalog, technicalPool: technical, affordabilityPool: rankableAffordability, persona: memory.persona, confirmedFunctionalSignals: functionalPreferenceSignals, softPreferenceSignals: priceSegmentSignals, dailyLifeLayer: dailyLife, personaLayer: persona });
       const shortlist = selectRankedCandidateShortlist({ ranking, maximumCandidates: 3, familyDiversity: !comparisonScope });
       const availability = classifyCandidateDecisionAvailability({ technicalPool: technical, affordabilityPool: { ...affordability, selectableCandidateIds: selectableTechnicalIds }, ranking });
       const generatedQuestions = generateMaterialQuestionCandidates({ snapshot: catalog, candidateIds: ranking.rankedCandidateIds, memory, constraints, comparisonScope });
@@ -115,11 +118,12 @@ export function createProductionV2TurnStages(input: { readonly repositoryRoot?: 
         snapshot: catalog,
         candidateIds: ranking.rankedCandidateIds,
         bodyStyleAlreadyInterpreted: interpretation.acceptedConstraintMutations.some((mutation) => mutation.fieldId === "bodyStyle"),
+        priceMeaningClarificationEligible: generatedQuestions.stageCompletion.filter((stage) => ["USAGE_CONTEXT", "VEHICLE_ARCHITECTURE", "FUNCTIONAL_NEEDS", "ENERGY_FIT", "TECHNICAL_PREFERENCES"].includes(stage.stage)).every((stage) => stage.status !== "INCOMPLETE"),
       });
       const questions = semanticRecoveryQuestion
         ? Object.freeze({
             ...generatedQuestions,
-            unansweredDecisionFields: Object.freeze([...new Set([...generatedQuestions.unansweredDecisionFields, "bodyStyle"])]),
+            unansweredDecisionFields: Object.freeze([...new Set([...generatedQuestions.unansweredDecisionFields, semanticRecoveryQuestion.question.field])]),
             questionCandidates: Object.freeze([semanticRecoveryQuestion, ...generatedQuestions.questionCandidates]),
           })
         : generatedQuestions;

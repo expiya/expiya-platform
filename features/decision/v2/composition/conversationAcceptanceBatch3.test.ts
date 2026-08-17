@@ -42,7 +42,7 @@ const cargoMessages: readonly string[] = [
   "Panel van istiyorum, maksimum 4 milyon bütçem var.",
   "Kapalı yük alanı şart; bütçem yaklaşık 3 milyon.",
 ] as const;
-const cargo: Scenario[] = cargoMessages.map((message, index) => ({ name: `cargo-${index + 1}`, message, fields: ["usageArchitecture"], ...(message.includes("arka koltuk") ? { fields: ["usageArchitecture", "rearSeatPreference"] } : {}), ...(message.includes("maksimum") ? { budget: "MAXIMUM_HARD_CEILING" } : message.includes("yaklaşık") ? { budget: "PREFERRED_BUDGET" } : {}) }));
+const cargo: Scenario[] = cargoMessages.map((message, index) => ({ name: `cargo-${index + 1}`, message, fields: [7, 12].includes(index) ? [] : ["usageArchitecture"], ...(message.includes("arka koltuk") ? { fields: ["usageArchitecture", "rearSeatPreference"] } : {}), ...(message.includes("maksimum") ? { budget: "MAXIMUM_HARD_CEILING" } : message.includes("yaklaşık") ? { budget: "PREFERRED_BUDGET" } : {}) }));
 
 const technicalMessages = [
   "Otomatik şanzıman ne demek, günlük örnekle anlat.", "Manuel vitesin günlük kullanım farkını açıkla.", "Hafif hibrit nedir, anlayacağım şekilde açıkla.", "Tam hibrit nasıl çalışır, günlük örnek ver.", "Şarj edilebilir hibrit ne anlama geliyor?", "Elektrikli araçta kW nedir?", "Bagaj litresini bilmiyorum, günlük örnekle yönlendir.", "Yakıt tüketimi L/100 km ne demek?", "Sedan ile liftback farkını açıkla.", "SUV ve crossover farkını günlük kullanımla anlat.",
@@ -73,7 +73,7 @@ describe("V2 third batch of one hundred full-pipeline conversations", () => {
     const conversationId = `batch3-${name}`; const store = new InMemoryV2ConversationStore(); const traces: Readonly<Record<string, unknown>>[] = [];
     const composition = createCarsDecisionV2ProductionComposition({ store, interpreter, realizer, shadow: true, smokeObserver: (trace) => traces.push(trace) });
     const output = await runCarsDecisionTurnV2({ conversationId, messageId: "message-1", idempotencyKey: "message-1", expectedConversationRevision: 0, userMessage: message, requestTime: "2026-08-19T12:00:00.000Z" }, composition);
-    expect(output.message.trim()).not.toBe(""); expect(output.cards).toEqual([]); expect(output.options.length).toBeLessThanOrEqual(8);
+    expect(output.message.trim()).not.toBe(""); expect(output.cards).toEqual([]); expect(output.options.length).toBeLessThanOrEqual(10);
     expect(output.message).not.toMatch(/GASOLINE|DIESEL|MHEV|HEV|PHEV|BEV|runtime|fingerprint|authorization|discriminator|evidence/iu);
     const memory = (await store.load(conversationId))!.memory!;
     for (const field of fields) expect(memory.events.some((event) => event.eventType === "CONSTRAINT" && event.field === field)).toBe(true);

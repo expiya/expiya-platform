@@ -46,7 +46,7 @@ const contexts: readonly JourneySeed[] = [
   { message: "Kışın kar, baharda çamur olan yola gireceğim.", stage: "VEHICLE_ARCHITECTURE", answer: "Pickup şart", rough: true },
   { message: "Ciddi arazi ve off-road için araç arıyorum.", stage: "VEHICLE_ARCHITECTURE", answer: "SUV şart", seriousOffRoad: true, completeToOffer: true },
   { message: "Zorlu arazide kullanacağım bir otomobil istiyorum.", stage: "VEHICLE_ARCHITECTURE", answer: "Pickup şart", seriousOffRoad: true },
-  { message: "Günlük şehir içinde elektrikli hatchback istiyorum.", stage: "TECHNICAL_PREFERENCES", answer: "Otomatik", suppliedBodyFuel: true, completeToOffer: true },
+  { message: "Günlük şehir içinde elektrikli hatchback istiyorum.", stage: "BUDGET", answer: "Bütçe önemli değil", suppliedBodyFuel: true, completeToOffer: true },
   { message: "Her gün kullanacağım, benzinli sedan istiyorum.", stage: "TECHNICAL_PREFERENCES", answer: "Manuel", suppliedBodyFuel: true },
   { message: "Uzun yolda dizel SUV istiyorum.", stage: "TECHNICAL_PREFERENCES", answer: "Otomatik", suppliedBodyFuel: true },
   { message: "Aile için tam hibrit MPV istiyorum.", stage: "FUNCTIONAL_NEEDS", answer: "Fark etmez", suppliedBodyFuel: true },
@@ -62,8 +62,8 @@ const contexts: readonly JourneySeed[] = [
   { message: "Günlük kullanacağım, teknik terimleri bilmiyorum.", stage: "VEHICLE_ARCHITECTURE", answer: "Hatchback şart" },
   { message: "Clio mu Civic mi kararsızım.", stage: "ENERGY_FIT", answer: "Şehir içi", comparison: true },
   { message: "Corolla mı Golf mü karar veremedim.", stage: "ENERGY_FIT", answer: "Aile kullanımı", comparison: true },
-  { prelude: "Günlük kullanımda SUV olabilir.", message: "Hayır, sedan demek istedim.", stage: null, answer: "Fark etmez", correction: true },
-  { prelude: "Günlük kullanımda benzinli tercih ederim.", message: "Yakıt fark etmez, günlük kullanım için olsun.", stage: null, answer: "Sedan şart", correction: true },
+  { prelude: "Günlük kullanımda SUV olabilir.", message: "Hayır, sedan demek istedim.", stage: "ENERGY_FIT", answer: "Fark etmez" },
+  { prelude: "Günlük kullanımda benzinli tercih ederim.", message: "Yakıt fark etmez, günlük kullanım için olsun.", stage: "VEHICLE_ARCHITECTURE", answer: "Sedan şart" },
 ];
 const journeys = contexts.map((context, index) => ({ id: `stage-journey-${index + 1}`, ...context }));
 

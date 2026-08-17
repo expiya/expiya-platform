@@ -43,7 +43,7 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   const acts: UserAct[] = input.result.acts.filter((act) => !["HARD_REQUIREMENT", "PREFERENCE_STATEMENT", "CORRECTION", "BUDGET_STATEMENT", "OFF_TOPIC", "ABUSE"].includes(act));
   if (verifiedAbuse) acts.push("ABUSE"); if (input.result.offTopicSignal?.detected && !socialHumor) acts.push("OFF_TOPIC"); if (socialHumor && !acts.includes("SOCIAL_MESSAGE")) acts.push("SOCIAL_MESSAGE");
   if (conversationalRepair && !acts.includes("SOCIAL_MESSAGE")) acts.push("SOCIAL_MESSAGE");
-  const criticalFields = new Set(["usageScenario", "fuelType", "transmission", "bodyStyle", "drivenWheels", "seats", "usageArchitecture", "rearSeatPreference"]);
+  const criticalFields = new Set(["usageScenario", "relativePriceSegment", "runningCostPreference", "fuelType", "transmission", "bodyStyle", "drivenWheels", "seats", "usageArchitecture", "rearSeatPreference"]);
   const constraints = input.result.constraintMutations.filter((item) => !criticalFields.has(item.fieldId)); const budgets = [] as typeof input.result.budgetMutations[number][]; const personas = [] as typeof input.result.personaMutations[number][]; const references = [...input.result.modelReferences];
   const directAnswerRequests = [...input.result.directAnswerRequests];
   const addAct = (act: UserAct) => { if (!acts.includes(act)) acts.push(act); };
@@ -66,6 +66,28 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
     addAct("USAGE_STATEMENT");
   }
 
+  const relativePriceSegment = /(?:ucuz\s+(?:bir\s+)?(?:araç|araba|otomobil)|en\s+ucuzlardan|uygun\s+fiyatlı|düşük\s+fiyatlı|satın\s+alma\s+fiyatı\s+erişilebilir)/u.test(semanticText) ? "LOWEST_20"
+    : /(?:ekonomik\s+fiyatlı|fiyatı\s+ekonomik|fiyat\s+açısından\s+ekonomik)/u.test(semanticText) ? "VALUE_20_40"
+    : /(?:orta\s+fiyat\s+grubunda|fiyat\s+olarak\s+orta\s+seviye)/u.test(semanticText) ? "MID_40_60"
+    : /(?:üst\s+fiyat\s+grubunda|fiyat\s+olarak\s+üst\s+seviyede)/u.test(semanticText) ? "UPPER_60_80"
+    : /(?:premium\s+fiyat\s+grubunda|fiyat\s+olarak\s+en\s+üst\s+grupta)/u.test(semanticText) ? "HIGHEST_80_100" : undefined;
+  if (relativePriceSegment) { enforceConstraint(mutation("relativePriceSegment", relativePriceSegment, text, input.activeFieldIds.includes("relativePriceSegment") ? "CORRECT" : "ADD")); addAct("PREFERENCE_STATEMENT"); }
+
+  const answersEconomicMeaning = input.openMaterialQuestionField === "relativePriceMeaning";
+  const bothEconomicMeanings = answersEconomicMeaning && /ikisi\s+de\s+önemli/u.test(semanticText);
+  const purchasePriceCorrection = /satın\s+alma\s+fiyatını\s+kastediyordum/iu.test(text);
+  const purchasePriceAnswer = (answersEconomicMeaning && /satın\s+alma\s+fiyatı\s+erişilebilir/iu.test(text)) || purchasePriceCorrection || bothEconomicMeanings;
+  const runningCostAnswer = answersEconomicMeaning && (/kullanım\s+ve\s+yakıt\s+maliyeti\s+düşük/iu.test(text) || bothEconomicMeanings);
+  if (purchasePriceAnswer && !relativePriceSegment) {
+    enforceConstraint(mutation("relativePriceSegment", "LOWEST_20", text, input.activeFieldIds.includes("relativePriceSegment") ? "CORRECT" : "ADD"));
+    if (purchasePriceCorrection && input.activeFieldIds.includes("runningCostPreference")) enforceConstraint(mutation("runningCostPreference", null, text, "CLEAR"));
+    addAct(input.activeFieldIds.includes("relativePriceSegment") ? "CORRECTION" : "PREFERENCE_STATEMENT");
+  }
+  if (runningCostAnswer) {
+    enforceConstraint(mutation("runningCostPreference", "LOW_RUNNING_COST", text, input.activeFieldIds.includes("runningCostPreference") ? "CORRECT" : "ADD"));
+    addAct(input.activeFieldIds.includes("runningCostPreference") ? "CORRECTION" : "PREFERENCE_STATEMENT");
+  }
+
   const noElectric = /elektrikli\s+(?:istemiyorum|olmasın)/iu.test(text); const noHybrid = /hibrit\s+(?:istemiyorum|olmasın)/iu.test(text);
   const remainingFuelText = text.replace(/elektrikli\s+(?:istemiyorum|olmasın)/giu, "").replace(/hibrit\s+(?:istemiyorum|olmasın)/giu, "");
   const positiveFuel = normalizeFuelInterpretation(remainingFuelText);
@@ -78,11 +100,13 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
 
   const mentionedBodies = BODY_STYLES.filter((style) => new RegExp(`\\b${style.replace(" ", "[ -]?")}(?:'?(?:a|e|ya|ye))?\\b`, "iu").test(text));
   if (/gövde(?:\s+tipi)?\s+(?:fark etmez|önemli değil)/iu.test(text)) { enforceConstraint(mutation("bodyStyle", null, text, input.activeFieldIds.includes("bodyStyle") ? "CLEAR" : "DECLINE")); addAct(input.activeFieldIds.includes("bodyStyle") ? "CORRECTION" : "DECLINE_TO_ANSWER"); }
-  const affirmativeBody = [...mentionedBodies].reverse().find((style) => !new RegExp(`${style.replace(" ", "[ -]?")}(?:'?(?:den|dan))?\\s+(?:değil|demedim|istemi(?:yor|yorum)|vazgeç)`, "iu").test(text));
+  const affirmativeBodies = mentionedBodies.filter((style) => !new RegExp(`${style.replace(" ", "[ -]?")}(?:'?(?:den|dan))?\\s+(?:değil|demedim|istemi(?:yor|yorum)|vazgeç)`, "iu").test(text));
+  const affirmativeBody = affirmativeBodies.at(-1);
   if (affirmativeBody) {
     const correctionMeaning = /\b(dedim|demedim|düzelt)\b/iu.test(text); const hasActiveBody = input.activeFieldIds.includes("bodyStyle");
     const bodyHard = correctionMeaning || new RegExp(`(?:${affirmativeBody}.*(?:şart|olmazsa olmaz|mutlaka)|(?:kesinlikle|mutlaka).*${affirmativeBody})`, "iu").test(text);
-    enforceConstraint({ ...mutation("bodyStyle", { operator: "EQUALS", value: affirmativeBody }, text, hasActiveBody ? "CORRECT" : "ADD", bodyHard), explicitness: bodyHard ? "EXPLICIT_REQUIREMENT" : "EXPLICIT_PREFERENCE" });
+    const bodyValue = affirmativeBodies.length === 1 ? { operator: "EQUALS", value: affirmativeBody } : { operator: "ONE_OF", value: affirmativeBodies };
+    enforceConstraint({ ...mutation("bodyStyle", bodyValue, text, hasActiveBody ? "CORRECT" : "ADD", bodyHard), explicitness: bodyHard ? "EXPLICIT_REQUIREMENT" : "EXPLICIT_PREFERENCE" });
     addAct(correctionMeaning || hasActiveBody ? "CORRECTION" : bodyHard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT");
   }
 
