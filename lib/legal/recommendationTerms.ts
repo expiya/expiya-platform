@@ -1,4 +1,4 @@
-export const RECOMMENDATION_TERMS_VERSION = "REC-2026.08-v1.0";
+export const RECOMMENDATION_TERMS_VERSION = "REC-2026.08-v1.1";
 
 export interface RecommendationTermsAcceptance {
   readonly version: typeof RECOMMENDATION_TERMS_VERSION;

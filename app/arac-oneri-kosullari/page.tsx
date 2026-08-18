@@ -23,7 +23,16 @@ export default function RecommendationTermsPage() {
         <div className="mt-8 space-y-8 text-[15px] leading-7 text-neutral-700 dark:text-neutral-200">
           <section>
             <h2 className="text-xl font-semibold text-neutral-950 dark:text-white">1. Taraflar ve kapsam</h2>
-            <p className="mt-2">Bu koşullar, Expiya Cars hizmetini sunan <strong>SKYBIT Yazılım ve Bilgi Teknolojileri Danışmanlığı Ltd. Şti.</strong> (“SKYBIT”) ile araç önerisini görüntülemeyi seçen kullanıcı arasındadır. Merkez adresi, MERSİS, ticaret sicili ve iletişim bilgileri: <strong>[DOLDURULACAK]</strong>.</p>
+            <p className="mt-2">Bu koşullar, Expiya Cars hizmetini sunan <strong>SKYBIT YAZILIM VE BİLGİ TEKNOLOJİLERİ DANIŞMANLIĞI LİMİTED ŞİRKETİ</strong> (“SKYBIT”) ile araç önerisini görüntülemeyi seçen kullanıcı arasındadır.</p>
+            <dl className="mt-4 grid gap-2 rounded-2xl bg-neutral-100 p-4 text-sm dark:bg-neutral-800 sm:grid-cols-[11rem_1fr]">
+              <dt className="font-semibold">Merkez adresi</dt><dd>Fenerbahçe Mah. İğrip Sk. No: 13 İç Kapı No: 1 Kadıköy / İstanbul</dd>
+              <dt className="font-semibold">MERSİS numarası</dt><dd>0772162890400001</dd>
+              <dt className="font-semibold">Ticaret sicil numarası</dt><dd>483626-5</dd>
+              <dt className="font-semibold">Ticaret sicil müdürlüğü</dt><dd>[DOLDURULACAK]</dd>
+              <dt className="font-semibold">Vergi dairesi / numarası</dt><dd>Göztepe / 7721628904</dd>
+              <dt className="font-semibold">E-posta</dt><dd><a className="underline underline-offset-4" href="mailto:serdar@expiya.com">serdar@expiya.com</a></dd>
+              <dt className="font-semibold">Telefon / KEP</dt><dd>[DOLDURULACAK]</dd>
+            </dl>
             <p className="mt-2">Koşullar yalnızca araç kartının görüntülenmesi, katalog bilgilerinin sunulması ve yapay zekâ destekli karar desteğinin kullanılması hakkındadır. KVKK aydınlatması, açık rıza, çerez tercihleri veya ticari elektronik ileti izni yerine geçmez.</p>
           </section>
 
@@ -41,19 +50,20 @@ export default function RecommendationTermsPage() {
 
           <section>
             <h2 className="text-xl font-semibold text-neutral-950 dark:text-white">4. Ticari bağımsızlık ve sponsorlu içerik</h2>
-            <p className="mt-2">Aksi araç kartında açık ve görünür biçimde belirtilmedikçe, katalogda bulunmak veya öneri sonucunda görünmek ücretli yerleştirme, sponsorluk, reklam, bayi anlaşması ya da marka onayı anlamına gelmez. SKYBIT karar motorunun genel, önceden tanımlı teknik kurallarını ve katalog yönetişimini belirler; ancak organik bir sonuca belirli marka, model, bayi, distribütör, sponsor veya başka üçüncü kişi lehine ticari ya da manuel müdahalede bulunulmaz.</p>
+            <p className="mt-2">Bu sürümün yayın tarihi itibarıyla katalogda bulunmak veya öneri sonucunda görünmek için markalardan ücret alınmamakta; sonuçların sırası sponsorluk, reklam, bayi anlaşması, lead bedeli veya komisyonla etkilenmemektedir. Katalogda yer almak veya sonuçta görünmek marka onayı anlamına gelmez. SKYBIT karar motorunun genel, önceden tanımlı teknik kurallarını ve katalog yönetişimini belirler; ancak organik bir sonuca belirli marka, model, bayi, distribütör, sponsor veya başka üçüncü kişi lehine ticari ya da manuel müdahalede bulunulmaz.</p>
             <p className="mt-2">İleride ticari ilişki, sponsorluk veya lead yönlendirmesi bir sonucun sunuluşunu etkilerse bu ilişki, ilgili sonuçta “Reklam”, “Sponsorlu” veya eşdeğer açık bir ibareyle açıklanır; organik karar desteğiyle karıştırılmaz.</p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-neutral-950 dark:text-white">5. Hata, eksiklik ve güncelleme</h2>
             <p className="mt-2">SKYBIT, mesleki özen kapsamında kaynak, tarih ve tutarlılık kontrolleri uygulamayı hedefler; ancak üçüncü kişilerce yayımlanan kaynakların doğruluğunu, katalog bilgilerinin kesintisiz güncelliğini, belirli bir aracın stok veya satış durumunu garanti etmez. Kullanıcı, satın alma kararından önce önemli özellikleri ve fiyatı yetkili satıcıdan doğrulamalıdır.</p>
-            <p className="mt-2">Marka, üretici, distribütör ve yetkili bayi temsilcileri; yetkilerini gösteren bilgiyle birlikte kendilerine ilişkin katalog kaydının kaynağını, kayıt zamanını ve geçerli sürümünü <strong>[DOLDURULACAK E-POSTA/BAŞVURU KANALI]</strong> üzerinden isteyebilir; hata veya eksiklik bildirebilir. Başvuru kayda alınır, kaynağı doğrulanır ve haklı bulunan düzeltme makul olan en kısa sürede sürümlenerek yayımlanır. Güvenlik, hukuki zorunluluk veya açık maddi hata hâlinde kayıt inceleme boyunca geçici olarak yayından kaldırılabilir.</p>
+            <p className="mt-2">Marka, üretici, distribütör ve yetkili bayi temsilcileri; yetkilerini gösteren bilgiyle birlikte kendilerine ilişkin katalog kaydının kaynağını, kayıt zamanını ve geçerli sürümünü <a className="font-semibold underline underline-offset-4" href="mailto:serdar@expiya.com">serdar@expiya.com</a> üzerinden isteyebilir; hata veya eksiklik bildirebilir.</p>
+            <p className="mt-2">Başvurunun alındığı üç gün içinde bildirilir ve ilk inceleme üç gün içinde hedeflenir. Kritik olduğu doğrulanan hata için ilgili kaydın beş gün içinde geçici olarak kaldırılması; doğrulanmış düzeltmenin veya gerekçeli nihai cevabın yedi gün içinde tamamlanması hedeflenir. Bu süreler kanuni kesin süre veya sonuç garantisi değil, operasyonel hizmet hedefidir. Başvuru kayda alınır, başvuranın yetkisi ve sunduğu kaynak doğrulanır; haklı bulunan düzeltme sürümlenerek yayımlanır.</p>
           </section>
 
           <section>
             <h2 className="text-xl font-semibold text-neutral-950 dark:text-white">6. Açıklanabilirlik ve kayıtlar</h2>
-            <p className="mt-2">Kullanıcı, kendisine gösterilen sonucun başlıca gerekçelerini arayüzde görebilir. Mevcut teknik ve ticari sır sınırları, güvenlik önlemleri ve üçüncü kişi hakları saklı kalmak üzere; kullanılan kullanıcı tercihleri, uygulanan temel filtreler, katalog sürümü ve kaynak zamanları hakkında ayrıntılı bilgi <strong>[DOLDURULACAK BAŞVURU KANALI]</strong> üzerinden talep edilebilir. Bu hak, kaynak kodun, güvenlik mekanizmalarının, model ağırlıklarının veya ticari sırların açıklanmasını kapsamaz.</p>
+            <p className="mt-2">Kullanıcı, kendisine gösterilen sonucun başlıca gerekçelerini arayüzde görebilir. Mevcut teknik ve ticari sır sınırları, güvenlik önlemleri ve üçüncü kişi hakları saklı kalmak üzere; kullanılan kullanıcı tercihleri, uygulanan temel filtreler, katalog sürümü ve kaynak zamanları hakkında ayrıntılı bilgi <a className="font-semibold underline underline-offset-4" href="mailto:serdar@expiya.com">serdar@expiya.com</a> üzerinden talep edilebilir. Bu hak, kaynak kodun, güvenlik mekanizmalarının, model ağırlıklarının veya ticari sırların açıklanmasını kapsamaz.</p>
           </section>
 
           <section>
@@ -64,6 +74,7 @@ export default function RecommendationTermsPage() {
           <section>
             <h2 className="text-xl font-semibold text-neutral-950 dark:text-white">8. Satıcıya karşı hak ve işlemler</h2>
             <p className="mt-2">Expiya Cars çıktısı, bir satıcı veya üretici adına yapılmış beyan, taahhüt, garanti, rezervasyon ya da satış teklifi değildir. Kullanıcı yalnızca Expiya Cars çıktısına dayanarak üçüncü bir satıcıdan belirli fiyat, stok, donanım, teslim veya kampanya talep edemez. Bununla birlikte bu hüküm, kullanıcının satıcıya, sağlayıcıya veya diğer sorumlulara karşı kanundan, ayrı bir sözleşmeden ya da onların kendi reklam ve beyanlarından doğan haklarını ortadan kaldırmaz.</p>
+            <p className="mt-2">Bu sürümün yayın tarihi itibarıyla hizmet yalnız sıfır araç kataloğunu değerlendirir; kullanıcıdan telefon, e-posta veya konum bilgisi toplamaz, satıcılara kullanıcı verisi ya da lead aktarmaz, pazarlama iletişimi göndermez ve kullanıcıdan ücret almaz.</p>
           </section>
 
           <section>
