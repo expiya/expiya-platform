@@ -41,10 +41,10 @@ describe("vehicle persona safe trait production release", () => {
     expect(rawPayload).not.toMatch(/kadın arabası|erkek arabası|aile babası|beyaz yakalı|mafya|makasçı|meslek|sosyal sınıf/iu);
   });
 
-  it("matches the catalog fingerprint, checksum, family IDs and all 577 exact variants", async () => {
+  it("matches the active catalog fingerprint, checksum, family IDs and every exact variant", async () => {
     const data = await fixture(); expect(data.validate()).toEqual([]);
-    expect(data.release.variants).toHaveLength(577); expect(data.release.families).toHaveLength(data.snapshot.familyIndex.size);
-    expect(new Set(data.release.variants.map((item: { exactVariantId: string }) => item.exactVariantId)).size).toBe(577);
+    expect(data.release.variants).toHaveLength(data.snapshot.variants.length); expect(data.release.families).toHaveLength(data.snapshot.familyIndex.size);
+    expect(new Set(data.release.variants.map((item: { exactVariantId: string }) => item.exactVariantId)).size).toBe(data.snapshot.variants.length);
     expect(vehiclePersonaSafeTraitPayloadHash(data.rawPayload)).toBe(data.manifest.payloadSha256);
   });
 

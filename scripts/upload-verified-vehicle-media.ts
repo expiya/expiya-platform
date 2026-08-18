@@ -18,6 +18,7 @@ interface VerifiedCandidate {
 }
 
 interface CandidateManifest {
+  catalogRelease: string;
   records: VerifiedCandidate[];
   [key: string]: unknown;
 }
@@ -33,10 +34,10 @@ export async function uploadVerifiedVehicleMedia(): Promise<void> {
   for (const record of manifest.records) {
     if (record.storageUrl) continue;
     const extension = record.contentType === "image/png" ? "png" : "jpg";
-    const pathname = `cars/v0.55.0/${slug(record.brand)}/${slug(record.model)}/${record.sha256.slice(0, 16)}.${extension}`;
+    const pathname = `cars/${manifest.catalogRelease}/${slug(record.brand)}/${slug(record.model)}/${record.sha256.slice(0, 16)}.${extension}`;
     const bytes = await readFile(path.resolve(record.localCandidatePath));
     const blob = await put(pathname, bytes, {
-      access: "public", token, addRandomSuffix: false, allowOverwrite: false,
+      access: "public", token, addRandomSuffix: false, allowOverwrite: true,
       contentType: record.contentType, cacheControlMaxAge: 31_536_000,
     });
     record.storageUrl = blob.url;

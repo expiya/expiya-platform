@@ -30,6 +30,7 @@ export interface VehicleMediaAsset {
   readonly sourcePageUrl: string;
   readonly originalAssetUrl?: string;
   readonly rightsHolder: string;
+  readonly sourceAuthority?: "OFFICIAL_MANUFACTURER_OR_DISTRIBUTOR" | "OPEN_MEDIA_REPOSITORY" | "OTHER";
   readonly usagePermission: VehicleMediaUsagePermission;
   readonly ownerAttestation?: VehicleMediaOwnerAttestation;
   readonly licenseName?: string;

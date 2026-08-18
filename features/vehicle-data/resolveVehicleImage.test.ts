@@ -27,6 +27,11 @@ describe("resolveVehicleImage", () => {
     expect(resolveVehicleImage(identity, [base, exact])).toMatchObject({ path: "/media/exact.webp", status: "EXACT" });
   });
 
+  it("prefers an official model image over an open-repository representative", () => {
+    const official: VehicleMediaAsset = { ...base, id: "media-official-corolla", scope: "MODEL", sourceAuthority: "OFFICIAL_MANUFACTURER_OR_DISTRIBUTOR", storagePath: "/media/official-corolla.webp" };
+    expect(resolveVehicleImage(identity, [base, official])).toMatchObject({ path: "/media/official-corolla.webp", status: "REPRESENTATIVE" });
+  });
+
   it("never publishes candidate or rights-review assets", () => {
     const candidate: VehicleMediaAsset = { ...base, publicationState: "RIGHTS_REVIEW" };
     expect(resolveVehicleImage(identity, [candidate])).toEqual({

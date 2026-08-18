@@ -39,6 +39,8 @@ const scopePriority: Readonly<Record<VehicleMediaAsset["scope"], number>> = {
   VARIANT: 4, GENERATION_BODY: 3, MODEL_BODY: 2, MODEL: 1,
 };
 
+const authorityPriority = (asset: VehicleMediaAsset) => asset.sourceAuthority === "OFFICIAL_MANUFACTURER_OR_DISTRIBUTOR" ? 10 : 0;
+
 const comparableTokens = (value: string) => new Set(normalize(value)?.replace(/[^A-Z0-9ÇĞİÖŞÜ]+/g, " ").split(" ")
   .filter((token) => token.length > 1 && !["YENİ", "NEW", "ELECTRIC", "ELEKTRİK", "HYBRID", "HİBRİT"].includes(token)) ?? []);
 
@@ -72,7 +74,8 @@ export function resolveVehicleImage(
 ): ResolvedVehicleImage {
   const candidates = eligibleAssets(assets);
   const asset = candidates.filter((candidate) => matches(candidate, identity))
-    .sort((left, right) => scopePriority[right.scope] - scopePriority[left.scope])[0];
+    .sort((left, right) => authorityPriority(right) - authorityPriority(left)
+      || scopePriority[right.scope] - scopePriority[left.scope])[0];
   if (!asset) {
     let fallback: VehicleMediaAsset | undefined;
     let fallbackScore = Number.NEGATIVE_INFINITY;

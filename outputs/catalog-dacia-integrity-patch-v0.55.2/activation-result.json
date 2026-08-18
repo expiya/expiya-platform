@@ -1,0 +1,17 @@
+{
+  "status": "ACTIVATED_LOCAL_POINTERS",
+  "catalog": "v0.55.2",
+  "fingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+  "records": 566,
+  "layers": {
+    "dailyLife": "v2.1-0.55.2-2026-08-18-compatibility-rebind",
+    "persona": "v1.0.3-catalog-v0.55.2-2026-08-18",
+    "equipment": "v1.2.2-catalog-v0.55.2-2026-08-18"
+  },
+  "rollback": {
+    "catalog": "v0.55.1",
+    "dailyLife": "v2.1-0.55.1-2026-08-16-compatibility-rebind",
+    "persona": "v1.0.2-catalog-v0.55.1-2026-08-16",
+    "equipment": "v1.2.1-catalog-v0.55.1-2026-08-18"
+  }
+}

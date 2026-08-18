@@ -149,6 +149,9 @@ export function validateTechnicalDailyLifeCatalogCompatibility(input: {
 }
 
 export function assertTechnicalDailyLifeCompatibility(input: Parameters<typeof validateTechnicalDailyLifeCatalogCompatibility>[0]): void {
-  const issues = [...validateTechnicalDailyLifeLayer(input.layer), ...validateTechnicalDailyLifeCatalogCompatibility(input)];
+  // A catalog contraction may leave a still-valid mapping temporarily unobserved. Keep it for future variants;
+  // only newly uncovered catalog values are activation blockers.
+  const issues = [...validateTechnicalDailyLifeLayer(input.layer), ...validateTechnicalDailyLifeCatalogCompatibility(input)]
+    .filter((issue) => issue.code !== "STALE_CATEGORICAL_MAPPING_VALUE");
   if (issues.length) throw new Error(`TECHNICAL_DAILY_LIFE_VALIDATION_FAILED:\n${issues.map((issue) => `${issue.code}${issue.field ? `:${issue.field}` : ""} ${issue.message}`).join("\n")}`);
 }

@@ -1,0 +1,24 @@
+{
+  "immutableSources": [
+    ["SRC-000009","Dacia Türkiye","Sandero Stepway model page","1686ee2f9218bb5a358b29bbb18ddc2c84e2d23658b32ab94432c9042c284798"],
+    ["SRC-000010","Dacia Türkiye","August 2026 campaigns","d6a332c302c1b5bd7e2a8744990524a1fcd3fcf79af7776bebd382bd1323f944"],
+    ["SRC-000020","Dacia Türkiye","Sandero Stepway comparison","cd57696d718a09136406a776fe4a2b6de89eb4de3a85b0c4d1267633f9b3e911"],
+    ["SRC-000021","Dacia Türkiye","Sandero Stepway configurator","20b46da91269b77aef0f77d7d9edce740644ee431f2883760eb30d2c484b2d7e"],
+    ["SRC-000030","Dacia Türkiye","Jogger comparison","54d24b61377ea9c58d44a80ecf707b0f862e65d0601a9be2c2da27acabd7aba1"],
+    ["SRC-000041","Dacia Türkiye","Jogger configurator","f0f21ffecd8db4fed17613d40c3895b3d8183d1f01f7849e23acf26fd7607ce3"],
+    ["SRC-000066","Dacia Türkiye","ECO-G model range","3ddd96a4d59e270efaaf24c92b29292d23f7d0a019c18b4e263f238e390dbeda"],
+    ["SRC-000067","Dacia Türkiye","New Logan model page","a6138ea1f4b78720dd41cb613012d21ec7cae63fec69faf925e0d5bb8bc10a27"],
+    ["SRC-000079","Dacia Türkiye","Jogger equipment","4245a3e6620b233bbda2704315a2e81baede861defa90278659044e12bfa13cc"],
+    ["SRC-000080","Dacia Türkiye","Jogger 5-seat configurator","189b948d45e02a35612125b1a1e4e751f916a490fab5300e3519e6a3aa317ff8"],
+    ["SRC-000081","Dacia Türkiye","Jogger comparison current","12e4edd98c431e58f6e3c658128f598409a0abc70098004988994ad55fc55cf9"]
+  ],
+  "tupleFields": ["sourceId","publisher","title","sha256"],
+  "liveOfficialDiscoveryNotPromoted": [
+    "https://www.dacia.com.tr/dacia-fiyat-listesi.html",
+    "https://www.dacia.com.tr/modeller/yeni-sandero-bi1-ph2/konfigurator-yeni.html",
+    "https://www.dacia.com.tr/modeller/yeni-sandero-stepway-bi1-ph2/konfigurator-yeni.html",
+    "https://www.dacia.com.tr/modeller/yeni-logan/modeller-versiyonlar.html",
+    "https://www.dacia.com.tr/modeller/yeni-jogger-7-koltuklu/configurator-v2.html"
+  ],
+  "limitation": "Live pages were used for corroboration only where no immutable snapshot exists; they do not promote unresolved records to VALID_CURRENT."
+}

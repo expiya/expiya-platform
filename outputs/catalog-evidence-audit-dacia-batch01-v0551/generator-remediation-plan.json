@@ -1,0 +1,6 @@
+{
+  "target": "data/production/daciaBatch01.ts and createBrandBatch contract",
+  "rules": ["No trim-list x shared-powertrain expansion","Every exact configuration is an explicit record","Configuration-level source and locator required","Seat count must be explicit evidence, never parsed from trim label","Price exactness and identity exactness are independent","Internal estimates cannot authorize identity or lifecycle","Model-family sources cannot produce exact variants"],
+  "validators": ["EXACT_CONFIGURATION_SOURCE_REQUIRED","SHARED_POWERTRAIN_APPLICABILITY_UNPROVEN","SEAT_COUNT_DERIVED_FROM_LABEL","PRICE_AUTHORITY_USED_AS_IDENTITY_AUTHORITY","MODEL_FAMILY_SOURCE_USED_FOR_EXACT_VARIANT"],
+  "implementationDeferred": true
+}

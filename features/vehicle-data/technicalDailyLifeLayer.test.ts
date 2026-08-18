@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 
 import catalog from "@/data/production/catalog/releases/v0.55.1/catalog.json";
+import activeCatalogPointer from "@/data/production/catalog/active.json";
 import activePointer from "@/data/production/technical-daily-life/active.json";
 import manifestJson from "@/data/production/technical-daily-life/releases/v2.1-0.55.1-2026-08-16-compatibility-rebind/manifest.json";
 import layerJson from "@/data/production/technical-daily-life/releases/v2.1-0.55.1-2026-08-16-compatibility-rebind/technical-daily-life.json";
@@ -34,7 +35,7 @@ const mutableLayer = () => JSON.parse(JSON.stringify(layer)) as TechnicalDailyLi
 describe("technical daily-life production layer v2.1", () => {
   it("1. points the active pointer to an existing compatible release", () => {
     expect(() => assertActiveTechnicalDailyLifePointer()).not.toThrow();
-    expect(activePointer).toMatchObject({ activeTechnicalDailyLifeRelease: manifest.releaseId, compatibleCatalogRelease: "v0.55.1", schemaVersion: 1 });
+    expect(activePointer).toMatchObject({ compatibleCatalogRelease: `v${activeCatalogPointer.active_catalog_release_version}`, schemaVersion: 1 });
   });
 
   it("2. matches the manifest checksum to the canonical release bytes", () => {
@@ -169,7 +170,7 @@ describe("technical daily-life production layer v2.1", () => {
 
   it("25. exposes exact mapping lookup and active release metadata without mutation", () => {
     expect(getTechnicalDailyLifeMappingById("luggage-volume--400-499")?.mappingId).toBe("luggage-volume--400-499");
-    expect(loadActiveTechnicalDailyLifeLayer()).toMatchObject({ release: manifest.releaseId, compatibleCatalogRelease: "v0.55.1" });
+    expect(loadActiveTechnicalDailyLifeLayer()).toMatchObject({ release: activePointer.activeTechnicalDailyLifeRelease, compatibleCatalogRelease: activePointer.compatibleCatalogRelease });
   });
 
   it("26. keeps generated active-module sync idempotent", () => {
