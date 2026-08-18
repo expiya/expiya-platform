@@ -74,7 +74,7 @@ export default function RecommendationTermsPage() {
           <section>
             <h2 className="text-xl font-semibold text-neutral-950 dark:text-white">8. Satıcıya karşı hak ve işlemler</h2>
             <p className="mt-2">Expiya Cars çıktısı, bir satıcı veya üretici adına yapılmış beyan, taahhüt, garanti, rezervasyon ya da satış teklifi değildir. Kullanıcı yalnızca Expiya Cars çıktısına dayanarak üçüncü bir satıcıdan belirli fiyat, stok, donanım, teslim veya kampanya talep edemez. Bununla birlikte bu hüküm, kullanıcının satıcıya, sağlayıcıya veya diğer sorumlulara karşı kanundan, ayrı bir sözleşmeden ya da onların kendi reklam ve beyanlarından doğan haklarını ortadan kaldırmaz.</p>
-            <p className="mt-2">Bu sürümün yayın tarihi itibarıyla hizmet yalnız sıfır araç kataloğunu değerlendirir; kullanıcıdan telefon, e-posta veya konum bilgisi toplamaz, satıcılara kullanıcı verisi ya da lead aktarmaz, pazarlama iletişimi göndermez ve kullanıcıdan ücret almaz.</p>
+            <p className="mt-2">Bu sürümün yayın tarihi itibarıyla araç önerisi akışı yalnız sıfır araç kataloğunu değerlendirir; bu akışta kullanıcıdan telefon, e-posta veya konum bilgisi istenmez, satıcılara kullanıcı verisi ya da lead aktarılmaz, pazarlama iletişimi gönderilmez ve kullanıcıdan ücret alınmaz. Kullanıcının başvuru adresine kendi isteğiyle e-posta göndermesi hâlindeki veri işleme, ilgili faaliyet aydınlatmasına tabidir.</p>
           </section>
 
           <section>
