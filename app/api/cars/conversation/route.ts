@@ -2,10 +2,12 @@ import { z } from "zod";
 import { after } from "next/server";
 
 import { runCarsConversationTurn } from "@/features/decision/conversation/runCarsConversationTurn";
+import { isOfferDeclineText } from "@/features/decision/conversation/carsSocialIntent";
 import { evaluateCarsDecisionV2ShadowAfterResponse } from "@/features/decision/v2/integration/routeShadow.server";
 import { tryRunCarsDecisionV2Public } from "@/features/decision/v2/integration/publicRoute.server";
 import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
 import type { CarsConversationRequest } from "@/types/carsConversation";
+import { RECOMMENDATION_TERMS_VERSION } from "@/lib/legal/recommendationTerms";
 
 const builtInQuestionPurposeSchema = z.enum([
   "PRIMARY_USAGE",
@@ -48,6 +50,10 @@ const optionSetSchema = z.object({
 
 const requestSchema = z.object({
   conversationId: z.string().min(1).max(100),
+  recommendationTermsAcceptance: z.object({
+    version: z.literal(RECOMMENDATION_TERMS_VERSION),
+    acceptedAt: z.string().datetime(),
+  }).optional(),
   choiceId: z.enum(["MAX_SEATS", "MAX_CARGO"]).optional(),
   selectedOptionId: z.string().min(1).max(80).optional(),
   selectedOptionIds: z.array(z.string().min(1).max(80)).min(1).max(5).optional(),
@@ -292,6 +298,10 @@ const requestSchema = z.object({
     id: z.string().min(1).max(100),
     role: z.enum(["user", "assistant"]),
     content: z.string().trim().min(1).max(4_000),
+    recommendationTermsAcceptance: z.object({
+      version: z.literal(RECOMMENDATION_TERMS_VERSION),
+      acceptedAt: z.string().datetime(),
+    }).optional(),
     optionSet: optionSetSchema.optional(),
     discriminatorChoices: z.array(z.object({
       id: z.enum(["MAX_SEATS", "MAX_CARGO"]),
@@ -314,6 +324,16 @@ export async function POST(request: Request): Promise<Response> {
   if (rejected) return rejected;
   try {
     const input = requestSchema.parse(await readJsonWithLimit(request, 150_000));
+    const awaitingRecommendationTerms = input.conversation?.state === "OFFER_AWAITING_CONSENT";
+    const latestUser = [...input.messages].reverse().find((message) => message.role === "user");
+    if (awaitingRecommendationTerms
+      && !latestUser?.recommendationTermsAcceptance
+      && !isOfferDeclineText(latestUser?.content ?? "")) {
+      return Response.json(
+        { message: "Araç kartını görmek için güncel Araç Önerisi ve Katalog Kullanım Koşulları'nı ayrıca kabul etmeniz gerekir." },
+        { status: 409 },
+      );
+    }
     const latestAssistant = [...input.messages].reverse().find((message) => message.role === "assistant");
     const activeChoices = latestAssistant?.discriminatorChoices;
     if (activeChoices?.length) {

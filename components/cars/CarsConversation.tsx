@@ -1,11 +1,16 @@
 "use client";
 
 import { FormEvent, KeyboardEvent, useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import { CarCard } from "@/components/cars/CarCard";
 import { V2AuthorizedCarCard } from "@/components/cars/V2AuthorizedCarCard";
 import { clearSubmittedV2MultiSelection } from "@/components/cars/v2MultiSelectState";
+import {
+  createRecommendationTermsAcceptance,
+  RECOMMENDATION_TERMS_VERSION,
+} from "@/lib/legal/recommendationTerms";
 import {
   hasActiveFinalDiscriminator,
   shouldRenderRecommendationCards,
@@ -67,6 +72,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   const [v2MultiSelections, setV2MultiSelections] = useState<Record<string, readonly string[]>>({});
   const [isLoading, setIsLoading] = useState(false);
   const [isRestored, setIsRestored] = useState(false);
+  const [recommendationTermsChecked, setRecommendationTermsChecked] = useState(false);
   const locale = "tr" as const;
   const isTurkish = true;
 
@@ -80,6 +86,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     choiceId?: CarsFinalDiscriminatorChoice["id"],
     selectedOptionId?: string,
     selectedOptionIds?: readonly string[],
+    recommendationTermsAcceptance?: ReturnType<typeof createRecommendationTermsAcceptance>,
   ) => {
     setIsLoading(true);
 
@@ -93,6 +100,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
           choiceId,
           selectedOptionId,
           selectedOptionIds,
+          recommendationTermsAcceptance,
           v2OfferToken: [...nextMessages].reverse().find((message) => message.role === "assistant" && message.v2OfferToken)?.v2OfferToken,
           conversation: conversationRef.current,
         }),
@@ -209,13 +217,28 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     void continueConversation(nextMessages);
   }
 
-  function submitContent(content: string, selectedOptionId?: string, selectedOptionIds?: readonly string[]) {
+  function submitContent(
+    content: string,
+    selectedOptionId?: string,
+    selectedOptionIds?: readonly string[],
+    recommendationTermsAcceptance?: ReturnType<typeof createRecommendationTermsAcceptance>,
+  ) {
     if (!content.trim() || isLoading) return;
-    const userMessage = newMessage("user", content.trim());
+    const userMessage = {
+      ...newMessage("user", content.trim()),
+      ...(recommendationTermsAcceptance ? { recommendationTermsAcceptance } : {}),
+    };
     const nextMessages = [...messages, userMessage];
     setMessages(nextMessages);
     setDraft("");
-    void continueConversation(nextMessages, undefined, selectedOptionId, selectedOptionIds);
+    void continueConversation(nextMessages, undefined, selectedOptionId, selectedOptionIds, recommendationTermsAcceptance);
+  }
+
+  function acceptRecommendationTermsAndReveal() {
+    if (!recommendationTermsChecked || isLoading) return;
+    const acceptance = createRecommendationTermsAcceptance();
+    setRecommendationTermsChecked(false);
+    submitContent("Evet, araç önerisini göster.", undefined, undefined, acceptance);
   }
 
   function toggleV2MultiOption(messageId: string, optionId: string, maximumSelections: number) {
@@ -246,6 +269,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   }
 
   const isFinalDiscriminatorRequired = hasActiveFinalDiscriminator(messages);
+  const isRecommendationOfferAwaitingTerms = conversation?.state === "OFFER_AWAITING_CONSENT";
 
   function handleDraftKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
     if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
@@ -360,6 +384,39 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                       ))}
                     </div>
                   )}
+                  {message.role === "assistant" && message === messages[messages.length - 1]
+                    && isRecommendationOfferAwaitingTerms && (
+                    <div className="mt-4 rounded-2xl border border-neutral-300 bg-white p-4 text-sm text-neutral-800 dark:border-neutral-600 dark:bg-neutral-950 dark:text-neutral-100">
+                      <p className="font-semibold">Aracı göstermeden önce</p>
+                      <p className="mt-2 leading-6">Öneri; beyan ettiğiniz tercihler ile tarihli katalog kaynaklarının yapay zekâ destekli ve kural tabanlı değerlendirilmesidir. Satış teklifi, garanti veya ekspertiz değildir.</p>
+                      <label className="mt-4 flex cursor-pointer items-start gap-3">
+                        <input
+                          type="checkbox"
+                          checked={recommendationTermsChecked}
+                          onChange={(event) => setRecommendationTermsChecked(event.target.checked)}
+                          className="mt-1 h-4 w-4 accent-neutral-950"
+                        />
+                        <span><Link href="/arac-oneri-kosullari" target="_blank" className="font-semibold underline underline-offset-4">Araç Önerisi ve Katalog Kullanım Koşulları’nı</Link> ({RECOMMENDATION_TERMS_VERSION}) okudum ve kabul ediyorum.</span>
+                      </label>
+                      <button
+                        type="button"
+                        onClick={acceptRecommendationTermsAndReveal}
+                        disabled={!recommendationTermsChecked || isLoading}
+                        className="mt-4 w-full rounded-xl bg-neutral-950 px-5 py-3 font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40 dark:bg-white dark:text-neutral-950"
+                      >
+                        Koşulları kabul et ve aracı göster
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => submitContent("Şimdilik gösterme.")}
+                        disabled={isLoading}
+                        className="mt-2 w-full rounded-xl border border-neutral-300 px-5 py-3 font-semibold disabled:opacity-40 dark:border-neutral-600"
+                      >
+                        Kabul etmeden sohbete devam et
+                      </button>
+                      <p className="mt-3 text-xs leading-5 text-neutral-500 dark:text-neutral-400">Kabul etmezseniz araç kartı gösterilmez. KVKK aydınlatması ve varsa diğer izinler bu kabulden ayrıdır.</p>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
@@ -387,14 +444,14 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                 value={draft}
                 onChange={(event) => setDraft(event.target.value)}
                 onKeyDown={handleDraftKeyDown}
-                disabled={isFinalDiscriminatorRequired}
-                placeholder={isFinalDiscriminatorRequired ? "Devam etmek için yukarıdaki seçeneklerden birini seçin." : isTurkish ? "Bir şey anlatın, sorun veya önceki bilginizi düzeltin…" : "Tell me something, ask, or correct an earlier detail…"}
+                disabled={isFinalDiscriminatorRequired || isRecommendationOfferAwaitingTerms}
+                placeholder={isRecommendationOfferAwaitingTerms ? "Araç kartını görmek için yukarıdaki koşulları inceleyin." : isFinalDiscriminatorRequired ? "Devam etmek için yukarıdaki seçeneklerden birini seçin." : isTurkish ? "Bir şey anlatın, sorun veya önceki bilginizi düzeltin…" : "Tell me something, ask, or correct an earlier detail…"}
                 rows={2}
                 className="min-h-14 flex-1 resize-none rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-neutral-950 outline-none focus:border-neutral-900 disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:text-neutral-500 dark:border-neutral-600 dark:bg-neutral-950 dark:text-neutral-50 dark:focus:border-neutral-300 dark:disabled:bg-neutral-800 dark:disabled:text-neutral-400"
               />
               <button
                 type="submit"
-                disabled={isLoading || isFinalDiscriminatorRequired || !draft.trim()}
+                disabled={isLoading || isFinalDiscriminatorRequired || isRecommendationOfferAwaitingTerms || !draft.trim()}
                 className="rounded-2xl bg-neutral-950 px-6 py-3 font-semibold text-white! transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-300 disabled:text-neutral-500! dark:bg-neutral-800 dark:text-white! dark:hover:bg-neutral-700 dark:disabled:bg-neutral-700 dark:disabled:text-neutral-400!"
               >
                 {isTurkish ? "Gönder" : "Send"}

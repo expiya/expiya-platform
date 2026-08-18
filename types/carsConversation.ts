@@ -1,5 +1,6 @@
-import type { RecommendedCar } from "@/types/recommendation";
+import type { RecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
 import type { DecisionSafePublicCard } from "@/features/decision/v2/presentation/publicCardSchema";
+import type { RecommendedCar } from "@/types/recommendation";
 import type { VehiclePersonaTrait } from "@/types/vehiclePersona";
 import type { DecisionUse, InterpretationClass, RankingEffect, UsageContext } from "@/types/technicalDailyLife";
 
@@ -50,6 +51,7 @@ export interface CarsConversationMessage {
   readonly id: string;
   readonly role: "user" | "assistant";
   readonly content: string;
+  readonly recommendationTermsAcceptance?: RecommendationTermsAcceptance;
   readonly recommendations?: readonly RecommendedCar[];
   readonly v2Cards?: readonly DecisionSafePublicCard[];
   readonly v2Options?: readonly { readonly id: string; readonly label: string }[];
@@ -77,6 +79,7 @@ export interface PersistedCarsConversation {
 export interface CarsConversationRequest {
   readonly conversationId: string;
   readonly messages: readonly CarsConversationMessage[];
+  readonly recommendationTermsAcceptance?: RecommendationTermsAcceptance;
   readonly choiceId?: CarsFinalDiscriminatorChoiceId;
   readonly selectedOptionId?: string;
   readonly selectedOptionIds?: readonly string[];

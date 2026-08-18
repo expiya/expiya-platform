@@ -9,6 +9,12 @@ vi.mock("@/features/decision/conversation/planCarsConversationTurn", () => ({
 }));
 
 import { POST } from "./route";
+import { RECOMMENDATION_TERMS_VERSION } from "@/lib/legal/recommendationTerms";
+
+const recommendationTermsAcceptance = {
+  version: RECOMMENDATION_TERMS_VERSION,
+  acceptedAt: "2026-08-18T12:00:00.000Z",
+} as const;
 
 async function postConversation(conversationId: string, messages: unknown[], extra: Record<string, unknown> = {}, ip = "10.40.0.1") {
   return POST(new Request("http://localhost/api/cars/conversation", {
@@ -183,8 +189,8 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
       ...messages.slice(0, 2),
       { id: "4", role: "user", content: "Daha fazla bagaj alanı" },
       { id: "5", role: "assistant", content: selectedPayload.message },
-      { id: "6", role: "user", content: "evet" },
-    ], { conversation: selectedPayload.conversation }, "10.30.0.6");
+      { id: "6", role: "user", content: "evet", recommendationTermsAcceptance },
+    ], { conversation: selectedPayload.conversation, recommendationTermsAcceptance }, "10.30.0.6");
     expect(await accepted.json()).toMatchObject({
       kind: "RECOMMENDATIONS",
       decision: { conversationState: "DECISION_READY", selectedRuntimeVehicleCandidateId: "RVC-PILOT-0009" },
@@ -232,11 +238,26 @@ describe("POST /api/cars/conversation evidence-backed journey", () => {
     const offerPayload = await offer.json();
     expect(offerPayload.kind).toBe("QUESTION");
     expect(offerPayload.decision.selectedRuntimeVehicleCandidateId).toBeUndefined();
-    const accepted = await postConversation("http-consent", [
+    const rejected = await postConversation("http-consent", [
       { id: "1", role: "user", content: "En az 7 koltuk ve en az 300 litre bagaj istiyorum." },
       { id: "2", role: "assistant", content: offerPayload.message },
       { id: "3", role: "user", content: "evet" },
     ], { conversation: offerPayload.conversation }, "10.30.0.9");
+    expect(rejected.status).toBe(409);
+
+    const declined = await postConversation("http-consent", [
+      { id: "1", role: "user", content: "En az 7 koltuk ve en az 300 litre bagaj istiyorum." },
+      { id: "2", role: "assistant", content: offerPayload.message },
+      { id: "3-decline", role: "user", content: "Şimdilik gösterme." },
+    ], { conversation: offerPayload.conversation }, "10.30.0.91");
+    expect(declined.status).toBe(200);
+    expect(await declined.json()).toMatchObject({ kind: "QUESTION", conversation: { state: "COLLECTING_CONTEXT" } });
+
+    const accepted = await postConversation("http-consent", [
+      { id: "1", role: "user", content: "En az 7 koltuk ve en az 300 litre bagaj istiyorum." },
+      { id: "2", role: "assistant", content: offerPayload.message },
+      { id: "3", role: "user", content: "evet", recommendationTermsAcceptance },
+    ], { conversation: offerPayload.conversation, recommendationTermsAcceptance }, "10.30.0.10");
     const acceptedPayload = await accepted.json();
     expect(acceptedPayload.kind).toBe("RECOMMENDATIONS");
     expect(acceptedPayload.recommendations).toHaveLength(1);
