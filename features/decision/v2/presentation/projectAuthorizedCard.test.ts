@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { PersistedGovernedOffer } from "../offer/types";
-import { loadProductionCatalogSnapshotForTest } from "../catalog/productionSnapshotFixture.testSupport";
+import { loadHistoricalProductionCatalogSnapshotForTest, loadProductionCatalogSnapshotForTest } from "../catalog/productionSnapshotFixture.testSupport";
 import { AuthorizedCardProjectionError, projectAuthorizedPublicCards } from "./projectAuthorizedCard.server";
 import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
 
@@ -14,6 +14,12 @@ async function fixture() {
   return { snapshot: loaded.snapshot, publicVariant, internalVariant, ref, offer };
 }
 
+async function historicalSnapshot() {
+  const snapshot = await loadHistoricalProductionCatalogSnapshotForTest("0.55.1", "2026-08-16T19:33:14.000Z", new Date("2026-08-19T00:00:00.000Z"));
+  if (snapshot.status !== "READY") throw new Error("HISTORICAL_SNAPSHOT_UNAVAILABLE");
+  return snapshot.snapshot;
+}
+
 describe("decision-safe authorized card projection", () => {
   it("projects only catalog-owned public fields and verified public price", async () => {
     const f = await fixture();
@@ -23,6 +29,15 @@ describe("decision-safe authorized card projection", () => {
     expect(card!.verifiedPublicPrice?.amountTry).toBe(f.publicVariant.activeNewPrice?.amountTry);
   });
 
+  it("accepts a rights-approved media asset from a catalog-independent media release path", async () => {
+    const f = await fixture();
+    const variant = f.snapshot.variantById.get("29a16738-dd92-54cb-9e27-9e0ce8724a57");
+    expect(variant).toBeDefined(); if (!variant) return;
+    const offer = { ...f.offer, candidateRefs: [f.ref(variant, "APPROXIMATE_BUDGET_LANGUAGE_ONLY")] } as PersistedGovernedOffer;
+    const [card] = projectAuthorizedPublicCards({ offer, conversationId: "conversation", decisionFingerprint: "decision", snapshot: f.snapshot });
+    expect(card?.image).toMatch(/^https:\/\/wylflrzf7gws55yp\.public\.blob\.vercel-storage\.com\/cars\/v0\.55\.1\//u);
+  });
+
   it("fails closed for conversation, catalog, decision and unknown candidate mismatch", async () => {
     const f = await fixture();
     const call = (offer = f.offer, conversationId = "conversation", decisionFingerprint = "decision") => projectAuthorizedPublicCards({ offer, conversationId, decisionFingerprint, snapshot: f.snapshot });
@@ -30,6 +45,14 @@ describe("decision-safe authorized card projection", () => {
     expect(() => call({ ...f.offer, catalogFingerprint: "other" })).toThrow(/CATALOG_FINGERPRINT_MISMATCH/u);
     expect(() => call(f.offer, "conversation", "other")).toThrow(/DECISION_FINGERPRINT_MISMATCH/u);
     expect(() => call({ ...f.offer, candidateRefs: [{ ...f.offer.candidateRefs[0]!, exactVariantId: "outside" }] })).toThrow(/AUTHORIZED_VARIANT_NOT_IN_PINNED_SNAPSHOT/u);
+  });
+
+  it("projects a historical offer only from its explicitly pinned v0.55.1 snapshot", async () => {
+    const current = await fixture(); const snapshot = await historicalSnapshot(); const variant = snapshot.variants[0]!;
+    const family = snapshot.familyIndex.values().find((item) => item.variantIds.includes(variant.id))!;
+    const offer = { ...current.offer, catalogReleaseVersion: snapshot.authority.releaseVersion, catalogFingerprint: snapshot.authority.catalogFingerprint, candidateRefs: [{ ...current.offer.candidateRefs[0]!, exactVariantId: variant.id, modelFamilyId: family.familyId }] } as PersistedGovernedOffer;
+    expect(projectAuthorizedPublicCards({ offer, conversationId: "conversation", decisionFingerprint: "decision", snapshot }).map((card) => card.exactVariantId)).toEqual([variant.id]);
+    expect(() => projectAuthorizedPublicCards({ offer, conversationId: "conversation", decisionFingerprint: "decision", snapshot: current.snapshot })).toThrow(/CATALOG_FINGERPRINT_MISMATCH/u);
   });
 
   it("never discloses internal estimate", async () => {

@@ -10,7 +10,7 @@ export const decisionSafePublicCardSchema = z.strictObject({
   fuelLabel: z.string().trim().min(1).optional(),
   transmissionLabel: z.string().trim().min(1).optional(),
   bodyTypeLabel: z.string().trim().min(1).optional(),
-  image: z.string().refine((value) => value.startsWith("/") || /^https:\/\/wylflrzf7gws55yp\.public\.blob\.vercel-storage\.com\/cars\/v0\.55\.0\//u.test(value), "UNAPPROVED_IMAGE_SOURCE"),
+  image: z.string().refine((value) => value.startsWith("/") || /^https:\/\/wylflrzf7gws55yp\.public\.blob\.vercel-storage\.com\/cars\/v[^/]+\/.+/u.test(value), "UNAPPROVED_IMAGE_SOURCE"),
   imageStatus: z.enum(["EXACT", "REPRESENTATIVE", "APPROXIMATE", "PLACEHOLDER"]),
   imageAttribution: z.string().trim().min(1).optional(),
   representedModel: z.string().trim().min(1).optional(),

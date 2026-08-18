@@ -34,7 +34,8 @@ describe("relative price segmentation", () => {
   it("projects the real catalog without dropping internal estimates", async () => {
     const loaded = await loadProductionCatalogSnapshotForTest(new Date("2026-08-19T00:00:00.000Z")); expect(loaded.status).toBe("READY"); if (loaded.status !== "READY") return;
     const result = projectRelativePriceSegments({ snapshot: loaded.snapshot, evaluationTime: "2026-08-19T00:00:00.000Z", priceAuthorityPolicy: PRICE_AUTHORITY_POLICY_V1 });
-    expect(result.projections.filter((item) => item.sourceAuthority === "INTERNAL_ESTIMATE")).toHaveLength(394);
+    const expectedInternalEstimates = loaded.snapshot.variants.filter((variant) => variant.activeNewPrice?.priceType === "ESTIMATE" && variant.activeNewPrice.consumerVisibility === "INTERNAL_ONLY").length;
+    expect(result.projections.filter((item) => item.sourceAuthority === "INTERNAL_ESTIMATE")).toHaveLength(expectedInternalEstimates);
     expect(result.projections.every((item) => item.catalogFingerprint === loaded.snapshot.authority.catalogFingerprint)).toBe(true);
   });
 

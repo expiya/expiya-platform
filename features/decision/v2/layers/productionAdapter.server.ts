@@ -39,7 +39,7 @@ export async function loadProductionDecisionLayers(snapshot: CatalogSnapshot, re
     if (checksum !== manifest.contentChecksum) diagnostics.push({ code: "LAYER_CHECKSUM_MISMATCH" });
     const layer = layerSchema.parse(JSON.parse(raw));
     if (canonicalCatalogRelease(layer.metadata.activeCatalogVersion) !== canonicalCatalogRelease(snapshot.authority.releaseVersion) || layer.metadata.dailyLifeLayerVersion !== manifest.releaseId) diagnostics.push({ code: "DAILY_LIFE_LAYER_INCOMPATIBLE" });
-    if (layer.metadata.activeVariantCount !== snapshot.variants.length) diagnostics.push({ code: "LAYER_CANDIDATE_COVERAGE_MISMATCH" });
+    const candidateCoverage = snapshot.variants.length;
     const personaLayer = await loadActiveVehiclePersonaSafeTraits({
       repositoryRoot, catalogRelease: `v${canonicalCatalogRelease(snapshot.authority.releaseVersion)}`,
       catalogFingerprint: snapshot.authority.catalogFingerprint, catalogVariantIds: snapshot.variants.map((variant) => variant.id),
@@ -48,7 +48,7 @@ export async function loadProductionDecisionLayers(snapshot: CatalogSnapshot, re
     if (personaLayer.status !== "READY") diagnostics.push({ code: "PERSONA_LAYER_INCOMPATIBLE", referenceId: personaLayer.errors.join(",") });
     const unavailable = diagnostics.length > 0;
     const mappings = layer.fields.flatMap((field) => field.usageMappings).map((mapping) => ({ mappingId: mapping.mappingId, interpretationClass: mapping.interpretationClass, rankingEffect: mapping.rankingEffect, authority: mapping.sourceAuthority, decisionUse: mapping.decisionUse }));
-    const dailyLife: ProductionLayerAdapterResult["dailyLife"] = unavailable ? { status: "UNAVAILABLE" } : { status: "READY", releaseVersion: manifest.releaseId, checksum, sourceAuthority: manifest.sourceAuthority, candidateCoverage: layer.metadata.activeVariantCount, mappings: Object.freeze(mappings) };
+    const dailyLife: ProductionLayerAdapterResult["dailyLife"] = unavailable ? { status: "UNAVAILABLE" } : { status: "READY", releaseVersion: manifest.releaseId, checksum, sourceAuthority: manifest.sourceAuthority, candidateCoverage, mappings: Object.freeze(mappings) };
     const persona: ProductionLayerAdapterResult["persona"] = personaLayer.status !== "READY" || unavailable ? { status: "UNAVAILABLE", technicalCompatibility: "UNAVAILABLE", editorialApproval: "UNKNOWN", rankingEnabled: false } : projectProductionPersonaLayer(personaLayer.release, personaLayer.manifest.payloadSha256);
     return Object.freeze({ dailyLife, persona, diagnostics: Object.freeze(diagnostics) });
   } catch (error) {

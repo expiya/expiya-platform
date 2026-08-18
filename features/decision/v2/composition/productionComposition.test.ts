@@ -3,12 +3,14 @@ import { createHmacOfferSigner } from "../offer/signer.server";
 import { InMemoryGovernedOfferStore } from "../offer/store";
 import { InMemoryV2ConversationStore } from "../orchestrator/store";
 import { runCarsDecisionTurnV2 } from "../orchestrator/runCarsDecisionTurnV2";
+import { loadProductionCatalogSnapshotForTest } from "../catalog/productionSnapshotFixture.testSupport";
 import type { InterpretationResult, StructuredInterpretationModel } from "../interpretation/types";
 import type { NaturalRealizationModel } from "../realization/types";
 import { createCarsDecisionV2ProductionComposition } from "./production.server";
 const result = (messageId: string, acts: InterpretationResult["acts"], extra: Partial<InterpretationResult> = {}): InterpretationResult => ({ schemaVersion: 1, messageId, acts, directAnswerRequests: [], constraintMutations: [], budgetMutations: [], modelReferences: [], personaMutations: [], corrections: [], ambiguities: [], ...extra });
 const model = (results: Record<string, InterpretationResult>): StructuredInterpretationModel => ({ interpret: async (request) => results[request.messageId] });
 const realizer: NaturalRealizationModel = { realize: async (request) => ({ message: request.action.type === "SOCIAL_REPLY" ? "Merhaba, araç seçimini birlikte netleştirebiliriz." : request.action.type === "REQUEST_REVEAL_CONSENT" ? "İhtiyaçlarına göre bir seçki hazırladım. Görmek ister misin?" : "Değerlendirmeyi güvenli biçimde tamamladım.", usedExplanationFactIds: [], mentionedCandidateIds: [], ...(request.materialQuestion ? { renderedQuestionId: request.materialQuestion.id } : {}) }) };
+async function activeVariantCount() { const loaded = await loadProductionCatalogSnapshotForTest(new Date("2026-08-19T00:00:00.000Z")); if (loaded.status !== "READY") throw new Error("ACTIVE_CATALOG_NOT_READY"); return loaded.snapshot.variants.length; }
 async function discoverAndOffer(conversationId: string, composition: ReturnType<typeof createCarsDecisionV2ProductionComposition>) {
   const turns = [
     ["recommendation", "Nasıl bir araba almalıyım karar veremiyorum."],
@@ -196,7 +198,7 @@ describe("production V2 composition with real WP pipeline", () => {
     expect(references).toHaveLength(2); expect(references.every((event) => event.decisionEffect === "COMPARISON_SCOPE")).toBe(true);
     expect(output.offer).toBeUndefined(); expect(output.message).not.toMatch(/değerlendirmeyi tamamladım/iu);
     const decision = traces.find((trace) => trace.phase === "DECISION")!; expect(decision).toMatchObject({ recommendationReadiness: "DIRECT_MODEL_SCOPE", action: "ANSWER_DIRECTLY", directAnswerRequired: true });
-    expect((decision.modelScope as string[]).length).toBeGreaterThan(0); expect((decision.technicalBuckets as { eligible: number }).eligible).toBeLessThan(577);
+    expect((decision.modelScope as string[]).length).toBeGreaterThan(0); expect((decision.technicalBuckets as { eligible: number }).eligible).toBeLessThan(await activeVariantCount());
   });
   it("persists an identity-free offer and reveals only its exact authorized cards after consent", async () => {
     const store = new InMemoryV2ConversationStore();
@@ -247,7 +249,7 @@ describe("production V2 composition with real WP pipeline", () => {
     const firstDecision = traces.find((trace) => trace.phase === "DECISION")!; expect(firstDecision.unansweredDecisionFields).toEqual([]); expect(firstDecision).toMatchObject({ recommendationReadiness: "READY_FOR_OFFER", action: "REQUEST_REVEAL_CONSENT", offerCreated: true, materialQuestionCount: 0 }); expect(prepared.cards).toEqual([]); expect(prepared.offer?.token).toBeTruthy();
     const before = (await store.load("natural-consent-fixture"))!.memory!; const decisionFingerprint = before.decisionFingerprint; expect(before.currentOffer?.lifecycleState).toBe("CREATED");
     const revealed = await runCarsDecisionTurnV2({ conversationId: "natural-consent-fixture", messageId: "share", idempotencyKey: "share", expectedConversationRevision: 1, userMessage: "Paylaş", offerToken: prepared.offer!.token, requestTime: "2026-08-19T00:01:00.000Z" }, composition);
-    const after = (await store.load("natural-consent-fixture"))!.memory!; expect(providerCalls).toBe(1); expect(after.decisionFingerprint).toBe(decisionFingerprint); expect(after.currentOffer?.lifecycleState).toBe("REVEALED"); expect(revealed.state).toBe("REVEALED"); expect(revealed.offer).toBeUndefined(); expect(revealed.cards.length).toBeGreaterThanOrEqual(1); expect(revealed.cards.length).toBeLessThanOrEqual(3); expect(revealed.cards.map((card) => card.bodyTypeLabel)).toEqual(revealed.cards.map(() => "Hatchback")); expect(revealed.cards.every((card) => ["Manuel", "Otomatik", "Çift kavramalı otomatik", "Tek oranlı otomatik"].includes(card.transmissionLabel ?? ""))).toBe(true); expect(traces).toContainEqual(expect.objectContaining({ phase: "OFFER_RESPONSE", interpretationSource: "DETERMINISTIC_OFFER_RESPONSE", providerCalled: false, offerResponse: "ACCEPT" }));
+    const after = (await store.load("natural-consent-fixture"))!.memory!; const persistedOffer = await offerStore.get(prepared.offer!.offerId); expect(providerCalls).toBe(1); expect(after.decisionFingerprint).toBe(decisionFingerprint); expect(after.currentOffer?.lifecycleState).toBe("REVEALED"); expect(revealed.state).toBe("REVEALED"); expect(revealed.offer).toBeUndefined(); expect(revealed.cards.length).toBeGreaterThanOrEqual(1); expect(revealed.cards.length).toBeLessThanOrEqual(3); expect(revealed.cards.map((card) => card.exactVariantId)).toEqual(persistedOffer?.candidateRefs.map((ref) => ref.exactVariantId)); expect(new Set(persistedOffer?.candidateRefs.map((ref) => ref.modelFamilyId)).size).toBe(persistedOffer?.candidateRefs.length); expect(revealed.cards.map((card) => card.bodyTypeLabel)).toEqual(revealed.cards.map(() => "Hatchback")); expect(revealed.cards.every((card) => ["Manuel", "Otomatik", "Çift kavramalı otomatik", "Tek oranlı otomatik"].includes(card.transmissionLabel ?? ""))).toBe(true); expect(traces).toContainEqual(expect.objectContaining({ phase: "OFFER_RESPONSE", interpretationSource: "DETERMINISTIC_OFFER_RESPONSE", providerCalled: false, offerResponse: "ACCEPT" }));
   });
   it("creates a governed offer for a complete first-car request with a hard budget", async () => {
     const store = new InMemoryV2ConversationStore(); const offerStore = new InMemoryGovernedOfferStore();
@@ -266,7 +268,7 @@ describe("production V2 composition with real WP pipeline", () => {
     const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ cargo: result("cargo", ["USAGE_STATEMENT"]) }), realizer, shadow: true, smokeObserver: (trace) => traces.push(trace) });
     await runCarsDecisionTurnV2({ conversationId: "cargo-semantic", messageId: "cargo", idempotencyKey: "cargo", expectedConversationRevision: 0, userMessage: "Şehir içi dağıtım için kapalı yük alanı istiyorum, arka koltuklara gerek yok.", requestTime: "2026-08-19T00:00:00.000Z" }, composition);
     const decision = traces.find((trace) => trace.phase === "DECISION")!; const buckets = decision.technicalBuckets as { eligible: number; eliminated: number };
-    expect(buckets.eligible).toBeLessThan(577); expect(buckets.eliminated).toBeGreaterThan(0);
+    expect(buckets.eligible).toBeLessThan(await activeVariantCount()); expect(buckets.eliminated).toBeGreaterThan(0);
     const constraints = (await store.load("cargo-semantic"))!.memory!.events.filter((event) => event.eventType === "CONSTRAINT");
     expect(constraints).toEqual(expect.arrayContaining([expect.objectContaining({ field: "usageArchitecture", decisionEffect: "HARD_FILTER" }), expect.objectContaining({ field: "rearSeatPreference", decisionEffect: "STRONG_RANK" })]));
   });
@@ -286,7 +288,7 @@ describe("production V2 composition with real WP pipeline", () => {
     await runCarsDecisionTurnV2({ conversationId: "body-correction", messageId: "correction", idempotencyKey: "correction", expectedConversationRevision: 2, userMessage: "Pickup demedim, sedan dedim", requestTime: "2026-08-19T00:02:00.000Z" }, composition);
     const events = (await store.load("body-correction"))!.memory!.events.filter((event) => event.eventType === "CONSTRAINT" && event.field === "bodyStyle");
     expect(events).toHaveLength(3); expect(events[1]).toMatchObject({ supersedesId: events[0]!.id }); expect(events[2]).toMatchObject({ supersedesId: events[1]!.id, normalizedValue: { operator: "EQUALS", value: "Sedan" } });
-    const finalDecision = traces.filter((trace) => trace.phase === "DECISION").at(-1)!; expect((finalDecision.technicalBuckets as { eligible: number }).eligible).toBeLessThan(577);
+    const finalDecision = traces.filter((trace) => trace.phase === "DECISION").at(-1)!; expect((finalDecision.technicalBuckets as { eligible: number }).eligible).toBeLessThan(await activeVariantCount());
   });
   it("binds model lookup to the generated catalog index", async () => {
     const traces: Readonly<Record<string, unknown>>[] = []; const store = new InMemoryV2ConversationStore();
@@ -300,7 +302,7 @@ describe("production V2 composition with real WP pipeline", () => {
     const traces: Readonly<Record<string, unknown>>[] = []; const store = new InMemoryV2ConversationStore(); const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ persona: result("persona", []), clear: result("clear", []) }), realizer, shadow: true, smokeObserver: (trace) => traces.push(trace) });
     await runCarsDecisionTurnV2({ conversationId: "persona-semantic", messageId: "persona", idempotencyKey: "persona", expectedConversationRevision: 0, userMessage: "Premium ve şık olsun", requestTime: "2026-08-19T00:00:00.000Z" }, composition);
     await runCarsDecisionTurnV2({ conversationId: "persona-semantic", messageId: "clear", idempotencyKey: "clear", expectedConversationRevision: 1, userMessage: "Fark etmez", requestTime: "2026-08-19T00:01:00.000Z" }, composition);
-    const decisions = traces.filter((trace) => trace.phase === "DECISION"); expect(decisions[0]?.persona).toMatchObject({ activated: true, requestedTraits: ["DESIGN", "PRESTIGE"] }); expect((decisions[0]?.technicalBuckets as { eligible: number }).eligible).toBe(577); expect(decisions[1]?.persona).toMatchObject({ activated: false, affectedRanking: false });
+    const decisions = traces.filter((trace) => trace.phase === "DECISION"); expect(decisions[0]?.persona).toMatchObject({ activated: true, requestedTraits: ["DESIGN", "PRESTIGE"] }); expect((decisions[0]?.technicalBuckets as { eligible: number }).eligible).toBe(await activeVariantCount()); expect(decisions[1]?.persona).toMatchObject({ activated: false, affectedRanking: false });
   });
   it("keeps available cash flexible and applies only an explicit hard ceiling", async () => {
     const store = new InMemoryV2ConversationStore(); const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ cash: result("cash", []), ceiling: result("ceiling", []) }), realizer, shadow: true });
