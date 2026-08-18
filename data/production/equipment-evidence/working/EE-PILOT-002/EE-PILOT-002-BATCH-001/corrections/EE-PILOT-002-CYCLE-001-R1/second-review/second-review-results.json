@@ -1,0 +1,28 @@
+{
+  "pilotId": "EE-PILOT-002",
+  "batchId": "EE-PILOT-002-BATCH-001",
+  "correctionCycleId": "EE-PILOT-002-CYCLE-001-R1",
+  "result": "REQUIRES_COLLECTION_CORRECTION",
+  "actorRole": "EQUIPMENT_REVIEWER_SECONDARY",
+  "actorInstanceId": "ACTOR-REVIEWER-CODEX-EQUIPMENT-001",
+  "reviewedAt": "2026-08-18T19:40:00.000Z",
+  "subjects": {
+    "total": 25,
+    "passed": 0,
+    "conflictReviewRequired": 25,
+    "assertions": {
+      "total": 24,
+      "passed": 0,
+      "conflictReviewRequired": 24
+    },
+    "trimLinks": {
+      "total": 1,
+      "passed": 0,
+      "conflictReviewRequired": 1
+    }
+  },
+  "rootCause": "Derived artifact violates the extraction contract by keying and duplicating source phrases by interpreted feature codes.",
+  "verificationPromotionAllowed": false,
+  "ownerApprovalCreated": false,
+  "activeEquipmentPointerChanged": false
+}

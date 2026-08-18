@@ -1,0 +1,27 @@
+{
+  "pilotId": "EE-PILOT-002",
+  "batchId": "EE-PILOT-002-BATCH-001",
+  "correctionCycleId": "EE-PILOT-002-CYCLE-001-R2",
+  "result": "ACCEPTED_PROVISIONAL_EVIDENCE",
+  "actorRole": "EQUIPMENT_REVIEWER_SECONDARY",
+  "actorInstanceId": "ACTOR-REVIEWER-CODEX-EQUIPMENT-001",
+  "reviewedAt": "2026-08-18T20:20:00.000Z",
+  "subjects": {
+    "total": 25,
+    "passed": 25,
+    "conflictReviewRequired": 0,
+    "assertions": {
+      "total": 24,
+      "passed": 24,
+      "conflicts": 0
+    },
+    "trimLinks": {
+      "total": 1,
+      "passed": 1,
+      "conflicts": 0
+    }
+  },
+  "verificationPromotionAllowedByThisReview": false,
+  "ownerApprovalCreated": false,
+  "activeEquipmentPointerChanged": false
+}

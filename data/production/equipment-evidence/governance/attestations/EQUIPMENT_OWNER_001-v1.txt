@@ -1,0 +1,9 @@
+Expiya Cars Equipment Evidence katmanı için kendimi doğrulanmış
+EQUIPMENT_OWNER_APPROVER olarak yetkilendiriyorum. Owner actor kimliğim
+repository içinde kişisel veri içermeyen sabit bir ID ile temsil edilebilir.
+Yetkim; bağımsız incelemeden geçmiş evidence kayıtlarını onaylama, reddetme
+ve ayrı append-only event ile onayı geri alma kapsamındadır. Bu yetki ham
+kanıtı değiştirme, bağımsız incelemeyi atlama veya conflict kayıtlarını
+production’a taşıma hakkı vermez. EE-PILOT-002-BATCH-001 kapsamındaki
+47 assertion ve 2 trim link için hazırlanan promotion paketini inceleme
+ve onaylama yetkisini kabul ediyorum.

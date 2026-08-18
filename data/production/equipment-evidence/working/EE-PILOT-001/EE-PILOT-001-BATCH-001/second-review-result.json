@@ -1,0 +1,34 @@
+{
+  "reviewResultId": "EE-REVIEW-RESULT-675DFC4C36E4DDAD6948",
+  "pilotId": "EE-PILOT-001",
+  "researchCycleId": "EE-PILOT-001-CYCLE-001",
+  "batchId": "EE-PILOT-001-BATCH-001",
+  "resultCode": "ACCEPTED_INCONCLUSIVE",
+  "reviewEventId": "EE-REV-51AE4BB32BE61AAA22D1",
+  "actorRole": "EQUIPMENT_REVIEWER_SECONDARY",
+  "actorInstanceId": "ACTOR-REVIEWER-CODEX-EQUIPMENT-001",
+  "reviewedAt": "2026-08-18T18:00:00.000Z",
+  "catalogRelease": "v0.55.1",
+  "catalogFingerprint": "sha256:96f318680dd788c9df0827cbe3ce5635a36a5f1b354ab8fc7e6654bfa3ddc07e",
+  "summary": {
+    "snapshotProvenance": "PASSED",
+    "ledgerCompleteness": "PASSED_102_OF_102_INCONCLUSIVE",
+    "unauthorizedInference": "NONE_FOUND",
+    "assertionCount": 0,
+    "trimLinkCount": 0,
+    "packageLinkCount": 0,
+    "authoritativeProjectionCount": 0,
+    "negativeAssertionCount": 0
+  },
+  "sourceRegistryDecision": {
+    "state": "RETAINED_IN_WORKING_EXTENSION",
+    "immutableArtifactsChecksumValid": true,
+    "canonicalPromotionBlocker": "CANONICAL_SOURCE_REGISTRY_PROMOTION_GOVERNANCE_NOT_EXPLICIT"
+  },
+  "releaseEffects": {
+    "equipmentProductionAssertionReleaseCreated": false,
+    "activeEquipmentPointerChanged": false,
+    "ownerApprovalCreated": false,
+    "decisionBehaviorChanged": false
+  }
+}

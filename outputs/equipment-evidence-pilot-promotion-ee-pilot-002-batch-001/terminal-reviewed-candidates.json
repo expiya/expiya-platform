@@ -1,0 +1,452 @@
+{
+  "assertions": [
+    {
+      "assertionId": "EE-AST-034730180C860C204F96",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "inputFingerprint": "sha256:c471c719b1e420228129b2a214e583bdf75f75dd317556d1058270603841a869",
+      "passedSecondReviewEventId": "EE-REV-4F967093BB7AA1D94B46",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-04ED0E676B0142D4A589",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "inputFingerprint": "sha256:59950d141b246a8fb4fb9b1175d97d15e5e00b5496d16f4aba410dfce9e760bd",
+      "passedSecondReviewEventId": "EE-REV-3EADA5743CBC228BDE08",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-0ABF17B39B2BBEC3ACD0",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "inputFingerprint": "sha256:15e7eec92988b2f9c9a28df38eb39089b54052d7036f30201fa29f59b51db384",
+      "passedSecondReviewEventId": "EE-REV-04BBED83D9BAA5D7BB35",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-0DEE97ECB96F650839F5",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "POWER_TAILGATE",
+      "inputFingerprint": "sha256:ca50485204b92682e068f4b485e12f2becd99fd9f5afb397158ae87ccedb72ce",
+      "passedSecondReviewEventId": "EE-REV-BEBB7A8E0A0C87E3790B",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-0E9EBFF28AF2423C0AED",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "inputFingerprint": "sha256:3372b9f251f5f2fd7ff2a2a2cc588338d4f2d96be13c5697c525503572d056e4",
+      "passedSecondReviewEventId": "EE-REV-DE9E6F14A934FD9A8ED5",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-154524C5B5EDF0552617",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "KEYLESS_START",
+      "inputFingerprint": "sha256:077b5ad285ad7714b0e91ab82d07d048ac7819b00c672e7700c2713d82ad97e3",
+      "passedSecondReviewEventId": "EE-REV-EAD9AFE03D721F42A4CC",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-1735B424F1212565736E",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "inputFingerprint": "sha256:f2a82eb4a1336d39f31951f3fc431ebad364eed6cb81382ca65bdc6d29ff89ce",
+      "passedSecondReviewEventId": "EE-REV-2CC45E4ACFCB418FF7BD",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-1C1552F557E8063B19D5",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "inputFingerprint": "sha256:1ff77fde6307e16319a11eb685843179e1e3a2c08fb98a9e201b30d10587499f",
+      "passedSecondReviewEventId": "EE-REV-77685258E04AED22821B",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-1F334BB60951736BA9AF",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "inputFingerprint": "sha256:dedab5c9da77439cc4c997f502f0143c4e6d34367fd24403a2eaf6b5800a3ae2",
+      "passedSecondReviewEventId": "EE-REV-BDE0D5552A97ED2094E1",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-244D0374F67E52E67C6D",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "inputFingerprint": "sha256:cdfccde39640a62a09cd59ef451d15e1e9f64a40e8d115a784474868d2a2aa80",
+      "passedSecondReviewEventId": "EE-REV-9E1376F67948000AE15F",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-2D039C3D477C4020D50A",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "inputFingerprint": "sha256:7453f050607c147aa72a8bf67c38d682e0a19d22654d41f9495ea73306f71219",
+      "passedSecondReviewEventId": "EE-REV-DD6E993186332F4598CB",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-2FBBFD07C7911CBB8C77",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "KEYLESS_START",
+      "inputFingerprint": "sha256:b23f3d134b34c347786175d9b411d9f64f4305a2d0e9be59e5528dfe77523502",
+      "passedSecondReviewEventId": "EE-REV-8382BDD70187AFEF0E14",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-3193AD79B5E7E9A91549",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "inputFingerprint": "sha256:c0130d483730ec2d0bb27d0e751de3e2afe0b20f38759c305c01d88c392fefeb",
+      "passedSecondReviewEventId": "EE-REV-FB988DD11CA853730282",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-381372FF18EB364AB201",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "inputFingerprint": "sha256:54ea77f2cffe3dec6915ec4eabafe8497e4f0b5462aff4cf506eaf1a177a3820",
+      "passedSecondReviewEventId": "EE-REV-EAD81AB924C8307B5CAB",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-3F1F118A0351911BEE7F",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "REAR_VIEW_CAMERA",
+      "inputFingerprint": "sha256:83c2deef1490b81a23e46741119161450a2fc4ba76670c0229ef1c9019078b8d",
+      "passedSecondReviewEventId": "EE-REV-CC21C4B3AF86BE1D9312",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-42B47643216F0E93D683",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "inputFingerprint": "sha256:f898f2ebbc391c0bee6231029756b21671416cd8176aafeff8f721de8db33422",
+      "passedSecondReviewEventId": "EE-REV-7A99B1C103539837CADB",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-44446264F030CD2E03E3",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "inputFingerprint": "sha256:7c9ce437add5b1ca86e58296d733c0b8cadbf18a7bdef12db7749cc2bc26155b",
+      "passedSecondReviewEventId": "EE-REV-79C8347F9532A9E061C1",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-449423B2C6F32B7D6DAE",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "inputFingerprint": "sha256:0f2119848764079104ad68d570c5a486e38dfee19aa6b245c8646a988fe02521",
+      "passedSecondReviewEventId": "EE-REV-8B3BFE9AB038C8FECF16",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-44CD7D17D85714AE7CA3",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "APPLE_CARPLAY",
+      "inputFingerprint": "sha256:49088f7ad282471f9adc2a822957177fbe29776cbdc36cd76feb4f3cf6d5a986",
+      "passedSecondReviewEventId": "EE-REV-B37463EAB0190BE65532",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-47C7D620A0B85477C706",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "inputFingerprint": "sha256:f92871227bd6e595084d32eba87577154c6687e505b19628783fc0abd5fe8d56",
+      "passedSecondReviewEventId": "EE-REV-7F9AE88BC3CAE2AD0626",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-52A78E97B4ACAE656D24",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "inputFingerprint": "sha256:365af6bb91a9c627280c06d05407359b30a073496dc9cf7456f6a1ede125e2b4",
+      "passedSecondReviewEventId": "EE-REV-D5C1566B91E47B7E90BD",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-56D23BE0A5AE1759B755",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "inputFingerprint": "sha256:a4724a6ba17360a1d6ca9c789a16ce1395e245604848a94c019d5ccb38698680",
+      "passedSecondReviewEventId": "EE-REV-F0E5F133FE3C9C55EDD1",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-704EAC1D105F97F98251",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "inputFingerprint": "sha256:3665eb5708aecc99b7d96b843b0b2c333f73aa2503c33cbf42b8997f01565587",
+      "passedSecondReviewEventId": "EE-REV-FB0CBD97B71004FAFDA7",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-709D2FBAAC718CA608EC",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "LED_HEADLIGHTS",
+      "inputFingerprint": "sha256:dad2389f232c91765f9aa4512a7cbd91943144691d51d0c302a60d33507c6edf",
+      "passedSecondReviewEventId": "EE-REV-43F1E2B0918268D5D8A7",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-70C3CFAA2870AE8366C7",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "inputFingerprint": "sha256:0f9c7bd0a32cc51b8b9d1d5635b63dce74e7c9ece713bd00505dff5b9cd9e406",
+      "passedSecondReviewEventId": "EE-REV-82DBD039B080BA452B63",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-82900661C3963C45D4C0",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "inputFingerprint": "sha256:34e087edf42d4ffcc84c71e39081cc13ea3d485eda23bf8f4527e8b95cb4a4fd",
+      "passedSecondReviewEventId": "EE-REV-AB75023BAB9DBA9DBD42",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-90813256BE93B927EE81",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "inputFingerprint": "sha256:d10f5238ff9c3f011fdfa17375a20c9ad577973731fc0e6aefa06438ae014e38",
+      "passedSecondReviewEventId": "EE-REV-1B5A207DFBC8A5DEBA94",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-942CFD62517A14AC68BF",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "inputFingerprint": "sha256:8b705a655500acea1c48ff4ab82382168dce5e19b45de9c10558d440d48c751a",
+      "passedSecondReviewEventId": "EE-REV-364180B3CBC0B5B0808D",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-950B4DC7D873E1580C1D",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "inputFingerprint": "sha256:6521f2e6bba7bd464f0c3ed26c72ab4070de9bffda44458dcff818b5591f780f",
+      "passedSecondReviewEventId": "EE-REV-9BB4954FBA412E98BF38",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-A2EEE0A5BCC87E6B4651",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "ANDROID_AUTO",
+      "inputFingerprint": "sha256:d1cf670dcdbce9904f14ecb531d3940ec0e7ff979e745440694d591e7bdd2c33",
+      "passedSecondReviewEventId": "EE-REV-46258234D3C6DC58D01A",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-A5B6250E1F6F0650E0B2",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "inputFingerprint": "sha256:2286e0ebc5f8752a97fd613a6c2317354c111a4928bf8b91a6f21c7f81623f2c",
+      "passedSecondReviewEventId": "EE-REV-AF23023F5CDA4AD4BC22",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-AA9FF910AA905E4FF124",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "ANDROID_AUTO",
+      "inputFingerprint": "sha256:4aa7ba1a7c09f0228ffd138bd2b4d5f94ea1b5a0568afacd6f60a5a0365d8335",
+      "passedSecondReviewEventId": "EE-REV-D03D10EBD47762EC898E",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-B1CBA8D47AD6BFFA7AB4",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "inputFingerprint": "sha256:c4c31e12203936681b6749135e4211905a18a44e325dbb108985e3d5aebd4d7c",
+      "passedSecondReviewEventId": "EE-REV-5983E495D306B543947D",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-B35FF7AFFC8EC9D6B1D1",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "inputFingerprint": "sha256:1a63abf36f30b733c21d5f8d6dca4d2e0c22ac356460e6b3e31e5d7b6a72bbb7",
+      "passedSecondReviewEventId": "EE-REV-19F61890CED275095E50",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-B811A316A3E82FA1FF03",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "POWER_TAILGATE",
+      "inputFingerprint": "sha256:3e638c4ef29a6f6bd98cd09777c8dd49f3a8cc10714908dc996f9a26a09f8d5f",
+      "passedSecondReviewEventId": "EE-REV-FC7D825C8B559A2DDC67",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-B8B9BA952A3C66A3934E",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "inputFingerprint": "sha256:5782cfe80147233e58dafcefcc4b2fea73254b9231a3d7bdf1729349c62effc2",
+      "passedSecondReviewEventId": "EE-REV-987155C935D265C7E96A",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-C1F5B8E4D44666FE6456",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "APPLE_CARPLAY",
+      "inputFingerprint": "sha256:31b2d9dff707ec6b46cdede68d323b1368e7645d1355cfcaaaaf1ff376293892",
+      "passedSecondReviewEventId": "EE-REV-AF1883753B73A239C657",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-C53C6BC947B4AC9873D1",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "KEYLESS_ENTRY",
+      "inputFingerprint": "sha256:a80af46bf3204c699769332b2bf4be218b7a20ee7df860bf9fdd2334c2c39ef4",
+      "passedSecondReviewEventId": "EE-REV-BA622751FE020ED5DB4B",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-CA2FC39334B2699936E1",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "inputFingerprint": "sha256:e325cccfdb09f12f0fdeb667db7cccdfac02b23a99aeaa880e52c7bca8cdcd75",
+      "passedSecondReviewEventId": "EE-REV-95E7F1CE78BCB5A90A8B",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-CA64FD7A2377A633D88F",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "LED_HEADLIGHTS",
+      "inputFingerprint": "sha256:751e2f4a7df382384cd7c011ba496193f9e226ec99e281a4fd2d388429ff0d38",
+      "passedSecondReviewEventId": "EE-REV-3230A9BFCCF523C4639A",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-DD99C3C26BD25AFD0D13",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "REAR_VIEW_CAMERA",
+      "inputFingerprint": "sha256:3589f08fe66fe26375c6bd4172de80ef02ca3e00635c38f57bc799b0ef1dc4c0",
+      "passedSecondReviewEventId": "EE-REV-796F37FC7BDF1BF8F00D",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-DFE40020077E2E60A348",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "KEYLESS_ENTRY",
+      "inputFingerprint": "sha256:4bf2edd58cc7eebf38aeec093ea41fb3d3214ba9b8e26a7f099d723215a27a4e",
+      "passedSecondReviewEventId": "EE-REV-791DDC0A2E168105C24F",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-E0E993541FEE99922C14",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "inputFingerprint": "sha256:2cc2bf25a5528d5b9c0582b878db022d2851102a39b083f1571cb85225ebd7b6",
+      "passedSecondReviewEventId": "EE-REV-678D5C5134C7C0EB6CB6",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-E527406AFD35F5E60453",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "inputFingerprint": "sha256:9a6d7cc3e2ff2b0ec11acf3c3d6e119e16cc14b6040fd27b64f626dc209424fb",
+      "passedSecondReviewEventId": "EE-REV-F5122449D277EC06DB71",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-F613E55AFEA8C1820028",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "inputFingerprint": "sha256:b6aea5afd9cc94f33aa344ac8d3209eba12d796bda9baf46e2ba46b1a49c0a3b",
+      "passedSecondReviewEventId": "EE-REV-B31B12F0A36E33A2D414",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-F7547C7FD7F7669DD139",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "inputFingerprint": "sha256:03b825a4c8a8e38989a2ee34681b958055a2a7b60a14485a4f0a1418c3281475",
+      "passedSecondReviewEventId": "EE-REV-61D9D4840207DBE09AA1",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "assertionId": "EE-AST-FCF8164AEB1D13730CCB",
+      "availabilityStatus": "STANDARD",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "inputFingerprint": "sha256:dc25fa46ce0083c51cac54553afa9e588c367a467966f09cd66b785621c37e18",
+      "passedSecondReviewEventId": "EE-REV-A15904CAAC032A071FF1",
+      "verificationState": "PROVISIONAL"
+    }
+  ],
+  "batchId": "EE-PILOT-002-BATCH-001",
+  "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+  "catalogRelease": "v0.55.2",
+  "generatedAt": "2026-08-18T20:45:00.000Z",
+  "pilotId": "EE-PILOT-002",
+  "schemaVersion": "1.0.0",
+  "status": "OWNER_APPROVAL_REQUIRED",
+  "trimLinks": [
+    {
+      "canonicalTrimId": "trim-b8f7e8610d9c7a84dd42",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "inputFingerprint": "sha256:48713b9b0b2546c25f21d226002adce39fcd02a1a09fa1ee1a311da6cbfa451c",
+      "passedSecondReviewEventId": "EE-REV-288ABD18DD97D2365348",
+      "trimLinkId": "EE-LINK-TRIM-A147711D8B91E6CE0E60",
+      "verificationState": "PROVISIONAL"
+    },
+    {
+      "canonicalTrimId": "trim-b3eab361cc661ef87b65",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "inputFingerprint": "sha256:3803c3e73daf77dcc6607d43bc40fe06eb5762755729cc7fd080d49ea9a5da1a",
+      "passedSecondReviewEventId": "EE-REV-43756AA4B95BB2D08F15",
+      "trimLinkId": "EE-LINK-TRIM-ABA4EC2DC97B99DA1C0D",
+      "verificationState": "PROVISIONAL"
+    }
+  ]
+}

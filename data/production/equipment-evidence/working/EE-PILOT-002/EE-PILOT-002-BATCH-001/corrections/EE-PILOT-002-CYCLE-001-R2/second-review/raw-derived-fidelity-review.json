@@ -1,0 +1,107 @@
+{
+  "rawChecksum": {
+    "expected": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+    "actual": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+    "result": "PASSED"
+  },
+  "derivedChecksum": {
+    "expected": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+    "actual": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+    "result": "PASSED"
+  },
+  "rows": [
+    {
+      "sourceRowId": "EE-SROW-2A8BAE2A4C5E8885934E",
+      "occurrenceCount": 3,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-30E29139CA73E394CA26",
+      "occurrenceCount": 2,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-9A4A80BFA251D6CB65DD",
+      "occurrenceCount": 3,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-E6262CDA84B3E07C21A8",
+      "occurrenceCount": 3,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-3F233F6850C0332F22B1",
+      "occurrenceCount": 1,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-B3F092110D4DB1EEC3C5",
+      "occurrenceCount": 2,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-D0CF9D0F64317FFCE76F",
+      "occurrenceCount": 3,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-C9998B66B54FC6480284",
+      "occurrenceCount": 3,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-BA537F1A2E8442EFE1C0",
+      "occurrenceCount": 2,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-C71D2F24CB17593A87B5",
+      "occurrenceCount": 2,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-D0C0C23C879B52F61556",
+      "occurrenceCount": 2,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-9D142C333A5A6FFA32FB",
+      "occurrenceCount": 2,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-57551FC48D19F17D8D71",
+      "occurrenceCount": 1,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-0CB7706FAEF2EA01C5D5",
+      "occurrenceCount": 2,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-B29900C5C1DC743F43FC",
+      "occurrenceCount": 2,
+      "referencesValid": true
+    },
+    {
+      "sourceRowId": "EE-SROW-DA1D50B00A809CAB97DD",
+      "occurrenceCount": 1,
+      "referencesValid": true
+    }
+  ],
+  "occurrenceDistribution": {
+    "one": 3,
+    "two": 8,
+    "three": 5,
+    "totalReferences": 34
+  },
+  "normalization": {
+    "policy": "NFKC_WHITESPACE_INVISIBLE_CHAR_ONLY",
+    "trademarkSignResult": "TM",
+    "losslessHtmlEntityHandling": true
+  },
+  "duplicateRemoval": "BYTE_OR_NORMALIZED_TEXT_EQUIVALENCE_ONLY",
+  "result": "PASSED_16_ROWS_34_OCCURRENCES"
+}

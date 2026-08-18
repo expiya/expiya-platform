@@ -1,0 +1,96 @@
+{
+  "activationDisposition": "READY_FOR_EXPLICIT_ACTIVATION_APPROVAL",
+  "activePointerChanged": false,
+  "candidateCounts": {
+    "authoritativeNegativeProjections": 0,
+    "conflictProjections": 0,
+    "coveredExactVariants": 2,
+    "syntheticUnknownAssertions": 0,
+    "uncoveredExactVariants": 564,
+    "verifiedAssertions": 47,
+    "verifiedTrimLinks": 2
+  },
+  "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+  "catalogRelease": "v0.55.2",
+  "currentActiveRelease": "v1.2.2-catalog-v0.55.2-2026-08-18",
+  "currentPointerChecksum": "sha256:3ae093539a70fdb064ba58802ca5d18765ac3aeec5c44a0bcdfd6d9ecbc0d3a6",
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "diagnosticRepairSummary": {
+    "nonRuntimeMatches": [
+      "historical generation scripts",
+      "immutable reports and spreadsheet inventories",
+      "UUID and price substrings containing 577",
+      "manual/provider smoke thresholds not imported by production runtime"
+    ],
+    "preservedHistorical": [
+      "v0.55.1 catalog release and fingerprint tests",
+      "v0.55.1 temporal correction tests",
+      "immutable Equipment pilot v0.55.1 fixtures",
+      "v0.55.1 Daily-Life and Safe Persona release artifacts"
+    ],
+    "repaired": [
+      {
+        "classification": "ACTIVE_RELEASE_STALE_TEST_CONSTANT",
+        "file": "features/decision/v2/filter/productionPipeline.test.ts",
+        "repair": "derive expected candidate count from loaded.snapshot.variants.length"
+      },
+      {
+        "classification": "HISTORICAL_FIXTURE_ACTIVE_POINTER_LEAK",
+        "file": "features/decision/v2/catalog/productionSnapshot.test.ts",
+        "repair": "pin v0.55.1 pointer and fingerprint fixture; preserve 577"
+      },
+      {
+        "classification": "PRODUCTION_RUNTIME_STALE_REBIND_METADATA_AUTHORITY",
+        "file": "features/decision/v2/layers/productionAdapter.server.ts",
+        "repair": "derive candidate coverage from pinned catalog snapshot after compatibility validation"
+      },
+      {
+        "classification": "ACTIVE_RELEASE_STALE_TEST_CONSTANT",
+        "file": "features/decision/v2/layers/productionAdapter.test.ts",
+        "repair": "derive layer coverage from pinned snapshot"
+      },
+      {
+        "classification": "ACTIVE_POINTER_HISTORICAL_RELEASE_MIX",
+        "file": "features/vehicle-data/technicalDailyLifeLayer.test.ts",
+        "repair": "separate historical content validation from active pointer assertions"
+      },
+      {
+        "classification": "ACTIVE_RELEASE_STALE_TEST_CONSTANT",
+        "file": "features/vehicle-data/vehiclePersonaSafeTraits.test.ts",
+        "repair": "derive exact variant coverage from active snapshot"
+      },
+      {
+        "classification": "ACTIVE_RELEASE_STALE_TEST_CONSTANT",
+        "file": "features/decision/v2/affordability/productionAffordability.test.ts",
+        "repair": "derive candidate coverage from active snapshot"
+      },
+      {
+        "classification": "ACTIVE_RELEASE_STALE_TEST_CONSTANT",
+        "file": "features/decision/v2/usage/productionProjection.test.ts",
+        "repair": "derive projection coverage from active snapshot"
+      }
+    ],
+    "rootCause": "The active production snapshot fixture advanced from historical v0.55.1/577 to v0.55.2/566 while several active diagnostics retained release-specific counts or mixed the active pointer with historical fixtures."
+  },
+  "gateResults": {
+    "activeStateIntegrity": "PASSED",
+    "catalogV0552Compatibility": "PASSED",
+    "dailyLifeCompatibility": "PASSED",
+    "diffCheck": "PASSED",
+    "equipmentEvidence": "PASSED",
+    "equipmentProductionAdapter": "PASSED",
+    "eslint": "PASSED",
+    "releaseCandidateIntegrity": "PASSED",
+    "safePersonaCompatibility": "PASSED",
+    "typeScript": "PASSED",
+    "v2LayerAndImportBoundary": "PASSED"
+  },
+  "generatedActiveModuleChanged": false,
+  "generatedModuleCurrentChecksum": "sha256:3e55f29b08691fe516459a5c31c78b1c31dd7c0fc873648fea5657bfe079565e",
+  "generatedModuleExpectedChecksum": "sha256:e18f0eca09a69e44badb3716d91fedcf56e3be9cecb8eff9a555c5ffc0a02d95",
+  "proposedActiveRelease": "v1.3.0-pilot-verified-catalog-v0.55.2-2026-08-18",
+  "proposedPointerChecksum": "sha256:aec85d8f92c51ef3e5126a9f0dcf7db19bad3b9cb31a8851b58c2ef833950765",
+  "releaseCandidateChecksum": "sha256:bc0c9208aba80da7f683bf7b439f2715797755e782f98a50f06b7e16e23ec468",
+  "releaseCandidateId": "v1.3.0-pilot-verified-catalog-v0.55.2-2026-08-18",
+  "rollbackRelease": "v1.2.2-catalog-v0.55.2-2026-08-18"
+}

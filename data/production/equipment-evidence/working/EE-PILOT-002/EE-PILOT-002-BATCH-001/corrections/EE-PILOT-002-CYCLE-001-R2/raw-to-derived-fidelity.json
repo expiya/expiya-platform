@@ -1,0 +1,179 @@
+{
+  "sourceId": "SRC-000086",
+  "extractionPolicy": {
+    "id": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+    "version": "2.0.0"
+  },
+  "boundary": {
+    "marker": "Alfa Romeo Junior Ibrida Speciale+",
+    "startOffset": 155187,
+    "endOffset": 158840,
+    "result": "EXACT_RAW_MATCH"
+  },
+  "rows": [
+    {
+      "sourceRowId": "EE-SROW-2A8BAE2A4C5E8885934E",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 3,
+      "rawOccurrenceReferences": [
+        "source.html#byte-125305:occurrence-1:TEXT",
+        "source.html#byte-131472:occurrence-2:TEXT",
+        "source.html#byte-156085:occurrence-3:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-30E29139CA73E394CA26",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-125345:occurrence-1:TEXT",
+        "source.html#byte-156125:occurrence-2:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-9A4A80BFA251D6CB65DD",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 3,
+      "rawOccurrenceReferences": [
+        "source.html#byte-125555:occurrence-1:HTML_ENTITY_ENCODED",
+        "source.html#byte-131599:occurrence-2:HTML_ENTITY_ENCODED",
+        "source.html#byte-156348:occurrence-3:HTML_ENTITY_ENCODED"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-E6262CDA84B3E07C21A8",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 3,
+      "rawOccurrenceReferences": [
+        "source.html#byte-125612:occurrence-1:TEXT",
+        "source.html#byte-131681:occurrence-2:TEXT",
+        "source.html#byte-156405:occurrence-3:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-3F233F6850C0332F22B1",
+      "result": "NORMALIZATION_ONLY",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 1,
+      "rawOccurrenceReferences": [
+        "source.html#byte-156914:occurrence-1:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-B3F092110D4DB1EEC3C5",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126073:occurrence-1:TEXT",
+        "source.html#byte-157005:occurrence-2:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-D0CF9D0F64317FFCE76F",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 3,
+      "rawOccurrenceReferences": [
+        "source.html#byte-125769:occurrence-1:TEXT",
+        "source.html#byte-131737:occurrence-2:TEXT",
+        "source.html#byte-157170:occurrence-3:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-C9998B66B54FC6480284",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 3,
+      "rawOccurrenceReferences": [
+        "source.html#byte-125809:occurrence-1:TEXT",
+        "source.html#byte-131802:occurrence-2:TEXT",
+        "source.html#byte-157210:occurrence-3:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-BA537F1A2E8442EFE1C0",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126110:occurrence-1:TEXT",
+        "source.html#byte-157575:occurrence-2:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-C71D2F24CB17593A87B5",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126169:occurrence-1:TEXT",
+        "source.html#byte-157634:occurrence-2:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-D0C0C23C879B52F61556",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126208:occurrence-1:TEXT",
+        "source.html#byte-157673:occurrence-2:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-9D142C333A5A6FFA32FB",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126276:occurrence-1:TEXT",
+        "source.html#byte-157791:occurrence-2:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-57551FC48D19F17D8D71",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 1,
+      "rawOccurrenceReferences": [
+        "source.html#byte-157890:occurrence-1:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-0CB7706FAEF2EA01C5D5",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126365:occurrence-1:TEXT",
+        "source.html#byte-157955:occurrence-2:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-B29900C5C1DC743F43FC",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126437:occurrence-1:TEXT",
+        "source.html#byte-158027:occurrence-2:TEXT"
+      ]
+    },
+    {
+      "sourceRowId": "EE-SROW-DA1D50B00A809CAB97DD",
+      "result": "EXACT_RAW_MATCH",
+      "boundaryOccurrenceCount": 1,
+      "rawOccurrenceCount": 1,
+      "rawOccurrenceReferences": [
+        "source.html#byte-158194:occurrence-1:TEXT"
+      ]
+    }
+  ],
+  "rejectedRows": [],
+  "duplicateRemovalRule": "BYTE_OR_NORMALIZED_TEXT_EQUIVALENCE_ONLY"
+}

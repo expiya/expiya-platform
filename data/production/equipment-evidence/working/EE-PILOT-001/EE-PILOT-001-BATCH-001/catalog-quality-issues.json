@@ -1,0 +1,106 @@
+[
+  {
+    "issueId": "CATALOG-DQ-D41AFAEE91B604E17B74",
+    "issueType": "EXACT_VARIANT_OFFICIAL_CONFIGURATION_MISMATCH",
+    "severity": "BLOCKS_EQUIPMENT_PROJECTION",
+    "status": "OPEN_CATALOG_EVIDENCE_AUDIT_REQUIRED",
+    "batchId": "EE-PILOT-001-BATCH-001",
+    "catalogRelease": "v0.55.1",
+    "catalogFingerprint": "sha256:96f318680dd788c9df0827cbe3ce5635a36a5f1b354ab8fc7e6654bfa3ddc07e",
+    "exactVariants": [
+      {
+        "exactVariantId": "6fd52c36-be09-5918-a70f-c5b8b3aba511",
+        "canonicalIdentity": {
+          "brand": "Dacia",
+          "model": "Jogger",
+          "trim": "essential 5 koltuk Eco-G 120 EDC",
+          "modelYear": 2026,
+          "seats": 5,
+          "fuelType": "LPG",
+          "transmission": "6-speed dual-clutch automatic"
+        },
+        "nearestOfficialConfigurations": [
+          {
+            "trim": "expression",
+            "engine": "Eco-G 120",
+            "seats": 5,
+            "fuelType": "LPG",
+            "transmission": "BVM6/manual",
+            "mismatches": [
+              "TRIM",
+              "TRANSMISSION"
+            ]
+          },
+          {
+            "trim": "Extreme",
+            "engine": "Eco-G 120 auto",
+            "seats": 7,
+            "fuelType": "LPG",
+            "transmission": "automatic",
+            "mismatches": [
+              "TRIM",
+              "SEATS"
+            ]
+          }
+        ]
+      },
+      {
+        "exactVariantId": "ec80fc69-2bfd-566e-bbb8-ebd5ab1c9a36",
+        "canonicalIdentity": {
+          "brand": "Dacia",
+          "model": "Jogger",
+          "trim": "expression 5 koltuk Eco-G 120 EDC",
+          "modelYear": 2026,
+          "seats": 5,
+          "fuelType": "LPG",
+          "transmission": "6-speed dual-clutch automatic"
+        },
+        "nearestOfficialConfigurations": [
+          {
+            "trim": "expression",
+            "engine": "Eco-G 120",
+            "seats": 5,
+            "fuelType": "LPG",
+            "transmission": "BVM6/manual",
+            "mismatches": [
+              "TRANSMISSION"
+            ]
+          },
+          {
+            "trim": "Extreme",
+            "engine": "Eco-G 120 auto",
+            "seats": 7,
+            "fuelType": "LPG",
+            "transmission": "automatic",
+            "mismatches": [
+              "TRIM",
+              "SEATS"
+            ]
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": "SRC-000079",
+        "snapshotSha256": "sha256:4245a3e6620b233bbda2704315a2e81baede861defa90278659044e12bfa13cc"
+      },
+      {
+        "sourceId": "SRC-000080",
+        "snapshotSha256": "sha256:189b948d45e02a35612125b1a1e4e751f916a490fab5300e3519e6a3aa317ff8"
+      },
+      {
+        "sourceId": "SRC-000081",
+        "snapshotSha256": "sha256:12e4edd98c431e58f6e3c658128f598409a0abc70098004988994ad55fc55cf9"
+      }
+    ],
+    "projectionBlockReason": "No immutable authoritative Türkiye snapshot establishes either catalog exact 5-seat Eco-G 120 EDC trim; family, manual Expression, and 7-seat Extreme automatic evidence cannot be propagated.",
+    "requiredFollowUp": "SEPARATE_CATALOG_EVIDENCE_AUDIT",
+    "effects": {
+      "catalogRecordChanged": false,
+      "variantDeleted": false,
+      "equipmentAssertionCreated": false,
+      "v1OrV2DecisionBehaviorChanged": false
+    }
+  }
+]

@@ -1,0 +1,57 @@
+{
+  "baseRegistryRelease": "v0.4.0",
+  "extensionId": "v0.4.0-working-extension-ee-pilot-002",
+  "records": [
+    {
+      "source_id": "SRC-000083",
+      "publisher": "Alfa Romeo Türkiye / Tofaş",
+      "source_title": "Alfa Romeo Türkiye Junior Ibrida ürün ve donanım sayfası",
+      "source_type": "OFFICIAL_EQUIPMENT_LIST",
+      "source_url": "https://www.alfaromeo.com.tr/arac-modelleri/junior-ibrida",
+      "market": "TR",
+      "publication_date": null,
+      "retrieved_at": "2026-08-18T18:11:00.000Z",
+      "authority_class": "TR_DISTRIBUTOR",
+      "source_status": "WORKING_BATCH",
+      "source_url_canonical": "https://www.alfaromeo.com.tr/arac-modelleri/junior-ibrida",
+      "source_version_label": "observed-2026-08-18",
+      "source_observed_at": "2026-08-18T18:11:00.000Z",
+      "source_content_hash": "3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+      "source_snapshot_ref": "data/cars/vehicle_evidence/source_snapshots/SRC-000083/2026-08-18/source.html"
+    },
+    {
+      "source_id": "SRC-000084",
+      "publisher": "Alfa Romeo Türkiye / Tofaş",
+      "source_title": "Alfa Romeo Türkiye Junior Elettrica ürün ve donanım sayfası",
+      "source_type": "OFFICIAL_EQUIPMENT_LIST",
+      "source_url": "https://www.alfaromeo.com.tr/arac-modelleri/junior-elettrica",
+      "market": "TR",
+      "publication_date": null,
+      "retrieved_at": "2026-08-18T18:11:00.000Z",
+      "authority_class": "TR_DISTRIBUTOR",
+      "source_status": "WORKING_BATCH",
+      "source_url_canonical": "https://www.alfaromeo.com.tr/arac-modelleri/junior-elettrica",
+      "source_version_label": "observed-2026-08-18",
+      "source_observed_at": "2026-08-18T18:11:00.000Z",
+      "source_content_hash": "a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+      "source_snapshot_ref": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html"
+    },
+    {
+      "source_id": "SRC-000085",
+      "publisher": "Alfa Romeo Türkiye / Tofaş",
+      "source_title": "Alfa Romeo Türkiye MY2026 resmî fiyat listesi structured response",
+      "source_type": "OFFICIAL_PRICE_LIST",
+      "source_url": "https://arjfiyat.tofas.com.tr/pricelists?brand=alfa-romeo",
+      "market": "TR",
+      "publication_date": null,
+      "retrieved_at": "2026-08-15T22:32:57.544Z",
+      "authority_class": "OFFICIAL_PRICE_EQUIPMENT_LIST",
+      "source_status": "WORKING_BATCH",
+      "source_url_canonical": "https://arjfiyat.tofas.com.tr/pricelists?brand=alfa-romeo",
+      "source_version_label": "MY2026-effective-2026-08-03",
+      "source_observed_at": "2026-08-15T22:32:57.544Z",
+      "source_content_hash": "af3d2ebbe55bab0c8df0231de73d989718b4d02f851d8fc361e3461fb63d9e79",
+      "source_snapshot_ref": "data/cars/vehicle_evidence/source_snapshots/SRC-000085/2026-08-16/source.html"
+    }
+  ]
+}

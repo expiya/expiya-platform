@@ -1,0 +1,28 @@
+{
+  "releaseVersion": "v1.2.1-catalog-v0.55.1-2026-08-18",
+  "schemaVersion": "1.2.1",
+  "compatibleCatalogRelease": "v0.55.1",
+  "compatibleCatalogFingerprint": "sha256:96f318680dd788c9df0827cbe3ce5635a36a5f1b354ab8fc7e6654bfa3ddc07e",
+  "payloadSha256": "sha256:32d303f2f536ebfd574738947a1b8e1240df4262d7107b24fd5306ad45575acf",
+  "vocabularyVersion": "1.1.0",
+  "cohortPolicyVersion": "1.0.0",
+  "collectionProtocolVersion": "1.0.1",
+  "canonicalIdentityPolicyVersion": "1.0.0",
+  "featureCount": 51,
+  "aliasCount": 12,
+  "assertionCount": 0,
+  "packageLinkCount": 0,
+  "trimLinkCount": 0,
+  "researchLedgerCount": 0,
+  "reviewEventCount": 0,
+  "projectionCount": 0,
+  "variantCoverageCount": 0,
+  "validationStatus": "VALIDATED",
+  "generatedAt": "2026-08-18T20:05:00.000Z",
+  "declaredLimitations": [
+    "empty-pilot-release-no-vehicle-equipment-claims",
+    "legacy-safety-feature-codes-not-migrated-without-exact-package-applicability",
+    "decision-engine-integration-not-enabled",
+    "source-assertions-must-reference-vehicle-evidence-source-registry-and-immutable-snapshots"
+  ]
+}

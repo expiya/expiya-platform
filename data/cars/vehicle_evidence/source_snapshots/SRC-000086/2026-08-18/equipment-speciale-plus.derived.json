@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0.0",
+  "extractionPolicyVersion": "ALFA_ROMEO_TR_EXACT_TRIM_ROWS_V1",
+  "sourceId": "SRC-000086",
+  "sourceArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+  "sourceArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+  "market": "TR",
+  "modelYear": 2026,
+  "exactPowertrain": "Junior Ibrida Hybrid 145 eDCT6",
+  "trim": "Speciale+",
+  "uniqueBoundary": {
+    "marker": "Alfa Romeo Junior Ibrida Speciale+",
+    "occurrenceCount": 1,
+    "endMarker": "<div class=\"cvPopupFullscreen__scrollLine\">"
+  },
+  "equipmentByFeature": {
+    "ADAPTIVE_CRUISE_CONTROL": "Adaptif hız sabitleyici",
+    "ADAPTIVE_HEADLIGHTS": "Adaptif Full LED Matrix farlar",
+    "ANDROID_AUTO": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+    "APPLE_CARPLAY": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+    "AUTONOMOUS_EMERGENCY_BRAKING": "Otonom acil fren sistemi",
+    "BLIND_SPOT_MONITOR": "Kör nokta uyarı sistemi",
+    "DRIVER_ATTENTION_MONITOR": "Sürücü yorgunluk algılama sistemi",
+    "FRONT_PARKING_SENSORS": "Ön, arka, yan park sensörleri",
+    "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE": "Ön, Yan ve Perde Hava Yastıkları",
+    "HANDS_FREE_TAILGATE": "Elektrikli eller serbest bagaj açma sistemi",
+    "HEATED_FRONT_SEATS": "Isıtmalı ön koltuklar",
+    "HIGH_BEAM_ASSIST": "Adaptif uzun far yardımcısı",
+    "KEYLESS_ENTRY": "Anahtarsız giriş ve çalıştırma",
+    "KEYLESS_START": "Anahtarsız giriş ve çalıştırma",
+    "LED_HEADLIGHTS": "Adaptif Full LED Matrix farlar",
+    "MATRIX_LED_HEADLIGHTS": "Adaptif Full LED Matrix farlar",
+    "POWER_DRIVER_SEAT": "Elektrikli & masaj özellikli sürücü koltuğu",
+    "POWER_TAILGATE": "Elektrikli eller serbest bagaj açma sistemi",
+    "REAR_PARKING_SENSORS": "Ön, arka, yan park sensörleri",
+    "REAR_VIEW_CAMERA": "Dinamik kılavuz çizgili, 180° arka görüş kamerası",
+    "TRAFFIC_SIGN_RECOGNITION": "Trafik işareti algılama sistemi",
+    "WIRELESS_ANDROID_AUTO": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+    "WIRELESS_APPLE_CARPLAY": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+    "WIRELESS_PHONE_CHARGING": "Kablosuz telefon şarj alanı"
+  }
+}

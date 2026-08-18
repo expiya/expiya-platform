@@ -1,0 +1,433 @@
+{
+  "schemaVersion": "1.0.0",
+  "releaseVersion": "v1.0.0-catalog-v0.55.1-2026-08-18",
+  "compatibleCatalogRelease": "v0.55.1",
+  "compatibleCatalogFingerprint": "sha256:96f318680dd788c9df0827cbe3ce5635a36a5f1b354ab8fc7e6654bfa3ddc07e",
+  "market": "TR",
+  "vocabularyVersion": "1.0.0",
+  "state": "PILOT_EMPTY",
+  "generatedAt": "2026-08-18T16:30:00.000Z",
+  "featureDefinitions": [
+    {
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Otonom acil fren"
+    },
+    {
+      "featureCode": "FORWARD_COLLISION_WARNING",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "FORWARD_COLLISION_WARNING"
+    },
+    {
+      "featureCode": "LANE_DEPARTURE_WARNING",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Şerit terk uyarısı"
+    },
+    {
+      "featureCode": "LANE_KEEP_ASSIST",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Şeritte tutma desteği"
+    },
+    {
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Şerit ortalama desteği"
+    },
+    {
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "ADAPTIVE_CRUISE_CONTROL"
+    },
+    {
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Kör nokta izleme"
+    },
+    {
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "REAR_CROSS_TRAFFIC_ALERT"
+    },
+    {
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "TRAFFIC_SIGN_RECOGNITION"
+    },
+    {
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "DRIVER_ATTENTION_MONITOR"
+    },
+    {
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "HIGH_BEAM_ASSIST"
+    },
+    {
+      "featureCode": "REAR_VIEW_CAMERA",
+      "category": "PARKING",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "Geri görüş kamerası"
+    },
+    {
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "category": "PARKING",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "360 derece çevre görüş kamerası"
+    },
+    {
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "category": "PARKING",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "FRONT_PARKING_SENSORS"
+    },
+    {
+      "featureCode": "REAR_PARKING_SENSORS",
+      "category": "PARKING",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "REAR_PARKING_SENSORS"
+    },
+    {
+      "featureCode": "AUTOMATIC_PARK_ASSIST",
+      "category": "PARKING",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Otomatik park desteği"
+    },
+    {
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "category": "OCCUPANT_SAFETY",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "ISOFIX_REAR_OUTER"
+    },
+    {
+      "featureCode": "ISOFIX_FRONT_PASSENGER",
+      "category": "OCCUPANT_SAFETY",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "ISOFIX_FRONT_PASSENGER"
+    },
+    {
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "category": "OCCUPANT_SAFETY",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE"
+    },
+    {
+      "featureCode": "CENTER_AIRBAG",
+      "category": "OCCUPANT_SAFETY",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "CENTER_AIRBAG"
+    },
+    {
+      "featureCode": "REAR_SEAT_OCCUPANT_ALERT",
+      "category": "OCCUPANT_SAFETY",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "REAR_SEAT_OCCUPANT_ALERT"
+    },
+    {
+      "featureCode": "HEATED_FRONT_SEATS",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "HEATED_FRONT_SEATS"
+    },
+    {
+      "featureCode": "HEATED_REAR_SEATS",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "HEATED_REAR_SEATS"
+    },
+    {
+      "featureCode": "VENTILATED_FRONT_SEATS",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "VENTILATED_FRONT_SEATS"
+    },
+    {
+      "featureCode": "POWER_DRIVER_SEAT",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "POWER_DRIVER_SEAT"
+    },
+    {
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "POWER_FRONT_PASSENGER_SEAT"
+    },
+    {
+      "featureCode": "DRIVER_SEAT_MEMORY",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "DRIVER_SEAT_MEMORY"
+    },
+    {
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "HEATED_STEERING_WHEEL"
+    },
+    {
+      "featureCode": "DUAL_ZONE_CLIMATE_CONTROL",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "DUAL_ZONE_CLIMATE_CONTROL"
+    },
+    {
+      "featureCode": "THREE_ZONE_CLIMATE_CONTROL",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "THREE_ZONE_CLIMATE_CONTROL"
+    },
+    {
+      "featureCode": "FOUR_ZONE_CLIMATE_CONTROL",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "FOUR_ZONE_CLIMATE_CONTROL"
+    },
+    {
+      "featureCode": "KEYLESS_ENTRY",
+      "category": "ACCESS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "KEYLESS_ENTRY"
+    },
+    {
+      "featureCode": "KEYLESS_START",
+      "category": "ACCESS",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "KEYLESS_START"
+    },
+    {
+      "featureCode": "POWER_TAILGATE",
+      "category": "ACCESS",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "POWER_TAILGATE"
+    },
+    {
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "category": "ACCESS",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "HANDS_FREE_TAILGATE"
+    },
+    {
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "category": "ACCESS",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "PANORAMIC_GLASS_ROOF"
+    },
+    {
+      "featureCode": "APPLE_CARPLAY",
+      "category": "CONNECTIVITY",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "APPLE_CARPLAY"
+    },
+    {
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "category": "CONNECTIVITY",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "WIRELESS_APPLE_CARPLAY"
+    },
+    {
+      "featureCode": "ANDROID_AUTO",
+      "category": "CONNECTIVITY",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "ANDROID_AUTO"
+    },
+    {
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "category": "CONNECTIVITY",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "WIRELESS_ANDROID_AUTO"
+    },
+    {
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "category": "CONNECTIVITY",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "WIRELESS_PHONE_CHARGING"
+    },
+    {
+      "featureCode": "LED_HEADLIGHTS",
+      "category": "LIGHTING",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "LED_HEADLIGHTS"
+    },
+    {
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "category": "LIGHTING",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "ADAPTIVE_HEADLIGHTS"
+    },
+    {
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "category": "LIGHTING",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "MATRIX_LED_HEADLIGHTS"
+    },
+    {
+      "featureCode": "AUTOMATIC_HIGH_BEAM",
+      "category": "LIGHTING",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "AUTOMATIC_HIGH_BEAM"
+    },
+    {
+      "featureCode": "HILL_DESCENT_CONTROL",
+      "category": "OFF_ROAD",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "HILL_DESCENT_CONTROL"
+    },
+    {
+      "featureCode": "TERRAIN_DRIVE_MODES",
+      "category": "OFF_ROAD",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "TERRAIN_DRIVE_MODES"
+    },
+    {
+      "featureCode": "LOW_RANGE_TRANSFER_CASE",
+      "category": "OFF_ROAD",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "LOW_RANGE_TRANSFER_CASE"
+    },
+    {
+      "featureCode": "LOCKING_REAR_DIFFERENTIAL",
+      "category": "OFF_ROAD",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "LOCKING_REAR_DIFFERENTIAL"
+    },
+    {
+      "featureCode": "LOCKING_CENTER_DIFFERENTIAL",
+      "category": "OFF_ROAD",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "LOCKING_CENTER_DIFFERENTIAL"
+    },
+    {
+      "featureCode": "CRAWL_CONTROL",
+      "category": "OFF_ROAD",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "CRAWL_CONTROL"
+    }
+  ],
+  "intentAliases": [
+    {
+      "aliasId": "blind-spot",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "normalizedPhrases": [
+        "kör nokta",
+        "yanımdaki aracı uyarsın"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "aeb",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "normalizedPhrases": [
+        "kendi fren yapsın",
+        "çarpışmada frenlesin"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "lane-keep",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "normalizedPhrases": [
+        "şeritte tutsun"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "lane-center",
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "normalizedPhrases": [
+        "şeridin ortasında gitsin"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "auto-park",
+      "featureCode": "AUTOMATIC_PARK_ASSIST",
+      "normalizedPhrases": [
+        "kendi kendine park etsin"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "surround-camera",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "normalizedPhrases": [
+        "tepeden kamera",
+        "kuş bakışı kamera"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "ventilated-seat",
+      "featureCode": "VENTILATED_FRONT_SEATS",
+      "normalizedPhrases": [
+        "koltuk serinletsin"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "wireless-phone-connect",
+      "normalizedPhrases": [
+        "telefonu kablosuz bağlayayım"
+      ],
+      "ambiguityClass": "NEEDS_CONFIRMATION",
+      "defaultDecisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "aliasId": "adaptive-light",
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "normalizedPhrases": [
+        "farlar virajı takip etsin"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "crawl",
+      "featureCode": "CRAWL_CONTROL",
+      "normalizedPhrases": [
+        "arazide ağır ağır kendi ilerlesin"
+      ],
+      "ambiguityClass": "NEEDS_CONFIRMATION",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "generic-safe",
+      "normalizedPhrases": [
+        "güvenli olsun"
+      ],
+      "ambiguityClass": "GENERIC_NOT_BINDABLE",
+      "defaultDecisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "aliasId": "generic-equipped",
+      "normalizedPhrases": [
+        "donanımlı olsun",
+        "full paket olsun",
+        "teknolojisi iyi olsun"
+      ],
+      "ambiguityClass": "GENERIC_NOT_BINDABLE",
+      "defaultDecisionUse": "EXPLANATION_ONLY"
+    }
+  ],
+  "assertions": [],
+  "packageVariantLinks": [],
+  "projections": []
+}

@@ -1,0 +1,468 @@
+{
+  "coveredExactVariantIds": [
+    "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "5a64b246-3b05-52b6-9f24-b8f52ccc2305"
+  ],
+  "features": [
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "FORWARD_COLLISION_WARNING",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "LANE_DEPARTURE_WARNING",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 1,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "uncoveredCatalogVariantCount": 565,
+      "verifiedAssertionCount": 1
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "REAR_VIEW_CAMERA",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "AUTOMATIC_PARK_ASSIST",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "ISOFIX_FRONT_PASSENGER",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "CENTER_AIRBAG",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "REAR_SEAT_OCCUPANT_ALERT",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "HEATED_REAR_SEATS",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "VENTILATED_FRONT_SEATS",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "DRIVER_SEAT_MEMORY",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "DUAL_ZONE_CLIMATE_CONTROL",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "THREE_ZONE_CLIMATE_CONTROL",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "FOUR_ZONE_CLIMATE_CONTROL",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "KEYLESS_ENTRY",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "KEYLESS_START",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "POWER_TAILGATE",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "APPLE_CARPLAY",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "ANDROID_AUTO",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "LED_HEADLIGHTS",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 2,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "uncoveredCatalogVariantCount": 564,
+      "verifiedAssertionCount": 2
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "AUTOMATIC_HIGH_BEAM",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "HILL_DESCENT_CONTROL",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "TERRAIN_DRIVE_MODES",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "LOW_RANGE_TRANSFER_CASE",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "LOCKING_REAR_DIFFERENTIAL",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "LOCKING_CENTER_DIFFERENTIAL",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    },
+    {
+      "authoritativeNegativeProjectionCount": 0,
+      "conflictProjectionCount": 0,
+      "coveredExactVariantCount": 0,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "featureCode": "CRAWL_CONTROL",
+      "uncoveredCatalogVariantCount": 566,
+      "verifiedAssertionCount": 0
+    }
+  ],
+  "uncoveredExactVariantCount": 564
+}

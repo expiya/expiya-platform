@@ -1,0 +1,471 @@
+{
+  "pilotId": "EE-PILOT-001",
+  "manifestVersion": "1.0.1",
+  "selectionPolicyVersion": "1.0.1",
+  "lifecycleState": "PREPARED",
+  "supersedesPilotId": "pilot-v1.0.0-catalog-v0.55.1-2026-08-18",
+  "catalogRelease": "v0.55.1",
+  "catalogFingerprint": "sha256:96f318680dd788c9df0827cbe3ce5635a36a5f1b354ab8fc7e6654bfa3ddc07e",
+  "generatedAt": "2026-08-18T20:00:00.000Z",
+  "researchStartedAt": null,
+  "completedAt": null,
+  "immutableSelection": true,
+  "variants": [
+    {
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "canonicalBrand": "Volvo",
+      "canonicalModel": "EX30",
+      "trim": "P4 Long Range Ultra",
+      "modelYear": 2026,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "BEV",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "BODY_SUV_CROSSOVER+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_SUV_CROSSOVER",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "1a5ccef0-2748-5bf7-a90a-221a51ed994f",
+      "canonicalBrand": "Hyundai",
+      "canonicalModel": "i20",
+      "trim": "1.0 T-GDI 90PS DCT Elite",
+      "modelYear": 2026,
+      "bodyStyle": "Hatchback",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "GASOLINE",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "PAIRED_TRIM_PACKAGE_PROJECTION",
+      "testAxes": [
+        "PAIRED_TRIM_PACKAGE_PROJECTION"
+      ],
+      "pairedFamilyId": "family-965568f81dd28f57",
+      "pairedExactVariantId": "ab1eeac7-0954-5c11-8c8c-d2cbd9e3c229",
+      "pairedDifferenceReason": "CATALOG_TRIM_DIFF:1.0 T-GDI 90PS DCT Elite",
+      "expectedProjectionBoundary": "FAMILY_EVIDENCE_MUST_NOT_PROJECT_WITHOUT_EXACT_TRIM_OR_PACKAGE_LINK"
+    },
+    {
+      "exactVariantId": "2f5054d1-1c11-5c34-a815-8223facf9892",
+      "canonicalBrand": "Fiat",
+      "canonicalModel": "Egea Cross",
+      "trim": "Street 1.6 MultiJet 130 DCT",
+      "modelYear": 2026,
+      "bodyStyle": "Crossover",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "DIESEL",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "BODY_SUV_CROSSOVER+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_SUV_CROSSOVER",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "3383408d-d77b-5643-93ee-8dc0cb3465a0",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "Vito Panelvan",
+      "trim": "114 CDI Select",
+      "modelYear": 2026,
+      "bodyStyle": "Panel Van",
+      "vehicleUseClass": "LIGHT_COMMERCIAL",
+      "fuelType": "DIESEL",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "BODY_PANEL_VAN+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_PANEL_VAN",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "3d0f2b09-791e-5d76-9257-ec6be591c4eb",
+      "canonicalBrand": "Peugeot",
+      "canonicalModel": "E-2008",
+      "trim": "GT 115 kW",
+      "modelYear": 2026,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "BEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "FUEL_BEV+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "FUEL_BEV",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "3dceba8a-9f0a-56ac-aabc-515193e1c62a",
+      "canonicalBrand": "Porsche",
+      "canonicalModel": "Taycan",
+      "trim": "4S",
+      "modelYear": 2026,
+      "bodyStyle": "Sedan",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "BEV",
+      "priceSegment": "HIGH",
+      "selectionReason": "BODY_SEDAN+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_SEDAN",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "61b1bb40-dce9-5e01-97d2-5ba0167b3062",
+      "canonicalBrand": "Fiat",
+      "canonicalModel": "Doblo",
+      "trim": "Combi 1.5 BlueHDi 130 EAT8",
+      "modelYear": 2026,
+      "bodyStyle": "MPV",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "DIESEL",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "62465336-2cfb-4ccd-b9a7-36467d63497f",
+      "canonicalBrand": "Renault",
+      "canonicalModel": "Captur",
+      "trim": "techno mild hybrid EDC 140 hp",
+      "modelYear": 2026,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "MHEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "BODY_SUV_CROSSOVER+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_SUV_CROSSOVER",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "625c6cce-a78e-5d2d-a682-8feb90b09268",
+      "canonicalBrand": "Togg",
+      "canonicalModel": "T10F",
+      "trim": "V1 RWD Uzun Menzil",
+      "modelYear": 2026,
+      "bodyStyle": "Liftback",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "BEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "BODY_COUPE_LIFTBACK",
+      "testAxes": [
+        "BODY_COUPE_LIFTBACK"
+      ]
+    },
+    {
+      "exactVariantId": "64996711-e8a8-5d7e-b92e-4a2c3c5e46f1",
+      "canonicalBrand": "Fiat",
+      "canonicalModel": "Ducato Minibüs",
+      "trim": "16+1 2.2 180",
+      "modelYear": 2026,
+      "bodyStyle": "Passenger Van",
+      "vehicleUseClass": "LIGHT_COMMERCIAL",
+      "fuelType": "DIESEL",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "BODY_PASSENGER_VAN",
+      "testAxes": [
+        "BODY_PASSENGER_VAN"
+      ]
+    },
+    {
+      "exactVariantId": "659e9ede-6e3d-544a-b57e-79101bd10d3a",
+      "canonicalBrand": "Hyundai",
+      "canonicalModel": "i30",
+      "trim": "1.6 T-GDI 150 PS DCT Prime",
+      "modelYear": 2026,
+      "bodyStyle": "Hatchback",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "GASOLINE",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "PAIRED_TRIM_PACKAGE_PROJECTION",
+      "testAxes": [
+        "PAIRED_TRIM_PACKAGE_PROJECTION"
+      ],
+      "pairedFamilyId": "family-f3a2e4fdd141fb53",
+      "pairedExactVariantId": "68f6261b-3829-55a1-b307-1f5912e9b874",
+      "pairedDifferenceReason": "CATALOG_TRIM_DIFF:1.6 T-GDI 150 PS DCT Prime",
+      "expectedProjectionBoundary": "FAMILY_EVIDENCE_MUST_NOT_PROJECT_WITHOUT_EXACT_TRIM_OR_PACKAGE_LINK"
+    },
+    {
+      "exactVariantId": "68f6261b-3829-55a1-b307-1f5912e9b874",
+      "canonicalBrand": "Hyundai",
+      "canonicalModel": "i30",
+      "trim": "1.6 T-GDI 150 PS DCT Comfort",
+      "modelYear": 2026,
+      "bodyStyle": "Hatchback",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "GASOLINE",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "PAIRED_TRIM_PACKAGE_PROJECTION",
+      "testAxes": [
+        "PAIRED_TRIM_PACKAGE_PROJECTION"
+      ],
+      "pairedFamilyId": "family-f3a2e4fdd141fb53",
+      "pairedExactVariantId": "659e9ede-6e3d-544a-b57e-79101bd10d3a",
+      "pairedDifferenceReason": "CATALOG_TRIM_DIFF:1.6 T-GDI 150 PS DCT Comfort",
+      "expectedProjectionBoundary": "FAMILY_EVIDENCE_MUST_NOT_PROJECT_WITHOUT_EXACT_TRIM_OR_PACKAGE_LINK"
+    },
+    {
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "canonicalBrand": "BYD",
+      "canonicalModel": "DOLPHIN",
+      "trim": "Comfort",
+      "modelYear": 2025,
+      "bodyStyle": "Hatchback",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "BEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "FUEL_BEV+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "FUEL_BEV",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "6d6c0805-8779-5764-a42a-48850990a60c",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "A8 L",
+      "trim": "50 TDI quattro",
+      "modelYear": 2026,
+      "bodyStyle": "Sedan",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "DIESEL",
+      "priceSegment": "HIGH",
+      "selectionReason": "BODY_SEDAN",
+      "testAxes": [
+        "BODY_SEDAN"
+      ]
+    },
+    {
+      "exactVariantId": "6fd52c36-be09-5918-a70f-c5b8b3aba511",
+      "canonicalBrand": "Dacia",
+      "canonicalModel": "Jogger",
+      "trim": "essential 5 koltuk Eco-G 120 EDC",
+      "modelYear": 2026,
+      "bodyStyle": "MPV",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "LPG",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "PAIRED_TRIM_PACKAGE_PROJECTION",
+      "testAxes": [
+        "PAIRED_TRIM_PACKAGE_PROJECTION"
+      ],
+      "pairedFamilyId": "family-8463f045355bae17",
+      "pairedExactVariantId": "ec80fc69-2bfd-566e-bbb8-ebd5ab1c9a36",
+      "pairedDifferenceReason": "CATALOG_TRIM_DIFF:essential 5 koltuk Eco-G 120 EDC",
+      "expectedProjectionBoundary": "FAMILY_EVIDENCE_MUST_NOT_PROJECT_WITHOUT_EXACT_TRIM_OR_PACKAGE_LINK"
+    },
+    {
+      "exactVariantId": "75a0db67-272b-509f-8b60-312f2092a6b2",
+      "canonicalBrand": "Hyundai",
+      "canonicalModel": "TUCSON Hibrit",
+      "trim": "1.6 T-GDI 215 PS HEV 4x2 AT Elite",
+      "modelYear": 2025,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "HEV",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "8833b383-4379-54e8-a017-fac236dcca0f",
+      "canonicalBrand": "Porsche",
+      "canonicalModel": "718 Boxster",
+      "trim": "Boxster",
+      "modelYear": 2026,
+      "bodyStyle": "Convertible",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "GASOLINE",
+      "priceSegment": "HIGH",
+      "selectionReason": "STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "canonicalBrand": "Nissan",
+      "canonicalModel": "Qashqai",
+      "trim": "Platinum Premium e-POWER",
+      "modelYear": 2026,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "HEV",
+      "priceSegment": "MID",
+      "selectionReason": "BODY_SUV_CROSSOVER+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_SUV_CROSSOVER",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "95bd2cd3-7940-5678-8a8f-56ec41f5c3d0",
+      "canonicalBrand": "Bentley",
+      "canonicalModel": "Continental GT",
+      "trim": "Speed Hybrid",
+      "modelYear": 2026,
+      "bodyStyle": "Coupe",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "PHEV",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "FUEL_PHEV",
+      "testAxes": [
+        "FUEL_PHEV"
+      ]
+    },
+    {
+      "exactVariantId": "9d6a26bb-88c0-596e-9905-246e1371e27a",
+      "canonicalBrand": "Hyundai",
+      "canonicalModel": "KONA",
+      "trim": "1.6 T-GDI 180 PS DCT Prime",
+      "modelYear": 2026,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "GASOLINE",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "BODY_SUV_CROSSOVER+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_SUV_CROSSOVER",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "ab1eeac7-0954-5c11-8c8c-d2cbd9e3c229",
+      "canonicalBrand": "Hyundai",
+      "canonicalModel": "i20",
+      "trim": "1.0 T-GDI 90PS MT Jump (GSR2C & E-Call)",
+      "modelYear": 2026,
+      "bodyStyle": "Hatchback",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "GASOLINE",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "PAIRED_TRIM_PACKAGE_PROJECTION",
+      "testAxes": [
+        "PAIRED_TRIM_PACKAGE_PROJECTION"
+      ],
+      "pairedFamilyId": "family-965568f81dd28f57",
+      "pairedExactVariantId": "1a5ccef0-2748-5bf7-a90a-221a51ed994f",
+      "pairedDifferenceReason": "CATALOG_TRIM_DIFF:1.0 T-GDI 90PS MT Jump (GSR2C & E-Call)",
+      "expectedProjectionBoundary": "FAMILY_EVIDENCE_MUST_NOT_PROJECT_WITHOUT_EXACT_TRIM_OR_PACKAGE_LINK"
+    },
+    {
+      "exactVariantId": "b1dc656b-e78c-57ab-9a44-924716ba6c2b",
+      "canonicalBrand": "Bentley",
+      "canonicalModel": "Continental GTC",
+      "trim": "Speed Hybrid",
+      "modelYear": 2026,
+      "bodyStyle": "Convertible",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "PHEV",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "FUEL_PHEV",
+      "testAxes": [
+        "FUEL_PHEV"
+      ]
+    },
+    {
+      "exactVariantId": "bad56151-8735-569c-ad4f-129880820a0e",
+      "canonicalBrand": "SEAT",
+      "canonicalModel": "Leon",
+      "trim": "FR 1.5 eTSI 150 DSG",
+      "modelYear": 2026,
+      "bodyStyle": "Hatchback",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "MHEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "FUEL_MHEV+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "FUEL_MHEV",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "c4c5efbc-ba1e-5537-a4c6-1fe5116ccb25",
+      "canonicalBrand": "Renault",
+      "canonicalModel": "Symbioz",
+      "trim": "Esprit Alpine E-Tech Full Hybrid 160",
+      "modelYear": 2026,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "HEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "FUEL_HEV+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "FUEL_HEV",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "cb8f5af7-b20f-5877-a79b-4af71c18a61c",
+      "canonicalBrand": "Opel",
+      "canonicalModel": "Astra",
+      "trim": "GS Hybrid 145",
+      "modelYear": 2026,
+      "bodyStyle": "Hatchback",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "HEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "FUEL_HEV+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "FUEL_HEV",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ]
+    },
+    {
+      "exactVariantId": "e09c81aa-6324-5b20-9cd8-90dc806a5ae9",
+      "canonicalBrand": "Fiat",
+      "canonicalModel": "Egea Sedan",
+      "trim": "Easy 1.6 MultiJet 130 6MT",
+      "modelYear": 2026,
+      "bodyStyle": "Sedan",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "DIESEL",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "BODY_SEDAN",
+      "testAxes": [
+        "BODY_SEDAN"
+      ]
+    },
+    {
+      "exactVariantId": "eb781920-1d63-5ce1-8dcd-594e5feb4ffa",
+      "canonicalBrand": "Isuzu",
+      "canonicalModel": "D-Max",
+      "trim": "V-Go 4x4 MT",
+      "modelYear": 2026,
+      "bodyStyle": "Pickup",
+      "vehicleUseClass": "LIGHT_COMMERCIAL",
+      "fuelType": "DIESEL",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "BODY_PICKUP_OFFROAD",
+      "testAxes": [
+        "BODY_PICKUP_OFFROAD"
+      ]
+    },
+    {
+      "exactVariantId": "ec80fc69-2bfd-566e-bbb8-ebd5ab1c9a36",
+      "canonicalBrand": "Dacia",
+      "canonicalModel": "Jogger",
+      "trim": "expression 5 koltuk Eco-G 120 EDC",
+      "modelYear": 2026,
+      "bodyStyle": "MPV",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "LPG",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "PAIRED_TRIM_PACKAGE_PROJECTION",
+      "testAxes": [
+        "PAIRED_TRIM_PACKAGE_PROJECTION"
+      ],
+      "pairedFamilyId": "family-8463f045355bae17",
+      "pairedExactVariantId": "6fd52c36-be09-5918-a70f-c5b8b3aba511",
+      "pairedDifferenceReason": "CATALOG_TRIM_DIFF:expression 5 koltuk Eco-G 120 EDC",
+      "expectedProjectionBoundary": "FAMILY_EVIDENCE_MUST_NOT_PROJECT_WITHOUT_EXACT_TRIM_OR_PACKAGE_LINK"
+    }
+  ]
+}

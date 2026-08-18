@@ -1,0 +1,81 @@
+[
+  {
+    "linkId": "EE-LINK-TRIM-ABA4EC2DC97B99DA1C0D",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "canonicalTrimId": "trim-b3eab361cc661ef87b65",
+    "officialTrimName": "Speciale+",
+    "officialConfigurationCode": null,
+    "configurationCodeStatus": "NOT_PUBLISHED_IN_CAPTURED_OFFICIAL_SOURCES",
+    "market": "TR",
+    "modelYearFrom": 2026,
+    "modelYearTo": 2026,
+    "powertrainIdentity": "IBRIDA",
+    "assertionIds": [
+      "EE-AST-950B4DC7D873E1580C1D",
+      "EE-AST-70C3CFAA2870AE8366C7",
+      "EE-AST-AA9FF910AA905E4FF124",
+      "EE-AST-44CD7D17D85714AE7CA3",
+      "EE-AST-B1CBA8D47AD6BFFA7AB4",
+      "EE-AST-2D039C3D477C4020D50A",
+      "EE-AST-942CFD62517A14AC68BF",
+      "EE-AST-CA2FC39334B2699936E1",
+      "EE-AST-FCF8164AEB1D13730CCB",
+      "EE-AST-F613E55AFEA8C1820028",
+      "EE-AST-E527406AFD35F5E60453",
+      "EE-AST-244D0374F67E52E67C6D",
+      "EE-AST-DFE40020077E2E60A348",
+      "EE-AST-154524C5B5EDF0552617",
+      "EE-AST-CA64FD7A2377A633D88F",
+      "EE-AST-44446264F030CD2E03E3",
+      "EE-AST-52A78E97B4ACAE656D24",
+      "EE-AST-B811A316A3E82FA1FF03",
+      "EE-AST-034730180C860C204F96",
+      "EE-AST-DD99C3C26BD25AFD0D13",
+      "EE-AST-449423B2C6F32B7D6DAE",
+      "EE-AST-B35FF7AFFC8EC9D6B1D1",
+      "EE-AST-0ABF17B39B2BBEC3ACD0",
+      "EE-AST-90813256BE93B927EE81"
+    ],
+    "verificationState": "PROVISIONAL",
+    "reviewState": "SECOND_REVIEW_REQUIRED",
+    "provenanceSourceIds": [
+      "SRC-000086",
+      "SRC-000085"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "supersedesTrimLinkId": "EE-LINK-TRIM-EC5BE2661EDD367DE3C2",
+    "locatorChain": [
+      {
+        "sourceId": "SRC-000086",
+        "kind": "STRUCTURED_RECORD",
+        "recordPath": "$.trim"
+      },
+      {
+        "sourceId": "SRC-000085",
+        "kind": "STRUCTURED_RECORD",
+        "recordPath": "$.officialPriceRows[?powertrain=IBRIDA]",
+        "governanceReference": "Official alfaromeo.com.tr price page embeds arjfiyat.tofas.com.tr/pricelists?brand=alfa-romeo"
+      }
+    ],
+    "identitySourceIds": [
+      "SRC-000086",
+      "SRC-000085"
+    ],
+    "identityLocators": [
+      {
+        "sourceId": "SRC-000086",
+        "kind": "HTML_SECTION",
+        "heading": "Alfa Romeo Junior Ibrida Speciale+",
+        "identityUse": "POWERTRAIN_AND_TRIM_CONTEXT_ONLY"
+      },
+      {
+        "sourceId": "SRC-000085",
+        "kind": "STRUCTURED_RECORD",
+        "recordPath": "MY2026/JUNIOR IBRIDA/SPECIALE+",
+        "identityUse": "MARKET_MODEL_YEAR_TRIM_TRANSMISSION"
+      }
+    ],
+    "derivedArtifactIdentityAuthority": false
+  }
+]

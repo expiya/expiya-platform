@@ -1,0 +1,43 @@
+[
+  {
+    "linkId": "EE-LINK-TRIM-6621623D8ECF53313FF7",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "canonicalTrimId": "trim-b3eab361cc661ef87b65",
+    "powertrainIdentity": "IBRIDA",
+    "decision": "CONFLICT_REVIEW_REQUIRED",
+    "deterministicIdentity": "PASSED",
+    "distinctPowertrainIdentity": "PASSED",
+    "exactCatalogIdentity": "PASSED",
+    "marketModelYear": "PASSED",
+    "provenanceSourceIds": [
+      "SRC-000083",
+      "SRC-000085"
+    ],
+    "supportingAssertionCount": 24,
+    "supportingLocatorReview": "FAILED_0_OF_24_DETERMINISTIC",
+    "verificationStatePreserved": true,
+    "reviewException": {
+      "exceptionCode": "TRIM_LINK_SUPPORTING_LOCATORS_NOT_DETERMINISTIC",
+      "recommendedAction": "Recollect Ibrida Speciale+ assertions with a unique DOM locator; do not mutate the provisional link."
+    }
+  },
+  {
+    "linkId": "EE-LINK-TRIM-A147711D8B91E6CE0E60",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "canonicalTrimId": "trim-b8f7e8610d9c7a84dd42",
+    "powertrainIdentity": "ELETTRICA",
+    "decision": "SECOND_REVIEW_PASSED",
+    "deterministicIdentity": "PASSED",
+    "distinctPowertrainIdentity": "PASSED",
+    "exactCatalogIdentity": "PASSED",
+    "marketModelYear": "PASSED",
+    "provenanceSourceIds": [
+      "SRC-000084",
+      "SRC-000085"
+    ],
+    "supportingAssertionCount": 23,
+    "supportingLocatorReview": "PASSED_23_OF_23",
+    "verificationStatePreserved": true,
+    "reviewException": null
+  }
+]

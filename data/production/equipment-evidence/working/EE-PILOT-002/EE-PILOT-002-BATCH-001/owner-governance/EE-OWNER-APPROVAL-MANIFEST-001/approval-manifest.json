@@ -1,0 +1,1059 @@
+{
+  "assertionCount": 47,
+  "batchId": "EE-PILOT-002-BATCH-001",
+  "canonicalSerializationVersion": "CANONICAL_JSON_SORTED_KEYS_V1",
+  "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+  "catalogRelease": "v0.55.2",
+  "correctionCycleScope": [
+    "EE-PILOT-002-CYCLE-001",
+    "EE-PILOT-002-CYCLE-001-R2"
+  ],
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "generatedAt": "2026-08-18T21:00:00.000Z",
+  "manifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+  "manifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+  "manifestVersion": "1.0.0",
+  "ownerActorId": "EQUIPMENT_OWNER_001",
+  "pilotId": "EE-PILOT-002",
+  "subjectCount": 49,
+  "subjects": [
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:c471c719b1e420228129b2a214e583bdf75f75dd317556d1058270603841a869",
+      "evidenceProvenanceFingerprint": "sha256:7d2ce37339230758ebf6b24aa1ac7f32781fcdd7f6e14de61af8134a8820cad2",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-4F967093BB7AA1D94B46",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-034730180C860C204F96",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:59950d141b246a8fb4fb9b1175d97d15e5e00b5496d16f4aba410dfce9e760bd",
+      "evidenceProvenanceFingerprint": "sha256:58a07789f3cc466303285fe02c7b4bed686c18a02469cf8f90f3fa14ce5beb89",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-3EADA5743CBC228BDE08",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-04ED0E676B0142D4A589",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:15e7eec92988b2f9c9a28df38eb39089b54052d7036f30201fa29f59b51db384",
+      "evidenceProvenanceFingerprint": "sha256:73e56e8faad6e28e2579c0900228c74d1d334d69e28c68a1a5331a69d69650a6",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-04BBED83D9BAA5D7BB35",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-0ABF17B39B2BBEC3ACD0",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:ca50485204b92682e068f4b485e12f2becd99fd9f5afb397158ae87ccedb72ce",
+      "evidenceProvenanceFingerprint": "sha256:3a9a01698b35c0ca3511650e10efc856a560c0ab46c9313df3e05323d3dd9b72",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "POWER_TAILGATE",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-BEBB7A8E0A0C87E3790B",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-0DEE97ECB96F650839F5",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:3372b9f251f5f2fd7ff2a2a2cc588338d4f2d96be13c5697c525503572d056e4",
+      "evidenceProvenanceFingerprint": "sha256:8605b9ac39e6bff998d5eaad687e73fcfc848995407e9bf947854eb6fa7d6cad",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-DE9E6F14A934FD9A8ED5",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-0E9EBFF28AF2423C0AED",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:077b5ad285ad7714b0e91ab82d07d048ac7819b00c672e7700c2713d82ad97e3",
+      "evidenceProvenanceFingerprint": "sha256:3dbb65fc71e16cd1443612c7fc5341faf7af364320369cbe7d3e79c72003c59a",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "KEYLESS_START",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-EAD9AFE03D721F42A4CC",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-154524C5B5EDF0552617",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:f2a82eb4a1336d39f31951f3fc431ebad364eed6cb81382ca65bdc6d29ff89ce",
+      "evidenceProvenanceFingerprint": "sha256:3a9a01698b35c0ca3511650e10efc856a560c0ab46c9313df3e05323d3dd9b72",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-2CC45E4ACFCB418FF7BD",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-1735B424F1212565736E",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:1ff77fde6307e16319a11eb685843179e1e3a2c08fb98a9e201b30d10587499f",
+      "evidenceProvenanceFingerprint": "sha256:dba043addcafc2aa57187515f50c0d36e373f6a2fc3c985b16912990103e4b09",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-77685258E04AED22821B",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-1C1552F557E8063B19D5",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:dedab5c9da77439cc4c997f502f0143c4e6d34367fd24403a2eaf6b5800a3ae2",
+      "evidenceProvenanceFingerprint": "sha256:26c94dc38d72b1341664f5296b9f3e6b8a741e94507f6926f5e94786faba6b70",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-BDE0D5552A97ED2094E1",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-1F334BB60951736BA9AF",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:cdfccde39640a62a09cd59ef451d15e1e9f64a40e8d115a784474868d2a2aa80",
+      "evidenceProvenanceFingerprint": "sha256:916d7f1ed40824cd7c89b9285d0d63d396a3e58ff864421dcd4ceb05ef663316",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-9E1376F67948000AE15F",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-244D0374F67E52E67C6D",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:7453f050607c147aa72a8bf67c38d682e0a19d22654d41f9495ea73306f71219",
+      "evidenceProvenanceFingerprint": "sha256:2f2f14584480eb378709c1a3796721f6c2fb5ffe8315f4b32c0b6c84bebc3118",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-DD6E993186332F4598CB",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-2D039C3D477C4020D50A",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:b23f3d134b34c347786175d9b411d9f64f4305a2d0e9be59e5528dfe77523502",
+      "evidenceProvenanceFingerprint": "sha256:ccd2042b9098461f798638e35b9edc4b85bc00d43aa1d97a153961412bd8e0e0",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "KEYLESS_START",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-8382BDD70187AFEF0E14",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-2FBBFD07C7911CBB8C77",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:c0130d483730ec2d0bb27d0e751de3e2afe0b20f38759c305c01d88c392fefeb",
+      "evidenceProvenanceFingerprint": "sha256:6215026b89288c80e4299d08c95d533aca0df3c042971bd1c31658a20def7d29",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-FB988DD11CA853730282",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-3193AD79B5E7E9A91549",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:54ea77f2cffe3dec6915ec4eabafe8497e4f0b5462aff4cf506eaf1a177a3820",
+      "evidenceProvenanceFingerprint": "sha256:58a07789f3cc466303285fe02c7b4bed686c18a02469cf8f90f3fa14ce5beb89",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-EAD81AB924C8307B5CAB",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-381372FF18EB364AB201",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:83c2deef1490b81a23e46741119161450a2fc4ba76670c0229ef1c9019078b8d",
+      "evidenceProvenanceFingerprint": "sha256:02b08d8eedcf629dfe6b2f353e9f9b4e58e7642090f4564ecf40547e8526eb8a",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "REAR_VIEW_CAMERA",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-CC21C4B3AF86BE1D9312",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-3F1F118A0351911BEE7F",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:f898f2ebbc391c0bee6231029756b21671416cd8176aafeff8f721de8db33422",
+      "evidenceProvenanceFingerprint": "sha256:a1a303f16c66ea8ef5295c74a4aa14a4a224a9e42410886db064dcaeb6957605",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-7A99B1C103539837CADB",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-42B47643216F0E93D683",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:7c9ce437add5b1ca86e58296d733c0b8cadbf18a7bdef12db7749cc2bc26155b",
+      "evidenceProvenanceFingerprint": "sha256:287c839150ae81940c6e730102c12dedd51bb713ef4402279868e63b257c8475",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-79C8347F9532A9E061C1",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-44446264F030CD2E03E3",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:0f2119848764079104ad68d570c5a486e38dfee19aa6b245c8646a988fe02521",
+      "evidenceProvenanceFingerprint": "sha256:5f86c0b83def6fc1c8a87b43284d1a009ff57222f1bf03c237f9047490bd7d04",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-8B3BFE9AB038C8FECF16",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-449423B2C6F32B7D6DAE",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:49088f7ad282471f9adc2a822957177fbe29776cbdc36cd76feb4f3cf6d5a986",
+      "evidenceProvenanceFingerprint": "sha256:be2d2ea283743569582d283b87d5b101623d848ac827fac742fdc684b783466a",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "APPLE_CARPLAY",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-B37463EAB0190BE65532",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-44CD7D17D85714AE7CA3",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:f92871227bd6e595084d32eba87577154c6687e505b19628783fc0abd5fe8d56",
+      "evidenceProvenanceFingerprint": "sha256:cc059ae8078b3c555f4d05dcb2824a51309b30cdcfa31f371746ec186763ac1b",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-7F9AE88BC3CAE2AD0626",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-47C7D620A0B85477C706",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:365af6bb91a9c627280c06d05407359b30a073496dc9cf7456f6a1ede125e2b4",
+      "evidenceProvenanceFingerprint": "sha256:35c87c89b1ccebe437d24c7e339b23a7aea9ec6855a5d8d426ee2a82bb9cf281",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-D5C1566B91E47B7E90BD",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-52A78E97B4ACAE656D24",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:a4724a6ba17360a1d6ca9c789a16ce1395e245604848a94c019d5ccb38698680",
+      "evidenceProvenanceFingerprint": "sha256:2def2eaad870aae70f094e0162fa653cd5d1bf68c1af2ededce6b2da96811e4d",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-F0E5F133FE3C9C55EDD1",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-56D23BE0A5AE1759B755",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:3665eb5708aecc99b7d96b843b0b2c333f73aa2503c33cbf42b8997f01565587",
+      "evidenceProvenanceFingerprint": "sha256:76819f36cc1fbb6b14d00dd08edb5e7dbf7eb7524215ec2a4aa3519242e6ba55",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-FB0CBD97B71004FAFDA7",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-704EAC1D105F97F98251",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:dad2389f232c91765f9aa4512a7cbd91943144691d51d0c302a60d33507c6edf",
+      "evidenceProvenanceFingerprint": "sha256:dba043addcafc2aa57187515f50c0d36e373f6a2fc3c985b16912990103e4b09",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "LED_HEADLIGHTS",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-43F1E2B0918268D5D8A7",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-709D2FBAAC718CA608EC",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:0f9c7bd0a32cc51b8b9d1d5635b63dce74e7c9ece713bd00505dff5b9cd9e406",
+      "evidenceProvenanceFingerprint": "sha256:3a6a3fef4c26ab1af1808b3f69f1018f832541510699e7a6796c22ddc79f167c",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-82DBD039B080BA452B63",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-70C3CFAA2870AE8366C7",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:34e087edf42d4ffcc84c71e39081cc13ea3d485eda23bf8f4527e8b95cb4a4fd",
+      "evidenceProvenanceFingerprint": "sha256:144b9b64d0d1afe8767b8f7d6fed7b0832618addc3ab2a5b1de2cdf490665501",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-AB75023BAB9DBA9DBD42",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-82900661C3963C45D4C0",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:d10f5238ff9c3f011fdfa17375a20c9ad577973731fc0e6aefa06438ae014e38",
+      "evidenceProvenanceFingerprint": "sha256:98ff36e901ea5a69075f599d25ced9ee0244c1db8f7241732ea21af26268bd7b",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-1B5A207DFBC8A5DEBA94",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-90813256BE93B927EE81",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:8b705a655500acea1c48ff4ab82382168dce5e19b45de9c10558d440d48c751a",
+      "evidenceProvenanceFingerprint": "sha256:9afd86d2bc7b5d8e77d8b58fdf5c9dfad4870a16d70f0a82a08ee4e2ba4c8e93",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-364180B3CBC0B5B0808D",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-942CFD62517A14AC68BF",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:6521f2e6bba7bd464f0c3ed26c72ab4070de9bffda44458dcff818b5591f780f",
+      "evidenceProvenanceFingerprint": "sha256:0c3e3c873b1db63daf10f0db96dd282f680ecaf44ce9ca1e6d2161d760b8908b",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-9BB4954FBA412E98BF38",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-950B4DC7D873E1580C1D",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:d1cf670dcdbce9904f14ecb531d3940ec0e7ff979e745440694d591e7bdd2c33",
+      "evidenceProvenanceFingerprint": "sha256:cc059ae8078b3c555f4d05dcb2824a51309b30cdcfa31f371746ec186763ac1b",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "ANDROID_AUTO",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-46258234D3C6DC58D01A",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-A2EEE0A5BCC87E6B4651",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:2286e0ebc5f8752a97fd613a6c2317354c111a4928bf8b91a6f21c7f81623f2c",
+      "evidenceProvenanceFingerprint": "sha256:cc059ae8078b3c555f4d05dcb2824a51309b30cdcfa31f371746ec186763ac1b",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-AF23023F5CDA4AD4BC22",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-A5B6250E1F6F0650E0B2",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:4aa7ba1a7c09f0228ffd138bd2b4d5f94ea1b5a0568afacd6f60a5a0365d8335",
+      "evidenceProvenanceFingerprint": "sha256:1849b9f425da791a017ad761d8e8f43e7aa1bc517b1c28dc0420e222cb0c8524",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "ANDROID_AUTO",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-D03D10EBD47762EC898E",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-AA9FF910AA905E4FF124",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:c4c31e12203936681b6749135e4211905a18a44e325dbb108985e3d5aebd4d7c",
+      "evidenceProvenanceFingerprint": "sha256:8344972ba839e98fadbcc12ec83d1ad3c3d7f5cb65c704607ca85ef126311f27",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-5983E495D306B543947D",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-B1CBA8D47AD6BFFA7AB4",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:1a63abf36f30b733c21d5f8d6dca4d2e0c22ac356460e6b3e31e5d7b6a72bbb7",
+      "evidenceProvenanceFingerprint": "sha256:4828972930a3b8ea5442ea0a223049df0665a271b3d68f42ca0f8813c6c52d2f",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-19F61890CED275095E50",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-B35FF7AFFC8EC9D6B1D1",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:3e638c4ef29a6f6bd98cd09777c8dd49f3a8cc10714908dc996f9a26a09f8d5f",
+      "evidenceProvenanceFingerprint": "sha256:6a3bfe35982e4991f41c0b44fb5e28cab94f43cd3099a8dda8c724298e8943a4",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "POWER_TAILGATE",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-FC7D825C8B559A2DDC67",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-B811A316A3E82FA1FF03",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:5782cfe80147233e58dafcefcc4b2fea73254b9231a3d7bdf1729349c62effc2",
+      "evidenceProvenanceFingerprint": "sha256:0ca924b0eb3ccee291658d53f488381b0476eceb98a10e961f01b4317ed5a290",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-987155C935D265C7E96A",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-B8B9BA952A3C66A3934E",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:31b2d9dff707ec6b46cdede68d323b1368e7645d1355cfcaaaaf1ff376293892",
+      "evidenceProvenanceFingerprint": "sha256:cc059ae8078b3c555f4d05dcb2824a51309b30cdcfa31f371746ec186763ac1b",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "APPLE_CARPLAY",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-AF1883753B73A239C657",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-C1F5B8E4D44666FE6456",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:a80af46bf3204c699769332b2bf4be218b7a20ee7df860bf9fdd2334c2c39ef4",
+      "evidenceProvenanceFingerprint": "sha256:ccd2042b9098461f798638e35b9edc4b85bc00d43aa1d97a153961412bd8e0e0",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "KEYLESS_ENTRY",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-BA622751FE020ED5DB4B",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-C53C6BC947B4AC9873D1",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:e325cccfdb09f12f0fdeb667db7cccdfac02b23a99aeaa880e52c7bca8cdcd75",
+      "evidenceProvenanceFingerprint": "sha256:89d192843c98790a89b01885951061b4280d4c8a31cb699c7eca24719796cfbf",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-95E7F1CE78BCB5A90A8B",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-CA2FC39334B2699936E1",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:751e2f4a7df382384cd7c011ba496193f9e226ec99e281a4fd2d388429ff0d38",
+      "evidenceProvenanceFingerprint": "sha256:d8fb54f0031b6f1b01e0e2ce9ea0f9f603b5db95e8a135899c7fbb986809e731",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "LED_HEADLIGHTS",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-3230A9BFCCF523C4639A",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-CA64FD7A2377A633D88F",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:3589f08fe66fe26375c6bd4172de80ef02ca3e00635c38f57bc799b0ef1dc4c0",
+      "evidenceProvenanceFingerprint": "sha256:8aabf653800dfb5b7f812a76eb3ee7ab3def6c417bc284703f17ce301dc6bbe0",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "REAR_VIEW_CAMERA",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-796F37FC7BDF1BF8F00D",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-DD99C3C26BD25AFD0D13",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:4bf2edd58cc7eebf38aeec093ea41fb3d3214ba9b8e26a7f099d723215a27a4e",
+      "evidenceProvenanceFingerprint": "sha256:e128d3bb0edc1ed134b597ea3c81c12fb0336db3e65db761ba925ba7d061cf94",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "KEYLESS_ENTRY",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-791DDC0A2E168105C24F",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-DFE40020077E2E60A348",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:2cc2bf25a5528d5b9c0582b878db022d2851102a39b083f1571cb85225ebd7b6",
+      "evidenceProvenanceFingerprint": "sha256:0a4c74bea0dd97158035a8bd8688ca33f4e9fa2c389c4b28d999a012a7d429f9",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-678D5C5134C7C0EB6CB6",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-E0E993541FEE99922C14",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:9a6d7cc3e2ff2b0ec11acf3c3d6e119e16cc14b6040fd27b64f626dc209424fb",
+      "evidenceProvenanceFingerprint": "sha256:a9115661d1b09a723107de89b7d51229e6ffd6ddc1020be754c361007b8d0e96",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-F5122449D277EC06DB71",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-E527406AFD35F5E60453",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:b6aea5afd9cc94f33aa344ac8d3209eba12d796bda9baf46e2ba46b1a49c0a3b",
+      "evidenceProvenanceFingerprint": "sha256:4e55907ca3e3d1d7b355dee365900e0d336a32bc8ada5224e2b69115b68b4f3a",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-B31B12F0A36E33A2D414",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-F613E55AFEA8C1820028",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:03b825a4c8a8e38989a2ee34681b958055a2a7b60a14485a4f0a1418c3281475",
+      "evidenceProvenanceFingerprint": "sha256:dba043addcafc2aa57187515f50c0d36e373f6a2fc3c985b16912990103e4b09",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-61D9D4840207DBE09AA1",
+      "sourceIds": [
+        "SRC-000084"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-F7547C7FD7F7669DD139",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "STANDARD",
+      "contentFingerprint": "sha256:dc25fa46ce0083c51cac54553afa9e588c367a467966f09cd66b785621c37e18",
+      "evidenceProvenanceFingerprint": "sha256:8fc44b6fb09a37cd33288f553c959cc96a0f6ea757e326e2219f927f3335c6ce",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-A15904CAAC032A071FF1",
+      "sourceIds": [
+        "SRC-000086"
+      ],
+      "standardOrOptional": "STANDARD",
+      "subjectId": "EE-AST-FCF8164AEB1D13730CCB",
+      "subjectType": "ASSERTION",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED"
+    },
+    {
+      "availabilityStatus": "NOT_APPLICABLE_TRIM_IDENTITY",
+      "contentFingerprint": "sha256:48713b9b0b2546c25f21d226002adce39fcd02a1a09fa1ee1a311da6cbfa451c",
+      "evidenceProvenanceFingerprint": "sha256:6ca54f9a34471a2567bb5a867f98be27fd4e8821866cdcb135c675e04956d3c1",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-288ABD18DD97D2365348",
+      "sourceIds": [
+        "SRC-000084",
+        "SRC-000085"
+      ],
+      "standardOrOptional": "NOT_APPLICABLE_TRIM_IDENTITY",
+      "subjectId": "EE-LINK-TRIM-A147711D8B91E6CE0E60",
+      "subjectType": "TRIM_LINK",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED",
+      "trimIdentity": {
+        "canonicalTrimId": "trim-b8f7e8610d9c7a84dd42",
+        "officialTrimName": "Speciale+"
+      }
+    },
+    {
+      "availabilityStatus": "NOT_APPLICABLE_TRIM_IDENTITY",
+      "contentFingerprint": "sha256:3803c3e73daf77dcc6607d43bc40fe06eb5762755729cc7fd080d49ea9a5da1a",
+      "evidenceProvenanceFingerprint": "sha256:b2ecb17a53a42125ecb094e07f3ab98f9bb3f0cbac024e9266a13a60cbf4aa5d",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "marketApplicability": "TR",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "secondReviewDisposition": "SECOND_REVIEW_PASSED",
+      "secondReviewEventId": "EE-REV-43756AA4B95BB2D08F15",
+      "sourceIds": [
+        "SRC-000085",
+        "SRC-000086"
+      ],
+      "standardOrOptional": "NOT_APPLICABLE_TRIM_IDENTITY",
+      "subjectId": "EE-LINK-TRIM-ABA4EC2DC97B99DA1C0D",
+      "subjectType": "TRIM_LINK",
+      "terminalSupersessionState": "TERMINAL_NOT_SUPERSEDED",
+      "trimIdentity": {
+        "canonicalTrimId": "trim-b3eab361cc661ef87b65",
+        "officialTrimName": "Speciale+"
+      }
+    }
+  ],
+  "trimLinkCount": 2
+}

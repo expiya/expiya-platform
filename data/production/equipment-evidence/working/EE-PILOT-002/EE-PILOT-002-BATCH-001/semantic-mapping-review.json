@@ -1,0 +1,425 @@
+[
+  {
+    "assertionId": "EE-AST-04ED0E676B0142D4A589",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "FRONT_PARKING_SENSORS",
+    "sourceExpressionTr": "Ön, arka, yan park sensörleri",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-0A2BA188FBD58458E1FC",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "DRIVER_ATTENTION_MONITOR",
+    "sourceExpressionTr": "Sürücü yorgunluk algılama sistemi",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-0A96C735EE3A839FA973",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "ANDROID_AUTO",
+    "sourceExpressionTr": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-0DEE97ECB96F650839F5",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "POWER_TAILGATE",
+    "sourceExpressionTr": "Elektrikli eller serbest bagaj açma sistemi",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-0E9EBFF28AF2423C0AED",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "POWER_DRIVER_SEAT",
+    "sourceExpressionTr": "Elektrikli & masaj özellikli sürücü koltuğu",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-13D6D0168629E24BBD73",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "HIGH_BEAM_ASSIST",
+    "sourceExpressionTr": "Adaptif uzun far yardımcısı",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": "Kept distinct from AUTOMATIC_HIGH_BEAM and present only for Ibrida."
+  },
+  {
+    "assertionId": "EE-AST-1735B424F1212565736E",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "HANDS_FREE_TAILGATE",
+    "sourceExpressionTr": "Elektrikli eller serbest bagaj açma sistemi",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-1C1552F557E8063B19D5",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "MATRIX_LED_HEADLIGHTS",
+    "sourceExpressionTr": "Adaptif Full LED Matrix farlar",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-1C491B09501D7B009FED",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "APPLE_CARPLAY",
+    "sourceExpressionTr": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-1F334BB60951736BA9AF",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "WIRELESS_PHONE_CHARGING",
+    "sourceExpressionTr": "Kablosuz telefon şarj alanı",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-2879F0E03D8077207B9A",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "KEYLESS_START",
+    "sourceExpressionTr": "Anahtarsız giriş ve çalıştırma",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-2FBBFD07C7911CBB8C77",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "KEYLESS_START",
+    "sourceExpressionTr": "Anahtarsız giriş ve çalıştırma",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-3193AD79B5E7E9A91549",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+    "sourceExpressionTr": "Adaptif hız sabitleyici",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-381372FF18EB364AB201",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "REAR_PARKING_SENSORS",
+    "sourceExpressionTr": "Ön, arka, yan park sensörleri",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-3C600CAE6DAD895ECF91",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "REAR_PARKING_SENSORS",
+    "sourceExpressionTr": "Ön, arka, yan park sensörleri",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-3F1F118A0351911BEE7F",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "REAR_VIEW_CAMERA",
+    "sourceExpressionTr": "Dinamik kılavuz çizgili, 180° arka görüş kamerası",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-42B47643216F0E93D683",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "HEATED_FRONT_SEATS",
+    "sourceExpressionTr": "Isıtmalı ön koltuklar",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-47C7D620A0B85477C706",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "WIRELESS_APPLE_CARPLAY",
+    "sourceExpressionTr": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-5046A7F61E2ECF464A4E",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "HANDS_FREE_TAILGATE",
+    "sourceExpressionTr": "Elektrikli eller serbest bagaj açma sistemi",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-56D23BE0A5AE1759B755",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+    "sourceExpressionTr": "Trafik işareti algılama sistemi",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-5ACC47340A41C57AF8B1",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "REAR_VIEW_CAMERA",
+    "sourceExpressionTr": "Dinamik kılavuz çizgili, 180° arka görüş kamerası",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-5B9F27AD6C6FD892E1DA",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "FRONT_PARKING_SENSORS",
+    "sourceExpressionTr": "Ön, arka, yan park sensörleri",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-5ED64371AD527B1D169C",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "POWER_DRIVER_SEAT",
+    "sourceExpressionTr": "Elektrikli & masaj özellikli sürücü koltuğu",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-704EAC1D105F97F98251",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "DRIVER_ATTENTION_MONITOR",
+    "sourceExpressionTr": "Sürücü yorgunluk algılama sistemi",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-709D2FBAAC718CA608EC",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "LED_HEADLIGHTS",
+    "sourceExpressionTr": "Adaptif Full LED Matrix farlar",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-73580FC478A744391897",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "WIRELESS_ANDROID_AUTO",
+    "sourceExpressionTr": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-75ACE4EB18797C557512",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "ADAPTIVE_HEADLIGHTS",
+    "sourceExpressionTr": "Adaptif Full LED Matrix farlar",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-77ED3DC1BE274B53F3A2",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "WIRELESS_PHONE_CHARGING",
+    "sourceExpressionTr": "Kablosuz telefon şarj alanı",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-82900661C3963C45D4C0",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+    "sourceExpressionTr": "Otonom acil fren sistemi",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-8722DEF7731111FBBBD5",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "KEYLESS_ENTRY",
+    "sourceExpressionTr": "Anahtarsız giriş ve çalıştırma",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-96EF3FDDD4237FD62764",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+    "sourceExpressionTr": "Ön, Yan ve Perde Hava Yastıkları",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-98C170A5ED8FA6B7F5E1",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "WIRELESS_APPLE_CARPLAY",
+    "sourceExpressionTr": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-9E7E89DFAE1AB9141A71",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "POWER_TAILGATE",
+    "sourceExpressionTr": "Elektrikli eller serbest bagaj açma sistemi",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-A228CC19D799B5D96BB7",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+    "sourceExpressionTr": "Trafik işareti algılama sistemi",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-A281A67C6B186A3AB57F",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "MATRIX_LED_HEADLIGHTS",
+    "sourceExpressionTr": "Adaptif Full LED Matrix farlar",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-A2EEE0A5BCC87E6B4651",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "ANDROID_AUTO",
+    "sourceExpressionTr": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-A5B6250E1F6F0650E0B2",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "WIRELESS_ANDROID_AUTO",
+    "sourceExpressionTr": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-A6B8B3D136B3E76B870B",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+    "sourceExpressionTr": "Adaptif hız sabitleyici",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-B8B9BA952A3C66A3934E",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+    "sourceExpressionTr": "Ön, Yan ve Perde Hava Yastıkları",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-C1F5B8E4D44666FE6456",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "APPLE_CARPLAY",
+    "sourceExpressionTr": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-C53C6BC947B4AC9873D1",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "KEYLESS_ENTRY",
+    "sourceExpressionTr": "Anahtarsız giriş ve çalıştırma",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-C6454D2D253F8F77B9E2",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "BLIND_SPOT_MONITOR",
+    "sourceExpressionTr": "Kör nokta uyarı sistemi",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-D8AB7FFE16E78E3AA5D4",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+    "sourceExpressionTr": "Otonom acil fren sistemi",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-DBD96E14AB44A1172D19",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "HEATED_FRONT_SEATS",
+    "sourceExpressionTr": "Isıtmalı ön koltuklar",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-E0E993541FEE99922C14",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "BLIND_SPOT_MONITOR",
+    "sourceExpressionTr": "Kör nokta uyarı sistemi",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-E34ECDC0D9C20D8D7155",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "LED_HEADLIGHTS",
+    "sourceExpressionTr": "Adaptif Full LED Matrix farlar",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  },
+  {
+    "assertionId": "EE-AST-F7547C7FD7F7669DD139",
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "featureCode": "ADAPTIVE_HEADLIGHTS",
+    "sourceExpressionTr": "Adaptif Full LED Matrix farlar",
+    "semanticDecision": "PASSED",
+    "overclaimFound": false,
+    "note": null
+  }
+]

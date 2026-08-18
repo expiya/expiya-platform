@@ -1,0 +1,555 @@
+[
+  {
+    "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-D8AB7FFE16E78E3AA5D4"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-82900661C3963C45D4C0"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "FORWARD_COLLISION_WARNING",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "LANE_DEPARTURE_WARNING",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "LANE_KEEP_ASSIST",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "LANE_CENTERING_ASSIST",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-A6B8B3D136B3E76B870B"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-3193AD79B5E7E9A91549"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "BLIND_SPOT_MONITOR",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-C6454D2D253F8F77B9E2"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-E0E993541FEE99922C14"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-A228CC19D799B5D96BB7"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-56D23BE0A5AE1759B755"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "DRIVER_ATTENTION_MONITOR",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-0A2BA188FBD58458E1FC"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-704EAC1D105F97F98251"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "HIGH_BEAM_ASSIST",
+    "status": "INCONCLUSIVE_FOR_ONE",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-13D6D0168629E24BBD73"
+    ],
+    "elettricaAssertionIds": [],
+    "reason": "Only one powertrain-specific official equipment section contains explicit evidence; silence on the other side is not absence evidence."
+  },
+  {
+    "featureCode": "REAR_VIEW_CAMERA",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-5ACC47340A41C57AF8B1"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-3F1F118A0351911BEE7F"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "SURROUND_VIEW_CAMERA_360",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "FRONT_PARKING_SENSORS",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-5B9F27AD6C6FD892E1DA"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-04ED0E676B0142D4A589"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "REAR_PARKING_SENSORS",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-3C600CAE6DAD895ECF91"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-381372FF18EB364AB201"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "AUTOMATIC_PARK_ASSIST",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "ISOFIX_REAR_OUTER",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "ISOFIX_FRONT_PASSENGER",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-96EF3FDDD4237FD62764"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-B8B9BA952A3C66A3934E"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "CENTER_AIRBAG",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "REAR_SEAT_OCCUPANT_ALERT",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "HEATED_FRONT_SEATS",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-DBD96E14AB44A1172D19"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-42B47643216F0E93D683"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "HEATED_REAR_SEATS",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "VENTILATED_FRONT_SEATS",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "POWER_DRIVER_SEAT",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-5ED64371AD527B1D169C"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-0E9EBFF28AF2423C0AED"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "DRIVER_SEAT_MEMORY",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "HEATED_STEERING_WHEEL",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "DUAL_ZONE_CLIMATE_CONTROL",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "THREE_ZONE_CLIMATE_CONTROL",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "FOUR_ZONE_CLIMATE_CONTROL",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "KEYLESS_ENTRY",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-8722DEF7731111FBBBD5"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-C53C6BC947B4AC9873D1"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "KEYLESS_START",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-2879F0E03D8077207B9A"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-2FBBFD07C7911CBB8C77"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "POWER_TAILGATE",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-9E7E89DFAE1AB9141A71"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-0DEE97ECB96F650839F5"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "HANDS_FREE_TAILGATE",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-5046A7F61E2ECF464A4E"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-1735B424F1212565736E"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "PANORAMIC_GLASS_ROOF",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "APPLE_CARPLAY",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-1C491B09501D7B009FED"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-C1F5B8E4D44666FE6456"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "WIRELESS_APPLE_CARPLAY",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-98C170A5ED8FA6B7F5E1"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-47C7D620A0B85477C706"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "ANDROID_AUTO",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-0A96C735EE3A839FA973"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-A2EEE0A5BCC87E6B4651"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "WIRELESS_ANDROID_AUTO",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-73580FC478A744391897"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-A5B6250E1F6F0650E0B2"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "WIRELESS_PHONE_CHARGING",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-77ED3DC1BE274B53F3A2"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-1F334BB60951736BA9AF"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "LED_HEADLIGHTS",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-E34ECDC0D9C20D8D7155"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-709D2FBAAC718CA608EC"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "ADAPTIVE_HEADLIGHTS",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-75ACE4EB18797C557512"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-F7547C7FD7F7669DD139"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "MATRIX_LED_HEADLIGHTS",
+    "status": "CONFIRMED_SAME",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [
+      "EE-AST-A281A67C6B186A3AB57F"
+    ],
+    "elettricaAssertionIds": [
+      "EE-AST-1C1552F557E8063B19D5"
+    ],
+    "reason": "Two independent powertrain-specific official equipment sections state STANDARD availability."
+  },
+  {
+    "featureCode": "AUTOMATIC_HIGH_BEAM",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "HILL_DESCENT_CONTROL",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "TERRAIN_DRIVE_MODES",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "LOW_RANGE_TRANSFER_CASE",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "LOCKING_REAR_DIFFERENTIAL",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "LOCKING_CENTER_DIFFERENTIAL",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  },
+  {
+    "featureCode": "CRAWL_CONTROL",
+    "status": "INCONCLUSIVE_FOR_BOTH",
+    "ibridaExactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "elettricaExactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "ibridaAssertionIds": [],
+    "elettricaAssertionIds": [],
+    "reason": "Neither exact powertrain-specific section provides conclusive evidence."
+  }
+]

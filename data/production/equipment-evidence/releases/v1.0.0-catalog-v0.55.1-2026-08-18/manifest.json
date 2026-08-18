@@ -1,0 +1,21 @@
+{
+  "releaseVersion": "v1.0.0-catalog-v0.55.1-2026-08-18",
+  "schemaVersion": "1.0.0",
+  "compatibleCatalogRelease": "v0.55.1",
+  "compatibleCatalogFingerprint": "sha256:96f318680dd788c9df0827cbe3ce5635a36a5f1b354ab8fc7e6654bfa3ddc07e",
+  "payloadSha256": "sha256:25493ddb2111c1f609a0fe0cbc7f72f122a0bf0b0e39dfac050e688f593be261",
+  "vocabularyVersion": "1.0.0",
+  "featureCount": 51,
+  "aliasCount": 12,
+  "assertionCount": 0,
+  "packageLinkCount": 0,
+  "projectionCount": 0,
+  "variantCoverageCount": 0,
+  "validationStatus": "VALIDATED",
+  "generatedAt": "2026-08-18T16:30:00.000Z",
+  "declaredLimitations": [
+    "empty-pilot-release-no-vehicle-equipment-claims",
+    "legacy-safety-feature-codes-not-migrated-without-exact-package-applicability",
+    "decision-engine-integration-not-enabled"
+  ]
+}

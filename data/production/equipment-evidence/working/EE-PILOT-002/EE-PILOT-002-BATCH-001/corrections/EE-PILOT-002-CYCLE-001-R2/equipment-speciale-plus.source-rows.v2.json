@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "2.0.0",
+  "extractionPolicy": {
+    "id": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+    "version": "2.0.0"
+  },
+  "parentSource": {
+    "sourceId": "SRC-000086",
+    "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+    "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955"
+  },
+  "context": {
+    "market": "TR",
+    "brand": "Alfa Romeo",
+    "model": "Junior",
+    "powertrainLabel": "Ibrida Hybrid 145 eDCT6",
+    "trimLabel": "Speciale+",
+    "sourceBoundary": "unique-text:Alfa Romeo Junior Ibrida Speciale+ -> cvPopupFullscreen__scrollLine"
+  },
+  "sourceRowOrder": [
+    "EE-SROW-2A8BAE2A4C5E8885934E",
+    "EE-SROW-30E29139CA73E394CA26",
+    "EE-SROW-9A4A80BFA251D6CB65DD",
+    "EE-SROW-E6262CDA84B3E07C21A8",
+    "EE-SROW-3F233F6850C0332F22B1",
+    "EE-SROW-B3F092110D4DB1EEC3C5",
+    "EE-SROW-D0CF9D0F64317FFCE76F",
+    "EE-SROW-C9998B66B54FC6480284",
+    "EE-SROW-BA537F1A2E8442EFE1C0",
+    "EE-SROW-C71D2F24CB17593A87B5",
+    "EE-SROW-D0C0C23C879B52F61556",
+    "EE-SROW-9D142C333A5A6FFA32FB",
+    "EE-SROW-57551FC48D19F17D8D71",
+    "EE-SROW-0CB7706FAEF2EA01C5D5",
+    "EE-SROW-B29900C5C1DC743F43FC",
+    "EE-SROW-DA1D50B00A809CAB97DD"
+  ],
+  "sourceRowsById": {
+    "EE-SROW-2A8BAE2A4C5E8885934E": {
+      "sourceRowId": "EE-SROW-2A8BAE2A4C5E8885934E",
+      "sourceOrder": 0,
+      "rawText": "Adaptif Full LED Matrix farlar",
+      "normalizedText": "Adaptif Full LED Matrix farlar",
+      "occurrenceCount": 3,
+      "rawOccurrenceReferences": [
+        "source.html#byte-125305:occurrence-1:TEXT",
+        "source.html#byte-131472:occurrence-2:TEXT",
+        "source.html#byte-156085:occurrence-3:TEXT"
+      ]
+    },
+    "EE-SROW-30E29139CA73E394CA26": {
+      "sourceRowId": "EE-SROW-30E29139CA73E394CA26",
+      "sourceOrder": 1,
+      "rawText": "Adaptif uzun far yardımcısı",
+      "normalizedText": "Adaptif uzun far yardımcısı",
+      "occurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-125345:occurrence-1:TEXT",
+        "source.html#byte-156125:occurrence-2:TEXT"
+      ]
+    },
+    "EE-SROW-9A4A80BFA251D6CB65DD": {
+      "sourceRowId": "EE-SROW-9A4A80BFA251D6CB65DD",
+      "sourceOrder": 2,
+      "rawText": "Elektrikli & masaj özellikli sürücü koltuğu",
+      "normalizedText": "Elektrikli & masaj özellikli sürücü koltuğu",
+      "occurrenceCount": 3,
+      "rawOccurrenceReferences": [
+        "source.html#byte-125555:occurrence-1:HTML_ENTITY_ENCODED",
+        "source.html#byte-131599:occurrence-2:HTML_ENTITY_ENCODED",
+        "source.html#byte-156348:occurrence-3:HTML_ENTITY_ENCODED"
+      ]
+    },
+    "EE-SROW-E6262CDA84B3E07C21A8": {
+      "sourceRowId": "EE-SROW-E6262CDA84B3E07C21A8",
+      "sourceOrder": 3,
+      "rawText": "Isıtmalı ön koltuklar",
+      "normalizedText": "Isıtmalı ön koltuklar",
+      "occurrenceCount": 3,
+      "rawOccurrenceReferences": [
+        "source.html#byte-125612:occurrence-1:TEXT",
+        "source.html#byte-131681:occurrence-2:TEXT",
+        "source.html#byte-156405:occurrence-3:TEXT"
+      ]
+    },
+    "EE-SROW-3F233F6850C0332F22B1": {
+      "sourceRowId": "EE-SROW-3F233F6850C0332F22B1",
+      "sourceOrder": 4,
+      "rawText": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+      "normalizedText": "Kablosuz Apple CarPlay ve Android AutoTM desteği",
+      "occurrenceCount": 1,
+      "rawOccurrenceReferences": [
+        "source.html#byte-156914:occurrence-1:TEXT"
+      ]
+    },
+    "EE-SROW-B3F092110D4DB1EEC3C5": {
+      "sourceRowId": "EE-SROW-B3F092110D4DB1EEC3C5",
+      "sourceOrder": 5,
+      "rawText": "Kablosuz telefon şarj alanı",
+      "normalizedText": "Kablosuz telefon şarj alanı",
+      "occurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126073:occurrence-1:TEXT",
+        "source.html#byte-157005:occurrence-2:TEXT"
+      ]
+    },
+    "EE-SROW-D0CF9D0F64317FFCE76F": {
+      "sourceRowId": "EE-SROW-D0CF9D0F64317FFCE76F",
+      "sourceOrder": 6,
+      "rawText": "Anahtarsız giriş ve çalıştırma",
+      "normalizedText": "Anahtarsız giriş ve çalıştırma",
+      "occurrenceCount": 3,
+      "rawOccurrenceReferences": [
+        "source.html#byte-125769:occurrence-1:TEXT",
+        "source.html#byte-131737:occurrence-2:TEXT",
+        "source.html#byte-157170:occurrence-3:TEXT"
+      ]
+    },
+    "EE-SROW-C9998B66B54FC6480284": {
+      "sourceRowId": "EE-SROW-C9998B66B54FC6480284",
+      "sourceOrder": 7,
+      "rawText": "Elektrikli eller serbest bagaj açma sistemi",
+      "normalizedText": "Elektrikli eller serbest bagaj açma sistemi",
+      "occurrenceCount": 3,
+      "rawOccurrenceReferences": [
+        "source.html#byte-125809:occurrence-1:TEXT",
+        "source.html#byte-131802:occurrence-2:TEXT",
+        "source.html#byte-157210:occurrence-3:TEXT"
+      ]
+    },
+    "EE-SROW-BA537F1A2E8442EFE1C0": {
+      "sourceRowId": "EE-SROW-BA537F1A2E8442EFE1C0",
+      "sourceOrder": 8,
+      "rawText": "Dinamik kılavuz çizgili, 180° arka görüş kamerası",
+      "normalizedText": "Dinamik kılavuz çizgili, 180° arka görüş kamerası",
+      "occurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126110:occurrence-1:TEXT",
+        "source.html#byte-157575:occurrence-2:TEXT"
+      ]
+    },
+    "EE-SROW-C71D2F24CB17593A87B5": {
+      "sourceRowId": "EE-SROW-C71D2F24CB17593A87B5",
+      "sourceOrder": 9,
+      "rawText": "Ön, arka, yan park sensörleri",
+      "normalizedText": "Ön, arka, yan park sensörleri",
+      "occurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126169:occurrence-1:TEXT",
+        "source.html#byte-157634:occurrence-2:TEXT"
+      ]
+    },
+    "EE-SROW-D0C0C23C879B52F61556": {
+      "sourceRowId": "EE-SROW-D0C0C23C879B52F61556",
+      "sourceOrder": 10,
+      "rawText": "Kör nokta uyarı sistemi",
+      "normalizedText": "Kör nokta uyarı sistemi",
+      "occurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126208:occurrence-1:TEXT",
+        "source.html#byte-157673:occurrence-2:TEXT"
+      ]
+    },
+    "EE-SROW-9D142C333A5A6FFA32FB": {
+      "sourceRowId": "EE-SROW-9D142C333A5A6FFA32FB",
+      "sourceOrder": 11,
+      "rawText": "Adaptif hız sabitleyici",
+      "normalizedText": "Adaptif hız sabitleyici",
+      "occurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126276:occurrence-1:TEXT",
+        "source.html#byte-157791:occurrence-2:TEXT"
+      ]
+    },
+    "EE-SROW-57551FC48D19F17D8D71": {
+      "sourceRowId": "EE-SROW-57551FC48D19F17D8D71",
+      "sourceOrder": 12,
+      "rawText": "Otonom acil fren sistemi",
+      "normalizedText": "Otonom acil fren sistemi",
+      "occurrenceCount": 1,
+      "rawOccurrenceReferences": [
+        "source.html#byte-157890:occurrence-1:TEXT"
+      ]
+    },
+    "EE-SROW-0CB7706FAEF2EA01C5D5": {
+      "sourceRowId": "EE-SROW-0CB7706FAEF2EA01C5D5",
+      "sourceOrder": 13,
+      "rawText": "Trafik işareti algılama sistemi",
+      "normalizedText": "Trafik işareti algılama sistemi",
+      "occurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126365:occurrence-1:TEXT",
+        "source.html#byte-157955:occurrence-2:TEXT"
+      ]
+    },
+    "EE-SROW-B29900C5C1DC743F43FC": {
+      "sourceRowId": "EE-SROW-B29900C5C1DC743F43FC",
+      "sourceOrder": 14,
+      "rawText": "Sürücü yorgunluk algılama sistemi",
+      "normalizedText": "Sürücü yorgunluk algılama sistemi",
+      "occurrenceCount": 2,
+      "rawOccurrenceReferences": [
+        "source.html#byte-126437:occurrence-1:TEXT",
+        "source.html#byte-158027:occurrence-2:TEXT"
+      ]
+    },
+    "EE-SROW-DA1D50B00A809CAB97DD": {
+      "sourceRowId": "EE-SROW-DA1D50B00A809CAB97DD",
+      "sourceOrder": 15,
+      "rawText": "Ön, Yan ve Perde Hava Yastıkları",
+      "normalizedText": "Ön, Yan ve Perde Hava Yastıkları",
+      "occurrenceCount": 1,
+      "rawOccurrenceReferences": [
+        "source.html#byte-158194:occurrence-1:TEXT"
+      ]
+    }
+  }
+}

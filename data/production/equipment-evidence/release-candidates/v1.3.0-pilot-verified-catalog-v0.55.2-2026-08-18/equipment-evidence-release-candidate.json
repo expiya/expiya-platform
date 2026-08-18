@@ -1,0 +1,3419 @@
+{
+  "canonicalSerializationVersion": "CANONICAL_JSON_SORTED_KEYS_V1",
+  "compatibleCatalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+  "compatibleCatalogRelease": "v0.55.2",
+  "coverage": {
+    "authoritativeNegativeProjectionCount": 0,
+    "catalogVariantCount": 566,
+    "conflictProjectionCount": 0,
+    "coveredExactVariantCount": 2,
+    "coveredExactVariantIds": [
+      "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "5a64b246-3b05-52b6-9f24-b8f52ccc2305"
+    ],
+    "syntheticUnknownAssertionCount": 0,
+    "uncoveredDisposition": "UNCOVERED_NOT_ASSERTED_UNKNOWN",
+    "uncoveredExactVariantCount": 564
+  },
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "decisionControls": {
+    "candidateElimination": "FORBIDDEN",
+    "candidateResurrection": "FORBIDDEN",
+    "hardFilter": false,
+    "hardFilterAfterConfirmation": false,
+    "offerOrderingImpact": "NONE",
+    "questionGeneration": false,
+    "softRanking": false,
+    "userFacingExplanation": false
+  },
+  "featureDefinitions": [
+    {
+      "category": "ADAS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "labelTr": "Otonom acil fren"
+    },
+    {
+      "category": "ADAS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "FORWARD_COLLISION_WARNING",
+      "labelTr": "Ön çarpışma uyarısı"
+    },
+    {
+      "category": "ADAS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "LANE_DEPARTURE_WARNING",
+      "labelTr": "Şerit terk uyarısı"
+    },
+    {
+      "category": "ADAS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "labelTr": "Şeritte tutma desteği"
+    },
+    {
+      "category": "ADAS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "labelTr": "Şerit ortalama desteği"
+    },
+    {
+      "category": "ADAS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "labelTr": "Adaptif hız sabitleyici"
+    },
+    {
+      "category": "ADAS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "labelTr": "Kör nokta izleme"
+    },
+    {
+      "category": "ADAS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "labelTr": "Arka çapraz trafik uyarısı"
+    },
+    {
+      "category": "ADAS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "labelTr": "Trafik işareti tanıma"
+    },
+    {
+      "category": "ADAS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "labelTr": "Sürücü dikkat takip sistemi"
+    },
+    {
+      "category": "ADAS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "labelTr": "Uzun far asistanı"
+    },
+    {
+      "category": "PARKING",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "featureCode": "REAR_VIEW_CAMERA",
+      "labelTr": "Geri görüş kamerası"
+    },
+    {
+      "category": "PARKING",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "labelTr": "360 derece çevre görüş kamerası"
+    },
+    {
+      "category": "PARKING",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "labelTr": "Ön park sensörleri"
+    },
+    {
+      "category": "PARKING",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "labelTr": "Arka park sensörleri"
+    },
+    {
+      "category": "PARKING",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "AUTOMATIC_PARK_ASSIST",
+      "labelTr": "Otomatik park desteği"
+    },
+    {
+      "category": "OCCUPANT_SAFETY",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "labelTr": "Arka dış koltuklarda ISOFIX"
+    },
+    {
+      "category": "OCCUPANT_SAFETY",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "ISOFIX_FRONT_PASSENGER",
+      "labelTr": "Ön yolcu koltuğunda ISOFIX"
+    },
+    {
+      "category": "OCCUPANT_SAFETY",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "labelTr": "Ön, yan ve perde hava yastığı kapsamı"
+    },
+    {
+      "category": "OCCUPANT_SAFETY",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "CENTER_AIRBAG",
+      "labelTr": "Orta hava yastığı"
+    },
+    {
+      "category": "OCCUPANT_SAFETY",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "REAR_SEAT_OCCUPANT_ALERT",
+      "labelTr": "Arka koltuk yolcu uyarısı"
+    },
+    {
+      "category": "CABIN_COMFORT",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "labelTr": "Isıtmalı ön koltuklar"
+    },
+    {
+      "category": "CABIN_COMFORT",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "HEATED_REAR_SEATS",
+      "labelTr": "Isıtmalı arka koltuklar"
+    },
+    {
+      "category": "CABIN_COMFORT",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "VENTILATED_FRONT_SEATS",
+      "labelTr": "Havalandırmalı ön koltuklar"
+    },
+    {
+      "category": "CABIN_COMFORT",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "labelTr": "Elektrikli sürücü koltuğu"
+    },
+    {
+      "category": "CABIN_COMFORT",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "labelTr": "Elektrikli ön yolcu koltuğu"
+    },
+    {
+      "category": "CABIN_COMFORT",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "DRIVER_SEAT_MEMORY",
+      "labelTr": "Hafızalı sürücü koltuğu"
+    },
+    {
+      "category": "CABIN_COMFORT",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "labelTr": "Isıtmalı direksiyon"
+    },
+    {
+      "category": "CABIN_COMFORT",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "DUAL_ZONE_CLIMATE_CONTROL",
+      "labelTr": "Çift bölgeli otomatik klima"
+    },
+    {
+      "category": "CABIN_COMFORT",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "THREE_ZONE_CLIMATE_CONTROL",
+      "labelTr": "Üç bölgeli otomatik klima"
+    },
+    {
+      "category": "CABIN_COMFORT",
+      "cohortPolicyId": "PASSENGER_CABIN_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "FOUR_ZONE_CLIMATE_CONTROL",
+      "labelTr": "Dört bölgeli otomatik klima"
+    },
+    {
+      "category": "ACCESS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "KEYLESS_ENTRY",
+      "labelTr": "Anahtarsız giriş"
+    },
+    {
+      "category": "ACCESS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "KEYLESS_START",
+      "labelTr": "Anahtarsız çalıştırma"
+    },
+    {
+      "category": "ACCESS",
+      "cohortPolicyId": "TAILGATE_BODY_V1",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "featureCode": "POWER_TAILGATE",
+      "labelTr": "Elektrikli bagaj kapağı"
+    },
+    {
+      "category": "ACCESS",
+      "cohortPolicyId": "TAILGATE_BODY_V1",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "labelTr": "Temassız açılan bagaj kapağı"
+    },
+    {
+      "category": "ACCESS",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "labelTr": "Panoramik cam tavan"
+    },
+    {
+      "category": "CONNECTIVITY",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "APPLE_CARPLAY",
+      "labelTr": "Apple CarPlay"
+    },
+    {
+      "category": "CONNECTIVITY",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "labelTr": "Kablosuz Apple CarPlay"
+    },
+    {
+      "category": "CONNECTIVITY",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "ANDROID_AUTO",
+      "labelTr": "Android Auto"
+    },
+    {
+      "category": "CONNECTIVITY",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "labelTr": "Kablosuz Android Auto"
+    },
+    {
+      "category": "CONNECTIVITY",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "labelTr": "Kablosuz telefon şarjı"
+    },
+    {
+      "category": "LIGHTING",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "LED_HEADLIGHTS",
+      "labelTr": "LED ön farlar"
+    },
+    {
+      "category": "LIGHTING",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "labelTr": "Adaptif ön farlar"
+    },
+    {
+      "category": "LIGHTING",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "labelTr": "Matrix LED ön farlar"
+    },
+    {
+      "category": "LIGHTING",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "AUTOMATIC_HIGH_BEAM",
+      "labelTr": "Otomatik uzun far"
+    },
+    {
+      "category": "OFF_ROAD",
+      "cohortPolicyId": "OFF_ROAD_ARCHITECTURE_V1",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "HILL_DESCENT_CONTROL",
+      "labelTr": "Yokuş iniş desteği"
+    },
+    {
+      "category": "OFF_ROAD",
+      "cohortPolicyId": "OFF_ROAD_ARCHITECTURE_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "TERRAIN_DRIVE_MODES",
+      "labelTr": "Arazi sürüş modları"
+    },
+    {
+      "category": "OFF_ROAD",
+      "cohortPolicyId": "OFF_ROAD_ARCHITECTURE_V1",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "featureCode": "LOW_RANGE_TRANSFER_CASE",
+      "labelTr": "Düşük oranlı arazi şanzımanı"
+    },
+    {
+      "category": "OFF_ROAD",
+      "cohortPolicyId": "OFF_ROAD_ARCHITECTURE_V1",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "featureCode": "LOCKING_REAR_DIFFERENTIAL",
+      "labelTr": "Kilitlenebilir arka diferansiyel"
+    },
+    {
+      "category": "OFF_ROAD",
+      "cohortPolicyId": "OFF_ROAD_ARCHITECTURE_V1",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "featureCode": "LOCKING_CENTER_DIFFERENTIAL",
+      "labelTr": "Kilitlenebilir merkez diferansiyeli"
+    },
+    {
+      "category": "OFF_ROAD",
+      "cohortPolicyId": "OFF_ROAD_ARCHITECTURE_V1",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "featureCode": "CRAWL_CONTROL",
+      "labelTr": "Düşük hızlı arazi ilerleme kontrolü"
+    }
+  ],
+  "generatedAt": "2026-08-18T22:20:00.000Z",
+  "intentAliases": [
+    {
+      "aliasId": "blind-spot",
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "normalizedPhrases": [
+        "kör nokta",
+        "yanımdaki aracı uyarsın"
+      ]
+    },
+    {
+      "aliasId": "aeb",
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "normalizedPhrases": [
+        "kendi fren yapsın",
+        "çarpışmada frenlesin"
+      ]
+    },
+    {
+      "aliasId": "lane-keep",
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "normalizedPhrases": [
+        "şeritte tutsun"
+      ]
+    },
+    {
+      "aliasId": "lane-center",
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "normalizedPhrases": [
+        "şeridin ortasında gitsin"
+      ]
+    },
+    {
+      "aliasId": "auto-park",
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "AUTOMATIC_PARK_ASSIST",
+      "normalizedPhrases": [
+        "kendi kendine park etsin"
+      ]
+    },
+    {
+      "aliasId": "surround-camera",
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "normalizedPhrases": [
+        "tepeden kamera",
+        "kuş bakışı kamera"
+      ]
+    },
+    {
+      "aliasId": "ventilated-seat",
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "VENTILATED_FRONT_SEATS",
+      "normalizedPhrases": [
+        "koltuk serinletsin"
+      ]
+    },
+    {
+      "aliasId": "wireless-phone-connect",
+      "ambiguityClass": "NEEDS_CONFIRMATION",
+      "defaultDecisionUse": "EXPLANATION_ONLY",
+      "normalizedPhrases": [
+        "telefonu kablosuz bağlayayım"
+      ]
+    },
+    {
+      "aliasId": "adaptive-light",
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "normalizedPhrases": [
+        "farlar virajı takip etsin"
+      ]
+    },
+    {
+      "aliasId": "crawl",
+      "ambiguityClass": "NEEDS_CONFIRMATION",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "featureCode": "CRAWL_CONTROL",
+      "normalizedPhrases": [
+        "arazide ağır ağır kendi ilerlesin"
+      ]
+    },
+    {
+      "aliasId": "generic-safe",
+      "ambiguityClass": "GENERIC_NOT_BINDABLE",
+      "defaultDecisionUse": "EXPLANATION_ONLY",
+      "normalizedPhrases": [
+        "güvenli olsun"
+      ]
+    },
+    {
+      "aliasId": "generic-equipped",
+      "ambiguityClass": "GENERIC_NOT_BINDABLE",
+      "defaultDecisionUse": "EXPLANATION_ONLY",
+      "normalizedPhrases": [
+        "donanımlı olsun",
+        "full paket olsun",
+        "teknolojisi iyi olsun"
+      ]
+    }
+  ],
+  "projections": [
+    {
+      "assertionMaterializationId": "EE-MAT-D59FB88495E5AB13F0B8",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-4AD5AE9BE1313DABE63C",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-4353504907757A504ABD",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "ANDROID_AUTO",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-9155732CC2051D5913FB",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "APPLE_CARPLAY",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-87A9CC205DDA4DD0A47B",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-1E3326FBF88E10CDBDBE",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-49F7C693EDB760055F3C",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-12E569E20BDD2FBDB94D",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-3486D3E0A25A90E9BEBD",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-3209473C542F72207CB7",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-DC4CD97A5B5C23EC669C",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "HEATED_FRONT_SEATS",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-A3A8FA7003BB18E0BB14",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-46375FC7F5ED6A0AB762",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "KEYLESS_ENTRY",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-A2AF0D611AE95B8D1736",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "KEYLESS_START",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-4FD2C5AE894F37A3CDEB",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "LED_HEADLIGHTS",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-4332A36A63A7E0D3480C",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-0A7A723DAFBBB467119D",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "POWER_DRIVER_SEAT",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-708F3DA302B0B7AF2586",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "POWER_TAILGATE",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-374D665C628FEAD7D15E",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "REAR_PARKING_SENSORS",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-4C80E7FC6F11DBFC5B66",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "REAR_VIEW_CAMERA",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-8447AB4E1DD7A742D630",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-65EF76FB05B99CC2F18E",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-84B0CEB020557BF8359B",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-D6A17F12E3E156BD88CB",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "familyInheritance": false,
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-A8ECAF3558616D9D8AAA",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-82404DC7E2E84361A8B0",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-3FB4241FCD7C3C4FCF76",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "ANDROID_AUTO",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-13DE9A855E584F0E48ED",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "APPLE_CARPLAY",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-3B219D7452E8AF0D79ED",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-AB64CB195C91B8C32CBD",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-D8BD1EF008E3F2C4340F",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-A72A81B8DEB9D290BDFA",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-39618C01D006895A6B4E",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-C4005155433093FC35DB",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-D5A9BB783E94FC621C7A",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "HEATED_FRONT_SEATS",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-6583765767F29F8257DF",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "KEYLESS_ENTRY",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-B3B84C0ED2E225544649",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "KEYLESS_START",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-36F1D1C4B0B37C11773E",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "LED_HEADLIGHTS",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-506FD33CDF43DCF065EA",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-A3D317ADDAA6D95F461E",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "POWER_DRIVER_SEAT",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-32A8C3103B94C6DB529E",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "POWER_TAILGATE",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-A57BA52C3F289B71429B",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "REAR_PARKING_SENSORS",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-86F8F41EB28039384BC6",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "REAR_VIEW_CAMERA",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-88434AA50B8297C37C73",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-2E5D824213EE08174F10",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-979EC8D41F09483F4D39",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    },
+    {
+      "assertionMaterializationId": "EE-MAT-BD263F8FE7CDCDAB890D",
+      "availabilityStatus": "STANDARD",
+      "crossPowertrainPropagation": false,
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "evidenceReinterpretation": false,
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "familyInheritance": false,
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "projectionType": "EXACT_VARIANT_VERIFIED",
+      "standardOrOptional": "STANDARD",
+      "trimLinkMaterializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894"
+    }
+  ],
+  "provenance": {
+    "approvalAttestationId": "EE-OWNER-ATTEST-17A447A6B53444C5ED8E",
+    "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+    "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "correctionCycleScope": [
+      "EE-PILOT-002-CYCLE-001",
+      "EE-PILOT-002-CYCLE-001-R2"
+    ],
+    "independentReviewEventIds": [
+      "EE-REV-04BBED83D9BAA5D7BB35",
+      "EE-REV-19F61890CED275095E50",
+      "EE-REV-1B5A207DFBC8A5DEBA94",
+      "EE-REV-288ABD18DD97D2365348",
+      "EE-REV-2CC45E4ACFCB418FF7BD",
+      "EE-REV-3230A9BFCCF523C4639A",
+      "EE-REV-364180B3CBC0B5B0808D",
+      "EE-REV-3EADA5743CBC228BDE08",
+      "EE-REV-43756AA4B95BB2D08F15",
+      "EE-REV-43F1E2B0918268D5D8A7",
+      "EE-REV-46258234D3C6DC58D01A",
+      "EE-REV-4F967093BB7AA1D94B46",
+      "EE-REV-5983E495D306B543947D",
+      "EE-REV-61D9D4840207DBE09AA1",
+      "EE-REV-678D5C5134C7C0EB6CB6",
+      "EE-REV-77685258E04AED22821B",
+      "EE-REV-791DDC0A2E168105C24F",
+      "EE-REV-796F37FC7BDF1BF8F00D",
+      "EE-REV-79C8347F9532A9E061C1",
+      "EE-REV-7A99B1C103539837CADB",
+      "EE-REV-7F9AE88BC3CAE2AD0626",
+      "EE-REV-82DBD039B080BA452B63",
+      "EE-REV-8382BDD70187AFEF0E14",
+      "EE-REV-8B3BFE9AB038C8FECF16",
+      "EE-REV-95E7F1CE78BCB5A90A8B",
+      "EE-REV-987155C935D265C7E96A",
+      "EE-REV-9BB4954FBA412E98BF38",
+      "EE-REV-9E1376F67948000AE15F",
+      "EE-REV-A15904CAAC032A071FF1",
+      "EE-REV-AB75023BAB9DBA9DBD42",
+      "EE-REV-AF1883753B73A239C657",
+      "EE-REV-AF23023F5CDA4AD4BC22",
+      "EE-REV-B31B12F0A36E33A2D414",
+      "EE-REV-B37463EAB0190BE65532",
+      "EE-REV-BA622751FE020ED5DB4B",
+      "EE-REV-BDE0D5552A97ED2094E1",
+      "EE-REV-BEBB7A8E0A0C87E3790B",
+      "EE-REV-CC21C4B3AF86BE1D9312",
+      "EE-REV-D03D10EBD47762EC898E",
+      "EE-REV-D5C1566B91E47B7E90BD",
+      "EE-REV-DD6E993186332F4598CB",
+      "EE-REV-DE9E6F14A934FD9A8ED5",
+      "EE-REV-EAD81AB924C8307B5CAB",
+      "EE-REV-EAD9AFE03D721F42A4CC",
+      "EE-REV-F0E5F133FE3C9C55EDD1",
+      "EE-REV-F5122449D277EC06DB71",
+      "EE-REV-FB0CBD97B71004FAFDA7",
+      "EE-REV-FB988DD11CA853730282",
+      "EE-REV-FC7D825C8B559A2DDC67"
+    ],
+    "ownerActorId": "EQUIPMENT_OWNER_001",
+    "pilotId": "EE-PILOT-002"
+  },
+  "releaseCandidateId": "v1.3.0-pilot-verified-catalog-v0.55.2-2026-08-18",
+  "schemaVersion": "1.0.0-rc",
+  "state": "PILOT_VERIFIED_DATA",
+  "verifiedAssertions": [
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-0A7A723DAFBBB467119D",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-3118207126F15A63831C",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-D5C1566B91E47B7E90BD",
+      "semanticMappingId": "EE-MAP-D54358F8FC7B03E477C2",
+      "sourceAssertionFingerprint": "sha256:365af6bb91a9c627280c06d05407359b30a073496dc9cf7456f6a1ede125e2b4",
+      "sourceAssertionId": "EE-AST-52A78E97B4ACAE656D24",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-5ED64371AD527B1D169C",
+        "EE-AST-A326271CE45422EFFDEB",
+        "EE-AST-52A78E97B4ACAE656D24"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-12E569E20BDD2FBDB94D",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-2573079C7E7C572AF8C0",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-95E7F1CE78BCB5A90A8B",
+      "semanticMappingId": "EE-MAP-BD3AF0D44E7EDB700FB5",
+      "sourceAssertionFingerprint": "sha256:e325cccfdb09f12f0fdeb667db7cccdfac02b23a99aeaa880e52c7bca8cdcd75",
+      "sourceAssertionId": "EE-AST-CA2FC39334B2699936E1",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-5B9F27AD6C6FD892E1DA",
+        "EE-AST-8C23116C8292828918FC",
+        "EE-AST-CA2FC39334B2699936E1"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "APPLE_CARPLAY",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-13DE9A855E584F0E48ED",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-492B7BC59009CA198BDF",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-AF1883753B73A239C657",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:31b2d9dff707ec6b46cdede68d323b1368e7645d1355cfcaaaaf1ff376293892",
+      "sourceAssertionId": "EE-AST-C1F5B8E4D44666FE6456",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-C1F5B8E4D44666FE6456"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-1E3326FBF88E10CDBDBE",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-9D9A36ECD364AD359CD6",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-DD6E993186332F4598CB",
+      "semanticMappingId": "EE-MAP-EA1E7392ACEC26236033",
+      "sourceAssertionFingerprint": "sha256:7453f050607c147aa72a8bf67c38d682e0a19d22654d41f9495ea73306f71219",
+      "sourceAssertionId": "EE-AST-2D039C3D477C4020D50A",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-C6454D2D253F8F77B9E2",
+        "EE-AST-26123EE601618D24A458",
+        "EE-AST-2D039C3D477C4020D50A"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-2E5D824213EE08174F10",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-6449881C02878089BD45",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-AF23023F5CDA4AD4BC22",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:2286e0ebc5f8752a97fd613a6c2317354c111a4928bf8b91a6f21c7f81623f2c",
+      "sourceAssertionId": "EE-AST-A5B6250E1F6F0650E0B2",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-A5B6250E1F6F0650E0B2"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-3209473C542F72207CB7",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-A43DCC4FA1A5C12E1FC0",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-B31B12F0A36E33A2D414",
+      "semanticMappingId": "EE-MAP-50452353067A4F63B753",
+      "sourceAssertionFingerprint": "sha256:b6aea5afd9cc94f33aa344ac8d3209eba12d796bda9baf46e2ba46b1a49c0a3b",
+      "sourceAssertionId": "EE-AST-F613E55AFEA8C1820028",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-5046A7F61E2ECF464A4E",
+        "EE-AST-515DD4D12CFD0E00FE49",
+        "EE-AST-F613E55AFEA8C1820028"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "POWER_TAILGATE",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-32A8C3103B94C6DB529E",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-7C45B69CDB0438997608",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-BEBB7A8E0A0C87E3790B",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:ca50485204b92682e068f4b485e12f2becd99fd9f5afb397158ae87ccedb72ce",
+      "sourceAssertionId": "EE-AST-0DEE97ECB96F650839F5",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-0DEE97ECB96F650839F5"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-3486D3E0A25A90E9BEBD",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-A13B93D1FD35448DFD7F",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-A15904CAAC032A071FF1",
+      "semanticMappingId": "EE-MAP-A9971B5259E3ABF8E32F",
+      "sourceAssertionFingerprint": "sha256:dc25fa46ce0083c51cac54553afa9e588c367a467966f09cd66b785621c37e18",
+      "sourceAssertionId": "EE-AST-FCF8164AEB1D13730CCB",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-96EF3FDDD4237FD62764",
+        "EE-AST-41F035863A28F87B1FB2",
+        "EE-AST-FCF8164AEB1D13730CCB"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "LED_HEADLIGHTS",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-36F1D1C4B0B37C11773E",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-FA7831E54A9149272886",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-43F1E2B0918268D5D8A7",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:dad2389f232c91765f9aa4512a7cbd91943144691d51d0c302a60d33507c6edf",
+      "sourceAssertionId": "EE-AST-709D2FBAAC718CA608EC",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-709D2FBAAC718CA608EC"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-374D665C628FEAD7D15E",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-4D41CCA563E2E9B3CF71",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-4F967093BB7AA1D94B46",
+      "semanticMappingId": "EE-MAP-3D9E27147D713EFE7CC3",
+      "sourceAssertionFingerprint": "sha256:c471c719b1e420228129b2a214e583bdf75f75dd317556d1058270603841a869",
+      "sourceAssertionId": "EE-AST-034730180C860C204F96",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-3C600CAE6DAD895ECF91",
+        "EE-AST-BBB759BEF305ADFAC69D",
+        "EE-AST-034730180C860C204F96"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-39618C01D006895A6B4E",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-59B2CBEFBCF27D70AF66",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-987155C935D265C7E96A",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:5782cfe80147233e58dafcefcc4b2fea73254b9231a3d7bdf1729349c62effc2",
+      "sourceAssertionId": "EE-AST-B8B9BA952A3C66A3934E",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-B8B9BA952A3C66A3934E"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-3B219D7452E8AF0D79ED",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-805132C72FE50E9A96DF",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-AB75023BAB9DBA9DBD42",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:34e087edf42d4ffcc84c71e39081cc13ea3d485eda23bf8f4527e8b95cb4a4fd",
+      "sourceAssertionId": "EE-AST-82900661C3963C45D4C0",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-82900661C3963C45D4C0"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "ANDROID_AUTO",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-3FB4241FCD7C3C4FCF76",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-FC95CA77DB9568738AE9",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-46258234D3C6DC58D01A",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:d1cf670dcdbce9904f14ecb531d3940ec0e7ff979e745440694d591e7bdd2c33",
+      "sourceAssertionId": "EE-AST-A2EEE0A5BCC87E6B4651",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-A2EEE0A5BCC87E6B4651"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-4332A36A63A7E0D3480C",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-6114891D8BA17A54A63E",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-79C8347F9532A9E061C1",
+      "semanticMappingId": "EE-MAP-308D1C66EDABD4BDC6D1",
+      "sourceAssertionFingerprint": "sha256:7c9ce437add5b1ca86e58296d733c0b8cadbf18a7bdef12db7749cc2bc26155b",
+      "sourceAssertionId": "EE-AST-44446264F030CD2E03E3",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-A281A67C6B186A3AB57F",
+        "EE-AST-BF736A7E26E4B3381295",
+        "EE-AST-44446264F030CD2E03E3"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "ANDROID_AUTO",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-4353504907757A504ABD",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-1DDF96753790C613172E",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-D03D10EBD47762EC898E",
+      "semanticMappingId": "EE-MAP-0DD1D56583544C500832",
+      "sourceAssertionFingerprint": "sha256:4aa7ba1a7c09f0228ffd138bd2b4d5f94ea1b5a0568afacd6f60a5a0365d8335",
+      "sourceAssertionId": "EE-AST-AA9FF910AA905E4FF124",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-0A96C735EE3A839FA973",
+        "EE-AST-707B4C065C6A5568E70D",
+        "EE-AST-AA9FF910AA905E4FF124"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "KEYLESS_ENTRY",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-46375FC7F5ED6A0AB762",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-35B925E93A3072890499",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-791DDC0A2E168105C24F",
+      "semanticMappingId": "EE-MAP-109521351BC6F8FF2D63",
+      "sourceAssertionFingerprint": "sha256:4bf2edd58cc7eebf38aeec093ea41fb3d3214ba9b8e26a7f099d723215a27a4e",
+      "sourceAssertionId": "EE-AST-DFE40020077E2E60A348",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-8722DEF7731111FBBBD5",
+        "EE-AST-EFB50B972F848EAC32FF",
+        "EE-AST-DFE40020077E2E60A348"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-49F7C693EDB760055F3C",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-97A5AAFCF0E827F539C3",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-364180B3CBC0B5B0808D",
+      "semanticMappingId": "EE-MAP-B937B340FBF2BF0EAFC9",
+      "sourceAssertionFingerprint": "sha256:8b705a655500acea1c48ff4ab82382168dce5e19b45de9c10558d440d48c751a",
+      "sourceAssertionId": "EE-AST-942CFD62517A14AC68BF",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-0A2BA188FBD58458E1FC",
+        "EE-AST-799E4F1D732C65A109E2",
+        "EE-AST-942CFD62517A14AC68BF"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-4AD5AE9BE1313DABE63C",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-6838612AFE4C537186C9",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-82DBD039B080BA452B63",
+      "semanticMappingId": "EE-MAP-28E01AF7BA79AD2FADE5",
+      "sourceAssertionFingerprint": "sha256:0f9c7bd0a32cc51b8b9d1d5635b63dce74e7c9ece713bd00505dff5b9cd9e406",
+      "sourceAssertionId": "EE-AST-70C3CFAA2870AE8366C7",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-75ACE4EB18797C557512",
+        "EE-AST-7955D10FD5BBD768FD68",
+        "EE-AST-70C3CFAA2870AE8366C7"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "REAR_VIEW_CAMERA",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-4C80E7FC6F11DBFC5B66",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-7A933224E6168334B721",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-796F37FC7BDF1BF8F00D",
+      "semanticMappingId": "EE-MAP-B4D90C91789948829A58",
+      "sourceAssertionFingerprint": "sha256:3589f08fe66fe26375c6bd4172de80ef02ca3e00635c38f57bc799b0ef1dc4c0",
+      "sourceAssertionId": "EE-AST-DD99C3C26BD25AFD0D13",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-5ACC47340A41C57AF8B1",
+        "EE-AST-CED3C33C436056A7FAAE",
+        "EE-AST-DD99C3C26BD25AFD0D13"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "LED_HEADLIGHTS",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-4FD2C5AE894F37A3CDEB",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-2E0FEB39080EE0A8D2F9",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-3230A9BFCCF523C4639A",
+      "semanticMappingId": "EE-MAP-25886FEA3C9DC839C605",
+      "sourceAssertionFingerprint": "sha256:751e2f4a7df382384cd7c011ba496193f9e226ec99e281a4fd2d388429ff0d38",
+      "sourceAssertionId": "EE-AST-CA64FD7A2377A633D88F",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-E34ECDC0D9C20D8D7155",
+        "EE-AST-52004936B62FF47434D9",
+        "EE-AST-CA64FD7A2377A633D88F"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-506FD33CDF43DCF065EA",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-8175132E14F70E30053C",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-77685258E04AED22821B",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:1ff77fde6307e16319a11eb685843179e1e3a2c08fb98a9e201b30d10587499f",
+      "sourceAssertionId": "EE-AST-1C1552F557E8063B19D5",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-1C1552F557E8063B19D5"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "KEYLESS_ENTRY",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-6583765767F29F8257DF",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-503C08F81F3613B1490E",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-BA622751FE020ED5DB4B",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:a80af46bf3204c699769332b2bf4be218b7a20ee7df860bf9fdd2334c2c39ef4",
+      "sourceAssertionId": "EE-AST-C53C6BC947B4AC9873D1",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-C53C6BC947B4AC9873D1"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-65EF76FB05B99CC2F18E",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-D77CCCAED9C588238966",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-19F61890CED275095E50",
+      "semanticMappingId": "EE-MAP-5F86348C1459960687ED",
+      "sourceAssertionFingerprint": "sha256:1a63abf36f30b733c21d5f8d6dca4d2e0c22ac356460e6b3e31e5d7b6a72bbb7",
+      "sourceAssertionId": "EE-AST-B35FF7AFFC8EC9D6B1D1",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-73580FC478A744391897",
+        "EE-AST-D8777043A06A14FB7BC2",
+        "EE-AST-B35FF7AFFC8EC9D6B1D1"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "POWER_TAILGATE",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-708F3DA302B0B7AF2586",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-E68E9C98512784BE60A3",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-FC7D825C8B559A2DDC67",
+      "semanticMappingId": "EE-MAP-B863D351F15D8D0F395A",
+      "sourceAssertionFingerprint": "sha256:3e638c4ef29a6f6bd98cd09777c8dd49f3a8cc10714908dc996f9a26a09f8d5f",
+      "sourceAssertionId": "EE-AST-B811A316A3E82FA1FF03",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-9E7E89DFAE1AB9141A71",
+        "EE-AST-AB46D91ABD2740264317",
+        "EE-AST-B811A316A3E82FA1FF03"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-82404DC7E2E84361A8B0",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-FF8A23D38BCF87014E38",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-61D9D4840207DBE09AA1",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:03b825a4c8a8e38989a2ee34681b958055a2a7b60a14485a4f0a1418c3281475",
+      "sourceAssertionId": "EE-AST-F7547C7FD7F7669DD139",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-F7547C7FD7F7669DD139"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-8447AB4E1DD7A742D630",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-D426CE49B43498E42085",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-8B3BFE9AB038C8FECF16",
+      "semanticMappingId": "EE-MAP-D52B1EFFE8C841EC06E8",
+      "sourceAssertionFingerprint": "sha256:0f2119848764079104ad68d570c5a486e38dfee19aa6b245c8646a988fe02521",
+      "sourceAssertionId": "EE-AST-449423B2C6F32B7D6DAE",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-A228CC19D799B5D96BB7",
+        "EE-AST-4E62CCB0B8E88FC3F02C",
+        "EE-AST-449423B2C6F32B7D6DAE"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-84B0CEB020557BF8359B",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-4C72DAF60C4376CB4E11",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-04BBED83D9BAA5D7BB35",
+      "semanticMappingId": "EE-MAP-62BDD683A93E4CE47FF7",
+      "sourceAssertionFingerprint": "sha256:15e7eec92988b2f9c9a28df38eb39089b54052d7036f30201fa29f59b51db384",
+      "sourceAssertionId": "EE-AST-0ABF17B39B2BBEC3ACD0",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-98C170A5ED8FA6B7F5E1",
+        "EE-AST-4D7424DDC0C84C4D2A34",
+        "EE-AST-0ABF17B39B2BBEC3ACD0"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "REAR_VIEW_CAMERA",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-86F8F41EB28039384BC6",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-F2C3E17F0B636C657013",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-CC21C4B3AF86BE1D9312",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:83c2deef1490b81a23e46741119161450a2fc4ba76670c0229ef1c9019078b8d",
+      "sourceAssertionId": "EE-AST-3F1F118A0351911BEE7F",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-3F1F118A0351911BEE7F"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-87A9CC205DDA4DD0A47B",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-070EA3C9941C95ED24F6",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-5983E495D306B543947D",
+      "semanticMappingId": "EE-MAP-140B608FF191EDEC6812",
+      "sourceAssertionFingerprint": "sha256:c4c31e12203936681b6749135e4211905a18a44e325dbb108985e3d5aebd4d7c",
+      "sourceAssertionId": "EE-AST-B1CBA8D47AD6BFFA7AB4",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-D8AB7FFE16E78E3AA5D4",
+        "EE-AST-DCF553E67E0B7242D049",
+        "EE-AST-B1CBA8D47AD6BFFA7AB4"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-88434AA50B8297C37C73",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-F7626C2809193A114265",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-F0E5F133FE3C9C55EDD1",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:a4724a6ba17360a1d6ca9c789a16ce1395e245604848a94c019d5ccb38698680",
+      "sourceAssertionId": "EE-AST-56D23BE0A5AE1759B755",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-56D23BE0A5AE1759B755"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "APPLE_CARPLAY",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-9155732CC2051D5913FB",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-D78552E1CDA0145F2D7C",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-B37463EAB0190BE65532",
+      "semanticMappingId": "EE-MAP-2DF8A348C5C68ABF389F",
+      "sourceAssertionFingerprint": "sha256:49088f7ad282471f9adc2a822957177fbe29776cbdc36cd76feb4f3cf6d5a986",
+      "sourceAssertionId": "EE-AST-44CD7D17D85714AE7CA3",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-1C491B09501D7B009FED",
+        "EE-AST-AF76178BA2592A6A8BE3",
+        "EE-AST-44CD7D17D85714AE7CA3"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-979EC8D41F09483F4D39",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-71CDBDC8FA432C7313E5",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-7F9AE88BC3CAE2AD0626",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:f92871227bd6e595084d32eba87577154c6687e505b19628783fc0abd5fe8d56",
+      "sourceAssertionId": "EE-AST-47C7D620A0B85477C706",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-47C7D620A0B85477C706"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "KEYLESS_START",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-A2AF0D611AE95B8D1736",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-ACD4169F6C1FABEB74EF",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-EAD9AFE03D721F42A4CC",
+      "semanticMappingId": "EE-MAP-2AF3ADFD8122D3D0C050",
+      "sourceAssertionFingerprint": "sha256:077b5ad285ad7714b0e91ab82d07d048ac7819b00c672e7700c2713d82ad97e3",
+      "sourceAssertionId": "EE-AST-154524C5B5EDF0552617",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-2879F0E03D8077207B9A",
+        "EE-AST-EFA751E30207DB633B85",
+        "EE-AST-154524C5B5EDF0552617"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-A3A8FA7003BB18E0BB14",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-49292675222869FEDF9D",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-9E1376F67948000AE15F",
+      "semanticMappingId": "EE-MAP-A36064FFC65AB9F8E739",
+      "sourceAssertionFingerprint": "sha256:cdfccde39640a62a09cd59ef451d15e1e9f64a40e8d115a784474868d2a2aa80",
+      "sourceAssertionId": "EE-AST-244D0374F67E52E67C6D",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-13D6D0168629E24BBD73",
+        "EE-AST-AFCE79C722D7DA995A93",
+        "EE-AST-244D0374F67E52E67C6D"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-A3D317ADDAA6D95F461E",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-A558F613676F4CBA8EEE",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-DE9E6F14A934FD9A8ED5",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:3372b9f251f5f2fd7ff2a2a2cc588338d4f2d96be13c5697c525503572d056e4",
+      "sourceAssertionId": "EE-AST-0E9EBFF28AF2423C0AED",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-0E9EBFF28AF2423C0AED"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-A57BA52C3F289B71429B",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-BC05D619F9D73D401047",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-EAD81AB924C8307B5CAB",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:54ea77f2cffe3dec6915ec4eabafe8497e4f0b5462aff4cf506eaf1a177a3820",
+      "sourceAssertionId": "EE-AST-381372FF18EB364AB201",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-381372FF18EB364AB201"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-A72A81B8DEB9D290BDFA",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-ADD8CD5872244CA65F53",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-3EADA5743CBC228BDE08",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:59950d141b246a8fb4fb9b1175d97d15e5e00b5496d16f4aba410dfce9e760bd",
+      "sourceAssertionId": "EE-AST-04ED0E676B0142D4A589",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-04ED0E676B0142D4A589"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-A8ECAF3558616D9D8AAA",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-72E21B7259E7AB8646AF",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-FB988DD11CA853730282",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:c0130d483730ec2d0bb27d0e751de3e2afe0b20f38759c305c01d88c392fefeb",
+      "sourceAssertionId": "EE-AST-3193AD79B5E7E9A91549",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-3193AD79B5E7E9A91549"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-AB64CB195C91B8C32CBD",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-4C7A07C0052639FEF853",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-678D5C5134C7C0EB6CB6",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:2cc2bf25a5528d5b9c0582b878db022d2851102a39b083f1571cb85225ebd7b6",
+      "sourceAssertionId": "EE-AST-E0E993541FEE99922C14",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-E0E993541FEE99922C14"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "KEYLESS_START",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-B3B84C0ED2E225544649",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-88DC98E4EF9F89A192B8",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-8382BDD70187AFEF0E14",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:b23f3d134b34c347786175d9b411d9f64f4305a2d0e9be59e5528dfe77523502",
+      "sourceAssertionId": "EE-AST-2FBBFD07C7911CBB8C77",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-2FBBFD07C7911CBB8C77"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-BD263F8FE7CDCDAB890D",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-95B62A1C0E14461B9B4A",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-BDE0D5552A97ED2094E1",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:dedab5c9da77439cc4c997f502f0143c4e6d34367fd24403a2eaf6b5800a3ae2",
+      "sourceAssertionId": "EE-AST-1F334BB60951736BA9AF",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-1F334BB60951736BA9AF"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-C4005155433093FC35DB",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-593F98553D84E84B7F95",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-2CC45E4ACFCB418FF7BD",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:f2a82eb4a1336d39f31951f3fc431ebad364eed6cb81382ca65bdc6d29ff89ce",
+      "sourceAssertionId": "EE-AST-1735B424F1212565736E",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-1735B424F1212565736E"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-D59FB88495E5AB13F0B8",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-6DA300E012FCCE95AD8F",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-9BB4954FBA412E98BF38",
+      "semanticMappingId": "EE-MAP-CBC911A224906F6F70B4",
+      "sourceAssertionFingerprint": "sha256:6521f2e6bba7bd464f0c3ed26c72ab4070de9bffda44458dcff818b5591f780f",
+      "sourceAssertionId": "EE-AST-950B4DC7D873E1580C1D",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-A6B8B3D136B3E76B870B",
+        "EE-AST-DE805891A092449BFF1D",
+        "EE-AST-950B4DC7D873E1580C1D"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-D5A9BB783E94FC621C7A",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-B4C800B1296B7B18BA59",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-7A99B1C103539837CADB",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:f898f2ebbc391c0bee6231029756b21671416cd8176aafeff8f721de8db33422",
+      "sourceAssertionId": "EE-AST-42B47643216F0E93D683",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-42B47643216F0E93D683"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-D6A17F12E3E156BD88CB",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-6D4C45A75CCB259FAF94",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-1B5A207DFBC8A5DEBA94",
+      "semanticMappingId": "EE-MAP-4D4D7DC96A2686D4B524",
+      "sourceAssertionFingerprint": "sha256:d10f5238ff9c3f011fdfa17375a20c9ad577973731fc0e6aefa06438ae014e38",
+      "sourceAssertionId": "EE-AST-90813256BE93B927EE81",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-77ED3DC1BE274B53F3A2",
+        "EE-AST-528BFBA6ADE2132C5D16",
+        "EE-AST-90813256BE93B927EE81"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [],
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-D8BD1EF008E3F2C4340F",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-4340ACADE45B372046E5",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000084/2026-08-18/source.html",
+          "artifactSha256": "sha256:a97340845586845dfd6e6f84f5e2d0a351c6910678c544d860357ec631dc338b",
+          "sourceId": "SRC-000084"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-FB0CBD97B71004FAFDA7",
+      "semanticMappingId": null,
+      "sourceAssertionFingerprint": "sha256:3665eb5708aecc99b7d96b843b0b2c333f73aa2503c33cbf42b8997f01565587",
+      "sourceAssertionId": "EE-AST-704EAC1D105F97F98251",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-704EAC1D105F97F98251"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "availabilityStatus": "STANDARD",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "confidence": "HIGH",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "derivedArtifactReferences": [
+        {
+          "artifactReference": "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-001/corrections/EE-PILOT-002-CYCLE-001-R2/equipment-speciale-plus.source-rows.v2.json",
+          "artifactSha256": "sha256:d082adfcd82a59f2bd3b52284b6bd143d9e37540dd3ace85b416ad149cfcf796",
+          "derivedArtifactId": "EE-DERIVED-7811ECFC06AF39934ADD",
+          "extractionPolicyId": "ALFA_ROMEO_TR_EXACT_TRIM_SOURCE_ROWS",
+          "extractionPolicyVersion": "2.0.0",
+          "generatedAt": "2026-08-18T19:42:00.000Z",
+          "parentArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "parentArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "parentSourceId": "SRC-000086"
+        }
+      ],
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-DC4CD97A5B5C23EC669C",
+      "materializationType": "VERIFIED_EQUIPMENT_ASSERTION",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-2A17BD2EA04737300F13",
+      "policyVersion": "1.0.0",
+      "rawSourceReferences": [
+        {
+          "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+          "artifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+          "sourceId": "SRC-000086"
+        }
+      ],
+      "secondReviewEventId": "EE-REV-F5122449D277EC06DB71",
+      "semanticMappingId": "EE-MAP-BA08255669024B408827",
+      "sourceAssertionFingerprint": "sha256:9a6d7cc3e2ff2b0ec11acf3c3d6e119e16cc14b6040fd27b64f626dc209424fb",
+      "sourceAssertionId": "EE-AST-E527406AFD35F5E60453",
+      "standardOrOptional": "STANDARD",
+      "terminalSupersessionChain": [
+        "EE-AST-DBD96E14AB44A1172D19",
+        "EE-AST-AAB544FE77ED4AFF2278",
+        "EE-AST-E527406AFD35F5E60453"
+      ],
+      "verificationState": "VERIFIED"
+    }
+  ],
+  "verifiedTrimLinks": [
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "assertionMaterializationIds": [
+        "EE-MAT-13DE9A855E584F0E48ED",
+        "EE-MAT-2E5D824213EE08174F10",
+        "EE-MAT-32A8C3103B94C6DB529E",
+        "EE-MAT-36F1D1C4B0B37C11773E",
+        "EE-MAT-39618C01D006895A6B4E",
+        "EE-MAT-3B219D7452E8AF0D79ED",
+        "EE-MAT-3FB4241FCD7C3C4FCF76",
+        "EE-MAT-506FD33CDF43DCF065EA",
+        "EE-MAT-6583765767F29F8257DF",
+        "EE-MAT-82404DC7E2E84361A8B0",
+        "EE-MAT-86F8F41EB28039384BC6",
+        "EE-MAT-88434AA50B8297C37C73",
+        "EE-MAT-979EC8D41F09483F4D39",
+        "EE-MAT-A3D317ADDAA6D95F461E",
+        "EE-MAT-A57BA52C3F289B71429B",
+        "EE-MAT-A72A81B8DEB9D290BDFA",
+        "EE-MAT-A8ECAF3558616D9D8AAA",
+        "EE-MAT-AB64CB195C91B8C32CBD",
+        "EE-MAT-B3B84C0ED2E225544649",
+        "EE-MAT-BD263F8FE7CDCDAB890D",
+        "EE-MAT-C4005155433093FC35DB",
+        "EE-MAT-D5A9BB783E94FC621C7A",
+        "EE-MAT-D8BD1EF008E3F2C4340F"
+      ],
+      "canonicalTrimId": "trim-b8f7e8610d9c7a84dd42",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-TRIM-22D9CA73D57227ABA894",
+      "materializationType": "VERIFIED_EQUIPMENT_TRIM_LINK",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-2C25AAB6161F3091C84F",
+      "policyVersion": "1.0.0",
+      "secondReviewEventId": "EE-REV-288ABD18DD97D2365348",
+      "sourceIds": [
+        "SRC-000084",
+        "SRC-000085"
+      ],
+      "sourceTrimLinkFingerprint": "sha256:48713b9b0b2546c25f21d226002adce39fcd02a1a09fa1ee1a311da6cbfa451c",
+      "sourceTrimLinkId": "EE-LINK-TRIM-A147711D8B91E6CE0E60",
+      "terminalSupersessionChain": [
+        "EE-LINK-TRIM-A147711D8B91E6CE0E60"
+      ],
+      "verificationState": "VERIFIED"
+    },
+    {
+      "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+      "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+      "assertionMaterializationIds": [
+        "EE-MAT-0A7A723DAFBBB467119D",
+        "EE-MAT-12E569E20BDD2FBDB94D",
+        "EE-MAT-1E3326FBF88E10CDBDBE",
+        "EE-MAT-3209473C542F72207CB7",
+        "EE-MAT-3486D3E0A25A90E9BEBD",
+        "EE-MAT-374D665C628FEAD7D15E",
+        "EE-MAT-4332A36A63A7E0D3480C",
+        "EE-MAT-4353504907757A504ABD",
+        "EE-MAT-46375FC7F5ED6A0AB762",
+        "EE-MAT-49F7C693EDB760055F3C",
+        "EE-MAT-4AD5AE9BE1313DABE63C",
+        "EE-MAT-4C80E7FC6F11DBFC5B66",
+        "EE-MAT-4FD2C5AE894F37A3CDEB",
+        "EE-MAT-65EF76FB05B99CC2F18E",
+        "EE-MAT-708F3DA302B0B7AF2586",
+        "EE-MAT-8447AB4E1DD7A742D630",
+        "EE-MAT-84B0CEB020557BF8359B",
+        "EE-MAT-87A9CC205DDA4DD0A47B",
+        "EE-MAT-9155732CC2051D5913FB",
+        "EE-MAT-A2AF0D611AE95B8D1736",
+        "EE-MAT-A3A8FA7003BB18E0BB14",
+        "EE-MAT-D59FB88495E5AB13F0B8",
+        "EE-MAT-D6A17F12E3E156BD88CB",
+        "EE-MAT-DC4CD97A5B5C23EC669C"
+      ],
+      "canonicalTrimId": "trim-b3eab361cc661ef87b65",
+      "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+      "catalogRelease": "v0.55.2",
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "marketApplicability": "TR",
+      "materializationId": "EE-MAT-TRIM-C3D3BDA7329D49C0F71C",
+      "materializationType": "VERIFIED_EQUIPMENT_TRIM_LINK",
+      "materializedAt": "2026-08-18T22:20:00.000Z",
+      "modelYearApplicability": {
+        "from": 2026,
+        "to": 2026
+      },
+      "ownerApprovalEventId": "EE-OWNER-APP-3B2B4B7E63B5B0BFC761",
+      "policyVersion": "1.0.0",
+      "secondReviewEventId": "EE-REV-43756AA4B95BB2D08F15",
+      "sourceIds": [
+        "SRC-000085",
+        "SRC-000086"
+      ],
+      "sourceTrimLinkFingerprint": "sha256:3803c3e73daf77dcc6607d43bc40fe06eb5762755729cc7fd080d49ea9a5da1a",
+      "sourceTrimLinkId": "EE-LINK-TRIM-ABA4EC2DC97B99DA1C0D",
+      "terminalSupersessionChain": [
+        "EE-LINK-TRIM-6621623D8ECF53313FF7",
+        "EE-LINK-TRIM-EC5BE2661EDD367DE3C2",
+        "EE-LINK-TRIM-ABA4EC2DC97B99DA1C0D"
+      ],
+      "verificationState": "VERIFIED"
+    }
+  ]
+}

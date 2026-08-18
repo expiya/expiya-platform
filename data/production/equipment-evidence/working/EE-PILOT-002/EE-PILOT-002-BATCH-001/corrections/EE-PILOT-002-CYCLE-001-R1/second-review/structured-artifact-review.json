@@ -1,0 +1,238 @@
+{
+  "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/equipment-speciale-plus.derived.json",
+  "checksum": {
+    "expected": "sha256:7c4b9f8e7de95cfda4569b09f01bd0e362113b6a677a872ffea701e98cc09515",
+    "actual": "sha256:7c4b9f8e7de95cfda4569b09f01bd0e362113b6a677a872ffea701e98cc09515",
+    "result": "PASSED"
+  },
+  "parentProvenance": {
+    "sourceArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+    "expectedSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+    "recordedSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+    "actualSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+    "result": "PASSED"
+  },
+  "extractionPolicyVersion": "ALFA_ROMEO_TR_EXACT_TRIM_ROWS_V1",
+  "rawPhraseFidelity": "PASSED_24_OF_24_PHRASES_PRESENT",
+  "extractionLayerSeparation": "FAILED_FEATURE_CODE_INTERPRETATION_DURING_EXTRACTION",
+  "uniqueOfficialRows": 16,
+  "derivedFeatureRecords": 24,
+  "duplicatedInterpretations": [
+    {
+      "sourcePhrase": "Adaptif Full LED Matrix farlar",
+      "featureCodes": [
+        "ADAPTIVE_HEADLIGHTS",
+        "LED_HEADLIGHTS",
+        "MATRIX_LED_HEADLIGHTS"
+      ],
+      "derivedRecordCount": 3
+    },
+    {
+      "sourcePhrase": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+      "featureCodes": [
+        "ANDROID_AUTO",
+        "APPLE_CARPLAY",
+        "WIRELESS_ANDROID_AUTO",
+        "WIRELESS_APPLE_CARPLAY"
+      ],
+      "derivedRecordCount": 4
+    },
+    {
+      "sourcePhrase": "Ön, arka, yan park sensörleri",
+      "featureCodes": [
+        "FRONT_PARKING_SENSORS",
+        "REAR_PARKING_SENSORS"
+      ],
+      "derivedRecordCount": 2
+    },
+    {
+      "sourcePhrase": "Elektrikli eller serbest bagaj açma sistemi",
+      "featureCodes": [
+        "HANDS_FREE_TAILGATE",
+        "POWER_TAILGATE"
+      ],
+      "derivedRecordCount": 2
+    },
+    {
+      "sourcePhrase": "Anahtarsız giriş ve çalıştırma",
+      "featureCodes": [
+        "KEYLESS_ENTRY",
+        "KEYLESS_START"
+      ],
+      "derivedRecordCount": 2
+    }
+  ],
+  "deterministicSerialization": "PASSED_BYTE_IDENTICAL_REGENERATION",
+  "overallResult": "REJECTED_SYSTEMATIC_EXTRACTION_POLICY_VIOLATION",
+  "requiredCorrection": "Extract an ordered, deduplicated collection of source rows with stable source-row IDs; apply feature-code mappings only in assertion locators or a separate mapping artifact.",
+  "fidelityRows": [
+    {
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "derivedPhrase": "Adaptif hız sabitleyici",
+      "rawOccurrenceCount": 2,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "derivedPhrase": "Adaptif Full LED Matrix farlar",
+      "rawOccurrenceCount": 3,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "ANDROID_AUTO",
+      "derivedPhrase": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+      "rawOccurrenceCount": 1,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "APPLE_CARPLAY",
+      "derivedPhrase": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+      "rawOccurrenceCount": 1,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "derivedPhrase": "Otonom acil fren sistemi",
+      "rawOccurrenceCount": 1,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "derivedPhrase": "Kör nokta uyarı sistemi",
+      "rawOccurrenceCount": 2,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "derivedPhrase": "Sürücü yorgunluk algılama sistemi",
+      "rawOccurrenceCount": 2,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "derivedPhrase": "Ön, arka, yan park sensörleri",
+      "rawOccurrenceCount": 2,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "derivedPhrase": "Ön, Yan ve Perde Hava Yastıkları",
+      "rawOccurrenceCount": 1,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "derivedPhrase": "Elektrikli eller serbest bagaj açma sistemi",
+      "rawOccurrenceCount": 3,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "HEATED_FRONT_SEATS",
+      "derivedPhrase": "Isıtmalı ön koltuklar",
+      "rawOccurrenceCount": 3,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "derivedPhrase": "Adaptif uzun far yardımcısı",
+      "rawOccurrenceCount": 2,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "KEYLESS_ENTRY",
+      "derivedPhrase": "Anahtarsız giriş ve çalıştırma",
+      "rawOccurrenceCount": 3,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "KEYLESS_START",
+      "derivedPhrase": "Anahtarsız giriş ve çalıştırma",
+      "rawOccurrenceCount": 3,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "LED_HEADLIGHTS",
+      "derivedPhrase": "Adaptif Full LED Matrix farlar",
+      "rawOccurrenceCount": 3,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "derivedPhrase": "Adaptif Full LED Matrix farlar",
+      "rawOccurrenceCount": 3,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "POWER_DRIVER_SEAT",
+      "derivedPhrase": "Elektrikli & masaj özellikli sürücü koltuğu",
+      "rawOccurrenceCount": 3,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "POWER_TAILGATE",
+      "derivedPhrase": "Elektrikli eller serbest bagaj açma sistemi",
+      "rawOccurrenceCount": 3,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "REAR_PARKING_SENSORS",
+      "derivedPhrase": "Ön, arka, yan park sensörleri",
+      "rawOccurrenceCount": 2,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "REAR_VIEW_CAMERA",
+      "derivedPhrase": "Dinamik kılavuz çizgili, 180° arka görüş kamerası",
+      "rawOccurrenceCount": 2,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "derivedPhrase": "Trafik işareti algılama sistemi",
+      "rawOccurrenceCount": 2,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "derivedPhrase": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+      "rawOccurrenceCount": 1,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "derivedPhrase": "Kablosuz Apple CarPlay ve Android Auto™ desteği",
+      "rawOccurrenceCount": 1,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    },
+    {
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "derivedPhrase": "Kablosuz telefon şarj alanı",
+      "rawOccurrenceCount": 2,
+      "phrasePresentInRaw": true,
+      "extractionInterpretationIntroduced": true
+    }
+  ]
+}

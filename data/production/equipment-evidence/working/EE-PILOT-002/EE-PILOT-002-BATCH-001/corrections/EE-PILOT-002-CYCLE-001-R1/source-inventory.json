@@ -1,0 +1,32 @@
+[
+  {
+    "sourceId": "SRC-000086",
+    "originalUrl": "https://www.alfaromeo.com.tr/arac-modelleri/junior-ibrida",
+    "authority": "TR_DISTRIBUTOR",
+    "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+    "observedAt": "2026-08-18T18:58:00.000Z",
+    "market": "TR",
+    "modelYearApplicability": [
+      2026,
+      2026
+    ],
+    "exactPowertrainApplicability": "IBRIDA_HYBRID_145_EDCT6_SPECIALE_PLUS",
+    "rawArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/source.html",
+    "rawArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+    "derivedArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000086/2026-08-18/equipment-speciale-plus.derived.json",
+    "derivedArtifactSha256": "sha256:7c4b9f8e7de95cfda4569b09f01bd0e362113b6a677a872ffea701e98cc09515",
+    "extractionPolicyVersion": "ALFA_ROMEO_TR_EXACT_TRIM_ROWS_V1",
+    "snapshotResult": "CAPTURED_AND_STRUCTURED"
+  },
+  {
+    "sourceId": "SRC-000085",
+    "role": "TRIM_IDENTITY_SUPPORT",
+    "governanceStatus": "OFFICIAL_BACKEND_LINK_CONFIRMED",
+    "originalUrl": "https://arjfiyat.tofas.com.tr/pricelists?brand=alfa-romeo",
+    "officialFrontendArtifact": "data/cars/vehicle_evidence/working/ALFA_ROMEO_BATCH_01/snapshots/2026-08-16/price-page.html",
+    "officialFrontendArtifactSha256": "sha256:dceb2bcc7fdf0385af3be36556e0519ca2b4f565d6c36220b0478b853f58ed70",
+    "backendArtifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000085/2026-08-16/source.html",
+    "backendArtifactSha256": "sha256:af3d2ebbe55bab0c8df0231de73d989718b4d02f851d8fc361e3461fb63d9e79",
+    "evidence": "Official Alfa Romeo Türkiye price page line 1220 assigns the arjfiyat.tofas.com.tr endpoint to its price-list iframe location."
+  }
+]

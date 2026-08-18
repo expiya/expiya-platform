@@ -1,0 +1,157 @@
+{
+  "sourceId": "SRC-000086",
+  "rawArtifactSha256": "sha256:3ab39031195955489bd984c432b469943ebb420b7d11ad4f8f4ec22d6661f955",
+  "derivedArtifactSha256": "sha256:7c4b9f8e7de95cfda4569b09f01bd0e362113b6a677a872ffea701e98cc09515",
+  "extractionPolicyVersion": "ALFA_ROMEO_TR_EXACT_TRIM_ROWS_V1",
+  "oldLocator": {
+    "elementReference": "#modal-avhpos5auh",
+    "result": "HTML_LOCATOR_NOT_UNIQUE",
+    "occurrenceCount": 2
+  },
+  "newLocators": [
+    {
+      "assertionId": "EE-AST-DE805891A092449BFF1D",
+      "recordPath": "$.equipmentByFeature.ADAPTIVE_CRUISE_CONTROL",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:75400fd764f8b52d413eb155f4240f0e7f867fa92afde5a6ab9f9d25d3fb274c"
+    },
+    {
+      "assertionId": "EE-AST-7955D10FD5BBD768FD68",
+      "recordPath": "$.equipmentByFeature.ADAPTIVE_HEADLIGHTS",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:948668650552a83e2bbc54d09753d8566f0c5e48688ba5792a8fa8cc76268962"
+    },
+    {
+      "assertionId": "EE-AST-707B4C065C6A5568E70D",
+      "recordPath": "$.equipmentByFeature.ANDROID_AUTO",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:f9d0a06ccf82f34c39b8c01e6c2a9b0644d811d08407735a77d51afd4a951a29"
+    },
+    {
+      "assertionId": "EE-AST-AF76178BA2592A6A8BE3",
+      "recordPath": "$.equipmentByFeature.APPLE_CARPLAY",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:f9d0a06ccf82f34c39b8c01e6c2a9b0644d811d08407735a77d51afd4a951a29"
+    },
+    {
+      "assertionId": "EE-AST-DCF553E67E0B7242D049",
+      "recordPath": "$.equipmentByFeature.AUTONOMOUS_EMERGENCY_BRAKING",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:ebc17c386fe2745c3981111c5355c9631e82cee86ea99740145924a173abb3b1"
+    },
+    {
+      "assertionId": "EE-AST-26123EE601618D24A458",
+      "recordPath": "$.equipmentByFeature.BLIND_SPOT_MONITOR",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:57a48877ed007e5cb835bcdbbd4a0dc070b465923b2b1837420819ecf6a94e01"
+    },
+    {
+      "assertionId": "EE-AST-799E4F1D732C65A109E2",
+      "recordPath": "$.equipmentByFeature.DRIVER_ATTENTION_MONITOR",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:831eb1e51a1e3d8d028682873e1a1aa600995e900a31b94dcffd34d9ee40e627"
+    },
+    {
+      "assertionId": "EE-AST-8C23116C8292828918FC",
+      "recordPath": "$.equipmentByFeature.FRONT_PARKING_SENSORS",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:d7d8ada4314c34c6724fdb917b62379ed2c411981457ba129975d834771508b7"
+    },
+    {
+      "assertionId": "EE-AST-41F035863A28F87B1FB2",
+      "recordPath": "$.equipmentByFeature.FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:636bbd3053c7d6ff03dc350c343533bc503e4b2db537701479b9ed3dd9da4406"
+    },
+    {
+      "assertionId": "EE-AST-515DD4D12CFD0E00FE49",
+      "recordPath": "$.equipmentByFeature.HANDS_FREE_TAILGATE",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:b400bed660eb51a8cb12382f00732292485f3529f46243c2afc11b93abc92374"
+    },
+    {
+      "assertionId": "EE-AST-AAB544FE77ED4AFF2278",
+      "recordPath": "$.equipmentByFeature.HEATED_FRONT_SEATS",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:21a50712af4c4e20779503d9deca47954d6c2bfbfe45642c1e18f9ffda5c1809"
+    },
+    {
+      "assertionId": "EE-AST-AFCE79C722D7DA995A93",
+      "recordPath": "$.equipmentByFeature.HIGH_BEAM_ASSIST",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:45f9b68c7d5ef9ba344675ad593703e9b7060982ac1cb1a1791b7bf50a987bde"
+    },
+    {
+      "assertionId": "EE-AST-EFB50B972F848EAC32FF",
+      "recordPath": "$.equipmentByFeature.KEYLESS_ENTRY",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:c6f8859b97f2562fe983a69c89df10c0e130dea02220cd867a81959753936db1"
+    },
+    {
+      "assertionId": "EE-AST-EFA751E30207DB633B85",
+      "recordPath": "$.equipmentByFeature.KEYLESS_START",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:c6f8859b97f2562fe983a69c89df10c0e130dea02220cd867a81959753936db1"
+    },
+    {
+      "assertionId": "EE-AST-52004936B62FF47434D9",
+      "recordPath": "$.equipmentByFeature.LED_HEADLIGHTS",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:948668650552a83e2bbc54d09753d8566f0c5e48688ba5792a8fa8cc76268962"
+    },
+    {
+      "assertionId": "EE-AST-BF736A7E26E4B3381295",
+      "recordPath": "$.equipmentByFeature.MATRIX_LED_HEADLIGHTS",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:948668650552a83e2bbc54d09753d8566f0c5e48688ba5792a8fa8cc76268962"
+    },
+    {
+      "assertionId": "EE-AST-A326271CE45422EFFDEB",
+      "recordPath": "$.equipmentByFeature.POWER_DRIVER_SEAT",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:f6bc66d1a0d5488e4ef5cae2594aac46134c487b1b9d6e5034e2e21cbae011be"
+    },
+    {
+      "assertionId": "EE-AST-AB46D91ABD2740264317",
+      "recordPath": "$.equipmentByFeature.POWER_TAILGATE",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:b400bed660eb51a8cb12382f00732292485f3529f46243c2afc11b93abc92374"
+    },
+    {
+      "assertionId": "EE-AST-BBB759BEF305ADFAC69D",
+      "recordPath": "$.equipmentByFeature.REAR_PARKING_SENSORS",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:d7d8ada4314c34c6724fdb917b62379ed2c411981457ba129975d834771508b7"
+    },
+    {
+      "assertionId": "EE-AST-CED3C33C436056A7FAAE",
+      "recordPath": "$.equipmentByFeature.REAR_VIEW_CAMERA",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:6daf1835a08350d47975618b82ef311acfd89df770dbd239d3e4bc562322c2b4"
+    },
+    {
+      "assertionId": "EE-AST-4E62CCB0B8E88FC3F02C",
+      "recordPath": "$.equipmentByFeature.TRAFFIC_SIGN_RECOGNITION",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:ee03032645d44e5311c7d94fee4a12ed28e13f650f39ab7dd4fd5be313f15032"
+    },
+    {
+      "assertionId": "EE-AST-D8777043A06A14FB7BC2",
+      "recordPath": "$.equipmentByFeature.WIRELESS_ANDROID_AUTO",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:f9d0a06ccf82f34c39b8c01e6c2a9b0644d811d08407735a77d51afd4a951a29"
+    },
+    {
+      "assertionId": "EE-AST-4D7424DDC0C84C4D2A34",
+      "recordPath": "$.equipmentByFeature.WIRELESS_APPLE_CARPLAY",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:f9d0a06ccf82f34c39b8c01e6c2a9b0644d811d08407735a77d51afd4a951a29"
+    },
+    {
+      "assertionId": "EE-AST-528BFBA6ADE2132C5D16",
+      "recordPath": "$.equipmentByFeature.WIRELESS_PHONE_CHARGING",
+      "result": "RESOLVED_UNIQUE_1_OF_1",
+      "contentSha256": "sha256:b5af29e2fba5d8ee925e8ab9217806b68e73422e37f9390f98baa3dd39fdf928"
+    }
+  ]
+}

@@ -1,0 +1,554 @@
+[
+  {
+    "ledgerEntryId": "EE-RES-C883AE01463ECD55D76D",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-950B4DC7D873E1580C1D"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-E3693EC249AB6366C9D5",
+    "r1AssertionId": "EE-AST-DE805891A092449BFF1D",
+    "r2AssertionId": "EE-AST-950B4DC7D873E1580C1D",
+    "sourceRowId": "EE-SROW-9D142C333A5A6FFA32FB",
+    "semanticMappingId": "EE-MAP-CBC911A224906F6F70B4",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-2C4E76F1FC32AFCE091A",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "ADAPTIVE_HEADLIGHTS",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-70C3CFAA2870AE8366C7"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-92397A5F493F3BC37108",
+    "r1AssertionId": "EE-AST-7955D10FD5BBD768FD68",
+    "r2AssertionId": "EE-AST-70C3CFAA2870AE8366C7",
+    "sourceRowId": "EE-SROW-2A8BAE2A4C5E8885934E",
+    "semanticMappingId": "EE-MAP-28E01AF7BA79AD2FADE5",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-FB85917A8AAC4E59FF43",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "ANDROID_AUTO",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-AA9FF910AA905E4FF124"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-F62ACA0278E07E27D53B",
+    "r1AssertionId": "EE-AST-707B4C065C6A5568E70D",
+    "r2AssertionId": "EE-AST-AA9FF910AA905E4FF124",
+    "sourceRowId": "EE-SROW-3F233F6850C0332F22B1",
+    "semanticMappingId": "EE-MAP-0DD1D56583544C500832",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-306D2CF61245F26E9F82",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "APPLE_CARPLAY",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-44CD7D17D85714AE7CA3"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-220E6D1AF74D553124E4",
+    "r1AssertionId": "EE-AST-AF76178BA2592A6A8BE3",
+    "r2AssertionId": "EE-AST-44CD7D17D85714AE7CA3",
+    "sourceRowId": "EE-SROW-3F233F6850C0332F22B1",
+    "semanticMappingId": "EE-MAP-2DF8A348C5C68ABF389F",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-FCC03EBB14AD2771DADB",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-B1CBA8D47AD6BFFA7AB4"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-1D5EFBD44F04DDA25E74",
+    "r1AssertionId": "EE-AST-DCF553E67E0B7242D049",
+    "r2AssertionId": "EE-AST-B1CBA8D47AD6BFFA7AB4",
+    "sourceRowId": "EE-SROW-57551FC48D19F17D8D71",
+    "semanticMappingId": "EE-MAP-140B608FF191EDEC6812",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-1F0E6EFD73D615028D69",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "BLIND_SPOT_MONITOR",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-2D039C3D477C4020D50A"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-C9D62F5EC7142F200675",
+    "r1AssertionId": "EE-AST-26123EE601618D24A458",
+    "r2AssertionId": "EE-AST-2D039C3D477C4020D50A",
+    "sourceRowId": "EE-SROW-D0C0C23C879B52F61556",
+    "semanticMappingId": "EE-MAP-EA1E7392ACEC26236033",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-8E265BC0C6312843A418",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "DRIVER_ATTENTION_MONITOR",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-942CFD62517A14AC68BF"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-6667C32D6793469CA8E2",
+    "r1AssertionId": "EE-AST-799E4F1D732C65A109E2",
+    "r2AssertionId": "EE-AST-942CFD62517A14AC68BF",
+    "sourceRowId": "EE-SROW-B29900C5C1DC743F43FC",
+    "semanticMappingId": "EE-MAP-B937B340FBF2BF0EAFC9",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-A1F7C770351C126E1C10",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "FRONT_PARKING_SENSORS",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-CA2FC39334B2699936E1"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-62D2EE62D51456E21B43",
+    "r1AssertionId": "EE-AST-8C23116C8292828918FC",
+    "r2AssertionId": "EE-AST-CA2FC39334B2699936E1",
+    "sourceRowId": "EE-SROW-C71D2F24CB17593A87B5",
+    "semanticMappingId": "EE-MAP-BD3AF0D44E7EDB700FB5",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-0912F20F030D0A50D72E",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-FCF8164AEB1D13730CCB"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-979B2969ACFE8801C06C",
+    "r1AssertionId": "EE-AST-41F035863A28F87B1FB2",
+    "r2AssertionId": "EE-AST-FCF8164AEB1D13730CCB",
+    "sourceRowId": "EE-SROW-DA1D50B00A809CAB97DD",
+    "semanticMappingId": "EE-MAP-A9971B5259E3ABF8E32F",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-976960AC6471BFC093D6",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "HANDS_FREE_TAILGATE",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-F613E55AFEA8C1820028"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-1E9C20B28DA2AB76C732",
+    "r1AssertionId": "EE-AST-515DD4D12CFD0E00FE49",
+    "r2AssertionId": "EE-AST-F613E55AFEA8C1820028",
+    "sourceRowId": "EE-SROW-C9998B66B54FC6480284",
+    "semanticMappingId": "EE-MAP-50452353067A4F63B753",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-5149B51E136B14C73D1F",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "HEATED_FRONT_SEATS",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-E527406AFD35F5E60453"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-7CFFA59A1BCE2B78ED94",
+    "r1AssertionId": "EE-AST-AAB544FE77ED4AFF2278",
+    "r2AssertionId": "EE-AST-E527406AFD35F5E60453",
+    "sourceRowId": "EE-SROW-E6262CDA84B3E07C21A8",
+    "semanticMappingId": "EE-MAP-BA08255669024B408827",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-79A0F9A9E8C71E3AB1DC",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "HIGH_BEAM_ASSIST",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-244D0374F67E52E67C6D"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-A39ECD61E96C63541DD7",
+    "r1AssertionId": "EE-AST-AFCE79C722D7DA995A93",
+    "r2AssertionId": "EE-AST-244D0374F67E52E67C6D",
+    "sourceRowId": "EE-SROW-30E29139CA73E394CA26",
+    "semanticMappingId": "EE-MAP-A36064FFC65AB9F8E739",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-7E4916FEA6F1B1E5DF09",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "KEYLESS_ENTRY",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-DFE40020077E2E60A348"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-79EB50E5AABA48066F4E",
+    "r1AssertionId": "EE-AST-EFB50B972F848EAC32FF",
+    "r2AssertionId": "EE-AST-DFE40020077E2E60A348",
+    "sourceRowId": "EE-SROW-D0CF9D0F64317FFCE76F",
+    "semanticMappingId": "EE-MAP-109521351BC6F8FF2D63",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-007D065AACA37A614150",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "KEYLESS_START",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-154524C5B5EDF0552617"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-E2BDD8CF9F508C98DDFB",
+    "r1AssertionId": "EE-AST-EFA751E30207DB633B85",
+    "r2AssertionId": "EE-AST-154524C5B5EDF0552617",
+    "sourceRowId": "EE-SROW-D0CF9D0F64317FFCE76F",
+    "semanticMappingId": "EE-MAP-2AF3ADFD8122D3D0C050",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-55539FE2468D93FC9DF4",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "LED_HEADLIGHTS",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-CA64FD7A2377A633D88F"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-AED2F74301B0AD4A6603",
+    "r1AssertionId": "EE-AST-52004936B62FF47434D9",
+    "r2AssertionId": "EE-AST-CA64FD7A2377A633D88F",
+    "sourceRowId": "EE-SROW-2A8BAE2A4C5E8885934E",
+    "semanticMappingId": "EE-MAP-25886FEA3C9DC839C605",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-AC4285D0587F5DE8CF76",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "MATRIX_LED_HEADLIGHTS",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-44446264F030CD2E03E3"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-0856E70907BC3EB60BF2",
+    "r1AssertionId": "EE-AST-BF736A7E26E4B3381295",
+    "r2AssertionId": "EE-AST-44446264F030CD2E03E3",
+    "sourceRowId": "EE-SROW-2A8BAE2A4C5E8885934E",
+    "semanticMappingId": "EE-MAP-308D1C66EDABD4BDC6D1",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-D60FF46CF12439EF3B2A",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "POWER_DRIVER_SEAT",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-52A78E97B4ACAE656D24"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-FD986D9FE770B34F7315",
+    "r1AssertionId": "EE-AST-A326271CE45422EFFDEB",
+    "r2AssertionId": "EE-AST-52A78E97B4ACAE656D24",
+    "sourceRowId": "EE-SROW-9A4A80BFA251D6CB65DD",
+    "semanticMappingId": "EE-MAP-D54358F8FC7B03E477C2",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-E6F817CB480C19E4397C",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "POWER_TAILGATE",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-B811A316A3E82FA1FF03"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-10C6FB9BDA6DD965144B",
+    "r1AssertionId": "EE-AST-AB46D91ABD2740264317",
+    "r2AssertionId": "EE-AST-B811A316A3E82FA1FF03",
+    "sourceRowId": "EE-SROW-C9998B66B54FC6480284",
+    "semanticMappingId": "EE-MAP-B863D351F15D8D0F395A",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-0EE629152435EC3036C1",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "REAR_PARKING_SENSORS",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-034730180C860C204F96"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-9D25569AB3B53E8AC10F",
+    "r1AssertionId": "EE-AST-BBB759BEF305ADFAC69D",
+    "r2AssertionId": "EE-AST-034730180C860C204F96",
+    "sourceRowId": "EE-SROW-C71D2F24CB17593A87B5",
+    "semanticMappingId": "EE-MAP-3D9E27147D713EFE7CC3",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-F6EA34EA45E1A66D7DDC",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "REAR_VIEW_CAMERA",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-DD99C3C26BD25AFD0D13"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-80881A14FE98EE33DE8A",
+    "r1AssertionId": "EE-AST-CED3C33C436056A7FAAE",
+    "r2AssertionId": "EE-AST-DD99C3C26BD25AFD0D13",
+    "sourceRowId": "EE-SROW-BA537F1A2E8442EFE1C0",
+    "semanticMappingId": "EE-MAP-B4D90C91789948829A58",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-52B952EF5D3079B050AF",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-449423B2C6F32B7D6DAE"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-1691D36C125694331AD8",
+    "r1AssertionId": "EE-AST-4E62CCB0B8E88FC3F02C",
+    "r2AssertionId": "EE-AST-449423B2C6F32B7D6DAE",
+    "sourceRowId": "EE-SROW-0CB7706FAEF2EA01C5D5",
+    "semanticMappingId": "EE-MAP-D52B1EFFE8C841EC06E8",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-F258F41A006F5E2A1816",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "WIRELESS_ANDROID_AUTO",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-B35FF7AFFC8EC9D6B1D1"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-F8AFC623A319EE8D1B27",
+    "r1AssertionId": "EE-AST-D8777043A06A14FB7BC2",
+    "r2AssertionId": "EE-AST-B35FF7AFFC8EC9D6B1D1",
+    "sourceRowId": "EE-SROW-3F233F6850C0332F22B1",
+    "semanticMappingId": "EE-MAP-5F86348C1459960687ED",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-14FA2D633E0392DB5AF4",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "WIRELESS_APPLE_CARPLAY",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-0ABF17B39B2BBEC3ACD0"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-64EA64E02A41B9570746",
+    "r1AssertionId": "EE-AST-4D7424DDC0C84C4D2A34",
+    "r2AssertionId": "EE-AST-0ABF17B39B2BBEC3ACD0",
+    "sourceRowId": "EE-SROW-3F233F6850C0332F22B1",
+    "semanticMappingId": "EE-MAP-62BDD683A93E4CE47FF7",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  },
+  {
+    "ledgerEntryId": "EE-RES-2D2868F9C08C57ADF74E",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "featureCode": "WIRELESS_PHONE_CHARGING",
+    "disposition": "RESEARCHED_CONCLUSIVE",
+    "researchCycleId": "EE-PILOT-002-CYCLE-001-R2",
+    "batchId": "EE-PILOT-002-BATCH-001",
+    "updatedAt": "2026-08-18T19:55:00.000Z",
+    "sourceIds": [
+      "SRC-000086"
+    ],
+    "assertionIds": [
+      "EE-AST-90813256BE93B927EE81"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "r1LedgerEntryId": "EE-RES-F1ECCEAFA45C1754EDA9",
+    "r1AssertionId": "EE-AST-528BFBA6ADE2132C5D16",
+    "r2AssertionId": "EE-AST-90813256BE93B927EE81",
+    "sourceRowId": "EE-SROW-B3F092110D4DB1EEC3C5",
+    "semanticMappingId": "EE-MAP-4D4D7DC96A2686D4B524",
+    "correctionReason": "EXTRACTION_AND_SEMANTIC_MAPPING_LAYER_SEPARATION"
+  }
+]

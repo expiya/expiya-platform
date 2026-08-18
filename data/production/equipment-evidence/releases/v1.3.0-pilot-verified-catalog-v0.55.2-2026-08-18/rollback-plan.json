@@ -1,0 +1,12 @@
+{
+  "activationPerformed": false,
+  "candidateRelease": "v1.3.0-pilot-verified-catalog-v0.55.2-2026-08-18",
+  "currentActiveRelease": "v1.2.2-catalog-v0.55.2-2026-08-18",
+  "currentRollbackRequired": false,
+  "ifFutureActivationFails": {
+    "appendOnlyRevocationRequired": true,
+    "restoreActivePointerTo": "v1.2.2-catalog-v0.55.2-2026-08-18",
+    "restoreGeneratedModule": true,
+    "retainApprovalAndMaterializationAudit": true
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "baseRegistryRelease": "v0.4.0",
+  "extensionId": "v0.4.0-working-extension-ee-pilot-001",
+  "records": [
+    {
+      "source_id": "SRC-000079",
+      "publisher": "Dacia Türkiye",
+      "source_title": "Dacia Türkiye Yeni Jogger donanımları",
+      "source_type": "OFFICIAL_EQUIPMENT_LIST",
+      "source_url": "https://www.dacia.com.tr/modeller/yeni-jogger/donanim.html",
+      "market": "TR",
+      "publication_date": null,
+      "retrieved_at": "2026-08-18T17:38:38.000Z",
+      "authority_class": "TR_DISTRIBUTOR",
+      "source_status": "WORKING_BATCH",
+      "notes": "Current official equipment page exposes Expression and Extreme grades, but does not establish either catalog EDC trim as an exact 5-seat version.",
+      "source_url_canonical": "https://www.dacia.com.tr/modeller/yeni-jogger/donanim.html",
+      "source_version_label": "observed-2026-08-18",
+      "source_observed_at": "2026-08-18T17:38:38.000Z",
+      "source_content_hash": "4245a3e6620b233bbda2704315a2e81baede861defa90278659044e12bfa13cc",
+      "source_snapshot_ref": "data/cars/vehicle_evidence/source_snapshots/SRC-000079/2026-08-18/source.html"
+    },
+    {
+      "source_id": "SRC-000080",
+      "publisher": "Dacia Türkiye",
+      "source_title": "Dacia Türkiye Yeni Jogger 5 koltuk configurator",
+      "source_type": "OFFICIAL_CONFIGURATOR",
+      "source_url": "https://www.dacia.com.tr/modeller/yeni-jogger-5-koltuklu/configurator-v2.html",
+      "market": "TR",
+      "publication_date": null,
+      "retrieved_at": "2026-08-18T17:38:38.000Z",
+      "authority_class": "OFFICIAL_CONFIGURATOR",
+      "source_status": "WORKING_BATCH",
+      "notes": "Current 5-seat configurator identifies expression Eco-G 120 as BVM6/manual; it does not establish expression EDC or essential EDC.",
+      "source_url_canonical": "https://www.dacia.com.tr/modeller/yeni-jogger-5-koltuklu/configurator-v2.html",
+      "source_version_label": "observed-2026-08-18",
+      "source_observed_at": "2026-08-18T17:38:38.000Z",
+      "source_content_hash": "189b948d45e02a35612125b1a1e4e751f916a490fab5300e3519e6a3aa317ff8",
+      "source_snapshot_ref": "data/cars/vehicle_evidence/source_snapshots/SRC-000080/2026-08-18/source.html"
+    },
+    {
+      "source_id": "SRC-000081",
+      "publisher": "Dacia Türkiye",
+      "source_title": "Dacia Türkiye Yeni Jogger version comparison",
+      "source_type": "OFFICIAL_TECH_SPEC",
+      "source_url": "https://www.dacia.com.tr/modeller/yeni-jogger/karsilastirma.html",
+      "market": "TR",
+      "publication_date": null,
+      "retrieved_at": "2026-08-18T17:38:38.000Z",
+      "authority_class": "TR_DISTRIBUTOR",
+      "source_status": "WORKING_BATCH",
+      "notes": "Current comparison data identifies Eco-G 120 auto as Extreme 7-seat; it does not establish either catalog 5-seat EDC trim.",
+      "source_url_canonical": "https://www.dacia.com.tr/modeller/yeni-jogger/karsilastirma.html",
+      "source_version_label": "observed-2026-08-18",
+      "source_observed_at": "2026-08-18T17:38:38.000Z",
+      "source_content_hash": "12e4edd98c431e58f6e3c658128f598409a0abc70098004988994ad55fc55cf9",
+      "source_snapshot_ref": "data/cars/vehicle_evidence/source_snapshots/SRC-000081/2026-08-18/source.html"
+    }
+  ]
+}

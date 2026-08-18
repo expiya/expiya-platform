@@ -1,0 +1,17 @@
+[
+  {
+    "linkId": "EE-LINK-TRIM-EC5BE2661EDD367DE3C2",
+    "supersedesTrimLinkId": "EE-LINK-TRIM-6621623D8ECF53313FF7",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "canonicalTrimId": "trim-b3eab361cc661ef87b65",
+    "decision": "CONFLICT_REVIEW_REQUIRED",
+    "identityAndMy2026Governance": "PASSED",
+    "supersession": "PASSED",
+    "locatorChain": "FAILED_SRC_000086_DERIVED_ARTIFACT_NOT_AUTHORITATIVE",
+    "verificationStatePreserved": true,
+    "reviewException": {
+      "exceptionCode": "TRIM_LINK_DEPENDS_ON_REJECTED_DERIVED_ARTIFACT",
+      "recommendedAction": "Reissue the correction with a source-row-only derived artifact and stable raw-row locator."
+    }
+  }
+]

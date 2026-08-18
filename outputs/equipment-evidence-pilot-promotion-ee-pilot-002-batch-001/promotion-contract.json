@@ -1,0 +1,19 @@
+{
+  "appendOnly": true,
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "ownerActorRegistryRequired": true,
+  "policyVersion": "1.0.0",
+  "provisionalMutationForbidden": true,
+  "releaseStateAfterSuccessfulApproval": "PILOT_VERIFIED_DATA",
+  "requiredOwnerRole": "EQUIPMENT_OWNER_APPROVER",
+  "schemaVersion": "1.0.0",
+  "stages": [
+    "RESEARCH_ASSERTION",
+    "PROVISIONAL_ASSERTION",
+    "INDEPENDENTLY_REVIEWED_ASSERTION",
+    "OWNER_APPROVED_ASSERTION",
+    "VERIFICATION_MATERIALIZATION",
+    "PRODUCTION_PROJECTION",
+    "ACTIVE_RELEASE_POINTER"
+  ]
+}

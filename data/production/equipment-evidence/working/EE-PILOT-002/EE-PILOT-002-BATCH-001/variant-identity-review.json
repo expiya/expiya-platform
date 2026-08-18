@@ -1,0 +1,42 @@
+[
+  {
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "result": "EXACT_IDENTITY_SUPPORTED_PROVISIONAL",
+    "verifiedFields": [
+      "brand",
+      "model",
+      "trim",
+      "modelYear",
+      "powertrain",
+      "transmission",
+      "market"
+    ],
+    "officialConfigurationCode": null,
+    "configurationCodeStatus": "NOT_PUBLISHED_IN_CAPTURED_OFFICIAL_SOURCES",
+    "sourceIds": [
+      "SRC-000083",
+      "SRC-000085"
+    ],
+    "rationale": "The MY2026 official price-list artifact establishes Junior powertrain, Speciale+, market-facing transmission and model year; the independent powertrain-specific product page establishes 145 PS eDCT6 or 115 kW and a Speciale+ equipment section. Link remains PROVISIONAL pending independent review."
+  },
+  {
+    "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+    "result": "EXACT_IDENTITY_SUPPORTED_PROVISIONAL",
+    "verifiedFields": [
+      "brand",
+      "model",
+      "trim",
+      "modelYear",
+      "powertrain",
+      "transmission",
+      "market"
+    ],
+    "officialConfigurationCode": null,
+    "configurationCodeStatus": "NOT_PUBLISHED_IN_CAPTURED_OFFICIAL_SOURCES",
+    "sourceIds": [
+      "SRC-000084",
+      "SRC-000085"
+    ],
+    "rationale": "The MY2026 official price-list artifact establishes Junior powertrain, Speciale+, market-facing transmission and model year; the independent powertrain-specific product page establishes 145 PS eDCT6 or 115 kW and a Speciale+ equipment section. Link remains PROVISIONAL pending independent review."
+  }
+]

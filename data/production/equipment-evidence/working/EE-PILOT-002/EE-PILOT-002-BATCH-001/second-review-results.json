@@ -1,0 +1,46 @@
+{
+  "batchId": "EE-PILOT-002-BATCH-001",
+  "pilotId": "EE-PILOT-002",
+  "result": "ACCEPTED_WITH_REVIEW_EXCEPTIONS",
+  "catalogRelease": "v0.55.2",
+  "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+  "actorRole": "EQUIPMENT_REVIEWER_SECONDARY",
+  "actorInstanceId": "ACTOR-REVIEWER-CODEX-EQUIPMENT-001",
+  "reviewedAt": "2026-08-18T19:10:00.000Z",
+  "subjectCounts": {
+    "total": 49,
+    "passed": 24,
+    "conflictReviewRequired": 25,
+    "assertions": {
+      "total": 47,
+      "passed": 23,
+      "conflictReviewRequired": 24
+    },
+    "trimLinks": {
+      "total": 2,
+      "passed": 1,
+      "conflictReviewRequired": 1
+    }
+  },
+  "ledger": {
+    "total": 102,
+    "researchedConclusive": 47,
+    "researchedInconclusive": 55,
+    "notResearched": 0
+  },
+  "comparison": {
+    "confirmedSame": 23,
+    "confirmedDifferent": 0,
+    "inconclusiveForOne": 1,
+    "inconclusiveForBoth": 27,
+    "conflicting": 0
+  },
+  "verificationPromotionAllowed": false,
+  "blockers": [
+    "24 Ibrida assertions require unique locator recollection",
+    "Ibrida provisional trim link remains in conflict review",
+    "SRC-000085 canonical source governance must record the Tofaş backend domain and HTML response format"
+  ],
+  "ownerApprovalCreated": false,
+  "activeEquipmentPointerChanged": false
+}

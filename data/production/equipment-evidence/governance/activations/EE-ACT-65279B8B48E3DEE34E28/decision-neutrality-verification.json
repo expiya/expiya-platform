@@ -1,0 +1,28 @@
+{
+  "activationApprovalId": "EE-ACT-65279B8B48E3DEE34E28",
+  "candidateElimination": "FORBIDDEN",
+  "candidateResurrection": "FORBIDDEN",
+  "comparisonMethod": "STATIC_IMPORT_BOUNDARY_AND_DETERMINISTIC_V2_REGRESSION",
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "equipmentProjectionExposedToDecisionRuntime": false,
+  "hardFilter": false,
+  "hardFilterAfterConfirmation": false,
+  "intentClasses": [
+    "body_type",
+    "fuel_type",
+    "transmission",
+    "budget",
+    "usage",
+    "comfort",
+    "safety",
+    "parking",
+    "connectivity",
+    "ambiguous_requirement"
+  ],
+  "offerOrderingImpact": "NONE",
+  "questionGeneration": false,
+  "releaseId": "v1.3.0-pilot-verified-catalog-v0.55.2-2026-08-18",
+  "result": "DECISION_NEUTRAL",
+  "softRanking": false,
+  "userFacingExplanation": false
+}

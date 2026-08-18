@@ -1,0 +1,490 @@
+{
+  "schemaVersion": "1.2.1",
+  "releaseVersion": "v1.2.1-catalog-v0.55.1-2026-08-18",
+  "compatibleCatalogRelease": "v0.55.1",
+  "compatibleCatalogFingerprint": "sha256:96f318680dd788c9df0827cbe3ce5635a36a5f1b354ab8fc7e6654bfa3ddc07e",
+  "market": "TR",
+  "vocabularyVersion": "1.1.0",
+  "cohortPolicyVersion": "1.0.0",
+  "collectionProtocolVersion": "1.0.1",
+  "canonicalIdentityPolicyVersion": "1.0.0",
+  "state": "PILOT_EMPTY",
+  "generatedAt": "2026-08-18T20:05:00.000Z",
+  "featureDefinitions": [
+    {
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Otonom acil fren",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "FORWARD_COLLISION_WARNING",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Ön çarpışma uyarısı",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "LANE_DEPARTURE_WARNING",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Şerit terk uyarısı",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "LANE_KEEP_ASSIST",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Şeritte tutma desteği",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Şerit ortalama desteği",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Adaptif hız sabitleyici",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Kör nokta izleme",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Arka çapraz trafik uyarısı",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Trafik işareti tanıma",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Sürücü dikkat takip sistemi",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "category": "ADAS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Uzun far asistanı",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "REAR_VIEW_CAMERA",
+      "category": "PARKING",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "Geri görüş kamerası",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "category": "PARKING",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "360 derece çevre görüş kamerası",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "category": "PARKING",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "Ön park sensörleri",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "REAR_PARKING_SENSORS",
+      "category": "PARKING",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "Arka park sensörleri",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "AUTOMATIC_PARK_ASSIST",
+      "category": "PARKING",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Otomatik park desteği",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "category": "OCCUPANT_SAFETY",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "Arka dış koltuklarda ISOFIX",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "ISOFIX_FRONT_PASSENGER",
+      "category": "OCCUPANT_SAFETY",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "Ön yolcu koltuğunda ISOFIX",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "category": "OCCUPANT_SAFETY",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "Ön, yan ve perde hava yastığı kapsamı",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "CENTER_AIRBAG",
+      "category": "OCCUPANT_SAFETY",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "Orta hava yastığı",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "REAR_SEAT_OCCUPANT_ALERT",
+      "category": "OCCUPANT_SAFETY",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "Arka koltuk yolcu uyarısı",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "HEATED_FRONT_SEATS",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Isıtmalı ön koltuklar",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "HEATED_REAR_SEATS",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Isıtmalı arka koltuklar",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "VENTILATED_FRONT_SEATS",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Havalandırmalı ön koltuklar",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "POWER_DRIVER_SEAT",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Elektrikli sürücü koltuğu",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Elektrikli ön yolcu koltuğu",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "DRIVER_SEAT_MEMORY",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Hafızalı sürücü koltuğu",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "Isıtmalı direksiyon",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "DUAL_ZONE_CLIMATE_CONTROL",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Çift bölgeli otomatik klima",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "THREE_ZONE_CLIMATE_CONTROL",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Üç bölgeli otomatik klima",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "FOUR_ZONE_CLIMATE_CONTROL",
+      "category": "CABIN_COMFORT",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Dört bölgeli otomatik klima",
+      "cohortPolicyId": "PASSENGER_CABIN_V1"
+    },
+    {
+      "featureCode": "KEYLESS_ENTRY",
+      "category": "ACCESS",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Anahtarsız giriş",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "KEYLESS_START",
+      "category": "ACCESS",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "Anahtarsız çalıştırma",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "POWER_TAILGATE",
+      "category": "ACCESS",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "Elektrikli bagaj kapağı",
+      "cohortPolicyId": "TAILGATE_BODY_V1"
+    },
+    {
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "category": "ACCESS",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "Temassız açılan bagaj kapağı",
+      "cohortPolicyId": "TAILGATE_BODY_V1"
+    },
+    {
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "category": "ACCESS",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "Panoramik cam tavan",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "APPLE_CARPLAY",
+      "category": "CONNECTIVITY",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Apple CarPlay",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "category": "CONNECTIVITY",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Kablosuz Apple CarPlay",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "ANDROID_AUTO",
+      "category": "CONNECTIVITY",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Android Auto",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "category": "CONNECTIVITY",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Kablosuz Android Auto",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "category": "CONNECTIVITY",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "Kablosuz telefon şarjı",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "LED_HEADLIGHTS",
+      "category": "LIGHTING",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "LED ön farlar",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "category": "LIGHTING",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Adaptif ön farlar",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "category": "LIGHTING",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Matrix LED ön farlar",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "AUTOMATIC_HIGH_BEAM",
+      "category": "LIGHTING",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "Otomatik uzun far",
+      "cohortPolicyId": "ALL_ACTIVE_VARIANTS_V1"
+    },
+    {
+      "featureCode": "HILL_DESCENT_CONTROL",
+      "category": "OFF_ROAD",
+      "defaultDecisionUse": "SOFT_PREFERENCE",
+      "labelTr": "Yokuş iniş desteği",
+      "cohortPolicyId": "OFF_ROAD_ARCHITECTURE_V1"
+    },
+    {
+      "featureCode": "TERRAIN_DRIVE_MODES",
+      "category": "OFF_ROAD",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Arazi sürüş modları",
+      "cohortPolicyId": "OFF_ROAD_ARCHITECTURE_V1"
+    },
+    {
+      "featureCode": "LOW_RANGE_TRANSFER_CASE",
+      "category": "OFF_ROAD",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "Düşük oranlı arazi şanzımanı",
+      "cohortPolicyId": "OFF_ROAD_ARCHITECTURE_V1"
+    },
+    {
+      "featureCode": "LOCKING_REAR_DIFFERENTIAL",
+      "category": "OFF_ROAD",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "Kilitlenebilir arka diferansiyel",
+      "cohortPolicyId": "OFF_ROAD_ARCHITECTURE_V1"
+    },
+    {
+      "featureCode": "LOCKING_CENTER_DIFFERENTIAL",
+      "category": "OFF_ROAD",
+      "defaultDecisionUse": "HARD_FILTER_ELIGIBLE",
+      "labelTr": "Kilitlenebilir merkez diferansiyeli",
+      "cohortPolicyId": "OFF_ROAD_ARCHITECTURE_V1"
+    },
+    {
+      "featureCode": "CRAWL_CONTROL",
+      "category": "OFF_ROAD",
+      "defaultDecisionUse": "HARD_FILTER_AFTER_CONFIRMATION",
+      "labelTr": "Düşük hızlı arazi ilerleme kontrolü",
+      "cohortPolicyId": "OFF_ROAD_ARCHITECTURE_V1"
+    }
+  ],
+  "intentAliases": [
+    {
+      "aliasId": "blind-spot",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "normalizedPhrases": [
+        "kör nokta",
+        "yanımdaki aracı uyarsın"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "aeb",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "normalizedPhrases": [
+        "kendi fren yapsın",
+        "çarpışmada frenlesin"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "lane-keep",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "normalizedPhrases": [
+        "şeritte tutsun"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "lane-center",
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "normalizedPhrases": [
+        "şeridin ortasında gitsin"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "auto-park",
+      "featureCode": "AUTOMATIC_PARK_ASSIST",
+      "normalizedPhrases": [
+        "kendi kendine park etsin"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "surround-camera",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "normalizedPhrases": [
+        "tepeden kamera",
+        "kuş bakışı kamera"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "ventilated-seat",
+      "featureCode": "VENTILATED_FRONT_SEATS",
+      "normalizedPhrases": [
+        "koltuk serinletsin"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "wireless-phone-connect",
+      "normalizedPhrases": [
+        "telefonu kablosuz bağlayayım"
+      ],
+      "ambiguityClass": "NEEDS_CONFIRMATION",
+      "defaultDecisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "aliasId": "adaptive-light",
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "normalizedPhrases": [
+        "farlar virajı takip etsin"
+      ],
+      "ambiguityClass": "DIRECT",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "crawl",
+      "featureCode": "CRAWL_CONTROL",
+      "normalizedPhrases": [
+        "arazide ağır ağır kendi ilerlesin"
+      ],
+      "ambiguityClass": "NEEDS_CONFIRMATION",
+      "defaultDecisionUse": "SOFT_PREFERENCE"
+    },
+    {
+      "aliasId": "generic-safe",
+      "normalizedPhrases": [
+        "güvenli olsun"
+      ],
+      "ambiguityClass": "GENERIC_NOT_BINDABLE",
+      "defaultDecisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "aliasId": "generic-equipped",
+      "normalizedPhrases": [
+        "donanımlı olsun",
+        "full paket olsun",
+        "teknolojisi iyi olsun"
+      ],
+      "ambiguityClass": "GENERIC_NOT_BINDABLE",
+      "defaultDecisionUse": "EXPLANATION_ONLY"
+    }
+  ],
+  "assertions": [],
+  "packageVariantLinks": [],
+  "trimVariantLinks": [],
+  "researchLedger": [],
+  "reviewEvents": [],
+  "projections": []
+}

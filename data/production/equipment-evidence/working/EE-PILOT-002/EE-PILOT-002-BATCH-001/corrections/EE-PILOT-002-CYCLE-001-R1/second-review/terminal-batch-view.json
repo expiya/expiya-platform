@@ -1,0 +1,23 @@
+{
+  "terminalPolicy": "FOLLOW_SINGLE_SUCCESSOR_EXCLUDING_SUPERSEDED_PREDECESSORS",
+  "activePassedAssertions": {
+    "elettrica": 23,
+    "ibrida": 0,
+    "total": 23
+  },
+  "activePassedTrimLinks": {
+    "elettrica": 1,
+    "ibrida": 0,
+    "total": 1
+  },
+  "historicalSupersededConflicts": {
+    "ibridaAssertions": 24,
+    "ibridaTrimLinks": 1
+  },
+  "activeCorrectionConflicts": {
+    "ibridaAssertions": 24,
+    "ibridaTrimLinks": 1
+  },
+  "provisionalAssertionsMutated": false,
+  "productionProjectionCreated": false
+}

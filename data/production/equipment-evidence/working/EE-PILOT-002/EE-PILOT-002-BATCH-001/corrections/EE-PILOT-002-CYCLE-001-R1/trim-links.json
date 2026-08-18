@@ -1,0 +1,62 @@
+[
+  {
+    "linkId": "EE-LINK-TRIM-EC5BE2661EDD367DE3C2",
+    "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+    "canonicalTrimId": "trim-b3eab361cc661ef87b65",
+    "officialTrimName": "Speciale+",
+    "officialConfigurationCode": null,
+    "configurationCodeStatus": "NOT_PUBLISHED_IN_CAPTURED_OFFICIAL_SOURCES",
+    "market": "TR",
+    "modelYearFrom": 2026,
+    "modelYearTo": 2026,
+    "powertrainIdentity": "IBRIDA",
+    "assertionIds": [
+      "EE-AST-DE805891A092449BFF1D",
+      "EE-AST-7955D10FD5BBD768FD68",
+      "EE-AST-707B4C065C6A5568E70D",
+      "EE-AST-AF76178BA2592A6A8BE3",
+      "EE-AST-DCF553E67E0B7242D049",
+      "EE-AST-26123EE601618D24A458",
+      "EE-AST-799E4F1D732C65A109E2",
+      "EE-AST-8C23116C8292828918FC",
+      "EE-AST-41F035863A28F87B1FB2",
+      "EE-AST-515DD4D12CFD0E00FE49",
+      "EE-AST-AAB544FE77ED4AFF2278",
+      "EE-AST-AFCE79C722D7DA995A93",
+      "EE-AST-EFB50B972F848EAC32FF",
+      "EE-AST-EFA751E30207DB633B85",
+      "EE-AST-52004936B62FF47434D9",
+      "EE-AST-BF736A7E26E4B3381295",
+      "EE-AST-A326271CE45422EFFDEB",
+      "EE-AST-AB46D91ABD2740264317",
+      "EE-AST-BBB759BEF305ADFAC69D",
+      "EE-AST-CED3C33C436056A7FAAE",
+      "EE-AST-4E62CCB0B8E88FC3F02C",
+      "EE-AST-D8777043A06A14FB7BC2",
+      "EE-AST-4D7424DDC0C84C4D2A34",
+      "EE-AST-528BFBA6ADE2132C5D16"
+    ],
+    "verificationState": "PROVISIONAL",
+    "reviewState": "SECOND_REVIEW_REQUIRED",
+    "provenanceSourceIds": [
+      "SRC-000086",
+      "SRC-000085"
+    ],
+    "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+    "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "supersedesTrimLinkId": "EE-LINK-TRIM-6621623D8ECF53313FF7",
+    "locatorChain": [
+      {
+        "sourceId": "SRC-000086",
+        "kind": "STRUCTURED_RECORD",
+        "recordPath": "$.trim"
+      },
+      {
+        "sourceId": "SRC-000085",
+        "kind": "STRUCTURED_RECORD",
+        "recordPath": "$.officialPriceRows[?powertrain=IBRIDA]",
+        "governanceReference": "Official alfaromeo.com.tr price page embeds arjfiyat.tofas.com.tr/pricelists?brand=alfa-romeo"
+      }
+    ]
+  }
+]

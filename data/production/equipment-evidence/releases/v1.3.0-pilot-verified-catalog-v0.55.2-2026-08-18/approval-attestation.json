@@ -1,0 +1,13 @@
+{
+  "approvalAttestationId": "EE-OWNER-ATTEST-17A447A6B53444C5ED8E",
+  "approvalManifestChecksum": "sha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc",
+  "approvalManifestId": "EE-OWNER-APPROVAL-MANIFEST-001",
+  "approvalStatementChecksum": "sha256:0fffbe1907d7b49dea951726c056d59954b24bcf0450fc918c8e43e005ca1dfe",
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "governancePolicyVersion": "1.0.0",
+  "identityAssurance": "REPOSITORY_GOVERNANCE_ATTESTATION_NOT_REAL_WORLD_CRYPTOGRAPHIC_IDENTITY",
+  "normalizedApprovalStatement": "EQUIPMENT_OWNER_001 olarak EE-OWNER-APPROVAL-MANIFEST-001 kimlikli ve\nsha256:f35e41f2882afc35a3d31eb0e9b918135c4c4ca82b4c9b6515f8447379f118bc\nchecksum’lı approval manifestini inceledim. Manifestteki 47 assertion ve\n2 trim link için owner approval verilmesini, append-only approval event’lerinin\nve verification materialization kayıtlarının üretilmesini onaylıyorum.\nBu onayın Equipment Evidence pilot kapsamında olduğunu ve Decision Engine’e\nhenüz filtreleme, sıralama veya soru üretme yetkisi vermediğini kabul ediyorum.\n",
+  "ownerActorId": "EQUIPMENT_OWNER_001",
+  "recordedAt": "2026-08-18T22:20:00.000Z",
+  "subjectCount": 49
+}

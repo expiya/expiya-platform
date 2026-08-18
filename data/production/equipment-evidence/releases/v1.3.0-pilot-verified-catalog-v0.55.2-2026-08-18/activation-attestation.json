@@ -1,0 +1,15 @@
+{
+  "activationApprovalId": "EE-ACT-65279B8B48E3DEE34E28",
+  "approvalStatementChecksum": "sha256:85c603173dec1c76803902c200d6d5519331252da1f8412e9549dbcc3a91e5df",
+  "authorityBoundary": "EQUIPMENT_ACTIVE_SELECTION_ONLY_NO_DECISION_ENGINE_AUTHORITY",
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "expectedGeneratedModuleChecksum": "sha256:e18f0eca09a69e44badb3716d91fedcf56e3be9cecb8eff9a555c5ffc0a02d95",
+  "expectedPointerChecksum": "sha256:aec85d8f92c51ef3e5126a9f0dcf7db19bad3b9cb31a8851b58c2ef833950765",
+  "governancePolicyVersion": "1.0.0",
+  "normalizedApprovalStatement": "EQUIPMENT_OWNER_001 olarak\nv1.3.0-pilot-verified-catalog-v0.55.2-2026-08-18 release candidate’ının\nEquipment Evidence active pointer’ına alınmasını onaylıyorum. Release\nchecksum’ı\nsha256:bc0c9208aba80da7f683bf7b439f2715797755e782f98a50f06b7e16e23ec468,\nbeklenen pointer checksum’ı\nsha256:aec85d8f92c51ef3e5126a9f0dcf7db19bad3b9cb31a8851b58c2ef833950765\nve beklenen generated module checksum’ı\nsha256:e18f0eca09a69e44badb3716d91fedcf56e3be9cecb8eff9a555c5ffc0a02d95\nolarak doğrulanmıştır. Aktivasyonun SHADOW_AND_EXPLANATION_DISABLED\nyetkisiyle yapılmasını; Equipment verisinin filtreleme, sıralama, soru\nüretme veya kullanıcı açıklamasında kullanılmamasını kabul ediyorum.\nRollback hedefinin v1.2.2-catalog-v0.55.2-2026-08-18 olmasını onaylıyorum.\n",
+  "ownerActorId": "EQUIPMENT_OWNER_001",
+  "recordedAt": "2026-08-18T22:45:00.000Z",
+  "releaseChecksum": "sha256:bc0c9208aba80da7f683bf7b439f2715797755e782f98a50f06b7e16e23ec468",
+  "releaseId": "v1.3.0-pilot-verified-catalog-v0.55.2-2026-08-18",
+  "rollbackReleaseId": "v1.2.2-catalog-v0.55.2-2026-08-18"
+}

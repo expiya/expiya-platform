@@ -1,0 +1,33 @@
+{
+  "actors": [
+    {
+      "actorId": "EQUIPMENT_OWNER_001",
+      "allowedActions": [
+        "APPROVE_SECOND_REVIEW_PASSED",
+        "REJECT_SECOND_REVIEW_PASSED",
+        "REVOKE_PRIOR_OWNER_APPROVAL"
+      ],
+      "authorityVersion": "1.0.0",
+      "authorizationRecordedAt": "2026-08-18T21:00:00.000Z",
+      "authorizationSourceType": "EXPLICIT_PRODUCT_OWNER_DECLARATION",
+      "authorizationStatementHash": "sha256:30a2c40232f8ec9b9d3cb8227e970d18b6f7316fcd5ac07ac084f60562bffd06",
+      "forbiddenActions": [
+        "MODIFY_SOURCE_EVIDENCE",
+        "MODIFY_REVIEW_RESULT",
+        "BYPASS_SECOND_REVIEW",
+        "APPROVE_CONFLICTING_SUBJECT",
+        "APPROVE_SUPERSEDED_SUBJECT",
+        "APPROVE_NON_TERMINAL_SUBJECT",
+        "SELF_REVIEW_AS_INDEPENDENT_REVIEWER",
+        "CHANGE_CATALOG_FACTS",
+        "GRANT_DECISION_AUTHORITY"
+      ],
+      "identityAssurance": "REPOSITORY_PRODUCT_OWNER_GOVERNANCE_ATTESTATION_NOT_REAL_WORLD_CRYPTOGRAPHIC_IDENTITY",
+      "revocationPolicy": "APPEND_ONLY_EVENT_REQUIRED",
+      "role": "EQUIPMENT_OWNER_APPROVER",
+      "scope": "EQUIPMENT_EVIDENCE_ONLY",
+      "status": "ACTIVE"
+    }
+  ],
+  "schemaVersion": "1.0.0"
+}
