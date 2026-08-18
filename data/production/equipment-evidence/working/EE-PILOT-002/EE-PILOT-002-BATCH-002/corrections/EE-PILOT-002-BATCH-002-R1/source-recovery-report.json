@@ -1,0 +1,40 @@
+{
+  "result": "NO_EXACT_MY2026_PROVISION_SOURCE_RECOVERED",
+  "searchedAt": "2026-08-18T22:40:00.000Z",
+  "reviewedOfficialSources": [
+    {
+      "url": "https://www.alfaromeo.com.tr/configurator/",
+      "result": "PUBLIC_SHELL_NO_DETERMINISTIC_EXACT_PROVISION_STATE",
+      "captured": false
+    },
+    {
+      "url": "https://www.alfaromeo.com.tr/content/dam/alfa/tr/katalog/tonale-yeni/TONALE-e-brosur-TR.pdf",
+      "result": "REJECTED_TAXONOMY_AND_APPLICABILITY_MISMATCH",
+      "details": "Sprint/Ti/Veloce/Edizione Speciale matrix is not exact Speciale Hybrid 175 MY2026 authority",
+      "captured": false
+    },
+    {
+      "url": "https://www.alfaromeo.com.tr/content/dam/alfa/tr/katalog/2025/eylul/tonale/AR_TONALE_BROSUR_2025_02.pdf",
+      "result": "REJECTED_HISTORICAL_HYBRID_160",
+      "captured": false
+    },
+    {
+      "url": "https://arjfiyat.tofas.com.tr/pricelists?brand=alfa-romeo&hidebutton=true",
+      "result": "IDENTITY_AND_PRICE_ONLY_NO_FEATURE_PROVISION_ROWS",
+      "captured": true,
+      "sourceId": "SRC-000088"
+    },
+    {
+      "url": "https://www.alfaromeo.com.tr/arac-modelleri/yeni-tonale",
+      "result": "EXACT_TRIM_LISTING_WITH_PROVISION_UNRESOLVED",
+      "captured": true,
+      "sourceId": "SRC-000087"
+    }
+  ],
+  "explicitStandardFeatureCount": 0,
+  "explicitOptionalFeatureCount": 0,
+  "explicitPackageDependentFeatureCount": 0,
+  "newSourceCount": 0,
+  "newSnapshots": [],
+  "conclusion": "All 49 reviewed mappings remain association-only; no successor availability assertion is authorized."
+}

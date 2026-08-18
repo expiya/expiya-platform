@@ -1,0 +1,28 @@
+{
+  "approvalAttestationId": "EE-OAA-8DECD3638D2DB7DC5957",
+  "approvalManifestChecksum": "sha256:ba0668418f8a93e7c785041deb91b1f90727554fa5cc9c8d774c9d05f160b5e6",
+  "approvalManifestId": "EE-OAM-B3CABECB69A55D4B6741",
+  "compatibleCatalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+  "compatibleCatalogRelease": "v0.55.2",
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "declaredLimitations": [
+    "association-is-not-availability",
+    "association-is-not-projection",
+    "activation-not-authorized",
+    "decision-impact-disabled"
+  ],
+  "featureCount": 51,
+  "generatedAt": "2026-08-18T21:00:00.000Z",
+  "parentRelease": "v1.3.0-pilot-verified-catalog-v0.55.2-2026-08-18",
+  "payloadSha256": "sha256:56728c36d4faf08a1ba00a9e2f94d715be35d4c7053cd6995828d6813bb95032",
+  "projectionCount": 47,
+  "releaseVersion": "v1.4.0-reviewed-associations-catalog-v0.55.2-2026-08-18",
+  "reviewedAssociationCount": 49,
+  "reviewedAssociationVariantCoverage": 2,
+  "schemaVersion": "1.1.0-rc",
+  "uncoveredVariantCount": 562,
+  "validationStatus": "VALIDATED_RELEASE_CANDIDATE",
+  "verifiedAssertionCount": 47,
+  "verifiedAssertionVariantCoverage": 2,
+  "verifiedTrimLinkCount": 4
+}

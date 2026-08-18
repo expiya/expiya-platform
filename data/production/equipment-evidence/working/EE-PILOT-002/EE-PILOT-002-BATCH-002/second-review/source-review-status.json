@@ -1,0 +1,23 @@
+{
+  "disposition": "PASSED",
+  "sources": [
+    {
+      "sourceId": "SRC-000087",
+      "checksumValid": true,
+      "publicContentOnly": true,
+      "market": "TR",
+      "equipmentAuthority": true,
+      "identityAuthority": true
+    },
+    {
+      "sourceId": "SRC-000088",
+      "checksumValid": true,
+      "publicContentOnly": true,
+      "market": "TR",
+      "equipmentAuthority": false,
+      "identityAuthority": true
+    }
+  ],
+  "secretScan": "PASSED_NO_SESSION_COOKIE_AUTHORIZATION_OR_PERSONAL_DATA",
+  "mutableRemoteDependency": false
+}

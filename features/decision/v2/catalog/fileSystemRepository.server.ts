@@ -9,16 +9,24 @@ async function readJson(filePath: string): Promise<unknown> {
 }
 
 export function createFileSystemCatalogReleaseRepository(catalogRoot: string): CatalogReleaseRepository {
+  const immutableReleaseJson = new Map<string, Promise<unknown>>();
+  const readImmutableReleaseJson = (filePath: string) => {
+    const existing = immutableReleaseJson.get(filePath);
+    if (existing) return existing;
+    const loaded = readJson(filePath);
+    immutableReleaseJson.set(filePath, loaded);
+    return loaded;
+  };
   const releasePath = (version: string, file: string) => {
     assertSafeCatalogReleaseVersion(version);
     return path.join(catalogRoot, "releases", `v${version}`, file);
   };
   return {
     loadActivePointer: () => readJson(path.join(catalogRoot, "active.json")),
-    loadReleaseManifest: (version) => readJson(releasePath(version, "manifest.json")),
-    loadReleaseCatalog: (version) => readJson(releasePath(version, "catalog.json")),
+    loadReleaseManifest: (version) => readImmutableReleaseJson(releasePath(version, "manifest.json")),
+    loadReleaseCatalog: (version) => readImmutableReleaseJson(releasePath(version, "catalog.json")),
     loadDecisionFacets: async (version) => {
-      try { return await readJson(releasePath(version, "decision-facets.json")); } catch { return null; }
+      try { return await readImmutableReleaseJson(releasePath(version, "decision-facets.json")); } catch { return null; }
     },
     releaseExists: async (version) => {
       try { await access(releasePath(version, "manifest.json")); return true; } catch { return false; }

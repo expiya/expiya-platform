@@ -1,0 +1,1030 @@
+{
+  "schemaVersion": "2.0.0",
+  "extractionPolicy": {
+    "id": "ALFA_ROMEO_TR_TONALE_EXACT_TRIM_SOURCE_ROWS",
+    "version": "1.0.0"
+  },
+  "parentSource": {
+    "sourceId": "SRC-000087",
+    "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000087/2026-08-18/source.html",
+    "artifactSha256": "sha256:26537a743cb513ccd8b8e7803a0131910247d5ccaa48869b462a83cddc1fc4c4"
+  },
+  "sourceRowOrder": [
+    "EE-SROW-2C0CE9F38536103C8280",
+    "EE-SROW-2AD3A59D2047F703C077",
+    "EE-SROW-5190AA1F70C1CE8DE09F",
+    "EE-SROW-F15BC4D007341D3AE37D",
+    "EE-SROW-ACCA79C53F60A76D9C8C",
+    "EE-SROW-95BEB502076AF219E896",
+    "EE-SROW-0848752AA56CB5FA5886",
+    "EE-SROW-26339C36738C404C7580",
+    "EE-SROW-56CA88B2120975051656",
+    "EE-SROW-551667427A1D6814F829",
+    "EE-SROW-B6BA64F55311B5F50AB6",
+    "EE-SROW-6F96E990F85AEBBAE7F7",
+    "EE-SROW-EDDCF6F44ADF8327F28A",
+    "EE-SROW-5B87B7D7B1441607C279",
+    "EE-SROW-3F6D2F6BADF531B73798",
+    "EE-SROW-D3371B35D414132C6C23",
+    "EE-SROW-7AE293E53ED343BC63AD",
+    "EE-SROW-57C9DD9363745CA945FE",
+    "EE-SROW-8B20529905108442A145",
+    "EE-SROW-D7CF0D38B476F02E9C1D",
+    "EE-SROW-9944B23EA3C8D1CF52F5",
+    "EE-SROW-D22C0DEF4C7B2CE0D815",
+    "EE-SROW-D47F60CC5D75FD373F11",
+    "EE-SROW-C54B414D8934B55E4351",
+    "EE-SROW-4CC7D715CC416E1055CE",
+    "EE-SROW-01C95C1CBF93C1CBD12E",
+    "EE-SROW-8B5B3D5E71564E47DD61",
+    "EE-SROW-4E34AFC23ED12C067CDA",
+    "EE-SROW-803A96CA12F8241EE88F",
+    "EE-SROW-85104B35B8646DBE8273",
+    "EE-SROW-66691BC5D16AC64B0CD0",
+    "EE-SROW-181D98450CEEF157C9CF",
+    "EE-SROW-8316B3FE89EE539013E5",
+    "EE-SROW-E1BE90C17A26EF8868FB",
+    "EE-SROW-2456F238CAB5C83F6548",
+    "EE-SROW-78058852BC5ED5880B4E",
+    "EE-SROW-4CC904624249DBE543F9",
+    "EE-SROW-A4BD5A6F0056125AA1E5",
+    "EE-SROW-11EEB5D8D8219C422807",
+    "EE-SROW-78B90C829DDB274DB95D",
+    "EE-SROW-93A5217435AB9D3EB342",
+    "EE-SROW-8F0C9A9A63DB6C2EE4EB",
+    "EE-SROW-3B40CC77D1AE46C1E40C",
+    "EE-SROW-DFB0E84E210C596BAAB5",
+    "EE-SROW-58A0992BBC039CD6EA00",
+    "EE-SROW-B0E70E5C54F937D74319",
+    "EE-SROW-762262EB0F4A44385517",
+    "EE-SROW-84C0E35A9AE24FA8C2D1",
+    "EE-SROW-834EF1F4179B256C21CD",
+    "EE-SROW-44DB51C0614F7856DB38",
+    "EE-SROW-460A1BA3FBC18DB5883B",
+    "EE-SROW-F41C58F51E043CA2A375",
+    "EE-SROW-D2F5A5702E1A0D75FFAF",
+    "EE-SROW-5BADD160158ADE48621D",
+    "EE-SROW-FFD63B0C2F86524E29CA",
+    "EE-SROW-3B0924BC0336EAB30291",
+    "EE-SROW-1EA7AF8B0EC42716A62D",
+    "EE-SROW-BDEA9BBC50413168D818",
+    "EE-SROW-94D9C3C4ECD88D6E8F36",
+    "EE-SROW-B247596DA5F0A2104CBD",
+    "EE-SROW-B7A50941F67E4844EE4A",
+    "EE-SROW-19B81808C134E7B694A6",
+    "EE-SROW-FCEF0CB06B0C8117A498",
+    "EE-SROW-EE7F0849577A5A901858",
+    "EE-SROW-E7AA1AB775D645A28728",
+    "EE-SROW-2D64E06106EF4607E80F",
+    "EE-SROW-FE230589B31FD9875945",
+    "EE-SROW-A97B8B826ACCF4792F53",
+    "EE-SROW-23B25A69DAEE78787579",
+    "EE-SROW-37E9FE572E00DA09BB7E",
+    "EE-SROW-1B5FE9732036AB4E5C09",
+    "EE-SROW-2B948FA79D7066F507E7",
+    "EE-SROW-6ACA43E66ECEBD54F6DC",
+    "EE-SROW-31E5DA58C7F49120F319",
+    "EE-SROW-F394B8B45912EA7FA7C9",
+    "EE-SROW-C28CF69E1C77F1A12FCD",
+    "EE-SROW-6EF25411A9F44ED37315",
+    "EE-SROW-01B38527A37843E5E7E9"
+  ],
+  "sourceRowsById": {
+    "EE-SROW-2C0CE9F38536103C8280": {
+      "sourceRowId": "EE-SROW-2C0CE9F38536103C8280",
+      "sourceId": "SRC-000087",
+      "rawText": "18’’ elmas kesim parlak siyah alaşım jantlar",
+      "normalizedText": "18’’ elmas kesim parlak siyah alaşım jantlar",
+      "rawOccurrenceReferences": [
+        "char:128679"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-2AD3A59D2047F703C077": {
+      "sourceRowId": "EE-SROW-2AD3A59D2047F703C077",
+      "sourceId": "SRC-000087",
+      "rawText": "Koyu Miron mat detaylı parlak siyah gövde kiti",
+      "normalizedText": "Koyu Miron mat detaylı parlak siyah gövde kiti",
+      "rawOccurrenceReferences": [
+        "char:128741"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-5190AA1F70C1CE8DE09F": {
+      "sourceRowId": "EE-SROW-5190AA1F70C1CE8DE09F",
+      "sourceId": "SRC-000087",
+      "rawText": "Yeni içbükey V tasarımlı parlak siyah scudetto",
+      "normalizedText": "Yeni içbükey V tasarımlı parlak siyah scudetto",
+      "rawOccurrenceReferences": [
+        "char:128804"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-F15BC4D007341D3AE37D": {
+      "sourceRowId": "EE-SROW-F15BC4D007341D3AE37D",
+      "sourceId": "SRC-000087",
+      "rawText": "Full‐LED arka farlar ve stop lambaları",
+      "normalizedText": "Full‐LED arka farlar ve stop lambaları",
+      "rawOccurrenceReferences": [
+        "char:128867"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-ACCA79C53F60A76D9C8C": {
+      "sourceRowId": "EE-SROW-ACCA79C53F60A76D9C8C",
+      "sourceId": "SRC-000087",
+      "rawText": "3+3 DRL imzalı Full‐LED ön farlar",
+      "normalizedText": "3+3 DRL imzalı Full‐LED ön farlar",
+      "rawOccurrenceReferences": [
+        "char:128922"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-95BEB502076AF219E896": {
+      "sourceRowId": "EE-SROW-95BEB502076AF219E896",
+      "sourceId": "SRC-000087",
+      "rawText": "Karartılmış arka camlar",
+      "normalizedText": "Karartılmış arka camlar",
+      "rawOccurrenceReferences": [
+        "char:128972"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-0848752AA56CB5FA5886": {
+      "sourceRowId": "EE-SROW-0848752AA56CB5FA5886",
+      "sourceId": "SRC-000087",
+      "rawText": "Elektrikli açılır panoramik cam tavan",
+      "normalizedText": "Elektrikli açılır panoramik cam tavan",
+      "rawOccurrenceReferences": [
+        "char:129012"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-26339C36738C404C7580": {
+      "sourceRowId": "EE-SROW-26339C36738C404C7580",
+      "sourceId": "SRC-000087",
+      "rawText": "Elektrikli ayarlı ve otomatik katlanır dış aynalar",
+      "normalizedText": "Elektrikli ayarlı ve otomatik katlanır dış aynalar",
+      "rawOccurrenceReferences": [
+        "char:129066"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-56CA88B2120975051656": {
+      "sourceRowId": "EE-SROW-56CA88B2120975051656",
+      "sourceId": "SRC-000087",
+      "rawText": "“Biscione” logolu siyah kumaş/vinil koltuklar",
+      "normalizedText": "“Biscione” logolu siyah kumaş/vinil koltuklar",
+      "rawOccurrenceReferences": [
+        "char:129169"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-551667427A1D6814F829": {
+      "sourceRowId": "EE-SROW-551667427A1D6814F829",
+      "sourceId": "SRC-000087",
+      "rawText": "2 yönlü bel destekli sürücü koltuğu",
+      "normalizedText": "2 yönlü bel destekli sürücü koltuğu",
+      "rawOccurrenceReferences": [
+        "char:129231"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-B6BA64F55311B5F50AB6": {
+      "sourceRowId": "EE-SROW-B6BA64F55311B5F50AB6",
+      "sourceId": "SRC-000087",
+      "rawText": "Ön koltuklar için 6 yönlü manuel ayar",
+      "normalizedText": "Ön koltuklar için 6 yönlü manuel ayar",
+      "rawOccurrenceReferences": [
+        "char:129283"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-6F96E990F85AEBBAE7F7": {
+      "sourceRowId": "EE-SROW-6F96E990F85AEBBAE7F7",
+      "sourceId": "SRC-000087",
+      "rawText": "“Biscotto” dikişli konsol ve kapı panelleri",
+      "normalizedText": "“Biscotto” dikişli konsol ve kapı panelleri",
+      "rawOccurrenceReferences": [
+        "char:129337"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-EDDCF6F44ADF8327F28A": {
+      "sourceRowId": "EE-SROW-EDDCF6F44ADF8327F28A",
+      "sourceId": "SRC-000087",
+      "rawText": "Start/Stop butonlu sportif deri direksiyon simidi",
+      "normalizedText": "Start/Stop butonlu sportif deri direksiyon simidi",
+      "rawOccurrenceReferences": [
+        "char:129397"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-5B87B7D7B1441607C279": {
+      "sourceRowId": "EE-SROW-5B87B7D7B1441607C279",
+      "sourceId": "SRC-000087",
+      "rawText": "Otomatik kararan iç dikiz aynası",
+      "normalizedText": "Otomatik kararan iç dikiz aynası",
+      "rawOccurrenceReferences": [
+        "char:129463"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-3F6D2F6BADF531B73798": {
+      "sourceRowId": "EE-SROW-3F6D2F6BADF531B73798",
+      "sourceId": "SRC-000087",
+      "rawText": "Sportif metal pedallar",
+      "normalizedText": "Sportif metal pedallar",
+      "rawOccurrenceReferences": [
+        "char:129512"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-D3371B35D414132C6C23": {
+      "sourceRowId": "EE-SROW-D3371B35D414132C6C23",
+      "sourceId": "SRC-000087",
+      "rawText": "Alüminyum kapı eşikleri",
+      "normalizedText": "Alüminyum kapı eşikleri",
+      "rawOccurrenceReferences": [
+        "char:129551"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-7AE293E53ED343BC63AD": {
+      "sourceRowId": "EE-SROW-7AE293E53ED343BC63AD",
+      "sourceId": "SRC-000087",
+      "rawText": "12,3’’ Full TFT ''Cannocchiale\" dijital gösterge paneli",
+      "normalizedText": "12,3’’ Full TFT ''Cannocchiale\" dijital gösterge paneli",
+      "rawOccurrenceReferences": [
+        "char:129626"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-57C9DD9363745CA945FE": {
+      "sourceRowId": "EE-SROW-57C9DD9363745CA945FE",
+      "sourceId": "SRC-000087",
+      "rawText": "10,25’’ dokunmatik DAB bilgi‐eğlence sistemi",
+      "normalizedText": "10,25’’ dokunmatik DAB bilgi‐eğlence sistemi",
+      "rawOccurrenceReferences": [
+        "char:129696"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-8B20529905108442A145": {
+      "sourceRowId": "EE-SROW-8B20529905108442A145",
+      "sourceId": "SRC-000087",
+      "rawText": "Kablosuz Apple CarPlay / Android Auto",
+      "normalizedText": "Kablosuz Apple CarPlay / Android Auto",
+      "rawOccurrenceReferences": [
+        "char:129750"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-D7CF0D38B476F02E9C1D": {
+      "sourceRowId": "EE-SROW-D7CF0D38B476F02E9C1D",
+      "sourceId": "SRC-000087",
+      "rawText": "360° kamera",
+      "normalizedText": "360° kamera",
+      "rawOccurrenceReferences": [
+        "char:129804"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-9944B23EA3C8D1CF52F5": {
+      "sourceRowId": "EE-SROW-9944B23EA3C8D1CF52F5",
+      "sourceId": "SRC-000087",
+      "rawText": "Yan, ön ve arka park sensörleri",
+      "normalizedText": "Yan, ön ve arka park sensörleri",
+      "rawOccurrenceReferences": [
+        "char:129832"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-D22C0DEF4C7B2CE0D815": {
+      "sourceRowId": "EE-SROW-D22C0DEF4C7B2CE0D815",
+      "sourceId": "SRC-000087",
+      "rawText": "Paralel, dikey ve Exit Assist fonksiyonlu Park Asistanı",
+      "normalizedText": "Paralel, dikey ve Exit Assist fonksiyonlu Park Asistanı",
+      "rawOccurrenceReferences": [
+        "char:129880"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-D47F60CC5D75FD373F11": {
+      "sourceRowId": "EE-SROW-D47F60CC5D75FD373F11",
+      "sourceId": "SRC-000087",
+      "rawText": "Keyless Entry & Go (anahtarsız giriş ve çalıştırma)",
+      "normalizedText": "Keyless Entry & Go (anahtarsız giriş ve çalıştırma)",
+      "rawOccurrenceReferences": [
+        "char:129952"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-C54B414D8934B55E4351": {
+      "sourceRowId": "EE-SROW-C54B414D8934B55E4351",
+      "sourceId": "SRC-000087",
+      "rawText": "Elektrikli eller serbest bagaj açma sistemi",
+      "normalizedText": "Elektrikli eller serbest bagaj açma sistemi",
+      "rawOccurrenceReferences": [
+        "char:130024"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-4CC7D715CC416E1055CE": {
+      "sourceRowId": "EE-SROW-4CC7D715CC416E1055CE",
+      "sourceId": "SRC-000087",
+      "rawText": "Havalandırmalı kablosuz telefon şarj alanı",
+      "normalizedText": "Havalandırmalı kablosuz telefon şarj alanı",
+      "rawOccurrenceReferences": [
+        "char:130084"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-01C95C1CBF93C1CBD12E": {
+      "sourceRowId": "EE-SROW-01C95C1CBF93C1CBD12E",
+      "sourceId": "SRC-000087",
+      "rawText": "ALFA DNA sürüş programları",
+      "normalizedText": "ALFA DNA sürüş programları",
+      "rawOccurrenceReferences": [
+        "char:130143"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-8B5B3D5E71564E47DD61": {
+      "sourceRowId": "EE-SROW-8B5B3D5E71564E47DD61",
+      "sourceId": "SRC-000087",
+      "rawText": "Aktif sürüş asistanı",
+      "normalizedText": "Aktif sürüş asistanı",
+      "rawOccurrenceReferences": [
+        "char:130186"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-4E34AFC23ED12C067CDA": {
+      "sourceRowId": "EE-SROW-4E34AFC23ED12C067CDA",
+      "sourceId": "SRC-000087",
+      "rawText": "Stop & Go fonksiyonlu akıllı adaptif hız sabitleyici",
+      "normalizedText": "Stop & Go fonksiyonlu akıllı adaptif hız sabitleyici",
+      "rawOccurrenceReferences": [
+        "char:130223"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-803A96CA12F8241EE88F": {
+      "sourceRowId": "EE-SROW-803A96CA12F8241EE88F",
+      "sourceId": "SRC-000087",
+      "rawText": "ISA – Akıllı hız destek sistemi",
+      "normalizedText": "ISA – Akıllı hız destek sistemi",
+      "rawOccurrenceReferences": [
+        "char:130296"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-85104B35B8646DBE8273": {
+      "sourceRowId": "EE-SROW-85104B35B8646DBE8273",
+      "sourceId": "SRC-000087",
+      "rawText": "Sürücü yorgunluk algılama sistemi",
+      "normalizedText": "Sürücü yorgunluk algılama sistemi",
+      "rawOccurrenceReferences": [
+        "char:130344"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-66691BC5D16AC64B0CD0": {
+      "sourceRowId": "EE-SROW-66691BC5D16AC64B0CD0",
+      "sourceId": "SRC-000087",
+      "rawText": "Trafik işareti tanıma sistemi",
+      "normalizedText": "Trafik işareti tanıma sistemi",
+      "rawOccurrenceReferences": [
+        "char:130394"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-181D98450CEEF157C9CF": {
+      "sourceRowId": "EE-SROW-181D98450CEEF157C9CF",
+      "sourceId": "SRC-000087",
+      "rawText": "Ön çarpışma uyarı sistemi",
+      "normalizedText": "Ön çarpışma uyarı sistemi",
+      "rawOccurrenceReferences": [
+        "char:130440"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-8316B3FE89EE539013E5": {
+      "sourceRowId": "EE-SROW-8316B3FE89EE539013E5",
+      "sourceId": "SRC-000087",
+      "rawText": "Direksiyon Yardımcısı",
+      "normalizedText": "Direksiyon Yardımcısı",
+      "rawOccurrenceReferences": [
+        "char:130482"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-E1BE90C17A26EF8868FB": {
+      "sourceRowId": "EE-SROW-E1BE90C17A26EF8868FB",
+      "sourceId": "SRC-000087",
+      "rawText": "Adaptif Hız yardımcısı",
+      "normalizedText": "Adaptif Hız yardımcısı",
+      "rawOccurrenceReferences": [
+        "char:130520"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-2456F238CAB5C83F6548": {
+      "sourceRowId": "EE-SROW-2456F238CAB5C83F6548",
+      "sourceId": "SRC-000087",
+      "rawText": "Yaya ve bisikletli algılamalı acil durum frenleme (AEB)",
+      "normalizedText": "Yaya ve bisikletli algılamalı acil durum frenleme (AEB)",
+      "rawOccurrenceReferences": [
+        "char:130560"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-78058852BC5ED5880B4E": {
+      "sourceRowId": "EE-SROW-78058852BC5ED5880B4E",
+      "sourceId": "SRC-000087",
+      "rawText": "Kör nokta uyarı sistemi + Arka Çapraz Trafik Uyarısı ile kör nokta izleme",
+      "normalizedText": "Kör nokta uyarı sistemi + Arka Çapraz Trafik Uyarısı ile kör nokta izleme",
+      "rawOccurrenceReferences": [
+        "char:130632"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-4CC904624249DBE543F9": {
+      "sourceRowId": "EE-SROW-4CC904624249DBE543F9",
+      "sourceId": "SRC-000087",
+      "rawText": "1.6 Dizel - 130 BG",
+      "normalizedText": "1.6 Dizel - 130 BG",
+      "rawOccurrenceReferences": [
+        "char:130758"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Ti",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "powertrainApplicability": "DIESEL_130_TCT6"
+    },
+    "EE-SROW-A4BD5A6F0056125AA1E5": {
+      "sourceRowId": "EE-SROW-A4BD5A6F0056125AA1E5",
+      "sourceId": "SRC-000087",
+      "rawText": "19\" koyu miron alaşım jantlar",
+      "normalizedText": "19\" koyu miron alaşım jantlar",
+      "rawOccurrenceReferences": [
+        "char:133473"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-11EEB5D8D8219C422807": {
+      "sourceRowId": "EE-SROW-11EEB5D8D8219C422807",
+      "sourceId": "SRC-000087",
+      "rawText": "Koyu Miron mat detaylı parlak siyah gövde kiti",
+      "normalizedText": "Koyu Miron mat detaylı parlak siyah gövde kiti",
+      "rawOccurrenceReferences": [
+        "char:133517"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-78B90C829DDB274DB95D": {
+      "sourceRowId": "EE-SROW-78B90C829DDB274DB95D",
+      "sourceId": "SRC-000087",
+      "rawText": "Parlak siyah pencere çerçeveleri",
+      "normalizedText": "Parlak siyah pencere çerçeveleri",
+      "rawOccurrenceReferences": [
+        "char:133573"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-93A5217435AB9D3EB342": {
+      "sourceRowId": "EE-SROW-93A5217435AB9D3EB342",
+      "sourceId": "SRC-000087",
+      "rawText": "Yeni içbükey V tasarımlı parlak siyah scudetto",
+      "normalizedText": "Yeni içbükey V tasarımlı parlak siyah scudetto",
+      "rawOccurrenceReferences": [
+        "char:133615"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-8F0C9A9A63DB6C2EE4EB": {
+      "sourceRowId": "EE-SROW-8F0C9A9A63DB6C2EE4EB",
+      "sourceId": "SRC-000087",
+      "rawText": "Full-LED arka farlar ve stop lambaları",
+      "normalizedText": "Full-LED arka farlar ve stop lambaları",
+      "rawOccurrenceReferences": [
+        "char:133671"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-3B40CC77D1AE46C1E40C": {
+      "sourceRowId": "EE-SROW-3B40CC77D1AE46C1E40C",
+      "sourceId": "SRC-000087",
+      "rawText": "3+3 DRL imzalı Full-LED ön farlar",
+      "normalizedText": "3+3 DRL imzalı Full-LED ön farlar",
+      "rawOccurrenceReferences": [
+        "char:133719"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-DFB0E84E210C596BAAB5": {
+      "sourceRowId": "EE-SROW-DFB0E84E210C596BAAB5",
+      "sourceId": "SRC-000087",
+      "rawText": "Karartılmış arka camlar",
+      "normalizedText": "Karartılmış arka camlar",
+      "rawOccurrenceReferences": [
+        "char:133762"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-58A0992BBC039CD6EA00": {
+      "sourceRowId": "EE-SROW-58A0992BBC039CD6EA00",
+      "sourceId": "SRC-000087",
+      "rawText": "Elektrikli açılır panoramik cam tavan",
+      "normalizedText": "Elektrikli açılır panoramik cam tavan",
+      "rawOccurrenceReferences": [
+        "char:133795"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-B0E70E5C54F937D74319": {
+      "sourceRowId": "EE-SROW-B0E70E5C54F937D74319",
+      "sourceId": "SRC-000087",
+      "rawText": "Elektrikli ayarlı ve otomatik katlanır dış aynalar",
+      "normalizedText": "Elektrikli ayarlı ve otomatik katlanır dış aynalar",
+      "rawOccurrenceReferences": [
+        "char:133842"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-762262EB0F4A44385517": {
+      "sourceRowId": "EE-SROW-762262EB0F4A44385517",
+      "sourceId": "SRC-000087",
+      "rawText": "Alüminyum vites kulakçıkları",
+      "normalizedText": "Alüminyum vites kulakçıkları",
+      "rawOccurrenceReferences": [
+        "char:133938"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-84C0E35A9AE24FA8C2D1": {
+      "sourceRowId": "EE-SROW-84C0E35A9AE24FA8C2D1",
+      "sourceId": "SRC-000087",
+      "rawText": "Premium siyah gerçek deri koltuklar",
+      "normalizedText": "Premium siyah gerçek deri koltuklar",
+      "rawOccurrenceReferences": [
+        "char:133976"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-834EF1F4179B256C21CD": {
+      "sourceRowId": "EE-SROW-834EF1F4179B256C21CD",
+      "sourceId": "SRC-000087",
+      "rawText": "Isıtmalı ve havalandırmalı, 8 yönlü elektrikli ön koltuklar",
+      "normalizedText": "Isıtmalı ve havalandırmalı, 8 yönlü elektrikli ön koltuklar",
+      "rawOccurrenceReferences": [
+        "char:134021"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-44DB51C0614F7856DB38": {
+      "sourceRowId": "EE-SROW-44DB51C0614F7856DB38",
+      "sourceId": "SRC-000087",
+      "rawText": "4 yönlü elektrikli bel destekli ön koltuklar",
+      "normalizedText": "4 yönlü elektrikli bel destekli ön koltuklar",
+      "rawOccurrenceReferences": [
+        "char:134090"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-460A1BA3FBC18DB5883B": {
+      "sourceRowId": "EE-SROW-460A1BA3FBC18DB5883B",
+      "sourceId": "SRC-000087",
+      "rawText": "\"Biscotto\" dikiş konsol ve kapı panelleri",
+      "normalizedText": "\"Biscotto\" dikiş konsol ve kapı panelleri",
+      "rawOccurrenceReferences": [
+        "char:134144"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-F41C58F51E043CA2A375": {
+      "sourceRowId": "EE-SROW-F41C58F51E043CA2A375",
+      "sourceId": "SRC-000087",
+      "rawText": "Start/Stop butonlu, ısıtmalı sportif deri direksiyon simidi",
+      "normalizedText": "Start/Stop butonlu, ısıtmalı sportif deri direksiyon simidi",
+      "rawOccurrenceReferences": [
+        "char:134205"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-D2F5A5702E1A0D75FFAF": {
+      "sourceRowId": "EE-SROW-D2F5A5702E1A0D75FFAF",
+      "sourceId": "SRC-000087",
+      "rawText": "Otomatik kararan iç dikiz aynası",
+      "normalizedText": "Otomatik kararan iç dikiz aynası",
+      "rawOccurrenceReferences": [
+        "char:134274"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-5BADD160158ADE48621D": {
+      "sourceRowId": "EE-SROW-5BADD160158ADE48621D",
+      "sourceId": "SRC-000087",
+      "rawText": "Sportif metal pedallar",
+      "normalizedText": "Sportif metal pedallar",
+      "rawOccurrenceReferences": [
+        "char:134316"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-FFD63B0C2F86524E29CA": {
+      "sourceRowId": "EE-SROW-FFD63B0C2F86524E29CA",
+      "sourceId": "SRC-000087",
+      "rawText": "Alüminyum kapı eşikleri",
+      "normalizedText": "Alüminyum kapı eşikleri",
+      "rawOccurrenceReferences": [
+        "char:134348"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-3B0924BC0336EAB30291": {
+      "sourceRowId": "EE-SROW-3B0924BC0336EAB30291",
+      "sourceId": "SRC-000087",
+      "rawText": "12,3\" Full TFT \"Cannocchiale\" dijital gösterge paneli",
+      "normalizedText": "12,3\" Full TFT \"Cannocchiale\" dijital gösterge paneli",
+      "rawOccurrenceReferences": [
+        "char:134425"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-1EA7AF8B0EC42716A62D": {
+      "sourceRowId": "EE-SROW-1EA7AF8B0EC42716A62D",
+      "sourceId": "SRC-000087",
+      "rawText": "10,25\" dokunmatik AB bağlantı/eğlence sistemi",
+      "normalizedText": "10,25\" dokunmatik AB bağlantı/eğlence sistemi",
+      "rawOccurrenceReferences": [
+        "char:134503"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-BDEA9BBC50413168D818": {
+      "sourceRowId": "EE-SROW-BDEA9BBC50413168D818",
+      "sourceId": "SRC-000087",
+      "rawText": "Kablosuz Apple CarPlay / Android Auto",
+      "normalizedText": "Kablosuz Apple CarPlay / Android Auto",
+      "rawOccurrenceReferences": [
+        "char:134563"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-94D9C3C4ECD88D6E8F36": {
+      "sourceRowId": "EE-SROW-94D9C3C4ECD88D6E8F36",
+      "sourceId": "SRC-000087",
+      "rawText": "360° kamera",
+      "normalizedText": "360° kamera",
+      "rawOccurrenceReferences": [
+        "char:134610"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-B247596DA5F0A2104CBD": {
+      "sourceRowId": "EE-SROW-B247596DA5F0A2104CBD",
+      "sourceId": "SRC-000087",
+      "rawText": "Yan, ön ve arka park sensörleri",
+      "normalizedText": "Yan, ön ve arka park sensörleri",
+      "rawOccurrenceReferences": [
+        "char:134631"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-B7A50941F67E4844EE4A": {
+      "sourceRowId": "EE-SROW-B7A50941F67E4844EE4A",
+      "sourceId": "SRC-000087",
+      "rawText": "Paralel, dikey ve Exit Assist fonksiyonlu Park Asistanı",
+      "normalizedText": "Paralel, dikey ve Exit Assist fonksiyonlu Park Asistanı",
+      "rawOccurrenceReferences": [
+        "char:134672"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-19B81808C134E7B694A6": {
+      "sourceRowId": "EE-SROW-19B81808C134E7B694A6",
+      "sourceId": "SRC-000087",
+      "rawText": "Keyless Entry & Go (anahtarsız giriş ve çalıştırma)",
+      "normalizedText": "Keyless Entry & Go (anahtarsız giriş ve çalıştırma)",
+      "rawOccurrenceReferences": [
+        "char:134737"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-FCEF0CB06B0C8117A498": {
+      "sourceRowId": "EE-SROW-FCEF0CB06B0C8117A498",
+      "sourceId": "SRC-000087",
+      "rawText": "Elektrikli eller serbest bagaj açma sistemi",
+      "normalizedText": "Elektrikli eller serbest bagaj açma sistemi",
+      "rawOccurrenceReferences": [
+        "char:134802"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-EE7F0849577A5A901858": {
+      "sourceRowId": "EE-SROW-EE7F0849577A5A901858",
+      "sourceId": "SRC-000087",
+      "rawText": "Havalandırmalı kablosuz telefon şarj alanı",
+      "normalizedText": "Havalandırmalı kablosuz telefon şarj alanı",
+      "rawOccurrenceReferences": [
+        "char:134862"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-E7AA1AB775D645A28728": {
+      "sourceRowId": "EE-SROW-E7AA1AB775D645A28728",
+      "sourceId": "SRC-000087",
+      "rawText": "ALFA DNA sürüş programları",
+      "normalizedText": "ALFA DNA sürüş programları",
+      "rawOccurrenceReferences": [
+        "char:134914"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-2D64E06106EF4607E80F": {
+      "sourceRowId": "EE-SROW-2D64E06106EF4607E80F",
+      "sourceId": "SRC-000087",
+      "rawText": "Stop & Go fonksiyonlu adaptif hız sabitleyici",
+      "normalizedText": "Stop & Go fonksiyonlu adaptif hız sabitleyici",
+      "rawOccurrenceReferences": [
+        "char:134957"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-FE230589B31FD9875945": {
+      "sourceRowId": "EE-SROW-FE230589B31FD9875945",
+      "sourceId": "SRC-000087",
+      "rawText": "Aktif sürüş asistanı",
+      "normalizedText": "Aktif sürüş asistanı",
+      "rawOccurrenceReferences": [
+        "char:135016"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-A97B8B826ACCF4792F53": {
+      "sourceRowId": "EE-SROW-A97B8B826ACCF4792F53",
+      "sourceId": "SRC-000087",
+      "rawText": "Stop & Go fonksiyonlu akıllı adaptif hız sabitleyici",
+      "normalizedText": "Stop & Go fonksiyonlu akıllı adaptif hız sabitleyici",
+      "rawOccurrenceReferences": [
+        "char:135046"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-23B25A69DAEE78787579": {
+      "sourceRowId": "EE-SROW-23B25A69DAEE78787579",
+      "sourceId": "SRC-000087",
+      "rawText": "ISA - Akıllı hız destek sistemi",
+      "normalizedText": "ISA - Akıllı hız destek sistemi",
+      "rawOccurrenceReferences": [
+        "char:135119"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-37E9FE572E00DA09BB7E": {
+      "sourceRowId": "EE-SROW-37E9FE572E00DA09BB7E",
+      "sourceId": "SRC-000087",
+      "rawText": "Sürücü yorgunluk algılama sistemi",
+      "normalizedText": "Sürücü yorgunluk algılama sistemi",
+      "rawOccurrenceReferences": [
+        "char:135160"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-1B5FE9732036AB4E5C09": {
+      "sourceRowId": "EE-SROW-1B5FE9732036AB4E5C09",
+      "sourceId": "SRC-000087",
+      "rawText": "Trafik işareti tanıma sistemi",
+      "normalizedText": "Trafik işareti tanıma sistemi",
+      "rawOccurrenceReferences": [
+        "char:135203"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-2B948FA79D7066F507E7": {
+      "sourceRowId": "EE-SROW-2B948FA79D7066F507E7",
+      "sourceId": "SRC-000087",
+      "rawText": "Ön çarpışma uyarı sistemi",
+      "normalizedText": "Ön çarpışma uyarı sistemi",
+      "rawOccurrenceReferences": [
+        "char:135242"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-6ACA43E66ECEBD54F6DC": {
+      "sourceRowId": "EE-SROW-6ACA43E66ECEBD54F6DC",
+      "sourceId": "SRC-000087",
+      "rawText": "Direksiyon yardımı",
+      "normalizedText": "Direksiyon yardımı",
+      "rawOccurrenceReferences": [
+        "char:135277"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-31E5DA58C7F49120F319": {
+      "sourceRowId": "EE-SROW-31E5DA58C7F49120F319",
+      "sourceId": "SRC-000087",
+      "rawText": "Adaptif hız yardımcısı",
+      "normalizedText": "Adaptif hız yardımcısı",
+      "rawOccurrenceReferences": [
+        "char:135305"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-F394B8B45912EA7FA7C9": {
+      "sourceRowId": "EE-SROW-F394B8B45912EA7FA7C9",
+      "sourceId": "SRC-000087",
+      "rawText": "Yaya ve bisiklet algılamalı acil durum frenleme (AEB)",
+      "normalizedText": "Yaya ve bisiklet algılamalı acil durum frenleme (AEB)",
+      "rawOccurrenceReferences": [
+        "char:135337"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-C28CF69E1C77F1A12FCD": {
+      "sourceRowId": "EE-SROW-C28CF69E1C77F1A12FCD",
+      "sourceId": "SRC-000087",
+      "rawText": "Kör nokta uyarı sistemi + Arka çapraz trafik uyarısı",
+      "normalizedText": "Kör nokta uyarı sistemi + Arka çapraz trafik uyarısı",
+      "rawOccurrenceReferences": [
+        "char:135400"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-6EF25411A9F44ED37315": {
+      "sourceRowId": "EE-SROW-6EF25411A9F44ED37315",
+      "sourceId": "SRC-000087",
+      "rawText": "Isıtmalı ön cam yıkama sistemi",
+      "normalizedText": "Isıtmalı ön cam yıkama sistemi",
+      "rawOccurrenceReferences": [
+        "char:135462"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    },
+    "EE-SROW-01B38527A37843E5E7E9": {
+      "sourceRowId": "EE-SROW-01B38527A37843E5E7E9",
+      "sourceId": "SRC-000087",
+      "rawText": "1.5 Hibrit – 175BG*",
+      "normalizedText": "1.5 Hibrit – 175BG*",
+      "rawOccurrenceReferences": [
+        "char:135533"
+      ],
+      "sourceSection": "Alfa Romeo Tonale Speciale",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "powertrainApplicability": "HYBRID_175_TCT7"
+    }
+  }
+}

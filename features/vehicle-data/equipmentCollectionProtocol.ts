@@ -8,7 +8,7 @@ export const EQUIPMENT_SOURCE_PRIORITY_POLICY_V1 = Object.freeze([
   "OFFICIAL_TR_EQUIPMENT_LIST", "OFFICIAL_TR_CONFIGURATOR", "OFFICIAL_TR_TECH_SPEC", "OFFICIAL_TR_BROCHURE", "OFFICIAL_TR_DISTRIBUTOR_PRODUCT_PAGE", "GLOBAL_MANUFACTURER_WITH_EXPLICIT_TR_APPLICABILITY",
 ] as const);
 
-export function createEquipmentOperationalRecordId(prefix: "EE-RES" | "EE-AST" | "EE-LINK-TRIM" | "EE-LINK-PKG" | "EE-REV", stableKey: string): string {
+export function createEquipmentOperationalRecordId(prefix: "EE-RES" | "EE-AST" | "EE-LINK-TRIM" | "EE-LINK-PKG" | "EE-REV" | "EE-OBS" | "EE-CORR", stableKey: string): string {
   return `${prefix}-${createHash("sha256").update(stableKey.normalize("NFKC")).digest("hex").slice(0, 20).toUpperCase()}`;
 }
 

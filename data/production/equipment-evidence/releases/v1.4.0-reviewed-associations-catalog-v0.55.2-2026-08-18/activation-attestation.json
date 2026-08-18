@@ -1,0 +1,14 @@
+{
+  "activationApprovalId": "EE-ACT-970CDF05438863601F5F",
+  "approvalStatementChecksum": "sha256:c58216a118cd56b4fae6924f6a1b18a35f20a29a503ccfd0d88d0b88fd256a32",
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "expectedGeneratedModuleChecksum": "sha256:9c5971b14716bc503a649f99790655bdddc02f8513a6e13b6f198749f0166fea",
+  "expectedPointerChecksum": "sha256:4ba2ec5ee76a09906092c19446a2b4846015ac5fd8d08708056b413a721ec8ed",
+  "governancePolicyVersion": "1.0.0",
+  "normalizedApprovalStatement": "EQUIPMENT_OWNER_001 olarak\nv1.4.0-reviewed-associations-catalog-v0.55.2-2026-08-18 release candidate’ının\nEquipment Evidence active pointer’ına alınmasını onaylıyorum. Payload checksum’ı\nsha256:56728c36d4faf08a1ba00a9e2f94d715be35d4c7053cd6995828d6813bb95032,\nbeklenen pointer checksum’ı\nsha256:4ba2ec5ee76a09906092c19446a2b4846015ac5fd8d08708056b413a721ec8ed\nve beklenen generated module checksum’ı\nsha256:9c5971b14716bc503a649f99790655bdddc02f8513a6e13b6f198749f0166fea\nolarak doğrulanmıştır. Aktivasyonun SHADOW_AND_EXPLANATION_DISABLED yetkisiyle\nyapılmasını kabul ediyorum. Tonale için eklenen 49 reviewed association\nkaydının STANDARD, OPTIONAL, PACKAGE_DEPENDENT veya NOT_AVAILABLE kanıtı\nolmadığını; filtreleme, sıralama, soru üretme veya confirmed kullanıcı\naçıklaması yetkisi vermediğini kabul ediyorum. Rollback hedefinin\nv1.3.0-pilot-verified-catalog-v0.55.2-2026-08-18 olmasını onaylıyorum.",
+  "ownerActorId": "EQUIPMENT_OWNER_001",
+  "payloadChecksum": "sha256:56728c36d4faf08a1ba00a9e2f94d715be35d4c7053cd6995828d6813bb95032",
+  "recordedAt": "2026-08-18T21:00:00.000Z",
+  "releaseId": "v1.4.0-reviewed-associations-catalog-v0.55.2-2026-08-18",
+  "rollbackReleaseId": "v1.3.0-pilot-verified-catalog-v0.55.2-2026-08-18"
+}

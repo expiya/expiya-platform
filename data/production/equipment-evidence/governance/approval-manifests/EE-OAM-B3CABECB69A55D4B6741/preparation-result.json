@@ -1,0 +1,20 @@
+{
+  "status": "OWNER_REVIEW_READY",
+  "manifestId": "EE-OAM-B3CABECB69A55D4B6741",
+  "manifestChecksum": "sha256:ba0668418f8a93e7c785041deb91b1f90727554fa5cc9c8d774c9d05f160b5e6",
+  "subjectCount": 51,
+  "observationCount": 49,
+  "trimLinkCount": 2,
+  "excludedSubjectCounts": {
+    "correctionTransitions": 49,
+    "historicalConflictAssertions": 49,
+    "inconclusiveLedgerRows": 53,
+    "collectorLifecycleEvents": 196,
+    "independentReviewEvents": 98
+  },
+  "ownerApprovalEventsCreated": 0,
+  "materializationsCreated": 0,
+  "productionReleaseCreated": false,
+  "activePointerChanged": false,
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED"
+}

@@ -1,6 +1,7 @@
 import activePointer from "@/data/production/equipment-evidence/active.json";
 import { activeEquipmentEvidenceManifest, activeEquipmentEvidencePayload, activeEquipmentEvidenceRelease } from "@/data/production/equipment-evidence/activeEquipmentEvidence.generated";
-import type { EquipmentEvidenceLayer, EquipmentEvidenceManifest, EquipmentFeatureCode, EquipmentIntentMatch, ExactVariantEquipmentProjection } from "@/types/equipmentEvidence";
+import type { EquipmentEvidenceLayer, EquipmentEvidenceManifest, EquipmentFeatureCode, EquipmentIntentMatch, EquipmentVerificationMaterialization, EquipmentVerifiedTrimLinkMaterialization, ExactVariantEquipmentProjection, ReviewedEquipmentAssociationMaterialization, ReviewedEquipmentTrimLinkMaterialization } from "@/types/equipmentEvidence";
+import { parseEquipmentReviewedAssociationCandidate } from "./equipmentReviewedAssociationAdapter";
 import { parseEquipmentEvidenceLayer, parseEquipmentEvidenceManifest } from "./equipmentEvidenceSchema";
 
 type PilotVerifiedCandidate = {
@@ -23,7 +24,9 @@ const isPilotVerifiedCandidate = (value: unknown): value is PilotVerifiedCandida
     && item.decisionControls.questionGeneration === false && item.decisionControls.userFacingExplanation === false
     && item.decisionControls.candidateElimination === "FORBIDDEN" && item.decisionControls.candidateResurrection === "FORBIDDEN";
 };
-const candidate = isPilotVerifiedCandidate(activeEquipmentEvidencePayload) ? activeEquipmentEvidencePayload : undefined;
+const pilotCandidate = isPilotVerifiedCandidate(activeEquipmentEvidencePayload) ? activeEquipmentEvidencePayload : undefined;
+const reviewedCandidate = (() => { try { return parseEquipmentReviewedAssociationCandidate(activeEquipmentEvidencePayload); } catch { return undefined; } })();
+const candidate = reviewedCandidate ?? pilotCandidate;
 const layer = candidate ? {
   schemaVersion: "1.2.1", releaseVersion: candidate.releaseCandidateId, compatibleCatalogRelease: candidate.compatibleCatalogRelease,
   compatibleCatalogFingerprint: candidate.compatibleCatalogFingerprint, market: "TR", vocabularyVersion: "1.1.0", cohortPolicyVersion: "1.0.0",
@@ -31,7 +34,7 @@ const layer = candidate ? {
   featureDefinitions: candidate.featureDefinitions, intentAliases: candidate.intentAliases, assertions: [], packageVariantLinks: [], trimVariantLinks: [],
   researchLedger: [], reviewEvents: [], projections: [],
 } as EquipmentEvidenceLayer : parseEquipmentEvidenceLayer(activeEquipmentEvidencePayload);
-const manifest = parseEquipmentEvidenceManifest(activeEquipmentEvidenceManifest);
+const manifest = reviewedCandidate ? activeEquipmentEvidenceManifest as unknown as EquipmentEvidenceManifest : parseEquipmentEvidenceManifest(activeEquipmentEvidenceManifest);
 
 export function loadActiveEquipmentEvidenceLayer(): Readonly<{ layer: EquipmentEvidenceLayer; manifest: EquipmentEvidenceManifest; release: string }> {
   return Object.freeze({ layer, manifest, release: activeEquipmentEvidenceRelease });
@@ -39,11 +42,28 @@ export function loadActiveEquipmentEvidenceLayer(): Readonly<{ layer: EquipmentE
 export const getEquipmentFeatureDefinition = (featureCode: EquipmentFeatureCode) => layer.featureDefinitions.find((item) => item.featureCode === featureCode);
 export const getVariantEquipmentProjection = (exactVariantId: string, featureCode: EquipmentFeatureCode): ExactVariantEquipmentProjection | undefined => layer.projections.find((item) => item.exactVariantId === exactVariantId && item.featureCode === featureCode);
 export const getVariantEquipmentFeatures = (exactVariantId: string): readonly ExactVariantEquipmentProjection[] => layer.projections.filter((item) => item.exactVariantId === exactVariantId);
+export const getVerifiedEquipmentAssertions = (exactVariantId?: string): readonly EquipmentVerificationMaterialization[] => reviewedCandidate
+  ? reviewedCandidate.verifiedAssertions.filter((item) => !exactVariantId || item.exactVariantId === exactVariantId) : [];
+export const getReviewedEquipmentAssociations = (input?: { exactVariantId?: string; featureCode?: EquipmentFeatureCode }): readonly ReviewedEquipmentAssociationMaterialization[] => reviewedCandidate
+  ? reviewedCandidate.reviewedAssociations.filter((item) => (!input?.exactVariantId || item.exactVariantId === input.exactVariantId) && (!input?.featureCode || item.featureCode === input.featureCode)) : [];
+export const getVerifiedEquipmentTrimLinks = (exactVariantId?: string): readonly (EquipmentVerifiedTrimLinkMaterialization | ReviewedEquipmentTrimLinkMaterialization)[] => reviewedCandidate
+  ? reviewedCandidate.verifiedTrimLinks.filter((item) => !exactVariantId || item.exactVariantId === exactVariantId) : [];
 export function loadActiveEquipmentEvidenceStatus() {
-  return Object.freeze(candidate ? {
-    state: candidate.state, catalogCompatibility: "READY" as const, verifiedAssertionCount: candidate.verifiedAssertions.length,
-    verifiedTrimLinkCount: candidate.verifiedTrimLinks.length, coveredExactVariantCount: candidate.coverage.coveredExactVariantCount,
-    uncoveredExactVariantCount: candidate.coverage.uncoveredExactVariantCount, decisionAuthority: candidate.decisionAuthority,
+  if (reviewedCandidate) return Object.freeze({
+    state: reviewedCandidate.state, catalogCompatibility: "READY" as const, verifiedAssertionCount: reviewedCandidate.verifiedAssertions.length,
+    reviewedAssociationCount: reviewedCandidate.reviewedAssociations.length, verifiedTrimLinkCount: reviewedCandidate.verifiedTrimLinks.length,
+    verifiedAssertionCoveredVariantCount: new Set(reviewedCandidate.verifiedAssertions.map((item) => item.exactVariantId)).size,
+    coveredExactVariantCount: new Set(reviewedCandidate.verifiedAssertions.map((item) => item.exactVariantId)).size,
+    associationOnlyCoveredVariantCount: new Set(reviewedCandidate.reviewedAssociations.map((item) => item.exactVariantId)).size,
+    uncoveredExactVariantCount: 562, totalCatalogVariantCount: 566, availabilityProjectionCount: reviewedCandidate.projections.length,
+    decisionAuthority: reviewedCandidate.decisionAuthority, hardFilterEligible: false, hardFilterAfterConfirmation: false,
+    softPreferenceEnabled: false, questionGenerationEnabled: false, userExplanationEnabled: false,
+    candidateEliminationEnabled: false, candidateResurrectionEnabled: false,
+  });
+  return Object.freeze(pilotCandidate ? {
+    state: pilotCandidate.state, catalogCompatibility: "READY" as const, verifiedAssertionCount: pilotCandidate.verifiedAssertions.length,
+    verifiedTrimLinkCount: pilotCandidate.verifiedTrimLinks.length, coveredExactVariantCount: pilotCandidate.coverage.coveredExactVariantCount,
+    uncoveredExactVariantCount: pilotCandidate.coverage.uncoveredExactVariantCount, decisionAuthority: pilotCandidate.decisionAuthority,
     hardFilterEligible: false, hardFilterAfterConfirmation: false, softPreferenceEnabled: false, questionGenerationEnabled: false,
     userExplanationEnabled: false, candidateEliminationEnabled: false, candidateResurrectionEnabled: false,
   } : {

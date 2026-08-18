@@ -226,6 +226,109 @@ export interface EquipmentVerifiedTrimLinkMaterialization {
   readonly catalogFingerprint: `sha256:${string}`;
 }
 
+export type EquipmentAssociationObservationType = "LISTED_FOR_EXACT_TRIM";
+export type EquipmentAssociationProvisionKnowledge = "PROVISION_UNRESOLVED";
+export type EquipmentAssociationDecisionUse = "EVIDENCE_ONLY" | "CONFIRMATION_REQUIRED";
+
+export interface EquipmentAssociationObservation {
+  readonly observationId: string;
+  readonly observationType: EquipmentAssociationObservationType;
+  readonly exactVariantId: string;
+  readonly featureCode: EquipmentFeatureCode;
+  readonly provisionKnowledge: EquipmentAssociationProvisionKnowledge;
+  readonly sourceId: string;
+  readonly sourceRowId: string;
+  readonly supportingSourceRowIds: readonly string[];
+  readonly semanticMappingId: string;
+  readonly semanticMappingIds: readonly string[];
+  readonly marketApplicability: "TR";
+  readonly modelYearApplicability: readonly number[];
+  readonly trimApplicability: string;
+  readonly powertrainApplicability: string;
+  readonly verificationState: "PROVISIONAL";
+  readonly reviewState: "SECOND_REVIEW_REQUIRED";
+  readonly decisionUse: EquipmentAssociationDecisionUse;
+  readonly confidence: "MEDIUM" | "LOW";
+  readonly conflictState: "CLEAR" | "CONFLICTING" | "SUPERSEDED";
+  readonly collectorActorId: string;
+  readonly contentFingerprint: `sha256:${string}`;
+  readonly createdAt: string;
+}
+
+export interface EquipmentAssociationOwnerApprovalEvent {
+  readonly eventId: string;
+  readonly eventType: "OWNER_APPROVAL_GRANTED";
+  readonly actorId: string;
+  readonly actorRole: "EQUIPMENT_OWNER_APPROVER";
+  readonly subjectType: "ASSOCIATION_OBSERVATION" | "TRIM_LINK";
+  readonly subjectId: string;
+  readonly exactVariantId: string;
+  readonly sourceIndependentReviewEventId: string;
+  readonly sourceContentFingerprint: `sha256:${string}`;
+  readonly approvalManifestId: string;
+  readonly approvalManifestChecksum: `sha256:${string}`;
+  readonly approvalAttestationId: string;
+  readonly governancePolicyVersion: string;
+  readonly decisionAuthority: "SHADOW_AND_EXPLANATION_DISABLED";
+  readonly createdAt: string;
+}
+
+export interface ReviewedEquipmentAssociationMaterialization {
+  readonly materializationId: string;
+  readonly materializationType: "REVIEWED_EQUIPMENT_ASSOCIATION";
+  readonly sourceObservationId: string;
+  readonly sourceObservationFingerprint: `sha256:${string}`;
+  readonly exactVariantId: string;
+  readonly featureCode: EquipmentFeatureCode;
+  readonly observationType: "LISTED_FOR_EXACT_TRIM";
+  readonly provisionKnowledge: "PROVISION_UNRESOLVED";
+  readonly decisionUse: "CONFIRMATION_REQUIRED";
+  readonly sourceId: string;
+  readonly sourceRowId: string;
+  readonly semanticMappingId: string;
+  readonly trimApplicability: string;
+  readonly powertrainApplicability: string;
+  readonly marketApplicability: "TR";
+  readonly modelYearApplicability: readonly number[];
+  readonly correctionTransitionId: string;
+  readonly historicalConflictAssertionId: string;
+  readonly independentReviewEventId: string;
+  readonly ownerApprovalEventId: string;
+  readonly approvalManifestId: string;
+  readonly approvalManifestChecksum: `sha256:${string}`;
+  readonly materializationState: "REVIEWED";
+  readonly catalogRelease: "v0.55.2";
+  readonly catalogFingerprint: `sha256:${string}`;
+  readonly policyVersion: string;
+  readonly materializedAt: string;
+  readonly decisionAuthority: "SHADOW_AND_EXPLANATION_DISABLED";
+}
+
+export interface ReviewedEquipmentTrimLinkMaterialization {
+  readonly materializationId: string;
+  readonly materializationType: "VERIFIED_TRIM_LINK";
+  readonly sourceTrimLinkId: string;
+  readonly exactVariantId: string;
+  readonly canonicalTrimId: string;
+  readonly officialTrimName: string;
+  readonly powertrain: string;
+  readonly transmission: string;
+  readonly marketApplicability: "TR";
+  readonly modelYearApplicability: readonly number[];
+  readonly identitySourceIds: readonly string[];
+  readonly independentReviewEventId: string;
+  readonly ownerApprovalEventId: string;
+  readonly approvalManifestId: string;
+  readonly approvalManifestChecksum: `sha256:${string}`;
+  readonly contentFingerprint: `sha256:${string}`;
+  readonly materializationState: "VERIFIED";
+  readonly catalogRelease: "v0.55.2";
+  readonly catalogFingerprint: `sha256:${string}`;
+  readonly policyVersion: string;
+  readonly materializedAt: string;
+  readonly decisionAuthority: "SHADOW_AND_EXPLANATION_DISABLED";
+}
+
 export interface EquipmentEvidenceManifest {
   readonly releaseVersion: string;
   readonly schemaVersion: "1.2.1";

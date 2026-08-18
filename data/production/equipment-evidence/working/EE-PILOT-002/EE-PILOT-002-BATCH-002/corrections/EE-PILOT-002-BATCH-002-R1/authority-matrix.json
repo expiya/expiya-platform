@@ -1,0 +1,48 @@
+{
+  "currentGlobalAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "futureUpperBoundsOnly": true,
+  "matrix": [
+    {
+      "evidence": "VERIFIED_STANDARD",
+      "hardFilter": "POLICY_DEPENDENT",
+      "rank": true,
+      "explanation": true,
+      "confirmation": "NOT_REQUIRED"
+    },
+    {
+      "evidence": "VERIFIED_OPTIONAL",
+      "hardFilter": false,
+      "rank": "LIMITED",
+      "explanation": "OPTIONAL_ONLY",
+      "confirmation": "STOCK_REQUIRED"
+    },
+    {
+      "evidence": "VERIFIED_PACKAGE_DEPENDENT",
+      "hardFilter": false,
+      "rank": "LIMITED",
+      "explanation": "PACKAGE_NAMED",
+      "confirmation": "PACKAGE_REQUIRED"
+    },
+    {
+      "evidence": "LISTED_FOR_EXACT_TRIM_PROVISION_UNRESOLVED",
+      "hardFilter": false,
+      "rank": false,
+      "explanation": false,
+      "confirmation": "REQUIRED"
+    },
+    {
+      "evidence": "UNKNOWN_OR_INCONCLUSIVE",
+      "hardFilter": false,
+      "rank": false,
+      "explanation": false,
+      "confirmation": "RESEARCH_REQUIRED"
+    },
+    {
+      "evidence": "VERIFIED_NOT_AVAILABLE",
+      "hardFilter": "POLICY_DEPENDENT",
+      "rank": false,
+      "explanation": true,
+      "confirmation": "NOT_REQUIRED"
+    }
+  ]
+}

@@ -1,0 +1,737 @@
+[
+  {
+    "correctionLedgerId": "EE-RES-574CE5E3694D14699EB3",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+    "originalAssertionId": "EE-AST-DABA0783821CAB487EFB",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-574CE5E3694D14699EB3",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-47CA02792CD6BE7254A1",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "ANDROID_AUTO",
+    "originalAssertionId": "EE-AST-155BE700DB618D4F6970",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-47CA02792CD6BE7254A1",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-E98A1C6FF2DAADAB36EE",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "APPLE_CARPLAY",
+    "originalAssertionId": "EE-AST-15CAC786B14BD155C740",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-E98A1C6FF2DAADAB36EE",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-5854C191DC696DE698CB",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "AUTOMATIC_PARK_ASSIST",
+    "originalAssertionId": "EE-AST-28419690CFB6BB63B860",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-5854C191DC696DE698CB",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-AA19069E75E98C49EA8A",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+    "originalAssertionId": "EE-AST-707B4A966F139A60F355",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-AA19069E75E98C49EA8A",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-2F9C9A6B69993FDD3E41",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "BLIND_SPOT_MONITOR",
+    "originalAssertionId": "EE-AST-775913CFF45F464E56F7",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-2F9C9A6B69993FDD3E41",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-226C2AFFEE3A00781D51",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "DRIVER_ATTENTION_MONITOR",
+    "originalAssertionId": "EE-AST-AA68D1CFE3749CA3582B",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-226C2AFFEE3A00781D51",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-6CCD557CAA642FB8A654",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "FORWARD_COLLISION_WARNING",
+    "originalAssertionId": "EE-AST-508599EF5608D7F4FF4E",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-6CCD557CAA642FB8A654",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-03979550C4AA53DEF257",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "FRONT_PARKING_SENSORS",
+    "originalAssertionId": "EE-AST-CA5679FE18F5F9C26560",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-03979550C4AA53DEF257",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-701043D594E2845A1597",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "HANDS_FREE_TAILGATE",
+    "originalAssertionId": "EE-AST-D81CEAF8B6DEF330351A",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-701043D594E2845A1597",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-9DB9BFA17F9863FF45CE",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "HEATED_FRONT_SEATS",
+    "originalAssertionId": "EE-AST-641EEB84CE534FA0DE7B",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-9DB9BFA17F9863FF45CE",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-31B2AC9675DA56F0D074",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "HEATED_STEERING_WHEEL",
+    "originalAssertionId": "EE-AST-58C081E6D96CAE0DE106",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-31B2AC9675DA56F0D074",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-B0AD7C0FA7687B7ED3D1",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "KEYLESS_ENTRY",
+    "originalAssertionId": "EE-AST-732AA2C206709E829D24",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-B0AD7C0FA7687B7ED3D1",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-424FACDA3BC6CFF050A4",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "KEYLESS_START",
+    "originalAssertionId": "EE-AST-92C0793185734BAFAC6F",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-424FACDA3BC6CFF050A4",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-7E18E5D797037AC85380",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "LED_HEADLIGHTS",
+    "originalAssertionId": "EE-AST-CEEFEAA25C536E566A51",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-7E18E5D797037AC85380",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-5F8923A3C24B1EF9BB1F",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "PANORAMIC_GLASS_ROOF",
+    "originalAssertionId": "EE-AST-5440395AD69346574E67",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-5F8923A3C24B1EF9BB1F",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-7533CB469BCF2B5582B0",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "POWER_DRIVER_SEAT",
+    "originalAssertionId": "EE-AST-6B833A404E95C12DC0E4",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-7533CB469BCF2B5582B0",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-8E08EC7C64A60C38171E",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+    "originalAssertionId": "EE-AST-FA606F5BDF37A47E46BC",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-8E08EC7C64A60C38171E",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-9B488854331846A01168",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "POWER_TAILGATE",
+    "originalAssertionId": "EE-AST-7052BC6ACF6F1904BB1A",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-9B488854331846A01168",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-B3F2AE3E7EA3B3741FB4",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+    "originalAssertionId": "EE-AST-FF9AA1D9F03476631559",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-B3F2AE3E7EA3B3741FB4",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-AE73CF23EB47C063B847",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "REAR_PARKING_SENSORS",
+    "originalAssertionId": "EE-AST-5168A61AB11E5F14BB1B",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-AE73CF23EB47C063B847",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-D92AE91F49CE5ACDE80D",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "SURROUND_VIEW_CAMERA_360",
+    "originalAssertionId": "EE-AST-608E0AFB59C6ACF2FD01",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-D92AE91F49CE5ACDE80D",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-D33215C0B4A2B254B2EE",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+    "originalAssertionId": "EE-AST-AA3C5717ADD6F07D96A9",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-D33215C0B4A2B254B2EE",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-E0C28D2EAE0BFCCD9B24",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "VENTILATED_FRONT_SEATS",
+    "originalAssertionId": "EE-AST-8857012D2644E5E40D3D",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-E0C28D2EAE0BFCCD9B24",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-94C5EB3581241B5E1A8A",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "WIRELESS_ANDROID_AUTO",
+    "originalAssertionId": "EE-AST-4AA1F4037A7C0A96453C",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-94C5EB3581241B5E1A8A",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-76FEF9DE45528B351C7A",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "WIRELESS_APPLE_CARPLAY",
+    "originalAssertionId": "EE-AST-4F74D0DF12A2E3D9DB9A",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-76FEF9DE45528B351C7A",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-2F59F8B3C7C27EDB6764",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "featureCode": "WIRELESS_PHONE_CHARGING",
+    "originalAssertionId": "EE-AST-4EBB83C69EE71E6AF502",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-2F59F8B3C7C27EDB6764",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-C32887EBD948881EE696",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+    "originalAssertionId": "EE-AST-608248771E6B90462A16",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-C32887EBD948881EE696",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-0970A29E3A109AF694B9",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "ANDROID_AUTO",
+    "originalAssertionId": "EE-AST-2854CD479567A0D254B2",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-0970A29E3A109AF694B9",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-F14B78094B3E37A694F5",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "APPLE_CARPLAY",
+    "originalAssertionId": "EE-AST-B83E8C851FDB9D2FAABE",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-F14B78094B3E37A694F5",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-192258566FEFA5213BCA",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "AUTOMATIC_PARK_ASSIST",
+    "originalAssertionId": "EE-AST-7363F84755A1177C6C0E",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-192258566FEFA5213BCA",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-F31E5E161586CDDD4C03",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+    "originalAssertionId": "EE-AST-510D0FA19A41C47E2E59",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-F31E5E161586CDDD4C03",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-CCD7019BB2158AC2BA9E",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "BLIND_SPOT_MONITOR",
+    "originalAssertionId": "EE-AST-71318B35E38F9E3986E6",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-CCD7019BB2158AC2BA9E",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-654290DD84D4F419A22F",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "DRIVER_ATTENTION_MONITOR",
+    "originalAssertionId": "EE-AST-309CC9734C2F84E7CE06",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-654290DD84D4F419A22F",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-8BDD6B2D9766698D47DA",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "FORWARD_COLLISION_WARNING",
+    "originalAssertionId": "EE-AST-CA381100916E1751C23F",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-8BDD6B2D9766698D47DA",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-D937F100F1F3F8C32DA8",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "FRONT_PARKING_SENSORS",
+    "originalAssertionId": "EE-AST-D104EC50B2EFEA9CCEBB",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-D937F100F1F3F8C32DA8",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-7B0148B9C1A95AB05461",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "HANDS_FREE_TAILGATE",
+    "originalAssertionId": "EE-AST-86B0D58C74DA9C6138B5",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-7B0148B9C1A95AB05461",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-FDAA0EE4B3095A8E3065",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "KEYLESS_ENTRY",
+    "originalAssertionId": "EE-AST-5E06FCCFF7A125C1A155",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-FDAA0EE4B3095A8E3065",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-1B94F401CB50C9E5563E",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "KEYLESS_START",
+    "originalAssertionId": "EE-AST-C331DD097E5D4DDB2C45",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-1B94F401CB50C9E5563E",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-1EF9549BC31CEED52F30",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "LED_HEADLIGHTS",
+    "originalAssertionId": "EE-AST-49A727B251A18A34DAE1",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-1EF9549BC31CEED52F30",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-EE4E742EC1DDE15150AF",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "PANORAMIC_GLASS_ROOF",
+    "originalAssertionId": "EE-AST-DAEB055283F7941868B2",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-EE4E742EC1DDE15150AF",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-45652BF14EBE4BF54A5F",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "POWER_TAILGATE",
+    "originalAssertionId": "EE-AST-993D775D2BA6397FB7FB",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-45652BF14EBE4BF54A5F",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-BEC6803D00CFF2FDFBC5",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+    "originalAssertionId": "EE-AST-0645005A684EF8A134C8",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-BEC6803D00CFF2FDFBC5",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-4BA546FE383459423F2F",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "REAR_PARKING_SENSORS",
+    "originalAssertionId": "EE-AST-ED3F62266D8986384381",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-4BA546FE383459423F2F",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-A36CA1F99B09D9AC2F88",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "SURROUND_VIEW_CAMERA_360",
+    "originalAssertionId": "EE-AST-22301F19D645F9ED62A9",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-A36CA1F99B09D9AC2F88",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-D10D9EE56641D963F851",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+    "originalAssertionId": "EE-AST-3C1661DDFBEE1E8CD604",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-D10D9EE56641D963F851",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-EA5D6353E863E299B560",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "WIRELESS_ANDROID_AUTO",
+    "originalAssertionId": "EE-AST-F460685ECFB7A121720D",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-EA5D6353E863E299B560",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-B21FD531767E0B63C1C2",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "WIRELESS_APPLE_CARPLAY",
+    "originalAssertionId": "EE-AST-2A57A6A959CC2894DECE",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-B21FD531767E0B63C1C2",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  },
+  {
+    "correctionLedgerId": "EE-RES-C68A1ECB37F4C0C04B5C",
+    "correctionCycleId": "EE-PILOT-002-BATCH-002-R1",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "featureCode": "WIRELESS_PHONE_CHARGING",
+    "originalAssertionId": "EE-AST-F5A29748A34C3D92A494",
+    "classification": "EXACT_TRIM_ASSOCIATION_ONLY",
+    "successorAssertionId": null,
+    "observationId": "EE-OBS-C68A1ECB37F4C0C04B5C",
+    "sourceIds": [
+      "SRC-000087"
+    ],
+    "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+    "createdAt": "2026-08-18T22:40:00.000Z"
+  }
+]

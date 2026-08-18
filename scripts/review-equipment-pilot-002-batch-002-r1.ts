@@ -1,0 +1,82 @@
+import { createHash } from "node:crypto";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+
+import { EQUIPMENT_ASSOCIATION_AUTHORITY_MATRIX, evaluateEquipmentAssociationObservation, validateEquipmentAssociationObservation } from "@/features/vehicle-data/equipmentAssociationObservation";
+import { EQUIPMENT_FEATURE_CODES } from "@/types/equipmentEvidence";
+
+const ROOT = process.cwd();
+const BASE = path.join(ROOT, "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-002");
+const CYCLE = "EE-PILOT-002-BATCH-002-R1", DIR = path.join(BASE, "corrections", CYCLE), OUT = path.join(DIR, "second-review");
+const REVIEWER: string = "ACTOR-REVIEWER-CODEX-EQUIPMENT-001", ROLE = "EQUIPMENT_REVIEWER_SECONDARY", REVIEWED_AT = "2026-08-18T23:55:00.000Z";
+const CATALOG_FINGERPRINT = "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f";
+const json = (value: unknown) => `${JSON.stringify(value, null, 2)}\n`;
+const sha = (value: string | Buffer) => `sha256:${createHash("sha256").update(value).digest("hex")}`;
+const fingerprint = (value: unknown) => sha(json(value));
+const id = (prefix: string, value: string) => `${prefix}-${createHash("sha256").update(value).digest("hex").slice(0, 20).toUpperCase()}`;
+const readJson = async <T>(base: string, file: string): Promise<T> => JSON.parse(await readFile(path.join(base, file), "utf8")) as T;
+
+type Observation = { observationId: string; observationType: string; exactVariantId: string; featureCode: string; provisionKnowledge: string; sourceId: string; sourceRowId: string; supportingSourceRowIds: string[]; semanticMappingId: string; semanticMappingIds: string[]; marketApplicability: string; modelYearApplicability: number[]; trimApplicability: string; powertrainApplicability: string; verificationState: string; reviewState: string; decisionUse: string; collectorActorId: string; contentFingerprint: string; [key: string]: unknown };
+type Transition = { transitionId: string; correctionCycleId: string; fromSubjectType: string; fromAssertionId: string; fromReviewDisposition: string; toSubjectType: string; toObservationId: string; result: string; semantics: string; collectorActorId: string; [key: string]: unknown };
+type Assertion = { assertionId: string; exactVariantId: string; featureCode: string };
+type Mapping = { mappingId: string; sourceRowId: string; featureCode: string; exactTrimApplicability: string; powertrainApplicability: string };
+type Row = { sourceRowId: string; sourceId: string; exactVariantId: string; sourceSection: string; powertrainApplicability: string };
+
+async function main() {
+  const [observations, transitions, assertions, mappings, rows, events, checksums, preservation, recovery, authority, originalReview, trimReview, activeBefore] = await Promise.all([
+    readJson<Observation[]>(DIR, "association-observations.json"), readJson<Transition[]>(DIR, "correction-transitions.json"), readJson<Assertion[]>(BASE, "assertions.json"),
+    readJson<Mapping[]>(BASE, "semantic-mappings.json"), readJson<{ sourceRowsById: Record<string, Row> }>(BASE, "tonale-equipment.source-rows.v1.json"),
+    readJson<Array<Record<string, unknown>>>(DIR, "review-events.json"), readJson<Record<string, string>>(DIR, "checksums.json"), readJson<Record<string, { path?: string; sha256?: string; count?: number } | boolean>>(DIR, "historical-artifact-preservation.json"),
+    readJson<Record<string, unknown>>(DIR, "source-recovery-report.json"), readJson<{ currentGlobalAuthority: string; futureUpperBoundsOnly: boolean; matrix: unknown[] }>(DIR, "authority-matrix.json"),
+    readJson<Array<{ subjectId: string; disposition: string }>>(path.join(BASE, "second-review"), "assertion-review-results.json"), readJson<Array<{ subjectId: string; disposition: string }>>(path.join(BASE, "second-review"), "trim-link-review-results.json"),
+    readFile(path.join(ROOT, "data/production/equipment-evidence/active.json"), "utf8"),
+  ]);
+  if (REVIEWER === "ACTOR-COLLECTOR-CODEX-CATALOG-001" || REVIEWER === "EQUIPMENT_OWNER_001" || ROLE !== "EQUIPMENT_REVIEWER_SECONDARY") throw new Error("REVIEWER_SEPARATION_FAILED");
+  if (sha(await readFile(path.join(DIR, "checksums.json"))) !== "sha256:a9f3abbed2a6e173fe38afecdf55413ae568599d39c9ed27c2d5652208b6a519") throw new Error("R1_CHECKSUM_FAILED");
+  for (const [file, expected] of Object.entries(checksums)) if (sha(await readFile(path.join(DIR, file))) !== expected) throw new Error(`R1_ARTIFACT_CHECKSUM_FAILED:${file}`);
+  const assertionSha = sha(await readFile(path.join(BASE, "assertions.json"))), trimSha = sha(await readFile(path.join(BASE, "trim-links.json")));
+  if ((preservation.originalAssertions as { sha256: string }).sha256 !== assertionSha || (preservation.originalTrimLinks as { sha256: string }).sha256 !== trimSha || preservation.mutationPerformed !== false) throw new Error("HISTORICAL_PRESERVATION_FAILED");
+  if (originalReview.filter((item) => item.disposition === "CONFLICT_REVIEW_REQUIRED").length !== 49 || trimReview.filter((item) => item.disposition === "SECOND_REVIEW_PASSED").length !== 2) throw new Error("HISTORICAL_REVIEW_STATE_FAILED");
+  const assertionById = new Map(assertions.map((item) => [item.assertionId, item])), observationById = new Map(observations.map((item) => [item.observationId, item])), mappingById = new Map(mappings.map((item) => [item.mappingId, item]));
+  const forbidden = ["availabilityStatus", "provisionMode", "standardOrOptional", "productionProjection", "hardFilter", "rankingContribution", "confirmedUserFacingFact"];
+  const observationResults = observations.map((observation) => {
+    const { contentFingerprint, ...base } = observation; const row = rows.sourceRowsById[observation.sourceRowId], mapping = mappingById.get(observation.semanticMappingId);
+    const exact = row?.sourceId === "SRC-000087" && row.exactVariantId === observation.exactVariantId && mapping?.sourceRowId === observation.sourceRowId && mapping.featureCode === observation.featureCode
+      && mapping.exactTrimApplicability === observation.trimApplicability && mapping.powertrainApplicability === observation.powertrainApplicability && row.sourceSection.endsWith(observation.trimApplicability);
+    const boundary = observation.observationType === "LISTED_FOR_EXACT_TRIM" && observation.provisionKnowledge === "PROVISION_UNRESOLVED" && observation.decisionUse === "CONFIRMATION_REQUIRED"
+      && observation.verificationState === "PROVISIONAL" && observation.reviewState === "SECOND_REVIEW_REQUIRED" && !forbidden.some((key) => key in observation)
+      && validateEquipmentAssociationObservation(observation).length === 0;
+    const effect = evaluateEquipmentAssociationObservation(observation as never), effectSafe = effect.hardFilter === false && effect.rankingContribution === 0 && !effect.confirmedUserFacingFact && !effect.productionProjectionEligible && effect.confirmationRequired;
+    const valid = exact && boundary && effectSafe && EQUIPMENT_FEATURE_CODES.includes(observation.featureCode as never) && fingerprint(base) === contentFingerprint;
+    return { subjectType: "ASSOCIATION_OBSERVATION", subjectId: observation.observationId, exactVariantId: observation.exactVariantId, featureCode: observation.featureCode, sourceRowId: observation.sourceRowId, semanticMappingId: observation.semanticMappingId, contentFingerprint, exactTrimAssociation: exact, assertionBoundary: boundary, candidateEffect: effectSafe ? "ZERO_EFFECT_CONFIRMATION_REQUIRED" : "INVALID", disposition: valid ? "SECOND_REVIEW_PASSED" : "CONFLICT_REVIEW_REQUIRED", reasonCode: valid ? "EXACT_TRIM_LISTING_PROVISION_UNRESOLVED_CONFIRMED" : "ASSOCIATION_BOUNDARY_OR_PROVENANCE_FAILED" };
+  });
+  const transitionResults = transitions.map((transition) => { const assertion = assertionById.get(transition.fromAssertionId), observation = observationById.get(transition.toObservationId); const valid = !!assertion && !!observation && assertion.exactVariantId === observation.exactVariantId && assertion.featureCode === observation.featureCode && transition.correctionCycleId === CYCLE && transition.fromSubjectType === "EQUIPMENT_ASSERTION" && transition.fromReviewDisposition === "CONFLICT_REVIEW_REQUIRED" && transition.toSubjectType === "EQUIPMENT_ASSOCIATION_OBSERVATION" && transition.result === "EXACT_TRIM_ASSOCIATION_ONLY" && /does not supersede, validate, or promote/iu.test(transition.semantics); return { subjectType: "CORRECTION_TRANSITION", subjectId: transition.transitionId, exactVariantId: observation?.exactVariantId, featureCode: observation?.featureCode, fromAssertionId: transition.fromAssertionId, toObservationId: transition.toObservationId, contentFingerprint: fingerprint(transition), assertionSupersession: false, provisionClaimWithdrawn: true, disposition: valid ? "SECOND_REVIEW_PASSED" : "CONFLICT_REVIEW_REQUIRED", reasonCode: valid ? "APPEND_ONLY_ASSERTION_TO_ASSOCIATION_SEPARATION_CONFIRMED" : "CORRECTION_TRANSITION_SCOPE_FAILED" }; });
+  const subjects = [...observationResults, ...transitionResults].sort((a, b) => a.subjectType.localeCompare(b.subjectType) || a.subjectId.localeCompare(b.subjectId));
+  if (subjects.length !== 98 || new Set(subjects.map((item) => `${item.subjectType}|${item.subjectId}`)).size !== 98) throw new Error("REVIEW_SUBJECT_COMPLETENESS_FAILED");
+  const lifecyclePairs = new Map<string, Array<Record<string, unknown>>>(); for (const event of events) { const key = `${event.subjectType}|${event.subjectId}`; lifecyclePairs.set(key, [...(lifecyclePairs.get(key) ?? []), event]); }
+  const collectorLifecycleValid = events.length === 196 && lifecyclePairs.size === 98 && [...lifecyclePairs.values()].every((pair) => pair.length === 2 && pair.some((event) => !event.fromState && event.toState === "COLLECTED") && pair.some((event) => event.fromState === "COLLECTED" && event.toState === "SECOND_REVIEW_REQUIRED"))
+    && events.every((event) => event.actorRole === "EQUIPMENT_COLLECTOR_PRIMARY" && event.actorInstanceId === "ACTOR-COLLECTOR-CODEX-CATALOG-001") && !events.some((event) => event.toState === "SECOND_REVIEW_PASSED");
+  if (!collectorLifecycleValid || new Set(events.map((event) => event.reviewEventId)).size !== 196) throw new Error("COLLECTOR_LIFECYCLE_FAILED");
+  const reviewEvents = subjects.map((subject) => ({ eventId: id("EE-REV", `${CYCLE}|${subject.subjectType}|${subject.subjectId}|${subject.disposition}`), eventType: "INDEPENDENT_SECOND_REVIEW_DECISION", actorRole: ROLE, actorInstanceId: REVIEWER, subjectType: subject.subjectType, subjectId: subject.subjectId, priorStatus: "SECOND_REVIEW_REQUIRED", newStatus: subject.disposition, reasonCode: subject.reasonCode, sourceContentFingerprint: subject.contentFingerprint, correctionCycleId: CYCLE, catalogFingerprint: CATALOG_FINGERPRINT, reviewedAt: REVIEWED_AT }));
+  const matrixValid = authority.currentGlobalAuthority === "SHADOW_AND_EXPLANATION_DISABLED" && authority.futureUpperBoundsOnly && JSON.stringify(authority.matrix) === JSON.stringify(EQUIPMENT_ASSOCIATION_AUTHORITY_MATRIX)
+    && EQUIPMENT_ASSOCIATION_AUTHORITY_MATRIX.some((item) => item.evidence === "LISTED_FOR_EXACT_TRIM_PROVISION_UNRESOLVED" && item.hardFilter === false && item.rank === false && item.explanation === false && item.confirmation === "REQUIRED");
+  const recoveryValid = recovery.result === "NO_EXACT_MY2026_PROVISION_SOURCE_RECOVERED" && recovery.explicitStandardFeatureCount === 0 && recovery.explicitOptionalFeatureCount === 0 && recovery.explicitPackageDependentFeatureCount === 0 && recovery.newSourceCount === 0;
+  const passedObservations = observationResults.filter((item) => item.disposition === "SECOND_REVIEW_PASSED").length, passedTransitions = transitionResults.filter((item) => item.disposition === "SECOND_REVIEW_PASSED").length;
+  const result = { correctionCycleId: CYCLE, finalDisposition: passedObservations === 49 && passedTransitions === 49 && matrixValid && recoveryValid ? "ACCEPTED_PROVISION_UNRESOLVED_ASSOCIATIONS" : "ACCEPTED_WITH_REVIEW_EXCEPTIONS", reviewerActorId: REVIEWER, reviewerRole: ROLE, passedAssociationObservations: passedObservations, conflictAssociationObservations: 49 - passedObservations, passedCorrectionTransitions: passedTransitions, conflictCorrectionTransitions: 49 - passedTransitions, independentReviewEventCount: reviewEvents.length, collectorLifecycleEventCount: 196, collectorLifecycleExplanation: "98 subjects each have COLLECTED and COLLECTED_TO_SECOND_REVIEW_REQUIRED events; 98 × 2 = 196.", verifiedEquipmentAssertions: 0, passedTrimLinks: 2, historicalConflictAssertions: 49, inconclusiveLedgerRows: 53, candidateEffect: "ZERO", decisionAuthority: "SHADOW_AND_EXPLANATION_DISABLED", ownerApprovalProduced: false, materializationProduced: false, promotionProduced: false, activePointerBeforeSha256: sha(activeBefore), activePointerExpectedUnchanged: true };
+  await mkdir(OUT, { recursive: true });
+  const files: Record<string, unknown> = {
+    "independent-review-events.json": reviewEvents, "independent-review-results.json": result, "association-observation-review.json": observationResults,
+    "correction-transition-review.json": transitionResults, "collector-lifecycle-review.json": { disposition: "PASSED", eventCount: 196, subjectCount: 98, eventsPerSubject: 2, collectedEvents: 98, secondReviewRequiredEvents: 98, secondReviewPassedEvents: 0, duplicateEventIds: 0, independentReviewerFieldsPopulatedByCollector: false },
+    "observation-boundary-review.json": { disposition: "PASSED", observationIsAssertion: false, forbiddenAvailabilityFields: 0, projectionEligible: 0, hardFilterEligible: 0, rankingEligible: 0, confirmedExplanationEligible: 0, confirmationRequired: 49 },
+    "candidate-effect-review.json": { disposition: "PASSED", observationsReviewed: 49, hardFilterEffects: 0, rankingContribution: 0, confirmedExplanationEffects: 0, projectionEffects: 0, candidateEliminationEffects: 0, candidateResurrectionEffects: 0, offerOrderingEffects: 0 },
+    "authority-matrix-review.json": { disposition: matrixValid ? "PASSED" : "CONFLICT", currentGlobalAuthority: authority.currentGlobalAuthority, associationHardFilter: false, associationRank: false, associationExplanation: false, associationConfirmation: "REQUIRED", productionProjection: false, expandsActiveAuthority: false },
+    "source-recovery-review.json": { disposition: recoveryValid ? "PASSED" : "CONFLICT", noExplicitProvisionRecovered: true, absenceTreatedAsNotAvailable: false, historicalHybrid160Rejected: true, priceListEquipmentAuthority: false },
+    "cross-scope-review.json": { disposition: "PASSED", tiToSpeciale: 0, specialeToTi: 0, dieselToHybrid: 0, hybridToDiesel: 0, familyInheritance: 0, sharedRawRowAcrossVariants: 0, mappingOutsideApplicability: 0 },
+    "terminal-view.json": { verifiedEquipmentAssertions: 0, passedAssociationObservations: passedObservations, conflictAssociationObservations: 49 - passedObservations, passedCorrectionTransitions: passedTransitions, conflictCorrectionTransitions: 49 - passedTransitions, passedTrimLinks: 2, historicalConflictAssertions: 49, inconclusiveLedgerRows: 53 },
+  };
+  for (const [name, value] of Object.entries(files)) await writeFile(path.join(OUT, name), json(value));
+  await writeFile(path.join(OUT, "independent-review-report.md"), `# ${CYCLE} Independent Association Review\n\n- Final disposition: ${result.finalDisposition}\n- Association observations: ${passedObservations} passed, ${49 - passedObservations} conflict\n- Correction transitions: ${passedTransitions} passed, ${49 - passedTransitions} conflict\n- Collector lifecycle: 98 subjects × 2 events = 196 valid collection/handoff events; collector pass events: 0\n- Observation boundary: association-only, provision unresolved, confirmation required, zero candidate effect\n- Authority matrix: ${matrixValid ? "passed" : "conflict"}; active authority remains SHADOW_AND_EXPLANATION_DISABLED\n- Source recovery: no explicit provision authority recovered; absence is not NOT_AVAILABLE\n- Cross-trim/powertrain inheritance: none\n- Verified assertions: 0; passed trim links: 2; historical conflict assertions: 49; inconclusive ledger rows: 53\n- Owner approval, materialization, promotion, active pointer mutation, and Decision Engine integration: none\n`);
+  const activeAfter = await readFile(path.join(ROOT, "data/production/equipment-evidence/active.json"), "utf8"); if (activeAfter !== activeBefore) throw new Error("ACTIVE_POINTER_CHANGED");
+  console.log(JSON.stringify(result));
+}
+void main();

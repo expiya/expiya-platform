@@ -1,0 +1,28 @@
+{
+  "activatedAt": "2026-08-18T21:00:00.000Z",
+  "activationApprovalChecksum": "sha256:bcd985a21b9c33da59b557ccf1ceb88a6d60bff0c1d585e3a23d9dd44f1a3839",
+  "activationApprovalId": "EE-ACT-970CDF05438863601F5F",
+  "activePointerChecksum": "sha256:4ba2ec5ee76a09906092c19446a2b4846015ac5fd8d08708056b413a721ec8ed",
+  "coverageTiers": {
+    "associationOnlyCoveredVariants": 2,
+    "totalCatalogVariants": 566,
+    "uncoveredVariants": 562,
+    "verifiedAssertionCoveredVariants": 2
+  },
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "decisionImpact": "ZERO",
+  "evidenceTiers": {
+    "availabilityProjections": 47,
+    "reviewedAssociations": 49,
+    "tonaleAvailabilityProjections": 0,
+    "verifiedAssertions": 47,
+    "verifiedTrimLinks": 4
+  },
+  "generatedModuleChecksum": "sha256:9c5971b14716bc503a649f99790655bdddc02f8513a6e13b6f198749f0166fea",
+  "payloadChecksum": "sha256:56728c36d4faf08a1ba00a9e2f94d715be35d4c7053cd6995828d6813bb95032",
+  "releaseId": "v1.4.0-reviewed-associations-catalog-v0.55.2-2026-08-18",
+  "rollbackGeneratedModuleChecksum": "sha256:e18f0eca09a69e44badb3716d91fedcf56e3be9cecb8eff9a555c5ffc0a02d95",
+  "rollbackPointerChecksum": "sha256:aec85d8f92c51ef3e5126a9f0dcf7db19bad3b9cb31a8851b58c2ef833950765",
+  "rollbackReleaseId": "v1.3.0-pilot-verified-catalog-v0.55.2-2026-08-18",
+  "status": "ACTIVATED"
+}

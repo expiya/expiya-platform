@@ -1,0 +1,14 @@
+{
+  "approvalAttestationId": "EE-OAA-8DECD3638D2DB7DC5957",
+  "approvalManifestChecksum": "sha256:ba0668418f8a93e7c785041deb91b1f90727554fa5cc9c8d774c9d05f160b5e6",
+  "approvalManifestId": "EE-OAM-B3CABECB69A55D4B6741",
+  "approvalStatementChecksum": "sha256:369fb3db7c1f6a2d2f99ec92982165bcc8f8e3245b3b8a62ea2e504fba76f9a8",
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "governancePolicyVersion": "1.0.0",
+  "normalizedApprovalStatement": "EQUIPMENT_OWNER_001 olarak EE-OAM-B3CABECB69A55D4B6741 kimlikli ve\nsha256:ba0668418f8a93e7c785041deb91b1f90727554fa5cc9c8d774c9d05f160b5e6\nchecksum’lı Batch 002 approval manifestini inceledim. Manifestteki 49 reviewed\nexact-trim association observation ve 2 verified trim link için owner approval\nverilmesini ve projection dışı production materialization kayıtlarının\nhazırlanmasını onaylıyorum. Bu onayın özelliklerin STANDARD, OPTIONAL,\nPACKAGE_DEPENDENT veya NOT_AVAILABLE olduğunu kanıtlamadığını; bu kayıtların\nfiltreleme, sıralama, soru üretme ya da kullanıcıya confirmed equipment fact\nsunma yetkisi vermediğini kabul ediyorum.",
+  "observationCount": 49,
+  "ownerActorId": "EQUIPMENT_OWNER_001",
+  "recordedAt": "2026-08-18T21:00:00.000Z",
+  "subjectCount": 51,
+  "trimLinkCount": 2
+}

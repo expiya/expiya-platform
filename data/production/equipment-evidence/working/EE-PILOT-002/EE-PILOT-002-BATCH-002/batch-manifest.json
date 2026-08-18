@@ -1,0 +1,35 @@
+{
+  "pilotId": "EE-PILOT-002",
+  "batchId": "EE-PILOT-002-BATCH-002",
+  "catalogRelease": "v0.55.2",
+  "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+  "exactVariantIds": [
+    "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "f12f742b-111c-54de-a006-61361fb1ae04"
+  ],
+  "familyId": "family-30afa1702b606820",
+  "expectedFeatureCount": 51,
+  "expectedLedgerRows": 102,
+  "collectionPolicyVersion": "1.0.1",
+  "extractionPolicyVersion": "ALFA_ROMEO_TR_TONALE_EXACT_TRIM_SOURCE_ROWS@1.0.0",
+  "semanticMappingPolicyVersion": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1@1.0.0",
+  "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+  "requiredIndependentReviewerRole": "EQUIPMENT_REVIEWER_SECONDARY",
+  "sourceScopingRules": [
+    "PRICE_IDENTITY_ONLY",
+    "PRODUCT_EXACT_TRIM_ROWS_ONLY",
+    "HISTORICAL_HYBRID_160_EXCLUDED"
+  ],
+  "crossTrimIsolation": true,
+  "crossPowertrainIsolation": true,
+  "stopConditions": [
+    "IDENTITY_CONFLICT",
+    "MY2026_UNRESOLVED",
+    "NON_UNIQUE_TRIM_BOUNDARY",
+    "RAW_SNAPSHOT_UNSAFE",
+    "LOCATOR_NOT_UNIQUE",
+    "SOURCE_ID_COLLISION"
+  ],
+  "createdAt": "2026-08-18T20:32:00.000Z",
+  "canonicalChecksum": "sha256:00639a8ef69a1f1cda2fb029a4f5e7244446c4935ee2699537a7a58044afe03d"
+}

@@ -1,0 +1,23 @@
+{
+  "batchId": "EE-PILOT-002-BATCH-002",
+  "reviewCycle": "EE-PILOT-002-CYCLE-002-SECOND-REVIEW",
+  "reviewerRole": "EQUIPMENT_REVIEWER_SECONDARY",
+  "reviewerActorId": "ACTOR-REVIEWER-CODEX-EQUIPMENT-001",
+  "finalDisposition": "REQUIRES_COLLECTION_CORRECTION",
+  "assertionPassed": 0,
+  "assertionConflict": 49,
+  "trimLinkPassed": 2,
+  "trimLinkConflict": 0,
+  "eventCount": 51,
+  "mappingPassed": 50,
+  "mappingConflict": 0,
+  "standardIncludedAuthorityPassed": 0,
+  "standardIncludedAuthorityConflict": 49,
+  "correctionReason": "Exact-trim equipment modal does not explicitly establish STANDARD or INCLUDED availability.",
+  "ownerApprovalProduced": false,
+  "verificationMaterializationProduced": false,
+  "productionPromotionProduced": false,
+  "decisionEngineEffect": "NONE",
+  "activePointerBeforeSha256": "sha256:aec85d8f92c51ef3e5126a9f0dcf7db19bad3b9cb31a8851b58c2ef833950765",
+  "activePointerExpectedUnchanged": true
+}

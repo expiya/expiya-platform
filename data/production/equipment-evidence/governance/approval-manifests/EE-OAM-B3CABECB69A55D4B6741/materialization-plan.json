@@ -1,0 +1,29 @@
+{
+  "status": "PLANNED_NOT_MATERIALIZED",
+  "requiresOwnerApproval": true,
+  "targetRecords": {
+    "reviewedEquipmentAssociation": 49,
+    "verifiedTrimLink": 2
+  },
+  "currentReleasePreserved": {
+    "verifiedAvailabilityAssertions": 47,
+    "verifiedTrimLinks": 2,
+    "coveredByVerifiedAssertionVariants": 2
+  },
+  "futureReleaseProjection": {
+    "verifiedAvailabilityAssertions": 47,
+    "juniorVerifiedTrimLinks": 2,
+    "tonaleReviewedAssociations": 49,
+    "tonaleVerifiedTrimLinks": 2,
+    "associationCoveredVariants": 2,
+    "exactCatalogVariants": 566
+  },
+  "invariants": [
+    "ASSOCIATION_IS_NOT_VERIFIED_EQUIPMENT_ASSERTION",
+    "NO_PRODUCTION_PROJECTION",
+    "NO_AVAILABILITY_OR_PROVISION_CLAIM",
+    "NO_CANDIDATE_EFFECT",
+    "NO_CONFIRMED_USER_FACING_FACT",
+    "SHADOW_AND_EXPLANATION_DISABLED"
+  ]
+}

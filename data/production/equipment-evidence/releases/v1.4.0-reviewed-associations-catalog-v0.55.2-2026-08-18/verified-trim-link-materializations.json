@@ -1,0 +1,60 @@
+[
+  {
+    "approvalManifestChecksum": "sha256:ba0668418f8a93e7c785041deb91b1f90727554fa5cc9c8d774c9d05f160b5e6",
+    "approvalManifestId": "EE-OAM-B3CABECB69A55D4B6741",
+    "canonicalTrimId": "trim-8b8653f745d8403be986",
+    "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+    "catalogRelease": "v0.55.2",
+    "contentFingerprint": "sha256:628a54668a37548197ab90a30b29611a542f4667b59b628ba7a956f220cc7ae8",
+    "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+    "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+    "identitySourceIds": [
+      "SRC-000087",
+      "SRC-000088"
+    ],
+    "independentReviewEventId": "EE-REV-385125DEE560BEBCEEAB",
+    "marketApplicability": "TR",
+    "materializationId": "EE-MAT-TRIM-496FC2C7925F3C48E4D7",
+    "materializationState": "VERIFIED",
+    "materializationType": "VERIFIED_TRIM_LINK",
+    "materializedAt": "2026-08-18T21:00:00.000Z",
+    "modelYearApplicability": [
+      2026
+    ],
+    "officialTrimName": "Ti",
+    "ownerApprovalEventId": "EE-OAE-45232C8553C1B7EA5E00",
+    "policyVersion": "1.0.0",
+    "powertrain": "DIESEL_130_TCT6",
+    "sourceTrimLinkId": "EE-LINK-TRIM-77184380856DF9B73887",
+    "transmission": "TCT6"
+  },
+  {
+    "approvalManifestChecksum": "sha256:ba0668418f8a93e7c785041deb91b1f90727554fa5cc9c8d774c9d05f160b5e6",
+    "approvalManifestId": "EE-OAM-B3CABECB69A55D4B6741",
+    "canonicalTrimId": "trim-fce71c86bfbdbf1d1057",
+    "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+    "catalogRelease": "v0.55.2",
+    "contentFingerprint": "sha256:776c85de915b6caa50f1e5d6e5d8ddcb0f4aa439b8e6859e9d8bdbce888670aa",
+    "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+    "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+    "identitySourceIds": [
+      "SRC-000087",
+      "SRC-000088"
+    ],
+    "independentReviewEventId": "EE-REV-056B8EEA785076A680CD",
+    "marketApplicability": "TR",
+    "materializationId": "EE-MAT-TRIM-FE53CA8597DA05BA9F15",
+    "materializationState": "VERIFIED",
+    "materializationType": "VERIFIED_TRIM_LINK",
+    "materializedAt": "2026-08-18T21:00:00.000Z",
+    "modelYearApplicability": [
+      2026
+    ],
+    "officialTrimName": "Speciale",
+    "ownerApprovalEventId": "EE-OAE-660DAD6BA89FBD360C2E",
+    "policyVersion": "1.0.0",
+    "powertrain": "HYBRID_175_TCT7",
+    "sourceTrimLinkId": "EE-LINK-TRIM-47266F9B32D5884ED30C",
+    "transmission": "TCT7"
+  }
+]
