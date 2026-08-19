@@ -14,7 +14,9 @@ async function main() {
   const dir = path.join(root, "data/production/equipment-evidence/releases", pointer.activeEquipmentEvidenceRelease);
   const [raw, rawManifest, rawCatalog] = await Promise.all([readFile(path.join(dir, "equipment-evidence.json"), "utf8"), readFile(path.join(dir, "manifest.json"), "utf8"), readFile(path.join(root, `data/production/catalog/releases/v${catalogPointer.active_catalog_release_version}/catalog.json`), "utf8")]);
   const manifestInput = JSON.parse(rawManifest) as Record<string, unknown>;
-  const manifest = pointer.schemaVersion === "1.1.0-rc" ? manifestInput as unknown as ReturnType<typeof parseEquipmentEvidenceManifest> : parseEquipmentEvidenceManifest(manifestInput);
+  const manifest = ["1.1.0-rc", "1.2.0-rc"].includes(pointer.schemaVersion)
+    ? manifestInput as unknown as ReturnType<typeof parseEquipmentEvidenceManifest>
+    : parseEquipmentEvidenceManifest(manifestInput);
   const catalog = JSON.parse(rawCatalog) as { records: { variant: { id: string } }[] };
   const issues: { code: string }[] = [];
   if (pointer.schemaVersion === "1.2.1") {
@@ -40,6 +42,17 @@ async function main() {
       || status.availabilityProjectionCount !== 47 || status.decisionAuthority !== "SHADOW_AND_EXPLANATION_DISABLED"
       || status.hardFilterEligible || status.softPreferenceEnabled || status.questionGenerationEnabled || status.userExplanationEnabled) {
       issues.push({ code: "ACTIVE_REVIEWED_ASSOCIATION_RELEASE_INVALID" });
+    }
+  } else if (pointer.schemaVersion === "1.2.0-rc") {
+    const status = loadActiveEquipmentEvidenceStatus();
+    const checksum = `sha256:${createHash("sha256").update(raw).digest("hex")}`;
+    if (!("reviewedAssociationCount" in status) || checksum !== pointer.payloadSha256 || status.catalogCompatibility !== "READY"
+      || status.verifiedAssertionCount !== 112 || status.reviewedAssociationCount !== 49 || status.verifiedTrimLinkCount !== 6
+      || status.verifiedAssertionCoveredVariantCount !== 4 || status.associationOnlyCoveredVariantCount !== 2
+      || status.uncoveredExactVariantCount !== 543 || status.totalCatalogVariantCount !== 549
+      || status.availabilityProjectionCount !== 112 || status.decisionAuthority !== "SHADOW_AND_EXPLANATION_DISABLED"
+      || status.hardFilterEligible || status.softPreferenceEnabled || status.questionGenerationEnabled || status.userExplanationEnabled) {
+      issues.push({ code: "ACTIVE_COMPATIBILITY_REBIND_RELEASE_INVALID" });
     }
   } else {
     issues.push({ code: "ACTIVE_EQUIPMENT_SCHEMA_UNSUPPORTED" });

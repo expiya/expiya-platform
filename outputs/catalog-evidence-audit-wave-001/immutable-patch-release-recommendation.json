@@ -1,0 +1,65 @@
+{
+  "recommendationId": "CATALOG-PATCH-RECOMMENDATION-AFTER-WAVE-001",
+  "recommendedRelease": "0.55.3",
+  "recommendationOnly": true,
+  "releaseGenerated": false,
+  "pointerChanged": false,
+  "principles": [
+    "Preserve v0.55.2 and every historical exact ID unchanged.",
+    "Never reuse an exact ID for a corrected trim, drive, powertrain, model-year or lifecycle identity.",
+    "Do not create an alias unless an authoritative identity bridge exists and the alias semantics are independently reviewed.",
+    "A supersession relation records history; it does not move equipment evidence or persisted offers automatically.",
+    "Activate the patch and all release-bound dependencies atomically only after validation."
+  ],
+  "proposedActions": {
+    "retainConfirmed": [
+      "6d6c0805-8779-5764-a42a-48850990a60c",
+      "e09c81aa-6324-5b20-9cd8-90dc806a5ae9"
+    ],
+    "retainPendingProvenanceReinforcement": [
+      "2f5054d1-1c11-5c34-a815-8223facf9892",
+      "3d0f2b09-791e-5d76-9257-ec6be591c4eb",
+      "3dceba8a-9f0a-56ac-aabc-515193e1c62a",
+      "62465336-2cfb-4ccd-b9a7-36467d63497f",
+      "75a0db67-272b-509f-8b60-312f2092a6b2",
+      "84b2d12e-6ed2-5b7f-9a18-6fe6c41914c7",
+      "9d6a26bb-88c0-596e-9905-246e1371e27a",
+      "cb8f5af7-b20f-5877-a79b-4af71c18a61c"
+    ],
+    "quarantineFromFutureRecommendationEligibility": [
+      "19951113-2e40-5526-b568-2ae1984c27e0",
+      "3383408d-d77b-5643-93ee-8dc0cb3465a0",
+      "61b1bb40-dce9-5e01-97d2-5ba0167b3062",
+      "625c6cce-a78e-5d2d-a682-8feb90b09268",
+      "64996711-e8a8-5d7e-b92e-4a2c3c5e46f1",
+      "8833b383-4379-54e8-a017-fac236dcca0f",
+      "bad56151-8735-569c-ad4f-129880820a0e"
+    ],
+    "deferWithoutMutation": [
+      "bdf54f5b-2c18-5505-8875-0157f5bd1db7",
+      "f954d7a8-b69b-5ee2-b3ad-a4638772725a"
+    ]
+  },
+  "candidateSuccessorIdentitiesRequiringNewIds": [
+    {"historicalId":"19951113-2e40-5526-b568-2ae1984c27e0","candidate":"Volvo EX30 Ultra Single Motor Extended Range Electric MY2026 RWD","authoritativeAliasBridge":"NOT_FOUND"},
+    {"historicalId":"61b1bb40-dce9-5e01-97d2-5ba0167b3062","candidate":"Fiat Doblo Combi Premio Plus 1.5 BlueHDi 130 AT MY2026","authoritativeAliasBridge":"NOT_REQUIRED_NEW_ID"},
+    {"historicalId":"625c6cce-a78e-5d2d-a682-8feb90b09268","candidate":"Togg T10F V1 RWD Uzun Menzil MY2026","authoritativeAliasBridge":"NOT_REQUIRED_NEW_ID"},
+    {"historicalId":"64996711-e8a8-5d7e-b92e-4a2c3c5e46f1","candidate":"Fiat Ducato Minibüs 16+1 2.2 MultiJet 140","authoritativeAliasBridge":"NOT_REQUIRED_NEW_ID"}
+  ],
+  "volvoConclusion": {
+    "catalogLabel": "P4 Long Range Ultra",
+    "officialLabel": "Ultra, Single Motor Extended Range",
+    "authoritativeBridgeFound": false,
+    "additionalContradiction": "Catalog FWD conflicts with official RWD.",
+    "equipmentSemanticsUsedInIdentityDecision": false,
+    "requiredTreatment": "Do not alias. Preserve the old ID, quarantine it in the proposed patch, and create a newly sourced exact ID if the official configuration is retained."
+  },
+  "activationGates": [
+    "19-subject audit artifact validation passes",
+    "Official immutable locators exist for every retained exact identity",
+    "Semantic diff lists every removed, retained, deferred and newly added ID",
+    "Downstream catalog-bound releases validate against the new fingerprint",
+    "Persisted-reference impact is measured without performing migration",
+    "Rollback target and atomic pointer plan are reviewed"
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "policyVersion": "STRICT_RFC3339_OFFSET_V1",
+  "stagingEventId": "CAT-STAGE-AEE3B86604E2D9DFB130",
+  "approvalEventId": "CAT-APPROVAL-C65117C2CBFBEC405BD3",
+  "staging_at": "2026-08-19T12:43:54.303Z",
+  "approval_at": "2026-08-19T12:51:42.155Z",
+  "effective_as_of": "2026-08-19T12:51:42.155Z",
+  "invariant": "staging_at <= approval_at == effective_as_of",
+  "activated_at": null
+}

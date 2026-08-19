@@ -1,0 +1,41 @@
+{
+  "status": "PASSED_CANDIDATES_NOT_ACTIVE",
+  "catalogRelease": "v0.55.4",
+  "catalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "recordCount": 549,
+  "temporalInvariant": {
+    "stagingAt": "2026-08-19T12:43:54.303Z",
+    "approvalAt": "2026-08-19T12:51:42.155Z",
+    "effectiveAsOf": "2026-08-19T12:51:42.155Z",
+    "passed": true
+  },
+  "layers": {
+    "dailyLife": {
+      "releaseId": "v2.1.2-0.55.4-2026-08-19-compatibility-rebind",
+      "compatible": true
+    },
+    "safePersona": {
+      "releaseId": "v1.0.5-catalog-v0.55.4-2026-08-19",
+      "compatible": true,
+      "variantCount": 549
+    },
+    "equipment": {
+      "releaseId": "v1.5.3-catalog-v0.55.4-2026-08-19",
+      "compatible": true,
+      "coverage": {
+        "verified": 4,
+        "associationOnly": 2,
+        "uncovered": 543,
+        "total": 549
+      },
+      "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED"
+    }
+  },
+  "activePointersChanged": false,
+  "activePointerChecksums": {
+    "catalog": "sha256:c359663fd6f58766b2d0cc6a3837f0ff65f056f913cd0a8cace22cb1f8c4578a",
+    "dailyLife": "sha256:5aa627154c67b13ab81ba1d7349c03a58ec4c6a0a9a4e50b53653ebf6144e81f",
+    "persona": "sha256:c45bbc9507f3ee84d047dd8ee35ede24a8ae527be26a200363cff40872cb1563",
+    "equipment": "sha256:39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a"
+  }
+}

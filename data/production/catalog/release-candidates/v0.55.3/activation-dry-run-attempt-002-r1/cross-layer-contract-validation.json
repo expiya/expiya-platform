@@ -1,0 +1,21 @@
+{
+  "status": "FAILED",
+  "dailyLife": {
+    "release": "v2.1-0.55.3-2026-08-19-compatibility-rebind",
+    "requiredKeys": [
+      "schemaVersion",
+      "producedAt",
+      "source",
+      "counts",
+      "sourceAuthority"
+    ],
+    "missingRequiredKeys": [
+      "schemaVersion",
+      "producedAt",
+      "source",
+      "counts",
+      "sourceAuthority"
+    ]
+  },
+  "equipmentCoverageInvariantsPassed": true
+}

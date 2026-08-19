@@ -1,0 +1,42 @@
+{
+  "releaseId": "v2.1.2-0.55.4-2026-08-19-compatibility-rebind",
+  "schemaVersion": 1,
+  "compatibleCatalogRelease": "v0.55.4",
+  "producedAt": "2026-08-16",
+  "source": {
+    "identity": "technical-daily-life-layer-v2.1.json:compatibility-rebind-v0.55.1:manifest-contract-repair-v0.55.3",
+    "repositoryPath": "outputs/technical-daily-life-layer-v2.1-v0.55.0-2026-08-16/technical-daily-life-layer-v2.1.json",
+    "sourceHead": "97a88e7bb75cd0a614a4c5ec232cb0e29d5552c4"
+  },
+  "counts": {
+    "technicalFields": 31,
+    "mappings": 117,
+    "dailyLifeExamples": 220,
+    "advisorQuestions": 321,
+    "interpretationClasses": {
+      "DECISION_SAFE": 13,
+      "GUIDED_APPROXIMATION": 56,
+      "ILLUSTRATIVE_ONLY": 48
+    },
+    "rankingEffects": {
+      "DIRECT_FILTER": 13,
+      "SOFT_UNTIL_CONFIRMED": 56,
+      "NONE": 48
+    }
+  },
+  "contentChecksum": "sha256:b3739d23418465a910409c411f07296ea0a1c48d05a930c78594b18a54f7694a",
+  "sourceAuthority": "OWNER_EDITORIAL",
+  "validationStatus": "VALIDATED_CANDIDATE_NOT_ACTIVE",
+  "compatibilityRebind": {
+    "type": "COMPATIBILITY_ONLY_CANDIDATE",
+    "sourceRelease": "v2.1.1-0.55.3-2026-08-19-compatibility-rebind",
+    "catalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+    "reboundAt": "2026-08-19T12:51:42.155Z"
+  },
+  "declaredLimitations": [
+    "mapping-editorial-content-unchanged",
+    "compatibility-only-rebind-to-v0.55.4",
+    "catalog-derived-coverage-recomputed-from-549-record-pinned-snapshot",
+    "activation-not-approved"
+  ]
+}

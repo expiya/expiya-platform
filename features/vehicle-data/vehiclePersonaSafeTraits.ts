@@ -72,6 +72,20 @@ export const vehiclePersonaSafeTraitManifestSchema = z.strictObject({
   if (manifest.schemaVersion === "1.1.0" && (!manifest.approval || manifest.approvedNonEmptyFamilyCount === undefined || manifest.keepEmptyFamilyCount === undefined || !manifest.sourceSafeDraftRelease || !manifest.sanitizationPolicyVersion || !manifest.ownerApprovalReference)) context.addIssue({ code: "custom", path: ["approval"], message: "Approved manifest provenance is incomplete." });
 });
 
+export const vehiclePersonaSafeTraitLifecycleManifestSchema = z.strictObject({
+  releaseVersion: id,
+  compatibleCatalogRelease: id,
+  compatibleCatalogFingerprint: sha256,
+  payloadSha256: sha256,
+  familyCount: z.number().int().nonnegative(),
+  variantCount: z.number().int().nonnegative(),
+  authority,
+  decisionUse,
+  validationStatus: z.literal("VALIDATED_PRE_ACTIVATION"),
+  activationPerformed: z.literal(false),
+  activationApprovalId: z.null(),
+});
+
 export const vehiclePersonaSafeTraitPointerSchema = z.strictObject({
   state: z.literal("ACTIVE"), activeReleaseVersion: id, compatibleCatalogRelease: id,
   compatibleCatalogFingerprint: sha256, payloadSha256: sha256, schemaVersion: z.enum(["1.0.0", "1.1.0"]),
@@ -88,12 +102,22 @@ export function validateVehiclePersonaSafeTraitRelease(input: {
 }): readonly string[] {
   const errors: string[] = [];
   const releaseResult = vehiclePersonaSafeTraitReleaseSchema.safeParse(input.release);
-  const manifestResult = vehiclePersonaSafeTraitManifestSchema.safeParse(input.manifest);
+  const canonicalManifestResult = vehiclePersonaSafeTraitManifestSchema.safeParse(input.manifest);
+  const lifecycleManifestResult = canonicalManifestResult.success
+    ? undefined
+    : vehiclePersonaSafeTraitLifecycleManifestSchema.safeParse(input.manifest);
   const pointerResult = input.pointer === undefined ? undefined : vehiclePersonaSafeTraitPointerSchema.safeParse(input.pointer);
   if (!releaseResult.success) return Object.freeze([`PAYLOAD_SCHEMA_INVALID:${releaseResult.error.issues[0]?.message ?? "unknown"}`]);
-  if (!manifestResult.success) return Object.freeze([`MANIFEST_SCHEMA_INVALID:${manifestResult.error.issues[0]?.message ?? "unknown"}`]);
+  if (!canonicalManifestResult.success && !lifecycleManifestResult?.success) return Object.freeze([`MANIFEST_SCHEMA_INVALID:${canonicalManifestResult.error.issues[0]?.message ?? "unknown"}`]);
   if (pointerResult && !pointerResult.success) return Object.freeze(["ACTIVE_POINTER_INVALID"]);
-  const release = releaseResult.data; const manifest = manifestResult.data; const pointer = pointerResult?.data;
+  const release = releaseResult.data;
+  const manifest = canonicalManifestResult.success
+    ? canonicalManifestResult.data
+    : lifecycleManifestResult?.success
+      ? lifecycleManifestResult.data
+      : undefined;
+  if (!manifest) return Object.freeze(["MANIFEST_SCHEMA_INVALID:unknown"]);
+  const pointer = pointerResult?.data;
   const hash = vehiclePersonaSafeTraitPayloadHash(input.rawPayload);
   if (hash !== manifest.payloadSha256 || pointer && hash !== pointer.payloadSha256) errors.push("PAYLOAD_CHECKSUM_MISMATCH");
   if (release.releaseVersion !== manifest.releaseVersion || pointer && release.releaseVersion !== pointer.activeReleaseVersion) errors.push("RELEASE_VERSION_MISMATCH");
@@ -108,8 +132,8 @@ export function validateVehiclePersonaSafeTraitRelease(input: {
   const familyByVariant = new Map(input.catalogFamilies.flatMap((family) => family.variantIds.map((id) => [id, family.familyId] as const)));
   if (release.variants.some((item) => familyByVariant.get(item.exactVariantId) !== item.familyId)) errors.push("VARIANT_FAMILY_MISMATCH");
   if (manifest.familyCount !== release.families.length || manifest.variantCount !== release.variants.length) errors.push("MANIFEST_COUNT_MISMATCH");
-  if (release.schemaVersion !== manifest.schemaVersion || pointer && release.schemaVersion !== pointer.schemaVersion) errors.push("SCHEMA_VERSION_MISMATCH");
-  if (release.schemaVersion === "1.1.0") {
+  if (("schemaVersion" in manifest && release.schemaVersion !== manifest.schemaVersion) || pointer && release.schemaVersion !== pointer.schemaVersion) errors.push("SCHEMA_VERSION_MISMATCH");
+  if (release.schemaVersion === "1.1.0" && "schemaVersion" in manifest) {
     const approvedNonEmpty = release.families.filter((family) => family.reviewStatus === "OWNER_APPROVED" && family.traits.length > 0).length;
     const keepEmpty = release.families.filter((family) => family.reviewStatus === "OWNER_APPROVED" && family.traits.length === 0).length;
     if (approvedNonEmpty !== manifest.approvedNonEmptyFamilyCount || keepEmpty !== manifest.keepEmptyFamilyCount) errors.push("OWNER_APPROVAL_COUNT_MISMATCH");

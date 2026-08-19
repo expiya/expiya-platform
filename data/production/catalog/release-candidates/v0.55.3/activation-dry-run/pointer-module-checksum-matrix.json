@@ -1,0 +1,70 @@
+{
+  "catalog": {
+    "currentRelease": "0.55.2",
+    "proposedRelease": "0.55.3",
+    "compatibleCatalogRelease": "v0.55.3",
+    "compatibleCatalogFingerprint": "sha256:6ee79d18314d48cd63c771751815d42f3dab8486daa2e98e1eccfc0a49c2ecc8",
+    "currentPointerChecksum": "sha256:c359663fd6f58766b2d0cc6a3837f0ff65f056f913cd0a8cace22cb1f8c4578a",
+    "proposedPointerChecksum": "sha256:462d869e285b1c33c67933d1402694fda39ec9703f2eab661daa775cc039e583",
+    "currentGeneratedModuleChecksum": "sha256:ca385901dce836a868de39aa367b366cc8e3a2e7c15e369d8c9720493d32c237",
+    "proposedGeneratedModuleChecksum": "sha256:f72a6937ec7bd9bb7146f96600846e3c7e7cc3a5976ff35231c95efd01886c66",
+    "pointerByteIdentical": false,
+    "moduleByteIdentical": false,
+    "pointerByteLength": {
+      "current": 379,
+      "proposed": 381
+    },
+    "firstDifferingPointerByte": 83
+  },
+  "dailyLife": {
+    "currentRelease": "v2.1-0.55.2-2026-08-18-compatibility-rebind",
+    "proposedRelease": "v2.1-0.55.3-2026-08-19-compatibility-rebind",
+    "compatibleCatalogRelease": "v0.55.3",
+    "compatibleCatalogFingerprint": "sha256:6ee79d18314d48cd63c771751815d42f3dab8486daa2e98e1eccfc0a49c2ecc8",
+    "currentPointerChecksum": "sha256:5aa627154c67b13ab81ba1d7349c03a58ec4c6a0a9a4e50b53653ebf6144e81f",
+    "proposedPointerChecksum": "sha256:f903205f26fe09507227ac71cb716a27ede7a82eaf8d11fd016a65ae3da41b66",
+    "currentGeneratedModuleChecksum": "sha256:b86aa13862bd54b81ee540b8736e05fea1502623f51d9e354827d6e81fdb44c3",
+    "proposedGeneratedModuleChecksum": "sha256:871bc9275adff728c5ebdb4d6710f0baf84243d8808dcf742ffa06791edffe5c",
+    "pointerByteIdentical": false,
+    "moduleByteIdentical": false,
+    "pointerByteLength": {
+      "current": 171,
+      "proposed": 171
+    },
+    "firstDifferingPointerByte": 71
+  },
+  "persona": {
+    "currentRelease": "v1.0.3-catalog-v0.55.2-2026-08-18",
+    "proposedRelease": "v1.0.4-catalog-v0.55.3-2026-08-19",
+    "compatibleCatalogRelease": "v0.55.3",
+    "compatibleCatalogFingerprint": "sha256:6ee79d18314d48cd63c771751815d42f3dab8486daa2e98e1eccfc0a49c2ecc8",
+    "currentPointerChecksum": "sha256:c45bbc9507f3ee84d047dd8ee35ede24a8ae527be26a200363cff40872cb1563",
+    "proposedPointerChecksum": "sha256:9e0c6adca9aa378e07eca1682ad483ce71b46c5d85dcf60cb12e5f7e48c60a9c",
+    "currentGeneratedModuleChecksum": "sha256:1795913e14f3c5c7365f035bdb3425f8579e1bf904ee92ba3ad96e03050929f5",
+    "proposedGeneratedModuleChecksum": "sha256:21df803533646b6bce027b8ccb05bba0db9f55fdb2fe30e5455e5079966b6d53",
+    "pointerByteIdentical": false,
+    "moduleByteIdentical": false,
+    "pointerByteLength": {
+      "current": 359,
+      "proposed": 359
+    },
+    "firstDifferingPointerByte": 55
+  },
+  "equipment": {
+    "currentRelease": "v1.5.0-scale-wave-verified-catalog-v0.55.2-2026-08-19",
+    "proposedRelease": "v1.5.1-catalog-v0.55.3-2026-08-19",
+    "compatibleCatalogRelease": "v0.55.3",
+    "compatibleCatalogFingerprint": "sha256:6ee79d18314d48cd63c771751815d42f3dab8486daa2e98e1eccfc0a49c2ecc8",
+    "currentPointerChecksum": "sha256:39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a",
+    "proposedPointerChecksum": "sha256:5a464a1dcadd7a504cdadb688b3ad9a9ab1c12afc49ef5c66329f74c7f49424b",
+    "currentGeneratedModuleChecksum": "sha256:897a1d8d251240b931ebba5d84fa91b0c937687418a6d7aaa2669c2446ee9e09",
+    "proposedGeneratedModuleChecksum": "sha256:3b5d6ffce1a9834f9dc0f378ea5eb27e986e14e6182cb83df6e1dca60cf38629",
+    "pointerByteIdentical": false,
+    "moduleByteIdentical": false,
+    "pointerByteLength": {
+      "current": 392,
+      "proposed": 372
+    },
+    "firstDifferingPointerByte": 44
+  }
+}

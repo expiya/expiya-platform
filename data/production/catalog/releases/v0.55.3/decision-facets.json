@@ -1,0 +1,74 @@
+{
+  "version": 1,
+  "facets": [
+    {
+      "id": "price_max_try",
+      "requirementKey": "BUDGET_MAX_TRY",
+      "valuePath": "activeNewPrice.amountTry",
+      "operator": "MAX",
+      "questionPurpose": "CATALOG_FACET:price_max_try",
+      "question": "Aşmak istemediğin bütçe tavanı nedir?",
+      "inputPatterns": ["(\\d+(?:[.,]\\d+)?)\\s*(?:milyon|million)"],
+      "askByDefault": true,
+      "scale": 1000000
+    },
+    {
+      "id": "power_min_kw",
+      "requirementKey": "MIN_POWER_KW",
+      "valuePath": "variant.powertrain.powerKw.value",
+      "operator": "MIN",
+      "questionPurpose": "CATALOG_FACET:power_min_kw",
+      "question": "Elektrikli araçta nasıl bir performans seviyesi istersin? kW motor gücünü anlatır; sayı büyüdükçe araç genellikle daha güçlüdür. Günlük kullanımda canlı, belirgin şekilde güçlü veya çok yüksek performans seçeneklerinden hangisi sana yakın?",
+      "inputPatterns": ["(?:en az|min(?:imum)?)\\s*(\\d+(?:[.,]\\d+)?)\\s*kW", "^\\s*(\\d+(?:[.,]\\d+)?)\\s*kW\\s*$"],
+      "questionTriggers": ["0\\s*[-–]?\\s*100|performans|motor gücü|hızlanma|güç önceli"],
+      "answerMappings": [
+        { "label": "Günlük kullanımda canlı", "patterns": ["günlük kullanımda canlı", "yeterince canlı"], "value": 110 },
+        { "label": "Belirgin şekilde güçlü", "patterns": ["belirgin(?: şekilde)? güçlü", "güçlü olsun"], "value": 160 },
+        { "label": "Çok yüksek performans", "patterns": ["çok yüksek performans", "en yüksek performans"], "value": 250 }
+      ],
+      "scale": 1
+    },
+    {
+      "id": "seats_min",
+      "requirementKey": "MIN_SEATS",
+      "valuePath": "variant.dimensions.seats.value",
+      "operator": "MIN",
+      "questionPurpose": "CATALOG_FACET:seats_min",
+      "question": "En az kaç koltuk kesin gerekli?",
+      "inputPatterns": ["(?:en az|min(?:imum)?)\\s*(\\d+)\\s*(?:koltuk|seat)", "^\\s*(\\d+)\\s*(?:koltuk|seat)\\s*$"],
+      "questionTriggers": ["koltuk|kaç kişi|kişiyiz|kalabalık aile"],
+      "scale": 1
+    },
+    {
+      "id": "luggage_min_l",
+      "requirementKey": "MIN_CARGO_L",
+      "valuePath": "variant.dimensions.luggageLitres.value",
+      "operator": "MIN",
+      "questionPurpose": "CATALOG_FACET:luggage_min_l",
+      "question": "Bagaj ihtiyacını litre bilmeden de söyleyebilirsin: iki kabin boy bavul, iki büyük bavul veya aile tatili yükü gibi hangisi sana daha yakın?",
+      "inputPatterns": ["(?:en az|min(?:imum)?)\\s*(\\d+)\\s*(?:litre|liter|l)\\s*(?:bagaj|cargo)", "^\\s*(\\d+)\\s*(?:litre|liter|l)\\s*$"],
+      "questionTriggers": ["bagaj|bavul|yük hacmi|aile tatili yükü"],
+      "answerMappings": [
+        { "label": "İki kabin boy bavul", "patterns": ["(?:en az(?:ından)?\\s*)?(?:iki|2)\\s*(?:kabin boy\\s*)?bavul"], "value": 300 },
+        { "label": "İki büyük bavul", "patterns": ["(?:iki|2)\\s*büyük bavul"], "value": 400 },
+        { "label": "Aile tatili yükü", "patterns": ["aile tatili yükü", "kalabalık tatil bagajı"], "value": 500 }
+      ],
+      "scale": 1
+    },
+    {
+      "id": "consumption_max_l_100km",
+      "requirementKey": "MAX_CONSUMPTION_L_100KM",
+      "valuePath": "variant.efficiency.combinedLitresPer100Km.value",
+      "operator": "MAX",
+      "questionPurpose": "CATALOG_FACET:consumption_max_l_100km",
+      "question": "Ortalama tüketim için üst sınırın kaç L/100 km olsun?",
+      "inputPatterns": ["(?:en fazla|maksimum|max)\\s*(\\d+(?:[.,]\\d+)?)\\s*(?:l|litre)\\s*[/\\s]\\s*100\\s*km", "^\\s*(\\d+(?:[.,]\\d+)?)\\s*(?:l|litre)\\s*[/\\s]\\s*100\\s*km\\s*$"],
+      "questionTriggers": ["az yak|tüketim|yakıt ekonomisi|kullanım maliyeti|ekonomik olsun"],
+      "answerMappings": [
+        { "label": "Ekonomi öncelikli", "patterns": ["ekonomi öncelikli", "çok az yaksın"], "value": 5 },
+        { "label": "Dengeli tüketim", "patterns": ["dengeli tüketim", "normal tüketim"], "value": 7 }
+      ],
+      "scale": 1
+    }
+  ]
+}

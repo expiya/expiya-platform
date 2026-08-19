@@ -41,7 +41,7 @@ describe("expanded advisor coverage bridge", () => {
     expect(decision.trace.discriminator).toBe("COMPACT_FOOTPRINT_LENGTH_THEN_WIDTH");
   });
 
-  it("applies SUV body and soft cargo to select Captur without inventing comfort rank", () => {
+  it("does not revive the quarantined Captur through a historical evidence mapping", () => {
     const trace = memory([
       { key: "PARTY_SIZE", value: 4, sourceText: "Dört kişilik aile" },
       { key: "BODY_TYPE", value: "SUV_CROSSOVER", sourceText: "SUV/crossover" },
@@ -49,9 +49,10 @@ describe("expanded advisor coverage bridge", () => {
       { key: "EQUIPMENT_LEVEL", value: "COMFORT", sourceText: "Konfor öncelikli" },
     ]);
     const decision = applyExpandedCoverageBridge({ result: applyHardBudgetGate(base(), trace).result, memory: trace, query: "Bagajı küçük olmasın; konfor öncelikli" });
-    expect(decision.result.selectedRuntimeVehicleCandidateId).toBe("RVC-PILOT-0002");
-    expect(decision.trace.discriminator).toBe("MAX_CARGO");
-    expect(decision.result.userFacingExplanation).not.toMatch(/en konforlu|sessiz|yumuşak/iu);
+    expect(decision.result.status).toBe("NO_ELIGIBLE_CANDIDATE");
+    expect(decision.result.recommendationAuthorization.authorizedCandidateIds).not.toContain("RVC-PILOT-0002");
+    expect(decision.trace.discriminator).toBeUndefined();
+    expect(decision.result.userFacingExplanation).toBeUndefined();
   });
 
   it("filters governed candidates by the explicit fuel preference", () => {

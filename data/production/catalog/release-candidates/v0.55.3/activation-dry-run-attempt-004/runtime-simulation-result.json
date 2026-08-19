@@ -1,0 +1,8 @@
+{
+  "status": "FAILED_FAIL_CLOSED",
+  "dryRunId": "CATALOG-553-ATOMIC-ACTIVATION-ATTEMPT-004-DRY-RUN",
+  "blocker": "CATALOG_RUNTIME_SCHEMA_REJECTED",
+  "error": "CATALOG_LOADER:{\"status\":\"UNAVAILABLE\",\"reason\":\"ACTIVE_POINTER_INVALID\",\"diagnostics\":[{\"code\":\"ACTIVE_POINTER_INVALID\"}]}",
+  "activeProductionPointersChanged": false,
+  "activationReady": false
+}

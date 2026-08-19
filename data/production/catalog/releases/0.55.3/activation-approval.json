@@ -1,0 +1,27 @@
+{
+  "approvalId": "CATALOG-553-ATOMIC-ACTIVATION-OWNER-001",
+  "authority": "PRODUCT_OWNER_AND_EQUIPMENT_OWNER",
+  "actorId": "EQUIPMENT_OWNER_001",
+  "scope": "LOCAL_IMMUTABLE_MATERIALIZATION_AND_ATOMIC_POINTER_ACTIVATION_ONLY",
+  "approvedAt": "2026-08-19T15:30:00.000+03:00",
+  "catalogFingerprint": "sha256:6ee79d18314d48cd63c771751815d42f3dab8486daa2e98e1eccfc0a49c2ecc8",
+  "payloadChecksums": {
+    "catalog": "sha256:6ee79d18314d48cd63c771751815d42f3dab8486daa2e98e1eccfc0a49c2ecc8",
+    "dailyLife": "sha256:53f08fbec81edd5f1cde00e3c584ac9587760de223d94b51b90ef354ca2dab4a",
+    "persona": "sha256:e8d6ff9909a4f775a80df40e5a4d15d7cc70a31797401090ed60ca91b6f0b11a",
+    "equipment": "sha256:c0ea9425ab6cd25f5f20fbcc5ca67b3ba002bddae395e154c401bd03d8582344"
+  },
+  "pointerChecksums": {
+    "catalog": "sha256:462d869e285b1c33c67933d1402694fda39ec9703f2eab661daa775cc039e583",
+    "dailyLife": "sha256:f903205f26fe09507227ac71cb716a27ede7a82eaf8d11fd016a65ae3da41b66",
+    "persona": "sha256:9e0c6adca9aa378e07eca1682ad483ce71b46c5d85dcf60cb12e5f7e48c60a9c",
+    "equipment": "sha256:5a464a1dcadd7a504cdadb688b3ad9a9ab1c12afc49ef5c66329f74c7f49424b"
+  },
+  "moduleChecksums": {
+    "catalog": "sha256:f72a6937ec7bd9bb7146f96600846e3c7e7cc3a5976ff35231c95efd01886c66",
+    "dailyLife": "sha256:871bc9275adff728c5ebdb4d6710f0baf84243d8808dcf742ffa06791edffe5c",
+    "persona": "sha256:21df803533646b6bce027b8ccb05bba0db9f55fdb2fe30e5455e5079966b6d53",
+    "equipment": "sha256:3b5d6ffce1a9834f9dc0f378ea5eb27e986e14e6182cb83df6e1dca60cf38629"
+  },
+  "commitPushDeployMigrationDatabaseWriteAuthorized": false
+}

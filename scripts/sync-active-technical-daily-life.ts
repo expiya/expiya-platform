@@ -1,6 +1,8 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
+import { assertTechnicalDailyLifeReleaseName } from "../features/vehicle-data/technicalDailyLifeReleaseName";
+
 interface ActivePointer {
   readonly state: "ACTIVE";
   readonly activeTechnicalDailyLifeRelease: string;
@@ -13,8 +15,8 @@ async function main(): Promise<void> {
   const pointerPath = path.join(root, "data/production/technical-daily-life/active.json");
   const generatedPath = path.join(root, "data/production/technical-daily-life/activeTechnicalDailyLife.generated.ts");
   const pointer = JSON.parse(await readFile(pointerPath, "utf8")) as ActivePointer;
-  if (pointer.state !== "ACTIVE" || !/^v\d+\.\d+-\d+\.\d+\.\d+-\d{4}-\d{2}-\d{2}(?:-[a-z0-9-]+)?$/.test(pointer.activeTechnicalDailyLifeRelease)
-    || !/^v\d+\.\d+\.\d+$/.test(pointer.compatibleCatalogRelease) || pointer.schemaVersion !== 1) {
+  try { assertTechnicalDailyLifeReleaseName(pointer.activeTechnicalDailyLifeRelease); } catch { throw new Error("ACTIVE_TECHNICAL_DAILY_LIFE_POINTER_INVALID"); }
+  if (pointer.state !== "ACTIVE" || !/^v\d+\.\d+\.\d+$/.test(pointer.compatibleCatalogRelease) || pointer.schemaVersion !== 1) {
     throw new Error("ACTIVE_TECHNICAL_DAILY_LIFE_POINTER_INVALID");
   }
   const releaseDirectory = path.join(root, "data/production/technical-daily-life/releases", pointer.activeTechnicalDailyLifeRelease);

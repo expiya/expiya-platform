@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { CatalogSnapshot } from "../catalog/types";
 import { PRICE_AUTHORITY_POLICY_V1 } from "./policy";
 import { projectRelativePriceSegments, projectRelativePriceSegmentsCached } from "./priceSegmentation";
-import { loadProductionCatalogSnapshotForTest } from "../catalog/productionSnapshotFixture.testSupport";
+import { loadActiveProductionSnapshotForTest } from "../catalog/productionSnapshotFixture.testSupport";
 
 const provenance = [{ sourceId: "source", sourceUrl: "https://example.com", accessedAt: "2026-08-19T00:00:00.000Z", extractionMethod: "MANUAL" as const, confidence: "HIGH" as const, limitations: [] }];
 const fact = <T,>(value: T) => ({ value, confidence: "HIGH" as const, provenance, catalogFingerprint: "catalog", explanationAccess: "AUTHORITY_REQUIRED" as const });
@@ -32,7 +32,7 @@ describe("relative price segmentation", () => {
   });
 
   it("projects the real catalog without dropping internal estimates", async () => {
-    const loaded = await loadProductionCatalogSnapshotForTest(new Date("2026-08-19T00:00:00.000Z")); expect(loaded.status).toBe("READY"); if (loaded.status !== "READY") return;
+    const loaded = await loadActiveProductionSnapshotForTest(); expect(loaded.status).toBe("READY"); if (loaded.status !== "READY") return;
     const result = projectRelativePriceSegments({ snapshot: loaded.snapshot, evaluationTime: "2026-08-19T00:00:00.000Z", priceAuthorityPolicy: PRICE_AUTHORITY_POLICY_V1 });
     const expectedInternalEstimates = loaded.snapshot.variants.filter((variant) => variant.activeNewPrice?.priceType === "ESTIMATE" && variant.activeNewPrice.consumerVisibility === "INTERNAL_ONLY").length;
     expect(result.projections.filter((item) => item.sourceAuthority === "INTERNAL_ESTIMATE")).toHaveLength(expectedInternalEstimates);

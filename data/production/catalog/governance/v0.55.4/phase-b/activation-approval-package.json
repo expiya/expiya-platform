@@ -1,0 +1,29 @@
+{
+  "state": "EXPLICIT_ATOMIC_ACTIVATION_APPROVAL_REQUIRED",
+  "catalog": {
+    "releaseId": "0.55.4",
+    "fingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+    "payloadChecksum": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9"
+  },
+  "dailyLife": {
+    "releaseId": "v2.1.2-0.55.4-2026-08-19-compatibility-rebind",
+    "payloadChecksum": "sha256:b3739d23418465a910409c411f07296ea0a1c48d05a930c78594b18a54f7694a"
+  },
+  "safePersona": {
+    "releaseId": "v1.0.5-catalog-v0.55.4-2026-08-19",
+    "payloadChecksum": "sha256:2f2d1d6febd60bab7297708ad623e5925c0b1fd2e1e64669d42607c11acc8cd6"
+  },
+  "equipment": {
+    "releaseId": "v1.5.3-catalog-v0.55.4-2026-08-19",
+    "payloadChecksum": "sha256:1d0636ce70e2072a6b7d611452753239975e74a73f9bab93dd1412a4fdec3735",
+    "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED"
+  },
+  "activePointersChanged": false,
+  "activationEventCreated": false,
+  "rollback": {
+    "catalog": "0.55.2",
+    "dailyLife": "v2.1-0.55.2-2026-08-18-compatibility-rebind",
+    "safePersona": "v1.0.3-catalog-v0.55.2-2026-08-18",
+    "equipment": "v1.5.0-scale-wave-verified-catalog-v0.55.2-2026-08-19"
+  }
+}

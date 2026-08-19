@@ -7,21 +7,21 @@ import { describe, expect, it } from "vitest";
 import activePointer from "@/data/production/equipment-evidence/active.json";
 import { assertActiveEquipmentEvidenceCompatibility, getVariantEquipmentFeatures, loadActiveEquipmentEvidenceLayer, loadActiveEquipmentEvidenceStatus } from "./equipmentEvidenceResolver";
 
-const ROOT = process.cwd(), RELEASE = "v1.5.0-scale-wave-verified-catalog-v0.55.2-2026-08-19";
+const ROOT = process.cwd(), RELEASE = "v1.5.5-catalog-v0.55.4-2026-08-20";
 const sha = (file: string) => createHash("sha256").update(readFileSync(path.join(ROOT, file))).digest("hex");
 
 describe("atomic Equipment pilot activation", () => {
   it("binds the active pointer and generated module to the approved checksums", () => {
-    expect(activePointer).toMatchObject({ activeEquipmentEvidenceRelease: RELEASE, compatibleCatalogRelease: "v0.55.2", compatibleCatalogFingerprint: "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f", payloadSha256: "sha256:5c9ad2d7fa3085b883d04d116bed6ca2bbfb8944e97a81ec590037bc2afd01d2", schemaVersion: "1.2.0-rc" });
-    expect(sha("data/production/equipment-evidence/active.json")).toBe("39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a");
-    expect(sha("data/production/equipment-evidence/activeEquipmentEvidence.generated.ts")).toBe("897a1d8d251240b931ebba5d84fa91b0c937687418a6d7aaa2669c2446ee9e09");
-    expect(sha(`data/production/equipment-evidence/releases/${RELEASE}/equipment-evidence.json`)).toBe("5c9ad2d7fa3085b883d04d116bed6ca2bbfb8944e97a81ec590037bc2afd01d2");
+    expect(activePointer).toMatchObject({ activeEquipmentEvidenceRelease: RELEASE, compatibleCatalogRelease: "v0.55.4", compatibleCatalogFingerprint: "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9", payloadSha256: "sha256:0135bbfee468fa955d3d00d3129e0e7e01dae7bf9a980488450d8319ddc98d2e", schemaVersion: "1.2.0-rc" });
+    expect(sha("data/production/equipment-evidence/active.json")).toBe("101803fb4195c8cfe724715ece539d5ba88fb797f6a0194657b2166043feee4b");
+    expect(sha("data/production/equipment-evidence/activeEquipmentEvidence.generated.ts")).toBe("e282e22700252fd0fe9b45d36be2c2c4953beb916367e8e390dbbb1977466396");
+    expect(sha(`data/production/equipment-evidence/releases/${RELEASE}/equipment-evidence.json`)).toBe("0135bbfee468fa955d3d00d3129e0e7e01dae7bf9a980488450d8319ddc98d2e");
     expect(() => assertActiveEquipmentEvidenceCompatibility()).not.toThrow();
   });
 
   it("reports verified pilot coverage while exposing no decision authority", () => {
-    expect(loadActiveEquipmentEvidenceStatus()).toEqual({ state: "PILOT_VERIFIED_DATA", catalogCompatibility: "READY", verifiedAssertionCount: 112, reviewedAssociationCount: 49, verifiedTrimLinkCount: 6, verifiedAssertionCoveredVariantCount: 4, coveredExactVariantCount: 4, associationOnlyCoveredVariantCount: 2, uncoveredExactVariantCount: 560, totalCatalogVariantCount: 566, availabilityProjectionCount: 112, decisionAuthority: "SHADOW_AND_EXPLANATION_DISABLED", hardFilterEligible: false, hardFilterAfterConfirmation: false, softPreferenceEnabled: false, questionGenerationEnabled: false, userExplanationEnabled: false, candidateEliminationEnabled: false, candidateResurrectionEnabled: false });
-    expect(loadActiveEquipmentEvidenceLayer()).toMatchObject({ release: RELEASE, layer: { state: "PILOT_VERIFIED_DATA", projections: [], assertions: [], trimVariantLinks: [] } });
+    expect(loadActiveEquipmentEvidenceStatus()).toEqual({ state: "PILOT_VERIFIED_DATA", catalogCompatibility: "READY", verifiedAssertionCount: 112, reviewedAssociationCount: 49, verifiedTrimLinkCount: 6, verifiedAssertionCoveredVariantCount: 4, coveredExactVariantCount: 4, associationOnlyCoveredVariantCount: 2, uncoveredExactVariantCount: 543, totalCatalogVariantCount: 549, availabilityProjectionCount: 112, decisionAuthority: "SHADOW_AND_EXPLANATION_DISABLED", hardFilterEligible: false, hardFilterAfterConfirmation: false, softPreferenceEnabled: false, questionGenerationEnabled: false, userExplanationEnabled: false, candidateEliminationEnabled: false, candidateResurrectionEnabled: false });
+    expect(loadActiveEquipmentEvidenceLayer()).toMatchObject({ release: RELEASE, layer: { state: "PILOT_VERIFIED_DATA" } });
     expect(getVariantEquipmentFeatures("1a3cc01d-3bfa-56f3-817f-4cc77e723ef8")).toEqual([]);
   });
 

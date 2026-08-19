@@ -1,0 +1,31 @@
+{
+  "analysisId": "CATALOG-EVIDENCE-AUDIT-WAVE-001-DEPENDENCY-IMPACT",
+  "basis": "19/19 terminal identity dispositions against active catalog v0.55.2",
+  "catalogPatchRecommended": true,
+  "productionMutationPerformed": false,
+  "impacts": [
+    {"layer":"Active production catalog","impact":"NEW_IMMUTABLE_PATCH_RELEASE_REQUIRED","detail":"Seven exact IDs contain identity-field mismatches; two identities are confirmed; eight need provenance reinforcement; two Alpine IDs remain deferred. Do not rewrite v0.55.2."},
+    {"layer":"Catalog active pointer","impact":"FUTURE_ATOMIC_ACTIVATION_ONLY","detail":"No pointer change in this work unit. A future pointer update must occur only after patch validation and downstream compatibility gates pass."},
+    {"layer":"Catalog identity and family indexes","impact":"REGENERATE_FOR_PATCH","detail":"Preserve old IDs historically. Corrected identities require new deterministic IDs; mismatched IDs must not be reused."},
+    {"layer":"Runtime recommendation eligibility","impact":"FAIL_CLOSED_REBIND_REQUIRED","detail":"Seven mismatched IDs should be excluded by the future patch. No Decision Engine change is authorized in this work unit."},
+    {"layer":"Vehicle Evidence identity maps","impact":"REVIEW_AND_REGENERATE","detail":"Any mapping to a mismatched exact ID must be terminated or rebound only to a newly verified exact identity. No evidence may be copied by alias."},
+    {"layer":"Equipment Evidence","impact":"NO_TRANSFER_IN_THIS_WAVE_FUTURE_EXACT_APPLICABILITY_REVIEW","detail":"Equipment semantic risk is separate from catalog identity. Existing evidence remains attached to its historical ID; no transfer to successor IDs is allowed without a new exact applicability review."},
+    {"layer":"Technical daily-life","impact":"CATALOG_COMPATIBILITY_REVALIDATION","detail":"Re-run exact-ID and field-path compatibility. Content regeneration is required only where an identity field used by the layer changes."},
+    {"layer":"Safe persona projections","impact":"REGENERATE_EXACT_MEMBERSHIP","detail":"Remove quarantined exact memberships and add successors only after owner-scope and source compatibility are re-established."},
+    {"layer":"Media","impact":"STALE_EXACT_ID_REFERENCE_AUDIT","detail":"Family media may remain; exact-ID media queues and coverage fixtures must be checked for mismatched IDs."},
+    {"layer":"Prices and lifecycle","impact":"TEMPORAL_REVIEW","detail":"Egea and Alpine records require explicit validity/lifecycle semantics. Price presence does not prove exact identity or current lifecycle."},
+    {"layer":"Persisted offers and authorizations","impact":"READ_ONLY_IMPACT_QUERY_BEFORE_PATCH_ACTIVATION","detail":"No alias or migration is produced now. Before activation, inventory references to affected IDs and design an explicit audited migration/supersession policy."},
+    {"layer":"Database imports","impact":"PATCH_IMPORT_PLAN_REQUIRED","detail":"Future import must be additive/immutable and idempotent; it must not update identity fields of historical IDs in place."},
+    {"layer":"Generated modules and tests","impact":"REGENERATE_AFTER_PATCH","detail":"Release fingerprints, generated catalog module, counts and downstream release-bound tests must move together."},
+    {"layer":"Routes and UI","impact":"NONE_IN_THIS_WORK_UNIT","detail":"No route, UI or consumer behavior change is required to publish this audit."}
+  ],
+  "highestRiskExactVariantIds": [
+    "19951113-2e40-5526-b568-2ae1984c27e0",
+    "3383408d-d77b-5643-93ee-8dc0cb3465a0",
+    "61b1bb40-dce9-5e01-97d2-5ba0167b3062",
+    "625c6cce-a78e-5d2d-a682-8feb90b09268",
+    "64996711-e8a8-5d7e-b92e-4a2c3c5e46f1",
+    "8833b383-4379-54e8-a017-fac236dcca0f",
+    "bad56151-8735-569c-ad4f-129880820a0e"
+  ]
+}

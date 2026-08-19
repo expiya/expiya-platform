@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 
-import { loadProductionCatalogSnapshotForTest } from "@/features/decision/v2/catalog/productionSnapshotFixture.testSupport";
+import { loadActiveProductionSnapshotForTest } from "@/features/decision/v2/catalog/productionSnapshotFixture.testSupport";
 import { loadActiveVehiclePersonaSafeTraits } from "./vehiclePersonaSafeTraits.server";
 import {
   createVehiclePersonaSafeTraitResolver, validateVehiclePersonaSafeTraitRelease,
@@ -11,7 +11,7 @@ import {
 
 const root = process.cwd();
 async function fixture() {
-  const snapshotResult = await loadProductionCatalogSnapshotForTest(new Date("2026-08-19T00:00:00.000Z"));
+  const snapshotResult = await loadActiveProductionSnapshotForTest();
   if (snapshotResult.status !== "READY") throw new Error(snapshotResult.reason);
   const snapshot = snapshotResult.snapshot; const base = path.join(root, "data/production/personas/safe-traits");
   const pointer = JSON.parse(await readFile(path.join(base, "active.json"), "utf8"));

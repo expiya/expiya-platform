@@ -2,6 +2,7 @@ import { catalogPayloadHash, serializeCanonical } from "@/features/vehicle-data/
 
 import type { CatalogAuthoritySnapshot } from "../domain/conversationMemory";
 import { activePointerSchema, catalogManifestSchema, catalogPayloadSchema, decisionFacetsSchema } from "../schema/catalogReleaseSchemas";
+import { parseStrictRfc3339Instant, validateCatalogTemporalInvariant } from "../schema/strictRfc3339Timestamp";
 import { buildModelFamilyIndexes, createImmutableIndex } from "./familyIndex";
 import type { CatalogReleaseRepository } from "./repository";
 import { assertSafeCatalogReleaseVersion } from "./repository";
@@ -16,14 +17,15 @@ function deepFreeze<T>(value: T, seen = new WeakSet<object>()): T {
 }
 
 export function evaluateCatalogTemporalStatus(effectiveAsOf: string, now: Date): CatalogTemporalStatus {
-  const effective = new Date(effectiveAsOf);
-  if (!Number.isFinite(effective.getTime()) || !Number.isFinite(now.getTime())) return "TEMPORAL_METADATA_INVALID";
-  return now.getTime() < effective.getTime() ? "NOT_YET_EFFECTIVE" : "EFFECTIVE";
+  const effective = parseStrictRfc3339Instant(effectiveAsOf);
+  if (effective === undefined || !Number.isFinite(now.getTime())) return "TEMPORAL_METADATA_INVALID";
+  return now.getTime() < effective ? "NOT_YET_EFFECTIVE" : "EFFECTIVE";
 }
 
 export function buildCatalogSnapshot(input: {
   readonly pointer?: unknown; readonly manifest: unknown; readonly catalog: unknown; readonly decisionFacets: unknown;
   readonly now: Date; readonly pinned?: { readonly releaseVersion: string; readonly catalogFingerprint: string; readonly activatedAt?: string };
+  readonly enforceTemporalInvariant?: boolean;
 }): CatalogSnapshotLoadResult {
   const diagnostics: CatalogDiagnostic[] = [];
   const manifestResult = catalogManifestSchema.safeParse(input.manifest);
@@ -60,6 +62,7 @@ export function buildCatalogSnapshot(input: {
   if (catalog.market !== "TR" || manifest.market !== "TR" || catalog.records.some((record) => record.variant.market !== "TR")) diagnostics.push({ code: "MARKET_MISMATCH" });
   if (catalog.records.some((record) => record.activeNewPrice && record.activeNewPrice.vehicleVariantId !== record.variant.id)) diagnostics.push({ code: "DECISION_FACT_SCHEMA_INVALID", reference: "price-variant-link" });
   if (manifest.approval.state !== "APPROVED" || manifest.validator_status !== "PASS") diagnostics.push({ code: "RELEASE_NOT_APPROVED" });
+  if (pointer && input.enforceTemporalInvariant && validateCatalogTemporalInvariant({ stagingAt: manifest.staging.at, approvalAt: manifest.approval.at, effectiveAt: manifest.effective_as_of, activatedAt: pointer.activated_at, evaluationAt: input.now.toISOString() }).length) diagnostics.push({ code: "TEMPORAL_INVARIANT_VIOLATION" });
   if (diagnostics.length > 0) return { status: "UNAVAILABLE", reason: "INTEGRITY_FAILURE", diagnostics: Object.freeze(diagnostics) };
   const temporalStatus = evaluateCatalogTemporalStatus(manifest.effective_as_of, input.now);
   if (temporalStatus === "NOT_YET_EFFECTIVE") return { status: "UNAVAILABLE", reason: "NOT_YET_EFFECTIVE", diagnostics: [{ code: "NOT_YET_EFFECTIVE", reference: manifest.effective_as_of }] };
@@ -146,7 +149,7 @@ export async function loadActiveCatalogSnapshot(input: { readonly repository: Ca
   const version = parsed.data.active_catalog_release_version;
   try {
     if (!await input.repository.releaseExists(version)) return { status: "UNAVAILABLE", reason: "RELEASE_NOT_FOUND", diagnostics: [{ code: "PINNED_RELEASE_NOT_FOUND", reference: version }] };
-    return buildCatalogSnapshot({ pointer, manifest: await input.repository.loadReleaseManifest(version), catalog: await input.repository.loadReleaseCatalog(version), decisionFacets: await input.repository.loadDecisionFacets(version), now: input.now });
+    return buildCatalogSnapshot({ pointer, manifest: await input.repository.loadReleaseManifest(version), catalog: await input.repository.loadReleaseCatalog(version), decisionFacets: await input.repository.loadDecisionFacets(version), now: input.now, enforceTemporalInvariant: true });
   } catch { return { status: "UNAVAILABLE", reason: "CATALOG_SNAPSHOT_UNAVAILABLE", diagnostics: [] }; }
 }
 
@@ -156,6 +159,6 @@ export async function loadPinnedCatalogSnapshot(input: {
   try { assertSafeCatalogReleaseVersion(input.releaseVersion); } catch { return { status: "UNAVAILABLE", reason: "CATALOG_SNAPSHOT_UNAVAILABLE", diagnostics: [{ code: "PINNED_RELEASE_NOT_FOUND" }] }; }
   if (!await input.repository.releaseExists(input.releaseVersion)) return { status: "UNAVAILABLE", reason: "CATALOG_SNAPSHOT_UNAVAILABLE", diagnostics: [{ code: "PINNED_RELEASE_NOT_FOUND", reference: input.releaseVersion }] };
   try {
-    return buildCatalogSnapshot({ manifest: await input.repository.loadReleaseManifest(input.releaseVersion), catalog: await input.repository.loadReleaseCatalog(input.releaseVersion), decisionFacets: await input.repository.loadDecisionFacets(input.releaseVersion), now: input.now, pinned: input });
+    return buildCatalogSnapshot({ manifest: await input.repository.loadReleaseManifest(input.releaseVersion), catalog: await input.repository.loadReleaseCatalog(input.releaseVersion), decisionFacets: await input.repository.loadDecisionFacets(input.releaseVersion), now: input.now, pinned: input, enforceTemporalInvariant: true });
   } catch { return { status: "UNAVAILABLE", reason: "CATALOG_SNAPSHOT_UNAVAILABLE", diagnostics: [] }; }
 }

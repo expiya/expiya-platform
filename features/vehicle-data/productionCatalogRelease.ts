@@ -101,6 +101,8 @@ export const FIFTY_FOURTH_CATALOG_RELEASE_VERSION="0.54.0",FIFTY_FOURTH_CATALOG_
 export const FIFTY_FIFTH_CATALOG_RELEASE_VERSION="0.55.0",FIFTY_FIFTH_CATALOG_RELEASE_AS_OF="2026-08-18T23:00:00.000Z",FIFTY_FIFTH_CATALOG_SOURCE_REVISION="all-light-commercial-batch-01:2026-08-18",FIFTY_FIFTH_CATALOG_SOURCE_PATH="data/production/allCommercialBatch01.ts";
 export const TEMPORAL_CORRECTION_CATALOG_RELEASE_VERSION="0.55.1",TEMPORAL_CORRECTION_CATALOG_RELEASE_AS_OF="2026-08-16T09:40:33.000Z",TEMPORAL_CORRECTION_CATALOG_SOURCE_REVISION="temporal-correction-v0.55.1:git-84b5fe8f834a4a8f1e3e2e45ea3c51e6d19e2c05",TEMPORAL_CORRECTION_CATALOG_SOURCE_PATH="scripts/generate-temporal-correction-catalog-release-551.ts",TEMPORAL_CORRECTION_ROLLBACK_VERSION="0.3.0";
 export const DACIA_INTEGRITY_CATALOG_RELEASE_VERSION="0.55.2",DACIA_INTEGRITY_CATALOG_SOURCE_PATH="scripts/generate-dacia-integrity-stack-552.ts";
+export const CATALOG_553_RELEASE_VERSION="0.55.3",CATALOG_553_SOURCE_PATH="scripts/prepare-catalog-553-attempt-004.mjs";
+export const CATALOG_554_RELEASE_VERSION="0.55.4",CATALOG_554_SOURCE_PATH="scripts/materialize-catalog-554-phase-b.mjs";
 
 export const FIRST_RELEASE_VARIANT_IDS = Object.freeze([
   "1eb75421-a038-4679-977e-7cd4e4608863",
@@ -140,12 +142,15 @@ export interface ProductionCatalogReleaseManifest {
     readonly state: "APPROVED";
     readonly at: string;
     readonly reference: string;
+    readonly manifest_id?: string;
+    readonly manifest_checksum?: string;
   };
   readonly staging: {
     readonly state: "STAGED";
     readonly at: string;
     readonly actor_reference: string;
-    readonly target: "INTERNAL_INTEGRATION_NON_PRODUCTION";
+    readonly target: "INTERNAL_INTEGRATION_NON_PRODUCTION" | "IMMUTABLE_RELEASE";
+    readonly event_id?: string;
   };
   readonly previous_release: string | null;
   readonly declared_limitations: readonly string[];
@@ -480,6 +485,7 @@ export function validateProductionCatalogRelease(
     [FIFTY_FIRST_CATALOG_RELEASE_VERSION]:FIFTY_FIRST_CATALOG_SOURCE_PATH,[FIFTY_SECOND_CATALOG_RELEASE_VERSION]:FIFTY_SECOND_CATALOG_SOURCE_PATH,
     [FIFTY_THIRD_CATALOG_RELEASE_VERSION]:FIFTY_THIRD_CATALOG_SOURCE_PATH,[FIFTY_FOURTH_CATALOG_RELEASE_VERSION]:FIFTY_FOURTH_CATALOG_SOURCE_PATH,
     [FIFTY_FIFTH_CATALOG_RELEASE_VERSION]:FIFTY_FIFTH_CATALOG_SOURCE_PATH,[TEMPORAL_CORRECTION_CATALOG_RELEASE_VERSION]:TEMPORAL_CORRECTION_CATALOG_SOURCE_PATH,[DACIA_INTEGRITY_CATALOG_RELEASE_VERSION]:DACIA_INTEGRITY_CATALOG_SOURCE_PATH,
+    [CATALOG_553_RELEASE_VERSION]:CATALOG_553_SOURCE_PATH,[CATALOG_554_RELEASE_VERSION]:CATALOG_554_SOURCE_PATH,
   };expectedSourcePath??=newestSourcePaths[manifest.catalog_release_version];
   if (manifest.source_path !== expectedSourcePath) errors.push("SOURCE_AUTHORITY_INVALID");
   if (payload.effective_as_of !== manifest.effective_as_of) errors.push("EFFECTIVE_AS_OF_MISMATCH");
@@ -511,10 +517,11 @@ export function validateProductionCatalogRelease(
   Object.assign(newestLineage,Object.fromEntries([[FIFTY_FIRST_CATALOG_RELEASE_VERSION,FIFTY_FIRST_CATALOG_RELEASE_AS_OF,FIFTIETH_CATALOG_RELEASE_VERSION],[FIFTY_SECOND_CATALOG_RELEASE_VERSION,FIFTY_SECOND_CATALOG_RELEASE_AS_OF,FIFTY_FIRST_CATALOG_RELEASE_VERSION],[FIFTY_THIRD_CATALOG_RELEASE_VERSION,FIFTY_THIRD_CATALOG_RELEASE_AS_OF,FIFTY_SECOND_CATALOG_RELEASE_VERSION],[FIFTY_FOURTH_CATALOG_RELEASE_VERSION,FIFTY_FOURTH_CATALOG_RELEASE_AS_OF,FIFTY_THIRD_CATALOG_RELEASE_VERSION]].map(([v,a,p])=>[v,[a,p]])));const finalLineage=newestLineage[manifest.catalog_release_version];if(finalLineage&&(payload.effective_as_of!==finalLineage[0]||manifest.previous_release!==finalLineage[1])&&!newestExtended)errors.push("LATER_RELEASE_LINEAGE_INVALID");
   if(manifest.catalog_release_version===FIFTY_FIFTH_CATALOG_RELEASE_VERSION&&(payload.effective_as_of!==FIFTY_FIFTH_CATALOG_RELEASE_AS_OF||manifest.previous_release!==FIFTY_FOURTH_CATALOG_RELEASE_VERSION))errors.push("LATER_RELEASE_LINEAGE_INVALID");
   if(manifest.catalog_release_version===TEMPORAL_CORRECTION_CATALOG_RELEASE_VERSION&&(payload.effective_as_of!==TEMPORAL_CORRECTION_CATALOG_RELEASE_AS_OF||manifest.previous_release!==FIFTY_FIFTH_CATALOG_RELEASE_VERSION))errors.push("TEMPORAL_CORRECTION_RELEASE_LINEAGE_INVALID");
+  if ((manifest.catalog_release_version === CATALOG_553_RELEASE_VERSION || manifest.catalog_release_version === CATALOG_554_RELEASE_VERSION) && manifest.previous_release !== DACIA_INTEGRITY_CATALOG_RELEASE_VERSION) errors.push("CATALOG_INTEGRITY_PATCH_LINEAGE_INVALID");
   if (manifest.validator_status !== "PASS") errors.push("VALIDATOR_NOT_PASS");
   if (!manifest.approval || manifest.approval.state !== "APPROVED" || !manifest.approval.reference) errors.push("APPROVAL_EVIDENCE_MISSING");
   if (!manifest.staging || manifest.staging.state !== "STAGED" || !manifest.staging.actor_reference) errors.push("STAGING_EVIDENCE_MISSING");
-  if (!manifest.staging || manifest.staging.target !== "INTERNAL_INTEGRATION_NON_PRODUCTION") errors.push("STAGING_TARGET_INVALID");
+  if (!manifest.staging || !["INTERNAL_INTEGRATION_NON_PRODUCTION", "IMMUTABLE_RELEASE"].includes(manifest.staging.target)) errors.push("STAGING_TARGET_INVALID");
   return errors;
 }
 

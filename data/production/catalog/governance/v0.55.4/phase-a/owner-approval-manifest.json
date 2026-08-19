@@ -1,0 +1,61 @@
+{
+  "manifestId": "CATALOG-V0554-OWNER-APPROVAL-MANIFEST-001",
+  "manifestVersion": "1.0.0",
+  "state": "OWNER_APPROVAL_REQUIRED",
+  "releaseIntent": "v0.55.4",
+  "parentRelease": "v0.55.2",
+  "recordCount": 549,
+  "quarantineCount": 17,
+  "quarantineExactVariantIds": [
+    "19951113-2e40-5526-b568-2ae1984c27e0",
+    "2f5054d1-1c11-5c34-a815-8223facf9892",
+    "3383408d-d77b-5643-93ee-8dc0cb3465a0",
+    "3d0f2b09-791e-5d76-9257-ec6be591c4eb",
+    "3dceba8a-9f0a-56ac-aabc-515193e1c62a",
+    "61b1bb40-dce9-5e01-97d2-5ba0167b3062",
+    "62465336-2cfb-4ccd-b9a7-36467d63497f",
+    "625c6cce-a78e-5d2d-a682-8feb90b09268",
+    "64996711-e8a8-5d7e-b92e-4a2c3c5e46f1",
+    "75a0db67-272b-509f-8b60-312f2092a6b2",
+    "84b2d12e-6ed2-5b7f-9a18-6fe6c41914c7",
+    "8833b383-4379-54e8-a017-fac236dcca0f",
+    "9d6a26bb-88c0-596e-9905-246e1371e27a",
+    "bad56151-8735-569c-ad4f-129880820a0e",
+    "bdf54f5b-2c18-5505-8875-0157f5bd1db7",
+    "cb8f5af7-b20f-5877-a79b-4af71c18a61c",
+    "f954d7a8-b69b-5ee2-b3ad-a4638772725a"
+  ],
+  "retainedConfirmedIdCount": 2,
+  "retainedConfirmedExactVariantIds": [
+    "6d6c0805-8779-5764-a42a-48850990a60c",
+    "e09c81aa-6324-5b20-9cd8-90dc806a5ae9"
+  ],
+  "semanticContentChecksum": "sha256:b93d733023d21bce20a25e56f3d353c79f533d1f58b57f757994e99b6710210d",
+  "decisionFacetsChecksum": "sha256:f1739ff5ddb738fdccae6d9b615ff6c10e51629e7382961c1713c44956d10052",
+  "quarantineRegistryChecksum": "sha256:e3507f3e0148f9709b7a2caba7bfe4b696e85e6717b754fd1ec51f82c23fbe44",
+  "supersessionRegistryChecksum": "sha256:47b49012e45b80c2cda793d4add1840d980bceb3221ebf50ec2cb1a0f97409f1",
+  "semanticEquality": {
+    "referenceRelease": "v0.55.3",
+    "vehicleRecordDiffCount": 0,
+    "recordChecksum": "sha256:1aaae0a42206623b7596ffb906b4bb10e2c51c25277da0f0e377fce659500d1b"
+  },
+  "newExactIdCount": 0,
+  "unauthorizedAliasCount": 0,
+  "automaticEquipmentTransferCount": 0,
+  "stagingEventId": "CAT-STAGE-AEE3B86604E2D9DFB130",
+  "staging_at": "2026-08-19T12:43:54.303Z",
+  "temporalMaterializationPolicy": {
+    "approvalAt": "REAL_OWNER_APPROVAL_EVENT_INSTANT",
+    "approvalNotBeforeStaging": true,
+    "effectiveAsOf": "EQUAL_TO_APPROVAL_AT",
+    "effectiveBackdatingForbidden": true,
+    "activatedAt": "REAL_SEPARATE_ACTIVATION_INSTANT",
+    "activationNotBeforeEffective": true,
+    "writeFormat": "CANONICAL_UTC_Z",
+    "readPolicy": "STRICT_RFC3339_OFFSET_V1"
+  },
+  "approvalEventPresent": false,
+  "effectiveTimestampPresent": false,
+  "finalCatalogFingerprintPresent": false,
+  "finalProductionReleasePresent": false
+}

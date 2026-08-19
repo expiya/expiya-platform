@@ -75,10 +75,10 @@ describe("V2.2 fifty multi-turn human question-order journeys", () => {
   it.each(journeys)("$id", async (scenario) => {
     const store = new InMemoryV2ConversationStore();
     const traces: Readonly<Record<string, unknown>>[] = [];
-    const composition = createCarsDecisionV2ProductionComposition({ store, offerStore: new InMemoryGovernedOfferStore(), interpreter, realizer, signer: createHmacOfferSigner({ secret: "01234567890123456789012345678901", now: () => new Date("2026-08-19T00:05:00.000Z") }), smokeObserver: (trace) => traces.push(trace) });
+    const composition = createCarsDecisionV2ProductionComposition({ store, offerStore: new InMemoryGovernedOfferStore(), interpreter, realizer, signer: createHmacOfferSigner({ secret: "01234567890123456789012345678901", now: () => new Date("2026-08-20T00:05:00.000Z") }), smokeObserver: (trace) => traces.push(trace) });
     let revision = 0;
-    if (scenario.prelude) await runCarsDecisionTurnV2({ conversationId: scenario.id, messageId: "prelude", idempotencyKey: "prelude", expectedConversationRevision: revision++, userMessage: scenario.prelude, requestTime: "2026-08-19T00:00:00.000Z" }, composition);
-    await runCarsDecisionTurnV2({ conversationId: scenario.id, messageId: "context", idempotencyKey: "context", expectedConversationRevision: revision++, userMessage: scenario.message, requestTime: "2026-08-19T00:01:00.000Z" }, composition);
+    if (scenario.prelude) await runCarsDecisionTurnV2({ conversationId: scenario.id, messageId: "prelude", idempotencyKey: "prelude", expectedConversationRevision: revision++, userMessage: scenario.prelude, requestTime: "2026-08-20T00:00:00.000Z" }, composition);
+    await runCarsDecisionTurnV2({ conversationId: scenario.id, messageId: "context", idempotencyKey: "context", expectedConversationRevision: revision++, userMessage: scenario.message, requestTime: "2026-08-20T00:01:00.000Z" }, composition);
     const first = traces.filter((trace) => trace.phase === "DECISION").at(-1) as DecisionTrace;
     expect(first.selectedQuestionStage).toBe(scenario.stage);
     expect(first.materialQuestionCount).toBeLessThanOrEqual(1);
@@ -99,7 +99,7 @@ describe("V2.2 fifty multi-turn human question-order journeys", () => {
       expect(architecture?.stableSemanticKey).toBe("discovery.bodyStyle");
     }
 
-    await runCarsDecisionTurnV2({ conversationId: scenario.id, messageId: "answer", idempotencyKey: "answer", expectedConversationRevision: revision++, userMessage: scenario.answer, requestTime: "2026-08-19T00:02:00.000Z" }, composition);
+    await runCarsDecisionTurnV2({ conversationId: scenario.id, messageId: "answer", idempotencyKey: "answer", expectedConversationRevision: revision++, userMessage: scenario.answer, requestTime: "2026-08-20T00:02:00.000Z" }, composition);
     const second = traces.filter((trace) => trace.phase === "DECISION").at(-1) as DecisionTrace;
     expect(second.materialQuestionCount).toBeLessThanOrEqual(1);
     expect(second.selectedQuestionKey).not.toBe(first.selectedQuestionKey);
@@ -113,7 +113,7 @@ describe("V2.2 fifty multi-turn human question-order journeys", () => {
         const decision = traces.filter((trace) => trace.phase === "DECISION").at(-1) as DecisionTrace;
         const key = decision.selectedQuestionKey;
         const answer = key === "discovery.usageScenario" ? "Günlük şehir içi" : key === "discovery.bodyStyle" ? "Hatchback şart" : key === "discovery.budget" ? "Bütçe önemli değil" : key ? "Fark etmez" : "Bana uygun seçenekleri öner.";
-        output = await runCarsDecisionTurnV2({ conversationId: scenario.id, messageId: `finish-${step}`, idempotencyKey: `finish-${step}`, expectedConversationRevision: revision++, userMessage: answer, requestTime: `2026-08-19T00:${String(step + 3).padStart(2, "0")}:00.000Z` }, composition);
+        output = await runCarsDecisionTurnV2({ conversationId: scenario.id, messageId: `finish-${step}`, idempotencyKey: `finish-${step}`, expectedConversationRevision: revision++, userMessage: answer, requestTime: `2026-08-20T00:${String(step + 3).padStart(2, "0")}:00.000Z` }, composition);
       }
       expect(output?.state).toBe("AWAITING_CONSENT");
       expect(output?.offer?.token).toBeTruthy();

@@ -1,0 +1,731 @@
+{
+  "schemaVersion": "1.0.0",
+  "releaseVersion": "v1.0.0-catalog-v0.55.4-2026-08-20-candidate",
+  "compatibleCatalogRelease": "v0.55.4",
+  "compatibleCatalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "compatibleEquipmentVocabularyVersion": "1.1.0",
+  "sourceAuthority": "OWNER_EDITORIAL_DRAFT",
+  "runtimeAuthority": "DISABLED_PENDING_OWNER_APPROVAL_AND_EQUIPMENT_ACTIVATION",
+  "generatedAt": "2026-08-19T21:08:15.149Z",
+  "entries": [
+    {
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "labelTr": "Otonom acil fren",
+      "category": "ADAS",
+      "usageContexts": [
+        "SAFETY_SUPPORT",
+        "URBAN"
+      ],
+      "dailyLifeBenefit": "Öndeki araç veya engelle çarpışma riski algılandığında frenlemeye destek olabilir.",
+      "userFacingExplanation": "Otonom acil fren, sürücünün tepki veremediği bazı durumlarda frenlemeyi destekleyerek çarpışma riskini veya etkisini azaltmaya yardımcı olabilir.",
+      "caveat": "Her koşulu ve engeli algılamaz; sürücünün frenleme ve çevre kontrolü sorumluluğu devam eder.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "FORWARD_COLLISION_WARNING",
+      "labelTr": "Ön çarpışma uyarısı",
+      "category": "ADAS",
+      "usageContexts": [
+        "SAFETY_SUPPORT",
+        "URBAN"
+      ],
+      "dailyLifeBenefit": "Öndeki araçla mesafe hızla kapanırken sürücüyü uyarabilir.",
+      "userFacingExplanation": "Ön çarpışma uyarısı, öndeki trafikle tehlikeli biçimde yaklaşma algılandığında sürücünün daha erken tepki vermesine yardımcı olabilir.",
+      "caveat": "Uyarı sistemi kendi başına frenleme garantisi vermez ve algılama koşullara göre değişebilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "LANE_DEPARTURE_WARNING",
+      "labelTr": "Şerit terk uyarısı",
+      "category": "ADAS",
+      "usageContexts": [
+        "SAFETY_SUPPORT",
+        "LONG_DISTANCE"
+      ],
+      "dailyLifeBenefit": "Sinyal verilmeden şeritten çıkma eğilimini bildirebilir.",
+      "userFacingExplanation": "Şerit terk uyarısı, özellikle uzun yolculuklarda istemsiz şerit değişimini fark etmeyi kolaylaştırabilir.",
+      "caveat": "Yol çizgileri görünür olmalıdır; sistem direksiyon kontrolünün yerini almaz.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "LANE_KEEP_ASSIST",
+      "labelTr": "Şeritte tutma desteği",
+      "category": "ADAS",
+      "usageContexts": [
+        "SAFETY_SUPPORT",
+        "LONG_DISTANCE"
+      ],
+      "dailyLifeBenefit": "Araç şeritten uzaklaşırken direksiyon desteği sağlayabilir.",
+      "userFacingExplanation": "Şeritte tutma desteği, uygun yol çizgilerinde aracın şerit sınırları içinde kalmasına yardımcı olabilir.",
+      "caveat": "Otonom sürüş değildir; sürücü direksiyonu ve yolu sürekli kontrol etmelidir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "labelTr": "Şerit ortalama desteği",
+      "category": "ADAS",
+      "usageContexts": [
+        "SAFETY_SUPPORT",
+        "LONG_DISTANCE"
+      ],
+      "dailyLifeBenefit": "Uygun koşullarda aracı şeridin ortasına yakın tutmaya destek olabilir.",
+      "userFacingExplanation": "Şerit ortalama desteği, özellikle düzenli akan uzun yol sürüşlerinde küçük direksiyon düzeltmelerini azaltabilir.",
+      "caveat": "Yol ve hava koşullarına bağlıdır; ellerin direksiyonda kalması gerekir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "labelTr": "Adaptif hız sabitleyici",
+      "category": "ADAS",
+      "usageContexts": [
+        "LONG_DISTANCE",
+        "COMFORT"
+      ],
+      "dailyLifeBenefit": "Öndeki araçla seçilen mesafeyi korumak için hızı ayarlayabilir.",
+      "userFacingExplanation": "Adaptif hız sabitleyici, uzun yolda hızlanma ve yavaşlama ihtiyacını azaltarak sürüş yükünü hafifletebilir.",
+      "caveat": "Trafiği ve yolu izleme sorumluluğu sürücüdedir; çalışma aralığı modele göre değişir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "labelTr": "Kör nokta izleme",
+      "category": "ADAS",
+      "usageContexts": [
+        "SAFETY_SUPPORT",
+        "URBAN"
+      ],
+      "dailyLifeBenefit": "Yan kör noktadaki araçları fark etmeye yardımcı olabilir.",
+      "userFacingExplanation": "Kör nokta izleme, şerit değiştirirken aynalarda görülmesi zor araçlar için ek uyarı sağlayabilir.",
+      "caveat": "Ayna ve omuz kontrolünün yerini almaz; motosiklet veya hızlı yaklaşan araçları her zaman algılamayabilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "labelTr": "Arka çapraz trafik uyarısı",
+      "category": "ADAS",
+      "usageContexts": [
+        "PARKING",
+        "SAFETY_SUPPORT"
+      ],
+      "dailyLifeBenefit": "Park yerinden geri çıkarken yandan yaklaşan trafiği bildirebilir.",
+      "userFacingExplanation": "Arka çapraz trafik uyarısı, görüşün kısıtlı olduğu park yerlerinden geri çıkarken yaklaşan araçları fark etmeyi kolaylaştırabilir.",
+      "caveat": "Çevre kontrolü ve düşük hızda dikkatli manevra gerekliliği devam eder.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "labelTr": "Trafik işareti tanıma",
+      "category": "ADAS",
+      "usageContexts": [
+        "SAFETY_SUPPORT",
+        "LONG_DISTANCE"
+      ],
+      "dailyLifeBenefit": "Algılanan hız sınırı ve bazı trafik işaretlerini gösterebilir.",
+      "userFacingExplanation": "Trafik işareti tanıma, güncel yol işaretlerini takip etmeye yardımcı bir hatırlatıcı olabilir.",
+      "caveat": "İşaretleri yanlış okuyabilir veya kaçırabilir; geçerli kuralları doğrulama sorumluluğu sürücüdedir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "labelTr": "Sürücü dikkat takip sistemi",
+      "category": "ADAS",
+      "usageContexts": [
+        "SAFETY_SUPPORT",
+        "LONG_DISTANCE"
+      ],
+      "dailyLifeBenefit": "Yorgunluk veya dikkat azalması belirtilerinde mola uyarısı verebilir.",
+      "userFacingExplanation": "Sürücü dikkat takip sistemi, uzun yolculuklarda mola ihtiyacını fark etmeye yardımcı olabilir.",
+      "caveat": "Tıbbi değerlendirme yapmaz ve dinlenmiş sürüşün yerini almaz.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "labelTr": "Uzun far asistanı",
+      "category": "ADAS",
+      "usageContexts": [
+        "NIGHT_DRIVING",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Trafiğe göre uzun far geçişlerini otomatikleştirebilir.",
+      "userFacingExplanation": "Uzun far asistanı, gece sürüşünde karşıdan gelen veya öndeki araçlara göre far kullanımını kolaylaştırabilir.",
+      "caveat": "Sis, yoğun yağış ve karmaşık trafik koşullarında manuel müdahale gerekebilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "REAR_VIEW_CAMERA",
+      "labelTr": "Geri görüş kamerası",
+      "category": "PARKING",
+      "usageContexts": [
+        "PARKING",
+        "URBAN"
+      ],
+      "dailyLifeBenefit": "Geri manevrada aracın arkasındaki alanı görmeyi kolaylaştırır.",
+      "userFacingExplanation": "Geri görüş kamerası, özellikle dar alanlarda park ederken aracın arkasını görmeyi kolaylaştırabilir.",
+      "caveat": "Aynaların ve doğrudan çevre kontrolünün yerini almaz; görüntü mesafeyi yanıltabilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "labelTr": "360 derece çevre görüş kamerası",
+      "category": "PARKING",
+      "usageContexts": [
+        "PARKING",
+        "URBAN"
+      ],
+      "dailyLifeBenefit": "Aracın çevresini kuş bakışı benzeri birleşik görüntüyle gösterebilir.",
+      "userFacingExplanation": "360 derece kamera, dar park alanlarında jant, kaldırım ve çevredeki engelleri konumlandırmayı kolaylaştırabilir.",
+      "caveat": "Kamera kör noktaları ve görüntü birleştirme hataları olabilir; çevre fiziksel olarak kontrol edilmelidir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "labelTr": "Ön park sensörleri",
+      "category": "PARKING",
+      "usageContexts": [
+        "PARKING",
+        "URBAN"
+      ],
+      "dailyLifeBenefit": "Öndeki yakın engeller için sesli veya görsel mesafe uyarısı sağlayabilir.",
+      "userFacingExplanation": "Ön park sensörleri, dar alanda öne doğru manevra ederken tampon mesafesini değerlendirmeyi kolaylaştırabilir.",
+      "caveat": "Alçak, ince veya sensör dışında kalan engeller algılanmayabilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "REAR_PARKING_SENSORS",
+      "labelTr": "Arka park sensörleri",
+      "category": "PARKING",
+      "usageContexts": [
+        "PARKING",
+        "URBAN"
+      ],
+      "dailyLifeBenefit": "Arkaya yaklaşan engeller için mesafe uyarısı sağlayabilir.",
+      "userFacingExplanation": "Arka park sensörleri, geri manevrada engellere olan mesafeyi takip etmeyi kolaylaştırabilir.",
+      "caveat": "Kamera, ayna ve doğrudan çevre kontrolünün yerini almaz.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "AUTOMATIC_PARK_ASSIST",
+      "labelTr": "Otomatik park desteği",
+      "category": "PARKING",
+      "usageContexts": [
+        "PARKING",
+        "URBAN"
+      ],
+      "dailyLifeBenefit": "Uygun park alanında direksiyon veya manevra adımlarına destek olabilir.",
+      "userFacingExplanation": "Otomatik park desteği, uygun büyüklükteki alanlarda park manevrasını daha az yorucu hale getirebilir.",
+      "caveat": "Sistemin fren, vites ve gaz kontrol kapsamı modele göre değişir; sürücü müdahaleye hazır olmalıdır.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "labelTr": "Arka dış koltuklarda ISOFIX",
+      "category": "OCCUPANT_SAFETY",
+      "usageContexts": [
+        "FAMILY",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Uyumlu çocuk koltuğunu arka dış koltuklara sabitlemeyi kolaylaştırır.",
+      "userFacingExplanation": "Arka dış koltuklardaki ISOFIX bağlantıları, uyumlu çocuk koltuğunun doğru ve tekrarlanabilir şekilde sabitlenmesini kolaylaştırabilir.",
+      "caveat": "Çocuk koltuğu ve araç kılavuzundaki uyumluluk, ağırlık ve montaj talimatları izlenmelidir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "ISOFIX_FRONT_PASSENGER",
+      "labelTr": "Ön yolcu koltuğunda ISOFIX",
+      "category": "OCCUPANT_SAFETY",
+      "usageContexts": [
+        "FAMILY",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Uyumlu çocuk koltuğu için ön yolcu koltuğunda bağlantı noktası sunar.",
+      "userFacingExplanation": "Ön yolcu ISOFIX bağlantısı, izin verilen çocuk koltuğu düzenlerinde kurulum seçeneği sağlayabilir.",
+      "caveat": "Ön hava yastığı ve çocuk koltuğu yönüyle ilgili araç üreticisi talimatları kesinlikle kontrol edilmelidir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "labelTr": "Ön, yan ve perde hava yastığı kapsamı",
+      "category": "OCCUPANT_SAFETY",
+      "usageContexts": [
+        "SAFETY_SUPPORT",
+        "FAMILY"
+      ],
+      "dailyLifeBenefit": "Farklı çarpışma yönlerinde yolcu korumasını destekleyen hava yastığı kapsamı sunar.",
+      "userFacingExplanation": "Ön, yan ve perde hava yastıkları, uygun çarpışma koşullarında kabindeki kişilerin korunmasına yardımcı olabilir.",
+      "caveat": "Koruma düzeyi kazanın türüne, oturma konumuna ve emniyet kemeri kullanımına bağlıdır.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "CENTER_AIRBAG",
+      "labelTr": "Orta hava yastığı",
+      "category": "OCCUPANT_SAFETY",
+      "usageContexts": [
+        "SAFETY_SUPPORT",
+        "FAMILY"
+      ],
+      "dailyLifeBenefit": "Yan çarpışmada ön yolcuların birbirine temas riskini azaltmaya yardımcı olabilir.",
+      "userFacingExplanation": "Orta hava yastığı, belirli yan çarpışmalarda ön koltuktaki kişilerin birbirine doğru hareketini sınırlamaya yardımcı olabilir.",
+      "caveat": "Yalnız belirli çarpışma koşullarında çalışır; emniyet kemerinin yerini almaz.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "REAR_SEAT_OCCUPANT_ALERT",
+      "labelTr": "Arka koltuk yolcu uyarısı",
+      "category": "OCCUPANT_SAFETY",
+      "usageContexts": [
+        "FAMILY",
+        "SAFETY_SUPPORT"
+      ],
+      "dailyLifeBenefit": "Araçtan ayrılırken arka koltuğu kontrol etmeyi hatırlatabilir.",
+      "userFacingExplanation": "Arka koltuk yolcu uyarısı, çocuk, evcil hayvan veya eşyanın araçta unutulmaması için ek hatırlatma sağlayabilir.",
+      "caveat": "Algılama yöntemi modele göre değişir ve fiziksel kontrolün yerini almaz.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "HEATED_FRONT_SEATS",
+      "labelTr": "Isıtmalı ön koltuklar",
+      "category": "CABIN_COMFORT",
+      "usageContexts": [
+        "WINTER",
+        "COMFORT"
+      ],
+      "dailyLifeBenefit": "Soğuk havada ön koltukları daha hızlı ısıtabilir.",
+      "userFacingExplanation": "Isıtmalı ön koltuklar, kabin tamamen ısınmadan sürücü ve ön yolcuya doğrudan sıcaklık sağlayabilir.",
+      "caveat": "Uzun süre yüksek ayarda kullanım bazı kişiler için rahatsız edici olabilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "HEATED_REAR_SEATS",
+      "labelTr": "Isıtmalı arka koltuklar",
+      "category": "CABIN_COMFORT",
+      "usageContexts": [
+        "WINTER",
+        "COMFORT",
+        "FAMILY"
+      ],
+      "dailyLifeBenefit": "Soğuk havada arka yolculara doğrudan ısı sağlayabilir.",
+      "userFacingExplanation": "Isıtmalı arka koltuklar, kış koşullarında arka yolcuların konforunu artırabilir.",
+      "caveat": "Kullanım ve kademe kapsamı koltuk konumuna göre değişebilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "VENTILATED_FRONT_SEATS",
+      "labelTr": "Havalandırmalı ön koltuklar",
+      "category": "CABIN_COMFORT",
+      "usageContexts": [
+        "SUMMER",
+        "COMFORT"
+      ],
+      "dailyLifeBenefit": "Sıcak havada koltuk yüzeyindeki ısı ve nem hissini azaltabilir.",
+      "userFacingExplanation": "Havalandırmalı ön koltuklar, sıcak günlerde özellikle uzun sürüşlerde terleme ve yapışma hissini azaltmaya yardımcı olabilir.",
+      "caveat": "Klima değildir; soğutma etkisi döşeme ve ortam koşullarına göre değişir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "POWER_DRIVER_SEAT",
+      "labelTr": "Elektrikli sürücü koltuğu",
+      "category": "CABIN_COMFORT",
+      "usageContexts": [
+        "COMFORT",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Sürücü oturma konumunu elektrikli kumandalarla hassas ayarlamayı kolaylaştırır.",
+      "userFacingExplanation": "Elektrikli sürücü koltuğu, uygun sürüş pozisyonunu daha küçük adımlarla ayarlamayı kolaylaştırabilir.",
+      "caveat": "Ayarlanabilen yön ve bel desteği kapsamı modele göre değişir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "labelTr": "Elektrikli ön yolcu koltuğu",
+      "category": "CABIN_COMFORT",
+      "usageContexts": [
+        "COMFORT",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Ön yolcunun oturma konumunu elektrikli ayarlamasını kolaylaştırır.",
+      "userFacingExplanation": "Elektrikli ön yolcu koltuğu, farklı yolcuların rahat pozisyona daha kolay ulaşmasını sağlayabilir.",
+      "caveat": "Ayarlanabilen yönler ve erişim sınırları modele göre değişir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "DRIVER_SEAT_MEMORY",
+      "labelTr": "Hafızalı sürücü koltuğu",
+      "category": "CABIN_COMFORT",
+      "usageContexts": [
+        "COMFORT",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Birden fazla sürücünün koltuk konumunu kaydedip geri çağırabilir.",
+      "userFacingExplanation": "Hafızalı sürücü koltuğu, aracı paylaşan kişilerin kendi sürüş pozisyonuna hızlı dönmesini kolaylaştırabilir.",
+      "caveat": "Hafızaya dahil edilen ayna veya direksiyon ayarları modele göre değişir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "labelTr": "Isıtmalı direksiyon",
+      "category": "CABIN_COMFORT",
+      "usageContexts": [
+        "WINTER",
+        "COMFORT"
+      ],
+      "dailyLifeBenefit": "Soğuk havada direksiyon simidini kısa sürede ısıtabilir.",
+      "userFacingExplanation": "Isıtmalı direksiyon, kışın ilk kullanım dakikalarında ellerin daha rahat kalmasına yardımcı olabilir.",
+      "caveat": "Isı seviyesi ve kapsanan direksiyon bölgesi modele göre değişebilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "DUAL_ZONE_CLIMATE_CONTROL",
+      "labelTr": "Çift bölgeli otomatik klima",
+      "category": "CABIN_COMFORT",
+      "usageContexts": [
+        "COMFORT",
+        "FAMILY"
+      ],
+      "dailyLifeBenefit": "Sürücü ve ön yolcu için ayrı sıcaklık ayarı sunabilir.",
+      "userFacingExplanation": "Çift bölgeli klima, ön taraftaki iki kişinin farklı sıcaklık tercihlerini uzlaştırmayı kolaylaştırabilir.",
+      "caveat": "Hava akışı ortak kabinde karışır; tamamen bağımsız iklim alanları oluşturmaz.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "THREE_ZONE_CLIMATE_CONTROL",
+      "labelTr": "Üç bölgeli otomatik klima",
+      "category": "CABIN_COMFORT",
+      "usageContexts": [
+        "COMFORT",
+        "FAMILY"
+      ],
+      "dailyLifeBenefit": "Ön iki bölgeye ek olarak arka bölüm için ayrı sıcaklık kontrolü sunabilir.",
+      "userFacingExplanation": "Üç bölgeli klima, arka yolcuların sıcaklık tercihine daha fazla kontrol sağlayabilir.",
+      "caveat": "Arka kontrol kapsamı ve hava çıkışları modele göre değişir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "FOUR_ZONE_CLIMATE_CONTROL",
+      "labelTr": "Dört bölgeli otomatik klima",
+      "category": "CABIN_COMFORT",
+      "usageContexts": [
+        "COMFORT",
+        "FAMILY"
+      ],
+      "dailyLifeBenefit": "Ön ve arka oturma alanlarında daha ayrıntılı sıcaklık ayarı sunabilir.",
+      "userFacingExplanation": "Dört bölgeli klima, dört oturma bölgesindeki farklı konfor tercihlerinin yönetilmesini kolaylaştırabilir.",
+      "caveat": "Bölgeler tamamen yalıtılmış değildir ve sistem kapsamı modele göre değişir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "KEYLESS_ENTRY",
+      "labelTr": "Anahtarsız giriş",
+      "category": "ACCESS",
+      "usageContexts": [
+        "CONVENIENCE",
+        "FAMILY"
+      ],
+      "dailyLifeBenefit": "Anahtarı çıkarmadan kapıları açmayı kolaylaştırabilir.",
+      "userFacingExplanation": "Anahtarsız giriş, eller doluyken veya anahtar çantadayken araca erişimi daha pratik hale getirebilir.",
+      "caveat": "Çalışma mesafesi ve hangi kapıları kapsadığı modele göre değişir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "KEYLESS_START",
+      "labelTr": "Anahtarsız çalıştırma",
+      "category": "ACCESS",
+      "usageContexts": [
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Anahtarı kontağa takmadan aracı çalıştırmayı sağlar.",
+      "userFacingExplanation": "Anahtarsız çalıştırma, anahtar cebinizde veya çantanızdayken yolculuğa başlamayı kolaylaştırabilir.",
+      "caveat": "Anahtarın araç içinde algılanması gerekir; güvenli saklama sorumluluğu devam eder.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "POWER_TAILGATE",
+      "labelTr": "Elektrikli bagaj kapağı",
+      "category": "ACCESS",
+      "usageContexts": [
+        "CONVENIENCE",
+        "FAMILY"
+      ],
+      "dailyLifeBenefit": "Bagaj kapağını düğmeyle açıp kapatmayı kolaylaştırır.",
+      "userFacingExplanation": "Elektrikli bagaj kapağı, ağır veya yüksek kapağı elle hareket ettirme ihtiyacını azaltabilir.",
+      "caveat": "Açılma yüksekliği ve sıkışma önleme işlevi modele göre değişir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "labelTr": "Temassız açılan bagaj kapağı",
+      "category": "ACCESS",
+      "usageContexts": [
+        "CONVENIENCE",
+        "FAMILY"
+      ],
+      "dailyLifeBenefit": "Eller doluyken ayak hareketi veya yakınlık algısıyla bagajı açabilir.",
+      "userFacingExplanation": "Temassız bagaj kapağı, alışveriş poşeti veya çocuk eşyası taşırken bagaja erişimi kolaylaştırabilir.",
+      "caveat": "Algılama her denemede çalışmayabilir; anahtarın yakınınızda olması gerekebilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "labelTr": "Panoramik cam tavan",
+      "category": "ACCESS",
+      "usageContexts": [
+        "COMFORT",
+        "FAMILY"
+      ],
+      "dailyLifeBenefit": "Kabine daha fazla gün ışığı ve ferahlık hissi sağlayabilir.",
+      "userFacingExplanation": "Panoramik cam tavan, özellikle arka koltuklarda daha açık ve aydınlık bir kabin hissi oluşturabilir.",
+      "caveat": "Baş mesafesi, yazın ısı yükü ve açılabilir bölüm kapsamı modele göre değişebilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "APPLE_CARPLAY",
+      "labelTr": "Apple CarPlay",
+      "category": "CONNECTIVITY",
+      "usageContexts": [
+        "CONNECTIVITY",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Uyumlu iPhone uygulamalarını araç ekranından kullanmayı kolaylaştırır.",
+      "userFacingExplanation": "Apple CarPlay, navigasyon, müzik ve desteklenen iletişim işlevlerini araç ekranına taşımayı kolaylaştırabilir.",
+      "caveat": "Kablo gereksinimi, uygulama desteği ve bağlantı kararlılığı araca ve telefona bağlıdır.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "labelTr": "Kablosuz Apple CarPlay",
+      "category": "CONNECTIVITY",
+      "usageContexts": [
+        "CONNECTIVITY",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Uyumlu iPhone’u kablo bağlamadan araç ekranına bağlayabilir.",
+      "userFacingExplanation": "Kablosuz Apple CarPlay, kısa yolculuklarda telefonu kabloya takmadan navigasyon ve medya kullanımını kolaylaştırabilir.",
+      "caveat": "Kablosuz bağlantı pil tüketimini artırabilir ve uyumluluk cihaz sürümüne bağlıdır.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "ANDROID_AUTO",
+      "labelTr": "Android Auto",
+      "category": "CONNECTIVITY",
+      "usageContexts": [
+        "CONNECTIVITY",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Uyumlu Android uygulamalarını araç ekranından kullanmayı kolaylaştırır.",
+      "userFacingExplanation": "Android Auto, navigasyon, müzik ve desteklenen iletişim işlevlerini araç ekranına taşımayı kolaylaştırabilir.",
+      "caveat": "Kablo gereksinimi ve uygulama uyumluluğu araç ile telefon sürümüne bağlıdır.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "labelTr": "Kablosuz Android Auto",
+      "category": "CONNECTIVITY",
+      "usageContexts": [
+        "CONNECTIVITY",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Uyumlu Android telefonu kablosuz olarak araç ekranına bağlayabilir.",
+      "userFacingExplanation": "Kablosuz Android Auto, telefonu her yolculukta kabloya takmadan desteklenen işlevleri kullanmayı kolaylaştırabilir.",
+      "caveat": "Kablosuz bağlantı ve cihaz uyumluluğu modele göre değişir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "labelTr": "Kablosuz telefon şarjı",
+      "category": "CONNECTIVITY",
+      "usageContexts": [
+        "CONNECTIVITY",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Uyumlu telefonu kablo takmadan şarj edebilir.",
+      "userFacingExplanation": "Kablosuz telefon şarjı, özellikle günlük kısa yolculuklarda kablo kullanma ihtiyacını azaltabilir.",
+      "caveat": "Şarj hızı genellikle kablolu şarjdan düşüktür; telefonun uyumlu ve doğru konumda olması gerekir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "LED_HEADLIGHTS",
+      "labelTr": "LED ön farlar",
+      "category": "LIGHTING",
+      "usageContexts": [
+        "NIGHT_DRIVING",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Gece sürüşünde verimli ve net ön aydınlatma sağlayabilir.",
+      "userFacingExplanation": "LED farlar, halojen sistemlere göre daha beyaz ışık ve uzun ömür sunarak gece görüşünü destekleyebilir.",
+      "caveat": "Aydınlatma performansı yalnız ışık teknolojisine değil far tasarımı ve ayarına da bağlıdır.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "labelTr": "Adaptif ön farlar",
+      "category": "LIGHTING",
+      "usageContexts": [
+        "NIGHT_DRIVING",
+        "SAFETY_SUPPORT"
+      ],
+      "dailyLifeBenefit": "Işık dağılımını direksiyon, hız veya yol koşullarına göre ayarlayabilir.",
+      "userFacingExplanation": "Adaptif farlar, virajlarda ve değişen sürüş koşullarında yolun ilgili bölümünü daha iyi aydınlatmaya yardımcı olabilir.",
+      "caveat": "İşlev kapsamı modele göre değişir ve görüş hızının güvenli seçilmesi gerekir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "labelTr": "Matrix LED ön farlar",
+      "category": "LIGHTING",
+      "usageContexts": [
+        "NIGHT_DRIVING",
+        "SAFETY_SUPPORT"
+      ],
+      "dailyLifeBenefit": "Bazı ışık bölümlerini ayrı yöneterek uzun far kullanımını artırabilir.",
+      "userFacingExplanation": "Matrix LED farlar, uygun koşullarda diğer araçları gölgelendirirken yolun kalanını daha güçlü aydınlatmaya yardımcı olabilir.",
+      "caveat": "Algılama kusursuz değildir; sürücü gerektiğinde farlara müdahale etmelidir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "AUTOMATIC_HIGH_BEAM",
+      "labelTr": "Otomatik uzun far",
+      "category": "LIGHTING",
+      "usageContexts": [
+        "NIGHT_DRIVING",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Trafik durumuna göre kısa ve uzun far arasında geçiş yapabilir.",
+      "userFacingExplanation": "Otomatik uzun far, gece sürüşünde far geçişlerini daha pratik hale getirebilir.",
+      "caveat": "Her trafik ve hava koşulunu doğru algılamayabilir; manuel kontrol gerekebilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "HILL_DESCENT_CONTROL",
+      "labelTr": "Yokuş iniş desteği",
+      "category": "OFF_ROAD",
+      "usageContexts": [
+        "OFF_ROAD",
+        "SAFETY_SUPPORT"
+      ],
+      "dailyLifeBenefit": "Dik inişlerde düşük hızı frenlerle kontrollü tutmaya yardımcı olabilir.",
+      "userFacingExplanation": "Yokuş iniş desteği, gevşek veya dik zeminde sürücünün yalnız yönlendirmeye odaklanmasını kolaylaştırabilir.",
+      "caveat": "Yol tutuş sınırlarını aşmaz; uygun hız, lastik ve rota seçimi gerekir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "TERRAIN_DRIVE_MODES",
+      "labelTr": "Arazi sürüş modları",
+      "category": "OFF_ROAD",
+      "usageContexts": [
+        "OFF_ROAD",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Motor, şanzıman ve çekiş tepkilerini farklı zeminlere göre ayarlayabilir.",
+      "userFacingExplanation": "Arazi sürüş modları, kar, çamur veya kum gibi zeminlerde aracın kontrol sistemlerini uygun ayara getirmeyi kolaylaştırabilir.",
+      "caveat": "Aracın mekanik kabiliyetini veya lastik tutuşunu artırma garantisi vermez.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "LOW_RANGE_TRANSFER_CASE",
+      "labelTr": "Düşük oranlı arazi şanzımanı",
+      "category": "OFF_ROAD",
+      "usageContexts": [
+        "OFF_ROAD"
+      ],
+      "dailyLifeBenefit": "Zorlu zeminde düşük hızda daha yüksek tekerlek torku ve kontrollü ilerleme sağlar.",
+      "userFacingExplanation": "Düşük oranlı arazi şanzımanı, dik eğim, kaya veya ağır arazi koşullarında aracı çok düşük hızda kontrollü kullanmayı kolaylaştırabilir.",
+      "caveat": "Kuru asfaltta uygun olmayan kullanım aktarma organlarına zarar verebilir; üretici talimatı izlenmelidir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "LOCKING_REAR_DIFFERENTIAL",
+      "labelTr": "Kilitlenebilir arka diferansiyel",
+      "category": "OFF_ROAD",
+      "usageContexts": [
+        "OFF_ROAD"
+      ],
+      "dailyLifeBenefit": "Arka tekerleklerin birlikte çekiş üretmesine yardımcı olabilir.",
+      "userFacingExplanation": "Kilitlenebilir arka diferansiyel, bir arka tekerleğin tutuş kaybettiği zorlu zeminde ilerleme kabiliyetini artırabilir.",
+      "caveat": "Yalnız uygun hız ve zeminde kullanılmalıdır; viraj kabiliyetini sınırlayabilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "LOCKING_CENTER_DIFFERENTIAL",
+      "labelTr": "Kilitlenebilir merkez diferansiyeli",
+      "category": "OFF_ROAD",
+      "usageContexts": [
+        "OFF_ROAD"
+      ],
+      "dailyLifeBenefit": "Ön ve arka akslar arasındaki tork dağılımını sabitleyebilir.",
+      "userFacingExplanation": "Kilitlenebilir merkez diferansiyeli, değişken tutuşlu zeminde ön ve arka aksların birlikte çekiş üretmesine yardımcı olabilir.",
+      "caveat": "Kuru ve yüksek tutuşlu zeminde kullanımı aktarma organlarında gerilim oluşturabilir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    },
+    {
+      "featureCode": "CRAWL_CONTROL",
+      "labelTr": "Düşük hızlı arazi ilerleme kontrolü",
+      "category": "OFF_ROAD",
+      "usageContexts": [
+        "OFF_ROAD",
+        "CONVENIENCE"
+      ],
+      "dailyLifeBenefit": "Çok düşük arazi hızında gaz ve fren yönetimini otomatikleştirebilir.",
+      "userFacingExplanation": "Düşük hızlı arazi ilerleme kontrolü, zorlu zeminde sürücünün direksiyon ve rota seçimine odaklanmasını kolaylaştırabilir.",
+      "caveat": "Otonom arazi sürüşü değildir; engel, zemin ve çevre kontrolü sürücüdedir.",
+      "authority": "OWNER_EDITORIAL_DRAFT",
+      "decisionUse": "EXPLANATION_ONLY"
+    }
+  ],
+  "presentationPolicy": {
+    "confirmedFactRequires": "VERIFIED_STANDARD_EXACT_VARIANT_CLEAR",
+    "optionalWordingRequiresStockConfirmation": true,
+    "packageWordingRequiresPackageConfirmation": true,
+    "associationOnlyCannotConfirmPresence": true,
+    "unknownCannotConfirmAbsence": true,
+    "safetyGuaranteesForbidden": true
+  }
+}

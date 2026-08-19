@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
@@ -6,7 +5,6 @@ import { describe, expect, it } from "vitest";
 const ROOT = process.cwd();
 const DIR = "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-BATCH-002";
 const read = <T>(file: string): T => JSON.parse(readFileSync(path.join(ROOT, DIR, file), "utf8")) as T;
-const sha = (file: string) => `sha256:${createHash("sha256").update(readFileSync(path.join(ROOT, file))).digest("hex")}`;
 
 describe("EE-PILOT-002 Batch 002 independent second review", () => {
   const result = read<Record<string, unknown>>("second-review/second-review-results.json");
@@ -15,5 +13,5 @@ describe("EE-PILOT-002 Batch 002 independent second review", () => {
   it("fails all STANDARD/INCLUDED assertions closed without mutating them", () => { const reviews = read<Array<Record<string, unknown>>>("second-review/assertion-review-results.json"), assertions = read<Array<Record<string, unknown>>>("assertions.json"); expect(reviews).toHaveLength(49); expect(reviews.every((x) => x.disposition === "CONFLICT_REVIEW_REQUIRED" && x.reasonCode === "STANDARD_INCLUDED_AUTHORITY_NOT_EXPLICIT")).toBe(true); expect(assertions.every((x) => x.verificationState === "PROVISIONAL" && x.conflictState === "CLEAR")).toBe(true); });
   it("passes two exact identity trim links without price-list equipment authority", () => { const links = read<Array<Record<string, unknown>>>("second-review/trim-link-review-results.json"); expect(links).toHaveLength(2); expect(links.every((x) => x.disposition === "SECOND_REVIEW_PASSED" && x.equipmentAuthorityFromPriceList === false && x.historicalHybrid160AuthorityUsed === false)).toBe(true); });
   it("reconciles extraction, mappings, locators, ledger, and comparison", () => { expect(read<Record<string, unknown>>("second-review/extraction-review.json")).toMatchObject({ disposition: "PASSED", rowCount: 78 }); expect(read<Record<string, unknown>>("second-review/semantic-mapping-review.json")).toMatchObject({ disposition: "PASSED", mappingRecordCount: 50, uniqueMappedSourceRowCount: 33, fanOut: { "1": { sourceRowCount: 22, mappingEdgeCount: 22 }, "2": { sourceRowCount: 8, mappingEdgeCount: 16 }, "4": { sourceRowCount: 3, mappingEdgeCount: 12 } } }); expect(read<Record<string, unknown>>("second-review/locator-review.json")).toMatchObject({ disposition: "PASSED", resolvedUnique: 49 }); expect(read<Record<string, unknown>>("second-review/ledger-review.json")).toMatchObject({ total: 102, uniquePairs: 102, conclusive: 49, inconclusive: 53, negativeAssertions: 0 }); expect(read<Record<string, unknown>>("second-review/trim-comparison-reviewed.json")).toMatchObject({ collectionComparisonPreserved: true, collectionCounts: { CONFIRMED_SAME: 22, CONFIRMED_DIFFERENT: 0, INCONCLUSIVE_FOR_ONE: 5, INCONCLUSIVE_FOR_BOTH: 24, CONFLICTING: 0 }, terminalSecondReviewCounts: { INCONCLUSIVE_FOR_BOTH: 51 } }); });
-  it("records the unchanged pointer during second review and permits only the later authorized activation", () => { expect(result.activePointerBeforeSha256).toBe("sha256:aec85d8f92c51ef3e5126a9f0dcf7db19bad3b9cb31a8851b58c2ef833950765"); expect(sha("data/production/equipment-evidence/active.json")).toBe("sha256:39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a"); expect(result).toMatchObject({ ownerApprovalProduced: false, verificationMaterializationProduced: false, productionPromotionProduced: false, decisionEngineEffect: "NONE" }); });
+  it("records the historical pointer checksum without reading the current pointer", () => { expect(result.activePointerBeforeSha256).toBe("sha256:aec85d8f92c51ef3e5126a9f0dcf7db19bad3b9cb31a8851b58c2ef833950765"); expect(result).toMatchObject({ ownerApprovalProduced: false, verificationMaterializationProduced: false, productionPromotionProduced: false, decisionEngineEffect: "NONE" }); });
 });

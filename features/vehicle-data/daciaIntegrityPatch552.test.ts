@@ -28,8 +28,7 @@ describe("catalog v0.55.2 Dacia integrity patch", () => {
     expect(pilot.variants.some((item) => excluded.has(item.exactVariantId))).toBe(false);
     expect(matrix.every((item) => item.disposition === "NOT_RESEARCHED")).toBe(true);
   });
-  it("keeps all active pointers on one catalog fingerprint", () => {
-    const pointers = ["data/production/catalog/active.json", "data/production/personas/safe-traits/active.json", "data/production/equipment-evidence/active.json"].map((file) => JSON.parse(readFileSync(file, "utf8")));
-    expect(new Set(pointers.map((item) => item.catalog_payload_hash ?? item.compatibleCatalogFingerprint))).toEqual(new Set([manifest.catalog_payload_hash]));
+  it("pins the historical pilot to the immutable v0.55.2 fingerprint", () => {
+    expect(pilot).toMatchObject({ catalogRelease: "v0.55.2", catalogFingerprint: manifest.catalog_payload_hash });
   });
 });

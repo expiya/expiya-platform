@@ -1,0 +1,19 @@
+{
+  "eventId": "CAT-APPROVAL-C65117C2CBFBEC405BD3",
+  "eventType": "CATALOG_OWNER_APPROVED",
+  "actor": {
+    "role": "PRODUCT_OWNER",
+    "instanceId": "EXPIYA_CARS_PRODUCT_OWNER_001"
+  },
+  "manifestId": "CATALOG-V0554-OWNER-APPROVAL-MANIFEST-001",
+  "manifestChecksum": "sha256:91abb8b0cab5c0d5f0744540a003b3563fe8f338216ee73044a6807aea561837",
+  "stagingEventId": "CAT-STAGE-AEE3B86604E2D9DFB130",
+  "approvalStatementSha256": "sha256:6f05eae4eec904c890e9088324c01c23108033ae01fecb748cc339c4e7e87311",
+  "approval_at": "2026-08-19T12:51:42.155Z",
+  "effective_as_of": "2026-08-19T12:51:42.155Z",
+  "timestampPolicy": {
+    "read": "STRICT_RFC3339_OFFSET_V1",
+    "write": "CANONICAL_UTC_Z"
+  },
+  "appendOnly": true
+}

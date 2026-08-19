@@ -1,11 +1,11 @@
 import { describe, expect, it } from "vitest";
 import type { PersistedGovernedOffer } from "../offer/types";
-import { loadHistoricalProductionCatalogSnapshotForTest, loadProductionCatalogSnapshotForTest } from "../catalog/productionSnapshotFixture.testSupport";
+import { loadPinnedHistoricalSnapshotForTest, loadActiveProductionSnapshotForTest } from "../catalog/productionSnapshotFixture.testSupport";
 import { AuthorizedCardProjectionError, projectAuthorizedPublicCards } from "./projectAuthorizedCard.server";
 import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
 
 async function fixture() {
-  const loaded = await loadProductionCatalogSnapshotForTest(new Date("2026-08-19T00:00:00.000Z"));
+  const loaded = await loadActiveProductionSnapshotForTest();
   if (loaded.status !== "READY") throw new Error("fixture unavailable");
   const publicVariant = loaded.snapshot.variants.find((variant) => variant.activeNewPrice?.realizationSafe && variant.activeNewPrice.consumerVisibility === "PUBLIC" && variant.activeNewPrice.priceType === "LIST") ?? loaded.snapshot.variants[0]!;
   const internalVariant = loaded.snapshot.variants.find((variant) => variant.activeNewPrice?.consumerVisibility === "INTERNAL_ONLY") ?? loaded.snapshot.variants[1]!;
@@ -15,7 +15,7 @@ async function fixture() {
 }
 
 async function historicalSnapshot() {
-  const snapshot = await loadHistoricalProductionCatalogSnapshotForTest("0.55.1", "2026-08-16T19:33:14.000Z", new Date("2026-08-19T00:00:00.000Z"));
+  const snapshot = await loadPinnedHistoricalSnapshotForTest("0.55.1", "2026-08-16T19:33:14.000Z", new Date("2026-08-19T00:00:00.000Z"));
   if (snapshot.status !== "READY") throw new Error("HISTORICAL_SNAPSHOT_UNAVAILABLE");
   return snapshot.snapshot;
 }

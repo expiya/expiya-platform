@@ -22,15 +22,15 @@ describe("V2 seventh batch of fifty end-to-end discovery conversations", () => {
   it("contains exactly fifty distinct multi-turn journeys", () => expect(scenarios).toHaveLength(50));
   it.each(scenarios)("$name", async (scenario) => {
     const store = new InMemoryV2ConversationStore(); const offerStore = new InMemoryGovernedOfferStore(); const traces: Readonly<Record<string, unknown>>[] = [];
-    const composition = createCarsDecisionV2ProductionComposition({ store, offerStore, interpreter, realizer, signer: createHmacOfferSigner({ secret: "01234567890123456789012345678901", now: () => new Date("2026-08-19T20:09:00.000Z") }), smokeObserver: (trace) => traces.push(trace) });
+    const composition = createCarsDecisionV2ProductionComposition({ store, offerStore, interpreter, realizer, signer: createHmacOfferSigner({ secret: "01234567890123456789012345678901", now: () => new Date("2026-08-20T20:09:00.000Z") }), smokeObserver: (trace) => traces.push(trace) });
     const conversationId = `batch7-${scenario.name}`; let revision = 0; let redirected = false;
-    let output = await runCarsDecisionTurnV2({ conversationId, messageId: "start", idempotencyKey: "start", expectedConversationRevision: revision++, userMessage: scenario.start, requestTime: "2026-08-19T20:00:00.000Z" }, composition);
+    let output = await runCarsDecisionTurnV2({ conversationId, messageId: "start", idempotencyKey: "start", expectedConversationRevision: revision++, userMessage: scenario.start, requestTime: "2026-08-20T20:00:00.000Z" }, composition);
     for (let step = 0; step < 7 && !output.offer; step += 1) {
       const key = traces.filter((trace) => trace.phase === "DECISION").at(-1)?.selectedQuestionKey;
       let answer: string;
       if (scenario.redirectFirstQuestion && !redirected && key) { redirected = true; answer = key === "discovery.fuelType" ? "Yakıtı sonra konuşalım, önce gövde tipini belirleyelim." : key === "discovery.bodyStyle" ? "Gövdeyi sonra konuşalım, önce yakıtı belirleyelim." : "Bunu sonra konuşalım, başka önemli noktadan ilerleyelim."; }
       else answer = key === "discovery.bodyStyle" ? scenario.body : key === "discovery.fuelType" ? scenario.fuel : key === "discovery.transmission" ? scenario.transmission : key === "discovery.budget" ? scenario.budget : "Fark etmez";
-      output = await runCarsDecisionTurnV2({ conversationId, messageId: `answer-${step}`, idempotencyKey: `answer-${step}`, expectedConversationRevision: revision++, userMessage: answer, requestTime: `2026-08-19T20:0${step + 1}:00.000Z` }, composition);
+      output = await runCarsDecisionTurnV2({ conversationId, messageId: `answer-${step}`, idempotencyKey: `answer-${step}`, expectedConversationRevision: revision++, userMessage: answer, requestTime: `2026-08-20T20:0${step + 1}:00.000Z` }, composition);
     }
     const memory = (await store.load(conversationId))!.memory!;
     expect(memory.vehicleIntentEstablished).toBe(true);

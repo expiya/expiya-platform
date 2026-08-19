@@ -3,6 +3,7 @@ import path from "node:path";
 
 import type { CatalogReleaseRepository } from "./repository";
 import { assertSafeCatalogReleaseVersion } from "./repository";
+import { normalizeCatalogReleaseVersion, resolveCatalogReleaseDirectory } from "./releasePath";
 
 async function readJson(filePath: string): Promise<unknown> {
   return JSON.parse(await readFile(filePath, "utf8")) as unknown;
@@ -18,8 +19,9 @@ export function createFileSystemCatalogReleaseRepository(catalogRoot: string): C
     return loaded;
   };
   const releasePath = (version: string, file: string) => {
-    assertSafeCatalogReleaseVersion(version);
-    return path.join(catalogRoot, "releases", `v${version}`, file);
+    const normalized = normalizeCatalogReleaseVersion(version);
+    assertSafeCatalogReleaseVersion(normalized);
+    return path.join(resolveCatalogReleaseDirectory(catalogRoot, normalized), file);
   };
   return {
     loadActivePointer: () => readJson(path.join(catalogRoot, "active.json")),

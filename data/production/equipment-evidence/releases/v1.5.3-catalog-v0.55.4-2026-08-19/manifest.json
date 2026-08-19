@@ -1,0 +1,30 @@
+{
+  "releaseVersion": "v1.5.3-catalog-v0.55.4-2026-08-19",
+  "parentRelease": "v1.5.2-catalog-v0.55.3-2026-08-19",
+  "evidenceContentParentRelease": "v1.5.0-scale-wave-verified-catalog-v0.55.2-2026-08-19",
+  "schemaVersion": "1.2.0-rc",
+  "compatibleCatalogRelease": "v0.55.4",
+  "compatibleCatalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "payloadSha256": "sha256:1d0636ce70e2072a6b7d611452753239975e74a73f9bab93dd1412a4fdec3735",
+  "verifiedAssertionCount": 112,
+  "reviewedAssociationCount": 49,
+  "verifiedTrimLinkCount": 6,
+  "projectionCount": 112,
+  "coverage": {
+    "verified": 4,
+    "associationOnly": 2,
+    "coveredUnique": 6,
+    "uncovered": 543,
+    "total": 549
+  },
+  "coverageDerivation": "PINNED_COMPATIBLE_CATALOG_SET_DIFFERENCE_V1",
+  "quarantineExactVariantReferenceCount": 0,
+  "automaticEvidenceTransferCount": 0,
+  "syntheticUnknownAssertionCount": 0,
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "validationStatus": "VALIDATED_PRE_ACTIVATION",
+  "activationPerformed": false,
+  "generatedAt": "2026-08-19T12:51:42.155Z",
+  "repairReason": "V0554_TEMPORAL_GOVERNANCE_COMPATIBILITY_REBIND",
+  "rootCause": "Evidence records were compatible with v0.55.3, but catalog total and uncovered coverage were copied from v0.55.2; the prior dry-run checked reference exclusion but deferred coverage arithmetic until post-activation."
+}

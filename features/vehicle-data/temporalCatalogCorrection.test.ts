@@ -2,16 +2,13 @@ import { readFileSync } from "node:fs";
 
 import { describe, expect, it } from "vitest";
 
-import activeCatalog from "@/data/production/catalog/active.json";
 import oldCatalog from "@/data/production/catalog/releases/v0.55.0/catalog.json";
 import oldManifest from "@/data/production/catalog/releases/v0.55.0/manifest.json";
 import newCatalog from "@/data/production/catalog/releases/v0.55.1/catalog.json";
 import newManifest from "@/data/production/catalog/releases/v0.55.1/manifest.json";
 import currentManifest from "@/data/production/catalog/releases/v0.55.2/manifest.json";
-import activeDailyLife from "@/data/production/technical-daily-life/active.json";
 import oldDailyLife from "@/data/production/technical-daily-life/releases/v2.1-0.55.0-2026-08-16/technical-daily-life.json";
 import newDailyLife from "@/data/production/technical-daily-life/releases/v2.1-0.55.1-2026-08-16-compatibility-rebind/technical-daily-life.json";
-import activePersona from "@/data/production/personas/safe-traits/active.json";
 import oldPersona from "@/data/production/personas/safe-traits/releases/v1.0.1-catalog-v0.55.0-2026-08-16/vehicle-persona-safe-traits.json";
 import newPersona from "@/data/production/personas/safe-traits/releases/v1.0.2-catalog-v0.55.1-2026-08-16/vehicle-persona-safe-traits.json";
 
@@ -80,17 +77,11 @@ describe("v0.55.1 temporal correction stack", () => {
     expect(estimates.every((price) => price.consumerVisibility === "INTERNAL_ONLY")).toBe(true);
   });
 
-  it("keeps the current v0.55.2 activation and rollback metadata coherent without rewriting history", () => {
-    expect(activeCatalog).toMatchObject({
-      active_catalog_release_version: currentManifest.catalog_release_version,
-      catalog_payload_hash: currentManifest.catalog_payload_hash,
-      previous_active_release: "0.55.1",
-      rollback_release: "0.55.1",
-    });
-    expect(activeDailyLife).toMatchObject({ compatibleCatalogRelease: "v0.55.2" });
-    expect(activePersona).toMatchObject({
-      compatibleCatalogRelease: "v0.55.2",
-      compatibleCatalogFingerprint: currentManifest.catalog_payload_hash,
+  it("keeps the immutable v0.55.2 lineage available without consulting the active pointer", () => {
+    expect(currentManifest).toMatchObject({
+      catalog_release_version: "0.55.2",
+      previous_release: "0.55.1",
+      catalog_payload_hash: "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
     });
   });
 });

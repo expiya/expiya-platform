@@ -1,0 +1,29 @@
+{
+  "amendmentId": "CATALOG-V0554-ACTIVATION-STACK-AMENDMENT-EQUIPMENT-DAILY-LIFE-001",
+  "amends": "activation-approval-package.json",
+  "state": "FIVE_LAYER_ATOMIC_DRY_RUN_REQUIRED",
+  "addedLayer": {
+    "layer": "EQUIPMENT_DAILY_LIFE",
+    "releaseId": "v1.0.0-catalog-v0.55.4-2026-08-20",
+    "compatibleCatalogRelease": "v0.55.4",
+    "compatibleCatalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+    "payloadSha256": "sha256:707748033c89c1623806ee4d432999bc9e66d471106c1eabc31178f653f9a27c",
+    "ownerApprovalEventId": "EQUIPMENT-DAILY-LIFE-V1-OWNER-APPROVAL-001",
+    "decisionUse": "EXPLANATION_ONLY"
+  },
+  "activationBoundary": {
+    "hardFilter": false,
+    "softRanking": false,
+    "questionGeneration": false,
+    "confirmedExplanationRequires": "VERIFIED_STANDARD_EXACT_VARIANT_CLEAR",
+    "activePointerChanged": false,
+    "activationPerformed": false
+  },
+  "requiredAtomicLayers": [
+    "CATALOG",
+    "TECHNICAL_DAILY_LIFE",
+    "SAFE_PERSONA",
+    "EQUIPMENT_EVIDENCE",
+    "EQUIPMENT_DAILY_LIFE"
+  ]
+}

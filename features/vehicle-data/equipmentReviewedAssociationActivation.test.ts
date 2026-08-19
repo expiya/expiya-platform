@@ -13,8 +13,8 @@ const tonaleIds = ["54bbe431-a3c2-56d0-8177-cefdf0330bcb", "f12f742b-111c-54de-a
 
 describe("atomic reviewed-association equipment activation", () => {
   it("activates the authorized pointer and generated module hashes", () => {
-    expect(sha(path.join(root, "data/production/equipment-evidence/active.json"))).toBe("sha256:39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a");
-    expect(sha(path.join(root, "data/production/equipment-evidence/activeEquipmentEvidence.generated.ts"))).toBe("sha256:897a1d8d251240b931ebba5d84fa91b0c937687418a6d7aaa2669c2446ee9e09");
+    expect(sha(path.join(root, "data/production/equipment-evidence/active.json"))).toBe("sha256:101803fb4195c8cfe724715ece539d5ba88fb797f6a0194657b2166043feee4b");
+    expect(sha(path.join(root, "data/production/equipment-evidence/activeEquipmentEvidence.generated.ts"))).toBe("sha256:e282e22700252fd0fe9b45d36be2c2c4953beb916367e8e390dbbb1977466396");
   });
   it("loads the active evidence tiers separately", () => {
     expect(getVerifiedEquipmentAssertions()).toHaveLength(112); expect(getReviewedEquipmentAssociations()).toHaveLength(49); expect(getVerifiedEquipmentTrimLinks()).toHaveLength(6);
@@ -23,8 +23,8 @@ describe("atomic reviewed-association equipment activation", () => {
   });
   it("reports exact tier coverage without treating associations as verified", () => {
     expect(loadActiveEquipmentEvidenceStatus()).toMatchObject({ verifiedAssertionCount: 112, reviewedAssociationCount: 49, verifiedTrimLinkCount: 6,
-      verifiedAssertionCoveredVariantCount: 4, associationOnlyCoveredVariantCount: 2, uncoveredExactVariantCount: 560,
-      totalCatalogVariantCount: 566, availabilityProjectionCount: 112, decisionAuthority: "SHADOW_AND_EXPLANATION_DISABLED" });
+      verifiedAssertionCoveredVariantCount: 4, associationOnlyCoveredVariantCount: 2, uncoveredExactVariantCount: 543,
+      totalCatalogVariantCount: 549, availabilityProjectionCount: 112, decisionAuthority: "SHADOW_AND_EXPLANATION_DISABLED" });
   });
   it("keeps Tonale availability projections and all decision effects at zero", () => {
     const dry = read<Record<string, unknown>>("decision-neutrality-dry-run.json");

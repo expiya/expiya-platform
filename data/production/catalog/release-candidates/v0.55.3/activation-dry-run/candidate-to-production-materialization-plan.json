@@ -1,0 +1,24 @@
+{
+  "status": "READY_FOR_MATERIALIZATION_AFTER_OWNER_ACTIVATION_APPROVAL",
+  "finalReleaseIds": {
+    "catalog": "0.55.3",
+    "dailyLife": "v2.1-0.55.3-2026-08-19-compatibility-rebind",
+    "persona": "v1.0.4-catalog-v0.55.3-2026-08-19",
+    "equipment": "v1.5.1-catalog-v0.55.3-2026-08-19"
+  },
+  "candidateSources": {
+    "catalog": "data/production/catalog/release-candidates/v0.55.3",
+    "dailyLife": "data/production/technical-daily-life/release-candidates/v2.1-0.55.3-2026-08-19-candidate",
+    "persona": "data/production/personas/safe-traits/release-candidates/v1.0.4-catalog-v0.55.3-2026-08-19-candidate",
+    "equipment": "data/production/equipment-evidence/release-candidates/v1.5.1-catalog-v0.55.3-2026-08-19-candidate"
+  },
+  "finalPayloadChecksums": {
+    "catalog": "sha256:6ee79d18314d48cd63c771751815d42f3dab8486daa2e98e1eccfc0a49c2ecc8",
+    "dailyLife": "sha256:53f08fbec81edd5f1cde00e3c584ac9587760de223d94b51b90ef354ca2dab4a",
+    "persona": "sha256:e8d6ff9909a4f775a80df40e5a4d15d7cc70a31797401090ed60ca91b6f0b11a",
+    "equipment": "sha256:c0ea9425ab6cd25f5f20fbcc5ca67b3ba002bddae395e154c401bd03d8582344"
+  },
+  "deterministicTransform": "RELEASE_ID_FINALIZATION_AND_COMPATIBILITY_METADATA_ONLY",
+  "checksumBound": true,
+  "activePointerTargetMayNotContainCandidateSuffix": true
+}

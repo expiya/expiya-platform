@@ -14,7 +14,12 @@ describe("V2 catalog snapshot integrity and pinning", () => {
   });
 
   it("reports a future effective release without changing the clock", async () => {
-    const result = await loadActiveCatalogSnapshot({ repository: repository({ "1.2.3": fixture }, "1.2.3"), now: new Date("2026-08-16T00:00:00.000Z") });
+    const result = buildCatalogSnapshot({
+      manifest: fixture.manifest,
+      catalog: fixture.catalog,
+      decisionFacets: fixture.facets,
+      now: new Date("2026-08-16T00:00:00.000Z"),
+    });
     expect(result).toMatchObject({ status: "UNAVAILABLE", reason: "NOT_YET_EFFECTIVE" });
   });
 

@@ -1,0 +1,48 @@
+{
+  "catalog": {
+    "release": "0.55.3",
+    "payload": "sha256:6ee79d18314d48cd63c771751815d42f3dab8486daa2e98e1eccfc0a49c2ecc8",
+    "pointer": "sha256:462d869e285b1c33c67933d1402694fda39ec9703f2eab661daa775cc039e583",
+    "module": "sha256:f72a6937ec7bd9bb7146f96600846e3c7e7cc3a5976ff35231c95efd01886c66"
+  },
+  "dailyLife": {
+    "release": "v2.1.1-0.55.3-2026-08-19-compatibility-rebind",
+    "payload": "sha256:7de4f324ed791d8c51cd9270e730b522e452503eeecddb1970129836486c5f4b",
+    "pointer": "sha256:7ba85291ccaddf76bf0a303f588b73e22e2c7827382722ef13d0964fcb22470d",
+    "module": "sha256:19fc46b45ba528da73218b0223db223718384af79e7c97a4a0938928edea1750"
+  },
+  "persona": {
+    "release": "v1.0.4-catalog-v0.55.3-2026-08-19",
+    "payload": "sha256:e8d6ff9909a4f775a80df40e5a4d15d7cc70a31797401090ed60ca91b6f0b11a",
+    "pointer": "sha256:9e0c6adca9aa378e07eca1682ad483ce71b46c5d85dcf60cb12e5f7e48c60a9c",
+    "module": "sha256:21df803533646b6bce027b8ccb05bba0db9f55fdb2fe30e5455e5079966b6d53"
+  },
+  "equipment": {
+    "release": "v1.5.2-catalog-v0.55.3-2026-08-19",
+    "payload": "sha256:c54123c9eb62c5fc4093281b3904ce904ea331dba5496199d9a178248d13cd5a",
+    "pointer": "sha256:a521525c028f2dbabd2387f1ca1eacb7a0109dfca6b7af51b9fa9b6b0532c8f5",
+    "module": "sha256:7e5f664cad3dd0df9abf0e0312f678ec2d4da3bd9e3e2bd27d4df30dcde0f514"
+  },
+  "rollback": {
+    "catalog": {
+      "release": "0.55.2",
+      "pointerChecksum": "sha256:c359663fd6f58766b2d0cc6a3837f0ff65f056f913cd0a8cace22cb1f8c4578a",
+      "generatedModuleChecksum": "sha256:ca385901dce836a868de39aa367b366cc8e3a2e7c15e369d8c9720493d32c237"
+    },
+    "dailyLife": {
+      "release": "v2.1-0.55.2-2026-08-18-compatibility-rebind",
+      "pointerChecksum": "sha256:5aa627154c67b13ab81ba1d7349c03a58ec4c6a0a9a4e50b53653ebf6144e81f",
+      "generatedModuleChecksum": "sha256:b86aa13862bd54b81ee540b8736e05fea1502623f51d9e354827d6e81fdb44c3"
+    },
+    "persona": {
+      "release": "v1.0.3-catalog-v0.55.2-2026-08-18",
+      "pointerChecksum": "sha256:c45bbc9507f3ee84d047dd8ee35ede24a8ae527be26a200363cff40872cb1563",
+      "generatedModuleChecksum": "sha256:1795913e14f3c5c7365f035bdb3425f8579e1bf904ee92ba3ad96e03050929f5"
+    },
+    "equipment": {
+      "release": "v1.5.0-scale-wave-verified-catalog-v0.55.2-2026-08-19",
+      "pointerChecksum": "sha256:39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a",
+      "generatedModuleChecksum": "sha256:897a1d8d251240b931ebba5d84fa91b0c937687418a6d7aaa2669c2446ee9e09"
+    }
+  }
+}

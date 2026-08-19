@@ -1,12 +1,12 @@
 import { describe, expect, it } from "vitest";
 
-import { loadProductionCatalogSnapshotForTest } from "../catalog/productionSnapshotFixture.testSupport";
+import { loadActiveProductionSnapshotForTest } from "../catalog/productionSnapshotFixture.testSupport";
 import { USAGE_CARGO_POLICIES_V1 } from "./policy";
 import { projectCatalogUsageArchitectures } from "./projection";
 
 describe("V2 production usage projection diagnostics", () => {
   it("projects every active pinned variant with catalog-derived architecture", async () => {
-    const result = await loadProductionCatalogSnapshotForTest(new Date("2026-08-19T00:00:00.000Z"));
+    const result = await loadActiveProductionSnapshotForTest();
     expect(result.status).toBe("READY");
     if (result.status !== "READY") return;
     const projections = projectCatalogUsageArchitectures(result.snapshot, USAGE_CARGO_POLICIES_V1);
@@ -22,7 +22,7 @@ describe("V2 production usage projection diagnostics", () => {
   });
 
   it("loads the active catalog as ready after its evidenced activation", async () => {
-    const result = await loadProductionCatalogSnapshotForTest(new Date("2026-08-19T00:00:00.000Z"));
+    const result = await loadActiveProductionSnapshotForTest();
     expect(result).toMatchObject({ status: "READY" });
   });
 });

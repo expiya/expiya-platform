@@ -1,0 +1,153 @@
+- **Otonom acil fren** (`AUTONOMOUS_EMERGENCY_BRAKING`): Öndeki araç veya engelle çarpışma riski algılandığında frenlemeye destek olabilir.
+  - Açıklama: Otonom acil fren, sürücünün tepki veremediği bazı durumlarda frenlemeyi destekleyerek çarpışma riskini veya etkisini azaltmaya yardımcı olabilir.
+  - Uyarı: Her koşulu ve engeli algılamaz; sürücünün frenleme ve çevre kontrolü sorumluluğu devam eder.
+- **Ön çarpışma uyarısı** (`FORWARD_COLLISION_WARNING`): Öndeki araçla mesafe hızla kapanırken sürücüyü uyarabilir.
+  - Açıklama: Ön çarpışma uyarısı, öndeki trafikle tehlikeli biçimde yaklaşma algılandığında sürücünün daha erken tepki vermesine yardımcı olabilir.
+  - Uyarı: Uyarı sistemi kendi başına frenleme garantisi vermez ve algılama koşullara göre değişebilir.
+- **Şerit terk uyarısı** (`LANE_DEPARTURE_WARNING`): Sinyal verilmeden şeritten çıkma eğilimini bildirebilir.
+  - Açıklama: Şerit terk uyarısı, özellikle uzun yolculuklarda istemsiz şerit değişimini fark etmeyi kolaylaştırabilir.
+  - Uyarı: Yol çizgileri görünür olmalıdır; sistem direksiyon kontrolünün yerini almaz.
+- **Şeritte tutma desteği** (`LANE_KEEP_ASSIST`): Araç şeritten uzaklaşırken direksiyon desteği sağlayabilir.
+  - Açıklama: Şeritte tutma desteği, uygun yol çizgilerinde aracın şerit sınırları içinde kalmasına yardımcı olabilir.
+  - Uyarı: Otonom sürüş değildir; sürücü direksiyonu ve yolu sürekli kontrol etmelidir.
+- **Şerit ortalama desteği** (`LANE_CENTERING_ASSIST`): Uygun koşullarda aracı şeridin ortasına yakın tutmaya destek olabilir.
+  - Açıklama: Şerit ortalama desteği, özellikle düzenli akan uzun yol sürüşlerinde küçük direksiyon düzeltmelerini azaltabilir.
+  - Uyarı: Yol ve hava koşullarına bağlıdır; ellerin direksiyonda kalması gerekir.
+- **Adaptif hız sabitleyici** (`ADAPTIVE_CRUISE_CONTROL`): Öndeki araçla seçilen mesafeyi korumak için hızı ayarlayabilir.
+  - Açıklama: Adaptif hız sabitleyici, uzun yolda hızlanma ve yavaşlama ihtiyacını azaltarak sürüş yükünü hafifletebilir.
+  - Uyarı: Trafiği ve yolu izleme sorumluluğu sürücüdedir; çalışma aralığı modele göre değişir.
+- **Kör nokta izleme** (`BLIND_SPOT_MONITOR`): Yan kör noktadaki araçları fark etmeye yardımcı olabilir.
+  - Açıklama: Kör nokta izleme, şerit değiştirirken aynalarda görülmesi zor araçlar için ek uyarı sağlayabilir.
+  - Uyarı: Ayna ve omuz kontrolünün yerini almaz; motosiklet veya hızlı yaklaşan araçları her zaman algılamayabilir.
+- **Arka çapraz trafik uyarısı** (`REAR_CROSS_TRAFFIC_ALERT`): Park yerinden geri çıkarken yandan yaklaşan trafiği bildirebilir.
+  - Açıklama: Arka çapraz trafik uyarısı, görüşün kısıtlı olduğu park yerlerinden geri çıkarken yaklaşan araçları fark etmeyi kolaylaştırabilir.
+  - Uyarı: Çevre kontrolü ve düşük hızda dikkatli manevra gerekliliği devam eder.
+- **Trafik işareti tanıma** (`TRAFFIC_SIGN_RECOGNITION`): Algılanan hız sınırı ve bazı trafik işaretlerini gösterebilir.
+  - Açıklama: Trafik işareti tanıma, güncel yol işaretlerini takip etmeye yardımcı bir hatırlatıcı olabilir.
+  - Uyarı: İşaretleri yanlış okuyabilir veya kaçırabilir; geçerli kuralları doğrulama sorumluluğu sürücüdedir.
+- **Sürücü dikkat takip sistemi** (`DRIVER_ATTENTION_MONITOR`): Yorgunluk veya dikkat azalması belirtilerinde mola uyarısı verebilir.
+  - Açıklama: Sürücü dikkat takip sistemi, uzun yolculuklarda mola ihtiyacını fark etmeye yardımcı olabilir.
+  - Uyarı: Tıbbi değerlendirme yapmaz ve dinlenmiş sürüşün yerini almaz.
+- **Uzun far asistanı** (`HIGH_BEAM_ASSIST`): Trafiğe göre uzun far geçişlerini otomatikleştirebilir.
+  - Açıklama: Uzun far asistanı, gece sürüşünde karşıdan gelen veya öndeki araçlara göre far kullanımını kolaylaştırabilir.
+  - Uyarı: Sis, yoğun yağış ve karmaşık trafik koşullarında manuel müdahale gerekebilir.
+- **Geri görüş kamerası** (`REAR_VIEW_CAMERA`): Geri manevrada aracın arkasındaki alanı görmeyi kolaylaştırır.
+  - Açıklama: Geri görüş kamerası, özellikle dar alanlarda park ederken aracın arkasını görmeyi kolaylaştırabilir.
+  - Uyarı: Aynaların ve doğrudan çevre kontrolünün yerini almaz; görüntü mesafeyi yanıltabilir.
+- **360 derece çevre görüş kamerası** (`SURROUND_VIEW_CAMERA_360`): Aracın çevresini kuş bakışı benzeri birleşik görüntüyle gösterebilir.
+  - Açıklama: 360 derece kamera, dar park alanlarında jant, kaldırım ve çevredeki engelleri konumlandırmayı kolaylaştırabilir.
+  - Uyarı: Kamera kör noktaları ve görüntü birleştirme hataları olabilir; çevre fiziksel olarak kontrol edilmelidir.
+- **Ön park sensörleri** (`FRONT_PARKING_SENSORS`): Öndeki yakın engeller için sesli veya görsel mesafe uyarısı sağlayabilir.
+  - Açıklama: Ön park sensörleri, dar alanda öne doğru manevra ederken tampon mesafesini değerlendirmeyi kolaylaştırabilir.
+  - Uyarı: Alçak, ince veya sensör dışında kalan engeller algılanmayabilir.
+- **Arka park sensörleri** (`REAR_PARKING_SENSORS`): Arkaya yaklaşan engeller için mesafe uyarısı sağlayabilir.
+  - Açıklama: Arka park sensörleri, geri manevrada engellere olan mesafeyi takip etmeyi kolaylaştırabilir.
+  - Uyarı: Kamera, ayna ve doğrudan çevre kontrolünün yerini almaz.
+- **Otomatik park desteği** (`AUTOMATIC_PARK_ASSIST`): Uygun park alanında direksiyon veya manevra adımlarına destek olabilir.
+  - Açıklama: Otomatik park desteği, uygun büyüklükteki alanlarda park manevrasını daha az yorucu hale getirebilir.
+  - Uyarı: Sistemin fren, vites ve gaz kontrol kapsamı modele göre değişir; sürücü müdahaleye hazır olmalıdır.
+- **Arka dış koltuklarda ISOFIX** (`ISOFIX_REAR_OUTER`): Uyumlu çocuk koltuğunu arka dış koltuklara sabitlemeyi kolaylaştırır.
+  - Açıklama: Arka dış koltuklardaki ISOFIX bağlantıları, uyumlu çocuk koltuğunun doğru ve tekrarlanabilir şekilde sabitlenmesini kolaylaştırabilir.
+  - Uyarı: Çocuk koltuğu ve araç kılavuzundaki uyumluluk, ağırlık ve montaj talimatları izlenmelidir.
+- **Ön yolcu koltuğunda ISOFIX** (`ISOFIX_FRONT_PASSENGER`): Uyumlu çocuk koltuğu için ön yolcu koltuğunda bağlantı noktası sunar.
+  - Açıklama: Ön yolcu ISOFIX bağlantısı, izin verilen çocuk koltuğu düzenlerinde kurulum seçeneği sağlayabilir.
+  - Uyarı: Ön hava yastığı ve çocuk koltuğu yönüyle ilgili araç üreticisi talimatları kesinlikle kontrol edilmelidir.
+- **Ön, yan ve perde hava yastığı kapsamı** (`FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE`): Farklı çarpışma yönlerinde yolcu korumasını destekleyen hava yastığı kapsamı sunar.
+  - Açıklama: Ön, yan ve perde hava yastıkları, uygun çarpışma koşullarında kabindeki kişilerin korunmasına yardımcı olabilir.
+  - Uyarı: Koruma düzeyi kazanın türüne, oturma konumuna ve emniyet kemeri kullanımına bağlıdır.
+- **Orta hava yastığı** (`CENTER_AIRBAG`): Yan çarpışmada ön yolcuların birbirine temas riskini azaltmaya yardımcı olabilir.
+  - Açıklama: Orta hava yastığı, belirli yan çarpışmalarda ön koltuktaki kişilerin birbirine doğru hareketini sınırlamaya yardımcı olabilir.
+  - Uyarı: Yalnız belirli çarpışma koşullarında çalışır; emniyet kemerinin yerini almaz.
+- **Arka koltuk yolcu uyarısı** (`REAR_SEAT_OCCUPANT_ALERT`): Araçtan ayrılırken arka koltuğu kontrol etmeyi hatırlatabilir.
+  - Açıklama: Arka koltuk yolcu uyarısı, çocuk, evcil hayvan veya eşyanın araçta unutulmaması için ek hatırlatma sağlayabilir.
+  - Uyarı: Algılama yöntemi modele göre değişir ve fiziksel kontrolün yerini almaz.
+- **Isıtmalı ön koltuklar** (`HEATED_FRONT_SEATS`): Soğuk havada ön koltukları daha hızlı ısıtabilir.
+  - Açıklama: Isıtmalı ön koltuklar, kabin tamamen ısınmadan sürücü ve ön yolcuya doğrudan sıcaklık sağlayabilir.
+  - Uyarı: Uzun süre yüksek ayarda kullanım bazı kişiler için rahatsız edici olabilir.
+- **Isıtmalı arka koltuklar** (`HEATED_REAR_SEATS`): Soğuk havada arka yolculara doğrudan ısı sağlayabilir.
+  - Açıklama: Isıtmalı arka koltuklar, kış koşullarında arka yolcuların konforunu artırabilir.
+  - Uyarı: Kullanım ve kademe kapsamı koltuk konumuna göre değişebilir.
+- **Havalandırmalı ön koltuklar** (`VENTILATED_FRONT_SEATS`): Sıcak havada koltuk yüzeyindeki ısı ve nem hissini azaltabilir.
+  - Açıklama: Havalandırmalı ön koltuklar, sıcak günlerde özellikle uzun sürüşlerde terleme ve yapışma hissini azaltmaya yardımcı olabilir.
+  - Uyarı: Klima değildir; soğutma etkisi döşeme ve ortam koşullarına göre değişir.
+- **Elektrikli sürücü koltuğu** (`POWER_DRIVER_SEAT`): Sürücü oturma konumunu elektrikli kumandalarla hassas ayarlamayı kolaylaştırır.
+  - Açıklama: Elektrikli sürücü koltuğu, uygun sürüş pozisyonunu daha küçük adımlarla ayarlamayı kolaylaştırabilir.
+  - Uyarı: Ayarlanabilen yön ve bel desteği kapsamı modele göre değişir.
+- **Elektrikli ön yolcu koltuğu** (`POWER_FRONT_PASSENGER_SEAT`): Ön yolcunun oturma konumunu elektrikli ayarlamasını kolaylaştırır.
+  - Açıklama: Elektrikli ön yolcu koltuğu, farklı yolcuların rahat pozisyona daha kolay ulaşmasını sağlayabilir.
+  - Uyarı: Ayarlanabilen yönler ve erişim sınırları modele göre değişir.
+- **Hafızalı sürücü koltuğu** (`DRIVER_SEAT_MEMORY`): Birden fazla sürücünün koltuk konumunu kaydedip geri çağırabilir.
+  - Açıklama: Hafızalı sürücü koltuğu, aracı paylaşan kişilerin kendi sürüş pozisyonuna hızlı dönmesini kolaylaştırabilir.
+  - Uyarı: Hafızaya dahil edilen ayna veya direksiyon ayarları modele göre değişir.
+- **Isıtmalı direksiyon** (`HEATED_STEERING_WHEEL`): Soğuk havada direksiyon simidini kısa sürede ısıtabilir.
+  - Açıklama: Isıtmalı direksiyon, kışın ilk kullanım dakikalarında ellerin daha rahat kalmasına yardımcı olabilir.
+  - Uyarı: Isı seviyesi ve kapsanan direksiyon bölgesi modele göre değişebilir.
+- **Çift bölgeli otomatik klima** (`DUAL_ZONE_CLIMATE_CONTROL`): Sürücü ve ön yolcu için ayrı sıcaklık ayarı sunabilir.
+  - Açıklama: Çift bölgeli klima, ön taraftaki iki kişinin farklı sıcaklık tercihlerini uzlaştırmayı kolaylaştırabilir.
+  - Uyarı: Hava akışı ortak kabinde karışır; tamamen bağımsız iklim alanları oluşturmaz.
+- **Üç bölgeli otomatik klima** (`THREE_ZONE_CLIMATE_CONTROL`): Ön iki bölgeye ek olarak arka bölüm için ayrı sıcaklık kontrolü sunabilir.
+  - Açıklama: Üç bölgeli klima, arka yolcuların sıcaklık tercihine daha fazla kontrol sağlayabilir.
+  - Uyarı: Arka kontrol kapsamı ve hava çıkışları modele göre değişir.
+- **Dört bölgeli otomatik klima** (`FOUR_ZONE_CLIMATE_CONTROL`): Ön ve arka oturma alanlarında daha ayrıntılı sıcaklık ayarı sunabilir.
+  - Açıklama: Dört bölgeli klima, dört oturma bölgesindeki farklı konfor tercihlerinin yönetilmesini kolaylaştırabilir.
+  - Uyarı: Bölgeler tamamen yalıtılmış değildir ve sistem kapsamı modele göre değişir.
+- **Anahtarsız giriş** (`KEYLESS_ENTRY`): Anahtarı çıkarmadan kapıları açmayı kolaylaştırabilir.
+  - Açıklama: Anahtarsız giriş, eller doluyken veya anahtar çantadayken araca erişimi daha pratik hale getirebilir.
+  - Uyarı: Çalışma mesafesi ve hangi kapıları kapsadığı modele göre değişir.
+- **Anahtarsız çalıştırma** (`KEYLESS_START`): Anahtarı kontağa takmadan aracı çalıştırmayı sağlar.
+  - Açıklama: Anahtarsız çalıştırma, anahtar cebinizde veya çantanızdayken yolculuğa başlamayı kolaylaştırabilir.
+  - Uyarı: Anahtarın araç içinde algılanması gerekir; güvenli saklama sorumluluğu devam eder.
+- **Elektrikli bagaj kapağı** (`POWER_TAILGATE`): Bagaj kapağını düğmeyle açıp kapatmayı kolaylaştırır.
+  - Açıklama: Elektrikli bagaj kapağı, ağır veya yüksek kapağı elle hareket ettirme ihtiyacını azaltabilir.
+  - Uyarı: Açılma yüksekliği ve sıkışma önleme işlevi modele göre değişir.
+- **Temassız açılan bagaj kapağı** (`HANDS_FREE_TAILGATE`): Eller doluyken ayak hareketi veya yakınlık algısıyla bagajı açabilir.
+  - Açıklama: Temassız bagaj kapağı, alışveriş poşeti veya çocuk eşyası taşırken bagaja erişimi kolaylaştırabilir.
+  - Uyarı: Algılama her denemede çalışmayabilir; anahtarın yakınınızda olması gerekebilir.
+- **Panoramik cam tavan** (`PANORAMIC_GLASS_ROOF`): Kabine daha fazla gün ışığı ve ferahlık hissi sağlayabilir.
+  - Açıklama: Panoramik cam tavan, özellikle arka koltuklarda daha açık ve aydınlık bir kabin hissi oluşturabilir.
+  - Uyarı: Baş mesafesi, yazın ısı yükü ve açılabilir bölüm kapsamı modele göre değişebilir.
+- **Apple CarPlay** (`APPLE_CARPLAY`): Uyumlu iPhone uygulamalarını araç ekranından kullanmayı kolaylaştırır.
+  - Açıklama: Apple CarPlay, navigasyon, müzik ve desteklenen iletişim işlevlerini araç ekranına taşımayı kolaylaştırabilir.
+  - Uyarı: Kablo gereksinimi, uygulama desteği ve bağlantı kararlılığı araca ve telefona bağlıdır.
+- **Kablosuz Apple CarPlay** (`WIRELESS_APPLE_CARPLAY`): Uyumlu iPhone’u kablo bağlamadan araç ekranına bağlayabilir.
+  - Açıklama: Kablosuz Apple CarPlay, kısa yolculuklarda telefonu kabloya takmadan navigasyon ve medya kullanımını kolaylaştırabilir.
+  - Uyarı: Kablosuz bağlantı pil tüketimini artırabilir ve uyumluluk cihaz sürümüne bağlıdır.
+- **Android Auto** (`ANDROID_AUTO`): Uyumlu Android uygulamalarını araç ekranından kullanmayı kolaylaştırır.
+  - Açıklama: Android Auto, navigasyon, müzik ve desteklenen iletişim işlevlerini araç ekranına taşımayı kolaylaştırabilir.
+  - Uyarı: Kablo gereksinimi ve uygulama uyumluluğu araç ile telefon sürümüne bağlıdır.
+- **Kablosuz Android Auto** (`WIRELESS_ANDROID_AUTO`): Uyumlu Android telefonu kablosuz olarak araç ekranına bağlayabilir.
+  - Açıklama: Kablosuz Android Auto, telefonu her yolculukta kabloya takmadan desteklenen işlevleri kullanmayı kolaylaştırabilir.
+  - Uyarı: Kablosuz bağlantı ve cihaz uyumluluğu modele göre değişir.
+- **Kablosuz telefon şarjı** (`WIRELESS_PHONE_CHARGING`): Uyumlu telefonu kablo takmadan şarj edebilir.
+  - Açıklama: Kablosuz telefon şarjı, özellikle günlük kısa yolculuklarda kablo kullanma ihtiyacını azaltabilir.
+  - Uyarı: Şarj hızı genellikle kablolu şarjdan düşüktür; telefonun uyumlu ve doğru konumda olması gerekir.
+- **LED ön farlar** (`LED_HEADLIGHTS`): Gece sürüşünde verimli ve net ön aydınlatma sağlayabilir.
+  - Açıklama: LED farlar, halojen sistemlere göre daha beyaz ışık ve uzun ömür sunarak gece görüşünü destekleyebilir.
+  - Uyarı: Aydınlatma performansı yalnız ışık teknolojisine değil far tasarımı ve ayarına da bağlıdır.
+- **Adaptif ön farlar** (`ADAPTIVE_HEADLIGHTS`): Işık dağılımını direksiyon, hız veya yol koşullarına göre ayarlayabilir.
+  - Açıklama: Adaptif farlar, virajlarda ve değişen sürüş koşullarında yolun ilgili bölümünü daha iyi aydınlatmaya yardımcı olabilir.
+  - Uyarı: İşlev kapsamı modele göre değişir ve görüş hızının güvenli seçilmesi gerekir.
+- **Matrix LED ön farlar** (`MATRIX_LED_HEADLIGHTS`): Bazı ışık bölümlerini ayrı yöneterek uzun far kullanımını artırabilir.
+  - Açıklama: Matrix LED farlar, uygun koşullarda diğer araçları gölgelendirirken yolun kalanını daha güçlü aydınlatmaya yardımcı olabilir.
+  - Uyarı: Algılama kusursuz değildir; sürücü gerektiğinde farlara müdahale etmelidir.
+- **Otomatik uzun far** (`AUTOMATIC_HIGH_BEAM`): Trafik durumuna göre kısa ve uzun far arasında geçiş yapabilir.
+  - Açıklama: Otomatik uzun far, gece sürüşünde far geçişlerini daha pratik hale getirebilir.
+  - Uyarı: Her trafik ve hava koşulunu doğru algılamayabilir; manuel kontrol gerekebilir.
+- **Yokuş iniş desteği** (`HILL_DESCENT_CONTROL`): Dik inişlerde düşük hızı frenlerle kontrollü tutmaya yardımcı olabilir.
+  - Açıklama: Yokuş iniş desteği, gevşek veya dik zeminde sürücünün yalnız yönlendirmeye odaklanmasını kolaylaştırabilir.
+  - Uyarı: Yol tutuş sınırlarını aşmaz; uygun hız, lastik ve rota seçimi gerekir.
+- **Arazi sürüş modları** (`TERRAIN_DRIVE_MODES`): Motor, şanzıman ve çekiş tepkilerini farklı zeminlere göre ayarlayabilir.
+  - Açıklama: Arazi sürüş modları, kar, çamur veya kum gibi zeminlerde aracın kontrol sistemlerini uygun ayara getirmeyi kolaylaştırabilir.
+  - Uyarı: Aracın mekanik kabiliyetini veya lastik tutuşunu artırma garantisi vermez.
+- **Düşük oranlı arazi şanzımanı** (`LOW_RANGE_TRANSFER_CASE`): Zorlu zeminde düşük hızda daha yüksek tekerlek torku ve kontrollü ilerleme sağlar.
+  - Açıklama: Düşük oranlı arazi şanzımanı, dik eğim, kaya veya ağır arazi koşullarında aracı çok düşük hızda kontrollü kullanmayı kolaylaştırabilir.
+  - Uyarı: Kuru asfaltta uygun olmayan kullanım aktarma organlarına zarar verebilir; üretici talimatı izlenmelidir.
+- **Kilitlenebilir arka diferansiyel** (`LOCKING_REAR_DIFFERENTIAL`): Arka tekerleklerin birlikte çekiş üretmesine yardımcı olabilir.
+  - Açıklama: Kilitlenebilir arka diferansiyel, bir arka tekerleğin tutuş kaybettiği zorlu zeminde ilerleme kabiliyetini artırabilir.
+  - Uyarı: Yalnız uygun hız ve zeminde kullanılmalıdır; viraj kabiliyetini sınırlayabilir.
+- **Kilitlenebilir merkez diferansiyeli** (`LOCKING_CENTER_DIFFERENTIAL`): Ön ve arka akslar arasındaki tork dağılımını sabitleyebilir.
+  - Açıklama: Kilitlenebilir merkez diferansiyeli, değişken tutuşlu zeminde ön ve arka aksların birlikte çekiş üretmesine yardımcı olabilir.
+  - Uyarı: Kuru ve yüksek tutuşlu zeminde kullanımı aktarma organlarında gerilim oluşturabilir.
+- **Düşük hızlı arazi ilerleme kontrolü** (`CRAWL_CONTROL`): Çok düşük arazi hızında gaz ve fren yönetimini otomatikleştirebilir.
+  - Açıklama: Düşük hızlı arazi ilerleme kontrolü, zorlu zeminde sürücünün direksiyon ve rota seçimine odaklanmasını kolaylaştırabilir.
+  - Uyarı: Otonom arazi sürüşü değildir; engel, zemin ve çevre kontrolü sürücüdedir.

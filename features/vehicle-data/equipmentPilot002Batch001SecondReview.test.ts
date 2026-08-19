@@ -4,8 +4,8 @@ import path from "node:path";
 
 import { describe, expect, it } from "vitest";
 
-import catalogPointer from "@/data/production/catalog/active.json";
 import catalog from "@/data/production/catalog/releases/v0.55.2/catalog.json";
+import catalogManifest from "@/data/production/catalog/releases/v0.55.2/manifest.json";
 import { createCanonicalTrimId } from "@/features/vehicle-data/equipmentCanonicalIdentity";
 import { validateReviewEvents } from "@/features/vehicle-data/equipmentCollectionProtocol";
 import { EQUIPMENT_FEATURE_CODES, type EquipmentEvidenceAssertion, type EquipmentReviewEvent } from "@/types/equipmentEvidence";
@@ -40,8 +40,8 @@ describe("EE-PILOT-002 Batch 001 independent assertion-level second review", () 
   });
 
   it("pins the exact v0.55.2 catalog identities and fingerprint", () => {
-    expect(catalogPointer).toMatchObject({ active_catalog_release_version: "0.55.2", catalog_payload_hash: "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f" });
-    expect(sha(readFileSync("data/production/catalog/releases/v0.55.2/catalog.json"))).toBe(catalogPointer.catalog_payload_hash);
+    expect(catalogManifest).toMatchObject({ catalog_release_version: "0.55.2", catalog_payload_hash: "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f" });
+    expect(sha(readFileSync("data/production/catalog/releases/v0.55.2/catalog.json"))).toBe(catalogManifest.catalog_payload_hash);
     const variants = [IBRIDA, ELETTRICA].map((id) => catalog.records.find((record) => record.variant.id === id)?.variant);
     expect(variants.map((variant) => ({ brand: variant?.brand.value, model: variant?.model.value, trim: variant?.trim.value, modelYear: variant?.modelYear.value }))).toEqual([
       { brand: "Alfa Romeo", model: "Junior", trim: "Ibrida 145 PS Speciale+ eDCT6", modelYear: 2026 },

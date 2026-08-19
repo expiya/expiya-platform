@@ -1,0 +1,220 @@
+{
+  "auditWaveId": "CATALOG-EVIDENCE-AUDIT-WAVE-001",
+  "catalogReleaseAudited": "0.55.2",
+  "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+  "auditMode": "READ_ONLY_INDEPENDENT_OFFICIAL_SOURCE_REVIEW",
+  "controlledDispositionVocabulary": [
+    "IDENTITY_CONFIRMED",
+    "PROVENANCE_REINFORCEMENT_REQUIRED",
+    "IDENTITY_FIELD_MISMATCH",
+    "PROVENANCE_INSUFFICIENT",
+    "DEFERRED_IDENTITY_AUDIT",
+    "SOURCE_INSUFFICIENT",
+    "QUARANTINE_RECOMMENDED"
+  ],
+  "results": [
+    {
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "catalogIdentity": "Volvo EX30 P4 Long Range Ultra, MY2026, BEV, single-speed, FWD, 5-seat",
+      "firstCatalogRelease": "0.54.0",
+      "officialIdentity": "Volvo EX30 Ultra, Single Motor Extended Range, Electric (2026), RWD, automatic, 5-seat",
+      "officialSources": ["https://www.volvocars.com/tr/build/print?token=17411673982122151385"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"CONFIRMED_CONFIGURABLE_ON_OBSERVATION_DATE","modelYear":"CONFIRMED_2026","modelFamily":"CONFIRMED_EX30","trim":"MISMATCH_NO_AUTHORITATIVE_P4_BRIDGE","powertrain":"CONFIRMED_BEV_150_KW_343_NM","transmission":"CONFIRMED_AUTOMATIC_SINGLE_SPEED","bodySeatsDrive":"BODY_AND_5_SEATS_CONFIRMED_DRIVE_MISMATCH_FWD_VS_RWD","exactApplicability":"NOT_CONFIRMED_AS_CATALOG_IDENTITY","provenance":"OFFICIAL_TR_CONFIGURATOR_PRINT_EXACT"},
+      "disposition": "IDENTITY_FIELD_MISMATCH",
+      "reason": "The official TR configurator proves Ultra + Single Motor Extended Range + MY2026 and RWD. It does not publish P4 Long Range Ultra or a P4-to-Single-Motor-Extended-Range identity crosswalk, while the catalog also records the opposite drive axle.",
+      "equipmentSemanticRiskExcludedFromIdentityDecision": true,
+      "patchAction": "QUARANTINE_OLD_ID_AND_CREATE_NEW_EXACT_ID_ONLY_FROM_OFFICIAL_IDENTITY"
+    },
+    {
+      "exactVariantId": "2f5054d1-1c11-5c34-a815-8223facf9892",
+      "catalogIdentity": "Fiat Egea Cross Street 1.6 MultiJet 130 DCT, MY2026, FWD",
+      "firstCatalogRelease": "0.18.0",
+      "officialIdentity": "Egea Cross Street; 1.6 MultiJet 130; automatic; current TR product evidence",
+      "officialSources": ["https://www.fiat.com.tr/modeller/egea/cross", "https://www.fiat.com.tr/yeni-egea-cross/configurator-egea-cross/"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"CURRENT_PAGE_BUT_PRODUCTION_ENDED_2026_06_30","modelYear":"NOT_EXACTLY_BOUND_TO_CROSS_CONFIGURATION","modelFamily":"CONFIRMED","trim":"CONFIRMED_STREET","powertrain":"CONFIRMED_DIESEL_1_6_130","transmission":"CONFIRMED_AUTOMATIC","bodySeatsDrive":"CROSS_BODY_AND_FWD_SUPPORTED_SEATS_CATALOG_ONLY","exactApplicability":"TRIM_POWERTRAIN_VISIBLE_BUT_MY_CHAIN_INCOMPLETE","provenance":"OFFICIAL_LIVE_PAGE_NO_IMMUTABLE_EXACT_MY_LOCATOR"},
+      "disposition": "PROVENANCE_REINFORCEMENT_REQUIRED",
+      "reason": "Official material supports the substantive configuration, but exact MY2026 applicability and post-production lifecycle need an immutable temporal locator."
+    },
+    {
+      "exactVariantId": "3383408d-d77b-5643-93ee-8dc0cb3465a0",
+      "catalogIdentity": "Mercedes-Benz Vito Panelvan 114 CDI Select, MY2026, 9AT, FWD, 3-seat",
+      "firstCatalogRelease": "0.55.0",
+      "officialIdentity": "Current 2026 Select price surface identifies Vito Tourer Select 124 CDI; available Panelvan material does not bind 114 CDI to Select",
+      "officialSources": ["https://www.mercedes-benz.com.tr/vans/models/vito/panel-van/overview.html", "https://htafiyat.mercedes-benz.com.tr/model/vito-select/fiyat/2026"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"VITO_FAMILY_CURRENT","modelYear":"2026_SURFACE_CONFIRMED","modelFamily":"CONFIRMED_VITO","trim":"MISMATCH_SELECT_APPLIES_TO_TOURER_SURFACE","powertrain":"114_CDI_NOT_EXACTLY_BOUND","transmission":"NOT_EXACTLY_BOUND","bodySeatsDrive":"PANELVAN_FAMILY_SUPPORTED_EXACT_COMBINATION_NOT_SUPPORTED","exactApplicability":"FAILED","provenance":"OFFICIAL_SOURCES_CONTRADICT_COMPOSITE_IDENTITY"},
+      "disposition": "IDENTITY_FIELD_MISMATCH",
+      "reason": "No authoritative source binds Panelvan + 114 CDI + Select + MY2026 as one exact configuration."
+    },
+    {
+      "exactVariantId": "3d0f2b09-791e-5d76-9257-ec6be591c4eb",
+      "catalogIdentity": "Peugeot E-2008 GT 115 kW, MY2026, BEV, FWD",
+      "firstCatalogRelease": "0.39.0",
+      "officialIdentity": "Peugeot E-2008 GT 115 kW currently listed in TR",
+      "officialSources": ["https://kampanya.peugeot.com.tr/fiyat-listesi/?lcdv16=1PIAA5FKQ5J0E0E0", "https://www.peugeot.com.tr/content/dam/peugeot/turkey/b2c/brosurler/2025/ocak/0009_E_2008_Teknik_Brosur.pdf"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"CONFIRMED_CURRENT_PRICE_LIST","modelYear":"NOT_EXPLICIT_IN_EXACT_ROW","modelFamily":"CONFIRMED","trim":"CONFIRMED_GT_115_KW","powertrain":"CONFIRMED_BEV_115_KW","transmission":"SUPPORTED_SINGLE_SPEED","bodySeatsDrive":"SUV_FWD_SUPPORTED_SEATS_NOT_EXACTLY_LOCATED","exactApplicability":"TEMPORAL_MY_GAP","provenance":"CURRENT_PRICE_PLUS_OLDER_BROCHURE"},
+      "disposition": "PROVENANCE_REINFORCEMENT_REQUIRED",
+      "reason": "The exact marketed configuration is current, but an immutable MY2026 applicability locator is still required."
+    },
+    {
+      "exactVariantId": "3dceba8a-9f0a-56ac-aabc-515193e1c62a",
+      "catalogIdentity": "Porsche Taycan 4S, MY2026, BEV, AWD",
+      "firstCatalogRelease": "0.40.0",
+      "officialIdentity": "Porsche Taycan 4S, current TR model; comparison currently resolves MY2027",
+      "officialSources": ["https://www.porsche.com.tr/taycan-4s", "https://compare.porsche.com/tr-TR?model-series=taycan"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"CONFIRMED_CURRENT","modelYear":"CURRENT_CONFIGURATOR_IS_MY2027_NOT_MY2026","modelFamily":"CONFIRMED","trim":"CONFIRMED_4S","powertrain":"CONFIRMED_BEV","transmission":"SUPPORTED","bodySeatsDrive":"SEDAN_AWD_SUPPORTED","exactApplicability":"MY2026_CHAIN_MISSING","provenance":"OFFICIAL_LIVE_SOURCES_TEMPORALLY_SHIFTED"},
+      "disposition": "PROVENANCE_REINFORCEMENT_REQUIRED",
+      "reason": "Identity is plausible and current, but the audited exact ID needs a frozen MY2026 source rather than a MY2027 configurator."
+    },
+    {
+      "exactVariantId": "61b1bb40-dce9-5e01-97d2-5ba0167b3062",
+      "catalogIdentity": "Fiat Doblo Combi 1.5 BlueHDi 130 EAT8, MY2026",
+      "firstCatalogRelease": "0.18.0",
+      "officialIdentity": "Doblo Combi uses named grades; 2026 automatic diesel is Premio Plus 1.5 BlueHDi 130 AT",
+      "officialSources": ["https://www.fiat.com.tr/professional/modeller/doblo-combi", "https://www.fiat.com.tr/professional/kampanyalar/eve-dobloyla-donun"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"CONFIRMED_2026_CURRENT","modelYear":"CONFIRMED_2026_CAMPAIGN","modelFamily":"CONFIRMED_DOBLO_COMBI","trim":"MISMATCH_COMBI_IS_BODY_FAMILY_NOT_GRADE","powertrain":"CONFIRMED_1_5_BLUEHDI_130","transmission":"CONFIRMED_AUTOMATIC_FOR_PREMIO_PLUS","bodySeatsDrive":"COMBI_BODY_SUPPORTED","exactApplicability":"FAILED_TRIM_IDENTITY","provenance":"OFFICIAL_CURRENT_PRODUCT_AND_CAMPAIGN"},
+      "disposition": "IDENTITY_FIELD_MISMATCH",
+      "reason": "The catalog omits the authoritative Premio Plus grade and treats Combi as the trim."
+    },
+    {
+      "exactVariantId": "62465336-2cfb-4ccd-b9a7-36467d63497f",
+      "catalogIdentity": "Renault Captur techno mild hybrid EDC 140 hp, MY2026, FWD, 5-seat",
+      "firstCatalogRelease": "0.1.0",
+      "officialIdentity": "CAPTUR techno 1.3 mild hybrid EDC 140 hp, FWD, 5-seat",
+      "officialSources": ["https://www.renault.com.tr/hybrid-araclar/captur-e-tech/konfigurator-yeni.html", "https://www.renault.com.tr/hybrid-araclar/captur-e-tech/teknik-bilgiler.html"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"CONFIRMED_CURRENT_CONFIGURATOR","modelYear":"NOT_EXPLICIT_IN_LIVE_CONFIGURATION","modelFamily":"CONFIRMED","trim":"CONFIRMED_TECHNO","powertrain":"CONFIRMED_1_3_MHEV_140","transmission":"CONFIRMED_7_EDC","bodySeatsDrive":"SUV_5_SEAT_FWD_CONFIRMED","exactApplicability":"ALL_FIELDS_EXCEPT_EXPLICIT_MY","provenance":"EXACT_OFFICIAL_CONFIGURATOR_AND_TECH_PAGE"},
+      "disposition": "PROVENANCE_REINFORCEMENT_REQUIRED",
+      "reason": "The exact configuration is strongly supported; only explicit MY2026 temporal applicability remains unproven."
+    },
+    {
+      "exactVariantId": "625c6cce-a78e-5d2d-a682-8feb90b09268",
+      "catalogIdentity": "Togg T10F V1 RWD Uzun Menzil, MY2026, catalog drive FWD",
+      "firstCatalogRelease": "0.48.0",
+      "officialIdentity": "T10F V1 RWD Uzun Menzil; 160 kW, 350 Nm; 2026 price and finance surfaces",
+      "officialSources": ["https://www.togg.com.tr/t10f-price-list", "https://togg.com.tr/t10f", "https://www.togg.com.tr/sales-and-finance"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"CONFIRMED_ON_SALE","modelYear":"CONFIRMED_2026_COMMERCIAL_SURFACE","modelFamily":"CONFIRMED_T10F","trim":"CONFIRMED_V1_LONG_RANGE","powertrain":"CONFIRMED_BEV_160_KW_350_NM","transmission":"CONFIRMED_SINGLE_SPEED","bodySeatsDrive":"LIFTBACK_AND_5_SEATS_SUPPORTED_DRIVE_MISMATCH_FWD_VS_RWD","exactApplicability":"FAILED_CATALOG_DRIVE_FIELD","provenance":"MULTIPLE_CURRENT_OFFICIAL_TR_SOURCES"},
+      "disposition": "IDENTITY_FIELD_MISMATCH",
+      "reason": "The exact trim name itself says RWD and official technical material confirms rear-wheel drive, while the catalog stores FWD."
+    },
+    {
+      "exactVariantId": "64996711-e8a8-5d7e-b92e-4a2c3c5e46f1",
+      "catalogIdentity": "Fiat Ducato Minibüs 16+1 2.2 180, MY2026",
+      "firstCatalogRelease": "0.55.0",
+      "officialIdentity": "Current TR Ducato Minibüs: 16+1 and 2.2 MultiJet 140 HP",
+      "officialSources": ["https://www.fiat.com.tr/professional/modeller/ducato-minibus"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"CONFIRMED_CURRENT","modelYear":"NOT_EXPLICIT","modelFamily":"CONFIRMED_DUCATO_MINIBUS","trim":"16_PLUS_1_BODY_CONFIRMED","powertrain":"MISMATCH_180_VS_CURRENT_140_HP","transmission":"CATALOG_6MT_NOT_EXACTLY_BOUND","bodySeatsDrive":"PASSENGER_VAN_17_SEAT_FWD_SUPPORTED","exactApplicability":"FAILED_POWERTRAIN","provenance":"OFFICIAL_CURRENT_PRODUCT_PAGE"},
+      "disposition": "IDENTITY_FIELD_MISMATCH",
+      "reason": "The official current Turkey-market page supports 16+1 but publishes 140 HP, not the catalog's 180 HP exact identity."
+    },
+    {
+      "exactVariantId": "6d6c0805-8779-5764-a42a-48850990a60c",
+      "catalogIdentity": "Audi A8 L 50 TDI quattro, MY2026",
+      "firstCatalogRelease": "0.52.0",
+      "officialIdentity": "A8 L 50 TDI quattro 286 hp Tiptronic PI in official 2026 TR price list",
+      "officialSources": ["https://fiyatlistesi.audi.com.tr/2026/4N", "https://www.audi.com.tr/tr/modeller/a8/a8-l-master-2026/"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"CONFIRMED_CURRENT","modelYear":"CONFIRMED_2026","modelFamily":"CONFIRMED_A8_L","trim":"CONFIRMED_50_TDI_QUATTRO","powertrain":"CONFIRMED_DIESEL_286_HP","transmission":"CONFIRMED_TIPTRONIC_AUTOMATIC","bodySeatsDrive":"SEDAN_5_SEAT_AWD_CONFIRMED","exactApplicability":"CONFIRMED","provenance":"OFFICIAL_MY2026_PRICE_AND_MODEL_PAGE"},
+      "disposition": "IDENTITY_CONFIRMED",
+      "reason": "The earlier MY2025-only observation is superseded for audit purposes by an official 2026 price surface that exactly names the configuration."
+    },
+    {
+      "exactVariantId": "75a0db67-272b-509f-8b60-312f2092a6b2",
+      "catalogIdentity": "Hyundai TUCSON Hibrit 1.6 T-GDI 215 PS HEV 4x2 AT Elite, MY2025",
+      "firstCatalogRelease": "0.3.0",
+      "officialIdentity": "TUCSON Hybrid Elite is represented in official TR equipment material; exact 215 PS MY2025 linkage is not immutable in the captured chain",
+      "officialSources": ["https://www.hyundai.com/tr/tr/modeller/tucson-hibrit.html", "https://www.hyundai.com/content/dam/hyundai/tr/tr/data/marketing/brochure/product/tucson-n-line/Tucson-Hibrit-ve-N-Line-brosur.pdf"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"FAMILY_CURRENT","modelYear":"NOT_EXACTLY_BOUND","modelFamily":"CONFIRMED_TUCSON_HYBRID","trim":"ELITE_VISIBLE","powertrain":"HEV_VISIBLE_215_PS_TEMPORAL_LINK_UNRESOLVED","transmission":"AUTOMATIC_SUPPORTED","bodySeatsDrive":"SUV_FWD_SUPPORTED_SEATS_UNRESOLVED","exactApplicability":"TEMPORAL_GAP","provenance":"CURRENT_MODEL_PAGE_PLUS_NON_MY_EXACT_MATRIX"},
+      "disposition": "PROVENANCE_REINFORCEMENT_REQUIRED",
+      "reason": "Identity fields are plausible, but the existing official chain does not exactly bind Elite + 215 PS + MY2025."
+    },
+    {
+      "exactVariantId": "84b2d12e-6ed2-5b7f-9a18-6fe6c41914c7",
+      "catalogIdentity": "Dacia Logan expression Eco-G 120 EDC, MY2026, FWD, 5-seat",
+      "firstCatalogRelease": "0.14.0",
+      "officialIdentity": "Yeni Logan Expression Eco-G 120 auto, EDC dual-clutch automatic",
+      "officialSources": ["https://www.dacia.com.tr/modeller/yeni-logan.html", "https://www.dacia.com.tr/modeller/yeni-logan/modeller-versiyonlar.html?gradeCode=ENS_MDL2P1SERIELIM2"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"CONFIRMED_CURRENT_CONFIGURATOR","modelYear":"NOT_EXPLICIT","modelFamily":"CONFIRMED_LOGAN","trim":"CONFIRMED_EXPRESSION","powertrain":"CONFIRMED_ECO_G_120","transmission":"CONFIRMED_EDC_AUTOMATIC","bodySeatsDrive":"SEDAN_FWD_SUPPORTED_5_SEATS_CATALOG_ONLY","exactApplicability":"ALL_MATERIAL_FIELDS_EXCEPT_MY","provenance":"OFFICIAL_EXACT_GRADE_AND_POWERTRAIN_PAGE"},
+      "disposition": "PROVENANCE_REINFORCEMENT_REQUIRED",
+      "reason": "The exact live configuration is supported, but the catalog's MY2026 claim still lacks an explicit immutable locator."
+    },
+    {
+      "exactVariantId": "8833b383-4379-54e8-a017-fac236dcca0f",
+      "catalogIdentity": "Porsche 718 Boxster Boxster, MY2026, catalog drive FWD, PDK",
+      "firstCatalogRelease": "0.40.0",
+      "officialIdentity": "718 Boxster technical identity is rear-wheel drive with optional 7-speed PDK; current TR range no longer lists base Boxster as a configurable model",
+      "officialSources": ["https://www.porsche.com.tr/img/modeller/718/718-cayman-modelleri/718_Cayman_Brochure.pdf", "https://www.porsche.com.tr/tum-modeller/718"],
+      "fieldChecks": {"market":"TR_FAMILY_SUPPORTED","lifecycle":"ON_SALE_NOT_SUPPORTED_FOR_BASE_BOXSTER_CURRENT_RANGE","modelYear":"MY2026_NOT_SUPPORTED","modelFamily":"CONFIRMED_718_BOXSTER_HISTORICALLY","trim":"BASE_BOXSTER_NOT_CURRENTLY_CONFIGURABLE","powertrain":"GASOLINE_SUPPORTED","transmission":"PDK_OPTION_SUPPORTED_NOT_EXACT_BUILD","bodySeatsDrive":"CONVERTIBLE_2_SEAT_SUPPORTED_DRIVE_MISMATCH_FWD_VS_RWD","exactApplicability":"FAILED","provenance":"OFFICIAL_BROCHURE_PLUS_CURRENT_RANGE"},
+      "disposition": "IDENTITY_FIELD_MISMATCH",
+      "reason": "The catalog drive field contradicts official RWD and current lifecycle/MY2026 exact applicability is not supported."
+    },
+    {
+      "exactVariantId": "9d6a26bb-88c0-596e-9905-246e1371e27a",
+      "catalogIdentity": "Hyundai KONA 1.6 T-GDI 180 PS DCT Prime, MY2026",
+      "firstCatalogRelease": "0.3.0",
+      "officialIdentity": "Current KONA family and 180 PS DCT evidence; Prime + MY2026 exact linkage unresolved",
+      "officialSources": ["https://www.hyundai.com/tr/tr/modeller/kona/performans.html", "https://www.hyundai.com/tr/tr/modeller.html"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"KONA_CURRENT","modelYear":"NOT_EXACTLY_BOUND","modelFamily":"CONFIRMED_KONA","trim":"PRIME_NOT_EXACTLY_BOUND_TO_CURRENT_180_DCT","powertrain":"CONFIRMED_180_PS_DCT","transmission":"CONFIRMED_DCT","bodySeatsDrive":"SUV_FWD_SUPPORTED_SEATS_UNRESOLVED","exactApplicability":"TRIM_MY_GAP","provenance":"OFFICIAL_CURRENT_PAGE_WITHOUT_EXACT_MATRIX"},
+      "disposition": "PROVENANCE_REINFORCEMENT_REQUIRED",
+      "reason": "Powertrain and family are supported, but exact Prime + MY2026 applicability is not."
+    },
+    {
+      "exactVariantId": "bad56151-8735-569c-ad4f-129880820a0e",
+      "catalogIdentity": "SEAT Leon FR 1.5 eTSI 150 DSG, MY2026",
+      "firstCatalogRelease": "0.43.0",
+      "officialIdentity": "Leon FR 1.5 eTSI ACT 150 HP DSG; official page explicitly says MY2024",
+      "officialSources": ["https://www.seat.com.tr/modeller/leon/teknik-ozellikler/fr"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"MODEL_PAGE_PRESENT","modelYear":"MISMATCH_2024_VS_2026","modelFamily":"CONFIRMED_LEON","trim":"CONFIRMED_FR","powertrain":"CONFIRMED_1_5_ETSI_150","transmission":"CONFIRMED_7_DSG","bodySeatsDrive":"HATCHBACK_FWD_SUPPORTED","exactApplicability":"FAILED_MODEL_YEAR","provenance":"OFFICIAL_PAGE_EXPLICITLY_CONTRADICTS_MY"},
+      "disposition": "IDENTITY_FIELD_MISMATCH",
+      "reason": "The official exact specification page explicitly limits its content to MY2024, contradicting the MY2026 exact ID."
+    },
+    {
+      "exactVariantId": "bdf54f5b-2c18-5505-8875-0157f5bd1db7",
+      "catalogIdentity": "Alpine A110 S, MY2025, ON_SALE",
+      "firstCatalogRelease": "0.6.0",
+      "officialIdentity": "A110 S 300 hp; orders closed; only last vehicles at Alpine stores",
+      "officialSources": ["https://www.alpinecars.com.tr/modeller/a110-s.html", "https://www.alpinecars.com.tr/modeller.html"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"ORDER_CLOSED_LAST_STOCK_NOT_EQUIVALENT_TO_ON_SALE","modelYear":"MY2025_NOT_EXPLICIT","modelFamily":"CONFIRMED_A110","trim":"CONFIRMED_S","powertrain":"CONFIRMED_300_HP_GASOLINE","transmission":"SUPPORTED_7_DCT","bodySeatsDrive":"COUPE_2_SEAT_RWD_SUPPORTED","exactApplicability":"LIFECYCLE_AND_MY_UNRESOLVED","provenance":"CURRENT_OFFICIAL_LAST_STOCK_PAGE_NO_PRICE_LIST"},
+      "disposition": "DEFERRED_IDENTITY_AUDIT",
+      "reason": "The model identity is real, but lifecycle must not be silently normalized from last-stock/order-closed to ON_SALE and exact MY2025 remains unresolved."
+    },
+    {
+      "exactVariantId": "cb8f5af7-b20f-5877-a79b-4af71c18a61c",
+      "catalogIdentity": "Opel Astra GS Hybrid 145, MY2026, ON_SALE",
+      "firstCatalogRelease": "0.38.0",
+      "officialIdentity": "MY26 Opel price material supports Hybrid 145 and GS in the range, but the latest recovered list does not retain the exact Astra row",
+      "officialSources": ["https://fiyatlisteleri.opel.com.tr/Assets/files/Opel_Tum_Modeller_Fiyat_Listesi7.3.2026_16.38.pdf", "https://www.opel.com.tr/"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"CURRENT_EXACT_ROW_UNRESOLVED","modelYear":"MY26_RANGE_EVIDENCE_EXISTS","modelFamily":"ASTRA_FAMILY_SUPPORTED","trim":"GS_HYBRID_145_PRIOR_RANGE_EVIDENCE","powertrain":"HYBRID_145_SUPPORTED","transmission":"EDCT6_SUPPORTED","bodySeatsDrive":"HATCHBACK_FWD_5_SEAT_SUPPORTED","exactApplicability":"CURRENT_LIFECYCLE_GAP","provenance":"OFFICIAL_DATED_PRICE_MATERIAL_BUT_NO_STABLE_CURRENT_EXACT_ROW"},
+      "disposition": "PROVENANCE_REINFORCEMENT_REQUIRED",
+      "reason": "Do not infer discontinuation from omission, but ON_SALE requires a current exact locator or an explicit historical validity interval."
+    },
+    {
+      "exactVariantId": "e09c81aa-6324-5b20-9cd8-90dc806a5ae9",
+      "catalogIdentity": "Fiat Egea Sedan Easy 1.6 MultiJet 130 6MT, MY2026",
+      "firstCatalogRelease": "0.18.0",
+      "officialIdentity": "0 km MY2026 Egea Sedan Easy 1.6 MultiJet 130; campaign explicitly covers automatic and manual vehicles",
+      "officialSources": ["https://www.fiat.com.tr/kampanyalar/satis/boyle-firsat-olsa-olsa-egeada-olur", "https://www.fiat.com.tr/modeller/egea/sedan"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"CONFIRMED_CAMPAIGN_VALIDITY_WINDOW_STOCK_LIMITED","modelYear":"CONFIRMED_2026","modelFamily":"CONFIRMED_EGEA_SEDAN","trim":"CONFIRMED_EASY","powertrain":"CONFIRMED_1_6_MULTIJET_130","transmission":"MANUAL_INCLUDED_AND_6MT_TECHNICALLY_SUPPORTED","bodySeatsDrive":"SEDAN_FWD_5_SEAT_SUPPORTED","exactApplicability":"CONFIRMED_FOR_2026_STOCK_WINDOW","provenance":"OFFICIAL_DATED_CAMPAIGN_PLUS_PRODUCT_PAGE"},
+      "disposition": "IDENTITY_CONFIRMED",
+      "reason": "Official dated campaign language explicitly binds 0 km 2026 Egea Sedan Easy 1.6 MultiJet 130 and includes manual vehicles. Lifecycle should retain the campaign/stock temporal boundary."
+    },
+    {
+      "exactVariantId": "f954d7a8-b69b-5ee2-b3ad-a4638772725a",
+      "catalogIdentity": "Alpine A110 GT, MY2025, ON_SALE",
+      "firstCatalogRelease": "0.10.0",
+      "officialIdentity": "A110 GT 300 hp; orders closed; only last vehicles at Alpine stores",
+      "officialSources": ["https://www.alpinecars.com.tr/modeller/a110-gt.html", "https://www.alpinecars.com.tr/modeller.html"],
+      "fieldChecks": {"market":"CONFIRMED_TR","lifecycle":"ORDER_CLOSED_LAST_STOCK_NOT_EQUIVALENT_TO_ON_SALE","modelYear":"MY2025_NOT_EXPLICIT","modelFamily":"CONFIRMED_A110","trim":"CONFIRMED_GT","powertrain":"CONFIRMED_300_HP_GASOLINE","transmission":"SUPPORTED_7_DCT","bodySeatsDrive":"COUPE_2_SEAT_RWD_SUPPORTED","exactApplicability":"LIFECYCLE_AND_MY_UNRESOLVED","provenance":"CURRENT_OFFICIAL_LAST_STOCK_PAGE_NO_PRICE_LIST"},
+      "disposition": "DEFERRED_IDENTITY_AUDIT",
+      "reason": "The model identity is real, but lifecycle must not be silently normalized from last-stock/order-closed to ON_SALE and exact MY2025 remains unresolved."
+    }
+  ],
+  "summary": {
+    "IDENTITY_CONFIRMED": 2,
+    "PROVENANCE_REINFORCEMENT_REQUIRED": 8,
+    "IDENTITY_FIELD_MISMATCH": 7,
+    "PROVENANCE_INSUFFICIENT": 0,
+    "DEFERRED_IDENTITY_AUDIT": 2,
+    "SOURCE_INSUFFICIENT": 0,
+    "QUARANTINE_RECOMMENDED": 0,
+    "total": 19,
+    "terminalDispositionCoverage": "19/19"
+  }
+}

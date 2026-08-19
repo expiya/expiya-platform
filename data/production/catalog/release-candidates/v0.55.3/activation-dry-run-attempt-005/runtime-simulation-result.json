@@ -1,0 +1,8 @@
+{
+  "status": "FAILED_FAIL_CLOSED",
+  "dryRunId": "CATALOG-553-ATOMIC-ACTIVATION-ATTEMPT-005-DRY-RUN",
+  "blocker": "CATALOG_TEMPORAL_INVARIANT_VIOLATION",
+  "error": "CATALOG_LOADER:{\"status\":\"UNAVAILABLE\",\"reason\":\"INTEGRITY_FAILURE\",\"diagnostics\":[{\"code\":\"TEMPORAL_INVARIANT_VIOLATION\"}]}",
+  "activeProductionPointersChanged": false,
+  "activationReady": false
+}

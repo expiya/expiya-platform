@@ -1,7 +1,8 @@
 import { z } from "zod";
+import { strictRfc3339TimestampSchema } from "./strictRfc3339Timestamp";
 
 const id = z.string().trim().min(1).max(256);
-const timestamp = z.iso.datetime({ offset: false });
+const timestamp = strictRfc3339TimestampSchema;
 const hash = z.string().regex(/^sha256:[a-f0-9]{64}$/u);
 const releaseVersion = z.string().regex(/^\d+\.\d+\.\d+$/u);
 export const catalogFactProvenanceSchema = z.strictObject({
@@ -31,8 +32,8 @@ export const catalogManifestSchema = z.strictObject({
   record_count: z.number().int().nonnegative(), publishable_record_count: z.number().int().nonnegative(),
   included_variant_ids: z.array(id).max(10_000), generator_version: id, validator_version: id,
   validator_status: z.enum(["PASS", "FAIL"]),
-  approval: z.strictObject({ state: z.enum(["APPROVED", "PENDING", "REJECTED"]), at: timestamp, reference: id }),
-  staging: z.strictObject({ state: z.literal("STAGED"), at: timestamp, actor_reference: id, target: z.literal("INTERNAL_INTEGRATION_NON_PRODUCTION") }),
+  approval: z.strictObject({ state: z.enum(["APPROVED", "PENDING", "REJECTED"]), at: timestamp, reference: id, manifest_id: id.optional(), manifest_checksum: hash.optional() }),
+  staging: z.strictObject({ state: z.literal("STAGED"), at: timestamp, actor_reference: id, target: z.enum(["INTERNAL_INTEGRATION_NON_PRODUCTION", "IMMUTABLE_RELEASE"]), event_id: id.optional() }),
   previous_release: releaseVersion.nullable(), declared_limitations: z.array(z.string().max(2_000)).max(256),
 });
 

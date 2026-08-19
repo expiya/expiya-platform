@@ -1,0 +1,21 @@
+{
+  "eventId": "CAT-STAGE-AEE3B86604E2D9DFB130",
+  "eventType": "CATALOG_CONTENT_STAGED",
+  "releaseIntent": "v0.55.4",
+  "parentRelease": "v0.55.2",
+  "actor": {
+    "role": "CATALOG_RELEASE_STAGING_PROCESS",
+    "instanceId": "CODEX-CATALOG-GOVERNANCE-001"
+  },
+  "staging_at": "2026-08-19T12:43:54.303Z",
+  "timestampPolicy": {
+    "read": "STRICT_RFC3339_OFFSET_V1",
+    "write": "CANONICAL_UTC_Z"
+  },
+  "semanticContentChecksum": "sha256:b93d733023d21bce20a25e56f3d353c79f533d1f58b57f757994e99b6710210d",
+  "parentCatalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+  "quarantineRegistryChecksum": "sha256:e3507f3e0148f9709b7a2caba7bfe4b696e85e6717b754fd1ec51f82c23fbe44",
+  "semanticDiffChecksum": "sha256:23482d9b5507a8fd978a7ae5030b47245db478fc2a4d27612839cde115263637",
+  "repositoryHead": "1e5bae3146a227dbf14a5b040dc8a3b185140645",
+  "appendOnly": true
+}

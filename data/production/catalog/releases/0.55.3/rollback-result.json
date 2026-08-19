@@ -1,0 +1,27 @@
+{
+  "rollbackId": "CATALOG-553-POST-ACTIVATION-ROLLBACK-001",
+  "rolledBackAt": "2026-08-19T15:40:00.000+03:00",
+  "status": "ROLLED_BACK_ATOMIC_POINTER_SET",
+  "reason": "POST_ACTIVATION_EQUIPMENT_COVERAGE_TOTAL_STALE_566_EXPECTED_549",
+  "failedGate": {
+    "layer": "EQUIPMENT_EVIDENCE",
+    "approvedPayloadSha256": "sha256:c0ea9425ab6cd25f5f20fbcc5ca67b3ba002bddae395e154c401bd03d8582344",
+    "encodedCatalogVariantCount": 566,
+    "requiredCatalogVariantCount": 549,
+    "encodedUncoveredExactVariantCount": 560,
+    "requiredUncoveredExactVariantCount": 543
+  },
+  "restoredReleases": {
+    "catalog": "0.55.2",
+    "dailyLife": "v2.1-0.55.2-2026-08-18-compatibility-rebind",
+    "persona": "v1.0.3-catalog-v0.55.2-2026-08-18",
+    "equipment": "v1.5.0-scale-wave-verified-catalog-v0.55.2-2026-08-19"
+  },
+  "allRollbackChecksumsVerified": true,
+  "immutableFailedActivationArtifactsPreserved": true,
+  "databaseWritePerformed": false,
+  "commitPerformed": false,
+  "pushPerformed": false,
+  "deploymentPerformed": false,
+  "nextRequiredAction": "CREATE_NEW_CORRECTED_EQUIPMENT_COMPATIBILITY_RELEASE_AND_OBTAIN_NEW_CHECKSUM_BOUND_OWNER_ACTIVATION_APPROVAL"
+}

@@ -8,7 +8,7 @@ import { createCarsDecisionV2ProductionComposition } from "./production.server";
 const result = (messageId: string, acts: InterpretationResult["acts"], extra: Partial<InterpretationResult> = {}): InterpretationResult => ({ schemaVersion: 1, messageId, acts, directAnswerRequests: [], constraintMutations: [], budgetMutations: [], modelReferences: [], personaMutations: [], corrections: [], ambiguities: [], ...extra });
 const model = (values: Readonly<Record<string, InterpretationResult>>): StructuredInterpretationModel => ({ interpret: async ({ messageId }) => values[messageId] ?? result(messageId, []) });
 const realizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
-const turn = (conversationId: string, messageId: string, revision: number, userMessage: string) => ({ conversationId, messageId, idempotencyKey: messageId, expectedConversationRevision: revision, userMessage, requestTime: `2026-08-19T16:${String(revision).padStart(2, "0")}:00.000Z` });
+const turn = (conversationId: string, messageId: string, revision: number, userMessage: string) => ({ conversationId, messageId, idempotencyKey: messageId, expectedConversationRevision: revision, userMessage, requestTime: `2026-08-20T16:${String(revision).padStart(2, "0")}:00.000Z` });
 
 const socialMessages = ["Selam", "Selamlar", "Merhaba", "Merhabalar", "Günaydın", "İyi günler", "İyi akşamlar", "Nasılsın?", "Nasıl gidiyor?", "Kolay gelsin", "Hey", "Selam dostum", "Naber?", "Orada mısın?", "Hayırlı işler", "Ne var ne yok?", "Bugün keyfin nasıl?", "Merhaba 😄", "Selam, umarım iyisindir", "Önce bir merhabalaşalım"] as const;
 const contextMessages: readonly [string, "FIRST_CAR" | "BUYING_FOR_OTHER" | "HUMOR"][] = [

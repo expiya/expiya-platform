@@ -1,0 +1,89 @@
+{
+  "dryRunId": "CATALOG-554-FIVE-LAYER-ATOMIC-ACTIVATION-DRY-RUN-003",
+  "status": "READY_FOR_EXPLICIT_FIVE_LAYER_ATOMIC_ACTIVATION_APPROVAL",
+  "catalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "recordCount": 549,
+  "quarantineCount": 17,
+  "releases": {
+    "catalog": "0.55.4",
+    "dailyLife": "v2.1.3-0.55.4-2026-08-20-compatibility-rebind",
+    "persona": "v1.0.6-catalog-v0.55.4-2026-08-20",
+    "equipment": "v1.5.5-catalog-v0.55.4-2026-08-20",
+    "equipmentDailyLife": "v1.0.0-catalog-v0.55.4-2026-08-20"
+  },
+  "payloadChecksums": {
+    "catalog": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+    "dailyLife": "sha256:1c475a6c4b4f80c195879c9a8e138aa61beb729dde050ba1cf2a153d9c046379",
+    "persona": "sha256:edb64d3548fee3945cbadcc4806f41056845f223d26e11fa99d518708df5c5ed",
+    "equipment": "sha256:0135bbfee468fa955d3d00d3129e0e7e01dae7bf9a980488450d8319ddc98d2e",
+    "equipmentDailyLife": "sha256:707748033c89c1623806ee4d432999bc9e66d471106c1eabc31178f653f9a27c"
+  },
+  "proposedPointerTemplateChecksums": {
+    "catalog": "sha256:e5a9c8b1273bb94bb46b6271ed9b12602be9b6cfd50b45e04b6d4effc14ec97d",
+    "dailyLife": "sha256:8724d1a786c099398114ad4cab75915ea7f85651968db17644937074b0dfe559",
+    "persona": "sha256:372fc8e8ae096ab94f19e67c586cba9d9fe89ff4e5f46a3db2e096833193f250",
+    "equipment": "sha256:101803fb4195c8cfe724715ece539d5ba88fb797f6a0194657b2166043feee4b",
+    "equipmentDailyLife": "sha256:01fbd50694ef6a60b0cd3cebbfce7e21f1586a682ccc2b509b8169c9d53f1ef8"
+  },
+  "proposedGeneratedModuleChecksums": {
+    "catalog": "sha256:1cf22796784128df78a2f74bc5bfbce90c6a9037839da6f720283145092f7195",
+    "dailyLife": "sha256:f711dcec0b8ba74827d9be4fbf058821c16ce0973368ee05f441ca09295c5de5",
+    "persona": "sha256:9ebd9c825172ac22c4b8062db117d9a784c7d5f4442620c451da8b99dadc3cbd",
+    "equipment": "sha256:e282e22700252fd0fe9b45d36be2c2c4953beb916367e8e390dbbb1977466396",
+    "equipmentDailyLife": "sha256:36be5b3755c3dc79f42651df661706913cafbf5b13cbac9933a6065949633020"
+  },
+  "catalogPointerDynamicFields": [
+    "activated_at",
+    "activation_reference"
+  ],
+  "catalogPointerFinalChecksumPolicy": "COMPUTE_FROM_REAL_ACTIVATION_INSTANT_AND_APPEND_ONLY_EVENT_AT_APPLY_TIME",
+  "current": {
+    "catalog": {
+      "pointer": "sha256:c359663fd6f58766b2d0cc6a3837f0ff65f056f913cd0a8cace22cb1f8c4578a",
+      "module": "sha256:ca385901dce836a868de39aa367b366cc8e3a2e7c15e369d8c9720493d32c237"
+    },
+    "dailyLife": {
+      "pointer": "sha256:5aa627154c67b13ab81ba1d7349c03a58ec4c6a0a9a4e50b53653ebf6144e81f",
+      "module": "sha256:b86aa13862bd54b81ee540b8736e05fea1502623f51d9e354827d6e81fdb44c3"
+    },
+    "persona": {
+      "pointer": "sha256:c45bbc9507f3ee84d047dd8ee35ede24a8ae527be26a200363cff40872cb1563",
+      "module": "sha256:1795913e14f3c5c7365f035bdb3425f8579e1bf904ee92ba3ad96e03050929f5"
+    },
+    "equipment": {
+      "pointer": "sha256:39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a",
+      "module": "sha256:897a1d8d251240b931ebba5d84fa91b0c937687418a6d7aaa2669c2446ee9e09"
+    },
+    "equipmentDailyLife": {
+      "pointer": null,
+      "module": null
+    }
+  },
+  "rollback": {
+    "catalog": "0.55.2",
+    "dailyLife": "v2.1-0.55.2-2026-08-18-compatibility-rebind",
+    "persona": "v1.0.3-catalog-v0.55.2-2026-08-18",
+    "equipment": "v1.5.0-scale-wave-verified-catalog-v0.55.2-2026-08-19",
+    "equipmentDailyLife": "REMOVE_NEW_POINTER_AND_GENERATED_MODULE"
+  },
+  "writeOrder": [
+    "materialize-and-verify-five-releases",
+    "write-five-generated-modules",
+    "write-five-active-pointers",
+    "run-post-activation-validation"
+  ],
+  "crashRecovery": "ON_ANY_FAILURE_RESTORE_FOUR_EXISTING_POINTERS_AND_MODULES_AND_REMOVE_NEW_EQUIPMENT_DAILY_LIFE_POINTER_MODULE",
+  "postValidation": [
+    "549 catalog records",
+    "17 quarantine IDs absent",
+    "five-layer fingerprint equality",
+    "equipment coverage 4+2+543=549",
+    "equipment quarantine references 0",
+    "equipment decision authority disabled",
+    "equipment daily-life explanation-only boundary",
+    "generated module imports",
+    "rollback metadata"
+  ],
+  "activationPerformed": false,
+  "activePointersChanged": false
+}

@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-import { createHash } from "node:crypto";
 import { describe, expect, it } from "vitest";
 
 import { assertEquipmentSubjectContentFingerprint, calculateEquipmentSubjectContentFingerprint, validateEquipmentSubjectSuccessors } from "./equipmentSubjectFingerprint";
@@ -8,7 +7,6 @@ import { assertEquipmentSubjectContentFingerprint, calculateEquipmentSubjectCont
 const root = path.join(process.cwd(), "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-SCALE-WAVE-001");
 const r1 = path.join(root, "corrections/EE-PILOT-002-SCALE-WAVE-001-R1");
 const load = (file: string) => JSON.parse(fs.readFileSync(path.join(r1, file), "utf8"));
-const activePointer = path.join(process.cwd(), "data/production/equipment-evidence/active.json");
 
 describe("equipment subject content fingerprint policy", () => {
   it("is stable across key order, Unicode equivalence and lifecycle-only changes", () => {
@@ -62,8 +60,7 @@ describe("EE-PILOT-002-SCALE-WAVE-001-R1", () => {
     expect(handoff.semanticMappingRisk.featureCodes).toEqual(["ISOFIX_REAR_OUTER", "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE"]);
   });
 
-  it("does not modify the active Equipment pointer", () => {
-    const digest = `sha256:${createHash("sha256").update(fs.readFileSync(activePointer)).digest("hex")}`;
-    expect(digest).toBe("sha256:39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a");
+  it("records a collection-only correction with no pointer mutation", () => {
+    expect(load("manifest.json")).toMatchObject({ activePointerChanged: false, decisionEngineEffect: "ZERO" });
   });
 });

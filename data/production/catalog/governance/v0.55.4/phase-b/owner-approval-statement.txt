@@ -1,0 +1,18 @@
+Expiya Cars ürün sahibi olarak CATALOG-V0554-OWNER-APPROVAL-MANIFEST-001 kimlikli ve
+sha256:91abb8b0cab5c0d5f0744540a003b3563fe8f338216ee73044a6807aea561837 checksum'lı Catalog v0.55.4 owner approval manifestini onaylıyorum.
+
+Onayım; v0.55.2 parent katalogdan türetilen, v0.55.3 ile vehicle-record düzeyinde
+semantik olarak aynı 549 exact varyantı, 17 quarantine kaydını, 0 yeni exact ID'yi,
+0 authorization alias'ı ve 0 automatic Equipment evidence transferini kapsar.
+
+CAT-STAGE-AEE3B86604E2D9DFB130 staging event'inin 2026-08-19T12:43:54.303Z gerçek UTC instant'ında oluşturulduğunu
+kabul ediyorum. approval_at değerinin bu onayın repository'de append-only kaydedildiği
+gerçek current instant olmasını; approval_at >= staging_at olmasını; effective_as_of
+değerinin approval_at ile aynı instant olmasını ve geçmişe çekilmemesini; activated_at
+değerinin ayrı aktivasyon işleminin gerçek zamanı olmasını ve activated_at >=
+effective_as_of olmasını onaylıyorum. Tüm yeni artifact timestamp'leri canonical UTC Z
+olarak yazılmalıdır.
+
+Bu onay yalnız Phase B final materialization ve bağımlı compatibility candidate
+hazırlama yetkisidir. Active pointer değişikliği, aktivasyon, commit, push, deployment,
+migration veya production database write onayı değildir.

@@ -53,7 +53,7 @@ describe("V2 fourth batch of one hundred distinct conversations", () => {
   it.each(singles)("$name", async ({ name, message, field, budget, lookup, technical: asksTechnical, persona: trait }) => {
     const store = new InMemoryV2ConversationStore(); const traces: Readonly<Record<string, unknown>>[] = [];
     const composition = createCarsDecisionV2ProductionComposition({ store, interpreter, realizer, shadow: true, smokeObserver: (trace) => traces.push(trace) });
-    const output = await runCarsDecisionTurnV2({ conversationId: `batch4-${name}`, messageId: "m1", idempotencyKey: "m1", expectedConversationRevision: 0, userMessage: message, requestTime: "2026-08-19T14:00:00.000Z" }, composition);
+    const output = await runCarsDecisionTurnV2({ conversationId: `batch4-${name}`, messageId: "m1", idempotencyKey: "m1", expectedConversationRevision: 0, userMessage: message, requestTime: "2026-08-20T14:00:00.000Z" }, composition);
     expect(output.message.trim()).not.toBe(""); expect(output.cards).toEqual([]); expect(output.options.length).toBeLessThanOrEqual(10);
     expect(output.message).not.toMatch(/GASOLINE|DIESEL|MHEV|HEV|PHEV|BEV|runtime|fingerprint|authorization|discriminator|evidence/iu);
     const memory = (await store.load(`batch4-${name}`))!.memory!;
@@ -67,8 +67,8 @@ describe("V2 fourth batch of one hundred distinct conversations", () => {
 
   it.each(corrections)("$name", async ({ name, first, second, field, terminalValue }) => {
     const store = new InMemoryV2ConversationStore(); const composition = createCarsDecisionV2ProductionComposition({ store, interpreter, realizer, shadow: true }); const conversationId = `batch4-correction-${name}`;
-    await runCarsDecisionTurnV2({ conversationId, messageId: "m1", idempotencyKey: "m1", expectedConversationRevision: 0, userMessage: first, requestTime: "2026-08-19T14:00:00.000Z" }, composition);
-    const output = await runCarsDecisionTurnV2({ conversationId, messageId: "m2", idempotencyKey: "m2", expectedConversationRevision: 1, userMessage: second, requestTime: "2026-08-19T14:01:00.000Z" }, composition);
+    await runCarsDecisionTurnV2({ conversationId, messageId: "m1", idempotencyKey: "m1", expectedConversationRevision: 0, userMessage: first, requestTime: "2026-08-20T14:00:00.000Z" }, composition);
+    const output = await runCarsDecisionTurnV2({ conversationId, messageId: "m2", idempotencyKey: "m2", expectedConversationRevision: 1, userMessage: second, requestTime: "2026-08-20T14:01:00.000Z" }, composition);
     expect(output.message.trim()).not.toBe(""); expect(output.cards).toEqual([]);
     const events = (await store.load(conversationId))!.memory!.events.filter((event) => event.eventType === "CONSTRAINT" && event.field === field);
     if (terminalValue === "CLEARED") expect(events.at(-1)).toMatchObject({ decisionEffect: "NONE", normalizedValue: null });

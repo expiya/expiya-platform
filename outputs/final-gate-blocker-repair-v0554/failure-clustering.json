@@ -1,0 +1,15 @@
+{
+  "sourceReport": "/private/tmp/expiya-v0554-vitest-failures.json",
+  "totalFailures": 679,
+  "clusters": [
+    { "id": "EVALUATION_CLOCK_BEFORE_ACTIVE_LIFECYCLE", "testCount": 600, "fixturePolicy": "Active-runtime fixtures use the shared post-activation clock; historical and temporal-boundary clocks remain explicit." },
+    { "id": "QUARANTINED_EXACT_ID_IN_MIXED_ACTIVE_FIXTURE", "testCount": 55, "fixturePolicy": "Release-pinned Vehicle Evidence uses its immutable v0.2.0 catalog; active affordability refuses quarantined identities and no alias is created." },
+    { "id": "EQUIPMENT_V1_5_0_ACTIVE_EXPECTATION", "testCount": 12, "fixturePolicy": "Historical tests inspect immutable release/audit artifacts; current active tests derive v1.5.5 coverage from the active payload." },
+    { "id": "HISTORICAL_RELEASE_READING_ACTIVE_POINTER", "testCount": 5, "fixturePolicy": "Historical invariants read their pinned release or append-only audit result and never the current active pointer." },
+    { "id": "STALE_ACTIVE_RELEASE_POINTER_EXPECTATION", "testCount": 2, "fixturePolicy": "Genuinely active tests use the active pointer and matching manifest; historical tests remain pinned." },
+    { "id": "DAILY_LIFE_PERSONA_OLD_RELEASE_EXPECTATION", "testCount": 2, "fixturePolicy": "Lifecycle manifests are validated separately from canonical immutable manifests; old releases remain directly addressable." },
+    { "id": "HARD_CODED_ACTIVE_CATALOG_COUNT", "testCount": 2, "fixturePolicy": "Current Equipment coverage is 4 + 2 + 543 = 549; historical release counts remain unchanged." },
+    { "id": "TEMPORAL_FIXTURE_CONTRACT", "testCount": 1, "fixturePolicy": "The future-effective boundary is tested without constructing an impossible active-pointer chronology." }
+  ],
+  "finalResult": { "testFilesPassed": 234, "testsPassed": 2537, "testsFailed": 0 }
+}

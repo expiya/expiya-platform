@@ -1,0 +1,24 @@
+{
+  "activationEventId": "CAT-ACT-70069F0DA7DFE7128A9D",
+  "attemptId": "CATALOG-554-FIVE-LAYER-ATOMIC-ACTIVATION-ATTEMPT-001",
+  "dryRunId": "CATALOG-554-FIVE-LAYER-ATOMIC-ACTIVATION-DRY-RUN-003",
+  "actor": {
+    "role": "PRODUCT_OWNER",
+    "instanceId": "EXPIYA_CARS_PRODUCT_OWNER_001"
+  },
+  "authorizationStatementSha256": "sha256:7d692464b791c479e9ae0958a825d6f0ddf83edbe39b63f146fe6e0f298522b3",
+  "activated_at": "2026-08-19T21:21:36.130Z",
+  "timestampPolicy": {
+    "read": "STRICT_RFC3339_OFFSET_V1",
+    "write": "CANONICAL_UTC_Z"
+  },
+  "catalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "releases": {
+    "catalog": "0.55.4",
+    "dailyLife": "v2.1.3-0.55.4-2026-08-20-compatibility-rebind",
+    "persona": "v1.0.6-catalog-v0.55.4-2026-08-20",
+    "equipment": "v1.5.5-catalog-v0.55.4-2026-08-20",
+    "equipmentDailyLife": "v1.0.0-catalog-v0.55.4-2026-08-20"
+  },
+  "appendOnly": true
+}

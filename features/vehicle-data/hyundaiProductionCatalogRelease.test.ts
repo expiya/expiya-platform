@@ -8,7 +8,7 @@ import { THIRD_CATALOG_RELEASE_AS_OF, createThirdReleaseManifest, createThirdRel
 import { generateHyundaiProductionCatalogRelease, hyundaiReleaseSourceRecords } from "@/scripts/generate-hyundai-production-catalog-release";
 import { verifyProductionCatalogRelease } from "@/scripts/verify-production-catalog-release";
 import activeCatalogPointer from "@/data/production/catalog/active.json";
-import activeCatalogManifest from "@/data/production/catalog/releases/v0.55.2/manifest.json";
+import activeCatalogManifest from "@/data/production/catalog/releases/v0.55.4/manifest.json";
 import { resolveRecommendationCatalog } from "@/features/vehicle-data/resolveRecommendationCatalog";
 import { validateProductionCatalogActivation, type ProductionCatalogActivation, type ProductionCatalogReleaseManifest } from "@/features/vehicle-data/productionCatalogRelease";
 

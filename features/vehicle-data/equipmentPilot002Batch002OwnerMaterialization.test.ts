@@ -16,8 +16,6 @@ const approvals = read<Array<Record<string, unknown>>>("owner-approval-events.js
 const associations = read<Array<Record<string, unknown>>>("reviewed-association-materializations.json");
 const trims = read<Array<Record<string, unknown>>>("verified-trim-link-materializations.json");
 const coverage = read<Record<string, unknown> & { verifiedAssertionCoverage: { exactVariantCount: number }; reviewedAssociationCoverage: { exactVariantCount: number }; uncoveredCoverage: { exactVariantCount: number } }>("coverage-report.json");
-const activePath = path.join(root, "data/production/equipment-evidence/active.json");
-const modulePath = path.join(root, "data/production/equipment-evidence/activeEquipmentEvidence.generated.ts");
 const tonaleIds = ["54bbe431-a3c2-56d0-8177-cefdf0330bcb", "f12f742b-111c-54de-a006-61361fb1ae04"];
 
 describe("Batch 002 owner approval materialization release candidate", () => {
@@ -51,9 +49,8 @@ describe("Batch 002 owner approval materialization release candidate", () => {
     expect(approvals.some((x) => x.subjectType === "CORRECTION_TRANSITION" || x.subjectType === "ASSERTION" || x.subjectType === "RESEARCH_LEDGER")).toBe(false);
   });
   it("is canonical and checksum-bound", () => { expect(payloadRaw).toBe(canonicalJson(JSON.parse(payloadRaw))); const manifest = read<{ payloadSha256: string }>("manifest.json"); expect(manifest.payloadSha256).toBe(`sha256:${createHash("sha256").update(payloadRaw).digest("hex")}`); });
-  it("retains deterministic active artifacts after separately authorized activation", () => {
-    expect(sha(activePath)).toBe("sha256:39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a");
-    expect(sha(modulePath)).toBe("sha256:897a1d8d251240b931ebba5d84fa91b0c937687418a6d7aaa2669c2446ee9e09");
+  it("retains deterministic immutable candidate artifacts", () => {
+    expect(sha(path.join(dir, "equipment-evidence-release-candidate.json"))).toBe(read<{ payloadSha256: string }>("manifest.json").payloadSha256);
   });
   it("keeps all decision and public-output effects disabled", () => {
     const dry = read<Record<string, unknown>>("decision-neutrality-dry-run.json");

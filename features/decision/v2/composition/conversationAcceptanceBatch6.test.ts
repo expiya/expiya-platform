@@ -9,7 +9,7 @@ import { createCarsDecisionV2ProductionComposition } from "./production.server";
 const result = (messageId: string, acts: InterpretationResult["acts"] = [], extra: Partial<InterpretationResult> = {}): InterpretationResult => ({ schemaVersion: 1, messageId, acts, directAnswerRequests: [], constraintMutations: [], budgetMutations: [], modelReferences: [], personaMutations: [], corrections: [], ambiguities: [], ...extra });
 const model = (values: Readonly<Record<string, InterpretationResult>> = {}): StructuredInterpretationModel => ({ interpret: async ({ messageId }) => values[messageId] ?? result(messageId) });
 const realizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
-const request = (conversationId: string, messageId: string, revision: number, userMessage: string) => ({ conversationId, messageId, idempotencyKey: messageId, expectedConversationRevision: revision, userMessage, requestTime: `2026-08-19T18:${String(revision).padStart(2, "0")}:00.000Z` });
+const request = (conversationId: string, messageId: string, revision: number, userMessage: string) => ({ conversationId, messageId, idempotencyKey: messageId, expectedConversationRevision: revision, userMessage, requestTime: `2026-08-20T18:${String(revision).padStart(2, "0")}:00.000Z` });
 
 async function runSequence(name: string, messages: readonly string[], interpretations: Readonly<Record<string, InterpretationResult>> = {}) {
   const store = new InMemoryV2ConversationStore(); const traces: Readonly<Record<string, unknown>>[] = []; const conversationId = `batch6-${name}`;
