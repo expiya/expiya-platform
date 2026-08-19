@@ -1,0 +1,1261 @@
+{
+  "assertions": [
+    {
+      "assertionId": "EE-AST-1D6D3CA845646F9666E8FC08",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Ön çarpma uyarısı (PCW) & Otonom acil durum freni (AEB)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-7E6D44CA3610C85B91879505",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-0FA2A2D75DEB42A0CF6F0814",
+      "featureCode": "FORWARD_COLLISION_WARNING",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Ön çarpma uyarısı (PCW) & Otonom acil durum freni (AEB)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-62DDC3382E62D41CC129D273",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-676C95F78A63AB232DB0ADDE",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Şerit takip asistanı (Direksiyon destekli) (LSS)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-DD5DBCA4E36701087D5039B4",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-9E9454C9264624B64807AA32",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Adaptif hız sabitleme sistemi (ACC) & Akıllı hız sabitleme sistemi (ICC)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-9AF316DB95642770BD36EC4E",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-4F1DB603ED89B7E5F86B286F",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Kör nokta uyarı sistemi (BSD) & Şerit değiştirme asistanı (LCA)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-5426CE9D9857640A2D5D4455",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-AB61C2101C25363E1C530D30",
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Geri manevra çapraz trafik uyarısı (Fren destekli) (RCTB)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-B1A3AEDA4B45AF4FC45BADA5",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-34542C5A8BDFBA2D6312397D",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Trafik işareti algılama sistemi (TSR)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-516CC289B821D22E2FCC0C4C",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-FFBB2AE01D4EF6515356C47E",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Sürücü yorgunluk algılama sistemi (DFM)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-AC69E2CCE9F3E309C46BAC8E",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-643A4ED6F46A2939E171AFAE",
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Uzun far asistanı (HBA)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-DCC915D4CFC640BEC9435534",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-89BEB93E6FEF759D088D8EA6",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Panoramik görüş kamerası (360°)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-469CDBEEBF2B6202D01D4245",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-DF209D5DD63D1D4676A4554B",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Ön ve arka park sensörü (2 x Ön, 3 x Arka)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-6B6A0CA0F399112D9BF363E7",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-F61BA182E2CEFE2B9D677D12",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Ön ve arka park sensörü (2 x Ön, 3 x Arka)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-36688536E860E99255BA76E9",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-C1D32121D7C40C2E68CF6AE9",
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Ön yolcu koltuğunda ve arka yan koltuklarda ISOFIX bağlantıları",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-EF8509E8A8E5C2299112FAE9",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-32E09C903E68CA66657E8BB8",
+      "featureCode": "ISOFIX_FRONT_PASSENGER",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Ön yolcu koltuğunda ve arka yan koltuklarda ISOFIX bağlantıları",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-6C121ECFF844B9A31AAEA80E",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-E360BA4F42503389CF9D153C",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Sürücü ve ön yolcu için yan hava yastıkları / Perde hava yastıkları",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-94E0B049D067EFDB17396881",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-A2D26D95A104F6E78665C82C",
+      "featureCode": "CENTER_AIRBAG",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Sürücü ve ön yolcu için ön-orta hava yastığı",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-15397D050318603FFD535284",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-E813B6CE835B1591314B54F8",
+      "featureCode": "REAR_SEAT_OCCUPANT_ALERT",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Çocuk varlık tespiti (CPD)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-0B6C0EF9EFBEE171124716EA",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-7B837EB201C487374DD3CBFD",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Isıtmalı ön koltuklar",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-C4AD059AC5FF9645DD3FBE9A",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-909219F9A170E16EE01ECDD7",
+      "featureCode": "VENTILATED_FRONT_SEATS",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Havalandırmalı ön koltuklar",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-1C68AE93D6360F4368D9EC76",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "NEGATIVE",
+      "negativeEvidenceReason": "OFFICIAL_EQUIPMENT_MATRIX_EXPLICIT_ABSENCE",
+      "availabilityStatus": "NOT_AVAILABLE",
+      "provisionMode": "NOT_OFFERED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-5DE0BBD244A7F5F00100FF65",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "6 yöne elektrikli ayarlanabilir sürücü koltuğu",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-7C2BF167B63E2D3C4EB42B1B",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-050C1890CD8B91624ED0CAA7",
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "4 yöne elektrikli ayarlanabilir ön yolcu koltuğu",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-55C75248AFE68551C9F4880C",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-D50A940ACD66BFC6024CEF94",
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Çok fonksiyonlu, ısıtmalı vegan deri direksiyon simidi",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-CBCDD356DDE91B2E8D730851",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-058B140D0E834A66E89F1D8F",
+      "featureCode": "KEYLESS_ENTRY",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Anahtarsız giriş ve anahtarsız çalıştırma",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-CB765376DCA0E03B18F61B20",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-23FD1361D66E073EABF8046A",
+      "featureCode": "KEYLESS_START",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Anahtarsız giriş ve anahtarsız çalıştırma",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-70BDF2E3B707547FAFDEC686",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-F8E5B151536777EF825B86C6",
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Panoramik cam tavan (Cam tavan perdesi ile)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-684DAF0A75806048A390633D",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "NEGATIVE",
+      "negativeEvidenceReason": "OFFICIAL_EQUIPMENT_MATRIX_EXPLICIT_ABSENCE",
+      "availabilityStatus": "NOT_AVAILABLE",
+      "provisionMode": "NOT_OFFERED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-6D1B222840A6A41F62C3B05B",
+      "featureCode": "APPLE_CARPLAY",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Apple CarPlay & Android Auto (Kablolu & kablosuz bağlantı)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-500ABF423390B5DFD6A0B911",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-F24580770C2B1F565FAF4843",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Apple CarPlay & Android Auto (Kablolu & kablosuz bağlantı)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-076C0A0A260AEB8248B683B2",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-6CC8AB76C4D72C8AE39EFCFC",
+      "featureCode": "ANDROID_AUTO",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Apple CarPlay & Android Auto (Kablolu & kablosuz bağlantı)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-19539287ADDDE0C978D59DE2",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-EEC80BE8B9DAE268E08B98B0",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Apple CarPlay & Android Auto (Kablolu & kablosuz bağlantı)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-BCF09CF548220F125A8E7A6B",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-235B34B04CD38CE40FD64B64",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Akıllı telefonlar için havalandırmalı kablosuz şarj istasyonu (50 W)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-95090216B1E1DFAE6DCE87CC",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "NEGATIVE",
+      "negativeEvidenceReason": "OFFICIAL_EQUIPMENT_MATRIX_EXPLICIT_ABSENCE",
+      "availabilityStatus": "NOT_AVAILABLE",
+      "provisionMode": "NOT_OFFERED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-A6EC1504B0EA29FF8B9A6925",
+      "featureCode": "LED_HEADLIGHTS",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "LED ön farlar",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-BF61F2F6D808502A6D3009E5",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-D58E2467C2839DEC280FAEE3",
+      "featureCode": "AUTOMATIC_HIGH_BEAM",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Uzun far asistanı (HBA)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-F99C0A7B98505938ADAE87DB",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-58B86C9017D07E52A192F505",
+      "featureCode": "TERRAIN_DRIVE_MODES",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "4 farklı sürüş modu (Eco, normal, spor, kar)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-4EACE3C81957F04D387BD1DB",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    }
+  ]
+}

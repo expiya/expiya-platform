@@ -1,0 +1,36 @@
+[
+  {
+    "subjectType": "TRIM_LINK",
+    "subjectId": "EE-LINK-TRIM-42592C8F9C359A7E696F9A42",
+    "predecessorId": "EE-LINK-TRIM-FD49E4B4742F8373AFBC15F4",
+    "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+    "stored": "sha256:49673329315c7aac19bdaefdba104aa0d7df2829e05b8fb8466b11299d9855fd",
+    "computed": "sha256:49673329315c7aac19bdaefdba104aa0d7df2829e05b8fb8466b11299d9855fd",
+    "computedFromSuccessor": "sha256:49673329315c7aac19bdaefdba104aa0d7df2829e05b8fb8466b11299d9855fd",
+    "brand": "Nissan",
+    "semanticEqual": true,
+    "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+    "fingerprintPolicyVersion": "1.0.0",
+    "match": true,
+    "semanticImmutability": true,
+    "disposition": "SECOND_REVIEW_PASSED",
+    "reasonCode": "FINGERPRINT_RECOMPUTED_AND_SEMANTICALLY_IDENTICAL"
+  },
+  {
+    "subjectType": "TRIM_LINK",
+    "subjectId": "EE-LINK-TRIM-7199BBD60B492498787EFE56",
+    "predecessorId": "EE-LINK-TRIM-CFACA030CFB20683C6A3243F",
+    "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+    "stored": "sha256:d1454f9d049b75e431d5a17e96d3d5c8fa1f87bfb3a4aa7f58d6922b5cd7f4c2",
+    "computed": "sha256:d1454f9d049b75e431d5a17e96d3d5c8fa1f87bfb3a4aa7f58d6922b5cd7f4c2",
+    "computedFromSuccessor": "sha256:d1454f9d049b75e431d5a17e96d3d5c8fa1f87bfb3a4aa7f58d6922b5cd7f4c2",
+    "brand": "BYD",
+    "semanticEqual": true,
+    "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+    "fingerprintPolicyVersion": "1.0.0",
+    "match": true,
+    "semanticImmutability": true,
+    "disposition": "SECOND_REVIEW_PASSED",
+    "reasonCode": "FINGERPRINT_RECOMPUTED_AND_SEMANTICALLY_IDENTICAL"
+  }
+]

@@ -79,7 +79,7 @@ describe("Batch 002 owner approval manifest preparation", () => {
 
   it("records no activation during manifest preparation while preserving disabled authority", () => {
     const active = JSON.parse(readFileSync(path.join(root, "data/production/equipment-evidence/active.json"), "utf8"));
-    expect(active.activeEquipmentEvidenceRelease).toBe("v1.4.0-reviewed-associations-catalog-v0.55.2-2026-08-18");
+    expect(active.activeEquipmentEvidenceRelease).toBe("v1.5.0-scale-wave-verified-catalog-v0.55.2-2026-08-19");
     expect(manifest.decisionAuthority).toBe("SHADOW_AND_EXPLANATION_DISABLED");
   });
 });

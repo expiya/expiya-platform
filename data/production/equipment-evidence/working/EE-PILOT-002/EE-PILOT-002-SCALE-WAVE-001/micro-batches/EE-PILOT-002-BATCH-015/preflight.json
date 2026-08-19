@@ -1,0 +1,44 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-015",
+  "familyId": "family-6394d5451a9adef84012a421",
+  "exactVariantIds": [
+    "95bd2cd3-7940-5678-8a8f-56ec41f5c3d0"
+  ],
+  "brandModels": [
+    "Bentley Continental GT"
+  ],
+  "disposition": "SOURCE_INSUFFICIENT",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "95bd2cd3-7940-5678-8a8f-56ec41f5c3d0",
+      "canonicalBrand": "Bentley",
+      "canonicalModel": "Continental GT",
+      "trim": "Speed Hybrid",
+      "modelYear": 2026,
+      "bodyStyle": "Coupe",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "PHEV",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "FUEL_PHEV",
+      "testAxes": [
+        "FUEL_PHEV"
+      ],
+      "familyId": "family-6394d5451a9adef84012a421",
+      "market": "TR",
+      "transmission": "8-speed dual-clutch automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_NOT_CONFIRMED",
+      "disposition": "SOURCE_INSUFFICIENT",
+      "preflightReason": "No official Turkey-market exact MY2026 Continental GT Speed Hybrid equipment source was located.",
+      "officialSourceUrl": null,
+      "officialSourceType": null
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

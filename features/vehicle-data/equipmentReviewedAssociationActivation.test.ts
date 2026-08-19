@@ -13,18 +13,18 @@ const tonaleIds = ["54bbe431-a3c2-56d0-8177-cefdf0330bcb", "f12f742b-111c-54de-a
 
 describe("atomic reviewed-association equipment activation", () => {
   it("activates the authorized pointer and generated module hashes", () => {
-    expect(sha(path.join(root, "data/production/equipment-evidence/active.json"))).toBe("sha256:4ba2ec5ee76a09906092c19446a2b4846015ac5fd8d08708056b413a721ec8ed");
-    expect(sha(path.join(root, "data/production/equipment-evidence/activeEquipmentEvidence.generated.ts"))).toBe("sha256:9c5971b14716bc503a649f99790655bdddc02f8513a6e13b6f198749f0166fea");
+    expect(sha(path.join(root, "data/production/equipment-evidence/active.json"))).toBe("sha256:39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a");
+    expect(sha(path.join(root, "data/production/equipment-evidence/activeEquipmentEvidence.generated.ts"))).toBe("sha256:897a1d8d251240b931ebba5d84fa91b0c937687418a6d7aaa2669c2446ee9e09");
   });
   it("loads the active evidence tiers separately", () => {
-    expect(getVerifiedEquipmentAssertions()).toHaveLength(47); expect(getReviewedEquipmentAssociations()).toHaveLength(49); expect(getVerifiedEquipmentTrimLinks()).toHaveLength(4);
+    expect(getVerifiedEquipmentAssertions()).toHaveLength(112); expect(getReviewedEquipmentAssociations()).toHaveLength(49); expect(getVerifiedEquipmentTrimLinks()).toHaveLength(6);
     expect(getVerifiedEquipmentAssertions().some((item) => tonaleIds.includes(item.exactVariantId))).toBe(false);
     expect(getReviewedEquipmentAssociations().every((item) => tonaleIds.includes(item.exactVariantId))).toBe(true);
   });
   it("reports exact tier coverage without treating associations as verified", () => {
-    expect(loadActiveEquipmentEvidenceStatus()).toMatchObject({ verifiedAssertionCount: 47, reviewedAssociationCount: 49, verifiedTrimLinkCount: 4,
-      verifiedAssertionCoveredVariantCount: 2, associationOnlyCoveredVariantCount: 2, uncoveredExactVariantCount: 562,
-      totalCatalogVariantCount: 566, availabilityProjectionCount: 47, decisionAuthority: "SHADOW_AND_EXPLANATION_DISABLED" });
+    expect(loadActiveEquipmentEvidenceStatus()).toMatchObject({ verifiedAssertionCount: 112, reviewedAssociationCount: 49, verifiedTrimLinkCount: 6,
+      verifiedAssertionCoveredVariantCount: 4, associationOnlyCoveredVariantCount: 2, uncoveredExactVariantCount: 560,
+      totalCatalogVariantCount: 566, availabilityProjectionCount: 112, decisionAuthority: "SHADOW_AND_EXPLANATION_DISABLED" });
   });
   it("keeps Tonale availability projections and all decision effects at zero", () => {
     const dry = read<Record<string, unknown>>("decision-neutrality-dry-run.json");

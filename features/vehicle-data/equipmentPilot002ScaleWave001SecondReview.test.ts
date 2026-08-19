@@ -1,0 +1,17 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import { describe, expect, it } from "vitest";
+
+const ROOT = process.cwd(), WAVE = "data/production/equipment-evidence/working/EE-PILOT-002/EE-PILOT-002-SCALE-WAVE-001", REVIEW = `${WAVE}/second-review`;
+const read = <T>(file: string): T => JSON.parse(readFileSync(path.join(ROOT, file), "utf8")) as T;
+const sha = (file: string) => `sha256:${createHash("sha256").update(readFileSync(path.join(ROOT, file))).digest("hex")}`;
+describe("Scale Wave 001 independent second review", () => {
+  const result = read<Record<string, unknown>>(`${REVIEW}/independent-review-results.json`), events = read<Array<Record<string, unknown>>>(`${REVIEW}/independent-review-events.json`);
+  it("scopes exactly 94 unique subjects and an independent reviewer", () => { expect(events).toHaveLength(94); expect(new Set(events.map((x) => `${x.subjectType}|${x.subjectId}`)).size).toBe(94); expect(result.reviewerActorId).not.toBe("ACTOR-COLLECTOR-CODEX-CATALOG-001"); expect(result.reviewerActorId).not.toBe("EQUIPMENT_OWNER_001"); });
+  it("fails missing immutable assertion/link fingerprints closed", () => { expect(result).toMatchObject({ finalDisposition: "REQUIRES_COLLECTION_CORRECTION", passedAssertions: 0, conflictAssertions: 67, passedTrimLinks: 0, conflictTrimLinks: 3, systematicCorrection: "ADD_CONTENT_FINGERPRINT_TO_67_ASSERTIONS_AND_3_TRIM_LINKS" }); });
+  it("requires a Volvo identity audit and does not promote configuration summary", () => { expect(result).toMatchObject({ volvoMicroBatchDisposition: "CATALOG_EVIDENCE_AUDIT_REQUIRED" }); const micro = read<Array<Record<string, unknown>>>(`${REVIEW}/microbatch-terminal-results.json`).find((x) => x.microBatchId === "EE-PILOT-002-BATCH-025"); expect(micro).toMatchObject({ passedAssertions: 0, conflictAssertions: 2, passedAssociations: 0, conflictAssociations: 24, passedTrimLinks: 0, identityResult: "CATALOG_EVIDENCE_AUDIT_REQUIRED" }); });
+  it("visually validates BYD and Nissan matrix column and legends", () => { expect(read<Record<string, unknown>>(`${REVIEW}/pdf-matrix-visual-review.json`)).toMatchObject({ byd: { exactColumn: "Comfort", result: "PASSED" }, nissan: { exactColumn: "Platinum Premium", result: "PASSED" } }); });
+  it("validates source, mapping, ledger and backlog isolation", () => { expect(read<Array<unknown>>(`${REVIEW}/source-review-results.json`)).toHaveLength(9); expect(read<Record<string, unknown>>(`${REVIEW}/mapping-review.json`)).toMatchObject({ mappingCount: 91, resolvedCount: 91 }); expect(read<Record<string, unknown>>(`${REVIEW}/ledger-review.json`)).toEqual({ total: 153, uniquePairs: 153, assertions: 67, associations: 24, inconclusive: 62, notResearched: 0, silentAbsenceNegativeEvidence: 0 }); expect(read<Record<string, unknown>>(`${REVIEW}/cross-boundary-review.json`)).toMatchObject({ disposition: "PASSED", backlogSubjectsIncluded: 0 }); });
+  it("keeps its historical pointer audit value while allowing the later authorized activation", () => { expect(result.activePointerBeforeSha256).toBe("sha256:4ba2ec5ee76a09906092c19446a2b4846015ac5fd8d08708056b413a721ec8ed"); expect(sha("data/production/equipment-evidence/active.json")).toBe("sha256:39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a"); expect(result).toMatchObject({ ownerApprovalProduced: false, materializationProduced: false, promotionProduced: false, decisionEngineEffect: "ZERO" }); });
+});

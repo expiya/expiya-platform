@@ -1,0 +1,45 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-006",
+  "familyId": "family-14018d5d1112a553123feb08",
+  "exactVariantIds": [
+    "3383408d-d77b-5643-93ee-8dc0cb3465a0"
+  ],
+  "brandModels": [
+    "Mercedes-Benz Vito Panelvan"
+  ],
+  "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "3383408d-d77b-5643-93ee-8dc0cb3465a0",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "Vito Panelvan",
+      "trim": "114 CDI Select",
+      "modelYear": 2026,
+      "bodyStyle": "Panel Van",
+      "vehicleUseClass": "LIGHT_COMMERCIAL",
+      "fuelType": "DIESEL",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "BODY_PANEL_VAN+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_PANEL_VAN",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ],
+      "familyId": "family-14018d5d1112a553123feb08",
+      "market": "TR",
+      "transmission": "9-speed automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_PARTIALLY_CONFIRMED",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "preflightReason": "Panelvan and SELECT equipment are official; exact 114 CDI Select MY2026 applicability remains unresolved.",
+      "officialSourceUrl": "https://www.mercedes-benz.com.tr/vans/models/vito/panel-van/overview.html",
+      "officialSourceType": "OFFICIAL_PRODUCT_PAGE"
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

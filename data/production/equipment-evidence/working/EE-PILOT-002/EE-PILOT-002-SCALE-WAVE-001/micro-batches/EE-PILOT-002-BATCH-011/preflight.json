@@ -1,0 +1,45 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-011",
+  "familyId": "family-33e76cd3935efed1fcd1b862",
+  "exactVariantIds": [
+    "9d6a26bb-88c0-596e-9905-246e1371e27a"
+  ],
+  "brandModels": [
+    "Hyundai KONA"
+  ],
+  "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "9d6a26bb-88c0-596e-9905-246e1371e27a",
+      "canonicalBrand": "Hyundai",
+      "canonicalModel": "KONA",
+      "trim": "1.6 T-GDI 180 PS DCT Prime",
+      "modelYear": 2026,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "GASOLINE",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "BODY_SUV_CROSSOVER+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_SUV_CROSSOVER",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ],
+      "familyId": "family-33e76cd3935efed1fcd1b862",
+      "market": "TR",
+      "transmission": "7-speed dual-clutch automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_PARTIALLY_CONFIRMED",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "preflightReason": "Current page confirms 180 PS+DCT but exact Prime+MY2026 equipment applicability is not established by the available older matrix.",
+      "officialSourceUrl": "https://www.hyundai.com/tr/tr/modeller/kona/performans.html",
+      "officialSourceType": "OFFICIAL_PRODUCT_PAGE"
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

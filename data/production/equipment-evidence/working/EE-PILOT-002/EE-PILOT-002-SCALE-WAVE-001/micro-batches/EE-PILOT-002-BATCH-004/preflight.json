@@ -1,0 +1,45 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-004",
+  "familyId": "family-0da0d08ceaf85db6f7522875",
+  "exactVariantIds": [
+    "3dceba8a-9f0a-56ac-aabc-515193e1c62a"
+  ],
+  "brandModels": [
+    "Porsche Taycan"
+  ],
+  "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "3dceba8a-9f0a-56ac-aabc-515193e1c62a",
+      "canonicalBrand": "Porsche",
+      "canonicalModel": "Taycan",
+      "trim": "4S",
+      "modelYear": 2026,
+      "bodyStyle": "Sedan",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "BEV",
+      "priceSegment": "HIGH",
+      "selectionReason": "BODY_SEDAN+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_SEDAN",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ],
+      "familyId": "family-0da0d08ceaf85db6f7522875",
+      "market": "TR",
+      "transmission": "Single-speed automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_PARTIALLY_CONFIRMED",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "preflightReason": "Current official comparison is MY2027; exact catalog MY2026 temporal applicability is unresolved.",
+      "officialSourceUrl": "https://compare.porsche.com/tr-TR?model-series=taycan",
+      "officialSourceType": "OFFICIAL_COMPARISON"
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

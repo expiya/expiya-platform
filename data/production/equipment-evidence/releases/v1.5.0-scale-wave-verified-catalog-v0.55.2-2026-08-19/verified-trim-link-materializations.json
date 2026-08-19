@@ -1,0 +1,169 @@
+[
+  {
+    "approvalManifestChecksum": "sha256:bc7f5af057e55cac8dacbb094286cdc030b70f53433b66b35ba2daa5346ee1f3",
+    "approvalManifestId": "EE-OAM-SCALE-WAVE-001-R1-BYD-NISSAN",
+    "assertionMaterializationIds": [
+      "EE-MAT-0B785FA827E07D5DCDEF",
+      "EE-MAT-208238310A31228B150F",
+      "EE-MAT-2A2B40841F2EA4F4F818",
+      "EE-MAT-2AA960EB801A1870B386",
+      "EE-MAT-2F5D29D01CF3555FE427",
+      "EE-MAT-32121449B5A637A91F18",
+      "EE-MAT-380A821A51E9226559C2",
+      "EE-MAT-391AB93451C86F2AD790",
+      "EE-MAT-46EA1D99DC12DFCEB30B",
+      "EE-MAT-4D7D5A54D3A00B9CE2C3",
+      "EE-MAT-569126E695F45520DA11",
+      "EE-MAT-5889072BE05E6EFF78CB",
+      "EE-MAT-5F9CB7BF01226A8B576D",
+      "EE-MAT-698BF681A5EF3E6BB2F2",
+      "EE-MAT-71421A6A26996B4F3C21",
+      "EE-MAT-7281286ED20D7D8307D1",
+      "EE-MAT-7D607D5C17460470CADF",
+      "EE-MAT-7FCCF26283CD726F74C1",
+      "EE-MAT-8CBDE1AAC855D6295FDA",
+      "EE-MAT-8F29C2FC1FA3A9BA6DD6",
+      "EE-MAT-9C51F5A6F3BA0151EC90",
+      "EE-MAT-A74850EBA1D4679429F0",
+      "EE-MAT-BC777E05461E008516DE",
+      "EE-MAT-C4F7E39F678DA8487EFB",
+      "EE-MAT-C56FD6AFE38701D96AAF",
+      "EE-MAT-C61A8A93300930D39271",
+      "EE-MAT-C73DA3C42D4A3F103456",
+      "EE-MAT-CA0B232B777D2243A14C",
+      "EE-MAT-CE96FE597CE74200919F",
+      "EE-MAT-DD7350193493A46CA323",
+      "EE-MAT-DE0AE8DBF2E31B8C0282",
+      "EE-MAT-E4263DECCE53F22F8840",
+      "EE-MAT-E7A30F5CCA8C58D02667"
+    ],
+    "canonicalModel": "DOLPHIN",
+    "canonicalTrim": "Comfort",
+    "canonicalTrimId": "EE-TRIM-1AACCBB8D09C36EF358F7209",
+    "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+    "catalogRelease": "v0.55.2",
+    "contentFingerprint": "sha256:d1454f9d049b75e431d5a17e96d3d5c8fa1f87bfb3a4aa7f58d6922b5cd7f4c2",
+    "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+    "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+    "fingerprintPolicy": {
+      "policyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+      "version": "1.0.0"
+    },
+    "identitySources": [
+      {
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "sourceId": "SRC-000092"
+      }
+    ],
+    "independentReviewEventId": "EE-R1-REV-AFD803EBD8C4AB8BC3184A2D",
+    "locators": [
+      {
+        "column": "Comfort",
+        "kind": "PDF_PAGE",
+        "pageNumber": 3
+      }
+    ],
+    "marketApplicability": "TR",
+    "materializationId": "EE-MAT-TRIM-6EEC21E5D3710072E7A5",
+    "materializationType": "VERIFIED_EQUIPMENT_TRIM_LINK",
+    "materializedAt": "2026-08-19T09:00:00.000+03:00",
+    "modelYearApplicability": {
+      "from": 2025,
+      "to": 2025
+    },
+    "ownerApprovalEventId": "EE-OAE-6EEC21E5D3710072E7A5",
+    "policyVersion": "SCALE_WAVE_VERIFICATION_MATERIALIZATION_V1",
+    "powertrain": "BEV",
+    "predecessorTrimLinkId": "EE-LINK-TRIM-CFACA030CFB20683C6A3243F",
+    "sourceTrimLinkId": "EE-LINK-TRIM-7199BBD60B492498787EFE56",
+    "terminalSupersessionChain": [
+      "EE-LINK-TRIM-CFACA030CFB20683C6A3243F",
+      "EE-LINK-TRIM-7199BBD60B492498787EFE56"
+    ],
+    "transmission": "Single-speed automatic",
+    "verificationState": "VERIFIED"
+  },
+  {
+    "approvalManifestChecksum": "sha256:bc7f5af057e55cac8dacbb094286cdc030b70f53433b66b35ba2daa5346ee1f3",
+    "approvalManifestId": "EE-OAM-SCALE-WAVE-001-R1-BYD-NISSAN",
+    "assertionMaterializationIds": [
+      "EE-MAT-021DAD64C095ACB20A51",
+      "EE-MAT-082157DC0736CD541B05",
+      "EE-MAT-13C760F9CC811B5D0E94",
+      "EE-MAT-16C5A17074F09EAA7719",
+      "EE-MAT-219A91CF26539FD7E390",
+      "EE-MAT-270B7742B02E505AC697",
+      "EE-MAT-33B9BD18F9868436540B",
+      "EE-MAT-4349AB28DF9750C1EF0B",
+      "EE-MAT-4E163060136AFFFB1A9B",
+      "EE-MAT-4E57C37808BE1FD2ABCB",
+      "EE-MAT-4F1398D2C00FF493772F",
+      "EE-MAT-4F7CD2792A14CF2A8D67",
+      "EE-MAT-507416DF870EE9CC7263",
+      "EE-MAT-5F89E2D0BDCC5721F715",
+      "EE-MAT-73F27A85727BDE468014",
+      "EE-MAT-7A649E5B56992392C07D",
+      "EE-MAT-7ADC22D518BB40A97483",
+      "EE-MAT-80B57753B4F6FA7750B9",
+      "EE-MAT-8CE58893867CD3B517A1",
+      "EE-MAT-A2C17B24AC4539319F5B",
+      "EE-MAT-A6380031D81F9AB0DA10",
+      "EE-MAT-AFE707A08358EAB2A6CF",
+      "EE-MAT-B8ADE109D7D3212AC929",
+      "EE-MAT-C358663E978DFEA4D285",
+      "EE-MAT-C929F412FED3EBF406E0",
+      "EE-MAT-D35349A0CF3108DBC38A",
+      "EE-MAT-D8BA875828232B8CB708",
+      "EE-MAT-DD685D08282C7EEEE680",
+      "EE-MAT-E021069C035542810DE7",
+      "EE-MAT-E107AA4EE580EB230EE8",
+      "EE-MAT-E4A177DDDD193CDBE0EA",
+      "EE-MAT-F363B6F843C0177A313B"
+    ],
+    "canonicalModel": "Qashqai",
+    "canonicalTrim": "Platinum Premium",
+    "canonicalTrimId": "EE-TRIM-9B48D6B65A4754E946890981",
+    "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+    "catalogRelease": "v0.55.2",
+    "contentFingerprint": "sha256:49673329315c7aac19bdaefdba104aa0d7df2829e05b8fb8466b11299d9855fd",
+    "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+    "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+    "fingerprintPolicy": {
+      "policyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+      "version": "1.0.0"
+    },
+    "identitySources": [
+      {
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "sourceId": "SRC-000095"
+      }
+    ],
+    "independentReviewEventId": "EE-R1-REV-946C9BB5BFF3F0F3AC1D3926",
+    "locators": [
+      {
+        "column": "Platinum Premium e-POWER",
+        "kind": "PDF_PAGE",
+        "pageNumber": 13
+      }
+    ],
+    "marketApplicability": "TR",
+    "materializationId": "EE-MAT-TRIM-DDE2407655088F3AD92A",
+    "materializationType": "VERIFIED_EQUIPMENT_TRIM_LINK",
+    "materializedAt": "2026-08-19T09:00:00.000+03:00",
+    "modelYearApplicability": {
+      "from": 2026,
+      "to": 2026
+    },
+    "ownerApprovalEventId": "EE-OAE-DDE2407655088F3AD92A",
+    "policyVersion": "SCALE_WAVE_VERIFICATION_MATERIALIZATION_V1",
+    "powertrain": "e-POWER",
+    "predecessorTrimLinkId": "EE-LINK-TRIM-FD49E4B4742F8373AFBC15F4",
+    "sourceTrimLinkId": "EE-LINK-TRIM-42592C8F9C359A7E696F9A42",
+    "terminalSupersessionChain": [
+      "EE-LINK-TRIM-FD49E4B4742F8373AFBC15F4",
+      "EE-LINK-TRIM-42592C8F9C359A7E696F9A42"
+    ],
+    "transmission": "Automatic",
+    "verificationState": "VERIFIED"
+  }
+]

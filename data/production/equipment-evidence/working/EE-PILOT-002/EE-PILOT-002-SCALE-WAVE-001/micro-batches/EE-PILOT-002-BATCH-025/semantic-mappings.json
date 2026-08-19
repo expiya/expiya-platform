@@ -1,0 +1,291 @@
+{
+  "policyVersion": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+  "mappings": [
+    {
+      "mappingId": "EE-MAP-C5D159F9589FE27ED5E8AAA4",
+      "sourceRowId": "EE-ROW-D89E11EA92814BC51CBFA50D",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Adaptif hız sabitleyici",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-1154FA11B19F305C40375ECE",
+      "sourceRowId": "EE-ROW-03612F467D9240A434392677",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Kör Nokta Bilgi Sistemi (BLIS)",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-FEEDD291A776FB4365E54719",
+      "sourceRowId": "EE-ROW-96D2CDA2EA39EA61650EB72A",
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Otomatik fren destekli arka çapraz uyarı sistemi",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-623CA0A559CC9BFC4B0217B7",
+      "sourceRowId": "EE-ROW-0B0F8D9B11982D04EB64955A",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Trafik İşareti Bilgisi",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-65B45BD8FE49789A18ED19E5",
+      "sourceRowId": "EE-ROW-005B4A735E9780BA8D545E06",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Sürücü uyarı sistemi",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-4E9073D98AB8D2EF9B520E41",
+      "sourceRowId": "EE-ROW-01A95034A34CDC2D4673E72B",
+      "featureCode": "LANE_DEPARTURE_WARNING",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Şeritten ayrılma uyarı sistemi",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-3A844A3B1A66C137D55BD730",
+      "sourceRowId": "EE-ROW-14FD8B4D6627538C5D665176",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Şerit takip desteği",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-38DFEB712A7A6EDFC6AE3935",
+      "sourceRowId": "EE-ROW-9E7866D3074BAF850973F948",
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Pilot Assist",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-A18D40C3A6A8C8B3105C6D4B",
+      "sourceRowId": "EE-ROW-121219CF73F13FA86C0D9439",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "360° kamera, 3D görünüm",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-AD436ECBECC705055B3E3D83",
+      "sourceRowId": "EE-ROW-A5A79086646D90B248D7A162",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Park yardımı, ön ve arka",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-D81558123A1F749BAFBEF643",
+      "sourceRowId": "EE-ROW-A5A79086646D90B248D7A162",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Park yardımı, ön ve arka",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-81C60F43749A8D6B522F4D4A",
+      "sourceRowId": "EE-ROW-2FB6FBF993FDE7CD70CB5CB0",
+      "featureCode": "AUTOMATIC_PARK_ASSIST",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Park Pilot Assist",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-5CBD5B3B26BE0E661DD66C39",
+      "sourceRowId": "EE-ROW-ECAA006C32D4350931C07C18",
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "ISOFIX çocuk koltuğu bağlantısı",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-3CC2A49AEF46520BE64A5649",
+      "sourceRowId": "EE-ROW-CE2E0C59FCD0FF65DA579257",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Perde Hava Yastığı",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-5CDEF63A0DF1D1186FABF443",
+      "sourceRowId": "EE-ROW-07BD13EA9E316FF71CDBD262",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Isıtmalı ön koltuklar",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-240FF8027127377B01E21F13",
+      "sourceRowId": "EE-ROW-DBDC9649F1CAB690C68CEAFD",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Elektrikli sürücü koltuğu",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-47D339BE859CE6ACCEA2113B",
+      "sourceRowId": "EE-ROW-C78451C7A1294AD255D0CA34",
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Elektrikli yolcu koltuğu",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-1C35ADA149F7254A275C711A",
+      "sourceRowId": "EE-ROW-102467CDFBD5E56AB81B137E",
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Isıtmalı direksiyon",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-6EF80FF86137FC2F31900928",
+      "sourceRowId": "EE-ROW-E854685114AAC0C7C8C4010F",
+      "featureCode": "DUAL_ZONE_CLIMATE_CONTROL",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "İki bölgeli klima sistemi",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-BA3231B72547FA363FC71F9D",
+      "sourceRowId": "EE-ROW-66B591F5FE7121D364CFA3EE",
+      "featureCode": "POWER_TAILGATE",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Elektrikli bagaj kapağı",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-C191E08064BD07AE80402218",
+      "sourceRowId": "EE-ROW-237BA171DDB48633F73C367B",
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Panoramik tavan",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-4D091A354FE0CC73B7F55A3E",
+      "sourceRowId": "EE-ROW-16878ABBE47821A6B3CCF6DC",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Kablosuz Apple CarPlay ve Android Auto",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-1450DA98CC922782CACB2801",
+      "sourceRowId": "EE-ROW-16878ABBE47821A6B3CCF6DC",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Kablosuz Apple CarPlay ve Android Auto",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-077E64819AFDECC3FCD7D729",
+      "sourceRowId": "EE-ROW-40D18E5E199A4E7F3724BD83",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Kablosuz telefon şarjı",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-2442ABC57A5AE16125872E70",
+      "sourceRowId": "EE-ROW-8607B6D447C7DA08156F6772",
+      "featureCode": "LED_HEADLIGHTS",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "LED ön farlar",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "mappingId": "EE-MAP-4D6580D38945DF9489F1B4EB",
+      "sourceRowId": "EE-ROW-6D5B387D3F161EFC2648CFE0",
+      "featureCode": "HILL_DESCENT_CONTROL",
+      "mappingPolicyId": "EQUIPMENT_FEATURE_SEMANTIC_MAPPING_V1",
+      "mappingReasonCode": "OFFICIAL_PHRASE_DIRECT_CONTROLLED_FEATURE_MATCH",
+      "sourcePhrase": "Eğim İniş Kontrolü",
+      "mappingState": "PROVISIONAL",
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    }
+  ]
+}

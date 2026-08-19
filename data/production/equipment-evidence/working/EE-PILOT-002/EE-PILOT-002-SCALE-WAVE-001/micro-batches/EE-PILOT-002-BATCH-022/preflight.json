@@ -1,0 +1,79 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-022",
+  "familyId": "family-a74ac31b81cfdd76",
+  "exactVariantIds": [
+    "bdf54f5b-2c18-5505-8875-0157f5bd1db7",
+    "f954d7a8-b69b-5ee2-b3ad-a4638772725a"
+  ],
+  "brandModels": [
+    "Alpine A110"
+  ],
+  "disposition": "DEFERRED_IDENTITY_AUDIT",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "bdf54f5b-2c18-5505-8875-0157f5bd1db7",
+      "canonicalBrand": "Alpine",
+      "canonicalModel": "A110",
+      "trim": "S",
+      "modelYear": 2025,
+      "bodyStyle": "Coupe",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "GASOLINE",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "PAIRED_TRIM_PACKAGE_PROJECTION",
+      "testAxes": [
+        "PAIRED_TRIM_PACKAGE_PROJECTION"
+      ],
+      "pairedFamilyId": "family-a74ac31b81cfdd76",
+      "pairedExactVariantId": "f954d7a8-b69b-5ee2-b3ad-a4638772725a",
+      "pairedDifferenceReason": "CATALOG_TRIM_DIFF:S",
+      "expectedProjectionBoundary": "FAMILY_EVIDENCE_MUST_NOT_PROJECT_WITHOUT_EXACT_TRIM_OR_PACKAGE_LINK",
+      "familyId": "family-a74ac31b81cfdd76",
+      "market": "TR",
+      "transmission": "7-speed dual-clutch automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_PARTIALLY_CONFIRMED",
+      "disposition": "DEFERRED_IDENTITY_AUDIT",
+      "preflightReason": "Ordering closed, last-stock language, current price-list absence and MY2025 applicability remain unresolved.",
+      "officialSourceUrl": "https://www.alpinecars.com.tr/a110.html",
+      "officialSourceType": "OFFICIAL_PRODUCT_PAGE"
+    },
+    {
+      "exactVariantId": "f954d7a8-b69b-5ee2-b3ad-a4638772725a",
+      "canonicalBrand": "Alpine",
+      "canonicalModel": "A110",
+      "trim": "GT",
+      "modelYear": 2025,
+      "bodyStyle": "Coupe",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "GASOLINE",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "PAIRED_TRIM_PACKAGE_PROJECTION",
+      "testAxes": [
+        "PAIRED_TRIM_PACKAGE_PROJECTION"
+      ],
+      "pairedFamilyId": "family-a74ac31b81cfdd76",
+      "pairedExactVariantId": "bdf54f5b-2c18-5505-8875-0157f5bd1db7",
+      "pairedDifferenceReason": "CATALOG_TRIM_DIFF:GT",
+      "expectedProjectionBoundary": "FAMILY_EVIDENCE_MUST_NOT_PROJECT_WITHOUT_EXACT_TRIM_OR_PACKAGE_LINK",
+      "familyId": "family-a74ac31b81cfdd76",
+      "market": "TR",
+      "transmission": "7-speed dual-clutch automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_PARTIALLY_CONFIRMED",
+      "disposition": "DEFERRED_IDENTITY_AUDIT",
+      "preflightReason": "Ordering closed, last-stock language, current price-list absence and MY2025 applicability remain unresolved.",
+      "officialSourceUrl": "https://www.alpinecars.com.tr/a110.html",
+      "officialSourceType": "OFFICIAL_PRODUCT_PAGE"
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

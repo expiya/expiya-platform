@@ -1,0 +1,45 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-025",
+  "familyId": "family-d8f89976fcf4dcd84f73b281",
+  "exactVariantIds": [
+    "19951113-2e40-5526-b568-2ae1984c27e0"
+  ],
+  "brandModels": [
+    "Volvo EX30"
+  ],
+  "disposition": "COLLECTION_APPROVED",
+  "expectedLedgerRows": 51,
+  "variants": [
+    {
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "canonicalBrand": "Volvo",
+      "canonicalModel": "EX30",
+      "trim": "P4 Long Range Ultra",
+      "modelYear": 2026,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "BEV",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "BODY_SUV_CROSSOVER+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_SUV_CROSSOVER",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ],
+      "familyId": "family-d8f89976fcf4dcd84f73b281",
+      "market": "TR",
+      "transmission": "Single-speed automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_CONFIRMED",
+      "disposition": "COLLECTION_APPROVED",
+      "preflightReason": "TR configurator print identifies EX30 Ultra, Single Motor Extended Range, electric and MY2026 with included equipment.",
+      "officialSourceUrl": "https://www.volvocars.com/tr/build/print?token=17411673982122151385",
+      "officialSourceType": "OFFICIAL_CONFIGURATOR_PRINT"
+    }
+  ],
+  "lifecycleState": "PREFLIGHT_PASSED_SOURCE_CAPTURE_PENDING",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

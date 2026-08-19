@@ -1,0 +1,846 @@
+{
+  "entries": [
+    {
+      "ledgerEntryId": "EE-RES-172FC609C20DB08138134ECB",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-9DDB7B41F43E554D3A4BB082",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "FORWARD_COLLISION_WARNING",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-D905B33D7720C26FDC3C91BD",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "LANE_DEPARTURE_WARNING",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-D905B33D7720C26FDC3C91BD"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-2344831D05BCB6AAAF94A677",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-2344831D05BCB6AAAF94A677"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-28E130BCA4C607D88517CAE0",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-28E130BCA4C607D88517CAE0"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-2E1AAD477E622B0CEE182DEF",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-2E1AAD477E622B0CEE182DEF"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-D329D7F6EFE25F0FD65650A7",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-D329D7F6EFE25F0FD65650A7"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-BF3CA3E04C0A28E84065ED83",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-BF3CA3E04C0A28E84065ED83"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-09E32A4A1AFEEC27F653D476",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-09E32A4A1AFEEC27F653D476"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-CCE506B6483B9F06B76A47DA",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-CCE506B6483B9F06B76A47DA"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-1061358DCD1EC97089B0438E",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-BB31D31A120274B1EDB41E56",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "REAR_VIEW_CAMERA",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-A80409F3C719E85944924B65",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-A80409F3C719E85944924B65"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-3D53AB92A5CFC7DD093E0F75",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-3D53AB92A5CFC7DD093E0F75"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-87602CFC4BA085F7D5C51637",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-87602CFC4BA085F7D5C51637"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-B7A8B7CF412BF06674791E4A",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "AUTOMATIC_PARK_ASSIST",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-B7A8B7CF412BF06674791E4A"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-7AD68C63E5F4AF06FBA232D4",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-7AD68C63E5F4AF06FBA232D4"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-3AE190A85730842F5C23B4F6",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "ISOFIX_FRONT_PASSENGER",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-9EDCFB250F357B05EDA55E9A",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-9EDCFB250F357B05EDA55E9A"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-DB53983A05D182504646928F",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "CENTER_AIRBAG",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-FECE046F983A4A26C6D0EB68",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "REAR_SEAT_OCCUPANT_ALERT",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-367B48A913F44BFD46A0CAA0",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [
+        "EE-AST-367B48A913F44BFD46A0CAA0"
+      ],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-04D85666FF0DD2BBB872E14D",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "HEATED_REAR_SEATS",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-8330B3C8E3951CCCBABD1836",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "VENTILATED_FRONT_SEATS",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-922C8371D124DFBB575A8D29",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-922C8371D124DFBB575A8D29"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-9BE1A05CEED3148295EA68C6",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-9BE1A05CEED3148295EA68C6"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-358226A63C8852E3AD3FAAB3",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "DRIVER_SEAT_MEMORY",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-3E055665E6B5BA8BDE569189",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [
+        "EE-AST-3E055665E6B5BA8BDE569189"
+      ],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-6C8B0392C216AA205F8A4A50",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "DUAL_ZONE_CLIMATE_CONTROL",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-6C8B0392C216AA205F8A4A50"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-4EB2EB2054DECE27DBBCD957",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "THREE_ZONE_CLIMATE_CONTROL",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-88B6EB0617A1D60E9D1BEF97",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "FOUR_ZONE_CLIMATE_CONTROL",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-6E4F0D1FB86FC7F4142A5A51",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "KEYLESS_ENTRY",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-CA2A585CCC73E45C656DD562",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "KEYLESS_START",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-290190A9EE5CB9DD08A6E06C",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "POWER_TAILGATE",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-290190A9EE5CB9DD08A6E06C"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-A2400460FB85E69F43B47E7F",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "HANDS_FREE_TAILGATE",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-D194CF66E4349E96501D02ED",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-D194CF66E4349E96501D02ED"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-CF96A3A0C3D69A7DA5E15F55",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "APPLE_CARPLAY",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-475806441E5A2E748AAD4416",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-475806441E5A2E748AAD4416"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-6201EF8EB1E169952C4109CC",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "ANDROID_AUTO",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-1BBE123C66C3D7E3A8879EA4",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-1BBE123C66C3D7E3A8879EA4"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-B849B0DABE0BEBC0E7FAA84A",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-B849B0DABE0BEBC0E7FAA84A"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-4560958FCBAEDEFBFA299251",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "LED_HEADLIGHTS",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-4560958FCBAEDEFBFA299251"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-F35FD87E0D4C72917C6DFC0C",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "ADAPTIVE_HEADLIGHTS",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-BA5F34E3A260970AF490F9B7",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-BF6C443432CBA0FAE6076C23",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "AUTOMATIC_HIGH_BEAM",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-A294713FA66A11DA9071AAFD",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "HILL_DESCENT_CONTROL",
+      "disposition": "RESEARCHED_CONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [
+        "EE-OBS-A294713FA66A11DA9071AAFD"
+      ],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+    },
+    {
+      "ledgerEntryId": "EE-RES-516B7E2365221EEA20D10783",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "TERRAIN_DRIVE_MODES",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-B7802E76ADDD81AC25A14078",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "LOW_RANGE_TRANSFER_CASE",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-5ABFBE20112228B924B66B4F",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "LOCKING_REAR_DIFFERENTIAL",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-E3FC8803D4A3A1AEF8EAB0B7",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "LOCKING_CENTER_DIFFERENTIAL",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    },
+    {
+      "ledgerEntryId": "EE-RES-77A4B9C3029C939EBC2C74E7",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "featureCode": "CRAWL_CONTROL",
+      "disposition": "RESEARCHED_INCONCLUSIVE",
+      "researchCycleId": "EE-PILOT-002-SCALE-WAVE-001-EE-PILOT-002-BATCH-025",
+      "updatedAt": "2026-08-19T04:00:00.000+03:00",
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "assertionIds": [],
+      "associationObservationIds": [],
+      "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+      "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+      "inconclusiveReason": "NO_EXACT_CONTROLLED_FEATURE_EVIDENCE_IN_REVIEWED_SOURCE"
+    }
+  ]
+}

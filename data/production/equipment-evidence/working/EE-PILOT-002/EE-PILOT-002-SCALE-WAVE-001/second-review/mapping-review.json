@@ -1,0 +1,744 @@
+{
+  "mappingCount": 91,
+  "resolvedCount": 91,
+  "semanticExceptions": [
+    {
+      "subjectId": "EE-OBS-7AD68C63E5F4AF06FBA232D4",
+      "featureCode": "ISOFIX_REAR_OUTER"
+    },
+    {
+      "subjectId": "EE-OBS-9EDCFB250F357B05EDA55E9A",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE"
+    }
+  ],
+  "results": [
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-C5D159F9589FE27ED5E8AAA4",
+      "sourceRowId": "EE-ROW-D89E11EA92814BC51CBFA50D",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-1154FA11B19F305C40375ECE",
+      "sourceRowId": "EE-ROW-03612F467D9240A434392677",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-FEEDD291A776FB4365E54719",
+      "sourceRowId": "EE-ROW-96D2CDA2EA39EA61650EB72A",
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-623CA0A559CC9BFC4B0217B7",
+      "sourceRowId": "EE-ROW-0B0F8D9B11982D04EB64955A",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-65B45BD8FE49789A18ED19E5",
+      "sourceRowId": "EE-ROW-005B4A735E9780BA8D545E06",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-4E9073D98AB8D2EF9B520E41",
+      "sourceRowId": "EE-ROW-01A95034A34CDC2D4673E72B",
+      "featureCode": "LANE_DEPARTURE_WARNING",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-3A844A3B1A66C137D55BD730",
+      "sourceRowId": "EE-ROW-14FD8B4D6627538C5D665176",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-38DFEB712A7A6EDFC6AE3935",
+      "sourceRowId": "EE-ROW-9E7866D3074BAF850973F948",
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-A18D40C3A6A8C8B3105C6D4B",
+      "sourceRowId": "EE-ROW-121219CF73F13FA86C0D9439",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-AD436ECBECC705055B3E3D83",
+      "sourceRowId": "EE-ROW-A5A79086646D90B248D7A162",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-D81558123A1F749BAFBEF643",
+      "sourceRowId": "EE-ROW-A5A79086646D90B248D7A162",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-81C60F43749A8D6B522F4D4A",
+      "sourceRowId": "EE-ROW-2FB6FBF993FDE7CD70CB5CB0",
+      "featureCode": "AUTOMATIC_PARK_ASSIST",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-5CBD5B3B26BE0E661DD66C39",
+      "sourceRowId": "EE-ROW-ECAA006C32D4350931C07C18",
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-3CC2A49AEF46520BE64A5649",
+      "sourceRowId": "EE-ROW-CE2E0C59FCD0FF65DA579257",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-5CDEF63A0DF1D1186FABF443",
+      "sourceRowId": "EE-ROW-07BD13EA9E316FF71CDBD262",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-240FF8027127377B01E21F13",
+      "sourceRowId": "EE-ROW-DBDC9649F1CAB690C68CEAFD",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-47D339BE859CE6ACCEA2113B",
+      "sourceRowId": "EE-ROW-C78451C7A1294AD255D0CA34",
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-1C35ADA149F7254A275C711A",
+      "sourceRowId": "EE-ROW-102467CDFBD5E56AB81B137E",
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-6EF80FF86137FC2F31900928",
+      "sourceRowId": "EE-ROW-E854685114AAC0C7C8C4010F",
+      "featureCode": "DUAL_ZONE_CLIMATE_CONTROL",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-BA3231B72547FA363FC71F9D",
+      "sourceRowId": "EE-ROW-66B591F5FE7121D364CFA3EE",
+      "featureCode": "POWER_TAILGATE",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-C191E08064BD07AE80402218",
+      "sourceRowId": "EE-ROW-237BA171DDB48633F73C367B",
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-4D091A354FE0CC73B7F55A3E",
+      "sourceRowId": "EE-ROW-16878ABBE47821A6B3CCF6DC",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-1450DA98CC922782CACB2801",
+      "sourceRowId": "EE-ROW-16878ABBE47821A6B3CCF6DC",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-077E64819AFDECC3FCD7D729",
+      "sourceRowId": "EE-ROW-40D18E5E199A4E7F3724BD83",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-2442ABC57A5AE16125872E70",
+      "sourceRowId": "EE-ROW-8607B6D447C7DA08156F6772",
+      "featureCode": "LED_HEADLIGHTS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "mappingId": "EE-MAP-4D6580D38945DF9489F1B4EB",
+      "sourceRowId": "EE-ROW-6D5B387D3F161EFC2648CFE0",
+      "featureCode": "HILL_DESCENT_CONTROL",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-7E6D44CA3610C85B91879505",
+      "sourceRowId": "EE-ROW-C644EF84E5D9385480C4E220",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-62DDC3382E62D41CC129D273",
+      "sourceRowId": "EE-ROW-C644EF84E5D9385480C4E220",
+      "featureCode": "FORWARD_COLLISION_WARNING",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-DD5DBCA4E36701087D5039B4",
+      "sourceRowId": "EE-ROW-BA5B9AACF65771B4C1FA06C4",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-9AF316DB95642770BD36EC4E",
+      "sourceRowId": "EE-ROW-521ECF6B7268554C31D1A1C3",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-5426CE9D9857640A2D5D4455",
+      "sourceRowId": "EE-ROW-2F300CC74C0CD2FA1CB927BB",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-B1A3AEDA4B45AF4FC45BADA5",
+      "sourceRowId": "EE-ROW-FD542588488FD669ED2CDB35",
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-516CC289B821D22E2FCC0C4C",
+      "sourceRowId": "EE-ROW-5F63F9B6EC7E35E732C9C016",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-AC69E2CCE9F3E309C46BAC8E",
+      "sourceRowId": "EE-ROW-AFAF580691D7C8D85C03099E",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-DCC915D4CFC640BEC9435534",
+      "sourceRowId": "EE-ROW-466625706AD34D55C9683EB6",
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-469CDBEEBF2B6202D01D4245",
+      "sourceRowId": "EE-ROW-72C1FD8B734F310A17EF49B8",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-6B6A0CA0F399112D9BF363E7",
+      "sourceRowId": "EE-ROW-5097582081FB98E879E1C1D6",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-36688536E860E99255BA76E9",
+      "sourceRowId": "EE-ROW-5097582081FB98E879E1C1D6",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-EF8509E8A8E5C2299112FAE9",
+      "sourceRowId": "EE-ROW-452DBEFFCD60572E2212BD99",
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-6C121ECFF844B9A31AAEA80E",
+      "sourceRowId": "EE-ROW-452DBEFFCD60572E2212BD99",
+      "featureCode": "ISOFIX_FRONT_PASSENGER",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-94E0B049D067EFDB17396881",
+      "sourceRowId": "EE-ROW-E3CEE0528CE903D38B5CBA2D",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-15397D050318603FFD535284",
+      "sourceRowId": "EE-ROW-34A03A818CDB18BEFD27F4B8",
+      "featureCode": "CENTER_AIRBAG",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-0B6C0EF9EFBEE171124716EA",
+      "sourceRowId": "EE-ROW-07D5CF45E85C43F0EFAABD05",
+      "featureCode": "REAR_SEAT_OCCUPANT_ALERT",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-C4AD059AC5FF9645DD3FBE9A",
+      "sourceRowId": "EE-ROW-4D83E60079C149BAB21C3D2F",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-1C68AE93D6360F4368D9EC76",
+      "sourceRowId": "EE-ROW-6B569F40B4EBB4B02D4D60B7",
+      "featureCode": "VENTILATED_FRONT_SEATS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-7C2BF167B63E2D3C4EB42B1B",
+      "sourceRowId": "EE-ROW-B467027E6A1CEAF3276262DC",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-55C75248AFE68551C9F4880C",
+      "sourceRowId": "EE-ROW-E08CD2C9C778DA9524EF05ED",
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-CBCDD356DDE91B2E8D730851",
+      "sourceRowId": "EE-ROW-034FEDA0A2C92B1450D3A337",
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-CB765376DCA0E03B18F61B20",
+      "sourceRowId": "EE-ROW-DD9263144E9F151B8D57EB90",
+      "featureCode": "KEYLESS_ENTRY",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-70BDF2E3B707547FAFDEC686",
+      "sourceRowId": "EE-ROW-DD9263144E9F151B8D57EB90",
+      "featureCode": "KEYLESS_START",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-684DAF0A75806048A390633D",
+      "sourceRowId": "EE-ROW-07C9A61DEDDA052E05A3CB72",
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-500ABF423390B5DFD6A0B911",
+      "sourceRowId": "EE-ROW-F709D9B97331E90490F8BC61",
+      "featureCode": "APPLE_CARPLAY",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-076C0A0A260AEB8248B683B2",
+      "sourceRowId": "EE-ROW-F709D9B97331E90490F8BC61",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-19539287ADDDE0C978D59DE2",
+      "sourceRowId": "EE-ROW-F709D9B97331E90490F8BC61",
+      "featureCode": "ANDROID_AUTO",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-BCF09CF548220F125A8E7A6B",
+      "sourceRowId": "EE-ROW-F709D9B97331E90490F8BC61",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-95090216B1E1DFAE6DCE87CC",
+      "sourceRowId": "EE-ROW-2019B8B1CC25B7E04CF4112B",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-BF61F2F6D808502A6D3009E5",
+      "sourceRowId": "EE-ROW-C1A27CBFCF7A880A54C41AC1",
+      "featureCode": "LED_HEADLIGHTS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-F99C0A7B98505938ADAE87DB",
+      "sourceRowId": "EE-ROW-466625706AD34D55C9683EB6",
+      "featureCode": "AUTOMATIC_HIGH_BEAM",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "mappingId": "EE-MAP-4EACE3C81957F04D387BD1DB",
+      "sourceRowId": "EE-ROW-98F39CBDF69439F0C850449B",
+      "featureCode": "TERRAIN_DRIVE_MODES",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-FB3B8A4357AE3853D3608F90",
+      "sourceRowId": "EE-ROW-F6F015DD9A0345C1B18A01AE",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-B88DCE214434D59E7FBCBC72",
+      "sourceRowId": "EE-ROW-5BE345B136DE7CAB3851E8EF",
+      "featureCode": "FORWARD_COLLISION_WARNING",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-CDA395F586B3720E152E59F7",
+      "sourceRowId": "EE-ROW-0CB5076CC0DE4A9DFB0402A3",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-E32BE4868D753DD59E7DBE27",
+      "sourceRowId": "EE-ROW-186BE87B13AA720B5CFB3ED2",
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-3E4A15F84CD24834EBFFE315",
+      "sourceRowId": "EE-ROW-19E12C30099FAC27301B2809",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-61D67E22D5038706E4304C46",
+      "sourceRowId": "EE-ROW-29F44C5439CA272A905BF1CD",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-CCDD8A2FE7A2C81F4EC0F78F",
+      "sourceRowId": "EE-ROW-913353F23E3E89DFE1A42937",
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-E4B0BC9D38D452053F6ECEC6",
+      "sourceRowId": "EE-ROW-4D8C171CB99EE3E52B689511",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-13B80BD63339034DEF3D54FB",
+      "sourceRowId": "EE-ROW-6905C25CCD20098488FD3820",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-806FA80E4D0683A6B38EE187",
+      "sourceRowId": "EE-ROW-CC2802894C05A6FF4165C2FA",
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-A91042986B0FD6891EC65534",
+      "sourceRowId": "EE-ROW-ED1F56042687F351C0ACAAC2",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-222D54C190BF28B25BE89165",
+      "sourceRowId": "EE-ROW-54A4D418C01B1095DD94E1E6",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-D03DFB8D4A62DE3D4073DA2A",
+      "sourceRowId": "EE-ROW-884F812A8AEB503CC9782537",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-33C9CD8FDDDB71DB2E9310CD",
+      "sourceRowId": "EE-ROW-4FA35670A372876F3047BD77",
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-7428871F2011F0876AE06E8D",
+      "sourceRowId": "EE-ROW-D48CF9E4DC1A46ACA6F015A1",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-BA3F7DFCC9669C9EFA104C77",
+      "sourceRowId": "EE-ROW-20348DFB1B38984DAEAF7485",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-2A5B05C39E05C25505DAF01A",
+      "sourceRowId": "EE-ROW-69885A40AC2F507D2C96F5DA",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-F13634A0D06F7ECA283B01E5",
+      "sourceRowId": "EE-ROW-69885A40AC2F507D2C96F5DA",
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-80B1A9D6945EE9E8CE0562E1",
+      "sourceRowId": "EE-ROW-69885A40AC2F507D2C96F5DA",
+      "featureCode": "DRIVER_SEAT_MEMORY",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-9A34AF74DC14DAA3172BFE44",
+      "sourceRowId": "EE-ROW-A33986FA8304D1F6578D78C7",
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-5AEF4ABAE6E019CE740EE173",
+      "sourceRowId": "EE-ROW-ED96F60060CA839550E3B80D",
+      "featureCode": "DUAL_ZONE_CLIMATE_CONTROL",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-62190306231CB727AA358F85",
+      "sourceRowId": "EE-ROW-6FA3E264113C1A19232F5DBA",
+      "featureCode": "KEYLESS_ENTRY",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-85DC9F16259DE156C4B5C099",
+      "sourceRowId": "EE-ROW-6FA3E264113C1A19232F5DBA",
+      "featureCode": "KEYLESS_START",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-65277FE549EB4025F498EF3D",
+      "sourceRowId": "EE-ROW-B21BCB3C1C85BD39DC73D943",
+      "featureCode": "POWER_TAILGATE",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-045543C294D02605EFD60C76",
+      "sourceRowId": "EE-ROW-B9C78A5D05E096080B8592F2",
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-C146C3ED6473C7E804F1A7E7",
+      "sourceRowId": "EE-ROW-8DC64DF57C4420C18876203E",
+      "featureCode": "APPLE_CARPLAY",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-1DE20505E2986D5F7810CE1B",
+      "sourceRowId": "EE-ROW-8DC64DF57C4420C18876203E",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-E161D016CEC2BF1CE7389338",
+      "sourceRowId": "EE-ROW-8DC64DF57C4420C18876203E",
+      "featureCode": "ANDROID_AUTO",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-73E900AD36667DF8216F76E1",
+      "sourceRowId": "EE-ROW-8DC64DF57C4420C18876203E",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-2DE079526C9800A11BDE20EB",
+      "sourceRowId": "EE-ROW-16E811A4FAB8BE1A474E6D5F",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-FD5ECDD5A9CE3FA92566E7C4",
+      "sourceRowId": "EE-ROW-C499F508231BE90C7E66A7B7",
+      "featureCode": "LED_HEADLIGHTS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "mappingId": "EE-MAP-DD5C8D06BD710ED7FA36C629",
+      "sourceRowId": "EE-ROW-4888189B2B439B7F8AE6A29F",
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "sourceRowResolved": true,
+      "semanticDisposition": "PASSED_EXCEPT_RECORDED_SUBJECT_EXCEPTIONS"
+    }
+  ]
+}

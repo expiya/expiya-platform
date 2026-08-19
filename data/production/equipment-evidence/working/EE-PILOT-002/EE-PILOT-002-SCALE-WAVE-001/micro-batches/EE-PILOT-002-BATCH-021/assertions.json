@@ -1,0 +1,1188 @@
+{
+  "assertions": [
+    {
+      "assertionId": "EE-AST-CE8E2290C093D0EAA2CC2FD8",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı acil fren destek sistemi (AEBS) yaya, bisiklet ve kavşak algılama fonksiyonlu",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-FB3B8A4357AE3853D3608F90",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-358C6337476EC3F6D2EF80A9",
+      "featureCode": "FORWARD_COLLISION_WARNING",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Önsezili Akıllı Çarpışma Uyarı Sistemi",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-B88DCE214434D59E7FBCBC72",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-74520E48818929395F218FBC",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Şerit Takip Sistemi",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-CDA395F586B3720E152E59F7",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-351BEAC217330EA55437BD6B",
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "ProPILOT Akıllı Şerit Takip Sistemi",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-E32BE4868D753DD59E7DBE27",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-D8FBF7E4AE288F21B21C77E7",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Hız Sabitleme Sistemi (ICC)",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-3E4A15F84CD24834EBFFE315",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-F6A670A7CF75D9992F4A3F39",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Kör Nokta Önleme Sistemi",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-61D67E22D5038706E4304C46",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-342FA0C87ABE944C1CCE179C",
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Arka Çapraz Trafik Uyarı Sistemi (RCTA)",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-CCDD8A2FE7A2C81F4EC0F78F",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-4D7D06E724B00B10FDF58B2B",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Trafik işaretleri tanıma sistemi (TSR)",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-E4B0BC9D38D452053F6ECEC6",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-9954CEA12752C88C26C4961E",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Gelişmiş Yorgunluk Algılama Sistemi",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-13B80BD63339034DEF3D54FB",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-2A9A21AE1B9E2806E9D025A6",
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Uzun Far Asistanı (AHB)",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-806FA80E4D0683A6B38EE187",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-590B97D8D8D230D842EA4495",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Hareketli Nesne Algılama Özellikli 3D 360° Çevre Görüş Sistemi",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-A91042986B0FD6891EC65534",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-19E61F7FBDBC2F9F2C4171C6",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Ön Park sensörü",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-222D54C190BF28B25BE89165",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-56CDCEC28B919FC08A131946",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Arka Park Sensörü",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-D03DFB8D4A62DE3D4073DA2A",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-1A9E9285FF7EA66D49C0A35E",
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "ISOFIX Çocuk Koltuğu Sabitleme Mekanizması x2",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-33C9CD8FDDDB71DB2E9310CD",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-933D37693D83C0CCEAB7E936",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Sürücü, Yolcu, Yan ve Perde Hava Yastıkları",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-7428871F2011F0876AE06E8D",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-66793FB0AB631EDD62CC3618",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Isıtmalı Ön Koltuklar",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-BA3F7DFCC9669C9EFA104C77",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-7F23130181C8876B41FDE752",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Elektrikli, Hafızalı, Masaj Özellikli Sürücü ve Ön Yolcu Koltukları",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-2A5B05C39E05C25505DAF01A",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-F312AA65A233D9086128F0AB",
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Elektrikli, Hafızalı, Masaj Özellikli Sürücü ve Ön Yolcu Koltukları",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-F13634A0D06F7ECA283B01E5",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-9EDF1BD6AB99B8C67A4568BF",
+      "featureCode": "DRIVER_SEAT_MEMORY",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Elektrikli, Hafızalı, Masaj Özellikli Sürücü ve Ön Yolcu Koltukları",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-80B1A9D6945EE9E8CE0562E1",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-428451C87355DDEE91C10FE7",
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Isıtmalı Deri Direksiyon",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-9A34AF74DC14DAA3172BFE44",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-B0A982F843B57C56B6CD21D7",
+      "featureCode": "DUAL_ZONE_CLIMATE_CONTROL",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Çift Bölgeli Otomatik Klima",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-5AEF4ABAE6E019CE740EE173",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-6ADCD7D0F1A6B28EE5D2F30E",
+      "featureCode": "KEYLESS_ENTRY",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Anahtar - Anahtarsız Giriş ve Çalıştırma",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-62190306231CB727AA358F85",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-43B486EAF3A35D8F82ECE526",
+      "featureCode": "KEYLESS_START",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Anahtar - Anahtarsız Giriş ve Çalıştırma",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-85DC9F16259DE156C4B5C099",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-ED93F5AB1187683864BD9ACA",
+      "featureCode": "POWER_TAILGATE",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Elektrikli Bagaj Kapağı",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-65277FE549EB4025F498EF3D",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-B7A0AA3A2CF098FBAB165385",
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Panoramik Cam Tavan",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-045543C294D02605EFD60C76",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-D333F2C8F089E2EE102D0255",
+      "featureCode": "APPLE_CARPLAY",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Kablosuz Apple CarPlay ve Kablosuz Android Auto",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-C146C3ED6473C7E804F1A7E7",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-4D574D2E076FAFDD7AEAA9CC",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Kablosuz Apple CarPlay ve Kablosuz Android Auto",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-1DE20505E2986D5F7810CE1B",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-E46BB41D9226BF28D497EC41",
+      "featureCode": "ANDROID_AUTO",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Kablosuz Apple CarPlay ve Kablosuz Android Auto",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-E161D016CEC2BF1CE7389338",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-F110CE8761E68D99A02921AD",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Kablosuz Apple CarPlay ve Kablosuz Android Auto",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-73E900AD36667DF8216F76E1",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-3B302B56ABBDB88D4AADD59A",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Kablosuz Cep Telefonu Şarj Özelliği",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-2DE079526C9800A11BDE20EB",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-BA9EF57717969DCE06CEE009",
+      "featureCode": "LED_HEADLIGHTS",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "LED Ön Farlar",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-FD5ECDD5A9CE3FA92566E7C4",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-EA557AA72F9D72B193072159",
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Adaptif LED Matrix Ön Farlar ve Otomatik Yükseklik Ayarı",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-DD5C8D06BD710ED7FA36C629",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    }
+  ]
+}

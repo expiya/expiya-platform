@@ -1,0 +1,45 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-017",
+  "familyId": "family-6b9368dda0e0eea5b73d0833",
+  "exactVariantIds": [
+    "3d0f2b09-791e-5d76-9257-ec6be591c4eb"
+  ],
+  "brandModels": [
+    "Peugeot E-2008"
+  ],
+  "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "3d0f2b09-791e-5d76-9257-ec6be591c4eb",
+      "canonicalBrand": "Peugeot",
+      "canonicalModel": "E-2008",
+      "trim": "GT 115 kW",
+      "modelYear": 2026,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "BEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "FUEL_BEV+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "FUEL_BEV",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ],
+      "familyId": "family-6b9368dda0e0eea5b73d0833",
+      "market": "TR",
+      "transmission": "Single-speed automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_PARTIALLY_CONFIRMED",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "preflightReason": "GT 115 kW is documented, but the available document does not establish catalog MY2026 applicability.",
+      "officialSourceUrl": "https://www.peugeot.com.tr/content/dam/peugeot/turkey/b2c/brosurler/2025/ocak/0009_E_2008_Teknik_Brosur.pdf",
+      "officialSourceType": "OFFICIAL_BROCHURE"
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

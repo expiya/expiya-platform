@@ -1,0 +1,44 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-023",
+  "familyId": "family-ac91048c50c785d03ff45cf6",
+  "exactVariantIds": [
+    "b1dc656b-e78c-57ab-9a44-924716ba6c2b"
+  ],
+  "brandModels": [
+    "Bentley Continental GTC"
+  ],
+  "disposition": "SOURCE_INSUFFICIENT",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "b1dc656b-e78c-57ab-9a44-924716ba6c2b",
+      "canonicalBrand": "Bentley",
+      "canonicalModel": "Continental GTC",
+      "trim": "Speed Hybrid",
+      "modelYear": 2026,
+      "bodyStyle": "Convertible",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "PHEV",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "FUEL_PHEV",
+      "testAxes": [
+        "FUEL_PHEV"
+      ],
+      "familyId": "family-ac91048c50c785d03ff45cf6",
+      "market": "TR",
+      "transmission": "8-speed dual-clutch automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_NOT_CONFIRMED",
+      "disposition": "SOURCE_INSUFFICIENT",
+      "preflightReason": "No official Turkey-market exact MY2026 Continental GTC Speed Hybrid equipment source was located.",
+      "officialSourceUrl": null,
+      "officialSourceType": null
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

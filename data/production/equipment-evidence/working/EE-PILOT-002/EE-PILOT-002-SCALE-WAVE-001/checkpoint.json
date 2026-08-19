@@ -1,0 +1,86 @@
+{
+  "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+  "state": "TERMINAL_COLLECTION_READY_FOR_INDEPENDENT_REVIEW",
+  "completedMicroBatches": [
+    "EE-PILOT-002-BATCH-003",
+    "EE-PILOT-002-BATCH-004",
+    "EE-PILOT-002-BATCH-005",
+    "EE-PILOT-002-BATCH-006",
+    "EE-PILOT-002-BATCH-007",
+    "EE-PILOT-002-BATCH-008",
+    "EE-PILOT-002-BATCH-009",
+    "EE-PILOT-002-BATCH-010",
+    "EE-PILOT-002-BATCH-011",
+    "EE-PILOT-002-BATCH-012",
+    "EE-PILOT-002-BATCH-013",
+    "EE-PILOT-002-BATCH-014",
+    "EE-PILOT-002-BATCH-015",
+    "EE-PILOT-002-BATCH-016",
+    "EE-PILOT-002-BATCH-017",
+    "EE-PILOT-002-BATCH-018",
+    "EE-PILOT-002-BATCH-019",
+    "EE-PILOT-002-BATCH-020",
+    "EE-PILOT-002-BATCH-021",
+    "EE-PILOT-002-BATCH-022",
+    "EE-PILOT-002-BATCH-023",
+    "EE-PILOT-002-BATCH-024",
+    "EE-PILOT-002-BATCH-025"
+  ],
+  "inProgressMicroBatches": [],
+  "notStartedMicroBatches": [],
+  "terminalVariantCount": 24,
+  "collectionCompletedVariantCount": 3,
+  "allocatedSourceIds": [
+    "SRC-000089",
+    "SRC-000090",
+    "SRC-000091",
+    "SRC-000092",
+    "SRC-000093",
+    "SRC-000094",
+    "SRC-000095",
+    "SRC-000096",
+    "SRC-000097"
+  ],
+  "immutableArtifactChecksums": [
+    {
+      "sourceId": "SRC-000089",
+      "artifactSha256": "sha256:90930cd290d7d11183900ca457da4d1850a6d6b1cd248ca32806969241e98e92"
+    },
+    {
+      "sourceId": "SRC-000090",
+      "artifactSha256": "sha256:1b2dd58ba0dfd0bfbfffdfc5f959154ac08446208bdd9b3c0ad68299985e2820"
+    },
+    {
+      "sourceId": "SRC-000091",
+      "artifactSha256": "sha256:d1e506b6ddc16743cef4ea1078c8ad6b96be031760b3ef74032326dd13bc210d"
+    },
+    {
+      "sourceId": "SRC-000092",
+      "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686"
+    },
+    {
+      "sourceId": "SRC-000093",
+      "artifactSha256": "sha256:f56dc06cc4f409289270d27cf4a72be4ca9920bdb40c8bb86aebe2a47c5e4e1f"
+    },
+    {
+      "sourceId": "SRC-000094",
+      "artifactSha256": "sha256:255203964e02c25d1849fd103efe6c381913c9f811fd83d14b30df4a20f89066"
+    },
+    {
+      "sourceId": "SRC-000095",
+      "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975"
+    },
+    {
+      "sourceId": "SRC-000096",
+      "artifactSha256": "sha256:2f8fbd88e3718890ff76618459915dc8f707a0e0aa09cea040b3004346299e1e"
+    },
+    {
+      "sourceId": "SRC-000097",
+      "artifactSha256": "sha256:e46171880673c9927b79e4b7ab1276399abc35553b4c23ac37ab9bb023835de0"
+    }
+  ],
+  "activePointerChanged": false,
+  "decisionEngineEffect": "ZERO",
+  "generatedAt": "2026-08-19T04:00:00.000+03:00",
+  "safeResumeToken": "sha256:a79346ad582d0cf0a6e2f2dd5f3ce492be9139e51b02b388cc37739a7b5d3f41"
+}

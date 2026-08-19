@@ -1,0 +1,45 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-009",
+  "familyId": "family-20792adc104471af9d108377",
+  "exactVariantIds": [
+    "62465336-2cfb-4ccd-b9a7-36467d63497f"
+  ],
+  "brandModels": [
+    "Renault Captur"
+  ],
+  "disposition": "COLLECTION_APPROVED",
+  "expectedLedgerRows": 51,
+  "variants": [
+    {
+      "exactVariantId": "62465336-2cfb-4ccd-b9a7-36467d63497f",
+      "canonicalBrand": "Renault",
+      "canonicalModel": "Captur",
+      "trim": "techno mild hybrid EDC 140 hp",
+      "modelYear": 2026,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "MHEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "BODY_SUV_CROSSOVER+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_SUV_CROSSOVER",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ],
+      "familyId": "family-20792adc104471af9d108377",
+      "market": "TR",
+      "transmission": "7-speed dual-clutch automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_CONFIRMED",
+      "disposition": "COLLECTION_APPROVED",
+      "preflightReason": "TR configurator explicitly identifies techno mild hybrid EDC 140 hp and separates standard/optional equipment.",
+      "officialSourceUrl": "https://www.renault.com.tr/hybrid-araclar/captur-e-tech/konfigurator-yeni.html",
+      "officialSourceType": "OFFICIAL_CONFIGURATOR"
+    }
+  ],
+  "lifecycleState": "PREFLIGHT_PASSED_SOURCE_CAPTURE_PENDING",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

@@ -79,7 +79,7 @@ describe("Batch 002 R1 availability semantics correction", () => {
   it("records no activation in R1 while preserving Decision Engine authority after later activation", () => {
     const active = JSON.parse(readFileSync(path.join(root, "data/production/equipment-evidence/active.json"), "utf8"));
     const result = read<{ decisionAuthority: string; activePointerChanged: boolean }>(r1, "correction-result.json");
-    expect(active.activeEquipmentEvidenceRelease).toBe("v1.4.0-reviewed-associations-catalog-v0.55.2-2026-08-18");
+    expect(active.activeEquipmentEvidenceRelease).toBe("v1.5.0-scale-wave-verified-catalog-v0.55.2-2026-08-19");
     expect(result).toMatchObject({ decisionAuthority: "SHADOW_AND_EXPLANATION_DISABLED", activePointerChanged: false });
   });
 });

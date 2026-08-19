@@ -2,9 +2,9 @@ import type { EquipmentFeatureCode, EquipmentVerificationMaterialization, Equipm
 import { validateReviewedAssociationMaterialization } from "./equipmentReviewedAssociationRelease";
 
 export type EquipmentReviewedAssociationCandidate = {
-  readonly schemaVersion: "1.1.0-rc";
+  readonly schemaVersion: "1.1.0-rc" | "1.2.0-rc";
   readonly releaseCandidateId: string;
-  readonly state: "PILOT_REVIEWED_EVIDENCE";
+  readonly state: "PILOT_REVIEWED_EVIDENCE" | "PILOT_VERIFIED_DATA";
   readonly generatedAt: string;
   readonly compatibleCatalogRelease: `v${number}.${number}.${number}`;
   readonly compatibleCatalogFingerprint: `sha256:${string}`;
@@ -15,12 +15,18 @@ export type EquipmentReviewedAssociationCandidate = {
   readonly reviewedAssociations: readonly ReviewedEquipmentAssociationMaterialization[];
   readonly verifiedTrimLinks: readonly (EquipmentVerifiedTrimLinkMaterialization | ReviewedEquipmentTrimLinkMaterialization)[];
   readonly projections: readonly unknown[];
+  readonly coverage?: {
+    readonly verifiedAssertionCoverage?: { readonly exactVariantCount: number };
+    readonly reviewedAssociationOnlyCoverage?: { readonly exactVariantCount: number };
+    readonly uncoveredCoverage?: { readonly exactVariantCount: number };
+    readonly catalogVariantCount?: number;
+  };
 };
 
 export function parseEquipmentReviewedAssociationCandidate(input: unknown): EquipmentReviewedAssociationCandidate {
   if (!input || typeof input !== "object") throw new Error("REVIEWED_ASSOCIATION_CANDIDATE_INVALID");
   const value = input as Partial<EquipmentReviewedAssociationCandidate>;
-  if (value.schemaVersion !== "1.1.0-rc" || value.state !== "PILOT_REVIEWED_EVIDENCE" || value.decisionAuthority !== "SHADOW_AND_EXPLANATION_DISABLED") throw new Error("REVIEWED_ASSOCIATION_CANDIDATE_HEADER_INVALID");
+  if (!["1.1.0-rc", "1.2.0-rc"].includes(value.schemaVersion ?? "") || !["PILOT_REVIEWED_EVIDENCE", "PILOT_VERIFIED_DATA"].includes(value.state ?? "") || value.decisionAuthority !== "SHADOW_AND_EXPLANATION_DISABLED") throw new Error("REVIEWED_ASSOCIATION_CANDIDATE_HEADER_INVALID");
   if (!Array.isArray(value.verifiedAssertions) || !Array.isArray(value.reviewedAssociations) || !Array.isArray(value.verifiedTrimLinks) || !Array.isArray(value.projections)) throw new Error("REVIEWED_ASSOCIATION_CANDIDATE_COLLECTIONS_INVALID");
   const issues = value.reviewedAssociations.flatMap(validateReviewedAssociationMaterialization);
   if (issues.length) throw new Error([...new Set(issues)].sort().join(","));

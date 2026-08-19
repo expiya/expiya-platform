@@ -1,0 +1,34 @@
+{
+  "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+  "disposition": "COMPLETED_WITH_DEFERRED_AND_AUDIT_BACKLOG",
+  "terminalVariantCount": 24,
+  "terminalDispositionCounts": {
+    "COLLECTION_COMPLETED": 3,
+    "CATALOG_EVIDENCE_AUDIT_REQUIRED": 16,
+    "DEFERRED_IDENTITY_AUDIT": 2,
+    "SOURCE_INSUFFICIENT": 3,
+    "COLLECTION_FAILED_SOURCE_ACCESS": 0
+  },
+  "collectionCompletedExactVariantIds": [
+    "19951113-2e40-5526-b568-2ae1984c27e0",
+    "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+    "90e65f94-6fdb-5eea-ad7e-0b4e18435427"
+  ],
+  "ledgerRowCount": 153,
+  "assertionCount": 67,
+  "associationObservationCount": 24,
+  "inconclusiveCount": 62,
+  "trimLinkCount": 3,
+  "packageLinkCount": 0,
+  "semanticMappingCount": 91,
+  "reviewSubjectCount": 94,
+  "conflictCount": 0,
+  "sourceSnapshotCount": 9,
+  "sourceFailureCount": 0,
+  "catalogRelease": "v0.55.2",
+  "catalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+  "activePointerChanged": false,
+  "decisionEngineEffect": "ZERO",
+  "completedAt": "2026-08-19T04:00:00.000+03:00",
+  "canonicalChecksum": "sha256:e205d625a7ba13be956648871e0f4e6259ee52289be92b48ca0b76d7ee4f8cb8"
+}

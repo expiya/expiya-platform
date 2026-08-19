@@ -1,0 +1,37 @@
+{
+  "activatedAt": "2026-08-19T10:00:00.000+03:00",
+  "activationApprovalChecksum": "sha256:5b26e4b3cced982a3203d3612cb2b21af3d0b010beccf9eb7169a59f1b5b75b9",
+  "activationApprovalId": "EE-ACT-E3096132E7C512C79BF3",
+  "activePointerChecksum": "sha256:39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a",
+  "coverage": {
+    "associationOnly": 2,
+    "total": 566,
+    "uncovered": 560,
+    "verifiedAssertion": 4
+  },
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "decisionImpact": "ZERO",
+  "evidence": {
+    "projections": 112,
+    "reviewedAssociations": 49,
+    "verifiedAssertions": 112,
+    "verifiedTrimLinks": 6
+  },
+  "generatedModuleChecksum": "sha256:897a1d8d251240b931ebba5d84fa91b0c937687418a6d7aaa2669c2446ee9e09",
+  "legacyProvisionMode": "LEGACY_STANDARD_NO_PROVISION_MODE",
+  "negativeIsolation": {
+    "BYD": 3,
+    "inconclusiveConversion": 0,
+    "Junior": 0,
+    "Nissan": 0,
+    "silentAbsence": 0,
+    "Tonale": 0,
+    "Volvo": 0
+  },
+  "releaseChecksum": "sha256:5c9ad2d7fa3085b883d04d116bed6ca2bbfb8944e97a81ec590037bc2afd01d2",
+  "releaseId": "v1.5.0-scale-wave-verified-catalog-v0.55.2-2026-08-19",
+  "rollbackGeneratedModuleChecksum": "sha256:9c5971b14716bc503a649f99790655bdddc02f8513a6e13b6f198749f0166fea",
+  "rollbackPointerChecksum": "sha256:4ba2ec5ee76a09906092c19446a2b4846015ac5fd8d08708056b413a721ec8ed",
+  "rollbackReleaseId": "v1.4.0-reviewed-associations-catalog-v0.55.2-2026-08-18",
+  "status": "ACTIVATED"
+}

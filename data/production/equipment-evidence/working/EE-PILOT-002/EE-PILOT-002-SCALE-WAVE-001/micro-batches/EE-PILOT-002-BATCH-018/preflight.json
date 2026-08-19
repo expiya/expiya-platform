@@ -1,0 +1,44 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-018",
+  "familyId": "family-796dcb5d0760cd76bf921737",
+  "exactVariantIds": [
+    "61b1bb40-dce9-5e01-97d2-5ba0167b3062"
+  ],
+  "brandModels": [
+    "Fiat Doblo"
+  ],
+  "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "61b1bb40-dce9-5e01-97d2-5ba0167b3062",
+      "canonicalBrand": "Fiat",
+      "canonicalModel": "Doblo",
+      "trim": "Combi 1.5 BlueHDi 130 EAT8",
+      "modelYear": 2026,
+      "bodyStyle": "MPV",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "DIESEL",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ],
+      "familyId": "family-796dcb5d0760cd76bf921737",
+      "market": "TR",
+      "transmission": "8-speed automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "IDENTITY_CONFLICT",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "preflightReason": "Current TR offering identifies named trims and BlueHDi 130 automatic; catalog uses Combi as the trim, so exact trim identity conflicts.",
+      "officialSourceUrl": "https://www.fiat.com.tr/professional/modeller/doblo-combi",
+      "officialSourceType": "OFFICIAL_PRODUCT_PAGE"
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

@@ -1,0 +1,74 @@
+{
+  "assertions": [
+    {
+      "assertionId": "EE-AST-367B48A913F44BFD46A0CAA0",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000089",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_CONFIGURATOR",
+        "sourceAuthority": "OFFICIAL_CONFIGURATOR",
+        "originalUrl": "https://www.volvocars.com/tr/build/print/?token=17411673982122151385",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000089/2026-08-19/source.visible-text.txt",
+        "artifactSha256": "sha256:90930cd290d7d11183900ca457da4d1850a6d6b1cd248ca32806969241e98e92",
+        "observedAt": "2026-08-19T03:15:00.000+03:00"
+      },
+      "locator": {
+        "kind": "STRUCTURED_RECORD",
+        "recordPath": "$.visibleTextRows.EE-ROW-07BD13EA9E316FF71CDBD262"
+      },
+      "semanticMappingId": "EE-MAP-5CDEF63A0DF1D1186FABF443",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-025",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-3E055665E6B5BA8BDE569189",
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000089",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_CONFIGURATOR",
+        "sourceAuthority": "OFFICIAL_CONFIGURATOR",
+        "originalUrl": "https://www.volvocars.com/tr/build/print/?token=17411673982122151385",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000089/2026-08-19/source.visible-text.txt",
+        "artifactSha256": "sha256:90930cd290d7d11183900ca457da4d1850a6d6b1cd248ca32806969241e98e92",
+        "observedAt": "2026-08-19T03:15:00.000+03:00"
+      },
+      "locator": {
+        "kind": "STRUCTURED_RECORD",
+        "recordPath": "$.visibleTextRows.EE-ROW-102467CDFBD5E56AB81B137E"
+      },
+      "semanticMappingId": "EE-MAP-1C35ADA149F7254A275C711A",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-025",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    }
+  ]
+}

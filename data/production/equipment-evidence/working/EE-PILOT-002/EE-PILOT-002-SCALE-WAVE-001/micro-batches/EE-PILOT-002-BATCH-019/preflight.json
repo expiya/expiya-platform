@@ -1,0 +1,44 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-019",
+  "familyId": "family-7aee36917e6ad0c12db11d27",
+  "exactVariantIds": [
+    "6d6c0805-8779-5764-a42a-48850990a60c"
+  ],
+  "brandModels": [
+    "Audi A8 L"
+  ],
+  "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "6d6c0805-8779-5764-a42a-48850990a60c",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "A8 L",
+      "trim": "50 TDI quattro",
+      "modelYear": 2026,
+      "bodyStyle": "Sedan",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "DIESEL",
+      "priceSegment": "HIGH",
+      "selectionReason": "BODY_SEDAN",
+      "testAxes": [
+        "BODY_SEDAN"
+      ],
+      "familyId": "family-7aee36917e6ad0c12db11d27",
+      "market": "TR",
+      "transmission": "8-speed automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_PARTIALLY_CONFIRMED",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "preflightReason": "Official source identifies A8 L 50 TDI quattro as MY2025, not catalog MY2026.",
+      "officialSourceUrl": "https://fiyatlistesi.audi.com.tr/2025/4N",
+      "officialSourceType": "OFFICIAL_PRICE_LIST"
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

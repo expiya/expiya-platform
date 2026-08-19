@@ -1,0 +1,45 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-007",
+  "familyId": "family-18778712c860944468f2422c",
+  "exactVariantIds": [
+    "2f5054d1-1c11-5c34-a815-8223facf9892"
+  ],
+  "brandModels": [
+    "Fiat Egea Cross"
+  ],
+  "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "2f5054d1-1c11-5c34-a815-8223facf9892",
+      "canonicalBrand": "Fiat",
+      "canonicalModel": "Egea Cross",
+      "trim": "Street 1.6 MultiJet 130 DCT",
+      "modelYear": 2026,
+      "bodyStyle": "Crossover",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "DIESEL",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "BODY_SUV_CROSSOVER+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "BODY_SUV_CROSSOVER",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ],
+      "familyId": "family-18778712c860944468f2422c",
+      "market": "TR",
+      "transmission": "6-speed dual-clutch automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_PARTIALLY_CONFIRMED",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "preflightReason": "Street and 1.6 MultiJet 130 are visible, but the exact Street+DCT+MY2026 applicability chain is not explicit in one immutable configuration.",
+      "officialSourceUrl": "https://www.fiat.com.tr/modeller/egea/cross",
+      "officialSourceType": "OFFICIAL_PRODUCT_PAGE"
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

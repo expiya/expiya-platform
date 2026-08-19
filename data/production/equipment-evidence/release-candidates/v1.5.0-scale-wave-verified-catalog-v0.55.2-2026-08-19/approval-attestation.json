@@ -1,0 +1,20 @@
+{
+  "approvalAttestationId": "EE-OAA-1B8DCAC1A60E8F54FDBE",
+  "approvalManifestChecksum": "sha256:bc7f5af057e55cac8dacbb094286cdc030b70f53433b66b35ba2daa5346ee1f3",
+  "approvalManifestId": "EE-OAM-SCALE-WAVE-001-R1-BYD-NISSAN",
+  "approvalStatementChecksum": "sha256:5949d2dc01e5a5aa270e502ef20c07777d1ee5e78fa1947f0dce773858e3bf71",
+  "assertionCount": 65,
+  "availabilityProvisionDistribution": {
+    "NOT_AVAILABLE+NOT_OFFERED": 3,
+    "OPTIONAL+FACTORY_OPTION": 0,
+    "PACKAGE_DEPENDENT+PACKAGE_OPTION": 0,
+    "STANDARD+INCLUDED": 62
+  },
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "governancePolicyVersion": "SCALE_WAVE_OWNER_APPROVAL_V1",
+  "normalizedApprovalStatement": "EQUIPMENT_OWNER_001 olarak\nEE-OAM-SCALE-WAVE-001-R1-BYD-NISSAN kimlikli ve\nsha256:bc7f5af057e55cac8dacbb094286cdc030b70f53433b66b35ba2daa5346ee1f3\nchecksum’lı BYD/Nissan Equipment approval manifestini inceledim. Manifestteki\n65 equipment assertion ve 2 trim link için owner approval verilmesini ve\nimmutable verification materialization kayıtlarının hazırlanmasını\nonaylıyorum. Bu kapsamın 62 STANDARD + INCLUDED ve BYD Dolphin Comfort exact\nvaryantına ait açık matrix kanıtına dayanan 3 NOT_AVAILABLE + NOT_OFFERED\nassertion içerdiğini kabul ediyorum. OPTIONAL veya PACKAGE_DEPENDENT assertion\nbulunmadığını; BYD’deki 18 ve Nissan’daki 19 inconclusive özelliğin yokluk\nsayılmadığını kabul ediyorum. Assertion’ların yalnız exact varyant, model yılı,\nTürkiye pazarı, resmî matrix hücresi ve legend kapsamında geçerli olduğunu;\nbu onayın Equipment Decision Engine’e filtreleme, sıralama, soru üretme veya\nkullanıcı açıklaması yetkisi vermediğini kabul ediyorum.",
+  "ownerActorId": "EQUIPMENT_OWNER_001",
+  "recordedAt": "2026-08-19T09:00:00.000+03:00",
+  "subjectCount": 67,
+  "trimLinkCount": 2
+}

@@ -1,0 +1,44 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-012",
+  "familyId": "family-48f45125ce0fe1c89d35ffca",
+  "exactVariantIds": [
+    "625c6cce-a78e-5d2d-a682-8feb90b09268"
+  ],
+  "brandModels": [
+    "Togg T10F"
+  ],
+  "disposition": "COLLECTION_APPROVED",
+  "expectedLedgerRows": 51,
+  "variants": [
+    {
+      "exactVariantId": "625c6cce-a78e-5d2d-a682-8feb90b09268",
+      "canonicalBrand": "Togg",
+      "canonicalModel": "T10F",
+      "trim": "V1 RWD Uzun Menzil",
+      "modelYear": 2026,
+      "bodyStyle": "Liftback",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "BEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "BODY_COUPE_LIFTBACK",
+      "testAxes": [
+        "BODY_COUPE_LIFTBACK"
+      ],
+      "familyId": "family-48f45125ce0fe1c89d35ffca",
+      "market": "TR",
+      "transmission": "Single-speed automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_CONFIRMED",
+      "disposition": "COLLECTION_APPROVED",
+      "preflightReason": "Official TR price list identifies V1 RWD Long Range and option applicability; equipment beyond explicit options remains unresolved.",
+      "officialSourceUrl": "https://www.togg.com.tr/en/t10f-price-list",
+      "officialSourceType": "OFFICIAL_PRICE_AND_OPTION_LIST"
+    }
+  ],
+  "lifecycleState": "PREFLIGHT_PASSED_SOURCE_CAPTURE_PENDING",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

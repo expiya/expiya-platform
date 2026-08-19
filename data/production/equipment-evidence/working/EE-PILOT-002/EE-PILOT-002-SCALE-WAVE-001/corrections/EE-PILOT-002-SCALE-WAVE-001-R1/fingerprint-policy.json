@@ -1,0 +1,25 @@
+{
+  "policyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+  "version": "1.0.0",
+  "hashAlgorithm": "SHA-256",
+  "encoding": "UTF-8",
+  "unicodeNormalization": "NFKC",
+  "subjectIdIncluded": false,
+  "excludedFields": [
+    "assertionId",
+    "linkId",
+    "subjectId",
+    "supersedesAssertionId",
+    "supersedesTrimLinkId",
+    "createdAt",
+    "reviewedAt",
+    "reviewState",
+    "verificationState",
+    "actorDisplayName",
+    "approvalId",
+    "absolutePath",
+    "serializationTimestamp",
+    "collectionOrder",
+    "correctionContext"
+  ]
+}

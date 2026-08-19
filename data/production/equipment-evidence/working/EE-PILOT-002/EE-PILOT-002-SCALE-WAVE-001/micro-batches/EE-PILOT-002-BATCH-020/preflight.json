@@ -1,0 +1,45 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-020",
+  "familyId": "family-8ee45a63e0c0c70ce8b07418",
+  "exactVariantIds": [
+    "c4c5efbc-ba1e-5537-a4c6-1fe5116ccb25"
+  ],
+  "brandModels": [
+    "Renault Symbioz"
+  ],
+  "disposition": "SOURCE_INSUFFICIENT",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "c4c5efbc-ba1e-5537-a4c6-1fe5116ccb25",
+      "canonicalBrand": "Renault",
+      "canonicalModel": "Symbioz",
+      "trim": "Esprit Alpine E-Tech Full Hybrid 160",
+      "modelYear": 2026,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "HEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "FUEL_HEV+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "FUEL_HEV",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ],
+      "familyId": "family-8ee45a63e0c0c70ce8b07418",
+      "market": "TR",
+      "transmission": "Automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_NOT_CONFIRMED",
+      "disposition": "SOURCE_INSUFFICIENT",
+      "preflightReason": "No exact official TR Esprit Alpine E-Tech Full Hybrid 160 equipment/configuration artifact was located in preflight.",
+      "officialSourceUrl": null,
+      "officialSourceType": null
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

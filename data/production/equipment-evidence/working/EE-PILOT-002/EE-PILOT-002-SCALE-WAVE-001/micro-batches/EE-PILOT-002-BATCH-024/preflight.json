@@ -1,0 +1,44 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-024",
+  "familyId": "family-b953471dce23cdd80f340f07",
+  "exactVariantIds": [
+    "64996711-e8a8-5d7e-b92e-4a2c3c5e46f1"
+  ],
+  "brandModels": [
+    "Fiat Ducato Minibüs"
+  ],
+  "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "64996711-e8a8-5d7e-b92e-4a2c3c5e46f1",
+      "canonicalBrand": "Fiat",
+      "canonicalModel": "Ducato Minibüs",
+      "trim": "16+1 2.2 180",
+      "modelYear": 2026,
+      "bodyStyle": "Passenger Van",
+      "vehicleUseClass": "LIGHT_COMMERCIAL",
+      "fuelType": "DIESEL",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "BODY_PASSENGER_VAN",
+      "testAxes": [
+        "BODY_PASSENGER_VAN"
+      ],
+      "familyId": "family-b953471dce23cdd80f340f07",
+      "market": "TR",
+      "transmission": "6-speed manual",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_PARTIALLY_CONFIRMED",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "preflightReason": "16+1 body is official, but exact 2.2 180+MY2026 configuration and trim equipment boundary are not explicit.",
+      "officialSourceUrl": "https://www.fiat.com.tr/professional/modeller/ducato-minibus",
+      "officialSourceType": "OFFICIAL_PRODUCT_PAGE"
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

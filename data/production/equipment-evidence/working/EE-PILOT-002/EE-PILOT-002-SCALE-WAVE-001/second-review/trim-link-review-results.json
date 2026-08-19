@@ -1,0 +1,35 @@
+[
+  {
+    "subjectType": "TRIM_LINK",
+    "subjectId": "EE-LINK-TRIM-38F595975A0C87A5655FCE47",
+    "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+    "microBatchId": "EE-PILOT-002-BATCH-025",
+    "exactIdentityResult": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+    "contentFingerprintPresent": false,
+    "disposition": "CONFLICT_REVIEW_REQUIRED",
+    "reasonCode": "VOLVO_EXACT_IDENTITY_EQUIVALENCE_NOT_ESTABLISHED",
+    "sourceContentFingerprint": "sha256:452440445f23ec42f720a1479d98f2570e3bdbb7ab1902f4151d7b29cca22b3d"
+  },
+  {
+    "subjectType": "TRIM_LINK",
+    "subjectId": "EE-LINK-TRIM-CFACA030CFB20683C6A3243F",
+    "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+    "microBatchId": "EE-PILOT-002-BATCH-014",
+    "exactIdentityResult": "PASSED",
+    "contentFingerprintPresent": false,
+    "disposition": "CONFLICT_REVIEW_REQUIRED",
+    "reasonCode": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+    "sourceContentFingerprint": "sha256:f714d6ca9ef605957f9d6c60f04f281d74d35dbdd422dab9f61f4630d6dae591"
+  },
+  {
+    "subjectType": "TRIM_LINK",
+    "subjectId": "EE-LINK-TRIM-FD49E4B4742F8373AFBC15F4",
+    "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+    "microBatchId": "EE-PILOT-002-BATCH-021",
+    "exactIdentityResult": "PASSED",
+    "contentFingerprintPresent": false,
+    "disposition": "CONFLICT_REVIEW_REQUIRED",
+    "reasonCode": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+    "sourceContentFingerprint": "sha256:2fcd91a77faf90a73d6799dde3a3a0bc1735517ee7090b9065e6b5dd6ae03175"
+  }
+]

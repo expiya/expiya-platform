@@ -1,0 +1,44 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-010",
+  "familyId": "family-31961cca2fce994af065068e",
+  "exactVariantIds": [
+    "e09c81aa-6324-5b20-9cd8-90dc806a5ae9"
+  ],
+  "brandModels": [
+    "Fiat Egea Sedan"
+  ],
+  "disposition": "COLLECTION_APPROVED",
+  "expectedLedgerRows": 51,
+  "variants": [
+    {
+      "exactVariantId": "e09c81aa-6324-5b20-9cd8-90dc806a5ae9",
+      "canonicalBrand": "Fiat",
+      "canonicalModel": "Egea Sedan",
+      "trim": "Easy 1.6 MultiJet 130 6MT",
+      "modelYear": 2026,
+      "bodyStyle": "Sedan",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "DIESEL",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "BODY_SEDAN",
+      "testAxes": [
+        "BODY_SEDAN"
+      ],
+      "familyId": "family-31961cca2fce994af065068e",
+      "market": "TR",
+      "transmission": "6-speed manual",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_CONFIRMED",
+      "disposition": "COLLECTION_APPROVED",
+      "preflightReason": "Official 2026 campaign and current product page jointly identify Easy 1.6 MultiJet 130 manual; only exact Easy rows may be collected.",
+      "officialSourceUrl": "https://www.fiat.com.tr/modeller/egea/sedan",
+      "officialSourceType": "OFFICIAL_PRODUCT_PAGE"
+    }
+  ],
+  "lifecycleState": "PREFLIGHT_PASSED_SOURCE_CAPTURE_PENDING",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

@@ -1,0 +1,45 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-005",
+  "familyId": "family-124f5a3f4e2f16253b1b8970",
+  "exactVariantIds": [
+    "bad56151-8735-569c-ad4f-129880820a0e"
+  ],
+  "brandModels": [
+    "SEAT Leon"
+  ],
+  "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+  "expectedLedgerRows": 0,
+  "variants": [
+    {
+      "exactVariantId": "bad56151-8735-569c-ad4f-129880820a0e",
+      "canonicalBrand": "SEAT",
+      "canonicalModel": "Leon",
+      "trim": "FR 1.5 eTSI 150 DSG",
+      "modelYear": 2026,
+      "bodyStyle": "Hatchback",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "MHEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "FUEL_MHEV+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "FUEL_MHEV",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ],
+      "familyId": "family-124f5a3f4e2f16253b1b8970",
+      "market": "TR",
+      "transmission": "7-speed dual-clutch automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_PARTIALLY_CONFIRMED",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "preflightReason": "Exact FR 1.5 eTSI 150 DSG is visible, but the source explicitly applies to MY2024 rather than catalog MY2026.",
+      "officialSourceUrl": "https://www.seat.com.tr/modeller/leon/teknik-ozellikler/fr",
+      "officialSourceType": "OFFICIAL_SPECIFICATION_PAGE"
+    }
+  ],
+  "lifecycleState": "TERMINAL_FAIL_CLOSED",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

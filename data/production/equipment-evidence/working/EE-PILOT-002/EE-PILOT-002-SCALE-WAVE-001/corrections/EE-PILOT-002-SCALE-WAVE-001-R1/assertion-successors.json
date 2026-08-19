@@ -1,0 +1,3160 @@
+{
+  "assertions": [
+    {
+      "assertionId": "EE-AST-FAC154DF6D64A265A9456CC4",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Ön çarpma uyarısı (PCW) & Otonom acil durum freni (AEB)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-7E6D44CA3610C85B91879505",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-1D6D3CA845646F9666E8FC08",
+      "contentFingerprint": "sha256:86ad99e3e9e1bb64f2212e06d7d8e402a25bcdfe7d5ebea84626ceb80d736e7b",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-E2E0075990B3869E2E58B5CC",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-4E03D4BB7ED3E0C04835B1C9",
+      "featureCode": "FORWARD_COLLISION_WARNING",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Ön çarpma uyarısı (PCW) & Otonom acil durum freni (AEB)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-62DDC3382E62D41CC129D273",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-0FA2A2D75DEB42A0CF6F0814",
+      "contentFingerprint": "sha256:71db2563528f88abe7a58500c40594b13af7042c901dbacc585c3173294af5f3",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-D1E9591B544FE79AF6ABEA5A",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-F2E8C55A1988ACF427C9D4AC",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Şerit takip asistanı (Direksiyon destekli) (LSS)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-DD5DBCA4E36701087D5039B4",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-676C95F78A63AB232DB0ADDE",
+      "contentFingerprint": "sha256:85e2c264bde52002cd236aac077d6001c7ffd3498ae46765aab2f3aa3c53fc3c",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-3999DD7DBE90E1BE8D68C7A0",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-946BAD3F4D0E4CD45882FF60",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Adaptif hız sabitleme sistemi (ACC) & Akıllı hız sabitleme sistemi (ICC)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-9AF316DB95642770BD36EC4E",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-9E9454C9264624B64807AA32",
+      "contentFingerprint": "sha256:332703542067562eb86600397affa163239c8870238d63446d208cb6767bcf1b",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-D3529F9175917F8727B47753",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-DD5E243DBC9AE3AA2A5F1393",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Kör nokta uyarı sistemi (BSD) & Şerit değiştirme asistanı (LCA)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-5426CE9D9857640A2D5D4455",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-4F1DB603ED89B7E5F86B286F",
+      "contentFingerprint": "sha256:3f97b9b415c3354a8830f0de4c0114bf95566499d95423c0185bf4ececaa3da4",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-C119FBA5B0160D357F9A3756",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-E70188DDF67101AAB0F9BDF6",
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Geri manevra çapraz trafik uyarısı (Fren destekli) (RCTB)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-B1A3AEDA4B45AF4FC45BADA5",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-AB61C2101C25363E1C530D30",
+      "contentFingerprint": "sha256:91660e4d4af7593eb37b577d779134700189979e3af24e4c7102556efd7320ca",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-AA5CB781C0CD6DB1CBF71457",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-A7186CD2946461C8ECA36AA6",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Trafik işareti algılama sistemi (TSR)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-516CC289B821D22E2FCC0C4C",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-34542C5A8BDFBA2D6312397D",
+      "contentFingerprint": "sha256:7433208e597d31dedea19c0ac23317218deb84e6c593622da5ca1ee5dfb4393f",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-95F9C911F129A8C8E314B638",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-48FCE72E3C153F235D12349F",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Sürücü yorgunluk algılama sistemi (DFM)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-AC69E2CCE9F3E309C46BAC8E",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-FFBB2AE01D4EF6515356C47E",
+      "contentFingerprint": "sha256:e5c41c2fa03973bb23c25120bbc2af5bfcea1e4c6493a83cf0179ea5be8562d3",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-4FEE7FD3B5D0AA3D03AD6055",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-73E08BB392C46253AFBD422F",
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Uzun far asistanı (HBA)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-DCC915D4CFC640BEC9435534",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-643A4ED6F46A2939E171AFAE",
+      "contentFingerprint": "sha256:356600ba852e7882f75899401a38a25a556c41ecfb348e960a7b77de9271a976",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-80B288F1DEF63392FE653E3C",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-96B4A3648C9BA9611AD0C424",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Panoramik görüş kamerası (360°)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-469CDBEEBF2B6202D01D4245",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-89BEB93E6FEF759D088D8EA6",
+      "contentFingerprint": "sha256:15b417672fc6fe053b5348b37c7e74525250d4ff2254fa472502d55182193c35",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-A86F7A76CA4ADC52E12FE67A",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-F55B19DE7AA53F127C068FBE",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Ön ve arka park sensörü (2 x Ön, 3 x Arka)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-6B6A0CA0F399112D9BF363E7",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-DF209D5DD63D1D4676A4554B",
+      "contentFingerprint": "sha256:686be376f2bcc712c1663a20bfd939aba4b4edf3b7004cb15c76a66440feabea",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-4324D028721FEF1564C51086",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-90AFB0747D73A92A63A45BDA",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Ön ve arka park sensörü (2 x Ön, 3 x Arka)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-36688536E860E99255BA76E9",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-F61BA182E2CEFE2B9D677D12",
+      "contentFingerprint": "sha256:65cc8325017d0edf4d95cb46c0b501c8cc78f04b3345af1a9febe18f76d09b49",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-891E97429AFEFFA2C337B705",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-2A693FBC4F895E4691CF6793",
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Ön yolcu koltuğunda ve arka yan koltuklarda ISOFIX bağlantıları",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-EF8509E8A8E5C2299112FAE9",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-C1D32121D7C40C2E68CF6AE9",
+      "contentFingerprint": "sha256:df68c37e6b29f5c59b2fb8f8771158b499a169fda89727c607726a721169bcbc",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-4AFF03C39D9254A75FF9471B",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-FE02A81980054B1BC1ED94B3",
+      "featureCode": "ISOFIX_FRONT_PASSENGER",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Ön yolcu koltuğunda ve arka yan koltuklarda ISOFIX bağlantıları",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-6C121ECFF844B9A31AAEA80E",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-32E09C903E68CA66657E8BB8",
+      "contentFingerprint": "sha256:405ba34e654be7181744dc3b73881f36c807a7f082190a7e5b112b376d3fa404",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-90BA83BD347907EBF188238E",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-9B655CA96C7907C90E0D1D6B",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Sürücü ve ön yolcu için yan hava yastıkları / Perde hava yastıkları",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-94E0B049D067EFDB17396881",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-E360BA4F42503389CF9D153C",
+      "contentFingerprint": "sha256:bde7fd08ae4205c1b90b741d92aeba683e9b27cb128126eb2da86321fcad59f1",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-C669A77DFE80059AC0771ED6",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-4F151EE70B0913C25013C3F9",
+      "featureCode": "CENTER_AIRBAG",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Sürücü ve ön yolcu için ön-orta hava yastığı",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-15397D050318603FFD535284",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-A2D26D95A104F6E78665C82C",
+      "contentFingerprint": "sha256:04236863343abe3d9de2ab9cae750c72e7ca527f2dbc5c57bc260b21b38f2272",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-1BF43774EE4053999355D5ED",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-E21964108FC41C7EED1285B0",
+      "featureCode": "REAR_SEAT_OCCUPANT_ALERT",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Çocuk varlık tespiti (CPD)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-0B6C0EF9EFBEE171124716EA",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-E813B6CE835B1591314B54F8",
+      "contentFingerprint": "sha256:d6e1e5a37512080e6bbac253f18cafe94a258bea3ea707800d955a05694c672c",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-469ED0AEC81176C204361B3D",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-A90BCF4AA614D8C779DEBB7C",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Isıtmalı ön koltuklar",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-C4AD059AC5FF9645DD3FBE9A",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-7B837EB201C487374DD3CBFD",
+      "contentFingerprint": "sha256:8052ca48edcd446c37ed2eff282cb7cc4f097ab777c6f724c37e05fca1c0f34e",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-8038E5B57FA53188BEA8BD1F",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-B31B77B02094FCB2B55E7EE8",
+      "featureCode": "VENTILATED_FRONT_SEATS",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Havalandırmalı ön koltuklar",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-1C68AE93D6360F4368D9EC76",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "NEGATIVE",
+      "negativeEvidenceReason": "OFFICIAL_EQUIPMENT_MATRIX_EXPLICIT_ABSENCE",
+      "availabilityStatus": "NOT_AVAILABLE",
+      "provisionMode": "NOT_OFFERED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-909219F9A170E16EE01ECDD7",
+      "contentFingerprint": "sha256:143efd9b8a0ff2d73f1f1d46e081cf2e5e625e264b3d85af6d05f101897d8c81",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-EC1F3082390CB5A4B2A9F8F4",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-381402BF18AD284A026CA8B6",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "6 yöne elektrikli ayarlanabilir sürücü koltuğu",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-7C2BF167B63E2D3C4EB42B1B",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-5DE0BBD244A7F5F00100FF65",
+      "contentFingerprint": "sha256:be101ee8efb6381f525fcdda2ca40f754406a7ad4316e64b10a55e34d3717119",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-20C28E659A65006645020FA1",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-25C161FC55DAC32435674C19",
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "4 yöne elektrikli ayarlanabilir ön yolcu koltuğu",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-55C75248AFE68551C9F4880C",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-050C1890CD8B91624ED0CAA7",
+      "contentFingerprint": "sha256:78bd271bb6422a1b57dfd851c8c03e10cdd696ef3a169311769b9448ccedd7b1",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-8C5E2BD8AB7BB97E9A32A6E0",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-1126B2FC2D22BAADED3F2095",
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Çok fonksiyonlu, ısıtmalı vegan deri direksiyon simidi",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-CBCDD356DDE91B2E8D730851",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-D50A940ACD66BFC6024CEF94",
+      "contentFingerprint": "sha256:5c3e98f4b2555ef44107fb487b42a48f23859da12771863e501dd100a378a976",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-CE7C680BE0A3F1703DF45877",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-AD2D710430164F85910EFD70",
+      "featureCode": "KEYLESS_ENTRY",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Anahtarsız giriş ve anahtarsız çalıştırma",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-CB765376DCA0E03B18F61B20",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-058B140D0E834A66E89F1D8F",
+      "contentFingerprint": "sha256:bb7405af3a6820456eed2a0e5153529fbff00db45fa259763f1a837cc438f0e5",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-E1B3D96CA2A4123CA00DD1C0",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-E57B735D789255E67030106E",
+      "featureCode": "KEYLESS_START",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "Anahtarsız giriş ve anahtarsız çalıştırma",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-70BDF2E3B707547FAFDEC686",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-23FD1361D66E073EABF8046A",
+      "contentFingerprint": "sha256:c4321f0105cadc7b45a572c6fbba4a6d47ef1223786bf5a28af525856fb6cfeb",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-761FC44216C0E8FC617F11B8",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-2FFB1A6358DB8FCC086F8505",
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Panoramik cam tavan (Cam tavan perdesi ile)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-684DAF0A75806048A390633D",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "NEGATIVE",
+      "negativeEvidenceReason": "OFFICIAL_EQUIPMENT_MATRIX_EXPLICIT_ABSENCE",
+      "availabilityStatus": "NOT_AVAILABLE",
+      "provisionMode": "NOT_OFFERED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-F8E5B151536777EF825B86C6",
+      "contentFingerprint": "sha256:41a7c09e2b3cbfdf45c82d992edbbcb6f18164d5439cfb8d1be8cd177e09d970",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-9265A407D320F6530CC1044E",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-A230B4DC0EB0957580725D53",
+      "featureCode": "APPLE_CARPLAY",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Apple CarPlay & Android Auto (Kablolu & kablosuz bağlantı)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-500ABF423390B5DFD6A0B911",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-6D1B222840A6A41F62C3B05B",
+      "contentFingerprint": "sha256:ebe8c2603bf003abe659f9d95b8f7ac8c3a847ae99d8e81e7c366f99b302d225",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-A6DFC8A84B7EB4BC08A9E21F",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-C73FA51FC01B01B5A9AEF7A8",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Apple CarPlay & Android Auto (Kablolu & kablosuz bağlantı)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-076C0A0A260AEB8248B683B2",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-F24580770C2B1F565FAF4843",
+      "contentFingerprint": "sha256:478857e4df6a180b649c0c9d2a5bd2b0558e36260bbb74d592d736e0c5f4d1ff",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-BE47C946E0680B56539C8DE4",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-94674CF35D07895182E04BB1",
+      "featureCode": "ANDROID_AUTO",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Apple CarPlay & Android Auto (Kablolu & kablosuz bağlantı)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-19539287ADDDE0C978D59DE2",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-6CC8AB76C4D72C8AE39EFCFC",
+      "contentFingerprint": "sha256:38243395b334c0a48c9f0c80f08a59e0c780c3ec8bab9dd3a861ec1715481709",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-FA953AC16C85C596D955531A",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-AF6F2028684944494C7B46CB",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Apple CarPlay & Android Auto (Kablolu & kablosuz bağlantı)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-BCF09CF548220F125A8E7A6B",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-EEC80BE8B9DAE268E08B98B0",
+      "contentFingerprint": "sha256:e43179769aad77b864012d136fd035d519d2dd074b9ff891ebcc90e7ad3e8424",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-827E38BD53124E604FABF4AC",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-0A0A5644D4EFD602108DA56E",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Akıllı telefonlar için havalandırmalı kablosuz şarj istasyonu (50 W)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-95090216B1E1DFAE6DCE87CC",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "NEGATIVE",
+      "negativeEvidenceReason": "OFFICIAL_EQUIPMENT_MATRIX_EXPLICIT_ABSENCE",
+      "availabilityStatus": "NOT_AVAILABLE",
+      "provisionMode": "NOT_OFFERED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-235B34B04CD38CE40FD64B64",
+      "contentFingerprint": "sha256:f6e97d4e92023888deea055fddfd30e9fc02197a4d0a15ead29b651e74d11d8a",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-4CF8F9A48DF99659A1848867",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-C8C6EF666F684EC2440A67CB",
+      "featureCode": "LED_HEADLIGHTS",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "LED ön farlar",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-BF61F2F6D808502A6D3009E5",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-A6EC1504B0EA29FF8B9A6925",
+      "contentFingerprint": "sha256:fea1bbd53c99363aed7c18952e4c93ee6d7292b8fd67bed4a0c89cc7aed27728",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-0590CB05DA7AEC34C13BB1E1",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-84214DF3D3C44C21273F1285",
+      "featureCode": "AUTOMATIC_HIGH_BEAM",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 2,
+        "row": "Uzun far asistanı (HBA)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-F99C0A7B98505938ADAE87DB",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-D58E2467C2839DEC280FAEE3",
+      "contentFingerprint": "sha256:8b55976f8390cd9700197ff3ca6659af49aeaab0f54187906e85b4ad413265f6",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-0BCDBA65E97DD5ABF04FF1EE",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-E64BA0CBDAB2D82F72E430E0",
+      "featureCode": "TERRAIN_DRIVE_MODES",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000092",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www.bydauto.com.tr/storage/pdf/byd-dolphin-teknik-ozellikler-ve-donanim-tablosu-030425.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000092/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686",
+        "observedAt": "2026-08-19T00:45:00.000+03:00",
+        "publishedAt": "2025-03-28"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 3,
+        "row": "4 farklı sürüş modu (Eco, normal, spor, kar)",
+        "column": "Comfort"
+      },
+      "semanticMappingId": "EE-MAP-4EACE3C81957F04D387BD1DB",
+      "market": "TR",
+      "modelYearFrom": 2025,
+      "modelYearTo": 2025,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-014",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-58B86C9017D07E52A192F505",
+      "contentFingerprint": "sha256:d26b69163ad1677ae253bc8873e0021e7081925bbfca2d2731c354239664a2c7",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-A1155EF7EB153940C6A51CFF",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-BC66EA46B1D1194E3C4D829B",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı acil fren destek sistemi (AEBS) yaya, bisiklet ve kavşak algılama fonksiyonlu",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-FB3B8A4357AE3853D3608F90",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-CE8E2290C093D0EAA2CC2FD8",
+      "contentFingerprint": "sha256:9f8e1c019d613d4a3f946e03bfd07cde4789859f6cfff9ae8a715c110cb39923",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-690B9171E5D6300E817AD3F7",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-5C5C9D232EC9982279742F5B",
+      "featureCode": "FORWARD_COLLISION_WARNING",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Önsezili Akıllı Çarpışma Uyarı Sistemi",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-B88DCE214434D59E7FBCBC72",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-358C6337476EC3F6D2EF80A9",
+      "contentFingerprint": "sha256:9ac607c3096b72aed57fedfc010b17cc7d9849006d673633211bdbc97b2dbd5b",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-5E0914B45A19AF902DC39ABB",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-B477A0C8FB87179FBF99CA9A",
+      "featureCode": "LANE_KEEP_ASSIST",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Şerit Takip Sistemi",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-CDA395F586B3720E152E59F7",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-74520E48818929395F218FBC",
+      "contentFingerprint": "sha256:6ef071499e159010a6308dd60af29eb327d66b2a5171221695c2529bcef2f42f",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-B797BD7B8C8012D27A72560E",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-F54BE28E75FAF472DC4D3CEC",
+      "featureCode": "LANE_CENTERING_ASSIST",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "ProPILOT Akıllı Şerit Takip Sistemi",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-E32BE4868D753DD59E7DBE27",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-351BEAC217330EA55437BD6B",
+      "contentFingerprint": "sha256:5d2c103590480be48b8500aacaa5a60bd06970ae61815a30961ba1d726744e40",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-6D1260CFC4A729959AF5EC72",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-957F3C8C1D6C665874A2658C",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Hız Sabitleme Sistemi (ICC)",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-3E4A15F84CD24834EBFFE315",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-D8FBF7E4AE288F21B21C77E7",
+      "contentFingerprint": "sha256:251a13c0291e890fa5268c0121e56c5de1d2710fe6ea9783cc58ee4f409c0a8d",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-B7B03897EB46F3FE69A5C441",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-CCE9ED4385A2A31D380FE57B",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Kör Nokta Önleme Sistemi",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-61D67E22D5038706E4304C46",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-F6A670A7CF75D9992F4A3F39",
+      "contentFingerprint": "sha256:8c00b0a49c87ddc757bd29778aa97d88c8698f0107c29c888a7834e0f2b27bf1",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-0687175390A158F0B6B3377A",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-F0B68CB76A1676C5892C04D7",
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Arka Çapraz Trafik Uyarı Sistemi (RCTA)",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-CCDD8A2FE7A2C81F4EC0F78F",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-342FA0C87ABE944C1CCE179C",
+      "contentFingerprint": "sha256:54a964645a2fef4bb7b377aed58bf6fb1ce10c6a46b794ef8c7cded28aed7d96",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-B68404C402C34749B9C8A524",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-6404EE342533076E94E596A6",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Trafik işaretleri tanıma sistemi (TSR)",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-E4B0BC9D38D452053F6ECEC6",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-4D7D06E724B00B10FDF58B2B",
+      "contentFingerprint": "sha256:f31e78e2922f4e04cb90e6fa828826b2917c6c902f25fb3e3072aeceebd946c4",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-84823F0208F278F443D28353",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-11D01F9018E331B7F859D8E6",
+      "featureCode": "DRIVER_ATTENTION_MONITOR",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Gelişmiş Yorgunluk Algılama Sistemi",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-13B80BD63339034DEF3D54FB",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-9954CEA12752C88C26C4961E",
+      "contentFingerprint": "sha256:0e3649c481d1d3e9b6c268a3ea33315e7796c6b8f4711219c170496f7e4af80c",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-F4DA381046AE19E6A3A01D7F",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-9D22FC6B3039B303210C916E",
+      "featureCode": "HIGH_BEAM_ASSIST",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Uzun Far Asistanı (AHB)",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-806FA80E4D0683A6B38EE187",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-2A9A21AE1B9E2806E9D025A6",
+      "contentFingerprint": "sha256:652692693d0488ead95e1d325d9512ce441a16b2d23f24c501175d55cfb58746",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-144BA8762012ACAE6D5B8E80",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-F11624B51E556CB504375EE8",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Hareketli Nesne Algılama Özellikli 3D 360° Çevre Görüş Sistemi",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-A91042986B0FD6891EC65534",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-590B97D8D8D230D842EA4495",
+      "contentFingerprint": "sha256:a2befd6ffad690d454de813b08fd3a391e7a9d75beaa6ba6ad6beb2de20a89ea",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-BBFD6A12779A9D11E9B477FB",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-591D66954FB4CB8E2493D48C",
+      "featureCode": "FRONT_PARKING_SENSORS",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Ön Park sensörü",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-222D54C190BF28B25BE89165",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-19E61F7FBDBC2F9F2C4171C6",
+      "contentFingerprint": "sha256:a70896329541f3ed94a4bf4c586fd1fed78fe63dd6c61810323c5498675efb73",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-28ED34F14DB14081D86E0FEE",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-89A4885AC94175D123D70DA1",
+      "featureCode": "REAR_PARKING_SENSORS",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Arka Park Sensörü",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-D03DFB8D4A62DE3D4073DA2A",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-56CDCEC28B919FC08A131946",
+      "contentFingerprint": "sha256:db0ef7e83fe7d1ec7e4ab93606bf56f90f29c36aff6d4cf7a07ec19e11726b3b",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-62D55F4EB9D85A22680E6E1D",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-560FAC0F99079954FC754A39",
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "ISOFIX Çocuk Koltuğu Sabitleme Mekanizması x2",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-33C9CD8FDDDB71DB2E9310CD",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-1A9E9285FF7EA66D49C0A35E",
+      "contentFingerprint": "sha256:12c167c00d8040cb4ad843daad478b8bb8da73449b1765bac75fc6aa19c807b7",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-3B4C17FA82959C53E1C532ED",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-BAC4404BDDFEC774DB9F2BBC",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Sürücü, Yolcu, Yan ve Perde Hava Yastıkları",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-7428871F2011F0876AE06E8D",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-933D37693D83C0CCEAB7E936",
+      "contentFingerprint": "sha256:cdc088c9965065d18ff0f53ef5cde387b76faf8ac40168c3ee4660ba65d5d83a",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-489D63E70E21DBC0EF6B66B4",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-B8D47DA27AB6D356B2E53075",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Isıtmalı Ön Koltuklar",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-BA3F7DFCC9669C9EFA104C77",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-66793FB0AB631EDD62CC3618",
+      "contentFingerprint": "sha256:2eed5c37f62e80a57ba564105cd2cdee5d247b938cd78654af75d6a2425cf935",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-D47E4EF19FD10A1BE397699C",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-A82BF6253B618F5298661929",
+      "featureCode": "POWER_DRIVER_SEAT",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Elektrikli, Hafızalı, Masaj Özellikli Sürücü ve Ön Yolcu Koltukları",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-2A5B05C39E05C25505DAF01A",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-7F23130181C8876B41FDE752",
+      "contentFingerprint": "sha256:cc80d42d0d93daced49805f3e7540b107b11fa4d1d71083831418ae1fbb4635d",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-2C8E608A794BE97721267ECD",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-62CF733196B61A04C16D4AAE",
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Elektrikli, Hafızalı, Masaj Özellikli Sürücü ve Ön Yolcu Koltukları",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-F13634A0D06F7ECA283B01E5",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-F312AA65A233D9086128F0AB",
+      "contentFingerprint": "sha256:86b120567d10b6427ffafb13c7d41bbe0e49d298a82a816bf6db4fe9c81bbf89",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-96CC89374D7C32E685D6D931",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-CB6DFD70566F0DB4132FDF55",
+      "featureCode": "DRIVER_SEAT_MEMORY",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Elektrikli, Hafızalı, Masaj Özellikli Sürücü ve Ön Yolcu Koltukları",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-80B1A9D6945EE9E8CE0562E1",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-9EDF1BD6AB99B8C67A4568BF",
+      "contentFingerprint": "sha256:2a970529acf82c591a05de9e3a22a2845a80ca001f273f345ef9ddc9a9c3767f",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-7FB5E2C1013BB4BF8241D18B",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-5A70F21634B69970A884D740",
+      "featureCode": "HEATED_STEERING_WHEEL",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Isıtmalı Deri Direksiyon",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-9A34AF74DC14DAA3172BFE44",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-428451C87355DDEE91C10FE7",
+      "contentFingerprint": "sha256:aae86658951d03778fde2d4e8dfdfc0b5e81988b5323175bcc372d698de665d3",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-C905EA08F65162327A934B1D",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-FB49857F0C4CBA444F9DDE7F",
+      "featureCode": "DUAL_ZONE_CLIMATE_CONTROL",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Çift Bölgeli Otomatik Klima",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-5AEF4ABAE6E019CE740EE173",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-B0A982F843B57C56B6CD21D7",
+      "contentFingerprint": "sha256:d709de7724419f4fbe836aaba336e012e8afcdd4769dc9e71a070cdd3bb12849",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-BAC8EF9CC0AD875F7DC22897",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-38C92FDF18D083A12596076E",
+      "featureCode": "KEYLESS_ENTRY",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Anahtar - Anahtarsız Giriş ve Çalıştırma",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-62190306231CB727AA358F85",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-6ADCD7D0F1A6B28EE5D2F30E",
+      "contentFingerprint": "sha256:b600eaeabb3e2e9b76720a8f5422037cfce98d3158f11cb724188dff3cdeec48",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-EC96F6E886C6EA1B5BDEAECF",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-742A35CB0EBAB192BB04350B",
+      "featureCode": "KEYLESS_START",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Anahtar - Anahtarsız Giriş ve Çalıştırma",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-85DC9F16259DE156C4B5C099",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-43B486EAF3A35D8F82ECE526",
+      "contentFingerprint": "sha256:21ce82bf4d295a6f4b3f8a4c268f345c973024c9fdc31364ac8b2ba27d6f01cf",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-2107277777C9FCB32EC5C92B",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-075A6AA235CB49BB15E94AB4",
+      "featureCode": "POWER_TAILGATE",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Akıllı Elektrikli Bagaj Kapağı",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-65277FE549EB4025F498EF3D",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-ED93F5AB1187683864BD9ACA",
+      "contentFingerprint": "sha256:dc96ec159fd3f11421e6b31a44f584b62a2a7e1696e0e0c92ed374c9ffb96e61",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-DADF7EA5AB9E58C5F63E141B",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-D9AA3AD6E950F5BE86140135",
+      "featureCode": "PANORAMIC_GLASS_ROOF",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Panoramik Cam Tavan",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-045543C294D02605EFD60C76",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-B7A0AA3A2CF098FBAB165385",
+      "contentFingerprint": "sha256:4f67159202c2c4b82a9cbb7c17768921b8a72d85ce93c0d5c3ee6a478a321a64",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-0A652044F0BC63C706AFB610",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-8E503C48B6E49CB0F6D008D5",
+      "featureCode": "APPLE_CARPLAY",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Kablosuz Apple CarPlay ve Kablosuz Android Auto",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-C146C3ED6473C7E804F1A7E7",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-D333F2C8F089E2EE102D0255",
+      "contentFingerprint": "sha256:f6516bdd33fb717ba9ce6c7dbffaf7124c71751cebb709f837b3e61b38712af1",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-1F3F4BA09FCAE98C90AE3119",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-A6F3B8DA7F2C47CFDDEE0AA4",
+      "featureCode": "WIRELESS_APPLE_CARPLAY",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Kablosuz Apple CarPlay ve Kablosuz Android Auto",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-1DE20505E2986D5F7810CE1B",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-4D574D2E076FAFDD7AEAA9CC",
+      "contentFingerprint": "sha256:abd36ec4df546405cd2870825595b71802f2aa0e35cf4f356d6ee2ed8b689931",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-24902789B5BEF2F38E97F70E",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-26D34BAC71237E029EAFC564",
+      "featureCode": "ANDROID_AUTO",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Kablosuz Apple CarPlay ve Kablosuz Android Auto",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-E161D016CEC2BF1CE7389338",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-E46BB41D9226BF28D497EC41",
+      "contentFingerprint": "sha256:84e15cf67c0655a7c0fd57486ed054f7a6231b3a22c3a75e89cbedc962268ab1",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-4FB9FD287BC6F6EA567F3A2D",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-5C31E574D8295F4A2AD79F07",
+      "featureCode": "WIRELESS_ANDROID_AUTO",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Kablosuz Apple CarPlay ve Kablosuz Android Auto",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-73E900AD36667DF8216F76E1",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-F110CE8761E68D99A02921AD",
+      "contentFingerprint": "sha256:eee797554904c51a8ad06e621c27de73fb9aef76e9b3af5af4be2e92766f9b7e",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-5B21ED3D26EBDB1048C0865A",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-BFE0DD45EE840A243459555A",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Kablosuz Cep Telefonu Şarj Özelliği",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-2DE079526C9800A11BDE20EB",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-3B302B56ABBDB88D4AADD59A",
+      "contentFingerprint": "sha256:4c139e9fb92f6b0d912ce5d8f11a34d30f0d6ccf8eeedba6a1b16e3277b393ed",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-718F4C78E839838C2CE07590",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-30A4443B27CCD32FB1CF2AE3",
+      "featureCode": "LED_HEADLIGHTS",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "LED Ön Farlar",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-FD5ECDD5A9CE3FA92566E7C4",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-BA9EF57717969DCE06CEE009",
+      "contentFingerprint": "sha256:5142bebd966b266e6494715d08dec7f67e184220ad3a7e25e30fa7f3741e7fe2",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-CAED24BE65C071C92EAAE403",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    },
+    {
+      "assertionId": "EE-AST-8832F15742049C51FD61A1E8",
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "sourceApplicability": "EXACT_VARIANT",
+      "source": {
+        "sourceId": "SRC-000095",
+        "registryRelease": "equipment-source-registry-v1",
+        "sourceType": "OFFICIAL_EQUIPMENT_LIST",
+        "sourceAuthority": "OFFICIAL_BROCHURE",
+        "originalUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/brochures/Nissan_Qashqai_Brosur_260728.pdf",
+        "artifactReference": "data/cars/vehicle_evidence/source_snapshots/SRC-000095/2026-08-19/source.pdf",
+        "artifactSha256": "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975",
+        "observedAt": "2026-08-19T03:30:00.000+03:00"
+      },
+      "locator": {
+        "kind": "PDF_PAGE",
+        "pageNumber": 13,
+        "row": "Adaptif LED Matrix Ön Farlar ve Otomatik Yükseklik Ayarı",
+        "column": "Platinum Premium e-POWER"
+      },
+      "semanticMappingId": "EE-MAP-DD5C8D06BD710ED7FA36C629",
+      "market": "TR",
+      "modelYearFrom": 2026,
+      "modelYearTo": 2026,
+      "evidencePolarity": "POSITIVE",
+      "availabilityStatus": "STANDARD",
+      "provisionMode": "INCLUDED",
+      "verificationState": "PROVISIONAL",
+      "confidence": "HIGH",
+      "conflictState": "CLEAR",
+      "collectionContext": {
+        "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+        "microBatchId": "EE-PILOT-002-BATCH-021",
+        "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      },
+      "supersedesAssertionId": "EE-AST-EA557AA72F9D72B193072159",
+      "contentFingerprint": "sha256:5dc072d877d0fc474d14ea8eb28b9adce1a9589f8a9971d8380aed4109befec8",
+      "correctionContext": {
+        "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+        "correctionReason": "SUBJECT_CONTENT_FINGERPRINT_MISSING",
+        "fingerprintPolicyId": "EQUIPMENT_SUBJECT_CONTENT_FINGERPRINT_V1",
+        "fingerprintPolicyVersion": "1.0.0",
+        "predecessorSecondReviewEventId": "EE-REV-3E94DB00DB6D15F45F540A92",
+        "collectorRole": "EQUIPMENT_COLLECTOR_PRIMARY",
+        "collectorInstanceId": "ACTOR-COLLECTOR-CODEX-CATALOG-001"
+      }
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "microBatchId": "EE-PILOT-002-BATCH-025",
+    "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+    "identityResult": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+    "sourceResult": "PASSED",
+    "passedAssertions": 0,
+    "conflictAssertions": 2,
+    "passedAssociations": 0,
+    "conflictAssociations": 24,
+    "passedTrimLinks": 0,
+    "conflictTrimLinks": 1,
+    "inconclusiveLedger": 25,
+    "correctionRequirement": "IDENTITY_AUDIT_AND_PROVISION_ASSOCIATION_CORRECTION"
+  },
+  {
+    "microBatchId": "EE-PILOT-002-BATCH-014",
+    "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+    "identityResult": "PASSED",
+    "sourceResult": "PASSED",
+    "passedAssertions": 0,
+    "conflictAssertions": 33,
+    "passedAssociations": 0,
+    "conflictAssociations": 0,
+    "passedTrimLinks": 0,
+    "conflictTrimLinks": 1,
+    "inconclusiveLedger": 18,
+    "correctionRequirement": "ADD_IMMUTABLE_SUBJECT_CONTENT_FINGERPRINTS"
+  },
+  {
+    "microBatchId": "EE-PILOT-002-BATCH-021",
+    "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+    "identityResult": "PASSED",
+    "sourceResult": "PASSED",
+    "passedAssertions": 0,
+    "conflictAssertions": 32,
+    "passedAssociations": 0,
+    "conflictAssociations": 0,
+    "passedTrimLinks": 0,
+    "conflictTrimLinks": 1,
+    "inconclusiveLedger": 19,
+    "correctionRequirement": "ADD_IMMUTABLE_SUBJECT_CONTENT_FINGERPRINTS"
+  }
+]

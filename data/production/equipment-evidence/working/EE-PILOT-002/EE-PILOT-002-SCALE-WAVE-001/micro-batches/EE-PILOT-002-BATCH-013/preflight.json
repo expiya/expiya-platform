@@ -1,0 +1,44 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-013",
+  "familyId": "family-4c0f34e7ef8fbaf8d49f95a4",
+  "exactVariantIds": [
+    "75a0db67-272b-509f-8b60-312f2092a6b2"
+  ],
+  "brandModels": [
+    "Hyundai TUCSON Hibrit"
+  ],
+  "disposition": "COLLECTION_APPROVED",
+  "expectedLedgerRows": 51,
+  "variants": [
+    {
+      "exactVariantId": "75a0db67-272b-509f-8b60-312f2092a6b2",
+      "canonicalBrand": "Hyundai",
+      "canonicalModel": "TUCSON Hibrit",
+      "trim": "1.6 T-GDI 215 PS HEV 4x2 AT Elite",
+      "modelYear": 2025,
+      "bodyStyle": "SUV",
+      "vehicleUseClass": "UNSPECIFIED",
+      "fuelType": "HEV",
+      "priceSegment": "UNSEGMENTED",
+      "selectionReason": "STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ],
+      "familyId": "family-4c0f34e7ef8fbaf8d49f95a4",
+      "market": "TR",
+      "transmission": "6-speed automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_CONFIRMED",
+      "disposition": "COLLECTION_APPROVED",
+      "preflightReason": "Official TR brochure separates HEV-compatible Elite equipment with explicit standard/optional/absent markers.",
+      "officialSourceUrl": "https://www.hyundai.com/content/dam/hyundai/tr/tr/data/marketing/brochure/product/tucson-n-line/Tucson-Hibrit-ve-N-Line-brosur.pdf",
+      "officialSourceType": "OFFICIAL_EQUIPMENT_MATRIX"
+    }
+  ],
+  "lifecycleState": "PREFLIGHT_PASSED_SOURCE_CAPTURE_PENDING",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

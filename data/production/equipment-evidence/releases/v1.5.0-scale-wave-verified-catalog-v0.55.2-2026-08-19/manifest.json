@@ -1,0 +1,24 @@
+{
+  "approvalAttestationId": "EE-OAA-1B8DCAC1A60E8F54FDBE",
+  "approvalManifestChecksum": "sha256:bc7f5af057e55cac8dacbb094286cdc030b70f53433b66b35ba2daa5346ee1f3",
+  "approvalManifestId": "EE-OAM-SCALE-WAVE-001-R1-BYD-NISSAN",
+  "compatibleCatalogFingerprint": "sha256:fd5609adcc0ca3fec0f8c9dc4dd1c903ed5514326bd322eacd4decff5a044f0f",
+  "compatibleCatalogRelease": "v0.55.2",
+  "coverage": {
+    "associationOnly": 2,
+    "total": 566,
+    "uncovered": 560,
+    "verified": 4
+  },
+  "decisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+  "generatedAt": "2026-08-19T09:00:00.000+03:00",
+  "parentRelease": "v1.4.0-reviewed-associations-catalog-v0.55.2-2026-08-18",
+  "payloadSha256": "sha256:5c9ad2d7fa3085b883d04d116bed6ca2bbfb8944e97a81ec590037bc2afd01d2",
+  "projectionCount": 112,
+  "releaseVersion": "v1.5.0-scale-wave-verified-catalog-v0.55.2-2026-08-19",
+  "reviewedAssociationCount": 49,
+  "schemaVersion": "1.2.0-rc",
+  "validationStatus": "VALIDATED_RELEASE_CANDIDATE",
+  "verifiedAssertionCount": 112,
+  "verifiedTrimLinkCount": 6
+}

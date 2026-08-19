@@ -1,0 +1,46 @@
+{
+  "correctionCycleId": "EE-PILOT-002-SCALE-WAVE-001-R1",
+  "finalDisposition": "ACCEPTED_FINGERPRINT_CORRECTED_EVIDENCE",
+  "reviewerActorId": "ACTOR-REVIEWER-CODEX-EQUIPMENT-001",
+  "reviewerRole": "EQUIPMENT_REVIEWER_SECONDARY",
+  "passedAssertions": 65,
+  "conflictAssertions": 0,
+  "passedTrimLinks": 2,
+  "conflictTrimLinks": 0,
+  "distributions": {
+    "BYD": {
+      "assertionsPassed": 33,
+      "trimLinksPassed": 1
+    },
+    "Nissan": {
+      "assertionsPassed": 32,
+      "trimLinksPassed": 1
+    },
+    "Volvo": {
+      "reviewSubjects": 0,
+      "successors": 0
+    }
+  },
+  "fingerprintRecomputation": {
+    "matched": 67,
+    "mismatched": 0
+  },
+  "supersession": {
+    "validChains": 67,
+    "cycles": 0,
+    "duplicateSuccessors": 0,
+    "scopeMismatches": 0
+  },
+  "semanticImmutability": {
+    "passed": 67,
+    "failed": 0
+  },
+  "collectorLifecycleEvents": 134,
+  "independentReviewEvents": 67,
+  "ownerApprovalEvents": 0,
+  "materializations": 0,
+  "activePointerSha256": "sha256:4ba2ec5ee76a09906092c19446a2b4846015ac5fd8d08708056b413a721ec8ed",
+  "activePointerChanged": false,
+  "decisionEngineEffect": "ZERO",
+  "volvoAuditHandoff": "PRESERVED_UNRESOLVED"
+}

@@ -52,8 +52,8 @@ describe("Batch 002 owner approval materialization release candidate", () => {
   });
   it("is canonical and checksum-bound", () => { expect(payloadRaw).toBe(canonicalJson(JSON.parse(payloadRaw))); const manifest = read<{ payloadSha256: string }>("manifest.json"); expect(manifest.payloadSha256).toBe(`sha256:${createHash("sha256").update(payloadRaw).digest("hex")}`); });
   it("retains deterministic active artifacts after separately authorized activation", () => {
-    expect(sha(activePath)).toBe("sha256:4ba2ec5ee76a09906092c19446a2b4846015ac5fd8d08708056b413a721ec8ed");
-    expect(sha(modulePath)).toBe("sha256:9c5971b14716bc503a649f99790655bdddc02f8513a6e13b6f198749f0166fea");
+    expect(sha(activePath)).toBe("sha256:39eae2723b0ca4bc38589bc25157326f084ed36f8fa4b6a946c7542d8ea4c98a");
+    expect(sha(modulePath)).toBe("sha256:897a1d8d251240b931ebba5d84fa91b0c937687418a6d7aaa2669c2446ee9e09");
   });
   it("keeps all decision and public-output effects disabled", () => {
     const dry = read<Record<string, unknown>>("decision-neutrality-dry-run.json");

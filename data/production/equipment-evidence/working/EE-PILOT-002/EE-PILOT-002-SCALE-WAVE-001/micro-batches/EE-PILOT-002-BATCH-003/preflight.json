@@ -1,0 +1,45 @@
+{
+  "microBatchId": "EE-PILOT-002-BATCH-003",
+  "familyId": "family-0aa91e73d3980d853fb4be3c",
+  "exactVariantIds": [
+    "cb8f5af7-b20f-5877-a79b-4af71c18a61c"
+  ],
+  "brandModels": [
+    "Opel Astra"
+  ],
+  "disposition": "COLLECTION_APPROVED",
+  "expectedLedgerRows": 51,
+  "variants": [
+    {
+      "exactVariantId": "cb8f5af7-b20f-5877-a79b-4af71c18a61c",
+      "canonicalBrand": "Opel",
+      "canonicalModel": "Astra",
+      "trim": "GS Hybrid 145",
+      "modelYear": 2026,
+      "bodyStyle": "Hatchback",
+      "vehicleUseClass": "PASSENGER",
+      "fuelType": "HEV",
+      "priceSegment": "MAINSTREAM",
+      "selectionReason": "FUEL_HEV+STRATIFIED_DETERMINISTIC_FILL",
+      "testAxes": [
+        "FUEL_HEV",
+        "STRATIFIED_DETERMINISTIC_FILL"
+      ],
+      "familyId": "family-0aa91e73d3980d853fb4be3c",
+      "market": "TR",
+      "transmission": "6-speed dual-clutch automatic",
+      "lifecycleStatus": "ON_SALE",
+      "recommendationEligible": true,
+      "quarantineState": "NOT_QUARANTINED",
+      "identityGate": "EXACT_IDENTITY_CONFIRMED",
+      "disposition": "COLLECTION_APPROVED",
+      "preflightReason": "Official MY26 price list identifies Astra GS Hybrid 145 and explicit option/package applicability; non-option equipment remains unresolved.",
+      "officialSourceUrl": "https://fiyatlisteleri.opel.com.tr/Assets/files/Opel_Tum_Modeller_Fiyat_Listesi3.5.2026.pdf",
+      "officialSourceType": "OFFICIAL_PRICE_AND_OPTION_LIST"
+    }
+  ],
+  "lifecycleState": "PREFLIGHT_PASSED_SOURCE_CAPTURE_PENDING",
+  "assertionsCreated": 0,
+  "associationsCreated": 0,
+  "reviewPassed": false
+}

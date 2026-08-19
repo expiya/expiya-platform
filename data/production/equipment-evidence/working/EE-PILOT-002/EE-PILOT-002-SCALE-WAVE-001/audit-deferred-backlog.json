@@ -1,0 +1,109 @@
+{
+  "entries": [
+    {
+      "exactVariantId": "2f5054d1-1c11-5c34-a815-8223facf9892",
+      "familyId": "family-18778712c860944468f2422c",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "reason": "Street and 1.6 MultiJet 130 are visible, but the exact Street+DCT+MY2026 applicability chain is not explicit in one immutable configuration.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "3383408d-d77b-5643-93ee-8dc0cb3465a0",
+      "familyId": "family-14018d5d1112a553123feb08",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "reason": "Panelvan and SELECT equipment are official; exact 114 CDI Select MY2026 applicability remains unresolved.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "3d0f2b09-791e-5d76-9257-ec6be591c4eb",
+      "familyId": "family-6b9368dda0e0eea5b73d0833",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "reason": "GT 115 kW is documented, but the available document does not establish catalog MY2026 applicability.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "3dceba8a-9f0a-56ac-aabc-515193e1c62a",
+      "familyId": "family-0da0d08ceaf85db6f7522875",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "reason": "Current official comparison is MY2027; exact catalog MY2026 temporal applicability is unresolved.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "61b1bb40-dce9-5e01-97d2-5ba0167b3062",
+      "familyId": "family-796dcb5d0760cd76bf921737",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "reason": "Current TR offering identifies named trims and BlueHDi 130 automatic; catalog uses Combi as the trim, so exact trim identity conflicts.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "64996711-e8a8-5d7e-b92e-4a2c3c5e46f1",
+      "familyId": "family-b953471dce23cdd80f340f07",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "reason": "16+1 body is official, but exact 2.2 180+MY2026 configuration and trim equipment boundary are not explicit.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "6d6c0805-8779-5764-a42a-48850990a60c",
+      "familyId": "family-7aee36917e6ad0c12db11d27",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "reason": "Official source identifies A8 L 50 TDI quattro as MY2025, not catalog MY2026.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "8833b383-4379-54e8-a017-fac236dcca0f",
+      "familyId": "family-1df016fe9345e5f080239b2c",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "reason": "Model-family stock visibility does not establish exact Boxster MY2026 configuration applicability.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "95bd2cd3-7940-5678-8a8f-56ec41f5c3d0",
+      "familyId": "family-6394d5451a9adef84012a421",
+      "disposition": "SOURCE_INSUFFICIENT",
+      "reason": "No official Turkey-market exact MY2026 Continental GT Speed Hybrid equipment source was located.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "9d6a26bb-88c0-596e-9905-246e1371e27a",
+      "familyId": "family-33e76cd3935efed1fcd1b862",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "reason": "Current page confirms 180 PS+DCT but exact Prime+MY2026 equipment applicability is not established by the available older matrix.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "b1dc656b-e78c-57ab-9a44-924716ba6c2b",
+      "familyId": "family-ac91048c50c785d03ff45cf6",
+      "disposition": "SOURCE_INSUFFICIENT",
+      "reason": "No official Turkey-market exact MY2026 Continental GTC Speed Hybrid equipment source was located.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "bad56151-8735-569c-ad4f-129880820a0e",
+      "familyId": "family-124f5a3f4e2f16253b1b8970",
+      "disposition": "CATALOG_EVIDENCE_AUDIT_REQUIRED",
+      "reason": "Exact FR 1.5 eTSI 150 DSG is visible, but the source explicitly applies to MY2024 rather than catalog MY2026.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "bdf54f5b-2c18-5505-8875-0157f5bd1db7",
+      "familyId": "family-a74ac31b81cfdd76",
+      "disposition": "DEFERRED_IDENTITY_AUDIT",
+      "reason": "Ordering closed, last-stock language, current price-list absence and MY2025 applicability remain unresolved.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_ALPINE_LIFECYCLE_AND_MY"
+    },
+    {
+      "exactVariantId": "c4c5efbc-ba1e-5537-a4c6-1fe5116ccb25",
+      "familyId": "family-8ee45a63e0c0c70ce8b07418",
+      "disposition": "SOURCE_INSUFFICIENT",
+      "reason": "No exact official TR Esprit Alpine E-Tech Full Hybrid 160 equipment/configuration artifact was located in preflight.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_OR_SOURCE_RECOVERY"
+    },
+    {
+      "exactVariantId": "f954d7a8-b69b-5ee2-b3ad-a4638772725a",
+      "familyId": "family-a74ac31b81cfdd76",
+      "disposition": "DEFERRED_IDENTITY_AUDIT",
+      "reason": "Ordering closed, last-stock language, current price-list absence and MY2025 applicability remain unresolved.",
+      "recommendedAction": "CATALOG_EVIDENCE_AUDIT_ALPINE_LIFECYCLE_AND_MY"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "waveId": "EE-PILOT-002-SCALE-WAVE-001",
+  "reviewStatus": "INDEPENDENT_REVIEW_NOT_STARTED",
+  "collectorActorId": "ACTOR-COLLECTOR-CODEX-CATALOG-001",
+  "batches": [
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-025",
+      "exactVariantId": "19951113-2e40-5526-b568-2ae1984c27e0",
+      "subjectCounts": {
+        "assertions": 2,
+        "associations": 24,
+        "trimLinks": 1,
+        "packageLinks": 0,
+        "total": 27
+      },
+      "evidenceTypeCounts": {
+        "explicitProvision": 2,
+        "exactTrimAssociation": 24,
+        "inconclusive": 25
+      },
+      "sourceIds": [
+        "SRC-000089"
+      ],
+      "sourceChecksums": [
+        "sha256:90930cd290d7d11183900ca457da4d1850a6d6b1cd248ca32806969241e98e92"
+      ],
+      "provisionConfidence": "MIXED_EXPLICIT_AND_UNRESOLVED",
+      "reviewRisk": "MEDIUM",
+      "expectedReviewEffort": "MEDIUM",
+      "reviewerIndependenceRequired": true
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-014",
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "subjectCounts": {
+        "assertions": 33,
+        "associations": 0,
+        "trimLinks": 1,
+        "packageLinks": 0,
+        "total": 34
+      },
+      "evidenceTypeCounts": {
+        "explicitProvision": 33,
+        "exactTrimAssociation": 0,
+        "inconclusive": 18
+      },
+      "sourceIds": [
+        "SRC-000092"
+      ],
+      "sourceChecksums": [
+        "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686"
+      ],
+      "provisionConfidence": "EXPLICIT",
+      "reviewRisk": "LOW",
+      "expectedReviewEffort": "HIGH",
+      "reviewerIndependenceRequired": true
+    },
+    {
+      "microBatchId": "EE-PILOT-002-BATCH-021",
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "subjectCounts": {
+        "assertions": 32,
+        "associations": 0,
+        "trimLinks": 1,
+        "packageLinks": 0,
+        "total": 33
+      },
+      "evidenceTypeCounts": {
+        "explicitProvision": 32,
+        "exactTrimAssociation": 0,
+        "inconclusive": 19
+      },
+      "sourceIds": [
+        "SRC-000095"
+      ],
+      "sourceChecksums": [
+        "sha256:4e7f4fc9ce077b146ba49b7c6e38772c14e3b58edafa183db0c1e233972a1975"
+      ],
+      "provisionConfidence": "EXPLICIT",
+      "reviewRisk": "LOW",
+      "expectedReviewEffort": "HIGH",
+      "reviewerIndependenceRequired": true
+    }
+  ]
+}
