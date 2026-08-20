@@ -4,7 +4,10 @@ import { withSentryConfig } from "@sentry/nextjs";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   outputFileTracingIncludes: {
-    "/api/cars/conversation": ["./data/production/personas/safe-traits/**/*"],
+    "/api/cars/conversation": [
+      "./data/production/personas/safe-traits/**/*",
+      "./data/production/catalog/governance/**/*",
+    ],
   },
   images: {
     remotePatterns: [{
