@@ -100,7 +100,7 @@ export function createProductionV2TurnStages(input: { readonly repositoryRoot?: 
       const comparisonFamilyIds = [...new Set(comparisonReferences.flatMap((reference) => reference.resolvedFamilyIds))];
       const comparisonScope = comparisonReferences.length > 0;
       const latestModelPreference = [...memory.modelReferences].reverse().find((event) => event.decisionEffect === "PREFERENCE");
-      const preferenceFamilyIds = latestModelPreference?.resolution === "EXACT_MODEL_FAMILY" ? latestModelPreference.resolvedFamilyIds : [];
+      const preferenceFamilyIds = latestModelPreference && ["EXACT_MODEL_FAMILY", "BRAND_ONLY"].includes(latestModelPreference.resolution) ? latestModelPreference.resolvedFamilyIds : [];
       const preferenceScope = !comparisonScope && preferenceFamilyIds.length > 0;
       const scopedFamilyIds = comparisonScope ? comparisonFamilyIds : preferenceScope ? preferenceFamilyIds : [];
       const scopedVariantIds = new Set(scopedFamilyIds.flatMap((familyId) => catalog.familyIndex.get(familyId)?.variantIds ?? []));
