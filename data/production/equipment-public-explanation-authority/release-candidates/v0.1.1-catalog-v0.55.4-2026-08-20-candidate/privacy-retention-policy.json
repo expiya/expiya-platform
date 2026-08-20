@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0.0",
+  "authorizationUnitLifetime": "LESS_THAN_OR_EQUAL_TO_CONVERSATION_OR_OFFER_LIFETIME",
+  "explanationPreferenceAndDeclineScope": "CURRENT_CONVERSATION_ONLY",
+  "crossConversationEquipmentProfileAllowed": false,
+  "marketingReuseAllowed": false,
+  "rankingOrLeadScoringAllowed": false,
+  "rawEquipmentQuestionsDurableProfileAllowed": false,
+  "acceptanceProofSeparatedFromFeatureInterestHistory": true,
+  "internalEvidenceIdentifiersInGeneralTelemetryAllowed": false,
+  "databaseOrPersistenceChangePerformed": false
+}

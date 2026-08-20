@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0.0",
+  "unchangedFeatureCount": 46,
+  "correctedFeatureCount": 5,
+  "allowedChangedFields": [
+    "userFacingExplanation",
+    "caveat"
+  ],
+  "changes": [
+    {
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "before": {
+        "userFacingExplanation": "Arka dış koltuklardaki ISOFIX bağlantıları, uyumlu çocuk koltuğunun doğru ve tekrarlanabilir şekilde sabitlenmesini kolaylaştırabilir.",
+        "caveat": "Çocuk koltuğu ve araç kılavuzundaki uyumluluk, ağırlık ve montaj talimatları izlenmelidir."
+      },
+      "after": {
+        "userFacingExplanation": "Arka dış koltuklardaki ISOFIX bağlantıları, uyumlu bir çocuk koltuğunu araç üreticisinin talimatlarına göre sabitlemeyi kolaylaştırabilir.",
+        "caveat": "Çocuk koltuğu ve araç kılavuzundaki uyumluluk, ağırlık, yön ve montaj talimatları her kullanımda kontrol edilmelidir."
+      }
+    },
+    {
+      "featureCode": "REAR_SEAT_OCCUPANT_ALERT",
+      "before": {
+        "userFacingExplanation": "Arka koltuk yolcu uyarısı, çocuk, evcil hayvan veya eşyanın araçta unutulmaması için ek hatırlatma sağlayabilir.",
+        "caveat": "Algılama yöntemi modele göre değişir ve fiziksel kontrolün yerini almaz."
+      },
+      "after": {
+        "userFacingExplanation": "Çocuk varlık tespiti, desteklediği koşullarda araçta çocuk bulunabileceğine ilişkin ek uyarı sağlayabilir.",
+        "caveat": "Çocuğun araçta bırakılmasını güvenli hâle getirmez ve araçtan ayrılırken arka koltuğun fiziksel olarak kontrol edilmesi gereğini ortadan kaldırmaz."
+      }
+    },
+    {
+      "featureCode": "LED_HEADLIGHTS",
+      "before": {
+        "userFacingExplanation": "LED farlar, halojen sistemlere göre daha beyaz ışık ve uzun ömür sunarak gece görüşünü destekleyebilir.",
+        "caveat": "Aydınlatma performansı yalnız ışık teknolojisine değil far tasarımı ve ayarına da bağlıdır."
+      },
+      "after": {
+        "userFacingExplanation": "LED ön farlar, gece sürüşünde yolun aydınlatılmasını destekleyebilir.",
+        "caveat": "Görüş; far ayarı, hız, hava ve yol koşullarına bağlıdır; sürücü görüş mesafesine uygun şekilde hareket etmelidir."
+      }
+    },
+    {
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "before": {
+        "userFacingExplanation": "Matrix LED farlar, uygun koşullarda diğer araçları gölgelendirirken yolun kalanını daha güçlü aydınlatmaya yardımcı olabilir.",
+        "caveat": "Algılama kusursuz değildir; sürücü gerektiğinde farlara müdahale etmelidir."
+      },
+      "after": {
+        "userFacingExplanation": "Matrix LED ön farlar, uygun koşullarda ışık dağılımını trafik durumuna göre uyarlamaya yardımcı olabilir.",
+        "caveat": "Algılama kusursuz değildir; sürücü görüş koşullarını izlemeli ve gerektiğinde farlara müdahale etmelidir."
+      }
+    },
+    {
+      "featureCode": "TERRAIN_DRIVE_MODES",
+      "before": {
+        "userFacingExplanation": "Arazi sürüş modları, kar, çamur veya kum gibi zeminlerde aracın kontrol sistemlerini uygun ayara getirmeyi kolaylaştırabilir.",
+        "caveat": "Aracın mekanik kabiliyetini veya lastik tutuşunu artırma garantisi vermez."
+      },
+      "after": {
+        "userFacingExplanation": "Sunulan Eco, Normal, Spor ve Kar sürüş modları, aracın bazı tepkilerini seçilen kullanım koşuluna uyarlamayı kolaylaştırabilir.",
+        "caveat": "Kar modu yol tutuşu veya güvenliği garanti etmez; lastik, hız, yol ve hava koşulları belirleyicidir."
+      }
+    }
+  ]
+}

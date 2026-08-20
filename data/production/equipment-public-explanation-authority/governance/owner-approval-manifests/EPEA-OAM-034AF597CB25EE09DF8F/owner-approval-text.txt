@@ -1,0 +1,12 @@
+Expiya Cars ürün sahibi ve EQUIPMENT_OWNER_001 olarak EPEA-OAM-034AF597CB25EE09DF8F kimlikli ve
+sha256:cf20aa4f49c5f6bf2959fec9802fc84731f49925162ba2dbf0dd405d4c206f78 checksum’lı composite-bound Equipment Public Explanation Pilot owner approval manifestini onaylıyorum.
+
+Onay kapsamım; v1.0.1-catalog-v0.55.4-2026-08-20-candidate / sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233 Equipment Daily-Life candidate’ını, v0.1.2-catalog-v0.55.4-2026-08-20-candidate / sha256:c22d1b1dc6357e6e1cea229e1262f23929f13872e3a59e4ec2002d994aa124cd Public Explanation Authority candidate’ını ve sha256:59a65a589f1d04507c86ee68a3f573bfd28f8bfee8cce673f9547cfb37916222 composite binding’ini ayrılmaz paket olarak kapsar.
+
+Onay yalnız BYD Dolphin Comfort MY2025 (6cb56615-37ef-51a8-9202-a73e59d4e14b) ve Nissan Qashqai Platinum Premium e-POWER MY2026 (90e65f94-6fdb-5eea-ad7e-0b4e18435427) exact varyantlarını; 62 confirmed included assertion ile yalnız BYD’ye ait 3 verified absence assertion’ı kapsar. Verified absence yalnız doğrudan kullanıcı sorusu ve exact negatif evidence halinde kullanılabilir; unknown, silent absence, association-only ve legacy unresolved kayıtlar no-claim kalır.
+
+REC-2026.08-v1.1 kabulünün reveal’dan sequence ve gerçek instant bakımından kesinlikle önce olmasını, acceptance event’in conversationId ve offerId’ye bağlı olmasını ve yalnız boolean kabulün yetersiz olmasını onaylıyorum. “Evet/anlat” yanıtı yalnız conversationId + exactVariantId + offerId üçlüsüne bağlı CURRENT_VEHICLE_SESSION_ONLY tercihidir; başka araç, offer veya conversation’a taşınamaz.
+
+Public/general telemetry’nin yalnız eventType, outcome ve scope alanlarını taşımasını; REC acceptance proof, assertion/authorization kimlikleri, locator, checksum ve ham kullanıcı metninin telemetry’ye taşınmamasını kabul ediyorum.
+
+Bu onay owner approval eventinin ve immutable materialization hazırlığının yapılmasına izin verir. Active pointer değişikliğini, aktivasyonu, public route/UI/Decision Engine entegrasyonunu, deployment’ı, commit veya push’u onaylamaz. Global Equipment filtering, ranking, question generation, candidate/offer ordering authority’si açılmaz.

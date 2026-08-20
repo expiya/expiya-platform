@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewDate": "2026-08-20",
+  "decision": "APPROVED_WITH_CONTROLLED_COPY_CHANGE",
+  "reviewedNegativeSubjectCount": 3,
+  "reviewedNegativeAssertionIdsSha256": "sha256:784f704079169b053cb1013b648848b1160c2ddc2d3285200729202668c2dc5d",
+  "exactVariant": "BYD Dolphin Comfort MY2025",
+  "featureCodes": [
+    "PANORAMIC_GLASS_ROOF",
+    "VENTILATED_FRONT_SEATS",
+    "WIRELESS_PHONE_CHARGING"
+  ],
+  "prohibitedTemplate": "Bu araçta [özellik] yok.",
+  "approvedTemplate": "İncelediğimiz Türkiye MY2025 resmî donanım listesinde BYD Dolphin Comfort versiyonu için [özellik] sunulmadığı belirtiliyor. Donanım listeleri değişebileceğinden satın alma öncesinde güncel araç konfigürasyonunu yetkili satıcıdan doğrulayın.",
+  "useConditions": [
+    "DIRECT_QUESTION_VERIFIED_ABSENCE only",
+    "Exact revealed BYD Dolphin Comfort MY2025 card only",
+    "NOT_AVAILABLE + NOT_OFFERED + VERIFIED + CLEAR + EXACT_VARIANT evidence only",
+    "Never infer absence from unknown, silence or association-only evidence",
+    "Never use proactively, for ranking or to create competitor superiority"
+  ],
+  "publicMetadata": {
+    "showModelYear": true,
+    "showMarket": true,
+    "showOfficialListQualifier": true,
+    "showDealerConfirmationInline": true,
+    "showRawLocatorOrInternalIds": false
+  }
+}

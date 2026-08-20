@@ -1,0 +1,25 @@
+{
+  "activationEventChecksum": "sha256:398afb4d87d728f55384dd2f8bde74d1f38c9a3c60035f7dad535f2c79869e9d",
+  "activationEventId": "EPEA-ACT-398AFB4D87D728F55384",
+  "appendOnlyGovernanceAndMaterializationRecordsPreserved": true,
+  "decisionEngineEffect": "ZERO",
+  "equipmentDailyLife": {
+    "generatedModuleChecksum": "sha256:36be5b3755c3dc79f42651df661706913cafbf5b13cbac9933a6065949633020",
+    "moduleSource": "EPEA-ACTMAN-A68831FC3F16C7619F25/rollback/activeEquipmentDailyLife.generated.ts.txt",
+    "pointerChecksum": "sha256:01fbd50694ef6a60b0cd3cebbfce7e21f1586a682ccc2b509b8169c9d53f1ef8",
+    "pointerSource": "EPEA-ACTMAN-A68831FC3F16C7619F25/rollback/equipment-daily-life.active.json",
+    "targetRelease": "v1.0.0-catalog-v0.55.4-2026-08-20"
+  },
+  "explicitRollbackApprovalRequired": true,
+  "publicExplanationAuthority": {
+    "generatedModuleChecksum": "sha256:acdb9703d1cf3a5ebdc286a28be5fabd3a1ec07ba03806a8cb323fd4310738e0",
+    "moduleSource": "EPEA-ACTMAN-A68831FC3F16C7619F25/rollback/activeEquipmentPublicExplanationAuthority.disabled.generated.ts.txt",
+    "pointerChecksum": "sha256:cddd31540121f225d799dbb2e1c358d940a7ea9417854cbfb7fab3bf065f328a",
+    "pointerSource": "EPEA-ACTMAN-A68831FC3F16C7619F25/rollback/equipment-public-explanation-authority.unconfigured.json",
+    "predecessor": "NO_ACTIVE_PREDECESSOR",
+    "targetState": "UNCONFIGURED_DISABLED"
+  },
+  "publicIntegrationCreated": false,
+  "schemaVersion": "1.0.0",
+  "status": "READY"
+}

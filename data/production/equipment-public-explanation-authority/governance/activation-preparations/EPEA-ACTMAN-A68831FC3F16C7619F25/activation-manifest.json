@@ -1,0 +1,39 @@
+{
+  "activationManifestChecksum": "sha256:a604677715168c97ede36bc3d6d8944609701323c2c102db5b163824300986fe",
+  "activationManifestId": "EPEA-ACTMAN-A68831FC3F16C7619F25",
+  "activationPolicy": "ATOMIC_TWO_LAYER_POINTER_AND_GENERATED_MODULE_REPLACEMENT_V1",
+  "decisionEngineEffect": "ZERO",
+  "explicitOwnerActivationApprovalRequired": true,
+  "materializationId": "EPEA-MAT-59027C9336AFF309281C",
+  "payloadChecksums": {
+    "equipmentDailyLife": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+    "publicExplanationAuthority": "sha256:c22d1b1dc6357e6e1cea229e1262f23929f13872e3a59e4ec2002d994aa124cd"
+  },
+  "preparedAt": "2026-08-20T13:03:42.817Z",
+  "previousInvalidTargets": {
+    "authorityModule": "sha256:419a70b160860b3d333d07d474baf4f7d6a80cbafcf61d3a3caee7ae12d8790a",
+    "authorityPointer": "sha256:7e91a375ee54fbb88bb6cda87d5713591e82ea45f2b42b010cb02d952dd49699",
+    "dailyModule": "sha256:cde2bfccca5a1ab16f4af7098e76a784bf16f9f844d864bafe5e990bc9103176",
+    "dailyPointer": "sha256:3158a8a66408310510ad0e6a02b324fb8317a01b56dd6f9d54a5ee85229509e8",
+    "disposition": "APPROVED_TARGET_NOT_ACTIVATABLE",
+    "immutableHistoricalArtifactsPreserved": true,
+    "lifecycle": "SUPERSEDED_INVALID_FOR_ACTIVATION"
+  },
+  "productionCompositeBindingChecksum": "sha256:34eae64907d0fc62a73f5d2691a12f440f8adbba40a243dff08cfa9509fcc082",
+  "publicIntegration": false,
+  "schemaVersion": "1.0.0",
+  "targetChecksums": {
+    "authorityGeneratedModule": "sha256:be2457e2a2614ed530c0777cf903641a17137e0f803517c208f6c2de01c4d773",
+    "authorityPointer": "sha256:142f84a7bd526177222ca4d3d3e9602e909e5dc19a753166cc77eb69fdf30602",
+    "dailyLifeGeneratedModule": "sha256:31e8889bfc91322801c965d756e638d46dea4856ae2b0df905343aa0b927d5ae",
+    "dailyLifePointer": "sha256:4c25ab5b88a7e437fa20c0d6d3827180f028f5580fc2ed7b92f7c7246f48ba23"
+  },
+  "targetLifecycle": {
+    "activatedAtIncluded": false,
+    "activationApprovalRequired": false,
+    "activationEffectiveInstantPolicy": "RECORDED_ONLY_DURING_ATOMIC_APPLY_EVENT",
+    "activationEventBinding": "OWNER_AUTHORIZATION_EVENT_CONSUMES_THIS_CHECKSUM_BOUND_MANIFEST",
+    "activationEventIdIncluded": false,
+    "state": "ACTIVE"
+  }
+}

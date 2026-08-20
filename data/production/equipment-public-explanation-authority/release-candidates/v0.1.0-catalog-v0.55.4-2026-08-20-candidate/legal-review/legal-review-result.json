@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewDate": "2026-08-20",
+  "canonicalHead": "fa31cdb9a6c8c16ca19ff80d1f56c86d68908fd1",
+  "reviewedAuthorityChecksum": "sha256:4de37ff6200751c6e5b08911125a7ceb9176f6179bd567cced9b7fe9ae6c94e8",
+  "disposition": "APPROVED_WITH_REQUIRED_CANDIDATE_CORRECTION",
+  "consentDisposition": "NO_ADDITIONAL_CONSENT_REQUIRED",
+  "scopeFindings": {
+    "recommendationTermsCoverage": "Post-reveal, source-bounded equipment explanation is within REC-2026.08-v1.1 catalogue information and decision-support scope.",
+    "newCheckboxRequired": false,
+    "userExplainRequestNature": "CONVERSATION_PREFERENCE_ONLY",
+    "kvkkExplicitConsent": false,
+    "marketingPermission": false,
+    "newContractAcceptance": false
+  },
+  "acceptanceAuditFinding": {
+    "currentBinding": "INSUFFICIENT_FOR_DURABLE_AUDIT",
+    "reason": "The authorization input carries booleans but not the accepted REC version, acceptance event identifier, acceptance time or integrity reference.",
+    "requiredBeforeActivation": [
+      "Bind each authorized unit to recommendationTermsVersion REC-2026.08-v1.1.",
+      "Bind to a server-verifiable acceptanceEventId and acceptedAt value without treating the event as KVKK consent.",
+      "Preserve offerId, conversationId, exactVariantId, catalogFingerprint and authority checksum binding.",
+      "Rename user-facing and governance references that could present offerConsentCompleted as privacy consent; the organic gate behavior must remain unchanged."
+    ]
+  },
+  "requiredCorrections": [
+    "Replace the positive and verified-absence public renderer templates with the controlled templates in approved-public-copy.json.",
+    "Apply the five featureCode copy corrections in safety-wording-review.json.",
+    "Bind the candidate to the reviewed renderer/copy checksum and durable REC acceptance audit fields before activation.",
+    "Do not approve or activate the reviewed authority checksum; create a corrected candidate with a new checksum and fresh owner/legal review."
+  ],
+  "approvalEffect": {
+    "ownerApprovalAllowedForReviewedChecksum": false,
+    "activationAllowed": false,
+    "correctedCandidateRequired": true,
+    "newChecksumRequired": true
+  },
+  "officialReferences": [
+    "https://www.kvkk.gov.tr/Icerik/2037/Acik-Riza-Alirken-Dikkat-Edilecek-Hususlar",
+    "https://www.kvkk.gov.tr/Icerik/4189/Kisisel-Verilerin-Islenmesine-Iliskin-Temel-Ilkeler",
+    "https://tuketici.ticaret.gov.tr/data/5e819a8e13b876a1b04c7a4a/T%C4%B0CAR%C4%B0%20REKLAM%20VE%20HAKSIZ%20T%C4%B0CAR%C4%B0%20UYGULAMALAR%20Y%C3%96NETMEL%C4%B0%C4%9E%C4%B0.pdf"
+  ],
+  "notice": "[HUKUKÇU KONTROLÜ GEREKİR] This bounded review is not a final legal opinion or production authorization."
+}

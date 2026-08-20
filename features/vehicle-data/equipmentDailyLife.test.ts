@@ -63,6 +63,6 @@ describe("Equipment Daily-Life V1 owner-approved release", () => {
 
   it("loads through the activated read-only pointer", () => {
     expect(() => assertActiveEquipmentDailyLifeCompatibility()).not.toThrow();
-    expect(loadActiveEquipmentDailyLifeLayer()).toMatchObject({ release: "v1.0.0-catalog-v0.55.4-2026-08-20", effectiveRuntimeAuthority: "EXPLANATION_ONLY" });
+    expect(loadActiveEquipmentDailyLifeLayer()).toMatchObject({ release: "v1.0.1-catalog-v0.55.4-2026-08-20", effectiveRuntimeAuthority: "EXPLANATION_ONLY" });
   });
 });

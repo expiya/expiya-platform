@@ -1,0 +1,56 @@
+{
+  "activationPerformed": false,
+  "immutableSources": {
+    "compositeBindingChecksum": "sha256:59a65a589f1d04507c86ee68a3f573bfd28f8bfee8cce673f9547cfb37916222",
+    "equipmentDailyLifeCandidate": {
+      "checksum": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+      "decisionUse": "EXPLANATION_ONLY",
+      "featureCount": 51,
+      "release": "v1.0.1-catalog-v0.55.4-2026-08-20-candidate"
+    },
+    "publicExplanationAuthorityCandidate": {
+      "checksum": "sha256:c22d1b1dc6357e6e1cea229e1262f23929f13872e3a59e4ec2002d994aa124cd",
+      "compositeBindingChecksum": "sha256:59a65a589f1d04507c86ee68a3f573bfd28f8bfee8cce673f9547cfb37916222",
+      "release": "v0.1.2-catalog-v0.55.4-2026-08-20-candidate"
+    }
+  },
+  "materializationPerformed": false,
+  "preparationChecksum": "sha256:782eed50ccee875e80075f6043e12a90b14a585319d034ebaa9e9ddfa33a69e4",
+  "preparationId": "EPEA-MATPREP-2DEF45CB3F980B81EE2D",
+  "preparedAt": "2026-08-20T12:30:18.894Z",
+  "productionReleaseCreated": false,
+  "proposedMaterializations": [
+    {
+      "authorityAfterMaterialization": "EXPLANATION_ONLY_PENDING_SEPARATE_ACTIVATION_AND_PUBLIC_INTEGRATION",
+      "contentMutationAllowed": false,
+      "layer": "EQUIPMENT_DAILY_LIFE",
+      "proposedReleaseId": "v1.0.1-catalog-v0.55.4-2026-08-20-owner-approved",
+      "sourcePayloadChecksum": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+      "sourceReleaseId": "v1.0.1-catalog-v0.55.4-2026-08-20-candidate"
+    },
+    {
+      "authorityAfterMaterialization": "INACTIVE_PENDING_SEPARATE_ACTIVATION_AND_PUBLIC_INTEGRATION",
+      "contentMutationAllowed": false,
+      "layer": "EQUIPMENT_PUBLIC_EXPLANATION_AUTHORITY",
+      "proposedReleaseId": "v0.1.2-catalog-v0.55.4-2026-08-20-owner-approved",
+      "sourcePayloadChecksum": "sha256:c22d1b1dc6357e6e1cea229e1262f23929f13872e3a59e4ec2002d994aa124cd",
+      "sourceReleaseId": "v0.1.2-catalog-v0.55.4-2026-08-20-candidate"
+    }
+  ],
+  "publicIntegrationPerformed": false,
+  "requiredMaterializationInvariants": [
+    "SOURCE_PAYLOADS_BYTE_IDENTICAL",
+    "COMPOSITE_BINDING_PRESERVED",
+    "OWNER_APPROVAL_EVENT_BOUND",
+    "TWO_EXACT_VARIANTS_ONLY",
+    "62_CONFIRMED_INCLUDED_AND_3_BYD_VERIFIED_ABSENCE",
+    "NO_ACTIVE_POINTER_OR_GENERATED_MODULE_CHANGE",
+    "NO_PUBLIC_ROUTE_UI_OR_DECISION_ENGINE_IMPORT",
+    "GLOBAL_FILTER_RANKING_QUESTION_AUTHORITY_DISABLED"
+  ],
+  "schemaVersion": "1.0.0",
+  "sourceManifestChecksum": "sha256:cf20aa4f49c5f6bf2959fec9802fc84731f49925162ba2dbf0dd405d4c206f78",
+  "sourceManifestId": "EPEA-OAM-034AF597CB25EE09DF8F",
+  "sourceOwnerApprovalEventChecksum": "sha256:989f27f22b0e1f6f5dde63738570c2d8e578cb34889c450a626df89ee25e2e6c",
+  "sourceOwnerApprovalEventId": "EPEA-OAE-AD0553D90F8B5E4DA497"
+}

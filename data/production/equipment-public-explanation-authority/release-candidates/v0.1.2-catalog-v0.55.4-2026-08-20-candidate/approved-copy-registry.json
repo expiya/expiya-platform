@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0.0",
+  "language": "tr-TR",
+  "positiveTemplate": "Türkiye [MY] resmî donanım listesine göre bu versiyonda [özellik] standart olarak yer alıyor. [controlledExplanation] [caveat]",
+  "verifiedAbsenceDirectQuestionTemplate": "İncelediğimiz Türkiye [MY] resmî donanım listesinde bu versiyon için [özellik] sunulmadığı belirtiliyor. Donanım listeleri değişebileceğinden satın alma öncesinde güncel araç konfigürasyonunu yetkili satıcıdan doğrulayın.",
+  "unknownTemplate": "Bu versiyon için [özellik] hakkında yeterli doğrulama bulunmuyor; bu durum özelliğin bulunmadığı anlamına gelmez.",
+  "associationOnlyTemplate": "Bu versiyon ile [özellik] arasında bir ilişki görülüyor; ancak özelliğin standart, opsiyon veya paket kapsamında sunulduğu yeterince doğrulanmadı.",
+  "postRevealOfferTemplate": "Bu araç için Türkiye resmî donanım listesinde doğruladığımız özelliklerin günlük kullanımdaki olası etkilerini açıklamamı ister misin?",
+  "sessionSourceNotice": "Bilgiler Türkiye pazarı ve gösterilen model yılına ait resmî donanım listesine dayanır. Donanım ve stok araç konfigürasyonu değişebileceğinden satın alma öncesinde yetkili satıcıdan doğrulayın.",
+  "acceptanceMeaning": {
+    "conversationPreferenceOnly": true,
+    "additionalConsent": false,
+    "kvkkExplicitConsent": false,
+    "marketingPermission": false,
+    "recommendationTermsAcceptance": false
+  },
+  "comparisonTemplates": {
+    "CONFIRMED_UNKNOWN": "A için [özellik] doğrulandı; B için yeterli doğrulama bulunmuyor. Bu, özelliğin B’de bulunmadığı anlamına gelmez.",
+    "CONFIRMED_ASSOCIATION": "A için [özellik] doğrulandı. B’de bu özellik versiyonla ilişkilendiriliyor; ancak standart, opsiyon veya paket durumu yeterince doğrulanmadı.",
+    "VERIFIED_ABSENCE_UNKNOWN": "A’nın incelenen Türkiye [MY] resmî donanım listesinde [özellik] sunulmadığı belirtiliyor; B için yeterli doğrulama bulunmuyor. Bu karşılaştırmadan B lehine bir üstünlük sonucu çıkarılamaz.",
+    "BOTH_CONFIRMED": "İncelenen Türkiye model yılı donanım listelerinde [özellik] her iki versiyon için de doğrulandı. Bu tek özellik araçların genel kalite veya güvenlik düzeyini göstermez."
+  }
+}

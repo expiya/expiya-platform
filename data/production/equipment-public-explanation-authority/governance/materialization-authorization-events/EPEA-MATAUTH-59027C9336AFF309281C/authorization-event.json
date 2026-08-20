@@ -1,0 +1,36 @@
+{
+  "activationAuthorized": false,
+  "activePointerChangeAuthorized": false,
+  "approvedCompositeBindingChecksum": "sha256:59a65a589f1d04507c86ee68a3f573bfd28f8bfee8cce673f9547cfb37916222",
+  "approvedMaterializations": [
+    {
+      "materializedReleaseId": "v1.0.1-catalog-v0.55.4-2026-08-20",
+      "sourceCandidateChecksum": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+      "sourceCandidateReleaseId": "v1.0.1-catalog-v0.55.4-2026-08-20-candidate"
+    },
+    {
+      "materializedReleaseId": "v0.1.2-catalog-v0.55.4-2026-08-20",
+      "sourceCandidateChecksum": "sha256:c22d1b1dc6357e6e1cea229e1262f23929f13872e3a59e4ec2002d994aa124cd",
+      "sourceCandidateReleaseId": "v0.1.2-catalog-v0.55.4-2026-08-20-candidate"
+    }
+  ],
+  "authorizationEventChecksum": "sha256:59027c9336aff309281c88fce858e167c5e2130f9eff35e23d041a39f5c0c1ef",
+  "authorizationEventId": "EPEA-MATAUTH-59027C9336AFF309281C",
+  "authorizationStatementChecksum": "sha256:5c64dd4115d61aa7d0e8f46beb591710bf276c65c36ca3b1e7dc040b6b23f739",
+  "authorizedAt": "2026-08-20T12:44:34.895Z",
+  "commitPushAuthorized": false,
+  "decisionEngineEffectAuthorized": false,
+  "deploymentMigrationDatabaseWriteAuthorized": false,
+  "eventType": "IMMUTABLE_PRODUCTION_MATERIALIZATION_AUTHORIZED",
+  "generatedModuleChangeAuthorized": false,
+  "materializationPreparationChecksum": "sha256:782eed50ccee875e80075f6043e12a90b14a585319d034ebaa9e9ddfa33a69e4",
+  "materializationPreparationId": "EPEA-MATPREP-2DEF45CB3F980B81EE2D",
+  "ownerActorId": "EQUIPMENT_OWNER_001",
+  "ownerActorRole": "EQUIPMENT_OWNER_APPROVER",
+  "ownerActorScope": "EQUIPMENT_EVIDENCE_ONLY",
+  "publicIntegrationAuthorized": false,
+  "revocationPolicy": "APPEND_ONLY_REVOCATION_EVENT_REQUIRED",
+  "schemaVersion": "1.0.0",
+  "sourceOwnerApprovalEventChecksum": "sha256:989f27f22b0e1f6f5dde63738570c2d8e578cb34889c450a626df89ee25e2e6c",
+  "sourceOwnerApprovalEventId": "EPEA-OAE-AD0553D90F8B5E4DA497"
+}

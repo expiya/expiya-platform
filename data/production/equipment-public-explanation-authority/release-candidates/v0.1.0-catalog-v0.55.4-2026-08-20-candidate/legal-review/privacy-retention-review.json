@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewDate": "2026-08-20",
+  "decision": "APPROVED_WITH_REQUIRED_MINIMIZATION_CONTROLS",
+  "identifierAssessment": {
+    "conversationId": "PSEUDONYMOUS_PERSONAL_DATA_IF_LINKABLE",
+    "offerId": "PSEUDONYMOUS_PERSONAL_DATA_IF_LINKABLE",
+    "exactVariantId": "PRODUCT_DATA",
+    "featureCode": "PRODUCT_DATA_THAT_CAN BECOME_USER_PREFERENCE_DATA_WHEN_LINKED_TO_A_CONVERSATION"
+  },
+  "purposeFinding": {
+    "newPurposeCreatedByTransientExplanation": false,
+    "permittedPurpose": "Deliver the user-requested post-reveal equipment explanation and enforce its authorization boundary.",
+    "explicitConsentRequired": false,
+    "mustBeCoveredByPrivacyNoticeIfServerLogged": true
+  },
+  "requiredLimits": [
+    "Do not create cross-conversation equipment-interest profiles.",
+    "Do not use explanation requests, categories, declines or feature questions for marketing, advertising audiences, lead scoring or recommendation ranking.",
+    "Do not persist raw equipment interaction events beyond the current conversation/offer lifetime unless a separately documented legal basis, purpose and retention period exists.",
+    "Expire the authorization unit when the offer or conversation expires and prevent cross-offer reuse.",
+    "Redact internal evidence identifiers and raw locators from public output and general telemetry.",
+    "Keep a necessary REC contract-acceptance proof separately from feature-interest history; an acceptance proof must not preserve the user's equipment questions.",
+    "Restrict access, use pseudonymous identifiers and delete or irreversibly aggregate operational logs at the documented retention deadline."
+  ],
+  "retentionDisposition": {
+    "authorizationUnit": "NO_LONGER_THAN_CONVERSATION_OR_OFFER_LIFETIME",
+    "explanationPreferenceAndDecline": "CURRENT_CONVERSATION_ONLY",
+    "crossConversationProfile": "PROHIBITED",
+    "marketingReuse": "PROHIBITED",
+    "securityLogs": "ONLY_IF_SEPARATELY_JUSTIFIED_AND_DOCUMENTED; NO DEFAULT PERIOD APPROVED BY THIS REVIEW"
+  },
+  "officialReferences": [
+    "https://www.kvkk.gov.tr/Icerik/4189/Kisisel-Verilerin-Islenmesine-Iliskin-Temel-Ilkeler",
+    "https://www.kvkk.gov.tr/Icerik/2037/Acik-Riza-Alirken-Dikkat-Edilecek-Hususlar"
+  ]
+}

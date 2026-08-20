@@ -1,0 +1,41 @@
+{
+  "activationPerformed": false,
+  "approvedCompositeBindingChecksum": "sha256:59a65a589f1d04507c86ee68a3f573bfd28f8bfee8cce673f9547cfb37916222",
+  "catalogEquipmentCompatibility": "PASS",
+  "currentEquipmentDailyLife": {
+    "generatedModuleChecksum": "sha256:36be5b3755c3dc79f42651df661706913cafbf5b13cbac9933a6065949633020",
+    "pointerChecksum": "sha256:01fbd50694ef6a60b0cd3cebbfce7e21f1586a682ccc2b509b8169c9d53f1ef8",
+    "releaseId": "v1.0.0-catalog-v0.55.4-2026-08-20"
+  },
+  "currentPublicExplanationAuthority": {
+    "generatedModuleChecksum": null,
+    "pointerChecksum": null,
+    "releaseId": null,
+    "state": "NO_ACTIVE_POINTER_OR_GENERATED_MODULE"
+  },
+  "decisionNeutrality": "PASS_ZERO_EFFECT",
+  "explicitCompositeActivationApprovalRequired": true,
+  "finalDisposition": "READY_FOR_EXPLICIT_COMPOSITE_ACTIVATION_APPROVAL",
+  "generatedAt": "2026-08-20T12:44:34.895Z",
+  "productionCompositeBindingChecksum": "sha256:34eae64907d0fc62a73f5d2691a12f440f8adbba40a243dff08cfa9509fcc082",
+  "proposedEquipmentDailyLife": {
+    "generatedModuleChecksum": "sha256:cde2bfccca5a1ab16f4af7098e76a784bf16f9f844d864bafe5e990bc9103176",
+    "payloadChecksum": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+    "pointerChecksum": "sha256:3158a8a66408310510ad0e6a02b324fb8317a01b56dd6f9d54a5ee85229509e8",
+    "releaseId": "v1.0.1-catalog-v0.55.4-2026-08-20"
+  },
+  "proposedPublicExplanationAuthority": {
+    "generatedModuleChecksum": "sha256:419a70b160860b3d333d07d474baf4f7d6a80cbafcf61d3a3caee7ae12d8790a",
+    "payloadChecksum": "sha256:c22d1b1dc6357e6e1cea229e1262f23929f13872e3a59e4ec2002d994aa124cd",
+    "pointerChecksum": "sha256:7e91a375ee54fbb88bb6cda87d5713591e82ea45f2b42b010cb02d952dd49699",
+    "publicActivation": false,
+    "publicIntegration": false,
+    "releaseId": "v0.1.2-catalog-v0.55.4-2026-08-20"
+  },
+  "publicImportBoundary": "PASS_NO_PUBLIC_IMPORTS",
+  "rollbackTargets": {
+    "equipmentDailyLifeReleaseId": "v1.0.0-catalog-v0.55.4-2026-08-20",
+    "publicExplanationAuthority": "NO_ACTIVE_POINTER"
+  },
+  "schemaVersion": "1.0.0"
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "policyId": "EQUIPMENT_PUBLIC_TELEMETRY_ALLOWLIST_V1",
+  "allowedFields": [
+    "eventType",
+    "outcome",
+    "scope"
+  ],
+  "allowedEventTypes": [
+    "EXPLANATION_OFFERED",
+    "EXPLANATION_ACCEPTED",
+    "EXPLANATION_DECLINED"
+  ],
+  "allowedOutcomes": [
+    "RECORDED",
+    "IGNORED"
+  ],
+  "scope": "CURRENT_VEHICLE_SESSION_ONLY",
+  "prohibitedFields": [
+    "recommendationTermsAcceptanceEventId",
+    "recommendationTermsVersion",
+    "recommendationTermsAcceptedAt",
+    "recommendationTermsAcceptanceSequence",
+    "evidenceAssertionId",
+    "evidenceLocator",
+    "evidenceChecksum",
+    "sourceChecksum",
+    "authorizationUnitId",
+    "rawEquipmentQuestion",
+    "rawPreferenceOrDeclineText"
+  ],
+  "personalIdentifiersAllowed": false,
+  "rawTextAllowed": false,
+  "genericObjectSpreadAllowed": false,
+  "durableProfileWriteAllowed": false,
+  "marketingLeadScoringRetargetingAllowed": false
+}

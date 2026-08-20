@@ -1,0 +1,123 @@
+{
+  "activationPerformed": false,
+  "authorityBoundaries": {
+    "activationPerformed": false,
+    "candidateOrOfferOrderingImpact": "NONE",
+    "comparisonQualitySafetyOrSuperiorityScoreAllowed": false,
+    "equipmentQuestionGenerationAllowed": false,
+    "globalFilteringAllowed": false,
+    "globalRankingAllowed": false,
+    "llmFreeCompletionOutsideControlledCopyAllowed": false,
+    "publicIntegrationPerformed": false,
+    "unknownAssociationLegacyBehavior": "NO_CLAIM",
+    "verifiedAbsenceUse": "DIRECT_QUESTION_EXACT_NEGATIVE_EVIDENCE_ONLY"
+  },
+  "boundArtifacts": {
+    "approvedCopyChecksum": "sha256:f1f5bc7acaf64f1c416d567d484115bd0600c33b6a98f7063ab8047d8ba93357",
+    "privacyPolicyChecksum": "sha256:58f0bfcca9d2df5275402f1bbe2b2ca320a0bccb1a87804dc708356b29b2ee2d",
+    "subjectInventoryChecksum": "sha256:20bd1fc79e8eaca0840c1ee8a715c6202137d38c209b3e1135550f07cb0bcd9c",
+    "telemetryPolicyChecksum": "sha256:44c2b01de571afcb83749bcbcf315fe2e3e1b3b1ef47b2b0bb51c0ff3c7ef2c7"
+  },
+  "canonicalSerializationVersion": "CANONICAL_JSON_SORTED_KEYS_V1",
+  "catalog": {
+    "fingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+    "release": "v0.55.4"
+  },
+  "equipmentDailyLife": {
+    "checksum": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+    "decisionUse": "EXPLANATION_ONLY",
+    "featureCount": 51,
+    "release": "v1.0.1-catalog-v0.55.4-2026-08-20-candidate"
+  },
+  "equipmentEvidence": {
+    "checksum": "sha256:0135bbfee468fa955d3d00d3129e0e7e01dae7bf9a980488450d8319ddc98d2e",
+    "globalDecisionAuthority": "SHADOW_AND_EXPLANATION_DISABLED",
+    "release": "v1.5.5-catalog-v0.55.4-2026-08-20"
+  },
+  "historicalCandidatesExcludedFromApproval": [
+    "v0.1.0-catalog-v0.55.4-2026-08-20-candidate",
+    "v0.1.1-catalog-v0.55.4-2026-08-20-candidate"
+  ],
+  "legalReview": {
+    "artifactChangeRequiresNewLegalReview": true,
+    "checksumBoundOnly": true,
+    "consentDisposition": "NO_ADDITIONAL_CONSENT_REQUIRED",
+    "disposition": "LEGAL_AND_COPY_APPROVED",
+    "reference": "OWNER_PROVIDED_FINAL_LEGAL_DISPOSITION_2026-08-20"
+  },
+  "manifestChecksum": "sha256:cf20aa4f49c5f6bf2959fec9802fc84731f49925162ba2dbf0dd405d4c206f78",
+  "manifestId": "EPEA-OAM-034AF597CB25EE09DF8F",
+  "manifestVersion": "1.0.0",
+  "nextAuthorizedStep": "OWNER_APPROVAL_EVENT_AND_IMMUTABLE_MATERIALIZATION_PREPARATION_ONLY",
+  "ownerActorId": "EQUIPMENT_OWNER_001",
+  "ownerActorRegistryBinding": {
+    "authorityVersion": "1.0.0",
+    "authorizationStatementHash": "sha256:30a2c40232f8ec9b9d3cb8227e970d18b6f7316fcd5ac07ac084f60562bffd06",
+    "role": "EQUIPMENT_OWNER_APPROVER",
+    "scope": "EQUIPMENT_EVIDENCE_ONLY",
+    "status": "ACTIVE"
+  },
+  "ownerApprovalEvent": null,
+  "pilotScope": {
+    "authorityTypes": [
+      "POST_REVEAL_CONFIRMED_EXPLANATION",
+      "DIRECT_QUESTION_VERIFIED_ABSENCE"
+    ],
+    "confirmedIncludedCount": 62,
+    "exactVariantIds": [
+      "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "90e65f94-6fdb-5eea-ad7e-0b4e18435427"
+    ],
+    "otherExactVariantCount": 0,
+    "verifiedAbsenceCount": 3,
+    "verifiedAbsenceExactVariantIds": [
+      "6cb56615-37ef-51a8-9202-a73e59d4e14b"
+    ]
+  },
+  "preparedAt": "2026-08-20T12:26:45.833Z",
+  "publicExplanationAuthority": {
+    "checksum": "sha256:c22d1b1dc6357e6e1cea229e1262f23929f13872e3a59e4ec2002d994aa124cd",
+    "compositeBindingChecksum": "sha256:59a65a589f1d04507c86ee68a3f573bfd28f8bfee8cce673f9547cfb37916222",
+    "release": "v0.1.2-catalog-v0.55.4-2026-08-20-candidate"
+  },
+  "publicIntegrationPerformed": false,
+  "recAndConsentBoundary": {
+    "acceptanceBinding": [
+      "conversationId",
+      "offerId"
+    ],
+    "acceptanceInstantRelation": "STRICTLY_BEFORE_REVEAL_INSTANT",
+    "acceptanceSequenceRelation": "STRICTLY_LESS_THAN_REVEAL_SEQUENCE",
+    "additionalCheckboxRequired": false,
+    "booleanAcceptanceAloneSufficient": false,
+    "kvkkExplicitConsentCreated": false,
+    "marketingOrCommercialCommunicationPermissionCreated": false,
+    "recommendationTermsVersion": "REC-2026.08-v1.1"
+  },
+  "schemaVersion": "1.0.0",
+  "sourceCopy": {
+    "bothConfirmedComparison": "İncelenen Türkiye model yılı donanım listelerinde [özellik] her iki versiyon için de doğrulandı. Bu tek özellik araçların genel kalite veya güvenlik düzeyini göstermez.",
+    "positiveTemplate": "Türkiye [MY] resmî donanım listesine göre bu versiyonda [özellik] standart olarak yer alıyor. [controlledExplanation] [caveat]",
+    "postRevealOffer": "Bu araç için Türkiye resmî donanım listesinde doğruladığımız özelliklerin günlük kullanımdaki olası etkilerini açıklamamı ister misin?",
+    "sessionNotice": "Bilgiler Türkiye pazarı ve gösterilen model yılına ait resmî donanım listesine dayanır. Donanım ve stok araç konfigürasyonu değişebileceğinden satın alma öncesinde yetkili satıcıdan doğrulayın.",
+    "verifiedAbsenceTemplate": "İncelediğimiz Türkiye [MY] resmî donanım listesinde bu versiyon için [özellik] sunulmadığı belirtiliyor. Donanım listeleri değişebileceğinden satın alma öncesinde güncel araç konfigürasyonunu yetkili satıcıdan doğrulayın.",
+    "verifiedAbsenceUnknownComparison": "A’nın incelenen Türkiye [MY] resmî donanım listesinde [özellik] sunulmadığı belirtiliyor; B için yeterli doğrulama bulunmuyor. Bu karşılaştırmadan B lehine bir üstünlük sonucu çıkarılamaz."
+  },
+  "supersessionRelationPreserved": "SUPERSEDED_PENDING_CORRECTED_LEGAL_REVIEW",
+  "vehicleSessionAndTelemetryBoundary": {
+    "durableEquipmentProfileAllowed": false,
+    "marketingRetargetingLeadScoringOrRankingAllowed": false,
+    "preferenceBinding": [
+      "conversationId",
+      "exactVariantId",
+      "offerId"
+    ],
+    "preferenceScope": "CURRENT_VEHICLE_SESSION_ONLY",
+    "publicTelemetryAllowlist": [
+      "eventType",
+      "outcome",
+      "scope"
+    ],
+    "stateOutlivesConversationOrOffer": false
+  }
+}

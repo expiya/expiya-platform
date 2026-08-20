@@ -1,0 +1,29 @@
+{
+  "appendOnlyGovernanceAndMaterializationRecordsPreserved": true,
+  "currentEquipmentDailyLife": {
+    "generatedModuleChecksum": "sha256:36be5b3755c3dc79f42651df661706913cafbf5b13cbac9933a6065949633020",
+    "pointerChecksum": "sha256:01fbd50694ef6a60b0cd3cebbfce7e21f1586a682ccc2b509b8169c9d53f1ef8",
+    "releaseId": "v1.0.0-catalog-v0.55.4-2026-08-20"
+  },
+  "currentPublicExplanationAuthority": {
+    "generatedModuleChecksum": null,
+    "pointerChecksum": null,
+    "releaseId": null,
+    "state": "NO_ACTIVE_PREDECESSOR"
+  },
+  "decisionEngineEffect": "ZERO",
+  "publicIntegrationCreated": false,
+  "rollbackTargets": {
+    "equipmentDailyLife": {
+      "generatedModuleChecksum": "sha256:36be5b3755c3dc79f42651df661706913cafbf5b13cbac9933a6065949633020",
+      "pointerChecksum": "sha256:01fbd50694ef6a60b0cd3cebbfce7e21f1586a682ccc2b509b8169c9d53f1ef8",
+      "releaseId": "v1.0.0-catalog-v0.55.4-2026-08-20"
+    },
+    "publicExplanationAuthority": {
+      "generatedModuleChecksum": "sha256:acdb9703d1cf3a5ebdc286a28be5fabd3a1ec07ba03806a8cb323fd4310738e0",
+      "pointerChecksum": "sha256:cddd31540121f225d799dbb2e1c358d940a7ea9417854cbfb7fab3bf065f328a",
+      "state": "UNCONFIGURED_DISABLED"
+    }
+  },
+  "schemaVersion": "1.0.0"
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.1.0",
+  "authorizationUnitLifetime": "LESS_THAN_OR_EQUAL_TO_CONVERSATION_OR_OFFER_LIFETIME",
+  "explanationPreferenceAndDeclineScope": "CURRENT_VEHICLE_SESSION_ONLY",
+  "vehicleSessionBinding": [
+    "conversationId",
+    "exactVariantId",
+    "offerId"
+  ],
+  "crossVehicleSessionReuseAllowed": false,
+  "crossConversationEquipmentProfileAllowed": false,
+  "marketingReuseAllowed": false,
+  "retargetingReuseAllowed": false,
+  "rankingOrLeadScoringAllowed": false,
+  "rawEquipmentQuestionsDurableProfileAllowed": false,
+  "acceptanceProofSeparatedFromFeatureInterestHistory": true,
+  "internalEvidenceIdentifiersInGeneralTelemetryAllowed": false,
+  "stateExpiresWithConversationOrOffer": true,
+  "databaseOrPersistenceChangePerformed": false
+}

@@ -1,0 +1,300 @@
+{
+  "authorizedNegativeAssertionIds": [
+    "EE-AST-0A0A5644D4EFD602108DA56E",
+    "EE-AST-2FFB1A6358DB8FCC086F8505",
+    "EE-AST-B31B77B02094FCB2B55E7EE8"
+  ],
+  "authorizedPositiveAssertionIds": [
+    "EE-AST-075A6AA235CB49BB15E94AB4",
+    "EE-AST-1126B2FC2D22BAADED3F2095",
+    "EE-AST-11D01F9018E331B7F859D8E6",
+    "EE-AST-25C161FC55DAC32435674C19",
+    "EE-AST-26D34BAC71237E029EAFC564",
+    "EE-AST-2A693FBC4F895E4691CF6793",
+    "EE-AST-30A4443B27CCD32FB1CF2AE3",
+    "EE-AST-381402BF18AD284A026CA8B6",
+    "EE-AST-38C92FDF18D083A12596076E",
+    "EE-AST-48FCE72E3C153F235D12349F",
+    "EE-AST-4E03D4BB7ED3E0C04835B1C9",
+    "EE-AST-4F151EE70B0913C25013C3F9",
+    "EE-AST-560FAC0F99079954FC754A39",
+    "EE-AST-591D66954FB4CB8E2493D48C",
+    "EE-AST-5A70F21634B69970A884D740",
+    "EE-AST-5C31E574D8295F4A2AD79F07",
+    "EE-AST-5C5C9D232EC9982279742F5B",
+    "EE-AST-62CF733196B61A04C16D4AAE",
+    "EE-AST-6404EE342533076E94E596A6",
+    "EE-AST-73E08BB392C46253AFBD422F",
+    "EE-AST-742A35CB0EBAB192BB04350B",
+    "EE-AST-84214DF3D3C44C21273F1285",
+    "EE-AST-8832F15742049C51FD61A1E8",
+    "EE-AST-89A4885AC94175D123D70DA1",
+    "EE-AST-8E503C48B6E49CB0F6D008D5",
+    "EE-AST-90AFB0747D73A92A63A45BDA",
+    "EE-AST-94674CF35D07895182E04BB1",
+    "EE-AST-946BAD3F4D0E4CD45882FF60",
+    "EE-AST-957F3C8C1D6C665874A2658C",
+    "EE-AST-96B4A3648C9BA9611AD0C424",
+    "EE-AST-9B655CA96C7907C90E0D1D6B",
+    "EE-AST-9D22FC6B3039B303210C916E",
+    "EE-AST-A230B4DC0EB0957580725D53",
+    "EE-AST-A6F3B8DA7F2C47CFDDEE0AA4",
+    "EE-AST-A7186CD2946461C8ECA36AA6",
+    "EE-AST-A82BF6253B618F5298661929",
+    "EE-AST-A90BCF4AA614D8C779DEBB7C",
+    "EE-AST-AD2D710430164F85910EFD70",
+    "EE-AST-AF6F2028684944494C7B46CB",
+    "EE-AST-B477A0C8FB87179FBF99CA9A",
+    "EE-AST-B8D47DA27AB6D356B2E53075",
+    "EE-AST-BAC4404BDDFEC774DB9F2BBC",
+    "EE-AST-BC66EA46B1D1194E3C4D829B",
+    "EE-AST-BFE0DD45EE840A243459555A",
+    "EE-AST-C73FA51FC01B01B5A9AEF7A8",
+    "EE-AST-C8C6EF666F684EC2440A67CB",
+    "EE-AST-CB6DFD70566F0DB4132FDF55",
+    "EE-AST-CCE9ED4385A2A31D380FE57B",
+    "EE-AST-D9AA3AD6E950F5BE86140135",
+    "EE-AST-DD5E243DBC9AE3AA2A5F1393",
+    "EE-AST-E21964108FC41C7EED1285B0",
+    "EE-AST-E57B735D789255E67030106E",
+    "EE-AST-E64BA0CBDAB2D82F72E430E0",
+    "EE-AST-E70188DDF67101AAB0F9BDF6",
+    "EE-AST-F0B68CB76A1676C5892C04D7",
+    "EE-AST-F11624B51E556CB504375EE8",
+    "EE-AST-F2E8C55A1988ACF427C9D4AC",
+    "EE-AST-F54BE28E75FAF472DC4D3CEC",
+    "EE-AST-F55B19DE7AA53F127C068FBE",
+    "EE-AST-FAC154DF6D64A265A9456CC4",
+    "EE-AST-FB49857F0C4CBA444F9DDE7F",
+    "EE-AST-FE02A81980054B1BC1ED94B3"
+  ],
+  "controlledDailyLifeEntries": [
+    {
+      "entryChecksum": "sha256:e3c1e59274da94f70ff80dae82c5fdc6b529beb5fe593f8ae4c8c6773ec76acb",
+      "featureCode": "AUTONOMOUS_EMERGENCY_BRAKING"
+    },
+    {
+      "entryChecksum": "sha256:c31c997552730c0dbc7e573fe41adf5cfe4223777fafc5a9ddb867cde5264d56",
+      "featureCode": "FORWARD_COLLISION_WARNING"
+    },
+    {
+      "entryChecksum": "sha256:6fab411c0688e62f41f1eee2f98271f2d591b5d32eb800defa78b2a082291d41",
+      "featureCode": "LANE_DEPARTURE_WARNING"
+    },
+    {
+      "entryChecksum": "sha256:0871c5c66b82a4eeaaa8fe75252c9cdc877df84e672cbe4091d3aa55626d70c1",
+      "featureCode": "LANE_KEEP_ASSIST"
+    },
+    {
+      "entryChecksum": "sha256:627e4635362a32177bfcaee50ba8a3cf841b540895654d65570bfd29f578260e",
+      "featureCode": "LANE_CENTERING_ASSIST"
+    },
+    {
+      "entryChecksum": "sha256:fc8b30dc5b559e81566f62fac82eb940aaed7a96e09ff5ed9333e938840042d3",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL"
+    },
+    {
+      "entryChecksum": "sha256:84c0bb39171818fac6d51894f013f7b041ed68f044baef76750eb6342cc0487f",
+      "featureCode": "BLIND_SPOT_MONITOR"
+    },
+    {
+      "entryChecksum": "sha256:b1ebd370f37003c1f055315aa15409ae3fba2ac7363c742d7d84521e7e9d20a3",
+      "featureCode": "REAR_CROSS_TRAFFIC_ALERT"
+    },
+    {
+      "entryChecksum": "sha256:201a27d3f3bc9282854aa2f25862377e83c993a098b4b3ea02308f773a3cc0d2",
+      "featureCode": "TRAFFIC_SIGN_RECOGNITION"
+    },
+    {
+      "entryChecksum": "sha256:8b1d587e4ffc0b40bd5a0467a4a40805924a5b66e7e2a46e1fd6c29d0e04cc3f",
+      "featureCode": "DRIVER_ATTENTION_MONITOR"
+    },
+    {
+      "entryChecksum": "sha256:1d8177da2297c15495f1d1ad7d944e3fb7b74f01fe5edd5edc72369fd53cdeae",
+      "featureCode": "HIGH_BEAM_ASSIST"
+    },
+    {
+      "entryChecksum": "sha256:05990fdb84ff0df2e66cc848fb4fd1bebd439ba7b469b9d5cb446cb3f121e2dd",
+      "featureCode": "REAR_VIEW_CAMERA"
+    },
+    {
+      "entryChecksum": "sha256:f7253d508510f272f5e260117dc60cdd961a103d2dc7d98aa9815c1af566bbd2",
+      "featureCode": "SURROUND_VIEW_CAMERA_360"
+    },
+    {
+      "entryChecksum": "sha256:dc6436e1f6552984f3e370386ec59156452e7e9071b6df46eb794cb48013abbc",
+      "featureCode": "FRONT_PARKING_SENSORS"
+    },
+    {
+      "entryChecksum": "sha256:4869a11b31f0beedf947ec9b8044035b299c2939052f6665e035bfb921252723",
+      "featureCode": "REAR_PARKING_SENSORS"
+    },
+    {
+      "entryChecksum": "sha256:8774666a91b67515efc5718a1f749f457d2802b8362d6b1d7df0ba7b84742077",
+      "featureCode": "AUTOMATIC_PARK_ASSIST"
+    },
+    {
+      "entryChecksum": "sha256:b8367fe5e76fed4992ca81b20a34db94788a299f8f3cabd2a928f0d4f58c1ccd",
+      "featureCode": "ISOFIX_REAR_OUTER"
+    },
+    {
+      "entryChecksum": "sha256:30a6e91a815ba9021c7c6dfe82376b7ea2e205ca683db8609d04c06b8643873f",
+      "featureCode": "ISOFIX_FRONT_PASSENGER"
+    },
+    {
+      "entryChecksum": "sha256:39296c5240ad5a88790ce398be82b5dfc003235998a2cda74ed0129b2725e574",
+      "featureCode": "FRONT_SIDE_CURTAIN_AIRBAG_COVERAGE"
+    },
+    {
+      "entryChecksum": "sha256:6d65382d3633a8ed33ef7b365a70c4b4fdd8b2a6cf53225527666f8d94ea5c04",
+      "featureCode": "CENTER_AIRBAG"
+    },
+    {
+      "entryChecksum": "sha256:5111bb955669816c0340107e45e2a2c856eba1b9ae022de50a06ecaaf0bff6a6",
+      "featureCode": "REAR_SEAT_OCCUPANT_ALERT"
+    },
+    {
+      "entryChecksum": "sha256:c9780178d3a2b5f412e7850e54800f8b8be73371a51131141814c6898766a45d",
+      "featureCode": "HEATED_FRONT_SEATS"
+    },
+    {
+      "entryChecksum": "sha256:d990dad0c7b5e4b85ed7df0e9e30099e395e41136b4f32abfaf932cdce1be5cf",
+      "featureCode": "HEATED_REAR_SEATS"
+    },
+    {
+      "entryChecksum": "sha256:38bb1c9bbaa9c6f0f5b0bc1371b45f15a68a8ad5d8295e128f4e9498775e5ee3",
+      "featureCode": "VENTILATED_FRONT_SEATS"
+    },
+    {
+      "entryChecksum": "sha256:1e5cc84091a226a9640ed1a38c870368028454ea74d3405b1742853248b39f70",
+      "featureCode": "POWER_DRIVER_SEAT"
+    },
+    {
+      "entryChecksum": "sha256:111aed755b3cacd8a5b25b2866cadb5127fc6b401dcb06d3005a382b98876a4e",
+      "featureCode": "POWER_FRONT_PASSENGER_SEAT"
+    },
+    {
+      "entryChecksum": "sha256:f4d9fef7b6ddc553c57711ceb3fda0a016fbc09a614dfab6d57a65fc382ab4f7",
+      "featureCode": "DRIVER_SEAT_MEMORY"
+    },
+    {
+      "entryChecksum": "sha256:94685c869b72ab0fd8f981fe1552abed93e40c3572dbc9a133fe5b6ad6c67a07",
+      "featureCode": "HEATED_STEERING_WHEEL"
+    },
+    {
+      "entryChecksum": "sha256:1eacbdab6b1225a06c2bd9493481bf2cad488aa55095fd11ae06087981e11080",
+      "featureCode": "DUAL_ZONE_CLIMATE_CONTROL"
+    },
+    {
+      "entryChecksum": "sha256:3f0614dc955a80c98adc721d000bbf3f4db93348f992925b8a3fcb28cf285129",
+      "featureCode": "THREE_ZONE_CLIMATE_CONTROL"
+    },
+    {
+      "entryChecksum": "sha256:1325443180fde9881e137186a36e8f6b8cf28d0e80e036390d2260ce5d12fcc0",
+      "featureCode": "FOUR_ZONE_CLIMATE_CONTROL"
+    },
+    {
+      "entryChecksum": "sha256:5449bad1cd0ecbb57dcc0d21f1267c56aa952069dbf9fa7a7f59310cb67b09b1",
+      "featureCode": "KEYLESS_ENTRY"
+    },
+    {
+      "entryChecksum": "sha256:300cb6e066cbdd6ab47a373e8726df43dbb6572f052f74b767d4faa892066c1a",
+      "featureCode": "KEYLESS_START"
+    },
+    {
+      "entryChecksum": "sha256:e3341377ce1688875bf0fb7e60c8256e21ddef2b36444d27c5833f7f6312fe27",
+      "featureCode": "POWER_TAILGATE"
+    },
+    {
+      "entryChecksum": "sha256:4d0f4b0594d57dd38a7baa523493387ced09e1cf85c61ae9d44d874b95729ede",
+      "featureCode": "HANDS_FREE_TAILGATE"
+    },
+    {
+      "entryChecksum": "sha256:3c8cd52d035a970b3de19ebe7a7080c6f3ca661686b4faa16171e22d132bebb3",
+      "featureCode": "PANORAMIC_GLASS_ROOF"
+    },
+    {
+      "entryChecksum": "sha256:f62cc41f4b3ee7095001f8c7847cc94e4ea7f9afd35fff4ec68d8bea67b9b596",
+      "featureCode": "APPLE_CARPLAY"
+    },
+    {
+      "entryChecksum": "sha256:1ee4c03c5e635397238371ca9df98f6bba3b6c623f93a55bc451df8a584dcce2",
+      "featureCode": "WIRELESS_APPLE_CARPLAY"
+    },
+    {
+      "entryChecksum": "sha256:ea8c2c220d307ca6b51091252f396efc94ee6b670dc2e422910d57ce648ef99c",
+      "featureCode": "ANDROID_AUTO"
+    },
+    {
+      "entryChecksum": "sha256:90a1966fa414a3aa72dfe6648677b362672fca782cfb1208f6ef73738c2d816b",
+      "featureCode": "WIRELESS_ANDROID_AUTO"
+    },
+    {
+      "entryChecksum": "sha256:4ef10fb3293945d0565ded6d7bc00edfcdbc7805ee11ba1054108aa4b4f826a9",
+      "featureCode": "WIRELESS_PHONE_CHARGING"
+    },
+    {
+      "entryChecksum": "sha256:b2779d67c9803d844d9f2bc2f60b2b5ccb48a9d86cc4caba2c3f29989f079b52",
+      "featureCode": "LED_HEADLIGHTS"
+    },
+    {
+      "entryChecksum": "sha256:65bd6631e4f2053a20693d30ae4a5576d0f40d071cca89851510f034edc847ae",
+      "featureCode": "ADAPTIVE_HEADLIGHTS"
+    },
+    {
+      "entryChecksum": "sha256:7afd1ec78285f103d49ec402b646eca44824f2d7378fc44f2e7774d95f84e0e3",
+      "featureCode": "MATRIX_LED_HEADLIGHTS"
+    },
+    {
+      "entryChecksum": "sha256:e2e16e19a032ee0f85b7b5584a7f66205668c3e7f5cec2693bfee08916e48140",
+      "featureCode": "AUTOMATIC_HIGH_BEAM"
+    },
+    {
+      "entryChecksum": "sha256:6dc261165bd7e11129a42f64d6a41a381f5d01db3f92978a8bf0c26462fc77b9",
+      "featureCode": "HILL_DESCENT_CONTROL"
+    },
+    {
+      "entryChecksum": "sha256:f5c1ca3f5ce63f3f3029fac985acaccc617274f60d5b7c02e81af4cfb66da267",
+      "featureCode": "TERRAIN_DRIVE_MODES"
+    },
+    {
+      "entryChecksum": "sha256:65785f72d0be35318b13bb80309f77c6b7f1a0cf36e6453f237d0aa6cd1aff44",
+      "featureCode": "LOW_RANGE_TRANSFER_CASE"
+    },
+    {
+      "entryChecksum": "sha256:1475c53c139de03a5b54a9f21ccff12c4754356009a01a01d705f5aed6de9d14",
+      "featureCode": "LOCKING_REAR_DIFFERENTIAL"
+    },
+    {
+      "entryChecksum": "sha256:0c5188ffd494fcead54683daa90752eb3dd376476a97cb87f86ee9a72d2d5df9",
+      "featureCode": "LOCKING_CENTER_DIFFERENTIAL"
+    },
+    {
+      "entryChecksum": "sha256:558f5cd8fee728d7a797fd2aafb567cc93e35d0b0c5e31715c6b3a0eae3ead03",
+      "featureCode": "CRAWL_CONTROL"
+    }
+  ],
+  "exactVariants": [
+    {
+      "confirmedIncludedCount": 30,
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "label": "BYD Dolphin Comfort MY2025",
+      "verifiedAbsenceCount": 3
+    },
+    {
+      "confirmedIncludedCount": 32,
+      "exactVariantId": "90e65f94-6fdb-5eea-ad7e-0b4e18435427",
+      "label": "Nissan Qashqai Platinum Premium e-POWER MY2026",
+      "verifiedAbsenceCount": 0
+    }
+  ],
+  "excludedPublicClaimCounts": {
+    "associationOnly": 0,
+    "legacyUnresolved": 0,
+    "optional": 0,
+    "packageDependent": 0,
+    "unknownOrSilentAbsence": 0
+  },
+  "inventoryId": "EPEA-OAM-034AF597CB25EE09DF8F-SUBJECTS",
+  "schemaVersion": "1.0.0"
+}

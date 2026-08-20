@@ -1,0 +1,31 @@
+{
+  "activatedAt": "2026-08-20T13:09:48.308Z",
+  "activationManifestChecksum": "sha256:a604677715168c97ede36bc3d6d8944609701323c2c102db5b163824300986fe",
+  "activationManifestId": "EPEA-ACTMAN-A68831FC3F16C7619F25",
+  "activationMode": "ATOMIC_TWO_LAYER_POINTER_AND_GENERATED_MODULE_REPLACEMENT_V1",
+  "activeReleases": {
+    "equipmentDailyLife": "v1.0.1-catalog-v0.55.4-2026-08-20",
+    "publicExplanationAuthority": "v0.1.2-catalog-v0.55.4-2026-08-20"
+  },
+  "approvedTargetChecksums": {
+    "authorityModule": "sha256:be2457e2a2614ed530c0777cf903641a17137e0f803517c208f6c2de01c4d773",
+    "authorityPointer": "sha256:142f84a7bd526177222ca4d3d3e9602e909e5dc19a753166cc77eb69fdf30602",
+    "dailyModule": "sha256:31e8889bfc91322801c965d756e638d46dea4856ae2b0df905343aa0b927d5ae",
+    "dailyPointer": "sha256:4c25ab5b88a7e437fa20c0d6d3827180f028f5580fc2ed7b92f7c7246f48ba23"
+  },
+  "authorizationStatementChecksum": "sha256:a3f0198e77ee19dcc5cd48107bb35f4878801de46b2b6e7188e8a5d78f58fd36",
+  "commitPushPerformed": false,
+  "databaseWritePerformed": false,
+  "decisionEngineEffect": "ZERO",
+  "deploymentPerformed": false,
+  "eventChecksum": "sha256:398afb4d87d728f55384dd2f8bde74d1f38c9a3c60035f7dad535f2c79869e9d",
+  "eventId": "EPEA-ACT-398AFB4D87D728F55384",
+  "eventType": "ATOMIC_COMPOSITE_ACTIVATION_APPLIED",
+  "migrationPerformed": false,
+  "ownerActorId": "EQUIPMENT_OWNER_001",
+  "productionCompositeBindingChecksum": "sha256:34eae64907d0fc62a73f5d2691a12f440f8adbba40a243dff08cfa9509fcc082",
+  "publicIntegrationPerformed": false,
+  "revocationPolicy": "APPEND_ONLY_ROLLBACK_EVENT_REQUIRED",
+  "rollbackPlanReference": "EPEA-ACTMAN-A68831FC3F16C7619F25/rollback-plan.json",
+  "schemaVersion": "1.0.0"
+}

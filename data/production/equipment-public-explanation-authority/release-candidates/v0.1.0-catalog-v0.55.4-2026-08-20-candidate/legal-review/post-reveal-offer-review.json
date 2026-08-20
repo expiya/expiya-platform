@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewDate": "2026-08-20",
+  "decision": "APPROVED_WITH_CONTROLLED_COPY_CHANGE",
+  "reviewedText": "Bu aracın günlük kullanımda işine yarayabilecek donanımlarını anlatmamı ister misin?",
+  "findings": {
+    "coerciveSalesLanguage": false,
+    "couldBeMistakenForConsent": false,
+    "repeatAfterDeclineAllowed": false,
+    "userAcceptanceMeaning": "CONVERSATION_PREFERENCE_ONLY",
+    "categorySource": "EXACT_CONFIRMED_POSITIVE_UNITS_ONLY"
+  },
+  "approvedReplacement": "Bu araç için Türkiye resmî donanım listesinde doğruladığımız özelliklerin günlük kullanımdaki olası etkilerini açıklamamı ister misin?",
+  "interactionRules": [
+    "Do not label the action as consent, permission or acceptance.",
+    "A decline must suppress the offer for the remainder of the conversation and offer.",
+    "No persuasion, countdown, urgency or repeated solicitation.",
+    "Category buttons may be derived only from exact confirmed positive units; verified absence and unknown states must not create buttons.",
+    "The response must not mutate ranking, filtering, recommendation or the revealed offer."
+  ]
+}

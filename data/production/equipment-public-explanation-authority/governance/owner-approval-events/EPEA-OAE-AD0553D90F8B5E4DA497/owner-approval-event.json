@@ -1,0 +1,70 @@
+{
+  "activationAuthorized": false,
+  "activePointerChangeAuthorized": false,
+  "approvalStatementChecksum": "sha256:8894ef226276802f2c3e9d29e7619f03d286d96a0e9850c6e1f3b0d518ff7658",
+  "approvedAt": "2026-08-20T12:30:18.894Z",
+  "approvedPackage": {
+    "boundArtifacts": {
+      "approvedCopyChecksum": "sha256:f1f5bc7acaf64f1c416d567d484115bd0600c33b6a98f7063ab8047d8ba93357",
+      "privacyPolicyChecksum": "sha256:58f0bfcca9d2df5275402f1bbe2b2ca320a0bccb1a87804dc708356b29b2ee2d",
+      "subjectInventoryChecksum": "sha256:20bd1fc79e8eaca0840c1ee8a715c6202137d38c209b3e1135550f07cb0bcd9c",
+      "telemetryPolicyChecksum": "sha256:44c2b01de571afcb83749bcbcf315fe2e3e1b3b1ef47b2b0bb51c0ff3c7ef2c7"
+    },
+    "equipmentDailyLife": {
+      "checksum": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+      "decisionUse": "EXPLANATION_ONLY",
+      "featureCount": 51,
+      "release": "v1.0.1-catalog-v0.55.4-2026-08-20-candidate"
+    },
+    "publicExplanationAuthority": {
+      "checksum": "sha256:c22d1b1dc6357e6e1cea229e1262f23929f13872e3a59e4ec2002d994aa124cd",
+      "compositeBindingChecksum": "sha256:59a65a589f1d04507c86ee68a3f573bfd28f8bfee8cce673f9547cfb37916222",
+      "release": "v0.1.2-catalog-v0.55.4-2026-08-20-candidate"
+    }
+  },
+  "authorityBoundaries": {
+    "activationPerformed": false,
+    "candidateOrOfferOrderingImpact": "NONE",
+    "comparisonQualitySafetyOrSuperiorityScoreAllowed": false,
+    "equipmentQuestionGenerationAllowed": false,
+    "globalFilteringAllowed": false,
+    "globalRankingAllowed": false,
+    "llmFreeCompletionOutsideControlledCopyAllowed": false,
+    "publicIntegrationPerformed": false,
+    "unknownAssociationLegacyBehavior": "NO_CLAIM",
+    "verifiedAbsenceUse": "DIRECT_QUESTION_EXACT_NEGATIVE_EVIDENCE_ONLY"
+  },
+  "authorizedNextStep": "IMMUTABLE_MATERIALIZATION_PREPARATION_ONLY",
+  "commitPushAuthorized": false,
+  "consentDisposition": "NO_ADDITIONAL_CONSENT_REQUIRED",
+  "deploymentAuthorized": false,
+  "eventChecksum": "sha256:989f27f22b0e1f6f5dde63738570c2d8e578cb34889c450a626df89ee25e2e6c",
+  "eventId": "EPEA-OAE-AD0553D90F8B5E4DA497",
+  "eventType": "COMPOSITE_OWNER_APPROVAL_GRANTED",
+  "legalDisposition": "LEGAL_AND_COPY_APPROVED",
+  "manifestChecksum": "sha256:cf20aa4f49c5f6bf2959fec9802fc84731f49925162ba2dbf0dd405d4c206f78",
+  "manifestId": "EPEA-OAM-034AF597CB25EE09DF8F",
+  "ownerActorId": "EQUIPMENT_OWNER_001",
+  "ownerActorRole": "EQUIPMENT_OWNER_APPROVER",
+  "ownerActorScope": "EQUIPMENT_EVIDENCE_ONLY",
+  "pilotScope": {
+    "authorityTypes": [
+      "POST_REVEAL_CONFIRMED_EXPLANATION",
+      "DIRECT_QUESTION_VERIFIED_ABSENCE"
+    ],
+    "confirmedIncludedCount": 62,
+    "exactVariantIds": [
+      "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "90e65f94-6fdb-5eea-ad7e-0b4e18435427"
+    ],
+    "otherExactVariantCount": 0,
+    "verifiedAbsenceCount": 3,
+    "verifiedAbsenceExactVariantIds": [
+      "6cb56615-37ef-51a8-9202-a73e59d4e14b"
+    ]
+  },
+  "publicIntegrationAuthorized": false,
+  "revocationPolicy": "APPEND_ONLY_REVOCATION_EVENT_REQUIRED",
+  "routeUiDecisionEngineChangeAuthorized": false,
+  "schemaVersion": "1.0.0"
+}

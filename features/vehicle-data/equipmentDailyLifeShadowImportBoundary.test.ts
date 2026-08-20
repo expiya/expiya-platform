@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 
-const forbidden = ["app/", "components/", "features/decision/v2/action/", "features/decision/v2/filter/", "features/decision/v2/presentation/", "features/decision/conversation/"];
+const forbidden = ["app/", "components/", "features/decision/"];
 const sourceFiles = (directory: string): string[] => readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
   const target = join(directory, entry.name);
   return entry.isDirectory() ? sourceFiles(target) : /\.[cm]?[jt]sx?$/u.test(entry.name) ? [target] : [];
@@ -18,6 +18,7 @@ describe("equipment daily-life shadow import boundary", () => {
         expect(source, file).not.toContain("equipmentIntentQuestionPolicy");
         expect(source, file).not.toContain("equipmentIntentVocabulary");
         expect(source, file).not.toContain("equipmentShadowMemory");
+        expect(source, file).not.toContain("equipmentPublicExplanationAuthority");
       }
     }
   });

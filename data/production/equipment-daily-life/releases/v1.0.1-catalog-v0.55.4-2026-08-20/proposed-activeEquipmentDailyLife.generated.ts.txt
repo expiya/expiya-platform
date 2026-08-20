@@ -1,0 +1,4 @@
+// Proposed only. Not active. Do not install without explicit composite activation approval.
+export { default as activeEquipmentDailyLifePayload } from "./releases/v1.0.1-catalog-v0.55.4-2026-08-20/equipment-daily-life.json";
+export { default as activeEquipmentDailyLifeManifest } from "./releases/v1.0.1-catalog-v0.55.4-2026-08-20/manifest.json";
+export const activeEquipmentDailyLifeRelease = "v1.0.1-catalog-v0.55.4-2026-08-20";

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewDate": "2026-08-20",
+  "decision": "APPROVED_WITH_CONTROLLED_COPY_CHANGE",
+  "globalRules": {
+    "unknownAsAbsenceForbidden": true,
+    "featureCountQualityScoreForbidden": true,
+    "safetyScoreForbidden": true,
+    "superiorityClaimForbidden": true,
+    "rankingOrRecommendationEffect": "NONE"
+  },
+  "approvedTemplates": {
+    "A_CONFIRMED_B_UNKNOWN": "Türkiye [A_MY] resmî donanım listesine göre A versiyonunda [özellik] standart olarak yer alıyor. B versiyonu için yeterli doğrulama bulunmuyor; bu, özelliğin B'de bulunmadığı anlamına gelmez.",
+    "A_CONFIRMED_B_ASSOCIATION_ONLY": "Türkiye [A_MY] resmî donanım listesine göre A versiyonunda [özellik] standart olarak yer alıyor. B için özellik ilişkisi görülse de standart, opsiyon veya paket kapsamı yeterince doğrulanmadı.",
+    "A_VERIFIED_ABSENCE_B_UNKNOWN": "İncelediğimiz Türkiye [A_MY] resmî donanım listesinde A versiyonu için [özellik] sunulmadığı belirtiliyor. B versiyonu için yeterli doğrulama bulunmuyor; buradan B lehine bir üstünlük sonucu çıkarılamaz.",
+    "A_AND_B_CONFIRMED": "İncelediğimiz Türkiye [A_MY] ve [B_MY] resmî donanım listelerine göre [özellik] her iki versiyonda da standart olarak yer alıyor. Bu tek özellik araçların genel kalite veya güvenlik düzeyini göstermez."
+  },
+  "requiredRendererExpansion": "The current renderer implements only confirmed-versus-insufficient. Before activation, all four states must fail closed to these templates and include the no-absence/no-superiority qualifier."
+}

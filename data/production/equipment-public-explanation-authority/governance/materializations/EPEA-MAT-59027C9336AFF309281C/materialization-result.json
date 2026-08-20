@@ -1,0 +1,26 @@
+{
+  "activationPerformed": false,
+  "activePointerUpdated": false,
+  "authorizationEventChecksum": "sha256:59027c9336aff309281c88fce858e167c5e2130f9eff35e23d041a39f5c0c1ef",
+  "authorizationEventId": "EPEA-MATAUTH-59027C9336AFF309281C",
+  "decisionEngineEffect": "ZERO",
+  "generatedModuleUpdated": false,
+  "materializationId": "EPEA-MAT-59027C9336AFF309281C",
+  "materializedAt": "2026-08-20T12:44:34.895Z",
+  "productionCompositeBindingChecksum": "sha256:34eae64907d0fc62a73f5d2691a12f440f8adbba40a243dff08cfa9509fcc082",
+  "publicIntegrationPerformed": false,
+  "releases": [
+    {
+      "manifestChecksum": "sha256:0c8cb1a5512dba3ece66c4c042eb5a79dd71fc56b434560c10228981e5cc1ae5",
+      "payloadChecksum": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+      "releaseId": "v1.0.1-catalog-v0.55.4-2026-08-20"
+    },
+    {
+      "manifestChecksum": "sha256:a4a13aaf1bf91d79ad497073ddc81cde6a926c3b2238696feead45c93d44c088",
+      "payloadChecksum": "sha256:c22d1b1dc6357e6e1cea229e1262f23929f13872e3a59e4ec2002d994aa124cd",
+      "releaseId": "v0.1.2-catalog-v0.55.4-2026-08-20"
+    }
+  ],
+  "schemaVersion": "1.0.0",
+  "state": "OWNER_APPROVED_IMMUTABLE_RELEASE"
+}

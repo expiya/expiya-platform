@@ -1,0 +1,4 @@
+// Proposed only. No active authority module currently exists.
+export { default as activeEquipmentPublicExplanationAuthorityPayload } from "./releases/v0.1.2-catalog-v0.55.4-2026-08-20/authority.json";
+export { default as activeEquipmentPublicExplanationAuthorityManifest } from "./releases/v0.1.2-catalog-v0.55.4-2026-08-20/manifest.json";
+export const activeEquipmentPublicExplanationAuthorityRelease = "v0.1.2-catalog-v0.55.4-2026-08-20";

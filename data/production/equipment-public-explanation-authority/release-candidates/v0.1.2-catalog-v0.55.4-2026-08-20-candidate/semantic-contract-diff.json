@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "predecessor": "v0.1.1-catalog-v0.55.4-2026-08-20-candidate",
+  "successor": "v0.1.2-catalog-v0.55.4-2026-08-20-candidate",
+  "unchangedScope": {
+    "pilotExactVariantCount": 2,
+    "confirmedIncludedAssertionCount": 62,
+    "verifiedAbsenceAssertionCount": 3,
+    "verifiedAbsenceVariant": "BYD Dolphin Comfort MY2025"
+  },
+  "changes": [
+    "STRICT_ACCEPTANCE_SEQUENCE_BEFORE_REVEAL",
+    "STRICT_ACCEPTANCE_INSTANT_BEFORE_REVEAL",
+    "COMPARISON_NO_SUPERIORITY_COPY",
+    "CURRENT_VEHICLE_SESSION_ONLY_BINDING",
+    "PUBLIC_TELEMETRY_EXPLICIT_ALLOWLIST",
+    "COMPOSITE_ARTIFACT_CHECKSUM_BINDING"
+  ],
+  "unchangedBoundaries": [
+    "PUBLIC_INTEGRATION_DISABLED",
+    "GLOBAL_FILTER_RANKING_QUESTION_AUTHORITY_DISABLED",
+    "NO_OWNER_APPROVAL",
+    "NO_ACTIVATION"
+  ]
+}

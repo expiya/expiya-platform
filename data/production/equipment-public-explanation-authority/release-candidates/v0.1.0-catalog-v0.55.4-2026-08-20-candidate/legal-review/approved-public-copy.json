@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewDate": "2026-08-20",
+  "copyStatus": "CONTROLLED_COPY_FOR_CORRECTED_CANDIDATE_ONLY",
+  "positiveAssertionTemplate": "Türkiye [MY] resmî donanım listesine göre bu versiyonda [özellik] standart olarak yer alıyor. [controlledExplanation] [caveat]",
+  "verifiedAbsenceTemplate": "İncelediğimiz Türkiye [MY] resmî donanım listesinde bu versiyon için [özellik] sunulmadığı belirtiliyor. Donanım listeleri değişebileceğinden satın alma öncesinde güncel araç konfigürasyonunu yetkili satıcıdan doğrulayın.",
+  "postRevealOffer": "Bu araç için Türkiye resmî donanım listesinde doğruladığımız özelliklerin günlük kullanımdaki olası etkilerini açıklamamı ister misin?",
+  "unknownTemplate": "Bu versiyon için [özellik] hakkında yeterli doğrulama bulunmuyor; bu durum özelliğin bulunmadığı anlamına gelmez.",
+  "associationOnlyTemplate": "Bu versiyon ile [özellik] arasında bir ilişki görülüyor; ancak özelliğin standart, opsiyon veya paket kapsamında sunulduğu yeterince doğrulanmadı.",
+  "vehicleSessionSourceNotice": "Bilgiler Türkiye pazarı ve gösterilen model yılına ait resmî donanım listesine dayanır. Donanım ve stok araç konfigürasyonu değişebileceğinden satın alma öncesinde yetkili satıcıdan doğrulayın.",
+  "sourcePresentation": {
+    "modelYear": "REQUIRED_PER_ANSWER_OR_VISIBLE_CARD_CONTEXT",
+    "market": "REQUIRED_PER_ANSWER_OR_VISIBLE_CARD_CONTEXT",
+    "officialEquipmentListQualifier": "REQUIRED",
+    "evidenceDate": "SHOW_ONCE_PER_VEHICLE_EXPLANATION_SESSION_ONLY_IF A RELIABLE PUBLIC-FACING SOURCE OR ACCESS DATE IS PRESENT",
+    "dealerConfirmation": "SHOW_ONCE_PER_VEHICLE_EXPLANATION_SESSION; REPEAT INLINE FOR VERIFIED ABSENCE OR STALE EVIDENCE",
+    "rawLocator": "PROHIBITED",
+    "internalAssertionId": "PROHIBITED",
+    "checksum": "PROHIBITED",
+    "technicalProvenance": "PROHIBITED"
+  },
+  "legalMeaning": {
+    "userExplainResponse": "CONVERSATION_PREFERENCE_ONLY",
+    "additionalConsent": "NO_ADDITIONAL_CONSENT_REQUIRED",
+    "warrantyOrCommitment": false,
+    "stockVehicleConfirmation": false,
+    "rankingEffect": "NONE"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "1.0.0",
+  "reviewDate": "2026-08-20",
+  "decision": "APPROVED_WITH_CONTROLLED_COPY_CHANGE",
+  "reviewedPositiveSubjectCount": 62,
+  "reviewedPositiveAssertionIdsSha256": "sha256:fcc9c6d3b3a0145e1e137dc87daec1bed7ac3e42c88af645f807720932e2dc38",
+  "bodyCopyResults": {
+    "approvedAsWrittenSubjectCount": 55,
+    "approvedWithControlledCopyChangeSubjectCount": 7,
+    "rejectedSubjectCount": 0
+  },
+  "rendererResult": {
+    "affectedPositiveSubjectCount": 62,
+    "decision": "APPROVED_WITH_CONTROLLED_COPY_CHANGE",
+    "reason": "The current 'Bu araçta ... standart olarak bulunuyor' prefix does not sufficiently distinguish dated TR/MY catalogue evidence from a dealer's physical stock configuration."
+  },
+  "requiredFeatureCopyChanges": [
+    {
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "affectedPositiveSubjectCount": 2,
+      "reason": "The word 'doğru' may be read as an installation outcome guarantee.",
+      "replacementUserFacingExplanation": "Arka dış koltuklardaki ISOFIX bağlantıları, uyumlu bir çocuk koltuğunu araç üreticisinin talimatlarına göre sabitlemeyi kolaylaştırabilir.",
+      "replacementCaveat": "Çocuk koltuğu ve araç kılavuzundaki uyumluluk, ağırlık, yön ve montaj talimatları her kullanımda kontrol edilmelidir."
+    },
+    {
+      "featureCode": "LED_HEADLIGHTS",
+      "affectedPositiveSubjectCount": 2,
+      "reason": "The halogen comparison and longer-life claim are not established by the exact equipment matrix.",
+      "replacementUserFacingExplanation": "LED ön farlar, gece sürüşünde yolun aydınlatılmasını destekleyebilir.",
+      "replacementCaveat": "Görüş; far ayarı, hız, hava ve yol koşullarına bağlıdır; sürücü görüş mesafesine uygun şekilde hareket etmelidir."
+    },
+    {
+      "featureCode": "MATRIX_LED_HEADLIGHTS",
+      "affectedPositiveSubjectCount": 1,
+      "reason": "The stronger-illumination performance claim is not established by the exact equipment matrix.",
+      "replacementUserFacingExplanation": "Matrix LED ön farlar, uygun koşullarda ışık dağılımını trafik durumuna göre uyarlamaya yardımcı olabilir.",
+      "replacementCaveat": "Algılama kusursuz değildir; sürücü görüş koşullarını izlemeli ve gerektiğinde farlara müdahale etmelidir."
+    },
+    {
+      "featureCode": "REAR_SEAT_OCCUPANT_ALERT",
+      "affectedPositiveSubjectCount": 1,
+      "reason": "The source row is child-presence detection; extending the claim to pets and items is unsupported.",
+      "replacementUserFacingExplanation": "Çocuk varlık tespiti, desteklediği koşullarda araçta çocuk bulunabileceğine ilişkin ek uyarı sağlayabilir.",
+      "replacementCaveat": "Çocuğun araçta bırakılmasını güvenli hâle getirmez ve araçtan ayrılırken arka koltuğun fiziksel olarak kontrol edilmesi gereğini ortadan kaldırmaz."
+    },
+    {
+      "featureCode": "TERRAIN_DRIVE_MODES",
+      "affectedPositiveSubjectCount": 1,
+      "reason": "The source proves Eco, Normal, Sport and Snow modes, not mud or sand modes.",
+      "replacementUserFacingExplanation": "Sunulan Eco, Normal, Spor ve Kar sürüş modları, aracın bazı tepkilerini seçilen kullanım koşuluna uyarlamayı kolaylaştırabilir.",
+      "replacementCaveat": "Kar modu yol tutuşu veya güvenliği garanti etmez; lastik, hız, yol ve hava koşulları belirleyicidir."
+    }
+  ],
+  "mandatorySafetyBoundary": [
+    "No accident-prevention or safety-guarantee wording.",
+    "No infallible or all-condition detection wording.",
+    "No autonomous-driving implication.",
+    "No reduction of driver responsibility.",
+    "No unsupported superiority or performance comparison."
+  ]
+}
