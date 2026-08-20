@@ -190,7 +190,12 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   if (technicalExplanation) { addAct("TECHNICAL_EXPLANATION_REQUEST"); if (!directAnswerRequests.some((request) => request.kind === "TECHNICAL_EXPLANATION")) directAnswerRequests.unshift({ kind: "TECHNICAL_EXPLANATION" }); }
   const implicitVehicleRequest = constraints.length > 0 && /(?:istiyorum|olsun|arıyorum|bakıyorum|düşünüyorum|kullanacağım|lazım|gerekiyor|bütçem|max(?:imum)?|maksimum)/iu.test(text);
   const explicitDiscoveryIntent = /(?:[İi]lk (?:arabamı?|aracımı?|otomobilimi?)|(?:kızım|oğlum|kızıma|oğluma).*(?:araba|araç|otomobil)|(?:araba|araç|otomobil) (?:almak|almayı|alacağım|almam (?:lazım|gerekiyor)|almalıyım|arıyorum|bakıyorum|lazım|gerekiyor)|(?:panel ?van|pickup|caddy tarzı).*(?:istemiyorum|gerekmiyor|istiyorum|arıyorum|bakıyorum|düşünüyorum|lazım|gerekiyor)|(?:clio|civic|corolla|golf).*(?:önerdi|danış|kararsız)|(?:havalı|premium|şık).*(?:araç|araba|otomobil|bir şey)?.*(?:arıyorum|istiyorum))/iu.test(text);
-  if (/(?:araç|araba|seçenek|model).*(?:arıyorum|istiyorum|öner|hazırla)|(?:öner|tavsiye).*(?:araç|araba|model)/iu.test(text) || implicitVehicleRequest || explicitDiscoveryIntent) { addAct("VEHICLE_INTENT"); addAct("RECOMMENDATION_REQUEST"); if (!comparison && !directAnswerRequests.some((request) => request.kind === "RECOMMENDATION_REQUEST")) directAnswerRequests.push({ kind: "RECOMMENDATION_REQUEST" }); }
+  if (/(?:araç|araba|seçene(?:k|ğ)i?|model).*(?:arıyorum|istiyorum|öner|hazırla)|(?:öner|tavsiye).*(?:araç|araba|model)/iu.test(text) || implicitVehicleRequest || explicitDiscoveryIntent) { addAct("VEHICLE_INTENT"); addAct("RECOMMENDATION_REQUEST"); if (!comparison && !directAnswerRequests.some((request) => request.kind === "RECOMMENDATION_REQUEST")) directAnswerRequests.push({ kind: "RECOMMENDATION_REQUEST" }); }
+  const explicitModelRecommendation = acts.includes("RECOMMENDATION_REQUEST") && /(?:almak istiyorum|başlangıç noktası|seçeneği? hazırla|öner(?:meni|i)? istiyorum)/iu.test(text) && !/(?:var mı|mevcut mu)/iu.test(text);
+  if (explicitModelRecommendation) {
+    for (let index = acts.length - 1; index >= 0; index -= 1) if (["MODEL_LOOKUP_REQUEST", "MODEL_SUITABILITY_REQUEST"].includes(acts[index]!)) acts.splice(index, 1);
+    for (let index = directAnswerRequests.length - 1; index >= 0; index -= 1) if (["MODEL_AVAILABILITY", "MODEL_SUITABILITY"].includes(directAnswerRequests[index]!.kind)) directAnswerRequests.splice(index, 1);
+  }
   if (naturalConsent.test(text)) addAct("OFFER_ACCEPTANCE");
   if (/^(?:hayır|istemiyorum|önce biraz daha konuşalım)[.!]?$/iu.test(text)) addAct("OFFER_DECLINE");
 

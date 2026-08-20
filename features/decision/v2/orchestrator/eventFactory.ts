@@ -11,9 +11,11 @@ import type { DecisionTurnV2Input } from "./types";
 const stableId = (message: string, sequence: number, type: string) => `v2e_${createHash("sha256").update(`${message}:${sequence}:${type}`).digest("hex").slice(0, 24)}`;
 const containsIdentity = (text: string, identity: string) => ` ${text} `.includes(` ${identity} `);
 function inferCatalogPreferenceReference(input: { readonly text: string; readonly catalog: CatalogSnapshot; readonly existing: readonly ProposedModelReference[] }): ProposedModelReference | undefined {
-  if (input.existing.some((reference) => ["PREFERENCE", "HARD_SCOPE", "COMPARISON_SCOPE"].includes(reference.purpose))) return undefined;
   if (!/(?:istiyorum|almak|başlangıç|öner|hazırla|tercih)/iu.test(input.text)) return undefined;
   if (!input.catalog.familyIndex || !input.catalog.brandIndex) return undefined;
+  const existingResults = resolveProposedModelReferences(input.catalog, input.existing);
+  const hasResolvedScope = input.existing.some((reference, index) => ["PREFERENCE", "HARD_SCOPE", "COMPARISON_SCOPE"].includes(reference.purpose) && existingResults[index]?.kind !== "NOT_FOUND");
+  if (hasResolvedScope) return undefined;
   let normalizedText: string;
   try { normalizedText = normalizeCatalogIdentity(input.text); } catch { return undefined; }
   const familyMatches = input.catalog.familyIndex.values()
@@ -48,7 +50,11 @@ export function createConversationEventsFromInterpretation(input: { readonly tur
   for (const mutation of input.interpretation.acceptedBudgetMutations) { const prior = [...(input.previous?.events ?? [])].reverse().find((event) => event.eventType === "BUDGET_MUTATION" && "field" in event && event.field === mutation.field); if (mutation.operation === "EXCLUDE_FROM_DECISION") push({ eventType: "BUDGET_MUTATION", operation: "EXCLUDE_FROM_DECISION" }); else if (mutation.operation === "CLEAR") push({ eventType: "BUDGET_MUTATION", operation: "CLEAR", field: mutation.field, ...(prior ? { supersedesEventId: prior.id } : {}) }); else push({ eventType: "BUDGET_MUTATION", operation: mutation.operation, field: mutation.field, value: mutation.value, ...(mutation.operation === "CORRECT" && prior ? { supersedesEventId: prior.id } : {}) } as never); }
   for (const mutation of input.interpretation.acceptedPersonaMutations) { const prior = [...(input.previous?.events ?? [])].reverse().find((event) => event.eventType === "PERSONA_ACTIVATED"); if (mutation.operation === "ACTIVATE" && mutation.traits.length) push({ eventType: "PERSONA_ACTIVATED", activationSource: "USER_EXPLICIT", requestedTraits: mutation.traits as [typeof mutation.traits[number], ...typeof mutation.traits[number][]] }); else if (mutation.operation === "DEACTIVATE") push({ eventType: "PERSONA_DEACTIVATED", reason: "USER_CLEARED", ...(prior ? { supersedesEventId: prior.id } : {}) }); }
   const inferredPreference = inferCatalogPreferenceReference({ text: input.turn.userMessage, catalog: input.catalog, existing: input.interpretation.result.modelReferences });
-  const modelReferences = inferredPreference ? [...input.interpretation.result.modelReferences, inferredPreference] : input.interpretation.result.modelReferences;
+  const providerLookupResults = resolveProposedModelReferences(input.catalog, input.interpretation.result.modelReferences);
+  const retainedProviderReferences = inferredPreference
+    ? input.interpretation.result.modelReferences.filter((reference, index) => reference.purpose === "COMPARISON_SCOPE" || providerLookupResults[index]?.kind !== "NOT_FOUND")
+    : input.interpretation.result.modelReferences;
+  const modelReferences = inferredPreference ? [...retainedProviderReferences, inferredPreference] : retainedProviderReferences;
   const lookupResults = resolveProposedModelReferences(input.catalog, modelReferences);
   modelReferences.forEach((reference, index) => {
     const lookup = lookupResults[index]!;

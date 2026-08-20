@@ -16,6 +16,14 @@ describe("deterministic interpretation event factory", () => {
     const events = createConversationEventsFromInterpretation({ turn: { ...turn, userMessage: "BYD Dolphin Comfort 2025 almak istiyorum." }, interpretation, catalog: loaded.snapshot });
     expect(events.find((event) => event.eventType === "MODEL_REFERENCE")).toMatchObject({ resolution: "EXACT_MODEL_FAMILY", decisionEffect: "PREFERENCE", normalizedBrand: "BYD", normalizedModel: "DOLPHIN" });
   });
+  it("supersedes a provider lookup polluted with trim and model year when canonical family text is present", async () => {
+    const loaded = await loadActiveProductionSnapshotForTest(); expect(loaded.status).toBe("READY"); if (loaded.status !== "READY") return;
+    const interpretation = { authorityBoundary: "AUTHORITATIVE_SEMANTIC_PLAN", result: { acts: ["MODEL_LOOKUP_REQUEST", "RECOMMENDATION_REQUEST"], modelReferences: [{ rawText: "BYD Dolphin Comfort 2025", parsedBrandText: "BYD", parsedModelText: "Dolphin Comfort 2025", purpose: "LOOKUP_ONLY" }] }, acceptedConstraintMutations: [], acceptedBudgetMutations: [], acceptedPersonaMutations: [] } as never;
+    const events = createConversationEventsFromInterpretation({ turn: { ...turn, userMessage: "BYD Dolphin Comfort 2025 almak istiyorum ve başlangıç noktası olarak öner" }, interpretation, catalog: loaded.snapshot });
+    const references = events.filter((event) => event.eventType === "MODEL_REFERENCE");
+    expect(references).toHaveLength(1);
+    expect(references[0]).toMatchObject({ resolution: "EXACT_MODEL_FAMILY", decisionEffect: "PREFERENCE", normalizedBrand: "BYD", normalizedModel: "DOLPHIN" });
+  });
   it("recovers a catalog brand preference without inventing a model", async () => {
     const loaded = await loadActiveProductionSnapshotForTest(); expect(loaded.status).toBe("READY"); if (loaded.status !== "READY") return;
     const interpretation = { authorityBoundary: "AUTHORITATIVE_SEMANTIC_PLAN", result: { acts: ["RECOMMENDATION_REQUEST"], modelReferences: [] }, acceptedConstraintMutations: [], acceptedBudgetMutations: [], acceptedPersonaMutations: [] } as never;
