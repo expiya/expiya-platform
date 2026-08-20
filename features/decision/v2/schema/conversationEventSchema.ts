@@ -139,6 +139,10 @@ const offerLifecycleSchema = z.union([
   z.strictObject({ ...baseShape, eventType: z.literal("OFFER_LIFECYCLE"), offerId: boundedId, lifecycleState: z.literal("CREATED"), offer: offerSchema }),
   z.strictObject({ ...baseShape, eventType: z.literal("OFFER_LIFECYCLE"), offerId: boundedId, lifecycleState: z.enum(["CONSENTED", "REVEALED", "EXPIRED", "REVOKED"]) }),
 ]);
+const recommendationOfferAuditSchema = z.union([
+  z.strictObject({ ...baseShape, eventType: z.literal("RECOMMENDATION_TERMS_ACCEPTED"), offerId: boundedId, recommendationTermsVersion: z.literal("REC-2026.08-v1.1"), acceptedAt: z.string().regex(ISO_TIMESTAMP).refine(isCanonicalIsoTimestamp), auditSequence: z.literal(1), actor: z.literal("USER"), authority: z.literal("SERVER_RECORDED_USER_ACCEPTANCE"), decisionEffect: z.literal("AUTHORIZATION_ONLY"), predecessorLifecycleState: z.literal("CREATED"), idempotencyKey: boundedText, payloadFingerprint: z.string().regex(/^sha256:[a-f0-9]{64}$/u) }),
+  z.strictObject({ ...baseShape, eventType: z.literal("OFFER_REVEALED"), offerId: boundedId, revealedAt: z.string().regex(ISO_TIMESTAMP).refine(isCanonicalIsoTimestamp), auditSequence: z.literal(2), acceptanceEventId: boundedId, acceptanceAuditSequence: z.literal(1), recommendationTermsVersion: z.literal("REC-2026.08-v1.1"), actor: z.literal("SYSTEM"), authority: z.literal("SERVER_OFFER_LIFECYCLE"), decisionEffect: z.literal("AUTHORIZATION_ONLY"), resultingLifecycleState: z.literal("REVEALED"), catalogReleaseVersion: boundedValue, catalogFingerprint: boundedId, offerIdentityFingerprint: z.string().regex(/^sha256:[a-f0-9]{64}$/u), idempotencyKey: boundedText }),
+]);
 
 const socialSchema = z.strictObject({ ...baseShape, eventType: z.literal("SOCIAL_INTERACTION"), interaction: z.enum(["SHORT_SOCIAL", "VEHICLE_CONTEXT_RESUMED"]), humanContext: z.enum(HUMAN_CONTEXT_KINDS).optional() });
 const offTopicSchema = z.strictObject({ ...baseShape, eventType: z.literal("OFF_TOPIC"), transition: z.enum(["DETECTED", "RETURNED_TO_VEHICLE", "BOUNDARY_STATED"]) });
@@ -152,7 +156,7 @@ const stateSchema = z.strictObject({
 
 export const conversationEventSchema = z.union([
   constraintSchema, budgetSchema, rejectionSchema, personaSchema, questionSchema, modelReferenceSchema,
-  directAnswerSchema, offerLifecycleSchema, socialSchema, offTopicSchema, abuseSchema, vehicleIntentSchema, stateSchema,
+  directAnswerSchema, offerLifecycleSchema, recommendationOfferAuditSchema, socialSchema, offTopicSchema, abuseSchema, vehicleIntentSchema, stateSchema,
 ]);
 
 function deepFreeze<T>(value: T, seen = new WeakSet<object>()): T {

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0.0",
+  "disposition": "READY_FOR_SEPARATE_ACTIVATION_AUTHORIZATION_PREPARATION",
+  "productionReleaseId": "v0.1.0-catalog-v0.55.4-2026-08-20",
+  "productionPayloadChecksum": "sha256:7fb57a834501114eafe16f6ea601aceea8e5cc4a51994129ff0161f1867ad1e5",
+  "productionManifestChecksum": "sha256:b563f9b2577a2f5fe3ffcd34637aa7ae6fbada913ed63cd8b6f3f5abefdb33ff",
+  "authorizationEventId": "EPEI-MATAUTH-7F0477181DFAEDFE91E5",
+  "authorizationEventChecksum": "sha256:bbf539d8c90f5c1050d43e9574a0ab874a3d0ac4279c0a4f4f9416627ed95436",
+  "materializationEventId": "EPEI-MAT-D1A71CF56D8B25DD452D",
+  "materializationEventChecksum": "sha256:6ac51381fcc8f71b989dced8c636f2b77b8384756f0bc703e83783f28a6eaf38",
+  "activationManifestPreparationChecksum": "sha256:57937b6ab6304eb94eeedab4dccddd47758695d3f8ed034c56bd428d61a7cf64",
+  "activePointerChecksum": "DEFERRED_UNTIL_REAL_ACTIVATION_EVENT",
+  "activeGeneratedModuleChecksum": "DEFERRED_UNTIL_REAL_ACTIVATION_EVENT",
+  "publicEffect": "DISABLED_NOT_ACTIVE",
+  "currentActivePointer": "ABSENT",
+  "decisionEngineEffect": "ZERO",
+  "rollbackTarget": "DISABLED_NO_ACTIVE_INTEGRATION_POINTER"
+}

@@ -57,6 +57,7 @@ export interface CarsConversationMessage {
   readonly v2Options?: readonly { readonly id: string; readonly label: string }[];
   readonly v2OptionSelection?: { readonly mode: "SINGLE" | "MULTIPLE"; readonly minimumSelections: number; readonly maximumSelections: number };
   readonly v2OfferToken?: string;
+  readonly equipmentExplanationActions?: readonly { readonly actionId: string; readonly exactVariantId: string; readonly label: "Bu aracı anlat" }[];
   readonly recommendationIds?: readonly string[];
   readonly quickReplies?: readonly string[];
   readonly optionSet?: CarsActiveOptionSet;
@@ -499,6 +500,7 @@ export type CarsConversationResponse =
       readonly optionSelection?: { readonly mode: "SINGLE" | "MULTIPLE"; readonly minimumSelections: number; readonly maximumSelections: number };
       readonly cards: readonly DecisionSafePublicCard[];
       readonly offer?: { readonly token: string; readonly expiresAt: string };
+      readonly equipmentExplanationActions: readonly { readonly actionId: string; readonly exactVariantId: string; readonly label: "Bu aracı anlat" }[];
       readonly conversation?: CarsConversationTrace;
       readonly decision?: CarsConversationEvidenceDecision;
     }

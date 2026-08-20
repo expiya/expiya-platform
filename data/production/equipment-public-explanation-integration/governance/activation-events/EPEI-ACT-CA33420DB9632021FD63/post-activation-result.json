@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "ACTIVATED",
+  "launchManifestId": "EPEI-PILOT-LAUNCH-V2",
+  "ownerAuthorizationEventId": "EPEI-LAUNCHAUTH-A5B4933FD4F8E2655B5E",
+  "ownerAuthorizationEventChecksum": "sha256:f67e36e70bc26275397097b87c5b538a62efc933918c364b2824c579dd106f3f",
+  "foundationMaterializationId": "REC-MAT-10EC584470C936077A84",
+  "foundationMaterializationChecksum": "sha256:9c511c7bda06f6e94a0586de477aaa714e6e6615756a06bc448cdead59bf3a67",
+  "cutoverEventId": "REC-CUTOVER-35070A7108A4F7015EBA",
+  "cutoverEventChecksum": "sha256:8ce37d915bd6df0c6396e6da287bf08a96f247422d3d1cbc7d858c4d08950f98",
+  "activationEventId": "EPEI-ACT-CA33420DB9632021FD63",
+  "activationEventChecksum": "sha256:88a663809120eb672253e63ed157e9893244a35c564dedc9888b12995f7e4b97",
+  "activatedAt": "2026-08-20T15:17:57.915Z",
+  "foundationPointerChecksum": "sha256:f67d6e60517dec2982bd54fb74a59461ac0ff94b1683742dbb5d7a979c4920ad",
+  "foundationGeneratedModuleChecksum": "sha256:5481f76696ca7f93ee67d077872952c730c0555b84a159b1f413fbdc23746be1",
+  "integrationPointerChecksum": "sha256:53e8fbb62a60f48c7ec3d5646f026605345dfe0718aa2ab6563c322c0dfd2d6d",
+  "integrationGeneratedModuleChecksum": "sha256:c313568e6f01e495263c5185c3c0c86d1b083e53f71ded11797481c1ddab7520",
+  "publicEffect": "ENABLED_EXACT_TWO_VARIANTS_ONLY",
+  "decisionEngineEffect": "ZERO"
+}

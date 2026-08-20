@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0.0",
+  "cutoverEventId": "REC-CUTOVER-CDBD23E79B0943F14BDA",
+  "status": "CUTOVER_ACTIVE",
+  "releaseId": "v1.0.1-catalog-v0.55.4-2026-08-20",
+  "ownerAuthorizationEventId": "EPEI-LAUNCHAUTH-56645A7D5AFA0B51A928",
+  "ownerAuthorizationEventChecksum": "sha256:c0138f00ec34a0dfcc4eeb6859b1a2314f618068dc89c699aa8237b27310bd6c",
+  "foundationMaterializationEventId": "REC-MAT-8D03850F615E5552DA32",
+  "foundationMaterializationEventChecksum": "sha256:b71e58daa17230fbf298ea9f31d09287ac4bb650bbed45877594c1e9c8e19164",
+  "cutoverAt": "2026-08-20T15:21:32.489Z",
+  "timeSource": "SYSTEM_CLOCK_AT_APPLY",
+  "sequencePolicyId": "REC_OFFER_AUDIT_SEQUENCE_V1",
+  "decisionEngineEffect": "ZERO"
+}

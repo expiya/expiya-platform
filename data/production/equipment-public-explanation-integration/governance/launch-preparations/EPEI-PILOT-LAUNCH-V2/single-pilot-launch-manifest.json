@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0.0",
+  "manifestId": "EPEI-PILOT-LAUNCH-V2",
+  "manifestVersion": "1.0.0",
+  "manifestChecksumBinding": "checksums.json:single-pilot-launch-manifest.json",
+  "ownerActorId": "EQUIPMENT_OWNER_001",
+  "ownerActorRole": "EQUIPMENT_OWNER_APPROVER",
+  "ownerScope": "BOUNDED_EQUIPMENT_EXPLANATION_NO_DECISION_AUTHORITY",
+  "catalogRelease": "v0.55.4",
+  "catalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "foundation": {
+    "candidateReleaseId": "v1.0.0-catalog-v0.55.4-2026-08-20-candidate",
+    "candidatePayloadChecksum": "sha256:f4ef5c6712d20868bb469d60a74d4967bc282c3740e99b778bafb23b282e15cd",
+    "candidateManifestChecksum": "sha256:fcae76f6262368231e4d4b422e31972e3d1c58544cfe8824ab8ff3110f90a12c",
+    "schemaAssessmentChecksum": "sha256:e129fa201742f2e13e8bce517eca6db907e4f0abf74378289c85bf224420d713",
+    "productionTargetReleaseId": "v1.0.1-catalog-v0.55.4-2026-08-20",
+    "productionPayloadChecksum": "sha256:759dd292ca7f741863449c629abf645e591b30a9fe52e1e9d66fc216f3a0decf",
+    "productionManifestChecksum": "sha256:bcb614fb7a95aab3662ce53fface716c1a89a51546455e2dafe2dd97fab2a142"
+  },
+  "integration": {
+    "productionReleaseId": "v0.1.0-catalog-v0.55.4-2026-08-20",
+    "payloadChecksum": "sha256:7fb57a834501114eafe16f6ea601aceea8e5cc4a51994129ff0161f1867ad1e5",
+    "manifestChecksum": "sha256:b563f9b2577a2f5fe3ffcd34637aa7ae6fbada913ed63cd8b6f3f5abefdb33ff",
+    "materializationEventId": "EPEI-MAT-D1A71CF56D8B25DD452D",
+    "materializationEventChecksum": "sha256:6ac51381fcc8f71b989dced8c636f2b77b8384756f0bc703e83783f28a6eaf38"
+  },
+  "explanationStack": {
+    "equipmentDailyLifeRelease": "v1.0.1-catalog-v0.55.4-2026-08-20",
+    "equipmentDailyLifeChecksum": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+    "publicExplanationAuthorityRelease": "v0.1.2-catalog-v0.55.4-2026-08-20",
+    "publicExplanationAuthorityChecksum": "sha256:c22d1b1dc6357e6e1cea229e1262f23929f13872e3a59e4ec2002d994aa124cd",
+    "productionCompositeChecksum": "sha256:34eae64907d0fc62a73f5d2691a12f440f8adbba40a243dff08cfa9509fcc082"
+  },
+  "runtimeContractCompositeChecksum": "sha256:9364cce5119919a9844cde2d5a402aff0693d480fb708592da3d67998fa6fcdd",
+  "activationPolicyId": "EPEI_EVENT_BOUND_ATOMIC_ACTIVATION_V2",
+  "activationPolicyVersion": "2.0.0",
+  "activationPolicyChecksum": "sha256:f8a79a7d7a12ebb05b7adc21a90e2e1af8e493ad1279b17a8f320e58080eb0d0",
+  "pilotScope": {
+    "exactVariantIds": [
+      "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "90e65f94-6fdb-5eea-ad7e-0b4e18435427"
+    ],
+    "confirmedIncluded": 62,
+    "verifiedAbsence": 3,
+    "verifiedAbsenceOnlyExactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+    "nissanNegative": 0,
+    "outsidePilot": "NO_CLAIM",
+    "decisionEngineEffect": "ZERO"
+  },
+  "pilotScopeChecksum": "sha256:d2f72ef74065a35dc2bacc6c39df6053b4e2959ecc8b0c03717f336b08047e07",
+  "legalDisposition": "LEGAL_AND_COPY_APPROVED",
+  "consentDisposition": "NO_ADDITIONAL_CONSENT_REQUIRED",
+  "migrationDisposition": "NO_DATABASE_MIGRATION_REQUIRED",
+  "eventBoundTimeAndHashPolicy": "SYSTEM_CLOCK_ACTUAL_CANONICAL_UTC_Z_AT_APPLY_NO_PREDECLARED_INSTANT",
+  "atomicApplyOrder": [
+    "APPEND_OWNER_LAUNCH_AUTHORIZATION_EVENT",
+    "MATERIALIZE_FOUNDATION_PRODUCTION_RELEASE",
+    "APPEND_FOUNDATION_CUTOVER_EVENT",
+    "INSTALL_FOUNDATION_ACTIVE_POLICY",
+    "APPEND_INTEGRATION_ACTIVATION_EVENT",
+    "DERIVE_INTEGRATION_ACTIVE_POINTER_AND_MODULE",
+    "ATOMIC_INSTALL",
+    "POST_VALIDATE_REC_ROUTE_STORE_RESOLVER",
+    "POST_VALIDATE_BYD_NISSAN_PUBLIC_HAPPY_PATH",
+    "POST_VALIDATE_DECISION_NEUTRALITY",
+    "SUCCESS_OR_FAIL_CLOSED_ROLLBACK"
+  ],
+  "postValidation": [
+    "REC_ROUTE_STORE_RESOLVER",
+    "BYD_NISSAN_PUBLIC_HAPPY_PATH",
+    "DECISION_NEUTRALITY_ZERO",
+    "PUBLIC_LEAKAGE_ALLOWLIST",
+    "ACTIVE_POINTER_MODULE_CHECKSUM_CHAIN"
+  ],
+  "rollback": {
+    "integration": "DISABLED_NO_ACTIVE_INTEGRATION_POINTER",
+    "foundation": "CUTOVER_DISABLED_SAFE_PREDECESSOR_ROUTE_STORE",
+    "phase1OfferCard": "AVAILABLE",
+    "auditHistory": "APPEND_ONLY_PRESERVED",
+    "destructiveDatabaseAction": false
+  },
+  "publicPilotEffectAfterSuccessfulApply": "ENABLED_EXACT_TWO_VARIANTS_ONLY",
+  "decisionEngineEffect": "ZERO",
+  "excluded": [
+    "DEPLOYMENT",
+    "COMMIT",
+    "PUSH",
+    "DATABASE_MIGRATION",
+    "DESTRUCTIVE_DATABASE_WRITE"
+  ],
+  "ownerAuthorizationRequired": true,
+  "launchApplied": false
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "kind": "OWNER_APPROVED_PRODUCTION_INTEGRATION_MATERIALIZATION_PREPARATION",
+  "candidateReleaseId": "v0.1.0-catalog-v0.55.4-2026-08-20-candidate",
+  "candidatePolicyChecksum": "sha256:5967f73efb1e86bb61d27919b07ad6506d6525136baa56983ca8b1f4c4caaedc",
+  "candidateManifestChecksum": "sha256:13d4222163cb2a4f54586005fbc86312a6bc51b63eaadcc7504f9b21ff11239a",
+  "productionReleaseId": "v0.1.0-catalog-v0.55.4-2026-08-20",
+  "productionPayloadChecksum": "sha256:7fb57a834501114eafe16f6ea601aceea8e5cc4a51994129ff0161f1867ad1e5",
+  "productionManifestPreparationChecksum": "sha256:4a11e2a0cdcfb78653e7c088839965bda5ba5229d2ac4f7b34e5efb6303f9bc6",
+  "productionCompositeChecksum": "sha256:34eae64907d0fc62a73f5d2691a12f440f8adbba40a243dff08cfa9509fcc082",
+  "activationAuthorized": false,
+  "publicEffect": "DISABLED_NOT_ACTIVE",
+  "preparationId": "EPEI-MATPREP-C7F05BA7759AA54C8C07",
+  "requiredOwnerActor": "EQUIPMENT_OWNER_001",
+  "productionManifestFinalizationPolicy": "REPLACE_NULL_AUTHORIZATION_AND_TIME_ONLY_AFTER_CHECKSUM_BOUND_OWNER_AUTHORIZATION",
+  "activeTargetFinalizationPolicy": "DEFER_UNTIL_IMMUTABLE_PRODUCTION_MANIFEST_AND_SEPARATE_ACTIVATION_EVENT_EXIST"
+}

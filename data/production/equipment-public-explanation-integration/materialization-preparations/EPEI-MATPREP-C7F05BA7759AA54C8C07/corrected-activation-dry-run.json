@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0.0",
+  "disposition": "READY_FOR_SEPARATE_MATERIALIZATION_AUTHORIZATION",
+  "currentIntegrationState": "NO_ACTIVE_POINTER_DISABLED",
+  "invalidatedPreviousTargets": {
+    "pointerChecksum": "sha256:6c89416513bf0fca5fc1a931f3507d5ea1e8a817241bea523b55ac4dddedab37",
+    "generatedModuleChecksum": "sha256:1d85a58c7d090fbc4c7d3d1af714d9efd849354d93437e51c3c6410ed6b0d93c",
+    "status": "INVALIDATED_DO_NOT_ACTIVATE"
+  },
+  "preparationId": "EPEI-MATPREP-C7F05BA7759AA54C8C07",
+  "preparationChecksum": "sha256:92ab32dad54ca6243f6d5cb9d282b4721bed80ca13e4c4092db3724e3f732e39",
+  "productionReleaseId": "v0.1.0-catalog-v0.55.4-2026-08-20",
+  "productionPayloadChecksum": "sha256:7fb57a834501114eafe16f6ea601aceea8e5cc4a51994129ff0161f1867ad1e5",
+  "productionManifestPreparationChecksum": "sha256:4a11e2a0cdcfb78653e7c088839965bda5ba5229d2ac4f7b34e5efb6303f9bc6",
+  "productionManifestChecksum": "DEFERRED_UNTIL_OWNER_AUTHORIZED_MATERIALIZATION_WITH_ACTUAL_CANONICAL_UTC_Z",
+  "activePointerChecksum": "DEFERRED_UNTIL_PRODUCTION_MANIFEST_AND_ACTIVATION_EVENT_EXIST",
+  "activeGeneratedModuleChecksum": "DEFERRED_UNTIL_PRODUCTION_MANIFEST_AND_ACTIVATION_EVENT_EXIST",
+  "activationManifestChecksum": "NOT_CREATED",
+  "activationEventChecksum": "NOT_CREATED",
+  "productionCompositeChecksum": "sha256:34eae64907d0fc62a73f5d2691a12f440f8adbba40a243dff08cfa9509fcc082",
+  "candidateManifestActiveAuthority": false,
+  "materializedNotActiveManifestActiveAuthority": false,
+  "publicIntegrationEnabled": false,
+  "decisionEngineEffect": "ZERO",
+  "runtimeChainRequired": [
+    "IMMUTABLE_PRODUCTION_RELEASE",
+    "PRODUCTION_MANIFEST",
+    "ACTIVATION_MANIFEST",
+    "OWNER_ACTIVATION_AUTHORIZATION",
+    "APPEND_ONLY_ACTIVATION_EVENT",
+    "ACTIVE_POINTER_AND_MODULE"
+  ],
+  "rollbackTarget": "DISABLED_NO_ACTIVE_INTEGRATION_POINTER"
+}

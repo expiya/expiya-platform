@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1.0.0",
+  "releaseId": "v0.1.0-catalog-v0.55.4-2026-08-20",
+  "state": "MATERIALIZED_NOT_ACTIVE",
+  "publicEffect": "DISABLED_NOT_ACTIVE",
+  "pilotExactVariantIds": [
+    "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+    "90e65f94-6fdb-5eea-ad7e-0b4e18435427"
+  ],
+  "confirmedIncludedCount": 62,
+  "verifiedAbsenceCount": 3,
+  "authorityRelease": "v0.1.2-catalog-v0.55.4-2026-08-20",
+  "authorityPayloadChecksum": "sha256:c22d1b1dc6357e6e1cea229e1262f23929f13872e3a59e4ec2002d994aa124cd",
+  "dailyLifeRelease": "v1.0.1-catalog-v0.55.4-2026-08-20",
+  "dailyLifePayloadChecksum": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+  "productionCompositeChecksum": "sha256:34eae64907d0fc62a73f5d2691a12f440f8adbba40a243dff08cfa9509fcc082",
+  "compatibleCatalogRelease": "v0.55.4",
+  "compatibleCatalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "compatibleEquipmentRelease": "v1.5.5-catalog-v0.55.4-2026-08-20",
+  "compatibleEquipmentChecksum": "sha256:0135bbfee468fa955d3d00d3129e0e7e01dae7bf9a980488450d8319ddc98d2e",
+  "legalDisposition": "LEGAL_AND_COPY_APPROVED",
+  "consentDisposition": "NO_ADDITIONAL_CONSENT_REQUIRED",
+  "sessionScope": "CURRENT_VEHICLE_SESSION_ONLY",
+  "decisionEngineEffect": "ZERO",
+  "rankingEffect": "ZERO",
+  "filteringEffect": "ZERO",
+  "phase1QuestionEffect": "ZERO",
+  "rollbackTarget": "DISABLED_NO_ACTIVE_INTEGRATION_POINTER",
+  "activePointerCreated": false,
+  "publicRouteActivated": false,
+  "generatedModuleActivated": false,
+  "explicitActivationApprovalRequired": true
+}

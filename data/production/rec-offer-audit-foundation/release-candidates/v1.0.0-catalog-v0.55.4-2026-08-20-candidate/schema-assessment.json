@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0.0",
+  "disposition": "NO_DATABASE_MIGRATION_REQUIRED",
+  "existingTables": {
+    "events": "cars_decision_v2_events canonical_payload JSONB supports new typed audit payloads",
+    "offers": "cars_decision_v2_offers already has lifecycle consented_at revealed_at",
+    "conversations": "existing row lock and revision support two durable commits"
+  },
+  "sequencePolicy": {
+    "policyId": "REC_OFFER_AUDIT_SEQUENCE_V1",
+    "version": "1.0.0",
+    "scope": "CONVERSATION_OFFER",
+    "acceptance": 1,
+    "reveal": 2,
+    "databaseEventPosition": "ALLOCATED_UNDER_LOCK_FROM_CONVERSATION_REVISION"
+  },
+  "constraintsNotAdded": [
+    "DB enum/check does not constrain event_type",
+    "audit fields remain canonical JSONB"
+  ],
+  "transactionBoundary": "SEPARATE_ACCEPTANCE_AND_REVEAL_COMMITS",
+  "idempotency": "EVENT_ID_AND_CANONICAL_PAYLOAD_BOUND_KEY",
+  "historicalRisk": "PRE_CUTOVER_REVEALED_OFFERS_HAVE_NO_PROOF_AND_RETURN_HISTORICAL_AUDIT_UNAVAILABLE",
+  "rollback": "DISABLE_CUTOVER_NEW_EVENTS_NO_SYNTHETIC_BACKFILL"
+}

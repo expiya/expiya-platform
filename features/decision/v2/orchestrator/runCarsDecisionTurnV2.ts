@@ -32,7 +32,7 @@ function runTurnSyncStage<T>(stage: TurnStage, operation: () => T): T {
 
 export async function runCarsDecisionTurnV2(input: DecisionTurnV2Input, dependencies: { readonly store: V2ConversationStore; readonly stages: V2TurnStages }): Promise<DecisionTurnV2Output> {
   const prior = await runTurnStage("LOAD", () => dependencies.store.load(input.conversationId));
-  const payloadHash = canonicalize({ messageId: input.messageId, userMessage: input.userMessage, typedOptionId: input.typedOptionId, typedOptionIds: input.typedOptionIds, offerToken: input.offerToken });
+  const payloadHash = canonicalize({ messageId: input.messageId, userMessage: input.userMessage, typedOptionId: input.typedOptionId, typedOptionIds: input.typedOptionIds, offerToken: input.offerToken, recommendationOfferAuditIntent: input.recommendationOfferAuditIntent ? { kind: input.recommendationOfferAuditIntent.kind, offerId: input.recommendationOfferAuditIntent.offerId, recommendationTermsVersion: input.recommendationOfferAuditIntent.recommendationTermsVersion, acceptanceSequence: 1, revealSequence: 2, idempotencyKey: input.recommendationOfferAuditIntent.idempotencyKey } : undefined });
   const replay = prior?.messageResults[input.messageId];
   if (replay) {
     if (replay.payloadHash !== payloadHash) throw new V2TurnConflictError("MESSAGE_PAYLOAD_CONFLICT");
@@ -58,7 +58,21 @@ export async function runCarsDecisionTurnV2(input: DecisionTurnV2Input, dependen
     const sequence = events.length + postEvents.length;
     postEvents.push({ ...postBase, id: eventId(input.messageId, sequence, "OFFER_LIFECYCLE"), sequence, eventType: "OFFER_LIFECYCLE", offerId: evaluated.offer.offerId, lifecycleState: "CREATED", offer: { offerId: evaluated.offer.offerId, mode: evaluated.offer.mode === "TRIM_COMPARISON" ? "TRIM_COMPARISON" : "FAMILY_DIVERSE", candidates: evaluated.offer.candidateRefs.map((candidate, index) => ({ exactVariantId: candidate.exactVariantId, modelFamilyId: candidate.modelFamilyId, authorizationId: `${evaluated.offer!.offerId}:${index}`, eligibility: candidate.finalDisposition === "TECHNICALLY_ELIGIBLE_PRICE_UNRESOLVED" ? "TECHNICALLY_ELIGIBLE_PRICE_UNVERIFIED" : "FULLY_ELIGIBLE" })), explicitTrimComparisonRequested: evaluated.offer.mode === "TRIM_COMPARISON", explicitPriceUnverifiedConsent: evaluated.offer.mode === "PRICE_UNRESOLVED_ALTERNATIVES", catalogFingerprint: evaluated.offer.catalogFingerprint, decisionFingerprint: evaluated.offer.decisionFingerprint, expiresAt: evaluated.offer.expiresAt, lifecycleState: "CREATED" } });
   }
-  if (evaluated.offerTransition) { if (evaluated.offerTransition.to === "REVEALED") { const consentSequence = events.length + postEvents.length; postEvents.push({ ...postBase, id: eventId(input.messageId, consentSequence, "OFFER_CONSENTED"), sequence: consentSequence, eventType: "OFFER_LIFECYCLE", offerId: evaluated.offerTransition.offerId, lifecycleState: "CONSENTED" }); } const sequence = events.length + postEvents.length; postEvents.push({ ...postBase, id: eventId(input.messageId, sequence, "OFFER_LIFECYCLE"), sequence, eventType: "OFFER_LIFECYCLE", offerId: evaluated.offerTransition.offerId, lifecycleState: evaluated.offerTransition.to }); }
+  if (evaluated.offerTransition) {
+    if (evaluated.offerTransition.to === "REVEALED") {
+      const transition = evaluated.offerTransition;
+      if (!(Date.parse(transition.acceptedAt) < Date.parse(transition.revealedAt)) || transition.acceptanceSequence >= transition.revealSequence) throw new TypeError("REC_AUDIT_TEMPORAL_INVARIANT_FAILED");
+      const acceptanceSequence = events.length + postEvents.length;
+      const acceptanceEventId = `rece_${createHash("sha256").update(`${transition.conversationId}:${transition.offerId}:${transition.recommendationTermsVersion}:${transition.idempotencyKey}:RECOMMENDATION_TERMS_ACCEPTED`).digest("hex").slice(0, 24)}`;
+      postEvents.push({ ...postBase, createdAt: transition.acceptedAt, id: acceptanceEventId, sequence: acceptanceSequence, eventType: "RECOMMENDATION_TERMS_ACCEPTED", offerId: transition.offerId, recommendationTermsVersion: transition.recommendationTermsVersion, acceptedAt: transition.acceptedAt, auditSequence: 1, actor: "USER", authority: "SERVER_RECORDED_USER_ACCEPTANCE", decisionEffect: "AUTHORIZATION_ONLY", predecessorLifecycleState: "CREATED", idempotencyKey: transition.idempotencyKey, payloadFingerprint: `sha256:${createHash("sha256").update(canonicalize({ conversationId: transition.conversationId, offerId: transition.offerId, recommendationTermsVersion: transition.recommendationTermsVersion, idempotencyKey: transition.idempotencyKey })).digest("hex")}` });
+      const consentSequence = events.length + postEvents.length;
+      postEvents.push({ ...postBase, createdAt: transition.acceptedAt, id: eventId(input.messageId, consentSequence, "OFFER_CONSENTED"), sequence: consentSequence, eventType: "OFFER_LIFECYCLE", offerId: transition.offerId, lifecycleState: "CONSENTED" });
+      const revealSequence = events.length + postEvents.length;
+      postEvents.push({ ...postBase, createdAt: transition.revealedAt, id: `rece_${createHash("sha256").update(`${transition.conversationId}:${transition.offerId}:${transition.recommendationTermsVersion}:${transition.idempotencyKey}:OFFER_REVEALED`).digest("hex").slice(0, 24)}`, sequence: revealSequence, eventType: "OFFER_REVEALED", offerId: transition.offerId, revealedAt: transition.revealedAt, auditSequence: 2, acceptanceEventId, acceptanceAuditSequence: 1, recommendationTermsVersion: transition.recommendationTermsVersion, actor: "SYSTEM", authority: "SERVER_OFFER_LIFECYCLE", decisionEffect: "AUTHORIZATION_ONLY", resultingLifecycleState: "REVEALED", catalogReleaseVersion: catalog.snapshot.authority.releaseVersion, catalogFingerprint: catalog.snapshot.authority.catalogFingerprint, offerIdentityFingerprint: transition.offerIdentityFingerprint, idempotencyKey: transition.idempotencyKey });
+    }
+    const sequence = events.length + postEvents.length;
+    postEvents.push({ ...postBase, createdAt: evaluated.offerTransition.to === "REVEALED" ? evaluated.offerTransition.revealedAt : evaluated.offerTransition.at, id: eventId(input.messageId, sequence, "OFFER_LIFECYCLE"), sequence, eventType: "OFFER_LIFECYCLE", offerId: evaluated.offerTransition.offerId, lifecycleState: evaluated.offerTransition.to });
+  }
   if (evaluated.action.directAnswerObligation) {
     const sequence = events.length + postEvents.length;
     postEvents.push({ ...postBase, id: eventId(input.messageId, sequence, "DIRECT_ANSWER_FULFILLED"), sequence, eventType: "DIRECT_ANSWER_FULFILLED", obligation: evaluated.action.directAnswerObligation.kind });
@@ -77,7 +91,8 @@ export async function runCarsDecisionTurnV2(input: DecisionTurnV2Input, dependen
   }
   const finalMemory = postEvents.length ? runTurnSyncStage("MEMORY", () => dependencies.stages.reduceMemory({ previous: memory, events: postEvents, catalog: catalog.snapshot })) : memory;
   const allEvents = Object.freeze([...events, ...postEvents]);
-  const cards = input.offerToken && dependencies.stages.authorizeCards ? await runTurnStage("CARDS", () => dependencies.stages.authorizeCards!({ token: input.offerToken!, conversationId: input.conversationId, catalog: catalog.snapshot, memory: finalMemory, now, pendingOfferTransition: evaluated.offerTransition })) : [];
+  const requiresPostCommitCards = evaluated.offerTransition?.to === "REVEALED" && evaluated.offerTransition.postCommitAuthorizationRequired;
+  const cards = input.offerToken && dependencies.stages.authorizeCards && !requiresPostCommitCards ? await runTurnStage("CARDS", () => dependencies.stages.authorizeCards!({ token: input.offerToken!, conversationId: input.conversationId, catalog: catalog.snapshot, memory: finalMemory, now })) : [];
   const realized = await runTurnStage("REALIZE", () => dependencies.stages.realize({ action: evaluated.action, facts: evaluated.facts }));
   const revision = (prior?.revision ?? 0) + 1;
   const optionSelection = publicOptionSelection(evaluated.action);

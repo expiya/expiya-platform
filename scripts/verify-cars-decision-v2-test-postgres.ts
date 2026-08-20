@@ -41,13 +41,14 @@ try {
   const thirdEvent = event(conversationIds[0], `${prefix}_e3`, 3);
   const thirdMemory = memory(conversationIds[0], [firstEvent, secondEvent, thirdEvent]);
   const beforeAtomic = (await store.load(conversationIds[0]))!;
+  const auditTransition = (idempotencyKey: string) => ({ kind: "ACCEPT_RECOMMENDATION_TERMS_AND_REVEAL" as const, offerId: offer.offerId, conversationId: conversationIds[0], to: "REVEALED" as const, recommendationTermsVersion: "REC-2026.08-v1.1" as const, acceptedAt: "2026-08-16T00:10:59.999Z", revealedAt: "2026-08-16T00:11:00.000Z", acceptanceSequence: 1 as const, revealSequence: 2 as const, idempotencyKey, offerIdentityFingerprint: `sha256:${"0".repeat(64)}` as const });
   let transitionRollback = false;
   try {
     await store.commit({
       expectedRevision: revision,
       next: { conversationId: conversationIds[0], revision: revision + 1, memory: thirdMemory, messageResults: { ...beforeAtomic.messageResults, consent: { payloadHash: "consent", output: output(conversationIds[0], revision + 1) } } },
       events: [thirdEvent, thirdEvent],
-      offerTransition: { offerId: offer.offerId, conversationId: conversationIds[0], to: "REVEALED", at: "2026-08-16T00:11:00.000Z" },
+      offerTransition: auditTransition("rollback"),
     });
   } catch {
     const afterFaultOffer = await store.get(offer.offerId);
@@ -56,8 +57,8 @@ try {
   }
   const atomicNext = (messageId: string): StoredV2Conversation => ({ conversationId: conversationIds[0], revision: revision + 1, memory: thirdMemory, messageResults: { ...beforeAtomic.messageResults, [messageId]: { payloadHash: "consent-payload", output: output(conversationIds[0], revision + 1) } } });
   const atomicRace = await Promise.all([
-    store.commit({ expectedRevision: revision, next: atomicNext("consent"), events: [thirdEvent], offerTransition: { offerId: offer.offerId, conversationId: conversationIds[0], to: "REVEALED", at: "2026-08-16T00:11:00.000Z" } }),
-    store.commit({ expectedRevision: revision, next: atomicNext("consent-race"), events: [{ ...thirdEvent, id: `${prefix}_e3race`, sourceMessageId: "consent-race" }], offerTransition: { offerId: offer.offerId, conversationId: conversationIds[0], to: "REVEALED", at: "2026-08-16T00:11:00.000Z" } }),
+    store.commit({ expectedRevision: revision, next: atomicNext("consent"), events: [thirdEvent], offerTransition: auditTransition("consent") }),
+    store.commit({ expectedRevision: revision, next: atomicNext("consent-race"), events: [{ ...thirdEvent, id: `${prefix}_e3race`, sourceMessageId: "consent-race" }], offerTransition: auditTransition("consent-race") }),
   ]);
   const restartedStore = new PostgresV2ConversationStore(pool);
   const persistedOffer = await restartedStore.get(offer.offerId);

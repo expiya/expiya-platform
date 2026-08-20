@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "1.0.0",
+  "eventId": "EPEI-LAUNCHAUTH-56645A7D5AFA0B51A928",
+  "eventType": "SINGLE_PILOT_LAUNCH_AUTHORIZED",
+  "ownerActorId": "EQUIPMENT_OWNER_001",
+  "manifestId": "EPEI-PILOT-LAUNCH-V3",
+  "manifestChecksum": "sha256:24a6081aa7b052b3e3cd41475eb199babe6d484aeb6927d96072c1d8c5424354",
+  "authorizedAt": "2026-08-20T15:21:32.488Z",
+  "timeSource": "SYSTEM_CLOCK_AT_APPLY",
+  "authorizationStatement": "EQUIPMENT_OWNER_001 olarak EPEI-PILOT-LAUNCH-V3 kimlikli, sha256:24a6081aa7b052b3e3cd41475eb199babe6d484aeb6927d96072c1d8c5424354 checksum'lı single composite Pilot Launch manifestini onaylıyorum. Bu onay REC Offer Audit Foundation v1.0.0-catalog-v0.55.4-2026-08-20-candidate candidate'ının sha256:f4ef5c6712d20868bb469d60a74d4967bc282c3740e99b778bafb23b282e15cd policy, sha256:fcae76f6262368231e4d4b422e31972e3d1c58544cfe8824ab8ff3110f90a12c manifest ve sha256:e129fa201742f2e13e8bce517eca6db907e4f0abf74378289c85bf224420d713 schema assessment bağları korunarak v1.0.1-catalog-v0.55.4-2026-08-20 production release'ine materialize edilmesini ve cutover edilmesini; Equipment Public Explanation Integration v0.1.0-catalog-v0.55.4-2026-08-20 release'inin sha256:7fb57a834501114eafe16f6ea601aceea8e5cc4a51994129ff0161f1867ad1e5 payload, sha256:b563f9b2577a2f5fe3ffcd34637aa7ae6fbada913ed63cd8b6f3f5abefdb33ff manifest, EPEI-MAT-D1A71CF56D8B25DD452D materialization event ve sha256:6ac51381fcc8f71b989dced8c636f2b77b8384756f0bc703e83783f28a6eaf38 event checksum bağlarıyla aktive edilmesini; sha256:a68754cc4cbe91f5dcbc72cb604f0d9c8afa55110417705b5c811d39016c57e5 runtime contract composite, EPEI_EVENT_BOUND_ATOMIC_ACTIVATION_V2 sürüm 2.0.0 ve sha256:f8a79a7d7a12ebb05b7adc21a90e2e1af8e493ad1279b17a8f320e58080eb0d0 activation policy kapsamında public pilot effect'in yalnız 6cb56615-37ef-51a8-9202-a73e59d4e14b ile 90e65f94-6fdb-5eea-ad7e-0b4e18435427 exact varyantları için açılmasını kapsar. Gerçek owner authorization, materialization, cutover ve activation event ID/timestamp/checksum'larının ve exact active pointer/module checksum'larının apply sırasında gerçek canonical UTC Z ve onaylanan deterministic policy ile türetilip post-validation raporunda yayınlanacağını kabul ediyorum. Herhangi bir uyuşmazlıkta integration public effect'in DISABLED_NO_ACTIVE_INTEGRATION_POINTER durumuna, foundation cutover'ın güvenli predecessor davranışına atomik fail-closed rollback edilmesini; oluşmuş geçerli audit ve governance eventlerinin append-only korunmasını onaylıyorum. Legal disposition LEGAL_AND_COPY_APPROVED, consent disposition NO_ADDITIONAL_CONSENT_REQUIRED ve Decision Engine etkisi ZERO kalmalıdır. Bu onay deployment, commit, push, migration veya destructive database write kapsamını içermez.",
+  "status": "AUTHORIZED_FOR_ATOMIC_APPLY",
+  "excluded": [
+    "DEPLOYMENT",
+    "COMMIT",
+    "PUSH",
+    "DATABASE_MIGRATION",
+    "DESTRUCTIVE_DATABASE_WRITE"
+  ]
+}

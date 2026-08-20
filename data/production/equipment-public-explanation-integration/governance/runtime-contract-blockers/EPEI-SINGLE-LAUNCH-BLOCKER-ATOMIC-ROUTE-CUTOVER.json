@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "1.0.0",
+  "disposition": "BLOCKED_ATOMIC_ROUTE_CUTOVER_CONTRACT",
+  "requestedLaunchManifestId": "EPEI-PILOT-LAUNCH-V1",
+  "foundationCandidate": {
+    "releaseId": "v1.0.0-catalog-v0.55.4-2026-08-20-candidate",
+    "payloadChecksum": "sha256:f4ef5c6712d20868bb469d60a74d4967bc282c3740e99b778bafb23b282e15cd",
+    "manifestChecksum": "sha256:fcae76f6262368231e4d4b422e31972e3d1c58544cfe8824ab8ff3110f90a12c",
+    "migrationDisposition": "NO_DATABASE_MIGRATION_REQUIRED"
+  },
+  "completedContracts": [
+    "RECOMMENDATION_TERMS_ACCEPTED_EVENT_TYPE",
+    "OFFER_REVEALED_EVENT_TYPE",
+    "REC_OFFER_AUDIT_SEQUENCE_V1",
+    "SEPARATE_REAL_INSTANT_IN_MEMORY_TRANSITIONS",
+    "IDEMPOTENT_IN_MEMORY_ACCEPTANCE_AND_REVEAL",
+    "READ_ONLY_FAIL_CLOSED_AUDIT_RESOLVER",
+    "HISTORICAL_AUDIT_UNAVAILABLE_NO_BACKFILL",
+    "VERIFIED_ONLY_EQUIPMENT_ADAPTER"
+  ],
+  "unresolvedProductionContracts": [
+    "POSTGRES_ACCEPTANCE_TRANSACTION_NOT_CONNECTED_TO_PUBLIC_ROUTE",
+    "POSTGRES_REVEAL_TRANSACTION_NOT_CONNECTED_TO_PUBLIC_ROUTE",
+    "CURRENT_COMMIT_PATH_WRITES_CONSENTED_AT_AND_REVEALED_AT_FROM_ONE_INSTANT",
+    "CURRENT_ORCHESTRATOR_EMITS_CONSENT_AND_REVEAL_IN_ONE_TURN_COMMIT",
+    "PRODUCTION_ROUTE_DOES_NOT_PASS_SERVER_ACCEPTANCE_AUDIT_INTENT_TO_V2",
+    "PRODUCTION_READ_ONLY_AUDIT_RESOLVER_NOT_CONNECTED_TO_EQUIPMENT_ENDPOINT",
+    "RUNTIME_ACTIVE_INTEGRATION_LOADER_NOT_INSTALLABLE_WITHOUT_CORRECTED_GENERATED_MODULE_CONTRACT",
+    "REAL_BYD_AND_NISSAN_ROUTE_HAPPY_PATH_NOT_PROVEN"
+  ],
+  "safetyReason": "A launch approval cannot safely authorize a cutover whose production transaction and recovery semantics are not implemented and post-validated.",
+  "publicEffect": "DISABLED_NOT_ACTIVE",
+  "activePointerOrModuleChanged": false,
+  "databaseMigrationRequired": false,
+  "databaseWritePerformed": false,
+  "decisionEngineEffect": "ZERO"
+}

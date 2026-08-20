@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0.0",
+  "releaseId": "v1.0.0-catalog-v0.55.4-2026-08-20",
+  "state": "PREPARED_IMMUTABLE_BYTES_PENDING_SINGLE_LAUNCH_AUTHORIZATION",
+  "sourceCandidateReleaseId": "v1.0.0-catalog-v0.55.4-2026-08-20-candidate",
+  "sourceCandidateChecksum": "sha256:f4ef5c6712d20868bb469d60a74d4967bc282c3740e99b778bafb23b282e15cd",
+  "sourceCandidateManifestChecksum": "sha256:fcae76f6262368231e4d4b422e31972e3d1c58544cfe8824ab8ff3110f90a12c",
+  "payloadChecksum": "sha256:41b8cf6078205a12c34386b79db75acef16c63350b440f112c88d72de9bf6b06",
+  "schemaAssessmentChecksum": "sha256:e129fa201742f2e13e8bce517eca6db907e4f0abf74378289c85bf224420d713",
+  "runtimeContractAppendixChecksum": "sha256:4d0fb84014f6b666500f786acb4b4fc4f837a57c1cda9a7ddca0bb1c39aa7674",
+  "eventVocabulary": [
+    "RECOMMENDATION_TERMS_ACCEPTED",
+    "OFFER_REVEALED"
+  ],
+  "sequencePolicy": {
+    "policyId": "REC_OFFER_AUDIT_SEQUENCE_V1",
+    "version": "1.0.0",
+    "acceptance": 1,
+    "reveal": 2,
+    "strictTimestampOrder": true
+  },
+  "transactionContract": "ATOMIC_ACCEPTANCE_CONSENT_REVEAL_EVENTS_OFFER_AND_CONVERSATION_COMMIT_V1",
+  "resolverContract": "FAIL_CLOSED_READ_ONLY_RECOMMENDATION_OFFER_AUDIT_PROOF_V1",
+  "historicalOfferContract": "HISTORICAL_AUDIT_UNAVAILABLE_NO_SYNTHETIC_BACKFILL",
+  "equipmentAdapter": "VERIFIED_ONLY",
+  "cutoverPolicy": "SINGLE_EVENT_BOUND_LAUNCH_APPLY",
+  "rollbackPolicy": "DISABLE_NEW_USAGE_PRESERVE_APPEND_ONLY_AUDIT_EVENTS",
+  "legalGate": "UNCHANGED",
+  "migrationDisposition": "NO_DATABASE_MIGRATION_REQUIRED",
+  "eventBoundFields": "DERIVED_AT_APPLY_NOT_PREDECLARED",
+  "activationPerformed": false
+}

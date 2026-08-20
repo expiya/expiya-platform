@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0.0",
+  "releaseId": "v1.0.0-catalog-v0.55.4-2026-08-20",
+  "state": "OWNER_APPROVAL_REQUIRED_SINGLE_LAUNCH",
+  "sourceCandidateReleaseId": "v1.0.0-catalog-v0.55.4-2026-08-20-candidate",
+  "sourceCandidatePayloadChecksum": "sha256:f4ef5c6712d20868bb469d60a74d4967bc282c3740e99b778bafb23b282e15cd",
+  "sourceCandidateManifestChecksum": "sha256:fcae76f6262368231e4d4b422e31972e3d1c58544cfe8824ab8ff3110f90a12c",
+  "schemaAssessmentChecksum": "sha256:e129fa201742f2e13e8bce517eca6db907e4f0abf74378289c85bf224420d713",
+  "compatibleCatalogRelease": "v0.55.4",
+  "compatibleCatalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "recommendationTermsVersion": "REC-2026.08-v1.1",
+  "eventVocabulary": [
+    "RECOMMENDATION_TERMS_ACCEPTED",
+    "OFFER_REVEALED"
+  ],
+  "sequencePolicy": {
+    "policyId": "REC_OFFER_AUDIT_SEQUENCE_V1",
+    "version": "1.0.0",
+    "acceptance": 1,
+    "reveal": 2,
+    "strictTimestampOrder": true
+  },
+  "transactionContract": "ATOMIC_ACCEPTANCE_CONSENT_REVEAL_EVENTS_OFFER_AND_CONVERSATION_COMMIT_V1",
+  "stores": [
+    "POSTGRES",
+    "IN_MEMORY_PARITY"
+  ],
+  "resolverContract": "FAIL_CLOSED_READ_ONLY_RECOMMENDATION_OFFER_AUDIT_PROOF_V1",
+  "historicalOfferContract": "HISTORICAL_AUDIT_UNAVAILABLE_NO_SYNTHETIC_BACKFILL",
+  "equipmentAdapter": "VERIFIED_ONLY",
+  "cutoverPolicy": "SINGLE_EVENT_BOUND_LAUNCH_APPLY",
+  "rollbackPolicy": "DISABLE_NEW_USAGE_PRESERVE_APPEND_ONLY_AUDIT_EVENTS",
+  "runtimeContractCompositeChecksum": "sha256:4d0fb84014f6b666500f786acb4b4fc4f837a57c1cda9a7ddca0bb1c39aa7674",
+  "legalGate": "UNCHANGED",
+  "migrationDisposition": "NO_DATABASE_MIGRATION_REQUIRED",
+  "materializedAtPolicy": "REAL_CANONICAL_UTC_Z_AT_SINGLE_LAUNCH_APPLY",
+  "materializationPerformed": false,
+  "cutoverPerformed": false,
+  "decisionEngineEffect": "ZERO"
+}

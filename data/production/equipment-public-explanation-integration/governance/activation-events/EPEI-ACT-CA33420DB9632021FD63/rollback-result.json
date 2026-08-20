@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0.0",
+  "activationEventId": "EPEI-ACT-CA33420DB9632021FD63",
+  "status": "ROLLED_BACK_POST_VALIDATION_FAILED",
+  "reason": "ACTIVE_SCOPE_BINDING_MISSING_PILOT_EXACT_VARIANT_IDS",
+  "rolledBackAt": "2026-08-20T15:19:47.000Z",
+  "integrationPublicEffect": "DISABLED_NO_ACTIVE_INTEGRATION_POINTER",
+  "foundationCutover": "SAFE_PREDECESSOR_ROUTE_STORE",
+  "activeIntegrationPointerPresent": false,
+  "activeFoundationPointerPresent": false,
+  "appendOnlyGovernanceEventsPreserved": true,
+  "decisionEngineEffect": "ZERO"
+}

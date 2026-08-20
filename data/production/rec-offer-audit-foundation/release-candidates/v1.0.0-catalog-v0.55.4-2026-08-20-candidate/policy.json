@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "1.0.0-rc",
+  "releaseId": "v1.0.0-catalog-v0.55.4-2026-08-20-candidate",
+  "state": "PROPOSED_NOT_ACTIVE",
+  "compatibleCatalogRelease": "v0.55.4",
+  "compatibleCatalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "recommendationTermsVersion": "REC-2026.08-v1.1",
+  "eventVocabulary": [
+    "RECOMMENDATION_TERMS_ACCEPTED",
+    "OFFER_REVEALED"
+  ],
+  "eventSchemaVersion": 1,
+  "auditSequencePolicy": {
+    "policyId": "REC_OFFER_AUDIT_SEQUENCE_V1",
+    "version": "1.0.0",
+    "scope": "CONVERSATION_OFFER",
+    "acceptance": 1,
+    "reveal": 2,
+    "databaseEventPosition": "ALLOCATED_UNDER_LOCK_FROM_CONVERSATION_REVISION"
+  },
+  "timestampPolicy": "TWO_REAL_SERVER_CLOCK_INSTANTS_STRICTLY_ORDERED_REVEAL_PENDING_IF_EQUAL",
+  "idempotencyPolicy": "SAME_KEY_SAME_PAYLOAD_REPLAY_SAME_EVENT_DIFFERENT_PAYLOAD_CONFLICT",
+  "transactionPolicy": "LOCKED_ACCEPTANCE_COMMIT_THEN_LOCKED_REVEAL_COMMIT",
+  "resolverContract": "FAIL_CLOSED_READ_ONLY_RECOMMENDATION_OFFER_AUDIT_PROOF_V1",
+  "historicalOfferPolicy": "HISTORICAL_AUDIT_UNAVAILABLE_NO_SYNTHETIC_BACKFILL",
+  "cutoverPolicy": "NOT_ACTIVE_OWNER_APPROVAL_REQUIRED_REAL_EFFECTIVE_TIMESTAMP_AT_ACTIVATION",
+  "equipmentAdapterPolicy": "VERIFIED_PROOF_ONLY_SERVER_SIDE_NO_PUBLIC_BINDING",
+  "decisionNeutrality": {
+    "filtering": "NONE",
+    "ranking": "NONE",
+    "questionGeneration": "NONE",
+    "offerCandidateSelection": "NONE",
+    "memoryInvalidation": "NONE",
+    "decisionFingerprint": "UNCHANGED"
+  },
+  "rollbackDisablePolicy": "FOUNDATION_CUTOVER_DISABLED_EXISTING_PHASE1_CARD_FLOW_UNCHANGED",
+  "migrationDisposition": "NO_DATABASE_MIGRATION_REQUIRED",
+  "publicCopyChanged": false,
+  "integrationActivated": false,
+  "activePointerCreated": false
+}

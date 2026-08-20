@@ -71,6 +71,8 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   const [draft, setDraft] = useState("");
   const [v2MultiSelections, setV2MultiSelections] = useState<Record<string, readonly string[]>>({});
   const [isLoading, setIsLoading] = useState(false);
+  const [equipmentExplanationPendingActionId, setEquipmentExplanationPendingActionId] = useState<string | null>(null);
+  const [equipmentExplanation, setEquipmentExplanation] = useState<null | { actionId: string; offerToken: string; sessionToken: string; message: string; options: readonly { id: "ACCEPT" | "DECLINE"; label: string }[]; notice?: string | null; items?: readonly { label: string; explanation: string; caveat: string }[] }>(null);
   const [isRestored, setIsRestored] = useState(false);
   const [recommendationTermsChecked, setRecommendationTermsChecked] = useState(false);
   const locale = "tr" as const;
@@ -131,6 +133,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
         v2Options: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.options : undefined,
         v2OptionSelection: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.optionSelection : undefined,
         v2OfferToken: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.offer?.token : undefined,
+        equipmentExplanationActions: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.equipmentExplanationActions : undefined,
         recommendationIds: response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS"
           ? payload.recommendations.map((item) => item.car.id)
           : undefined,
@@ -283,6 +286,34 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     router.push("/");
   }
 
+  async function openEquipmentExplanation(actionId: string, offerToken: string | undefined) {
+    if (!offerToken || equipmentExplanationPendingActionId) return;
+    setEquipmentExplanationPendingActionId(actionId);
+    try {
+      const response = await fetch("/api/cars/equipment-explanation", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ conversationId: conversationId.current, offerToken, actionId, operation: "OPEN_SOLICITATION" }) });
+      const payload = await response.json() as { message?: string; sessionToken?: string; options?: readonly { id: "ACCEPT" | "DECLINE"; label: string }[] };
+      if (payload.message && payload.sessionToken) setEquipmentExplanation({ actionId, offerToken, sessionToken: payload.sessionToken, message: payload.message, options: payload.options ?? [] });
+      else if (payload.message) setMessages((current) => [...current, newMessage("assistant", payload.message!)]);
+    } finally {
+      setEquipmentExplanationPendingActionId(null);
+    }
+  }
+
+  async function answerEquipmentExplanation(operation: "ACCEPT" | "DECLINE") {
+    const current = equipmentExplanation;
+    if (!current || equipmentExplanationPendingActionId) return;
+    setEquipmentExplanationPendingActionId(current.actionId);
+    try {
+      const response = await fetch("/api/cars/equipment-explanation", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ conversationId: conversationId.current, offerToken: current.offerToken, actionId: current.actionId, operation, sessionToken: current.sessionToken }) });
+      const payload = await response.json() as { message?: string | null; notice?: string | null; sessionToken?: string; items?: readonly { label: string; explanation: string; caveat: string }[] };
+      const sections = [payload.notice, payload.message, ...(payload.items ?? []).map((item) => `${item.label}: ${item.explanation} ${item.caveat}`)].filter((value): value is string => Boolean(value));
+      if (sections.length) setMessages((messages) => [...messages, newMessage("assistant", sections.join("\n\n"))]);
+      setEquipmentExplanation(null);
+    } finally {
+      setEquipmentExplanationPendingActionId(null);
+    }
+  }
+
   return (
     <main className="min-h-screen bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
       <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14">
@@ -334,7 +365,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                   )}
                   {message.v2Cards && message.v2Cards.length > 0 && (
                     <div className="mt-4 grid gap-4 text-neutral-900 dark:text-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
-                      {message.v2Cards.map((card) => <V2AuthorizedCarCard key={card.exactVariantId} card={card} />)}
+                      {message.v2Cards.map((card) => { const action = message.equipmentExplanationActions?.find((item) => item.exactVariantId === card.exactVariantId); return <V2AuthorizedCarCard key={card.exactVariantId} card={card} equipmentAction={action} onEquipmentExplanation={action ? (actionId) => void openEquipmentExplanation(actionId, message.v2OfferToken) : undefined} equipmentExplanationPending={equipmentExplanationPendingActionId === action?.actionId} />; })}
                     </div>
                   )}
                   {message.role === "assistant" && message.v2Options && message.v2Options.length > 0 && (
@@ -420,6 +451,16 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                 </div>
               </div>
             ))}
+            {equipmentExplanation && (
+              <div className="flex justify-start">
+                <div className="max-w-[88%] rounded-2xl bg-neutral-100 px-4 py-3 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100">
+                  <p>{equipmentExplanation.message}</p>
+                  <div role="group" aria-label="Araç donanım anlatımı" className="mt-3 flex flex-wrap gap-2">
+                    {equipmentExplanation.options.map((option) => <button key={option.id} type="button" onClick={() => void answerEquipmentExplanation(option.id)} disabled={Boolean(equipmentExplanationPendingActionId)} className="rounded-full border border-neutral-300 bg-white px-3 py-1.5 text-sm disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-900">{option.label}</button>)}
+                  </div>
+                </div>
+              </div>
+            )}
             {isLoading && (
               <div className="flex justify-start">
                 <div className="flex items-center gap-1 rounded-2xl bg-neutral-100 px-4 py-4 dark:bg-neutral-800" role="status" aria-label="Yanıt hazırlanıyor">

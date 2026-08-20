@@ -12,13 +12,29 @@ import { createOpenAIStructuredProviderTransport, readCarsDecisionV2ProviderConf
 import { createStructuredProviderAdapters } from "../provider/structuredProvider";
 import { initializeCarsDecisionV2DurableStore } from "./durableStoreInitialization.server";
 import { parseCarsDecisionV2Flags } from "./flags";
+import { createEquipmentExplanationCtas } from "@/features/vehicle-data/equipmentPublicExplanationFacade.server";
+import type { OfferSigner } from "../offer/types";
+import type { RecommendationOfferAuditIntent } from "../orchestrator/types";
+import { loadActiveRecOfferAuditFoundation } from "../offer/recOfferAuditFoundationRuntime.server";
 
 export interface PublicRouteV2Request {
   readonly conversationId: string;
   readonly selectedOptionId?: string;
   readonly selectedOptionIds?: readonly string[];
   readonly v2OfferToken?: string;
-  readonly messages: readonly { readonly id: string; readonly role: "user" | "assistant"; readonly content: string }[];
+  readonly messages: readonly { readonly id: string; readonly role: "user" | "assistant"; readonly content: string; readonly recommendationTermsAcceptance?: { readonly version: string; readonly acceptedAt?: string } }[];
+}
+
+export async function createServerRecommendationOfferAuditIntent(input: { readonly conversationId: string; readonly messageId: string; readonly offerToken: string; readonly acceptanceVersion: string; readonly signer: OfferSigner; readonly clock?: () => Date; readonly wait?: () => Promise<void> }): Promise<RecommendationOfferAuditIntent> {
+  if (input.acceptanceVersion !== "REC-2026.08-v1.1") throw new TypeError("REC_VERSION_MISMATCH");
+  const verified = input.signer.verify(input.offerToken);
+  if (verified.status !== "VALID" || verified.conversationId !== input.conversationId) throw new TypeError("REC_OFFER_BINDING_INVALID");
+  const clock = input.clock ?? (() => new Date());
+  const acceptedAt = clock();
+  let revealedAt = clock();
+  for (let attempt = 0; revealedAt.getTime() <= acceptedAt.getTime() && attempt < 5; attempt += 1) { await (input.wait?.() ?? new Promise((resolve) => setTimeout(resolve, 1))); revealedAt = clock(); }
+  if (revealedAt.getTime() <= acceptedAt.getTime()) throw new TypeError("REC_CLOCK_DID_NOT_ADVANCE");
+  return { kind: "ACCEPT_RECOMMENDATION_TERMS_AND_REVEAL", conversationId: input.conversationId, offerId: verified.offerId, recommendationTermsVersion: "REC-2026.08-v1.1", acceptedAt: acceptedAt.toISOString(), revealedAt: revealedAt.toISOString(), acceptanceSequence: 1, revealSequence: 2, idempotencyKey: `${input.conversationId}:${input.messageId}:rec-audit` };
 }
 
 export type PublicRouteV2Response = {
@@ -28,6 +44,7 @@ export type PublicRouteV2Response = {
   readonly optionSelection?: import("../orchestrator/types").PublicOptionSelection;
   readonly cards: readonly import("../presentation/publicCardSchema").DecisionSafePublicCard[];
   readonly offer?: { readonly token: string; readonly expiresAt: string };
+  readonly equipmentExplanationActions: readonly { readonly actionId: string; readonly exactVariantId: string; readonly label: "Bu aracı anlat" }[];
 };
 
 type PublicV2Stage = "CATALOG" | "LAYERS" | "PERSONA" | "DURABLE_STORE" | "CONVERSATION_LOAD" | "TURN";
@@ -91,6 +108,13 @@ export async function tryRunCarsDecisionV2Public(input: PublicRouteV2Request, si
   const config = readCarsDecisionV2ProviderConfig(process.env);
   const adapters = createStructuredProviderAdapters({ transport: createOpenAIStructuredProviderTransport(getOpenAIClient(), config), timeoutMs: config.timeoutMs, signal });
   const signer = createHmacOfferSigner({ secret: signingSecret, now: () => now });
-  const output = await runPublicV2Stage("TURN", () => runCarsDecisionTurnV2({ conversationId: input.conversationId, messageId: latest.id, idempotencyKey: `${input.conversationId}:${latest.id}`, expectedConversationRevision: previous?.revision ?? 0, userMessage: authorizedOptionAnswer ?? latest.content, typedOptionId: input.selectedOptionId, typedOptionIds: input.selectedOptionIds, offerToken: input.v2OfferToken, requestTime: now.toISOString(), signal }, createCarsDecisionV2ProductionComposition({ store, offerStore: store, interpreter: adapters.interpreter, realizer: adapters.realizer, signer })));
-  return { kind: "V2_DECISION", message: output.message, options: output.options, ...(output.optionSelection ? { optionSelection: output.optionSelection } : {}), cards: output.cards, ...(output.offer ? { offer: { token: output.offer.token, expiresAt: output.offer.expiresAt } } : {}) };
+  const auditFoundation = loadActiveRecOfferAuditFoundation(root);
+  const recommendationOfferAuditIntent = auditFoundation.status === "ACTIVE" && latest.recommendationTermsAcceptance && input.v2OfferToken ? await createServerRecommendationOfferAuditIntent({ conversationId: input.conversationId, messageId: latest.id, offerToken: input.v2OfferToken, acceptanceVersion: latest.recommendationTermsAcceptance.version, signer }) : undefined;
+  const composition = createCarsDecisionV2ProductionComposition({ store, offerStore: store, interpreter: adapters.interpreter, realizer: adapters.realizer, signer });
+  const committedOutput = await runPublicV2Stage("TURN", () => runCarsDecisionTurnV2({ conversationId: input.conversationId, messageId: latest.id, idempotencyKey: `${input.conversationId}:${latest.id}`, expectedConversationRevision: previous?.revision ?? 0, userMessage: authorizedOptionAnswer ?? latest.content, typedOptionId: input.selectedOptionId, typedOptionIds: input.selectedOptionIds, offerToken: input.v2OfferToken, recommendationOfferAuditIntent, requestTime: now.toISOString(), signal }, composition));
+  const committed = input.v2OfferToken ? await store.load(input.conversationId) : undefined;
+  const cards = input.v2OfferToken && committed?.memory && catalog.status === "READY" ? await composition.stages.authorizeCards?.({ token: input.v2OfferToken, conversationId: input.conversationId, catalog: catalog.snapshot, memory: committed.memory, now }) ?? [] : committedOutput.cards;
+  const output = { ...committedOutput, cards };
+  const equipmentExplanationActions = createEquipmentExplanationCtas({ conversationId: input.conversationId, offerId: output.offer?.offerId ?? "NO_OFFER", lifecycleState: output.cards.length ? "REVEALED" : "NOT_REVEALED", revealedExactVariantIds: output.cards.map((card) => card.exactVariantId) });
+  return { kind: "V2_DECISION", message: output.message, options: output.options, ...(output.optionSelection ? { optionSelection: output.optionSelection } : {}), cards: output.cards, equipmentExplanationActions, ...(output.offer ? { offer: { token: output.offer.token, expiresAt: output.offer.expiresAt } } : {}) };
 }

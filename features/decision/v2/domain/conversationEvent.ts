@@ -95,6 +95,11 @@ export type OfferLifecycleEvent = ConversationEventBase & (
   | { readonly eventType: "OFFER_LIFECYCLE"; readonly offerId: string; readonly lifecycleState: Exclude<OfferLifecycleState, "CREATED"> }
 );
 
+export type RecommendationOfferAuditEvent = ConversationEventBase & (
+  | { readonly eventType: "RECOMMENDATION_TERMS_ACCEPTED"; readonly offerId: string; readonly recommendationTermsVersion: "REC-2026.08-v1.1"; readonly acceptedAt: string; readonly auditSequence: 1; readonly actor: "USER"; readonly authority: "SERVER_RECORDED_USER_ACCEPTANCE"; readonly decisionEffect: "AUTHORIZATION_ONLY"; readonly predecessorLifecycleState: "CREATED"; readonly idempotencyKey: string; readonly payloadFingerprint: `sha256:${string}` }
+  | { readonly eventType: "OFFER_REVEALED"; readonly offerId: string; readonly revealedAt: string; readonly auditSequence: 2; readonly acceptanceEventId: string; readonly acceptanceAuditSequence: 1; readonly recommendationTermsVersion: "REC-2026.08-v1.1"; readonly actor: "SYSTEM"; readonly authority: "SERVER_OFFER_LIFECYCLE"; readonly decisionEffect: "AUTHORIZATION_ONLY"; readonly resultingLifecycleState: "REVEALED"; readonly catalogReleaseVersion: string; readonly catalogFingerprint: string; readonly offerIdentityFingerprint: `sha256:${string}`; readonly idempotencyKey: string }
+);
+
 export type SocialInteractionEvent = ConversationEventBase & {
   readonly eventType: "SOCIAL_INTERACTION";
   readonly interaction: "SHORT_SOCIAL" | "VEHICLE_CONTEXT_RESUMED";
@@ -130,6 +135,7 @@ export type ConversationEvent =
   | ModelReferenceEvent
   | DirectAnswerEvent
   | OfferLifecycleEvent
+  | RecommendationOfferAuditEvent
   | SocialInteractionEvent
   | OffTopicEvent
   | AbuseEvent

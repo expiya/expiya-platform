@@ -12,6 +12,8 @@ import dailyLifeCandidateManifest from "@/data/production/equipment-daily-life/r
 import equipmentPointer from "@/data/production/equipment-evidence/active.json";
 import { activeEquipmentEvidencePayload, activeEquipmentEvidenceRelease } from "@/data/production/equipment-evidence/activeEquipmentEvidence.generated";
 import dailyLifePointer from "@/data/production/equipment-daily-life/active.json";
+import { activeEquipmentDailyLifePayload, activeEquipmentDailyLifeRelease } from "@/data/production/equipment-daily-life/activeEquipmentDailyLife.generated";
+import { activeEquipmentPublicExplanationAuthorityPayload, activeEquipmentPublicExplanationAuthorityRelease } from "@/data/production/equipment-public-explanation-authority/activeEquipmentPublicExplanationAuthority.generated";
 import dailyLifeLegalCorrectionPredecessor from "@/data/production/equipment-daily-life/releases/v1.0.0-catalog-v0.55.4-2026-08-20/equipment-daily-life.json";
 import type { EquipmentAvailabilityStatus, EquipmentFeatureCode, EquipmentProvisionMode } from "@/types/equipmentEvidence";
 import type { EquipmentDailyLifeEntry, EquipmentDailyLifeLayer } from "@/types/equipmentDailyLife";
@@ -47,10 +49,11 @@ type Materialization = { sourceAssertionId: string; materializationId: string; e
   availabilityStatus: EquipmentAvailabilityStatus; provisionMode?: EquipmentProvisionMode; verificationState: string; conflictState?: string;
   contentFingerprint?: `sha256:${string}`; locator?: { kind?: string; row?: string; column?: string }; source?: { sourceAuthority?: string } };
 const evidencePayload = activeEquipmentEvidencePayload as unknown as { decisionAuthority: string; verifiedAssertions: Materialization[]; reviewedAssociations: Array<{ exactVariantId: string; featureCode: EquipmentFeatureCode }> };
-const dailyLife = dailyLifeCandidate as EquipmentDailyLifeLayer;
-const positiveIds = new Set(authorityCandidate.authorizedPositiveAssertionIds);
-const negativeIds = new Set(authorityCandidate.authorizedNegativeAssertionIds);
-const pilotIds = new Set(authorityCandidate.pilotExactVariantAllowlist);
+const runtimeAuthority = activeEquipmentPublicExplanationAuthorityPayload as typeof authorityCandidate;
+const dailyLife = activeEquipmentDailyLifePayload as EquipmentDailyLifeLayer;
+const positiveIds = new Set(runtimeAuthority.authorizedPositiveAssertionIds);
+const negativeIds = new Set(runtimeAuthority.authorizedNegativeAssertionIds);
+const pilotIds = new Set(runtimeAuthority.pilotExactVariantAllowlist);
 const shaJson = (value: unknown) => `sha256:${createHash("sha256").update(`${JSON.stringify(value, null, 2)}\n`).digest("hex")}`;
 const correctedFeatureCodes = new Set<EquipmentFeatureCode>(["ISOFIX_REAR_OUTER", "LED_HEADLIGHTS", "MATRIX_LED_HEADLIGHTS", "REAR_SEAT_OCCUPANT_ALERT", "TERRAIN_DRIVE_MODES"]);
 
@@ -135,7 +138,7 @@ export function authorizeEquipmentPublicExplanation(input: EquipmentExplanationA
   const revealAt = parseStrictRfc3339Instant(input.offer.revealAt);
   const now = parseStrictRfc3339Instant(input.now);
   const recAuditBound = input.recommendationTermsAccepted === true
-    && input.recommendationTermsVersion === authorityCandidate.requiredRecommendationTermsVersion
+    && input.recommendationTermsVersion === runtimeAuthority.requiredRecommendationTermsVersion
     && Boolean(input.recommendationTermsAcceptanceEventId)
     && input.recommendationTermsAcceptanceConversationId === input.conversationId
     && input.recommendationTermsAcceptanceOfferId === input.offer.offerId
@@ -143,13 +146,13 @@ export function authorizeEquipmentPublicExplanation(input: EquipmentExplanationA
     && typeof input.recommendationTermsAcceptanceSequence === "number"
     && input.recommendationTermsAcceptanceSequence < input.offer.revealSequence;
   if (!recAuditBound) return result("REVEAL_AUTHORIZATION_REQUIRED", ["REC_ACCEPTANCE_AUDIT_BINDING_FAILED"]);
-  const expectedModelYear = authorityCandidate.modelYearByExactVariantId[input.exactVariantId as keyof typeof authorityCandidate.modelYearByExactVariantId];
+  const expectedModelYear = runtimeAuthority.modelYearByExactVariantId[input.exactVariantId as keyof typeof runtimeAuthority.modelYearByExactVariantId];
   if (!input.publicContext || input.publicContext.market !== "Türkiye" || input.publicContext.modelYear !== expectedModelYear) {
     return result("REVEAL_AUTHORIZATION_REQUIRED", ["PUBLIC_MARKET_AND_MODEL_YEAR_CONTEXT_REQUIRED"]);
   }
   const offerBound = input.offerConsentCompleted && input.offer.lifecycleState === "REVEALED"
     && input.offer.conversationId === input.conversationId && input.offer.catalogFingerprint === input.catalogFingerprint
-    && input.catalogFingerprint === authorityCandidate.compatibleCatalogFingerprint && Date.parse(input.offer.expiresAt) >= Date.parse(input.now)
+    && input.catalogFingerprint === runtimeAuthority.compatibleCatalogFingerprint && Date.parse(input.offer.expiresAt) >= Date.parse(input.now)
     && input.offer.candidateRefs.some((ref) => ref.exactVariantId === input.exactVariantId) && input.revealedCardExactVariantIds.includes(input.exactVariantId);
   if (!offerBound) return result("REVEAL_AUTHORIZATION_REQUIRED", ["TERMS_CONSENT_REVEAL_OFFER_OR_FINGERPRINT_GATE_FAILED"]);
   if (!input.explanationRequested) return result("REVEAL_AUTHORIZATION_REQUIRED", ["USER_EXPLANATION_REQUEST_REQUIRED"]);
@@ -176,7 +179,7 @@ export function authorizeEquipmentPublicExplanation(input: EquipmentExplanationA
 function createUnit(input: EquipmentExplanationAuthorizationInput, evidence: Materialization, entry: EquipmentDailyLifeEntry, authorityType: EquipmentPublicExplanationAuthorityType): AuthorizedEquipmentExplanationUnit {
   return Object.freeze({ conversationId: input.conversationId, offerId: input.offer.offerId, exactVariantId: input.exactVariantId, featureCode: input.featureCode, authorityType,
     evidenceAssertionId: evidence.sourceAssertionId, evidenceMaterializationId: evidence.materializationId, evidenceFingerprint: evidence.contentFingerprint!,
-    equipmentRelease: activeEquipmentEvidenceRelease, equipmentDailyLifeRelease: dailyLifeCandidate.releaseVersion, catalogFingerprint: input.catalogFingerprint,
+    equipmentRelease: activeEquipmentEvidenceRelease, equipmentDailyLifeRelease: activeEquipmentDailyLifeRelease, catalogFingerprint: input.catalogFingerprint,
     market: "Türkiye", modelYear: input.publicContext!.modelYear, publicContextSource: input.publicContext!.source,
     recommendationTermsAccepted: true, recommendationTermsVersion: input.recommendationTermsVersion!, recommendationTermsAcceptanceEventId: input.recommendationTermsAcceptanceEventId!, recommendationTermsAcceptedAt: input.recommendationTermsAcceptedAt!,
     recommendationTermsAcceptanceSequence: input.recommendationTermsAcceptanceSequence!, revealAt: input.offer.revealAt, revealSequence: input.offer.revealSequence,
@@ -195,7 +198,7 @@ export function validateAuthorizedEquipmentExplanationUnit(unit: AuthorizedEquip
   if (!entry || unit.controlledExplanation !== entry.userFacingExplanation || unit.caveat !== entry.caveat || unit.labelTr !== entry.labelTr) issues.push("NON_DAILY_LIFE_FREE_FACT");
   if (forbiddenWording.test(`${unit.controlledExplanation} ${unit.caveat}`)) issues.push("FORBIDDEN_SAFETY_OR_SUPERIORITY_WORDING");
   if (!pilotIds.has(unit.exactVariantId) || unit.sourceApplicability !== "EXACT_VARIANT" || unit.verificationState !== "VERIFIED" || unit.conflictState !== "CLEAR") issues.push("UNIT_AUTHORITY_GATE_INVALID");
-  if (unit.market !== "Türkiye" || !unit.modelYear || unit.recommendationTermsAccepted !== true || unit.recommendationTermsVersion !== authorityCandidate.requiredRecommendationTermsVersion || !unit.recommendationTermsAcceptanceEventId || !Number.isFinite(Date.parse(unit.recommendationTermsAcceptedAt))) issues.push("REC_OR_PUBLIC_CONTEXT_AUDIT_INVALID");
+  if (unit.market !== "Türkiye" || !unit.modelYear || unit.recommendationTermsAccepted !== true || unit.recommendationTermsVersion !== runtimeAuthority.requiredRecommendationTermsVersion || !unit.recommendationTermsAcceptanceEventId || !Number.isFinite(Date.parse(unit.recommendationTermsAcceptedAt))) issues.push("REC_OR_PUBLIC_CONTEXT_AUDIT_INVALID");
   const acceptedAt = parseStrictRfc3339Instant(unit.recommendationTermsAcceptedAt); const revealAt = parseStrictRfc3339Instant(unit.revealAt);
   if (acceptedAt === undefined || revealAt === undefined || acceptedAt >= revealAt || unit.recommendationTermsAcceptanceSequence >= unit.revealSequence) issues.push("REC_NOT_STRICTLY_BEFORE_REVEAL");
   if (unit.authorityType === "POST_REVEAL_CONFIRMED_EXPLANATION" && (unit.availabilityStatus !== "STANDARD" || unit.provisionMode !== "INCLUDED")) issues.push("CONFIRMED_WORDING_GATE_INVALID");
@@ -226,6 +229,18 @@ export function compareAuthorizedEquipmentExplanations(left: ReturnType<typeof a
 }
 
 export const EQUIPMENT_POST_REVEAL_OFFER_COPY = approvedCopy.postRevealOfferTemplate;
+export function listAuthorizedConfirmedEquipmentFeatureCodes(exactVariantId: string): readonly EquipmentFeatureCode[] {
+  if (!pilotIds.has(exactVariantId)) return Object.freeze([]);
+  return Object.freeze(evidencePayload.verifiedAssertions
+    .filter((item) => item.exactVariantId === exactVariantId && item.availabilityStatus === "STANDARD" && item.provisionMode === "INCLUDED"
+      && item.verificationState === "VERIFIED" && (item.conflictState ?? "CLEAR") === "CLEAR" && positiveIds.has(item.sourceAssertionId))
+    .map((item) => item.featureCode));
+}
+
+export function getEquipmentPublicPilotScope() {
+  return Object.freeze({ exactVariantIds: Object.freeze([...pilotIds]), confirmedIncludedCount: positiveIds.size,
+    verifiedAbsenceCount: negativeIds.size, modelYearByExactVariantId: Object.freeze({ ...runtimeAuthority.modelYearByExactVariantId }) });
+}
 export type EquipmentExplanationSessionNoticeState = Readonly<{ conversationId: string; exactVariantId: string; offerId: string; sourceNoticeShown: boolean }>;
 export function planEquipmentExplanationSessionNotice(state: EquipmentExplanationSessionNoticeState, unit: AuthorizedEquipmentExplanationUnit, options: Readonly<{ staleEvidence: boolean }> = { staleEvidence: false }) {
   if (state.conversationId !== unit.conversationId || state.exactVariantId !== unit.exactVariantId || state.offerId !== unit.offerId) return Object.freeze({ allowed: false, notice: null, nextState: state, reasonCode: "SESSION_SCOPE_MISMATCH" });

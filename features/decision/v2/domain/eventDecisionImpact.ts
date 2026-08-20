@@ -28,6 +28,8 @@ export function classifyConversationEventDecisionImpact(event: ConversationEvent
       if (event.decisionEffect === "LOOKUP_ONLY") return "OBSERVABILITY_ONLY";
       return event.decisionEffect === "PREFERENCE" ? "RANKING" : "CANDIDATE_SET";
     case "OFFER_LIFECYCLE": return "OFFER_AUTHORIZATION";
+    case "RECOMMENDATION_TERMS_ACCEPTED":
+    case "OFFER_REVEALED": return "OBSERVABILITY_ONLY";
     case "MATERIAL_QUESTION_ASKED":
     case "MATERIAL_QUESTION_DISPOSITION":
     case "SOCIAL_INTERACTION":
