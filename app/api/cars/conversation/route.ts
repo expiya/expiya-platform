@@ -8,6 +8,10 @@ import { tryRunCarsDecisionV2Public } from "@/features/decision/v2/integration/p
 import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
 import type { CarsConversationRequest } from "@/types/carsConversation";
 import { RECOMMENDATION_TERMS_VERSION } from "@/lib/legal/recommendationTerms";
+import {
+  CARS_CONVERSATION_AVAILABILITY,
+  isPublicCarsConversationEnabled,
+} from "@/features/decision/conversation/carsConversationAvailability";
 
 const builtInQuestionPurposeSchema = z.enum([
   "PRIMARY_USAGE",
@@ -320,6 +324,16 @@ const requestSchema = z.object({
 export async function POST(request: Request): Promise<Response> {
   const originRejected = verifySameOrigin(request);
   if (originRejected) return originRejected;
+  if (!isPublicCarsConversationEnabled()) {
+    return Response.json({
+      message: CARS_CONVERSATION_AVAILABILITY.message,
+      reasonCode: CARS_CONVERSATION_AVAILABILITY.reasonCode,
+      retryable: false,
+    }, {
+      status: 503,
+      headers: { "Retry-After": "86400" },
+    });
+  }
   const rejected = await enforceRateLimit(request, { scope: "cars-conversation", limit: 20, windowMs: 10 * 60_000 });
   if (rejected) return rejected;
   try {
