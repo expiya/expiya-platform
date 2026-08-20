@@ -7,6 +7,7 @@ const nextConfig: NextConfig = {
     "/api/cars/conversation": [
       "./data/production/personas/safe-traits/**/*",
       "./data/production/catalog/governance/**/*",
+      "./data/production/rec-offer-audit-foundation/**/*",
     ],
   },
   images: {
