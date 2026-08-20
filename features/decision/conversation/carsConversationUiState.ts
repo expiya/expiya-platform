@@ -1,4 +1,4 @@
-import type { CarsConversationMessage, CarsConversationResponse } from "@/types/carsConversation";
+import type { CarsConversationMessage, CarsConversationResponse, CarsConversationTrace } from "@/types/carsConversation";
 
 export function hasActiveFinalDiscriminator(messages: readonly CarsConversationMessage[]): boolean {
   const latest = messages.at(-1);
@@ -29,4 +29,15 @@ export function shouldRenderRecommendationCards(
 
 export function shouldLockTextInput(messages: readonly CarsConversationMessage[]): boolean {
   return hasActiveFinalDiscriminator(messages);
+}
+
+export function shouldShowRecommendationTermsGate(
+  messages: readonly CarsConversationMessage[],
+  conversation: CarsConversationTrace | undefined,
+): boolean {
+  if (conversation?.state === "OFFER_AWAITING_CONSENT") return true;
+  const latest = messages.at(-1);
+  return latest?.role === "assistant"
+    && Boolean(latest.v2OfferToken)
+    && !latest.v2Cards?.length;
 }

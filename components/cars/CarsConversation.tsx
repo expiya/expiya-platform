@@ -14,6 +14,7 @@ import {
 import {
   hasActiveFinalDiscriminator,
   shouldRenderRecommendationCards,
+  shouldShowRecommendationTermsGate,
   shouldShowVehicleQuickReplies,
 } from "@/features/decision/conversation/carsConversationUiState";
 import type {
@@ -272,7 +273,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   }
 
   const isFinalDiscriminatorRequired = hasActiveFinalDiscriminator(messages);
-  const isRecommendationOfferAwaitingTerms = conversation?.state === "OFFER_AWAITING_CONSENT";
+  const isRecommendationOfferAwaitingTerms = shouldShowRecommendationTermsGate(messages, conversation);
 
   function handleDraftKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
     if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;

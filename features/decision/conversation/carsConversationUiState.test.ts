@@ -5,6 +5,7 @@ import {
   hasActiveFinalDiscriminator,
   shouldLockTextInput,
   shouldRenderRecommendationCards,
+  shouldShowRecommendationTermsGate,
   shouldShowVehicleQuickReplies,
 } from "./carsConversationUiState";
 
@@ -44,5 +45,12 @@ describe("consent UI helpers", () => {
     expect(shouldLockTextInput([{ id: "1", role: "assistant", content: "Seçin", discriminatorChoices: [
       { id: "MAX_CARGO", label: "Daha fazla bagaj alanı" },
     ] }])).toBe(true);
+  });
+
+  it("shows the legal gate for a V2 sealed offer without relying on the legacy conversation trace", () => {
+    const offered = [{ id: "1", role: "assistant" as const, content: "Görmek ister misin?", v2OfferToken: "v2.sealed" }];
+    expect(shouldShowRecommendationTermsGate(offered, undefined)).toBe(true);
+    expect(shouldShowRecommendationTermsGate([{ ...offered[0], v2Cards: [{ exactVariantId: "variant" } as never] }], undefined)).toBe(false);
+    expect(shouldShowRecommendationTermsGate([{ id: "1", role: "assistant", content: "Devam" }], undefined)).toBe(false);
   });
 });
