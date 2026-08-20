@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "npm run catalog:active:sync && npm run technical-daily-life:active:sync && npm run persona-safe-traits:active:sync && vitest run",
+    "cars:trace:replay": "npm test -- --run features/decision/v2/trace",
     "db:migrate:vehicles": "tsx scripts/migrate-vehicle-data.ts",
     "db:import:vehicles": "tsx scripts/import-pilot-vehicles.ts",
     "db:import:catalog-candidates": "tsx scripts/import-manual-catalog-candidates.ts",
