@@ -428,13 +428,13 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                           onChange={(event) => setRecommendationTermsChecked(event.target.checked)}
                           className="mt-1 h-4 w-4 accent-neutral-950"
                         />
-                        <span><Link href="/arac-oneri-kosullari" target="_blank" className="font-semibold underline underline-offset-4">Araç Önerisi ve Katalog Kullanım Koşulları’nı</Link> ({RECOMMENDATION_TERMS_VERSION}) okudum ve kabul ediyorum.</span>
+                        <span><Link href="/arac-oneri-kosullari" className="font-semibold underline underline-offset-4">Araç Önerisi ve Katalog Kullanım Koşulları’nı</Link> ({RECOMMENDATION_TERMS_VERSION}) okudum ve kabul ediyorum.</span>
                       </label>
                       <button
                         type="button"
                         onClick={acceptRecommendationTermsAndReveal}
                         disabled={!recommendationTermsChecked || isLoading}
-                        className="mt-4 w-full rounded-xl bg-neutral-950 px-5 py-3 font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40 dark:bg-white dark:text-neutral-950"
+                        className="mt-4 w-full rounded-xl bg-sky-700 px-5 py-3 font-semibold text-white transition hover:bg-sky-800 disabled:cursor-not-allowed disabled:bg-neutral-300 disabled:text-neutral-600 dark:bg-sky-400 dark:text-neutral-950 dark:hover:bg-sky-300 dark:disabled:bg-neutral-700 dark:disabled:text-neutral-400"
                       >
                         Koşulları kabul et ve aracı göster
                       </button>

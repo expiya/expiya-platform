@@ -12,7 +12,13 @@ export function V2AuthorizedCarCard({ card, equipmentAction, onEquipmentExplanat
       {card.imageAttribution ? <p className="text-xs text-neutral-500">Görsel: {card.imageAttribution}</p> : null}
       <h2 className="font-semibold text-neutral-950 dark:text-neutral-50">{card.title}</h2>
       {details ? <p className="text-sm text-neutral-500 dark:text-neutral-400">{details}</p> : null}
-      {card.verifiedPublicPrice ? <p className="font-medium">{card.verifiedPublicPrice.amountTry.toLocaleString("tr-TR")} TL</p> : null}
+      {card.verifiedPublicPrice ? <div>
+        <p className="font-medium">{card.verifiedPublicPrice.amountTry.toLocaleString("tr-TR")} TL</p>
+        <p className="mt-1 text-xs leading-5 text-neutral-500 dark:text-neutral-400">
+          Aktif katalogda doğrulanmış resmî {card.verifiedPublicPrice.priceType === "CAMPAIGN" ? "kampanya" : "liste"} fiyatı
+          {card.verifiedPublicPrice.validFrom ? ` · ${new Date(card.verifiedPublicPrice.validFrom).toLocaleDateString("tr-TR")} tarihinden itibaren` : ""}. Güncel satış fiyatını yetkili satıcıdan doğrulayın.
+        </p>
+      </div> : null}
       <p className="text-sm">{card.decisionSummary.recommendation}</p>
       {card.caveats.map((caveat) => <p key={caveat} className="text-xs text-amber-700 dark:text-amber-300">{caveat}</p>)}
       <p className="border-t border-neutral-100 pt-3 text-sm text-neutral-500 dark:border-neutral-800 dark:text-neutral-400">Ayrıntılı analizi aç →</p>

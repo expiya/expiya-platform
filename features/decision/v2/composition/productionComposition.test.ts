@@ -183,6 +183,41 @@ describe("production V2 composition with real WP pipeline", () => {
     expect(output.options.length).toBeGreaterThan(0);
   });
 
+  it("recomputes a completed shortlist inside the latest explicit BYD model preference", async () => {
+    const store = new InMemoryV2ConversationStore(); const offerStore = new InMemoryGovernedOfferStore(); const traces: Readonly<Record<string, unknown>>[] = [];
+    const signer = createHmacOfferSigner({ secret: "01234567890123456789012345678901", now: () => new Date("2026-08-20T00:03:00.000Z") });
+    const composition = createCarsDecisionV2ProductionComposition({
+      store,
+      offerStore,
+      signer,
+      interpreter: model({
+        generic: result("generic", ["VEHICLE_INTENT", "RECOMMENDATION_REQUEST"], { directAnswerRequests: [{ kind: "RECOMMENDATION_REQUEST" }] }),
+        byd: result("byd", ["VEHICLE_INTENT", "RECOMMENDATION_REQUEST", "PREFERENCE_STATEMENT"], { directAnswerRequests: [{ kind: "RECOMMENDATION_REQUEST" }], modelReferences: [{ rawText: "BYD Dolphin Comfort 2025", parsedBrandText: "BYD", parsedModelText: "Dolphin", purpose: "PREFERENCE" }] }),
+      }),
+      realizer,
+      smokeObserver: (trace) => traces.push(trace),
+    });
+    const generic = await runCarsDecisionTurnV2({ conversationId: "byd-rescope", messageId: "generic", idempotencyKey: "generic", expectedConversationRevision: 0, userMessage: "Şehir içinde günlük kullanacağım. Otomatik, elektrikli ve hatchback istiyorum. Beş koltuk yeterli; bütçe önemli değil. Bana uygun seçenekleri hazırla.", requestTime: "2026-08-20T00:00:00.000Z" }, composition);
+    expect(generic.offer?.token).toBeTruthy();
+    const preferred = await runCarsDecisionTurnV2({ conversationId: "byd-rescope", messageId: "byd", idempotencyKey: "byd", expectedConversationRevision: 1, userMessage: "BYD Dolphin Comfort 2025 önermeni istiyorum.", requestTime: "2026-08-20T00:01:00.000Z" }, composition);
+    expect(preferred.offer?.token).toBeTruthy();
+    const verified = signer.verify(preferred.offer!.token); expect(verified.status).toBe("VALID");
+    if (verified.status !== "VALID") return;
+    const offer = await offerStore.get(verified.offerId);
+    expect(offer?.candidateRefs.map((candidate) => candidate.exactVariantId)).toEqual(["6cb56615-37ef-51a8-9202-a73e59d4e14b"]);
+    expect(traces.filter((trace) => trace.phase === "DECISION").at(-1)).toMatchObject({ modelPreferenceScope: true, shortlistCandidateIds: ["6cb56615-37ef-51a8-9202-a73e59d4e14b"] });
+  });
+
+  it("keeps the complete one-turn BYD request inside its exact model scope", async () => {
+    const store = new InMemoryV2ConversationStore(); const offerStore = new InMemoryGovernedOfferStore(); const traces: Readonly<Record<string, unknown>>[] = [];
+    const signer = createHmacOfferSigner({ secret: "01234567890123456789012345678901", now: () => new Date("2026-08-20T00:03:00.000Z") });
+    const composition = createCarsDecisionV2ProductionComposition({ store, offerStore, signer, interpreter: model({ byd: result("byd", ["VEHICLE_INTENT", "RECOMMENDATION_REQUEST", "PREFERENCE_STATEMENT"], { directAnswerRequests: [{ kind: "RECOMMENDATION_REQUEST" }], modelReferences: [{ rawText: "BYD Dolphin Comfort 2025", parsedBrandText: "BYD", parsedModelText: "Dolphin", purpose: "PREFERENCE" }] }) }), realizer, smokeObserver: (trace) => traces.push(trace) });
+    const output = await runCarsDecisionTurnV2({ conversationId: "byd-one-turn", messageId: "byd", idempotencyKey: "byd", expectedConversationRevision: 0, userMessage: "BYD Dolphin Comfort 2025 almak istiyorum. Günlük şehir içinde kullanacağım. Elektrikli, otomatik ve hatchback tercihim var. Beş koltuk yeterli. Bütçeyi değerlendirmeye dahil etme. BYD Dolphin Comfort 2025'i başlangıç noktası alarak seçeneği hazırla.", requestTime: "2026-08-20T00:00:00.000Z" }, composition);
+    expect(output.state, JSON.stringify(traces.filter((trace) => trace.phase === "DECISION").at(-1))).toBe("AWAITING_CONSENT"); expect(output.offer?.token).toBeTruthy();
+    const verified = signer.verify(output.offer!.token); expect(verified.status).toBe("VALID"); if (verified.status !== "VALID") return;
+    expect((await offerStore.get(verified.offerId))?.candidateRefs.map((candidate) => candidate.exactVariantId)).toEqual(["6cb56615-37ef-51a8-9202-a73e59d4e14b"]);
+  });
+
   it("explains kW with a bounded daily-life comparison when the provider leaves the field unspecified", async () => {
     const store = new InMemoryV2ConversationStore();
     const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ kw: result("kw", ["TECHNICAL_EXPLANATION_REQUEST"], { directAnswerRequests: [{ kind: "TECHNICAL_EXPLANATION" }], technicalGuidanceRequest: { mode: "GUIDE_WITH_DAILY_LIFE" } }) }), realizer, shadow: true });

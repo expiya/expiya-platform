@@ -138,7 +138,7 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
     for (let index = directAnswerRequests.length - 1; index >= 0; index -= 1) if (["MODEL_AVAILABILITY", "MODEL_COMPARISON", "MODEL_SUITABILITY"].includes(directAnswerRequests[index]!.kind)) directAnswerRequests.splice(index, 1);
   }
 
-  if (/bütçe (?:önemli değil|fark etmez)|bütçeyi? .*hariç/iu.test(text) && !budgets.some((item) => item.operation === "EXCLUDE_FROM_DECISION")) budgets.push({ operation: "EXCLUDE_FROM_DECISION", field: "BUDGET_UNKNOWN", sourceSpan: text });
+  if (/bütçe (?:önemli değil|fark etmez)|bütçeyi? .*(?:hariç|dahil etme|katma|uygulama)/iu.test(text) && !budgets.some((item) => item.operation === "EXCLUDE_FROM_DECISION")) budgets.push({ operation: "EXCLUDE_FROM_DECISION", field: "BUDGET_UNKNOWN", sourceSpan: text });
   const amount = money(text);
   const answeringBudgetQuestion = input.openMaterialQuestionField === "budget";
   const financingLanguage = /kredi|finansman/iu.test(text);
