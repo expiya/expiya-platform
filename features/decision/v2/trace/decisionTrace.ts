@@ -33,7 +33,7 @@ export type DecisionTurnTrace = Readonly<{
 }>;
 
 export type TraceInvariantFailure = Readonly<{
-  code: "SHORTLIST_PREFERENCE_DOMINANCE_VIOLATION" | "SINGLE_SHORTLIST_WITHOUT_EXACT_MODEL_SCOPE";
+  code: "SHORTLIST_PREFERENCE_DOMINANCE_VIOLATION" | "SINGLE_SHORTLIST_WITHOUT_EXACT_MODEL_SCOPE" | "OFFER_WITH_ZERO_MATERIAL_PREFERENCE_COVERAGE";
   messageId: string;
   details: Readonly<Record<string, unknown>>;
 }>;
@@ -70,6 +70,12 @@ export function evaluateDecisionTurnTrace(trace: DecisionTurnTrace): readonly Tr
   const materialPreferences = trace.activeConstraints.filter((constraint) =>
     constraint.decisionEffect === "STRONG_RANK" && ["bodyStyle", "fuelType", "transmission"].includes(constraint.fieldId));
   if (materialPreferences.length && trace.rankingCandidates.length && trace.shortlistCandidateIds.length) {
+    const uncoveredFields = materialPreferences.filter((constraint) => !trace.rankingCandidates.some((candidate) => preferenceMatchCount(candidate, [constraint]) === 1)).map((constraint) => constraint.fieldId);
+    if (uncoveredFields.length && trace.action === "REQUEST_REVEAL_CONSENT") failures.push(Object.freeze({
+      code: "OFFER_WITH_ZERO_MATERIAL_PREFERENCE_COVERAGE",
+      messageId: trace.messageId,
+      details: Object.freeze({ uncoveredFields, shortlistCandidateIds: trace.shortlistCandidateIds }),
+    }));
     const best = Math.max(...trace.rankingCandidates.map((candidate) => preferenceMatchCount(candidate, materialPreferences)));
     const weaker = trace.rankingCandidates.filter((candidate) => trace.shortlistCandidateIds.includes(candidate.exactVariantId) && preferenceMatchCount(candidate, materialPreferences) < best);
     if (weaker.length) failures.push(Object.freeze({

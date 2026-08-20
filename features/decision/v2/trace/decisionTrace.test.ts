@@ -30,6 +30,11 @@ describe("decision trace invariants", () => {
     ]);
   });
 
+  it("blocks an offer when no selectable candidate covers a material preference", () => {
+    const trace = { ...base(), activeConstraints: [base().activeConstraints[0]!], rankingCandidates: [base().rankingCandidates[1]!], shortlistCandidateIds: ["corolla-cross"], shortlistMode: "FAMILY_DIVERSE" };
+    expect(evaluateDecisionTurnTrace(trace).map((failure) => failure.code)).toContain("OFFER_WITH_ZERO_MATERIAL_PREFERENCE_COVERAGE");
+  });
+
   it("is deterministic and never requires raw conversation text", () => {
     const collector = new DecisionTraceCollector(); collector.record(base());
     expect(collector.evaluate()).toHaveLength(2);
