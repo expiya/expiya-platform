@@ -3,6 +3,7 @@ import type { CargoCapacityBandPolicy, CargoCapacityClass } from "../domain/usag
 import { catalogFactReference, evaluateUsageFactAuthority } from "./authority";
 import type { UsageCargoPolicies } from "./policy";
 import { projectUsageArchitecture } from "./projection";
+import { variantMatchesUsageScenario } from "./variantUsageClassification";
 import type {
   CargoCapacityProjection, UsageCargoNeed, UsageExplanationInput, UsagePolicyReference, UsageRankingSignal,
   UsageReasonCode, UsageSuitabilityCheck, UsageSuitabilityEvaluation,
@@ -44,6 +45,16 @@ export function evaluateUsageCargoSuitability(variant: CatalogVariantSnapshot, n
   const rankingSignals: UsageRankingSignal[] = [];
   const explanationFactInputs: UsageExplanationInput[] = [];
   const policyReferences: UsagePolicyReference[] = [{ policyId: policies.architecture.policyId, policyVersion: policies.architecture.policyVersion, decisionEffect: need.architectureRequirement ? "HARD_FILTER" : "EXPLANATION_ONLY" }];
+  if (need.usageScenario) {
+    const matches = variantMatchesUsageScenario(variant, need.usageScenario.scenario);
+    if (need.usageScenario.decisionEffect === "HARD_MEMBERSHIP") {
+      checks.push({ id: `usage-scenario:${need.usageScenario.scenario}`, field: "usageScenario", outcome: matches ? "PASS" : "FAIL", reasonCode: matches ? "USAGE_SCENARIO_MEMBERSHIP_MATCH" : "USAGE_SCENARIO_MEMBERSHIP_MISMATCH", hardRequirement: true, authority: "HARD_FILTER_ALLOWED", sourceFactReferences: [catalogFactReference("bodyStyle", variant.decisionFacts.bodyStyle)] });
+      policyReferences.push({ policyId: "variant-usage-scenario-membership", policyVersion: "1.0.0", decisionEffect: "HARD_FILTER" });
+    } else if (matches) {
+      rankingSignals.push({ id: `usage-scenario:${need.usageScenario.scenario}`, strength: "STRONG", direction: "POSITIVE", reasonCode: "USAGE_SCENARIO_MEDIUM_FIT" });
+      policyReferences.push({ policyId: "variant-usage-scenario-membership", policyVersion: "1.0.0", decisionEffect: "STRONG_RANK" });
+    }
+  }
   for (const reasonCode of architecture.diagnostics) explanationFactInputs.push({ reasonCode, sourceFactReferences: architecture.sourceFactReferences, catalogFingerprint: architecture.catalogFingerprint });
   const requirement = need.architectureRequirement;
   if (requirement) {

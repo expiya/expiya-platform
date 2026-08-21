@@ -44,9 +44,101 @@ describe("production V2 composition with real WP pipeline", () => {
     const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
     const store = new InMemoryV2ConversationStore(); const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ hello: result("hello", ["GREETING"], { socialSignal: { kind: "GREETING" } }), repair: result("repair", ["SOCIAL_MESSAGE"], { socialSignal: { kind: "GENERAL" } }) }), realizer: fallbackRealizer, shadow: true });
     const hello = await runCarsDecisionTurnV2({ conversationId: "social-repair", messageId: "hello", idempotencyKey: "hello", expectedConversationRevision: 0, userMessage: "merhaba", requestTime: "2026-08-20T00:00:00.000Z" }, composition);
-    expect(hello.message).toBe("Merhaba! Hoş geldin."); expect(hello.message).not.toMatch(/iyiyim/iu);
+    expect(hello.message).toBe("Merhaba! Hoş geldin. 😊 Araç seçimini birlikte adım adım netleştirebiliriz."); expect(hello.message).not.toMatch(/iyiyim/iu);
     const repair = await runCarsDecisionTurnV2({ conversationId: "social-repair", messageId: "repair", idempotencyKey: "repair", expectedConversationRevision: 1, userMessage: "Ben sana nasılsın diye sormadım.", requestTime: "2026-08-20T00:01:00.000Z" }, composition);
     expect(repair.message).toMatch(/haklısın.*sormadın.*hatalıydı/iu);
+  });
+  it("responds warmly to social greetings without changing vehicle decisions", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const store = new InMemoryV2ConversationStore();
+    const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ morning: result("morning", ["GREETING"], { socialSignal: { kind: "GREETING" } }) }), realizer: fallbackRealizer, shadow: true });
+    const output = await runCarsDecisionTurnV2({ conversationId: "friendly-greeting", messageId: "morning", idempotencyKey: "morning", expectedConversationRevision: 0, userMessage: "Günaydın", requestTime: "2026-08-20T06:00:00.000Z" }, composition);
+    expect(output.message).toBe("Günaydın! ☀️ Hoş geldin; araç seçimini birlikte netleştirebiliriz.");
+    expect(output.cards).toEqual([]);
+    expect(output.offer).toBeUndefined();
+  });
+  it("asks explicitly about an uncertain expression and does not create an offer", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const traces: Readonly<Record<string, unknown>>[] = [];
+    const store = new InMemoryV2ConversationStore();
+    const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({ uncertain: result("uncertain", ["VEHICLE_INTENT", "RECOMMENDATION_REQUEST"], { directAnswerRequests: [{ kind: "RECOMMENDATION_REQUEST" }], ambiguities: [{ code: "UNKNOWN_DECISION_PHRASE", sourceSpan: "uçan koltuklu" }] }) }), realizer: fallbackRealizer, shadow: true, smokeObserver: (trace) => traces.push(trace) });
+    const output = await runCarsDecisionTurnV2({ conversationId: "uncertain-expression", messageId: "uncertain", idempotencyKey: "uncertain", expectedConversationRevision: 0, userMessage: "Uçan koltuklu bir araba istiyorum", requestTime: "2026-08-20T06:01:00.000Z" }, composition);
+    expect(output.message).toBe("“uçan koltuklu” derken neyi kastettiğinden emin olamadım. Biraz daha açık anlatır mısın?");
+    expect(output.cards).toEqual([]);
+    expect(output.offer).toBeUndefined();
+    expect(traces.findLast((trace) => trace.phase === "DECISION")).toMatchObject({ action: "ANSWER_DIRECTLY", offerCreated: false });
+  });
+  it("treats recognized accident anxiety as human context instead of an unknown decision phrase", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const traces: Readonly<Record<string, unknown>>[] = [];
+    const composition = createCarsDecisionV2ProductionComposition({
+      store: new InMemoryV2ConversationStore(),
+      interpreter: model({
+        anxiety: result("anxiety", ["VEHICLE_INTENT", "RECOMMENDATION_REQUEST", "SOCIAL_MESSAGE"], {
+          directAnswerRequests: [{ kind: "RECOMMENDATION_REQUEST" }],
+          socialSignal: { kind: "ANXIETY" },
+          ambiguities: [{ code: "UNKNOWN_DECISION_PHRASE", sourceSpan: "kaza yapmaktan korkuyorum" }],
+        }),
+        continue: result("continue", ["QUESTION_ANSWER"]),
+      }),
+      realizer: fallbackRealizer,
+      shadow: true,
+      smokeObserver: (trace) => traces.push(trace),
+    });
+    const output = await runCarsDecisionTurnV2({ conversationId: "accident-anxiety", messageId: "anxiety", idempotencyKey: "anxiety", expectedConversationRevision: 0, userMessage: "Araç almam gerekiyor, işe gidiş geliş için ama kaza yapmaktan korkuyorum.", requestTime: "2026-08-20T06:01:30.000Z" }, composition);
+
+    expect(output.message).toMatch(/kaygını anlıyorum/iu);
+    expect(output.message).not.toMatch(/neyi kastettiğinden emin olamadım/iu);
+    expect(output.offer).toBeUndefined();
+    expect(traces.findLast((trace) => trace.phase === "DECISION")).toMatchObject({ action: "ANSWER_DIRECTLY", materialQuestionCount: 0, offerCreated: false });
+    const continued = await runCarsDecisionTurnV2({ conversationId: "accident-anxiety", messageId: "continue", idempotencyKey: "continue", expectedConversationRevision: 1, userMessage: "Evet, araç seçimine devam edelim.", requestTime: "2026-08-20T06:01:31.000Z" }, composition);
+    expect(continued.message).toMatch(/hangi amaçla|gerçek yaşamda hangi işi/iu);
+    expect(traces.findLast((trace) => trace.phase === "DECISION")).toMatchObject({ action: "ASK_MATERIAL_QUESTION", selectedQuestionKey: "discovery.usageScenario" });
+  });
+  it("uses conversational clarification copy for pronouns and budget shorthand", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const values = {
+      both: result("both", ["QUESTION_ANSWER"], { ambiguities: [{ code: "CONTEXTUAL_REFERENCE", sourceSpan: "ikisi" }] }),
+      "budget-short": result("budget-short", ["BUDGET_STATEMENT"], { ambiguities: [{ code: "MONEY_SHORTHAND", sourceSpan: "2,5 m" }] }),
+    };
+    const composition = createCarsDecisionV2ProductionComposition({ store: new InMemoryV2ConversationStore(), interpreter: model(values), realizer: fallbackRealizer, shadow: true });
+    const both = await runCarsDecisionTurnV2({ conversationId: "human-clarification", messageId: "both", idempotencyKey: "both", expectedConversationRevision: 0, userMessage: "ikisi de olabilir", requestTime: "2026-08-20T06:02:00.000Z" }, composition);
+    expect(both.message).toBe("İki seçeneği de açık tutmak istediğini anlıyorum. Hangi seçenekleri kastettiğini adlarıyla yazar mısın?");
+    const budget = await runCarsDecisionTurnV2({ conversationId: "human-clarification", messageId: "budget-short", idempotencyKey: "budget-short", expectedConversationRevision: 1, userMessage: "2,5 m", requestTime: "2026-08-20T06:03:00.000Z" }, composition);
+    expect(budget.message).toContain("milyon TL’yi mi kastettin");
+  });
+  it("answers positive feedback warmly instead of resetting the conversation tone", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const composition = createCarsDecisionV2ProductionComposition({ store: new InMemoryV2ConversationStore(), interpreter: model({ liked: result("liked", ["POSITIVE_FEEDBACK", "SOCIAL_MESSAGE"], { socialSignal: { kind: "GENERAL" } }) }), realizer: fallbackRealizer, shadow: true });
+    const output = await runCarsDecisionTurnV2({ conversationId: "positive-feedback", messageId: "liked", idempotencyKey: "liked", expectedConversationRevision: 0, userMessage: "Harika! Bu aracı çok beğendim.", requestTime: "2026-08-20T06:04:00.000Z" }, composition);
+    expect(output.message).toBe("Bunu duymak güzel! 😊 İstersen bu aracın ayrıntılı analizine geçebilir veya başka bir seçenekle karşılaştırabiliriz.");
+    expect(output.cards).toEqual([]);
+    expect(output.offer).toBeUndefined();
+  });
+  it("binds a price follow-up to the previously resolved model without restarting discovery", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const store = new InMemoryV2ConversationStore();
+    const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model({
+      ranger: result("ranger", ["MODEL_LOOKUP_REQUEST"], { directAnswerRequests: [{ kind: "MODEL_AVAILABILITY" }], modelReferences: [{ rawText: "Ford Ranger", parsedBrandText: "Ford", parsedModelText: "Ranger", purpose: "LOOKUP_ONLY" }] }),
+      price: result("price", ["QUESTION_ANSWER"], { ambiguities: [{ code: "CONTEXTUAL_REFERENCE", sourceSpan: "fiyatı" }] }),
+    }), realizer: fallbackRealizer, shadow: true });
+    const lookup = await runCarsDecisionTurnV2({ conversationId: "model-price-follow-up", messageId: "ranger", idempotencyKey: "ranger", expectedConversationRevision: 0, userMessage: "Ford Ranger var mı?", requestTime: "2026-08-20T06:05:00.000Z" }, composition);
+    expect(lookup.message).toMatch(/Ford Ranger.*aktif sıfır araç kataloğunda bulunuyor/iu);
+    const price = await runCarsDecisionTurnV2({ conversationId: "model-price-follow-up", messageId: "price", idempotencyKey: "price", expectedConversationRevision: 1, userMessage: "Fiyatı ne kadar?", requestTime: "2026-08-20T06:06:00.000Z" }, composition);
+    expect(price.message).toMatch(/Ford Ranger.*(?:liste fiyat|doğrulanmış güncel)/iu);
+    expect(price.message).not.toMatch(/neyi kastettiğinden emin olamadım/iu);
+    expect(price.options).toEqual([]);
+    expect(price.offer).toBeUndefined();
+  });
+  it("answers a catalog-overview question deterministically even when the provider is unavailable", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const unavailable: StructuredInterpretationModel = { interpret: async () => { throw new Error("PROVIDER_MUST_NOT_BE_CALLED"); } };
+    const composition = createCarsDecisionV2ProductionComposition({ store: new InMemoryV2ConversationStore(), interpreter: unavailable, realizer: fallbackRealizer, shadow: true });
+    const output = await runCarsDecisionTurnV2({ conversationId: "catalog-overview", messageId: "overview", idempotencyKey: "overview", expectedConversationRevision: 0, userMessage: "Sizde ne tür araçlar var?", requestTime: "2026-08-20T06:07:00.000Z" }, composition);
+    expect(output.message).toMatch(/hatchback.*sedan.*SUV\/crossover/iu);
+    expect(output.message).toMatch(/kullanım amacından başlayıp/iu);
+    expect(output.cards).toEqual([]);
+    expect(output.offer).toBeUndefined();
   });
   it("acknowledges first-car excitement and binds a bare daily answer to the open usage question", async () => {
     const traces: Readonly<Record<string, unknown>>[] = []; const store = new InMemoryV2ConversationStore();

@@ -19,6 +19,7 @@ export interface UsageArchitectureProjection {
 
 export interface UsageCargoNeed {
   readonly commercialScenario: CommercialUsageScenario; readonly orientation: UsageOrientation;
+  readonly usageScenario?: { readonly scenario: import("./variantUsageClassification").VariantUsageScenario; readonly decisionEffect: import("./variantUsageClassification").UsageScenarioDecisionEffect };
   readonly architectureRequirement?: {
     readonly allowed?: readonly VehicleUsageArchitecture[]; readonly required?: VehicleUsageArchitecture;
     readonly excluded?: readonly VehicleUsageArchitecture[]; readonly explicitness: "USER_EXPLICIT" | "USER_CONFIRMED" | "INFERRED";
@@ -37,7 +38,8 @@ export type UsageReasonCode =
   | "SEATING_MATCH" | "SEATING_INSUFFICIENT" | "SEATING_UNKNOWN"
   | "REAR_SEAT_NOT_NEEDED_SOFT" | "REAR_SEAT_PRESENCE_NOT_PROVABLE"
   | "URBAN_DELIVERY_ENCLOSED_CARGO_FIT" | "URBAN_DELIVERY_COMPACT_CARGO_PREFERENCE"
-  | "MANEUVERABILITY_NOT_PROVABLE" | "POLICY_CLASS_RANK_ONLY" | "PASSENGER_TRANSPORT_CARRIER_FIT" | "GENERAL_CARGO_ORIENTATION_ONLY";
+  | "MANEUVERABILITY_NOT_PROVABLE" | "POLICY_CLASS_RANK_ONLY" | "PASSENGER_TRANSPORT_CARRIER_FIT" | "GENERAL_CARGO_ORIENTATION_ONLY"
+  | "USAGE_SCENARIO_MEMBERSHIP_MATCH" | "USAGE_SCENARIO_MEMBERSHIP_MISMATCH" | "USAGE_SCENARIO_MEDIUM_FIT";
 export interface UsageSuitabilityCheck {
   readonly id: string; readonly field: string; readonly outcome: SuitabilityOutcome; readonly reasonCode: UsageReasonCode;
   readonly hardRequirement: boolean; readonly authority: UsageFactDecisionAuthority; readonly sourceFactReferences: readonly CatalogFactReference[];

@@ -6,8 +6,10 @@ export const CARS_CONVERSATION_AVAILABILITY = Object.freeze({
 });
 
 export function isPublicCarsConversationEnabled(
-  environment: Pick<NodeJS.ProcessEnv, "NODE_ENV"> = process.env,
+  environment: Partial<Pick<NodeJS.ProcessEnv, "NODE_ENV" | "CARS_CONVERSATION_LOCAL_TESTING">> = process.env,
 ): boolean {
   // Unit and replay suites exercise the engine behind the public maintenance gate.
-  return environment.NODE_ENV === "test";
+  if (environment.NODE_ENV === "test") return true;
+  // Manual browser testing is explicitly opt-in and can never open production.
+  return environment.NODE_ENV === "development" && environment.CARS_CONVERSATION_LOCAL_TESTING === "true";
 }

@@ -34,7 +34,11 @@ function projectOne(variant: CatalogVariantSnapshot, ref: PersistedAuthorizedCan
     && observation?.realizationSafe === true
     && observation.consumerVisibility === "PUBLIC"
     && (observation.priceType === "LIST" || observation.priceType === "CAMPAIGN");
-  const recommendation = PUBLIC_CARD_REASON_TEXT[ref.finalDisposition as keyof typeof PUBLIC_CARD_REASON_TEXT];
+  const recommendation = ref.selectionBasis === "BUDGET_NEAREST_DECISION_PRICE"
+    ? priceAllowed
+      ? "Teknik tercihlerle uyumlu; doğrulanmış liste fiyatı belirtilen bütçeye en yakın seçenekler arasında."
+      : "Teknik tercihlerle uyumlu; kontrollü tahmini bütçe değerlendirmesinde en yakın seçenekler arasında. Fiyatı kartta gösterilmez; güncel fiyatı yetkili satıcıdan doğrulayın."
+    : PUBLIC_CARD_REASON_TEXT[ref.finalDisposition as keyof typeof PUBLIC_CARD_REASON_TEXT];
   if (!recommendation) throw new AuthorizedCardProjectionError("DISPOSITION_NOT_PUBLIC_CARD_ELIGIBLE");
   const caveats = ref.caveatFactIds.map(() => "Bu seçenek ek bir fiyat veya uygunluk açıklaması gerektiriyor.");
   return decisionSafePublicCardSchema.parse({

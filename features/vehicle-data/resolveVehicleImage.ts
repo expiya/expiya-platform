@@ -80,6 +80,11 @@ export function resolveVehicleImage(
     let fallback: VehicleMediaAsset | undefined;
     let fallbackScore = Number.NEGATIVE_INFINITY;
     for (const candidate of candidates) {
+      // A representative image may vary by model, but never by marque or body
+      // architecture. If that boundary cannot be met, a neutral placeholder is
+      // safer than showing a different vehicle as the recommendation image.
+      if (normalize(candidate.brand) !== normalize(identity.brand)
+        || normalize(candidate.bodyStyle) !== normalize(identity.bodyStyle)) continue;
       const score = similarityScore(candidate, identity);
       if (score > fallbackScore || (score === fallbackScore && candidate.id.localeCompare(fallback?.id ?? "", "en") < 0)) {
         fallback = candidate;

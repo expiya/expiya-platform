@@ -3,13 +3,14 @@ import type { ConversationMemory } from "../domain/conversationMemory";
 import type { ActiveConstraintProjection } from "../filter/types";
 import { QUESTION_STAGE_ORDER, type QuestionCandidate, type QuestionStage } from "./types";
 import { projectQuestionStageCompletion, stagePrerequisitesComplete } from "./stageCompletion";
+import type { PersonaLayerSnapshot } from "../layers/types";
 
 const FUEL_LABELS: Readonly<Record<string, string>> = Object.freeze({ GASOLINE: "Benzin", DIESEL: "Dizel", LPG: "LPG", MHEV: "Hafif hibrit", HEV: "Tam hibrit", PHEV: "Şarj edilebilir hibrit", BEV: "Elektrik", HYDROGEN: "Hidrojen" });
 const BODY_LABELS: Readonly<Record<string, string>> = Object.freeze({ Sedan: "Sedan", Hatchback: "Hatchback", SUV: "SUV/crossover", Crossover: "SUV/crossover", Coupe: "Coupe", Convertible: "Üstü açılır", Liftback: "Liftback", "Station Wagon": "Station wagon", Pickup: "Pickup", "Panel Van": "Kapalı kasa ticari", "Chassis Cab": "Şasi kabin", "Passenger Van": "Yolcu vanı", MPV: "MPV" });
 const USAGE_OPTIONS = Object.freeze([
   ["URBAN_DAILY", "Günlük şehir içi"], ["FAMILY", "Aile ve yolcu kullanımı"], ["LONG_DISTANCE", "Uzun yol"],
-  ["URBAN_DELIVERY", "Şehir içi dağıtım"], ["GENERAL_CARGO", "Yük taşıma"], ["ROUGH_ROAD", "Bozuk yol / köy yolu"],
-  ["PASSENGER_TRANSPORT", "Yolcu taşıma"], ["MUD_SNOW", "Çamur veya kar"], ["SERIOUS_OFF_ROAD", "Ciddi arazi"], ["MIXED_PASSENGER", "Karma kullanım"],
+  ["URBAN_DELIVERY", "Şehir içi dağıtım"], ["GENERAL_CARGO", "Yük taşıma"], ["ROUGH_ROAD", "Kırsalda kullanım"],
+  ["PASSENGER_TRANSPORT", "Yolcu taşıma"], ["MUD_SNOW", "Çamur veya kar"], ["SERIOUS_OFF_ROAD", "Ciddi arazi"],
 ] as const);
 
 function activeFields(constraints: ActiveConstraintProjection): Set<string> {
@@ -40,6 +41,20 @@ function label(field: string, value: string): string {
   return value;
 }
 
+const USAGE_DESCRIPTIONS: Readonly<Record<string, string>> = Object.freeze({
+  URBAN_DAILY: "🏙️ Kısa mesafe, park kolaylığı ve günlük pratiklik.", FAMILY: "👨‍👩‍👧 Yolcu, arka koltuk ve bagaj ihtiyacı.", LONG_DISTANCE: "🛣️ Uzun sürüşlerde konfor ve kullanışlılık.",
+  URBAN_DELIVERY: "📦 Şehir içinde mal veya paket dağıtımı.", GENERAL_CARGO: "🧰 Yük alanı ve ticari taşıma önceliği.", PASSENGER_TRANSPORT: "👥 Birden fazla yolcuyu düzenli taşıma.",
+  ROUGH_ROAD: "🌾 Asfalt dışı kırsal ve bozuk yollar; ağır arazi değildir.", MUD_SNOW: "🌨️ Kaygan zeminlerde yükseltilmiş gövde avantajı.", SERIOUS_OFF_ROAD: "🏔️ Yalnız dört çeker arazi odaklı seçenekler.",
+});
+const VALUE_DESCRIPTIONS: Readonly<Record<string, string>> = Object.freeze({
+  Sedan: "Ayrı bagajlı, klasik otomobil gövdesi.", Hatchback: "Kısa gövdeli, bagaj kapağı kabinle birleşik.", SUV: "Yüksek oturma ve daha iri gövde.", Pickup: "Açık yük kasalı, yolcu kabinli araç.",
+  "Panel Van": "Kapalı ve geniş yük bölmeli ticari araç.", "Chassis Cab": "🚚 Arkasına kasa veya özel üstyapı takılan çıplak şasi.", "Passenger Van": "Çok yolcu taşımaya göre düzenlenmiş van.", MPV: "Geniş ve esnek yolcu kabinli aile aracı.",
+  GASOLINE: "⛽ Sessiz ve tanıdık kullanım; kısa/karma sürüşe uygun.", DIESEL: "🛣️ Düzenli uzun yol ve yüksek kilometrede düşünülebilir.", BEV: "🔌 Ev veya rota şarjı uygunsa sessiz, tamamen elektrikli kullanım.", HEV: "♻️ Prize takmadan şehir içi dur-kalkta elektrik desteği.", MHEV: "Motoru destekleyen hafif elektrik sistemi; elektrikli sürüş sınırlıdır.", PHEV: "🔋 Şarj edilebilir; kısa mesafeyi elektrikle yapabilir.",
+  AUTOMATIC: "Vitesi araç değiştirir; yoğun trafikte daha rahattır.", MANUAL: "Vites ve debriyajı sürücü yönetir.", FWD: "Güç ön tekerleklere gider; günlük kullanımda yaygındır.", RWD: "Güç arka tekerleklere gider.", AWD: "Güç dört tekerleğe aktarılabilir; tutunmaya yardımcı olur.",
+});
+const PERSONA_DESCRIPTIONS: Readonly<Record<string, string>> = Object.freeze({ DESIGN: "tasarım", DRIVING_ENGAGEMENT: "sürüş hissi", COMFORT: "konfor", PRACTICALITY: "pratiklik", TECHNOLOGY: "teknoloji", PRESTIGE: "prestij", VALUE: "fiyat/değer dengesi", ADVENTURE: "macera", FAMILY: "aile kullanımı", URBAN: "şehir kullanımı", COMMERCIAL: "ticari kullanım", SUSTAINABILITY: "sürdürülebilirlik", MINIMALISM: "sadelik" });
+function description(field: string, value: string): string | undefined { return VALUE_DESCRIPTIONS[value] ?? (field === "seats" ? "Düzenli taşıyacağın kişi sayısını belirtir." : undefined); }
+
 const previousStages = (stage: QuestionStage): readonly QuestionStage[] => Object.freeze(QUESTION_STAGE_ORDER.slice(0, QUESTION_STAGE_ORDER.indexOf(stage)));
 
 export function generateMaterialQuestionCandidates(input: {
@@ -48,6 +63,7 @@ export function generateMaterialQuestionCandidates(input: {
   readonly memory: ConversationMemory;
   readonly constraints: ActiveConstraintProjection;
   readonly comparisonScope: boolean;
+  readonly personaLayer?: PersonaLayerSnapshot;
 }): { readonly unansweredDecisionFields: readonly string[]; readonly questionCandidates: readonly QuestionCandidate[]; readonly stageCompletion: readonly import("./types").QuestionStageCompletion[] } {
   const candidateSet = new Set(input.candidateIds);
   const variants = input.snapshot.variants.filter((variant) => candidateSet.has(variant.id));
@@ -96,7 +112,7 @@ export function generateMaterialQuestionCandidates(input: {
     candidates.push(makeCandidate({
       stage: "USAGE_CONTEXT", materiality: 3, informationGain: 1, conversationalRelevance: 3,
       reasonCodes: Object.freeze(["USAGE_CONTEXT_REQUIRED_BEFORE_TECHNICAL_DISCOVERY"]), candidateReductionValue: 0, compatibleCandidateIds: candidateIds,
-      question: Object.freeze({ id: `v2q.usageScenario.${input.memory.turn + 1}`, stableSemanticKey: "discovery.usageScenario", field: "usageScenario", promptIntent: "CLARIFY_REQUIREMENT", options: Object.freeze(USAGE_OPTIONS.map(([value, userFacingLabel]) => Object.freeze({ id: `v2q.usage.${value.toLocaleLowerCase("tr-TR")}`, semanticValue: value, userFacingLabel, provenance: Object.freeze({ source: "CURRENT_CANDIDATE_POOL" as const, candidatePoolFingerprint: input.memory.decisionFingerprint, supportingCandidateIds: candidateIds, authorityReference: input.snapshot.authority.catalogFingerprint }) }))), answerCapabilities: Object.freeze(["ANSWER", "SKIP", "UNKNOWN", "NOT_IMPORTANT"] as const), materialityReason: "Önce aracın gerçek yaşamda hangi işi yapacağını belirler." }),
+      question: Object.freeze({ id: `v2q.usageScenario.${input.memory.turn + 1}`, stableSemanticKey: "discovery.usageScenario", field: "usageScenario", promptIntent: "CLARIFY_REQUIREMENT", options: Object.freeze(USAGE_OPTIONS.map(([value, userFacingLabel]) => Object.freeze({ id: `v2q.usage.${value.toLocaleLowerCase("tr-TR")}`, semanticValue: value, userFacingLabel, userFacingDescription: USAGE_DESCRIPTIONS[value], provenance: Object.freeze({ source: "CURRENT_CANDIDATE_POOL" as const, candidatePoolFingerprint: input.memory.decisionFingerprint, supportingCandidateIds: candidateIds, authorityReference: input.snapshot.authority.catalogFingerprint }) }))), answerCapabilities: Object.freeze(["ANSWER", "SKIP", "UNKNOWN", "NOT_IMPORTANT"] as const), materialityReason: "Önce aracın gerçek yaşamda hangi işi yapacağını belirler." }),
     }));
   }
 
@@ -135,6 +151,7 @@ export function generateMaterialQuestionCandidates(input: {
       id: `v2q.${field}.${value.toLocaleLowerCase("tr-TR").replace(/[^a-z0-9]+/gu, "-")}`,
       semanticValue: value,
       userFacingLabel: label(field, value),
+      ...(description(field, value) ? { userFacingDescription: description(field, value) } : {}),
       provenance: Object.freeze({ source: "CURRENT_CANDIDATE_POOL" as const, candidatePoolFingerprint: input.memory.decisionFingerprint, supportingCandidateIds: Object.freeze(ids.sort()), authorityReference: input.snapshot.authority.catalogFingerprint }),
     }));
     const largest = sorted[0]?.[1].length ?? variants.length;
@@ -157,6 +174,47 @@ export function generateMaterialQuestionCandidates(input: {
       reasonCodes: Object.freeze([input.candidateIds.length <= 10 ? "BUDGET_MATERIAL_AFTER_NARROWING" : "BUDGET_DEFERRED_DURING_DISCOVERY"]),
       candidateReductionValue: input.candidateIds.length <= 10 ? 3 : 1, compatibleCandidateIds: candidateIds,
     }));
+  }
+
+  if (candidates.length === 0 && variants.length > 3) {
+    for (const field of ["bodyStyle", "fuelType"] as const) {
+      const selected = activeConstraintValue(input.constraints, field);
+      if (!Array.isArray(selected) || selected.length < 2) continue;
+      const canonicalValues = [...new Set(selected.filter((value): value is string => typeof value === "string")
+        .map((value) => field === "bodyStyle" && value === "Crossover" ? "SUV" : value))];
+      const groups = canonicalValues.map((value) => [value, variants.filter((variant) => valueFor(variant, field) === value).map((variant) => variant.id)] as const)
+        .filter((entry) => entry[1].length > 0);
+      if (groups.length < 2) continue;
+      unanswered.push(field);
+      candidates.push(makeCandidate({
+        question: Object.freeze({ id: `v2q.refinement.${field}.${input.memory.turn + 1}`, stableSemanticKey: `refinement.${field}`, field, promptIntent: "DISCRIMINATE_CANDIDATES", options: Object.freeze(groups.map(([value, ids]) => Object.freeze({ id: `v2q.refinement.${field}.${value.toLocaleLowerCase("tr-TR").replace(/[^a-z0-9]+/gu, "-")}`, semanticValue: value, userFacingLabel: label(field, value), provenance: Object.freeze({ source: "CURRENT_CANDIDATE_POOL" as const, candidatePoolFingerprint: input.memory.decisionFingerprint, supportingCandidateIds: Object.freeze(ids.sort()), authorityReference: input.snapshot.authority.catalogFingerprint }) }))), selectionMode: "SINGLE", minimumSelections: 1, maximumSelections: 1, answerCapabilities: Object.freeze(["ANSWER", "SKIP", "UNKNOWN", "NOT_IMPORTANT"] as const), materialityReason: "Birden fazla açık tercihten hangisinin adayları üçe indirmek için öncelikli olacağını belirler." }),
+        stage: "SOFT_DIFFERENTIATION", materiality: 3, informationGain: 1, conversationalRelevance: 3,
+        reasonCodes: Object.freeze(["MULTI_SELECTION_REFINEMENT_REQUIRED_BEFORE_OFFER"]), candidateReductionValue: 4, compatibleCandidateIds: candidateIds,
+      }));
+      break;
+    }
+  }
+
+  if (candidates.length === 0 && variants.length > 3) {
+    const brandGroups = new Map<string, string[]>();
+    for (const variant of variants) brandGroups.set(variant.brand, [...(brandGroups.get(variant.brand) ?? []), variant.id]);
+    const identityGroups = brandGroups.size > 1
+      ? [...brandGroups.entries()]
+      : [...new Map(variants.map((variant) => [`${variant.brand} ${variant.model}`, variants.filter((candidate) => candidate.brand === variant.brand && candidate.model === variant.model).map((candidate) => candidate.id)])).entries()];
+    const sorted = identityGroups.sort((left, right) => right[1].length - left[1].length || left[0].localeCompare(right[0], "tr")).slice(0, 5);
+    if (sorted.length > 1) {
+      unanswered.push("catalogIdentity");
+      candidates.push(makeCandidate({
+        question: Object.freeze({ id: `v2q.refinement.catalog-identity.${input.memory.turn + 1}`, stableSemanticKey: "refinement.catalogIdentity", field: "catalogIdentity", promptIntent: "DISCRIMINATE_CANDIDATES", options: Object.freeze(sorted.map(([value, ids]) => {
+          const traitCounts = new Map<string, number>();
+          for (const signal of input.personaLayer?.signals ?? []) if (ids.includes(signal.exactVariantId)) traitCounts.set(signal.trait, (traitCounts.get(signal.trait) ?? 0) + signal.matchStrength);
+          const traits = [...traitCounts.entries()].sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0])).slice(0, 2).map(([trait]) => PERSONA_DESCRIPTIONS[trait]).filter(Boolean);
+          return Object.freeze({ id: `v2q.refinement.catalog-identity.${value.toLocaleLowerCase("tr-TR").replace(/[^a-z0-9]+/gu, "-")}`, semanticValue: value, userFacingLabel: value, ...(traits.length ? { userFacingDescription: `✨ Bu adaylarda ${traits.join(" ve ")} yönü öne çıkıyor.` } : { userFacingDescription: "Bu markanın mevcut teknik adaylarını birlikte değerlendirebiliriz." }), provenance: Object.freeze({ source: "CURRENT_CANDIDATE_POOL" as const, candidatePoolFingerprint: input.memory.decisionFingerprint, supportingCandidateIds: Object.freeze(ids.sort()), authorityReference: input.snapshot.authority.catalogFingerprint }) });
+        })), selectionMode: "SINGLE", minimumSelections: 1, maximumSelections: 1, answerCapabilities: Object.freeze(["ANSWER", "SKIP", "UNKNOWN", "NOT_IMPORTANT"] as const), materialityReason: "Fiyat kullanılmadığında eşit uygunluktaki adayları kullanıcının marka veya model önceliğiyle ayırır." }),
+        stage: "SOFT_DIFFERENTIATION", materiality: 2, informationGain: 1, conversationalRelevance: 2,
+        reasonCodes: Object.freeze(["CATALOG_IDENTITY_REFINEMENT_REQUIRED_BEFORE_OFFER"]), candidateReductionValue: 3, compatibleCandidateIds: candidateIds,
+      }));
+    }
   }
 
   const provisionalCompletion = projectQuestionStageCompletion({ memory: input.memory, activeFields: answered, candidates, comparisonScope: input.comparisonScope });

@@ -29,6 +29,14 @@ describe("decision-safe authorized card projection", () => {
     expect(card!.verifiedPublicPrice?.amountTry).toBe(f.publicVariant.activeNewPrice?.amountTry);
   });
 
+  it("states when a verified public price was used for the budget-nearest shortlist", async () => {
+    const f = await fixture();
+    const offer = { ...f.offer, candidateRefs: [{ ...f.offer.candidateRefs[0]!, selectionBasis: "BUDGET_NEAREST_DECISION_PRICE" as const }] } as PersistedGovernedOffer;
+    const [card] = projectAuthorizedPublicCards({ offer, conversationId: "conversation", decisionFingerprint: "decision", snapshot: f.snapshot });
+    expect(card?.decisionSummary.recommendation).toContain("bütçeye en yakın seçenekler arasında");
+    expect(card?.decisionSummary.recommendation).not.toContain("bütçe filtre olarak uygulanmadı");
+  });
+
   it("accepts a rights-approved media asset from a catalog-independent media release path", async () => {
     const f = await fixture();
     const variant = f.snapshot.variantById.get("29a16738-dd92-54cb-9e27-9e0ce8724a57");
@@ -57,10 +65,11 @@ describe("decision-safe authorized card projection", () => {
 
   it("never discloses internal estimate", async () => {
     const f = await fixture();
-    const offer = { ...f.offer, candidateRefs: [f.ref(f.internalVariant, "APPROXIMATE_BUDGET_LANGUAGE_ONLY")] } as PersistedGovernedOffer;
+    const offer = { ...f.offer, candidateRefs: [{ ...f.ref(f.internalVariant, "APPROXIMATE_BUDGET_LANGUAGE_ONLY"), selectionBasis: "BUDGET_NEAREST_DECISION_PRICE" }] } as PersistedGovernedOffer;
     const [card] = projectAuthorizedPublicCards({ offer, conversationId: "conversation", decisionFingerprint: "decision", snapshot: f.snapshot });
     expect(card!.verifiedPublicPrice).toBeUndefined();
     expect(JSON.stringify(card)).not.toContain(String(f.internalVariant.activeNewPrice?.amountTry));
+    expect(card?.decisionSummary.recommendation).toContain("Fiyatı kartta gösterilmez");
   });
 
   it("preserves authorization order, caps cards and rejects non-revealed lifecycle", async () => {

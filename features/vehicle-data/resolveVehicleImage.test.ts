@@ -56,8 +56,14 @@ describe("resolveVehicleImage", () => {
   });
 
   it("does not cross body styles or model-year applicability", () => {
-    expect(resolveVehicleImage(identity, [{ ...base, bodyStyle: "Hatchback" }]).status).toBe("APPROXIMATE");
+    expect(resolveVehicleImage(identity, [{ ...base, bodyStyle: "Hatchback" }]).status).toBe("PLACEHOLDER");
     expect(resolveVehicleImage(identity, [{ ...base, modelYearTo: 2025 }]).status).toBe("APPROXIMATE");
+  });
+
+  it("never falls back to a different brand even when body style matches", () => {
+    expect(resolveVehicleImage(identity, [{ ...base, brand: "Porsche", model: "Taycan" }])).toEqual({
+      path: "/cars/production-placeholder.svg", status: "PLACEHOLDER",
+    });
   });
 
   it("selects the closest publishable same-brand image and exposes what it represents", () => {

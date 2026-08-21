@@ -177,7 +177,7 @@ function reduceOffer(memory: ConversationMemory, event: OfferLifecycleEvent): Pi
 }
 
 function invalidateOfferForDecisionMutation(currentOffer: CurrentOfferReference | undefined): CurrentOfferReference | undefined {
-  if (!currentOffer || ["REVEALED", "EXPIRED", "REVOKED"].includes(currentOffer.lifecycleState)) return currentOffer;
+  if (!currentOffer || ["EXPIRED", "REVOKED"].includes(currentOffer.lifecycleState)) return currentOffer;
   return { ...currentOffer, lifecycleState: "REVOKED", revealable: false };
 }
 

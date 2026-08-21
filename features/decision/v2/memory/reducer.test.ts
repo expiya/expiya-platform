@@ -184,6 +184,25 @@ describe("V2 event-sourced conversation memory", () => {
     expect(memory.currentOffer).toMatchObject({ lifecycleState: "REVOKED", revealable: false });
   });
 
+  it("revokes a revealed offer when a later decision mutation changes the shortlist", () => {
+    const initial = replay([]);
+    const offer: GovernedOffer = {
+      offerId: "revealed-offer", mode: "FAMILY_DIVERSE",
+      candidates: [{ exactVariantId: "variant-1", modelFamilyId: "family-1", authorizationId: "auth-1", eligibility: "FULLY_ELIGIBLE" }],
+      explicitTrimComparisonRequested: false, explicitPriceUnverifiedConsent: false,
+      catalogFingerprint: catalogAuthority.catalogFingerprint, decisionFingerprint: initial.decisionFingerprint,
+      expiresAt: "2026-08-17T10:00:00.000Z", lifecycleState: "CREATED",
+    };
+    const memory = replay([
+      { ...base("offer-created", 1, 0), eventType: "OFFER_LIFECYCLE", offerId: offer.offerId, lifecycleState: "CREATED", offer },
+      { ...base("offer-consented", 2, 0), eventType: "OFFER_LIFECYCLE", offerId: offer.offerId, lifecycleState: "CONSENTED" },
+      { ...base("offer-revealed", 3, 0), eventType: "OFFER_LIFECYCLE", offerId: offer.offerId, lifecycleState: "REVEALED" },
+      hardCeilingEvent("new-budget", 4, 0, 3_500_000),
+    ]);
+    expect(memory.currentOffer).toMatchObject({ lifecycleState: "REVOKED", revealable: false });
+    expect(memory.revealedCandidateIds).toEqual(["variant-1"]);
+  });
+
   it("does not activate persona from social interaction", () => {
     const memory = replay([{ ...base("social", 1, 0), eventType: "SOCIAL_INTERACTION", interaction: "SHORT_SOCIAL" }]);
     expect(memory.persona.activated).toBe(false);

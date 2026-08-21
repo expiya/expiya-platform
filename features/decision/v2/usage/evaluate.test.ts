@@ -20,6 +20,13 @@ function evaluate(variantSnapshot: CatalogVariantSnapshot, need: Partial<UsageCa
 }
 
 describe("V2 usage/cargo suitability", () => {
+  it("applies controlled usage membership as hard or medium according to policy", () => {
+    const sedan = makeVariant("Sedan", { seats: sourced(5) }, "PASSENGER");
+    expect(evaluate(sedan, { usageScenario: { scenario: "FAMILY", decisionEffect: "HARD_MEMBERSHIP" } }).overallOutcome).toBe("PASS");
+    expect(evaluate(sedan, { usageScenario: { scenario: "GENERAL_CARGO", decisionEffect: "HARD_MEMBERSHIP" } })).toMatchObject({ overallOutcome: "FAIL", hardFailures: ["usage-scenario:GENERAL_CARGO"] });
+    const suv = makeVariant("SUV", { seats: sourced(5) }, "PASSENGER");
+    expect(evaluate(suv, { usageScenario: { scenario: "ROUGH_ROAD", decisionEffect: "MEDIUM_RANK" } })).toMatchObject({ overallOutcome: "PASS", rankingSignals: [expect.objectContaining({ reasonCode: "USAGE_SCENARIO_MEDIUM_FIT" })] });
+  });
   it("evaluates exact cargo minimum as pass, fail, or unknown", () => {
     const requirement = { minimumCargoLitres: { minimumLitres: 4_000, decisionEffect: "HARD_FILTER", authority: "USER_EXPLICIT" } } as const;
     expect(evaluate(makeVariant("Panel Van", { cargoVolumeLitres: sourced(4_500) }), requirement)).toMatchObject({ overallOutcome: "PASS", checks: [expect.objectContaining({ reasonCode: "CARGO_VOLUME_MATCH" })] });
@@ -88,6 +95,13 @@ describe("V2 usage/cargo suitability", () => {
     });
     expect(result).toMatchObject({ overallOutcome: "FAIL", checks: [expect.objectContaining({ reasonCode: "ARCHITECTURE_MISMATCH" })] });
     expect(result.rankingSignals.some((signal) => signal.reasonCode === "URBAN_DELIVERY_ENCLOSED_CARGO_FIT")).toBe(false);
+  });
+
+  it("allows governed cargo architectures and hard-fails passenger bodies for a cargo-purpose choice", () => {
+    const need = { commercialScenario: "GENERAL_CARGO", orientation: "CARGO_PRIORITY", architectureRequirement: { allowed: ["ENCLOSED_CARGO", "OPEN_CARGO", "CAB_CHASSIS"], explicitness: "USER_EXPLICIT" } } as const;
+    expect(evaluate(makeVariant("Panel Van", {}, "LIGHT_COMMERCIAL"), need).overallOutcome).toBe("PASS");
+    expect(evaluate(makeVariant("Pickup", {}, "LIGHT_COMMERCIAL"), need).overallOutcome).toBe("PASS");
+    expect(evaluate(makeVariant("Sedan", {}, "PASSENGER"), need)).toMatchObject({ overallOutcome: "FAIL", hardFailures: ["architecture"] });
   });
 
   it("fails explicit cargo architecture for passenger bodies and separates panel-van technical unknowns", () => {

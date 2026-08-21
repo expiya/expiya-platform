@@ -5,7 +5,7 @@ import { describe, expect, it } from "vitest";
 
 import { canonicalJson } from "./canonical";
 import { release } from "./content";
-import { planAutomotiveKnowledgeResponse } from "./planner";
+import { planAutomotiveKnowledgeResponse, planSupportiveAutomotiveKnowledgeResponse } from "./planner";
 import { knowledgeReleaseSchema } from "./schema";
 
 describe("Automotive Knowledge Layer v0.1", () => {
@@ -50,6 +50,16 @@ describe("Automotive Knowledge Layer v0.1", () => {
     expect(planAutomotiveKnowledgeResponse("Benim için uzun menzilli elektrikli araç bul")).toBeUndefined();
     expect(planAutomotiveKnowledgeResponse("İkinci el ekspertiz yeterli mi?")?.intent).toBe("USED_VEHICLE_DUE_DILIGENCE");
     expect(planAutomotiveKnowledgeResponse("O zaman ikinci el bir aile aracı seçelim")).toBeUndefined();
+  });
+
+  it("provides decision-neutral support for accident anxiety and financing concerns", () => {
+    const anxiety = planSupportiveAutomotiveKnowledgeResponse("Araç almam gerekiyor ama kaza yapmaktan korkuyorum");
+    expect(anxiety).toMatchObject({ intent: "SAFE_AND_ADVANCED_DRIVING", decisionImpact: "NONE", supportMode: "CONVERSATION_SUPPORT_ONLY" });
+    expect(anxiety?.message).toMatch(/kaygı anlaşılır|riski tamamen ortadan kaldırmaz|birlikte seçmeye devam/iu);
+    expect(planSupportiveAutomotiveKnowledgeResponse("Ehliyetimi yeni aldım, araç kullanmak konusunda kendime güvenmiyorum")).toMatchObject({ intent: "SAFE_AND_ADVANCED_DRIVING", decisionImpact: "NONE" });
+    const financing = planSupportiveAutomotiveKnowledgeResponse("Araç almak istiyorum ama param yok");
+    expect(financing).toMatchObject({ intent: "FINANCING_AND_CREDIT", decisionImpact: "NONE", supportMode: "CONVERSATION_SUPPORT_ONLY" });
+    expect(financing?.message).toMatch(/kredi onayı|toplam geri ödeme|birlikte değerlendirebiliriz/iu);
   });
 
   it("requires complete provenance for every published statistic", () => {

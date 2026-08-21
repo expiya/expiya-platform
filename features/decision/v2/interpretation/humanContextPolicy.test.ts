@@ -4,6 +4,7 @@ import { detectHumanContext } from "./humanContextPolicy";
 describe("human context and conversational etiquette policy", () => {
   it.each([
     ["İlk arabam olacak, çok heyecanlıyım.", "FIRST_CAR"],
+    ["Ehliyetimi yeni aldım, araç kullanırken kendime güvenmiyorum.", "FIRST_CAR"],
     ["Arabayı kızım için alıyorum.", "BUYING_FOR_OTHER"],
     ["Acil araba almam gerekiyor.", "URGENCY"],
     ["Hiç anlamıyorum, nereden başlayacağımı bilmiyorum.", "UNCERTAINTY"],

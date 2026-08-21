@@ -151,6 +151,28 @@ describe("POST /api/cars/conversation", () => {
     expect(mocks.runCarsConversationTurn).toHaveBeenCalledWith(body);
   });
 
+  it("adds decision-neutral knowledge support without swallowing a vehicle-selection turn", async () => {
+    mocks.runCarsConversationTurn.mockResolvedValue({ kind: "QUESTION", message: "Aracı en çok hangi amaçla kullanacaksın?" });
+    const body = {
+      conversationId: "supportive-selection",
+      messages: [{ id: "message-1", role: "user", content: "Araç almam gerekiyor; işe gidiş geliş için ama kaza yapmaktan korkuyorum." }],
+    };
+    const response = await POST(new Request("http://localhost/api/cars/conversation", {
+      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(body),
+    }));
+    const payload = await response.json();
+
+    expect(response.status).toBe(200);
+    expect(payload).toMatchObject({
+      kind: "QUESTION",
+      knowledgeSupport: { intent: "SAFE_AND_ADVANCED_DRIVING", decisionImpact: "NONE", supportMode: "CONVERSATION_SUPPORT_ONLY" },
+    });
+    expect(payload.message).toMatch(/Bu kaygı anlaşılır[\s\S]*Araç seçimine devam edelim mi/iu);
+    expect(payload.message).not.toMatch(/Aracı en çok hangi amaçla/iu);
+    expect(payload.options).toEqual([]);
+    expect(mocks.runCarsConversationTurn).toHaveBeenCalledWith(body);
+  });
+
   it("accepts and forwards a structured discriminator choice", async () => {
     mocks.runCarsConversationTurn.mockResolvedValue({ kind: "QUESTION", message: "Decision ready." });
     const body = {

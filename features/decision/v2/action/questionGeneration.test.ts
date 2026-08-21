@@ -6,7 +6,7 @@ import type { ConversationMemory } from "../domain/conversationMemory";
 
 const memory = (overrides: Partial<ConversationMemory> = {}): ConversationMemory => ({ conversationId: "c", turn: 1, state: "UNDERSTANDING_NEEDS", vehicleIntentEstablished: true, events: [], budget: { financeFlexibility: "NONE", unresolvedFinancedCeiling: false, budgetImportance: "UNKNOWN", budgetUnknown: true, budgetExcluded: false }, modelReferences: [], revealedCandidateIds: [], socialState: { consecutiveSocialTurns: 0 }, offTopicState: { consecutiveOffTopicTurns: 0, boundaryStated: false }, abuseState: { level: "NONE", strikeCount: 0 }, directAnswerHistory: [], materialQuestionHistory: [], persona: { activated: false, requestedTraits: [] }, catalogAuthority: { market: "TR", releaseVersion: "1", catalogFingerprint: "catalog", manifestFingerprint: "manifest", activatedAt: "2026-08-19T00:00:00.000Z" }, memoryFingerprint: "memory", decisionFingerprint: "decision", ...overrides });
 const fact = <T,>(value: T) => ({ value, confidence: "HIGH" as const, provenance: [{ sourceId: "s", sourceUrl: "https://example.com", accessedAt: "2026-08-19T00:00:00.000Z", confidence: "HIGH" as const, extractionMethod: "MANUAL" as const, limitations: [] }] });
-const variant = (id: string, body: string, fuel: "GASOLINE" | "HEV") => ({ id, exactVariantId: id, modelFamilyId: `f-${id}`, canonicalBrand: "Brand", canonicalModel: `Model ${id}`, canonicalTrim: "Trim", market: "TR", lifecycleStatus: "ON_SALE", decisionFacts: { bodyStyle: fact(body), modelYear: fact(2026), powertrain: { fuelType: fact(fuel), powerKw: fact(100), transmission: fact(id === "v1" ? "Automatic" : "Manual") }, dimensions: {}, efficiency: {}, safetyFeatureCodes: [] }, priceObservations: [] });
+const variant = (id: string, body: string, fuel: "GASOLINE" | "HEV", brand = "Brand", model = `Model ${id}`) => ({ id, exactVariantId: id, modelFamilyId: `f-${id}`, brand, model, trim: "Trim", market: "TR", lifecycleStatus: "ON_SALE", decisionFacts: { bodyStyle: fact(body), modelYear: fact(2026), powertrain: { fuelType: fact(fuel), powerKw: fact(100), transmission: fact(id === "v1" ? "Automatic" : "Manual") }, dimensions: {}, efficiency: {}, safetyFeatureCodes: [] }, priceObservations: [] });
 
 describe("production material-question generation", () => {
   it("derives stable consumer-facing discriminators only from the current pool", () => {
@@ -84,5 +84,39 @@ describe("production material-question generation", () => {
     const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [variant("v1", "Sedan", "GASOLINE"), variant("v2", "Hatchback", "HEV")] } as unknown as CatalogSnapshot;
     const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: ["v1", "v2"], memory: memory(), constraints: { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "URBAN_DAILY" }, { fieldId: "bodyStyle", normalizedValue: { operator: "ONE_OF", value: ["Sedan", "Hatchback"] } }], supersessionTrace: [], diagnostics: [] } as never, comparisonScope: false });
     expect(generated.questionCandidates.find((candidate) => candidate.eligible)?.stage).toBe("ENERGY_FIT");
+  });
+
+  it("refines an open multi-selection instead of creating an arbitrary top-three offer", () => {
+    const variants = ["v1", "v2", "v3", "v4"].map((id, index) => variant(id, "Sedan", index % 2 ? "HEV" : "GASOLINE"));
+    const snapshot = { authority: { catalogFingerprint: "catalog" }, variants } as unknown as CatalogSnapshot;
+    const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: variants.map((item) => item.id), memory: memory({ budget: { financeFlexibility: "NONE", unresolvedFinancedCeiling: false, budgetImportance: "NONE", budgetUnknown: false, budgetExcluded: true } }), constraints: { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "LONG_DISTANCE" }, { fieldId: "bodyStyle", normalizedValue: { operator: "EQUALS", value: "Sedan" } }, { fieldId: "fuelType", normalizedValue: { operator: "ONE_OF", value: ["GASOLINE", "HEV"] } }, { fieldId: "transmission", normalizedValue: { operator: "ONE_OF", value: ["AUTOMATIC", "MANUAL"] } }], supersessionTrace: [], diagnostics: [] } as never, comparisonScope: false });
+    const refinement = generated.questionCandidates.find((candidate) => candidate.question.stableSemanticKey === "refinement.fuelType");
+    expect(refinement?.question).toMatchObject({ selectionMode: "SINGLE", maximumSelections: 1 });
+    expect(refinement?.question.options.map((option) => option.userFacingLabel)).toEqual(["Benzin", "Tam hibrit"]);
+    expect(assessRecommendationReadiness({ memory: memory(), candidateAvailability: "READY", candidateCount: 4, comparisonScope: false, ...generated })).toBe("NEEDS_MATERIAL_DISCRIMINATOR");
+  });
+
+  it("never marks more than three candidates ready merely because questions are exhausted", () => {
+    expect(assessRecommendationReadiness({ memory: memory(), candidateAvailability: "READY", candidateCount: 4, comparisonScope: false, unansweredDecisionFields: [], questionCandidates: [] })).toBe("NEEDS_MATERIAL_DISCRIMINATOR");
+  });
+
+  it("asks for a brand preference when price is excluded and otherwise equal candidates still exceed three", () => {
+    const variants = [
+      variant("v1", "Sedan", "GASOLINE", "BYD", "Seal"),
+      variant("v2", "Sedan", "GASOLINE", "BYD", "Han"),
+      variant("v3", "Sedan", "GASOLINE", "Renault", "Megane"),
+      variant("v4", "Sedan", "GASOLINE", "Toyota", "Corolla"),
+    ];
+    const snapshot = { authority: { catalogFingerprint: "catalog" }, variants } as unknown as CatalogSnapshot;
+    const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: variants.map((item) => item.id), memory: memory({ budget: { financeFlexibility: "NONE", unresolvedFinancedCeiling: false, budgetImportance: "NONE", budgetUnknown: false, budgetExcluded: true }, materialQuestionHistory: [
+      { questionId: "usage", stableSemanticKey: "discovery.usageScenario", field: "usageScenario", askedOnTurn: 1, answerStatus: "ANSWERED", answeredOnTurn: 2 },
+      { questionId: "body", stableSemanticKey: "discovery.bodyStyle", field: "bodyStyle", askedOnTurn: 2, answerStatus: "ANSWERED", answeredOnTurn: 3 },
+      { questionId: "fuel", stableSemanticKey: "discovery.fuelType", field: "fuelType", askedOnTurn: 3, answerStatus: "ANSWERED", answeredOnTurn: 4 },
+      { questionId: "transmission", stableSemanticKey: "discovery.transmission", field: "transmission", askedOnTurn: 4, answerStatus: "ANSWERED", answeredOnTurn: 5 },
+      { questionId: "budget", stableSemanticKey: "discovery.budget", field: "budget", askedOnTurn: 5, answerStatus: "ANSWERED", answeredOnTurn: 6 },
+    ] }), constraints: { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "LONG_DISTANCE" }, { fieldId: "bodyStyle", normalizedValue: { operator: "EQUALS", value: "Sedan" } }, { fieldId: "fuelType", normalizedValue: { operator: "EQUALS", value: "GASOLINE" } }, { fieldId: "transmission", normalizedValue: { operator: "EQUALS", value: "AUTOMATIC" } }], supersessionTrace: [], diagnostics: [] } as never, comparisonScope: false });
+    const refinement = generated.questionCandidates.find((candidate) => candidate.question.stableSemanticKey === "refinement.catalogIdentity");
+    expect(refinement?.question.options.map((option) => option.userFacingLabel)).toEqual(["BYD", "Renault", "Toyota"]);
+    expect(refinement?.eligible).toBe(true);
   });
 });

@@ -54,8 +54,9 @@ export interface CarsConversationMessage {
   readonly recommendationTermsAcceptance?: RecommendationTermsAcceptance;
   readonly recommendations?: readonly RecommendedCar[];
   readonly v2Cards?: readonly DecisionSafePublicCard[];
-  readonly v2Options?: readonly { readonly id: string; readonly label: string }[];
+  readonly v2Options?: readonly { readonly id: string; readonly label: string; readonly description?: string }[];
   readonly v2OptionSelection?: { readonly mode: "SINGLE" | "MULTIPLE"; readonly minimumSelections: number; readonly maximumSelections: number };
+  readonly v2CandidateSummary?: { readonly count: number; readonly basis: "ACTIVE_DECISION_COHORT" | "BUDGET_NEAREST_SHORTLIST"; readonly label: string };
   readonly v2OfferToken?: string;
   readonly equipmentExplanationActions?: readonly { readonly actionId: string; readonly exactVariantId: string; readonly label: "Bu aracı anlat" }[];
   readonly recommendationIds?: readonly string[];
@@ -496,8 +497,9 @@ export type CarsConversationResponse =
   | {
       readonly kind: "V2_DECISION";
       readonly message: string;
-      readonly options: readonly { readonly id: string; readonly label: string }[];
+      readonly options: readonly { readonly id: string; readonly label: string; readonly description?: string }[];
       readonly optionSelection?: { readonly mode: "SINGLE" | "MULTIPLE"; readonly minimumSelections: number; readonly maximumSelections: number };
+      readonly candidateSummary?: { readonly count: number; readonly basis: "ACTIVE_DECISION_COHORT" | "BUDGET_NEAREST_SHORTLIST"; readonly label: string };
       readonly cards: readonly DecisionSafePublicCard[];
       readonly offer?: { readonly token: string; readonly expiresAt: string };
       readonly equipmentExplanationActions: readonly { readonly actionId: string; readonly exactVariantId: string; readonly label: "Bu aracı anlat" }[];

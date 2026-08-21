@@ -2,7 +2,7 @@ import { z } from "zod";
 import { after } from "next/server";
 
 import { runCarsConversationTurn } from "@/features/decision/conversation/runCarsConversationTurn";
-import { planAutomotiveKnowledgeResponse } from "@/features/automotive-knowledge";
+import { planAutomotiveKnowledgeResponse, planSupportiveAutomotiveKnowledgeResponse } from "@/features/automotive-knowledge";
 import { isOfferDeclineText } from "@/features/decision/conversation/carsSocialIntent";
 import { evaluateCarsDecisionV2ShadowAfterResponse } from "@/features/decision/v2/integration/routeShadow.server";
 import { tryRunCarsDecisionV2Public } from "@/features/decision/v2/integration/publicRoute.server";
@@ -343,6 +343,9 @@ export async function POST(request: Request): Promise<Response> {
     const knowledgeResponse = latestKnowledgeUser
       ? planAutomotiveKnowledgeResponse(latestKnowledgeUser.content)
       : undefined;
+    const supportiveKnowledge = latestKnowledgeUser
+      ? planSupportiveAutomotiveKnowledgeResponse(latestKnowledgeUser.content)
+      : undefined;
     if (knowledgeResponse) {
       return Response.json({
         kind: "QUESTION",
@@ -393,14 +396,18 @@ export async function POST(request: Request): Promise<Response> {
         return Response.json({ message: "Araç danışmanı şu anda geçici olarak kullanılamıyor. Lütfen kısa bir süre sonra yeniden deneyin." }, { status: 503 });
       }
     }
-    if (v2Response) return Response.json(v2Response);
+    if (v2Response) return Response.json(supportiveKnowledge
+      ? { ...v2Response, message: `${supportiveKnowledge.message}\n\nAraç seçimine devam edelim mi?`, options: [], cards: [], offer: undefined, knowledgeSupport: supportiveKnowledge }
+      : v2Response);
     const response = await runCarsConversationTurn(input as CarsConversationRequest);
     try {
       after(() => evaluateCarsDecisionV2ShadowAfterResponse(input));
     } catch {
       // Unit and non-Next runtimes have no request work store; public V1 remains unaffected.
     }
-    return Response.json(response);
+    return Response.json(supportiveKnowledge
+      ? { ...response, message: `${supportiveKnowledge.message}\n\nAraç seçimine devam edelim mi?`, options: [], recommendations: [], knowledgeSupport: supportiveKnowledge }
+      : response);
   } catch (error) {
     if (error instanceof z.ZodError) {
       const emptyMessage = error.issues.some((issue) => issue.path.at(-1) === "content" && issue.code === "too_small");

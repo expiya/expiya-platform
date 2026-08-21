@@ -39,7 +39,14 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   const text = input.userText.trim();
   const semanticText = text.normalize("NFKC").toLocaleLowerCase("tr-TR");
   const naturalConsent = /^(?:evet(?:[, ]+(?:göster|paylaş)(?: bakalım)?)?|göster(?: bakalım)?|paylaş(?: bakalım)?|görelim|hadi görelim|hadi göster|olur|tamam|bakalım|önerini görmek isterim|önerileri aç|seçenekleri göster|devam et(?: öyleyse)?|edelim)[.!]?$/iu;
-  if (naturalConsent.test(text)) { const acts: UserAct[] = ["OFFER_ACCEPTANCE"]; return Object.freeze({ ...input.result, acts: Object.freeze(acts), constraintMutations: Object.freeze([]), budgetMutations: Object.freeze([]), modelReferences: Object.freeze([]), personaMutations: Object.freeze([]), candidateRejection: undefined, corrections: Object.freeze([]) }); }
+  if (naturalConsent.test(text)) {
+    // A short confirmation has no semantic value by itself. Offer acceptance is
+    // bound earlier to a verified active offer; an open material question needs
+    // an explicit answer instead of silently treating “tamam” as consent.
+    if (input.openMaterialQuestionField) return Object.freeze({ ...input.result, acts: Object.freeze([]), constraintMutations: Object.freeze([]), budgetMutations: Object.freeze([]), modelReferences: Object.freeze([]), personaMutations: Object.freeze([]), candidateRejection: undefined, corrections: Object.freeze([]), ambiguities: Object.freeze([{ code: "UNBOUND_SHORT_CONFIRMATION", sourceSpan: text }]) });
+    const acts: UserAct[] = ["OFFER_ACCEPTANCE"];
+    return Object.freeze({ ...input.result, acts: Object.freeze(acts), constraintMutations: Object.freeze([]), budgetMutations: Object.freeze([]), modelReferences: Object.freeze([]), personaMutations: Object.freeze([]), candidateRejection: undefined, corrections: Object.freeze([]) });
+  }
   if (/^(?:hayır|istemiyorum|önce biraz daha konuşalım)[.!]?$/iu.test(text)) { const acts: UserAct[] = ["OFFER_DECLINE"]; return Object.freeze({ ...input.result, acts: Object.freeze(acts), constraintMutations: Object.freeze([]), budgetMutations: Object.freeze([]), modelReferences: Object.freeze([]), personaMutations: Object.freeze([]), candidateRejection: undefined, corrections: Object.freeze([]) }); }
   const verifiedAbuse = /(salak|aptal|gerizek[aâ]lı|mal mısın|lanet)/iu.test(text); const socialHumor = /(şaka|😂|😄|🤣)/u.test(text);
   const conversationalRepair = /(?:nasılsın diye sormadım|sana güvenmiyorum|hangi tercih\??)/iu.test(text);
@@ -57,10 +64,9 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
     : /genel yük|yük taşı|ticari yük/iu.test(text) ? "GENERAL_CARGO"
     : /ciddi arazi|zorlu arazi|arazi arac[ıi]|off[- ]?road/iu.test(text) ? "SERIOUS_OFF_ROAD"
     : /çamur|karlı? yol|kar(?:da|lı)|mud/iu.test(text) ? "MUD_SNOW"
-    : /bozuk yol|köy yol/iu.test(text) ? "ROUGH_ROAD"
+    : /bozuk yol|köy(?:de| yolu?| yolunda| kullanım)|kırsal(?:da| kullanım)/iu.test(text) ? "ROUGH_ROAD"
     : /uzun yol|şehirler ?arası/iu.test(text) ? "LONG_DISTANCE"
     : /aile|çocuk(?:lar)?la/iu.test(text) ? "FAMILY"
-    : /karma kullanım|hem şehir içi hem uzun yol/iu.test(text) ? "MIXED_PASSENGER"
     : input.openMaterialQuestionField === "usageScenario" && /^(?:günlük|gündelik)(?:\s+.{1,60})?[.!]?$/iu.test(text) ? "URBAN_DAILY"
     : /günlük (?:şehir içi |şehir dışı )?kullanım|günlük kullan|her gün kullan|işe gidip gel|gündelik işler|günlük şehir içi|şehir içinde (?:günlük )?kullan|şehir içi (?:araç|kullanım)|şehir içinde/u.test(semanticText) ? "URBAN_DAILY"
     : undefined;
@@ -96,30 +102,67 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   const positiveFuel = normalizeFuelInterpretation(remainingFuelText);
   const fuel = positiveFuel ?? (noElectric ? { operator: "EXCLUDES" as const, value: ["BEV"] } : noHybrid ? { operator: "EXCLUDES" as const, value: ["MHEV", "HEV", "PHEV"] } : null);
   if (/yakıt\s+(?:fark etmez|önemli değil)/iu.test(text)) { enforceConstraint(mutation("fuelType", null, text, input.activeFieldIds.includes("fuelType") ? "CLEAR" : "DECLINE")); addAct(input.activeFieldIds.includes("fuelType") ? "CORRECTION" : "DECLINE_TO_ANSWER"); }
-  else if (fuel) { const fuelHard = /(?:kesinlikle|mutlaka)\s+(?:hibrit|elektrikli|benzinli|dizel)|(?:hibrit|elektrikli|benzinli|dizel)(?:\s+dışında)?\s+(?:olmalı|şart|olmazsa olmaz|istemiyorum|olmasın)/iu.test(text); enforceConstraint(mutation("fuelType", fuel, text, input.activeFieldIds.includes("fuelType") ? "CORRECT" : "ADD", fuelHard)); addAct(input.activeFieldIds.includes("fuelType") ? "CORRECTION" : fuelHard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT"); }
+  else if (fuel) { const fuelHard = input.openMaterialQuestionField === "fuelType" || /(?:kesinlikle|mutlaka)\s+(?:hibrit|elektrikli|benzinli|dizel)|(?:hibrit|elektrikli|benzinli|dizel)(?:\s+dışında)?\s+(?:olmalı|şart|olmazsa olmaz|istemiyorum|olmasın)/iu.test(text); enforceConstraint(mutation("fuelType", fuel, text, input.activeFieldIds.includes("fuelType") ? "CORRECT" : "ADD", fuelHard)); addAct(input.activeFieldIds.includes("fuelType") ? "CORRECTION" : fuelHard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT"); }
 
-  const transmission = /\botomati(?:k|ğe)\b/iu.test(text) ? "AUTOMATIC" : /\bmanuel(?:e)?\b/iu.test(text) ? "MANUAL" : undefined;
-  if (transmission) { const transmissionHard = /(?:kesinlikle|mutlaka)\s+(?:otomatik|manuel)|(?:otomatik|manuel)\s+(?:olmalı|şart|olmazsa olmaz)|(?:otomatik|manuel)\s+dışında\s+istemiyorum/iu.test(text); const operation = input.activeFieldIds.includes("transmission") ? "CORRECT" : "ADD"; enforceConstraint({ ...mutation("transmission", { operator: "EQUALS", value: transmission }, text, operation), explicitness: transmissionHard ? "EXPLICIT_REQUIREMENT" : "EXPLICIT_PREFERENCE" }); addAct(operation === "CORRECT" ? "CORRECTION" : transmissionHard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT"); }
+  const transmissionMentions = [...text.matchAll(/\b(otomati(?:k|ğe)|manuel(?:e)?)\b/giu)];
+  const transmissionToken = transmissionMentions.at(-1)?.[1];
+  const transmission = transmissionToken ? (/manuel/iu.test(transmissionToken) ? "MANUAL" : "AUTOMATIC") : undefined;
+  if (transmission) { const transmissionHard = input.openMaterialQuestionField === "transmission" || /(?:kesinlikle|mutlaka)\s+(?:otomatik|manuel)|(?:otomatik|manuel)\s+(?:olmalı|şart|olmazsa olmaz)|(?:otomatik|manuel)\s+dışında\s+istemiyorum/iu.test(text); const operation = input.activeFieldIds.includes("transmission") ? "CORRECT" : "ADD"; enforceConstraint({ ...mutation("transmission", { operator: "EQUALS", value: transmission }, text, operation), explicitness: transmissionHard ? "EXPLICIT_REQUIREMENT" : "EXPLICIT_PREFERENCE" }); addAct(operation === "CORRECT" ? "CORRECTION" : transmissionHard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT"); }
 
-  const mentionedBodies = BODY_STYLES.filter((style) => new RegExp(`\\b${style.replace(" ", "[ -]?")}(?:'?(?:a|e|ya|ye))?\\b`, "iu").test(text));
+  // Keep natural-language spelling variants in one catalog-wide body-style
+  // lexicon. These are semantic aliases, not one-off conversation repairs.
+  const bodyAliases: readonly (readonly [RegExp, string])[] = [
+    [/\b(?:pick[ -]?up|pikap)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?\b/iu, "Pickup"],
+    [/\b(?:panel[ -]?van|kapalı kasa ticari)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?\b/iu, "Panel Van"],
+    [/(?<!\p{L})(?:yolcu vanı|minibüs)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?(?!\p{L})/iu, "Passenger Van"],
+    [/\b(?:station[ -]?wagon|istasyon vagon)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?\b/iu, "Station Wagon"],
+    [/(?<!\p{L})(?:üstü açılır|cabrio)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?(?!\p{L})/iu, "Convertible"],
+    [/(?<!\p{L})şasi kabin(?:'?(?:a|e|ı|i|u|ü|ya|ye))?(?!\p{L})/iu, "Chassis Cab"],
+  ];
+  const mentionedBodies = [...new Set([...BODY_STYLES.filter((style) => new RegExp(`\\b${style.replace(" ", "[ -]?")}(?:'?(?:a|e|ya|ye))?\\b`, "iu").test(text)), ...bodyAliases.filter(([pattern]) => pattern.test(text)).map(([, style]) => style)])];
   if (/gövde(?:\s+tipi)?\s+(?:fark etmez|önemli değil)/iu.test(text)) { enforceConstraint(mutation("bodyStyle", null, text, input.activeFieldIds.includes("bodyStyle") ? "CLEAR" : "DECLINE")); addAct(input.activeFieldIds.includes("bodyStyle") ? "CORRECTION" : "DECLINE_TO_ANSWER"); }
-  const affirmativeBodies = mentionedBodies.filter((style) => !new RegExp(`${style.replace(" ", "[ -]?")}(?:'?(?:den|dan))?\\s+(?:değil|demedim|istemi(?:yor|yorum)|vazgeç)`, "iu").test(text));
+  const replacementTail = text.match(/\byerine\s+(.+)$/iu)?.[1];
+  const replacementBodies = replacementTail ? [...new Set([...BODY_STYLES.filter((style) => new RegExp(`\\b${style.replace(" ", "[ -]?")}\\b`, "iu").test(replacementTail)), ...bodyAliases.filter(([pattern]) => pattern.test(replacementTail)).map(([, style]) => style)])] : [];
+  const affirmativeBodies = (replacementBodies.length ? replacementBodies : mentionedBodies).filter((style) => !new RegExp(`${style.replace(" ", "[ -]?")}(?:'?(?:den|dan))?\\s+(?:değil|demedim|istemi(?:yor|yorum)|vazgeç)`, "iu").test(text));
   const affirmativeBody = affirmativeBodies.at(-1);
   if (affirmativeBody) {
-    const correctionMeaning = /\b(dedim|demedim|düzelt)\b/iu.test(text); const hasActiveBody = input.activeFieldIds.includes("bodyStyle");
-    const bodyHard = correctionMeaning || new RegExp(`(?:${affirmativeBody}.*(?:şart|olmazsa olmaz|mutlaka)|(?:kesinlikle|mutlaka).*${affirmativeBody})`, "iu").test(text);
+    const correctionMeaning = /\b(dedim|demedim|düzelt|yerine|artık|vazgeç)\b/iu.test(text); const hasActiveBody = input.activeFieldIds.includes("bodyStyle");
+    const bodyHard = input.openMaterialQuestionField === "bodyStyle" || correctionMeaning || new RegExp(`(?:${affirmativeBody}.*(?:şart|olmazsa olmaz|mutlaka)|(?:kesinlikle|mutlaka).*${affirmativeBody})`, "iu").test(text);
     const bodyValue = affirmativeBodies.length === 1 ? { operator: "EQUALS", value: affirmativeBody } : { operator: "ONE_OF", value: affirmativeBodies };
     enforceConstraint({ ...mutation("bodyStyle", bodyValue, text, hasActiveBody ? "CORRECT" : "ADD", bodyHard), explicitness: bodyHard ? "EXPLICIT_REQUIREMENT" : "EXPLICIT_PREFERENCE" });
     addAct(correctionMeaning || hasActiveBody ? "CORRECTION" : bodyHard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT");
   }
 
-  const seatMatch = text.match(/\b(?:en az\s+)?(\d+|beş|yedi)\s+(?:kişilik|koltuk)\b/iu);
+  const seatMatch = text.match(/\b(?:en az\s+)?(\d+|dört|beş|yedi|dokuz)\s+(?:kişilik|koltuk)\b/iu);
   if (seatMatch) {
-    const seatWords: Readonly<Record<string, number>> = { beş: 5, yedi: 7 };
+    const seatWords: Readonly<Record<string, number>> = { dört: 4, beş: 5, yedi: 7, dokuz: 9 };
     const token = seatMatch[1]!.toLocaleLowerCase("tr-TR"); const count = Number(token) || seatWords[token];
-    if (count) { const hard = /şart|gerekli|olmazsa olmaz|en az/iu.test(text); enforceConstraint(mutation("seats", { operator: /en az/iu.test(text) ? "MINIMUM" : "EQUALS", value: count, unit: "COUNT" }, text, input.activeFieldIds.includes("seats") ? "CORRECT" : "ADD", hard)); addAct(hard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT"); }
+    if (count) {
+      const authoritativeAnswer = input.openMaterialQuestionField === "seats";
+      const hard = authoritativeAnswer || /şart|gerekli|olmazsa olmaz|en az/iu.test(text);
+      enforceConstraint(mutation("seats", { operator: authoritativeAnswer || /en az/iu.test(text) ? "MINIMUM" : "EQUALS", value: count, unit: "COUNT" }, text, input.activeFieldIds.includes("seats") ? "CORRECT" : "ADD", hard));
+      addAct(hard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT");
+    }
   }
-  if (/dört\s+çeker|4x4|tüm\s+tekerleklerden\s+çekiş/iu.test(text)) { const hard = /şart|gerekli|olmazsa olmaz|mutlaka/iu.test(text); enforceConstraint(mutation("drivenWheels", { operator: "EQUALS", value: "AWD" }, text, input.activeFieldIds.includes("drivenWheels") ? "CORRECT" : "ADD", hard)); addAct(hard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT"); }
+  const controlledNumericFields = Object.freeze({
+    luggageLitres: { unit: "LITRE" as const, pattern: /(?:([\d.,]+)\s*(?:litre|lt)\s*(?:bagaj)?|bagaj\s*(?:hacmi)?\s*([\d.,]+)\s*(?:litre|lt)?)/iu },
+    cargoVolumeLitres: { unit: "LITRE" as const, pattern: /(?:([\d.,]+)\s*(?:litre|lt)\s*(?:yük|kargo)(?:\s+hacmi)?|(?:yük|kargo)(?:\s+hacmi)?\s*([\d.,]+)\s*(?:litre|lt)?)/iu },
+    payloadKg: { unit: "KG" as const, pattern: /(?:([\d.,]+)\s*(?:kg|kilogram)\s*(?:yük|taşıma)?|(?:yük|taşıma)(?:\s+kapasitesi)?\s*([\d.,]+)\s*(?:kg|kilogram)?)/iu },
+    powerKw: { unit: "KW" as const, pattern: /([\d.,]+)\s*(?:kw|kilowatt)/iu },
+    electricRangeKm: { unit: "KM" as const, pattern: /([\d.,]+)\s*(?:km|kilometre)\s*(?:elektrikli\s+)?menzil/iu },
+  });
+  for (const [fieldId, definition] of Object.entries(controlledNumericFields) as [keyof typeof controlledNumericFields, (typeof controlledNumericFields)[keyof typeof controlledNumericFields]][]) {
+    if (input.openMaterialQuestionField !== fieldId) continue;
+    const matched = text.match(definition.pattern);
+    const raw = matched?.[1] ?? matched?.[2];
+    if (!raw) continue;
+    const value = Number(raw.replaceAll(".", "").replace(",", "."));
+    if (!Number.isFinite(value) || value <= 0) continue;
+    enforceConstraint(mutation(fieldId, { operator: "MINIMUM", value, unit: definition.unit }, text, input.activeFieldIds.includes(fieldId) ? "CORRECT" : "ADD", true));
+    addAct("HARD_REQUIREMENT");
+  }
+  const drivenWheels = /önden\s+çekiş|\bfwd\b/iu.test(text) ? "FWD" : /arkadan\s+(?:itiş|çekiş)|\brwd\b/iu.test(text) ? "RWD" : /dört\s+çeker|4x4|tüm\s+tekerleklerden\s+çekiş|\bawd\b/iu.test(text) ? "AWD" : undefined;
+  if (drivenWheels) { const hard = input.openMaterialQuestionField === "drivenWheels" || /şart|gerekli|olmazsa olmaz|mutlaka/iu.test(text); enforceConstraint(mutation("drivenWheels", { operator: "EQUALS", value: drivenWheels }, text, input.activeFieldIds.includes("drivenWheels") ? "CORRECT" : "ADD", hard)); addAct(hard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT"); }
   if (/aile\s+tatili\s+yük/iu.test(text)) { enforceConstraint({ ...mutation("luggageLitres", { operator: "MINIMUM", value: 500, unit: "LITRE" }, text), explicitness: "GUIDED_APPROXIMATION" }); addAct("PREFERENCE_STATEMENT"); }
   else if (/[İi]ki\s+büyük\s+(?:bavul|valiz)/u.test(text)) { enforceConstraint({ ...mutation("luggageLitres", { operator: "MINIMUM", value: 400, unit: "LITRE" }, text), explicitness: "GUIDED_APPROXIMATION" }); addAct("PREFERENCE_STATEMENT"); }
 
@@ -189,7 +232,7 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   }
   if (technicalExplanation) { addAct("TECHNICAL_EXPLANATION_REQUEST"); if (!directAnswerRequests.some((request) => request.kind === "TECHNICAL_EXPLANATION")) directAnswerRequests.unshift({ kind: "TECHNICAL_EXPLANATION" }); }
   const implicitVehicleRequest = constraints.length > 0 && /(?:istiyorum|olsun|arıyorum|bakıyorum|düşünüyorum|kullanacağım|lazım|gerekiyor|bütçem|max(?:imum)?|maksimum)/iu.test(text);
-  const explicitDiscoveryIntent = /(?:[İi]lk (?:arabamı?|aracımı?|otomobilimi?)|(?:kızım|oğlum|kızıma|oğluma).*(?:araba|araç|otomobil)|(?:araba|araç|otomobil) (?:almak|almayı|alacağım|almam (?:lazım|gerekiyor)|almalıyım|arıyorum|bakıyorum|lazım|gerekiyor)|(?:panel ?van|pickup|caddy tarzı).*(?:istemiyorum|gerekmiyor|istiyorum|arıyorum|bakıyorum|düşünüyorum|lazım|gerekiyor)|(?:clio|civic|corolla|golf).*(?:önerdi|danış|kararsız)|(?:havalı|premium|şık).*(?:araç|araba|otomobil|bir şey)?.*(?:arıyorum|istiyorum))/iu.test(text);
+  const explicitDiscoveryIntent = /(?:[İi]lk (?:arabamı?|aracımı?|otomobilimi?)|(?:kızım|oğlum|kızıma|oğluma).*(?:araba|araç|otomobil)|(?:araba|araç|otomobil) (?:almak|almayı|alacağım|almam (?:lazım|gerekiyor)|almalıyım|arıyorum|bakıyorum|lazım|gerekiyor)|(?:panel[ -]?van|pick[ -]?up|pikap|caddy tarzı).*(?:istemiyorum|gerekmiyor|istiyorum|arıyorum|bakıyorum|düşünüyorum|lazım|gerekiyor)|(?:clio|civic|corolla|golf).*(?:önerdi|danış|kararsız)|(?:havalı|premium|şık).*(?:araç|araba|otomobil|bir şey)?.*(?:arıyorum|istiyorum))/iu.test(text);
   if (/(?:araç|araba|seçene(?:k|ğ)i?|model).*(?:arıyorum|istiyorum|öner|hazırla)|(?:öner|tavsiye).*(?:araç|araba|model)/iu.test(text) || implicitVehicleRequest || explicitDiscoveryIntent) { addAct("VEHICLE_INTENT"); addAct("RECOMMENDATION_REQUEST"); if (!comparison && !directAnswerRequests.some((request) => request.kind === "RECOMMENDATION_REQUEST")) directAnswerRequests.push({ kind: "RECOMMENDATION_REQUEST" }); }
   const explicitModelRecommendation = acts.includes("RECOMMENDATION_REQUEST") && /(?:almak istiyorum|başlangıç noktası|seçeneği? hazırla|öner(?:meni|i)? istiyorum)/iu.test(text) && !/(?:var mı|mevcut mu)/iu.test(text);
   if (explicitModelRecommendation) {

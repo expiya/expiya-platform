@@ -21,9 +21,10 @@ export function decideConversationAction(input: DecideActionInput): Conversation
       }
     } else {
       nextAction = input.directAnswerObligation.kind === "MODEL_AVAILABILITY" ? { type: "ANSWER_MODEL_LOOKUP" } : input.directAnswerObligation.kind === "TECHNICAL_EXPLANATION" ? { type: "EXPLAIN_TECHNICAL_CONCEPT" } : { type: "ANSWER_DIRECTLY" };
-      // A lookup or explanation is a direct user question, not implicit consent
-      // to begin a generic discovery questionnaire.
-      if (["TECHNICAL_EXPLANATION", "MODEL_AVAILABILITY"].includes(input.directAnswerObligation.kind)) materialQuestion = null;
+      // A bare model lookup remains self-contained. A user who has established
+      // vehicle intent can receive the requested concept explanation first and
+      // then continue with the next guided discovery question in the same turn.
+      if (input.directAnswerObligation.kind === "MODEL_AVAILABILITY" || (input.directAnswerObligation.kind === "TECHNICAL_EXPLANATION" && !input.memory.vehicleIntentEstablished)) materialQuestion = null;
     }
   }
   else if (input.normalizedUserAct === "TECHNICAL_EXPLANATION_REQUEST" || input.normalizedUserAct === "UNKNOWN_TECHNICAL_CONCEPT") { nextState = "TECHNICAL_GUIDANCE"; nextAction = { type: "EXPLAIN_TECHNICAL_CONCEPT" }; rule = "TECHNICAL_EXPLANATION"; materialQuestion = null; }

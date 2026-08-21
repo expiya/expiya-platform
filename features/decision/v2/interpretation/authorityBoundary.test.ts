@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { V2_DECISION_FIELD_REGISTRY_V1 } from "../filter/registry";
 import { createConversationEventsFromInterpretation } from "../orchestrator/eventFactory";
-import { interpretUserMessage } from "./service";
+import { interpretDeterministicMaterialQuestionAnswer, interpretUserMessage } from "./service";
 import { assessInterpretationSemanticCompleteness } from "./semanticCompleteness";
 import type { AuthoritativeSemanticPlan, InterpretationResult } from "./types";
 
@@ -16,7 +16,25 @@ describe("provider advisory semantic authority boundary", () => {
   it("clears an active fuel preference when fuel does not matter", async () => expect((await plan(raw(["HARD_REQUIREMENT"]), "Yakıt fark etmez", ["fuelType"])).acceptedConstraintMutations[0]).toMatchObject({ operation: "CLEAR", deterministicDecisionUse: "STRONG_OR_SOFT_RANK" }));
   it("does not let provider hard-ceiling authority turn cash into a ceiling", async () => { const value = await plan(raw(["HARD_REQUIREMENT"], { budgetMutations: [{ operation: "SET", field: "MAXIMUM_HARD_CEILING", value: { amount: 2_000_000, currency: "TRY" }, sourceSpan: "2 milyon nakitim var" }] }), "2 milyon nakitim var"); expect(value.acceptedBudgetMutations.map((item) => item.field)).toEqual(["AVAILABLE_CASH", "BUDGET_UNKNOWN"]); expect(value.acceptedBudgetMutations.map((item) => item.field)).not.toContain("MAXIMUM_HARD_CEILING"); });
   it("creates a hard ceiling from explicit language despite provider softness", async () => expect((await plan(raw(["PREFERENCE_STATEMENT"]), "5 milyonun üzerine çıkamam")).acceptedBudgetMutations).toContainEqual(expect.objectContaining({ field: "MAXIMUM_HARD_CEILING" })));
+  it("grants hard authority to an answer selected from a controlled technical question", async () => { const value = await interpretUserMessage({ model: { interpret: async () => raw(["QUESTION_ANSWER"]) }, messageId: "m", userText: "Pickup", fieldRegistry: V2_DECISION_FIELD_REGISTRY_V1, openMaterialQuestionField: "bodyStyle" }); expect(value.acceptedConstraintMutations).toContainEqual(expect.objectContaining({ fieldId: "bodyStyle", deterministicDecisionUse: "HARD_CANDIDATE" })); });
+  it.each([
+    ["seats", "9 koltuk", "MINIMUM", 9],
+    ["payloadKg", "1.000 kg yük", "MINIMUM", 1_000],
+    ["cargoVolumeLitres", "5.000 litre yük hacmi", "MINIMUM", 5_000],
+    ["luggageLitres", "500 litre bagaj", "MINIMUM", 500],
+    ["fuelType", "Dizel", "EQUALS", "DIESEL"],
+    ["transmission", "Otomatik", "EQUALS", "AUTOMATIC"],
+    ["drivenWheels", "Dört çeker", "EQUALS", "AWD"],
+    ["bodyStyle", "Yolcu vanı", "EQUALS", "Passenger Van"],
+  ] as const)("makes controlled %s option selections hard-filter authoritative", (field, userText, operator, value) => {
+    const result = interpretDeterministicMaterialQuestionAnswer({ messageId: "m", userText, fieldRegistry: V2_DECISION_FIELD_REGISTRY_V1, openMaterialQuestionField: field });
+    expect(result.acceptedConstraintMutations).toContainEqual(expect.objectContaining({ fieldId: field, deterministicDecisionUse: "HARD_CANDIDATE", normalizedValue: expect.objectContaining({ operator, value }) }));
+  });
   it("keeps persona soft and enforces provider-soft cargo/rear-seat hard semantics", async () => { const persona = await plan(raw(["HARD_REQUIREMENT"]), "Premium ve şık istiyorum"); expect(persona.acceptedPersonaMutations).toHaveLength(1); expect(persona.acceptedConstraintMutations).toEqual([]); const cargo = await plan(raw(["PREFERENCE_STATEMENT"]), "Kapalı yük alanı şart, arka koltuk istemiyorum"); expect(cargo.acceptedConstraintMutations).toEqual(expect.arrayContaining([expect.objectContaining({ fieldId: "usageArchitecture", deterministicDecisionUse: "HARD_CANDIDATE" }), expect.objectContaining({ fieldId: "rearSeatPreference", deterministicDecisionUse: "HARD_CANDIDATE" })])); });
+  it("keeps controlled use-purpose answers as membership selections", async () => {
+    expect((await plan(raw(["USAGE_STATEMENT"]), "Yük taşıma")).acceptedConstraintMutations).toEqual([expect.objectContaining({ fieldId: "usageScenario", normalizedValue: "GENERAL_CARGO", deterministicDecisionUse: "STRONG_OR_SOFT_RANK" })]);
+    expect((await plan(raw(["USAGE_STATEMENT"]), "Ciddi arazi")).acceptedConstraintMutations).toEqual([expect.objectContaining({ fieldId: "usageScenario", normalizedValue: "SERIOUS_OFF_ROAD", deterministicDecisionUse: "STRONG_OR_SOFT_RANK" })]);
+  });
   it("requires the nominal authoritative plan at the event boundary", async () => { const authoritative = await plan(raw(["HARD_REQUIREMENT"]), "Hibrit istiyorum"); const events = createConversationEventsFromInterpretation({ turn: { conversationId: "c", messageId: "m", idempotencyKey: "k", expectedConversationRevision: 0, userMessage: "Hibrit istiyorum", requestTime: "2026-08-19T00:00:00.000Z" }, interpretation: authoritative, catalog: {} as never }); expect(events.find((event) => event.eventType === "CONSTRAINT")).toMatchObject({ eventType: "CONSTRAINT", kind: "SOFT_PREFERENCE" }); expect(() => createConversationEventsFromInterpretation({ turn: {} as never, interpretation: raw([]) as never, catalog: {} as never })).toThrow("AUTHORITATIVE_SEMANTIC_PLAN_REQUIRED"); });
   it("fails completeness for an authoritative hard or soft plan with its mutation removed", async () => { const hard = await plan(raw(["PREFERENCE_STATEMENT"]), "Kesinlikle hibrit olmalı"); expect(assessInterpretationSemanticCompleteness({ interpretation: { ...hard, acceptedConstraintMutations: [] } as AuthoritativeSemanticPlan, userText: "Kesinlikle hibrit olmalı" }).codes).toContain("HARD_REQUIREMENT_MUTATION_MISSING"); const soft = await plan(raw(["HARD_REQUIREMENT"]), "Hibrit istiyorum"); expect(assessInterpretationSemanticCompleteness({ interpretation: { ...soft, acceptedConstraintMutations: [] } as AuthoritativeSemanticPlan, userText: "Hibrit istiyorum" }).codes).toContain("PREFERENCE_MUTATION_MISSING"); });
   it("reconciles model lookup, consent, social humor and abuse from deterministic context", async () => { expect((await plan(raw(["RECOMMENDATION_REQUEST"]), "Micra var mı?")).result.modelReferences).toHaveLength(1); expect((await plan(raw(["PREFERENCE_STATEMENT"]), "Evet")).result.acts).toContain("OFFER_ACCEPTANCE"); const joke = await plan(raw(["OFF_TOPIC"], { offTopicSignal: { detected: true } }), "Şaka yaptım 😄"); expect(joke.result.acts).toContain("SOCIAL_MESSAGE"); expect(joke.result.acts).not.toContain("OFF_TOPIC"); const abuse = await plan(raw(["SOCIAL_MESSAGE"]), "Salak mısın, hibrit dedim"); expect(abuse.result.acts).toContain("ABUSE"); expect(abuse.acceptedConstraintMutations).toHaveLength(1); });

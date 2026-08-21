@@ -9,7 +9,7 @@ export interface KnowledgeIntentMatch { readonly intent: KnowledgeIntent; readon
  */
 export function isExplicitVehicleSelectionRequest(text: string): boolean {
   const normalized = text.trim();
-  return /\b(?:araç|araba|otomobil|model)\b.{0,80}\b(?:bul(?:alım)?|öner(?:ir misin|in)?|seç(?:elim|mek|meme yardım et)?|arıyorum|istiyorum)\b/iu.test(normalized)
+  return /\b(?:araç|araba|otomobil|model)\b.{0,80}\b(?:bul(?:alım)?|öner(?:ir misin|in)?|seç(?:elim|mek|meme yardım et)?|arıyorum|istiyorum|almak istiyorum|almam gerekiyor)\b/iu.test(normalized)
     || /\b(?:benim için|bana)\b.{0,80}\b(?:bul|öner|seç)\b/iu.test(normalized);
 }
 

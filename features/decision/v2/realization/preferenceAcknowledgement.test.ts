@@ -9,6 +9,11 @@ describe("preference acknowledgement", () => {
     expect(createPreferenceAcknowledgement({ constraints: [mutation("bodyStyle", "Sedan")], budgets: [] })).toMatch(/Sedan/);
     expect(createPreferenceAcknowledgement({ constraints: [mutation("transmission", "AUTOMATIC")], budgets: [] })).toMatch(/Otomatik/);
   });
+  it("does not describe a multi-fuel choice as electric-only", () => {
+    const acknowledgement = createPreferenceAcknowledgement({ constraints: [{ ...mutation("fuelType", "BEV"), normalizedValue: { operator: "ONE_OF", value: ["BEV", "GASOLINE", "DIESEL"] } }], budgets: [] });
+    expect(acknowledgement).toMatch(/alternatif olarak açık/);
+    expect(acknowledgement).not.toMatch(/Elektrikli tarafı seçtin/);
+  });
   it("acknowledges budget authority without inventing a vehicle fact", () => {
     expect(createPreferenceAcknowledgement({ constraints: [], budgets: [{ operation: "SET", field: "MAXIMUM_HARD_CEILING", value: { amount: 1_500_000, currency: "TRY" }, sourceSpan: "kesin bütçem" }] })).toMatch(/Bütçe tavanın net/);
   });

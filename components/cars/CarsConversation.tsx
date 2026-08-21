@@ -133,6 +133,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
         v2Cards: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.cards : undefined,
         v2Options: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.options : undefined,
         v2OptionSelection: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.optionSelection : undefined,
+        v2CandidateSummary: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.candidateSummary : undefined,
         v2OfferToken: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.offer?.token : undefined,
         equipmentExplanationActions: response.ok && "kind" in payload && payload.kind === "V2_DECISION" ? payload.equipmentExplanationActions : undefined,
         recommendationIds: response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS"
@@ -356,6 +357,9 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                     : "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100"
                 }`}>
                   <span className="whitespace-pre-wrap">{message.content}</span>
+                  {message.role === "assistant" && message.v2CandidateSummary && (
+                    <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400" aria-label="Kalan araç seçeneği sayısı">{message.v2CandidateSummary.label}</p>
+                  )}
                   {message.recommendations && message.recommendations.length > 0
                     && shouldRenderRecommendationCards("RECOMMENDATIONS", conversation?.offerPurpose) && (
                     <div className="mt-4 grid gap-4 text-neutral-900 dark:text-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
@@ -375,7 +379,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
                         const multiple = message.v2OptionSelection?.mode === "MULTIPLE";
                         const selected = v2MultiSelections[message.id]?.includes(option.id) ?? false;
                         const selectionLimitReached = multiple && (v2MultiSelections[message.id]?.length ?? 0) >= message.v2OptionSelection!.maximumSelections && !selected;
-                        return <button key={option.id} type="button" aria-pressed={multiple ? selected : undefined} onClick={() => multiple ? toggleV2MultiOption(message.id, option.id, message.v2OptionSelection!.maximumSelections) : submitContent(option.label, option.id)} disabled={isLoading || message !== messages[messages.length - 1] || selectionLimitReached} className={`rounded-full border px-3 py-1.5 text-sm disabled:opacity-50 ${selected ? "border-neutral-900 bg-neutral-900 text-white dark:border-white dark:bg-white dark:text-neutral-900" : "border-neutral-300 bg-white text-neutral-800 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100"}`}>{option.label}</button>;
+                        return <button key={option.id} type="button" aria-pressed={multiple ? selected : undefined} onClick={() => multiple ? toggleV2MultiOption(message.id, option.id, message.v2OptionSelection!.maximumSelections) : submitContent(option.label, option.id)} disabled={isLoading || message !== messages[messages.length - 1] || selectionLimitReached} className={`max-w-xs rounded-xl border px-3 py-2 text-left text-sm disabled:opacity-50 ${selected ? "border-neutral-900 bg-neutral-900 text-white dark:border-white dark:bg-white dark:text-neutral-900" : "border-neutral-300 bg-white text-neutral-800 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100"}`}><span className="block font-medium">{option.label}</span>{option.description && <span className={`mt-0.5 block text-xs ${selected ? "text-neutral-200 dark:text-neutral-600" : "text-neutral-500 dark:text-neutral-400"}`}>{option.description}</span>}</button>;
                       })}
                       {message.v2OptionSelection?.mode === "MULTIPLE" && <button type="button" onClick={() => submitV2MultiOptions(message)} disabled={isLoading || message !== messages[messages.length - 1] || (v2MultiSelections[message.id]?.length ?? 0) < message.v2OptionSelection.minimumSelections} className="rounded-full bg-blue-600 px-4 py-1.5 text-sm font-medium text-white disabled:opacity-40">Devam et</button>}
                     </div>

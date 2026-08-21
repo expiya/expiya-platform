@@ -75,6 +75,20 @@ describe("V2 decision-safe vehicle fact projection", () => {
     expect(result.snapshot.variants.map((item) => item.decisionFacts.dimensions.seats?.value)).toEqual([5, 2]);
   });
 
+  it("does not infer a driven axle from 4x2-only provenance", () => {
+    const ambiguous = sourced("FWD");
+    ambiguous.provenance[0]!.documentVersion = "Pickup 4x2 AT";
+    const result = build({ powertrain: { fuelType: sourced("DIESEL"), powerKw: sourced(120), transmission: sourced("Automatic"), drivenWheels: ambiguous } }).result;
+    expect(result.status).toBe("READY");
+    if (result.status !== "READY") return;
+    expect(result.snapshot.variants[0]?.decisionFacts.powertrain.drivenWheels).toBeUndefined();
+
+    const explicit = sourced("FWD");
+    explicit.provenance[0]!.documentVersion = "Pickup 4x2 FWD AT";
+    const explicitResult = build({ powertrain: { fuelType: sourced("DIESEL"), powerKw: sourced(120), transmission: sourced("Automatic"), drivenWheels: explicit } }).result;
+    expect(explicitResult.status === "READY" && explicitResult.snapshot.variants[0]?.decisionFacts.powertrain.drivenWheels?.value).toBe("FWD");
+  });
+
   it("keeps public and internal estimate price observations distinct without affordability decisions", () => {
     const basePrice = {
       id: "price-1", vehicleVariantId: "variant-a", market: "TR", condition: "NEW", amountTry: 1_000_000,

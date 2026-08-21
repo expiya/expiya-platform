@@ -41,6 +41,7 @@ export interface MaterialQuestionOption {
   readonly id: string;
   readonly semanticValue: string;
   readonly userFacingLabel: string;
+  readonly userFacingDescription?: string;
   readonly provenance: MaterialQuestionOptionProvenance;
 }
 

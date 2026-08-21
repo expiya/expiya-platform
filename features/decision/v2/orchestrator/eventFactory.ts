@@ -10,8 +10,8 @@ import { resolveProposedModelReferences } from "../interpretation/modelLookup";
 import type { DecisionTurnV2Input } from "./types";
 const stableId = (message: string, sequence: number, type: string) => `v2e_${createHash("sha256").update(`${message}:${sequence}:${type}`).digest("hex").slice(0, 24)}`;
 const containsIdentity = (text: string, identity: string) => ` ${text} `.includes(` ${identity} `);
-function inferCatalogPreferenceReference(input: { readonly text: string; readonly catalog: CatalogSnapshot; readonly existing: readonly ProposedModelReference[] }): ProposedModelReference | undefined {
-  if (!/(?:istiyorum|almak|başlangıç|öner|hazırla|tercih)/iu.test(input.text)) return undefined;
+function inferCatalogPreferenceReference(input: { readonly text: string; readonly catalog: CatalogSnapshot; readonly existing: readonly ProposedModelReference[]; readonly allowBareIdentity?: boolean }): ProposedModelReference | undefined {
+  if (!input.allowBareIdentity && !/(?:istiyorum|almak|başlangıç|öner|hazırla|tercih)/iu.test(input.text)) return undefined;
   if (!input.catalog.familyIndex || !input.catalog.brandIndex) return undefined;
   const existingResults = resolveProposedModelReferences(input.catalog, input.existing);
   const hasResolvedScope = input.existing.some((reference, index) => ["PREFERENCE", "HARD_SCOPE", "COMPARISON_SCOPE"].includes(reference.purpose) && existingResults[index]?.kind !== "NOT_FOUND");
@@ -39,17 +39,19 @@ export function createConversationEventsFromInterpretation(input: { readonly tur
   if (openQuestion) {
     const matchingConstraintMutation = input.interpretation.acceptedConstraintMutations.find((mutation) => mutation.fieldId === openQuestion.field || (openQuestion.stableSemanticKey === "semanticRecovery.economicMeaning" && ["relativePriceSegment", "runningCostPreference"].includes(mutation.fieldId)));
     const matchingBudgetMutation = openQuestion.field === "budget" && input.interpretation.acceptedBudgetMutations.length > 0;
+    const affordabilityConflictAnswered = openQuestion.stableSemanticKey.startsWith("affordabilityConflict.")
+      && (input.interpretation.acceptedBudgetMutations.length > 0 || input.interpretation.acceptedConstraintMutations.some((mutation) => ["bodyStyle", "fuelType", "transmission"].includes(mutation.fieldId)));
     const genericDecline = /^\s*(?:fark etmez|önemli değil|geç)\s*[.!]?\s*$/iu.test(input.turn.userMessage);
     const declined = genericDecline || matchingConstraintMutation?.operation === "DECLINE";
     const deferred = input.interpretation.result.acts.includes("DONT_KNOW") || /(?:bunu|kullanım(?: ayrıntısını)?|gövde(?:yi| tipini)?|yakıtı)\s+sonra\s+konuşalım/iu.test(input.turn.userMessage);
-    const answered = Boolean(matchingConstraintMutation || matchingBudgetMutation);
+    const answered = Boolean(matchingConstraintMutation || matchingBudgetMutation || affordabilityConflictAnswered);
     if (declined || deferred || answered) push({ eventType: "MATERIAL_QUESTION_DISPOSITION", questionId: openQuestion.questionId, stableSemanticKey: openQuestion.stableSemanticKey, status: declined ? "DECLINED" : deferred ? "DEFERRED" : "ANSWERED" });
   }
   const priorConstraints = input.previous?.events.filter((event): event is ConstraintEvent => event.eventType === "CONSTRAINT") ?? [];
   for (const mutation of input.interpretation.acceptedConstraintMutations) { const prior = [...priorConstraints].reverse().find((event) => event.field === (mutation.supersedesFieldId ?? mutation.fieldId)); const hard = mutation.deterministicDecisionUse === "HARD_CANDIDATE"; push({ eventType: "CONSTRAINT", kind: mutation.operation === "DECLINE" ? "DECLINED" : hard ? "HARD_CONSTRAINT" : mutation.deterministicDecisionUse === "GUIDED_ONLY" ? "GUIDED_APPROXIMATION" : mutation.deterministicDecisionUse === "ILLUSTRATIVE_ONLY" ? "ILLUSTRATIVE_SIGNAL" : "SOFT_PREFERENCE", field: mutation.fieldId, normalizedValue: mutation.normalizedValue, sourceText: mutation.sourceSpan, confidence: mutation.confidence, authority: "USER_EXPLICIT", decisionEffect: mutation.operation === "CLEAR" || mutation.operation === "DECLINE" ? "NONE" : hard ? "HARD_FILTER" : mutation.deterministicDecisionUse === "STRONG_OR_SOFT_RANK" ? "STRONG_RANK" : "EXPLANATION_ONLY", status: mutation.operation === "DECLINE" ? "DECLINED" : "ACTIVE", ...(mutation.operation === "CORRECT" && prior ? { supersedesId: prior.id } : {}) }); }
   for (const mutation of input.interpretation.acceptedBudgetMutations) { const prior = [...(input.previous?.events ?? [])].reverse().find((event) => event.eventType === "BUDGET_MUTATION" && "field" in event && event.field === mutation.field); if (mutation.operation === "EXCLUDE_FROM_DECISION") push({ eventType: "BUDGET_MUTATION", operation: "EXCLUDE_FROM_DECISION" }); else if (mutation.operation === "CLEAR") push({ eventType: "BUDGET_MUTATION", operation: "CLEAR", field: mutation.field, ...(prior ? { supersedesEventId: prior.id } : {}) }); else push({ eventType: "BUDGET_MUTATION", operation: mutation.operation, field: mutation.field, value: mutation.value, ...(mutation.operation === "CORRECT" && prior ? { supersedesEventId: prior.id } : {}) } as never); }
   for (const mutation of input.interpretation.acceptedPersonaMutations) { const prior = [...(input.previous?.events ?? [])].reverse().find((event) => event.eventType === "PERSONA_ACTIVATED"); if (mutation.operation === "ACTIVATE" && mutation.traits.length) push({ eventType: "PERSONA_ACTIVATED", activationSource: "USER_EXPLICIT", requestedTraits: mutation.traits as [typeof mutation.traits[number], ...typeof mutation.traits[number][]] }); else if (mutation.operation === "DEACTIVATE") push({ eventType: "PERSONA_DEACTIVATED", reason: "USER_CLEARED", ...(prior ? { supersedesEventId: prior.id } : {}) }); }
-  const inferredPreference = inferCatalogPreferenceReference({ text: input.turn.userMessage, catalog: input.catalog, existing: input.interpretation.result.modelReferences });
+  const inferredPreference = inferCatalogPreferenceReference({ text: input.turn.userMessage, catalog: input.catalog, existing: input.interpretation.result.modelReferences, allowBareIdentity: openQuestion?.field === "catalogIdentity" });
   const providerLookupResults = resolveProposedModelReferences(input.catalog, input.interpretation.result.modelReferences);
   const retainedProviderReferences = inferredPreference
     ? input.interpretation.result.modelReferences.filter((reference, index) => reference.purpose === "COMPARISON_SCOPE" || providerLookupResults[index]?.kind !== "NOT_FOUND")

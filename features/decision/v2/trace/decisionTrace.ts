@@ -30,6 +30,8 @@ export type DecisionTurnTrace = Readonly<{
   exactModelPreferenceScope: boolean;
   action: string;
   recommendationReadiness: string;
+  selectedQuestionKey?: string | null;
+  offerCreated?: boolean;
 }>;
 
 export type TraceInvariantFailure = Readonly<{
@@ -118,5 +120,7 @@ export function decisionTraceFromObserver(value: Readonly<Record<string, unknown
     exactModelPreferenceScope: value.exactModelPreferenceScope,
     action: value.action,
     recommendationReadiness: value.recommendationReadiness,
+    selectedQuestionKey: typeof value.selectedQuestionKey === "string" ? value.selectedQuestionKey : null,
+    offerCreated: value.offerCreated === true,
   });
 }

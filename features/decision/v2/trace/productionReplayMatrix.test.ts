@@ -37,6 +37,26 @@ const scenarios: readonly SyntheticReplayScenario[] = [
       { messageId: "budget", text: "Bütçe önemli değil" },
     ],
   },
+  {
+    scenarioId: "latest-uncovered-preference-first",
+    turns: [
+      { messageId: "intent", text: "Toyota almak istiyorum." },
+      { messageId: "usage", text: "Günlük şehir içi" },
+      { messageId: "body", text: "Sedan" },
+      { messageId: "fuel", text: "Hidrojen" },
+      { messageId: "transmission", text: "Manuel" },
+      { messageId: "budget", text: "Bütçe önemli değil" },
+    ],
+  },
+  {
+    scenarioId: "multi-body-choice-is-one-or-preference",
+    turns: [
+      { messageId: "intent", text: "Merhaba, araba almak istiyorum." },
+      { messageId: "usage", text: "Uzun yol" },
+      { messageId: "body-multi", text: "SUV/crossover veya Sedan" },
+      { messageId: "body-correction", text: "SUV/crossover" },
+    ],
+  },
 ];
 
 describe("production conversation replay matrix", () => {
@@ -56,8 +76,8 @@ describe("production conversation replay matrix", () => {
       results.push(result);
     }
     const gate = evaluateConversationDeploymentGate(results);
-    expect(gate).toMatchObject({ disposition: "BLOCKED", scenarioCount: 2, criticalFailureCount: 1, failedScenarioIds: ["toyota-sedan-hev-automatic"] });
-    expect(gate.failuresByCode).toEqual({ OFFER_WITH_ZERO_MATERIAL_PREFERENCE_COVERAGE: 1 });
+    expect(gate).toMatchObject({ disposition: "READY", scenarioCount: 4, criticalFailureCount: 0, failedScenarioIds: [] });
+    expect(gate.failuresByCode).toEqual({});
 
     const toyotaFinal = results[0]!.traces.at(-1)!;
     expect(toyotaFinal.activeConstraints).toEqual(expect.arrayContaining([
@@ -66,7 +86,30 @@ describe("production conversation replay matrix", () => {
       expect.objectContaining({ fieldId: "transmission", decisionEffect: "STRONG_RANK" }),
     ]));
     expect(toyotaFinal.shortlistMode).toBe("FAMILY_DIVERSE");
-    expect(toyotaFinal.rankingCandidates.some((candidate) => candidate.bodyStyle === "Sedan")).toBe(false);
     expect(toyotaFinal.action).toBe("REQUEST_REVEAL_CONSENT");
+    expect(toyotaFinal.selectedQuestionKey).toBeNull();
+    expect(toyotaFinal.offerCreated).toBe(false);
+    expect(toyotaFinal.shortlistCandidateIds).toHaveLength(1);
+    expect(toyotaFinal.shortlistCandidateIds.every((id) => toyotaFinal.rankingCandidates.find((candidate) => candidate.exactVariantId === id)?.bodyStyle === "Sedan")).toBe(true);
+
+    const latestPreferenceFinal = results[2]!.traces.at(-1)!;
+    expect(latestPreferenceFinal.action).toBe("ASK_MATERIAL_QUESTION");
+    // Manual is available in the remaining pool, so the engine walks backward
+    // to the latest preference that actually has zero coverage: hydrogen.
+    expect(latestPreferenceFinal.selectedQuestionKey).toBe("preferenceRelaxation.fuelType.HYDROGEN");
+    expect(latestPreferenceFinal.offerCreated).toBe(false);
+
+    const multiBody = results[3]!;
+    const multiSelection = multiBody.traces[2]!;
+    expect(multiSelection.activeConstraints).toContainEqual(expect.objectContaining({
+      fieldId: "bodyStyle",
+      normalizedValue: { operator: "ONE_OF", value: ["Sedan", "SUV", "Crossover"] },
+    }));
+    expect(multiSelection.selectedQuestionKey).toBe("discovery.fuelType");
+    const correctedSelection = multiBody.traces[3]!;
+    expect(correctedSelection.activeConstraints.filter((constraint) => constraint.fieldId === "bodyStyle")).toEqual([
+      expect.objectContaining({ normalizedValue: { operator: "ONE_OF", value: ["SUV", "Crossover"] } }),
+    ]);
+    expect(correctedSelection.selectedQuestionKey).toBe("discovery.fuelType");
   }, 120_000);
 });

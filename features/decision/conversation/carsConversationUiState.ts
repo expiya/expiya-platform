@@ -35,9 +35,8 @@ export function shouldShowRecommendationTermsGate(
   messages: readonly CarsConversationMessage[],
   conversation: CarsConversationTrace | undefined,
 ): boolean {
-  if (conversation?.state === "OFFER_AWAITING_CONSENT") return true;
   const latest = messages.at(-1);
-  return latest?.role === "assistant"
-    && Boolean(latest.v2OfferToken)
-    && !latest.v2Cards?.length;
+  const latestIsV2 = latest?.role === "assistant" && Boolean(latest.v2OfferToken || latest.v2Cards || latest.v2Options || latest.v2CandidateSummary);
+  if (latestIsV2) return Boolean(latest?.v2OfferToken) && !latest?.v2Cards?.length;
+  return conversation?.state === "OFFER_AWAITING_CONSENT";
 }

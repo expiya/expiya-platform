@@ -24,6 +24,11 @@ export interface AutomotiveKnowledgeResponse {
   readonly decisionImpact: "NONE";
 }
 
+export interface SupportiveAutomotiveKnowledgeResponse extends AutomotiveKnowledgeResponse {
+  readonly kind: "AUTOMOTIVE_KNOWLEDGE";
+  readonly supportMode: "CONVERSATION_SUPPORT_ONLY";
+}
+
 const topic = (text: string, records: readonly KnowledgeRecord[]) => {
   if (/dizel|hibrit|yakıt|elektrik/iu.test(text)) return records.filter((record) => record.id === "AK-ENERGY-TYPES");
   if (/gövde|suv|sedan|hatchback|crossover|station/iu.test(text)) return records.filter((record) => record.id === "AK-BODY-TYPES");
@@ -108,4 +113,27 @@ export function planAutomotiveKnowledgeResponse(text: string, now = new Date()):
       publishedAt: source.publishedAt, period: source.period, market: source.market, locator: source.locator,
     }))).filter((citation, index, all) => all.findIndex((item) => item.url === citation.url) === index),
   };
+}
+
+/**
+ * Provides a bounded conversational bridge for concerns that accompany an
+ * explicit vehicle-selection request. The result is presentation-only: the
+ * route may place it before the governed decision response, but it must never
+ * be passed into the Decision Engine as preference or constraint input.
+ */
+export function planSupportiveAutomotiveKnowledgeResponse(text: string, now = new Date()): SupportiveAutomotiveKnowledgeResponse | undefined {
+  const normalized = text.normalize("NFKC").toLocaleLowerCase("tr-TR");
+  const accidentAnxiety = /(?:kaza|trafik).{0,60}(?:kork|endiş|kayg)|(?:kork|endiş|kayg).{0,60}(?:kaza|trafik)/u.test(normalized);
+  const noviceDriverConcern = /ehliyet(?:i|imi)? yeni aldım|araç kullan(?:mak|ma).{0,50}(?:güvenmiyorum|çekiniyorum|korkuyorum)|kendime güvenmiyorum/u.test(normalized);
+  const financingConcern = /(?:araç|araba|otomobil).{0,80}(?:param yok|bütçem yok|maddi imk[aâ]nım yok|finansman|kredi)|(?:param yok|bütçem yok|maddi imk[aâ]nım yok).{0,80}(?:araç|araba|otomobil)/u.test(normalized);
+  const base = accidentAnxiety || noviceDriverConcern
+    ? planAutomotiveKnowledgeResponse("Güvenli ve defansif sürüş nedir?", now)
+    : financingConcern
+      ? planAutomotiveKnowledgeResponse("Taşıt kredisi ve finansman nasıl değerlendirilir?", now)
+      : undefined;
+  if (!base) return undefined;
+  const message = accidentAnxiety || noviceDriverConcern
+    ? "Bu kaygı anlaşılır; yalnız değilsin. Güvenli ve defansif sürüş alışkanlıkları tehlikeyi daha erken fark etmeye ve kaza riskini azaltmaya yardımcı olabilir, ancak riski tamamen ortadan kaldırmaz. İstersen önce birkaç güvenli sürüş önerisini konuşabiliriz; istersen işe gidiş geliş ihtiyacına uygun aracı birlikte seçmeye devam edebiliriz."
+    : "Maddi sınırı baştan konuşmak doğru olur. Taşıt kredisi veya başka bir finansman seçeneği değerlendirilebilir; ancak kredi onayı, faiz, peşinat ve toplam geri ödeme kişiye ve güncel yazılı teklife bağlıdır. Önce sürdürülebilir aylık yükü ve toplam maliyeti konuşabilir, ardından bu sınıra uygun araçları birlikte değerlendirebiliriz.";
+  return Object.freeze({ ...base, message, supportMode: "CONVERSATION_SUPPORT_ONLY" as const });
 }

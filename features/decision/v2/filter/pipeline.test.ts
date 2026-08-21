@@ -60,6 +60,28 @@ describe("WP5 full-catalog technical pipeline", () => {
     expect((await run([event("c1", "transmission", "EQUALS", "Auto")])).eligibleCandidateIds).toEqual([]);
     expect((await run([event("c1", "luggageLitres", "MINIMUM", 400, { normalizedValue: { operator: "MINIMUM", value: 400, unit: "LITRE" } })])).eligibleCandidateIds).toEqual(["v-a"]);
   });
+  it("eliminates four- and five-seat candidates from a controlled minimum-nine-seat answer", async () => {
+    const records = [
+      variant("v-four", "Generic", "Four", "Base", { bodyStyle: sourced("MPV"), dimensions: { seats: sourced(4) } }),
+      variant("v-five", "Generic", "Five", "Base", { bodyStyle: sourced("MPV"), dimensions: { seats: sourced(5) } }),
+      variant("v-nine", "Generic", "Nine", "Base", { bodyStyle: sourced("Passenger Van"), dimensions: { seats: sourced(9) } }),
+    ];
+    const result = await run([event("c1", "seats", "MINIMUM", 9)], [], need, records);
+    expect(result.eligibleCandidateIds).toEqual(["v-nine"]);
+    expect(result.eliminatedCandidateIds).toEqual(["v-five", "v-four"]);
+  });
+  it("applies selected payload and cargo-volume thresholds as hard filters", async () => {
+    const records = [
+      variant("v-light", "Generic", "Light", "Cargo", { bodyStyle: sourced("Panel Van"), dimensions: { cargoVolumeLitres: sourced(3_000), payloadKg: sourced(600) } }),
+      variant("v-heavy", "Generic", "Heavy", "Cargo", { bodyStyle: sourced("Panel Van"), dimensions: { cargoVolumeLitres: sourced(5_000), payloadKg: sourced(1_000) } }),
+    ];
+    const result = await run([
+      event("c1", "cargoVolumeLitres", "MINIMUM", 5_000, { normalizedValue: { operator: "MINIMUM", value: 5_000, unit: "LITRE" } }),
+      event("c2", "payloadKg", "MINIMUM", 1_000, { normalizedValue: { operator: "MINIMUM", value: 1_000, unit: "KG" } }),
+    ], [], need, records);
+    expect(result.eligibleCandidateIds).toEqual(["v-heavy"]);
+    expect(result.eliminatedCandidateIds).toEqual(["v-light"]);
+  });
   it("matches canonical manual intent against a descriptive catalog transmission", async () => {
     const result = await run([
       event("c1", "bodyStyle", "EQUALS", "Pickup"),

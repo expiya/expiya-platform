@@ -1,4 +1,4 @@
-export { planAutomotiveKnowledgeResponse } from "./planner";
+export { planAutomotiveKnowledgeResponse, planSupportiveAutomotiveKnowledgeResponse } from "./planner";
 export { isExplicitVehicleSelectionRequest, routeAutomotiveKnowledgeIntent } from "./router";
 export { knowledgeRecordSchema, knowledgeReleaseSchema } from "./schema";
-export type { AutomotiveKnowledgeResponse } from "./planner";
+export type { AutomotiveKnowledgeResponse, SupportiveAutomotiveKnowledgeResponse } from "./planner";

@@ -52,5 +52,6 @@ describe("consent UI helpers", () => {
     expect(shouldShowRecommendationTermsGate(offered, undefined)).toBe(true);
     expect(shouldShowRecommendationTermsGate([{ ...offered[0], v2Cards: [{ exactVariantId: "variant" } as never] }], undefined)).toBe(false);
     expect(shouldShowRecommendationTermsGate([{ id: "1", role: "assistant", content: "Devam" }], undefined)).toBe(false);
+    expect(shouldShowRecommendationTermsGate([{ id: "2", role: "assistant", content: "Kartlar hazır", v2CandidateSummary: { count: 3, basis: "ACTIVE_DECISION_COHORT", label: "3 seçenek" } }], { state: "OFFER_AWAITING_CONSENT" } as never)).toBe(false);
   });
 });

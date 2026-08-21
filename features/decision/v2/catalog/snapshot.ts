@@ -78,6 +78,15 @@ export function buildCatalogSnapshot(input: {
     value: source.value, confidence: source.confidence, provenance: projectProvenance(source.provenance),
     catalogFingerprint: manifest.catalog_payload_hash, explanationAccess: "AUTHORITY_REQUIRED",
   });
+  const drivenWheelsFact = (source: Parameters<typeof fact<string>>[0] | undefined): CatalogFact<string> | undefined => {
+    if (!source) return undefined;
+    const authorityText = source.provenance.map((item) => item.documentVersion ?? "").join(" ");
+    const axleIsExplicit = /\b(?:fwd|rwd|front[- ]wheel|rear[- ]wheel)\b|önden çekiş|arkadan (?:itiş|çekiş)/iu.test(authorityText);
+    // "4x2" says that two wheels are driven; it does not identify the driven axle.
+    // Do not turn that weaker source statement into front/rear-wheel filter authority.
+    if ((source.value === "FWD" || source.value === "RWD") && /\b4x2\b/iu.test(authorityText) && !axleIsExplicit) return undefined;
+    return fact(source);
+  };
   const variants = catalog.records.map((record): CatalogVariantSnapshot => deepFreeze({
     id: record.variant.id, market: record.variant.market, lifecycleStatus: record.variant.lifecycleStatus,
     brand: record.variant.brand.value, model: record.variant.model.value, trim: record.variant.trim.value,
@@ -87,7 +96,7 @@ export function buildCatalogSnapshot(input: {
       bodyStyle: fact(record.variant.bodyStyle), modelYear: fact(record.variant.modelYear),
       powertrain: {
         fuelType: fact(record.variant.powertrain.fuelType), powerKw: fact(record.variant.powertrain.powerKw), transmission: fact(record.variant.powertrain.transmission),
-        drivenWheels: record.variant.powertrain.drivenWheels ? fact(record.variant.powertrain.drivenWheels) : undefined,
+        drivenWheels: drivenWheelsFact(record.variant.powertrain.drivenWheels),
         engineDisplacementCc: record.variant.powertrain.engineDisplacementCc ? fact(record.variant.powertrain.engineDisplacementCc) : undefined,
         torqueNm: record.variant.powertrain.torqueNm ? fact(record.variant.powertrain.torqueNm) : undefined,
       },
