@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "automotive-knowledge-v0.6.0",
+  "state": "CANDIDATE_NOT_ACTIVE",
+  "generatedAt": "2026-08-21T00:00:00.000Z",
+  "effectiveAsOf": "2026-08-21T00:00:00.000Z",
+  "supersedes": ["automotive-knowledge-v0.5.0"],
+  "recordIdsAdded": [
+    "AK-SAFE-DRIVING-FOUNDATIONS",
+    "AK-ADVANCED-DEFENSIVE-DRIVING",
+    "AK-DRIVER-ASSISTANCE-SAFETY-BOUNDARY"
+  ],
+  "activation": null,
+  "notes": [
+    "Candidate release only; no active production pointer was created or changed.",
+    "Advanced driving is framed as defensive observation, anticipation and safety-margin management, not speed or performance driving.",
+    "No public-road instruction is provided for limit handling, deliberate skids or risky emergency manoeuvre practice.",
+    "Practical emergency-control exercises require a suitable closed area and a qualified instructor.",
+    "Driver-assistance content does not override the exact vehicle owner's manual or driver responsibility."
+  ]
+}

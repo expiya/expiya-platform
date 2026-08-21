@@ -1,0 +1,12 @@
+{
+  "sourceId": "SRC-EPA-EV-RANGE",
+  "retrievedAt": "2026-08-21T00:00:00.000Z",
+  "sourceUrl": "https://www.epa.gov/greenvehicles/fuel-economy-and-ev-range-testing",
+  "locator": "EV range testing and real-world adjustment factors",
+  "observations": [
+    "Official label range is derived from laboratory driving schedules and adjustments.",
+    "Cold temperatures, air conditioning, high speed and aggressive driving affect real-world range.",
+    "Charging losses are included in EPA MPGe values."
+  ],
+  "limitations": ["EPA protocol differs from WLTP and other certification protocols."]
+}

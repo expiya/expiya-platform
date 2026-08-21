@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "automotive-knowledge-v0.4.0",
+  "state": "CANDIDATE_NOT_ACTIVE",
+  "generatedAt": "2026-08-21T00:00:00.000Z",
+  "effectiveAsOf": "2026-08-21T00:00:00.000Z",
+  "supersedes": ["automotive-knowledge-v0.3.0"],
+  "recordIdsAdded": [
+    "AK-TR-VEHICLE-FINANCE-FRAMEWORK",
+    "AK-TR-BDDK-EV-CREDIT-11158",
+    "AK-TR-CREDIT-RATE-INTERPRETATION"
+  ],
+  "activation": null,
+  "notes": [
+    "Candidate release only; no active production pointer was created or changed.",
+    "Regulatory loan-to-value and maturity ceilings are not treated as credit entitlement or approval.",
+    "No instalment, affordability, approval probability, or best-loan result is generated without a current written offer and explicit user-authorized inputs."
+  ]
+}

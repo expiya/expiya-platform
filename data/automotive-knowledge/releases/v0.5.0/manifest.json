@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "automotive-knowledge-v0.5.0",
+  "state": "CANDIDATE_NOT_ACTIVE",
+  "generatedAt": "2026-08-21T00:00:00.000Z",
+  "effectiveAsOf": "2026-08-21T00:00:00.000Z",
+  "supersedes": ["automotive-knowledge-v0.4.0"],
+  "recordIdsAdded": [
+    "AK-AUTOMATION-LEVELS",
+    "AK-EV-RANGE-FACTORS",
+    "AK-EV-RANGE-DIVERSITY",
+    "AK-AUTONOMY-EXPERT-VIEW-2026"
+  ],
+  "activation": null,
+  "notes": [
+    "Candidate release only; no active production pointer was created or changed.",
+    "Automation levels describe engaged features and do not certify product safety, legality or availability.",
+    "Range values are protocol-bound and not guaranteed journey distances.",
+    "Expert views and projections remain attributed, dated and conditional."
+  ]
+}

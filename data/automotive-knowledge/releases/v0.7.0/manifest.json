@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "automotive-knowledge-v0.7.0",
+  "state": "CANDIDATE_NOT_ACTIVE",
+  "generatedAt": "2026-08-21T00:00:00.000Z",
+  "effectiveAsOf": "2026-08-21T00:00:00.000Z",
+  "supersedes": ["automotive-knowledge-v0.6.0"],
+  "recordIdsAdded": [
+    "AK-USED-VEHICLE-DUE-DILIGENCE",
+    "AK-VEHICLE-RECALL-CHECK",
+    "AK-TR-EV-CHARGING-ECOSYSTEM",
+    "AK-TIRE-SAFETY-FRAMEWORK",
+    "AK-CHILD-PASSENGER-SAFETY",
+    "AK-TR-POST-CRASH-INITIAL-STEPS",
+    "AK-SAFETY-RATING-INTERPRETATION",
+    "AK-VEHICLE-LIFECYCLE-EMISSIONS",
+    "AK-ACCESSIBLE-VEHICLE-PROCESS",
+    "AK-INTERNATIONAL-DRIVING-CHECKLIST",
+    "AK-TR-LISTING-PAYMENT-SAFETY"
+  ],
+  "activation": null,
+  "notes": [
+    "Candidate release only; no active production pointer was created or changed.",
+    "The May 2026 expert-inspection regulation announcement is represented only as a draft and never as law in force.",
+    "Recall applicability and completion require VIN-level manufacturer or authorised-service confirmation.",
+    "Charging price and availability are time-sensitive and are not cached as current numeric facts.",
+    "Safety ratings remain protocol, test-year, equipment, variant and peer-class bound.",
+    "All records remain public-explanation-only and produce no decision, ranking, preference or constraint facts."
+  ]
+}

@@ -2,6 +2,7 @@ import { z } from "zod";
 import { after } from "next/server";
 
 import { runCarsConversationTurn } from "@/features/decision/conversation/runCarsConversationTurn";
+import { planAutomotiveKnowledgeResponse } from "@/features/automotive-knowledge";
 import { isOfferDeclineText } from "@/features/decision/conversation/carsSocialIntent";
 import { evaluateCarsDecisionV2ShadowAfterResponse } from "@/features/decision/v2/integration/routeShadow.server";
 import { tryRunCarsDecisionV2Public } from "@/features/decision/v2/integration/publicRoute.server";
@@ -338,6 +339,22 @@ export async function POST(request: Request): Promise<Response> {
   if (rejected) return rejected;
   try {
     const input = requestSchema.parse(await readJsonWithLimit(request, 150_000));
+    const latestKnowledgeUser = [...input.messages].reverse().find((message) => message.role === "user");
+    const knowledgeResponse = latestKnowledgeUser
+      ? planAutomotiveKnowledgeResponse(latestKnowledgeUser.content)
+      : undefined;
+    if (knowledgeResponse) {
+      return Response.json({
+        kind: "QUESTION",
+        message: knowledgeResponse.message,
+        knowledge: knowledgeResponse,
+        // An informational detour must preserve the exact decision state. The
+        // client can therefore re-render an open option set without treating
+        // the knowledge answer as a decision turn.
+        conversation: input.conversation,
+        informationalDetour: Boolean(input.conversation),
+      });
+    }
     const awaitingRecommendationTerms = input.conversation?.state === "OFFER_AWAITING_CONSENT";
     const latestUser = [...input.messages].reverse().find((message) => message.role === "user");
     if (awaitingRecommendationTerms

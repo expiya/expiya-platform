@@ -1,0 +1,15 @@
+{
+  "sourceId": "SRC-BDDK-11158",
+  "retrievedAt": "2026-08-21T00:00:00.000Z",
+  "sourceUrl": "https://www.bddk.org.tr/Mevzuat/DokumanGetir/1278",
+  "locator": "BDDK Board Decision 11158, paragraphs 1(a) and 1(b)",
+  "scope": "Only battery-electric vehicles produced by taxpayers within Corporate Tax Law provisional article 12",
+  "tiers": [
+    { "invoiceValueMaximumTry": 2500000, "maximumTermMonths": 48, "maximumLoanToValuePercent": 70 },
+    { "invoiceValueMinimumExclusiveTry": 2500000, "invoiceValueMaximumTry": 5000000, "maximumTermMonths": 36, "maximumLoanToValuePercent": 50 },
+    { "invoiceValueMinimumExclusiveTry": 5000000, "invoiceValueMaximumTry": 6500000, "maximumTermMonths": 24, "maximumLoanToValuePercent": 30 },
+    { "invoiceValueMinimumExclusiveTry": 6500000, "invoiceValueMaximumTry": 7500000, "maximumTermMonths": 12, "maximumLoanToValuePercent": 20 },
+    { "invoiceValueMinimumExclusiveTry": 7500000, "maximumLoanToValuePercent": 0 }
+  ],
+  "limitations": ["These are regulatory ceilings, not an entitlement to credit or a lender offer."]
+}

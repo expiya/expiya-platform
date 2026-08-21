@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "automotive-knowledge-v0.3.0",
+  "state": "CANDIDATE_NOT_ACTIVE",
+  "generatedAt": "2026-08-21T00:00:00.000Z",
+  "effectiveAsOf": "2026-08-21T00:00:00.000Z",
+  "supersedes": ["automotive-knowledge-v0.2.0"],
+  "recordIdsAdded": [
+    "AK-TR-MOTOR-INSURANCE-BOUNDARY",
+    "AK-TR-MAINTENANCE-BOUNDARY",
+    "AK-TR-AFTERSALES-PARTS",
+    "AK-OWNERSHIP-VALUE-FRAMEWORK",
+    "AK-TR-INDIVIDUAL-IMPORT-BOUNDARY",
+    "AK-GLOBAL-EV-OUTLOOK-2026"
+  ],
+  "activation": null,
+  "notes": [
+    "Candidate release only; no active production pointer was created or changed.",
+    "No insurance premium, maintenance price, residual value, part price, or import tax is generated without case-specific authoritative inputs.",
+    "Ownership value content is an explanatory framework and cannot rank vehicles."
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "automotive-knowledge-v0.1.0",
+  "state": "CANDIDATE_NOT_ACTIVE",
+  "generatedAt": "2026-08-21T00:00:00.000Z",
+  "effectiveAsOf": "2026-08-21T00:00:00.000Z",
+  "supersedes": [],
+  "recordIds": [
+    "AK-EXPIYA-ORIENTATION",
+    "AK-BODY-TYPES",
+    "AK-ENERGY-TYPES",
+    "AK-TR-MARKET-2025-TOTAL",
+    "AK-HISTORY-1886",
+    "AK-HISTORY-1888",
+    "AK-EV-SCENARIO"
+  ],
+  "activation": null,
+  "notes": [
+    "Candidate release only; no active production pointer was created or changed.",
+    "TUIK source is registered but no numerical record is published from it in v0.1."
+  ]
+}

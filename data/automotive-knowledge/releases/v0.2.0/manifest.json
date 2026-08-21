@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "automotive-knowledge-v0.2.0",
+  "state": "CANDIDATE_NOT_ACTIVE",
+  "generatedAt": "2026-08-21T00:00:00.000Z",
+  "effectiveAsOf": "2026-08-21T00:00:00.000Z",
+  "supersedes": ["automotive-knowledge-v0.1.0"],
+  "recordIdsAdded": [
+    "AK-TR-CPI-TRANSPORT-2026-07",
+    "AK-TR-USED-ASKING-PRICE-2026-06",
+    "AK-TR-OTV-II-BOUNDARY-2025-09",
+    "AK-TR-EV-MTV-2026",
+    "AK-TR-DISABILITY-OTV-2026"
+  ],
+  "activation": null,
+  "notes": [
+    "Candidate release only; no active production pointer was created or changed.",
+    "The used-car indicator is secondary listing-price data, not a TÜİK index or completed-sale series.",
+    "Tax records never calculate a vehicle-specific liability."
+  ]
+}
