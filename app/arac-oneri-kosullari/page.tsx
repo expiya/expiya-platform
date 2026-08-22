@@ -16,10 +16,6 @@ export default function RecommendationTermsPage() {
         <p className="mt-8 text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">{RECOMMENDATION_TERMS_VERSION}</p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Araç Önerisi ve Katalog Kullanım Koşulları</h1>
 
-        <div className="mt-6 rounded-2xl border border-amber-300 bg-amber-50 p-4 text-sm leading-6 text-amber-950 dark:border-amber-800 dark:bg-amber-950/40 dark:text-amber-100">
-          <strong>[HUKUKÇU KONTROLÜ GEREKİR]</strong> Bu taslak, şirket bilgileri ve operasyonel süreçler tamamlanıp Türk hukuku alanında çalışan bir hukukçu tarafından incelenmeden nihai yayın metni kabul edilmemelidir.
-        </div>
-
         <div className="mt-8 space-y-8 text-[15px] leading-7 text-neutral-700 dark:text-neutral-200">
           <section>
             <h2 className="text-xl font-semibold text-neutral-950 dark:text-white">1. Taraflar ve kapsam</h2>
