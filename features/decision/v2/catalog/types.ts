@@ -49,6 +49,7 @@ export interface CatalogPriceObservationFact {
   readonly consumerVisibility: "PUBLIC" | "INTERNAL_ONLY"; readonly realizationSafe: boolean;
   readonly estimationMethod?: string; readonly validFrom: string; readonly validUntil?: string;
   readonly sellerType?: "DISTRIBUTOR" | "DEALER" | "BUSINESS" | "PRIVATE";
+  readonly taxTreatment: "INCLUDED" | "EXCLUDED" | "UNKNOWN";
   readonly confidence: "LOW" | "MEDIUM" | "HIGH"; readonly provenance: readonly CatalogFactProvenance[];
   readonly catalogFingerprint: string;
 }

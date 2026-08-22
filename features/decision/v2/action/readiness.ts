@@ -23,6 +23,8 @@ export function assessRecommendationReadiness(input: {
   const hasMaterialQuestion = input.questionCandidates.length > 0;
   if (input.unansweredDecisionFields.length > 0) return input.memory.vehicleIntentEstablished ? "NEEDS_MATERIAL_DISCRIMINATOR" : "NEEDS_DISCOVERY";
   if (hasMaterialQuestion) return "NEEDS_MATERIAL_DISCRIMINATOR";
-  if (input.candidateCount > 3) return "NEEDS_MATERIAL_DISCRIMINATOR";
+  const differentiationExplicitlyClosed = input.memory.materialQuestionHistory.some((item) =>
+    item.field === "catalogIdentity" && ["DECLINED", "SUPERSEDED"].includes(item.answerStatus));
+  if (input.candidateCount > 3 && !differentiationExplicitlyClosed) return "NEEDS_MATERIAL_DISCRIMINATOR";
   return input.candidateCount > 0 ? "READY_FOR_OFFER" : "INSUFFICIENT_EVIDENCE";
 }

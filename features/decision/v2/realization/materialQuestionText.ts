@@ -14,6 +14,13 @@ const RELAXATION_FUEL_LABELS: Readonly<Record<string, string>> = Object.freeze({
 });
 
 export function materialQuestionText(question: MaterialQuestion): string {
+  if (question.stableSemanticKey.startsWith("technicalConflict.")) {
+    const [, field, rawValue, rawBody = ""] = question.stableSemanticKey.split(".");
+    const value = decodeURIComponent(rawValue ?? "");
+    const body = decodeURIComponent(rawBody);
+    if (field === "seats") return `${body ? `${body} gövde tipiyle ` : ""}en az ${value} koltuk gereksinimini karşılayan bir seçenek bulamadım. Koltuk sayısı azaltılabilir mi, yoksa farklı bir yolcu aracı gövdesi düşünülebilir mi?`;
+    return `${value} ${field === "bodyStyle" ? "gövde" : field === "fuelType" ? "yakıt" : field === "transmission" ? "şanzıman" : "teknik"} gereksinimini diğer tercihlerle birlikte karşılayan bir seçenek bulamadım. Bu tercih esnetilebilir mi?`;
+  }
   if (question.stableSemanticKey.startsWith("affordabilityConflict.")) {
     const [, rawBudget, rawPreferences = ""] = question.stableSemanticKey.split(".");
     const values = new Map(rawPreferences.split("&").flatMap((entry) => { const [field, value] = entry.split("="); return field && value ? [[field, decodeURIComponent(value)] as const] : []; }));

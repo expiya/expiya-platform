@@ -22,6 +22,14 @@ describe("production material-question generation", () => {
     expect(assessRecommendationReadiness({ memory: memory(), candidateAvailability: "READY", candidateCount: 577, comparisonScope: false, ...generated })).toBe("NEEDS_MATERIAL_DISCRIMINATOR");
   });
 
+  it("provides daily-life descriptions for fastback SUV and liftback body options", () => {
+    const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [variant("v1", "Fastback SUV", "GASOLINE"), variant("v2", "Liftback", "HEV")] } as unknown as CatalogSnapshot;
+    const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: ["v1", "v2"], memory: memory(), constraints: { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "LONG_DISTANCE" }], supersessionTrace: [], diagnostics: [] } as never, comparisonScope: false });
+    const options = generated.questionCandidates.find((candidate) => candidate.question.field === "bodyStyle")!.question.options;
+    expect(options.find((option) => option.semanticValue === "Fastback SUV")?.userFacingDescription).toMatch(/sportif tavan/iu);
+    expect(options.find((option) => option.semanticValue === "Liftback")?.userFacingDescription).toMatch(/geniş bagaj kapağı/iu);
+  });
+
   it("opens architecture before energy after usage is known", () => {
     const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [variant("v1", "Sedan", "GASOLINE"), variant("v2", "SUV", "HEV")] } as unknown as CatalogSnapshot;
     const constraints = { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "URBAN_DAILY" }], supersessionTrace: [], diagnostics: [] } as never;

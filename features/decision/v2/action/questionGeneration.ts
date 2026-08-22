@@ -41,15 +41,26 @@ function label(field: string, value: string): string {
   return value;
 }
 
+function boundedFacetStatistics(groups: ReadonlyMap<string, readonly string[]>, candidateCount: number): Readonly<{ informationGain: number; expectedReduction: number }> {
+  if (candidateCount <= 1 || groups.size <= 1) return Object.freeze({ informationGain: 0, expectedReduction: 0 });
+  const probabilities = [...groups.values()].map((ids) => ids.length / candidateCount).filter((probability) => probability > 0);
+  const entropy = -probabilities.reduce((sum, probability) => sum + probability * Math.log2(probability), 0);
+  const maximumEntropy = Math.log2(groups.size);
+  return Object.freeze({
+    informationGain: maximumEntropy > 0 ? entropy / maximumEntropy : 0,
+    expectedReduction: 1 - probabilities.reduce((sum, probability) => sum + probability ** 2, 0),
+  });
+}
+
 const USAGE_DESCRIPTIONS: Readonly<Record<string, string>> = Object.freeze({
   URBAN_DAILY: "🏙️ Kısa mesafe, park kolaylığı ve günlük pratiklik.", FAMILY: "👨‍👩‍👧 Yolcu, arka koltuk ve bagaj ihtiyacı.", LONG_DISTANCE: "🛣️ Uzun sürüşlerde konfor ve kullanışlılık.",
   URBAN_DELIVERY: "📦 Şehir içinde mal veya paket dağıtımı.", GENERAL_CARGO: "🧰 Yük alanı ve ticari taşıma önceliği.", PASSENGER_TRANSPORT: "👥 Birden fazla yolcuyu düzenli taşıma.",
   ROUGH_ROAD: "🌾 Asfalt dışı kırsal ve bozuk yollar; ağır arazi değildir.", MUD_SNOW: "🌨️ Kaygan zeminlerde yükseltilmiş gövde avantajı.", SERIOUS_OFF_ROAD: "🏔️ Yalnız dört çeker arazi odaklı seçenekler.",
 });
 const VALUE_DESCRIPTIONS: Readonly<Record<string, string>> = Object.freeze({
-  Sedan: "Ayrı bagajlı, klasik otomobil gövdesi.", Hatchback: "Kısa gövdeli, bagaj kapağı kabinle birleşik.", SUV: "Yüksek oturma ve daha iri gövde.", Pickup: "Açık yük kasalı, yolcu kabinli araç.",
+  Sedan: "Ayrı bagajlı, klasik otomobil gövdesi.", Hatchback: "Kısa gövdeli, bagaj kapağı kabinle birleşik.", SUV: "Yüksek oturma ve daha iri gövde.", "Fastback SUV": "SUV yüksekliğini arkaya doğru alçalan sportif tavan çizgisiyle birleştirir.", Liftback: "Sedan görünümüne yakın; arka camla birlikte açılan geniş bagaj kapağı vardır.", Pickup: "Açık yük kasalı, yolcu kabinli araç.",
   "Panel Van": "Kapalı ve geniş yük bölmeli ticari araç.", "Chassis Cab": "🚚 Arkasına kasa veya özel üstyapı takılan çıplak şasi.", "Passenger Van": "Çok yolcu taşımaya göre düzenlenmiş van.", MPV: "Geniş ve esnek yolcu kabinli aile aracı.",
-  GASOLINE: "⛽ Sessiz ve tanıdık kullanım; kısa/karma sürüşe uygun.", DIESEL: "🛣️ Düzenli uzun yol ve yüksek kilometrede düşünülebilir.", BEV: "🔌 Ev veya rota şarjı uygunsa sessiz, tamamen elektrikli kullanım.", HEV: "♻️ Prize takmadan şehir içi dur-kalkta elektrik desteği.", MHEV: "Motoru destekleyen hafif elektrik sistemi; elektrikli sürüş sınırlıdır.", PHEV: "🔋 Şarj edilebilir; kısa mesafeyi elektrikle yapabilir.",
+  GASOLINE: "⛽ Sessiz ve tanıdık kullanım; kısa/karma sürüşe uygun.", DIESEL: "🛣️ Düzenli uzun yol ve yüksek kilometrede düşünülebilir.", LPG: "⛽ Benzinli motora alternatif yakıt; tank yerleşimi ve istasyon erişimi kontrol edilmelidir.", BEV: "🔌 Ev veya rota şarjı uygunsa sessiz, tamamen elektrikli kullanım.", HEV: "♻️ Prize takmadan şehir içi dur-kalkta elektrik desteği.", MHEV: "Motoru destekleyen hafif elektrik sistemi; elektrikli sürüş sınırlıdır.", PHEV: "🔋 Şarj edilebilir; kısa mesafeyi elektrikle yapabilir.",
   AUTOMATIC: "Vitesi araç değiştirir; yoğun trafikte daha rahattır.", MANUAL: "Vites ve debriyajı sürücü yönetir.", FWD: "Güç ön tekerleklere gider; günlük kullanımda yaygındır.", RWD: "Güç arka tekerleklere gider.", AWD: "Güç dört tekerleğe aktarılabilir; tutunmaya yardımcı olur.",
 });
 const PERSONA_DESCRIPTIONS: Readonly<Record<string, string>> = Object.freeze({ DESIGN: "tasarım", DRIVING_ENGAGEMENT: "sürüş hissi", COMFORT: "konfor", PRACTICALITY: "pratiklik", TECHNOLOGY: "teknoloji", PRESTIGE: "prestij", VALUE: "fiyat/değer dengesi", ADVENTURE: "macera", FAMILY: "aile kullanımı", URBAN: "şehir kullanımı", COMMERCIAL: "ticari kullanım", SUSTAINABILITY: "sürdürülebilirlik", MINIMALISM: "sadelik" });
@@ -80,14 +91,14 @@ export function generateMaterialQuestionCandidates(input: {
     ...input.memory.events.filter((event): event is Extract<typeof event, { eventType: "CONSTRAINT" }> => event.eventType === "CONSTRAINT" && (event.kind === "DECLINED" || event.decisionEffect === "NONE")).map((event) => event.field),
   ]);
   const usageTemporarilyDeferred = input.memory.materialQuestionHistory.some((item) => item.field === "usageScenario" && item.answerStatus === "DEFERRED");
-  const usageAnswered = answered.has("usageScenario") || answered.has("usageArchitecture") || closed.has("usageScenario") || usageTemporarilyDeferred || input.comparisonScope;
+  const usageAnswered = answered.has("usageScenario") || answered.has("usageArchitecture") || closed.has("usageScenario") || usageTemporarilyDeferred;
   const usageScenario = input.constraints.activeHardConstraints.find((item) => item.fieldId === "usageScenario")?.value
     ?? input.constraints.activeNonHardConstraints.find((item) => item.fieldId === "usageScenario")?.normalizedValue;
   const activeFuelPreference = input.constraints.activeHardConstraints.find((item) => item.fieldId === "fuelType")?.value
     ?? input.constraints.activeNonHardConstraints.find((item) => item.fieldId === "fuelType")?.normalizedValue;
   const batteryElectricSelected = typeof activeFuelPreference === "object" && activeFuelPreference !== null && "value" in activeFuelPreference
     && (activeFuelPreference as { value?: unknown }).value === "BEV";
-  const architectureAnswered = answered.has("bodyStyle") || input.comparisonScope;
+  const architectureAnswered = answered.has("bodyStyle");
   const fields = ["bodyStyle", "seats", "drivenWheels", "fuelType", "transmission"] as const;
   const candidates: QuestionCandidate[] = [];
   const unanswered: string[] = [];
@@ -154,13 +165,12 @@ export function generateMaterialQuestionCandidates(input: {
       ...(description(field, value) ? { userFacingDescription: description(field, value) } : {}),
       provenance: Object.freeze({ source: "CURRENT_CANDIDATE_POOL" as const, candidatePoolFingerprint: input.memory.decisionFingerprint, supportingCandidateIds: Object.freeze(ids.sort()), authorityReference: input.snapshot.authority.catalogFingerprint }),
     }));
-    const largest = sorted[0]?.[1].length ?? variants.length;
-    const reduction = variants.length ? 1 - largest / variants.length : 0;
+    const facetStatistics = boundedFacetStatistics(groups, variants.length);
     candidates.push(makeCandidate({
       question: Object.freeze({ id: `v2q.${field}.${input.memory.turn + 1}`, stableSemanticKey: `discovery.${field}`, field, promptIntent: "DISCRIMINATE_CANDIDATES", options: Object.freeze(options), selectionMode: field === "bodyStyle" || field === "fuelType" ? "MULTIPLE" as const : "SINGLE" as const, minimumSelections: 1, maximumSelections: field === "bodyStyle" || field === "fuelType" ? Math.min(options.length, 5) : 1, answerCapabilities: Object.freeze(["ANSWER", "SKIP", "UNKNOWN", "NOT_IMPORTANT"] as const), materialityReason: input.comparisonScope ? "İki model kapsamındaki varyantları ayırır." : "Mevcut aday havuzunu anlamlı biçimde daraltır." }),
       stage, materiality: input.comparisonScope ? 1.5 : field === "bodyStyle" ? 2 : 1,
-      informationGain: reduction, conversationalRelevance: field === "bodyStyle" ? 2 : 1,
-      reasonCodes: Object.freeze([`${stage}_CANDIDATE_DISCRIMINATOR`]), candidateReductionValue: reduction * 4,
+      informationGain: facetStatistics.informationGain, conversationalRelevance: field === "bodyStyle" ? 2 : 1,
+      reasonCodes: Object.freeze([`${stage}_CANDIDATE_DISCRIMINATOR`, "BOUNDED_POOL_INFORMATION_GAIN"]), candidateReductionValue: facetStatistics.expectedReduction * 4,
       compatibleCandidateIds: candidateIds,
     }));
   }
@@ -185,6 +195,7 @@ export function generateMaterialQuestionCandidates(input: {
       const groups = canonicalValues.map((value) => [value, variants.filter((variant) => valueFor(variant, field) === value).map((variant) => variant.id)] as const)
         .filter((entry) => entry[1].length > 0);
       if (groups.length < 2) continue;
+      if (closed.has(field)) continue;
       unanswered.push(field);
       candidates.push(makeCandidate({
         question: Object.freeze({ id: `v2q.refinement.${field}.${input.memory.turn + 1}`, stableSemanticKey: `refinement.${field}`, field, promptIntent: "DISCRIMINATE_CANDIDATES", options: Object.freeze(groups.map(([value, ids]) => Object.freeze({ id: `v2q.refinement.${field}.${value.toLocaleLowerCase("tr-TR").replace(/[^a-z0-9]+/gu, "-")}`, semanticValue: value, userFacingLabel: label(field, value), provenance: Object.freeze({ source: "CURRENT_CANDIDATE_POOL" as const, candidatePoolFingerprint: input.memory.decisionFingerprint, supportingCandidateIds: Object.freeze(ids.sort()), authorityReference: input.snapshot.authority.catalogFingerprint }) }))), selectionMode: "SINGLE", minimumSelections: 1, maximumSelections: 1, answerCapabilities: Object.freeze(["ANSWER", "SKIP", "UNKNOWN", "NOT_IMPORTANT"] as const), materialityReason: "Birden fazla açık tercihten hangisinin adayları üçe indirmek için öncelikli olacağını belirler." }),
@@ -195,7 +206,7 @@ export function generateMaterialQuestionCandidates(input: {
     }
   }
 
-  if (candidates.length === 0 && variants.length > 3) {
+  if (candidates.length === 0 && variants.length > 3 && !closed.has("catalogIdentity")) {
     const brandGroups = new Map<string, string[]>();
     for (const variant of variants) brandGroups.set(variant.brand, [...(brandGroups.get(variant.brand) ?? []), variant.id]);
     const identityGroups = brandGroups.size > 1

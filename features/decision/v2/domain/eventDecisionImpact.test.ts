@@ -22,11 +22,12 @@ describe("V2.1 decision-impact classification", () => {
   it("classifies conversation, safety, observability, and authorization events without invalidation", () => {
     const events: ConversationEvent[] = [
       { ...base, eventType: "SOCIAL_INTERACTION", interaction: "SHORT_SOCIAL" },
+      { ...base, id: "turn", eventType: "TURN_RECORDED" },
       { ...base, id: "abuse", eventType: "ABUSE", transition: "BOUNDARY_SET" },
       { ...base, id: "answer", eventType: "DIRECT_ANSWER_FULFILLED", obligation: "MODEL_AVAILABILITY" },
       { ...base, id: "lookup", eventType: "MODEL_REFERENCE", referenceId: "reference-1", rawText: "named model", resolution: "NOT_FOUND", decisionEffect: "LOOKUP_ONLY", resolvedFamilyIds: [], resolvedVariantIds: [] },
     ];
-    expect(events.map(classify)).toEqual(["CONVERSATION_ONLY", "SAFETY_ONLY", "OBSERVABILITY_ONLY", "OBSERVABILITY_ONLY"]);
+    expect(events.map(classify)).toEqual(["CONVERSATION_ONLY", "CONVERSATION_ONLY", "SAFETY_ONLY", "OBSERVABILITY_ONLY", "OBSERVABILITY_ONLY"]);
     expect(events.every((event) => !eventInvalidatesOpenOffer(event))).toBe(true);
   });
 

@@ -34,6 +34,7 @@ export function classifyConversationEventDecisionImpact(event: ConversationEvent
     case "MATERIAL_QUESTION_DISPOSITION":
     case "SOCIAL_INTERACTION":
     case "OFF_TOPIC":
+    case "TURN_RECORDED":
     case "VEHICLE_INTENT_ESTABLISHED":
     case "CONVERSATION_STATE_TRANSITION": return "CONVERSATION_ONLY";
     case "ABUSE": return "SAFETY_ONLY";

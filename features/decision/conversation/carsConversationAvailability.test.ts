@@ -8,6 +8,7 @@ import {
 describe("cars conversation public availability", () => {
   it("keeps production fail-closed while allowing isolated tests", () => {
     expect(isPublicCarsConversationEnabled({ NODE_ENV: "production" })).toBe(false);
+    expect(isPublicCarsConversationEnabled({ NODE_ENV: "production" }, true)).toBe(true);
     expect(isPublicCarsConversationEnabled({ NODE_ENV: "development" })).toBe(false);
     expect(isPublicCarsConversationEnabled({ NODE_ENV: "production", CARS_CONVERSATION_LOCAL_TESTING: "true" })).toBe(false);
     expect(isPublicCarsConversationEnabled({ NODE_ENV: "development", CARS_CONVERSATION_LOCAL_TESTING: "true" })).toBe(true);

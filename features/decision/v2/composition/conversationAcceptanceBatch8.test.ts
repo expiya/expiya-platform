@@ -38,7 +38,7 @@ const answerProfiles = [
   { usage: "günlük", body: "Hatchback", fuel: "Elektrik", transmission: "Otomatik", budget: "1 milyon param var", drivenWheels: "Dört çeker", seats: "5 koltuk" },
   { usage: "aile ve yolcu kullanımı", body: "SUV/crossover", fuel: "Tam hibrit", transmission: "Kesinlikle otomatik", budget: "2 milyon, belki biraz üstü", drivenWheels: "Önden çekiş", seats: "7 koltuk" },
   { usage: "uzun yol", body: "Sedan veya hatchback", fuel: "Benzin veya dizel", transmission: "Manuel", budget: "En fazla 3 milyon", drivenWheels: "Arkadan itiş", seats: "4 koltuk" },
-  { usage: "karma kullanım", body: "fark etmez", fuel: "yakıt fark etmez", transmission: "fark etmez", budget: "Bütçe önemli değil", drivenWheels: "fark etmez", seats: "fark etmez" },
+  { usage: "fark etmez", body: "fark etmez", fuel: "yakıt fark etmez", transmission: "fark etmez", budget: "Bütçe önemli değil", drivenWheels: "fark etmez", seats: "fark etmez" },
   { usage: "bozuk yol / köy yolu", body: "Pickup", fuel: "Dizel", transmission: "Otomatik", budget: "1 milyon nakitim var, üstü için kredi kullanabilirim", drivenWheels: "AWD", seats: "5 kişilik" },
 ] as const;
 

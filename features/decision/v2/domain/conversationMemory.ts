@@ -25,10 +25,11 @@ export interface ModelReference {
   readonly rawText: string;
   readonly normalizedBrand?: string;
   readonly normalizedModel?: string;
-  readonly resolution: "UNRESOLVED" | "EXACT_MODEL_FAMILY" | "EXACT_VARIANT" | "BRAND_ONLY" | "NOT_FOUND" | "AMBIGUOUS";
+  readonly resolution: "UNRESOLVED" | "EXACT_MODEL_FAMILY" | "EXACT_VARIANT" | "BRAND_ONLY" | "POSSIBLE_TYPO" | "NOT_FOUND" | "AMBIGUOUS";
   readonly decisionEffect: "LOOKUP_ONLY" | "COMPARISON_SCOPE" | "PREFERENCE" | "HARD_SCOPE";
   readonly resolvedFamilyIds: readonly string[];
   readonly resolvedVariantIds: readonly string[];
+  readonly suggestedCanonicalNames?: readonly string[];
 }
 
 export interface MaterialQuestionHistoryEntry {

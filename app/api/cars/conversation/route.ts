@@ -2,7 +2,7 @@ import { z } from "zod";
 import { after } from "next/server";
 
 import { runCarsConversationTurn } from "@/features/decision/conversation/runCarsConversationTurn";
-import { planAutomotiveKnowledgeResponse, planSupportiveAutomotiveKnowledgeResponse } from "@/features/automotive-knowledge";
+import { planAutomotiveKnowledgeResponse, planSimplifiedAutomotiveKnowledgeFollowUp, planSupportiveAutomotiveKnowledgeResponse } from "@/features/automotive-knowledge";
 import { isOfferDeclineText } from "@/features/decision/conversation/carsSocialIntent";
 import { evaluateCarsDecisionV2ShadowAfterResponse } from "@/features/decision/v2/integration/routeShadow.server";
 import { tryRunCarsDecisionV2Public } from "@/features/decision/v2/integration/publicRoute.server";
@@ -13,6 +13,7 @@ import {
   CARS_CONVERSATION_AVAILABILITY,
   isPublicCarsConversationEnabled,
 } from "@/features/decision/conversation/carsConversationAvailability";
+import { pilotSessionFromRequest } from "@/features/pilot/pilotSession.server";
 
 const builtInQuestionPurposeSchema = z.enum([
   "PRIMARY_USAGE",
@@ -319,13 +320,14 @@ const requestSchema = z.object({
       district: z.string().min(1).max(100),
       status: z.literal("PLANNED_V0_2"),
     }).optional(),
-  })).min(1).max(80),
+  })).min(1).max(500),
 });
 
 export async function POST(request: Request): Promise<Response> {
   const originRejected = verifySameOrigin(request);
   if (originRejected) return originRejected;
-  if (!isPublicCarsConversationEnabled()) {
+  const pilotSession = pilotSessionFromRequest(request);
+  if (!isPublicCarsConversationEnabled(process.env, Boolean(pilotSession))) {
     return Response.json({
       message: CARS_CONVERSATION_AVAILABILITY.message,
       reasonCode: CARS_CONVERSATION_AVAILABILITY.reasonCode,
@@ -335,13 +337,19 @@ export async function POST(request: Request): Promise<Response> {
       headers: { "Retry-After": "86400" },
     });
   }
-  const rejected = await enforceRateLimit(request, { scope: "cars-conversation", limit: 20, windowMs: 10 * 60_000 });
-  if (rejected) return rejected;
+  if (!pilotSession) {
+    const rejected = await enforceRateLimit(request, { scope: "cars-conversation", limit: 20, windowMs: 10 * 60_000 });
+    if (rejected) return rejected;
+  }
   try {
-    const input = requestSchema.parse(await readJsonWithLimit(request, 150_000));
+    const input = requestSchema.parse(await readJsonWithLimit(request, pilotSession ? 1_500_000 : 150_000));
     const latestKnowledgeUser = [...input.messages].reverse().find((message) => message.role === "user");
+    const priorKnowledgeUser = latestKnowledgeUser
+      ? [...input.messages].slice(0, input.messages.lastIndexOf(latestKnowledgeUser)).reverse().find((message) => message.role === "user")
+      : undefined;
     const knowledgeResponse = latestKnowledgeUser
-      ? planAutomotiveKnowledgeResponse(latestKnowledgeUser.content)
+      ? planSimplifiedAutomotiveKnowledgeFollowUp({ userText: latestKnowledgeUser.content, priorUserText: priorKnowledgeUser?.content })
+        ?? planAutomotiveKnowledgeResponse(latestKnowledgeUser.content)
       : undefined;
     const supportiveKnowledge = latestKnowledgeUser
       ? planSupportiveAutomotiveKnowledgeResponse(latestKnowledgeUser.content)
@@ -383,8 +391,10 @@ export async function POST(request: Request): Promise<Response> {
         { status: 409 },
       );
     }
-    const conversationRejected = await enforceRateLimit(request, { scope: "cars-conversation-id", subject: input.conversationId, limit: 24, windowMs: 60 * 60_000 });
-    if (conversationRejected) return conversationRejected;
+    if (!pilotSession) {
+      const conversationRejected = await enforceRateLimit(request, { scope: "cars-conversation-id", subject: input.conversationId, limit: 24, windowMs: 60 * 60_000 });
+      if (conversationRejected) return conversationRejected;
+    }
     let v2Response = null;
     try {
       v2Response = await tryRunCarsDecisionV2Public(input, request.signal);

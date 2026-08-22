@@ -25,8 +25,9 @@ export function createAffordabilityConflictRecovery(input: {
     ? input.memory.budget.maximumHardCeiling?.amount ?? input.memory.budget.preferredBudget?.amount
     : undefined;
   const order = new Map(input.memory.events.map((event, index) => [event.id, index]));
+  const hardFields = new Set(input.constraints.activeHardConstraints.map((constraint) => constraint.fieldId));
   const preferences = input.constraints.activeNonHardConstraints
-    .filter((constraint) => constraint.decisionEffect === "STRONG_RANK" && MATERIAL_FIELDS.has(constraint.fieldId))
+    .filter((constraint) => constraint.decisionEffect === "STRONG_RANK" && MATERIAL_FIELDS.has(constraint.fieldId) && !hardFields.has(constraint.fieldId))
     .flatMap((constraint) => {
       const value = selectedValue(constraint.normalizedValue);
       return value ? [{ field: constraint.fieldId, value, order: order.get(constraint.sourceEventId) ?? -1 }] : [];

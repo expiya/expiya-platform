@@ -5,7 +5,7 @@ import { describe, expect, it } from "vitest";
 
 import { canonicalJson } from "./canonical";
 import { release } from "./content";
-import { planAutomotiveKnowledgeResponse, planSupportiveAutomotiveKnowledgeResponse } from "./planner";
+import { planAutomotiveKnowledgeResponse, planSimplifiedAutomotiveKnowledgeFollowUp, planSupportiveAutomotiveKnowledgeResponse } from "./planner";
 import { knowledgeReleaseSchema } from "./schema";
 
 describe("Automotive Knowledge Layer v0.1", () => {
@@ -43,6 +43,13 @@ describe("Automotive Knowledge Layer v0.1", () => {
     expect(planAutomotiveKnowledgeResponse("Sahte araç ilanı ve kapora dolandırıcılığından nasıl korunurum?")?.intent).toBe("LISTING_AND_PAYMENT_SAFETY");
   });
 
+  it.each(["Expiya nedir?", "Expiya Cars nedir?", "Bu site ne işe yarıyor?", "Bu sohbet ne işe yarıyor?", "Bu araç danışmanı ne yapıyor?", "Sen ne yapıyorsun?", "Benim için ne yapabilirsin?", "Bana nasıl yardımcı olursun?", "Bizim için ne yapabilirsiniz?"])("routes product identity before generic automotive education: %s", (question) => {
+    const plan = planAutomotiveKnowledgeResponse(question);
+    expect(plan?.intent).toBe("EXPIYA_ORIENTATION");
+    expect(plan?.message).toMatch(/otomotiv kavramlarını.*açıklar.*katalog/iu);
+    expect(plan?.message).not.toMatch(/Sedan ayrı bagajlı/iu);
+  });
+
   it("hands explicit vehicle-selection requests to the Decision Engine", () => {
     expect(planAutomotiveKnowledgeResponse("Euro NCAP ne demek?")?.intent).toBe("SAFETY_RATINGS");
     expect(planAutomotiveKnowledgeResponse("Peki güvenliği yüksek bir araç seçelim")).toBeUndefined();
@@ -50,6 +57,7 @@ describe("Automotive Knowledge Layer v0.1", () => {
     expect(planAutomotiveKnowledgeResponse("Benim için uzun menzilli elektrikli araç bul")).toBeUndefined();
     expect(planAutomotiveKnowledgeResponse("İkinci el ekspertiz yeterli mi?")?.intent).toBe("USED_VEHICLE_DUE_DILIGENCE");
     expect(planAutomotiveKnowledgeResponse("O zaman ikinci el bir aile aracı seçelim")).toBeUndefined();
+    expect(planAutomotiveKnowledgeResponse("Periyodik bakım nasıl yapılır? Okul servisi işi yapıyorum ve aracımı yenilemek istiyorum.")).toBeUndefined();
   });
 
   it("provides decision-neutral support for accident anxiety and financing concerns", () => {
@@ -60,6 +68,13 @@ describe("Automotive Knowledge Layer v0.1", () => {
     const financing = planSupportiveAutomotiveKnowledgeResponse("Araç almak istiyorum ama param yok");
     expect(financing).toMatchObject({ intent: "FINANCING_AND_CREDIT", decisionImpact: "NONE", supportMode: "CONVERSATION_SUPPORT_ONLY" });
     expect(financing?.message).toMatch(/kredi onayı|toplam geri ödeme|birlikte değerlendirebiliriz/iu);
+  });
+
+  it("binds a simplification request to the prior knowledge topic", () => {
+    const response = planSimplifiedAutomotiveKnowledgeFollowUp({ userText: "Söylediklerin karmaşık, daha basit anlatır mısın?", priorUserText: "Köyde şarj istasyonu yok ama evde elektrik var; elektrikli araç için yeterli mi?" });
+    expect(response).toMatchObject({ intent: "EV_CHARGING_ECOSYSTEM", decisionImpact: "NONE" });
+    expect(response?.message).toMatch(/Evde elektrik.*başlangıç.*yeterli|tesisat.*topraklama|uzun yol/iu);
+    expect(response?.message).not.toMatch(/Sedan ayrı bagajlı|kW anlık güç/iu);
   });
 
   it("requires complete provenance for every published statistic", () => {

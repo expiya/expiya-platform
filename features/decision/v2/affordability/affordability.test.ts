@@ -74,6 +74,13 @@ describe("WP6 affordability candidate pool", () => {
   it("re-evaluates the full technical pool when the hard ceiling is corrected", async () => {
     expect((await evaluate(budget())).verifiedOverBudgetCandidateIds).toEqual(["v2"]); expect((await evaluate(budget({ maximumHardCeiling: { amount: 5_000_000, currency: "TRY" } }))).verifiedPriceEligibleCandidateIds).toEqual(["v1", "v2"]);
   });
+  it("keeps a budget range as a hard maximum plus a separate ranking band", async () => {
+    const result = await evaluate(budget({ minimumBudget: { amount: 1_950_000, currency: "TRY" } }), [["below", 1_900_000], ["within", 2_000_000], ["over", 2_100_000]]);
+    expect(result.verifiedPriceEligibleCandidateIds).toEqual(["below", "within"]);
+    expect(result.verifiedOverBudgetCandidateIds).toEqual(["over"]);
+    expect(result.candidates.find((candidate) => candidate.exactVariantId === "below")?.softSignals).toContainEqual(expect.objectContaining({ kind: "BELOW_BUDGET_RANGE", rankingScore: 1 }));
+    expect(result.candidates.find((candidate) => candidate.exactVariantId === "within")?.softSignals).toContainEqual(expect.objectContaining({ kind: "WITHIN_BUDGET_RANGE", rankingScore: 4 }));
+  });
   it("allows an unknown-price technical candidate when budget is excluded without an affordability claim", async () => {
     const result = await evaluate(budget({ budgetExcluded: true }), []); expect(result.budgetNotAppliedEligibleCandidateIds).toEqual([]);
     const base = await inputs([["v1", 1_000_000]]); const noPriceSnapshot = { ...base.snapshot, variants: base.snapshot.variants.map((variant) => ({ ...variant, activeNewPrice: undefined })) };
@@ -100,6 +107,24 @@ describe("WP6 affordability candidate pool", () => {
   it("creates an exact card-price fact only for a public current LIST observation", async () => {
     const result = await evaluate(budget(), [["v1", 1_900_000]]);
     expect(projectConsumerVisiblePriceFact(result.candidates[0]!)).toEqual({ permission: "EXACT_PUBLIC_PRICE_ALLOWED", amountTry: 1_900_000, claimType: "PUBLIC_CURRENT_LIST_PRICE" });
+  });
+  it("fails closed for commercial list prices until KDV treatment is explicit", async () => {
+    const base = await inputs([["v1", 1_900_000]]);
+    const commercialFact = { value: "LIGHT_COMMERCIAL" as const, confidence: "HIGH" as const, provenance: [],
+      catalogFingerprint: base.snapshot.authority.catalogFingerprint, explanationAccess: "AUTHORITY_REQUIRED" as const };
+    const commercialSnapshot = { ...base.snapshot, variants: base.snapshot.variants.map((variant) => ({ ...variant,
+      decisionFacts: { ...variant.decisionFacts, vehicleUseClass: commercialFact } })) };
+    const unknownTax = evaluateAffordabilityCandidatePool({ snapshot: commercialSnapshot, technicalPool: base.technicalPool,
+      budget: budget(), evaluationTime: NOW, priceAuthorityPolicy: PRICE_AUTHORITY_POLICY_V1, affordabilityPolicy: AFFORDABILITY_POLICY_V1 });
+    expect(unknownTax.priceUnresolvedCandidateIds).toEqual(["v1"]);
+    expect(unknownTax.candidates[0]?.priceAuthority).toMatchObject({ state: "INVALID", taxTreatment: "UNKNOWN", reasonCodes: ["COMMERCIAL_PRICE_TAX_TREATMENT_UNKNOWN"], realizationPermission: "NO_PRICE_LANGUAGE" });
+
+    const includedTaxSnapshot = { ...commercialSnapshot, variants: commercialSnapshot.variants.map((variant) => ({ ...variant,
+      activeNewPrice: variant.activeNewPrice && { ...variant.activeNewPrice, taxTreatment: "INCLUDED" as const } })) };
+    const includedTax = evaluateAffordabilityCandidatePool({ snapshot: includedTaxSnapshot, technicalPool: base.technicalPool,
+      budget: budget(), evaluationTime: NOW, priceAuthorityPolicy: PRICE_AUTHORITY_POLICY_V1, affordabilityPolicy: AFFORDABILITY_POLICY_V1 });
+    expect(includedTax.verifiedPriceEligibleCandidateIds).toEqual(["v1"]);
+    expect(includedTax.candidates[0]?.priceAuthority).toMatchObject({ taxTreatment: "INCLUDED", validFrom: "2026-08-19T00:00:00.000Z" });
   });
   it("keeps estimate-over conditional/selectable and emits only approximate bands", async () => {
     const hiddenAmount = 2_168_000;

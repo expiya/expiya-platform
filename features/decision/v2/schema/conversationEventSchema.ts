@@ -7,6 +7,7 @@ import { VEHICLE_PERSONA_TRAITS } from "../domain/conversationEvent";
 const MAX_JSON_DEPTH = 8;
 const MAX_ARRAY_LENGTH = 64;
 const MAX_OBJECT_KEYS = 64;
+const MAX_CATALOG_REFERENCE_IDS = 512;
 const FORBIDDEN_KEYS = new Set(["__proto__", "prototype", "constructor"]);
 const ISO_TIMESTAMP = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{3})?Z$/u;
 
@@ -91,11 +92,11 @@ const constraintSchema = z.strictObject({
 
 const budgetCommon = { ...baseShape, eventType: z.literal("BUDGET_MUTATION") } as const;
 const budgetSchema = z.union([
-  z.strictObject({ ...budgetCommon, operation: z.enum(["SET", "CORRECT"]), field: z.enum(["AVAILABLE_CASH", "PREFERRED_BUDGET", "MAXIMUM_HARD_CEILING"]), value: moneySchema, ...optionalSupersession }),
+  z.strictObject({ ...budgetCommon, operation: z.enum(["SET", "CORRECT"]), field: z.enum(["AVAILABLE_CASH", "MINIMUM_BUDGET", "PREFERRED_BUDGET", "MAXIMUM_HARD_CEILING"]), value: moneySchema, ...optionalSupersession }),
   z.strictObject({ ...budgetCommon, operation: z.enum(["SET", "CORRECT"]), field: z.literal("FINANCE_FLEXIBILITY"), value: z.enum(["NONE", "POSSIBLE", "YES", "UNKNOWN"]), ...optionalSupersession }),
   z.strictObject({ ...budgetCommon, operation: z.enum(["SET", "CORRECT"]), field: z.literal("BUDGET_IMPORTANCE"), value: z.enum(["HARD", "IMPORTANT", "SOFT", "NONE", "UNKNOWN"]), ...optionalSupersession }),
   z.strictObject({ ...budgetCommon, operation: z.enum(["SET", "CORRECT"]), field: z.enum(["UNRESOLVED_FINANCED_CEILING", "BUDGET_UNKNOWN"]), value: z.boolean(), ...optionalSupersession }),
-  z.strictObject({ ...budgetCommon, operation: z.literal("CLEAR"), field: z.enum(["AVAILABLE_CASH", "PREFERRED_BUDGET", "MAXIMUM_HARD_CEILING", "FINANCE_FLEXIBILITY", "UNRESOLVED_FINANCED_CEILING", "BUDGET_IMPORTANCE", "BUDGET_UNKNOWN"]), ...optionalSupersession }),
+  z.strictObject({ ...budgetCommon, operation: z.literal("CLEAR"), field: z.enum(["AVAILABLE_CASH", "MINIMUM_BUDGET", "PREFERRED_BUDGET", "MAXIMUM_HARD_CEILING", "FINANCE_FLEXIBILITY", "UNRESOLVED_FINANCED_CEILING", "BUDGET_IMPORTANCE", "BUDGET_UNKNOWN"]), ...optionalSupersession }),
   z.strictObject({ ...budgetCommon, operation: z.literal("EXCLUDE_FROM_DECISION") }),
 ]);
 
@@ -119,9 +120,13 @@ const questionSchema = z.union([
 const modelReferenceSchema = z.strictObject({
   ...baseShape, eventType: z.literal("MODEL_REFERENCE"), referenceId: boundedId, rawText: boundedText,
   normalizedBrand: boundedValue.optional(), normalizedModel: boundedValue.optional(),
-  resolution: z.enum(["UNRESOLVED", "EXACT_MODEL_FAMILY", "EXACT_VARIANT", "BRAND_ONLY", "NOT_FOUND", "AMBIGUOUS"]),
+  resolution: z.enum(["UNRESOLVED", "EXACT_MODEL_FAMILY", "EXACT_VARIANT", "BRAND_ONLY", "POSSIBLE_TYPO", "NOT_FOUND", "AMBIGUOUS"]),
   decisionEffect: z.enum(["LOOKUP_ONLY", "COMPARISON_SCOPE", "PREFERENCE", "HARD_SCOPE"]),
-  resolvedFamilyIds: z.array(boundedId).max(32), resolvedVariantIds: z.array(boundedId).max(64),
+  // Brand scopes can legitimately cover more than a shortlist. Keep the event
+  // bounded without truncating the active catalog scope used by the decision.
+  resolvedFamilyIds: z.array(boundedId).max(MAX_CATALOG_REFERENCE_IDS),
+  resolvedVariantIds: z.array(boundedId).max(MAX_CATALOG_REFERENCE_IDS),
+  suggestedCanonicalNames: z.array(boundedValue).max(5).optional(),
 });
 
 const directAnswerSchema = z.strictObject({
@@ -147,6 +152,7 @@ const recommendationOfferAuditSchema = z.union([
 const socialSchema = z.strictObject({ ...baseShape, eventType: z.literal("SOCIAL_INTERACTION"), interaction: z.enum(["SHORT_SOCIAL", "VEHICLE_CONTEXT_RESUMED"]), humanContext: z.enum(HUMAN_CONTEXT_KINDS).optional() });
 const offTopicSchema = z.strictObject({ ...baseShape, eventType: z.literal("OFF_TOPIC"), transition: z.enum(["DETECTED", "RETURNED_TO_VEHICLE", "BOUNDARY_STATED"]) });
 const abuseSchema = z.strictObject({ ...baseShape, eventType: z.literal("ABUSE"), transition: z.enum(["BOUNDARY_SET", "WARNED", "ENDED", "EXPLICIT_RESET"]) });
+const turnRecordedSchema = z.strictObject({ ...baseShape, eventType: z.literal("TURN_RECORDED") });
 const vehicleIntentSchema = z.strictObject({ ...baseShape, eventType: z.literal("VEHICLE_INTENT_ESTABLISHED") });
 const stateSchema = z.strictObject({
   ...baseShape, eventType: z.literal("CONVERSATION_STATE_TRANSITION"),
@@ -156,7 +162,7 @@ const stateSchema = z.strictObject({
 
 export const conversationEventSchema = z.union([
   constraintSchema, budgetSchema, rejectionSchema, personaSchema, questionSchema, modelReferenceSchema,
-  directAnswerSchema, offerLifecycleSchema, recommendationOfferAuditSchema, socialSchema, offTopicSchema, abuseSchema, vehicleIntentSchema, stateSchema,
+  directAnswerSchema, offerLifecycleSchema, recommendationOfferAuditSchema, socialSchema, offTopicSchema, abuseSchema, turnRecordedSchema, vehicleIntentSchema, stateSchema,
 ]);
 
 function deepFreeze<T>(value: T, seen = new WeakSet<object>()): T {

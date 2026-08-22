@@ -3,5 +3,9 @@ export type DeterministicOfferResponse = "ACCEPT" | "DECLINE";
 const normalize = (value: string) => value.normalize("NFKC").toLocaleLowerCase("tr-TR").replace(/[.!?,;:]+/gu, " ").replace(/\p{Extended_Pictographic}/gu, " ").replace(/\s+/gu, " ").trim();
 const ACCEPT = new Set(["evet", "göster", "göster bakalım", "paylaş", "paylaş bakalım", "görelim", "hadi görelim", "olur", "tamam", "seçenekleri göster", "önerileri aç", "devam et", "devam et öyleyse", "edelim"]);
 const DECLINE = new Set(["hayır", "istemiyorum", "gösterme", "göstermek istemiyorum", "vazgeçtim", "sonra bakalım", "gerek yok"]);
-export function classifyDeterministicOfferResponse(value: string): DeterministicOfferResponse | null { const normalized = normalize(value); return ACCEPT.has(normalized) ? "ACCEPT" : DECLINE.has(normalized) ? "DECLINE" : null; }
+export function classifyDeterministicOfferResponse(value: string): DeterministicOfferResponse | null {
+  const normalized = normalize(value);
+  const explicitReveal = /^(?:evet\s+)?(?:(?:araç|araba|otomobil)\s+)?(?:öneri(?:yi|leri|sini)?|seçenek(?:leri)?|araç(?:ları)?)\s+(?:göster|aç|paylaş)$/u.test(normalized);
+  return ACCEPT.has(normalized) || explicitReveal ? "ACCEPT" : DECLINE.has(normalized) ? "DECLINE" : null;
+}
 export function createDeterministicOfferResponsePlan(messageId: string, response: DeterministicOfferResponse): AuthoritativeSemanticPlan { const act: UserAct = response === "ACCEPT" ? "OFFER_ACCEPTANCE" : "OFFER_DECLINE"; const result = { schemaVersion: 1 as const, messageId, acts: [act] as const, directAnswerRequests: [], constraintMutations: [], budgetMutations: [], modelReferences: [], personaMutations: [], corrections: [], ambiguities: [] }; return Object.freeze({ authorityBoundary: "AUTHORITATIVE_SEMANTIC_PLAN", providerActs: Object.freeze([]), policyTrace: Object.freeze([]), result: Object.freeze(result), acceptedConstraintMutations: Object.freeze([]), acceptedBudgetMutations: Object.freeze([]), acceptedPersonaMutations: Object.freeze([]), diagnostics: Object.freeze([]) }); }

@@ -21,10 +21,9 @@ export function decideConversationAction(input: DecideActionInput): Conversation
       }
     } else {
       nextAction = input.directAnswerObligation.kind === "MODEL_AVAILABILITY" ? { type: "ANSWER_MODEL_LOOKUP" } : input.directAnswerObligation.kind === "TECHNICAL_EXPLANATION" ? { type: "EXPLAIN_TECHNICAL_CONCEPT" } : { type: "ANSWER_DIRECTLY" };
-      // A bare model lookup remains self-contained. A user who has established
-      // vehicle intent can receive the requested concept explanation first and
-      // then continue with the next guided discovery question in the same turn.
-      if (input.directAnswerObligation.kind === "MODEL_AVAILABILITY" || (input.directAnswerObligation.kind === "TECHNICAL_EXPLANATION" && !input.memory.vehicleIntentEstablished)) materialQuestion = null;
+      // Information requests are self-contained. Answering a concept question
+      // is not consent to append an unrelated decision discriminator.
+      if (["MODEL_AVAILABILITY", "TECHNICAL_EXPLANATION"].includes(input.directAnswerObligation.kind)) materialQuestion = null;
     }
   }
   else if (input.normalizedUserAct === "TECHNICAL_EXPLANATION_REQUEST" || input.normalizedUserAct === "UNKNOWN_TECHNICAL_CONCEPT") { nextState = "TECHNICAL_GUIDANCE"; nextAction = { type: "EXPLAIN_TECHNICAL_CONCEPT" }; rule = "TECHNICAL_EXPLANATION"; materialQuestion = null; }

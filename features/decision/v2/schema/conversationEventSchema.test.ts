@@ -69,6 +69,29 @@ describe("V2 strict conversation event schema", () => {
     expect(() => parseConversationEvent({ ...reference, decisionEffect: "UNBOUNDED" })).toThrow();
   });
 
+  it("preserves a bounded brand scope larger than a presentation shortlist", () => {
+    const resolvedFamilyIds = Array.from({ length: 33 }, (_, index) => `family-${index + 1}`);
+    const parsed = parseConversationEvent({
+      schemaVersion: 1, conversationId: "conversation-1", id: "brand-reference", sourceMessageId: "message-1",
+      sourceTurn: 1, sequence: 0, createdAt: "2026-08-16T10:00:00.000Z", eventType: "MODEL_REFERENCE",
+      referenceId: "reference-1", rawText: "BMW", normalizedBrand: "BMW", resolution: "BRAND_ONLY",
+      decisionEffect: "COMPARISON_SCOPE", resolvedFamilyIds, resolvedVariantIds: [],
+    });
+    expect(parsed.eventType === "MODEL_REFERENCE" ? parsed.resolvedFamilyIds : []).toEqual(resolvedFamilyIds);
+  });
+
+  it("accepts bounded typo suggestions and rejects an unbounded suggestion set", () => {
+    const reference = {
+      schemaVersion: 1, conversationId: "conversation-1", id: "typo-reference", sourceMessageId: "message-1",
+      sourceTurn: 1, sequence: 0, createdAt: "2026-08-16T10:00:00.000Z", eventType: "MODEL_REFERENCE",
+      referenceId: "reference-1", rawText: "BYD Dolpin", normalizedBrand: "BYD", normalizedModel: "Dolpin",
+      resolution: "POSSIBLE_TYPO", decisionEffect: "LOOKUP_ONLY", resolvedFamilyIds: [], resolvedVariantIds: [],
+    } as const;
+    const parsed = parseConversationEvent({ ...reference, suggestedCanonicalNames: ["BYD DOLPHIN"] });
+    expect(parsed.eventType === "MODEL_REFERENCE" ? parsed.suggestedCanonicalNames : undefined).toEqual(["BYD DOLPHIN"]);
+    expect(() => parseConversationEvent({ ...reference, suggestedCanonicalNames: Array.from({ length: 6 }, (_, index) => `Model ${index}`) })).toThrow();
+  });
+
   it("rejects invalid IDs, money, turns, confidence, and dates", () => {
     expect(() => parseConversationEvent({ ...constraintEvent(), id: " " })).toThrow();
     expect(() => parseConversationEvent({ ...constraintEvent(), sourceTurn: -1 })).toThrow();

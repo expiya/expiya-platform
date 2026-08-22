@@ -10,11 +10,12 @@ export interface KnowledgeIntentMatch { readonly intent: KnowledgeIntent; readon
 export function isExplicitVehicleSelectionRequest(text: string): boolean {
   const normalized = text.trim();
   return /\b(?:araç|araba|otomobil|model)\b.{0,80}\b(?:bul(?:alım)?|öner(?:ir misin|in)?|seç(?:elim|mek|meme yardım et)?|arıyorum|istiyorum|almak istiyorum|almam gerekiyor)\b/iu.test(normalized)
+    || /(?:aracımı|arabamı|otomobilimi).{0,60}(?:yenilemek|değiştirmek|yenileyeceğim|değiştireceğim)/iu.test(normalized)
     || /\b(?:benim için|bana)\b.{0,80}\b(?:bul|öner|seç)\b/iu.test(normalized);
 }
 
 const rules: readonly [KnowledgeIntent, RegExp][] = [
-  ["EXPIYA_ORIENTATION", /(?:expiya ne (?:yapıyor|işe yarıyor)|siz ne yapıyorsunuz|nasıl yardımcı ol(?:ursun|abilirsiniz))/iu],
+  ["EXPIYA_ORIENTATION", /(?:expiya(?: cars)? (?:nedir|ne (?:yapıyor|işe yarıyor|sunuyor))|bu (?:site|uygulama|hizmet|sohbet|asistan|araç danışmanı) (?:nedir|ne (?:yapıyor|işe yarıyor))|sen ne (?:yapıyorsun|işe yarıyorsun)|siz ne yapıyorsunuz|(?:(?:benim|bizim) için|bana|bize) ne yapabilirsin(?:iz)?|(?:(?:bana|bize) )?nasıl yardımcı ol(?:ursun|abilirsiniz))/iu],
   ["CATALOG_OVERVIEW", /(?:(?:siz|katalog)[a-zçğıöşü]* ne tür araç|hangi (?:araçlar|markalar|modeller) (?:var|bulunuyor)|katalog(?:unuz|da))/iu],
   ["USED_VEHICLE_DUE_DILIGENCE", /(?:ikinci el araç al|2\. el araç al|ekspertiz(?: rapor)?|hasar geçmiş|kilometre geçmiş|servis geçmiş|vin kontrol|şasi numarası kontrol)/iu],
   ["VEHICLE_RECALLS", /(?:geri çağırma|geri çağrıl|recall|servis kampanyası)/iu],

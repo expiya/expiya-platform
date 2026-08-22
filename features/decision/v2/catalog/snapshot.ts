@@ -78,6 +78,11 @@ export function buildCatalogSnapshot(input: {
     value: source.value, confidence: source.confidence, provenance: projectProvenance(source.provenance),
     catalogFingerprint: manifest.catalog_payload_hash, explanationAccess: "AUTHORITY_REQUIRED",
   });
+  const taxTreatment = (provenance: readonly { readonly documentVersion?: string; readonly limitations: readonly string[] }[]): CatalogPriceObservationFact["taxTreatment"] => {
+    const text = provenance.flatMap((item) => [item.documentVersion ?? "", ...item.limitations]).join(" ");
+    return /(?:kdv|katma değer vergisi)\s+(?:dahil|dâhil)|(?:dahil|dâhil)\s+(?:kdv|katma değer vergisi)/iu.test(text) ? "INCLUDED"
+      : /(?:kdv|katma değer vergisi)\s+hariç|hariç\s+(?:kdv|katma değer vergisi)/iu.test(text) ? "EXCLUDED" : "UNKNOWN";
+  };
   const drivenWheelsFact = (source: Parameters<typeof fact<string>>[0] | undefined): CatalogFact<string> | undefined => {
     if (!source) return undefined;
     const authorityText = source.provenance.map((item) => item.documentVersion ?? "").join(" ");
@@ -129,6 +134,7 @@ export function buildCatalogSnapshot(input: {
       realizationSafe: record.activeNewPrice.priceType !== "ESTIMATE" && record.activeNewPrice.consumerVisibility !== "INTERNAL_ONLY",
       estimationMethod: record.activeNewPrice.estimationMethod, validFrom: record.activeNewPrice.validFrom, validUntil: record.activeNewPrice.validUntil,
       sellerType: record.activeNewPrice.sellerType, confidence: record.activeNewPrice.confidence,
+      taxTreatment: taxTreatment(record.activeNewPrice.provenance),
       provenance: projectProvenance(record.activeNewPrice.provenance), catalogFingerprint: manifest.catalog_payload_hash,
     }) : undefined,
   })).sort((left, right) => left.id.localeCompare(right.id, "en"));

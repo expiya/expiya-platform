@@ -39,6 +39,7 @@ export type PersonaPreferenceEvent = ConversationEventBase & (
 
 export type BudgetField =
   | "AVAILABLE_CASH"
+  | "MINIMUM_BUDGET"
   | "PREFERRED_BUDGET"
   | "MAXIMUM_HARD_CEILING"
   | "FINANCE_FLEXIBILITY"
@@ -47,7 +48,7 @@ export type BudgetField =
   | "BUDGET_UNKNOWN";
 
 export type BudgetEvent = ConversationEventBase & (
-  | { readonly eventType: "BUDGET_MUTATION"; readonly operation: "SET" | "CORRECT"; readonly field: "AVAILABLE_CASH" | "PREFERRED_BUDGET" | "MAXIMUM_HARD_CEILING"; readonly value: MoneyTry; readonly supersedesEventId?: string }
+  | { readonly eventType: "BUDGET_MUTATION"; readonly operation: "SET" | "CORRECT"; readonly field: "AVAILABLE_CASH" | "MINIMUM_BUDGET" | "PREFERRED_BUDGET" | "MAXIMUM_HARD_CEILING"; readonly value: MoneyTry; readonly supersedesEventId?: string }
   | { readonly eventType: "BUDGET_MUTATION"; readonly operation: "SET" | "CORRECT"; readonly field: "FINANCE_FLEXIBILITY"; readonly value: FinanceFlexibility; readonly supersedesEventId?: string }
   | { readonly eventType: "BUDGET_MUTATION"; readonly operation: "SET" | "CORRECT"; readonly field: "BUDGET_IMPORTANCE"; readonly value: BudgetImportance; readonly supersedesEventId?: string }
   | { readonly eventType: "BUDGET_MUTATION"; readonly operation: "SET" | "CORRECT"; readonly field: "UNRESOLVED_FINANCED_CEILING" | "BUDGET_UNKNOWN"; readonly value: boolean; readonly supersedesEventId?: string }
@@ -79,10 +80,11 @@ export interface ModelReferenceEvent extends ConversationEventBase {
   readonly rawText: string;
   readonly normalizedBrand?: string;
   readonly normalizedModel?: string;
-  readonly resolution: "UNRESOLVED" | "EXACT_MODEL_FAMILY" | "EXACT_VARIANT" | "BRAND_ONLY" | "NOT_FOUND" | "AMBIGUOUS";
+  readonly resolution: "UNRESOLVED" | "EXACT_MODEL_FAMILY" | "EXACT_VARIANT" | "BRAND_ONLY" | "POSSIBLE_TYPO" | "NOT_FOUND" | "AMBIGUOUS";
   readonly decisionEffect: "LOOKUP_ONLY" | "COMPARISON_SCOPE" | "PREFERENCE" | "HARD_SCOPE";
   readonly resolvedFamilyIds: readonly string[];
   readonly resolvedVariantIds: readonly string[];
+  readonly suggestedCanonicalNames?: readonly string[];
 }
 
 export interface DirectAnswerEvent extends ConversationEventBase {
@@ -120,6 +122,10 @@ export interface VehicleIntentEvent extends ConversationEventBase {
   readonly eventType: "VEHICLE_INTENT_ESTABLISHED";
 }
 
+export interface TurnRecordedEvent extends ConversationEventBase {
+  readonly eventType: "TURN_RECORDED";
+}
+
 export interface ConversationStateTransitionEvent extends ConversationEventBase {
   readonly eventType: "CONVERSATION_STATE_TRANSITION";
   readonly from: DecisionState;
@@ -139,5 +145,6 @@ export type ConversationEvent =
   | SocialInteractionEvent
   | OffTopicEvent
   | AbuseEvent
+  | TurnRecordedEvent
   | VehicleIntentEvent
   | ConversationStateTransitionEvent;

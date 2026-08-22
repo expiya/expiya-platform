@@ -3,6 +3,68 @@ import { normalizeFuelInterpretation } from "./policy";
 import { detectHumanContext } from "./humanContextPolicy";
 
 const BODY_STYLES = ["Sedan", "Hatchback", "SUV", "Coupe", "Convertible", "Crossover", "Liftback", "Station Wagon", "Pickup", "Panel Van", "Passenger Van", "MPV"] as const;
+const BODY_STYLE_ALIASES: readonly (readonly [RegExp, string])[] = [
+  [/\b(?:pick[ -]?up|pikap)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?\b/iu, "Pickup"],
+  [/\b(?:panel[ -]?van|kapalı kasa ticari)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?\b/iu, "Panel Van"],
+  [/(?<!\p{L})(?:yolcu vanı|minibüs)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?(?!\p{L})/iu, "Passenger Van"],
+  [/\b(?:station[ -]?wagon|istasyon vagon)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?\b/iu, "Station Wagon"],
+  [/(?<!\p{L})(?:üstü açılır|cabrio)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?(?!\p{L})/iu, "Convertible"],
+  [/(?<!\p{L})şasi kabin(?:'?(?:a|e|ı|i|u|ü|ya|ye))?(?!\p{L})/iu, "Chassis Cab"],
+];
+export function detectedBodyStyles(text: string): readonly string[] {
+  const semanticTexts = [text.normalize("NFKC").toLocaleLowerCase("tr-TR"), text.normalize("NFKD").toLocaleLowerCase("en-US").replace(/[\u0300-\u036f]/gu, "")];
+  return Object.freeze([...new Set([
+    ...BODY_STYLES.filter((style) => semanticTexts.some((value) => new RegExp(`\\b${style.replace(" ", "[ -]?")}(?:'?(?:a|e|ya|ye))?\\b`, "iu").test(value))),
+    ...BODY_STYLE_ALIASES.filter(([pattern]) => semanticTexts.some((value) => pattern.test(value))).map(([, style]) => style),
+  ])]);
+}
+export function isControlledBodyStyleVehicleRequest(text: string): boolean {
+  if (detectedBodyStyles(text).length !== 1 || /\?/u.test(text)) return false;
+  return /^(?:(?:selam|merhaba)(?:\s+(?:dostum|arkadaşım))?[,.]?\s+)?(?:bir\s+)?[\p{L} -]+?(?:\s+bir)?\s+(?:araç|araba|otomobil)\s+(?:arıyorum|bakıyorum|istiyorum)[.!]*$/iu.test(text.trim());
+}
+export function isControlledCatalogAttributeAvailabilityRequest(text: string): boolean {
+  if (!/(?:var mı|mevcut mu)[?\s]*$/iu.test(text.trim())) return false;
+  return detectedBodyStyles(text).length > 0 || normalizeFuelInterpretation(text) !== null;
+}
+export function detectControlledUsageScenario(text: string, openMaterialQuestionField?: string): string | undefined {
+  const semanticText = text.normalize("NFKC").toLocaleLowerCase("tr-TR");
+  return /şehir içi (?:mal|kargo|koli) dağıt|mal dağıt|koli dağıt|\bdağıtım\b/iu.test(text) ? "URBAN_DELIVERY"
+    : /yolcu taşı|servis|transfer/iu.test(text) ? "PASSENGER_TRANSPORT"
+    : /genel yük|yük taşı|ticari yük/iu.test(text) ? "GENERAL_CARGO"
+    : /ciddi arazi|zorlu arazi|arazi arac[ıi]|off[- ]?road/iu.test(text) ? "SERIOUS_OFF_ROAD"
+    : /çamur|karlı? yol|kar(?:da|lı)|mud/iu.test(text) ? "MUD_SNOW"
+    : /bozuk yol|köy(?:de| yolu?| yolunda| kullanım)|kırsal(?:da| kullanım)|bağ[ -]?bahçe/iu.test(text) ? "ROUGH_ROAD"
+    : /uzun yol|şehirler ?arası/iu.test(text) ? "LONG_DISTANCE"
+    : /aile|çocuk(?:lar)?la/iu.test(text) ? "FAMILY"
+    : openMaterialQuestionField === "usageScenario" && /^(?:günlük|gündelik)(?:\s+.{1,60})?[.!]?$/iu.test(text) ? "URBAN_DAILY"
+    : /günlük (?:şehir içi |şehir dışı )?kullanım|günlük kullan|her gün kullan|işe gidip gel|gündelik işler|günlük şehir içi|şehir içinde (?:günlük )?kullan|şehir içi (?:araç|kullanım)|şehir içinde/u.test(semanticText) ? "URBAN_DAILY"
+    : undefined;
+}
+export function isControlledUsageRecommendationRequest(text: string): boolean {
+  return Boolean(detectControlledUsageScenario(text)) && (
+    /(?:hangi|ne)\s+(?:aracı|arabayı|otomobili).*öner|(?:araç|araba|otomobil).*öner|ne önerirsin|tavsiye/iu.test(text)
+    || /(?:araç|aracı|araba|arabayı|otomobil|otomobili)(?:\s+bakıyorum|\s+arıyorum|\s+istiyorum|\s+lazım|\s+gerekiyor)/iu.test(text)
+    || /(?:aracımı|arabamı|otomobilimi).{0,60}(?:yenilemek|değiştirmek|yenileyeceğim|değiştireceğim)/iu.test(text)
+  );
+}
+export function isControlledSocialMessage(text: string): boolean {
+  return /^(?:(?:merhaba|selam|günaydın|iyi (?:günler|akşamlar))(?:[, ]+(?:nasılsın|naber|ne haber|iyi misin|dostum|arkadaşım))*|nasılsın|naber|ne haber|iyi misin)[?.!]*$/iu.test(text.trim());
+}
+export function isControlledTechnicalInformationRequest(text: string): boolean {
+  const controlledTopic = /elektrik(?:li)?|hibrit|hibrid|benzinli|dizel|yakıt|şarj|menzil|batarya|çekiş|şanzıman|motor gücü|\bkw\b/iu.test(text);
+  const informationRequest = /mantıklı mı|ne düşünüyorsun|ne düşünürsün|önerir misin|nasıl çalışır|nasıl şarj|bilgi verir misin|anlatır mısın|açıklar mısın|önemli mi|nedir|ne demek/iu.test(text);
+  return controlledTopic && informationRequest;
+}
+export function isControlledVehicleSelectionStatement(text: string): boolean {
+  const descriptor = "(?:elektrikli|hibrit|hibrid|benzinli|dizel|otomatik|manuel|dört çeker|4x4|awd|önden çekiş|fwd|arkadan itiş|arkadan çekiş|rwd|sedan|hatchback|suv|crossover|coupe|liftback|mpv|pikap|pick[ -]?up|panel[ -]?van|yolcu vanı)";
+  return new RegExp(`^(?:bir\\s+)?(?:${descriptor}\\s+)*(?:bir\\s+)?(?:araç|araba|otomobil)\\s+(?:almak|arıyorum|bakıyorum|istiyorum)(?:\\s+istiyorum)?[.!]*$`, "iu").test(text.trim());
+}
+export function isControlledOpenEndedVehicleRequest(text: string): boolean {
+  const vehiclePurchaseIntent = /\b(?:araba|araç|otomobil)\s+(?:almak istiyorum|alacağım|almam (?:gerekiyor|lazım)|arıyorum|bakıyorum)\b/iu.test(text);
+  const deliberativeChoiceIntent = /\bhangi\s+(?:aracı|arabayı|otomobili)\s+(?:alsam|seçsem|tercih etsem)\b/iu.test(text);
+  const decisionSupportContext = /(?:nereden başlayacağımı? (?:bilmiyorum|bilemiyorum)|nasıl başlayacağımı? (?:bilmiyorum|bilemiyorum)|karar veremiyorum|kararsızım|çok fazla seçenek var|seçenekler arasında kaldım|yardım(?:cı)? ol|yardım (?:et|eder))/iu.test(text);
+  return (vehiclePurchaseIntent || deliberativeChoiceIntent) && decisionSupportContext;
+}
 const unique = <T>(values: readonly T[]): T[] => [...new Set(values)];
 const hasField = (items: readonly ProposedConstraintMutation[], fieldId: ProposedConstraintMutation["fieldId"]) => items.some((item) => item.fieldId === fieldId);
 const ADVISORY_ACTS = new Set<UserAct>(["USAGE_STATEMENT", "PREFERENCE_STATEMENT", "HARD_REQUIREMENT", "BUDGET_STATEMENT", "MODEL_LOOKUP_REQUEST", "MODEL_COMPARISON_REQUEST", "MODEL_SUITABILITY_REQUEST", "ALTERNATIVE_REQUEST", "RECOMMENDATION_REQUEST", "TECHNICAL_EXPLANATION_REQUEST", "CORRECTION", "CANDIDATE_REJECTION", "OFFER_ACCEPTANCE", "OFFER_DECLINE", "QUESTION_ANSWER", "DONT_KNOW", "DECLINE_TO_ANSWER"]);
@@ -15,12 +77,22 @@ function money(text: string): number | undefined {
   const normalizedText = text.toLocaleLowerCase("tr-TR");
   const wordMatch = normalizedText.match(/\b(bir|iki|üç|dört|beş|altı|yedi|sekiz|dokuz|on)\s+milyon\b/u);
   if (wordMatch) return wordAmounts[wordMatch[1]!]! * 1_000_000;
-  const match = text.match(/(\d{1,3}(?:[.]\d{3})+(?:,\d+)?|\d+(?:[.,]\d+)?)\s*(milyon|mn|bin)?/iu); if (!match) return undefined;
+  const match = normalizedText.match(/(\d{1,3}(?:[.]\d{3})+(?:,\d+)?|\d+(?:[.,]\d+)?)\s*(milyon|mn|bin)?/u); if (!match) return undefined;
   const numericText = /\d{1,3}(?:[.]\d{3}){2,}/u.test(match[1]!) || (/\d{1,3}[.]\d{3}/u.test(match[1]!) && !match[2])
     ? match[1]!.replaceAll(".", "").replace(",", ".")
     : match[1]!.replace(",", ".");
   const raw = Number(numericText); if (!Number.isFinite(raw) || raw <= 0) return undefined;
   return Math.round(raw * (match[2]?.toLocaleLowerCase("tr-TR") === "bin" ? 1_000 : match[2] ? 1_000_000 : 1));
+}
+
+function budgetRange(text: string): { readonly minimum: number; readonly maximum: number } | undefined {
+  const match = text.toLocaleLowerCase("tr-TR").match(/\b(\d+(?:[.,]\d+)?)\s*(milyon|mn|bin)?\s*(?:[-–]|ile)\s*(\d+(?:[.,]\d+)?)\s*(milyon|mn|bin)\b/u);
+  if (!match) return undefined;
+  const multiplier = (unit: string | undefined) => unit === "bin" ? 1_000 : unit ? 1_000_000 : 1;
+  const trailingUnit = match[4];
+  const minimum = Number(match[1]!.replace(",", ".")) * multiplier(match[2] ?? trailingUnit);
+  const maximum = Number(match[3]!.replace(",", ".")) * multiplier(trailingUnit);
+  return Number.isFinite(minimum) && Number.isFinite(maximum) && minimum > 0 && maximum >= minimum ? { minimum: Math.round(minimum), maximum: Math.round(maximum) } : undefined;
 }
 
 function personaTraits(text: string): ProposedPersonaMutation["traits"] {
@@ -32,12 +104,15 @@ function personaTraits(text: string): ProposedPersonaMutation["traits"] {
   if (["teknolojik", "fütüristik"].some((word) => words.has(word))) traits.push("TECHNOLOGY");
   if (["gösterişsiz", "sade", "minimalist"].some((word) => words.has(word))) traits.push("MINIMALISM");
   if (words.has("maceracı") || /macera\s+ruh(?:u|lu)/iu.test(text)) traits.push("ADVENTURE");
+  if (/ikinci el|değer kaybet|değerini koru/iu.test(text)) traits.push("VALUE");
+  if (/(?:arkadaş|partner|eş|sevgili).*(?:etkile|beğen)|dikkat çek/iu.test(text)) traits.push("DESIGN", "PRESTIGE");
   return unique(traits);
 }
 
 export function enforceInterpretationSemanticCompleteness(input: { readonly result: InterpretationResult; readonly userText: string; readonly activeFieldIds: readonly string[]; readonly openMaterialQuestionField?: string; readonly revealedCandidateReferences?: readonly string[] }): InterpretationResult {
   const text = input.userText.trim();
   const semanticText = text.normalize("NFKC").toLocaleLowerCase("tr-TR");
+  const catalogAttributeAvailabilityQuestion = isControlledCatalogAttributeAvailabilityRequest(text);
   const naturalConsent = /^(?:evet(?:[, ]+(?:göster|paylaş)(?: bakalım)?)?|göster(?: bakalım)?|paylaş(?: bakalım)?|görelim|hadi görelim|hadi göster|olur|tamam|bakalım|önerini görmek isterim|önerileri aç|seçenekleri göster|devam et(?: öyleyse)?|edelim)[.!]?$/iu;
   if (naturalConsent.test(text)) {
     // A short confirmation has no semantic value by itself. Offer acceptance is
@@ -48,10 +123,12 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
     return Object.freeze({ ...input.result, acts: Object.freeze(acts), constraintMutations: Object.freeze([]), budgetMutations: Object.freeze([]), modelReferences: Object.freeze([]), personaMutations: Object.freeze([]), candidateRejection: undefined, corrections: Object.freeze([]) });
   }
   if (/^(?:hayır|istemiyorum|önce biraz daha konuşalım)[.!]?$/iu.test(text)) { const acts: UserAct[] = ["OFFER_DECLINE"]; return Object.freeze({ ...input.result, acts: Object.freeze(acts), constraintMutations: Object.freeze([]), budgetMutations: Object.freeze([]), modelReferences: Object.freeze([]), personaMutations: Object.freeze([]), candidateRejection: undefined, corrections: Object.freeze([]) }); }
-  const verifiedAbuse = /(salak|aptal|gerizek[aâ]lı|mal mısın|lanet)/iu.test(text); const socialHumor = /(şaka|😂|😄|🤣)/u.test(text);
+  const verifiedAbuse = /(salak|aptal|gerizek[aâ]lı|mal mısın|lanet|berbatsın)/iu.test(text); const socialHumor = /(şaka|😂|😄|🤣)/u.test(text);
+  const negativeFeedback = /(?:hiçbir şey|hiç bir şey|beni)\s+anlamıyorsun|anlamadın|yardımcı olmuyorsun|aynı şeyi tekrar|cevap vermiyorsun/iu.test(text);
   const conversationalRepair = /(?:nasılsın diye sormadım|sana güvenmiyorum|hangi tercih\??)/iu.test(text);
   const acts: UserAct[] = input.result.acts.filter((act) => !["HARD_REQUIREMENT", "PREFERENCE_STATEMENT", "CORRECTION", "BUDGET_STATEMENT", "OFF_TOPIC", "ABUSE"].includes(act));
   if (verifiedAbuse) acts.push("ABUSE"); if (input.result.offTopicSignal?.detected && !socialHumor) acts.push("OFF_TOPIC"); if (socialHumor && !acts.includes("SOCIAL_MESSAGE")) acts.push("SOCIAL_MESSAGE");
+  if (negativeFeedback && !acts.includes("NEGATIVE_FEEDBACK")) acts.push("NEGATIVE_FEEDBACK");
   if (conversationalRepair && !acts.includes("SOCIAL_MESSAGE")) acts.push("SOCIAL_MESSAGE");
   const criticalFields = new Set(["usageScenario", "relativePriceSegment", "runningCostPreference", "fuelType", "transmission", "bodyStyle", "drivenWheels", "seats", "usageArchitecture", "rearSeatPreference"]);
   const constraints = input.result.constraintMutations.filter((item) => !criticalFields.has(item.fieldId)); const budgets = [] as typeof input.result.budgetMutations[number][]; const personas = [] as typeof input.result.personaMutations[number][]; const references = [...input.result.modelReferences];
@@ -59,23 +136,25 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
   const addAct = (act: UserAct) => { if (!acts.includes(act)) acts.push(act); };
   const enforceConstraint = (value: ProposedConstraintMutation) => { const index = constraints.findIndex((item) => item.fieldId === value.fieldId); if (index >= 0) constraints[index] = value; else constraints.push(value); };
 
-  const usageScenario = /şehir içi (?:mal|kargo|koli) dağıt|mal dağıt|koli dağıt/iu.test(text) ? "URBAN_DELIVERY"
-    : /yolcu taşı|servis|transfer/iu.test(text) ? "PASSENGER_TRANSPORT"
-    : /genel yük|yük taşı|ticari yük/iu.test(text) ? "GENERAL_CARGO"
-    : /ciddi arazi|zorlu arazi|arazi arac[ıi]|off[- ]?road/iu.test(text) ? "SERIOUS_OFF_ROAD"
-    : /çamur|karlı? yol|kar(?:da|lı)|mud/iu.test(text) ? "MUD_SNOW"
-    : /bozuk yol|köy(?:de| yolu?| yolunda| kullanım)|kırsal(?:da| kullanım)/iu.test(text) ? "ROUGH_ROAD"
-    : /uzun yol|şehirler ?arası/iu.test(text) ? "LONG_DISTANCE"
-    : /aile|çocuk(?:lar)?la/iu.test(text) ? "FAMILY"
-    : input.openMaterialQuestionField === "usageScenario" && /^(?:günlük|gündelik)(?:\s+.{1,60})?[.!]?$/iu.test(text) ? "URBAN_DAILY"
-    : /günlük (?:şehir içi |şehir dışı )?kullanım|günlük kullan|her gün kullan|işe gidip gel|gündelik işler|günlük şehir içi|şehir içinde (?:günlük )?kullan|şehir içi (?:araç|kullanım)|şehir içinde/u.test(semanticText) ? "URBAN_DAILY"
-    : undefined;
+  const shortIndifference = /^(?:fark etmez|önemli değil|tercihim yok)[.!]?$/iu.test(text);
+  const shortUnknown = /^(?:fikrim yok|bilmiyorum|emin değilim)[.!]?$/iu.test(text);
+  if (input.openMaterialQuestionField && (shortIndifference || shortUnknown)) {
+    if (input.openMaterialQuestionField === "budget") {
+      budgets.push({ operation: "EXCLUDE_FROM_DECISION", field: "BUDGET_UNKNOWN", sourceSpan: text });
+    } else {
+      enforceConstraint(mutation(input.openMaterialQuestionField as ProposedConstraintMutation["fieldId"], null, text, "DECLINE"));
+    }
+    addAct(shortUnknown ? "DONT_KNOW" : "DECLINE_TO_ANSWER");
+    addAct("QUESTION_ANSWER");
+  }
+
+  const usageScenario = detectControlledUsageScenario(text, input.openMaterialQuestionField);
   if (usageScenario && !hasField(constraints, "usageScenario")) {
     constraints.push(mutation("usageScenario", usageScenario, text, input.activeFieldIds.includes("usageScenario") ? "CORRECT" : "ADD"));
     addAct("USAGE_STATEMENT");
   }
 
-  const relativePriceSegment = /(?:ucuz\s+(?:bir\s+)?(?:araç|araba|otomobil)|en\s+ucuzlardan|uygun\s+fiyatlı|düşük\s+fiyatlı|satın\s+alma\s+fiyatı\s+erişilebilir)/u.test(semanticText) ? "LOWEST_20"
+  const relativePriceSegment = /(?:ucuz\s+(?:bir\s+)?(?:araç|araba|otomobil)|en\s+ucuzlardan|(?:daha\s+)?uygun\s+fiyatlı|(?:daha\s+)?ucuz|daha\s+hesaplı|düşük\s+fiyatlı|düşük\s+bütçeli|satın\s+alma\s+fiyatı\s+erişilebilir)/u.test(semanticText) ? "LOWEST_20"
     : /(?:ekonomik\s+fiyatlı|fiyatı\s+ekonomik|fiyat\s+açısından\s+ekonomik)/u.test(semanticText) ? "VALUE_20_40"
     : /(?:orta\s+fiyat\s+grubunda|fiyat\s+olarak\s+orta\s+seviye)/u.test(semanticText) ? "MID_40_60"
     : /(?:üst\s+fiyat\s+grubunda|fiyat\s+olarak\s+üst\s+seviyede)/u.test(semanticText) ? "UPPER_60_80"
@@ -99,10 +178,11 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
 
   const noElectric = /elektrikli\s+(?:istemiyorum|olmasın)/iu.test(text); const noHybrid = /hibrit\s+(?:istemiyorum|olmasın)/iu.test(text);
   const remainingFuelText = text.replace(/elektrikli\s+(?:istemiyorum|olmasın)/giu, "").replace(/hibrit\s+(?:istemiyorum|olmasın)/giu, "");
-  const positiveFuel = normalizeFuelInterpretation(remainingFuelText);
+  const informationalFuelMention = /(?:nasıl\s+şarj|şarj\s+ol|bu konuda|bilgi verir|ne düşünüyorsun|ne düşünürsün|açıklar mısın|anlatır mısın|tam olarak nasıl|menzil|şarj etmek)/iu.test(text);
+  const positiveFuel = informationalFuelMention ? null : normalizeFuelInterpretation(remainingFuelText);
   const fuel = positiveFuel ?? (noElectric ? { operator: "EXCLUDES" as const, value: ["BEV"] } : noHybrid ? { operator: "EXCLUDES" as const, value: ["MHEV", "HEV", "PHEV"] } : null);
   if (/yakıt\s+(?:fark etmez|önemli değil)/iu.test(text)) { enforceConstraint(mutation("fuelType", null, text, input.activeFieldIds.includes("fuelType") ? "CLEAR" : "DECLINE")); addAct(input.activeFieldIds.includes("fuelType") ? "CORRECTION" : "DECLINE_TO_ANSWER"); }
-  else if (fuel) { const fuelHard = input.openMaterialQuestionField === "fuelType" || /(?:kesinlikle|mutlaka)\s+(?:hibrit|elektrikli|benzinli|dizel)|(?:hibrit|elektrikli|benzinli|dizel)(?:\s+dışında)?\s+(?:olmalı|şart|olmazsa olmaz|istemiyorum|olmasın)/iu.test(text); enforceConstraint(mutation("fuelType", fuel, text, input.activeFieldIds.includes("fuelType") ? "CORRECT" : "ADD", fuelHard)); addAct(input.activeFieldIds.includes("fuelType") ? "CORRECTION" : fuelHard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT"); }
+  else if (fuel) { const fuelHard = catalogAttributeAvailabilityQuestion || input.openMaterialQuestionField === "fuelType" || /(?:kesinlikle|mutlaka)\s+(?:hibrit|elektrikli|benzinli|dizel)|(?:hibrit|elektrikli|benzinli|dizel)(?:\s+dışında)?\s+(?:olmalı|şart|olmazsa olmaz|istemiyorum|olmasın)/iu.test(text); enforceConstraint(mutation("fuelType", fuel, text, input.activeFieldIds.includes("fuelType") ? "CORRECT" : "ADD", fuelHard)); addAct(input.activeFieldIds.includes("fuelType") ? "CORRECTION" : fuelHard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT"); }
 
   const transmissionMentions = [...text.matchAll(/\b(otomati(?:k|ğe)|manuel(?:e)?)\b/giu)];
   const transmissionToken = transmissionMentions.at(-1)?.[1];
@@ -111,36 +191,29 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
 
   // Keep natural-language spelling variants in one catalog-wide body-style
   // lexicon. These are semantic aliases, not one-off conversation repairs.
-  const bodyAliases: readonly (readonly [RegExp, string])[] = [
-    [/\b(?:pick[ -]?up|pikap)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?\b/iu, "Pickup"],
-    [/\b(?:panel[ -]?van|kapalı kasa ticari)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?\b/iu, "Panel Van"],
-    [/(?<!\p{L})(?:yolcu vanı|minibüs)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?(?!\p{L})/iu, "Passenger Van"],
-    [/\b(?:station[ -]?wagon|istasyon vagon)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?\b/iu, "Station Wagon"],
-    [/(?<!\p{L})(?:üstü açılır|cabrio)(?:'?(?:a|e|ı|i|u|ü|ya|ye))?(?!\p{L})/iu, "Convertible"],
-    [/(?<!\p{L})şasi kabin(?:'?(?:a|e|ı|i|u|ü|ya|ye))?(?!\p{L})/iu, "Chassis Cab"],
-  ];
-  const mentionedBodies = [...new Set([...BODY_STYLES.filter((style) => new RegExp(`\\b${style.replace(" ", "[ -]?")}(?:'?(?:a|e|ya|ye))?\\b`, "iu").test(text)), ...bodyAliases.filter(([pattern]) => pattern.test(text)).map(([, style]) => style)])];
+  const mentionedBodies = detectedBodyStyles(text);
   if (/gövde(?:\s+tipi)?\s+(?:fark etmez|önemli değil)/iu.test(text)) { enforceConstraint(mutation("bodyStyle", null, text, input.activeFieldIds.includes("bodyStyle") ? "CLEAR" : "DECLINE")); addAct(input.activeFieldIds.includes("bodyStyle") ? "CORRECTION" : "DECLINE_TO_ANSWER"); }
   const replacementTail = text.match(/\byerine\s+(.+)$/iu)?.[1];
-  const replacementBodies = replacementTail ? [...new Set([...BODY_STYLES.filter((style) => new RegExp(`\\b${style.replace(" ", "[ -]?")}\\b`, "iu").test(replacementTail)), ...bodyAliases.filter(([pattern]) => pattern.test(replacementTail)).map(([, style]) => style)])] : [];
+  const replacementBodies = replacementTail ? detectedBodyStyles(replacementTail) : [];
   const affirmativeBodies = (replacementBodies.length ? replacementBodies : mentionedBodies).filter((style) => !new RegExp(`${style.replace(" ", "[ -]?")}(?:'?(?:den|dan))?\\s+(?:değil|demedim|istemi(?:yor|yorum)|vazgeç)`, "iu").test(text));
   const affirmativeBody = affirmativeBodies.at(-1);
   if (affirmativeBody) {
     const correctionMeaning = /\b(dedim|demedim|düzelt|yerine|artık|vazgeç)\b/iu.test(text); const hasActiveBody = input.activeFieldIds.includes("bodyStyle");
-    const bodyHard = input.openMaterialQuestionField === "bodyStyle" || correctionMeaning || new RegExp(`(?:${affirmativeBody}.*(?:şart|olmazsa olmaz|mutlaka)|(?:kesinlikle|mutlaka).*${affirmativeBody})`, "iu").test(text);
+    const bodyHard = catalogAttributeAvailabilityQuestion || input.openMaterialQuestionField === "bodyStyle" || correctionMeaning || new RegExp(`(?:${affirmativeBody}.*(?:şart|olmazsa olmaz|mutlaka)|(?:kesinlikle|mutlaka).*${affirmativeBody})`, "iu").test(text);
     const bodyValue = affirmativeBodies.length === 1 ? { operator: "EQUALS", value: affirmativeBody } : { operator: "ONE_OF", value: affirmativeBodies };
     enforceConstraint({ ...mutation("bodyStyle", bodyValue, text, hasActiveBody ? "CORRECT" : "ADD", bodyHard), explicitness: bodyHard ? "EXPLICIT_REQUIREMENT" : "EXPLICIT_PREFERENCE" });
     addAct(correctionMeaning || hasActiveBody ? "CORRECTION" : bodyHard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT");
   }
 
-  const seatMatch = text.match(/\b(?:en az\s+)?(\d+|dört|beş|yedi|dokuz)\s+(?:kişilik|koltuk)\b/iu);
-  if (seatMatch) {
-    const seatWords: Readonly<Record<string, number>> = { dört: 4, beş: 5, yedi: 7, dokuz: 9 };
-    const token = seatMatch[1]!.toLocaleLowerCase("tr-TR"); const count = Number(token) || seatWords[token];
+  const seatRangeMatch = text.match(/\b(\d+)\s*[-–]\s*(\d+)\s*(?:kişilik|koltuk)\b/iu);
+  const seatMatch = text.match(/\b(?:en az\s+)?(\d+|dört|beş|altı|yedi|sekiz|dokuz)\s+(?:kişilik|koltuk(?:\s+kapasitesine\s+sahip)?)\b/iu);
+  if (seatRangeMatch || seatMatch) {
+    const seatWords: Readonly<Record<string, number>> = { dört: 4, beş: 5, altı: 6, yedi: 7, sekiz: 8, dokuz: 9 };
+    const token = (seatRangeMatch?.[1] ?? seatMatch?.[1])!.toLocaleLowerCase("tr-TR"); const count = Number(token) || seatWords[token];
     if (count) {
       const authoritativeAnswer = input.openMaterialQuestionField === "seats";
-      const hard = authoritativeAnswer || /şart|gerekli|olmazsa olmaz|en az/iu.test(text);
-      enforceConstraint(mutation("seats", { operator: authoritativeAnswer || /en az/iu.test(text) ? "MINIMUM" : "EQUALS", value: count, unit: "COUNT" }, text, input.activeFieldIds.includes("seats") ? "CORRECT" : "ADD", hard));
+      const hard = authoritativeAnswer || input.activeFieldIds.includes("seats") || /şart|gerekli|olmazsa olmaz|en az|lazım|koltuk(?: kapasitesine)? sahip olsun/iu.test(text);
+      enforceConstraint(mutation("seats", { operator: authoritativeAnswer || seatRangeMatch || /en az/iu.test(text) ? "MINIMUM" : "EQUALS", value: count, unit: "COUNT" }, text, input.activeFieldIds.includes("seats") ? "CORRECT" : "ADD", hard));
       addAct(hard ? "HARD_REQUIREMENT" : "PREFERENCE_STATEMENT");
     }
   }
@@ -181,10 +254,15 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
     for (let index = directAnswerRequests.length - 1; index >= 0; index -= 1) if (["MODEL_AVAILABILITY", "MODEL_COMPARISON", "MODEL_SUITABILITY"].includes(directAnswerRequests[index]!.kind)) directAnswerRequests.splice(index, 1);
   }
 
-  if (/bütçe (?:önemli değil|fark etmez)|bütçeyi? .*(?:hariç|dahil etme|katma|uygulama)/iu.test(text) && !budgets.some((item) => item.operation === "EXCLUDE_FROM_DECISION")) budgets.push({ operation: "EXCLUDE_FROM_DECISION", field: "BUDGET_UNKNOWN", sourceSpan: text });
-  const amount = money(text);
+  if (/bütçe (?:önemli değil|fark etmez|sorun değil|problem değil|limitsiz|sınırsız)|bütçe sınır(?:ım)? yok|bütçeyi? .*(?:hariç|dahil etme|katma|uygulama)/iu.test(text) && !budgets.some((item) => item.operation === "EXCLUDE_FROM_DECISION")) budgets.push({ operation: "EXCLUDE_FROM_DECISION", field: "BUDGET_UNKNOWN", sourceSpan: /bütçe (?:sorun değil|problem değil|limitsiz|sınırsız)|bütçe sınır(?:ım)? yok/iu.test(text) ? "bütçe fark etmez" : text });
+  const range = budgetRange(text);
+  const amount = range ? undefined : money(text);
   const answeringBudgetQuestion = input.openMaterialQuestionField === "budget";
   const financingLanguage = /kredi|finansman/iu.test(text);
+  if (range) {
+    budgets.push({ operation: input.activeFieldIds.includes("MINIMUM_BUDGET") ? "CORRECT" : "SET", field: "MINIMUM_BUDGET", value: { amount: range.minimum, currency: "TRY" }, sourceSpan: text });
+    budgets.push({ operation: input.activeFieldIds.includes("MAXIMUM_HARD_CEILING") ? "CORRECT" : "SET", field: "MAXIMUM_HARD_CEILING", value: { amount: range.maximum, currency: "TRY" }, sourceSpan: text });
+  }
   if (amount && /\bnakit(?:im|im var| var| mevcut)?\b|\bmilyonum var\b|\bparam var\b/iu.test(text) && (!answeringBudgetQuestion || financingLanguage) && !budgets.some((item) => item.field === "AVAILABLE_CASH")) budgets.push({ operation: "SET", field: "AVAILABLE_CASH", value: { amount, currency: "TRY" }, sourceSpan: text });
   if (/kredi (?:kullanabilirim|olabilir)|finansman(?:a)? (?:açığım|uygun)/iu.test(text) && !budgets.some((item) => item.field === "FINANCE_FLEXIBILITY")) { budgets.push({ operation: "SET", field: "FINANCE_FLEXIBILITY", value: "YES", sourceSpan: text }); budgets.push({ operation: "SET", field: "UNRESOLVED_FINANCED_CEILING", value: true, sourceSpan: text }); }
   const explicitBudgetCeiling = /(?:en fazla|max(?:imum)?|maksimum|üstüne çıkmam|üstüne çıkamam|üzerine çıkmam|üzerine çıkamam|tavan|kesin bütçe|kesin bütçem)/iu.test(text)
@@ -198,11 +276,12 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
 
   const traits = personaTraits(text);
   if (traits.length && !personas.some((item) => item.operation === "ACTIVATE")) personas.push({ operation: "ACTIVATE", traits, sourceSpan: text });
-  if (/\b(fark etmez|önemli değil|en mantıklısını seç)\b/iu.test(text) && !personas.some((item) => item.operation === "DEACTIVATE")) personas.push({ operation: "DEACTIVATE", traits: [], sourceSpan: text });
+  if (/\b(fark etmez|önemli değil|en mantıklısını seç)\b/iu.test(text) && !input.openMaterialQuestionField && !personas.some((item) => item.operation === "DEACTIVATE")) personas.push({ operation: "DEACTIVATE", traits: [], sourceSpan: text });
+  if (/\b(?:kapatıyorum|görüşmeyi bitir|hoşça kal|güle güle|çıkıyorum)\b/iu.test(text)) addAct("CLOSING");
 
   const lookup = text.match(/^\s*([\p{L}\p{N}][\p{L}\p{N}'’.-]*(?:\s+[\p{L}\p{N}][\p{L}\p{N}'’.-]*){0,2})\s+(?:katalogda\s+)?(?:var mı|mevcut mu)\??\s*$/iu);
   if (lookup && references.length === 0) { references.push({ rawText: lookup[1]!, parsedModelText: lookup[1]!, purpose: "LOOKUP_ONLY" }); addAct("MODEL_LOOKUP_REQUEST"); }
-  const descriptiveAvailabilityQuestion = /(?:arazi arac[ıi]|elektrikli araç|dizel araç|benzinli araç|hibrit araç).*(?:var mı|mevcut mu)/iu.test(text);
+  const descriptiveAvailabilityQuestion = catalogAttributeAvailabilityQuestion || /(?:arazi arac[ıi]).*(?:var mı|mevcut mu)/iu.test(text);
   if (descriptiveAvailabilityQuestion) {
     for (let index = acts.length - 1; index >= 0; index -= 1) if (["MODEL_LOOKUP_REQUEST", "MODEL_SUITABILITY_REQUEST"].includes(acts[index]!)) acts.splice(index, 1);
     for (let index = references.length - 1; index >= 0; index -= 1) if (["LOOKUP_ONLY", "PREFERENCE"].includes(references[index]!.purpose)) references.splice(index, 1);
@@ -219,21 +298,30 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
     const withoutGenericRecommendation = directAnswerRequests.filter((request) => request.kind !== "RECOMMENDATION_REQUEST");
     directAnswerRequests.splice(0, directAnswerRequests.length, { kind: "MODEL_COMPARISON" }, ...withoutGenericRecommendation.filter((request) => request.kind !== "MODEL_COMPARISON"));
   }
-  const revealedSetReference = /(?:bunlar(?:ı)?|bu araçlar(?:ı)?|bu modeller(?:i)?|hepsi(?:ni)?|üçü(?:nü)?|ikisi(?:ni)?)/iu.test(text);
+  const revealedSetReference = /(?:bunu|bu aracı|aynı aracı|bunlar(?:ı)?|bu araçlar(?:ı)?|bu modeller(?:i)?|hepsi(?:ni)?|üçü(?:nü)?|ikisi(?:ni)?)/iu.test(text);
   const priceBasedRejection = revealedSetReference && /(?:çok pahalı|pahalı geldi|bütçemi aşıyor|bütçemin üzerinde|bütçeme uymuyor)/iu.test(text);
   const explicitRejection = /\b(?:istemiyorum|beğenmedim|ele|çıkar|olmasın)\b/iu.test(text) || priceBasedRejection;
   const concreteTechnicalConcept = /\b(?:kw|kilowatt|tork|nm|litre|bagaj|tüketim|l\s*\/\s*100|menzil|şarj|batarya|0\s*-?\s*100|beygir|hp|ps|çekiş|şanzıman)\b/iu.test(text);
   const explicitTechnicalExplanationRequest = /\b(?:anlat|açıkla|yönlendir|izah et)\b/iu.test(text);
   const genericTechnicalNoviceContext = /(?:teknik (?:terim|değer|konu)[\p{L}]* .*?(?:bilmiyorum|anlamıyorum|h[aâ]kim değil)|teknik bilgim yok)/iu.test(text) && !concreteTechnicalConcept && !explicitTechnicalExplanationRequest;
-  const technicalExplanation = !genericTechnicalNoviceContext && /(?:ne anlama (?:geldiğini?|geliyor)|neyi anlatır|ne demek|nedir|bunlar(?:ın)? ne|açıkla|farkını.*anlat|günlük örnek(?:le|lerle| ver)|nasıl okumalıyım|ne kadar .*alır|neler sığar|ne ifade ediyor|önemli mi|aynı şey mi|teknik terimlere? .*hakim değil|bilmiyorum.*yönlendir)/iu.test(text);
+  const technicalVehicleRecommendation = /(?:elektrik(?:li)?|h[ıi]bri[td]|benzinli|dizel|yakıt|motor|şanzıman|çekiş|menzil|şarj|batarya|pickup|pikap|suv|sedan).*(?:önerir misin|ne önerirsin|mantıklı mı)/iu.test(text);
+  const chargingDurationQuestion = /(?:şarj|batarya).*(?:ne kadar|süre|uzun|doldur|dolum|hızlı)|(?:ne kadar).*(?:şarj|batarya)/iu.test(text);
+  const technicalExplanation = !genericTechnicalNoviceContext && (isControlledTechnicalInformationRequest(text) || technicalVehicleRecommendation || chargingDurationQuestion || /(?:ne anlama (?:geldiğini?|geliyor)|neyi anlatır|ne demek|nedir|bunlar(?:ın)? ne|açıkla|farkını.*anlat|günlük örnek(?:le|lerle| ver)|nasıl okumalıyım|ne kadar .*alır|neler sığar|ne ifade ediyor|önemli mi|aynı şey mi|teknik terimlere? .*hakim değil|bilmiyorum.*yönlendir|(?:kullanmak|almak) mümkün mü|bilgi verir misin|ne düşünüyorsun|ikinci elde.*değer|değer kaybet)/iu.test(text));
   if (genericTechnicalNoviceContext) {
     for (let index = acts.length - 1; index >= 0; index -= 1) if (["TECHNICAL_EXPLANATION_REQUEST", "DONT_KNOW"].includes(acts[index]!)) acts.splice(index, 1);
     for (let index = directAnswerRequests.length - 1; index >= 0; index -= 1) if (directAnswerRequests[index]!.kind === "TECHNICAL_EXPLANATION") directAnswerRequests.splice(index, 1);
   }
   if (technicalExplanation) { addAct("TECHNICAL_EXPLANATION_REQUEST"); if (!directAnswerRequests.some((request) => request.kind === "TECHNICAL_EXPLANATION")) directAnswerRequests.unshift({ kind: "TECHNICAL_EXPLANATION" }); }
+  const pureTechnicalInformationRequest = isControlledTechnicalInformationRequest(text)
+    && !/(?:istiyorum|olsun|arıyorum|bakıyorum|almak istiyorum|almayı düşünüyorum|seçelim|öneri istiyorum)/iu.test(text);
+  if (pureTechnicalInformationRequest) {
+    for (let index = constraints.length - 1; index >= 0; index -= 1) if (criticalFields.has(constraints[index]!.fieldId)) constraints.splice(index, 1);
+    personas.splice(0, personas.length);
+    for (let index = acts.length - 1; index >= 0; index -= 1) if (["PREFERENCE_STATEMENT", "HARD_REQUIREMENT", "USAGE_STATEMENT"].includes(acts[index]!)) acts.splice(index, 1);
+  }
   const implicitVehicleRequest = constraints.length > 0 && /(?:istiyorum|olsun|arıyorum|bakıyorum|düşünüyorum|kullanacağım|lazım|gerekiyor|bütçem|max(?:imum)?|maksimum)/iu.test(text);
-  const explicitDiscoveryIntent = /(?:[İi]lk (?:arabamı?|aracımı?|otomobilimi?)|(?:kızım|oğlum|kızıma|oğluma).*(?:araba|araç|otomobil)|(?:araba|araç|otomobil) (?:almak|almayı|alacağım|almam (?:lazım|gerekiyor)|almalıyım|arıyorum|bakıyorum|lazım|gerekiyor)|(?:panel[ -]?van|pick[ -]?up|pikap|caddy tarzı).*(?:istemiyorum|gerekmiyor|istiyorum|arıyorum|bakıyorum|düşünüyorum|lazım|gerekiyor)|(?:clio|civic|corolla|golf).*(?:önerdi|danış|kararsız)|(?:havalı|premium|şık).*(?:araç|araba|otomobil|bir şey)?.*(?:arıyorum|istiyorum))/iu.test(text);
-  if (/(?:araç|araba|seçene(?:k|ğ)i?|model).*(?:arıyorum|istiyorum|öner|hazırla)|(?:öner|tavsiye).*(?:araç|araba|model)/iu.test(text) || implicitVehicleRequest || explicitDiscoveryIntent) { addAct("VEHICLE_INTENT"); addAct("RECOMMENDATION_REQUEST"); if (!comparison && !directAnswerRequests.some((request) => request.kind === "RECOMMENDATION_REQUEST")) directAnswerRequests.push({ kind: "RECOMMENDATION_REQUEST" }); }
+  const explicitDiscoveryIntent = /(?:[İi]lk (?:arabamı?|aracımı?|otomobilimi?)|(?:kızım|oğlum|kızıma|oğluma).*(?:araba|araç|otomobil)|(?:aracımı|arabamı|otomobilimi).{0,60}(?:yenilemek|değiştirmek|yenileyeceğim|değiştireceğim)|(?:araba|araç|otomobil) (?:almak|almayı|alacağım|almam (?:lazım|gerekiyor)|almalıyım|arıyorum|bakıyorum|lazım|gerekiyor)|hangi\s+(?:aracı|arabayı|otomobili)\s+(?:alsam|seçsem|tercih etsem)|(?:panel[ -]?van|pick[ -]?up|pikap|caddy tarzı).*(?:istemiyorum|gerekmiyor|istiyorum|arıyorum|bakıyorum|düşünüyorum|lazım|gerekiyor)|(?:clio|civic|corolla|golf).*(?:önerdi|danış|kararsız)|(?:havalı|premium|şık).*(?:araç|araba|otomobil|bir şey)?.*(?:arıyorum|istiyorum))/iu.test(text);
+  if (/(?:araç|araba|seçene(?:k|ğ)i?|model).*(?:arıyorum|istiyorum|öner|hazırla)|(?:öner|tavsiye).*(?:araç|araba|model)/iu.test(text) || implicitVehicleRequest || explicitDiscoveryIntent || isControlledUsageRecommendationRequest(text)) { addAct("VEHICLE_INTENT"); addAct("RECOMMENDATION_REQUEST"); if (!comparison && !directAnswerRequests.some((request) => request.kind === "RECOMMENDATION_REQUEST")) directAnswerRequests.push({ kind: "RECOMMENDATION_REQUEST" }); }
   const explicitModelRecommendation = acts.includes("RECOMMENDATION_REQUEST") && /(?:almak istiyorum|başlangıç noktası|seçeneği? hazırla|öner(?:meni|i)? istiyorum)/iu.test(text) && !/(?:var mı|mevcut mu)/iu.test(text);
   if (explicitModelRecommendation) {
     for (let index = acts.length - 1; index >= 0; index -= 1) if (["MODEL_LOOKUP_REQUEST", "MODEL_SUITABILITY_REQUEST"].includes(acts[index]!)) acts.splice(index, 1);
@@ -252,14 +340,35 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
 
   const explicitRejectionReference = explicitRejection ? references.find((reference) => new RegExp(`\\b${reference.rawText.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\b`, "iu").test(text)) : undefined;
   const revealedSetRejection = explicitRejection && (input.revealedCandidateReferences?.length ?? 0) > 0 && revealedSetReference;
-  const candidateRejection = revealedSetRejection ? { scope: "AMBIGUOUS" as const, referenceText: "REVEALED_SET", sourceSpan: text } : input.result.candidateRejection ?? (explicitRejectionReference ? { scope: "MODEL_FAMILY_EXPLICIT" as const, referenceText: explicitRejectionReference.rawText, sourceSpan: text } : undefined);
+  const cheaperRevealedAlternative = (input.revealedCandidateReferences?.length ?? 0) > 0 && /(?:daha\s+(?:ucuz|hesaplı|uygun fiyatlı)|düşük\s+bütçeli|uygun fiyatlı\s+başka)/iu.test(text);
+  if (cheaperRevealedAlternative) { addAct("ALTERNATIVE_REQUEST"); if (directAnswerRequests.length === 0) directAnswerRequests.push({ kind: "ALTERNATIVE_REQUEST" }); }
+  const candidateRejection = revealedSetRejection || cheaperRevealedAlternative ? { scope: "AMBIGUOUS" as const, referenceText: "REVEALED_SET", sourceSpan: text } : input.result.candidateRejection ?? (explicitRejectionReference ? { scope: "MODEL_FAMILY_EXPLICIT" as const, referenceText: explicitRejectionReference.rawText, sourceSpan: text } : undefined);
   if (candidateRejection) addAct("CANDIDATE_REJECTION");
   const humanContext = detectHumanContext(text);
+  const greeting = /^(?:selam(?:lar)?|merhaba(?:lar)?|günaydın|iyi (?:günler|akşamlar))\b/iu.test(text);
+  const casualCheckIn = /^(?:nasılsın|naber|ne haber|iyi misin)[?.!]*$/iu.test(text);
   const deterministicSocialSignal = humanContext ? { kind: humanContext.kind }
+    : greeting ? { kind: "GREETING" as const }
+    : casualCheckIn ? { kind: "GENERAL" as const }
     : conversationalRepair ? { kind: "GENERAL" as const }
     : input.result.socialSignal;
-  if (deterministicSocialSignal && !acts.includes("SOCIAL_MESSAGE") && deterministicSocialSignal.kind !== "GREETING") acts.push("SOCIAL_MESSAGE");
-  return Object.freeze({ ...input.result, acts: Object.freeze(unique(acts)), directAnswerRequests: Object.freeze(directAnswerRequests), constraintMutations: Object.freeze(constraints), budgetMutations: Object.freeze(budgets), modelReferences: Object.freeze(references), personaMutations: Object.freeze(personas), ...(candidateRejection ? { candidateRejection } : {}), technicalGuidanceRequest: genericTechnicalNoviceContext ? undefined : technicalExplanation ? { fieldId: input.result.technicalGuidanceRequest?.fieldId, mode: "GUIDE_WITH_DAILY_LIFE" as const } : input.result.technicalGuidanceRequest, socialSignal: deterministicSocialSignal, offTopicSignal: socialHumor ? undefined : input.result.offTopicSignal, abuseSignal: verifiedAbuse ? { detected: true as const } : undefined });
+  if (deterministicSocialSignal?.kind === "GREETING") addAct("GREETING");
+  else if (deterministicSocialSignal && !acts.includes("SOCIAL_MESSAGE")) acts.push("SOCIAL_MESSAGE");
+  const unresolvedAmbiguities = input.result.ambiguities.filter((ambiguity) => {
+    const span = ambiguity.sourceSpan;
+    const usageReference = /(?:şehir|günlük|yük|kargo|koli|dağıtım|yolcu|servis|transfer|arazi|off[- ]?road|çamur|kar|bozuk yol|köy|kırsal|bağ[ -]?bahçe|uzun yol|aile|çocuk)/iu.test(span);
+    const controlledUsageResolved = usageReference && (Boolean(usageScenario) || input.activeFieldIds.includes("usageScenario"));
+    const controlledBodyResolved = detectedBodyStyles(span).length > 0;
+    const controlledFuelResolved = normalizeFuelInterpretation(span) !== null;
+    const controlledTransmissionResolved = /\b(?:otomatik|manuel)\b/iu.test(span);
+    const controlledDriveResolved = /(?:önden çekiş|arkadan itiş|dört çeker|4x4|\b(?:fwd|rwd|awd)\b)/iu.test(span);
+    const controlledBudgetResolved = budgets.length > 0 && money(span) !== undefined;
+    const controlledPersonaResolved = traits.length > 0 && /(?:ikinci el|değer kayb|değerini koru|etkile|etkilensin|dikkat çek|aşık olsun)/iu.test(span);
+    const revealedReferenceResolved = (input.revealedCandidateReferences?.length ?? 0) > 0 && /(?:bunu|bu araç|aynı araç|bunlar|bu modeller)/iu.test(span);
+    const controlledChargingQuestionResolved = technicalExplanation && /(?:şarj|batarya).*(?:süre|uzun|doldur|dolum|hızlı)|(?:ne kadar).*(?:şarj|batarya)/iu.test(span);
+    return !(controlledUsageResolved || controlledBodyResolved || controlledFuelResolved || controlledTransmissionResolved || controlledDriveResolved || controlledBudgetResolved || controlledPersonaResolved || revealedReferenceResolved || controlledChargingQuestionResolved);
+  });
+  return Object.freeze({ ...input.result, acts: Object.freeze(unique(acts)), directAnswerRequests: Object.freeze(directAnswerRequests), constraintMutations: Object.freeze(constraints), budgetMutations: Object.freeze(budgets), modelReferences: Object.freeze(references), personaMutations: Object.freeze(personas), ...(candidateRejection ? { candidateRejection } : {}), technicalGuidanceRequest: genericTechnicalNoviceContext ? undefined : technicalExplanation ? { fieldId: input.result.technicalGuidanceRequest?.fieldId, mode: "GUIDE_WITH_DAILY_LIFE" as const } : input.result.technicalGuidanceRequest, socialSignal: deterministicSocialSignal, offTopicSignal: socialHumor ? undefined : input.result.offTopicSignal, abuseSignal: verifiedAbuse ? { detected: true as const } : undefined, ambiguities: Object.freeze(unresolvedAmbiguities) });
 }
 
 export type SemanticCompletenessCode = "CORRECTION_MUTATION_MISSING" | "HARD_REQUIREMENT_MUTATION_MISSING" | "PREFERENCE_MUTATION_MISSING" | "BUDGET_MUTATION_MISSING" | "MODEL_REFERENCE_MISSING" | "PERSONA_MUTATION_MISSING" | "REJECTION_MUTATION_MISSING";

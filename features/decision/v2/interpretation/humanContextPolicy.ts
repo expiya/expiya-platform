@@ -19,3 +19,11 @@ export function detectHumanContext(userText: string): HumanContextPolicyMatch | 
   if (/(?:şaka bir yana|😂|😄|🤣|😁)/u.test(userText)) return Object.freeze({ kind: "HUMOR", safeAcknowledgement: "Gülümsetti 😄 Şakayı uzatmadan araç ihtiyacına devam edelim." });
   return null;
 }
+
+export function isControlledHumanContextVehicleRequest(userText: string): boolean {
+  const context = detectHumanContext(userText);
+  if (!context || /\?/u.test(userText)) return false;
+  const text = userText.normalize("NFKC").toLocaleLowerCase("tr-TR").trim();
+  return /(?:araç|araba|otomobil)(?:yı|yi|u|ü)?(?=\s|[,.!?]|$).*\b(?:almak|alacağım|arıyorum|bakıyorum|istiyorum|seçelim)\b/u.test(text)
+    || /\b(?:almak|alacağım|arıyorum|bakıyorum|istiyorum|seçelim)\b.*(?:araç|araba|otomobil)(?:yı|yi|u|ü)?(?=\s|[,.!?]|$)/u.test(text);
+}

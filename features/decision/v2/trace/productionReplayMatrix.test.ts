@@ -80,23 +80,24 @@ describe("production conversation replay matrix", () => {
     expect(gate.failuresByCode).toEqual({});
 
     const toyotaFinal = results[0]!.traces.at(-1)!;
+    expect(toyotaFinal.technicalBuckets).toMatchObject({ eligible: expect.any(Number), notEvaluable: expect.any(Number), eliminated: expect.any(Number) });
+    expect(toyotaFinal.affordabilityBuckets).toMatchObject({ selectable: expect.any(Number), verifiedWithin: expect.any(Number), unresolved: expect.any(Number) });
     expect(toyotaFinal.activeConstraints).toEqual(expect.arrayContaining([
-      expect.objectContaining({ fieldId: "bodyStyle", decisionEffect: "STRONG_RANK" }),
-      expect.objectContaining({ fieldId: "fuelType", decisionEffect: "STRONG_RANK" }),
+      expect.objectContaining({ fieldId: "bodyStyle", decisionEffect: "HARD_FILTER" }),
+      expect.objectContaining({ fieldId: "fuelType", decisionEffect: "HARD_FILTER" }),
       expect.objectContaining({ fieldId: "transmission", decisionEffect: "STRONG_RANK" }),
     ]));
     expect(toyotaFinal.shortlistMode).toBe("FAMILY_DIVERSE");
-    expect(toyotaFinal.action).toBe("REQUEST_REVEAL_CONSENT");
-    expect(toyotaFinal.selectedQuestionKey).toBeNull();
+    expect(toyotaFinal.action).toBe("ASK_MATERIAL_QUESTION");
+    expect(toyotaFinal.selectedQuestionKey).toMatch(/^affordabilityConflict\.3000000\./u);
     expect(toyotaFinal.offerCreated).toBe(false);
-    expect(toyotaFinal.shortlistCandidateIds).toHaveLength(1);
-    expect(toyotaFinal.shortlistCandidateIds.every((id) => toyotaFinal.rankingCandidates.find((candidate) => candidate.exactVariantId === id)?.bodyStyle === "Sedan")).toBe(true);
+    expect(toyotaFinal.shortlistCandidateIds).toHaveLength(0);
 
     const latestPreferenceFinal = results[2]!.traces.at(-1)!;
     expect(latestPreferenceFinal.action).toBe("ASK_MATERIAL_QUESTION");
-    // Manual is available in the remaining pool, so the engine walks backward
-    // to the latest preference that actually has zero coverage: hydrogen.
-    expect(latestPreferenceFinal.selectedQuestionKey).toBe("preferenceRelaxation.fuelType.HYDROGEN");
+    // The controlled fuel answer is authoritative. With no matching technical
+    // candidate, the engine reports a technical conflict instead of weakening it.
+    expect(latestPreferenceFinal.selectedQuestionKey).toMatch(/^technicalConflict\.fuelType\.HYDROGEN\./u);
     expect(latestPreferenceFinal.offerCreated).toBe(false);
 
     const multiBody = results[3]!;
@@ -110,6 +111,6 @@ describe("production conversation replay matrix", () => {
     expect(correctedSelection.activeConstraints.filter((constraint) => constraint.fieldId === "bodyStyle")).toEqual([
       expect.objectContaining({ normalizedValue: { operator: "ONE_OF", value: ["SUV", "Crossover"] } }),
     ]);
-    expect(correctedSelection.selectedQuestionKey).toBe("discovery.fuelType");
+    expect(correctedSelection.selectedQuestionKey).toBe("discovery.transmission");
   }, 120_000);
 });

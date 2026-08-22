@@ -11,7 +11,7 @@ import type { DecisionTurnV2Input } from "./types";
 const stableId = (message: string, sequence: number, type: string) => `v2e_${createHash("sha256").update(`${message}:${sequence}:${type}`).digest("hex").slice(0, 24)}`;
 const containsIdentity = (text: string, identity: string) => ` ${text} `.includes(` ${identity} `);
 function inferCatalogPreferenceReference(input: { readonly text: string; readonly catalog: CatalogSnapshot; readonly existing: readonly ProposedModelReference[]; readonly allowBareIdentity?: boolean }): ProposedModelReference | undefined {
-  if (!input.allowBareIdentity && !/(?:istiyorum|almak|başlangıç|öner|hazırla|tercih)/iu.test(input.text)) return undefined;
+  if (!input.allowBareIdentity && !/(?:istiyorum|almak|başlangıç|öner|hazırla|tercih|olsun|göster)/iu.test(input.text)) return undefined;
   if (!input.catalog.familyIndex || !input.catalog.brandIndex) return undefined;
   const existingResults = resolveProposedModelReferences(input.catalog, input.existing);
   const hasResolvedScope = input.existing.some((reference, index) => ["PREFERENCE", "HARD_SCOPE", "COMPARISON_SCOPE"].includes(reference.purpose) && existingResults[index]?.kind !== "NOT_FOUND");
@@ -45,7 +45,11 @@ export function createConversationEventsFromInterpretation(input: { readonly tur
     const declined = genericDecline || matchingConstraintMutation?.operation === "DECLINE";
     const deferred = input.interpretation.result.acts.includes("DONT_KNOW") || /(?:bunu|kullanım(?: ayrıntısını)?|gövde(?:yi| tipini)?|yakıtı)\s+sonra\s+konuşalım/iu.test(input.turn.userMessage);
     const answered = Boolean(matchingConstraintMutation || matchingBudgetMutation || affordabilityConflictAnswered);
-    if (declined || deferred || answered) push({ eventType: "MATERIAL_QUESTION_DISPOSITION", questionId: openQuestion.questionId, stableSemanticKey: openQuestion.stableSemanticKey, status: declined ? "DECLINED" : deferred ? "DEFERRED" : "ANSWERED" });
+    const supersedingFields = new Set(["usageScenario", "usageArchitecture", "bodyStyle", "seats", "drivenWheels", "fuelType", "transmission"]);
+    const supersededByCrossFieldMutation = !answered
+      && openQuestion.field !== "budget"
+      && input.interpretation.acceptedConstraintMutations.some((mutation) => mutation.fieldId !== openQuestion.field && supersedingFields.has(mutation.fieldId));
+    if (declined || deferred || answered || supersededByCrossFieldMutation) push({ eventType: "MATERIAL_QUESTION_DISPOSITION", questionId: openQuestion.questionId, stableSemanticKey: openQuestion.stableSemanticKey, status: declined ? "DECLINED" : deferred ? "DEFERRED" : supersededByCrossFieldMutation ? "SUPERSEDED" : "ANSWERED" });
   }
   const priorConstraints = input.previous?.events.filter((event): event is ConstraintEvent => event.eventType === "CONSTRAINT") ?? [];
   for (const mutation of input.interpretation.acceptedConstraintMutations) { const prior = [...priorConstraints].reverse().find((event) => event.field === (mutation.supersedesFieldId ?? mutation.fieldId)); const hard = mutation.deterministicDecisionUse === "HARD_CANDIDATE"; push({ eventType: "CONSTRAINT", kind: mutation.operation === "DECLINE" ? "DECLINED" : hard ? "HARD_CONSTRAINT" : mutation.deterministicDecisionUse === "GUIDED_ONLY" ? "GUIDED_APPROXIMATION" : mutation.deterministicDecisionUse === "ILLUSTRATIVE_ONLY" ? "ILLUSTRATIVE_SIGNAL" : "SOFT_PREFERENCE", field: mutation.fieldId, normalizedValue: mutation.normalizedValue, sourceText: mutation.sourceSpan, confidence: mutation.confidence, authority: "USER_EXPLICIT", decisionEffect: mutation.operation === "CLEAR" || mutation.operation === "DECLINE" ? "NONE" : hard ? "HARD_FILTER" : mutation.deterministicDecisionUse === "STRONG_OR_SOFT_RANK" ? "STRONG_RANK" : "EXPLANATION_ONLY", status: mutation.operation === "DECLINE" ? "DECLINED" : "ACTIVE", ...(mutation.operation === "CORRECT" && prior ? { supersedesId: prior.id } : {}) }); }
@@ -63,7 +67,7 @@ export function createConversationEventsFromInterpretation(input: { readonly tur
     const resolution = lookup.kind === "BRAND" ? "BRAND_ONLY" : lookup.kind;
     const resolvedFamilyIds = lookup.kind === "EXACT_VARIANT" || lookup.kind === "EXACT_MODEL_FAMILY" ? [lookup.familyId] : lookup.kind === "BRAND" || lookup.kind === "AMBIGUOUS" ? lookup.familyIds : [];
     const resolvedVariantIds = lookup.kind === "EXACT_VARIANT" ? [lookup.variantId] : lookup.kind === "EXACT_MODEL_FAMILY" || lookup.kind === "AMBIGUOUS" ? lookup.variantIds : [];
-    push({ eventType: "MODEL_REFERENCE", referenceId: stableId(input.turn.messageId, events.length, "reference"), rawText: reference.rawText, ...(reference.parsedBrandText ? { normalizedBrand: reference.parsedBrandText } : {}), ...(reference.parsedModelText ? { normalizedModel: reference.parsedModelText } : {}), resolution, decisionEffect: reference.purpose, resolvedFamilyIds, resolvedVariantIds });
+    push({ eventType: "MODEL_REFERENCE", referenceId: stableId(input.turn.messageId, events.length, "reference"), rawText: reference.rawText, ...(reference.parsedBrandText ? { normalizedBrand: reference.parsedBrandText } : {}), ...(reference.parsedModelText ? { normalizedModel: reference.parsedModelText } : {}), resolution, decisionEffect: reference.purpose, resolvedFamilyIds, resolvedVariantIds, ...(lookup.kind === "POSSIBLE_TYPO" ? { suggestedCanonicalNames: lookup.canonicalOptions } : {}) });
   });
   const rejection = input.interpretation.result.candidateRejection;
   if (rejection) {
@@ -78,8 +82,8 @@ export function createConversationEventsFromInterpretation(input: { readonly tur
   if (input.interpretation.result.offTopicSignal) push({ eventType: "OFF_TOPIC", transition: "DETECTED" });
   else if ((input.previous?.offTopicState.consecutiveOffTopicTurns ?? 0) > 0 && (input.interpretation.acceptedConstraintMutations.length > 0 || input.interpretation.acceptedBudgetMutations.length > 0 || input.interpretation.result.modelReferences.length > 0 || input.interpretation.result.acts.some((act) => ["VEHICLE_INTENT", "USAGE_STATEMENT", "PREFERENCE_STATEMENT", "HARD_REQUIREMENT", "CORRECTION", "RECOMMENDATION_REQUEST", "QUESTION_ANSWER"].includes(act)))) push({ eventType: "OFF_TOPIC", transition: "RETURNED_TO_VEHICLE" });
   if (input.interpretation.result.abuseSignal) push({ eventType: "ABUSE", transition: input.previous?.abuseState.level === "NONE" || !input.previous ? "BOUNDARY_SET" : input.previous.abuseState.level === "BOUNDARY_SET" ? "WARNED" : "ENDED" });
-  // Every committed turn must carry a stable ledger identity. This event is
-  // conversation-only and deliberately does not invalidate an open offer.
-  if (events.length === 0) push({ eventType: "VEHICLE_INTENT_ESTABLISHED" });
+  // Every committed turn must carry a stable ledger identity without inventing
+  // vehicle intent for an unresolved, social, or otherwise decision-neutral turn.
+  if (events.length === 0) push({ eventType: "TURN_RECORDED" });
   return Object.freeze(events);
 }

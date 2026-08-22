@@ -68,6 +68,28 @@ describe("POST /api/cars/conversation", () => {
     expect(mocks.runCarsConversationTurn).not.toHaveBeenCalled();
   });
 
+  it("keeps a simplification follow-up on the prior knowledge topic", async () => {
+    const response = await POST(new Request("http://localhost/api/cars/conversation", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        conversationId: "knowledge-simplification",
+        messages: [
+          { id: "message-1", role: "user", content: "Köyde şarj istasyonu yok ama evde elektrik var; elektrikli araç için yeterli mi?" },
+          { id: "message-2", role: "assistant", content: "AC ve DC şarjın teknik ayrıntıları..." },
+          { id: "message-3", role: "user", content: "Söylediklerin çok karmaşık. Daha basit anlatır mısın?" },
+        ],
+      }),
+    }));
+    expect(response.status).toBe(200);
+    await expect(response.json()).resolves.toMatchObject({
+      kind: "QUESTION",
+      message: expect.stringMatching(/Evde elektrik.*başlangıç.*yeterli|tesisat.*topraklama/iu),
+      knowledge: { intent: "EV_CHARGING_ECOSYSTEM", decisionImpact: "NONE" },
+    });
+    expect(mocks.runCarsConversationTurn).not.toHaveBeenCalled();
+  });
+
   it("answers safe-driving education without creating a decision turn", async () => {
     const response = await POST(new Request("http://localhost/api/cars/conversation", {
       method: "POST",

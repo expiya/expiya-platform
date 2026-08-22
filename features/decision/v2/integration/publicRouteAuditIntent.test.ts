@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import { createServerRecommendationOfferAuditIntent } from "./publicRoute.server";
 
-const signer = { sign: vi.fn(), verify: vi.fn(() => ({ status: "VALID" as const, offerId: "offer-1", conversationId: "conversation-1", catalogFingerprint: "catalog", decisionFingerprint: "decision", expiresAt: "2026-08-20T13:00:00.000Z" })) };
+const signer = { sign: vi.fn(), verify: vi.fn(() => ({ status: "VALID" as const, offerId: "offer-1", conversationId: "conversation-1", catalogFingerprint: "catalog", decisionFingerprint: "decision", expiresAt: "2026-08-20T13:00:00.000Z", authorizationFingerprint: "a".repeat(64) })) };
 
 describe("server authoritative REC audit intent", () => {
   it("ignores client time and emits strict server chronology", async () => {

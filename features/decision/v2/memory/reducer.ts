@@ -116,6 +116,7 @@ function reduceBudget(budget: BudgetState, event: Extract<ConversationEvent, { e
   const next = { ...budget, budgetExcluded: event.operation === "SET" || event.operation === "CORRECT" ? false : budget.budgetExcluded };
   if (event.operation === "CLEAR") {
     if (event.field === "AVAILABLE_CASH") delete next.availableCash;
+    if (event.field === "MINIMUM_BUDGET") delete next.minimumBudget;
     if (event.field === "PREFERRED_BUDGET") delete next.preferredBudget;
     if (event.field === "MAXIMUM_HARD_CEILING") delete next.maximumHardCeiling;
     if (event.field === "FINANCE_FLEXIBILITY") next.financeFlexibility = "UNKNOWN";
@@ -125,6 +126,7 @@ function reduceBudget(budget: BudgetState, event: Extract<ConversationEvent, { e
     return next;
   }
   if (event.field === "AVAILABLE_CASH") next.availableCash = event.value;
+  if (event.field === "MINIMUM_BUDGET") next.minimumBudget = event.value;
   if (event.field === "PREFERRED_BUDGET") next.preferredBudget = event.value;
   if (event.field === "MAXIMUM_HARD_CEILING") next.maximumHardCeiling = event.value;
   if (event.field === "FINANCE_FLEXIBILITY") next.financeFlexibility = event.value;
@@ -192,6 +194,7 @@ function reduceOne(memory: ConversationMemory, event: ConversationEvent, policy:
     normalizedBrand: event.normalizedBrand, normalizedModel: event.normalizedModel, resolution: event.resolution,
     decisionEffect: event.decisionEffect,
     resolvedFamilyIds: [...event.resolvedFamilyIds], resolvedVariantIds: [...event.resolvedVariantIds],
+    ...(event.suggestedCanonicalNames ? { suggestedCanonicalNames: [...event.suggestedCanonicalNames] } : {}),
   }] };
   if (event.eventType === "PERSONA_ACTIVATED") {
     const traits = [...new Set(event.requestedTraits)].sort() as [VehiclePersonaTrait, ...VehiclePersonaTrait[]];

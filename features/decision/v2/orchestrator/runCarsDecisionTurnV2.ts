@@ -47,7 +47,7 @@ export async function runCarsDecisionTurnV2(input: DecisionTurnV2Input, dependen
   const deterministicOfferResponse = dependencies.stages.interpretOfferResponse
     ? await runTurnStage("OFFER_RESPONSE", () => dependencies.stages.interpretOfferResponse!(input, prior?.memory))
     : undefined;
-  const interpretation = deterministicOfferResponse ?? await runTurnStage("INTERPRET", () => dependencies.stages.interpret(input, prior?.memory));
+  const interpretation = deterministicOfferResponse ?? await runTurnStage("INTERPRET", () => dependencies.stages.interpret(input, prior?.memory, catalog.snapshot));
   const events = runTurnSyncStage("EVENTS", () => dependencies.stages.createEvents({ turn: input, interpretation, previous: prior?.memory, catalog: catalog.snapshot }));
   const memory = runTurnSyncStage("MEMORY", () => dependencies.stages.reduceMemory({ previous: prior?.memory, events, catalog: catalog.snapshot }));
   const evaluated = await runTurnStage("EVALUATE", () => dependencies.stages.evaluate({ turn: input, memory, catalog: catalog.snapshot, interpretation, now }));

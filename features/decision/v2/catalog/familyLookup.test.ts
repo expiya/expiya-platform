@@ -68,12 +68,24 @@ describe("V2 model family index and deterministic lookup", () => {
     if (result.kind === "AMBIGUOUS") expect(result.familyIds).toHaveLength(2);
   });
 
-  it("returns not-found for unknown, substring, fuzzy, and unknown variant queries", () => {
+  it("separates a unique possible typo from unknown, substring, and unknown variant queries without granting authority", () => {
     const catalog = snapshot();
     expect(lookupCatalogModel(catalog, { rawText: "Unknown 90", purpose: "REFERENCE" }).kind).toBe("NOT_FOUND");
     expect(lookupCatalogModel(catalog, { rawText: "Model", purpose: "REFERENCE" }).kind).toBe("NOT_FOUND");
-    expect(lookupCatalogModel(catalog, { rawText: "Modle 10", purpose: "REFERENCE" }).kind).toBe("NOT_FOUND");
+    const typo = lookupCatalogModel(catalog, { rawText: "Modle 10", purpose: "REFERENCE" });
+    expect(typo).toMatchObject({ kind: "POSSIBLE_TYPO", canonicalOptions: ["Brand Alpha Model 10"], decisionAuthority: "NONE_CONFIRMATION_REQUIRED" });
+    expect(authorizeMentionsFromCatalogLookup(typo)).toMatchObject({ mentionableCandidateIds: [], mentionableFamilyIds: [], disambiguationFamilyIds: [], offerAuthorization: null });
     expect(lookupCatalogModel(catalog, { rawText: "", exactVariantId: "missing", purpose: "REFERENCE" }).kind).toBe("NOT_FOUND");
+  });
+
+  it("keeps ambiguous typo suggestions bounded and non-authoritative while exact brand scope disambiguates suggestions", () => {
+    const catalog = snapshot();
+    expect(lookupCatalogModel(catalog, { rawText: "Shraed 30", model: "Shraed 30", purpose: "REFERENCE" })).toMatchObject({
+      kind: "POSSIBLE_TYPO", canonicalOptions: ["Brand Beta Shared 30", "Brand Gamma Shared 30"], decisionAuthority: "NONE_CONFIRMATION_REQUIRED",
+    });
+    expect(lookupCatalogModel(catalog, { rawText: "Brand Beta Shraed 30", brand: "Brand Beta", model: "Shraed 30", purpose: "REFERENCE" })).toMatchObject({
+      kind: "POSSIBLE_TYPO", canonicalOptions: ["Brand Beta Shared 30"], decisionAuthority: "NONE_CONFIRMATION_REQUIRED",
+    });
   });
 
   it("preserves catalog provenance and grants mention but never reveal or offer authority", () => {

@@ -27,6 +27,7 @@ import type {
 
 interface CarsConversationProps {
   readonly initialQuery: string;
+  readonly pilotUsername?: string;
 }
 
 function newMessage(role: CarsConversationMessage["role"], content: string) {
@@ -62,7 +63,7 @@ function readPersistedConversation(): PersistedCarsConversation | null {
   }
 }
 
-export function CarsConversation({ initialQuery }: CarsConversationProps) {
+export function CarsConversation({ initialQuery, pilotUsername }: CarsConversationProps) {
   const router = useRouter();
   const conversationId = useRef<string>("");
   const initialRequestStarted = useRef(false);
@@ -76,6 +77,7 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
   const [equipmentExplanation, setEquipmentExplanation] = useState<null | { actionId: string; offerToken: string; sessionToken: string; message: string; options: readonly { id: "ACCEPT" | "DECLINE"; label: string }[]; notice?: string | null; items?: readonly { label: string; explanation: string; caveat: string }[] }>(null);
   const [isRestored, setIsRestored] = useState(false);
   const [recommendationTermsChecked, setRecommendationTermsChecked] = useState(false);
+  const [archiveError, setArchiveError] = useState<string | null>(null);
   const locale = "tr" as const;
   const isTurkish = true;
 
@@ -282,10 +284,17 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
     submitContent(draft);
   }
 
-  function clearConversation() {
+  async function clearConversation() {
+    if (pilotUsername && messages.some((message) => message.role === "user")) {
+      setArchiveError(null); setIsLoading(true);
+      try {
+        const response = await fetch("/api/pilot/conversations/complete", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ conversationId: conversationId.current, messages: messages.map(({ id, role, content }) => ({ id, role, content })), conversation: conversationRef.current }) });
+        if (!response.ok) { const payload = await response.json() as { message?: string }; throw new Error(payload.message ?? "Pilot görüşme kaydedilemedi."); }
+      } catch (error) { setArchiveError(error instanceof Error ? error.message : "Pilot görüşme kaydedilemedi."); setIsLoading(false); return; }
+    }
     sessionStorage.removeItem(storageKey);
     sessionStorage.removeItem(legacyStorageKey);
-    router.push("/");
+    router.push(pilotUsername ? "/pilot" : "/");
   }
 
   async function openEquipmentExplanation(actionId: string, offerToken: string | undefined) {
@@ -332,9 +341,10 @@ export function CarsConversation({ initialQuery }: CarsConversationProps) {
               : "I will listen, weigh the tradeoffs with you, and reach a clear decision when we are ready."}
           </p>
           <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400">
-            <span>Görüşme yalnızca bu sekme açıkken tarayıcınızda tutulur.</span>
-            <button type="button" onClick={clearConversation} className="font-semibold underline underline-offset-4">Görüşmeyi sil</button>
+            <span>{pilotUsername ? `Pilot kullanıcı: ${pilotUsername}. Görüşme tamamlandığında arşivlenir.` : "Görüşme yalnızca bu sekme açıkken tarayıcınızda tutulur."}</span>
+            <button type="button" disabled={isLoading} onClick={() => void clearConversation()} className="font-semibold underline underline-offset-4 disabled:opacity-50">Görüşmeyi sil</button>
           </div>
+          {archiveError ? <p role="alert" className="mt-3 rounded-xl bg-red-50 p-3 text-sm text-red-700">{archiveError}</p> : null}
         </div>
 
         <section className="mt-10 rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 sm:p-6" aria-label="Car decision conversation">

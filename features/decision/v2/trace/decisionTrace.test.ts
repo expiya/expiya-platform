@@ -41,4 +41,16 @@ describe("decision trace invariants", () => {
     expect(traceChecksum(base())).toBe(traceChecksum({ ...base() }));
     expect(JSON.stringify(collector.snapshot())).not.toContain("merhaba");
   });
+
+  it("fails closed for hard-filter, affordability accounting and premature-offer violations", () => {
+    const trace: DecisionTurnTrace = {
+      ...base(), activeConstraints: [{ fieldId: "bodyStyle", decisionEffect: "HARD_FILTER", normalizedValue: { operator: "EQUALS", value: "Sedan" } }],
+      shortlistMode: "FAMILY_DIVERSE", shortlistCandidateIds: ["corolla-cross"], offerCreated: true,
+      recommendationReadiness: "NEEDS_MORE_INFORMATION",
+      affordabilityBuckets: { selectable: 2, verifiedWithin: 0, estimateWithin: 0, estimateOverConditional: 0, budgetNotApplied: 1, verifiedOver: 0, unresolved: 0, technicalUnknown: 0, eliminated: 0 },
+    };
+    expect(evaluateDecisionTurnTrace(trace).map((failure) => failure.code)).toEqual(expect.arrayContaining([
+      "HARD_FILTER_SHORTLIST_VIOLATION", "OFFER_WITHOUT_READY_SHORTLIST", "AFFORDABILITY_BUCKET_ACCOUNTING_INVALID",
+    ]));
+  });
 });

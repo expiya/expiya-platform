@@ -115,6 +115,16 @@ export function planAutomotiveKnowledgeResponse(text: string, now = new Date()):
   };
 }
 
+export function planSimplifiedAutomotiveKnowledgeFollowUp(input: { readonly userText: string; readonly priorUserText?: string; readonly now?: Date }): AutomotiveKnowledgeResponse | undefined {
+  if (!/(?:daha |çok )?(?:basit|sade|kısa).*(?:anlat|açıkla)|anlamadım|karmaşık/iu.test(input.userText) || !input.priorUserText) return undefined;
+  const prior = planAutomotiveKnowledgeResponse(input.priorUserText, input.now);
+  if (!prior) return undefined;
+  const message = prior.intent === "EV_CHARGING_ECOSYSTEM" || prior.intent === "EV_RANGE_AND_CHARGING"
+    ? "Kısaca: Evde elektrik olması başlangıç için yeterli olabilir. Ancak aracı güvenli biçimde şarj etmek için ev tesisatının ve topraklamanın bir elektrikçi tarafından kontrol edilmesi gerekir; uygun bir ev tipi şarj cihazı sıradan prizden daha güvenli ve hızlıdır. Köyde halka açık istasyon yoksa günlük kullanım evde şarjla yürüyebilir, fakat uzun yol öncesinde rota üzerindeki hızlı şarj noktalarını planlamalısın."
+    : `Kısaca: ${prior.message.split(/\n\n/u)[0]}`;
+  return Object.freeze({ ...prior, message });
+}
+
 /**
  * Provides a bounded conversational bridge for concerns that accompany an
  * explicit vehicle-selection request. The result is presentation-only: the
