@@ -2,6 +2,23 @@ import { describe, expect, it, vi } from "vitest";
 import { PostgresV2ConversationStore } from "./postgresStore.server";
 describe("Postgres V2 transaction store", () => { it("rolls back on an event append failure", async () => { const query = vi.fn(async (sql: string) => { if (sql.startsWith("select revision")) return { rowCount: 0, rows: [] }; if (sql.startsWith("insert into cars_decision_v2_events")) throw new Error("append failed"); return { rowCount: 1, rows: [] }; }); const release = vi.fn(); const store = new PostgresV2ConversationStore({ connect: async () => ({ query, release }) } as never); await expect(store.commit({ expectedRevision: 0, next: { conversationId: "c", revision: 1, memory: { memoryFingerprint: "m", decisionFingerprint: "d", catalogAuthority: { releaseVersion: "0.55.0", catalogFingerprint: "catalog" } } as never, messageResults: {} }, events: [{ id: "e", sourceTurn: 1, sequence: 0, eventType: "VEHICLE_INTENT_ESTABLISHED", schemaVersion: 1, createdAt: "2026-08-19T00:00:00.000Z" } as never] })).rejects.toThrow("append failed"); expect(query).toHaveBeenCalledWith("rollback"); expect(release).toHaveBeenCalled(); }); });
 
+it("preserves PostgreSQL Date milliseconds when hydrating an offer", async () => {
+  const createdAt = new Date("2026-08-22T21:02:30.073Z");
+  const expiresAt = new Date("2026-08-22T21:12:30.073Z");
+  const query = vi.fn(async () => ({ rowCount: 1, rows: [{
+    offer_id: "offer-1", conversation_id: "conversation-1", candidate_refs: [], mode: "FAMILY_DIVERSE",
+    catalog_release_version: "0.55.4", catalog_fingerprint: "catalog", decision_fingerprint: "decision",
+    lifecycle: "REVEALED", created_at: createdAt, expires_at: expiresAt, consented_at: null, revealed_at: null,
+    authorization_version: "1.0.0", nonce: "nonce",
+  }] }));
+  const store = new PostgresV2ConversationStore({ connect: async () => ({ query, release: vi.fn() }) } as never);
+
+  await expect(store.get("offer-1")).resolves.toEqual(expect.objectContaining({
+    createdAt: "2026-08-22T21:02:30.073Z",
+    expiresAt: "2026-08-22T21:12:30.073Z",
+  }));
+});
+
 it("creates the parent conversation before inserting first-turn events", async () => {
   const calls: string[] = [];
   const query = vi.fn(async (sql: string) => {
