@@ -2,6 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import {
   interpretLatestUserAct,
+  isExplicitCorrectionText,
   isPureGreetingText,
   textHasVehicleIntent,
 } from "./carsSocialIntent";
@@ -12,6 +13,12 @@ function user(content: string) {
 }
 
 describe("social intent", () => {
+  it("recognizes only an explicit non-empty correction turn", () => {
+    expect(isExplicitCorrectionText("Düzeltme: otomatik değil manuel olsun")).toBe(true);
+    expect(isExplicitCorrectionText("düzeltme:")).toBe(false);
+    expect(isExplicitCorrectionText("otomatik değil manuel olsun")).toBe(false);
+  });
+
   it("treats Merhaba as a pure greeting without vehicle intent", () => {
     const act = interpretLatestUserAct(user("Merhaba"));
     expect(act.primaryAct).toBe("GREETING");

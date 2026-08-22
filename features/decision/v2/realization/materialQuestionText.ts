@@ -4,6 +4,7 @@ const QUESTION_PROMPTS: Readonly<Record<string, string>> = Object.freeze({
   usageScenario: "Aracı en çok hangi amaçla kullanacaksın?",
   bodyStyle: "Gövde olarak hangisi sana daha yakın?",
   seats: "Araçta kaç koltuk gerekli?",
+  payloadKg: "Yük taşıma kapasitesi en az kaç kilogram olmalı?",
   drivenWheels: "Çekiş tercihin var mı?",
   fuelType: "Yakıt tarafında hangisi sana daha uygun?",
   transmission: "Şanzıman tercihin nedir?",

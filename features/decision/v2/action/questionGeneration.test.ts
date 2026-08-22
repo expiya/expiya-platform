@@ -30,6 +30,23 @@ describe("production material-question generation", () => {
     expect(options.find((option) => option.semanticValue === "Liftback")?.userFacingDescription).toMatch(/geniş bagaj kapağı/iu);
   });
 
+  it("provides a daily-life description for coupe body options", () => {
+    const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [variant("v1", "Coupe", "GASOLINE"), variant("v2", "Sedan", "HEV")] } as unknown as CatalogSnapshot;
+    const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: ["v1", "v2"], memory: memory(), constraints: { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "LONG_DISTANCE" }], supersessionTrace: [], diagnostics: [] } as never, comparisonScope: false });
+    const coupe = generated.questionCandidates.find((candidate) => candidate.question.field === "bodyStyle")?.question.options.find((option) => option.semanticValue === "Coupe");
+    expect(coupe?.userFacingDescription).toMatch(/sportif tavan.*arka yaşam alanı/iu);
+  });
+
+  it("asks verified payload capacity immediately after cargo body architecture", () => {
+    const cargo = (id: string, payloadKg: number) => ({ ...variant(id, "Panel Van", "GASOLINE"), decisionFacts: { ...variant(id, "Panel Van", "GASOLINE").decisionFacts, dimensions: { payloadKg: fact(payloadKg) } } });
+    const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [cargo("v1", 800), cargo("v2", 1_200), cargo("v3", 1_500)] } as unknown as CatalogSnapshot;
+    const generated = generateMaterialQuestionCandidates({ snapshot, candidateIds: ["v1", "v2", "v3"], memory: memory(), constraints: { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "GENERAL_CARGO" }, { fieldId: "bodyStyle", normalizedValue: { operator: "EQUALS", value: "Panel Van" } }], supersessionTrace: [], diagnostics: [] } as never, comparisonScope: false });
+    const payload = generated.questionCandidates.find((candidate) => candidate.question.field === "payloadKg");
+    expect(payload).toMatchObject({ stage: "FUNCTIONAL_NEEDS", eligible: true });
+    expect(payload?.question.options.map((option) => option.userFacingLabel)).toEqual(["En az 800 kg", "En az 1.200 kg", "En az 1.500 kg"]);
+    expect(generated.questionCandidates.find((candidate) => candidate.eligible)?.question.field).toBe("payloadKg");
+  });
+
   it("opens architecture before energy after usage is known", () => {
     const snapshot = { authority: { catalogFingerprint: "catalog" }, variants: [variant("v1", "Sedan", "GASOLINE"), variant("v2", "SUV", "HEV")] } as unknown as CatalogSnapshot;
     const constraints = { activeHardConstraints: [], activeNonHardConstraints: [{ fieldId: "usageScenario", normalizedValue: "URBAN_DAILY" }], supersessionTrace: [], diagnostics: [] } as never;
