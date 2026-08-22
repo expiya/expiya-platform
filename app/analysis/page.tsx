@@ -3,13 +3,20 @@ import {
   CARS_CONVERSATION_AVAILABILITY,
   isPublicCarsConversationEnabled,
 } from "@/features/decision/conversation/carsConversationAvailability";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+import { PILOT_SESSION_COOKIE, verifyPilotSessionToken } from "@/features/pilot/pilotSession.server";
 
 export default async function AnalysisPage({
   searchParams,
 }: {
-  searchParams: Promise<{ query?: string | string[] }>;
+  searchParams: Promise<{ query?: string | string[]; pilot?: string | string[] }>;
 }) {
-  if (!isPublicCarsConversationEnabled()) {
+  const params = await searchParams;
+  const pilotRequested = (Array.isArray(params.pilot) ? params.pilot[0] : params.pilot) === "1";
+  const pilotSession = verifyPilotSessionToken((await cookies()).get(PILOT_SESSION_COOKIE)?.value);
+  if (pilotRequested && !pilotSession) redirect("/pilot");
+  if (!isPublicCarsConversationEnabled(process.env, Boolean(pilotSession))) {
     return (
       <main className="min-h-screen bg-neutral-50 px-5 py-16 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
         <section className="mx-auto max-w-2xl rounded-3xl border border-amber-200 bg-white p-8 shadow-sm dark:border-amber-900 dark:bg-neutral-900 sm:p-10">
@@ -21,7 +28,7 @@ export default async function AnalysisPage({
       </main>
     );
   }
-  const queryValue = (await searchParams).query;
+  const queryValue = params.query;
   const query = Array.isArray(queryValue) ? queryValue[0] ?? "" : queryValue ?? "";
-  return <CarsConversation initialQuery={query} />;
+  return <CarsConversation initialQuery={query} pilotUsername={pilotSession?.username} />;
 }
