@@ -1,0 +1,20 @@
+{
+  "packageId": "PERSONA-V39-ACTIVATION-PREP-2026-08-24-01",
+  "targetSafeTraitsRelease": "v1.1.0-persona-evidence-v3.9-catalog-v0.55.4-2026-08-24",
+  "targetPayloadSha256": "sha256:624cbd6d5e42e7dcdb9642b6dab835117da0f678a3c786df2c9bcc2102402342",
+  "sourceOwnerApprovedPayloadSha256": "sha256:dc4866a78b5cc381f7e495e7d827ac29698626ffa3780bab3417ba70cce59289",
+  "files": {
+    "activation-request.json": "sha256:28c680900ef2970c82de29c860b79f7af9aa70a34a2bf26984d2255f2b3ea335",
+    "proposed-active-pointer.json": "sha256:09cdb644660aa1724370c15de5e090e85ca393e637e1a64fb86dd06a09b35667",
+    "proposed-activeVehiclePersonaSafeTraits.generated.ts.txt": "sha256:2ba80308f0e19a44c33978e007028acd977e8e022a374c3e328952ff2c837623",
+    "rollback-plan.json": "sha256:6280301ed144698359759e836a5225b5ac00bb2d57c8aa572b472c756152229a"
+  },
+  "familyCount": 385,
+  "variantCount": 549,
+  "approvedClaimCount": 595,
+  "rejectedClaimCount": 5,
+  "currentActiveRelease": "v1.0.6-catalog-v0.55.4-2026-08-20",
+  "activePointerChanged": false,
+  "generatedModuleChanged": false,
+  "activationPerformed": false
+}

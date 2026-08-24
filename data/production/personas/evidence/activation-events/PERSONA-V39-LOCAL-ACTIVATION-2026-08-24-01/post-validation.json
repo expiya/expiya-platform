@@ -1,0 +1,21 @@
+{
+  "status": "PASSED",
+  "eventId": "PERSONA-V39-LOCAL-ACTIVATION-2026-08-24-01",
+  "releaseVersion": "v1.1.0-persona-evidence-v3.9-catalog-v0.55.4-2026-08-24",
+  "payloadSha256": "sha256:624cbd6d5e42e7dcdb9642b6dab835117da0f678a3c786df2c9bcc2102402342",
+  "pointerSha256": "sha256:09cdb644660aa1724370c15de5e090e85ca393e637e1a64fb86dd06a09b35667",
+  "moduleSha256": "sha256:2ba80308f0e19a44c33978e007028acd977e8e022a374c3e328952ff2c837623",
+  "familyCount": 385,
+  "variantCount": 549,
+  "approvedTraitCount": 595,
+  "scoreCap": 0.75,
+  "invariants": {
+    "hardFilterEffect": "ZERO",
+    "candidateCountEffect": "ZERO",
+    "affordabilityEffect": "ZERO",
+    "offerGovernanceEffect": "ZERO",
+    "technicalFactAuthority": "NONE",
+    "equipmentAuthority": "NONE"
+  },
+  "validatedAt": "2026-08-24T20:35:07.780Z"
+}

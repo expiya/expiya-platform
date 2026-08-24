@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "persona-v3.9-local-activation-event.1",
+  "eventId": "PERSONA-V39-LOCAL-ACTIVATION-2026-08-24-01",
+  "eventType": "PERSONA_SAFE_TRAITS_LOCAL_ACTIVATION_AUTHORIZED",
+  "actor": {
+    "role": "PRODUCT_OWNER",
+    "instanceId": "EXPIYA_CARS_PRODUCT_OWNER_001"
+  },
+  "approvalStatement": "PERSONA-V39-ACTIVATION-PREP-2026-08-24-01 paketinin lokal active pointer aktivasyonunu onaylıyorum.",
+  "approvalStatementSha256": "sha256:71663d03ce915e593061ee3f0492e100f50c70fcbcdd1d254a94c96ff6513d12",
+  "packageId": "PERSONA-V39-ACTIVATION-PREP-2026-08-24-01",
+  "packageManifestSha256": "sha256:474a880fdae5f989a3d47f5f0d0c042e2d621db7bbc2b09c10d2aec3fd5e2227",
+  "ownerApprovalEventId": "PERSONA-V39-OWNER-APPROVAL-2026-08-24-01",
+  "previousRelease": "v1.0.6-catalog-v0.55.4-2026-08-20",
+  "targetRelease": "v1.1.0-persona-evidence-v3.9-catalog-v0.55.4-2026-08-24",
+  "targetPayloadSha256": "sha256:624cbd6d5e42e7dcdb9642b6dab835117da0f678a3c786df2c9bcc2102402342",
+  "scope": "LOCAL_ACTIVE_PERSONA_SAFE_TRAITS_POINTER_AND_GENERATED_MODULE_ONLY",
+  "activatedAt": "2026-08-24T20:35:07.780Z",
+  "databaseWriteAuthorized": false,
+  "deploymentAuthorized": false,
+  "appendOnly": true
+}

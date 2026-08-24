@@ -1,0 +1,63 @@
+import { afterEach, describe, expect, it } from "vitest";
+import { activeDecisionPreferences } from "./ledger";
+import { createV3ConversationState, runV3Turn } from "./engine.server";
+import { routeConversationMessage } from "./router";
+
+const priorDisabled = process.env.CARS_V31_PROVIDER_DISABLED;
+afterEach(() => { if (priorDisabled === undefined) delete process.env.CARS_V31_PROVIDER_DISABLED; else process.env.CARS_V31_PROVIDER_DISABLED = priorDisabled; });
+
+describe("V3.6 direct question behavior", () => {
+  it("prioritizes an automotive question over an open material question", () => {
+    const route = routeConversationMessage("Elektrikli araçlar normal araçlara göre daha pahalı sanırım?", { hasPurchaseIntent: true, hasOpenQuestion: true });
+    expect(route).toMatchObject({ version: "3.8", route: "AUTOMOTIVE_INFORMATION", directAnswerRequired: true, decisionMutationAllowed: false, catalogEvaluationRequired: false });
+  });
+
+  it("answers diesel pollution comparisons concretely in bounded fallback", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const output = await runV3Turn({ conversationId: "diesel-emissions", messageId: "1", message: "Dizel araçlar doğayı diğer tür yakıtlara göre daha fazla mı kirletiyor?", expectedRevision: 0 });
+    expect(output.message).toMatch(/karbondioksit/iu);
+    expect(output.message).toMatch(/azot oksit.*ince partikül/iu);
+    expect(output.message).toMatch(/elektrikli araçlarda egzoz emisyonu yoktur/iu);
+    expect(output.message).not.toMatch(/açıklayabilirim/iu);
+    expect(output.state.purchaseIntent).toBe("NOT_EXPRESSED");
+    expect(output.state.ledger).toHaveLength(0);
+  });
+
+  it("normalizes hibrid spelling and answers fuel-saving comparisons concretely", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const message = "Hibrid araçların yakıt tasarrufu sağladığı doğru mu?";
+    expect(routeConversationMessage(message, { hasPurchaseIntent: false, hasOpenQuestion: false }).route).toBe("AUTOMOTIVE_INFORMATION");
+    const output = await runV3Turn({ conversationId: "hybrid-saving", messageId: "1", message, expectedRevision: 0 });
+    expect(output.message).toMatch(/özellikle şehir içindeki dur-kalk kullanımında.*yakıt tasarrufu/iu);
+    expect(output.message).toMatch(/sabit hızlı otoyol kullanımında.*avantaj.*küçülür/iu);
+    expect(output.message).not.toMatch(/açıklayabilirim/iu);
+    expect(output.state.ledger).toHaveLength(0);
+  });
+
+  it("answers the reported question first, then resumes discovery with one question", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let output = await runV3Turn({ conversationId: "reported-chat", messageId: "1", message: "Merhaba.", expectedRevision: 0, state: createV3ConversationState("reported-chat") });
+    for (const [id, message] of [["2", "İyi. Araç bakıyorum."], ["3", "Günlük işe gidiş geliş yeterli benim için."], ["4", "Elektrikli araçlar popüler hale geldi. Ama normal araçlara göre daha pahalı sanırım?"]] as const) output = await runV3Turn({ conversationId: "reported-chat", messageId: id, message, expectedRevision: output.state.revision, state: output.state });
+    expect(output.message).toMatch(/satın alma fiyatı.*daha yüksek/iu);
+    expect(output.message).toMatch(/toplam avantaj.*yıllık yoluna.*şarj imkânına/iu);
+    expect((output.message.match(/\?/gu) ?? [])).toHaveLength(1);
+    expect(activeDecisionPreferences(output.state.ledger).some((item) => item.concept === "fuelType")).toBe(false);
+  });
+
+  it("treats commuting to work as urban daily use, not commercial use", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let output = await runV3Turn({ conversationId: "commute", messageId: "1", message: "Araç bakıyorum", expectedRevision: 0 });
+    output = await runV3Turn({ conversationId: "commute", messageId: "2", message: "Günlük işe gidiş geliş için", expectedRevision: output.state.revision, state: output.state });
+    expect(activeDecisionPreferences(output.state.ledger).find((item) => item.concept === "primaryUsage")?.normalizedValue).toBe("URBAN_DAILY");
+    expect(output.state.lastQuestionKey).toBe("parkingEquipment");
+  });
+
+  it("varies conversational acknowledgement copy across consecutive turns", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let output = await runV3Turn({ conversationId: "ack", messageId: "1", message: "Araç bakıyorum", expectedRevision: 0 });
+    output = await runV3Turn({ conversationId: "ack", messageId: "2", message: "Şehir içinde kullanacağım", expectedRevision: output.state.revision, state: output.state }); const first = output.message.split(" ").slice(0, 5).join(" ");
+    output = await runV3Turn({ conversationId: "ack", messageId: "3", message: "Özel donanım şart değil", expectedRevision: output.state.revision, state: output.state }); const second = output.message.split(" ").slice(0, 5).join(" ");
+    expect(first).not.toBe(second);
+    expect(`${first} ${second}`).not.toMatch(/Anladım\./u);
+  });
+});

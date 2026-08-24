@@ -1,0 +1,2389 @@
+{
+  "schemaVersion": "3.9.0-expanded-regional-research.1",
+  "campaignId": "PERSONA-V39-EXPANDED-REGIONAL-150",
+  "startedAt": "2026-08-24T00:00:00.000Z",
+  "scope": {
+    "familyCount": 150,
+    "claimCount": 353
+  },
+  "sourcePolicy": {
+    "professionalEditorialOnly": true,
+    "userContentAuthority": false,
+    "exactFamilyAndGenerationRequired": true,
+    "crossMarketUse": "CHARACTER_ONLY",
+    "technicalAuthority": false
+  },
+  "markets": [
+    "AU",
+    "NZ",
+    "ZA",
+    "IN",
+    "GCC",
+    "DE",
+    "NL",
+    "PL",
+    "ES",
+    "RO",
+    "US"
+  ],
+  "queue": [
+    {
+      "familyId": "family-be90f0db119d9d3859a2d0b7",
+      "canonicalBrand": "Land Rover",
+      "canonicalModel": "Discovery Sport",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "PRESTIGE",
+        "ADVENTURE",
+        "MINIMALISM"
+      ],
+      "claimIds": [
+        "PERSCLM-family-be90f0db119d9d3859a2d0b7-COMFORT-EDITORIAL",
+        "PERSCLM-family-be90f0db119d9d3859a2d0b7-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-be90f0db119d9d3859a2d0b7-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-be90f0db119d9d3859a2d0b7-PRESTIGE-EDITORIAL",
+        "PERSCLM-family-be90f0db119d9d3859a2d0b7-ADVENTURE-EDITORIAL",
+        "PERSCLM-family-be90f0db119d9d3859a2d0b7-MINIMALISM-EDITORIAL"
+      ],
+      "status": "WAVE_01_RESEARCHED",
+      "priority": 6
+    },
+    {
+      "familyId": "family-e54cda2a90648060a99cb37b",
+      "canonicalBrand": "Land Rover",
+      "canonicalModel": "Discovery",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "PRESTIGE",
+        "ADVENTURE",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-e54cda2a90648060a99cb37b-COMFORT-EDITORIAL",
+        "PERSCLM-family-e54cda2a90648060a99cb37b-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-e54cda2a90648060a99cb37b-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-e54cda2a90648060a99cb37b-PRESTIGE-EDITORIAL",
+        "PERSCLM-family-e54cda2a90648060a99cb37b-ADVENTURE-EDITORIAL",
+        "PERSCLM-family-e54cda2a90648060a99cb37b-FAMILY-EDITORIAL"
+      ],
+      "status": "WAVE_01_RESEARCHED",
+      "priority": 6
+    },
+    {
+      "familyId": "family-2c7a24089fdb0c812282f4e6",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "X6",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-2c7a24089fdb0c812282f4e6-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-2c7a24089fdb0c812282f4e6-COMFORT-EDITORIAL",
+        "PERSCLM-family-2c7a24089fdb0c812282f4e6-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-2c7a24089fdb0c812282f4e6-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-2c7a24089fdb0c812282f4e6-PRESTIGE-EDITORIAL"
+      ],
+      "status": "WAVE_01_RESEARCHED",
+      "priority": 5
+    },
+    {
+      "familyId": "family-31961cca2fce994af065068e",
+      "canonicalBrand": "Fiat",
+      "canonicalModel": "Egea Sedan",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "VALUE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-31961cca2fce994af065068e-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-31961cca2fce994af065068e-COMFORT-EDITORIAL",
+        "PERSCLM-family-31961cca2fce994af065068e-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-31961cca2fce994af065068e-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-31961cca2fce994af065068e-VALUE-EDITORIAL"
+      ],
+      "status": "WAVE_01_RESEARCHED",
+      "priority": 5
+    },
+    {
+      "familyId": "family-89fd2952201054e06b0e315c",
+      "canonicalBrand": "Land Rover",
+      "canonicalModel": "Defender 130",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "PRESTIGE",
+        "ADVENTURE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-89fd2952201054e06b0e315c-COMFORT-EDITORIAL",
+        "PERSCLM-family-89fd2952201054e06b0e315c-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-89fd2952201054e06b0e315c-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-89fd2952201054e06b0e315c-PRESTIGE-EDITORIAL",
+        "PERSCLM-family-89fd2952201054e06b0e315c-ADVENTURE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 5
+    },
+    {
+      "familyId": "family-0175277c8b925e001915fd40",
+      "canonicalBrand": "Volkswagen",
+      "canonicalModel": "Touareg",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-0175277c8b925e001915fd40-COMFORT-EDITORIAL",
+        "PERSCLM-family-0175277c8b925e001915fd40-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-0175277c8b925e001915fd40-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-0175277c8b925e001915fd40-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-21063efe51e9821c28a02ed5",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "A3 Sportback",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-21063efe51e9821c28a02ed5-COMFORT-EDITORIAL",
+        "PERSCLM-family-21063efe51e9821c28a02ed5-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-21063efe51e9821c28a02ed5-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-21063efe51e9821c28a02ed5-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-38d72019f0fe92ebc11f675e",
+      "canonicalBrand": "Land Rover",
+      "canonicalModel": "Range Rover Evoque",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "ADVENTURE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-38d72019f0fe92ebc11f675e-COMFORT-EDITORIAL",
+        "PERSCLM-family-38d72019f0fe92ebc11f675e-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-38d72019f0fe92ebc11f675e-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-38d72019f0fe92ebc11f675e-ADVENTURE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-5922c0ae7085b65978abea8c",
+      "canonicalBrand": "Chery",
+      "canonicalModel": "TIGGO7",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-5922c0ae7085b65978abea8c-COMFORT-EDITORIAL",
+        "PERSCLM-family-5922c0ae7085b65978abea8c-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-5922c0ae7085b65978abea8c-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-5922c0ae7085b65978abea8c-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-6ae0e4af3abfd7174930a929",
+      "canonicalBrand": "Ford",
+      "canonicalModel": "Puma",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-6ae0e4af3abfd7174930a929-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-6ae0e4af3abfd7174930a929-COMFORT-EDITORIAL",
+        "PERSCLM-family-6ae0e4af3abfd7174930a929-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-6ae0e4af3abfd7174930a929-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-7aee36917e6ad0c12db11d27",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "A8 L",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-7aee36917e6ad0c12db11d27-COMFORT-EDITORIAL",
+        "PERSCLM-family-7aee36917e6ad0c12db11d27-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-7aee36917e6ad0c12db11d27-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-7aee36917e6ad0c12db11d27-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-7f8233aa162292ea208295af",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "A5 Sedan",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-7f8233aa162292ea208295af-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-7f8233aa162292ea208295af-COMFORT-EDITORIAL",
+        "PERSCLM-family-7f8233aa162292ea208295af-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-7f8233aa162292ea208295af-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-85723b62f47a7f826c0cff7b",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "A6 Sedan",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-85723b62f47a7f826c0cff7b-COMFORT-EDITORIAL",
+        "PERSCLM-family-85723b62f47a7f826c0cff7b-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-85723b62f47a7f826c0cff7b-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-85723b62f47a7f826c0cff7b-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-ae4c5f127d3ecde1963feb8c",
+      "canonicalBrand": "OMODA",
+      "canonicalModel": "OMODA 7",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "VALUE",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-ae4c5f127d3ecde1963feb8c-COMFORT-EDITORIAL",
+        "PERSCLM-family-ae4c5f127d3ecde1963feb8c-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-ae4c5f127d3ecde1963feb8c-VALUE-EDITORIAL",
+        "PERSCLM-family-ae4c5f127d3ecde1963feb8c-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-aec3c1bd79f746c769cc8a0e",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "GLS",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-aec3c1bd79f746c769cc8a0e-COMFORT-EDITORIAL",
+        "PERSCLM-family-aec3c1bd79f746c769cc8a0e-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-aec3c1bd79f746c769cc8a0e-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-aec3c1bd79f746c769cc8a0e-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-b45e807b1a318c14757ba91a",
+      "canonicalBrand": "Opel",
+      "canonicalModel": "Corsa",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-b45e807b1a318c14757ba91a-COMFORT-EDITORIAL",
+        "PERSCLM-family-b45e807b1a318c14757ba91a-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-b45e807b1a318c14757ba91a-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-b45e807b1a318c14757ba91a-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-b7e5cc5e85642159e1116913",
+      "canonicalBrand": "Fiat",
+      "canonicalModel": "600",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "VALUE",
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-b7e5cc5e85642159e1116913-COMFORT-EDITORIAL",
+        "PERSCLM-family-b7e5cc5e85642159e1116913-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-b7e5cc5e85642159e1116913-VALUE-EDITORIAL",
+        "PERSCLM-family-b7e5cc5e85642159e1116913-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-b8c0c192a550025b55401671",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "G-Serisi",
+      "traits": [
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "PRESTIGE",
+        "ADVENTURE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-b8c0c192a550025b55401671-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-b8c0c192a550025b55401671-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-b8c0c192a550025b55401671-PRESTIGE-EDITORIAL",
+        "PERSCLM-family-b8c0c192a550025b55401671-ADVENTURE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-bb7059ca7db29f59b3bb2351",
+      "canonicalBrand": "MG",
+      "canonicalModel": "HS",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-bb7059ca7db29f59b3bb2351-COMFORT-EDITORIAL",
+        "PERSCLM-family-bb7059ca7db29f59b3bb2351-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-bb7059ca7db29f59b3bb2351-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-bb7059ca7db29f59b3bb2351-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-c5ae70d2a546d2aa1bb4d052",
+      "canonicalBrand": "Land Rover",
+      "canonicalModel": "Range Rover",
+      "traits": [
+        "COMFORT",
+        "TECHNOLOGY",
+        "PRESTIGE",
+        "ADVENTURE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-c5ae70d2a546d2aa1bb4d052-COMFORT-EDITORIAL",
+        "PERSCLM-family-c5ae70d2a546d2aa1bb4d052-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-c5ae70d2a546d2aa1bb4d052-PRESTIGE-EDITORIAL",
+        "PERSCLM-family-c5ae70d2a546d2aa1bb4d052-ADVENTURE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-cab216b51e8e6cd750c2da52",
+      "canonicalBrand": "Citroën",
+      "canonicalModel": "C4 Hybrid 145",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "VALUE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-cab216b51e8e6cd750c2da52-COMFORT-EDITORIAL",
+        "PERSCLM-family-cab216b51e8e6cd750c2da52-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-cab216b51e8e6cd750c2da52-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-cab216b51e8e6cd750c2da52-VALUE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-f1d9a0226bafa66761ec1059",
+      "canonicalBrand": "Volvo",
+      "canonicalModel": "XC90",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "ADVENTURE",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-f1d9a0226bafa66761ec1059-COMFORT-EDITORIAL",
+        "PERSCLM-family-f1d9a0226bafa66761ec1059-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-f1d9a0226bafa66761ec1059-ADVENTURE-EDITORIAL",
+        "PERSCLM-family-f1d9a0226bafa66761ec1059-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-f350b3535cc2cdd2a1d3ed95",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "A5 Avant",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-f350b3535cc2cdd2a1d3ed95-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-f350b3535cc2cdd2a1d3ed95-COMFORT-EDITORIAL",
+        "PERSCLM-family-f350b3535cc2cdd2a1d3ed95-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-f350b3535cc2cdd2a1d3ed95-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 4
+    },
+    {
+      "familyId": "family-0932844f4c700e659784cca0",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "A3 Sedan",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-0932844f4c700e659784cca0-COMFORT-EDITORIAL",
+        "PERSCLM-family-0932844f4c700e659784cca0-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-0932844f4c700e659784cca0-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-128a8e77093db8c3688be2e0",
+      "canonicalBrand": "Dacia",
+      "canonicalModel": "Jogger",
+      "traits": [
+        "PRACTICALITY",
+        "FAMILY",
+        "VALUE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-128a8e77093db8c3688be2e0-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-128a8e77093db8c3688be2e0-FAMILY-EDITORIAL",
+        "PERSCLM-family-128a8e77093db8c3688be2e0-VALUE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-21153c94a669d155f611befe",
+      "canonicalBrand": "Hyundai",
+      "canonicalModel": "BAYON",
+      "traits": [
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-21153c94a669d155f611befe-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-21153c94a669d155f611befe-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-21153c94a669d155f611befe-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-235c18c9ca4bd51deeaa70ce",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "GLC",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-235c18c9ca4bd51deeaa70ce-COMFORT-EDITORIAL",
+        "PERSCLM-family-235c18c9ca4bd51deeaa70ce-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-235c18c9ca4bd51deeaa70ce-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-26503f30af71aebfa5bfae76",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "X3",
+      "traits": [
+        "COMFORT",
+        "TECHNOLOGY",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-26503f30af71aebfa5bfae76-COMFORT-EDITORIAL",
+        "PERSCLM-family-26503f30af71aebfa5bfae76-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-26503f30af71aebfa5bfae76-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-27051d18c5eaafdb3221c3fb",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "X7",
+      "traits": [
+        "COMFORT",
+        "PRESTIGE",
+        "ADVENTURE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-27051d18c5eaafdb3221c3fb-COMFORT-EDITORIAL",
+        "PERSCLM-family-27051d18c5eaafdb3221c3fb-PRESTIGE-EDITORIAL",
+        "PERSCLM-family-27051d18c5eaafdb3221c3fb-ADVENTURE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-2a9ca8a36eac7acc8c284f13",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "X2",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-2a9ca8a36eac7acc8c284f13-COMFORT-EDITORIAL",
+        "PERSCLM-family-2a9ca8a36eac7acc8c284f13-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-2a9ca8a36eac7acc8c284f13-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-2e15d60132175be5047b4bda",
+      "canonicalBrand": "Chery",
+      "canonicalModel": "TIGGO8",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-2e15d60132175be5047b4bda-COMFORT-EDITORIAL",
+        "PERSCLM-family-2e15d60132175be5047b4bda-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-2e15d60132175be5047b4bda-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-2eb84723da3ca40efc29dfe3",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "S-Serisi",
+      "traits": [
+        "COMFORT",
+        "TECHNOLOGY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-2eb84723da3ca40efc29dfe3-COMFORT-EDITORIAL",
+        "PERSCLM-family-2eb84723da3ca40efc29dfe3-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-2eb84723da3ca40efc29dfe3-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-3715b3712c7a088457482feb",
+      "canonicalBrand": "Mitsubishi",
+      "canonicalModel": "Colt",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-3715b3712c7a088457482feb-COMFORT-EDITORIAL",
+        "PERSCLM-family-3715b3712c7a088457482feb-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-3715b3712c7a088457482feb-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-39487b758bb486f207a853be",
+      "canonicalBrand": "Ferrari",
+      "canonicalModel": "Amalfi",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-39487b758bb486f207a853be-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-39487b758bb486f207a853be-COMFORT-EDITORIAL",
+        "PERSCLM-family-39487b758bb486f207a853be-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-44e3206e69dcfbc8d10f6418",
+      "canonicalBrand": "JAECOO",
+      "canonicalModel": "JAECOO 7",
+      "traits": [
+        "COMFORT",
+        "PRESTIGE",
+        "VALUE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-44e3206e69dcfbc8d10f6418-COMFORT-EDITORIAL",
+        "PERSCLM-family-44e3206e69dcfbc8d10f6418-PRESTIGE-EDITORIAL",
+        "PERSCLM-family-44e3206e69dcfbc8d10f6418-VALUE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-47a5930090f7a609dc52b640",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "Q7",
+      "traits": [
+        "PRACTICALITY",
+        "PRESTIGE",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-47a5930090f7a609dc52b640-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-47a5930090f7a609dc52b640-PRESTIGE-EDITORIAL",
+        "PERSCLM-family-47a5930090f7a609dc52b640-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-4ed26ad79a742f13bcce7710",
+      "canonicalBrand": "Škoda",
+      "canonicalModel": "Octavia",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "VALUE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-4ed26ad79a742f13bcce7710-COMFORT-EDITORIAL",
+        "PERSCLM-family-4ed26ad79a742f13bcce7710-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-4ed26ad79a742f13bcce7710-VALUE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-4f302459e350c993a6678ff3",
+      "canonicalBrand": "Hyundai",
+      "canonicalModel": "i30",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-4f302459e350c993a6678ff3-COMFORT-EDITORIAL",
+        "PERSCLM-family-4f302459e350c993a6678ff3-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-4f302459e350c993a6678ff3-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-546dbdef716d98be59044e45",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "Q3",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-546dbdef716d98be59044e45-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-546dbdef716d98be59044e45-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-546dbdef716d98be59044e45-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-62377efede347bb0ecd6717c",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "GLA",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-62377efede347bb0ecd6717c-COMFORT-EDITORIAL",
+        "PERSCLM-family-62377efede347bb0ecd6717c-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-62377efede347bb0ecd6717c-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-6346bdfe75d3fa5ccb542e29",
+      "canonicalBrand": "Škoda",
+      "canonicalModel": "Kodiaq",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-6346bdfe75d3fa5ccb542e29-COMFORT-EDITORIAL",
+        "PERSCLM-family-6346bdfe75d3fa5ccb542e29-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-6346bdfe75d3fa5ccb542e29-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-69b5bd14c4784bf634c77540",
+      "canonicalBrand": "Porsche",
+      "canonicalModel": "Cayenne",
+      "traits": [
+        "PRACTICALITY",
+        "ADVENTURE",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-69b5bd14c4784bf634c77540-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-69b5bd14c4784bf634c77540-ADVENTURE-EDITORIAL",
+        "PERSCLM-family-69b5bd14c4784bf634c77540-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-6e99c24d5c7ab65d162e7642",
+      "canonicalBrand": "Bentley",
+      "canonicalModel": "Bentayga",
+      "traits": [
+        "COMFORT",
+        "PRESTIGE",
+        "ADVENTURE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-6e99c24d5c7ab65d162e7642-COMFORT-EDITORIAL",
+        "PERSCLM-family-6e99c24d5c7ab65d162e7642-PRESTIGE-EDITORIAL",
+        "PERSCLM-family-6e99c24d5c7ab65d162e7642-ADVENTURE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-73c7a7bea9951ea01609b978",
+      "canonicalBrand": "Citroën",
+      "canonicalModel": "C4 X Hybrid 145",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-73c7a7bea9951ea01609b978-COMFORT-EDITORIAL",
+        "PERSCLM-family-73c7a7bea9951ea01609b978-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-73c7a7bea9951ea01609b978-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-78c5f2ca12fbb23848126626",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "Q8",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-78c5f2ca12fbb23848126626-COMFORT-EDITORIAL",
+        "PERSCLM-family-78c5f2ca12fbb23848126626-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-78c5f2ca12fbb23848126626-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-7da636f99170b31b10f582fa",
+      "canonicalBrand": "Dacia",
+      "canonicalModel": "Sandero Stepway",
+      "traits": [
+        "PRACTICALITY",
+        "ADVENTURE",
+        "VALUE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-7da636f99170b31b10f582fa-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-7da636f99170b31b10f582fa-ADVENTURE-EDITORIAL",
+        "PERSCLM-family-7da636f99170b31b10f582fa-VALUE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-8ff71e216ac854d4500a8193",
+      "canonicalBrand": "Volkswagen",
+      "canonicalModel": "Taigo",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-8ff71e216ac854d4500a8193-COMFORT-EDITORIAL",
+        "PERSCLM-family-8ff71e216ac854d4500a8193-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-8ff71e216ac854d4500a8193-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-910db5a13d75dfef56da9292",
+      "canonicalBrand": "Land Rover",
+      "canonicalModel": "Range Rover Velar",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "MINIMALISM"
+      ],
+      "claimIds": [
+        "PERSCLM-family-910db5a13d75dfef56da9292-COMFORT-EDITORIAL",
+        "PERSCLM-family-910db5a13d75dfef56da9292-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-910db5a13d75dfef56da9292-MINIMALISM-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-985bd8313e781be3b680356b",
+      "canonicalBrand": "Land Rover",
+      "canonicalModel": "Defender 110",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "ADVENTURE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-985bd8313e781be3b680356b-COMFORT-EDITORIAL",
+        "PERSCLM-family-985bd8313e781be3b680356b-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-985bd8313e781be3b680356b-ADVENTURE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-9c9a70dcab77db868728c1ab",
+      "canonicalBrand": "Kia",
+      "canonicalModel": "Sportage",
+      "traits": [
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "VALUE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-9c9a70dcab77db868728c1ab-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-9c9a70dcab77db868728c1ab-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-9c9a70dcab77db868728c1ab-VALUE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-9d624ec240722a350236d9ba",
+      "canonicalBrand": "Nissan",
+      "canonicalModel": "Qashqai",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-9d624ec240722a350236d9ba-COMFORT-EDITORIAL",
+        "PERSCLM-family-9d624ec240722a350236d9ba-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-9d624ec240722a350236d9ba-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-a145bbfd8fc37d85606fb8b5",
+      "canonicalBrand": "Aston Martin",
+      "canonicalModel": "DBX",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-a145bbfd8fc37d85606fb8b5-COMFORT-EDITORIAL",
+        "PERSCLM-family-a145bbfd8fc37d85606fb8b5-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-a145bbfd8fc37d85606fb8b5-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-a83c5ffadd5b876c55e9db16",
+      "canonicalBrand": "Volkswagen",
+      "canonicalModel": "Golf",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-a83c5ffadd5b876c55e9db16-COMFORT-EDITORIAL",
+        "PERSCLM-family-a83c5ffadd5b876c55e9db16-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-a83c5ffadd5b876c55e9db16-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-acad052c4c6b4dc54d946742",
+      "canonicalBrand": "SEAT",
+      "canonicalModel": "Ateca",
+      "traits": [
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-acad052c4c6b4dc54d946742-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-acad052c4c6b4dc54d946742-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-acad052c4c6b4dc54d946742-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-b00dc7a1505294af2ff2e379",
+      "canonicalBrand": "SEAT",
+      "canonicalModel": "Arona",
+      "traits": [
+        "PRACTICALITY",
+        "TECHNOLOGY",
+        "VALUE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-b00dc7a1505294af2ff2e379-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-b00dc7a1505294af2ff2e379-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-b00dc7a1505294af2ff2e379-VALUE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-c744a3b72379b08b6989a5b6",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "E-Serisi",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-c744a3b72379b08b6989a5b6-COMFORT-EDITORIAL",
+        "PERSCLM-family-c744a3b72379b08b6989a5b6-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-c744a3b72379b08b6989a5b6-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-d1d406e23f38f4099ce07938",
+      "canonicalBrand": "Škoda",
+      "canonicalModel": "Fabia",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-d1d406e23f38f4099ce07938-COMFORT-EDITORIAL",
+        "PERSCLM-family-d1d406e23f38f4099ce07938-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-d1d406e23f38f4099ce07938-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-d23cfae6f5e3661f2c46a107",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "320i Sedan",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-d23cfae6f5e3661f2c46a107-COMFORT-EDITORIAL",
+        "PERSCLM-family-d23cfae6f5e3661f2c46a107-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-d23cfae6f5e3661f2c46a107-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-dc0fcd591fee7090400555ae",
+      "canonicalBrand": "CUPRA",
+      "canonicalModel": "Leon",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-dc0fcd591fee7090400555ae-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-dc0fcd591fee7090400555ae-COMFORT-EDITORIAL",
+        "PERSCLM-family-dc0fcd591fee7090400555ae-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-f614b46932592a3097fe8d59",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "GLE",
+      "traits": [
+        "COMFORT",
+        "TECHNOLOGY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-f614b46932592a3097fe8d59-COMFORT-EDITORIAL",
+        "PERSCLM-family-f614b46932592a3097fe8d59-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-f614b46932592a3097fe8d59-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 3
+    },
+    {
+      "familyId": "family-05342e3811b8cf8f84698813",
+      "canonicalBrand": "DS Automobiles",
+      "canonicalModel": "N°4",
+      "traits": [
+        "COMFORT",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-05342e3811b8cf8f84698813-COMFORT-EDITORIAL",
+        "PERSCLM-family-05342e3811b8cf8f84698813-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-140f348659590fff2402e724",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "M3 Touring",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-140f348659590fff2402e724-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-140f348659590fff2402e724-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-1570d952205d5bb108bc90a6",
+      "canonicalBrand": "Volkswagen",
+      "canonicalModel": "Tiguan",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-1570d952205d5bb108bc90a6-COMFORT-EDITORIAL",
+        "PERSCLM-family-1570d952205d5bb108bc90a6-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-1e4d2386937f60e894d15ecc",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "CLE",
+      "traits": [
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-1e4d2386937f60e894d15ecc-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-1e4d2386937f60e894d15ecc-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-2361f3ad820b9e499fecd81c",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "4 Serisi Cabrio",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-2361f3ad820b9e499fecd81c-COMFORT-EDITORIAL",
+        "PERSCLM-family-2361f3ad820b9e499fecd81c-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-25c93c8430b8800090d7e678",
+      "canonicalBrand": "Kia",
+      "canonicalModel": "Stonic",
+      "traits": [
+        "PRESTIGE",
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-25c93c8430b8800090d7e678-PRESTIGE-EDITORIAL",
+        "PERSCLM-family-25c93c8430b8800090d7e678-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-313624cd6cca444060a97c4f",
+      "canonicalBrand": "Porsche",
+      "canonicalModel": "911",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-313624cd6cca444060a97c4f-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-313624cd6cca444060a97c4f-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-347e58a91c7bc38bc5c4b3aa",
+      "canonicalBrand": "Volkswagen",
+      "canonicalModel": "Passat",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-347e58a91c7bc38bc5c4b3aa-COMFORT-EDITORIAL",
+        "PERSCLM-family-347e58a91c7bc38bc5c4b3aa-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-3a44a9163203b6dbfa15141e",
+      "canonicalBrand": "Ford",
+      "canonicalModel": "Tourneo Courier",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-3a44a9163203b6dbfa15141e-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-3a44a9163203b6dbfa15141e-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-3d75f5242e0b56d1a6a650f5",
+      "canonicalBrand": "Alfa Romeo",
+      "canonicalModel": "Stelvio",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "COMFORT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-3d75f5242e0b56d1a6a650f5-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-3d75f5242e0b56d1a6a650f5-COMFORT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-4b69ffcdb390a9ab27f5e811",
+      "canonicalBrand": "MINI",
+      "canonicalModel": "Countryman",
+      "traits": [
+        "PRACTICALITY",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-4b69ffcdb390a9ab27f5e811-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-4b69ffcdb390a9ab27f5e811-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-4ec6c25118e6b58cac80afdd",
+      "canonicalBrand": "Ferrari",
+      "canonicalModel": "Roma Spider",
+      "traits": [
+        "COMFORT",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-4ec6c25118e6b58cac80afdd-COMFORT-EDITORIAL",
+        "PERSCLM-family-4ec6c25118e6b58cac80afdd-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-55181bb670c3750b4cad8456",
+      "canonicalBrand": "Toyota",
+      "canonicalModel": "Land Cruiser Prado",
+      "traits": [
+        "COMFORT",
+        "ADVENTURE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-55181bb670c3750b4cad8456-COMFORT-EDITORIAL",
+        "PERSCLM-family-55181bb670c3750b4cad8456-ADVENTURE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-58c1224dcd61f4723ff54e62",
+      "canonicalBrand": "Volvo",
+      "canonicalModel": "V60",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-58c1224dcd61f4723ff54e62-COMFORT-EDITORIAL",
+        "PERSCLM-family-58c1224dcd61f4723ff54e62-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-5b37fa7d6b72851fafa84b2b",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "GLB",
+      "traits": [
+        "TECHNOLOGY",
+        "ADVENTURE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-5b37fa7d6b72851fafa84b2b-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-5b37fa7d6b72851fafa84b2b-ADVENTURE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-5d6180fa48f83dfcf329a509",
+      "canonicalBrand": "Kia",
+      "canonicalModel": "Picanto",
+      "traits": [
+        "PRACTICALITY",
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-5d6180fa48f83dfcf329a509-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-5d6180fa48f83dfcf329a509-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-6ad54193f153a42989878580",
+      "canonicalBrand": "Volvo",
+      "canonicalModel": "XC60",
+      "traits": [
+        "PRESTIGE",
+        "MINIMALISM"
+      ],
+      "claimIds": [
+        "PERSCLM-family-6ad54193f153a42989878580-PRESTIGE-EDITORIAL",
+        "PERSCLM-family-6ad54193f153a42989878580-MINIMALISM-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-6eeda6ce5a7a35a1b64ab1b6",
+      "canonicalBrand": "Rolls-Royce",
+      "canonicalModel": "Ghost Extended",
+      "traits": [
+        "TECHNOLOGY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-6eeda6ce5a7a35a1b64ab1b6-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-6eeda6ce5a7a35a1b64ab1b6-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-742c2901ba47a2a8cee1a2cb",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "Q5",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-742c2901ba47a2a8cee1a2cb-COMFORT-EDITORIAL",
+        "PERSCLM-family-742c2901ba47a2a8cee1a2cb-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-79ab6f06a8e190ed8818b58b",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "Q3 Sportback",
+      "traits": [
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-79ab6f06a8e190ed8818b58b-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-79ab6f06a8e190ed8818b58b-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-806ae764028486c1224d1b31",
+      "canonicalBrand": "KGM",
+      "canonicalModel": "Tivoli",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-806ae764028486c1224d1b31-COMFORT-EDITORIAL",
+        "PERSCLM-family-806ae764028486c1224d1b31-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-820fe396dc5389a00764c59f",
+      "canonicalBrand": "Hyundai",
+      "canonicalModel": "i20",
+      "traits": [
+        "PRACTICALITY",
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-820fe396dc5389a00764c59f-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-820fe396dc5389a00764c59f-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-83a57460f09f985b79767115",
+      "canonicalBrand": "MINI",
+      "canonicalModel": "Cooper 5 Kapı",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-83a57460f09f985b79767115-COMFORT-EDITORIAL",
+        "PERSCLM-family-83a57460f09f985b79767115-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-8717c3ed27e1d6b03a03fcbd",
+      "canonicalBrand": "Škoda",
+      "canonicalModel": "Scala",
+      "traits": [
+        "PRACTICALITY",
+        "VALUE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-8717c3ed27e1d6b03a03fcbd-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-8717c3ed27e1d6b03a03fcbd-VALUE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-98b278400fc66d27174699eb",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "AMG GT",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-98b278400fc66d27174699eb-COMFORT-EDITORIAL",
+        "PERSCLM-family-98b278400fc66d27174699eb-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-9c79d07ad8b30ad0826d80cd",
+      "canonicalBrand": "Land Rover",
+      "canonicalModel": "Range Rover Sport",
+      "traits": [
+        "TECHNOLOGY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-9c79d07ad8b30ad0826d80cd-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-9c79d07ad8b30ad0826d80cd-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-a198018105b469ae7f0ed858",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "5 Serisi Sedan",
+      "traits": [
+        "COMFORT",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-a198018105b469ae7f0ed858-COMFORT-EDITORIAL",
+        "PERSCLM-family-a198018105b469ae7f0ed858-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-a51b3207fbcc51f79dd9507d",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "M4 Coupe",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-a51b3207fbcc51f79dd9507d-COMFORT-EDITORIAL",
+        "PERSCLM-family-a51b3207fbcc51f79dd9507d-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-a598a8d14f7e2eddd3caaa12",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "Q5 Sportback",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-a598a8d14f7e2eddd3caaa12-COMFORT-EDITORIAL",
+        "PERSCLM-family-a598a8d14f7e2eddd3caaa12-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-a6f93548e1a62420f2645df8",
+      "canonicalBrand": "Citroën",
+      "canonicalModel": "C3 Aircross Hybrid 145",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-a6f93548e1a62420f2645df8-COMFORT-EDITORIAL",
+        "PERSCLM-family-a6f93548e1a62420f2645df8-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-a772316dfc06d78a120d1429",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "C-Serisi",
+      "traits": [
+        "COMFORT",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-a772316dfc06d78a120d1429-COMFORT-EDITORIAL",
+        "PERSCLM-family-a772316dfc06d78a120d1429-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-a9f9a8037f43c858c4d020ee",
+      "canonicalBrand": "Mercedes-Benz",
+      "canonicalModel": "A-Serisi",
+      "traits": [
+        "COMFORT",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-a9f9a8037f43c858c4d020ee-COMFORT-EDITORIAL",
+        "PERSCLM-family-a9f9a8037f43c858c4d020ee-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-aa82060ad12c8b34be7c43f4",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "7 Serisi Sedan",
+      "traits": [
+        "COMFORT",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-aa82060ad12c8b34be7c43f4-COMFORT-EDITORIAL",
+        "PERSCLM-family-aa82060ad12c8b34be7c43f4-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-ac89fde45064d2c6ab46bf16",
+      "canonicalBrand": "Škoda",
+      "canonicalModel": "Kamiq",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-ac89fde45064d2c6ab46bf16-COMFORT-EDITORIAL",
+        "PERSCLM-family-ac89fde45064d2c6ab46bf16-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-afde6faeb29041268b3bead0",
+      "canonicalBrand": "Aston Martin",
+      "canonicalModel": "Vantage",
+      "traits": [
+        "COMFORT",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-afde6faeb29041268b3bead0-COMFORT-EDITORIAL",
+        "PERSCLM-family-afde6faeb29041268b3bead0-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-b557d2f1b5aa0e18a6158b86",
+      "canonicalBrand": "Maserati",
+      "canonicalModel": "Grecale",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-b557d2f1b5aa0e18a6158b86-COMFORT-EDITORIAL",
+        "PERSCLM-family-b557d2f1b5aa0e18a6158b86-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-b7ea20ff34793bae3dc8bb4e",
+      "canonicalBrand": "Nissan",
+      "canonicalModel": "X-Trail",
+      "traits": [
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-b7ea20ff34793bae3dc8bb4e-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-b7ea20ff34793bae3dc8bb4e-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-bcc856f6e6b3963c8061f65b",
+      "canonicalBrand": "Renault",
+      "canonicalModel": "Clio",
+      "traits": [
+        "COMFORT",
+        "DRIVING_ENGAGEMENT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-bcc856f6e6b3963c8061f65b-COMFORT-EDITORIAL",
+        "PERSCLM-family-bcc856f6e6b3963c8061f65b-DRIVING_ENGAGEMENT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-c1478b1d643b0982391ee57e",
+      "canonicalBrand": "Volkswagen",
+      "canonicalModel": "Tayron",
+      "traits": [
+        "TECHNOLOGY",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-c1478b1d643b0982391ee57e-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-c1478b1d643b0982391ee57e-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-c1ce554536aa7ade11fb382b",
+      "canonicalBrand": "Bentley",
+      "canonicalModel": "Bentayga EWB",
+      "traits": [
+        "COMFORT",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-c1ce554536aa7ade11fb382b-COMFORT-EDITORIAL",
+        "PERSCLM-family-c1ce554536aa7ade11fb382b-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-c5617bfd3469bca249bdd69b",
+      "canonicalBrand": "Alfa Romeo",
+      "canonicalModel": "Junior",
+      "traits": [
+        "DRIVING_ENGAGEMENT",
+        "COMFORT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-c5617bfd3469bca249bdd69b-DRIVING_ENGAGEMENT-EDITORIAL",
+        "PERSCLM-family-c5617bfd3469bca249bdd69b-COMFORT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-c980ea6cd3f2d1ed0f0fe6ca",
+      "canonicalBrand": "Alfa Romeo",
+      "canonicalModel": "Tonale",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-c980ea6cd3f2d1ed0f0fe6ca-COMFORT-EDITORIAL",
+        "PERSCLM-family-c980ea6cd3f2d1ed0f0fe6ca-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-cbdbd0637772ea5e8bd9a336",
+      "canonicalBrand": "KGM",
+      "canonicalModel": "Rexton",
+      "traits": [
+        "COMFORT",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-cbdbd0637772ea5e8bd9a336-COMFORT-EDITORIAL",
+        "PERSCLM-family-cbdbd0637772ea5e8bd9a336-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-d32b233b9b981e9fb6a7d28a",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "X5",
+      "traits": [
+        "COMFORT",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-d32b233b9b981e9fb6a7d28a-COMFORT-EDITORIAL",
+        "PERSCLM-family-d32b233b9b981e9fb6a7d28a-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-d468221a374467c65dc6676e",
+      "canonicalBrand": "Volkswagen",
+      "canonicalModel": "Polo",
+      "traits": [
+        "COMFORT",
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-d468221a374467c65dc6676e-COMFORT-EDITORIAL",
+        "PERSCLM-family-d468221a374467c65dc6676e-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-d6e5d5a74bd6c029126236e4",
+      "canonicalBrand": "Škoda",
+      "canonicalModel": "Superb",
+      "traits": [
+        "PRACTICALITY",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-d6e5d5a74bd6c029126236e4-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-d6e5d5a74bd6c029126236e4-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-d98a7b63ce7492f1145670ce",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "X5 M",
+      "traits": [
+        "PRACTICALITY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-d98a7b63ce7492f1145670ce-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-d98a7b63ce7492f1145670ce-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-dc1cc04af5ec4ec4184bf6a8",
+      "canonicalBrand": "SEAT",
+      "canonicalModel": "Ibiza",
+      "traits": [
+        "COMFORT",
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-dc1cc04af5ec4ec4184bf6a8-COMFORT-EDITORIAL",
+        "PERSCLM-family-dc1cc04af5ec4ec4184bf6a8-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-e2562a7f9f217b40abdac213",
+      "canonicalBrand": "Dacia",
+      "canonicalModel": "Sandero",
+      "traits": [
+        "PRACTICALITY",
+        "VALUE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-e2562a7f9f217b40abdac213-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-e2562a7f9f217b40abdac213-VALUE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-e29e6997ca4edf2cadd69f73",
+      "canonicalBrand": "Nissan",
+      "canonicalModel": "Juke",
+      "traits": [
+        "COMFORT",
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-e29e6997ca4edf2cadd69f73-COMFORT-EDITORIAL",
+        "PERSCLM-family-e29e6997ca4edf2cadd69f73-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-ebb6b3ffa20093c23c984768",
+      "canonicalBrand": "CUPRA",
+      "canonicalModel": "Terramar",
+      "traits": [
+        "PRACTICALITY",
+        "FAMILY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-ebb6b3ffa20093c23c984768-PRACTICALITY-EDITORIAL",
+        "PERSCLM-family-ebb6b3ffa20093c23c984768-FAMILY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-ee514506334b6ab594a1d897",
+      "canonicalBrand": "Toyota",
+      "canonicalModel": "GR Yaris",
+      "traits": [
+        "COMFORT",
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-ee514506334b6ab594a1d897-COMFORT-EDITORIAL",
+        "PERSCLM-family-ee514506334b6ab594a1d897-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-f0a4d2f61afc540ad51b13fc",
+      "canonicalBrand": "Rolls-Royce",
+      "canonicalModel": "Ghost",
+      "traits": [
+        "TECHNOLOGY",
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-f0a4d2f61afc540ad51b13fc-TECHNOLOGY-EDITORIAL",
+        "PERSCLM-family-f0a4d2f61afc540ad51b13fc-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 2
+    },
+    {
+      "familyId": "family-0535c175984ecdd5931e9d11",
+      "canonicalBrand": "Suzuki",
+      "canonicalModel": "Swift",
+      "traits": [
+        "DRIVING_ENGAGEMENT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-0535c175984ecdd5931e9d11-DRIVING_ENGAGEMENT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-054cce0340072b83851e1861",
+      "canonicalBrand": "Volkswagen",
+      "canonicalModel": "T-Cross",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-054cce0340072b83851e1861-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-104e0642f0573c2cdb89fcdc",
+      "canonicalBrand": "KGM",
+      "canonicalModel": "Actyon",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-104e0642f0573c2cdb89fcdc-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-10bd4b64db8885e8c290e8c5",
+      "canonicalBrand": "Audi",
+      "canonicalModel": "Q2",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-10bd4b64db8885e8c290e8c5-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-1271080fabed6c4ba04338ef",
+      "canonicalBrand": "Ferrari",
+      "canonicalModel": "12Cilindri",
+      "traits": [
+        "COMFORT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-1271080fabed6c4ba04338ef-COMFORT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-12752b862cbcbf737f613cfd",
+      "canonicalBrand": "DS Automobiles",
+      "canonicalModel": "DS 7",
+      "traits": [
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-12752b862cbcbf737f613cfd-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-1dd2ac121f14acde3998823f",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "X6 M",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-1dd2ac121f14acde3998823f-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-211359648fc40df9cf1318f0",
+      "canonicalBrand": "Jeep",
+      "canonicalModel": "Avenger",
+      "traits": [
+        "ADVENTURE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-211359648fc40df9cf1318f0-ADVENTURE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-2769182f1728ecbf11f7c8d5",
+      "canonicalBrand": "CUPRA",
+      "canonicalModel": "Ateca",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-2769182f1728ecbf11f7c8d5-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-2adac17093f09c7043432d73",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "X1",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-2adac17093f09c7043432d73-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-2dff930cea919e7d13ef9106",
+      "canonicalBrand": "Rolls-Royce",
+      "canonicalModel": "Phantom Extended",
+      "traits": [
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-2dff930cea919e7d13ef9106-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-41b0cb1b21d1a89e1edd582f",
+      "canonicalBrand": "Volkswagen",
+      "canonicalModel": "T-Roc",
+      "traits": [
+        "DRIVING_ENGAGEMENT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-41b0cb1b21d1a89e1edd582f-DRIVING_ENGAGEMENT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-42446be945b79735d88a77b8",
+      "canonicalBrand": "Suzuki",
+      "canonicalModel": "Vitara",
+      "traits": [
+        "DRIVING_ENGAGEMENT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-42446be945b79735d88a77b8-DRIVING_ENGAGEMENT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-4c6d50a41cafbdbd9f3dd50f",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "2 Serisi Active Tourer",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-4c6d50a41cafbdbd9f3dd50f-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-5023174bb6712158b44377c8",
+      "canonicalBrand": "CUPRA",
+      "canonicalModel": "Formentor",
+      "traits": [
+        "TECHNOLOGY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-5023174bb6712158b44377c8-TECHNOLOGY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-57dee786dac38d1d22d46fb6",
+      "canonicalBrand": "KGM",
+      "canonicalModel": "Torres",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-57dee786dac38d1d22d46fb6-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-5fd9e65f38c48fb8b9279c40",
+      "canonicalBrand": "Maserati",
+      "canonicalModel": "GranTurismo",
+      "traits": [
+        "COMFORT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-5fd9e65f38c48fb8b9279c40-COMFORT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-6469dceddc43a79c9d575d1f",
+      "canonicalBrand": "Fiat",
+      "canonicalModel": "Grande Panda",
+      "traits": [
+        "URBAN"
+      ],
+      "claimIds": [
+        "PERSCLM-family-6469dceddc43a79c9d575d1f-URBAN-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-6821ec1235e0e5fb0b249014",
+      "canonicalBrand": "Dacia",
+      "canonicalModel": "Logan",
+      "traits": [
+        "ADVENTURE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-6821ec1235e0e5fb0b249014-ADVENTURE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-6ed1852849f5a0c7278f7436",
+      "canonicalBrand": "MINI",
+      "canonicalModel": "Cooper",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-6ed1852849f5a0c7278f7436-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-813827fcd4e732de2ce8729f",
+      "canonicalBrand": "Porsche",
+      "canonicalModel": "Panamera",
+      "traits": [
+        "COMFORT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-813827fcd4e732de2ce8729f-COMFORT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-a01367bdcdc74a1bab897742",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "2 Serisi Gran Coupe",
+      "traits": [
+        "COMFORT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-a01367bdcdc74a1bab897742-COMFORT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-a3aceb0f142c24ae4b50df89",
+      "canonicalBrand": "Rolls-Royce",
+      "canonicalModel": "Phantom",
+      "traits": [
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-a3aceb0f142c24ae4b50df89-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-b8956a4f98ff6ef8b828a010",
+      "canonicalBrand": "Citroën",
+      "canonicalModel": "C5 Aircross Hybrid 145",
+      "traits": [
+        "COMFORT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-b8956a4f98ff6ef8b828a010-COMFORT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-bf6971668cd43df8f2e42b1f",
+      "canonicalBrand": "Toyota",
+      "canonicalModel": "Corolla",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-bf6971668cd43df8f2e42b1f-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-ce7046bd9e6c44b195a59d3a",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "4 Serisi Gran Coupe",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-ce7046bd9e6c44b195a59d3a-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-ce86536b88c8341eacb1a154",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "4 Serisi Coupe",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-ce86536b88c8341eacb1a154-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-d17c4d71016879268931b459",
+      "canonicalBrand": "Aston Martin",
+      "canonicalModel": "DB12",
+      "traits": [
+        "COMFORT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-d17c4d71016879268931b459-COMFORT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-d8c279be532a1cac2836c221",
+      "canonicalBrand": "Rolls-Royce",
+      "canonicalModel": "Cullinan",
+      "traits": [
+        "PRESTIGE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-d8c279be532a1cac2836c221-PRESTIGE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-da14f849714646124a1593e3",
+      "canonicalBrand": "Porsche",
+      "canonicalModel": "718 Cayman",
+      "traits": [
+        "COMFORT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-da14f849714646124a1593e3-COMFORT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-de1149a6f6bd32125545efac",
+      "canonicalBrand": "Hyundai",
+      "canonicalModel": "TUCSON",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-de1149a6f6bd32125545efac-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-e4c21df6a696e9318eb5e4f8",
+      "canonicalBrand": "Škoda",
+      "canonicalModel": "Karoq",
+      "traits": [
+        "VALUE"
+      ],
+      "claimIds": [
+        "PERSCLM-family-e4c21df6a696e9318eb5e4f8-VALUE-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-e4fc2ff0dba95e49f79654b5",
+      "canonicalBrand": "Ferrari",
+      "canonicalModel": "Purosangue",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-e4fc2ff0dba95e49f79654b5-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-e5d0b2bdf6960a27b09e5994",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "1 Serisi",
+      "traits": [
+        "DRIVING_ENGAGEMENT"
+      ],
+      "claimIds": [
+        "PERSCLM-family-e5d0b2bdf6960a27b09e5994-DRIVING_ENGAGEMENT-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-ec0994e4581b62a05d2775eb",
+      "canonicalBrand": "Kia",
+      "canonicalModel": "XCeed",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-ec0994e4581b62a05d2775eb-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-f0a7c336e95596b0fc56f220",
+      "canonicalBrand": "BMW",
+      "canonicalModel": "M3 Sedan",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-f0a7c336e95596b0fc56f220-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    },
+    {
+      "familyId": "family-fcd306e289415ca335837bba",
+      "canonicalBrand": "Alfa Romeo",
+      "canonicalModel": "Giulia",
+      "traits": [
+        "PRACTICALITY"
+      ],
+      "claimIds": [
+        "PERSCLM-family-fcd306e289415ca335837bba-PRACTICALITY-EDITORIAL"
+      ],
+      "status": "QUEUED",
+      "priority": 1
+    }
+  ],
+  "activationPerformed": false,
+  "rankingMutationAllowed": false
+}

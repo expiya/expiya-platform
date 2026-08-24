@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "persona-v3.9-activation-request.1",
+  "packageId": "PERSONA-V39-ACTIVATION-PREP-2026-08-24-01",
+  "status": "AWAITING_EXPLICIT_OWNER_ACTIVATION_AUTHORIZATION",
+  "ownerApprovalEventId": "PERSONA-V39-OWNER-APPROVAL-2026-08-24-01",
+  "sourceOwnerApprovedRelease": "v3.9.0-catalog-v0.55.4-2026-08-24-owner-approved-rc.1",
+  "targetSafeTraitsRelease": "v1.1.0-persona-evidence-v3.9-catalog-v0.55.4-2026-08-24",
+  "targetPayloadSha256": "sha256:624cbd6d5e42e7dcdb9642b6dab835117da0f678a3c786df2c9bcc2102402342",
+  "scope": "LOCAL_ACTIVE_PERSONA_SAFE_TRAITS_POINTER_AND_GENERATED_MODULE_ONLY",
+  "rankingPolicy": {
+    "formula": "BASE_SCORE_PLUS_CAPPED_PERSONA",
+    "personaScoreCap": 0.75,
+    "use": "BOUNDED_SOFT_RANKING_ONLY"
+  },
+  "invariants": {
+    "hardFilterEffect": "ZERO",
+    "candidateCountEffect": "ZERO",
+    "affordabilityEffect": "ZERO",
+    "offerGovernanceEffect": "ZERO",
+    "technicalFactAuthority": "NONE",
+    "equipmentAuthority": "NONE"
+  },
+  "activationAuthorized": false,
+  "activationPerformed": false,
+  "productionDatabaseWrite": false,
+  "deployment": false,
+  "commit": false,
+  "push": false
+}
