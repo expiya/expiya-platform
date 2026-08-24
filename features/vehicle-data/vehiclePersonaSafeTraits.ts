@@ -15,7 +15,7 @@ const authority = z.literal("OWNER_EDITORIAL");
 const decisionUse = z.literal("SOFT_PREFERENCE_ONLY");
 const sourceReference = z.strictObject({ personaDatasetVersion: id, brand: id, seriesGroup: id });
 const approval = z.strictObject({
-  authority: z.literal("PRODUCT_OWNER"), reference: z.literal("owner-approved-safe-persona-projection-v1.0.1"),
+  authority: z.literal("PRODUCT_OWNER"), reference: id,
   approvedSourceRelease: id, approvedProposedSafeTraitsChecksum: sha256, approvedAt: z.iso.datetime({ offset: false }),
   sanitizationPolicyVersion: id, scope: z.literal("SANITIZED_PROJECTION_ONLY"),
 });

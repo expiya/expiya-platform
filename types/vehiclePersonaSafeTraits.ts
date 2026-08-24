@@ -56,7 +56,7 @@ export interface VehiclePersonaSafeTraitRelease {
   readonly generatedAt: string;
   readonly approval?: {
     readonly authority: "PRODUCT_OWNER";
-    readonly reference: "owner-approved-safe-persona-projection-v1.0.1";
+    readonly reference: string;
     readonly approvedSourceRelease: string;
     readonly approvedProposedSafeTraitsChecksum: string;
     readonly approvedAt: string;

@@ -132,6 +132,10 @@ export function isOfferDeclineText(text: string): boolean {
     || /hayır[,.]?\s+(?:şimdilik|görmek|istemiyorum|gösterme)/iu.test(value);
 }
 
+export function isExplicitCorrectionText(text: string): boolean {
+  return /^\s*düzeltme\s*:\s*\S/iu.test(text);
+}
+
 export function isCapabilityQuestionText(text: string): boolean {
   return CAPABILITY.test(text);
 }

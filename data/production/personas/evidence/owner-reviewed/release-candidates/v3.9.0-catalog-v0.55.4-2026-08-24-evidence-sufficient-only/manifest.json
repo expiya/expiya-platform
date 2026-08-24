@@ -1,0 +1,17 @@
+{
+  "releaseVersion": "v3.9.0-catalog-v0.55.4-2026-08-24-owner-reviewed-rc.1",
+  "payloadSha256": "sha256:5bde532484a21e41a2617cbe606539ae65bddd9973759979f7ea49818f21465a",
+  "familyCount": 385,
+  "approvedFamilyCount": 235,
+  "partiallyApprovedFamilyCount": 0,
+  "deferredFamilyCount": 150,
+  "approvedClaimCount": 247,
+  "deferredClaimCount": 353,
+  "variantCount": 549,
+  "scorePolicy": {
+    "formula": "BASE_SCORE_PLUS_CAPPED_PERSONA",
+    "personaScoreCap": 0.75,
+    "decisionUse": "BOUNDED_SOFT_RANKING_ONLY"
+  },
+  "activationPerformed": false
+}

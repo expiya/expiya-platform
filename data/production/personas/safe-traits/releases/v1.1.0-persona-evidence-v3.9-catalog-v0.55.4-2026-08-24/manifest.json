@@ -1,0 +1,60 @@
+{
+  "releaseVersion": "v1.1.0-persona-evidence-v3.9-catalog-v0.55.4-2026-08-24",
+  "schemaVersion": "1.1.0",
+  "authority": "OWNER_EDITORIAL",
+  "decisionUse": "SOFT_PREFERENCE_ONLY",
+  "compatibleCatalogRelease": "v0.55.4",
+  "compatibleCatalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "sourcePersonaDatasetVersion": "persona-evidence-v3.9-owner-approved",
+  "sourceSafeDraftRelease": "v3.9.0-catalog-v0.55.4-2026-08-24-owner-approved-rc.1",
+  "sanitizationPolicyVersion": "persona-sanitization-v3.9",
+  "ownerApprovalReference": "PERSONA-V39-OWNER-APPROVAL-2026-08-24-01",
+  "approvedNonEmptyFamilyCount": 383,
+  "keepEmptyFamilyCount": 2,
+  "approval": {
+    "authority": "PRODUCT_OWNER",
+    "reference": "PERSONA-V39-OWNER-APPROVAL-2026-08-24-01",
+    "approvedSourceRelease": "v3.9.0-catalog-v0.55.4-2026-08-24-owner-approved-rc.1",
+    "approvedProposedSafeTraitsChecksum": "sha256:dc4866a78b5cc381f7e495e7d827ac29698626ffa3780bab3417ba70cce59289",
+    "approvedAt": "2026-08-24T20:29:04.785Z",
+    "sanitizationPolicyVersion": "persona-sanitization-v3.9",
+    "scope": "SANITIZED_PROJECTION_ONLY"
+  },
+  "familyCount": 385,
+  "variantCount": 549,
+  "matchCounts": {
+    "MATCHED": 385,
+    "AMBIGUOUS": 0,
+    "UNMATCHED": 0
+  },
+  "emptyTraitFamilyCount": 2,
+  "emptyTraitVariantCount": 4,
+  "reviewCounts": {
+    "PROGRAMMATIC_DRAFT": 0,
+    "OWNER_REVIEW_REQUIRED": 0,
+    "OWNER_APPROVED": 385
+  },
+  "traitDistribution": {
+    "DESIGN": 1,
+    "DRIVING_ENGAGEMENT": 22,
+    "COMFORT": 92,
+    "PRACTICALITY": 103,
+    "TECHNOLOGY": 54,
+    "PRESTIGE": 30,
+    "VALUE": 13,
+    "ADVENTURE": 15,
+    "FAMILY": 17,
+    "URBAN": 13,
+    "COMMERCIAL": 64,
+    "SUSTAINABILITY": 168,
+    "MINIMALISM": 3
+  },
+  "payloadSha256": "sha256:624cbd6d5e42e7dcdb9642b6dab835117da0f678a3c786df2c9bcc2102402342",
+  "validationStatus": "VALIDATED",
+  "declaredLimitations": [
+    "BOUNDED_SOFT_RANKING_ONLY",
+    "NO_HARD_FILTER_AUTHORITY",
+    "NO_TECHNICAL_OR_EQUIPMENT_AUTHORITY",
+    "FIVE_OWNER_REJECTED_CLAIMS_EXCLUDED"
+  ]
+}

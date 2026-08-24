@@ -3,7 +3,7 @@ import { after } from "next/server";
 
 import { runCarsConversationTurn } from "@/features/decision/conversation/runCarsConversationTurn";
 import { planAutomotiveKnowledgeResponse, planSimplifiedAutomotiveKnowledgeFollowUp, planSupportiveAutomotiveKnowledgeResponse } from "@/features/automotive-knowledge";
-import { isOfferDeclineText } from "@/features/decision/conversation/carsSocialIntent";
+import { isExplicitCorrectionText, isOfferDeclineText } from "@/features/decision/conversation/carsSocialIntent";
 import { evaluateCarsDecisionV2ShadowAfterResponse } from "@/features/decision/v2/integration/routeShadow.server";
 import { tryRunCarsDecisionV2Public } from "@/features/decision/v2/integration/publicRoute.server";
 import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
@@ -370,7 +370,8 @@ export async function POST(request: Request): Promise<Response> {
     const latestUser = [...input.messages].reverse().find((message) => message.role === "user");
     if (awaitingRecommendationTerms
       && !latestUser?.recommendationTermsAcceptance
-      && !isOfferDeclineText(latestUser?.content ?? "")) {
+      && !isOfferDeclineText(latestUser?.content ?? "")
+      && !isExplicitCorrectionText(latestUser?.content ?? "")) {
       return Response.json(
         { message: "Araç kartını görmek için güncel Araç Önerisi ve Katalog Kullanım Koşulları'nı ayrıca kabul etmeniz gerekir." },
         { status: 409 },
@@ -378,7 +379,8 @@ export async function POST(request: Request): Promise<Response> {
     }
     const latestAssistant = [...input.messages].reverse().find((message) => message.role === "assistant");
     const activeChoices = latestAssistant?.discriminatorChoices;
-    if (activeChoices?.length) {
+    const explicitCorrection = isExplicitCorrectionText(latestUser?.content ?? "");
+    if (activeChoices?.length && !explicitCorrection) {
       if (!input.choiceId || !activeChoices.some((choice) => choice.id === input.choiceId)) {
         return Response.json(
           { message: "Bu adımda yalnızca sunulan karar seçeneklerinden biri kullanılabilir." },

@@ -29,6 +29,7 @@ function valueFor(variant: CatalogVariantSnapshot, field: string): string | unde
   if (field === "transmission") return /manual/iu.test(variant.decisionFacts.powertrain.transmission.value) ? "MANUAL" : "AUTOMATIC";
   if (field === "drivenWheels") return variant.decisionFacts.powertrain.drivenWheels?.value;
   if (field === "seats") return variant.decisionFacts.dimensions.seats?.value.toString();
+  if (field === "payloadKg") return variant.decisionFacts.dimensions.payloadKg?.value.toString();
   return undefined;
 }
 
@@ -37,6 +38,7 @@ function label(field: string, value: string): string {
   if (field === "bodyStyle") return BODY_LABELS[value] ?? value;
   if (field === "transmission") return value === "MANUAL" ? "Manuel" : "Otomatik";
   if (field === "seats") return `${value} koltuk`;
+  if (field === "payloadKg") return `En az ${Number(value).toLocaleString("tr-TR")} kg`;
   if (field === "drivenWheels") return value === "FWD" ? "Önden çekiş" : value === "RWD" ? "Arkadan itiş" : value === "AWD" ? "Dört çeker" : value;
   return value;
 }
@@ -58,13 +60,13 @@ const USAGE_DESCRIPTIONS: Readonly<Record<string, string>> = Object.freeze({
   ROUGH_ROAD: "🌾 Asfalt dışı kırsal ve bozuk yollar; ağır arazi değildir.", MUD_SNOW: "🌨️ Kaygan zeminlerde yükseltilmiş gövde avantajı.", SERIOUS_OFF_ROAD: "🏔️ Yalnız dört çeker arazi odaklı seçenekler.",
 });
 const VALUE_DESCRIPTIONS: Readonly<Record<string, string>> = Object.freeze({
-  Sedan: "Ayrı bagajlı, klasik otomobil gövdesi.", Hatchback: "Kısa gövdeli, bagaj kapağı kabinle birleşik.", SUV: "Yüksek oturma ve daha iri gövde.", "Fastback SUV": "SUV yüksekliğini arkaya doğru alçalan sportif tavan çizgisiyle birleştirir.", Liftback: "Sedan görünümüne yakın; arka camla birlikte açılan geniş bagaj kapağı vardır.", Pickup: "Açık yük kasalı, yolcu kabinli araç.",
+  Sedan: "Ayrı bagajlı, klasik otomobil gövdesi.", Hatchback: "Kısa gövdeli, bagaj kapağı kabinle birleşik.", SUV: "Yüksek oturma ve daha iri gövde.", Coupe: "İki kapılı veya sportif tavan çizgili, arka yaşam alanı genellikle daha sınırlı otomobil.", "Fastback SUV": "SUV yüksekliğini arkaya doğru alçalan sportif tavan çizgisiyle birleştirir.", Liftback: "Sedan görünümüne yakın; arka camla birlikte açılan geniş bagaj kapağı vardır.", Pickup: "Açık yük kasalı, yolcu kabinli araç.",
   "Panel Van": "Kapalı ve geniş yük bölmeli ticari araç.", "Chassis Cab": "🚚 Arkasına kasa veya özel üstyapı takılan çıplak şasi.", "Passenger Van": "Çok yolcu taşımaya göre düzenlenmiş van.", MPV: "Geniş ve esnek yolcu kabinli aile aracı.",
   GASOLINE: "⛽ Sessiz ve tanıdık kullanım; kısa/karma sürüşe uygun.", DIESEL: "🛣️ Düzenli uzun yol ve yüksek kilometrede düşünülebilir.", LPG: "⛽ Benzinli motora alternatif yakıt; tank yerleşimi ve istasyon erişimi kontrol edilmelidir.", BEV: "🔌 Ev veya rota şarjı uygunsa sessiz, tamamen elektrikli kullanım.", HEV: "♻️ Prize takmadan şehir içi dur-kalkta elektrik desteği.", MHEV: "Motoru destekleyen hafif elektrik sistemi; elektrikli sürüş sınırlıdır.", PHEV: "🔋 Şarj edilebilir; kısa mesafeyi elektrikle yapabilir.",
   AUTOMATIC: "Vitesi araç değiştirir; yoğun trafikte daha rahattır.", MANUAL: "Vites ve debriyajı sürücü yönetir.", FWD: "Güç ön tekerleklere gider; günlük kullanımda yaygındır.", RWD: "Güç arka tekerleklere gider.", AWD: "Güç dört tekerleğe aktarılabilir; tutunmaya yardımcı olur.",
 });
 const PERSONA_DESCRIPTIONS: Readonly<Record<string, string>> = Object.freeze({ DESIGN: "tasarım", DRIVING_ENGAGEMENT: "sürüş hissi", COMFORT: "konfor", PRACTICALITY: "pratiklik", TECHNOLOGY: "teknoloji", PRESTIGE: "prestij", VALUE: "fiyat/değer dengesi", ADVENTURE: "macera", FAMILY: "aile kullanımı", URBAN: "şehir kullanımı", COMMERCIAL: "ticari kullanım", SUSTAINABILITY: "sürdürülebilirlik", MINIMALISM: "sadelik" });
-function description(field: string, value: string): string | undefined { return VALUE_DESCRIPTIONS[value] ?? (field === "seats" ? "Düzenli taşıyacağın kişi sayısını belirtir." : undefined); }
+function description(field: string, value: string): string | undefined { return VALUE_DESCRIPTIONS[value] ?? (field === "seats" ? "Düzenli taşıyacağın kişi sayısını belirtir." : field === "payloadKg" ? "Doğrulanmış taşıma kapasitesi sınırını belirtir." : undefined); }
 
 const previousStages = (stage: QuestionStage): readonly QuestionStage[] => Object.freeze(QUESTION_STAGE_ORDER.slice(0, QUESTION_STAGE_ORDER.indexOf(stage)));
 
@@ -99,7 +101,8 @@ export function generateMaterialQuestionCandidates(input: {
   const batteryElectricSelected = typeof activeFuelPreference === "object" && activeFuelPreference !== null && "value" in activeFuelPreference
     && (activeFuelPreference as { value?: unknown }).value === "BEV";
   const architectureAnswered = answered.has("bodyStyle");
-  const fields = ["bodyStyle", "seats", "drivenWheels", "fuelType", "transmission"] as const;
+  const cargoScenario = ["URBAN_DELIVERY", "GENERAL_CARGO"].includes(String(usageScenario));
+  const fields = ["bodyStyle", ...(cargoScenario ? ["payloadKg"] as const : []), "seats", "drivenWheels", "fuelType", "transmission"] as const;
   const candidates: QuestionCandidate[] = [];
   const unanswered: string[] = [];
 
@@ -137,10 +140,9 @@ export function generateMaterialQuestionCandidates(input: {
       groups.set(value, [...(groups.get(value) ?? []), variant.id]);
     }
     if (groups.size < 2) continue;
-    const stage: QuestionStage = field === "bodyStyle" ? "VEHICLE_ARCHITECTURE" : field === "seats" || field === "drivenWheels" ? "FUNCTIONAL_NEEDS" : field === "fuelType" ? "ENERGY_FIT" : "TECHNICAL_PREFERENCES";
+    const stage: QuestionStage = field === "bodyStyle" ? "VEHICLE_ARCHITECTURE" : field === "seats" || field === "drivenWheels" || field === "payloadKg" ? "FUNCTIONAL_NEEDS" : field === "fuelType" ? "ENERGY_FIT" : "TECHNICAL_PREFERENCES";
     if (field === "bodyStyle" && !usageAnswered) continue;
     if (field === "bodyStyle" && architectureAnswered) continue;
-    const cargoScenario = ["URBAN_DELIVERY", "GENERAL_CARGO"].includes(String(usageScenario));
     if (field === "bodyStyle" && cargoScenario) {
       for (const [value] of [...groups]) if (!["Panel Van", "Pickup", "Chassis Cab"].includes(value)) groups.delete(value);
       if (groups.size < 2) continue;
@@ -157,19 +159,19 @@ export function generateMaterialQuestionCandidates(input: {
     }
     if ((field === "seats" && !["FAMILY", "PASSENGER_TRANSPORT"].includes(String(usageScenario))) || (field === "drivenWheels" && !["ROUGH_ROAD", "MUD_SNOW", "SERIOUS_OFF_ROAD"].includes(String(usageScenario)))) continue;
     unanswered.push(field);
-    const sorted = [...groups.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0], "tr"));
+    const sorted = [...groups.entries()].sort((a, b) => field === "payloadKg" ? Number(a[0]) - Number(b[0]) : b[1].length - a[1].length || a[0].localeCompare(b[0], "tr"));
     const options = sorted.slice(0, 5).map(([value, ids]) => Object.freeze({
       id: `v2q.${field}.${value.toLocaleLowerCase("tr-TR").replace(/[^a-z0-9]+/gu, "-")}`,
       semanticValue: value,
       userFacingLabel: label(field, value),
       ...(description(field, value) ? { userFacingDescription: description(field, value) } : {}),
-      provenance: Object.freeze({ source: "CURRENT_CANDIDATE_POOL" as const, candidatePoolFingerprint: input.memory.decisionFingerprint, supportingCandidateIds: Object.freeze(ids.sort()), authorityReference: input.snapshot.authority.catalogFingerprint }),
+      provenance: Object.freeze({ source: "CURRENT_CANDIDATE_POOL" as const, candidatePoolFingerprint: input.memory.decisionFingerprint, supportingCandidateIds: Object.freeze((field === "payloadKg" ? variants.filter((variant) => (variant.decisionFacts.dimensions.payloadKg?.value ?? -1) >= Number(value)).map((variant) => variant.id) : ids).sort()), authorityReference: input.snapshot.authority.catalogFingerprint }),
     }));
     const facetStatistics = boundedFacetStatistics(groups, variants.length);
     candidates.push(makeCandidate({
-      question: Object.freeze({ id: `v2q.${field}.${input.memory.turn + 1}`, stableSemanticKey: `discovery.${field}`, field, promptIntent: "DISCRIMINATE_CANDIDATES", options: Object.freeze(options), selectionMode: field === "bodyStyle" || field === "fuelType" ? "MULTIPLE" as const : "SINGLE" as const, minimumSelections: 1, maximumSelections: field === "bodyStyle" || field === "fuelType" ? Math.min(options.length, 5) : 1, answerCapabilities: Object.freeze(["ANSWER", "SKIP", "UNKNOWN", "NOT_IMPORTANT"] as const), materialityReason: input.comparisonScope ? "İki model kapsamındaki varyantları ayırır." : "Mevcut aday havuzunu anlamlı biçimde daraltır." }),
+      question: Object.freeze({ id: `v2q.${field}.${input.memory.turn + 1}`, stableSemanticKey: `discovery.${field}`, field, promptIntent: "DISCRIMINATE_CANDIDATES", options: Object.freeze(options), selectionMode: field === "bodyStyle" || field === "fuelType" ? "MULTIPLE" as const : "SINGLE" as const, minimumSelections: 1, maximumSelections: field === "bodyStyle" || field === "fuelType" ? Math.min(options.length, 5) : 1, answerCapabilities: Object.freeze(["ANSWER", "SKIP", "UNKNOWN", "NOT_IMPORTANT"] as const), materialityReason: field === "payloadKg" ? "Yük taşıma için doğrulanmış asgari taşıma kapasitesini belirler." : input.comparisonScope ? "İki model kapsamındaki varyantları ayırır." : "Mevcut aday havuzunu anlamlı biçimde daraltır." }),
       stage, materiality: input.comparisonScope ? 1.5 : field === "bodyStyle" ? 2 : 1,
-      informationGain: facetStatistics.informationGain, conversationalRelevance: field === "bodyStyle" ? 2 : 1,
+      informationGain: facetStatistics.informationGain, conversationalRelevance: field === "bodyStyle" || field === "payloadKg" ? 2 : 1,
       reasonCodes: Object.freeze([`${stage}_CANDIDATE_DISCRIMINATOR`, "BOUNDED_POOL_INFORMATION_GAIN"]), candidateReductionValue: facetStatistics.expectedReduction * 4,
       compatibleCandidateIds: candidateIds,
     }));

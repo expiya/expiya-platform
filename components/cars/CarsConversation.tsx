@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 
 import { CarCard } from "@/components/cars/CarCard";
 import { V2AuthorizedCarCard } from "@/components/cars/V2AuthorizedCarCard";
-import { clearSubmittedV2MultiSelection } from "@/components/cars/v2MultiSelectState";
+import { clearSubmittedV2MultiSelection, selectedV2OptionLabels, toggleV2MultiSelection } from "@/components/cars/v2MultiSelectState";
 import {
   createRecommendationTermsAcceptance,
   RECOMMENDATION_TERMS_VERSION,
@@ -68,9 +68,12 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
   const conversationId = useRef<string>("");
   const initialRequestStarted = useRef(false);
   const conversationEndRef = useRef<HTMLDivElement>(null);
+  const draftRef = useRef<HTMLTextAreaElement>(null);
+  const shouldFollowConversationRef = useRef(true);
   const [messages, setMessages] = useState<CarsConversationMessage[]>([]);
   const [conversation, setConversation] = useState<CarsConversationTrace | undefined>();
   const [draft, setDraft] = useState("");
+  const [editingMessageId, setEditingMessageId] = useState<string | null>(null);
   const [v2MultiSelections, setV2MultiSelections] = useState<Record<string, readonly string[]>>({});
   const [isLoading, setIsLoading] = useState(false);
   const [equipmentExplanationPendingActionId, setEquipmentExplanationPendingActionId] = useState<string | null>(null);
@@ -203,6 +206,7 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
   useEffect(() => {
     if (!isRestored || messages.length === 0) return;
     const frame = requestAnimationFrame(() => {
+      if (!shouldFollowConversationRef.current) return;
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       conversationEndRef.current?.scrollIntoView({
         behavior: reduceMotion ? "auto" : "smooth",
@@ -217,11 +221,15 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
     const content = draft.trim();
     if (!content || isLoading) return;
 
-    const userMessage = newMessage("user", content);
+    const activeMultiMessage = [...messages].reverse().find((message) => message.role === "assistant" && message.v2OptionSelection?.mode === "MULTIPLE" && (v2MultiSelections[message.id]?.length ?? 0) > 0);
+    const selectedOptionIds = activeMultiMessage ? v2MultiSelections[activeMultiMessage.id] : undefined;
+    const userMessage = newMessage("user", editingMessageId ? `Düzeltme: ${content}` : content);
     const nextMessages = [...messages, userMessage];
     setMessages(nextMessages);
     setDraft("");
-    void continueConversation(nextMessages);
+    setEditingMessageId(null);
+    if (activeMultiMessage) setV2MultiSelections((current) => clearSubmittedV2MultiSelection(current, activeMultiMessage.id));
+    void continueConversation(nextMessages, undefined, undefined, selectedOptionIds);
   }
 
   function submitContent(
@@ -251,19 +259,20 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
   function toggleV2MultiOption(messageId: string, optionId: string, maximumSelections: number) {
     setV2MultiSelections((current) => {
       const selected = current[messageId] ?? [];
-      const next = selected.includes(optionId) ? selected.filter((id) => id !== optionId) : selected.length < maximumSelections ? [...selected, optionId] : selected;
+      const next = toggleV2MultiSelection(selected, optionId, maximumSelections);
+      const message = messages.find((item) => item.id === messageId);
+      setDraft(selectedV2OptionLabels(next, message?.v2Options ?? []).join(" veya "));
+      setEditingMessageId(null);
+      queueMicrotask(() => draftRef.current?.focus());
       return { ...current, [messageId]: next };
     });
   }
 
-  function submitV2MultiOptions(message: CarsConversationMessage) {
-    const ids = v2MultiSelections[message.id] ?? [];
-    const selection = message.v2OptionSelection;
-    if (!selection || ids.length < selection.minimumSelections || ids.length > selection.maximumSelections) return;
-    const labels = ids.map((id) => message.v2Options?.find((option) => option.id === id)?.label).filter((label): label is string => Boolean(label));
-    if (labels.length !== ids.length) return;
-    setV2MultiSelections((current) => clearSubmittedV2MultiSelection(current, message.id));
-    submitContent(labels.join(" veya "), undefined, ids);
+  function editLastUserMessage(message: CarsConversationMessage) {
+    if (isLoading) return;
+    setEditingMessageId(message.id);
+    setDraft(message.content.replace(/^Düzeltme:\s*/u, ""));
+    queueMicrotask(() => draftRef.current?.focus());
   }
 
   function submitDiscriminatorChoice(choice: CarsFinalDiscriminatorChoice) {
@@ -277,6 +286,8 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
 
   const isFinalDiscriminatorRequired = hasActiveFinalDiscriminator(messages);
   const isRecommendationOfferAwaitingTerms = shouldShowRecommendationTermsGate(messages, conversation);
+  const lastUserMessageId = [...messages].reverse().find((message) => message.role === "user")?.id;
+  const inputIsDecisionLocked = !editingMessageId && (isFinalDiscriminatorRequired || isRecommendationOfferAwaitingTerms);
 
   function handleDraftKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
     if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
@@ -347,8 +358,9 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
           {archiveError ? <p role="alert" className="mt-3 rounded-xl bg-red-50 p-3 text-sm text-red-700">{archiveError}</p> : null}
         </div>
 
-        <section className="mt-10 rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 sm:p-6" aria-label="Car decision conversation">
-          <div className="min-h-64 space-y-4" aria-live="polite">
+        <section className="mt-10 flex h-[min(70dvh,48rem)] min-h-[30rem] flex-col rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 sm:p-6" aria-label="Car decision conversation">
+          <div onScroll={(event) => { const element = event.currentTarget; shouldFollowConversationRef.current = element.scrollHeight - element.scrollTop - element.clientHeight < 80; }} className="min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1" aria-live="polite">
+           <div className="flex min-h-full flex-col justify-end space-y-4">
             {messages.length === 0 && (
               <div className="rounded-2xl bg-neutral-100 p-4 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200">
                 {isTurkish
@@ -367,6 +379,9 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                     : "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100"
                 }`}>
                   <span className="whitespace-pre-wrap">{message.content}</span>
+                  {message.role === "user" && message.id === lastUserMessageId && (
+                    <button type="button" onClick={() => editLastUserMessage(message)} disabled={isLoading} className="mt-2 block text-xs font-medium text-neutral-300 underline underline-offset-2 disabled:opacity-50 dark:text-neutral-600">Düzelt</button>
+                  )}
                   {message.role === "assistant" && message.v2CandidateSummary && (
                     <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400" aria-label="Kalan araç seçeneği sayısı">{message.v2CandidateSummary.label}</p>
                   )}
@@ -384,14 +399,16 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                     </div>
                   )}
                   {message.role === "assistant" && message.v2Options && message.v2Options.length > 0 && (
-                    <div role="group" aria-label={message.v2OptionSelection?.mode === "MULTIPLE" ? "Bir veya daha fazla seçenek seçin" : "Bir seçenek seçin"} className="mt-3 flex flex-wrap items-center gap-2">
+                    <div className="mt-3">
+                    {message.v2OptionSelection?.mode === "MULTIPLE" && <p className="mb-2 text-xs text-neutral-500 dark:text-neutral-400">Çoklu seçim yapılabilir.</p>}
+                    <div role="group" aria-label={message.v2OptionSelection?.mode === "MULTIPLE" ? "Bir veya daha fazla seçenek seçin" : "Bir seçenek seçin"} className="flex flex-wrap items-center gap-2">
                       {message.v2Options.map((option) => {
                         const multiple = message.v2OptionSelection?.mode === "MULTIPLE";
                         const selected = v2MultiSelections[message.id]?.includes(option.id) ?? false;
                         const selectionLimitReached = multiple && (v2MultiSelections[message.id]?.length ?? 0) >= message.v2OptionSelection!.maximumSelections && !selected;
                         return <button key={option.id} type="button" aria-pressed={multiple ? selected : undefined} onClick={() => multiple ? toggleV2MultiOption(message.id, option.id, message.v2OptionSelection!.maximumSelections) : submitContent(option.label, option.id)} disabled={isLoading || message !== messages[messages.length - 1] || selectionLimitReached} className={`max-w-xs rounded-xl border px-3 py-2 text-left text-sm disabled:opacity-50 ${selected ? "border-neutral-900 bg-neutral-900 text-white dark:border-white dark:bg-white dark:text-neutral-900" : "border-neutral-300 bg-white text-neutral-800 dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-100"}`}><span className="block font-medium">{option.label}</span>{option.description && <span className={`mt-0.5 block text-xs ${selected ? "text-neutral-200 dark:text-neutral-600" : "text-neutral-500 dark:text-neutral-400"}`}>{option.description}</span>}</button>;
                       })}
-                      {message.v2OptionSelection?.mode === "MULTIPLE" && <button type="button" onClick={() => submitV2MultiOptions(message)} disabled={isLoading || message !== messages[messages.length - 1] || (v2MultiSelections[message.id]?.length ?? 0) < message.v2OptionSelection.minimumSelections} className="rounded-full bg-blue-600 px-4 py-1.5 text-sm font-medium text-white disabled:opacity-40">Devam et</button>}
+                    </div>
                     </div>
                   )}
                   {message.role === "assistant" && shouldShowVehicleQuickReplies(
@@ -490,24 +507,27 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
               </div>
             )}
             <div ref={conversationEndRef} aria-hidden="true" />
+           </div>
           </div>
 
-          <form onSubmit={submit} className="mt-6 border-t border-neutral-200 pt-5 dark:border-neutral-700">
+          <form onSubmit={submit} className="mt-4 shrink-0 border-t border-neutral-200 pt-4 dark:border-neutral-700">
+            {editingMessageId && <div className="mb-2 flex items-center justify-between text-xs text-neutral-600 dark:text-neutral-300"><span>Son mesajınızı düzeltiyorsunuz.</span><button type="button" className="font-semibold underline underline-offset-2" onClick={() => { setEditingMessageId(null); setDraft(""); }}>Vazgeç</button></div>}
             <label htmlFor="cars-reply" className="sr-only">{isTurkish ? "Mesajınız" : "Your message"}</label>
             <div className="flex flex-col gap-3 sm:flex-row">
               <textarea
+                ref={draftRef}
                 id="cars-reply"
                 value={draft}
                 onChange={(event) => setDraft(event.target.value)}
                 onKeyDown={handleDraftKeyDown}
-                disabled={isFinalDiscriminatorRequired || isRecommendationOfferAwaitingTerms}
+                disabled={inputIsDecisionLocked}
                 placeholder={isRecommendationOfferAwaitingTerms ? "Araç kartını görmek için yukarıdaki koşulları inceleyin." : isFinalDiscriminatorRequired ? "Devam etmek için yukarıdaki seçeneklerden birini seçin." : isTurkish ? "Bir şey anlatın, sorun veya önceki bilginizi düzeltin…" : "Tell me something, ask, or correct an earlier detail…"}
                 rows={2}
                 className="min-h-14 flex-1 resize-none rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-neutral-950 outline-none focus:border-neutral-900 disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:text-neutral-500 dark:border-neutral-600 dark:bg-neutral-950 dark:text-neutral-50 dark:focus:border-neutral-300 dark:disabled:bg-neutral-800 dark:disabled:text-neutral-400"
               />
               <button
                 type="submit"
-                disabled={isLoading || isFinalDiscriminatorRequired || isRecommendationOfferAwaitingTerms || !draft.trim()}
+                disabled={isLoading || inputIsDecisionLocked || !draft.trim()}
                 className="rounded-2xl bg-neutral-950 px-6 py-3 font-semibold text-white! transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-300 disabled:text-neutral-500! dark:bg-neutral-800 dark:text-white! dark:hover:bg-neutral-700 dark:disabled:bg-neutral-700 dark:disabled:text-neutral-400!"
               >
                 {isTurkish ? "Gönder" : "Send"}

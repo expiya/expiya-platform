@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "3.9.0-owner-approval-event.1",
+  "eventId": "PERSONA-V39-OWNER-APPROVAL-2026-08-24-01",
+  "eventType": "PERSONA_TRAIT_DISPOSITION_OWNER_APPROVED",
+  "actor": {
+    "role": "PRODUCT_OWNER",
+    "instanceId": "EXPIYA_CARS_PRODUCT_OWNER_001"
+  },
+  "approvalStatement": "595 onay ve 5 ret kararını onaylıyorum",
+  "approvalStatementSha256": "sha256:34ba4794d9e0adfeb92c10e499d4c2a2a74b600e04c7853cf6a9ead9c59db029",
+  "requestId": "PERSONA-V39-OWNER-APPROVAL-2026-08-24-01",
+  "requestPayloadSha256": "sha256:a71881a824ea58534aa4dcc906c66364fab9efd7f6c9bc11a0f58b3d7aa3dc50",
+  "decisionScope": "ALL_600_PERSONA_CLAIMS",
+  "disposition": {
+    "approveClaimCount": 595,
+    "rejectClaimCount": 5
+  },
+  "scorePolicy": {
+    "formula": "BASE_SCORE_PLUS_CAPPED_PERSONA",
+    "personaScoreCap": 0.75,
+    "decisionUse": "BOUNDED_SOFT_RANKING_ONLY"
+  },
+  "approvedAt": "2026-08-24T20:29:04.785Z",
+  "runtimeActivationAuthorized": false,
+  "activePointerMutationAuthorized": false,
+  "appendOnly": true
+}

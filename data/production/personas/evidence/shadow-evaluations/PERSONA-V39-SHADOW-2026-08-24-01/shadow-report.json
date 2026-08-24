@@ -1,0 +1,1046 @@
+{
+  "schemaVersion": "persona-v3.9-shadow-evaluation.1",
+  "evaluationId": "PERSONA-V39-SHADOW-2026-08-24-01",
+  "baselineRelease": "v1.0.6-catalog-v0.55.4-2026-08-20",
+  "candidateRelease": "v1.1.0-persona-evidence-v3.9-catalog-v0.55.4-2026-08-24",
+  "catalogRelease": "0.55.4",
+  "catalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "candidateCount": 549,
+  "corpusCount": 7,
+  "evaluations": [
+    {
+      "corpusId": "DESIGN",
+      "concepts": [
+        "distinctiveDesign"
+      ],
+      "candidateCountBefore": 549,
+      "candidateCountAfter": 549,
+      "candidateSetChanged": false,
+      "changedScoreCount": 126,
+      "movedRankCount": 545,
+      "maxOldPersonaScore": 0.75,
+      "maxNewPersonaScore": 0.5,
+      "capRespected": true,
+      "topTenOld": [
+        "0b9ac43e-3178-5abe-bc64-822bf37c7971",
+        "29ebbe1c-319b-54ae-85a9-d008ccc48bd7",
+        "383485ef-1654-53d7-b910-387a48638995",
+        "39761164-4352-53b0-83bb-b075e59c19c6",
+        "46680fd4-5a3f-5979-847c-63a8a2e0d4aa",
+        "46dfab1f-98d5-56d0-9261-91e51b4c3fbf",
+        "80b896b3-1987-530d-a494-e3d73eb1b474",
+        "92e04f47-e0ad-5eeb-a4cd-bab8ba53dce6",
+        "aac2c0d4-fa38-5100-bf8d-2e6465fa8f63",
+        "ac8fb47e-0997-5823-9c20-c661fcafe661"
+      ],
+      "topTenNew": [
+        "24a2fa45-034c-556a-ac65-e174b23c6edc",
+        "085b3d78-531a-5879-8c99-219719a93413",
+        "0fd1461c-debf-5e27-a5b8-cc44f8852b53",
+        "32874439-bb6b-5ddf-ba88-6a57593dec22",
+        "39c8664a-0cd5-5b5b-824c-f5bbf53379df",
+        "46e5c2e9-5f18-5637-a816-8158e30a6fae",
+        "4a00c02f-5b26-5610-9bd5-9e866224cb49",
+        "4dac9d3e-8e61-590f-b24b-9c6c97974226",
+        "4f965042-42e0-526a-9fab-f01bacf567b5",
+        "63eeaaa7-3e34-5e88-90ff-ba3b3a0ee543"
+      ],
+      "largestScoreChanges": [
+        {
+          "exactVariantId": "0b9ac43e-3178-5abe-bc64-822bf37c7971",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "29ebbe1c-319b-54ae-85a9-d008ccc48bd7",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "383485ef-1654-53d7-b910-387a48638995",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "39761164-4352-53b0-83bb-b075e59c19c6",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "46680fd4-5a3f-5979-847c-63a8a2e0d4aa",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "46dfab1f-98d5-56d0-9261-91e51b4c3fbf",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "80b896b3-1987-530d-a494-e3d73eb1b474",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "92e04f47-e0ad-5eeb-a4cd-bab8ba53dce6",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "aac2c0d4-fa38-5100-bf8d-2e6465fa8f63",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "ac8fb47e-0997-5823-9c20-c661fcafe661",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "c4c5efbc-ba1e-5537-a4c6-1fe5116ccb25",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "c58345b8-b7a5-56b2-ba9f-81a8f3e15796",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "cae88a9a-f765-5052-8df5-e6886a36b073",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "ebc626dc-01e8-5109-83cc-135541c6934d",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "0797f171-febd-5568-a055-454c8d115e74",
+          "oldScore": 0.5,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "0b0a5bf4-1bf2-5cb0-82b0-ca000687ea0e",
+          "oldScore": 0.5,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "24418a1a-70aa-5a82-97b5-9336cc5af416",
+          "oldScore": 0.5,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "24a2fa45-034c-556a-ac65-e174b23c6edc",
+          "oldScore": 0,
+          "newScore": 0.5
+        },
+        {
+          "exactVariantId": "2ab52df8-e6d3-5c2f-ab9e-4f154f7678fc",
+          "oldScore": 0.5,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "2f2bcd17-2257-52ff-b01a-49753b02a151",
+          "oldScore": 0.5,
+          "newScore": 0
+        }
+      ]
+    },
+    {
+      "corpusId": "DRIVING_ENJOYMENT",
+      "concepts": [
+        "drivingEnjoyment"
+      ],
+      "candidateCountBefore": 549,
+      "candidateCountAfter": 549,
+      "candidateSetChanged": false,
+      "changedScoreCount": 58,
+      "movedRankCount": 518,
+      "maxOldPersonaScore": 0.75,
+      "maxNewPersonaScore": 0.75,
+      "capRespected": true,
+      "topTenOld": [
+        "16a540b8-eb15-5191-8ce2-c6281a1581de",
+        "2eb2a3eb-356d-5f10-9eff-ce622b7f2e25",
+        "43175d0e-3667-5e76-ae83-ebd56173495e",
+        "4c22cb31-e980-4dc8-8525-c47363783d96",
+        "659e9ede-6e3d-544a-b57e-79101bd10d3a",
+        "65c68e62-7912-5404-9510-8a78b4528ec8",
+        "68f6261b-3829-55a1-b307-1f5912e9b874",
+        "6e8532f3-e2d0-5986-95b3-aa3a890012b7",
+        "73a8306e-487e-5c0b-84e0-b69d77eb4c53",
+        "95bd2cd3-7940-5678-8a8f-56ec41f5c3d0"
+      ],
+      "topTenNew": [
+        "07e4ccbf-60d0-570e-a3b5-e5bfd430b02f",
+        "0bbaab64-c30f-52f4-a812-8e49705e6ba2",
+        "18eed3ff-6705-51dc-8296-e2eea680b48c",
+        "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+        "1eb75421-a038-4679-977e-7cd4e4608863",
+        "21e9ae26-4c56-5195-8d70-7c8417aadb83",
+        "29a16738-dd92-54cb-9e27-9e0ce8724a57",
+        "2c4ac1cf-3135-55c6-b8cf-1277d1533b05",
+        "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+        "676c9edb-d777-5bee-8a49-f58ab74d3897"
+      ],
+      "largestScoreChanges": [
+        {
+          "exactVariantId": "07e4ccbf-60d0-570e-a3b5-e5bfd430b02f",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0bbaab64-c30f-52f4-a812-8e49705e6ba2",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "16a540b8-eb15-5191-8ce2-c6281a1581de",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "18eed3ff-6705-51dc-8296-e2eea680b48c",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "1eb75421-a038-4679-977e-7cd4e4608863",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "21e9ae26-4c56-5195-8d70-7c8417aadb83",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "29a16738-dd92-54cb-9e27-9e0ce8724a57",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "2c4ac1cf-3135-55c6-b8cf-1277d1533b05",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "2eb2a3eb-356d-5f10-9eff-ce622b7f2e25",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "43175d0e-3667-5e76-ae83-ebd56173495e",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "4c22cb31-e980-4dc8-8525-c47363783d96",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "659e9ede-6e3d-544a-b57e-79101bd10d3a",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "65c68e62-7912-5404-9510-8a78b4528ec8",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "676c9edb-d777-5bee-8a49-f58ab74d3897",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "67f1cf59-1e18-50c3-86aa-84e85d4614e3",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "68f6261b-3829-55a1-b307-1f5912e9b874",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "6a4469d3-1b1f-5cb7-8ea0-524d26ed0b57",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "6be3b368-8846-54b0-8a67-7cd6c2566d45",
+          "oldScore": 0,
+          "newScore": 0.75
+        }
+      ]
+    },
+    {
+      "corpusId": "COCKPIT_TECHNOLOGY",
+      "concepts": [
+        "cockpitAmbience"
+      ],
+      "candidateCountBefore": 549,
+      "candidateCountAfter": 549,
+      "candidateSetChanged": false,
+      "changedScoreCount": 234,
+      "movedRankCount": 542,
+      "maxOldPersonaScore": 0.75,
+      "maxNewPersonaScore": 0.5,
+      "capRespected": true,
+      "topTenOld": [
+        "2ab52df8-e6d3-5c2f-ab9e-4f154f7678fc",
+        "2f2bcd17-2257-52ff-b01a-49753b02a151",
+        "310b319d-d70b-5663-83f0-3d66912f251a",
+        "39e5a91a-8fc3-5c30-8180-d7812b8af198",
+        "46dfab1f-98d5-56d0-9261-91e51b4c3fbf",
+        "50cb0336-9540-5139-9541-79629427d4c7",
+        "53a43ccf-b3a8-5f62-820d-479ddc1936f2",
+        "5855eaa0-52f7-5fea-91b0-96f674befe4d",
+        "592b7441-e043-527f-ab84-190798f7f6e1",
+        "5d3538b1-c726-44f5-8160-41a64d33eb8e"
+      ],
+      "topTenNew": [
+        "00ac8628-7be2-5cc8-8151-335698d4fe69",
+        "01a559dd-917f-4f49-a4cf-84fe78e9de40",
+        "03b387a7-5140-595a-a1a7-b549222548aa",
+        "06d935f4-6d33-4bc7-9e89-375b8db885df",
+        "085b3d78-531a-5879-8c99-219719a93413",
+        "0c34d302-78d3-54ee-923b-272b670873bf",
+        "10a2938a-f8a4-5605-8c93-9afb37900352",
+        "14b832c7-fc2a-548a-ba06-e6975dc2b784",
+        "16a540b8-eb15-5191-8ce2-c6281a1581de",
+        "17acf515-a3ee-5d40-bb45-f22563576676"
+      ],
+      "largestScoreChanges": [
+        {
+          "exactVariantId": "2ab52df8-e6d3-5c2f-ab9e-4f154f7678fc",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "2f2bcd17-2257-52ff-b01a-49753b02a151",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "310b319d-d70b-5663-83f0-3d66912f251a",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "39e5a91a-8fc3-5c30-8180-d7812b8af198",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "46dfab1f-98d5-56d0-9261-91e51b4c3fbf",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "50cb0336-9540-5139-9541-79629427d4c7",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "53a43ccf-b3a8-5f62-820d-479ddc1936f2",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "5855eaa0-52f7-5fea-91b0-96f674befe4d",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "592b7441-e043-527f-ab84-190798f7f6e1",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "5d3538b1-c726-44f5-8160-41a64d33eb8e",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "5fc5af18-0417-5445-bcb1-26f589a7b844",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "636b1f54-b4ac-59d4-92af-6b8ad44335a9",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "7cdf0a57-f607-5feb-8209-b09f714c597d",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "7dea2cfa-3118-53f1-8f5e-60dc636e52e4",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "80b896b3-1987-530d-a494-e3d73eb1b474",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "8160b8e0-88fa-54e6-9828-2689df4033cd",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "86510fba-6150-5a41-a3ae-d05df2f5651e",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "87e30119-f0d5-4c98-8324-cbd65156974b",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "aac2c0d4-fa38-5100-bf8d-2e6465fa8f63",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "b2fbd604-fe53-5530-bb94-2fdfcfa6bcfd",
+          "oldScore": 0.75,
+          "newScore": 0
+        }
+      ]
+    },
+    {
+      "corpusId": "COMFORT",
+      "concepts": [
+        "cabinComfort"
+      ],
+      "candidateCountBefore": 549,
+      "candidateCountAfter": 549,
+      "candidateSetChanged": false,
+      "changedScoreCount": 132,
+      "movedRankCount": 546,
+      "maxOldPersonaScore": 0,
+      "maxNewPersonaScore": 0.75,
+      "capRespected": true,
+      "topTenOld": [
+        "00ac8628-7be2-5cc8-8151-335698d4fe69",
+        "00ec7747-327a-5d69-942a-437900c098d8",
+        "01316839-3e77-50d4-a3fd-a06c2f92ac6a",
+        "01a559dd-917f-4f49-a4cf-84fe78e9de40",
+        "01e37cd6-f497-5c74-a372-5f7fd71a8edf",
+        "031ad4b4-8eca-5799-8f19-b29fb6847d9f",
+        "03b387a7-5140-595a-a1a7-b549222548aa",
+        "058cfcbc-ef9b-54d3-9bd9-16d518dbe516",
+        "060f9785-6363-5350-828c-f79d030ee3c5",
+        "06d935f4-6d33-4bc7-9e89-375b8db885df"
+      ],
+      "topTenNew": [
+        "00ac8628-7be2-5cc8-8151-335698d4fe69",
+        "01a559dd-917f-4f49-a4cf-84fe78e9de40",
+        "031ad4b4-8eca-5799-8f19-b29fb6847d9f",
+        "03b387a7-5140-595a-a1a7-b549222548aa",
+        "06d935f4-6d33-4bc7-9e89-375b8db885df",
+        "0797f171-febd-5568-a055-454c8d115e74",
+        "07e4ccbf-60d0-570e-a3b5-e5bfd430b02f",
+        "0b9ac43e-3178-5abe-bc64-822bf37c7971",
+        "0dd179ab-869a-5f52-bdfd-9f8eebae5ea2",
+        "0eab1db0-7e36-5a9c-9a7d-1f2cd32a538f"
+      ],
+      "largestScoreChanges": [
+        {
+          "exactVariantId": "00ac8628-7be2-5cc8-8151-335698d4fe69",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "01a559dd-917f-4f49-a4cf-84fe78e9de40",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "031ad4b4-8eca-5799-8f19-b29fb6847d9f",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "03b387a7-5140-595a-a1a7-b549222548aa",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "06d935f4-6d33-4bc7-9e89-375b8db885df",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0797f171-febd-5568-a055-454c8d115e74",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "07e4ccbf-60d0-570e-a3b5-e5bfd430b02f",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0b9ac43e-3178-5abe-bc64-822bf37c7971",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0dd179ab-869a-5f52-bdfd-9f8eebae5ea2",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0eab1db0-7e36-5a9c-9a7d-1f2cd32a538f",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0fd1461c-debf-5e27-a5b8-cc44f8852b53",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "10a2938a-f8a4-5605-8c93-9afb37900352",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "13506552-ccb5-55a7-a94a-ed3842bc5a8f",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "18eed3ff-6705-51dc-8296-e2eea680b48c",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "1c4e3049-0e51-5898-9e6d-fe6dbea39986",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "1eb75421-a038-4679-977e-7cd4e4608863",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "1eca4fd0-22e2-5a41-b55a-3b66ff5a456b",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "1fd80c4b-0a01-51e4-b3d8-b4d67552692e",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "21e9ae26-4c56-5195-8d70-7c8417aadb83",
+          "oldScore": 0,
+          "newScore": 0.75
+        }
+      ]
+    },
+    {
+      "corpusId": "PRACTICALITY",
+      "concepts": [
+        "cargoPracticality"
+      ],
+      "candidateCountBefore": 549,
+      "candidateCountAfter": 549,
+      "candidateSetChanged": false,
+      "changedScoreCount": 182,
+      "movedRankCount": 548,
+      "maxOldPersonaScore": 0,
+      "maxNewPersonaScore": 0.75,
+      "capRespected": true,
+      "topTenOld": [
+        "00ac8628-7be2-5cc8-8151-335698d4fe69",
+        "00ec7747-327a-5d69-942a-437900c098d8",
+        "01316839-3e77-50d4-a3fd-a06c2f92ac6a",
+        "01a559dd-917f-4f49-a4cf-84fe78e9de40",
+        "01e37cd6-f497-5c74-a372-5f7fd71a8edf",
+        "031ad4b4-8eca-5799-8f19-b29fb6847d9f",
+        "03b387a7-5140-595a-a1a7-b549222548aa",
+        "058cfcbc-ef9b-54d3-9bd9-16d518dbe516",
+        "060f9785-6363-5350-828c-f79d030ee3c5",
+        "06d935f4-6d33-4bc7-9e89-375b8db885df"
+      ],
+      "topTenNew": [
+        "08030664-0509-51a0-ac5e-283bde7843f3",
+        "0eab1db0-7e36-5a9c-9a7d-1f2cd32a538f",
+        "16a540b8-eb15-5191-8ce2-c6281a1581de",
+        "3d9edbae-0e2c-5a7e-adc2-28ab19cf629e",
+        "3dbac626-c314-5228-9387-01376266d40f",
+        "43d41d3c-9810-5599-8d84-e0848fdf0ed3",
+        "4d0b8395-1247-508c-9fcc-e70b8f945fdf",
+        "7509a98c-893f-5f79-ae42-b3003829f832",
+        "7e1c8402-5fe6-5935-bc4c-9d0653456636",
+        "8b473d46-20d9-5a44-9ad5-d0e890513346"
+      ],
+      "largestScoreChanges": [
+        {
+          "exactVariantId": "08030664-0509-51a0-ac5e-283bde7843f3",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0eab1db0-7e36-5a9c-9a7d-1f2cd32a538f",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "16a540b8-eb15-5191-8ce2-c6281a1581de",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "3d9edbae-0e2c-5a7e-adc2-28ab19cf629e",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "3dbac626-c314-5228-9387-01376266d40f",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "43d41d3c-9810-5599-8d84-e0848fdf0ed3",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "4d0b8395-1247-508c-9fcc-e70b8f945fdf",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "7509a98c-893f-5f79-ae42-b3003829f832",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "7e1c8402-5fe6-5935-bc4c-9d0653456636",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "8b473d46-20d9-5a44-9ad5-d0e890513346",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "92d19320-3e22-5884-ae2e-f05cf77bc965",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "983a28d7-3ce9-5814-9142-e2352a0abdbf",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "a2f6f67f-fa83-5e6f-87ac-392b464715b2",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "d4c8ee7e-0e60-57dc-a421-e38b3b6cddc4",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "d9db65bb-192c-5346-8d6c-411c8bb24ac8",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "e67b42cc-1fa6-5d26-a1b2-30d844374ada",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "ebcac0a6-2a06-5661-a59e-53e7b4532983",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "ed20f032-dc54-57f5-ae83-0773b9b7c6ad",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "f486aa93-82c2-57d3-9360-fd6dc1752a38",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "fed3a45c-3887-5520-bd0d-c8e593adc90e",
+          "oldScore": 0,
+          "newScore": 0.75
+        }
+      ]
+    },
+    {
+      "corpusId": "ADVENTURE",
+      "concepts": [
+        "mixedRoadUse"
+      ],
+      "candidateCountBefore": 549,
+      "candidateCountAfter": 549,
+      "candidateSetChanged": false,
+      "changedScoreCount": 49,
+      "movedRankCount": 519,
+      "maxOldPersonaScore": 0.75,
+      "maxNewPersonaScore": 0.75,
+      "capRespected": true,
+      "topTenOld": [
+        "0eab1db0-7e36-5a9c-9a7d-1f2cd32a538f",
+        "1151a5b1-d33d-5701-afda-5518b1de962a",
+        "17059c89-031e-542a-90dd-83be8c972960",
+        "1caf254f-c818-5d7e-bba3-b2632e2bf408",
+        "1d3ff890-6978-5e2b-8cba-11bb56b9e33e",
+        "1e753239-9ff2-5a6d-b169-acb5daedcaf2",
+        "1ef08e32-f145-5177-8752-2288b902ded1",
+        "26776cfc-3789-52ff-ab96-7a4342d335db",
+        "2e83b3e7-2bca-5aaf-b678-e1c2e55dedef",
+        "4a00c02f-5b26-5610-9bd5-9e866224cb49"
+      ],
+      "topTenNew": [
+        "09975ae7-2fc1-599f-ab09-18d33f3d43bf",
+        "3d9edbae-0e2c-5a7e-adc2-28ab19cf629e",
+        "3e8797c3-22df-5e73-ae16-10488d98bd38",
+        "43d41d3c-9810-5599-8d84-e0848fdf0ed3",
+        "4a00c02f-5b26-5610-9bd5-9e866224cb49",
+        "4d0b8395-1247-508c-9fcc-e70b8f945fdf",
+        "512fbf76-d6f0-527c-a281-bfbace026310",
+        "5ee86bbc-24d7-5fe7-8a23-b1098239aff5",
+        "6a7b42f3-f7eb-5b62-a76d-4e4dcfb430a4",
+        "79d50f94-5507-5b2e-bd11-3890cbb9deda"
+      ],
+      "largestScoreChanges": [
+        {
+          "exactVariantId": "09975ae7-2fc1-599f-ab09-18d33f3d43bf",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0eab1db0-7e36-5a9c-9a7d-1f2cd32a538f",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "1151a5b1-d33d-5701-afda-5518b1de962a",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "17059c89-031e-542a-90dd-83be8c972960",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "1caf254f-c818-5d7e-bba3-b2632e2bf408",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "1d3ff890-6978-5e2b-8cba-11bb56b9e33e",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "1e753239-9ff2-5a6d-b169-acb5daedcaf2",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "1ef08e32-f145-5177-8752-2288b902ded1",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "26776cfc-3789-52ff-ab96-7a4342d335db",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "2e83b3e7-2bca-5aaf-b678-e1c2e55dedef",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "3d9edbae-0e2c-5a7e-adc2-28ab19cf629e",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "3e8797c3-22df-5e73-ae16-10488d98bd38",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "43d41d3c-9810-5599-8d84-e0848fdf0ed3",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "4babaf68-a7f0-5e01-91af-d5163aa86d98",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "4d0b8395-1247-508c-9fcc-e70b8f945fdf",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "512fbf76-d6f0-527c-a281-bfbace026310",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "5ee86bbc-24d7-5fe7-8a23-b1098239aff5",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "6296ae8f-595a-51d3-95b2-33e18e67a642",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "6a7b42f3-f7eb-5b62-a76d-4e4dcfb430a4",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "7626ea2a-8056-5ba0-8b4d-56a47adba73d",
+          "oldScore": 0.75,
+          "newScore": 0
+        }
+      ]
+    },
+    {
+      "corpusId": "COMBINED",
+      "concepts": [
+        "distinctiveDesign",
+        "drivingEnjoyment",
+        "cockpitAmbience",
+        "cabinComfort",
+        "cargoPracticality",
+        "mixedRoadUse"
+      ],
+      "candidateCountBefore": 549,
+      "candidateCountAfter": 549,
+      "candidateSetChanged": false,
+      "changedScoreCount": 370,
+      "movedRankCount": 544,
+      "maxOldPersonaScore": 0.75,
+      "maxNewPersonaScore": 0.75,
+      "capRespected": true,
+      "topTenOld": [
+        "0797f171-febd-5568-a055-454c8d115e74",
+        "0896af49-b815-52b0-8b59-acf3045e572a",
+        "0b0a5bf4-1bf2-5cb0-82b0-ca000687ea0e",
+        "0b9ac43e-3178-5abe-bc64-822bf37c7971",
+        "0eab1db0-7e36-5a9c-9a7d-1f2cd32a538f",
+        "1151a5b1-d33d-5701-afda-5518b1de962a",
+        "16a540b8-eb15-5191-8ce2-c6281a1581de",
+        "17059c89-031e-542a-90dd-83be8c972960",
+        "1caf254f-c818-5d7e-bba3-b2632e2bf408",
+        "1d3ff890-6978-5e2b-8cba-11bb56b9e33e"
+      ],
+      "topTenNew": [
+        "00ac8628-7be2-5cc8-8151-335698d4fe69",
+        "01a559dd-917f-4f49-a4cf-84fe78e9de40",
+        "031ad4b4-8eca-5799-8f19-b29fb6847d9f",
+        "03b387a7-5140-595a-a1a7-b549222548aa",
+        "06d935f4-6d33-4bc7-9e89-375b8db885df",
+        "0797f171-febd-5568-a055-454c8d115e74",
+        "07e4ccbf-60d0-570e-a3b5-e5bfd430b02f",
+        "08030664-0509-51a0-ac5e-283bde7843f3",
+        "085b3d78-531a-5879-8c99-219719a93413",
+        "09975ae7-2fc1-599f-ab09-18d33f3d43bf"
+      ],
+      "largestScoreChanges": [
+        {
+          "exactVariantId": "00ac8628-7be2-5cc8-8151-335698d4fe69",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "01a559dd-917f-4f49-a4cf-84fe78e9de40",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "031ad4b4-8eca-5799-8f19-b29fb6847d9f",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "03b387a7-5140-595a-a1a7-b549222548aa",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "06d935f4-6d33-4bc7-9e89-375b8db885df",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "07e4ccbf-60d0-570e-a3b5-e5bfd430b02f",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "08030664-0509-51a0-ac5e-283bde7843f3",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "085b3d78-531a-5879-8c99-219719a93413",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0896af49-b815-52b0-8b59-acf3045e572a",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "09975ae7-2fc1-599f-ab09-18d33f3d43bf",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0b0a5bf4-1bf2-5cb0-82b0-ca000687ea0e",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "0bbaab64-c30f-52f4-a812-8e49705e6ba2",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0c34d302-78d3-54ee-923b-272b670873bf",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0dd179ab-869a-5f52-bdfd-9f8eebae5ea2",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "0fd1461c-debf-5e27-a5b8-cc44f8852b53",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "10a2938a-f8a4-5605-8c93-9afb37900352",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "1151a5b1-d33d-5701-afda-5518b1de962a",
+          "oldScore": 0.75,
+          "newScore": 0
+        },
+        {
+          "exactVariantId": "13506552-ccb5-55a7-a94a-ed3842bc5a8f",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "14b832c7-fc2a-548a-ba06-e6975dc2b784",
+          "oldScore": 0,
+          "newScore": 0.75
+        },
+        {
+          "exactVariantId": "17059c89-031e-542a-90dd-83be8c972960",
+          "oldScore": 0.75,
+          "newScore": 0
+        }
+      ]
+    }
+  ],
+  "rejectedTraitChecks": [
+    {
+      "brand": "DS Automobiles",
+      "model": "N°4",
+      "trait": "COMFORT",
+      "familyId": "family-05342e3811b8cf8f84698813",
+      "excluded": true
+    },
+    {
+      "brand": "DS Automobiles",
+      "model": "N°4",
+      "trait": "PRESTIGE",
+      "familyId": "family-05342e3811b8cf8f84698813",
+      "excluded": true
+    },
+    {
+      "brand": "Kia",
+      "model": "Stonic",
+      "trait": "PRESTIGE",
+      "familyId": "family-25c93c8430b8800090d7e678",
+      "excluded": true
+    },
+    {
+      "brand": "Dacia",
+      "model": "Logan",
+      "trait": "ADVENTURE",
+      "familyId": "family-6821ec1235e0e5fb0b249014",
+      "excluded": true
+    },
+    {
+      "brand": "Land Rover",
+      "model": "Range Rover",
+      "trait": "TECHNOLOGY",
+      "familyId": "family-c5ae70d2a546d2aa1bb4d052",
+      "excluded": true
+    }
+  ],
+  "invariants": {
+    "identicalExactVariantCoverage": true,
+    "allCorporaCandidateSetsUnchanged": true,
+    "personaScoreCapRespected": true,
+    "allRejectedTraitsExcluded": true,
+    "hardFilterAuthority": "NONE",
+    "technicalFactAuthority": "NONE",
+    "equipmentAuthority": "NONE",
+    "affordabilityMutation": "NONE",
+    "offerGovernanceMutation": "NONE"
+  },
+  "disposition": "PASS"
+}

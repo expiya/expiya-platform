@@ -1,0 +1,16 @@
+{
+  "status": "ACTIVATED_AND_POST_VALIDATED",
+  "activationEventId": "PERSONA-V39-LOCAL-ACTIVATION-2026-08-24-01",
+  "releases": {
+    "persona": "v1.1.0-persona-evidence-v3.9-catalog-v0.55.4-2026-08-24"
+  },
+  "pointerChecksums": {
+    "personaPointer": "sha256:09cdb644660aa1724370c15de5e090e85ca393e637e1a64fb86dd06a09b35667",
+    "personaModule": "sha256:2ba80308f0e19a44c33978e007028acd977e8e022a374c3e328952ff2c837623"
+  },
+  "rollbackPerformed": false,
+  "databaseWrite": false,
+  "deployment": false,
+  "commit": false,
+  "push": false
+}

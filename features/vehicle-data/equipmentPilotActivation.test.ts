@@ -25,10 +25,13 @@ describe("atomic Equipment pilot activation", () => {
     expect(getVariantEquipmentFeatures("1a3cc01d-3bfa-56f3-817f-4cc77e723ef8")).toEqual([]);
   });
 
-  it("keeps Equipment outside every Decision Engine import boundary", () => {
+  it("limits Equipment decision access to the V3 read-only catalog adapter boundary", () => {
     const files = readdirSync(path.join(ROOT, "features/decision"), { recursive: true }).filter((file): file is string => typeof file === "string" && /\.(?:ts|tsx)$/u.test(file));
     const runtimeImports = files.filter((file) => !file.endsWith(".test.ts") && readFileSync(path.join(ROOT, "features/decision", file), "utf8").match(/equipmentEvidenceResolver|activeEquipmentEvidence|equipment-evidence/u));
-    expect(runtimeImports).toEqual([]);
+    expect(runtimeImports).toEqual(["v3/catalogAdapter.server.ts"]);
+    const adapter = readFileSync(path.join(ROOT, "features/decision/v3/catalogAdapter.server.ts"), "utf8");
+    expect(adapter).toMatch(/getReviewedEquipmentAssociations, getVerifiedEquipmentAssertions/u);
+    expect(adapter).not.toMatch(/activeEquipmentEvidence|equipment-evidence\/active/u);
   });
 
   it("preserves ten intent classes as decision-neutral Equipment inputs", () => {
