@@ -24,7 +24,7 @@ export interface ResolvedVehicleImage {
 const normalize = (value: string | undefined) => value?.trim().toLocaleUpperCase("tr-TR");
 
 function matches(asset: VehicleMediaAsset, identity: VehicleImageIdentity): boolean {
-  if (asset.market !== "TR" || !isPublishableVehicleMediaAsset(asset) || !asset.isPrimary || asset.kind !== "HERO_EXTERIOR") return false;
+  if (asset.market !== "TR" || !isPublishableVehicleMediaAsset(asset)) return false;
   if (normalize(asset.brand) !== normalize(identity.brand) || normalize(asset.model) !== normalize(identity.model)) return false;
   if (asset.modelYearFrom && identity.modelYear < asset.modelYearFrom) return false;
   if (asset.modelYearTo && identity.modelYear > asset.modelYearTo) return false;
@@ -41,22 +41,6 @@ const scopePriority: Readonly<Record<VehicleMediaAsset["scope"], number>> = {
 
 const authorityPriority = (asset: VehicleMediaAsset) => asset.sourceAuthority === "OFFICIAL_MANUFACTURER_OR_DISTRIBUTOR" ? 10 : 0;
 
-const comparableTokens = (value: string) => new Set(normalize(value)?.replace(/[^A-Z0-9ÇĞİÖŞÜ]+/g, " ").split(" ")
-  .filter((token) => token.length > 1 && !["YENİ", "NEW", "ELECTRIC", "ELEKTRİK", "HYBRID", "HİBRİT"].includes(token)) ?? []);
-
-function similarityScore(asset: VehicleMediaAsset, identity: VehicleImageIdentity): number {
-  const targetTokens = comparableTokens(identity.model), assetTokens = comparableTokens(asset.model);
-  const commonTokens = [...targetTokens].filter((token) => assetTokens.has(token)).length;
-  const unionSize = new Set([...targetTokens, ...assetTokens]).size || 1;
-  const bodyScore = normalize(asset.bodyStyle) === normalize(identity.bodyStyle) ? 100 : 0;
-  const brandScore = normalize(asset.brand) === normalize(identity.brand) ? 200 : 0;
-  const generationScore = identity.generation && normalize(asset.generation) === normalize(identity.generation) ? 30 : 0;
-  const familyScore = Math.round((commonTokens / unionSize) * 60);
-  const assetYear = asset.modelYearFrom ?? asset.modelYearTo ?? identity.modelYear;
-  const yearScore = Math.max(0, 10 - Math.abs(identity.modelYear - assetYear));
-  return brandScore + bodyScore + generationScore + familyScore + yearScore;
-}
-
 const eligibleAssetsCache = new WeakMap<object, readonly VehicleMediaAsset[]>();
 
 function eligibleAssets(assets: readonly VehicleMediaAsset[]): readonly VehicleMediaAsset[] {
@@ -68,6 +52,10 @@ function eligibleAssets(assets: readonly VehicleMediaAsset[]): readonly VehicleM
   return eligible;
 }
 
+export function resolveVehicleGallery(identity: VehicleImageIdentity, assets: readonly VehicleMediaAsset[] = productionVehicleMediaAssets): readonly ResolvedVehicleImage[] {
+  return assets.filter((candidate) => matches(candidate, identity)).sort((left, right) => Number(right.isPrimary) - Number(left.isPrimary) || authorityPriority(right) - authorityPriority(left) || scopePriority[right.scope] - scopePriority[left.scope] || left.id.localeCompare(right.id)).filter((asset, index, all) => all.findIndex((candidate) => candidate.storagePath === asset.storagePath) === index).map((asset) => ({ path: asset.storagePath, status: asset.scope === "VARIANT" ? "EXACT" as const : "REPRESENTATIVE" as const, assetId: asset.id, attributionText: asset.attributionText, representedModel: asset.scope === "VARIANT" ? undefined : `${asset.brand} ${asset.model}` }));
+}
+
 export function resolveVehicleImage(
   identity: VehicleImageIdentity,
   assets: readonly VehicleMediaAsset[] = productionVehicleMediaAssets,
@@ -77,28 +65,7 @@ export function resolveVehicleImage(
     .sort((left, right) => authorityPriority(right) - authorityPriority(left)
       || scopePriority[right.scope] - scopePriority[left.scope])[0];
   if (!asset) {
-    let fallback: VehicleMediaAsset | undefined;
-    let fallbackScore = Number.NEGATIVE_INFINITY;
-    for (const candidate of candidates) {
-      // A representative image may vary by model, but never by marque or body
-      // architecture. If that boundary cannot be met, a neutral placeholder is
-      // safer than showing a different vehicle as the recommendation image.
-      if (normalize(candidate.brand) !== normalize(identity.brand)
-        || normalize(candidate.bodyStyle) !== normalize(identity.bodyStyle)) continue;
-      const score = similarityScore(candidate, identity);
-      if (score > fallbackScore || (score === fallbackScore && candidate.id.localeCompare(fallback?.id ?? "", "en") < 0)) {
-        fallback = candidate;
-        fallbackScore = score;
-      }
-    }
-    if (!fallback) return { path: PRODUCTION_VEHICLE_PLACEHOLDER, status: "PLACEHOLDER" };
-    return {
-      path: fallback.storagePath,
-      status: "APPROXIMATE",
-      assetId: fallback.id,
-      attributionText: fallback.attributionText,
-      representedModel: `${fallback.brand} ${fallback.model}`,
-    };
+    return { path: PRODUCTION_VEHICLE_PLACEHOLDER, status: "PLACEHOLDER" };
   }
   return {
     path: asset.storagePath,

@@ -1,0 +1,5 @@
+import { z } from "zod";
+import { createPhase3IntentHandoff, openPhase2Experience } from "@/features/sales-advisor/handoff.server";
+import { enforcePhase2RateLimits, phase2SafeError, phase2SessionSubject, phase2Subjects, readPhase2Json } from "@/features/sales-advisor/security.server";
+const schema = z.object({ token: z.string().min(1).max(300_000), intent: z.enum(["REQUEST_QUOTE", "REQUEST_TEST_DRIVE", "REQUEST_DEALER_CONTACT"]) }).strict();
+export async function POST(request: Request) { try { const input = schema.parse(await readPhase2Json(request, 70_000)); await enforcePhase2RateLimits(request, "PHASE3_HANDOFF", [phase2SessionSubject(input.token)], "CLIENT_ONLY"); const opened = await openPhase2Experience(input.token); await enforcePhase2RateLimits(request, "PHASE3_HANDOFF", phase2Subjects(opened.handoff), "SUBJECTS_ONLY"); const result = await createPhase3IntentHandoff({ phase2Token: input.token, intent: input.intent }); return Response.json(result, { headers: { "Cache-Control": "no-store" } }); } catch (error) { return phase2SafeError(error); } }

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
+import { resolveVehicleGallery, resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
 import type { VehicleMediaAsset } from "@/types/vehicleMedia";
 
 const base: VehicleMediaAsset = {
@@ -25,6 +25,12 @@ describe("resolveVehicleImage", () => {
   it("prefers an exact variant image over broader matches", () => {
     const exact: VehicleMediaAsset = { ...base, id: "media-exact", scope: "VARIANT", variantId: "variant-1", storagePath: "/media/exact.webp" };
     expect(resolveVehicleImage(identity, [base, exact])).toMatchObject({ path: "/media/exact.webp", status: "EXACT" });
+  });
+
+  it("returns all governed matching media for the interactive gallery", () => {
+    const interior: VehicleMediaAsset = { ...base, id: "media-interior", kind: "INTERIOR", isPrimary: false, storagePath: "/media/interior.webp" };
+    const cargo: VehicleMediaAsset = { ...base, id: "media-cargo", kind: "CARGO", isPrimary: false, storagePath: "/media/cargo.webp" };
+    expect(resolveVehicleGallery(identity, [base, interior, cargo]).map((item) => item.path)).toEqual(["/media/corolla.webp", "/media/cargo.webp", "/media/interior.webp"]);
   });
 
   it("prefers an official model image over an open-repository representative", () => {
@@ -55,9 +61,15 @@ describe("resolveVehicleImage", () => {
     expect(resolveVehicleImage(identity, [{ ...base, usagePermission: "OWNER_ATTESTED" }]).status).toBe("PLACEHOLDER");
   });
 
+  it("rejects an open-license discovery without the 95% exact-identity record", () => {
+    expect(resolveVehicleImage(identity, [{
+      ...base, usagePermission: "OPEN_LICENSE", fileHash: `sha256:${"a".repeat(64)}`,
+    }])).toMatchObject({ status: "PLACEHOLDER" });
+  });
+
   it("does not cross body styles or model-year applicability", () => {
     expect(resolveVehicleImage(identity, [{ ...base, bodyStyle: "Hatchback" }]).status).toBe("PLACEHOLDER");
-    expect(resolveVehicleImage(identity, [{ ...base, modelYearTo: 2025 }]).status).toBe("APPROXIMATE");
+    expect(resolveVehicleImage(identity, [{ ...base, modelYearTo: 2025 }]).status).toBe("PLACEHOLDER");
   });
 
   it("never falls back to a different brand even when body style matches", () => {
@@ -66,12 +78,12 @@ describe("resolveVehicleImage", () => {
     });
   });
 
-  it("selects the closest publishable same-brand image and exposes what it represents", () => {
+  it("rejects another model even when brand and body style match", () => {
     const suv: VehicleMediaAsset = { ...base, id: "media-rav4", model: "RAV4", bodyStyle: "SUV", storagePath: "/media/rav4.webp" };
     const sedan: VehicleMediaAsset = { ...base, id: "media-camry", model: "Camry", storagePath: "/media/camry.webp" };
     const missing = { ...identity, model: "C-HR", bodyStyle: "SUV" };
-    expect(resolveVehicleImage(missing, [sedan, suv])).toMatchObject({
-      path: "/media/rav4.webp", status: "APPROXIMATE", representedModel: "Toyota RAV4",
+    expect(resolveVehicleImage(missing, [sedan, suv])).toEqual({
+      path: "/cars/production-placeholder.svg", status: "PLACEHOLDER",
     });
   });
 });
