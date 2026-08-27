@@ -4,10 +4,11 @@ import { evaluateV3Catalog } from "./catalogAdapter.server";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
 import { routeConversationMessage } from "./router";
 import type { V3ConversationState } from "./types";
+import { createRecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
 
 async function conversation(id: string, messages: readonly string[]) {
   let state: V3ConversationState = createV3ConversationState(id); let output;
-  for (const [index, message] of messages.entries()) { output = await runV3Turn({ conversationId: id, messageId: `${id}-${index}`, message, expectedRevision: state.revision, state }); state = output.state; }
+  for (const [index, message] of messages.entries()) { output = await runV3Turn({ conversationId: id, messageId: `${id}-${index}`, message, expectedRevision: state.revision, state, ...(state.pendingOffer ? { recommendationTermsAcceptance: createRecommendationTermsAcceptance() } : {}) }); state = output.state; }
   return output!;
 }
 

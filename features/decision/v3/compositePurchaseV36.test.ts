@@ -54,7 +54,7 @@ describe("V3.6 composite purchase and decision messages", () => {
     expect(output.message).not.toMatch(/Merhaba|Nasıl gidiyor/iu);
     expect(output.state.purchaseIntent).toBe("EXPLICIT");
     expect(activeDecisionPreferences(output.state.ledger)).toEqual(expect.arrayContaining([expect.objectContaining({ concept: "modelPreference", field: "model", normalizedValue: "Corolla", decisionUse: "HARD_FILTER" })]));
-    expect(output.state.lastQuestionKey).toBe("budget");
+    expect(output.state.lastQuestionKey).toBe("offerConsent");
     const catalog = await evaluateV3Catalog(output.state.ledger);
     expect(catalog.variants.length).toBeGreaterThan(0);
     expect(catalog.variants.every((variant) => variant.model.localeCompare("Corolla", "tr", { sensitivity: "base" }) === 0)).toBe(true);

@@ -11,8 +11,10 @@ export function dailyUsageContext(state: V3ConversationState) {
   const recalled = (detail: string) => recent ? `Senin de söylediğin gibi, ${detail}` : `Daha önce sözünü ettiğin ${detail}`;
   if (/okul/iu.test(source)) return recalled("okul yolculuklarını düşünerek");
   if (/işe|işe gidip/iu.test(source)) return recalled("işe gidiş gelişleri düşünerek");
+  if (/yetişkin çocuk/iu.test(source)) return recalled("yetişkin çocuklarınla yapacağın yolculukları düşünerek");
   if (/bebek|çocuk/iu.test(source)) return recalled("çocuklu aile yolculuklarını düşünerek");
-  if (/kamp|bozuk yol|köy|arazi/iu.test(source)) return recalled("kamp ve bozuk yol kullanımını düşünerek");
+  if (/bozuk yol|köy|arazi/iu.test(source)) return recalled("kamp ve bozuk yol kullanımını düşünerek");
+  if (/kamp/iu.test(source)) return recalled("kamp yolculuklarını ve taşıyacağın ekipmanları düşünerek");
   if (/uzun yol|şehirler arası/iu.test(source)) return recalled("uzun yol kullanımını düşünerek");
   switch (usage?.normalizedValue) {
     case "URBAN_DAILY": return "Şehir içindeki günlük kullanımını, örneğin park ve dur-kalk kolaylığını düşünerek";

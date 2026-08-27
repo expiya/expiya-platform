@@ -25,13 +25,27 @@ describe("atomic Equipment pilot activation", () => {
     expect(getVariantEquipmentFeatures("1a3cc01d-3bfa-56f3-817f-4cc77e723ef8")).toEqual([]);
   });
 
-  it("limits Equipment decision access to the V3 read-only catalog adapter boundary", () => {
+  it("limits Equipment access to explicit normalization, card disclosure and the V3 catalog authority boundary", () => {
     const files = readdirSync(path.join(ROOT, "features/decision"), { recursive: true }).filter((file): file is string => typeof file === "string" && /\.(?:ts|tsx)$/u.test(file));
     const runtimeImports = files.filter((file) => !file.endsWith(".test.ts") && readFileSync(path.join(ROOT, "features/decision", file), "utf8").match(/equipmentEvidenceResolver|activeEquipmentEvidence|equipment-evidence/u));
-    expect(runtimeImports).toEqual(["v3/catalogAdapter.server.ts"]);
+    expect(runtimeImports).toEqual([
+      "v3/catalogAdapter.server.ts",
+      "v3/equipmentCardProjection.ts",
+      "v3/ledger.ts",
+    ]);
     const adapter = readFileSync(path.join(ROOT, "features/decision/v3/catalogAdapter.server.ts"), "utf8");
     expect(adapter).toMatch(/getReviewedEquipmentAssociations, getVerifiedEquipmentAssertions/u);
     expect(adapter).not.toMatch(/activeEquipmentEvidence|equipment-evidence\/active/u);
+    expect(adapter).toMatch(/verificationState === "VERIFIED" && assertion\.standardOrOptional === "STANDARD"/u);
+    expect(adapter).toMatch(/v35EquipmentMatchAuthority\(variant, String\(preference\.normalizedValue\)\) === "VERIFIED"/u);
+    const decisionInput = readFileSync(path.join(ROOT, "features/decision/v3/decisionInput.ts"), "utf8");
+    expect(decisionInput).toMatch(/item\.field !== "equipmentFeature"/u);
+    const ledger = readFileSync(path.join(ROOT, "features/decision/v3/ledger.ts"), "utf8");
+    expect(ledger).toMatch(/resolveEquipmentRequirement\(text\)/u);
+    expect(ledger).not.toMatch(/getVerifiedEquipmentAssertions|getReviewedEquipmentAssociations/u);
+    const cardProjection = readFileSync(path.join(ROOT, "features/decision/v3/equipmentCardProjection.ts"), "utf8");
+    expect(cardProjection).toMatch(/badge|warning/u);
+    expect(cardProjection).not.toMatch(/candidateIds|rankV3Candidates|scoreV3Candidate/u);
   });
 
   it("preserves ten intent classes as decision-neutral Equipment inputs", () => {

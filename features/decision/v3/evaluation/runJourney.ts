@@ -4,19 +4,23 @@ import { resetV31OffersForTests } from "../offerGovernance.server";
 import { runStoredV31Turn, resetV31StoreForTests } from "../store.server";
 import type { V3JourneyFixture } from "./journeyFixtures";
 import { evaluateV3JourneyInvariants, type V3JourneyTurnResult } from "./invariantAssertions";
+import { createRecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
+import type { V3ConversationState } from "../types";
 
 export async function runV3SmokeJourney(journey: V3JourneyFixture) {
   const conversationId = `pf-smoke-${journey.id}-${randomUUID()}`;
   const turns: V3JourneyTurnResult[] = [];
   let expectedRevision = 0;
+  let priorState: V3ConversationState | undefined;
   for (const [index, message] of journey.messages.entries()) {
     const messageId = `${conversationId}-turn-${index + 1}`;
     const response = await runStoredV31Turn({
       conversationId, messageId, message, expectedRevision,
-      run: (state) => runV3Turn({ conversationId, messageId, message, expectedRevision, state }),
+      run: (state) => runV3Turn({ conversationId, messageId, message, expectedRevision, state, ...(priorState?.pendingOffer ? { recommendationTermsAcceptance: createRecommendationTermsAcceptance() } : {}) }),
     });
     turns.push({ turn: index + 1, user: message, response });
     expectedRevision = response.state.revision;
+    priorState = response.state;
   }
   const assertions = evaluateV3JourneyInvariants(journey, turns);
   return {

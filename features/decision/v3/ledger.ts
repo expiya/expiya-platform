@@ -1,19 +1,84 @@
 import type { PendingConfirmation, PreferenceEvent, V3ConversationState, V3SemanticContextSignal } from "./types";
+import { resolveEquipmentRequirement } from "../../vehicle-data/equipmentEvidenceResolver";
 
 const whole = (text: string) => ({ start: 0, end: text.length, text });
 const normalizedBody = (text: string): string | readonly string[] | undefined => {
+  if (/panel\s*van|panelvan/iu.test(text)) return "PANEL VAN";
   const explicit = [
-    [/panel\s*van|panelvan/iu, "PANEL VAN"], [/(?:minibüs|yolcu van)/iu, "PASSENGER VAN"], [/(?:pick\s*up|kamyonet)/iu, "PICKUP"],
+    [/(?:minibüs|yolcu van)/iu, "PASSENGER VAN"], [/(?:pick\s*up|kamyonet)/iu, "PICKUP"],
     [/\bmpv\b/iu, "MPV"], [/coupe|coupé/iu, "COUPE"], [/hatchback/iu, "HATCHBACK"], [/sedan/iu, "SEDAN"], [/(?:suv|crossover)/iu, "SUV"],
   ] as const;
   const matches = explicit.filter(([pattern]) => pattern.test(text)).map(([, value]) => value);
   if (matches.length > 1) return matches; if (matches.length === 1) return matches[0];
   return /kompakt|parkı kolay|küçük bir yapı/iu.test(text) ? "HATCHBACK" : /(?:daha yüksek|ferah.{0,20}yüksek)/iu.test(text) ? "SUV" : undefined;
 };
-const normalizedFuel = (text: string) => /elektrikli/iu.test(text) ? "BEV" : /hibrit|hibrid/iu.test(text) ? "HEV" : /dizel/iu.test(text) ? "DIESEL" : /benzinli/iu.test(text) ? "GASOLINE" : undefined;
-const normalizedTransmission = (text: string) => /manuel/iu.test(text) ? "MANUAL" : /otomatik(?!\s*park)|dsg|dct|cvt|e-?dct|tork konvertör/iu.test(text) ? "AUTOMATIC" : undefined;
-const normalizedUsage = (text: string) => /(?:aile|çocuk(?!luğum)|bebek|puset|kalabalık sülale)/iu.test(text) ? "FAMILY" : /(?:satış (?:departmanı|ekibi)|müşteri ziyaret|saha ekibi|şirket aracı|filo)/iu.test(text) ? "CORPORATE_TRAVEL" : /(?:\byük(?:\s|$)|yük taşı|kargo|dağıtım|ticari|şantiye|malzeme|dükkan teslimat|kurye|(?:^|\s)iş\s+(?:için|amaçlı)|işimde)/iu.test(text) ? "COMMERCIAL" : /(?:kamp|arazi|bozuk yol|köy|4x4|dört çeker)/iu.test(text) ? "MIXED_ROAD" : /(?:uzun yol|şehirler arası|seyahat|ege turnesi)/iu.test(text) ? "LONG_DISTANCE" : /(?:şehir içi|günlük|işe (?:gidip|gidiş)|iş gidiş|okul|ayağımı yerden|toplu taşıma|otobüsle uğraş)/iu.test(text) ? "URBAN_DAILY" : undefined;
-const normalizedEquipment = (text: string) => /360\s*(?:derece)?|çevre görüş/iu.test(text) ? "SURROUND_VIEW_CAMERA_360" : /geri görüş kameras/iu.test(text) ? "REAR_VIEW_CAMERA" : /kendi kendine park|otomatik park|park asistan/iu.test(text) ? "AUTOMATIC_PARK_ASSIST" : /park sensör/iu.test(text) ? "PARKING_SENSORS" : /adaptif hız|adaptive cruise|mesafeyi koruyan.*hız|öndeki araçla mesafe/iu.test(text) ? "ADAPTIVE_CRUISE_CONTROL" : /kör nokta/iu.test(text) ? "BLIND_SPOT_MONITOR" : /isofix|çocuk koltuğu bağlant/iu.test(text) ? "ISOFIX_REAR_OUTER" : /anahtarsız (?:çalıştırma|başlatma)/iu.test(text) ? "KEYLESS_START" : undefined;
+const normalizedFuel = (text: string) => {
+  const withoutElectricalEquipment = text.replace(/elektrikli\s+(?:kayar\s+kapı|koltuk|bagaj(?:\s+kapağı)?|ayna)/giu, "");
+  const desiredElectric = /(?:tam\s+elektrikli|elektrikli\s+(?:araç|otomobil|model|suv|hatchback|sedan)|^\s*elektrikli\b)/iu.test(withoutElectricalEquipment);
+  const hybridDescribesCurrentVehicle = /hibrit\s+(?:aracımı|arabamı|otomobilimi).*(?:değiştir|yenile)/iu.test(withoutElectricalEquipment);
+  const values = [
+    /hibrit|hibrid/iu.test(withoutElectricalEquipment) && !hybridDescribesCurrentVehicle ? "HEV" : undefined,
+    desiredElectric || /elektrikli/iu.test(withoutElectricalEquipment) ? "BEV" : undefined,
+    /dizel/iu.test(withoutElectricalEquipment) ? "DIESEL" : undefined,
+    /benzinli/iu.test(withoutElectricalEquipment) ? "GASOLINE" : undefined,
+  ].filter((value): value is string => Boolean(value));
+  return values.length > 1 ? values : values[0];
+};
+const normalizedTransmission = (text: string) => /manuel/iu.test(text) ? "MANUAL" : /otomatik(?!\s*(?:park|klima))|dsg|dct|cvt|e-?dct|tork konvertör/iu.test(text) ? "AUTOMATIC" : undefined;
+const normalizedUsage = (text: string) => {
+  const normalized = text.replace(/ticari(?: kullanım)?\s+(?:değil|istemiyorum)|yük\s+taşım(?:ıyorum|ayacağım)/giu, "");
+  if (/(?:aile|çocuk(?!luğum|\s*oyuncağı)|bebek|puset|kalabalık sülale|yaşlı (?:ann|bab)|annemi|babamı)/iu.test(normalized)) return "FAMILY";
+  if (/(?:satış (?:departmanı|ekibi)|müşteri(?:leri)? ziyaret|saha ekibi|şirket aracı|filo)/iu.test(normalized)) return "CORPORATE_TRAVEL";
+  if (/(?:bisiklet|kamp|açık hava|outdoor|spor).{0,40}(?:malzeme|ekipman)|doğa(?:ya|da)|patika/iu.test(normalized)) return "MIXED_ROAD";
+  if (/(?:^|\s)yük(?:\s|$)|yük taşı|kargo|dağıtım|ticari|şantiye|dükkan teslimat|kurye|(?:^|\s)iş\s+(?:için|amaçlı)|işimde/iu.test(normalized)) return "COMMERCIAL";
+  if (/(?:kamp|arazi|bozuk yol|köy|4x4|dört çeker)/iu.test(normalized)) return "MIXED_ROAD";
+  if (/(?:uzun yol|şehirler arası|seyahat|ege turnesi|otoyol)/iu.test(normalized)) return "LONG_DISTANCE";
+  if (/(?:şehir içi|şehir merkez|dar sokak|paralel park|günlük|işe (?:gidip|gidiş)|iş gidiş|okul|ayağımı yerden|toplu taşıma|otobüsle uğraş)/iu.test(normalized)) return "URBAN_DAILY";
+  return undefined;
+};
+const normalizedEquipments = (text: string): readonly string[] => [
+  [/270\s*(?:derece)?.*arka kapı/iu, "REAR_DOOR_OPENING_270"], [/180\s*(?:derece)?.*arka kapı/iu, "REAR_DOOR_OPENING_180"],
+  [/elektrikli kayar (?:yan )?kapı/iu, "POWER_SLIDING_SIDE_DOOR"], [/(?:tavan taşıyıcı|portbagaj).{0,40}(?:uyum|takıl|montaj|destek)|(?:uyumlu|takılabilen).{0,30}(?:tavan taşıyıcı|portbagaj)/iu, "ROOF_RACK_COMPATIBILITY"],
+  [/(?:bagaj|yük) filesi.{0,40}(?:uyum|takıl|bağlan|montaj|destek)|(?:uyumlu|takılabilen).{0,30}(?:bagaj|yük) filesi/iu, "CARGO_NET_COMPATIBILITY"], [/tavan ray/iu, "ROOF_RAILS"], [/bagaj file/iu, "CARGO_NET"],
+  [/yük sabitleme|bağlama nokt|sabitleme kanca/iu, "CARGO_TIE_DOWN_POINTS"], [/arka kapı güneşlik|entegre.*güneşlik/iu, "INTEGRATED_REAR_DOOR_SUNSHADES"],
+  [/360\s*(?:derece)?|çevre görüş/iu, "SURROUND_VIEW_CAMERA_360"], [/geri görüş kameras/iu, "REAR_VIEW_CAMERA"], [/kendi kendine park|otomatik park|park asistan/iu, "AUTOMATIC_PARK_ASSIST"],
+  [/(?:ön|arka)?\s*park sensör/iu, "PARKING_SENSORS"], [/adaptif hız|adaptive cruise|mesafeyi koruyan.*hız|öndeki araçla mesafe/iu, "ADAPTIVE_CRUISE_CONTROL"],
+  [/(?:şerit takip|şeritte tut)/iu, "LANE_KEEP_ASSIST"], [/kör nokta/iu, "BLIND_SPOT_MONITOR"], [/isofix|çocuk koltuğu bağlant/iu, "ISOFIX_REAR_OUTER"],
+  [/anahtarsız (?:çalıştırma|başlatma)/iu, "KEYLESS_START"], [/ısıtmalı arka koltuk|arka koltuk ısıtma/iu, "HEATED_REAR_SEATS"],
+  [/ısıtmalı (?:ön )?koltuk|(?<!arka )(?:(?:ön )?koltuk ısıtma)/iu, "HEATED_FRONT_SEATS"], [/panoramik|cam tavan|sunroof|açılır tavan/iu, "PANORAMIC_GLASS_ROOF"],
+  [/kablosuz (?:telefon )?şarj/iu, "WIRELESS_PHONE_CHARGING"], [/koltuk (?:soğutma|havalandırma)|soğutmalı koltuk|havalandırmalı (?:ön )?koltuk/iu, "VENTILATED_FRONT_SEATS"],
+  [/arka diferansiyel kilidi|arka diff kilidi/iu, "LOCKING_REAR_DIFFERENTIAL"], [/merkez diferansiyel kilidi|orta diferansiyel kilidi/iu, "LOCKING_CENTER_DIFFERENTIAL"],
+].flatMap(([pattern, value]) => (pattern as RegExp).test(text) ? [value as string] : []);
+const weakConfirmationQuestions: Readonly<Record<string, string>> = Object.freeze({
+  mixedRoadUse: "Hem günlük kullanımda rahat hem de bozuk yollarda daha uygun olabilecek SUV/crossover araçları değerlendirelim mi?",
+  familyPracticality: "Bebek eşyaları için yükleme kolaylığı ve ferahlığı daha güçlü olan araçlara öncelik verelim mi?",
+  longDistanceComfort: "Uzun yol rahatlığını seçimde belirleyici bir öncelik yapalım mı?",
+  valueEconomy: "Satın alma fiyatını mı, kullanım giderlerini mi daha belirleyici tutalım?",
+  performance: "Canlı hızlanmayı seçimde belirleyici bir öncelik yapalım mı?",
+  ergonomicComfort: "Oturma, inip binme ve süspansiyon rahatlığını seçimde belirleyici tutalım mı?",
+  cargoPracticality: "Yükleme kolaylığı ve kullanılabilir bagaj alanını seçimde belirleyici tutalım mı?",
+  towingNeed: "Karavan çekme uygunluğunu, yalnız katalogda doğrulanabilen çekme verileriyle, temel seçim ölçütü yapalım mı?",
+  cabinComfort: "Kabin sessizliği ve uzun yol konforunu seçimde belirleyici tutalım mı?",
+  driverConfidence: "Görüş kolaylığı ve sürücü desteklerini seçimde belirleyici tutalım mı?",
+  drivingEnjoyment: "Sürüş keyfini seçimde belirleyici bir öncelik yapalım mı?",
+  safetyConfidence: "Doğrulanabilir güvenlik ve sürücü desteklerini seçimde belirleyici tutalım mı?",
+  glassRoofPreference: "Panoramik veya açılır cam tavanı vazgeçilmez bir donanım olarak mı ele alalım?",
+  cockpitAmbience: "Dijital kokpit ve ambiyans aydınlatmasını tasarım seçiminde öne alalım mı?",
+  distinctiveDesign: "Dikkat çekici ve karakterli tasarımı seçimde belirleyici tutalım mı?",
+  fuelEconomy: "Düşük enerji veya yakıt tüketimini seçimde temel öncelik yapalım mı?",
+  rearSeatSpace: "Arka koltuk genişliği ve diz mesafesini temel öncelik yapalım mı?",
+  highRideHeight: "Yüksek sürüş ve yerden yükseklik ihtiyacı için SUV/crossover gövdeyi öne alalım mı?",
+  roofLoadLifestyle: "Tavan taşıma uyumluluğunu seçimde önemli bir doğrulama ölçütü yapalım mı?",
+  premiumAudio: "Doğrulanabilir premium ses sistemini seçimde belirleyici tutalım mı?",
+  marketSegment: "E-segmentte özellikle sedan gövdeyi mi hedefliyorsun?",
+  sharedDriverEase: "İkinizin de kolay alışacağı, görüşü ve kumandaları rahat bir aracı temel öncelik yapalım mı?",
+});
+
+const nextWeakConfirmation = (ledger: readonly PreferenceEvent[], excludedConcept?: string): PendingConfirmation | undefined => {
+  const weak = ledger.find((item) => item.status === "ACTIVE" && item.strength === "WEAK_SIGNAL" && item.decisionUse === "QUESTION_INPUT" && item.concept !== excludedConcept && !ledger.some((candidate) => candidate.concept === item.concept && candidate.status === "ACTIVE" && candidate.strength === "CONFIRMED_STRONG"));
+  const question = weak && weakConfirmationQuestions[weak.concept];
+  return weak && question ? { eventId: weak.id, concept: weak.concept, proposedValue: String(weak.normalizedValue), question } : undefined;
+};
 const desiredBrand = (text: string) => text.match(/(?:^|\s)([\p{Lu}][\p{L}\d.-]+)\s+marka\b/u)?.[1] ?? text.match(/\byine\s+([\p{Lu}][\p{L}\d.-]+)(?:['’](?:nın|nin|nun|nün))?/u)?.[1] ?? text.match(/^([\p{Lu}][\p{L}\d.-]+)(?:['’](?:nın|nin|nun|nün))\s+/u)?.[1];
 const desiredModel = (text: string) => {
   const candidate = text.match(/^([\p{Lu}][\p{L}\d.-]*(?:\s+[\p{Lu}\d][\p{L}\d.-]*){0,2})\s+(?:modelini\s+)?(?:satın\s+)?almak\s+istiyorum[.!]?$/u)?.[1];
@@ -32,17 +97,36 @@ function supersedeActive(ledger: readonly PreferenceEvent[], next: PreferenceEve
   return [...ledger, { ...prior, id: `${next.id}:supersede`, status: "SUPERSEDED", supersedes: prior.id, decisionUse: "NONE", sourceMessageId: next.sourceMessageId, sourceTurn: next.sourceTurn, sourceSpan: next.sourceSpan }, { ...next, supersedes: prior.id }];
 }
 
+function supersedeMatchingEquipment(ledger: readonly PreferenceEvent[], next: PreferenceEvent): PreferenceEvent[] {
+  const prior = [...ledger].reverse().find((item) => item.concept === "equipmentFeature" && item.status === "ACTIVE" && item.normalizedValue === next.normalizedValue);
+  if (!prior) return [...ledger, next];
+  return [...ledger, { ...prior, id: `${next.id}:supersede`, status: "SUPERSEDED", supersedes: prior.id, decisionUse: "NONE", sourceMessageId: next.sourceMessageId, sourceTurn: next.sourceTurn, sourceSpan: next.sourceSpan }, { ...next, supersedes: prior.id }];
+}
+
 export function applyPreferenceMessage(state: V3ConversationState, messageId: string, text: string): { ledger: readonly PreferenceEvent[]; pending?: PendingConfirmation } {
   let ledger = [...state.ledger]; let pending = state.pendingConfirmation; let resolvedValueEconomy = false;
+  const clearActiveConcept = (concept: string) => {
+    const active = [...ledger].reverse().find((item) => item.concept === concept && item.status === "ACTIVE");
+    if (active) ledger.push({ ...active, id: `${messageId}:clear:${concept}`, sourceMessageId: messageId, sourceTurn: state.revision + 1, sourceSpan: whole(text), status: "CLEARED", decisionUse: "NONE", supersedes: active.id });
+  };
+  if (/(?:gövde|kasa|suv|hatchback|sedan).*(?:fark etmez|esnet|önemli değil)/iu.test(text)) clearActiveConcept("bodyStyle");
+  if (/(?:yakıt|motor türü).*(?:fark etmez|esnet|önemli değil)/iu.test(text)) clearActiveConcept("fuelType");
+  if (/(?:vites|şanzıman).*(?:fark etmez|esnet|önemli değil)/iu.test(text)) clearActiveConcept("transmission");
+  const refusesEquipmentRelaxation = /(?:çıkarma|çıkarmayalım|çıkartma|koru|vazgeçme|şartı koru)/iu.test(text);
+  if (state.pendingAction === "RELAX_UNSUPPORTED_EQUIPMENT" && !refusesEquipmentRelaxation && /(?:evet|olur|tamam|çıkar(?:\s|[.!?,]|$)|esnet|vazgeç|önemli değil|şart değil)/iu.test(text)) {
+    const activeEquipment = [...ledger].reverse().find((item) => ["equipmentFeature", "unmappedEquipmentRequirement"].includes(item.concept) && item.status === "ACTIVE");
+    if (activeEquipment) ledger.push({ ...activeEquipment, id: `${messageId}:clear:${activeEquipment.concept}`, sourceMessageId: messageId, sourceTurn: state.revision + 1, sourceSpan: whole(text), status: "CLEARED", decisionUse: "NONE", supersedes: activeEquipment.id });
+    return { ledger, pending };
+  }
   if (state.pendingAction === "RELAX_BRAND_FOR_POWERTRAIN" && /(?:evet|olur|tamam|esnet|başka marka|marka fark etmez|seçelim)/iu.test(text)) {
     const activeBrand = [...ledger].reverse().find((item) => item.concept === "brandPreference" && item.status === "ACTIVE");
     if (activeBrand) ledger.push({ ...activeBrand, id: `${messageId}:clear:brandPreference`, sourceMessageId: messageId, sourceTurn: state.revision + 1, sourceSpan: whole(text), status: "CLEARED", decisionUse: "NONE", supersedes: activeBrand.id });
     return { ledger, pending };
   }
-  if (pending && /^(?:evet|olur|uygun|değerlendirelim|tamam)\b/iu.test(text.trim())) {
+  if (pending && /^(?:evet|olur|olabilir|uygun|değerlendirelim|yapalım|tutalım|öne alalım|temel öncelik yapalım|tamam)\b/iu.test(text.trim())) {
     const source = ledger.find((item) => item.id === pending!.eventId);
     if (source) ledger = [...ledger, event({ state: { ...state, ledger }, messageId, text, concept: source.concept, field: source.field, value: pending.proposedValue, use: source.field ? "HARD_FILTER" : "SOFT_RANK", authority: "USER_CONFIRMED" })];
-    return { ledger, pending: undefined };
+    return { ledger, pending: nextWeakConfirmation(ledger, source?.concept) };
   }
   if (pending && /^(?:hayır|istemem|olmasın|gerek yok)/iu.test(text.trim())) {
     const source = ledger.find((item) => item.id === pending!.eventId);
@@ -64,20 +148,25 @@ export function applyPreferenceMessage(state: V3ConversationState, messageId: st
   const budgetNotImportant = /(?:bütçe (?:önemli|sorun) değil|bütçe kısıtlamam yok|bütçeyi (?:önemseme|boşver)|fiyat (?:önemli|sorun) değil|net bütçe(?:m| rakamım)? (?:henüz )?yok|bütçe(?:m)? (?:henüz )?net değil)/iu.test(text);
   const clearBudget = /(?:bütçeyi (?:boşver|kaldır)|bütçe önemli değil)/iu.test(text);
   if (clearBudget) {
-    for (const concept of ["budgetMax", "budgetTarget"]) { const active = [...ledger].reverse().find((item) => item.concept === concept && item.status === "ACTIVE"); if (active) ledger.push({ ...active, id: `${messageId}:clear:${concept}`, sourceMessageId: messageId, sourceTurn: state.revision + 1, sourceSpan: whole(text), status: "CLEARED", decisionUse: "NONE", supersedes: active.id }); }
+    for (const concept of ["budgetMax", "budgetTarget"]) clearActiveConcept(concept);
   }
   if (budgetNotImportant) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "budgetNotImportant", value: "NOT_IMPORTANT", use: "NONE" }));
   if (/(?:fiyat|bütçe).*(?:rakam|sayı|net (?:bir )?sınır).*(?:veremem|söyleyemem|bilmiyorum)|rakam veremem/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "budgetUnspecified", value: "UNSPECIFIED", use: "NONE" }));
   if ((state.lastQuestionKey === "budget" || state.lastQuestionKey === "exactBudget") && /(?:net (?:bir )?rakam|rakamı|bütçe).*(?:belirlemedim|belli değil|henüz yok)/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "budgetUnspecified", value: "UNSPECIFIED", use: "NONE" }));
   if (state.lastQuestionKey === "exactBudget" && !budgetAmount(text, true) && /(?:öner|seç|göster|paylaş|marka.?model)/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "budgetUnspecified", value: "UNSPECIFIED", use: "NONE", authority: "PRODUCT_POLICY" }));
-  const usage = normalizedUsage(text); if (usage && (state.lastQuestionKey === "primaryUsage" || /(?:kullan|ihtiyaç|amaç|iş|ticari|aile|çocuk|bebek|kamp|arazi|4x4|uzun yol|ege turnesi|şehir içi|işe gidip|ayağımı yerden|otobüs|kargo|dağıtım|yük|müşteri ziyaret|sülale)/iu.test(text))) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "primaryUsage", field: "usagePurpose", value: usage }));
+  const usage = normalizedUsage(text); if (usage && (state.lastQuestionKey === "primaryUsage" || /(?:kullan|ihtiyaç|amaç|iş|ticari|aile|çocuk|bebek|kamp|arazi|4x4|uzun yol|ege turnesi|şehir içi|şehir merkez|dar sokak|paralel park|işe gidip|ayağımı yerden|otobüs|kargo|dağıtım|yük|müşteri ziyaret|sülale)/iu.test(text))) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "primaryUsage", field: "usagePurpose", value: usage }));
   const body = normalizedBody(text);
-  const answeredBody = state.lastQuestionKey === "bodyStyle" ? (/park|kompakt|küçük/iu.test(text) ? "HATCHBACK" : /ferah|yüksek|geniş/iu.test(text) ? "SUV" : undefined) : undefined;
+  const answeredBody = state.lastQuestionKey === "bodyStyle" ? (/park|kompakt|küçük/iu.test(text) ? "HATCHBACK" : /ferah|yüksek|geniş/iu.test(text) ? "SUV" : undefined)
+    : state.lastQuestionKey === "commercialConfiguration" ? (/panelvan|kapalı.*yük/iu.test(text) ? "PANEL VAN" : /pick.?up|açık kasa/iu.test(text) ? "PICKUP" : /yolcu.*yük|birlikte/iu.test(text) ? "PASSENGER VAN" : undefined)
+      : state.lastQuestionKey === "mixedRoadBody" && /(?:her\s*)?ikisi de/iu.test(text) ? ["SUV", "PICKUP"] : undefined;
   if (body ?? answeredBody) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "bodyStyle", field: "bodyStyle", value: (body ?? answeredBody)! }));
   if ((state.lastQuestionKey === "bodyStyle" || state.askedQuestionKeys.includes("bodyStyle")) && /(?:ekonomik.*yeterli|gövde.*(?:fark etmez|önemli değil)|hangisi olursa)/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "bodyNotImportant", value: "FLEXIBLE", use: "NONE" }));
   if ((state.lastQuestionKey === "bodyStyle" || state.askedQuestionKeys.includes("bodyStyle")) && /(?:(?:[iİ]kisi de|hiçbiri).*(?:önceliğim değil|önemli değil|fark etmez)|(?:gövde|yapı).*(?:önceliğim değil|fark etmez))/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "bodyNotImportant", value: "FLEXIBLE", use: "NONE" }));
+  if (state.lastQuestionKey === "bodyStyle" && /(?:bunlar|bunların|bu sordukların).*(?:önemli değil|önemi yok|bir önemi yok)/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "bodyNotImportant", value: "FLEXIBLE", use: "NONE" }));
+  if (state.lastQuestionKey === "bodyStyle" && /^(?:her\s*)?ikisi de(?:\s+(?:önemli|olabilir))?[.! ]*$/iu.test(text.trim())) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "bodyNotImportant", value: "FLEXIBLE", use: "NONE" }));
   const fuel = normalizedFuel(text);
   if (fuel) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "fuelType", field: "fuelType", value: fuel }));
+  if (state.lastQuestionKey === "fuelType" && !fuel && /(?:bilmiyorum|senin önerin|sen öner|sen seç|birlikte değerlendirelim|fark etmez|yakıt türü önemli değil)/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "fuelDelegated", value: "ADVISOR_GUIDANCE", use: "NONE" }));
   const transmission = normalizedTransmission(text);
   if (transmission) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "transmission", field: "transmission", value: transmission }));
   const brand = desiredBrand(text);
@@ -86,34 +175,65 @@ export function applyPreferenceMessage(state: V3ConversationState, messageId: st
   if (model) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "modelPreference", field: "model", value: model }));
   if (/(?:aracımı|arabamı|otomobilimi).*(?:değiştir|yenile)/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "currentVehicleContext", field: "currentVehicle", value: text.trim(), use: "NONE" }));
   if (/(?:ehliyet(?:imi)?(?: bugün)? aldım|ilk arac[ıi]m[ıi])/u.test(text.toLocaleLowerCase("tr"))) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "firstTimeDriverContext", field: "conversationContext", value: "FIRST_TIME_DRIVER", use: "NONE" }));
-  const equipment = normalizedEquipment(text);
-  const rejectsEquipment = Boolean(equipment && /(?:olmasın|istemiyorum|gerek yok|önemli değil|sorun değil|vazgeçtim)/iu.test(text));
+  const normalizedEquipment = normalizedEquipments(text);
+  const offeredEquipment = state.lastQuestionKey?.startsWith("verifiedEquipment:") ? state.lastQuestionKey.slice("verifiedEquipment:".length).split("|") : [];
+  const resolvedEquipment = /^(?:hepsi|tümü)(?:\s+olsun)?[.! ]*$/iu.test(text.trim()) ? offeredEquipment : resolveEquipmentRequirement(text).filter((item) => item.polarity === "AFFIRMED" && item.featureCode).map((item) => item.featureCode!);
+  const equipments = [...new Set([
+    ...normalizedEquipment,
+    ...resolvedEquipment,
+    /tavan ray/iu.test(text) ? "ROOF_RAILS" : undefined,
+    /bagaj file/iu.test(text) ? "CARGO_NET" : undefined,
+  ].filter((value): value is string => Boolean(value)))];
+  const rejectsEquipment = Boolean(equipments.length > 0 && /(?:olmasın|istemiyorum|gerek yok|önemli değil|sorun değil|vazgeçtim)/iu.test(text));
   if (rejectsEquipment) {
-    const activeEquipment = [...ledger].reverse().find((item) => item.concept === "equipmentFeature" && item.status === "ACTIVE" && item.normalizedValue === equipment);
-    if (activeEquipment) ledger.push({ ...activeEquipment, id: `${messageId}:clear:equipmentFeature`, sourceMessageId: messageId, sourceTurn: state.revision + 1, sourceSpan: whole(text), status: "CLEARED", decisionUse: "NONE", supersedes: activeEquipment.id });
-  } else if (equipment) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "equipmentFeature", field: "equipmentFeature", value: equipment }));
-  if (/(?:bunlar|donanım|özellik).*(?:önemli değil|min(?:i|u)mum|gerek yok|özel (?:bir )?şart(?:ım)? yok|temel .* yeterli)/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "equipmentNotImportant", value: "MINIMAL", use: "NONE" }));
+    for (const value of equipments) {
+      const activeEquipment = [...ledger].reverse().find((item) => item.concept === "equipmentFeature" && item.status === "ACTIVE" && item.normalizedValue === value);
+      if (activeEquipment) ledger.push({ ...activeEquipment, id: `${messageId}:clear:equipmentFeature:${value}`, sourceMessageId: messageId, sourceTurn: state.revision + 1, sourceSpan: whole(text), status: "CLEARED", decisionUse: "NONE", supersedes: activeEquipment.id });
+    }
+  } else {
+    for (const value of equipments) ledger = supersedeMatchingEquipment(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "equipmentFeature", field: "equipmentFeature", value }));
+  }
+  const statedEquipment = !normalizedEquipment.length ? text.match(/donanım(?:da| olarak)\s+(.{2,80}?)(?=\s+(?:kesinlikle|mutlaka|şart|olmalı|olsun|istiyorum|bulunmalı)|[,.]|$)/iu)?.[1]?.trim() : undefined;
+  if (statedEquipment) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "unmappedEquipmentRequirement", value: statedEquipment, use: "NONE" }));
+  const unmappedEquipment = [
+    [/(?:12\s*v|12v).{0,24}(?:bagaj\s*)?(?:soket|priz)|(?:bagaj\s*)?(?:soket|priz).{0,24}(?:12\s*v|12v)/iu, "12V bagaj soketi"],
+    [/arka (?:klima )?havalandırma/iu, "arka koltuk havalandırması"],
+    [/(?<!adaptif )(?<!adaptive )hız sabitleyici/iu, "hız sabitleyici"],
+    [/hızlı şarj/iu, "hızlı şarj desteği"],
+    [/ısı pompası/iu, "ısı pompası"],
+    [/(?:çift|iki) sürgülü (?:yan )?kapı/iu, "çift sürgülü yan kapı"],
+  ].flatMap(([pattern, label]) => (pattern as RegExp).test(text) ? [label as string] : []);
+  if (unmappedEquipment.length) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "unmappedEquipmentRequirement", value: [...new Set(unmappedEquipment)].join(", "), use: "NONE" }));
+  if (/(?:bunlar|donanım|özellik|özel (?:bir )?(?:park )?donanımı).*(?:önemli değil|min(?:i|u)mum|gerek yok|şart(?:ım)? (?:değil|yok)|temel .* yeterli)/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "equipmentNotImportant", value: "MINIMAL", use: "NONE" }));
   if (/yakıt tasarrufu|kullanım gider|işletme gider/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "operatingCostPriority", field: "costPriority", value: "OPERATING_COST", use: "SOFT_RANK" }));
-  const budget = budgetAmount(text, state.lastQuestionKey === "budget" || state.lastQuestionKey === "exactBudget");
+  if (!fuel && /(?:az yakan|yakıtı (?:adeta )?kokla|yakıt tasarrufu)/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "fuelDelegated", value: "EFFICIENCY_FIRST", use: "NONE", authority: "PRODUCT_POLICY" }));
+  const priorBudget = [...ledger].reverse().find((item) => (item.concept === "budgetMax" || item.concept === "budgetTarget") && item.status === "ACTIVE");
+  const percentageIncrease = text.match(/bütçe(?:mi|yi)?(?:\s+limitini)?\s*%\s*(\d+(?:[.,]\d+)?)\s*(?:artır|arttir|yükselt)/iu);
+  const relativeBudget = priorBudget && percentageIncrease
+    ? Math.round(Number(priorBudget.normalizedValue) * (1 + Number(percentageIncrease[1]!.replace(",", ".")) / 100))
+    : undefined;
+  const allowsBareBudget = state.lastQuestionKey === "budget" || state.lastQuestionKey === "exactBudget" || /bütçe(?:mi|yi|m)?.*(?:çıkar|çıkart|artır|yükselt|yap|olsun|üst sınır|limit)/iu.test(text);
+  const budget = relativeBudget ?? budgetAmount(text, allowsBareBudget);
   if (budget !== undefined && !clearBudget && !budgetNotImportant && (state.lastQuestionKey === "budget" || state.lastQuestionKey === "exactBudget" || /bütçe|fiyat|milyon|bin|₺|tl/iu.test(text))) { const soft = /(?:yaklaşık|civarı|civarında|kabaca|aşağı yukarı|ortalama|esnek|sanırım|net değil|emin değil)/iu.test(text); const concept = soft ? "budgetTarget" : "budgetMax"; ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept, field: "price", value: budget, use: soft ? "SOFT_RANK" : "HARD_FILTER" })); }
   if (state.lastQuestionKey === "brandModel" && !/(?:bilmiyorum|fark etmez|sen seç|yok|istemiyorum|alternatif|öner|göster|seç|kamera|sensör|isofix|donanım|hız sabitle|kör nokta)/iu.test(text) && text.trim().length > 1) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "brandModelPreference", field: "brandModel", value: text.trim(), use: "SOFT_RANK" }));
   const party = text.match(/(\d+)\s*kiş/iu); if (party) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "minimumSeats", field: "seats", value: Number(party[1]) }));
   const weakSignals: [RegExp, string, string | undefined, string, string][] = [
-    [/kamp|bozuk yol/iu, "mixedRoadUse", "bodyStyle", "SUV", "Hem günlük kullanımda rahat hem de bozuk yollarda daha uygun olabilecek SUV/crossover araçları değerlendirelim mi?"],
+    [/(?:dar sokak|paralel park|manevrası kolay|park etme çilesi)/iu, "urbanManeuverability", "bodyStyle", "HATCHBACK", "Dar sokaklarda manevra ve park kolaylığı için kompakt hatchback gövdeyi öne alalım mı?"],
+    [/bozuk yol/iu, "mixedRoadUse", "bodyStyle", "SUV", "Hem günlük kullanımda rahat hem de bozuk yollarda daha uygun olabilecek SUV/crossover araçları değerlendirelim mi?"],
     [/bebeğimiz olacak|bebek/iu, "familyPracticality", undefined, "PRACTICALITY", "Bebek eşyaları için yükleme kolaylığı ve ferahlığı daha güçlü olan araçlara öncelik verelim mi?"],
     [/uzun yolda yormasın/iu, "longDistanceComfort", undefined, "COMFORT", "Uzun yol rahatlığını seçimde belirleyici bir öncelik yapalım mı?"],
     [/ekonomik|bütçemiz fazla değil/iu, "valueEconomy", undefined, "VALUE", "Satın alma fiyatını mı, kullanım giderlerini mi daha belirleyici tutalım?"],
     [/\bperformans(?:lı| arab| otomobil| sürüş| öncel)/iu, "performance", undefined, "PERFORMANCE", "Canlı hızlanmayı seçimde belirleyici bir öncelik yapalım mı?"],
-    [/(?:bel fıtığı|koltuk.*(?:rahat|pamuk)|süspansiyon.*(?:konfor|çukur)|inip bin)/iu, "ergonomicComfort", undefined, "ERGONOMIC_COMFORT", "Oturma, inip binme ve süspansiyon rahatlığını seçimde belirleyici tutalım mı?"],
-    [/(?:bisiklet|bebek arabası|puset|kamp malzem|kocaman bagaj|dev bir bagaj|yükleme kolay)/iu, "cargoPracticality", undefined, "CARGO_PRACTICALITY", "Yükleme kolaylığı ve kullanılabilir bagaj alanını seçimde belirleyici tutalım mı?"],
+    [/(?:bel fıtığı|koltuk.*(?:rahat|pamuk)|süspansiyon.*(?:konfor|çukur|sarsınt)|inip bin|binerken|inerken|tekerlekli sandalye)/iu, "ergonomicComfort", undefined, "ERGONOMIC_COMFORT", "Oturma, inip binme ve süspansiyon rahatlığını seçimde belirleyici tutalım mı?"],
+    [/(?:bisiklet|bebek arabası|puset|valiz|seyahat çanta|kamp (?:malzem|ekipman)|kocaman bagaj|dev bir bagaj|(?:pratik|kullanışlı|geniş).{0,24}bagaj|bagaj (?:hacmi|derinliği|bölümü)|bagaj.{0,24}(?:yükleme|geniş)|yatay (?:bir )?alan|yükleme kolay)/iu, "cargoPracticality", undefined, "CARGO_PRACTICALITY", "Yükleme kolaylığı ve kullanılabilir bagaj alanını seçimde belirleyici tutalım mı?"],
     [/(?:karavan çek|çeki demir|yüksek tork)/iu, "towingNeed", undefined, "TOWING", "Karavan çekme uygunluğunu, yalnız katalogda doğrulanabilen çekme verileriyle, temel seçim ölçütü yapalım mı?"],
     [/(?:sessiz|yalıtım|yolda yorm|bacak.*uyuş)/iu, "cabinComfort", undefined, "CABIN_COMFORT", "Kabin sessizliği ve uzun yol konforunu seçimde belirleyici tutalım mı?"],
     [/(?:görüş açı|ön kaput.*bit|geri geri.*stres|park.*kork|yeni sürücü|acemili)/iu, "driverConfidence", undefined, "DRIVER_CONFIDENCE", "Görüş kolaylığı ve sürücü desteklerini seçimde belirleyici tutalım mı?"],
-    [/(?:sürüşü keyif|yüzümde tebessüm|motorun.*ses|heyecan yaşat)/iu, "drivingEnjoyment", undefined, "DRIVING_ENJOYMENT", "Sürüş keyfini seçimde belirleyici bir öncelik yapalım mı?"],
+    [/(?:sürüşü keyif|sürüş hissi.*dinamik|virajlarda|gaz pedal|yüzümde tebessüm|motorun.*ses|heyecan yaşat)/iu, "drivingEnjoyment", undefined, "DRIVING_ENJOYMENT", "Sürüş keyfini seçimde belirleyici bir öncelik yapalım mı?"],
     [/(?:güvende|güvenli|hata.*tolere|yokuşta.*kaydır)/iu, "safetyConfidence", undefined, "SAFETY_CONFIDENCE", "Doğrulanabilir güvenlik ve sürücü desteklerini seçimde belirleyici tutalım mı?"],
     [/(?:panoramik|cam tavan|sunroof|açılır tavan)/iu, "glassRoofPreference", "equipmentFeature", "PANORAMIC_GLASS_ROOF", "Panoramik veya açılır cam tavanı vazgeçilmez bir donanım olarak mı ele alalım?"],
     [/(?:ambiyans aydınlat|uçak kokpiti|gece sürüşünde.*ışık)/iu, "cockpitAmbience", undefined, "COCKPIT_AMBIENCE", "Dijital kokpit ve ambiyans aydınlatmasını tasarım seçiminde öne alalım mı?"],
-    [/(?:dikkat çekici|karizma|karizmatik|dönüp.*bak|spor görünüş|farklı.*tasarım|zamansız.*tasarım)/iu, "distinctiveDesign", undefined, "DISTINCTIVE_DESIGN", "Dikkat çekici ve karakterli tasarımı seçimde belirleyici tutalım mı?"],
+    [/(?:dikkat çekici|dikkat çeken|karizma|karizmatik|dönüp.*bak|spor görünüş|farklı.*tasarım|zamansız.*tasarım)/iu, "distinctiveDesign", undefined, "DISTINCTIVE_DESIGN", "Dikkat çekici ve karakterli tasarımı seçimde belirleyici tutalım mı?"],
     [/(?:az yakan|yakıt ibresi|yakıt cimrisi|koklayan bir araç)/iu, "fuelEconomy", undefined, "FUEL_ECONOMY", "Düşük enerji veya yakıt tüketimini seçimde temel öncelik yapalım mı?"],
     [/(?:arkası geniş|diz mesafesi|arka koltuk.*geniş|uzun boylu.*biner)/iu, "rearSeatSpace", undefined, "REAR_SEAT_SPACE", "Arka koltuk genişliği ve diz mesafesini temel öncelik yapalım mı?"],
     [/(?:altı vur|yüksek bir araç|yüksekte otur)/iu, "highRideHeight", "bodyStyle", "SUV", "Yüksek sürüş ve yerden yükseklik ihtiyacı için SUV/crossover gövdeyi öne alalım mı?"],
@@ -134,6 +254,7 @@ export function applyPreferenceMessage(state: V3ConversationState, messageId: st
     const priority = ["rearSeatSpace", "cargoPracticality", "cabinComfort", "ergonomicComfort", "sharedDriverEase", "driverConfidence", "safetyConfidence", "glassRoofPreference", "cockpitAmbience", "distinctiveDesign", "drivingEnjoyment", "fuelEconomy", "premiumAudio", "highRideHeight", "roofLoadLifestyle", "marketSegment", "towingNeed", "longDistanceComfort", "mixedRoadUse", "familyPracticality", "valueEconomy", "performance"];
     const matched = weakSignals.filter(([pattern, concept]) => pattern.test(text) && !(resolvedValueEconomy && concept === "valueEconomy")).sort((a, b) => priority.indexOf(a[1]) - priority.indexOf(b[1]));
     for (const [, concept, field, value, question] of matched) {
+      if (field === "equipmentFeature" && normalizedEquipment.length) continue;
       if (ledger.some((item) => item.concept === concept && item.status === "ACTIVE")) continue;
       const weak = event({ state: { ...state, ledger }, messageId, text, concept, field, value, weak: true }); ledger.push(weak);
       pending ??= { eventId: weak.id, concept, proposedValue: value, question };
@@ -163,7 +284,8 @@ export function applySemanticContextSignals(state: V3ConversationState, ledger: 
 
 export function activeDecisionPreferences(ledger: readonly PreferenceEvent[]) {
   const terminal = new Map<string, PreferenceEvent>();
-  for (const item of ledger) if (item.status === "ACTIVE") terminal.set(item.concept, item); else if (item.status === "CLEARED" || item.status === "REJECTED") terminal.delete(item.concept);
+  const keyOf = (item: PreferenceEvent) => item.concept === "equipmentFeature" ? `${item.concept}:${String(item.normalizedValue)}` : item.concept;
+  for (const item of ledger) if (item.status === "ACTIVE") terminal.set(keyOf(item), item); else if (item.status === "CLEARED" || item.status === "REJECTED") terminal.delete(keyOf(item));
   return [...terminal.values()].filter((item) => ["EXPLICIT_HARD", "EXPLICIT_STRONG", "CONFIRMED_STRONG"].includes(item.strength) && ["HARD_FILTER", "SOFT_RANK"].includes(item.decisionUse));
 }
 

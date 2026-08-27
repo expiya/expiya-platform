@@ -99,14 +99,14 @@ export const V3_SMOKE_JOURNEYS: readonly V3JourneyFixture[] = [
   {
     id: "budget-irrelevant-value-options",
     description: "Bütçe önemsizse marka tercihini bir kez sorup en fazla üç değer seçeneği sunar",
-    messages: ["Aile kullanımı için SUV araç almak istiyorum.", "Bütçe sorun değil.", "Benzinli olsun.", "Fark etmez, sen seç.", "Evet, göster."],
+    messages: ["Aile kullanımı için SUV araç almak istiyorum.", "Bütçe sorun değil.", "Benzinli olsun.", "Bu gruptakilerden hiçbiri şart değil.", "Bu gruptakilerden hiçbiri şart değil.", "Bu gruptakilerden hiçbiri şart değil.", "Fark etmez, sen seç.", "Evet, göster."],
     expectation: { offerMustBeObserved: true, maximumRecommendationCount: 3, finalLedgerEvent: { concept: "budgetNotImportant", normalizedValue: "NOT_IMPORTANT", decisionUse: "NONE" } },
   },
   {
     id: "urban-question-order",
-    description: "Şehir içi kullanımda park donanımını önceliklendirir",
+    description: "Şehir içi kullanımda önce gövde ihtiyacını netleştirir",
     messages: ["Yeni araç almak istiyorum.", "Şehir içinde günlük kullanacağım."],
-    expectation: { finalActivePreferences: { primaryUsage: "URBAN_DAILY" }, finalLastQuestionKey: "parkingEquipment", finalMessagePattern: /geri görüş kamerası|park sensörleri/iu },
+    expectation: { finalActivePreferences: { primaryUsage: "URBAN_DAILY" }, finalLastQuestionKey: "bodyStyle", finalMessagePattern: /Park kolaylığı mı|ferah ve yüksek/iu },
   },
   {
     id: "commercial-question-order",
@@ -166,7 +166,7 @@ export const V3_SMOKE_JOURNEYS: readonly V3JourneyFixture[] = [
     id: "named-model-purchase",
     description: "Araç kelimesi olmadan Corolla satın alma niyetini ve model tercihini tanır",
     messages: ["Merhaba.", "Corolla almak istiyorum."],
-    expectation: { finalPurchaseIntent: "EXPLICIT", finalActivePreferences: { modelPreference: "Corolla" }, finalLastQuestionKey: "budget" },
+    expectation: { finalPurchaseIntent: "EXPLICIT", finalActivePreferences: { modelPreference: "Corolla" }, finalLastQuestionKey: "offerConsent" },
   },
   {
     id: "first-time-driver-context",
@@ -182,9 +182,9 @@ export const V3_SMOKE_JOURNEYS: readonly V3JourneyFixture[] = [
   },
   {
     id: "broad-pool-differentiator",
-    description: "Geniş aday havuzunda hemen seçim yapmak yerine gerçek ayırt edici soru sorar",
-    messages: ["Şehir içinde kullanmak için SUV araç almak istiyorum.", "Özel park donanımı şart değil.", "Kesin bütçem 2 milyon TL.", "Elektrikli olsun.", "Tek araç seçelim."],
-    expectation: { finalLastQuestionKey: "decisionDifferentiator", finalMessagePattern: /Seçimi yalnız fiyata bırakmayalım/iu, recommendationCount: 0 },
+    description: "Kullanıcı donanımın önemli olmadığını söylediyse aynı donanım alanını yeniden sormadan teklif hazırlar",
+    messages: ["Şehir içinde kullanmak için SUV araç almak istiyorum.", "Özel park donanımı şart değil.", "Kesin bütçem 2 milyon TL.", "Elektrikli olsun.", "Marka fark etmez.", "Tek araç seçelim."],
+    expectation: { finalLastQuestionKey: "offerConsent", finalMessagePattern: /tek seçimi hazırladım.*Göstermemi ister misin/iu, recommendationCount: 0, offerMustBeObserved: true },
   },
   {
     id: "corporate-customer-visits",
@@ -196,13 +196,13 @@ export const V3_SMOKE_JOURNEYS: readonly V3JourneyFixture[] = [
     id: "corporate-total-cost",
     description: "Kurumsal kullanıcı iki maliyet boyutunu seçtiğinde pending confirmation döngüsünü kapatır",
     messages: ["Şirketimin satış departmanı için bir araç almak istiyorum.", "Satış ekibim müşteri ziyaretleri için şehir içi ve şehir dışı kullanacak.", "Yakıt tasarrufu üst düzey olsun, donanımlar önemli değil.", "Ekonomik bir araç olsun yeterli.", "Her ikisi de."],
-    expectation: { finalActivePreferences: { totalCostPriority: "TOTAL_COST" }, finalLastQuestionKey: "budget", finalLedgerEvent: { concept: "totalCostPriority", decisionUse: "SOFT_RANK" } },
+    expectation: { finalActivePreferences: { totalCostPriority: "TOTAL_COST" }, finalLastQuestionKey: "brandModel", finalLedgerEvent: { concept: "totalCostPriority", decisionUse: "SOFT_RANK" } },
   },
   {
     id: "unverified-equipment-warning",
     description: "Doğrulanmamış donanımla seçilen kartta zorunlu uyarıyı gösterir",
     messages: ["Aile kullanımı için SUV araç almak istiyorum.", "Anahtarsız çalıştırma kesin olsun.", "Bütçe sorun değil.", "Dizel olsun.", "Alfa Romeo Tonale olabilir.", "Tek araç öner.", "Evet, göster."],
-    expectation: { recommendationCount: 1, offerMustBeObserved: true, recommendationWarningPattern: /donanım bilgisi henüz doğrulanmamıştır/iu },
+    expectation: { recommendationCount: 1, offerMustBeObserved: true, recommendationWarningPattern: /doğrulanması gerekir/iu },
   },
 ] as const;
 

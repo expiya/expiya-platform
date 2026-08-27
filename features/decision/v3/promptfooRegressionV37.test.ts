@@ -38,7 +38,7 @@ describe("V3.7 Promptfoo conversation regressions", () => {
     }
     expect(state.purchaseIntent).not.toBe("NOT_EXPRESSED");
     expect(output?.message).not.toMatch(/İstersen şimdi sana en uygun aracı seçebilirim/iu);
-    expect(output?.offerAwaitingConsent || output?.recommendations?.length || output?.message.match(/koşulların tümünü karşılayan.*bulamadım/iu)).toBeTruthy();
+    expect(output?.offerAwaitingConsent || output?.recommendations?.length || output?.message.match(/koşulların tümünü karşılayan.*bulamadım|varyant düzeyinde doğrulayacak yeterli veri yok/iu)).toBeTruthy();
   });
 
   it("does not turn price-performance wording into a sports-car preference", async () => {
@@ -56,7 +56,7 @@ describe("V3.7 Promptfoo conversation regressions", () => {
     state = (await runV3Turn({ conversationId: state.conversationId, messageId: "3", message: "Park donanımı belirleyici değil", expectedRevision: state.revision, state })).state;
     const output = await runV3Turn({ conversationId: state.conversationId, messageId: "4", message: "İkisi de önceliğim değil", expectedRevision: state.revision, state });
     expect(output.state.ledger).toEqual(expect.arrayContaining([expect.objectContaining({ concept: "bodyNotImportant", normalizedValue: "FLEXIBLE" })]));
-    expect(output.message).toMatch(/bütçe/iu);
+    expect(output.state.lastQuestionKey).not.toBe("budget");
   });
 
   it("matches pickup catalog facts without Turkish dotted-I corruption and clears rejected equipment", async () => {

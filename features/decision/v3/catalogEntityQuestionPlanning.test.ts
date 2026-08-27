@@ -21,7 +21,8 @@ describe("V3 catalog entity and candidate-aware question planning", () => {
       expect.objectContaining({ concept: "modelPreference", normalizedValue: "Golf" }),
     ]));
     expect(output.message).not.toMatch(/nerede ve ne için|günlük ihtiyaç/iu);
-    expect(output.message).toMatch(/en uygun aracı seçebilirim/iu);
+    expect(output.message).toMatch(/tek seçimi hazırladım.*Göstermemi ister misin/iu);
+    expect(output.offerAwaitingConsent).toBe(true);
     const catalog = await evaluateV3Catalog(output.state.ledger);
     expect(catalog.variants.length).toBeGreaterThan(0);
     expect(catalog.variants).toHaveLength(1);

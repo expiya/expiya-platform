@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it } from "vitest";
-import { activeDecisionPreferences, latestActiveLedgerEvent } from "./ledger";
+import { activeDecisionPreferences, applyPreferenceMessage, latestActiveLedgerEvent } from "./ledger";
 import { evaluateV3Catalog, rankV3Candidates } from "./catalogAdapter.server";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
 import { routeConversationMessage } from "./router";
@@ -37,23 +37,58 @@ describe("V3.7 conversation and ranking corrections", () => {
     expect(latestActiveLedgerEvent(state.ledger, "budgetMax")).toBeUndefined();
   });
 
-  it("ranks a hard-budget pool toward the ceiling instead of the cheapest vehicle", async () => {
+  it("uses a hard budget only to filter and leaves ranking identical inside that pool", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     let state = createV3ConversationState("budget-ranking");
     for (const [id, message] of [["1", "Şehir içinde SUV araç almak istiyorum"], ["2", "Kesin bütçem 2 milyon TL"]] as const) state = (await turn(state, id, message)).state;
-    const catalog = await evaluateV3Catalog(state.ledger); const ranked = rankV3Candidates(catalog.variants, state.ledger);
-    const priced = catalog.variants.filter((variant) => variant.activeNewPrice).map((variant) => variant.activeNewPrice!.amountTry);
-    expect(ranked[0]?.activeNewPrice?.amountTry).toBe(Math.max(...priced));
-    expect(ranked[0]?.activeNewPrice?.amountTry).toBeLessThanOrEqual(2_000_000);
+    const catalog = await evaluateV3Catalog(state.ledger, undefined, "BUDGET_AS_DECISION_FILTER");
+    const ranked = rankV3Candidates(catalog.variants, state.ledger, "BUDGET_AS_DECISION_FILTER");
+    const needsRanked = rankV3Candidates(catalog.variants, state.ledger, "NEEDS_ONLY");
+    expect(ranked.map((variant) => variant.id)).toEqual(needsRanked.map((variant) => variant.id));
+    expect(ranked.every((variant) => !variant.activeNewPrice || variant.activeNewPrice.amountTry <= 2_000_000)).toBe(true);
   });
 
-  it("asks for a real differentiator instead of selecting immediately from a broad pool", async () => {
+  it("does not ask for a second equipment differentiator after the user says equipment is not important", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     let state = createV3ConversationState("fair-selection");
-    for (const [id, message] of [["1", "Şehir içinde kullanmak için SUV araç almak istiyorum"], ["2", "Özel park donanımı şart değil"], ["3", "Kesin bütçem 2 milyon TL"], ["4", "Elektrikli olsun"]] as const) state = (await turn(state, id, message)).state;
-    const output = await turn(state, "5", "Tek araç seçelim");
-    expect(output.offerAwaitingConsent).not.toBe(true);
-    expect(output.state.lastQuestionKey).toBe("decisionDifferentiator");
-    expect(output.message).toMatch(/Seçimi yalnız fiyata bırakmayalım/iu);
+    let output;
+    for (const [id, message] of [["1", "Şehir içinde kullanmak için SUV araç almak istiyorum"], ["2", "Özel park donanımı şart değil"], ["3", "Kesin bütçem 2 milyon TL"], ["4", "Elektrikli olsun"]] as const) { output = await turn(state, id, message); state = output.state; }
+    expect(output?.offerAwaitingConsent).not.toBe(true);
+    expect(output?.state.lastQuestionKey).toBe("brandModel");
+    expect(output?.message).not.toMatch(/donanım.*vazgeçilmez/iu);
+  });
+
+  it("applies explicit and percentage budget corrections to the active ceiling", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let state = createV3ConversationState("budget-corrections");
+    for (const [id, message] of [["1", "Bütçemi karar filtresi olarak kullan."], ["2", "Kesin bütçem 1.100.000 TL"], ["3", "Bütçeyi %10 artır"], ["4", "Bütçeyi 1.500.000'e çıkar"]] as const) state = (await turn(state, id, message)).state;
+    expect(latestActiveLedgerEvent(state.ledger, "budgetMax")).toMatchObject({ normalizedValue: 1_500_000, decisionUse: "HARD_FILTER" });
+    expect(state.budgetMetadata).toMatchObject({ amountTry: 1_500_000, includedInDecision: true });
+  });
+
+  it("treats both body choices as flexibility and does not repeat the body question", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const state = { ...createV3ConversationState("body-flexible"), purchaseIntent: "ACTIVE_DISCOVERY" as const, lastQuestionKey: "bodyStyle", askedQuestionKeys: ["primaryUsage", "bodyStyle"] };
+    const applied = applyPreferenceMessage(state, "1", "Her ikisi de olabilir");
+    expect(latestActiveLedgerEvent(applied.ledger, "bodyNotImportant")).toMatchObject({ normalizedValue: "FLEXIBLE", decisionUse: "NONE" });
+  });
+
+  it("explains when budget filter mode has no applied amount", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let state = createV3ConversationState("missing-budget-amount");
+    state = (await turn(state, "1", "Bütçemi karar filtresi olarak kullan.")).state;
+    const output = await turn(state, "2", "Bütçe zaten belirtmiştim.");
+    expect(output.message).toMatch(/uygulanmış bir tutar görünmüyor/iu);
+    expect(output.state.budgetMetadata).toBeUndefined();
+    expect(output.state.lastQuestionKey).toBe("budget");
+  });
+
+  it("applies the UI budget control atomically and acknowledges the exact ceiling", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const output = await turn(createV3ConversationState("atomic-budget-control"), "1", "Bütçemi karar filtresi olarak kullan. Kesin bütçe üst sınırım 4.444.000 TL.");
+    expect(output.state.budgetMode).toBe("BUDGET_AS_DECISION_FILTER");
+    expect(output.state.budgetMetadata).toMatchObject({ amountTry: 4_444_000, includedInDecision: true });
+    expect(output.message).toMatch(/4\.444\.000 TL kesin üst sınırını karar filtresine uyguladım/iu);
+    expect(output.state.lastQuestionKey).toBeUndefined();
   });
 });

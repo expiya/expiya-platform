@@ -12,6 +12,10 @@ export type PurchaseIntentState = "NOT_EXPRESSED" | "POSSIBLE" | "EXPLICIT" | "A
 export type PreferenceStrength = "EXPLICIT_HARD" | "EXPLICIT_STRONG" | "CONFIRMED_STRONG" | "WEAK_SIGNAL" | "UNCONFIRMED_HYPOTHESIS";
 export type PreferenceStatus = "ACTIVE" | "REJECTED" | "SUPERSEDED" | "CLEARED";
 export type DecisionUse = "HARD_FILTER" | "SOFT_RANK" | "QUESTION_INPUT" | "NONE";
+export type BudgetDecisionMode = "NEEDS_ONLY" | "BUDGET_AS_DECISION_FILTER";
+export interface BudgetModeEvent { readonly id: string; readonly sourceMessageId: string; readonly revision: number; readonly from: BudgetDecisionMode; readonly to: BudgetDecisionMode; readonly authority: "USER_EXPLICIT" }
+export interface ConversationBudgetMetadata { readonly amountTry: number; readonly currency: "TRY"; readonly taxBasis: "CATALOG_GROSS_LIST_PRICE"; readonly financing: "EXCLUDED"; readonly timeScope: "CURRENT_ACTIVE_CATALOG"; readonly includedInDecision: boolean }
+export interface V3RecommendationTermsAcceptance { readonly version: "REC-2026.08-v1.1"; readonly acceptedAt: string; readonly offerId: string }
 
 export interface SourceSpan { readonly start: number; readonly end: number; readonly text: string }
 export interface V3SemanticContextSignal { readonly kind: V3SemanticContextKind; readonly sourceSpan: SourceSpan; readonly confidence: number }
@@ -35,12 +39,14 @@ export interface V3ConversationState {
   readonly purchaseIntent: PurchaseIntentState; readonly intentObservationTurns: number; readonly ledger: readonly PreferenceEvent[];
   readonly pendingConfirmation?: PendingConfirmation; readonly askedQuestionKeys: readonly string[]; readonly ended: boolean;
   readonly lastQuestionKey?: string; readonly lastRoute?: V3Route; readonly finalBrandModelQuestionAsked?: boolean;
-  readonly pendingAction?: "RECOMMENDATION_DISCOVERY" | "RELAX_BRAND_FOR_POWERTRAIN";
+  readonly pendingAction?: "RECOMMENDATION_DISCOVERY" | "RELAX_BRAND_FOR_POWERTRAIN" | "RELAX_UNSUPPORTED_EQUIPMENT";
   readonly pendingOffer?: { readonly offerId: string; readonly token: string; readonly candidateIds: readonly string[]; readonly limit: 1 | 3 };
+  readonly recommendationTermsAcceptance?: V3RecommendationTermsAcceptance;
+  readonly budgetMode?: BudgetDecisionMode; readonly budgetModeEvents?: readonly BudgetModeEvent[]; readonly budgetMetadata?: ConversationBudgetMetadata;
 }
 export interface V3PublicResponse {
   readonly kind: "V3_CONVERSATION"; readonly message: string; readonly state: V3ConversationState;
-  readonly recommendations?: readonly { readonly id: string; readonly title: string; readonly warning?: string; readonly reason?: never }[];
+  readonly recommendations?: readonly { readonly id: string; readonly title: string; readonly image: string; readonly imageStatus: "EXACT" | "REPRESENTATIVE" | "APPROXIMATE" | "PLACEHOLDER"; readonly imageAttribution?: string; readonly representedModel?: string; readonly warning?: string; readonly badge?: string; readonly reason?: never }[];
   readonly offerAwaitingConsent?: boolean;
   readonly variantCounts?: { readonly total: number; readonly remaining: number };
   readonly stateToken?: string;

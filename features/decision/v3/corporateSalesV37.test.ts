@@ -24,7 +24,7 @@ describe("V3.7 corporate sales-team conversation", () => {
     expect(output.state.pendingConfirmation).toBeUndefined();
     expect(latestActiveLedgerEvent(output.state.ledger, "totalCostPriority")).toMatchObject({ normalizedValue: "TOTAL_COST", decisionUse: "SOFT_RANK" });
     expect(output.message).not.toMatch(/Satın alma fiyatını mı, kullanım giderlerini mi/iu);
-    expect(output.state.lastQuestionKey).toBe("budget");
+    expect(output.state.lastQuestionKey).not.toBe("budget");
   });
 
   it("gives professional advice when asked and advances to budget", async () => {
@@ -35,7 +35,7 @@ describe("V3.7 corporate sales-team conversation", () => {
     expect(output.message).toMatch(/toplam kullanım giderini biraz daha öne koymak mantıklı/iu);
     expect(output.message).toMatch(/Satın alma fiyatını da bütçe sınırı/iu);
     expect(output.state.pendingConfirmation).toBeUndefined();
-    expect(output.state.lastQuestionKey).toBe("budget");
-    expect((output.message.match(/\?/gu) ?? [])).toHaveLength(1);
+    expect(output.state.lastQuestionKey).not.toBe("budget");
+    expect((output.message.match(/\?/gu) ?? [])).toHaveLength(0);
   });
 });

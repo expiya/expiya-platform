@@ -49,7 +49,23 @@ describe("V3.6 direct question behavior", () => {
     let output = await runV3Turn({ conversationId: "commute", messageId: "1", message: "Araç bakıyorum", expectedRevision: 0 });
     output = await runV3Turn({ conversationId: "commute", messageId: "2", message: "Günlük işe gidiş geliş için", expectedRevision: output.state.revision, state: output.state });
     expect(activeDecisionPreferences(output.state.ledger).find((item) => item.concept === "primaryUsage")?.normalizedValue).toBe("URBAN_DAILY");
-    expect(output.state.lastQuestionKey).toBe("parkingEquipment");
+    expect(output.state.lastQuestionKey).toBe("bodyStyle");
+  });
+
+  it("understands a whole urban-parking story and answers delegated fuel guidance without repeating the question", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const id = "urban-parking-whole-message";
+    let output = await runV3Turn({ conversationId: id, messageId: "1", message: "İş yerim şehir merkezinde. Dar sokaklarda dolaşıyor ve çok paralel park yapıyorum. Manevrası kolay, direksiyonu hafif ve otomatik bir otomobil satın almak istiyorum.", expectedRevision: 0 });
+    expect(activeDecisionPreferences(output.state.ledger).find((item) => item.concept === "primaryUsage")?.normalizedValue).toBe("URBAN_DAILY");
+    expect(output.state.lastQuestionKey).toBe("confirm:urbanManeuverability");
+    output = await runV3Turn({ conversationId: id, messageId: "2", message: "Evet, kompakt olsun.", expectedRevision: output.state.revision, state: output.state });
+    expect(output.state.lastQuestionKey).toBe("fuelType");
+    output = await runV3Turn({ conversationId: id, messageId: "3", message: "Bilmiyorum, bana öneri sun. Yakıt türlerinin farkları nedir?", expectedRevision: output.state.revision, state: output.state });
+    expect(output.message).toMatch(/benzinli.*dizel.*hibrit.*elektrikli/iu);
+    expect(output.message).toMatch(/şehir içi.*hibrit/iu);
+    expect(output.message).not.toMatch(/yeterince güvenilir|Yakıt türünde net bir tercihin/iu);
+    expect(output.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
+    expect(output.message).toMatch(/geri görüş kamerası|park sensörleri|çevre görüş/iu);
   });
 
   it("varies conversational acknowledgement copy across consecutive turns", async () => {

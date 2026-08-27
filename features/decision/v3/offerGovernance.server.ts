@@ -2,6 +2,7 @@ import { randomBytes, randomUUID } from "node:crypto";
 import { createHmacOfferSigner } from "../v2/offer/signer.server";
 import type { PersistedGovernedOffer } from "../v2/offer/types";
 import type { CatalogVariantSnapshot } from "../v2/catalog/types";
+import { RECOMMENDATION_TERMS_VERSION, type RecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
 
 const signer = createHmacOfferSigner({ secret: process.env.CARS_DECISION_V2_SIGNING_SECRET || process.env.CARS_PILOT_SESSION_SECRET || randomBytes(32).toString("hex"), now: () => new Date() });
 const offers = new Map<string, PersistedGovernedOffer>();
@@ -14,12 +15,22 @@ export function createV31Offer(input: { readonly conversationId: string; readonl
   offers.set(offerId, offer); return { offer, token: signer.sign(offer) };
 }
 
-export function revealV31Offer(input: { readonly conversationId: string; readonly token: string; readonly candidateIds: readonly string[] }) {
+export function revealV31Offer(input: { readonly conversationId: string; readonly token: string; readonly candidateIds: readonly string[]; readonly recommendationTermsAcceptance?: RecommendationTermsAcceptance }) {
   const verified = signer.verify(input.token); if (verified.status !== "VALID" || verified.conversationId !== input.conversationId) throw new TypeError("V31_OFFER_UNAUTHORIZED");
   const offer = offers.get(verified.offerId); if (!offer || offer.lifecycleState !== "CREATED" || offer.candidateRefs.map((item) => item.exactVariantId).join("|") !== input.candidateIds.join("|")) throw new TypeError("V31_OFFER_BINDING_INVALID");
-  const consentedAt = new Date(); const revealedAt = new Date(consentedAt.getTime() + 1);
+  const acceptance = input.recommendationTermsAcceptance;
+  const acceptedAt = acceptance ? Date.parse(acceptance.acceptedAt) : Number.NaN;
+  const now = Date.now();
+  if (!acceptance || acceptance.version !== RECOMMENDATION_TERMS_VERSION || !Number.isFinite(acceptedAt) || acceptedAt < Date.parse(offer.createdAt) || acceptedAt > now + 60_000) throw new TypeError("V3_RECOMMENDATION_TERMS_REQUIRED");
+  const consentedAt = new Date(acceptedAt); const revealedAt = new Date(Math.max(now, acceptedAt + 1));
   offers.set(offer.offerId, { ...offer, lifecycleState: "REVEALED", consentedAt: consentedAt.toISOString(), revealedAt: revealedAt.toISOString() });
   return offer;
+}
+
+/** Read-only, decision-neutral integration seam for a post-reveal experience. */
+export function getRevealedV31Offer(offerId: string): PersistedGovernedOffer | undefined {
+  const offer = offers.get(offerId);
+  return offer?.lifecycleState === "REVEALED" ? offer : undefined;
 }
 
 export function resetV31OffersForTests() { offers.clear(); }

@@ -3,6 +3,7 @@ import { activeDecisionPreferences } from "./ledger";
 import { routeConversationMessage } from "./router";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
 import { runStoredV31Turn, resetV31StoreForTests } from "./store.server";
+import { createRecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
 
 describe("Cars Conversation Decision Flow V3", () => {
   it.each([
@@ -62,9 +63,11 @@ describe("Cars Conversation Decision Flow V3", () => {
     for (const [id, message] of [["2", "Şehir içinde günlük kullanacağım"], ["3", "Parkı kolay kompakt hatchback olsun"], ["4", "Kesin bütçem 3 milyon TL"], ["5", "Elektrikli olsun"], ["6", "Geri görüş kamerası kesin olsun"], ["7", "Tek araç öner"]] as const) output = await runV3Turn({ conversationId: "offer", messageId: id, message, expectedRevision: output.state.revision, state: output.state });
     expect(output.recommendations).toBeUndefined(); expect(output.offerAwaitingConsent).toBe(true);
     const forged = { ...output.state, pendingOffer: { ...output.state.pendingOffer!, token: `${output.state.pendingOffer!.token}x` } };
-    await expect(runV3Turn({ conversationId: "offer", messageId: "8", message: "Evet, göster", expectedRevision: forged.revision, state: forged })).rejects.toThrow("V31_OFFER_UNAUTHORIZED");
-    const revealed = await runV3Turn({ conversationId: "offer", messageId: "8", message: "Evet, göster", expectedRevision: output.state.revision, state: output.state });
+    await expect(runV3Turn({ conversationId: "offer", messageId: "missing-terms", message: "Evet, göster", expectedRevision: output.state.revision, state: output.state })).rejects.toThrow("V3_RECOMMENDATION_TERMS_REQUIRED");
+    await expect(runV3Turn({ conversationId: "offer", messageId: "8", message: "Evet, göster", expectedRevision: forged.revision, state: forged, recommendationTermsAcceptance: createRecommendationTermsAcceptance() })).rejects.toThrow("V31_OFFER_UNAUTHORIZED");
+    const revealed = await runV3Turn({ conversationId: "offer", messageId: "8", message: "Evet, göster", expectedRevision: output.state.revision, state: output.state, recommendationTermsAcceptance: createRecommendationTermsAcceptance() });
     expect(revealed.recommendations).toHaveLength(1); expect(revealed.state.pendingOffer).toBeUndefined();
+    expect(revealed.state.recommendationTermsAcceptance).toMatchObject({ version: "REC-2026.08-v1.1", offerId: output.state.pendingOffer?.offerId });
   });
 
   it("keeps server state authoritative and replays byte-equivalent output", async () => {

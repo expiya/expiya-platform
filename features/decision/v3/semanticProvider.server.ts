@@ -46,8 +46,11 @@ export async function interpretV31Message(input: { readonly message: string; rea
     }, { timeout: 12_000, signal: controller.signal });
     if (!response.output_parsed) return fallback(); const parsed = response.output_parsed;
     const parsedHasPurchaseAct = parsed.messageActs.includes("VEHICLE_PURCHASE_INTENT") || parsed.messageActs.includes("DECISION_REQUEST");
+    const shortOpenQuestionAnswer = input.hasOpenQuestion && /^(?:evet|hayır|olur|olmaz|tamam|peki|şart değil|fark etmez|istemiyorum|istiyorum)[.! ]*$/iu.test(input.message.trim());
     const governedRoute = deterministic.route === "SAFETY_BOUNDARY"
       ? deterministic.route
+      : shortOpenQuestionAnswer
+        ? "QUESTION_ANSWER"
       : parsed.purchaseIntentAssessment === "EXPLICIT" && parsedHasPurchaseAct && ["SOCIAL_CONVERSATION", "OFF_TOPIC_REQUEST", "AUTOMOTIVE_INFORMATION", "QUESTION_ANSWER"].includes(parsed.route)
         ? deterministic.route === "RECOMMENDATION_OR_OFFER" || parsed.messageActs.includes("DECISION_REQUEST") ? "RECOMMENDATION_OR_OFFER" : "PURCHASE_INTENT_DISCOVERY"
         : parsed.route;
