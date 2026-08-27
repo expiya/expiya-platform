@@ -1,4 +1,5 @@
 import { CarsConversation } from "@/components/cars/CarsConversation";
+import { CarsConversationV3 } from "@/components/cars/CarsConversationV3";
 import {
   CARS_CONVERSATION_AVAILABILITY,
   isPublicCarsConversationEnabled,
@@ -6,6 +7,7 @@ import {
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { PILOT_SESSION_COOKIE, verifyPilotSessionToken } from "@/features/pilot/pilotSession.server";
+import { getV3MinimumCatalogPriceTry } from "@/features/decision/v3/catalogAdapter.server";
 
 export default async function AnalysisPage({
   searchParams,
@@ -13,7 +15,11 @@ export default async function AnalysisPage({
   searchParams: Promise<{ query?: string | string[]; pilot?: string | string[] }>;
 }) {
   const params = await searchParams;
-  const pilotRequested = (Array.isArray(params.pilot) ? params.pilot[0] : params.pilot) === "1";
+  const pilotValue = Array.isArray(params.pilot) ? params.pilot[0] : params.pilot;
+  const queryValue = params.query;
+  const query = Array.isArray(queryValue) ? queryValue[0] ?? "" : queryValue ?? "";
+  if (pilotValue === "v3" || pilotValue === "v3.1" || pilotValue === "v3.2" || pilotValue === "v3.3" || pilotValue === "v3.4" || pilotValue === "v3.5" || pilotValue === "v3.6" || pilotValue === "v3.7" || pilotValue === "v3.8") return <CarsConversationV3 initialQuery={query} minimumBudgetTry={await getV3MinimumCatalogPriceTry()} />;
+  const pilotRequested = pilotValue === "1";
   const pilotSession = verifyPilotSessionToken((await cookies()).get(PILOT_SESSION_COOKIE)?.value);
   if (pilotRequested && !pilotSession) redirect("/pilot");
   if (!isPublicCarsConversationEnabled(process.env, Boolean(pilotSession))) {
@@ -28,7 +34,5 @@ export default async function AnalysisPage({
       </main>
     );
   }
-  const queryValue = params.query;
-  const query = Array.isArray(queryValue) ? queryValue[0] ?? "" : queryValue ?? "";
   return <CarsConversation initialQuery={query} pilotUsername={pilotSession?.username} />;
 }
