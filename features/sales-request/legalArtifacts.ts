@@ -1,0 +1,19 @@
+import { createHash } from "node:crypto";
+
+export const DATA_CONTROLLER = {
+  version: "draft-2026-08-28", legalName: "[HUKUK ONAYI: Veri sorumlusu ticaret unvanı]",
+  mersis: "[HUKUK ONAYI: MERSİS numarası]", address: "[HUKUK ONAYI: Tebligata elverişli adres]",
+  applicationAddress: "[HUKUK ONAYI: KVKK başvuru e-postası veya KEP]",
+} as const;
+
+const checksum = (text: string) => createHash("sha256").update(text, "utf8").digest("hex");
+const artifact = <T extends string>(id: T, shortText: string, fullText: string) => ({ id, version: id, shortText, fullText, checksum: checksum(fullText) } as const);
+
+export const legalArtifacts = {
+  kvkkNotice: artifact("kvkk-notice/v1", "Satış talebiniz için kimlik, iletişim, lokasyon, tercih ve izin kayıtlarınız işlenir.", `TASLAK — HUKUK ONAYI ZORUNLUDUR. Veri sorumlusu: ${DATA_CONTROLLER.legalName}; MERSİS: ${DATA_CONTROLLER.mersis}; adres: ${DATA_CONTROLLER.address}. Ad, soyad, telefon, e-posta, il/ilçe, verilirse en yakın yetkili satıcı eşleştirmesi için mahalle, iletişim tercihi, opsiyonel not, seçili exact varyant ve talep türü; satış talebini almak, uygun yetkili satıcıyı belirlemek, güvenliği sağlamak, talebi sonuçlandırmak ve izinleri ispatlamak amaçlarıyla toplanır. Açık adres ve koordinat alınmaz. Toplama yöntemi bu çevrim içi form ve imzalı Aşama 3 handoff kaydıdır. Talep kaydı sözleşmenin kurulması veya ifasıyla doğrudan ilgili olma; güvenlik kayıtları ölçülü meşru menfaat; bayi aktarımı ise hukuk incelemesinde belirlenecek aktarım şartı/açık rıza kapsamında işlenir. Veriler yalnız seçilen/yetkili satıcı kategorisine ve doğrulanmış altyapı alt işleyenlerine, belirtilen amaç ve alan allowlist'iyle aktarılabilir. Yurt dışı aktarım bu sürümde kapalıdır. KVKK m.11 hakları ve başvuru yolu: ${DATA_CONTROLLER.applicationAddress}. Saklama ve periyodik imha süreleri, bayi listesi, alt işleyenler ve başvuru kanalı doğrulanmadan canlı gönderim açılamaz. Aydınlatma, rıza talebi değildir.`),
+  dealerTransfer: artifact("dealer-transfer-consent/v1", "Talebimin, yalnız bu talebi karşılamak için seçilecek yetkili satıcıyla paylaşılmasına açık rıza veriyorum.", "TASLAK — HUKUK ONAYI ZORUNLUDUR. Ad, soyad, telefon, e-posta, il/ilçe, verilmişse mahalle, iletişim tercihi, güvenli not, exact varyant ve talep türünün; talebi yanıtlaması amacıyla yayınlanmış dizinden seçilen Türkiye'deki yetkili satıcı tüzel kişisine aktarılmasına özgür irademle, belirli ve bilgilendirilmiş biçimde rıza veriyorum. Rızamı talep teslim edilmeden önce geri alabileceğimi biliyorum. Bu rıza pazarlama iletişimini kapsamaz."),
+  commercial: artifact("commercial-communications-consent/v1", "Kampanya ve tanıtımlar için seçtiğim kanallardan ticari elektronik ileti almak istiyorum.", "TASLAK — HUKUK ONAYI ZORUNLUDUR. Expiya ve hukukça doğrulanmış gönderen sıfatındaki işletmenin kampanya, tanıtım ve pazarlama iletilerini yalnız ayrıca seçtiğim kanallardan göndermesine izin veriyorum. Bu izin satış talebinin iletilmesi için zorunlu değildir; önceden işaretli değildir ve her zaman ret/İYS kanalları üzerinden geri alınabilir. İYS kayıt ve bildirim yükümlülükleri canlı kullanım öncesinde doğrulanmalıdır."),
+  conversationSummary: artifact("sales-conversation-summary-consent/v1", "Ekranda gösterilen satış özetinin seçtiğim yetkili satıcıyla paylaşılmasına izin veriyorum.", "TASLAK — HUKUK ONAYI ZORUNLUDUR. Ekranda gösterilen, ham sohbet mesajları yerine yalnız kullanıcı tarafından açıkça belirtilmiş/onaylanmış ihtiyaçlar ile araç görüşmesinde sorulan güvenli konulardan oluşturulan satış özetinin seçilecek tek yetkili satıcıyla talebimi anlaması amacıyla paylaşılmasına izin veriyorum. Bu seçim opsiyoneldir; izin vermezsem temel satış talebim yine iletilebilir. Özel nitelikli, üçüncü kişiye ait veya gereksiz veriler özete dahil edilmemelidir."),
+} as const;
+
+export const LEGAL_READY = false;

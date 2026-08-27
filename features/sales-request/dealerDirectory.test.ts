@@ -1,0 +1,3 @@
+import { describe, expect, it } from "vitest";
+import { PILOT_FAKE_DEALER, resolveAuthorizedDealer } from "./dealerDirectory.server";
+describe("pilot fake dealer directory",()=>{it("maps every non-empty location and exact variant to the explicit fake dealer in tests",()=>{for(const input of [{province:"İstanbul",district:"Kadıköy",exactVariantId:"variant-a"},{province:"Hakkâri",district:"Yüksekova",exactVariantId:"variant-z"}])expect(resolveAuthorizedDealer(input).id).toBe(PILOT_FAKE_DEALER.id);expect(PILOT_FAKE_DEALER.notificationEmail).toBe("serdar@expiya.com");expect(PILOT_FAKE_DEALER.locationCoverage).toBe("ALL_TURKEY");expect(PILOT_FAKE_DEALER.exactVariantCoverage).toBe("ALL_EXACT_VARIANTS");});});
