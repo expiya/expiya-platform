@@ -30,6 +30,7 @@ export class Phase2SecurityError extends Error {
 
 const hash = (value: string) => createHash("sha256").update(value).digest("hex").slice(0, 24);
 const isProduction = () => process.env.VERCEL_ENV === "production" || process.env.NODE_ENV === "production";
+const allowsPreviewMemorySecurity = () => process.env.VERCEL_ENV === "preview" && process.env.CARS_PHASE2_ALLOW_MEMORY_SECURITY === "true";
 const redisConfig = () => {
   const url = process.env.UPSTASH_REDIS_REST_URL?.trim(); const token = process.env.UPSTASH_REDIS_REST_TOKEN?.trim();
   return url && token ? { url, token } : undefined;
@@ -77,7 +78,7 @@ export async function enforcePhase2RateLimits(request: Request, operation: Phase
   const entries = rateKeys(request, operation, subjects, mode); const redis = redisConfig();
   if (entries.length === 0) return;
   if (!redis) {
-    if (isProduction()) throw new Phase2SecurityError("SECURITY_BACKEND_UNAVAILABLE", 503);
+    if (isProduction() && !allowsPreviewMemorySecurity()) throw new Phase2SecurityError("SECURITY_BACKEND_UNAVAILABLE", 503);
     const now = Date.now(); pruneLocal(now); let retryAfter = 0;
     for (const entry of entries) { const current = counters.get(entry.key); const next = !current || current.resetAt <= now ? { count: 1, resetAt: now + entry.windowMs } : { ...current, count: current.count + 1 }; counters.set(entry.key, next); if (next.count > entry.limit) retryAfter = Math.max(retryAfter, Math.ceil((next.resetAt - now) / 1_000)); }
     if (retryAfter) { logPhase2SecurityEvent("rate_limit_rejected", { operation, backend: "memory", retryAfter }); throw new Phase2SecurityError("RATE_LIMITED", 429, retryAfter); } return;
@@ -104,7 +105,7 @@ async function redisCommand(redis: { url: string; token: string }, command: read
 export async function withPhase2ConversationLock<T>(conversationId: string, operation: () => Promise<T>): Promise<T> {
   const key = `phase2:lock:chat:${hash(conversationId)}`; const owner = randomUUID(); const redis = redisConfig(); const ttlMs = 20_000;
   if (!redis) {
-    if (isProduction()) throw new Phase2SecurityError("SECURITY_BACKEND_UNAVAILABLE", 503);
+    if (isProduction() && !allowsPreviewMemorySecurity()) throw new Phase2SecurityError("SECURITY_BACKEND_UNAVAILABLE", 503);
     const now = Date.now(); pruneLocal(now); if ((locks.get(key)?.expiresAt ?? 0) > now) { logPhase2SecurityEvent("concurrent_request_rejected", { operation: "CHAT", backend: "memory" }); throw new Phase2SecurityError("CONCURRENT_REQUEST", 429, 2); } locks.set(key, { owner, expiresAt: now + ttlMs });
     try { return await operation(); } finally { if (locks.get(key)?.owner === owner) locks.delete(key); }
   }
@@ -119,7 +120,7 @@ export async function withPhase2Idempotency<T>(identity: string, requestValue: u
   const requestDigest = createHash("sha256").update(JSON.stringify(requestValue)).digest("hex");
   const redis = redisConfig();
   if (!redis) {
-    if (isProduction()) throw new Phase2SecurityError("SECURITY_BACKEND_UNAVAILABLE", 503);
+    if (isProduction() && !allowsPreviewMemorySecurity()) throw new Phase2SecurityError("SECURITY_BACKEND_UNAVAILABLE", 503);
     const now = Date.now(); pruneLocal(now); const replay = replays.get(key);
     if (replay) { if (replay.requestDigest !== requestDigest) throw new TypeError("PHASE2_MESSAGE_PAYLOAD_CONFLICT"); return replay.response as T; }
     const response = await operation(); replays.set(key, { requestDigest, response, expiresAt: now + REPLAY_TTL_MS }); return response;

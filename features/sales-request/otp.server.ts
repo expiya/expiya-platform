@@ -7,7 +7,10 @@ export class DisabledSmsOtpAdapter implements SmsOtpAdapter { async send(): Prom
 export class InMemorySmsOtpAdapter implements SmsOtpAdapter { readonly deliveries: { phone: string; code: string }[] = []; async send(input: { phone: string; code: string }) { this.deliveries.push({ phone: input.phone, code: input.code }); return { providerMessageId: `test-${this.deliveries.length}` }; } }
 export class HttpSmsOtpAdapter implements SmsOtpAdapter { constructor(private readonly endpoint: string, private readonly bearerToken: string) {} async send(input: { phone: string; code: string }) { const response = await fetch(this.endpoint, { method: "POST", headers: { "Content-Type": "application/json", Authorization: `Bearer ${this.bearerToken}` }, body: JSON.stringify({ recipient: input.phone, template: "EXPIYA_SALES_PHONE_VERIFICATION", variables: { code: input.code, expiresInMinutes: 5 } }) }); if (!response.ok) throw new TypeError("SMS_DELIVERY_FAILED"); const payload = await response.json() as { messageId?: string }; if (!payload.messageId) throw new TypeError("SMS_DELIVERY_INVALID"); return { providerMessageId: payload.messageId }; } }
 const pilotAdapter = new InMemorySmsOtpAdapter();
-export function isPhase3PilotTestMode() { return process.env.NODE_ENV !== "production" && process.env.CARS_PHASE3_TEST_MODE === "true"; }
+export function isPhase3PilotTestMode() {
+  const nonProductionRuntime = process.env.NODE_ENV !== "production" || process.env.VERCEL_ENV === "preview";
+  return nonProductionRuntime && process.env.CARS_PHASE3_TEST_MODE === "true";
+}
 export function configuredSmsOtpAdapter(): SmsOtpAdapter {
   if (isPhase3PilotTestMode()) return pilotAdapter;
   const externalExecutionEnabled = LEGAL_READY && process.env.CARS_PHASE3_EXTERNAL_EXECUTION_ENABLED === "true";

@@ -33,6 +33,13 @@ describe("phase 2 adversarial security boundary", () => {
     await expect(enforcePhase2RateLimits(request(), "CHAT")).rejects.toMatchObject({ code: "SECURITY_BACKEND_UNAVAILABLE", status: 503 });
   });
 
+  it("allows bounded memory only in an explicitly enabled preview", async () => {
+    vi.stubEnv("NODE_ENV", "production");
+    vi.stubEnv("VERCEL_ENV", "preview");
+    vi.stubEnv("CARS_PHASE2_ALLOW_MEMORY_SECURITY", "true");
+    await expect(enforcePhase2RateLimits(request(), "CHAT")).resolves.toBeUndefined();
+  });
+
   it("rejects parallel turns for one conversation", async () => {
     let release!: () => void; const gate = new Promise<void>((resolve) => { release = resolve; });
     const first = withPhase2ConversationLock("conversation-a", async () => { await gate; return "done"; });
