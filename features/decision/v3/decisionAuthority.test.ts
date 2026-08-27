@@ -50,6 +50,13 @@ describe("V3 verified/unverified and budget decision boundary", () => {
     expect(second.state.budgetMetadata).toBeUndefined();
   });
 
+  it("does not enable the budget filter when the user explicitly rejects inclusion", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const output = await runV3Turn({ conversationId: "budget-rejected", messageId: "1", message: "Bütçeyi karar filtresine dahil etmek istemiyorum; ihtiyaç odaklı devam.", expectedRevision: 0 });
+    expect(output.state.budgetMode).toBe("NEEDS_ONLY");
+    expect(output.state.budgetModeEvents).toEqual([]);
+  });
+
   it("uses only exact-verified standard equipment as a hard filter without changing ranking semantics", async () => {
     const catalog = await evaluateV3Catalog([]);
     const equipment = { id: "e", sourceMessageId: "1", sourceTurn: 1, sourceSpan: { start: 0, end: 1, text: "x" }, concept: "equipmentFeature", field: "equipmentFeature", normalizedValue: "REAR_VIEW_CAMERA", strength: "EXPLICIT_STRONG", status: "ACTIVE", decisionUse: "HARD_FILTER", confidence: 1, authority: "USER_EXPLICIT", confirmationRequired: false } as const;
