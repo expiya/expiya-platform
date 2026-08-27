@@ -1,5 +1,6 @@
-import { createProductionCatalogReleaseRepository } from "../v2/catalog/fileSystemRepository.server";
-import { loadActiveCatalogSnapshot } from "../v2/catalog/snapshot";
+import activeCatalogPointer from "@/data/production/catalog/active.json";
+import { activeCatalogManifest, activeCatalogPayload, activeDecisionFacetPayload } from "@/data/production/catalog/activeCatalog.generated";
+import { buildCatalogSnapshot } from "../v2/catalog/snapshot";
 import type { CatalogVariantSnapshot } from "../v2/catalog/types";
 import { getReviewedEquipmentAssociations, getVerifiedEquipmentAssertions } from "../../vehicle-data/equipmentEvidenceResolver";
 import { vehiclePersonaSafeTraitReleaseSchema, selectOwnerApprovedSafePersonaSignals } from "../../vehicle-data/vehiclePersonaSafeTraits";
@@ -16,14 +17,14 @@ import type { EquipmentFeatureCode } from "@/types/equipmentEvidence";
 
 export interface V3CatalogEvaluation { readonly initialCount: number; readonly candidateIds: readonly string[]; readonly variants: readonly CatalogVariantSnapshot[]; readonly appliedEquipment: readonly PreferenceEvent[]; readonly unsupportedEquipment: readonly PreferenceEvent[]; readonly catalogReleaseVersion: string; readonly catalogFingerprint: string }
 export interface V3CatalogEntitySignals { readonly brands: readonly string[]; readonly models: readonly string[] }
-type LoadedCatalog = Awaited<ReturnType<typeof loadActiveCatalogSnapshot>>;
+type LoadedCatalog = ReturnType<typeof buildCatalogSnapshot>;
 let cachedActiveCatalog: Promise<LoadedCatalog> | undefined;
 const personaSignals = selectOwnerApprovedSafePersonaSignals(vehiclePersonaSafeTraitReleaseSchema.parse(activeVehiclePersonaSafeTraitRelease)).signals;
 const personaTraitsByVariant = new Map<string, ReadonlySet<VehiclePersonaTrait>>();
 let activeCatalogAuthority: { readonly release: string; readonly fingerprint: string } | undefined;
 for (const signal of personaSignals) personaTraitsByVariant.set(signal.exactVariantId, new Set([...(personaTraitsByVariant.get(signal.exactVariantId) ?? []), signal.trait]));
 const loadV3ActiveCatalog = (now?: Date): Promise<LoadedCatalog> => {
-  const load = () => loadActiveCatalogSnapshot({ repository: createProductionCatalogReleaseRepository(process.cwd()), now: now ?? new Date() });
+  const load = () => Promise.resolve(buildCatalogSnapshot({ pointer: activeCatalogPointer, manifest: activeCatalogManifest, catalog: activeCatalogPayload, decisionFacets: activeDecisionFacetPayload, now: now ?? new Date(), enforceTemporalInvariant: true }));
   if (now) return load();
   cachedActiveCatalog ??= load();
   return cachedActiveCatalog;
