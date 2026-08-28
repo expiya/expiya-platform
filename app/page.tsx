@@ -1,63 +1,6 @@
-"use client";
+import { CarsConversationV3 } from "@/components/cars/CarsConversationV3";
+import { getV3MinimumCatalogPriceTry } from "@/features/decision/v3/catalogAdapter.server";
 
-import { useRouter } from "next/navigation";
-import { FormEvent, KeyboardEvent, useState } from "react";
-export default function Home() {
-  const router = useRouter();
-  const [query, setQuery] = useState("");
-
-  function submit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!query.trim()) return;
-    router.push(`/analysis?query=${encodeURIComponent(query.trim())}`);
-  }
-
-  function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
-    if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
-    event.preventDefault();
-    if (query.trim()) router.push(`/analysis?query=${encodeURIComponent(query.trim())}`);
-  }
-
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-neutral-50 text-neutral-950 dark:from-neutral-950 dark:to-black dark:text-neutral-50">
-      <section className="mx-auto flex max-w-5xl flex-col items-center px-6 py-24 text-center">
-
-        <div className="rounded-full border border-neutral-300 px-4 py-2 text-sm text-neutral-600 dark:border-neutral-700 dark:text-neutral-300">
-          Expiya Cars
-        </div>
-
-        <h1 className="mt-8 text-5xl font-bold tracking-tight sm:text-6xl">
-          Sizin için doğru arabayı
-          <br />
-          birlikte bulalım
-        </h1>
-
-        <p className="mt-6 max-w-2xl text-lg text-neutral-600 dark:text-neutral-300">
-          İhtiyaçlarınızı anlatın; seçenekleri bir arkadaş gibi konuşup sonunda
-          net ve gerekçeli bir karara ulaşalım.
-        </p>
-
-        <form onSubmit={submit} className="flex w-full flex-col items-center">
-        <label htmlFor="initial-car-message" className="sr-only">İlk mesajınız</label>
-        <textarea
-  id="initial-car-message"
-  value={query}
-  onChange={(e) => setQuery(e.target.value)}
-  onKeyDown={handleKeyDown}
-  placeholder="Hadi başlayalım… Aklınızdaki aracı veya ihtiyacınızı anlatın."
-  className="mt-10 h-40 w-full max-w-3xl rounded-2xl border border-neutral-300 bg-white p-6 text-lg text-neutral-950 outline-none focus:border-black dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-50 dark:focus:border-neutral-400"
-/>
-
-        <button
-  type="submit"
-  disabled={!query.trim()}
-  className="mt-8 rounded-xl bg-neutral-950 px-8 py-4 font-semibold text-white! transition hover:bg-neutral-800 disabled:opacity-40 dark:bg-neutral-800 dark:text-white! dark:hover:bg-neutral-700"
->
-  Aracımı Bul
-</button>
-        </form>
-
-      </section>
-    </main>
-  );
+export default async function Home() {
+  return <CarsConversationV3 minimumBudgetTry={await getV3MinimumCatalogPriceTry()} />;
 }

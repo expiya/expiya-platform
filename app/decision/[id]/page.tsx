@@ -135,7 +135,7 @@ function V3DecisionDetail({ context }: { readonly context: V3DecisionContext }) 
 
   return <main className="min-h-screen bg-neutral-50 p-5 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:p-10">
     <div className="mx-auto max-w-4xl">
-      <Link href="/analysis?pilot=v3.8" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
+      <Link href="/" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
       <article className="mt-6 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
         <div className="relative aspect-[16/9]"><Image src={card.image} alt={`${card.title} araç görseli`} fill priority sizes="(max-width: 900px) 100vw, 850px" className="object-cover" /></div>
         <div className="space-y-5 p-6 sm:p-8">
