@@ -6,12 +6,15 @@ export const CARS_CONVERSATION_AVAILABILITY = Object.freeze({
 });
 
 export function isPublicCarsConversationEnabled(
-  environment: Partial<Pick<NodeJS.ProcessEnv, "NODE_ENV" | "CARS_CONVERSATION_LOCAL_TESTING">> = process.env,
+  environment: Partial<Pick<NodeJS.ProcessEnv, "NODE_ENV" | "CARS_CONVERSATION_LOCAL_TESTING" | "CARS_CONVERSATION_PUBLIC">> = process.env,
   pilotAuthenticated = false,
 ): boolean {
   // An authenticated invitation-only pilot may exercise the production
   // conversation without opening the public maintenance gate.
   if (pilotAuthenticated) return true;
+  // Public production access is an explicit, server-only release switch.
+  // Unknown values remain fail-closed and never reach the client bundle.
+  if (environment.NODE_ENV === "production" && environment.CARS_CONVERSATION_PUBLIC === "true") return true;
   // Unit and replay suites exercise the engine behind the public maintenance gate.
   if (environment.NODE_ENV === "test") return true;
   // Manual browser testing is explicitly opt-in and can never open production.
