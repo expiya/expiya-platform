@@ -29,6 +29,20 @@ function quickChoices(message: Message): { multiple: boolean; choices: readonly 
     const choices = key.slice("verifiedEquipment:".length).split("|").flatMap((code) => { const definition = equipmentDefinitions.get(code); return definition ? [{ value: definition.labelTr.toLocaleLowerCase("tr-TR"), label: definition.labelTr, description: equipmentDailyUse[definition.category] ?? "Günlük kullanımda belirgin bir kolaylık sağlayabilir." }] : []; });
     return choices.length ? { multiple: true, choices: [...choices, { value: "Bu seçeneklerden hiçbiri şart değil", label: "Hiçbiri şart değil", description: "Bu donanımlar zorunlu tutulmadan daha geniş bir araç seçeneği değerlendirilir.", exclusive: true }] } : undefined;
   }
+  if (key.startsWith("personaDiscriminator:")) {
+    const labels: Readonly<Record<string, readonly [string, string]>> = {
+      COMFORT: ["Uzun yol konforu", "Kabin ve yolculuk rahatlığını öne alır."], PRACTICALITY: ["Günlük pratiklik", "Kullanışlılık ve günlük yaşam kolaylığını öne alır."], TECHNOLOGY: ["Teknoloji", "Teknoloji karakteri daha güçlü seçenekleri öne alır."], SUSTAINABILITY: ["Elektrikli ve sürdürülebilir karakter", "Elektrikli mobilite karakterini öne alır."], DRIVING_ENGAGEMENT: ["Sürüş keyfi", "Sürüş karakteri daha belirgin seçenekleri öne alır."], FAMILY: ["Aile pratikliği", "Aile kullanımına dönük pratik karakteri öne alır."], DESIGN: ["Tasarım karakteri", "Tasarımı daha ayırt edici seçenekleri öne alır."],
+    };
+    const choices = key.slice("personaDiscriminator:".length).split("|").flatMap((code) => labels[code] ? [{ value: labels[code][0], label: labels[code][0], description: labels[code][1] }] : []);
+    return { multiple: false, choices: [...choices, { value: "Bu gruptakilerden hiçbiri belirleyici değil", label: "Hiçbiri belirleyici değil", description: "Bu persona farkları karar sırasını etkilemez.", exclusive: true }] };
+  }
+  if (key.startsWith("technicalDiscriminator:")) {
+    const labels: Readonly<Record<string, readonly [string, string]>> = {
+      COMPACT: ["Şehir içinde daha kısa gövde", "Doğrulanmış uzunluğu daha kısa araçları öne alır."], LUGGAGE: ["Uzun yol için daha büyük bagaj", "Doğrulanmış bagaj hacmi daha yüksek araçları öne alır."], POWER: ["Daha yüksek motor gücü", "Doğrulanmış motor gücü daha yüksek araçları öne alır."], PRICE: ["Daha düşük satın alma fiyatı", "Yalnız kullanıcıya gösterilebilir doğrulanmış fiyatları karşılaştırır."], RANGE: ["Daha yüksek elektrikli menzil", "Doğrulanmış elektrikli menzili daha yüksek araçları öne alır."],
+    };
+    const choices = key.slice("technicalDiscriminator:".length).split("|").flatMap((code) => labels[code] ? [{ value: labels[code][0], label: labels[code][0], description: labels[code][1] }] : []);
+    return { multiple: false, choices: [...choices, { value: "Bu gruptakilerden hiçbiri belirleyici değil", label: "Hiçbiri belirleyici değil", description: "Bu teknik farklar karar sırasını etkilemez.", exclusive: true }] };
+  }
   if (key === "fuelType") return { multiple: true, choices: [
     { value: "Benzinli", label: "Benzinli", description: "Kısa ve orta mesafede sade kullanım; şarj gerektirmez." },
     { value: "Dizel", label: "Dizel", description: "Düzenli yüksek kilometre ve uzun yolda tüketim avantajı sağlayabilir." },

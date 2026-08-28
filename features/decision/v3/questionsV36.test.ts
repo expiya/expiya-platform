@@ -85,7 +85,7 @@ describe("V3.6 direct question behavior", () => {
     expect(output.variantCounts?.remaining).toBe(before);
   });
 
-  it("does not turn an exact 12-way score tie into an ID-based single recommendation", async () => {
+  it("keeps asking candidate-reducing questions instead of resolving a 12-way tie by ID", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     const id = "long-road-safety-tie";
     let output = await runV3Turn({ conversationId: id, messageId: "1", message: "Uzun yolda güvenli, aynı zamanda şehir içinde pratik bir araç arıyorum", expectedRevision: 0 });
@@ -96,8 +96,21 @@ describe("V3.6 direct question behavior", () => {
     output = await runV3Turn({ conversationId: id, messageId: "5", message: "Adaptif hız sabitleyici ve kör nokta izleme benim için vazgeçilmez", expectedRevision: output.state.revision, state: output.state });
     expect(output.offerAwaitingConsent).not.toBe(true);
     expect(output.recommendations).toBeUndefined();
-    expect(output.state.lastQuestionKey).toBe("brandModel");
-    expect(output.message).toMatch(/aynı puanda/iu);
+    expect(output.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
+    expect(output.message).toMatch(/gerçekten ayıran/iu);
+    output = await runV3Turn({ conversationId: id, messageId: "6", message: "Bu seçeneklerden hiçbiri şart değil", expectedRevision: output.state.revision, state: output.state });
+    expect(output.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
+    output = await runV3Turn({ conversationId: id, messageId: "7", message: "Bu seçeneklerden hiçbiri şart değil", expectedRevision: output.state.revision, state: output.state });
+    expect(output.state.lastQuestionKey).toMatch(/^personaDiscriminator:/u);
+    expect(output.message).toMatch(/karakter olarak ayrışıyor/iu);
+    output = await runV3Turn({ conversationId: id, messageId: "8", message: "Bu gruptakilerden hiçbiri belirleyici değil", expectedRevision: output.state.revision, state: output.state });
+    expect(output.state.lastQuestionKey).toMatch(/^personaDiscriminator:/u);
+    output = await runV3Turn({ conversationId: id, messageId: "9", message: "Bu gruptakilerden hiçbiri belirleyici değil", expectedRevision: output.state.revision, state: output.state });
+    expect(output.state.lastQuestionKey).toMatch(/^technicalDiscriminator:/u);
+    expect(output.message).toMatch(/doğrulanmış teknik veriler/iu);
+    output = await runV3Turn({ conversationId: id, messageId: "10", message: "Şehir içinde daha kısa gövde", expectedRevision: output.state.revision, state: output.state });
+    expect(output.offerAwaitingConsent).toBe(true);
+    expect(output.recommendations).toBeUndefined();
   });
 
   it("varies conversational acknowledgement copy across consecutive turns", async () => {

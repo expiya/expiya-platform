@@ -171,6 +171,11 @@ export function scoreV3Candidate(variant: CatalogVariantSnapshot, ledger: readon
   const preferences = projectV3DecisionPreferences(ledger, budgetMode).filter((preference) => preference.concept !== "budgetMax" && preference.concept !== "budgetTarget");
   return preferences.reduce((total, preference) => {
     if (preference.concept === "performance") return total + variant.decisionFacts.powertrain.powerKw.value / 100;
+    if (preference.concept === "candidateCompactPriority") return total + (variant.decisionFacts.dimensions.lengthMm ? Math.max(0, 10 - variant.decisionFacts.dimensions.lengthMm.value / 1_000) : 0);
+    if (preference.concept === "candidateLuggagePriority") return total + (variant.decisionFacts.dimensions.luggageLitres?.value ?? 0) / 100;
+    if (preference.concept === "candidatePowerPriority") return total + variant.decisionFacts.powertrain.powerKw.value / 100;
+    if (preference.concept === "candidatePricePriority") return total - (variant.activeNewPrice?.consumerVisibility === "PUBLIC" && variant.activeNewPrice.realizationSafe ? variant.activeNewPrice.amountTry : 99_000_000) / 1_000_000;
+    if (preference.concept === "candidateRangePriority") return total + (variant.decisionFacts.efficiency.electricRangeKm?.value ?? 0) / 100;
     if (preference.concept === "valueEconomy") return total - (variant.activeNewPrice?.amountTry ?? 99_000_000) / 10_000_000;
     if (preference.concept === "longDistanceComfort") return total + (variant.decisionFacts.bodyStyle.value.toUpperCase().includes("SUV") ? 2 : 0);
     if (preference.concept === "brandPreference" && preference.decisionUse === "SOFT_RANK") { const accepted = Array.isArray(preference.normalizedValue) ? preference.normalizedValue : [preference.normalizedValue]; return total + (accepted.some((value) => variant.brand.localeCompare(String(value), "tr", { sensitivity: "base" }) === 0) ? 10 : 0); }

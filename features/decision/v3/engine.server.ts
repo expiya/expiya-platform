@@ -15,6 +15,7 @@ import {
   scoreV3Candidate,
 } from "./catalogAdapter.server";
 import { answerV3CatalogQuestion } from "./catalogQuestion.server";
+import { planV3PersonaDiscriminator, planV3TechnicalDiscriminator } from "./candidateDiscriminator";
 import { createV31Offer, revealV31Offer } from "./offerGovernance.server";
 import { interpretV31Message } from "./semanticProvider.server";
 import {
@@ -1312,6 +1313,36 @@ export async function runV3Turn(input: {
           ...new Set([...base.askedQuestionKeys, "decisionDifferentiator"]),
         ],
         lastQuestionKey: "decisionDifferentiator",
+      },
+    };
+  }
+  const rankedForDiscriminator = catalog?.variants.length ? rankV3Candidates(catalog.variants, ledger, budgetMode) : [];
+  const discriminatorTopScore = rankedForDiscriminator[0] ? scoreV3Candidate(rankedForDiscriminator[0], ledger, budgetMode) : undefined;
+  const tiedTopCandidates = discriminatorTopScore === undefined ? [] : rankedForDiscriminator.filter((variant) => Math.abs(scoreV3Candidate(variant, ledger, budgetMode) - discriminatorTopScore) < 1e-9);
+  const iterativeEquipmentRounds = base.askedQuestionKeys.filter((key) => key.startsWith("verifiedEquipment:")).length;
+  const iterativePersonaRounds = base.askedQuestionKeys.filter((key) => key.startsWith("personaDiscriminator:")).length;
+  const inDiscriminationSequence =
+    prior.lastQuestionKey?.startsWith("verifiedEquipment:") ||
+    prior.lastQuestionKey?.startsWith("personaDiscriminator:") ||
+    prior.lastQuestionKey?.startsWith("technicalDiscriminator:") ||
+    prior.lastQuestionKey === "brandModel";
+  const iterativeDiscriminator = tiedTopCandidates.length > 1 && equipmentResolved && inDiscriminationSequence && !base.pendingConfirmation
+    ? (iterativeEquipmentRounds < 3
+        ? planV3VerifiedEquipmentQuestion(tiedTopCandidates, base.askedQuestionKeys, String(latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue ?? ""))
+        : undefined)
+      ?? (iterativePersonaRounds < 2
+        ? planV3PersonaDiscriminator(tiedTopCandidates, base.askedQuestionKeys, ledger)
+        : undefined)
+      ?? planV3TechnicalDiscriminator(tiedTopCandidates, base.askedQuestionKeys, ledger)
+    : undefined;
+  if (iterativeDiscriminator) {
+    return {
+      kind: "V3_CONVERSATION",
+      message: `Tek ve gerekçelendirilebilir bir karara ulaşmak için kalan seçenekleri gerçekten ayıran bir noktayı netleştirelim. ${iterativeDiscriminator.text}`,
+      state: {
+        ...base,
+        askedQuestionKeys: [...new Set([...base.askedQuestionKeys, iterativeDiscriminator.key])],
+        lastQuestionKey: iterativeDiscriminator.key,
       },
     };
   }

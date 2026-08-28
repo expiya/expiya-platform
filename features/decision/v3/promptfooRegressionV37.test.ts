@@ -3,6 +3,7 @@ import { activeDecisionPreferences } from "./ledger";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
 import { routeConversationMessage } from "./router";
 import { createRecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
+import { advanceV3ToOffer } from "./testConversationDecision";
 
 const priorDisabled = process.env.CARS_V31_PROVIDER_DISABLED;
 afterEach(() => { if (priorDisabled === undefined) delete process.env.CARS_V31_PROVIDER_DISABLED; else process.env.CARS_V31_PROVIDER_DISABLED = priorDisabled; });
@@ -93,6 +94,10 @@ describe("V3.7 Promptfoo conversation regressions", () => {
     for (const [id, message] of [["2", "Marka tercihim yok, sen seç"], ["3", "Evet, göster"]] as const) {
       output = await runV3Turn({ conversationId: state.conversationId, messageId: id, message, expectedRevision: state.revision, state, ...(state.pendingOffer ? { recommendationTermsAcceptance: createRecommendationTermsAcceptance() } : {}) });
       state = output.state;
+    }
+    if (!output.recommendations) {
+      output = await advanceV3ToOffer(output, "single-neutral-discriminator");
+      output = await runV3Turn({ conversationId: state.conversationId, messageId: "single-neutral-reveal", message: "Evet, göster", expectedRevision: output.state.revision, state: output.state, recommendationTermsAcceptance: createRecommendationTermsAcceptance() });
     }
     expect(output.recommendations).toHaveLength(1);
   });

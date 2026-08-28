@@ -737,6 +737,30 @@ export function applyPreferenceMessage(
         use: "NONE",
       }),
     );
+  const personaDiscriminator: Readonly<Record<string, { concept: string; pattern: RegExp }>> = {
+    COMFORT: { concept: "candidateComfortPriority", pattern: /uzun yol konforu/iu },
+    PRACTICALITY: { concept: "candidatePracticalityPriority", pattern: /günlük pratiklik|kullanışlılık/iu },
+    TECHNOLOGY: { concept: "candidateTechnologyPriority", pattern: /teknoloji/iu },
+    SUSTAINABILITY: { concept: "candidateSustainabilityPriority", pattern: /sürdürülebilir|elektrikli.*karakter/iu },
+    DRIVING_ENGAGEMENT: { concept: "candidateDrivingPriority", pattern: /sürüş keyfi/iu },
+    FAMILY: { concept: "candidateFamilyPriority", pattern: /aile pratikliği/iu },
+    DESIGN: { concept: "candidateDesignPriority", pattern: /tasarım karakteri/iu },
+  };
+  if (state.lastQuestionKey?.startsWith("personaDiscriminator:") && !/hiçbiri/iu.test(text)) {
+    const selected = state.lastQuestionKey.slice("personaDiscriminator:".length).split("|").map((code) => personaDiscriminator[code]).find((item) => item?.pattern.test(text));
+    if (selected) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: selected.concept, value: "USER_SELECTED", use: "SOFT_RANK" }));
+  }
+  const technicalDiscriminator: Readonly<Record<string, { concept: string; pattern: RegExp }>> = {
+    COMPACT: { concept: "candidateCompactPriority", pattern: /kısa|kolay manevra|kompakt/iu },
+    LUGGAGE: { concept: "candidateLuggagePriority", pattern: /büyük bagaj|bagaj/iu },
+    POWER: { concept: "candidatePowerPriority", pattern: /motor gücü|güç/iu },
+    PRICE: { concept: "candidatePricePriority", pattern: /satın alma fiyatı|daha düşük.*fiyat/iu },
+    RANGE: { concept: "candidateRangePriority", pattern: /elektrikli menzil|menzil/iu },
+  };
+  if (state.lastQuestionKey?.startsWith("technicalDiscriminator:") && !/hiçbiri/iu.test(text)) {
+    const selected = state.lastQuestionKey.slice("technicalDiscriminator:".length).split("|").map((code) => technicalDiscriminator[code]).find((item) => item?.pattern.test(text));
+    if (selected) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: selected.concept, value: "USER_SELECTED", use: "SOFT_RANK" }));
+  }
   const transmission = normalizedTransmission(text);
   if (transmission)
     ledger = supersedeActive(
