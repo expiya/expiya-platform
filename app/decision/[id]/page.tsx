@@ -11,6 +11,7 @@ import { interpretRecommendation } from "@/features/decision/interpretRecommenda
 import type { PersistedCarsConversation } from "@/types/carsConversation";
 import type { RecommendedCar } from "@/types/recommendation";
 import type { DecisionSafePublicCard } from "@/features/decision/v2/presentation/publicCardSchema";
+import type { V3PublicResponse } from "@/features/decision/v3/types";
 
 const storageKey = "expiya:cars-conversation:v5";
 const legacyStorageKey = "expiya:cars-conversation:v4";
@@ -85,6 +86,38 @@ function V2DecisionDetail({ card }: { readonly card: DecisionSafePublicCard }) {
   </main>;
 }
 
+type V3DecisionCard = NonNullable<V3PublicResponse["recommendations"]>[number];
+
+function readV3Card(decisionId: string): V3DecisionCard | null {
+  if (!decisionId.startsWith("v3-")) return null;
+  try {
+    const exactVariantId = decodeURIComponent(decisionId.slice(3));
+    const conversation = JSON.parse(sessionStorage.getItem("expiya:cars-conversation:v3.8-pilot") ?? "null") as { messages?: readonly { recommendations?: V3PublicResponse["recommendations"] }[] } | null;
+    return conversation?.messages?.flatMap((message) => message.recommendations ?? []).find((card) => card.id === exactVariantId) ?? null;
+  } catch {
+    return null;
+  }
+}
+
+function V3DecisionDetail({ card }: { readonly card: V3DecisionCard }) {
+  return <main className="min-h-screen bg-neutral-50 p-5 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:p-10">
+    <div className="mx-auto max-w-4xl">
+      <Link href="/analysis?pilot=v3.8" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
+      <article className="mt-6 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
+        <div className="relative aspect-[16/9]"><Image src={card.image} alt={`${card.title} araç görseli`} fill priority sizes="(max-width: 900px) 100vw, 850px" className="object-cover" /></div>
+        <div className="space-y-5 p-6 sm:p-8">
+          {card.imageStatus !== "EXACT" ? <p className="text-sm text-neutral-500">{card.imageStatus === "PLACEHOLDER" ? "Araç görseli hazırlanıyor." : `Temsilî görsel${card.representedModel ? `: ${card.representedModel}` : ""}`}</p> : null}
+          {card.imageAttribution ? <p className="text-xs text-neutral-500">Görsel: {card.imageAttribution}</p> : null}
+          <div><p className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Önerilen araç</p><h1 className="mt-2 text-3xl font-bold sm:text-4xl">{card.title}</h1></div>
+          {card.badge ? <p className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-200">{card.badge}</p> : null}
+          {card.warning ? <p className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">{card.warning}</p> : null}
+          <p className="text-sm leading-6 text-neutral-600 dark:text-neutral-300">Bu sayfa mevcut görüşmede seçilen exact varyantı gösterir. Satış danışmanı geçişi güvenli görüşme bağlamı içinde yapılır.</p>
+        </div>
+      </article>
+    </div>
+  </main>;
+}
+
 function readConversation(): PersistedCarsConversation | null {
   try {
     return JSON.parse(sessionStorage.getItem(storageKey) ?? sessionStorage.getItem(legacyStorageKey) ?? "null") as PersistedCarsConversation | null;
@@ -110,6 +143,7 @@ export default function DecisionDetailPage() {
   const decisionId = params.id;
   const [recommendation, setRecommendation] = useState<RecommendedCar | null>();
   const [v2Card, setV2Card] = useState<DecisionSafePublicCard | null>();
+  const [v3Card, setV3Card] = useState<V3DecisionCard | null>();
   const [feedback, setFeedback] = useState<"HELPFUL" | "NOT_HELPFUL">();
   const [showLocation, setShowLocation] = useState(false);
   const [province, setProvince] = useState("");
@@ -120,14 +154,16 @@ export default function DecisionDetailPage() {
     queueMicrotask(() => {
       setRecommendation(readRecommendation(decisionId));
       setV2Card(readV2Card(decisionId));
+      setV3Card(readV3Card(decisionId));
     });
   }, [decisionId]);
 
-  if (recommendation === undefined || v2Card === undefined) {
+  if (recommendation === undefined || v2Card === undefined || v3Card === undefined) {
     return <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950" aria-label="Karar yükleniyor" />;
   }
 
   if (!recommendation && v2Card) return <V2DecisionDetail card={v2Card} />;
+  if (!recommendation && v3Card) return <V3DecisionDetail card={v3Card} />;
 
   if (!recommendation) {
     return (

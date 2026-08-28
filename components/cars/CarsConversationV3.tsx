@@ -149,6 +149,9 @@ export function CarsConversationV3({ initialQuery = "", minimumBudgetTry }: { re
   const recommendationTermsRequired = Boolean([...messages].reverse().find((message) => message.role === "assistant")?.trace?.offerAwaitingConsent);
   useEffect(() => { try { const stored = JSON.parse(sessionStorage.getItem(storageKey) ?? "null") as { state?: V3ConversationState; stateToken?: string; messages?: Message[] } | null; if (stored?.state?.version === "3.8") { setConversationId(stored.state.conversationId); setState(stored.state); setStateToken(stored.stateToken); setMessages(stored.messages ?? []); } } finally { setRestored(true); } }, []);
   useEffect(() => { if (restored) sessionStorage.setItem(storageKey, JSON.stringify({ state, stateToken, messages })); }, [messages, restored, state, stateToken]);
+  function persistConversationBeforeNavigation() {
+    sessionStorage.setItem(storageKey, JSON.stringify({ state, stateToken, messages }));
+  }
   useEffect(() => { conversationEndRef.current?.scrollIntoView({ block: "nearest" }); }, [loading, messages]);
   async function openPhase2(exactVariantId: string) {
     if (!stateToken || !state?.recommendationTermsAcceptance) return;
@@ -199,7 +202,7 @@ export function CarsConversationV3({ initialQuery = "", minimumBudgetTry }: { re
       sessionStorage.removeItem(storageKey); setConversationId(crypto.randomUUID()); setState(undefined); setStateToken(undefined); setMessages([]); setDraft("");
     } catch { setArchiveError("Görüşme kaydedilemedi; sohbet silinmedi. Lütfen yeniden dene."); } finally { setArchiving(false); }
   }
-  return <main className="min-h-screen bg-neutral-950 px-4 py-8 text-neutral-50"><section className="mx-auto flex min-h-[80vh] max-w-3xl flex-col rounded-3xl border border-neutral-800 bg-neutral-900 shadow-2xl">
+  return <main onClickCapture={persistConversationBeforeNavigation} className="min-h-screen bg-neutral-950 px-4 py-8 text-neutral-50"><section className="mx-auto flex min-h-[80vh] max-w-3xl flex-col rounded-3xl border border-neutral-800 bg-neutral-900 shadow-2xl">
     <header className="flex items-start justify-between gap-4 border-b border-neutral-800 px-6 py-5"><div><p className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-400">Expiya Cars</p><h1 className="mt-1 text-2xl font-semibold">Araç danışmanın</h1><p className="mt-1 text-sm text-neutral-400">İhtiyacını konuşalım, seçimi birlikte sadeleştirelim.</p>{latestVariantCounts && <div className="mt-3 inline-flex items-center gap-3 rounded-full border border-emerald-800 bg-emerald-950/60 px-3 py-1.5 text-sm"><span><strong>{latestVariantCounts.total}</strong> toplam varyant</span><span className="text-emerald-300"><strong>{latestVariantCounts.remaining}</strong> seçenek kaldı</span></div>}</div><button type="button" onClick={() => void archiveAndDelete()} disabled={!messages.length || loading || archiving} className="min-h-11 shrink-0 rounded-xl border border-red-900 px-3 py-2 text-sm text-red-300 disabled:cursor-not-allowed disabled:opacity-40">{archiving ? "Kaydediliyor…" : "Görüşmeyi sil"}</button></header>
     <section aria-labelledby="budget-mode-title" className="border-b border-neutral-800 bg-neutral-950/40 px-6 py-4">
       <div className="flex flex-wrap items-center justify-between gap-3"><div><h2 id="budget-mode-title" className="text-sm font-semibold text-neutral-200">Bütçeyi filtrele</h2><p className="mt-1 text-xs leading-5 text-neutral-400">Kapalıyken seçim yalnız ihtiyaçlarına göre yapılır. Açtığında belirlediğin üst sınır adayları eler.</p></div>
