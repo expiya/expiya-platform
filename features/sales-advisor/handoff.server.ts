@@ -3,6 +3,7 @@ import { getRevealedV31Offer } from "@/features/decision/v3/offerGovernance.serv
 import { unsealV31State } from "@/features/decision/v3/stateToken.server";
 import { evaluateV3Catalog } from "@/features/decision/v3/catalogAdapter.server";
 import { projectV3DecisionPreferences } from "@/features/decision/v3/decisionInput";
+import { publicPreferenceSummary } from "@/features/decision/v3/preferencePresentation";
 import type { PreferenceEvent, V3ConversationState } from "@/features/decision/v3/types";
 import { buildVariantContentArtifact, validateVariantContentArtifact } from "./artifact.server";
 import { SALES_ADVISOR_VERSION, type Phase2HandoffPayload } from "./types";
@@ -24,23 +25,7 @@ const handoffPayloadSchema = z.strictObject({
   approvedNeeds: z.array(z.strictObject({ concept: z.string().min(1).max(100), summary: z.string().min(1).max(300) })).max(40), personaMatchSummary: z.array(z.string().min(1).max(300)).max(10), recommendationTerms: z.strictObject({ version: z.string().min(1).max(100), acceptedAt: z.string().datetime() }), decisionStateDigest: z.string().regex(/^[a-f0-9]{64}$/u), nonce: z.string().regex(/^[A-Za-z0-9_-]{16,80}$/u), issuedAt: z.string().datetime(), expiresAt: z.string().datetime(),
 });
 
-const publicValues: Readonly<Record<string, string>> = {
-  URBAN_DAILY: "şehir içi günlük kullanım", FAMILY: "aile kullanımı", LONG_DISTANCE: "uzun yol", COMMERCIAL: "ticari kullanım", CORPORATE_TRAVEL: "kurumsal seyahat", MIXED_ROAD: "karma yol kullanımı",
-  HATCHBACK: "kompakt hatchback", SUV: "SUV", SEDAN: "sedan", PICKUP: "pick-up", VAN: "van / panelvan",
-  BEV: "tam elektrikli", HEV: "hibrit", PHEV: "şarj edilebilir hibrit", MHEV: "hafif hibrit", GASOLINE: "benzinli", DIESEL: "dizel", LPG: "LPG",
-  NOT_IMPORTANT: "bu başlık karar için önemli değil", REAR_VIEW_CAMERA: "geri görüş kamerası", SURROUND_VIEW_CAMERA_360: "360° çevre görüş kamerası", PARKING_SENSORS: "park sensörleri", ADAPTIVE_CRUISE_CONTROL: "adaptif hız sabitleyici", BLIND_SPOT_MONITOR: "kör nokta izleme",
-  AUTOMATIC: "otomatik", MANUAL: "manuel", MINIMAL: "başka bir donanım zorunlu değil",
-  DISTINCTIVE_DESIGN: "dikkat çekici ve karakterli tasarım", ADVISOR_GUIDANCE: "danışman yönlendirmesi", PREMIUM_AUDIO: "gelişmiş ses sistemi", HEATED_FRONT_SEATS: "ısıtmalı ön koltuklar",
-  HEATED_REAR_SEATS: "ısıtmalı arka koltuklar", PANORAMIC_GLASS_ROOF: "panoramik cam tavan", POWER_SLIDING_SIDE_DOOR: "elektrikli sürgülü yan kapı", TOTAL_COST: "toplam sahip olma maliyeti",
-};
-const formatPublicValue = (value: string | number | readonly string[]) => Array.isArray(value) ? value.map((item) => publicValues[String(item)] ?? String(item)).join(", ") : publicValues[String(value)] ?? String(value);
-
-export const publicSummary = (event: PreferenceEvent): string => {
-  const value = formatPublicValue(event.normalizedValue);
-  const labels: Record<string, string> = { primaryUsage: "Ana kullanım", bodyStyle: "Gövde tercihi", fuelType: "Yakıt tercihi", transmission: "Şanzıman tercihi", minimumSeats: "Kullanım kapasitesi", equipmentNotImportant: "Ek donanım şartı", budgetMax: "Kesin bütçe üst sınırı", budgetTarget: "Hedef bütçe", budgetNotImportant: "Bütçe yaklaşımı", brandPreference: "Marka tercihi", modelPreference: "Model tercihi", equipmentFeature: "Donanım ihtiyacı", distinctiveDesign: "Tasarım önceliği", advisorGuidance: "Seçim yaklaşımı", fuelDelegated: "Yakıt seçimi", totalCostPriority: "Maliyet önceliği", operatingCostPriority: "Kullanım maliyeti önceliği", cargoPracticality: "Bagaj ve yükleme önceliği", ergonomicComfort: "Ergonomi ve konfor önceliği", rearSeatSpace: "Arka koltuk alanı önceliği", firstTimeDriverContext: "İlk araç kullanım bağlamı" };
-  if (event.concept === "minimumSeats" && typeof event.normalizedValue === "number") return `Kullanım kapasitesi: en az ${event.normalizedValue} kişi`;
-  return `${labels[event.concept] ?? "Onaylı tercih"}: ${value}`;
-};
+export const publicSummary = (event: PreferenceEvent): string => publicPreferenceSummary(event);
 
 const approvedNeeds = (state: V3ConversationState) => state.ledger.filter((item) => item.status === "ACTIVE" && ["USER_EXPLICIT", "USER_CONFIRMED"].includes(item.authority) && ["EXPLICIT_HARD", "EXPLICIT_STRONG", "CONFIRMED_STRONG"].includes(item.strength)).map((item) => ({ concept: item.concept, summary: publicSummary(item) }));
 const decisionFingerprint = (state: V3ConversationState) => digest(projectV3DecisionPreferences(state.ledger, state.budgetMode ?? "NEEDS_ONLY").map(({ concept, normalizedValue, decisionUse }) => ({ concept, normalizedValue, decisionUse })));

@@ -85,6 +85,21 @@ describe("V3.6 direct question behavior", () => {
     expect(output.variantCounts?.remaining).toBe(before);
   });
 
+  it("does not turn an exact 12-way score tie into an ID-based single recommendation", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const id = "long-road-safety-tie";
+    let output = await runV3Turn({ conversationId: id, messageId: "1", message: "Uzun yolda güvenli, aynı zamanda şehir içinde pratik bir araç arıyorum", expectedRevision: 0 });
+    output = await runV3Turn({ conversationId: id, messageId: "2", message: "Evet, bunu öncelik yapalım", expectedRevision: output.state.revision, state: output.state });
+    output = await runV3Turn({ conversationId: id, messageId: "3", message: "Yakıt türünü şimdilik açık bırakalım", expectedRevision: output.state.revision, state: output.state });
+    output = await runV3Turn({ conversationId: id, messageId: "4", message: "Her ikisi de olabilir", expectedRevision: output.state.revision, state: output.state });
+    expect(output.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
+    output = await runV3Turn({ conversationId: id, messageId: "5", message: "Adaptif hız sabitleyici ve kör nokta izleme benim için vazgeçilmez", expectedRevision: output.state.revision, state: output.state });
+    expect(output.offerAwaitingConsent).not.toBe(true);
+    expect(output.recommendations).toBeUndefined();
+    expect(output.state.lastQuestionKey).toBe("brandModel");
+    expect(output.message).toMatch(/aynı puanda/iu);
+  });
+
   it("varies conversational acknowledgement copy across consecutive turns", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     let output = await runV3Turn({ conversationId: "ack", messageId: "1", message: "Araç bakıyorum", expectedRevision: 0 });

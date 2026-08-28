@@ -387,7 +387,7 @@ function hasBroadNeutralTie(
   ledger: V3ConversationState["ledger"],
   budgetMode: ReturnType<typeof budgetModeOf>,
 ): boolean {
-  if (!variants || variants.length <= 12) return false;
+  if (!variants || variants.length <= 1) return false;
   const ranked = rankV3Candidates(variants, ledger, budgetMode);
   const topScore = ranked[0]
     ? scoreV3Candidate(ranked[0], ledger, budgetMode)

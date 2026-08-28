@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { AdvisorReply } from "@/features/sales-advisor/advisor";
+import { humanizePreferenceText } from "@/features/decision/v3/preferencePresentation";
 import type {
   Phase2HandoffPayload,
   VariantContentArtifact,
@@ -63,21 +64,7 @@ const actions: readonly {
   },
 ];
 
-const needValueLabels: Readonly<Record<string, string>> = {
-  DISTINCTIVE_DESIGN: "Dikkat çekici ve karakterli tasarım",
-  ADVISOR_GUIDANCE: "Danışman yönlendirmesi",
-  PREMIUM_AUDIO: "Gelişmiş ses sistemi",
-  HEATED_FRONT_SEATS: "Isıtmalı ön koltuklar",
-  HEATED_REAR_SEATS: "Isıtmalı arka koltuklar",
-  PANORAMIC_GLASS_ROOF: "Panoramik cam tavan",
-  POWER_SLIDING_SIDE_DOOR: "Elektrikli sürgülü yan kapı",
-  TOTAL_COST: "Toplam sahip olma maliyeti",
-};
-const humanizeNeedSummary = (summary: string): string =>
-  Object.entries(needValueLabels).reduce(
-    (text, [code, label]) => text.replaceAll(code, label),
-    summary,
-  );
+const humanizeNeedSummary = humanizePreferenceText;
 const equipmentNotes: Readonly<Record<string, string>> = {
   ADAPTIVE_CRUISE_CONTROL:
     "Öndeki araçla ayarlanan takip mesafesini korumaya yardımcı olur.",
