@@ -35,4 +35,19 @@ describe("V3 catalog questions inside an active decision conversation", () => {
     expect(output.message).toMatch(expected);
     expect(output.state.ledger).toEqual(ledgerBefore);
   });
+
+  it("answers an electric range purchase request before continuing discovery", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const state = createV3ConversationState("catalog-electric-range-request");
+    const output = await runV3Turn({
+      conversationId: state.conversationId,
+      messageId: "1",
+      message: "En yüksek menzile sahip elektrikli aracı satın almak istiyorum",
+      expectedRevision: 0,
+      state,
+    });
+    expect(output.message).toMatch(/en yüksek elektrikli menzil/iu);
+    expect(output.message).toMatch(/exact seçenek/iu);
+    expect(output.state.purchaseIntent).not.toBe("NOT_EXPRESSED");
+  });
 });

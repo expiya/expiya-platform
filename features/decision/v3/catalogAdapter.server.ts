@@ -23,6 +23,9 @@ const personaSignals = selectOwnerApprovedSafePersonaSignals(vehiclePersonaSafeT
 const personaTraitsByVariant = new Map<string, ReadonlySet<VehiclePersonaTrait>>();
 let activeCatalogAuthority: { readonly release: string; readonly fingerprint: string } | undefined;
 for (const signal of personaSignals) personaTraitsByVariant.set(signal.exactVariantId, new Set([...(personaTraitsByVariant.get(signal.exactVariantId) ?? []), signal.trait]));
+export function getV3PersonaTraits(exactVariantId: string): ReadonlySet<VehiclePersonaTrait> {
+  return personaTraitsByVariant.get(exactVariantId) ?? new Set<VehiclePersonaTrait>();
+}
 const loadV3ActiveCatalog = (now?: Date): Promise<LoadedCatalog> => {
   const load = () => Promise.resolve(buildCatalogSnapshot({ pointer: activeCatalogPointer, manifest: activeCatalogManifest, catalog: activeCatalogPayload, decisionFacets: activeDecisionFacetPayload, now: now ?? new Date(), enforceTemporalInvariant: true }));
   if (now) return load();

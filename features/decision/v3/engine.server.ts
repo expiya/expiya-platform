@@ -890,6 +890,7 @@ export async function runV3Turn(input: {
       purchaseIntent,
     ) ||
     router.catalogEvaluationRequired ||
+    router.route === "AUTOMOTIVE_INFORMATION" ||
     recommendationRequested ||
     prior.pendingAction === "RELAX_BRAND_FOR_POWERTRAIN"
   )

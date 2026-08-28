@@ -1,10 +1,18 @@
 import type { CatalogVariantSnapshot } from "../v2/catalog/types";
+import { getReviewedSalesColors } from "@/features/sales-advisor/salesKnowledge.server";
+import { getEquipmentFeatureDefinition, resolveEquipmentRequirement } from "@/features/vehicle-data/equipmentEvidenceResolver";
+import type { EquipmentFeatureCode } from "@/types/equipmentEvidence";
+import type { VehiclePersonaTrait } from "@/types/vehiclePersona";
+import { getV3PersonaTraits, v35EquipmentMatchAuthority } from "./catalogAdapter.server";
 
 const unique = (values: readonly string[]) => [...new Set(values)].sort((a, b) => a.localeCompare(b, "tr"));
 const trNumber = (value: number) => value.toLocaleString("tr-TR");
 const examplesAt = (variants: readonly CatalogVariantSnapshot[], select: (variant: CatalogVariantSnapshot) => number | undefined, target: number) =>
   unique(variants.filter((variant) => select(variant) === target).map((variant) => `${variant.brand} ${variant.model}`)).slice(0, 3).join(", ");
 const scope = (count: number) => `Mevcut tercihlerine ve bütçe sınırına uyan ${trNumber(count)} sıfır araç varyantı içinde`;
+const title = (variant: CatalogVariantSnapshot) => `${variant.brand} ${variant.model} ${variant.trim}`;
+const preview = (variants: readonly CatalogVariantSnapshot[], limit = 5) => unique(variants.map(title)).slice(0, limit).join(", ");
+const normalize = (value: string) => value.toLocaleLowerCase("tr-TR").normalize("NFKD").replace(/\p{M}+/gu, "").replace(/ı/gu, "i").replace(/[^a-z0-9]+/gu, " ").trim();
 
 const factExtreme = (
   variants: readonly CatalogVariantSnapshot[],
@@ -22,8 +30,54 @@ const fuelLabels: Readonly<Record<string, string>> = {
 export function answerV3CatalogQuestion(message: string, variants: readonly CatalogVariantSnapshot[]): string | undefined {
   const text = message.toLocaleLowerCase("tr-TR");
   if (!variants.length) return undefined;
-  if (!/\?|(?:kaç|hangi(?:si|leri)?|ne kadar|neler|nedir|var mı|bulunuyor mu)/iu.test(text)) return undefined;
+  const catalogLookup = /\?|(?:kaç|hangi(?:si|leri)?|ne kadar|neler|nedir|var mı|bulunuyor mu|listele|göster|seçenekleri görmek|seçeneklerini görmek|arasından)/iu.test(text)
+    || /(?:en yüksek|en düşük|en uzun|en güçlü|en geniş|maksimum|minimum).*sahip.*(?:satın almak|seçmek|istiyorum)/iu.test(text);
+  if (!catalogLookup) return undefined;
   const scoped = scope(variants.length);
+
+  const requestedColor = ["kırmızı", "beyaz", "siyah", "gri", "mavi", "yeşil", "bej", "kahverengi", "sarı", "turuncu"].find((color) => normalize(text).includes(normalize(color)));
+  if (requestedColor && /renk|ara[çc]|otomobil|varyant|seçenek/iu.test(text)) {
+    const withKnownColors = variants.map((variant) => ({ variant, colors: getReviewedSalesColors({ brand: variant.brand, model: variant.model, modelYear: variant.decisionFacts.modelYear.value }) })).filter((item) => item.colors.length > 0);
+    const matches = withKnownColors.filter((item) => item.colors.some((color) => normalize(String(color.value)).includes(normalize(requestedColor)))).map((item) => item.variant);
+    if (!matches.length) return `${scoped} doğrulanmış ${requestedColor} dış renk seçeneği bulunan bir araç kaydı yok. Renk verisi şu anda ${trNumber(withKnownColors.length)} varyant için doğrulanmış durumda; kaydı bulunmayan araçlar hakkında renk iddiasında bulunmuyorum.`;
+    return `${scoped} doğrulanmış ${requestedColor} renk seçeneği bulunan ${unique(matches.map(title)).length} varyant var: ${preview(matches)}. Renk kaydı model ailesi düzeyinde olabilir; exact varyant ve stok rengi sipariş öncesinde doğrulanmalıdır.`;
+  }
+
+  const governedEquipmentPhrases: readonly { pattern: RegExp; featureCode: EquipmentFeatureCode }[] = [
+    { pattern: /geri görüş kamerası/iu, featureCode: "REAR_VIEW_CAMERA" },
+    { pattern: /(?:360|çevre)\s*(?:derece\s*)?kamera/iu, featureCode: "SURROUND_VIEW_CAMERA_360" },
+    { pattern: /park sensör/iu, featureCode: "REAR_PARKING_SENSORS" },
+    { pattern: /otomatik park/iu, featureCode: "AUTOMATIC_PARK_ASSIST" },
+    { pattern: /adaptif hız sabitle/iu, featureCode: "ADAPTIVE_CRUISE_CONTROL" },
+    { pattern: /kör nokta/iu, featureCode: "BLIND_SPOT_MONITOR" },
+    { pattern: /isofix/iu, featureCode: "ISOFIX_REAR_OUTER" },
+    { pattern: /anahtarsız çalıştır/iu, featureCode: "KEYLESS_START" },
+  ];
+  const resolvedEquipment = resolveEquipmentRequirement(message).find((item) => item.polarity === "AFFIRMED");
+  const equipmentMatch = resolvedEquipment ?? governedEquipmentPhrases.find((item) => item.pattern.test(message));
+  if (equipmentMatch?.featureCode && /(?:olan|bulunan|hangi|listele|göster|seçenek|istiyorum)/iu.test(text)) {
+    const featureCode = equipmentMatch.featureCode;
+    const matches = variants.filter((variant) => v35EquipmentMatchAuthority(variant, featureCode) === "VERIFIED");
+    const label = getEquipmentFeatureDefinition(featureCode)?.labelTr ?? String(featureCode);
+    if (!matches.length) return `${scoped} ${label.toLocaleLowerCase("tr-TR")} donanımı exact varyant düzeyinde doğrulanmış bir seçenek bulunmuyor. Doğrulanmamış veya opsiyonel kayıtları varmış gibi listelemiyorum.`;
+    return `${scoped} ${label.toLocaleLowerCase("tr-TR")} donanımı doğrulanmış ${unique(matches.map(title)).length} varyant var: ${preview(matches)}${matches.length > 5 ? ". Listeyi başka bir özellikle daraltabilirim." : "."}`;
+  }
+
+  const personaPatterns: readonly { pattern: RegExp; trait: VehiclePersonaTrait; label: string }[] = [
+    { pattern: /(?:dikkat çekici|karakterli|özgün|tasarım odaklı)/iu, trait: "DESIGN", label: "tasarım karakteri güçlü" },
+    { pattern: /(?:sürüş keyfi|sürüş odaklı|dinamik sürüş)/iu, trait: "DRIVING_ENGAGEMENT", label: "sürüş odaklı" },
+    { pattern: /(?:konforlu|konfor odaklı)/iu, trait: "COMFORT", label: "konfor odaklı" },
+    { pattern: /(?:pratik|kullanışlı)/iu, trait: "PRACTICALITY", label: "pratiklik odaklı" },
+    { pattern: /(?:teknolojik|teknoloji odaklı)/iu, trait: "TECHNOLOGY", label: "teknoloji odaklı" },
+    { pattern: /(?:prestijli|premium karakter)/iu, trait: "PRESTIGE", label: "prestij odaklı" },
+    { pattern: /(?:macera|outdoor|arazi karakterli)/iu, trait: "ADVENTURE", label: "macera odaklı" },
+  ];
+  const persona = personaPatterns.find((item) => item.pattern.test(text));
+  if (persona && /(?:hangi|listele|göster|seçenek|ara[çc]|otomobil|istiyorum)/iu.test(text)) {
+    const matches = variants.filter((variant) => getV3PersonaTraits(variant.id).has(persona.trait));
+    if (!matches.length) return `${scoped} sahibi tarafından onaylanmış persona katmanında ${persona.label} bir seçenek bulunmuyor.`;
+    return `${scoped} onaylı persona katmanında ${persona.label} ${unique(matches.map(title)).length} varyant var: ${preview(matches)}. Bu etiket yalnız yumuşak tercih sinyalidir; teknik özellik veya kalite garantisi değildir.`;
+  }
 
   if (/(?:en fazla|maksimum|en yüksek|kaç)\s*(?:kişi|kişilik|koltuk)|koltuk\s*(?:sayısı|kapasitesi).*(?:en fazla|maksimum|kaç)/iu.test(text)) {
     const value = factExtreme(variants, (variant) => variant.decisionFacts.dimensions.seats?.value, "MAX");
@@ -46,10 +100,13 @@ export function answerV3CatalogQuestion(message: string, variants: readonly Cata
   ];
   for (const item of metric) {
     if (!item.pattern.test(text)) continue;
-    const value = factExtreme(variants, item.select, "MAX");
+    const metricVariants = item.label === "elektrikli menzil" && /elektrikli|elektrik/iu.test(text)
+      ? variants.filter((variant) => variant.decisionFacts.powertrain.fuelType.value === "BEV")
+      : variants;
+    const value = factExtreme(metricVariants, item.select, "MAX");
     if (value === undefined) return `${scoped} doğrulanmış ${item.label} bilgisi bulunmuyor.`;
-    const examples = examplesAt(variants, item.select, value);
-    return `${scoped} doğrulanmış en yüksek ${item.label} ${trNumber(value)} ${item.unit}. Bu değere ulaşan örnekler: ${examples}.`;
+    const leaders = metricVariants.filter((variant) => item.select(variant) === value);
+    return `${scoped} doğrulanmış en yüksek ${item.label} ${trNumber(value)} ${item.unit}. Bu değere ulaşan exact seçenekler: ${preview(leaders)}.${item.label === "elektrikli menzil" ? " Bu resmî test değeridir; gerçek menzil hava, hız, yük ve iklimlendirmeye göre değişebilir." : ""}`;
   }
 
   if (/(?:en ucuz|en düşük fiyat|minimum fiyat|fiyatı en düşük)|(?:en pahalı|en yüksek fiyat|maksimum fiyat)/iu.test(text)) {
