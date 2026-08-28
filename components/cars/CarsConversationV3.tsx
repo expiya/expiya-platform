@@ -34,14 +34,14 @@ function quickChoices(message: Message): { multiple: boolean; choices: readonly 
       COMFORT: ["Uzun yol konforu", "Kabin ve yolculuk rahatlığını öne alır."], PRACTICALITY: ["Günlük pratiklik", "Kullanışlılık ve günlük yaşam kolaylığını öne alır."], TECHNOLOGY: ["Teknoloji", "Teknoloji karakteri daha güçlü seçenekleri öne alır."], SUSTAINABILITY: ["Elektrikli ve sürdürülebilir karakter", "Elektrikli mobilite karakterini öne alır."], DRIVING_ENGAGEMENT: ["Sürüş keyfi", "Sürüş karakteri daha belirgin seçenekleri öne alır."], FAMILY: ["Aile pratikliği", "Aile kullanımına dönük pratik karakteri öne alır."], DESIGN: ["Tasarım karakteri", "Tasarımı daha ayırt edici seçenekleri öne alır."],
     };
     const choices = key.slice("personaDiscriminator:".length).split("|").flatMap((code) => labels[code] ? [{ value: labels[code][0], label: labels[code][0], description: labels[code][1] }] : []);
-    return { multiple: false, choices: [...choices, { value: "Bu gruptakilerden hiçbiri belirleyici değil", label: "Hiçbiri belirleyici değil", description: "Bu persona farkları karar sırasını etkilemez.", exclusive: true }] };
+    return { multiple: true, choices: [...choices, { value: "Bu gruptakilerden hiçbiri belirleyici değil", label: "Hiçbiri belirleyici değil", description: "Bu persona farkları karar sırasını etkilemez.", exclusive: true }] };
   }
   if (key.startsWith("technicalDiscriminator:")) {
     const labels: Readonly<Record<string, readonly [string, string]>> = {
       COMPACT: ["Şehir içinde daha kısa gövde", "Doğrulanmış uzunluğu daha kısa araçları öne alır."], LUGGAGE: ["Uzun yol için daha büyük bagaj", "Doğrulanmış bagaj hacmi daha yüksek araçları öne alır."], POWER: ["Daha yüksek motor gücü", "Doğrulanmış motor gücü daha yüksek araçları öne alır."], PRICE: ["Daha düşük satın alma fiyatı", "Yalnız kullanıcıya gösterilebilir doğrulanmış fiyatları karşılaştırır."], RANGE: ["Daha yüksek elektrikli menzil", "Doğrulanmış elektrikli menzili daha yüksek araçları öne alır."],
     };
     const choices = key.slice("technicalDiscriminator:".length).split("|").flatMap((code) => labels[code] ? [{ value: labels[code][0], label: labels[code][0], description: labels[code][1] }] : []);
-    return { multiple: false, choices: [...choices, { value: "Bu gruptakilerden hiçbiri belirleyici değil", label: "Hiçbiri belirleyici değil", description: "Bu teknik farklar karar sırasını etkilemez.", exclusive: true }] };
+    return { multiple: true, choices: [...choices, { value: "Bu gruptakilerden hiçbiri belirleyici değil", label: "Hiçbiri belirleyici değil", description: "Bu teknik farklar karar sırasını etkilemez.", exclusive: true }] };
   }
   if (key === "fuelType") return { multiple: true, choices: [
     { value: "Benzinli", label: "Benzinli", description: "Kısa ve orta mesafede sade kullanım; şarj gerektirmez." },
@@ -117,9 +117,10 @@ function buttonPrompt(message: Message, hasChoices: boolean): string {
 }
 
 function variantCountCopy(counts: NonNullable<Message["variantCounts"]>): string {
+  const leadership = counts.leading === 1 ? " · karar sıralamasında tek lider" : counts.leading && counts.leading < counts.remaining ? ` · ${counts.leading} varyant eşit lider` : "";
   return counts.remaining < counts.total
-    ? `${counts.total} varyant içinden ${counts.remaining} uygun seçenek kaldı`
-    : `${counts.total} satıştaki varyant, onayladığın önceliklere göre sıralanıyor`;
+    ? `${counts.total} varyant içinden ${counts.remaining} uygun seçenek kaldı${leadership}`
+    : `${counts.total} satıştaki varyant, onayladığın önceliklere göre sıralanıyor${leadership}`;
 }
 
 function ConversationMessage({ message, selected, interactive, termsChecked, onTermsChecked, onAcceptTerms, onDeclineTerms, onToggle, onSend, onPhase2 }: { readonly message: Message; readonly selected: readonly string[]; readonly interactive: boolean; readonly termsChecked: boolean; readonly onTermsChecked: (checked: boolean) => void; readonly onAcceptTerms: () => void; readonly onDeclineTerms: () => void; readonly onToggle: (choice: QuickChoice, multiple: boolean) => void; readonly onSend: () => void; readonly onPhase2: (exactVariantId: string) => void }) {

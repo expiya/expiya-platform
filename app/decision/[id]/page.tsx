@@ -142,6 +142,17 @@ function V3DecisionDetail({ context }: { readonly context: V3DecisionContext }) 
           {card.imageStatus !== "EXACT" ? <p className="text-sm text-neutral-500">{card.imageStatus === "PLACEHOLDER" ? "Araç görseli hazırlanıyor." : `Temsilî görsel${card.representedModel ? `: ${card.representedModel}` : ""}`}</p> : null}
           {card.imageAttribution ? <p className="text-xs text-neutral-500">Görsel: {card.imageAttribution}</p> : null}
           <div><p className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Önerilen araç</p><h1 className="mt-2 text-3xl font-bold sm:text-4xl">{card.title}</h1></div>
+          {card.decisionInsight ? <section className="rounded-3xl border border-emerald-200 bg-emerald-50 p-5 sm:p-6" aria-labelledby="v3-decision-title">
+            <p className="text-xs font-semibold uppercase tracking-[.18em] text-emerald-800">Karar özeti</p>
+            <h2 id="v3-decision-title" className="mt-2 text-2xl font-semibold text-emerald-950">{card.decisionInsight.leadingCandidateCount === 1 ? "Tek karar lideri" : `${card.decisionInsight.leadingCandidateCount} eşit karar liderinden biri`}</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl bg-white p-4"><p className="text-sm text-neutral-500">Karar sırası</p><p className="mt-1 text-2xl font-semibold">1 / {card.decisionInsight.eligibleCount}</p></div>
+              <div className="rounded-2xl bg-white p-4"><p className="text-sm text-neutral-500">Lider sayısı</p><p className="mt-1 text-2xl font-semibold">{card.decisionInsight.leadingCandidateCount}</p></div>
+            </div>
+            <h3 className="mt-5 font-semibold text-emerald-950">Kararı etkileyen tercihler</h3>
+            <ul className="mt-3 grid gap-2 text-sm leading-6 text-emerald-950 sm:grid-cols-2">{card.decisionInsight.decisivePreferences.map((item) => <li key={item} className="rounded-xl bg-white px-3 py-2">✓ {item}</li>)}</ul>
+            <p className="mt-4 text-xs leading-5 text-emerald-800">Bu sıra mutlak araç kalitesi puanı değildir; görüşmede onayladığın tercihler içinde kalan uygun varyantların göreli sırasıdır.</p>
+          </section> : null}
           {card.badge ? <p className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-200">{card.badge}</p> : null}
           {card.warning ? <p className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">{card.warning}</p> : null}
           {error ? <p role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-200">{error}</p> : null}

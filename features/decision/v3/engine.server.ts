@@ -41,6 +41,7 @@ import { projectEquipmentCardDisclosure } from "./equipmentCardProjection";
 import type { RecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
 import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
 import { cars as legacyRepresentativeCars } from "@/data/car";
+import { publicPreferenceSummary } from "./preferencePresentation";
 
 export function createV3ConversationState(
   conversationId: string,
@@ -1085,6 +1086,14 @@ export async function runV3Turn(input: {
       ledger,
       "unmappedEquipmentRequirement",
     );
+    const rankedScores = current.variants.map((variant) => scoreV3Candidate(variant, ledger, budgetMode));
+    const leadingScore = rankedScores.length ? Math.max(...rankedScores) : 0;
+    const leadingCandidateCount = rankedScores.filter((score) => Math.abs(score - leadingScore) < 1e-9).length;
+    const decisivePreferences = activeDecisionPreferences(ledger)
+      .filter((item) => item.decisionUse !== "NONE" && item.authority !== "MODEL_INFERENCE")
+      .map(publicPreferenceSummary)
+      .filter((summary, index, all) => all.indexOf(summary) === index)
+      .slice(-8);
     return {
       kind: "V3_CONVERSATION",
       message:
@@ -1160,6 +1169,7 @@ export async function runV3Turn(input: {
             : {}),
           ...(warning ? { warning } : {}),
           ...(badge ? { badge } : {}),
+          decisionInsight: { eligibleCount: current.variants.length, leadingCandidateCount, rank: 1 as const, decisivePreferences },
         };
       }),
     };

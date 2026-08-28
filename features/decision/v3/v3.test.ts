@@ -69,6 +69,7 @@ describe("Cars Conversation Decision Flow V3", () => {
     await expect(runV3Turn({ conversationId: "offer", messageId: "8", message: "Evet, göster", expectedRevision: forged.revision, state: forged, recommendationTermsAcceptance: createRecommendationTermsAcceptance() })).rejects.toThrow("V31_OFFER_UNAUTHORIZED");
     const revealed = await runV3Turn({ conversationId: "offer", messageId: "8", message: "Evet, göster", expectedRevision: output.state.revision, state: output.state, recommendationTermsAcceptance: createRecommendationTermsAcceptance() });
     expect(revealed.recommendations).toHaveLength(1); expect(revealed.state.pendingOffer).toBeUndefined();
+    expect(revealed.recommendations?.[0]?.decisionInsight).toMatchObject({ rank: 1, eligibleCount: expect.any(Number), leadingCandidateCount: expect.any(Number), decisivePreferences: expect.any(Array) });
     expect(revealed.state.recommendationTermsAcceptance).toMatchObject({ version: "REC-2026.08-v1.1", offerId: output.state.pendingOffer?.offerId });
   });
 

@@ -34,7 +34,6 @@ const navigation = [
   ["overview", "Genel bakış"],
   ["fit", "Sana uygunluğu"],
   ["media", "Galeri & video"],
-  ["specs", "Teknik özellikler"],
   ["equipment", "Donanım"],
   ["advisor", "Satış danışmanı"],
 ] as const;
@@ -65,6 +64,17 @@ const actions: readonly {
 ];
 
 const humanizeNeedSummary = humanizePreferenceText;
+const needIcons: Readonly<Record<string, string>> = {
+  primaryUsage: "↗", safetyConfidence: "⌾", equipmentFeature: "✓", candidateComfortPriority: "≈", candidateLuggagePriority: "▣", candidatePowerPriority: "⚡", candidateCompactPriority: "↔", fuelDelegated: "◇", bodyNotImportant: "◫", bodyStyle: "◫",
+};
+function dailyDecisionNote(key: string, approvedConcepts: ReadonlySet<string>): string | undefined {
+  if (key === "luggage" && approvedConcepts.has("candidateLuggagePriority")) return "Bu değer, kalan araçlar arasındaki kararını doğrudan ayıran ölçütlerden biriydi.";
+  if (key === "power" && approvedConcepts.has("candidatePowerPriority")) return "Motor gücü tercihin nedeniyle bu değer karar sıralamasında doğrudan kullanıldı.";
+  if (key === "length" && approvedConcepts.has("candidateCompactPriority")) return "Şehir içi manevra tercihin için karşılaştırılan doğrulanmış ölçüdür.";
+  if (["bodyStyle", "seats", "luggage"].includes(key) && approvedConcepts.has("candidatePracticalityPriority")) return "Günlük pratiklik tercihinle ilişkilendirilen doğrulanmış araç verilerinden biridir.";
+  if (["bodyStyle", "transmission", "seats"].includes(key) && approvedConcepts.has("candidateComfortPriority")) return "Uzun yol konforu tercihini açıklarken kullanılan araç yapısı göstergelerinden biridir.";
+  return undefined;
+}
 const equipmentNotes: Readonly<Record<string, string>> = {
   ADAPTIVE_CRUISE_CONTROL:
     "Öndeki araçla ayarlanan takip mesafesini korumaya yardımcı olur.",
@@ -142,16 +152,6 @@ function StatusPill({
       {children}
     </span>
   );
-}
-
-function scopeLabel(
-  disposition: VariantContentArtifact["facts"][number]["disposition"],
-): string {
-  if (disposition === "VERIFIED") return "BU VARYANT İÇİN DOĞRULANDI";
-  if (disposition === "FAMILY_LEVEL") return "MODEL AİLESİ DÜZEYİNDE";
-  if (disposition === "REPRESENTATIVE") return "TEMSİLÎ";
-  if (disposition === "APPROXIMATE") return "YAKLAŞIK";
-  return "DOĞRULANMADI";
 }
 
 function AdvisorPanel({
@@ -408,6 +408,7 @@ export function SalesAdvisorExperience({
   const { artifact, handoff } = data;
   const hero = artifact.media[activeMedia] ?? artifact.media[0];
   const highlightFacts = artifact.facts.slice(0, 4);
+  const approvedConcepts = new Set(handoff.approvedNeeds.map((need) => need.concept));
   return (
     <main className="expiya-adaptive-surface min-h-screen bg-white text-stone-950">
       <header className="sticky top-0 z-40 border-b border-stone-200 bg-white/95 text-stone-950 backdrop-blur">
@@ -449,13 +450,13 @@ export function SalesAdvisorExperience({
               fill
               priority
               sizes="100vw"
-              className="object-cover opacity-35"
+              className="object-cover object-center opacity-100"
             />
           ) : (
             <div className="h-full bg-[radial-gradient(circle_at_70%_30%,#d1fae5,transparent_40%),linear-gradient(130deg,#ffffff,#f5f5f4)]" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/20" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-white/10" />
         </div>
         <div className="relative mx-auto grid min-h-[78vh] max-w-7xl items-end px-5 py-12 sm:px-8 lg:grid-cols-[minmax(0,1fr)_23rem] lg:gap-12 lg:py-16">
           <div className="min-w-0 max-w-3xl">
@@ -480,6 +481,9 @@ export function SalesAdvisorExperience({
               seçtiğin varyantın kanıt kapsamıyla sınırlı kataloğu. Bu anlatım
               bağlayıcı satış teklifi değildir.
             </p>
+            <button type="button" disabled={Boolean(phase3Pending)} onClick={() => void preparePhase3("REQUEST_TEST_DRIVE", "Test sürüşü talebi adımına geç")} className="mt-7 inline-flex items-center gap-3 rounded-full bg-emerald-700 px-6 py-3.5 font-semibold text-white shadow-lg shadow-emerald-900/15 transition hover:bg-emerald-600 disabled:opacity-60">
+              <Icon name="direksiyon" /> Test sürüşü adımını incele <span aria-hidden="true">→</span>
+            </button>
           </div>
           <dl className="mt-10 grid min-w-0 grid-cols-2 gap-px overflow-hidden rounded-3xl border border-stone-200 bg-stone-200/80 shadow-lg backdrop-blur lg:mt-0">
             {highlightFacts.length ? (
@@ -538,7 +542,7 @@ export function SalesAdvisorExperience({
         </div>
       </div>
       <div className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-8">
-        <div className="flex min-w-0 flex-col gap-16 [&>:nth-child(1)]:order-1 [&>:nth-child(2)]:order-2 [&>:nth-child(3)]:order-4 [&>:nth-child(4)]:order-5 [&>:nth-child(5)]:order-6 [&>:nth-child(6)]:order-3">
+        <div className="flex min-w-0 flex-col gap-16">
           <section id="fit" aria-labelledby="fit-title">
             <div className="flex items-end justify-between gap-4">
               <div>
@@ -555,18 +559,19 @@ export function SalesAdvisorExperience({
               <StatusPill tone="light">Aşama 1’den onaylı</StatusPill>
             </div>
             {handoff.approvedNeeds.length ? (
-              <div className="mt-7 grid gap-4 sm:grid-cols-2">
+              <div className="mt-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {handoff.approvedNeeds.map((need, index) => (
                   <article
                     key={`${need.concept}-${need.summary}`}
-                    className="relative overflow-hidden rounded-3xl border border-stone-200 bg-white p-6"
+                    className="relative overflow-hidden rounded-3xl border border-emerald-100 bg-gradient-to-br from-white to-emerald-50/70 p-6 shadow-sm"
                   >
-                    <span className="absolute right-5 top-3 text-6xl font-bold text-stone-100">
-                      {String(index + 1).padStart(2, "0")}
+                    <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-emerald-700 text-xl font-semibold text-white" aria-hidden="true">
+                      {needIcons[need.concept] ?? String(index + 1).padStart(2, "0")}
                     </span>
-                    <p className="relative max-w-[85%] text-lg font-semibold">
+                    <p className="relative mt-5 text-lg font-semibold">
                       {humanizeNeedSummary(need.summary)}
                     </p>
+                    <p className="mt-3 text-xs font-medium uppercase tracking-[.12em] text-emerald-700">Karar motorunda kullanıldı</p>
                   </article>
                 ))}
               </div>
@@ -609,58 +614,10 @@ export function SalesAdvisorExperience({
                     <p className="mt-4 text-sm leading-6 text-stone-300">
                       {item.dailyMeaning}
                     </p>
+                    {dailyDecisionNote(item.key, approvedConcepts) ? <p className="mt-4 rounded-2xl border border-emerald-700/40 bg-emerald-950/70 px-4 py-3 text-xs font-medium leading-5 text-emerald-200">Karardaki önemi: {dailyDecisionNote(item.key, approvedConcepts)}</p> : null}
                   </article>
                 ))}
             </div>
-          </section>
-          <section id="specs" aria-labelledby="specs-title">
-            <p className="text-xs font-semibold uppercase tracking-[.24em] text-emerald-700">
-              Katalog verileri
-            </p>
-            <h2
-              id="specs-title"
-              className="mt-2 text-3xl font-semibold sm:text-4xl"
-            >
-              Teknik özellikler
-            </h2>
-            <p className="mt-3 text-sm text-stone-500">
-              {artifact.researchStatus.exactFacts} exact doğrulanmış ·{" "}
-              {artifact.researchStatus.scopedFacts} kapsam etiketiyle sunulan
-              bilgi
-            </p>
-            <dl className="mt-7 grid overflow-hidden rounded-3xl border border-stone-200 bg-white sm:grid-cols-2">
-              {artifact.facts.map((item) => (
-                <div
-                  key={item.key}
-                  className="border-b border-stone-100 p-5 last:border-0 sm:border-r"
-                >
-                  <dt className="flex items-center justify-between gap-2 text-sm text-stone-500">
-                    <span>{item.label}</span>
-                    <span
-                      className={`rounded-full px-2 py-1 text-[10px] font-semibold ${item.disposition === "VERIFIED" ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-800"}`}
-                    >
-                      {scopeLabel(item.disposition)}
-                    </span>
-                  </dt>
-                  <dd className="mt-2 text-xl font-semibold">{item.value}</dd>
-                  {item.scopeNote ? (
-                    <p className="mt-2 text-xs leading-5 text-amber-800">
-                      {item.scopeNote}
-                    </p>
-                  ) : null}
-                  {item.source ? (
-                    <a
-                      href={item.source.url}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-2 inline-flex text-xs font-medium text-emerald-700 underline underline-offset-2"
-                    >
-                      {item.source.label}
-                    </a>
-                  ) : null}
-                </div>
-              ))}
-            </dl>
           </section>
           <section id="equipment" aria-labelledby="equipment-title">
             <p className="text-xs font-semibold uppercase tracking-[.24em] text-emerald-700">
@@ -901,17 +858,17 @@ export function SalesAdvisorExperience({
         className="border-t border-stone-200 bg-white"
       >
         <div className="mx-auto grid max-w-7xl gap-6 px-5 py-8 sm:px-8 lg:grid-cols-[minmax(0,1fr)_26rem] lg:items-start">
-          <div className="rounded-3xl border border-stone-200 bg-stone-50 p-5">
+          <div className="rounded-3xl border border-emerald-200 bg-gradient-to-br from-emerald-950 to-stone-950 p-6 text-white shadow-xl shadow-emerald-950/10">
             <div className="flex flex-wrap items-end justify-between gap-2">
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-[.2em] text-emerald-700">
+                <p className="text-[11px] font-semibold uppercase tracking-[.2em] text-emerald-300">
                   Sonraki adım
                 </p>
                 <h2 className="mt-1 text-2xl font-semibold">
                   Bir talep adımını incelemek ister misin?
                 </h2>
               </div>
-              <p className="text-xs text-stone-500">
+              <p className="text-xs text-stone-300">
                 Başvuru, rezervasyon, teklif veya bayi aktarımı oluşmaz.
               </p>
             </div>
@@ -924,19 +881,19 @@ export function SalesAdvisorExperience({
                   onClick={() =>
                     void preparePhase3(action.intent, action.title)
                   }
-                  className="group flex items-center gap-3 rounded-2xl border border-stone-200 bg-white p-3 text-left transition hover:border-emerald-300 hover:shadow-sm disabled:opacity-60"
+                  className={`group flex items-center gap-3 rounded-2xl border p-4 text-left transition hover:-translate-y-0.5 hover:shadow-lg disabled:opacity-60 ${action.intent === "REQUEST_TEST_DRIVE" ? "border-emerald-300 bg-emerald-300 text-emerald-950" : "border-white/15 bg-white/10 text-white hover:border-emerald-300"}`}
                 >
-                  <span className="rounded-xl bg-emerald-50 p-2 text-emerald-700">
+                  <span className={`rounded-xl p-2 ${action.intent === "REQUEST_TEST_DRIVE" ? "bg-emerald-950 text-emerald-200" : "bg-white/10 text-emerald-300"}`}>
                     <Icon name={action.icon} />
                   </span>
                   <span className="min-w-0 flex-1">
                     <span className="block font-semibold">{action.title}</span>
-                    <span className="mt-0.5 block text-xs leading-5 text-stone-500">
+                    <span className={`mt-0.5 block text-xs leading-5 ${action.intent === "REQUEST_TEST_DRIVE" ? "text-emerald-900" : "text-stone-300"}`}>
                       {action.text}
                     </span>
                   </span>
                   <span
-                    className="shrink-0 text-lg text-emerald-700 transition group-hover:translate-x-0.5"
+                    className="shrink-0 text-lg transition group-hover:translate-x-0.5"
                     aria-hidden="true"
                   >
                     →
@@ -944,7 +901,7 @@ export function SalesAdvisorExperience({
                 </button>
               ))}
             </div>
-            <p className="mt-4 text-xs leading-5 text-stone-500">
+            <p className="mt-4 text-xs leading-5 text-stone-300">
               {SALES_ADVISOR_DISCLOSURE.phase3Scope}
             </p>
           </div>

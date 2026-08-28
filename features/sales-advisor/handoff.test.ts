@@ -2,17 +2,17 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { runV3Turn } from "@/features/decision/v3/engine.server";
 import { sealV31State } from "@/features/decision/v3/stateToken.server";
 import { resetV31OffersForTests } from "@/features/decision/v3/offerGovernance.server";
-import { createRecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
 import type { V3PublicResponse } from "@/features/decision/v3/types";
 import { createPhase2Handoff, createPhase3IntentHandoff, openPhase2Experience, openPhase3IntentHandoff, publicSummary, resetPhase2HandoffsForTests } from "./handoff.server";
 import type { PreferenceEvent } from "@/features/decision/v3/types";
+import { advanceV3ToOffer, revealV3TestOffer } from "@/features/decision/v3/testConversationDecision";
 
 const summaryEvent = (concept: string, normalizedValue: string | number): PreferenceEvent => ({ id: `event-${concept}`, sourceMessageId: "message-1", sourceTurn: 1, sourceSpan: { start: 0, end: 1, text: "x" }, concept, normalizedValue, strength: "EXPLICIT_STRONG", status: "ACTIVE", decisionUse: "NONE", confidence: 1, authority: "USER_EXPLICIT", confirmationRequired: false });
 
 async function revealed(conversationId: string) {
   let output: V3PublicResponse | undefined;
-  for (const [index, message] of ["Yeni araç almak istiyorum", "Şehir içinde günlük kullanacağım", "Parkı kolay hatchback olsun", "Kesin bütçem 3 milyon TL", "Elektrikli olsun", "Geri görüş kamerası kesin olsun", "Tek araç öner", "Evet, göster"].entries()) output = await runV3Turn({ conversationId, messageId: `${conversationId}-${index}`, message, expectedRevision: output?.state.revision ?? 0, state: output?.state, ...(output?.state.pendingOffer ? { recommendationTermsAcceptance: createRecommendationTermsAcceptance() } : {}) });
-  return output!;
+  for (const [index, message] of ["Yeni araç almak istiyorum", "Şehir içinde günlük kullanacağım", "Parkı kolay hatchback olsun", "Kesin bütçem 3 milyon TL", "Elektrikli olsun", "Geri görüş kamerası kesin olsun", "Tek araç öner"].entries()) output = await runV3Turn({ conversationId, messageId: `${conversationId}-${index}`, message, expectedRevision: output?.state.revision ?? 0, state: output?.state });
+  return revealV3TestOffer(await advanceV3ToOffer(output!, `${conversationId}-discriminator`), `${conversationId}-reveal`);
 }
 
 describe("signed phase 2 handoff", () => {

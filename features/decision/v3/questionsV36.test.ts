@@ -113,6 +113,18 @@ describe("V3.6 direct question behavior", () => {
     expect(output.recommendations).toBeUndefined();
   });
 
+  it("records multiple technical differentiators without mistaking higher power for an SUV request", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const state = { ...createV3ConversationState("multi-technical"), purchaseIntent: "ACTIVE_DISCOVERY" as const, lastQuestionKey: "technicalDiscriminator:LUGGAGE|POWER", askedQuestionKeys: ["technicalDiscriminator:LUGGAGE|POWER"] };
+    const output = await runV3Turn({ conversationId: state.conversationId, messageId: "1", message: "Daha büyük bagaj veya daha yüksek doğrulanmış motor gücü", expectedRevision: 0, state });
+    const active = activeDecisionPreferences(output.state.ledger);
+    expect(active).toEqual(expect.arrayContaining([
+      expect.objectContaining({ concept: "candidateLuggagePriority" }),
+      expect.objectContaining({ concept: "candidatePowerPriority" }),
+    ]));
+    expect(active.some((item) => item.concept === "bodyStyle")).toBe(false);
+  });
+
   it("varies conversational acknowledgement copy across consecutive turns", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     let output = await runV3Turn({ conversationId: "ack", messageId: "1", message: "Araç bakıyorum", expectedRevision: 0 });

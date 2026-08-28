@@ -50,8 +50,8 @@ export interface V3ConversationState {
 }
 export interface V3PublicResponse {
   readonly kind: "V3_CONVERSATION"; readonly message: string; readonly state: V3ConversationState;
-  readonly recommendations?: readonly { readonly id: string; readonly title: string; readonly image: string; readonly imageStatus: "EXACT" | "REPRESENTATIVE" | "APPROXIMATE" | "PLACEHOLDER"; readonly imageAttribution?: string; readonly representedModel?: string; readonly warning?: string; readonly badge?: string; readonly reason?: never }[];
+  readonly recommendations?: readonly { readonly id: string; readonly title: string; readonly image: string; readonly imageStatus: "EXACT" | "REPRESENTATIVE" | "APPROXIMATE" | "PLACEHOLDER"; readonly imageAttribution?: string; readonly representedModel?: string; readonly warning?: string; readonly badge?: string; readonly reason?: never; readonly decisionInsight?: { readonly eligibleCount: number; readonly leadingCandidateCount: number; readonly rank: 1; readonly decisivePreferences: readonly string[] } }[];
   readonly offerAwaitingConsent?: boolean;
-  readonly variantCounts?: { readonly total: number; readonly remaining: number };
+  readonly variantCounts?: { readonly total: number; readonly remaining: number; readonly leading?: number };
   readonly stateToken?: string;
 }

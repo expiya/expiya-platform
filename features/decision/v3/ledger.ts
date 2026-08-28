@@ -29,7 +29,7 @@ const normalizedBody = (
   if (matches.length === 1) return matches[0];
   return /kompakt|parkı kolay|küçük bir yapı/iu.test(text)
     ? "HATCHBACK"
-    : /(?:daha yüksek|ferah.{0,20}yüksek)/iu.test(text)
+    : /(?:daha yüksek\s+(?:bir\s+)?(?:araç|gövde|oturma|sürüş|yapı)|ferah.{0,20}yüksek)/iu.test(text)
       ? "SUV"
       : undefined;
 };
@@ -746,9 +746,9 @@ export function applyPreferenceMessage(
     FAMILY: { concept: "candidateFamilyPriority", pattern: /aile pratikliği/iu },
     DESIGN: { concept: "candidateDesignPriority", pattern: /tasarım karakteri/iu },
   };
-  if (state.lastQuestionKey?.startsWith("personaDiscriminator:") && !/hiçbiri/iu.test(text)) {
-    const selected = state.lastQuestionKey.slice("personaDiscriminator:".length).split("|").map((code) => personaDiscriminator[code]).find((item) => item?.pattern.test(text));
-    if (selected) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: selected.concept, value: "USER_SELECTED", use: "SOFT_RANK" }));
+  if (state.lastQuestionKey?.startsWith("personaDiscriminator:") && !/(?:hiçbiri|bunlar.*belirleyici değil)/iu.test(text)) {
+    const selected = state.lastQuestionKey.slice("personaDiscriminator:".length).split("|").map((code) => personaDiscriminator[code]).filter((item) => item?.pattern.test(text));
+    for (const item of selected) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: item.concept, value: "USER_SELECTED", use: "SOFT_RANK" }));
   }
   const technicalDiscriminator: Readonly<Record<string, { concept: string; pattern: RegExp }>> = {
     COMPACT: { concept: "candidateCompactPriority", pattern: /kısa|kolay manevra|kompakt/iu },
@@ -757,9 +757,9 @@ export function applyPreferenceMessage(
     PRICE: { concept: "candidatePricePriority", pattern: /satın alma fiyatı|daha düşük.*fiyat/iu },
     RANGE: { concept: "candidateRangePriority", pattern: /elektrikli menzil|menzil/iu },
   };
-  if (state.lastQuestionKey?.startsWith("technicalDiscriminator:") && !/hiçbiri/iu.test(text)) {
-    const selected = state.lastQuestionKey.slice("technicalDiscriminator:".length).split("|").map((code) => technicalDiscriminator[code]).find((item) => item?.pattern.test(text));
-    if (selected) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: selected.concept, value: "USER_SELECTED", use: "SOFT_RANK" }));
+  if (state.lastQuestionKey?.startsWith("technicalDiscriminator:") && !/(?:hiçbiri|bunlar.*belirleyici değil)/iu.test(text)) {
+    const selected = state.lastQuestionKey.slice("technicalDiscriminator:".length).split("|").map((code) => technicalDiscriminator[code]).filter((item) => item?.pattern.test(text));
+    for (const item of selected) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: item.concept, value: "USER_SELECTED", use: "SOFT_RANK" }));
   }
   const transmission = normalizedTransmission(text);
   if (transmission)

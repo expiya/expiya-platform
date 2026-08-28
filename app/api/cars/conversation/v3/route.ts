@@ -3,7 +3,7 @@ import type { V3PublicResponse } from "@/features/decision/v3/types";
 import { runV3Turn } from "@/features/decision/v3/engine.server";
 import { runStoredV31Turn } from "@/features/decision/v3/store.server";
 import { sealV31State, unsealV31State } from "@/features/decision/v3/stateToken.server";
-import { evaluateV3Catalog } from "@/features/decision/v3/catalogAdapter.server";
+import { evaluateV3Catalog, scoreV3Candidate } from "@/features/decision/v3/catalogAdapter.server";
 import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
 import { RECOMMENDATION_TERMS_VERSION } from "@/lib/legal/recommendationTerms";
 
@@ -24,7 +24,14 @@ export async function POST(request: Request): Promise<Response> {
     const output = await runStoredV31Turn({ ...input, trustedSeed: unsealV31State(input.stateToken, input.conversationId), run: (state) => runV3Turn({ ...input, state, signal: request.signal }) });
     let variantCounts: V3PublicResponse["variantCounts"];
     if (input.includePilotDiagnostics && ["EXPLICIT", "ACTIVE_DISCOVERY", "READY_FOR_DECISION"].includes(output.state.purchaseIntent)) {
-      try { const catalog = await evaluateV3Catalog(output.state.ledger, undefined, output.state.budgetMode ?? "NEEDS_ONLY"); variantCounts = { total: catalog.initialCount, remaining: catalog.variants.length }; } catch { variantCounts = undefined; }
+      try {
+        const budgetMode = output.state.budgetMode ?? "NEEDS_ONLY";
+        const catalog = await evaluateV3Catalog(output.state.ledger, undefined, budgetMode);
+        const scores = catalog.variants.map((variant) => scoreV3Candidate(variant, output.state.ledger, budgetMode));
+        const top = scores.length ? Math.max(...scores) : undefined;
+        const leading = top === undefined ? undefined : scores.filter((score) => Math.abs(score - top) < 1e-9).length;
+        variantCounts = { total: catalog.initialCount, remaining: catalog.variants.length, ...(leading ? { leading } : {}) };
+      } catch { variantCounts = undefined; }
     }
     return Response.json({ ...output, ...(variantCounts ? { variantCounts } : {}), stateToken: sealV31State(output.state) });
   } catch (error) {
