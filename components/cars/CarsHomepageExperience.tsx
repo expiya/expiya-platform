@@ -34,7 +34,7 @@ export function CarsHomepageExperience({ children }: { readonly children: ReactN
         <div className="my-auto max-w-3xl py-16 sm:py-24">
           <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[.28em] text-emerald-300">
             <span className="h-px w-10 bg-emerald-400" aria-hidden="true" />
-            Sıfır araç karar platformu
+            Sıfır otomobil seçim asistanı
           </div>
           <h1 className="mt-7 text-5xl font-semibold leading-[.94] tracking-[-.055em] sm:text-7xl lg:text-[6.5rem]">
             Sana uygun<br /><span className="text-white/55">sıfır aracı bul.</span>
@@ -61,15 +61,15 @@ export function CarsHomepageExperience({ children }: { readonly children: ReactN
 
     <section className="border-b border-white/10 bg-[#0c1113] px-5 py-14 sm:px-8 sm:py-20">
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-center">
-        <div><p className="text-xs font-semibold uppercase tracking-[.28em] text-emerald-300">eX · Pi · Ya</p><h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">Experience.<br />Powered by You.</h2></div>
+        <div><p className="text-xs font-semibold uppercase tracking-[.28em] text-emerald-300">EXPIYA</p><h2 className="mt-4 text-3xl font-semibold tracking-tight sm:text-5xl">Experience.<br />Powered by You.</h2></div>
         <div className="grid gap-4 sm:grid-cols-3">
-          {[["eX", "Experience", "Sıfır araç seçimini karmaşık bir katalog taramasından anlaşılır bir karar deneyimine dönüştürür."], ["Pi", "Perspective", "Yeni aracını seçerken önemli olabilecek ihtiyaçları farklı açılardan düşünmeni sağlar."], ["Ya", "You", "Öneri, en popüler modele değil senin kullanımına ve önceliklerine göre şekillenir."]].map(([mark, title, copy]) => <article key={mark} className="rounded-3xl border border-white/10 bg-white/[.035] p-5"><p className="text-2xl font-semibold text-emerald-300">{mark}</p><h3 className="mt-4 font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-white/55">{copy}</p></article>)}
+          {[["01", "İhtiyaçların", "Yeni aracını seçerken önemli olabilecek ihtiyaçları farklı açılardan düşünmeni sağlar."], ["02", "Önceliklerin", "Bütçe, kullanım biçimi ve beklentilerin arasındaki dengeyi görünür kılar."], ["03", "Senin kararın", "Öneri, en popüler modele değil senin kullanımına ve önceliklerine göre şekillenir."]].map(([mark, title, copy]) => <article key={mark} className="rounded-3xl border border-white/10 bg-white/[.035] p-5"><p className="text-2xl font-semibold text-emerald-300">{mark}</p><h3 className="mt-4 font-semibold">{title}</h3><p className="mt-2 text-sm leading-6 text-white/55">{copy}</p></article>)}
         </div>
       </div>
     </section>
 
     <div ref={conversationRef} id="sohbet" tabIndex={-1} className="scroll-mt-0 outline-none">
-      {started ? children : <section className="px-5 py-16 text-center sm:py-24"><p className="text-xs font-semibold uppercase tracking-[.25em] text-emerald-300">XPY · Sıfır araç görüşmesi</p><h2 className="mx-auto mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-5xl">Yeni aracını birlikte seçelim.</h2><p className="mx-auto mt-5 max-w-xl text-white/55">Sohbet sırasında bütçe odaklı ilerleyebilir veya önce yalnızca ihtiyaçlarına uygun sıfır araçları değerlendirebilirsin.</p><button type="button" onClick={openConversation} className="mt-8 min-h-13 rounded-full border border-white/20 bg-white px-7 font-semibold text-stone-950 transition hover:bg-emerald-300">Sohbete başla</button></section>}
+      {started ? children : <section className="px-5 py-16 text-center sm:py-24"><p className="text-xs font-semibold uppercase tracking-[.25em] text-emerald-300">XPY · Sıfır araç görüşmesi</p><h2 className="mx-auto mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-5xl">Yeni aracını birlikte seçelim.</h2><p className="mx-auto mt-5 max-w-xl text-white/55">Sohbet sırasında bütçe odaklı ilerleyebilir veya önce yalnızca ihtiyaçlarına uygun sıfır araçları değerlendirebilirsin.</p><button type="button" onClick={openConversation} className="mt-8 min-h-14 rounded-full border border-emerald-300 bg-emerald-400 px-7 font-semibold text-[#07110d] shadow-[0_0_32px_rgba(52,211,153,.16)] transition hover:bg-emerald-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300 dark:bg-emerald-400 dark:text-[#07110d]">Sohbete başla</button></section>}
     </div>
 
     <footer className="border-t border-white/10 bg-black px-5 py-10 text-white/55 sm:px-8">
