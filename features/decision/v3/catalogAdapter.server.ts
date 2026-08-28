@@ -14,8 +14,9 @@ import { projectV3DecisionPreferences } from "./decisionInput";
 import type { BudgetDecisionMode } from "./types";
 import { EQUIPMENT_FEATURE_DEFINITIONS } from "../../vehicle-data/equipmentEvidencePolicy";
 import type { EquipmentFeatureCode } from "@/types/equipmentEvidence";
+import { createCatalogFactCapabilityRegistry, type CatalogFactCapabilityRegistryV2 } from "../v2/semantic-intelligence/catalogFactCapabilityRegistry";
 
-export interface V3CatalogEvaluation { readonly initialCount: number; readonly candidateIds: readonly string[]; readonly variants: readonly CatalogVariantSnapshot[]; readonly appliedEquipment: readonly PreferenceEvent[]; readonly unsupportedEquipment: readonly PreferenceEvent[]; readonly catalogReleaseVersion: string; readonly catalogFingerprint: string }
+export interface V3CatalogEvaluation { readonly initialCount: number; readonly candidateIds: readonly string[]; readonly variants: readonly CatalogVariantSnapshot[]; readonly appliedEquipment: readonly PreferenceEvent[]; readonly unsupportedEquipment: readonly PreferenceEvent[]; readonly catalogReleaseVersion: string; readonly catalogFingerprint: string; readonly factRegistry: CatalogFactCapabilityRegistryV2 }
 export interface V3CatalogEntitySignals { readonly brands: readonly string[]; readonly models: readonly string[] }
 type LoadedCatalog = ReturnType<typeof buildCatalogSnapshot>;
 let cachedActiveCatalog: Promise<LoadedCatalog> | undefined;
@@ -129,7 +130,7 @@ export async function evaluateV3Catalog(ledger: readonly PreferenceEvent[], now?
     if (verified.length > 0) { variants = verified; appliedEquipment.push(preference); }
     else unsupportedEquipment.push(preference);
   }
-  return { initialCount: loaded.snapshot.variants.length, candidateIds: variants.map((item) => item.id), variants, appliedEquipment, unsupportedEquipment, catalogReleaseVersion: loaded.snapshot.authority.releaseVersion, catalogFingerprint: loaded.snapshot.authority.catalogFingerprint };
+  return { initialCount: loaded.snapshot.variants.length, candidateIds: variants.map((item) => item.id), variants, appliedEquipment, unsupportedEquipment, catalogReleaseVersion: loaded.snapshot.authority.releaseVersion, catalogFingerprint: loaded.snapshot.authority.catalogFingerprint, factRegistry: createCatalogFactCapabilityRegistry(loaded.snapshot) };
 }
 
 export interface V3EquipmentQuestionPlan { readonly key: string; readonly featureCodes: readonly EquipmentFeatureCode[]; readonly text: string }
@@ -142,6 +143,7 @@ export function planV3VerifiedEquipmentQuestion(variants: readonly CatalogVarian
     LONG_DISTANCE: ["ADAS", "CABIN_COMFORT", "LIGHTING"],
     COMMERCIAL: ["ACCESS", "PARKING", "ADAS"],
     CORPORATE_TRAVEL: ["CABIN_COMFORT", "ADAS", "PARKING", "CONNECTIVITY"],
+    PASSENGER_TRANSPORT: ["ACCESS", "OCCUPANT_SAFETY", "CABIN_COMFORT", "ADAS"],
     MIXED_ROAD: ["OFF_ROAD", "ACCESS", "PARKING", "ADAS"],
   };
   const orderedCategories = categoryOrder[usage ?? ""];
