@@ -12,7 +12,7 @@ const listClass = "list-disc space-y-2 pl-6 text-neutral-700 dark:text-neutral-3
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 px-5 py-10 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:px-6 sm:py-16">
+    <main className="min-h-screen bg-white px-5 py-10 text-neutral-950 sm:px-6 sm:py-16">
       <article className="mx-auto max-w-3xl">
         <Link href="/" className="text-sm font-semibold text-neutral-600 underline underline-offset-4 hover:text-black dark:text-neutral-300 dark:hover:text-white">
           ← Expiya Cars&apos;a dön

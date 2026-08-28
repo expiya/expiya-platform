@@ -67,7 +67,7 @@ function readV2Card(decisionId: string): DecisionSafePublicCard | null {
 
 function V2DecisionDetail({ card }: { readonly card: DecisionSafePublicCard }) {
   const details = [card.modelYear, card.fuelLabel, card.transmissionLabel, card.bodyTypeLabel].filter(Boolean).join(" · ");
-  return <main className="min-h-screen bg-neutral-50 p-5 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:p-10">
+  return <main className="min-h-screen bg-white p-5 text-neutral-950 sm:p-10">
     <div className="mx-auto max-w-4xl">
       <Link href="/analysis" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
       <article className="mt-6 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
@@ -133,7 +133,7 @@ function V3DecisionDetail({ context }: { readonly context: V3DecisionContext }) 
     }
   }
 
-  return <main className="min-h-screen bg-neutral-50 p-5 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:p-10">
+  return <main className="min-h-screen bg-white p-5 text-neutral-950 sm:p-10">
     <div className="mx-auto max-w-4xl">
       <Link href="/" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
       <article className="mt-6 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
@@ -193,7 +193,7 @@ export default function DecisionDetailPage() {
   }, [decisionId]);
 
   if (recommendation === undefined || v2Card === undefined || v3Context === undefined) {
-    return <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950" aria-label="Karar yükleniyor" />;
+    return <main className="min-h-screen bg-white" aria-label="Karar yükleniyor" />;
   }
 
   if (!recommendation && v2Card) return <V2DecisionDetail card={v2Card} />;
@@ -201,7 +201,7 @@ export default function DecisionDetailPage() {
 
   if (!recommendation) {
     return (
-      <main className="min-h-screen bg-neutral-50 p-10 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
+      <main className="min-h-screen bg-white p-10 text-neutral-950">
         <div className="mx-auto max-w-3xl">
           <h1 className="text-4xl font-bold">Karar bulunamadı</h1>
           <p className="mt-4 text-neutral-600 dark:text-neutral-300">
@@ -251,7 +251,7 @@ export default function DecisionDetailPage() {
   }
 
   return (
-    <main className="min-h-screen bg-neutral-50 p-5 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:p-10">
+    <main className="min-h-screen bg-white p-5 text-neutral-950 sm:p-10">
       <div className="mx-auto max-w-4xl">
         <Link href="/analysis" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">
           ← Görüşmeye dön

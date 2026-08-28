@@ -148,7 +148,7 @@ function StatusPill({
     <span
       className={
         tone === "dark"
-          ? "inline-flex rounded-full border border-white/25 bg-black/35 px-3 py-1.5 text-xs text-white backdrop-blur"
+          ? "inline-flex rounded-full border border-stone-200 bg-white/90 px-3 py-1.5 text-xs text-stone-800 backdrop-blur"
           : "inline-flex rounded-full bg-emerald-50 px-3 py-1.5 text-xs font-medium text-emerald-800"
       }
     >
@@ -392,17 +392,17 @@ export function SalesAdvisorExperience({
   }
   if (error)
     return (
-      <main className="expiya-adaptive-surface min-h-screen bg-stone-950 p-6 text-stone-100">
-        <div className="mx-auto max-w-3xl rounded-3xl border border-rose-900 bg-rose-950/30 p-8">
+      <main className="expiya-adaptive-surface min-h-screen bg-white p-6 text-stone-950">
+        <div className="mx-auto max-w-3xl rounded-3xl border border-rose-300 bg-rose-50 p-8">
           <h1 className="text-2xl font-semibold">
             Güvenli geçiş doğrulanamadı
           </h1>
-          <p className="mt-3 text-rose-200">
+          <p className="mt-3 text-rose-800">
             Bağlantı eski, değiştirilmiş veya bu görüşmeye ait değil.
           </p>
           <Link
             href="/?resume=conversation#sohbet"
-            className="mt-6 inline-flex rounded-full bg-white px-5 py-3 font-semibold text-black"
+            className="mt-6 inline-flex rounded-full bg-emerald-700 px-5 py-3 font-semibold text-white"
           >
             Karar motoru sohbetine dön
           </Link>
@@ -412,7 +412,7 @@ export function SalesAdvisorExperience({
   if (!data)
     return (
       <main
-        className="expiya-adaptive-surface min-h-screen bg-stone-950 p-8 text-stone-200"
+        className="expiya-adaptive-surface min-h-screen bg-white p-8 text-stone-700"
         aria-busy="true"
       >
         Varyant kataloğu doğrulanıyor…
@@ -422,21 +422,21 @@ export function SalesAdvisorExperience({
   const hero = artifact.media[activeMedia] ?? artifact.media[0];
   const highlightFacts = artifact.facts.slice(0, 4);
   return (
-    <main className="expiya-adaptive-surface min-h-screen bg-[#f4f1eb] text-stone-950">
-      <header className="sticky top-0 z-40 border-b border-white/10 bg-stone-950/95 text-white backdrop-blur">
+    <main className="expiya-adaptive-surface min-h-screen bg-white text-stone-950">
+      <header className="sticky top-0 z-40 border-b border-stone-200 bg-white/95 text-stone-950 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
           <Link href="/" className="text-lg font-bold tracking-tight">
-            EXPIYA <span className="font-light text-emerald-400">CARS</span>
+            EXPIYA <span className="font-light text-emerald-700">CARS</span>
           </Link>
           <nav
             aria-label="Varyant sayfası"
-            className="hidden gap-6 text-xs text-stone-300 lg:flex"
+            className="hidden gap-6 text-xs text-stone-600 lg:flex"
           >
             {navigation.map(([id, label]) => (
               <a
                 key={id}
                 href={`#${id}`}
-                className="transition hover:text-white"
+                className="transition hover:text-stone-950"
               >
                 {label}
               </a>
@@ -444,7 +444,7 @@ export function SalesAdvisorExperience({
           </nav>
           <Link
             href="/?resume=conversation#sohbet"
-            className="rounded-full border border-white/20 px-4 py-2 text-xs font-medium hover:bg-white hover:text-stone-950"
+            className="rounded-full border border-stone-300 px-4 py-2 text-xs font-medium hover:border-stone-500 hover:bg-stone-50"
           >
             Karar motoru sohbetine dön
           </Link>
@@ -452,7 +452,7 @@ export function SalesAdvisorExperience({
       </header>
       <section
         id="overview"
-        className="relative isolate overflow-hidden bg-stone-950 text-white"
+        className="relative isolate overflow-hidden bg-white text-stone-950"
       >
         <div className="absolute inset-0">
           {hero ? (
@@ -462,13 +462,13 @@ export function SalesAdvisorExperience({
               fill
               priority
               sizes="100vw"
-              className="object-cover opacity-65"
+              className="object-cover opacity-35"
             />
           ) : (
-            <div className="h-full bg-[radial-gradient(circle_at_70%_30%,#285943,transparent_40%),linear-gradient(130deg,#1c1917,#0c0a09)]" />
+            <div className="h-full bg-[radial-gradient(circle_at_70%_30%,#d1fae5,transparent_40%),linear-gradient(130deg,#ffffff,#f5f5f4)]" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/55 to-black/5" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-white/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-white/20" />
         </div>
         <div className="relative mx-auto grid min-h-[78vh] max-w-7xl items-end px-5 py-12 sm:px-8 lg:grid-cols-[minmax(0,1fr)_23rem] lg:gap-12 lg:py-16">
           <div className="min-w-0 max-w-3xl">
@@ -479,33 +479,33 @@ export function SalesAdvisorExperience({
                 {hero?.label ?? "Görsel kanıtı bekleniyor"}
               </StatusPill>
             </div>
-            <p className="mt-7 text-xs font-semibold uppercase tracking-[.3em] text-emerald-300">
+            <p className="mt-7 text-xs font-semibold uppercase tracking-[.3em] text-emerald-700">
               Senin seçimin
             </p>
             <h1 className="mt-3 text-4xl font-semibold leading-[1.05] sm:text-6xl lg:text-7xl">
               {artifact.identity.brand} {artifact.identity.model}
-              <span className="mt-2 block text-2xl font-light text-stone-300 sm:text-3xl">
+              <span className="mt-2 block text-2xl font-light text-stone-600 sm:text-3xl">
                 {artifact.identity.trim}
               </span>
             </h1>
-            <p className="mt-6 max-w-xl text-base leading-7 text-stone-200 sm:text-lg">
+            <p className="mt-6 max-w-xl text-base leading-7 text-stone-600 sm:text-lg">
               Teknik veriden günlük kullanıma, donanımdan fiyat durumuna kadar
               seçtiğin varyantın kanıt kapsamıyla sınırlı kataloğu. Bu anlatım
               bağlayıcı satış teklifi değildir.
             </p>
           </div>
-          <dl className="mt-10 grid min-w-0 grid-cols-2 gap-px overflow-hidden rounded-3xl border border-white/15 bg-white/15 backdrop-blur lg:mt-0">
+          <dl className="mt-10 grid min-w-0 grid-cols-2 gap-px overflow-hidden rounded-3xl border border-stone-200 bg-stone-200/80 shadow-lg backdrop-blur lg:mt-0">
             {highlightFacts.length ? (
               highlightFacts.map((item) => (
-                <div key={item.key} className="min-w-0 bg-black/45 p-5">
-                  <dt className="text-xs text-stone-400">{item.label}</dt>
+                <div key={item.key} className="min-w-0 bg-white/90 p-5">
+                  <dt className="text-xs text-stone-500">{item.label}</dt>
                   <dd className="mt-2 break-words text-lg font-semibold">
                     {item.value}
                   </dd>
                 </div>
               ))
             ) : (
-              <div className="col-span-2 bg-black/45 p-6 text-sm text-stone-300">
+              <div className="col-span-2 bg-white/90 p-6 text-sm text-stone-600">
                 Doğrulanmış teknik özet hazırlanıyor.
               </div>
             )}
@@ -514,18 +514,18 @@ export function SalesAdvisorExperience({
       </section>
       <section
         aria-label="Güncel fiyat durumu"
-        className="bg-stone-950 text-white"
+        className="border-y border-stone-200 bg-stone-50 text-stone-950"
       >
         <div className="mx-auto grid max-w-7xl gap-4 px-5 py-6 sm:px-8 md:grid-cols-[auto_minmax(0,1fr)_auto] md:items-center md:gap-8">
           <div>
-            <p className="text-xs uppercase tracking-[.18em] text-stone-400">
+            <p className="text-xs uppercase tracking-[.18em] text-stone-500">
               Güncel fiyat durumu
             </p>
             <p className="mt-2 text-3xl font-semibold">
               {artifact.price.display}
             </p>
           </div>
-          <p className="max-w-2xl text-sm leading-6 text-stone-400">
+          <p className="max-w-2xl text-sm leading-6 text-stone-600">
             {artifact.price.note}
           </p>
           <span

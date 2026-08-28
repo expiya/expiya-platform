@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function RecommendationTermsPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 px-5 py-12 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:px-8">
+    <main className="min-h-screen bg-white px-5 py-12 text-neutral-950 sm:px-8">
       <article className="mx-auto max-w-3xl rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 sm:p-10">
         <Link href="/analysis" className="text-sm font-semibold underline underline-offset-4">← Görüşmeye dön</Link>
         <p className="mt-8 text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">{RECOMMENDATION_TERMS_VERSION}</p>

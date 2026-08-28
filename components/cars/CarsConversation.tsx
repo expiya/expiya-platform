@@ -337,7 +337,7 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
   }
 
   return (
-    <main className="min-h-screen bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
+    <main className="min-h-screen bg-white text-neutral-950">
       <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
