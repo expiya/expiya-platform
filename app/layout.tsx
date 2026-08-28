@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Expiya Cars - Doğru Arabayı Birlikte Bulalım",
+  title: "Expiya Cars - Sana Uygun Sıfır Aracı Bul",
   description:
-    "Expiya Cars ihtiyaçlarınızı dinler, seçenekleri tartar ve net bir araç kararına ulaşmanıza yardımcı olur.",
+    "Expiya Cars, Türkiye'deki sıfır araç seçeneklerini ihtiyaçlarınıza ve bütçenize göre değerlendirerek doğru aracı seçmenize yardımcı olur.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
