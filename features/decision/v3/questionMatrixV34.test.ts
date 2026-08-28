@@ -45,7 +45,7 @@ describe("V3.4 usage-specific question matrix", () => {
     expect(usageQuestionOrder("LONG_DISTANCE")[0]).toBe("longDistanceEquipment");
   });
 
-  it("records an explicit glass-roof requirement directly and asks only for the persona confirmation", async () => {
+  it("records an explicit glass-roof requirement without asking for more equipment", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     let state = createV3ConversationState("glass-roof-persona");
     let output = await turn(state, "1", "Sıfır km bir SUV satın almak istiyorum. Günlük şehir içinde kullanacağım, kesin bütçe üst sınırım 3.200.000 TL. Benzinli ve otomatik olsun, cam tavan kesinlikle bulunsun. Karizmatik ve zamansız tasarım seviyorum.");
@@ -56,9 +56,9 @@ describe("V3.4 usage-specific question matrix", () => {
     ]));
 
     output = await turn(state, "2", "Evet");
-    expect(output.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
+    expect(output.state.lastQuestionKey).toBe("brandModel");
     expect(output.offerAwaitingConsent).not.toBe(true);
-    expect(output.message).toMatch(/gerçekten ayıran donanım/iu);
+    expect(output.message).not.toMatch(/gerçekten ayıran donanım/iu);
     expect(activeDecisionPreferences(output.state.ledger)).toEqual(expect.arrayContaining([
       expect.objectContaining({ concept: "distinctiveDesign", decisionUse: "SOFT_RANK" }),
     ]));

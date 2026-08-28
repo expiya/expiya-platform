@@ -155,7 +155,8 @@ function selectQuestion(state: V3ConversationState, variants?: readonly CatalogV
     return { key, text: candidateAwareQuestionText(key, variants) };
   }
   if (budgetModeOf(state) === "BUDGET_AS_DECISION_FILTER" && latestActiveLedgerEvent(state.ledger, "budgetTarget") && !latestActiveLedgerEvent(state.ledger, "budgetMax") && !keys.has("exactBudget") && questionCanReduceCandidates("exactBudget", variants)) return { key: "exactBudget", text: "Son elemede kullanmam için aşmak istemediğin kesin bütçe üst sınırı nedir?" };
-  if (variants && variants.length > 3 && !latestActiveLedgerEvent(state.ledger, "equipmentNotImportant")) {
+  const equipmentResolved = activeDecisionPreferences(state.ledger).some((item) => item.field === "equipmentFeature") || Boolean(latestActiveLedgerEvent(state.ledger, "equipmentNotImportant") || latestActiveLedgerEvent(state.ledger, "unmappedEquipmentRequirement"));
+  if (variants && variants.length > 3 && !equipmentResolved) {
     const equipmentRounds = state.askedQuestionKeys.filter((key) => key.startsWith("verifiedEquipment:")).length;
     const maxRounds = budgetModeOf(state) === "NEEDS_ONLY" ? 3 : 1;
     if (equipmentRounds < maxRounds) {
