@@ -213,7 +213,12 @@ export async function runV3Turn(input: { readonly conversationId: string; readon
   }
   ledger = applySemanticContextSignals(prior, ledger, input.messageId, semantic.contextSignals);
   const budgetEvent = latestActiveLedgerEvent(ledger, "budgetMax") ?? latestActiveLedgerEvent(ledger, "budgetTarget");
-  const base: V3ConversationState = { ...prior, budgetMode, budgetModeEvents, ...(budgetEvent ? { budgetMetadata: { amountTry: Number(budgetEvent.normalizedValue), currency: "TRY", taxBasis: "CATALOG_GROSS_LIST_PRICE", financing: "EXCLUDED", timeScope: "CURRENT_ACTIVE_CATALOG", includedInDecision: budgetMode === "BUDGET_AS_DECISION_FILTER" } as const } : {}), revision: prior.revision + 1, processedMessages: { ...prior.processedMessages, [input.messageId]: hash }, purchaseIntent, intentObservationTurns: observationTurns, ledger, pendingConfirmation, ended: purchaseIntent === "ENDED_WITHOUT_INTENT", lastRoute: router.route, pendingAction: acceptedBrandRelaxation || acceptedEquipmentRelaxation ? undefined : prior.pendingAction, finalBrandModelQuestionAsked: prior.finalBrandModelQuestionAsked || prior.lastQuestionKey === "brandModel" };
+  const requestedRecommendationLimit = /(?:tek|bir)\s+(?:araç|model|seçim|öneri)/iu.test(input.message)
+    ? 1 as const
+    : /(?:üç|3)\s+(?:araç|model|seçenek|alternatif)/iu.test(input.message)
+      ? 3 as const
+      : prior.preferredRecommendationLimit;
+  const base: V3ConversationState = { ...prior, budgetMode, budgetModeEvents, ...(budgetEvent ? { budgetMetadata: { amountTry: Number(budgetEvent.normalizedValue), currency: "TRY", taxBasis: "CATALOG_GROSS_LIST_PRICE", financing: "EXCLUDED", timeScope: "CURRENT_ACTIVE_CATALOG", includedInDecision: budgetMode === "BUDGET_AS_DECISION_FILTER" } as const } : {}), revision: prior.revision + 1, processedMessages: { ...prior.processedMessages, [input.messageId]: hash }, purchaseIntent, intentObservationTurns: observationTurns, ledger, pendingConfirmation, ended: purchaseIntent === "ENDED_WITHOUT_INTENT", lastRoute: router.route, pendingAction: acceptedBrandRelaxation || acceptedEquipmentRelaxation ? undefined : prior.pendingAction, finalBrandModelQuestionAsked: prior.finalBrandModelQuestionAsked || prior.lastQuestionKey === "brandModel", ...(requestedRecommendationLimit ? { preferredRecommendationLimit: requestedRecommendationLimit } : {}) };
   const modeOnlyMessage = /^(?:bütçemi karar filtresi olarak kullan|bütçeyi karardan çıkar,? ihtiyaç odaklı devam)[.! ]*$/iu.test(input.message.trim());
   if (requestedBudgetMode && requestedBudgetMode !== priorBudgetMode && modeOnlyMessage) {
     const message = requestedBudgetMode === "BUDGET_AS_DECISION_FILTER"
@@ -295,7 +300,7 @@ export async function runV3Turn(input: { readonly conversationId: string; readon
     if (readinessQuestion) return { kind: "V3_CONVERSATION", message: `Doğru tek aracı seçebilmem için bir noktayı netleştirelim. ${contextualQuestion(base, readinessQuestion.key, readinessQuestion.text)}`, state: { ...base, askedQuestionKeys: [...new Set([...base.askedQuestionKeys, readinessQuestion.key])], lastQuestionKey: readinessQuestion.key } };
   }
   const equipmentResolved = activeDecisionPreferences(ledger).some((item) => item.field === "equipmentFeature") || Boolean(latestActiveLedgerEvent(ledger, "equipmentNotImportant") || latestActiveLedgerEvent(ledger, "unmappedEquipmentRequirement")) || base.askedQuestionKeys.some((key) => key.endsWith("Equipment"));
-  if (recommendationRequested && catalog?.variants.length && catalog.variants.length > 3 && !latestActiveLedgerEvent(ledger, "equipmentNotImportant")) {
+  if (recommendationRequested && catalog?.variants.length && catalog.variants.length > 3 && !equipmentResolved) {
     const equipmentRounds = base.askedQuestionKeys.filter((key) => key.startsWith("verifiedEquipment:")).length;
     const maxRounds = budgetMode === "NEEDS_ONLY" ? 3 : 1;
     const planned = equipmentRounds < maxRounds ? planV3VerifiedEquipmentQuestion(catalog.variants, base.askedQuestionKeys, String(latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue ?? "")) : undefined;
@@ -310,7 +315,7 @@ export async function runV3Turn(input: { readonly conversationId: string; readon
     return { kind: "V3_CONVERSATION", message: "İhtiyaçlarını karşılayan birkaç güçlü seçenek aynı puanda kaldı. Özellikle yakın hissettiğin bir marka veya model var mı; yoksa marka tercihin olmadığını söyleyebilirsin.", state: { ...base, askedQuestionKeys: [...new Set([...base.askedQuestionKeys, "brandModel"])], lastQuestionKey: "brandModel", finalBrandModelQuestionAsked: true } };
   }
   if ((recommendationRequested || valueFallbackRequested) && catalog?.variants.length) {
-    const limit: 1 | 3 = valueFallbackRequested || /alternatif/iu.test(input.message) ? 3 : 1; const ranked = rankV3Candidates(catalog.variants, ledger, budgetMode).slice(0, limit);
+    const limit: 1 | 3 = base.preferredRecommendationLimit ?? (valueFallbackRequested || /alternatif/iu.test(input.message) ? 3 : 1); const ranked = rankV3Candidates(catalog.variants, ledger, budgetMode).slice(0, limit);
     const decisionFingerprint = createHash("sha256").update(JSON.stringify(projectV3DecisionPreferences(ledger, budgetMode).map(({ concept, normalizedValue, decisionUse }) => ({ concept, normalizedValue, decisionUse })))).digest("hex");
     const governed = createV31Offer({ conversationId: prior.conversationId, variants: ranked, catalogReleaseVersion: catalog.catalogReleaseVersion, catalogFingerprint: catalog.catalogFingerprint, decisionFingerprint, limit });
     const usageLead = dailyUsageContext(base);

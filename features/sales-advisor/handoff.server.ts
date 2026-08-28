@@ -29,12 +29,14 @@ const publicValues: Readonly<Record<string, string>> = {
   HATCHBACK: "kompakt hatchback", SUV: "SUV", SEDAN: "sedan", PICKUP: "pick-up", VAN: "van / panelvan",
   BEV: "tam elektrikli", HEV: "hibrit", PHEV: "şarj edilebilir hibrit", MHEV: "hafif hibrit", GASOLINE: "benzinli", DIESEL: "dizel", LPG: "LPG",
   NOT_IMPORTANT: "bu başlık karar için önemli değil", REAR_VIEW_CAMERA: "geri görüş kamerası", SURROUND_VIEW_CAMERA_360: "360° çevre görüş kamerası", PARKING_SENSORS: "park sensörleri", ADAPTIVE_CRUISE_CONTROL: "adaptif hız sabitleyici", BLIND_SPOT_MONITOR: "kör nokta izleme",
+  AUTOMATIC: "otomatik", MANUAL: "manuel", MINIMAL: "başka bir donanım zorunlu değil",
 };
 const formatPublicValue = (value: string | number | readonly string[]) => Array.isArray(value) ? value.map((item) => publicValues[String(item)] ?? String(item)).join(", ") : publicValues[String(value)] ?? String(value);
 
-const publicSummary = (event: PreferenceEvent): string => {
+export const publicSummary = (event: PreferenceEvent): string => {
   const value = formatPublicValue(event.normalizedValue);
-  const labels: Record<string, string> = { primaryUsage: "Ana kullanım", bodyStyle: "Gövde tercihi", fuelType: "Yakıt tercihi", transmission: "Şanzıman tercihi", budgetMax: "Kesin bütçe üst sınırı", budgetTarget: "Hedef bütçe", budgetNotImportant: "Bütçe yaklaşımı", brandPreference: "Marka tercihi", modelPreference: "Model tercihi", equipmentFeature: "Donanım ihtiyacı" };
+  const labels: Record<string, string> = { primaryUsage: "Ana kullanım", bodyStyle: "Gövde tercihi", fuelType: "Yakıt tercihi", transmission: "Şanzıman tercihi", minimumSeats: "Kullanım kapasitesi", equipmentNotImportant: "Ek donanım şartı", budgetMax: "Kesin bütçe üst sınırı", budgetTarget: "Hedef bütçe", budgetNotImportant: "Bütçe yaklaşımı", brandPreference: "Marka tercihi", modelPreference: "Model tercihi", equipmentFeature: "Donanım ihtiyacı" };
+  if (event.concept === "minimumSeats" && typeof event.normalizedValue === "number") return `Kullanım kapasitesi: en az ${event.normalizedValue} kişi`;
   return `${labels[event.concept] ?? "Onaylı tercih"}: ${value}`;
 };
 

@@ -39,6 +39,7 @@ export interface V3ConversationState {
   readonly purchaseIntent: PurchaseIntentState; readonly intentObservationTurns: number; readonly ledger: readonly PreferenceEvent[];
   readonly pendingConfirmation?: PendingConfirmation; readonly askedQuestionKeys: readonly string[]; readonly ended: boolean;
   readonly lastQuestionKey?: string; readonly lastRoute?: V3Route; readonly finalBrandModelQuestionAsked?: boolean;
+  readonly preferredRecommendationLimit?: 1 | 3;
   readonly pendingAction?: "RECOMMENDATION_DISCOVERY" | "RELAX_BRAND_FOR_POWERTRAIN" | "RELAX_UNSUPPORTED_EQUIPMENT";
   readonly pendingOffer?: { readonly offerId: string; readonly token: string; readonly candidateIds: readonly string[]; readonly limit: 1 | 3 };
   readonly recommendationTermsAcceptance?: V3RecommendationTermsAcceptance;

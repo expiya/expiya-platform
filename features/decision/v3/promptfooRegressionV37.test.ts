@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { activeDecisionPreferences } from "./ledger";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
 import { routeConversationMessage } from "./router";
+import { createRecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
 
 const priorDisabled = process.env.CARS_V31_PROVIDER_DISABLED;
 afterEach(() => { if (priorDisabled === undefined) delete process.env.CARS_V31_PROVIDER_DISABLED; else process.env.CARS_V31_PROVIDER_DISABLED = priorDisabled; });
@@ -78,5 +79,19 @@ describe("V3.7 Promptfoo conversation regressions", () => {
     expect(output.message).toMatch(/binek.*ticari/iu);
     expect(output.message).toMatch(/nerede ve ne için/iu);
     expect(output.message).not.toMatch(/yeterince güvenilir/iu);
+  });
+
+  it("persists a single-car request through a neutral brand fallback and does not repeat equipment discovery", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let state = createV3ConversationState("single-after-neutral-brand");
+    let output = await runV3Turn({ conversationId: state.conversationId, messageId: "1", message: "Şehir içinde sıfır, otomatik, benzinli kompakt bir araç istiyorum. 1-2 kişiyiz. Geri görüş kamerası önemli. Bütçeyi filtreye katma. Bana tek araç öner.", expectedRevision: 0, state });
+    state = output.state;
+    expect(state.preferredRecommendationLimit).toBe(1);
+    expect(output.message).not.toMatch(/gerçekten ayıran donanım|vazgeçmek istemeyeceğin tek bir özellik/iu);
+    for (const [id, message] of [["2", "Marka tercihim yok, sen seç"], ["3", "Evet, göster"]] as const) {
+      output = await runV3Turn({ conversationId: state.conversationId, messageId: id, message, expectedRevision: state.revision, state, ...(state.pendingOffer ? { recommendationTermsAcceptance: createRecommendationTermsAcceptance() } : {}) });
+      state = output.state;
+    }
+    expect(output.recommendations).toHaveLength(1);
   });
 });
