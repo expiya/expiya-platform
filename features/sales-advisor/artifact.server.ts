@@ -8,7 +8,31 @@ import { getReviewedSalesColors, getReviewedSalesFacts, getReviewedSalesMedia } 
 const stable = (value: unknown): string => JSON.stringify(value, (_key, item: unknown) => item && typeof item === "object" && !Array.isArray(item) ? Object.fromEntries(Object.entries(item).sort(([a], [b]) => a.localeCompare(b))) : item);
 const sha = (value: string): string => `sha256:${createHash("sha256").update(value).digest("hex")}`;
 const verified = <T,>(fact: CatalogFact<T> | undefined): fact is CatalogFact<T> => Boolean(fact && fact.confidence === "HIGH" && fact.provenance.length && fact.provenance.every((item) => item.sourceId && item.sourceUrl));
-const fact = <T,>(key: string, label: string, source: CatalogFact<T> | undefined, format: (value: T) => string, dailyMeaning?: string): PublicVariantFact | undefined => verified(source) ? { key, label, value: format(source.value), disposition: "VERIFIED", ...(dailyMeaning ? { dailyMeaning } : {}) } : undefined;
+const dailyMeanings: Readonly<Record<string, string>> = {
+  bodyStyle: "Gövde yapısı; oturma yüksekliği, park kolaylığı, kabin ve bagaj kullanımını birlikte etkiler.",
+  fuelType: "Yakıt türü; şarj ihtiyacı, kullanım maliyeti ve uzun yol planını doğrudan etkiler.",
+  power: "Güç değeri hızlanma ve yüklü kullanımdaki rezerv hakkında somut bir referanstır.",
+  torque: "Tork, özellikle ilk hareket, ara hızlanma ve yüklü kullanımda aracın çekiş hissini etkiler.",
+  engineDisplacement: "Motor hacmi tek başına performansı belirlemez; vergi, tüketim ve motor karakteri değerlendirilirken diğer verilerle birlikte okunur.",
+  transmission: "Şanzıman tipi yoğun trafikte kullanım rahatlığını ve aracın hızlanma karakterini etkiler.",
+  drivenWheels: "Çekiş düzeni; ıslak, bozuk veya eğimli zemindeki ilerleme karakteriyle direksiyon hissini etkileyebilir.",
+  seats: "Koltuk sayısı yasal yolcu kapasitesini gösterir; gerçek diz ve bagaj alanını tek başına anlatmaz.",
+  luggage: "Bagaj hacmi günlük eşya ve seyahat yükü için ölçülebilir alanı gösterir.",
+  cargoVolume: "Azami yükleme hacmi, koltuk düzeni değiştirildiğinde taşınabilecek hacim hakkında fikir verir.",
+  payload: "Taşıma kapasitesi; yolcu, eşya ve aksesuarların toplam ağırlığı için pratik üst sınırı anlamaya yardımcı olur.",
+  brakedTowing: "Frenli römork kapasitesi, karavan veya römork planında aşılmaması gereken doğrulanmış sınırı gösterir.",
+  length: "Uzunluk; park alanı ihtiyacı, manevra ve kabin yerleşimi üzerinde etkilidir.",
+  width: "Genişlik; dar sokak, otopark ve yan yana oturma rahatlığını etkiler.",
+  height: "Yükseklik; baş mesafesi, oturma pozisyonu ve kapalı otopark kullanımında önemlidir.",
+  wheelbase: "Dingil mesafesi kabin alanı ve sürüş dengesi hakkında ipucu verir; tek başına iç hacmi garanti etmez.",
+  range: "Resmî test değeridir; gerçek kullanım menzili hava, hız, yük ve iklimlendirmeye göre değişebilir.",
+  consumption: "Birleşik tüketim karşılaştırma referansıdır; şehir içi yoğunluğu, hız ve sürüş biçimi gerçek tüketimi değiştirir.",
+  electricConsumption: "Elektrik tüketimi, aynı enerji fiyatıyla farklı elektrikli araçların kullanım giderini karşılaştırmaya yardımcı olur.",
+  dcCharge: "Azami DC şarj gücü hızlı şarj potansiyelini gösterir; gerçek hız batarya sıcaklığına ve doluluk oranına göre değişir.",
+  batteryCapacity: "Batarya kapasitesi menzil potansiyelini etkiler; aracın tüketimiyle birlikte değerlendirilmelidir.",
+  usableBattery: "Kullanılabilir kapasite, sürüş için erişilebilen enerji miktarını gösterir ve brüt kapasiteden farklı olabilir.",
+};
+const fact = <T,>(key: string, label: string, source: CatalogFact<T> | undefined, format: (value: T) => string, dailyMeaning?: string): PublicVariantFact | undefined => verified(source) ? { key, label, value: format(source.value), disposition: "VERIFIED", ...((dailyMeaning ?? dailyMeanings[key]) ? { dailyMeaning: dailyMeaning ?? dailyMeanings[key] } : {}) } : undefined;
 const fuel: Record<string, string> = { GASOLINE: "Benzin", DIESEL: "Dizel", LPG: "LPG", MHEV: "Hafif hibrit", HEV: "Hibrit", PHEV: "Şarj edilebilir hibrit", BEV: "Elektrik", HYDROGEN: "Hidrojen" };
 const equipmentLabels: Readonly<Record<string, string>> = { ADAPTIVE_CRUISE_CONTROL: "Adaptif hız sabitleyici", AEB: "Otomatik acil fren desteği", BLIND_SPOT_WARNING: "Kör nokta uyarısı", DRIVER_ATTENTION_WARNING: "Sürücü dikkat uyarısı", FRONT_REAR_PARK_SENSORS: "Ön ve arka park sensörleri", FRONT_REAR_SIDE_PARK_SENSORS: "Ön, arka ve yan park sensörleri", LKA: "Şerit takip desteği", REAR_CAMERA: "Geri görüş kamerası", SURROUND_VIEW_CAMERA: "360° çevre görüş kamerası", ISOFIX: "ISOFIX çocuk koltuğu bağlantısı" };
 

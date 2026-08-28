@@ -30,12 +30,14 @@ const publicValues: Readonly<Record<string, string>> = {
   BEV: "tam elektrikli", HEV: "hibrit", PHEV: "şarj edilebilir hibrit", MHEV: "hafif hibrit", GASOLINE: "benzinli", DIESEL: "dizel", LPG: "LPG",
   NOT_IMPORTANT: "bu başlık karar için önemli değil", REAR_VIEW_CAMERA: "geri görüş kamerası", SURROUND_VIEW_CAMERA_360: "360° çevre görüş kamerası", PARKING_SENSORS: "park sensörleri", ADAPTIVE_CRUISE_CONTROL: "adaptif hız sabitleyici", BLIND_SPOT_MONITOR: "kör nokta izleme",
   AUTOMATIC: "otomatik", MANUAL: "manuel", MINIMAL: "başka bir donanım zorunlu değil",
+  DISTINCTIVE_DESIGN: "dikkat çekici ve karakterli tasarım", ADVISOR_GUIDANCE: "danışman yönlendirmesi", PREMIUM_AUDIO: "gelişmiş ses sistemi", HEATED_FRONT_SEATS: "ısıtmalı ön koltuklar",
+  HEATED_REAR_SEATS: "ısıtmalı arka koltuklar", PANORAMIC_GLASS_ROOF: "panoramik cam tavan", POWER_SLIDING_SIDE_DOOR: "elektrikli sürgülü yan kapı", TOTAL_COST: "toplam sahip olma maliyeti",
 };
 const formatPublicValue = (value: string | number | readonly string[]) => Array.isArray(value) ? value.map((item) => publicValues[String(item)] ?? String(item)).join(", ") : publicValues[String(value)] ?? String(value);
 
 export const publicSummary = (event: PreferenceEvent): string => {
   const value = formatPublicValue(event.normalizedValue);
-  const labels: Record<string, string> = { primaryUsage: "Ana kullanım", bodyStyle: "Gövde tercihi", fuelType: "Yakıt tercihi", transmission: "Şanzıman tercihi", minimumSeats: "Kullanım kapasitesi", equipmentNotImportant: "Ek donanım şartı", budgetMax: "Kesin bütçe üst sınırı", budgetTarget: "Hedef bütçe", budgetNotImportant: "Bütçe yaklaşımı", brandPreference: "Marka tercihi", modelPreference: "Model tercihi", equipmentFeature: "Donanım ihtiyacı" };
+  const labels: Record<string, string> = { primaryUsage: "Ana kullanım", bodyStyle: "Gövde tercihi", fuelType: "Yakıt tercihi", transmission: "Şanzıman tercihi", minimumSeats: "Kullanım kapasitesi", equipmentNotImportant: "Ek donanım şartı", budgetMax: "Kesin bütçe üst sınırı", budgetTarget: "Hedef bütçe", budgetNotImportant: "Bütçe yaklaşımı", brandPreference: "Marka tercihi", modelPreference: "Model tercihi", equipmentFeature: "Donanım ihtiyacı", distinctiveDesign: "Tasarım önceliği", advisorGuidance: "Seçim yaklaşımı", fuelDelegated: "Yakıt seçimi", totalCostPriority: "Maliyet önceliği", operatingCostPriority: "Kullanım maliyeti önceliği", cargoPracticality: "Bagaj ve yükleme önceliği", ergonomicComfort: "Ergonomi ve konfor önceliği", rearSeatSpace: "Arka koltuk alanı önceliği", firstTimeDriverContext: "İlk araç kullanım bağlamı" };
   if (event.concept === "minimumSeats" && typeof event.normalizedValue === "number") return `Kullanım kapasitesi: en az ${event.normalizedValue} kişi`;
   return `${labels[event.concept] ?? "Onaylı tercih"}: ${value}`;
 };
@@ -45,7 +47,7 @@ const decisionFingerprint = (state: V3ConversationState) => digest(projectV3Deci
 
 export async function createPhase2Handoff(input: { conversationId: string; stateToken?: string; offerId: string; selectedExactVariantId: string; now?: Date }): Promise<{ token: string; exactVariantId: string }> {
   const state = unsealV31State(input.stateToken, input.conversationId);
-  const offer = getRevealedV31Offer(input.offerId);
+  const offer = await getRevealedV31Offer(input.offerId);
   if (!state || !offer || offer.conversationId !== input.conversationId) throw new TypeError("PHASE2_HANDOFF_NOT_REVEALED");
   if (state.recommendationTermsAcceptance?.offerId !== offer.offerId || !offer.candidateRefs.some((item) => item.exactVariantId === input.selectedExactVariantId)) throw new TypeError("PHASE2_HANDOFF_BINDING_INVALID");
   if (decisionFingerprint(state) !== offer.decisionFingerprint) throw new TypeError("PHASE2_DECISION_FINGERPRINT_CHANGED");
@@ -68,7 +70,7 @@ export async function openPhase2Experience(token: string, now = new Date()) {
   const payload = handoffPayloadSchema.parse(JSON.parse(Buffer.from(encoded, "base64url").toString("utf8")));
   const issuedAt = Date.parse(payload.issuedAt); const expiresAt = Date.parse(payload.expiresAt);
   if (expiresAt <= now.getTime() || issuedAt > now.getTime() + 60_000 || expiresAt - issuedAt > 24 * 60 * 60_000) throw new TypeError("PHASE2_HANDOFF_STALE");
-  const offer = getRevealedV31Offer(payload.offerId);
+  const offer = await getRevealedV31Offer(payload.offerId);
   if (!offer || offer.conversationId !== payload.conversationId || offer.decisionFingerprint !== payload.decisionFingerprint || !offer.candidateRefs.some((item) => item.exactVariantId === payload.selectedExactVariantId)) throw new TypeError("PHASE2_HANDOFF_REVOKED");
   const catalog = await evaluateV3Catalog([], now);
   if (catalog.catalogReleaseVersion !== payload.catalogRelease || catalog.catalogFingerprint !== payload.catalogFingerprint) throw new TypeError("PHASE2_CATALOG_STALE");
@@ -104,7 +106,7 @@ export async function openPhase3IntentHandoff(token: string, expectedIntent?: Ph
   const issuedAt = Date.parse(payload.issuedAt); const expiresAt = Date.parse(payload.expiresAt);
   if (expiresAt <= now.getTime() || issuedAt > now.getTime() + 60_000 || expiresAt - issuedAt > 30 * 60_000) throw new TypeError("PHASE3_HANDOFF_STALE");
   if (expectedIntent && payload.intent !== expectedIntent) throw new TypeError("PHASE3_INTENT_MISMATCH");
-  const offer = getRevealedV31Offer(payload.offerId);
+  const offer = await getRevealedV31Offer(payload.offerId);
   if (!offer || offer.conversationId !== payload.conversationId || offer.decisionFingerprint !== payload.decisionFingerprint || offer.catalogReleaseVersion !== payload.catalogRelease || !offer.candidateRefs.some((item) => item.exactVariantId === payload.selectedExactVariantId)) throw new TypeError("PHASE3_HANDOFF_REVOKED");
   const catalog = await evaluateV3Catalog([], now);
   if (catalog.catalogReleaseVersion !== payload.catalogRelease) throw new TypeError("PHASE3_CATALOG_STALE");

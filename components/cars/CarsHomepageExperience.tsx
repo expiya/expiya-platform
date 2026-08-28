@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { type ReactNode, useRef, useState } from "react";
 
-export function CarsHomepageExperience({ children }: { readonly children: ReactNode }) {
-  const [started, setStarted] = useState(false);
+export function CarsHomepageExperience({ children, startConversation = false }: { readonly children: ReactNode; readonly startConversation?: boolean }) {
+  const [started, setStarted] = useState(startConversation);
   const conversationRef = useRef<HTMLDivElement>(null);
 
   function openConversation() {
