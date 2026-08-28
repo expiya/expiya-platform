@@ -87,6 +87,8 @@ describe("V3.7 Promptfoo conversation regressions", () => {
     let output = await runV3Turn({ conversationId: state.conversationId, messageId: "1", message: "Şehir içinde sıfır, otomatik, benzinli kompakt bir araç istiyorum. 1-2 kişiyiz. Geri görüş kamerası önemli. Bütçeyi filtreye katma. Bana tek araç öner.", expectedRevision: 0, state });
     state = output.state;
     expect(state.preferredRecommendationLimit).toBe(1);
+    expect(activeDecisionPreferences(state.ledger)).toEqual(expect.arrayContaining([expect.objectContaining({ concept: "equipmentFeature", normalizedValue: "REAR_VIEW_CAMERA" })]));
+    expect(state.lastQuestionKey).not.toMatch(/^verifiedEquipment:/u);
     expect(output.message).not.toMatch(/gerçekten ayıran donanım|vazgeçmek istemeyeceğin tek bir özellik/iu);
     for (const [id, message] of [["2", "Marka tercihim yok, sen seç"], ["3", "Evet, göster"]] as const) {
       output = await runV3Turn({ conversationId: state.conversationId, messageId: id, message, expectedRevision: state.revision, state, ...(state.pendingOffer ? { recommendationTermsAcceptance: createRecommendationTermsAcceptance() } : {}) });

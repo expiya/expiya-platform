@@ -177,22 +177,25 @@ export function applyPreferenceMessage(state: V3ConversationState, messageId: st
   if (/(?:ehliyet(?:imi)?(?: bugün)? aldım|ilk arac[ıi]m[ıi])/u.test(text.toLocaleLowerCase("tr"))) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "firstTimeDriverContext", field: "conversationContext", value: "FIRST_TIME_DRIVER", use: "NONE" }));
   const normalizedEquipment = normalizedEquipments(text);
   const offeredEquipment = state.lastQuestionKey?.startsWith("verifiedEquipment:") ? state.lastQuestionKey.slice("verifiedEquipment:".length).split("|") : [];
-  const resolvedEquipment = /^(?:hepsi|tümü)(?:\s+olsun)?[.! ]*$/iu.test(text.trim()) ? offeredEquipment : resolveEquipmentRequirement(text).filter((item) => item.polarity === "AFFIRMED" && item.featureCode).map((item) => item.featureCode!);
+  const resolvedEquipmentMatches = resolveEquipmentRequirement(text);
+  const negatedEquipment = new Set([
+    ...resolvedEquipmentMatches.filter((item) => item.polarity === "NEGATED" && item.featureCode).map((item) => item.featureCode!),
+    ...text.split(/[,.!?;]+/u).filter((clause) => /(?:olmasın|istemiyorum|gerek yok|önemli değil|sorun değil|vazgeçtim)/iu.test(clause)).flatMap(normalizedEquipments),
+  ]);
+  const resolvedEquipment = /^(?:hepsi|tümü)(?:\s+olsun)?[.! ]*$/iu.test(text.trim()) ? offeredEquipment : resolvedEquipmentMatches.filter((item) => item.polarity === "AFFIRMED" && item.featureCode).map((item) => item.featureCode!);
   const equipments = [...new Set([
     ...normalizedEquipment,
     ...resolvedEquipment,
     /tavan ray/iu.test(text) ? "ROOF_RAILS" : undefined,
     /bagaj file/iu.test(text) ? "CARGO_NET" : undefined,
-  ].filter((value): value is string => Boolean(value)))];
-  const rejectsEquipment = Boolean(equipments.length > 0 && /(?:olmasın|istemiyorum|gerek yok|önemli değil|sorun değil|vazgeçtim)/iu.test(text));
-  if (rejectsEquipment) {
-    for (const value of equipments) {
+  ].filter((value): value is string => Boolean(value) && !negatedEquipment.has(value!)))];
+  if (negatedEquipment.size) {
+    for (const value of negatedEquipment) {
       const activeEquipment = [...ledger].reverse().find((item) => item.concept === "equipmentFeature" && item.status === "ACTIVE" && item.normalizedValue === value);
       if (activeEquipment) ledger.push({ ...activeEquipment, id: `${messageId}:clear:equipmentFeature:${value}`, sourceMessageId: messageId, sourceTurn: state.revision + 1, sourceSpan: whole(text), status: "CLEARED", decisionUse: "NONE", supersedes: activeEquipment.id });
     }
-  } else {
-    for (const value of equipments) ledger = supersedeMatchingEquipment(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "equipmentFeature", field: "equipmentFeature", value }));
   }
+  for (const value of equipments) ledger = supersedeMatchingEquipment(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "equipmentFeature", field: "equipmentFeature", value }));
   const statedEquipment = !normalizedEquipment.length ? text.match(/donanım(?:da| olarak)\s+(.{2,80}?)(?=\s+(?:kesinlikle|mutlaka|şart|olmalı|olsun|istiyorum|bulunmalı)|[,.]|$)/iu)?.[1]?.trim() : undefined;
   if (statedEquipment) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "unmappedEquipmentRequirement", value: statedEquipment, use: "NONE" }));
   const unmappedEquipment = [
