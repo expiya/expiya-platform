@@ -142,6 +142,7 @@ export function planV3VerifiedEquipmentQuestion(variants: readonly CatalogVarian
     LONG_DISTANCE: ["ADAS", "CABIN_COMFORT", "LIGHTING"],
     COMMERCIAL: ["ACCESS", "PARKING", "ADAS"],
     CORPORATE_TRAVEL: ["CABIN_COMFORT", "ADAS", "PARKING", "CONNECTIVITY"],
+    PASSENGER_TRANSPORT: ["ACCESS", "OCCUPANT_SAFETY", "CABIN_COMFORT", "ADAS"],
     MIXED_ROAD: ["OFF_ROAD", "ACCESS", "PARKING", "ADAS"],
   };
   const orderedCategories = categoryOrder[usage ?? ""];

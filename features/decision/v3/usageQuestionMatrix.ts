@@ -9,6 +9,7 @@ const MATRIX: Readonly<Record<string, readonly UsageQuestionKey[]>> = Object.fre
   LONG_DISTANCE: ["longDistanceEquipment", "fuelType", "bodyStyle", "budget"],
   COMMERCIAL: ["fuelType", "bodyStyle", "budget", "workEquipment"],
   CORPORATE_TRAVEL: ["fuelType", "bodyStyle", "budget", "workEquipment"],
+  PASSENGER_TRANSPORT: ["bodyStyle", "fuelType", "budget", "workEquipment"],
   MIXED_ROAD: ["bodyStyle", "fuelType", "budget", "parkingEquipment"],
 });
 
