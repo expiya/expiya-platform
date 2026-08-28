@@ -489,7 +489,7 @@ function selectQuestion(
   )
     return {
       key: "mixedRoadBody",
-      text: "Bozuk veya değişken zemin ihtiyacın net; kapalı bagajlı bir SUV mu, yoksa açık kasalı bir pick-up mı sana daha uygun?",
+      text: "Kapalı bagajlı bir SUV mu, yoksa açık kasalı bir pick-up mı sana daha uygun?",
     };
   if (
     usage === "COMMERCIAL" &&
