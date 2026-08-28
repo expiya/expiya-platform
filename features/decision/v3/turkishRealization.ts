@@ -13,7 +13,7 @@ export function dailyUsageContext(state: V3ConversationState) {
   if (/işe|işe gidip/iu.test(source)) return recalled("işe gidiş gelişleri düşünerek");
   if (/yetişkin çocuk/iu.test(source)) return recalled("yetişkin çocuklarınla yapacağın yolculukları düşünerek");
   if (/bebek|çocuk/iu.test(source)) return recalled("çocuklu aile yolculuklarını düşünerek");
-  if (/bozuk yol|köy|arazi/iu.test(source)) return recalled("kamp ve bozuk yol kullanımını düşünerek");
+  if (/bozuk yol|köy|arazi|stabilize/iu.test(source)) return recalled("bozuk veya değişken zemin kullanımını düşünerek");
   if (/kamp/iu.test(source)) return recalled("kamp yolculuklarını ve taşıyacağın ekipmanları düşünerek");
   if (/uzun yol|şehirler arası/iu.test(source)) return recalled("uzun yol kullanımını düşünerek");
   switch (usage?.normalizedValue) {

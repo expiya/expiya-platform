@@ -65,6 +65,13 @@ describe("V3 explicit usage semantics", () => {
     expect(output.state.lastQuestionKey).toBe("primaryUsage");
   });
 
+  it("does not invent camping or four-wheel drive for an explicit village-road need", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const output = await runV3Turn({ conversationId: "usage:village-road-copy", messageId: "m1", message: "Köyde kullanacağım, bozuk ve stabilize yollarda rahatlıkla gidebilen bir araç arıyorum.", expectedRevision: 0 });
+    expect(output.message).toMatch(/bozuk veya değişken zemin/iu);
+    expect(output.message).not.toMatch(/kamp|4x4 kullanımı net/iu);
+  });
+
   it("accepts only explicit, sufficiently confident model usage signals", () => {
     const state = createV3ConversationState("semantic-bridge");
     const message = "Aracı kongre katılımcılarını taşımak için alıyoruz.";
