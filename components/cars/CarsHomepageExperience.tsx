@@ -43,7 +43,7 @@ export function CarsHomepageExperience({ children }: { readonly children: ReactN
             Nasıl bir araç aradığını ve beklentilerini anlat. Expiya Cars, Türkiye pazarındaki yüzlerce sıfır araç varyantını kullanımına, bütçene ve önceliklerine göre değerlendirerek kararını netleştirmene yardımcı olur.
           </p>
           <div className="mt-9 flex flex-wrap items-center gap-4">
-            <button type="button" onClick={openConversation} className="group inline-flex min-h-14 items-center gap-3 rounded-full bg-emerald-400 px-7 text-base font-semibold text-stone-950 shadow-[0_0_45px_rgba(52,211,153,.18)] transition hover:bg-emerald-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300">
+            <button type="button" onClick={openConversation} style={{ color: "#07110d" }} className="group inline-flex min-h-14 items-center gap-3 rounded-full bg-emerald-400 px-7 text-base font-semibold shadow-[0_0_45px_rgba(52,211,153,.18)] transition hover:bg-emerald-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300">
               Sohbete başla
               <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </button>
@@ -69,7 +69,7 @@ export function CarsHomepageExperience({ children }: { readonly children: ReactN
     </section>
 
     <div ref={conversationRef} id="sohbet" tabIndex={-1} className="scroll-mt-0 outline-none">
-      {started ? children : <section className="px-5 py-16 text-center sm:py-24"><p className="text-xs font-semibold uppercase tracking-[.25em] text-emerald-300">XPY · Sıfır araç görüşmesi</p><h2 className="mx-auto mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-5xl">Yeni aracını birlikte seçelim.</h2><p className="mx-auto mt-5 max-w-xl text-white/55">Sohbet sırasında bütçe odaklı ilerleyebilir veya önce yalnızca ihtiyaçlarına uygun sıfır araçları değerlendirebilirsin.</p><button type="button" onClick={openConversation} className="mt-8 min-h-14 rounded-full border border-emerald-300 bg-emerald-400 px-7 font-semibold text-[#07110d] shadow-[0_0_32px_rgba(52,211,153,.16)] transition hover:bg-emerald-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300 dark:bg-emerald-400 dark:text-[#07110d]">Sohbete başla</button></section>}
+      {started ? children : <section className="px-5 py-16 text-center sm:py-24"><p className="text-xs font-semibold uppercase tracking-[.25em] text-emerald-300">XPY · Sıfır araç görüşmesi</p><h2 className="mx-auto mt-4 max-w-2xl text-3xl font-semibold tracking-tight sm:text-5xl">Yeni aracını birlikte seçelim.</h2><p className="mx-auto mt-5 max-w-xl text-white/55">Sohbet sırasında bütçe odaklı ilerleyebilir veya önce yalnızca ihtiyaçlarına uygun sıfır araçları değerlendirebilirsin.</p><button type="button" onClick={openConversation} style={{ color: "#07110d" }} className="mt-8 min-h-14 rounded-full border border-emerald-300 bg-emerald-400 px-7 font-semibold shadow-[0_0_32px_rgba(52,211,153,.16)] transition hover:bg-emerald-300 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-300">Sohbete başla</button></section>}
     </div>
 
     <footer className="border-t border-white/10 bg-black px-5 py-10 text-white/55 sm:px-8">
