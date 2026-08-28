@@ -94,3 +94,6 @@ select {
     color: #a8a29e;
   }
 }
+body:has([data-cars-homepage]) > .site-legal-footer {
+  display: none;
+}
