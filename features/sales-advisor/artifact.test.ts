@@ -1,7 +1,9 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import type { CatalogFact, CatalogVariantSnapshot } from "@/features/decision/v2/catalog/types";
 import { buildVariantContentArtifact, validateVariantContentArtifact } from "./artifact.server";
-import { getReviewedSalesColors } from "./salesKnowledge.server";
+import { getReviewedSalesColors, getReviewedSalesMedia } from "./salesKnowledge.server";
 
 const provenance = [{ sourceId: "SRC-1", sourceUrl: "https://example.test/official", accessedAt: "2026-08-20T00:00:00.000Z", extractionMethod: "MANUAL" as const, confidence: "HIGH" as const, limitations: [] }];
 const f = <T,>(value: T, confidence: "HIGH" | "MEDIUM" = "HIGH"): CatalogFact<T> => ({ value, confidence, provenance, catalogFingerprint: "sha256:catalog", explanationAccess: "AUTHORITY_REQUIRED" });
@@ -33,6 +35,11 @@ describe("versioned variant content artifact", () => {
     expect(colors.every((item) => item.disposition === "FAMILY_LEVEL" && item.source?.url.includes("dacia.com.tr"))).toBe(true);
     expect(colors.every((item) => item.visual?.swatchHex.startsWith("#") && item.visual.approximation)).toBe(true);
     expect(getReviewedSalesColors({ brand: "Dacia", model: "Jogger", modelYear: 2025 })).toEqual([]);
+  });
+  it("keeps every reviewed local Jogger gallery asset publishable", () => {
+    const media = getReviewedSalesMedia("08030664-0509-51a0-ac5e-283bde7843f3");
+    expect(media).toHaveLength(4);
+    expect(media.every((item) => item.url.startsWith("/cars/") && existsSync(join(process.cwd(), "public", item.url)))).toBe(true);
   });
   it("publishes only exact high-confidence evidence and makes unknown/conflict NO_CLAIM by absence", () => {
     const artifact = buildVariantContentArtifact({ variant, catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });
