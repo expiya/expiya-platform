@@ -25,6 +25,7 @@ export interface PublicVariantFact {
   readonly label: string;
   readonly value: string;
   readonly dailyMeaning?: string;
+  readonly dailyExample?: string;
   readonly disposition: ClaimDisposition;
   readonly scopeNote?: string;
   readonly source?: { readonly label: string; readonly url: string; readonly accessedAt: string };

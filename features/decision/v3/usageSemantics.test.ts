@@ -16,6 +16,9 @@ describe("V3 explicit usage semantics", () => {
     ["Çocuklarımla şehir içinde kullanacağım bir araç istiyorum.", "FAMILY"],
     ["Her hafta şehirler arası yol yapacağım.", "LONG_DISTANCE"],
     ["Bozuk köy yollarında kullanacağım.", "MIXED_ROAD"],
+    ["Köyde kullanacağım, bozuk ve stabilize yollarda rahatlıkla gidebilen bir araç arıyorum.", "MIXED_ROAD"],
+    ["Köyde kullanacağım.", "MIXED_ROAD"],
+    ["Stabilize yollarda kullanacağım.", "MIXED_ROAD"],
   ])("classifies explicit usage: %s", (message, expected) => {
     expect(detectExplicitUsagePurpose(message)?.value).toBe(expected);
   });
@@ -42,6 +45,7 @@ describe("V3 explicit usage semantics", () => {
     ["Çocuklarımla şehir içinde kullanacağım bir araç istiyorum.", "FAMILY"],
     ["Her hafta şehirler arası yol yapacağım.", "LONG_DISTANCE"],
     ["Bozuk köy yollarında kullanacağım.", "MIXED_ROAD"],
+    ["Köyde kullanacağım, bozuk ve stabilize yollarda rahatlıkla gidebilen bir araç arıyorum.", "MIXED_ROAD"],
   ])("does not ask an already stated usage again: %s", async (message, expected) => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     const output = await runV3Turn({ conversationId: `usage:${expected}`, messageId: "m1", message, expectedRevision: 0 });

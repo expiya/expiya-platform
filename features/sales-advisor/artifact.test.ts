@@ -4,6 +4,8 @@ import { describe, expect, it } from "vitest";
 import type { CatalogFact, CatalogVariantSnapshot } from "@/features/decision/v2/catalog/types";
 import { buildVariantContentArtifact, validateVariantContentArtifact } from "./artifact.server";
 import { getReviewedSalesColors, getReviewedSalesMedia } from "./salesKnowledge.server";
+import { evaluateV3Catalog } from "@/features/decision/v3/catalogAdapter.server";
+import { getEquipmentPublicCopy } from "./equipmentPublicCopy";
 
 const provenance = [{ sourceId: "SRC-1", sourceUrl: "https://example.test/official", accessedAt: "2026-08-20T00:00:00.000Z", extractionMethod: "MANUAL" as const, confidence: "HIGH" as const, limitations: [] }];
 const f = <T,>(value: T, confidence: "HIGH" | "MEDIUM" = "HIGH"): CatalogFact<T> => ({ value, confidence, provenance, catalogFingerprint: "sha256:catalog", explanationAccess: "AUTHORITY_REQUIRED" });
@@ -46,6 +48,22 @@ describe("versioned variant content artifact", () => {
     expect(artifact.facts.map((item) => item.key)).toContain("range"); expect(artifact.facts.map((item) => item.key)).not.toContain("luggage");
     expect(artifact.equipment.map((item) => item.key)).toEqual(["REAR_CAMERA"]); expect(artifact.colors).toEqual([]); expect(artifact.video).toBeUndefined();
     expect(() => validateVariantContentArtifact(artifact, { exactVariantId: "exact-1", catalogRelease: "v1", catalogFingerprint: "sha256:catalog" })).not.toThrow();
+  });
+  it("publishes Turkish meaning and daily-use copy for every active catalog equipment code", async () => {
+    const catalog = await evaluateV3Catalog([]);
+    const codes = [...new Set(catalog.variants.flatMap((item) => item.decisionFacts.safetyFeatureCodes.filter((fact) => fact.confidence === "HIGH").map((fact) => fact.value)))];
+    expect(codes.length).toBeGreaterThan(40);
+    for (const code of codes) {
+      expect(getEquipmentPublicCopy(code), code).toEqual(expect.objectContaining({ label: expect.any(String), dailyMeaning: expect.any(String) }));
+    }
+  });
+  it("adds concrete daily-use examples and expanded equipment explanations to the public artifact", () => {
+    const artifact = buildVariantContentArtifact({ variant, catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });
+    expect(artifact.facts.find((item) => item.key === "range")?.dailyExample).toMatch(/planlanan rota/iu);
+    expect(artifact.equipment.find((item) => item.key === "REAR_CAMERA")).toMatchObject({
+      value: "Geri görüş kamerası",
+      dailyMeaning: expect.stringMatching(/geri manevrada/iu),
+    });
   });
   it("rejects checksum and catalog/variant binding changes", () => {
     const artifact = buildVariantContentArtifact({ variant, catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });

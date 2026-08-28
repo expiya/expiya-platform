@@ -4,6 +4,7 @@ import { resolveVehicleGallery, resolveVehicleImage } from "@/features/vehicle-d
 import { v34PriceAuthority } from "@/features/decision/v3/catalogAdapter.server";
 import { SALES_ADVISOR_VERSION, VARIANT_CONTENT_SCHEMA_VERSION, type PublicVariantFact, type VariantContentArtifact } from "./types";
 import { getReviewedSalesColors, getReviewedSalesFacts, getReviewedSalesMedia } from "./salesKnowledge.server";
+import { getEquipmentPublicCopy } from "./equipmentPublicCopy";
 
 const stable = (value: unknown): string => JSON.stringify(value, (_key, item: unknown) => item && typeof item === "object" && !Array.isArray(item) ? Object.fromEntries(Object.entries(item).sort(([a], [b]) => a.localeCompare(b))) : item);
 const sha = (value: string): string => `sha256:${createHash("sha256").update(value).digest("hex")}`;
@@ -32,9 +33,31 @@ const dailyMeanings: Readonly<Record<string, string>> = {
   batteryCapacity: "Batarya kapasitesi menzil potansiyelini etkiler; aracın tüketimiyle birlikte değerlendirilmelidir.",
   usableBattery: "Kullanılabilir kapasite, sürüş için erişilebilen enerji miktarını gösterir ve brüt kapasiteden farklı olabilir.",
 };
-const fact = <T,>(key: string, label: string, source: CatalogFact<T> | undefined, format: (value: T) => string, dailyMeaning?: string): PublicVariantFact | undefined => verified(source) ? { key, label, value: format(source.value), disposition: "VERIFIED", ...((dailyMeaning ?? dailyMeanings[key]) ? { dailyMeaning: dailyMeaning ?? dailyMeanings[key] } : {}) } : undefined;
+const dailyExamples: Readonly<Record<string, string>> = {
+  bodyStyle: "Örneğin dar bir şehir sokağında gövde ölçüleri manevrayı; yüksek oturma yapısı ise görüş ve inip binme hissini etkiler.",
+  fuelType: "Örneğin sık uzun yol yapan biri yakıt erişimi ve mola düzenini; şehir içinde kullanan biri kısa mesafe verimliliğini birlikte değerlendirebilir.",
+  power: "Örneğin sollama, otoyola katılma veya araç yüklüyken hızlanma sırasında kullanılabilecek performans rezervi hakkında fikir verir.",
+  torque: "Örneğin yokuşta ilk hareket ederken veya yüklü araçla ara hızlanırken çekiş hissinde fark yaratabilir.",
+  transmission: "Örneğin dur-kalk trafikte debriyaj kullanımı gerekip gerekmemesini ve düşük hızdaki sürüş rahatlığını etkiler.",
+  drivenWheels: "Örneğin ıslak bir rampada veya gevşek stabilize zeminde gücün hangi tekerleklere aktarıldığı ilerleme karakterini etkileyebilir; lastik seçimi yine belirleyicidir.",
+  seats: "Örneğin sürücü dahil düzenli taşınacak kişi sayısı bu değeri aşmamalıdır; tüm koltuklar kullanıldığında bagaj alanı ayrıca kontrol edilmelidir.",
+  luggage: "Örneğin valiz, bebek arabası veya haftalık alışveriş yükünün sığıp sığmayacağını karşılaştırırken kullanılabilir.",
+  cargoVolume: "Örneğin arka koltuklar yatırıldığında taşınabilecek kutu veya ekipman hacmini karşılaştırmaya yardımcı olur.",
+  payload: "Örneğin yolcular, bagaj ve sonradan eklenen aksesuarların toplam ağırlığı bu sınır içinde kalmalıdır.",
+  brakedTowing: "Örneğin karavan veya frenli römork planında, römorkun yüklü ağırlığı bu sınırla birlikte ruhsat koşullarına göre kontrol edilir.",
+  length: "Örneğin kısa park yerlerine sığma ve dar dönüşlerde aracın kapladığı alan üzerinde doğrudan etkilidir.",
+  width: "Örneğin köy içindeki dar geçitlerde, otopark kolonları arasında ve yan yana otururken hissedilen alanı etkiler.",
+  height: "Örneğin kapalı otopark girişlerinde toplam yüksekliğin uygunluğu ayrıca kontrol edilmelidir.",
+  wheelbase: "Örneğin uzun dingil mesafesi kabin yerleşimine katkı sağlayabilirken dar dönüşlerde manevra hissini etkileyebilir.",
+  range: "Örneğin tek şarjla planlanan rota, soğuk hava ve otoyol hızı hesaba katılarak resmî değerden pay bırakılarak planlanmalıdır.",
+  consumption: "Örneğin yılda 15.000 km kullanımda iki araç arasındaki küçük tüketim farkı toplam yakıt giderinde belirginleşebilir.",
+  electricConsumption: "Örneğin aynı şarj tarifesinde daha düşük kWh/100 km değeri kilometre başına enerji maliyetini azaltabilir.",
+  dcCharge: "Örneğin uzun yol molasında ulaşılabilecek şarj süresini etkiler; istasyon gücü ve batarya doluluğu gerçek sonucu değiştirir.",
+  batteryCapacity: "Örneğin daha büyük batarya menzil potansiyeli sağlayabilir, ancak tüketim yüksekse tek başına daha uzun menzil garanti etmez.",
+  usableBattery: "Örneğin rota planında sürüşe ayrılan gerçek enerji kapasitesini karşılaştırmak için brüt değerden daha doğrudan bir ölçüdür.",
+};
+const fact = <T,>(key: string, label: string, source: CatalogFact<T> | undefined, format: (value: T) => string, dailyMeaning?: string): PublicVariantFact | undefined => verified(source) ? { key, label, value: format(source.value), disposition: "VERIFIED", ...((dailyMeaning ?? dailyMeanings[key]) ? { dailyMeaning: dailyMeaning ?? dailyMeanings[key] } : {}), ...(dailyExamples[key] ? { dailyExample: dailyExamples[key] } : {}) } : undefined;
 const fuel: Record<string, string> = { GASOLINE: "Benzin", DIESEL: "Dizel", LPG: "LPG", MHEV: "Hafif hibrit", HEV: "Hibrit", PHEV: "Şarj edilebilir hibrit", BEV: "Elektrik", HYDROGEN: "Hidrojen" };
-const equipmentLabels: Readonly<Record<string, string>> = { ADAPTIVE_CRUISE_CONTROL: "Adaptif hız sabitleyici", AEB: "Otomatik acil fren desteği", BLIND_SPOT_WARNING: "Kör nokta uyarısı", DRIVER_ATTENTION_WARNING: "Sürücü dikkat uyarısı", FRONT_REAR_PARK_SENSORS: "Ön ve arka park sensörleri", FRONT_REAR_SIDE_PARK_SENSORS: "Ön, arka ve yan park sensörleri", LKA: "Şerit takip desteği", REAR_CAMERA: "Geri görüş kamerası", SURROUND_VIEW_CAMERA: "360° çevre görüş kamerası", ISOFIX: "ISOFIX çocuk koltuğu bağlantısı" };
 
 export function buildVariantContentArtifact(input: { variant: CatalogVariantSnapshot; catalogRelease: string; catalogFingerprint: string }): VariantContentArtifact {
   const { variant } = input;
@@ -56,7 +79,11 @@ export function buildVariantContentArtifact(input: { variant: CatalogVariantSnap
     fact("batteryCapacity", "Batarya kapasitesi", d.efficiency.batteryCapacityKwh, (v) => `${v} kWh`), fact("usableBattery", "Kullanılabilir batarya", d.efficiency.batteryUsableKwh, (v) => `${v} kWh`),
   ].filter((item): item is PublicVariantFact => Boolean(item));
   facts.push(...getReviewedSalesFacts(variant.id));
-  const equipment = d.safetyFeatureCodes.filter(verified).map((item) => ({ key: item.value, label: "Doğrulanmış donanım", value: equipmentLabels[item.value] ?? item.value.replaceAll("_", " ").toLocaleLowerCase("tr-TR"), disposition: "VERIFIED" as const }));
+  const equipment = d.safetyFeatureCodes.filter(verified).map((item) => {
+    const publicCopy = getEquipmentPublicCopy(item.value);
+    if (!publicCopy) throw new TypeError(`PHASE2_EQUIPMENT_PUBLIC_COPY_MISSING:${item.value}`);
+    return { key: item.value, label: "Doğrulanmış donanım", value: publicCopy.label, dailyMeaning: publicCopy.dailyMeaning, disposition: "VERIFIED" as const };
+  });
   const image = resolveVehicleImage({ variantId: variant.id, brand: variant.brand, model: variant.model, bodyStyle: d.bodyStyle.value, modelYear: d.modelYear.value });
   const gallery = resolveVehicleGallery({ variantId: variant.id, brand: variant.brand, model: variant.model, bodyStyle: d.bodyStyle.value, modelYear: d.modelYear.value });
   const resolvedMedia = gallery.length ? gallery : image.status === "PLACEHOLDER" ? [] : [image];

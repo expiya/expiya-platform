@@ -75,26 +75,6 @@ function dailyDecisionNote(key: string, approvedConcepts: ReadonlySet<string>): 
   if (["bodyStyle", "transmission", "seats"].includes(key) && approvedConcepts.has("candidateComfortPriority")) return "Uzun yol konforu tercihini açıklarken kullanılan araç yapısı göstergelerinden biridir.";
   return undefined;
 }
-const equipmentNotes: Readonly<Record<string, string>> = {
-  ADAPTIVE_CRUISE_CONTROL:
-    "Öndeki araçla ayarlanan takip mesafesini korumaya yardımcı olur.",
-  AEB: "Çarpışma riski algılandığında frenlemeye destek olabilir.",
-  BLIND_SPOT_WARNING:
-    "Şerit değiştirirken aynalarda zor görülen araçlar için uyarı sağlar.",
-  DRIVER_ATTENTION_WARNING:
-    "Dikkat kaybı işareti algıladığında mola uyarısı verebilir.",
-  FRONT_REAR_PARK_SENSORS:
-    "Dar manevralarda ön ve arka engellere olan mesafeyi izlemeyi kolaylaştırır.",
-  FRONT_REAR_SIDE_PARK_SENSORS:
-    "Dar alanlarda aracın çevresindeki engelleri daha kapsamlı izlemeye yardımcı olur.",
-  LKA: "Araç istemeden şeritten uzaklaştığında direksiyon desteği veya uyarı sağlayabilir.",
-  REAR_CAMERA: "Geri manevrada aracın arkasını ekrandan görmeyi kolaylaştırır.",
-  SURROUND_VIEW_CAMERA:
-    "Park sırasında aracın çevresini birleştirilmiş kamera görünümüyle izlemeye yardımcı olur.",
-  ISOFIX:
-    "Uyumlu çocuk koltuğunu sabit bağlantı noktalarına takmayı kolaylaştırır.",
-};
-
 function Icon({ name }: { readonly name: string }) {
   if (name === "konum")
     return (
@@ -571,7 +551,6 @@ export function SalesAdvisorExperience({
                     <p className="relative mt-5 text-lg font-semibold">
                       {humanizeNeedSummary(need.summary)}
                     </p>
-                    <p className="mt-3 text-xs font-medium uppercase tracking-[.12em] text-emerald-700">Karar motorunda kullanıldı</p>
                   </article>
                 ))}
               </div>
@@ -614,6 +593,7 @@ export function SalesAdvisorExperience({
                     <p className="mt-4 text-sm leading-6 text-stone-300">
                       {item.dailyMeaning}
                     </p>
+                    {item.dailyExample ? <p className="mt-4 rounded-2xl bg-white/10 px-4 py-3 text-sm leading-6 text-stone-100"><span className="font-semibold text-emerald-300">Günlük kullanım örneği:</span> {item.dailyExample}</p> : null}
                     {dailyDecisionNote(item.key, approvedConcepts) ? <p className="mt-4 rounded-2xl border border-emerald-700/40 bg-emerald-950/70 px-4 py-3 text-xs font-medium leading-5 text-emerald-200">Karardaki önemi: {dailyDecisionNote(item.key, approvedConcepts)}</p> : null}
                   </article>
                 ))}
@@ -645,9 +625,9 @@ export function SalesAdvisorExperience({
                         EXACT
                       </span>
                     </div>
-                    {equipmentNotes[item.key] ? (
+                    {item.dailyMeaning ? (
                       <p className="mt-3 pl-11 text-xs leading-5 text-stone-500">
-                        Günlük kullanım: {equipmentNotes[item.key]}
+                        <span className="font-semibold text-stone-700">Türkçe anlamı ve günlük kullanım:</span> {item.dailyMeaning}
                       </p>
                     ) : null}
                   </li>
