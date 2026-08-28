@@ -18,11 +18,12 @@ export default async function AnalysisPage({
   const pilotValue = Array.isArray(params.pilot) ? params.pilot[0] : params.pilot;
   const queryValue = params.query;
   const query = Array.isArray(queryValue) ? queryValue[0] ?? "" : queryValue ?? "";
-  if (pilotValue === "v3" || pilotValue === "v3.1" || pilotValue === "v3.2" || pilotValue === "v3.3" || pilotValue === "v3.4" || pilotValue === "v3.5" || pilotValue === "v3.6" || pilotValue === "v3.7" || pilotValue === "v3.8") return <CarsConversationV3 initialQuery={query} minimumBudgetTry={await getV3MinimumCatalogPriceTry()} />;
   const pilotRequested = pilotValue === "1";
+  if (!pilotRequested) return <CarsConversationV3 initialQuery={query} minimumBudgetTry={await getV3MinimumCatalogPriceTry()} />;
+
   const pilotSession = verifyPilotSessionToken((await cookies()).get(PILOT_SESSION_COOKIE)?.value);
-  if (pilotRequested && !pilotSession) redirect("/pilot");
-  if (!isPublicCarsConversationEnabled(process.env, Boolean(pilotSession))) {
+  if (!pilotSession) redirect("/pilot");
+  if (!isPublicCarsConversationEnabled(process.env, true)) {
     return (
       <main className="min-h-screen bg-neutral-50 px-5 py-16 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
         <section className="mx-auto max-w-2xl rounded-3xl border border-amber-200 bg-white p-8 shadow-sm dark:border-amber-900 dark:bg-neutral-900 sm:p-10">
