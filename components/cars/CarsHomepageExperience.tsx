@@ -34,7 +34,7 @@ export function CarsHomepageExperience({ children }: { readonly children: ReactN
         <div className="my-auto max-w-3xl py-16 sm:py-24">
           <div className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[.28em] text-emerald-300">
             <span className="h-px w-10 bg-emerald-400" aria-hidden="true" />
-            Sıfır otomobil seçim asistanı
+            Otomobil seçim asistanı
           </div>
           <h1 className="mt-7 text-5xl font-semibold leading-[.94] tracking-[-.055em] sm:text-7xl lg:text-[6.5rem]">
             Sana uygun<br /><span className="text-white/55">sıfır aracı bul.</span>
