@@ -187,7 +187,7 @@ export async function runV3Turn(input: { readonly conversationId: string; readon
     return { kind: "V3_CONVERSATION", message: "Bu mesaj daha önce işlendi; konuşma durumu değişmedi.", state: prior };
   }
   if (prior.revision !== input.expectedRevision) throw new TypeError("V3_REVISION_CONFLICT");
-  const budgetFilterRejected = /bütçe(?:mi|yi)?.*(?:(?:karar )?filtres(?:ine|i).*(?:dahil (?:etmek )?istemiyorum|kullanma|alma)|karardan çıkar|filtre dışı)|ihtiyaç odaklı devam/iu.test(input.message);
+  const budgetFilterRejected = /bütçe(?:mi|yi)?.*(?:(?:karar )?filtresine\s+(?:dahil\s+)?(?:etmek\s+)?istemiyorum|(?:karar )?filtresini\s+kullanma|karardan çıkar|filtre dışı)|ihtiyaç odaklı devam/iu.test(input.message);
   const requestedBudgetMode = budgetFilterRejected ? "NEEDS_ONLY" as const : /bütçe(?:mi|yi)?.*(?:karar filtresi|filtreye dahil|filtre olarak kullan)|bütçeme göre filtrele/iu.test(input.message) ? "BUDGET_AS_DECISION_FILTER" as const : undefined;
   const priorBudgetMode = budgetModeOf(prior); const budgetMode = requestedBudgetMode ?? priorBudgetMode;
   const budgetModeEvents = requestedBudgetMode && requestedBudgetMode !== priorBudgetMode ? [...(prior.budgetModeEvents ?? []), { id: `${input.messageId}:budget-mode`, sourceMessageId: input.messageId, revision: prior.revision + 1, from: priorBudgetMode, to: requestedBudgetMode, authority: "USER_EXPLICIT" as const }] : (prior.budgetModeEvents ?? []);
