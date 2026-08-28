@@ -455,8 +455,8 @@ export function SalesAdvisorExperience({
           ) : (
             <div className="h-full bg-[radial-gradient(circle_at_70%_30%,#d1fae5,transparent_40%),linear-gradient(130deg,#ffffff,#f5f5f4)]" />
           )}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-white/80 via-transparent to-white/10" />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/55 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-white/55 via-transparent to-white/5" />
         </div>
         <div className="relative mx-auto grid min-h-[78vh] max-w-7xl items-end px-5 py-12 sm:px-8 lg:grid-cols-[minmax(0,1fr)_23rem] lg:gap-12 lg:py-16">
           <div className="min-w-0 max-w-3xl">
