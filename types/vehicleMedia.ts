@@ -3,6 +3,18 @@ export type VehicleMediaKind = "HERO_EXTERIOR" | "EXTERIOR" | "INTERIOR" | "CARG
 export type VehicleMediaPublicationState = "CANDIDATE" | "RIGHTS_REVIEW" | "PUBLISHED" | "REJECTED";
 export type VehicleMediaUsagePermission = "OPEN_LICENSE" | "LICENSED" | "WRITTEN_PERMISSION" | "OWNER_ATTESTED";
 
+export interface VehicleMediaIdentityVerification {
+  readonly status: "VERIFIED_EXACT";
+  readonly method: "GOVERNED_REFERENCE_PIXEL_SIMILARITY_V1";
+  readonly similarityScore: number;
+  readonly threshold: 0.95;
+  readonly metadataExact: true;
+  readonly governedReferenceAssetId: string;
+  readonly governedReferenceFileHash: `sha256:${string}`;
+  readonly candidateFileHash: `sha256:${string}`;
+  readonly verifiedAt: string;
+}
+
 export interface VehicleMediaOwnerAttestation {
   /** Stable identifier for the person or organization making the declaration. */
   readonly attestedBy: string;
@@ -40,5 +52,7 @@ export interface VehicleMediaAsset {
   readonly isPrimary: boolean;
   readonly reviewedAt: string;
   readonly fileHash?: string;
+  /** Required before an open-license discovery can enter runtime resolution. */
+  readonly identityVerification?: VehicleMediaIdentityVerification;
   readonly applicabilityNotes: readonly string[];
 }

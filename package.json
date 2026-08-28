@@ -2,6 +2,9 @@
   "name": "expiya-platform",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "scripts": {
     "dev": "npm run catalog:active:sync && npm run technical-daily-life:active:sync && npm run persona-safe-traits:active:sync && next dev",
     "cars:dev:validation": "node --env-file=.env.local scripts/run-cars-validation-dev.mjs",
