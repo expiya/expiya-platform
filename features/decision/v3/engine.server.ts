@@ -14,6 +14,7 @@ import {
   resolveV3CatalogEntities,
   scoreV3Candidate,
 } from "./catalogAdapter.server";
+import { answerV3CatalogQuestion } from "./catalogQuestion.server";
 import { createV31Offer, revealV31Offer } from "./offerGovernance.server";
 import { interpretV31Message } from "./semanticProvider.server";
 import {
@@ -898,6 +899,9 @@ export async function runV3Turn(input: {
       catalog = undefined;
     }
   const concernDirect = automotiveConcernReply(input.message);
+  const catalogDirect = catalog
+    ? answerV3CatalogQuestion(input.message, catalog.variants)
+    : undefined;
   const fallbackDirect =
     directReply(
       semantic.messageActs.includes("AUTOMOTIVE_QUESTION")
@@ -915,11 +919,11 @@ export async function runV3Turn(input: {
       modelDirect ?? "",
     );
   const direct =
-    router.route === "SOCIAL_CONVERSATION"
+    catalogDirect ?? (router.route === "SOCIAL_CONVERSATION"
       ? (fallbackDirect ?? modelDirect)
       : modelDirect && !(modelDirectIsRefusal && fallbackDirect)
         ? modelDirect
-        : fallbackDirect;
+        : fallbackDirect);
   if (scopeReply) {
     const followUp = ["EXPLICIT", "ACTIVE_DISCOVERY"].includes(purchaseIntent)
       ? selectQuestion(base, catalog?.variants)

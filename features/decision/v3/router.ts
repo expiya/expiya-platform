@@ -22,11 +22,11 @@ export function routeConversationMessage(
     );
   const automotiveSubject = has(
     text,
-    /(?:ara[çc]|araba|otomobil|sürüş|sürerken|kullanacağız|direksiyon|saklama göz|koltuk|kol dayama|deri|diz mesaf|gövde|tasarım|tavan|kokpit|ambiyans|spor görünüş|performans|görüş açı|otomatik|manuel|elektrikli|hibrit|hibrid|dizel|benzinli|motor|yakıt|batarya|şarj|çekiş|itiş|şanzıman|suv|coupe|crossover|hatchback|sedan|mpv|kombi\s*van|panel\s*van|panelvan|minibüs|kamyonet|pick\s*up|4x4|dört çeker|bagaj|tork|kw|(?:i|İ)?kinci\s*el|2\.?\s*el|ekspertiz|raporu|kasko|trafik sigortası|taşıt kredisi|araç kredisi)/iu,
+    /(?:ara[çc]|araba|otomobil|varyant|marka|model|sürüş|sürerken|kullanacağız|direksiyon|saklama göz|koltuk|kol dayama|deri|diz mesaf|gövde|tasarım|tavan|kokpit|ambiyans|spor görünüş|performans|görüş açı|otomatik|manuel|elektrikli|hibrit|hibrid|dizel|benzinli|motor|yakıt|batarya|menzil|taşıma kapasitesi|şarj|çekiş|itiş|şanzıman|suv|coupe|crossover|hatchback|sedan|mpv|kombi\s*van|panel\s*van|panelvan|minibüs|kamyonet|pick\s*up|4x4|dört çeker|bagaj|tork|kw|(?:i|İ)?kinci\s*el|2\.?\s*el|ekspertiz|raporu|kasko|trafik sigortası|taşıt kredisi|araç kredisi)/iu,
   );
   const informationQuestion = has(
     text,
-    /\?|(?:^|\s)(?:mı|mi|mu|mü)(?:\s|[?.!,]|$)|(?:neden|nasıl|nedir|ne demek|farkı|doğru mu|pahalı|ucuz|maliyetli|sanırım)/iu,
+    /\?|(?:^|\s)(?:mı|mi|mu|mü)(?:\s|[?.!,]|$)|(?:neden|nasıl|nedir|ne demek|farkı|doğru mu|kaç|hangi|ne kadar|en fazla|en az|maksimum|minimum|pahalı|ucuz|maliyetli|sanırım)/iu,
   );
   const offTopicProduct = has(
     text,
