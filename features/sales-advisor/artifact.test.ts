@@ -6,8 +6,27 @@ import { getReviewedSalesColors } from "./salesKnowledge.server";
 const provenance = [{ sourceId: "SRC-1", sourceUrl: "https://example.test/official", accessedAt: "2026-08-20T00:00:00.000Z", extractionMethod: "MANUAL" as const, confidence: "HIGH" as const, limitations: [] }];
 const f = <T,>(value: T, confidence: "HIGH" | "MEDIUM" = "HIGH"): CatalogFact<T> => ({ value, confidence, provenance, catalogFingerprint: "sha256:catalog", explanationAccess: "AUTHORITY_REQUIRED" });
 const variant: CatalogVariantSnapshot = { id: "exact-1", market: "TR", lifecycleStatus: "ON_SALE", brand: "Örnek", model: "Model", trim: "Plus", identityProvenance: provenance, decisionFacts: { bodyStyle: f("SUV"), modelYear: f(2026), powertrain: { fuelType: f("BEV"), powerKw: f(150), transmission: f("Automatic"), torqueNm: f(300, "MEDIUM") }, dimensions: { seats: f(5), luggageLitres: f(420, "MEDIUM") }, efficiency: { electricRangeKm: f(480), maxDcChargeKw: f(150) }, safetyFeatureCodes: [f("REAR_CAMERA"), f("UNKNOWN_CONFLICT", "MEDIUM")] } };
+const price = (priceType: "ESTIMATE" | "LIST", realizationSafe: boolean) => ({ id: `price-${priceType}`, vehicleVariantId: variant.id, market: "TR" as const, condition: "NEW" as const, amountTry: 1_650_000, priceType, consumerVisibility: priceType === "ESTIMATE" ? "INTERNAL_ONLY" as const : "PUBLIC" as const, realizationSafe, ...(priceType === "ESTIMATE" ? { estimationMethod: "versioned-model" } : {}), validFrom: "2026-08-01T00:00:00.000Z", taxTreatment: "INCLUDED" as const, confidence: priceType === "ESTIMATE" ? "LOW" as const : "HIGH" as const, provenance, catalogFingerprint: "sha256:catalog" });
 
 describe("versioned variant content artifact", () => {
+  it("never exposes an internal estimated amount in the public artifact", () => {
+    const estimated = { ...variant, activeNewPrice: price("ESTIMATE", false) };
+    const artifact = buildVariantContentArtifact({ variant: estimated, catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });
+    expect(artifact.price).toEqual({
+      status: "ESTIMATED",
+      display: "Güncel fiyat doğrulanıyor",
+      note: "Bu araç değerlendirmeye dahil edildi ancak doğrulanmış güncel satış fiyatı henüz bulunmuyor. Güncel fiyat ve stok durumu için yetkili satıcıdan bilgi alın.",
+    });
+    expect(JSON.stringify(artifact)).not.toContain("1650000");
+    expect(JSON.stringify(artifact)).not.toContain("1.650.000");
+  });
+
+  it("continues to expose a verified list price", () => {
+    const listed = { ...variant, activeNewPrice: price("LIST", true) };
+    const artifact = buildVariantContentArtifact({ variant: listed, catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });
+    expect(artifact.price.status).toBe("VERIFIED");
+    expect(artifact.price.display).toBe("1.650.000 TL");
+  });
   it("publishes market/model-year scoped Jogger colors for every matching variant", () => {
     const colors = getReviewedSalesColors({ brand: "Dacia", model: "Jogger", modelYear: 2026 });
     expect(colors.map((item) => item.value)).toEqual(["Beyaz", "Mineral Gri", "Kum Beji", "Sedir Yeşili", "Terracotta Kahve", "Duman Gri", "Siyah"]);
