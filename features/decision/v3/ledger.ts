@@ -722,7 +722,7 @@ export function applyPreferenceMessage(
   if (
     state.lastQuestionKey === "fuelType" &&
     !fuel &&
-    /(?:bilmiyorum|senin önerin|sen öner|sen seç|birlikte değerlendirelim|fark etmez|yakıt türü önemli değil)/iu.test(
+    /(?:bilmiyorum|senin önerin|sen öner|sen seç|birlikte değerlendirelim|şimdilik açık bırakalım|fark etmez|yakıt türü önemli değil)/iu.test(
       text,
     )
   )

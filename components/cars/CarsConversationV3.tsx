@@ -34,7 +34,7 @@ function quickChoices(message: Message): { multiple: boolean; choices: readonly 
     { value: "Dizel", label: "Dizel", description: "Düzenli yüksek kilometre ve uzun yolda tüketim avantajı sağlayabilir." },
     { value: "Hibrit", label: "Hibrit", description: "Şehir içi dur-kalkta elektrik desteğiyle tüketimi azaltabilir." },
     { value: "Elektrikli", label: "Elektrikli", description: "Düzenli şarj imkânıyla sessiz ve düşük kullanım giderli olabilir." },
-    { value: "Yakıt türünü birlikte değerlendirelim", label: "Birlikte değerlendirelim", description: "Yakıt türünü günlük kullanımına göre birlikte belirleriz.", exclusive: true },
+    { value: "Yakıt türünü şimdilik açık bırakalım", label: "Yakıt türünü açık bırak", description: "Yakıt türü filtre olmaz; diğer ihtiyaçların netleşince kalan seçeneklerin artı ve eksileri karşılaştırılır.", exclusive: true },
   ] };
   if (key === "bodyStyle") return { multiple: true, choices: [
     { value: "Kompakt hatchback", label: "Kompakt ve kolay park", description: "Dar sokaklarda manevra ve park genellikle daha kolaydır." },
@@ -195,7 +195,7 @@ export function CarsConversationV3({ initialQuery = "", minimumBudgetTry }: { re
   }
   function submitOnEnter(event: KeyboardEvent<HTMLTextAreaElement>) { if ((event.key === "Enter" || event.key === "NumpadEnter") && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); event.currentTarget.form?.requestSubmit(); } }
   function toggleChoice(messageId: string, choice: QuickChoice, multiple: boolean) {
-    setSelectedChoices((current) => { const selected = current[messageId] ?? []; const next = choice.exclusive || !multiple ? [choice.value] : selected.includes(choice.value) ? selected.filter((item) => item !== choice.value) : [...selected.filter((item) => !item.startsWith("Bu seçeneklerden hiçbiri") && item !== "Yakıt türünü birlikte değerlendirelim" && item !== "Her ikisi de olabilir"), choice.value]; return { ...current, [messageId]: next }; });
+    setSelectedChoices((current) => { const selected = current[messageId] ?? []; const next = choice.exclusive || !multiple ? [choice.value] : selected.includes(choice.value) ? selected.filter((item) => item !== choice.value) : [...selected.filter((item) => !item.startsWith("Bu seçeneklerden hiçbiri") && item !== "Yakıt türünü şimdilik açık bırakalım" && item !== "Her ikisi de olabilir"), choice.value]; return { ...current, [messageId]: next }; });
   }
   function sendChoices(message: Message) { const selected = selectedChoices[message.id] ?? []; if (!selected.length) return; const key = message.trace?.lastQuestionKey ?? ""; const content = key.startsWith("verifiedEquipment:") && selected.length > 1 ? `${selected.join(" ve ")} benim için vazgeçilmez.` : key === "fuelType" && selected.length > 1 ? `${selected.join(" veya ")} olabilir.` : selected.join(" ve "); void send(content); }
   function acceptRecommendationTermsAndReveal() { if (!recommendationTermsChecked || loading) return; setRecommendationTermsChecked(false); void send("Evet, araç önerisini göster.", createRecommendationTermsAcceptance()); }

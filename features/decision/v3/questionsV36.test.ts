@@ -68,6 +68,23 @@ describe("V3.6 direct question behavior", () => {
     expect(output.message).toMatch(/geri görüş kamerası|park sensörleri|çevre görüş/iu);
   });
 
+  it("explains that leaving fuel open is not an immediate fuel recommendation", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const id = "delegated-fuel-copy";
+    let output = await runV3Turn({ conversationId: id, messageId: "1", message: "Uzun yolda güvenli, aynı zamanda şehir içinde pratik bir sıfır araç arıyorum", expectedRevision: 0 });
+    while (output.state.lastQuestionKey !== "fuelType") {
+      const answer = output.state.lastQuestionKey?.startsWith("confirm:") ? "Evet, bunu öncelik yapalım" : "Bu seçeneklerden hiçbiri şart değil";
+      output = await runV3Turn({ conversationId: id, messageId: `step-${output.state.revision}`, message: answer, expectedRevision: output.state.revision, state: output.state });
+    }
+    const before = output.variantCounts?.remaining;
+    output = await runV3Turn({ conversationId: id, messageId: "fuel-open", message: "Yakıt türünü şimdilik açık bırakalım", expectedRevision: output.state.revision, state: output.state });
+    expect(output.message).toMatch(/araçları elemek için kullanmayacağım/iu);
+    expect(output.message).toMatch(/artı ve eksileriyle karşılaştıracağım/iu);
+    expect(output.state.lastQuestionKey).not.toBe("fuelType");
+    expect(activeDecisionPreferences(output.state.ledger).some((item) => item.concept === "fuelType")).toBe(false);
+    expect(output.variantCounts?.remaining).toBe(before);
+  });
+
   it("varies conversational acknowledgement copy across consecutive turns", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     let output = await runV3Turn({ conversationId: "ack", messageId: "1", message: "Araç bakıyorum", expectedRevision: 0 });

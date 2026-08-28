@@ -1429,8 +1429,13 @@ export async function runV3Turn(input: {
                     /ilk arac[ıi]m[ıi]/u.test(normalizedMessage)
                   ? "Tebrik ederim; ehliyetini alıp ilk aracını araştırmaya başlamak gerçekten heyecanlı bir adım."
                   : "Harika, ihtiyacını birlikte netleştirelim.";
+  const delegatedFuelThisTurn =
+    prior.lastQuestionKey === "fuelType" &&
+    latestActiveLedgerEvent(ledger, "fuelDelegated")?.sourceMessageId === input.messageId;
   const prefix =
-    router.route === "PURCHASE_INTENT_DISCOVERY"
+    delegatedFuelThisTurn
+      ? "Yakıt türünü şimdilik açık bırakıyorum; bunu araçları elemek için kullanmayacağım. Diğer ihtiyaçların netleşince kalan seçeneklerin yakıt türlerini kullanımına göre artı ve eksileriyle karşılaştıracağım."
+      : router.route === "PURCHASE_INTENT_DISCOVERY"
       ? semantic.acknowledgement &&
         isTurkishPublicCopy(semantic.acknowledgement)
         ? semantic.acknowledgement
