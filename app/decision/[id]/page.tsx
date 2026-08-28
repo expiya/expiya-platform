@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { saveFeedback } from "@/features/decision/feedback/saveFeedback";
@@ -87,19 +87,52 @@ function V2DecisionDetail({ card }: { readonly card: DecisionSafePublicCard }) {
 }
 
 type V3DecisionCard = NonNullable<V3PublicResponse["recommendations"]>[number];
+type V3DecisionContext = {
+  readonly card: V3DecisionCard;
+  readonly conversationId: string;
+  readonly stateToken: string;
+  readonly offerId: string;
+};
 
-function readV3Card(decisionId: string): V3DecisionCard | null {
+function readV3DecisionContext(decisionId: string): V3DecisionContext | null {
   if (!decisionId.startsWith("v3-")) return null;
   try {
     const exactVariantId = decodeURIComponent(decisionId.slice(3));
-    const conversation = JSON.parse(sessionStorage.getItem("expiya:cars-conversation:v3.8-pilot") ?? "null") as { messages?: readonly { recommendations?: V3PublicResponse["recommendations"] }[] } | null;
-    return conversation?.messages?.flatMap((message) => message.recommendations ?? []).find((card) => card.id === exactVariantId) ?? null;
+    const conversation = JSON.parse(sessionStorage.getItem("expiya:cars-conversation:v3.8-pilot") ?? "null") as { state?: V3PublicResponse["state"]; stateToken?: string; messages?: readonly { recommendations?: V3PublicResponse["recommendations"] }[] } | null;
+    const card = conversation?.messages?.flatMap((message) => message.recommendations ?? []).find((item) => item.id === exactVariantId);
+    const offerId = conversation?.state?.recommendationTermsAcceptance?.offerId;
+    if (!card || !conversation?.stateToken || !conversation.state || !offerId) return null;
+    return { card, conversationId: conversation.state.conversationId, stateToken: conversation.stateToken, offerId };
   } catch {
     return null;
   }
 }
 
-function V3DecisionDetail({ card }: { readonly card: V3DecisionCard }) {
+function V3DecisionDetail({ context }: { readonly context: V3DecisionContext }) {
+  const router = useRouter();
+  const [opening, setOpening] = useState(false);
+  const [error, setError] = useState<string>();
+  const { card } = context;
+
+  async function openSalesAdvisor() {
+    if (opening) return;
+    setOpening(true);
+    setError(undefined);
+    try {
+      const response = await fetch("/api/cars/sales-advisor/handoff", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ conversationId: context.conversationId, stateToken: context.stateToken, offerId: context.offerId, selectedExactVariantId: card.id }),
+      });
+      const payload = await response.json() as { token?: string; error?: string };
+      if (!response.ok || !payload.token) throw new Error(payload.error ?? "Satış danışmanı açılamadı.");
+      router.push(`/cars/variant/${encodeURIComponent(card.id)}?handoff=${encodeURIComponent(payload.token)}`);
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : "Satış danışmanı açılamadı.");
+      setOpening(false);
+    }
+  }
+
   return <main className="min-h-screen bg-neutral-50 p-5 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:p-10">
     <div className="mx-auto max-w-4xl">
       <Link href="/analysis?pilot=v3.8" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
@@ -111,7 +144,8 @@ function V3DecisionDetail({ card }: { readonly card: V3DecisionCard }) {
           <div><p className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Önerilen araç</p><h1 className="mt-2 text-3xl font-bold sm:text-4xl">{card.title}</h1></div>
           {card.badge ? <p className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-200">{card.badge}</p> : null}
           {card.warning ? <p className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">{card.warning}</p> : null}
-          <p className="text-sm leading-6 text-neutral-600 dark:text-neutral-300">Bu sayfa mevcut görüşmede seçilen exact varyantı gösterir. Satış danışmanı geçişi güvenli görüşme bağlamı içinde yapılır.</p>
+          {error ? <p role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-200">{error}</p> : null}
+          <button type="button" onClick={() => void openSalesAdvisor()} disabled={opening} className="w-full rounded-2xl bg-emerald-600 px-5 py-4 text-left font-semibold text-white disabled:cursor-wait disabled:opacity-60">{opening ? "Satış danışmanı açılıyor…" : "Bu aracı daha yakından tanı ve satış danışmanına geç →"}</button>
         </div>
       </article>
     </div>
@@ -143,7 +177,7 @@ export default function DecisionDetailPage() {
   const decisionId = params.id;
   const [recommendation, setRecommendation] = useState<RecommendedCar | null>();
   const [v2Card, setV2Card] = useState<DecisionSafePublicCard | null>();
-  const [v3Card, setV3Card] = useState<V3DecisionCard | null>();
+  const [v3Context, setV3Context] = useState<V3DecisionContext | null>();
   const [feedback, setFeedback] = useState<"HELPFUL" | "NOT_HELPFUL">();
   const [showLocation, setShowLocation] = useState(false);
   const [province, setProvince] = useState("");
@@ -154,16 +188,16 @@ export default function DecisionDetailPage() {
     queueMicrotask(() => {
       setRecommendation(readRecommendation(decisionId));
       setV2Card(readV2Card(decisionId));
-      setV3Card(readV3Card(decisionId));
+      setV3Context(readV3DecisionContext(decisionId));
     });
   }, [decisionId]);
 
-  if (recommendation === undefined || v2Card === undefined || v3Card === undefined) {
+  if (recommendation === undefined || v2Card === undefined || v3Context === undefined) {
     return <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950" aria-label="Karar yükleniyor" />;
   }
 
   if (!recommendation && v2Card) return <V2DecisionDetail card={v2Card} />;
-  if (!recommendation && v3Card) return <V3DecisionDetail card={v3Card} />;
+  if (!recommendation && v3Context) return <V3DecisionDetail context={v3Context} />;
 
   if (!recommendation) {
     return (
