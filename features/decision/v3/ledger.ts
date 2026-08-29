@@ -9,9 +9,15 @@ import { resolveEquipmentRequirement } from "../../vehicle-data/equipmentEvidenc
 import { detectExplicitUsagePurpose } from "./usageSemantics";
 
 const whole = (text: string) => ({ start: 0, end: text.length, text });
+const withoutCurrentVehicleBodyContext = (text: string): string =>
+  text.replace(
+    /(?:(?:şu an|halen|hâlen|mevcut(?:ta)?|halihazırda)\s+)?(?:kullandığım|sahip olduğum|bindiğim)\s+(?:(?:eski|mevcut)\s+)?(?:panel\s*van|panelvan|minibüs|yolcu van|pick\s*up|kamyonet|mpv|coupe|coupé|hatchback|sedan|suv|crossover)(?:\s+(?:araç|araba|otomobil))?[^.!?]*/giu,
+    (match) => " ".repeat(match.length),
+  );
 const normalizedBody = (
   text: string,
 ): string | readonly string[] | undefined => {
+  text = withoutCurrentVehicleBodyContext(text);
   if (/panel\s*van|panelvan/iu.test(text)) return "PANEL VAN";
   const explicit = [
     [/(?:minibüs|yolcu van)/iu, "PASSENGER VAN"],
@@ -950,9 +956,9 @@ export function applyPreferenceMessage(
       }),
     );
   if (
-    /(?:bunlar|donanım|özellik|özel (?:bir )?(?:park )?donanımı).*(?:önemli değil|min(?:i|u)mum|gerek yok|şart(?:ım)? (?:değil|yok)|temel .* yeterli)/iu.test(
-      text,
-    )
+    /(?:bunlar|donanım|özellik|özel (?:bir )?(?:park )?donanımı).*(?:önemli değil|min(?:i|u)mum|gerek yok|şart(?:ım)? (?:değil|yok)|temel .* yeterli)/iu.test(text) ||
+    (state.lastQuestionKey?.startsWith("verifiedEquipment:") === true &&
+      /(?:seçenek(?:ler)?(?:den)?|bunlar(?:dan)?|gruptaki(?:ler)?).*(?:hiçbiri|hiç biri).*(?:şart|gerekli|vazgeçilmez|önemli).*(?:değil|yok)|(?:hiçbiri|hiç biri).*(?:şart|gerekli|vazgeçilmez|önemli).*(?:değil|yok)/iu.test(text))
   )
     ledger = supersedeActive(
       ledger,
@@ -1127,7 +1133,7 @@ export function applyPreferenceMessage(
       "Oturma, inip binme ve süspansiyon rahatlığını seçimde belirleyici tutalım mı?",
     ],
     [
-      /(?:bisiklet|bebek arabası|puset|valiz|seyahat çanta|kamp (?:malzem|ekipman)|kocaman bagaj|dev bir bagaj|(?:pratik|kullanışlı|geniş).{0,24}bagaj|bagaj (?:hacmi|derinliği|bölümü)|bagaj.{0,24}(?:yükleme|geniş)|yatay (?:bir )?alan|yükleme kolay)/iu,
+      /(?:bisiklet|bebek arabası|puset|valiz|seyahat çanta|kamp (?:malzem|ekipman)|kocaman bagaj|dev bir bagaj|(?:pratik|kullanışlı|geniş).{0,24}bagaj|bagaj (?:hacmi|derinliği|bölümü)|bagaj.{0,24}(?:yükleme|geniş)|yatay (?:bir )?alan|yükleme kolay|araç(?:ın)? içinde (?:yat|uyu|konakla))/iu,
       "cargoPracticality",
       undefined,
       "CARGO_PRACTICALITY",

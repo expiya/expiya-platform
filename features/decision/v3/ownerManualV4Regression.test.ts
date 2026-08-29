@@ -22,6 +22,11 @@ describe("owner manual V4 conversation regressions", () => {
     expect(output.ledger).toContainEqual(expect.objectContaining({ concept: "equipmentFeature", normalizedValue: "HEATED_REAR_SEATS" }));
     expect(output.ledger).not.toContainEqual(expect.objectContaining({ normalizedValue: "HEATED_FRONT_SEATS" }));
   });
-  it("does not classify bicycle/outdoor equipment as commercial use", () => expect(applyPreferenceMessage({ ...state(), lastQuestionKey: "primaryUsage" }, "2", "Bisiklet ve açık hava malzemelerimi taşıyacağım.").ledger).toContainEqual(expect.objectContaining({ concept: "primaryUsage", normalizedValue: "MIXED_ROAD" })));
+  it("does not classify bicycle/outdoor equipment as commercial or rough-road use", () => {
+    const ledger = applyPreferenceMessage({ ...state(), lastQuestionKey: "primaryUsage" }, "2", "Bisiklet ve açık hava malzemelerimi taşıyacağım.").ledger;
+    expect(ledger).not.toContainEqual(expect.objectContaining({ concept: "primaryUsage", normalizedValue: "COMMERCIAL", status: "ACTIVE" }));
+    expect(ledger).not.toContainEqual(expect.objectContaining({ concept: "primaryUsage", normalizedValue: "MIXED_ROAD", status: "ACTIVE" }));
+    expect(ledger).toContainEqual(expect.objectContaining({ concept: "cargoPracticality", confirmationRequired: true }));
+  });
   it("keeps a three-child MPV request family-oriented", () => expect(applyPreferenceMessage({ ...state(), lastQuestionKey: "primaryUsage" }, "2", "Üç çocuklu aile için MPV istiyorum.").ledger).toContainEqual(expect.objectContaining({ concept: "primaryUsage", normalizedValue: "FAMILY" })));
 });

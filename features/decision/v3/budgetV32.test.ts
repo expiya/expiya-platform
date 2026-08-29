@@ -36,9 +36,9 @@ describe("V3.2 budget timing and authority", () => {
     let state = createV3ConversationState("value-three"); let output;
     for (const [id, message] of [["1", "Aile kullanımı için SUV araç almak istiyorum"], ["2", "Bütçe sorun değil"], ["3", "Benzinli olsun"]] as const) { output = await turn(state, message, id); state = output.state; }
     expect(output!.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
-    for (const id of ["4", "5", "6"]) { if (state.lastQuestionKey === "brandModel") break; output = await turn(state, "Bu gruptakilerden hiçbiri şart değil", id); state = output.state; }
+    for (const id of ["4", "5", "6", "7", "8", "9", "10"]) { if (state.lastQuestionKey === "brandModel") break; output = await turn(state, "Bu gruptakilerden hiçbiri şart değil", id); state = output.state; }
     expect(output!.message).toMatch(/Marka veya model/iu);
-    output = await turn(state, "Fark etmez, sen seç", "7"); expect(output.offerAwaitingConsent).toBe(true); expect(output.state.pendingOffer?.candidateIds.length).toBeLessThanOrEqual(3);
-    output = await runV3Turn({ conversationId: output.state.conversationId, messageId: "8", message: "Evet, göster", expectedRevision: output.state.revision, state: output.state, recommendationTermsAcceptance: createRecommendationTermsAcceptance() }); expect(output.recommendations?.length).toBeGreaterThan(0); expect(output.recommendations?.length).toBeLessThanOrEqual(3);
+    output = await turn(state, "Fark etmez, sen seç", "11"); expect(output.offerAwaitingConsent).toBe(true); expect(output.state.pendingOffer?.candidateIds.length).toBeLessThanOrEqual(3);
+    output = await runV3Turn({ conversationId: output.state.conversationId, messageId: "12", message: "Evet, göster", expectedRevision: output.state.revision, state: output.state, recommendationTermsAcceptance: createRecommendationTermsAcceptance() }); expect(output.recommendations?.length).toBeGreaterThan(0); expect(output.recommendations?.length).toBeLessThanOrEqual(3);
   });
 });
