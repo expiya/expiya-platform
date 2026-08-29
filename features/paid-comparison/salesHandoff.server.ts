@@ -36,6 +36,15 @@ export class PostgresPaidReportSalesHandoffRepository {
         row.conversation_id, digest(`${row.decision_id}:${row.catalog_fingerprint}`), `paid-report:${row.quote_id}`,
         row.catalog_release_version, row.catalog_fingerprint, JSON.stringify(row.approved_needs), input.now.toISOString(), expiresAt.toISOString()],
     );
+    try {
+      await this.database.query(
+        `insert into paid_comparison_events (id, event_name, quote_id, order_id, exact_variant_id)
+         values ($1,'SALES_ACTION_STARTED',$2,$3,$4)`,
+        [crypto.randomUUID(), row.quote_id, row.order_id, input.exactVariantId],
+      );
+    } catch {
+      // The customer action remains usable if measurement storage is unavailable.
+    }
     return token;
   }
 

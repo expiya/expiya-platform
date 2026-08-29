@@ -22,5 +22,6 @@ describe("PostgresPaidComparisonReportJobRepository", () => {
     await repository.complete({ job, reportId: "report", document: { ok: true }, generatedAt: new Date("2026-08-29T10:00:00Z") });
     expect(String(query.mock.calls[1]?.[0])).toContain("comparison_report_documents");
     expect(String(query.mock.calls[2]?.[0])).toContain("SUCCEEDED");
+    expect(String(query.mock.calls[3]?.[0])).toContain("REPORT_READY");
   });
 });

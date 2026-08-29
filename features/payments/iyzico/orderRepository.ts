@@ -1,4 +1,5 @@
 import type { SqlConnection, SqlQueryable } from "@/features/vehicle-data/repository";
+import { randomUUID } from "node:crypto";
 import { paidComparisonLegalArtifacts, type PaidComparisonLegalAcceptance } from "@/features/paid-comparison/legalArtifacts";
 
 export interface CheckoutOrderContext {
@@ -76,10 +77,14 @@ export class PostgresIyzicoOrderRepository implements IyzicoOrderRepository {
 
   async markInitialized(input: { readonly orderId: string; readonly token: string; readonly expiresAt: Date }): Promise<void> {
     const result = await this.database.query(
-      `update paid_report_orders set status = 'CHECKOUT_INITIALIZED', provider_token = $2,
-         checkout_expires_at = $3, updated_at = now()
-       where id = $1 and status = 'CREATED' returning id`,
-      [input.orderId, input.token, input.expiresAt.toISOString()],
+      `with initialized as (
+         update paid_report_orders set status = 'CHECKOUT_INITIALIZED', provider_token = $2,
+           checkout_expires_at = $3, updated_at = now()
+          where id = $1 and status = 'CREATED' returning id, quote_id
+       )
+       insert into paid_comparison_events (id, event_name, quote_id, order_id)
+       select $4, 'CHECKOUT_STARTED', quote_id, id from initialized returning id`,
+      [input.orderId, input.token, input.expiresAt.toISOString(), randomUUID()],
     ) as { rows?: { id: string }[] };
     if (!result.rows?.length) throw new TypeError("IYZICO_ORDER_INITIALIZE_TRANSITION_INVALID");
   }
@@ -128,6 +133,11 @@ export class PostgresIyzicoOrderRepository implements IyzicoOrderRepository {
         [input.jobId, input.orderId, quoteId, input.now.toISOString()],
       );
       await connection.query(`update comparison_report_quotes set status = 'CONSUMED' where id = $1`, [quoteId]);
+      await connection.query(
+        `insert into paid_comparison_events (id, event_name, quote_id, order_id)
+         values ($1,'PAYMENT_VERIFIED',$3,$2),($4,'REPORT_QUEUED',$3,$2)`,
+        [randomUUID(), input.orderId, quoteId, randomUUID()],
+      );
     });
   }
 

@@ -29,6 +29,8 @@ export async function getPaidComparisonOptions(handoff: string, now = new Date()
     variants: catalog.variants,
   });
   return {
+    conversationId: opened.handoff.conversationId,
+    decisionId: opened.handoff.offerId,
     decisionVariantId: opened.handoff.selectedExactVariantId,
     decision: (() => {
       const variant = catalog.variantById.get(opened.handoff.selectedExactVariantId)!;

@@ -1,5 +1,6 @@
 import type { SqlConnection, SqlQueryable } from "@/features/vehicle-data/repository";
 import type { ComparisonReportQuote } from "./contracts";
+import { randomUUID } from "node:crypto";
 
 export interface PaidComparisonQuoteRepository {
   createQuote(quote: ComparisonReportQuote): Promise<void>;
@@ -30,6 +31,15 @@ export class PostgresPaidComparisonQuoteRepository implements PaidComparisonQuot
         );
       }
       await connection.query("commit");
+      try {
+        await this.database.query(
+          `insert into paid_comparison_events (id, event_name, conversation_id, decision_id, exact_variant_id, quote_id)
+           values ($1,'QUOTE_CREATED',$2,$3,$4,$5)`,
+          [randomUUID(), quote.conversationId, quote.decisionId, quote.vehicles[0].exactVariantId, quote.id],
+        );
+      } catch {
+        // Measurement must never invalidate a customer quote.
+      }
     } catch (error) {
       await connection.query("rollback");
       throw error;

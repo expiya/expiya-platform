@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import { saveFeedback } from "@/features/decision/feedback/saveFeedback";
 import { VehicleImageDisclosure } from "@/components/cars/VehicleImageDisclosure";
@@ -111,8 +111,32 @@ function readV3DecisionContext(decisionId: string): V3DecisionContext | null {
 function V3DecisionDetail({ context }: { readonly context: V3DecisionContext }) {
   const router = useRouter();
   const [opening, setOpening] = useState(false);
+  const [reportOpening, setReportOpening] = useState(false);
   const [error, setError] = useState<string>();
   const { card } = context;
+
+  const recordPaidReportEvent = useCallback((eventName: "OFFER_VIEWED" | "OFFER_CLICKED") => {
+    const eventId = crypto.randomUUID();
+    void fetch("/api/cars/paid-comparison/events", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ eventId, eventName, conversationId: context.conversationId, decisionId: context.offerId, exactVariantId: card.id }) });
+  }, [card.id, context.conversationId, context.offerId]);
+
+  useEffect(() => {
+    const key = `expiya:paid-comparison-offer-viewed:${context.offerId}:${card.id}`;
+    if (sessionStorage.getItem(key)) return;
+    sessionStorage.setItem(key, "1"); recordPaidReportEvent("OFFER_VIEWED");
+  }, [card.id, context.offerId, recordPaidReportEvent]);
+
+  async function openPaidComparison() {
+    if (reportOpening || opening) return;
+    setReportOpening(true); setError(undefined); recordPaidReportEvent("OFFER_CLICKED");
+    try {
+      const response = await fetch("/api/cars/sales-advisor/handoff", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ conversationId: context.conversationId, stateToken: context.stateToken, offerId: context.offerId, selectedExactVariantId: card.id }) });
+      const payload = await response.json() as { token?: string; error?: string };
+      if (!response.ok || !payload.token) throw new Error(payload.error ?? "Karşılaştırma raporu açılamadı.");
+      sessionStorage.setItem("expiya:paid-comparison-handoff", payload.token);
+      router.push("/cars/paid-comparison");
+    } catch (cause) { setError(cause instanceof Error ? cause.message : "Karşılaştırma raporu açılamadı."); setReportOpening(false); }
+  }
 
   async function openSalesAdvisor() {
     if (opening) return;
@@ -146,6 +170,7 @@ function V3DecisionDetail({ context }: { readonly context: V3DecisionContext }) 
           {card.warning ? <p className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">{card.warning}</p> : null}
           {error ? <p role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-200">{error}</p> : null}
           <button type="button" onClick={() => void openSalesAdvisor()} disabled={opening} className="w-full rounded-2xl bg-emerald-600 px-5 py-4 text-left font-semibold text-white disabled:cursor-wait disabled:opacity-60">{opening ? "Satış danışmanı açılıyor…" : "Bu aracı daha yakından tanı ve satış danışmanına geç →"}</button>
+          <section className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-900 dark:bg-emerald-950/30"><p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-800 dark:text-emerald-300">İsteğe bağlı ayrıntılı rapor</p><h2 className="mt-2 text-xl font-semibold">Kararını iki alternatifle doğrula</h2><p className="mt-2 text-sm leading-6 text-neutral-700 dark:text-neutral-300">Bu ücretsiz karar eksiksizdir. İstersen aynı sınıftan seçeceğin iki araçla kaynaklı, kişiselleştirilmiş karşılaştırma raporu oluşturabiliriz.</p><ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral-700 dark:text-neutral-300"><li>Üç exact varyant ve güncel liste fiyatı</li><li>İhtiyaçlarına göre şeffaf puan dökümü</li><li>Hangi koşulda hangi aracın öne çıktığı</li></ul><div className="mt-4 flex items-center justify-between gap-4"><strong className="text-xl">349 TL <span className="text-xs font-normal text-neutral-600">KDV dâhil</span></strong><button type="button" onClick={() => void openPaidComparison()} disabled={reportOpening || opening} className="min-h-11 rounded-xl bg-neutral-950 px-4 text-sm font-semibold text-white disabled:opacity-50 dark:bg-white dark:text-neutral-950">{reportOpening ? "Hazırlanıyor…" : "Alternatifleri seç"}</button></div></section>
         </div>
       </article>
     </div>

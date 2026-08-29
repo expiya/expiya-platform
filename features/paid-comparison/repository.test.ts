@@ -30,7 +30,8 @@ describe("PostgresPaidComparisonQuoteRepository", () => {
     const release = vi.fn();
     await new PostgresPaidComparisonQuoteRepository({ connect: async () => ({ query, release }), query }).createQuote(quote);
     expect(query.mock.calls[0]?.[0]).toBe("begin");
-    expect(query.mock.calls.at(-1)?.[0]).toBe("commit");
+    expect(query.mock.calls.some(([sql]) => sql === "commit")).toBe(true);
+    expect(String(query.mock.calls.at(-1)?.[0])).toContain("QUOTE_CREATED");
     expect(query.mock.calls.filter(([sql]) => String(sql).includes("comparison_report_quote_vehicles"))).toHaveLength(3);
     expect(release).toHaveBeenCalledOnce();
   });

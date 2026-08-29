@@ -5,7 +5,7 @@ import Link from "next/link";
 import { paidComparisonLegalVersions } from "@/features/paid-comparison/legalVersions";
 
 type Vehicle = { exactVariantId: string; brand: string; model: string; trim: string; bodyStyle: string; fuelType: string; amountTry: number; priceValidFrom: string };
-type Options = { decision: Vehicle; comparisonClass: string; alternatives: Vehicle[] };
+type Options = { conversationId: string; decisionId: string; decision: Vehicle; comparisonClass: string; alternatives: Vehicle[] };
 type Step = "loading" | "select" | "checkout" | "error";
 const HANDOFF_KEY = "expiya:paid-comparison-handoff";
 
@@ -39,7 +39,14 @@ export default function PaidComparisonFlow({ legalTexts }: { legalTexts: { preIn
     }
     Promise.resolve().then(() => setHandoff(value));
     post<Options>("/api/cars/paid-comparison/options", { handoff: value })
-      .then((result) => { setOptions(result); setStep("select"); })
+      .then((result) => {
+        setOptions(result); setStep("select");
+        const key = `expiya:paid-comparison-options-viewed:${result.decisionId}:${result.decision.exactVariantId}`;
+        if (!sessionStorage.getItem(key)) {
+          sessionStorage.setItem(key, "1");
+          void fetch("/api/cars/paid-comparison/events", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ eventId: crypto.randomUUID(), eventName: "OPTIONS_VIEWED", conversationId: result.conversationId, decisionId: result.decisionId, exactVariantId: result.decision.exactVariantId }) });
+        }
+      })
       .catch((error: Error) => { setMessage(error.message); setStep("error"); });
   }, []);
 

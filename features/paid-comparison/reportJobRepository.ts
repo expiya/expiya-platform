@@ -1,5 +1,6 @@
 import type { SqlConnection, SqlQueryable } from "@/features/vehicle-data/repository";
 import type { ApprovedDecisionNeed } from "@/features/sales-advisor/types";
+import { randomUUID } from "node:crypto";
 
 export interface PaidComparisonReportJob {
   readonly jobId: string;
@@ -73,16 +74,26 @@ export class PostgresPaidComparisonReportJobRepository {
       );
       const result = await connection.query(`update comparison_report_jobs set status = 'SUCCEEDED', completed_at = $2 where id = $1 and status = 'RUNNING' returning id`, [input.job.jobId, input.generatedAt.toISOString()]) as { rows?: { id: string }[] };
       if (!result.rows?.length) throw new TypeError("PAID_REPORT_JOB_COMPLETE_TRANSITION_INVALID");
+      await connection.query(
+        `insert into paid_comparison_events (id, event_name, quote_id, order_id)
+         values ($1,'REPORT_READY',$2,$3)`,
+        [randomUUID(), input.job.quoteId, input.job.orderId],
+      );
     });
   }
 
   async fail(jobId: string, failureCode: string, now: Date): Promise<void> {
     await this.database.query(
-      `update comparison_report_jobs
+      `with failed as (
+        update comparison_report_jobs
           set status = case when attempt_count >= 3 then 'REFUND_REQUIRED' else 'QUEUED' end,
               failure_code = $2, completed_at = case when attempt_count >= 3 then $3 else null end
-        where id = $1 and status = 'RUNNING'`,
-      [jobId, failureCode.slice(0, 80), now.toISOString()],
+        where id = $1 and status = 'RUNNING'
+        returning quote_id, order_id, status
+       )
+       insert into paid_comparison_events (id, event_name, quote_id, order_id)
+       select $4, 'REPORT_FAILED', quote_id, order_id from failed where status = 'REFUND_REQUIRED'`,
+      [jobId, failureCode.slice(0, 80), now.toISOString(), randomUUID()],
     );
   }
 }
