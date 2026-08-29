@@ -71,7 +71,15 @@ describe("versioned variant content artifact", () => {
     const artifact = buildVariantContentArtifact({ variant, peerVariants: peers, catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });
     expect(artifact.facts.find((item) => item.key === "power")?.classComparison).toMatchObject({ dataCount: 3, basis: "SUV ve BEV araçlar" });
     expect(artifact.facts.find((item) => item.key === "power")?.classComparison?.text).toMatch(/orta bölüm/iu);
+    expect(artifact.facts.find((item) => item.key === "power")?.classComparison?.gaugePosition).toBe("MID");
     expect(artifact.facts.find((item) => item.key === "power")?.dailyMeaning).toMatch(/tek başına ivmelenme süresi değildir/iu);
+  });
+  it("does not present neutral dimensions as performance and reverses the gauge for consumption", () => {
+    const withEfficiency = (id: string, consumption: number, length: number): CatalogVariantSnapshot => ({ ...variant, id, decisionFacts: { ...variant.decisionFacts, dimensions: { ...variant.decisionFacts.dimensions, lengthMm: f(length) }, efficiency: { ...variant.decisionFacts.efficiency, combinedKwhPer100Km: f(consumption) } } });
+    const peers = [withEfficiency("efficient", 13, 4100), withEfficiency("selected", 16, 4300), withEfficiency("hungry", 21, 4500)];
+    const artifact = buildVariantContentArtifact({ variant: peers[0]!, peerVariants: peers, catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });
+    expect(artifact.facts.find((item) => item.key === "electricConsumption")?.classComparison?.gaugePosition).toBe("HIGH");
+    expect(artifact.facts.find((item) => item.key === "length")?.classComparison?.gaugePosition).toBeUndefined();
   });
   it("does not invent a class position when fewer than three comparable verified values exist", () => {
     const artifact = buildVariantContentArtifact({ variant, peerVariants: [variant], catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });

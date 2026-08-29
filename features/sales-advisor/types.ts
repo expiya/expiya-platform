@@ -31,6 +31,7 @@ export interface PublicVariantFact {
     readonly peerCount: number;
     readonly dataCount: number;
     readonly basis: string;
+    readonly gaugePosition?: "LOW" | "MID" | "HIGH";
   };
   readonly disposition: ClaimDisposition;
   readonly scopeNote?: string;
