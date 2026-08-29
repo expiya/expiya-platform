@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
+import { PaidComparisonOffer } from "@/components/cars/PaidComparisonOffer";
 import type { AdvisorReply } from "@/features/sales-advisor/advisor";
 import { humanizePreferenceText } from "@/features/decision/v3/preferencePresentation";
 import type {
@@ -943,6 +944,14 @@ export function SalesAdvisorExperience({
             sending={sending}
             onDraft={setDraft}
             onSubmit={submit}
+          />
+        </div>
+        <div className="mx-auto max-w-7xl px-5 pb-10 sm:px-8">
+          <PaidComparisonOffer
+            conversationId={handoff.conversationId}
+            phase2Token={token}
+            offerId={handoff.offerId}
+            selectedExactVariantId={handoff.selectedExactVariantId}
           />
         </div>
       </section>

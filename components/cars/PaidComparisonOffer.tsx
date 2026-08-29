@@ -6,10 +6,12 @@ import { useState } from "react";
 
 type PaidComparisonOfferProps = {
   readonly conversationId: string;
-  readonly stateToken: string;
   readonly offerId: string;
   readonly selectedExactVariantId: string;
-};
+} & (
+  | { readonly phase2Token: string; readonly stateToken?: never }
+  | { readonly phase2Token?: never; readonly stateToken: string }
+);
 
 const paidComparisonHandoffKey = "expiya:paid-comparison:handoff:v1";
 
@@ -34,22 +36,26 @@ export function PaidComparisonOffer(props: PaidComparisonOfferProps) {
     });
 
     try {
-      const response = await fetch("/api/cars/sales-advisor/handoff", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          conversationId: props.conversationId,
-          stateToken: props.stateToken,
-          offerId: props.offerId,
-          selectedExactVariantId: props.selectedExactVariantId,
-        }),
-      });
-      const payload = await response.json() as { token?: string; error?: string };
-      if (!response.ok || !payload.token) throw new Error(payload.error);
+      let token = props.phase2Token;
+      if (!token) {
+        const response = await fetch("/api/cars/sales-advisor/handoff", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            conversationId: props.conversationId,
+            stateToken: props.stateToken,
+            offerId: props.offerId,
+            selectedExactVariantId: props.selectedExactVariantId,
+          }),
+        });
+        const payload = await response.json() as { token?: string; error?: string };
+        if (!response.ok || !payload.token) throw new Error(payload.error);
+        token = payload.token;
+      }
 
       sessionStorage.setItem(paidComparisonHandoffKey, JSON.stringify({
         version: 1,
-        token: payload.token,
+        token,
         createdAt: new Date().toISOString(),
       }));
       router.push("/cars/paid-comparison");

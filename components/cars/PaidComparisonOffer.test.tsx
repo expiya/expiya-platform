@@ -24,4 +24,15 @@ describe("PaidComparisonOffer", () => {
     expect(html).not.toContain("Aşama 2");
     expect(html).not.toContain("Aşama 3");
   });
+
+  it("accepts the already validated vehicle-detail handoff", () => {
+    const html = renderToStaticMarkup(<PaidComparisonOffer
+      conversationId="conversation-1"
+      phase2Token="signed-phase-2"
+      offerId="offer-1"
+      selectedExactVariantId="variant-1"
+    />);
+
+    expect(html).toContain("2 araç seç ve karşılaştır");
+  });
 });
