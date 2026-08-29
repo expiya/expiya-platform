@@ -160,7 +160,7 @@ const weakConfirmationQuestions: Readonly<Record<string, string>> =
     cockpitAmbience:
       "Dijital kokpit ve ambiyans aydınlatmasını tasarım seçiminde öne alalım mı?",
     distinctiveDesign:
-      "Dikkat çekici ve karakterli tasarımı seçimde belirleyici tutalım mı?",
+      "Şirin, sevimli veya karakterli görünümü seçimde belirleyici tutalım mı?",
     fuelEconomy:
       "Düşük enerji veya yakıt tüketimini seçimde temel öncelik yapalım mı?",
     rearSeatSpace:
@@ -1189,11 +1189,11 @@ export function applyPreferenceMessage(
       "Dijital kokpit ve ambiyans aydınlatmasını tasarım seçiminde öne alalım mı?",
     ],
     [
-      /(?:dikkat çekici|dikkat çeken|karizma|karizmatik|dönüp.*bak|spor görünüş|farklı.*tasarım|zamansız.*tasarım)/iu,
+      /(?:şirin|sevimli|sempatik|tatlı görünümlü|retro görünümlü|dikkat çekici|dikkat çeken|karizma|karizmatik|dönüp.*bak|spor görünüş|farklı.*tasarım|zamansız.*tasarım)/iu,
       "distinctiveDesign",
       undefined,
       "DISTINCTIVE_DESIGN",
-      "Dikkat çekici ve karakterli tasarımı seçimde belirleyici tutalım mı?",
+      "Şirin, sevimli veya karakterli görünümü seçimde belirleyici tutalım mı?",
     ],
     [
       /(?:az yakan|yakıt ibresi|yakıt cimrisi|koklayan bir araç)/iu,

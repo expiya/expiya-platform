@@ -6,6 +6,7 @@ export const ANALYST_CONCEPTS = [
   "maneuverabilityNeed", "groundClearanceNeed", "tractionNeed", "longDistanceComfort", "familyPracticality",
   "cargoPracticality", "accessibilityNeed", "operatingCostPriority", "performancePreference", "bodyStyleReference",
   "fuelPreference", "transmissionPreference", "equipmentRequirement", "brandReference", "modelReference",
+  "designCharacterPreference",
 ] as const;
 export type AnalystConcept = typeof ANALYST_CONCEPTS[number];
 

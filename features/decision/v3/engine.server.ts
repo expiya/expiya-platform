@@ -9,6 +9,7 @@ import {
 } from "./ledger";
 import {
   evaluateV3Catalog,
+  getV3PersonaTraits,
   planV3VerifiedEquipmentQuestion,
   rankV3Candidates,
   resolveV3CatalogEntities,
@@ -881,8 +882,21 @@ export async function runV3Turn(input: {
       state: { ...base, lastQuestionKey: prior.lastQuestionKey },
     };
   }
+  if (
+    prior.lastQuestionKey === "designEvidenceBoundary" &&
+    /(?:hayır|tasarım|görünüm|gözden geçir|şart.*esnet)/iu.test(input.message)
+  ) {
+    return {
+      kind: "V3_CONVERSATION",
+      message:
+        "Tasarım beklentine daha fazla ağırlık verelim. Alternatifleri genişletmek için vazgeçebileceğin donanımı açıkça söyle: geri görüş kamerası, ön park sensörü veya arka park sensörü. Diğer şartlarını koruyacağım.",
+      state: { ...base, lastQuestionKey: "designEquipmentRelaxation" },
+    };
+  }
   const recommendationRequested =
     router.route === "RECOMMENDATION_OR_OFFER" ||
+    (prior.lastQuestionKey === "designEvidenceBoundary" &&
+      /^(?:evet|olur|tamam|devam|bu adayla devam)/iu.test(input.message.trim())) ||
     /(?:tek araç|alternatif|öner(?:i|ini|inizi)?|seç(?:elim|ebilirsin| lütfen)?|göster|paylaş)/iu.test(
       input.message,
     );
@@ -1374,6 +1388,35 @@ export async function runV3Turn(input: {
         ...base,
         askedQuestionKeys: [...new Set([...base.askedQuestionKeys, iterativeDiscriminator.key])],
         lastQuestionKey: iterativeDiscriminator.key,
+      },
+    };
+  }
+  const activeDesignPreference = latestActiveLedgerEvent(
+    ledger,
+    "distinctiveDesign",
+  );
+  const soleCandidateWithoutDesignEvidence =
+    catalog?.variants.length === 1 &&
+    activeDesignPreference?.decisionUse === "SOFT_RANK" &&
+    ![...getV3PersonaTraits(catalog.variants[0]!.id)].some((trait) =>
+      ["DESIGN", "PRESTIGE"].includes(trait),
+    );
+  if (
+    (recommendationRequested ||
+      (equipmentResolved && inDiscriminationSequence)) &&
+    soleCandidateWithoutDesignEvidence &&
+    !base.askedQuestionKeys.includes("designEvidenceBoundary")
+  ) {
+    return {
+      kind: "V3_CONVERSATION",
+      message:
+        "Donanım şartların katalogda tek bir aday bıraktı; ancak bu adayın şirin veya karakterli görünüm beklentine uyduğunu doğrulayan onaylı tasarım verimiz yok. Donanım şartlarını koruyup bu adayla devam edelim mi, yoksa tasarım beklentine daha çok ağırlık vermek için şartlardan birini gözden geçirelim mi?",
+      state: {
+        ...base,
+        askedQuestionKeys: [
+          ...new Set([...base.askedQuestionKeys, "designEvidenceBoundary"]),
+        ],
+        lastQuestionKey: "designEvidenceBoundary",
       },
     };
   }
