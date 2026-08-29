@@ -3,9 +3,15 @@ import { POST } from "./route";
 import { resetV31StoreForTests } from "@/features/decision/v3/store.server";
 
 const priorDisabled = process.env.CARS_V31_PROVIDER_DISABLED;
+const priorAnalystMode = process.env.CARS_SEMANTIC_ANALYST_MODE;
+const priorAnalystProviderDisabled = process.env.CARS_SEMANTIC_ANALYST_PROVIDER_DISABLED;
+const priorQuestionInputReady = process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY;
 afterEach(() => {
   resetV31StoreForTests();
   if (priorDisabled === undefined) delete process.env.CARS_V31_PROVIDER_DISABLED; else process.env.CARS_V31_PROVIDER_DISABLED = priorDisabled;
+  if (priorAnalystMode === undefined) delete process.env.CARS_SEMANTIC_ANALYST_MODE; else process.env.CARS_SEMANTIC_ANALYST_MODE = priorAnalystMode;
+  if (priorAnalystProviderDisabled === undefined) delete process.env.CARS_SEMANTIC_ANALYST_PROVIDER_DISABLED; else process.env.CARS_SEMANTIC_ANALYST_PROVIDER_DISABLED = priorAnalystProviderDisabled;
+  if (priorQuestionInputReady === undefined) delete process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY; else process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY = priorQuestionInputReady;
 });
 
 const request = (conversationId: string, message: string) => POST(new Request("http://localhost/api/cars/conversation/v3", {
@@ -42,5 +48,24 @@ describe("production-facing POST /api/cars/conversation/v3", () => {
     expect(body.state.ledger.some((item: { concept: string }) => item.concept === "primaryUsage")).toBe(false);
     expect(body.state.lastQuestionKey).toBe("primaryUsage");
     expect((body.message.match(/\?/gu) ?? [])).toHaveLength(1);
+  });
+
+  it("does not expose Analyst internals in SHADOW public payloads", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true"; process.env.CARS_SEMANTIC_ANALYST_MODE = "SHADOW"; process.env.CARS_SEMANTIC_ANALYST_PROVIDER_DISABLED = "true";
+    const response = await request("public:analyst-shadow", "Köyde bozuk ve stabilize yollarda kullanacağım bir araç arıyorum.");
+    expect(response.status).toBe(200); const serialized = JSON.stringify(await response.json());
+    expect(serialized).not.toMatch(/acceptedHypotheses|questionEvaluations|decisionNeutralityFingerprint|semanticNeedsAnalysis/iu);
+  });
+  it("fails closed to SHADOW when QUESTION_INPUT is requested without its readiness lock", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true"; process.env.CARS_SEMANTIC_ANALYST_MODE = "QUESTION_INPUT"; process.env.CARS_SEMANTIC_ANALYST_PROVIDER_DISABLED = "true"; delete process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY;
+    const response = await request("public:analyst-question-locked", "Uzun yolda kullanacağım bir araç arıyorum.");
+    expect(response.status).toBe(200); const body = await response.json();
+    expect(body.state.lastQuestionKey).toBe("fuelType"); expect(JSON.stringify(body)).not.toMatch(/questionEvaluations|semanticNeedsAnalysis|decisionNeutralityFingerprint/iu);
+  });
+  it("uses the gated deterministic question choice without leaking Analyst internals", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true"; process.env.CARS_SEMANTIC_ANALYST_MODE = "QUESTION_INPUT"; process.env.CARS_SEMANTIC_ANALYST_PROVIDER_DISABLED = "true"; process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY = "true";
+    const response = await request("public:analyst-question-enabled", "Uzun yolda kullanacağım bir araç arıyorum.");
+    expect(response.status).toBe(200); const body = await response.json();
+    expect(body.state.lastQuestionKey).toBe("bodyStyle"); expect(body.message).toContain("Park kolaylığı"); expect(JSON.stringify(body)).not.toMatch(/questionEvaluations|semanticNeedsAnalysis|decisionNeutralityFingerprint/iu);
   });
 });

@@ -1,6 +1,6 @@
 import { z } from "zod";
 import type { V3PublicResponse } from "@/features/decision/v3/types";
-import { runV3Turn } from "@/features/decision/v3/engine.server";
+import { runV3TurnWithAnalyst } from "@/features/decision/v3/analyst/shadowRuntime.server";
 import { runStoredV31Turn } from "@/features/decision/v3/store.server";
 import { sealV31State, unsealV31State } from "@/features/decision/v3/stateToken.server";
 import { evaluateV3Catalog, scoreV3Candidate } from "@/features/decision/v3/catalogAdapter.server";
@@ -21,7 +21,7 @@ export async function POST(request: Request): Promise<Response> {
   const limited = await enforceRateLimit(request, { scope: "cars-conversation-v3", limit: 40, windowMs: 10 * 60_000 }); if (limited) return limited;
   try {
     const input = schema.parse(await readJsonWithLimit(request, 250_000));
-    const output = await runStoredV31Turn({ ...input, trustedSeed: unsealV31State(input.stateToken, input.conversationId), run: (state) => runV3Turn({ ...input, state, signal: request.signal }) });
+    const output = await runStoredV31Turn({ ...input, trustedSeed: unsealV31State(input.stateToken, input.conversationId), run: (state) => runV3TurnWithAnalyst({ ...input, state, signal: request.signal }) });
     let variantCounts: V3PublicResponse["variantCounts"];
     if (input.includePilotDiagnostics && ["EXPLICIT", "ACTIVE_DISCOVERY", "READY_FOR_DECISION"].includes(output.state.purchaseIntent)) {
       try {
