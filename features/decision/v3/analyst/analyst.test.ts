@@ -63,6 +63,27 @@ describe("Semantic Needs Analyst V1 contract and bounded fallback", () => {
     const message = "SUV istiyorum"; const analysis = { version: "1.0" as const, origin: "MODEL" as const, sourceMessageId: "m1", conversationRevision: 0, explicitFacts: [{ concept: "bodyStyleReference" as const, normalizedValue: "SUV", sourceSpan: { start: 0, end: 3, text: "SED" }, confidence: 0.99, explicitness: "USER_EXPLICIT" as const, confirmationRequired: false as const }, { concept: "fuelPreference" as const, normalizedValue: "BEV", sourceSpan: { start: 0, end: 3, text: "SUV" }, confidence: 0.4, explicitness: "USER_EXPLICIT" as const, confirmationRequired: false as const }], hypotheses: [], unknowns: [], corrections: [] };
     const governed = governSemanticNeedsAnalysis(message, analysis); expect(governed.acceptedExplicitFacts).toEqual([]); expect(governed.rejectedExplicitFacts.map((item) => item.reasonCode)).toEqual(["SOURCE_SPAN_MISMATCH", "EXPLICIT_CONFIDENCE_TOO_LOW"]);
   });
+  it("repairs Unicode offset drift only for a unique exact source quote", () => {
+    const message = "Şehir içinde elektrikli araç istiyorum";
+    const analysis = {
+      version: "1.0" as const,
+      origin: "MODEL" as const,
+      sourceMessageId: "m1",
+      conversationRevision: 0,
+      explicitFacts: [{
+        concept: "fuelPreference" as const,
+        normalizedValue: "ELEKTRİKLİ",
+        sourceSpan: { start: 12, end: 22, text: "elektrikli" },
+        confidence: 0.99,
+        explicitness: "USER_EXPLICIT" as const,
+        confirmationRequired: false as const,
+      }],
+      hypotheses: [], unknowns: [], corrections: [],
+    };
+    const governed = governSemanticNeedsAnalysis(message, analysis);
+    expect(governed.rejectedExplicitFacts).toEqual([]);
+    expect(governed.acceptedExplicitFacts[0]?.sourceSpan).toEqual({ start: 13, end: 23, text: "elektrikli" });
+  });
   it("accepts at most one fact and one hypothesis per concept", () => {
     const message = "SUV istiyorum ve SUV olsun";
     const first = { concept: "bodyStyleReference" as const, normalizedValue: "SUV", sourceSpan: { start: 0, end: 3, text: "SUV" }, confidence: 0.99, explicitness: "USER_EXPLICIT" as const, confirmationRequired: false as const };
