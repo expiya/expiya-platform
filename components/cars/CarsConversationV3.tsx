@@ -69,6 +69,13 @@ function quickChoices(message: Message): { multiple: boolean; choices: readonly 
     { value: "Tamam, bana en uygun aracı seç", label: "Seçime geç", description: "Kaydedilen ihtiyaçlarla araç seçimini başlatır." },
     { value: "Bir soru daha sor", label: "Bir ihtiyacı daha konuş", description: "Karardan önce günlük kullanımın için önemli olabilecek bir noktayı daha ele alır.", exclusive: true },
   ] };
+  if (key === "referenceVehiclePriorities") return { multiple: true, choices: [
+    { value: "Yeni Passat Variant modellerini değerlendirelim", label: "Yeni Passat Variant", description: "Türkiye kataloğundaki güncel station wagon Passat seçeneklerini değerlendirir.", exclusive: true },
+    { value: "Uzun yol konforu", label: "Uzun yol konforu", description: "Otoyol ve şehirler arası kullanımda sakin, rahat yolculuk karakterini öne alır." },
+    { value: "Geniş arka koltuk alanı", label: "Geniş arka yaşam alanı", description: "Arka koltukta diz ve oturma alanı beklentisini seçimde belirginleştirir." },
+    { value: "Büyük bagaj", label: "Büyük bagaj", description: "Valiz ve günlük yükler için daha geniş doğrulanmış bagaj hacmini öne alır." },
+    { value: "Dengeli bir sedan yapısı yeterli", label: "Dengeli sedan yapısı", description: "Tek bir özelliği zorunlu tutmadan sedan seçenekleri arasında ilerler.", exclusive: true },
+  ] };
   if (key === "purchaseInterest") return { multiple: false, choices: [
     { value: "Kendi kullanımım için araç seçmeyi düşünüyorum", label: "Araç seçmek istiyorum", description: "Günlük ihtiyaçlarını konuşarak satın alma seçimine geçer." },
     { value: "Şimdilik sadece merak ediyorum", label: "Yalnızca bilgi", description: "Bilgi sorusunu tercih veya satın alma kararı olarak kaydetmez.", exclusive: true },

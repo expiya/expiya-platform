@@ -1018,6 +1018,23 @@ export async function runV3Turn(input: {
       ? undefined
       : answerV3CatalogQuestion(input.message, catalog.variants)
     : undefined;
+  const passatReferenceRequest = /passat/iu.test(input.message)
+    && /(?:eski|önceki|mevcut|benzer|gibi|muadil|alternatif|üretilmiyor|üretimden kalk|satılmıyor)/iu.test(input.message);
+  if (passatReferenceRequest && catalog?.variants.length) {
+    const activePassatCount = catalog.variants.filter((variant) => variant.model.localeCompare("Passat", "tr", { sensitivity: "base" }) === 0).length;
+    const lifecycleNote = /(?:üretilmiyor|üretimden kalk|satılmıyor)/iu.test(input.message)
+      ? `Passat tamamen üretimden kalkmış değil: Avrupa'da sedan gövde artık sunulmuyor, Passat adı Variant yani station wagon gövdeyle devam ediyor. Expiya'nın güncel Türkiye sıfır araç kataloğunda ${activePassatCount} Passat Variant seçeneği bulunuyor. `
+      : "";
+    return {
+      kind: "V3_CONVERSATION",
+      message: `${lifecycleNote}Eski Passat'ı birebir model zorunluluğu olarak değil, referans araç olarak aldım. Yeni Passat Variant'ı mı değerlendirelim; yoksa eski Passat'taki uzun yol konforu, geniş arka koltuk alanı, büyük bagaj veya dengeli sedan yapısından hangilerini koruyalım?`,
+      state: {
+        ...base,
+        askedQuestionKeys: [...new Set([...base.askedQuestionKeys, "referenceVehiclePriorities"])],
+        lastQuestionKey: "referenceVehiclePriorities",
+      },
+    };
+  }
   const fallbackDirect =
     directReply(
       semantic.messageActs.includes("AUTOMOTIVE_QUESTION")

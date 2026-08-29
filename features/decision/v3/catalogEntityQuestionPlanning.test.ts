@@ -41,6 +41,38 @@ describe("V3 catalog entity and candidate-aware question planning", () => {
     expect(output.message).toMatch(/110–132 kW/iu);
   });
 
+  it("treats a previous Passat as a reference instead of an unavailable exact sedan constraint", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let output = await runV3Turn({
+      conversationId: "passat-reference",
+      messageId: "1",
+      message: "Yeni bir araç almak istiyorum ama ne alacağımı bilmiyorum.",
+      expectedRevision: 0,
+    });
+    output = await runV3Turn({
+      conversationId: "passat-reference",
+      messageId: "2",
+      message: "Eski arabam Passat'tı. Yine benzer bir şey olsun.",
+      expectedRevision: output.state.revision,
+      state: output.state,
+    });
+    expect(latestActiveLedgerEvent(output.state.ledger, "modelPreference")).toMatchObject({ normalizedValue: "Passat", decisionUse: "SOFT_RANK" });
+    expect(output.message).toMatch(/referans araç[\s\S]*Yeni Passat Variant/iu);
+    expect(output.message).not.toMatch(/uygun araç kalmıyor|gövde tipini esnet/iu);
+    expect(output.state.lastQuestionKey).toBe("referenceVehiclePriorities");
+    expect((await evaluateV3Catalog(output.state.ledger)).variants.length).toBeGreaterThan(0);
+
+    output = await runV3Turn({
+      conversationId: "passat-reference",
+      messageId: "3",
+      message: "Passat artık üretilmiyor sanırım. Benzer bir araç istiyorum.",
+      expectedRevision: output.state.revision,
+      state: output.state,
+    });
+    expect(output.message).toMatch(/tamamen üretimden kalkmış değil[\s\S]*sedan gövde artık sunulmuyor[\s\S]*2 Passat Variant/iu);
+    expect(output.message).toMatch(/uzun yol konforu[\s\S]*geniş arka koltuk[\s\S]*büyük bagaj[\s\S]*sedan/iu);
+  });
+
   it.each([
     "Bütçem hazır; 360 derece kameralı bir Volvo XC40 arıyorum.",
     "Bütçemi ayarladım, koltuk ısıtmalı bir Peugeot 3008 alacağım.",

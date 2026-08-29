@@ -50,7 +50,20 @@ const canonicalExplicitValue = (fact: AnalystExplicitFact): AnalystExplicitFact[
   if (fact.concept === "passengerCapacity") return explicitPassengerCount(source, fact.normalizedValue);
   if (fact.concept === "fuelPreference") return ["ELEKTRİKLİ", "BENZİNLİ", "DİZEL", "HİBRİT", "LPG"].includes(String(fact.normalizedValue)) ? fact.normalizedValue : undefined;
   if (fact.concept === "transmissionPreference") return ["OTOMATİK", "MANUEL"].includes(String(fact.normalizedValue)) ? fact.normalizedValue : undefined;
-  if (fact.concept === "bodyStyleReference") return ["SUV", "SEDAN", "HATCHBACK", "STATION WAGON", "PICK-UP", "PICKUP", "PANELVAN", "MPV"].includes(String(fact.normalizedValue).toLocaleUpperCase("tr-TR")) ? String(fact.normalizedValue).toLocaleUpperCase("tr-TR") : undefined;
+  if (fact.concept === "bodyStyleReference") {
+    const value = String(fact.normalizedValue).toLocaleUpperCase("tr-TR");
+    const sourcePatterns: Readonly<Record<string, RegExp>> = {
+      SUV: /\bsuv\b/iu,
+      SEDAN: /\bsedan\b/iu,
+      HATCHBACK: /\bhatchback\b/iu,
+      "STATION WAGON": /\bstation\s*wagon\b/iu,
+      "PICK-UP": /\bpick-?up\b/iu,
+      PICKUP: /\bpick-?up\b/iu,
+      PANELVAN: /\bpanel\s*van\b|\bpanelvan\b/iu,
+      MPV: /\bmpv\b/iu,
+    };
+    return sourcePatterns[value]?.test(source) ? value : undefined;
+  }
   if (fact.concept === "designCharacterPreference") return fact.normalizedValue === "CHARMING" ? "CHARMING" : undefined;
   if (fact.concept === "brandReference" || fact.concept === "modelReference" || fact.concept === "equipmentRequirement") return source;
   return undefined;

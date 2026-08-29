@@ -63,6 +63,19 @@ describe("Semantic Needs Analyst V1 contract and bounded fallback", () => {
     const message = "SUV istiyorum"; const analysis = { version: "1.0" as const, origin: "MODEL" as const, sourceMessageId: "m1", conversationRevision: 0, explicitFacts: [{ concept: "bodyStyleReference" as const, normalizedValue: "SUV", sourceSpan: { start: 0, end: 3, text: "SED" }, confidence: 0.99, explicitness: "USER_EXPLICIT" as const, confirmationRequired: false as const }, { concept: "fuelPreference" as const, normalizedValue: "BEV", sourceSpan: { start: 0, end: 3, text: "SUV" }, confidence: 0.4, explicitness: "USER_EXPLICIT" as const, confirmationRequired: false as const }], hypotheses: [], unknowns: [], corrections: [] };
     const governed = governSemanticNeedsAnalysis(message, analysis); expect(governed.acceptedExplicitFacts).toEqual([]); expect(governed.rejectedExplicitFacts.map((item) => item.reasonCode)).toEqual(["SOURCE_SPAN_MISMATCH", "EXPLICIT_CONFIDENCE_TOO_LOW"]);
   });
+  it("rejects a body-style inference when the user only names a model", () => {
+    const message = "Eski arabam Passat'tı; yine benzer bir şey olsun.";
+    const governed = governSemanticNeedsAnalysis(message, {
+      version: "1.0", origin: "MODEL", sourceMessageId: "m1", conversationRevision: 0,
+      explicitFacts: [{
+        concept: "bodyStyleReference", normalizedValue: "SEDAN",
+        sourceSpan: { start: 0, end: message.length, text: message }, confidence: 0.98,
+        explicitness: "USER_EXPLICIT", confirmationRequired: false,
+      }], hypotheses: [], unknowns: [], corrections: [],
+    });
+    expect(governed.acceptedExplicitFacts).toEqual([]);
+    expect(governed.rejectedExplicitFacts).toContainEqual({ concept: "bodyStyleReference", reasonCode: "NORMALIZED_VALUE_NOT_ALLOWED" });
+  });
   it("repairs Unicode offset drift only for a unique exact source quote", () => {
     const message = "Şehir içinde elektrikli araç istiyorum";
     const analysis = {

@@ -1435,7 +1435,7 @@ export function applyCatalogEntitySignals(
   },
 ): readonly PreferenceEvent[] {
   let next = [...ledger];
-  const tentative = /(?:olabilir|olsa da olur|örneğin|gibi)/iu.test(text);
+  const tentative = /(?:olabilir|olsa da olur|örneğin|gibi|benzer|muadil|alternatif)/iu.test(text);
   if (signals.brands.length)
     next = supersedeActive(
       next,
