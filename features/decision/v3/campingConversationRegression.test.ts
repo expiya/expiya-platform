@@ -26,27 +26,16 @@ describe("camping conversation regressions", () => {
     expect(output.state.lastQuestionKey).not.toMatch(/^verifiedEquipment:/u);
   });
 
-  it("resolves an offered equipment group when the user says none is required", async () => {
+  it("does not invent a generic equipment group when no equipment answer can reduce candidates", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     const id = "camp-equipment-none";
-    let output = await runV3Turn({
+    const output = await runV3Turn({
       conversationId: id,
       messageId: "1",
       message: "Bozuk ve stabilize yollarda kullanmak için sıfır bir SUV öner.",
       expectedRevision: 0,
     });
-    expect(output.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
-
-    output = await runV3Turn({
-      conversationId: id,
-      messageId: "2",
-      message: "Bu seçeneklerden hiçbiri şart değil",
-      expectedRevision: output.state.revision,
-      state: output.state,
-    });
-
-    expect(output.state.ledger).toContainEqual(expect.objectContaining({ concept: "equipmentNotImportant", status: "ACTIVE" }));
-    expect(output.state.lastQuestionKey).not.toBe("decisionDifferentiator");
     expect(output.state.lastQuestionKey).not.toMatch(/^verifiedEquipment:/u);
+    expect(output.state.lastQuestionKey).not.toBe("decisionDifferentiator");
   });
 });

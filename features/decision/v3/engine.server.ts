@@ -1,4 +1,5 @@
 import { createHash } from "node:crypto";
+import { deriveElectricRouteRangeRequirement, electricRouteRangeAcknowledgement } from "./electricRouteRange";
 import {
   applyCatalogEntitySignals,
   applyPreferenceMessage,
@@ -1365,6 +1366,17 @@ export async function runV3Turn(input: {
         },
       };
   }
+  const equipmentRounds = base.askedQuestionKeys.filter((key) =>
+    key.startsWith("verifiedEquipment:"),
+  ).length;
+  const maxEquipmentRounds = budgetMode === "NEEDS_ONLY" ? 3 : 1;
+  const nextMaterialEquipmentQuestion = equipmentRounds < maxEquipmentRounds && catalog?.variants.length
+    ? planV3VerifiedEquipmentQuestion(
+        catalog.variants,
+        base.askedQuestionKeys,
+        String(latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue ?? ""),
+      )
+    : undefined;
   const equipmentResolved =
     activeDecisionPreferences(ledger).some(
       (item) => item.field === "equipmentFeature",
@@ -1373,28 +1385,15 @@ export async function runV3Turn(input: {
       latestActiveLedgerEvent(ledger, "equipmentNotImportant") ||
         latestActiveLedgerEvent(ledger, "unmappedEquipmentRequirement"),
     ) ||
-    base.askedQuestionKeys.some((key) => key.endsWith("Equipment"));
+    base.askedQuestionKeys.some((key) => key.endsWith("Equipment")) ||
+    !nextMaterialEquipmentQuestion;
   if (
     recommendationRequested &&
     catalog?.variants.length &&
     catalog.variants.length > 3 &&
     !equipmentResolved
   ) {
-    const equipmentRounds = base.askedQuestionKeys.filter((key) =>
-      key.startsWith("verifiedEquipment:"),
-    ).length;
-    const maxRounds = budgetMode === "NEEDS_ONLY" ? 3 : 1;
-    const planned =
-      equipmentRounds < maxRounds
-        ? planV3VerifiedEquipmentQuestion(
-            catalog.variants,
-            base.askedQuestionKeys,
-            String(
-              latestActiveLedgerEvent(ledger, "primaryUsage")
-                ?.normalizedValue ?? "",
-            ),
-          )
-        : undefined;
+    const planned = nextMaterialEquipmentQuestion;
     if (planned)
       return {
         kind: "V3_CONVERSATION",
@@ -1407,27 +1406,6 @@ export async function runV3Turn(input: {
           lastQuestionKey: planned.key,
         },
       };
-  }
-  if (
-    recommendationRequested &&
-    !valueFallbackRequested &&
-    (catalog?.variants.length ?? 0) > 3 &&
-    !equipmentResolved &&
-    !base.askedQuestionKeys.includes("decisionDifferentiator")
-  ) {
-    const text =
-      "Seçimi yalnız fiyata bırakmayalım: günlük kullanımda vazgeçmek istemeyeceğin tek bir özellik hangisi; örneğin geri görüş kamerası, park sensörleri veya uzun yolda mesafeyi koruyan hız sabitleme?";
-    return {
-      kind: "V3_CONVERSATION",
-      message: text,
-      state: {
-        ...base,
-        askedQuestionKeys: [
-          ...new Set([...base.askedQuestionKeys, "decisionDifferentiator"]),
-        ],
-        lastQuestionKey: "decisionDifferentiator",
-      },
-    };
   }
   const iterativeEquipmentRounds = base.askedQuestionKeys.filter((key) => key.startsWith("verifiedEquipment:")).length;
   const iterativePersonaRounds = base.askedQuestionKeys.filter((key) => key.startsWith("personaDiscriminator:")).length;
@@ -1615,6 +1593,10 @@ export async function runV3Turn(input: {
       : router.route === "CORRECTION_OR_RELAXATION"
         ? "Tamam, önceki tercihi güncelledim; seçeneklerin yeniden genişlemesi normal."
         : conversationalAcknowledgement(base);
+  const routeRangeThisTurn = deriveElectricRouteRangeRequirement(input.message);
+  const contextualPrefix = routeRangeThisTurn
+    ? electricRouteRangeAcknowledgement(routeRangeThisTurn)
+    : prefix;
   if (!question && catalog?.variants.length) {
     const ranked = rankV3Candidates(catalog.variants, ledger, budgetMode).slice(
       0,
@@ -1683,7 +1665,7 @@ export async function runV3Turn(input: {
     };
   return {
     kind: "V3_CONVERSATION",
-    message: `${prefix} ${contextualQuestion(base, question.key, question.text)}`,
+    message: `${contextualPrefix} ${contextualQuestion(base, question.key, question.text)}`,
     state: {
       ...base,
       askedQuestionKeys: [

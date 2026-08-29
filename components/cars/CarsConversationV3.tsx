@@ -22,6 +22,10 @@ const equipmentDailyUse: Readonly<Record<string, string>> = {
   LIGHTING: "Gece ve değişken yol koşullarında görüş rahatlığını destekler.",
   OFF_ROAD: "Bozuk, eğimli veya düşük tutunmalı yollarda ilerlemeye yardımcı olur.",
 };
+export const V3_TECHNICAL_QUICK_CHOICE_LABELS: Readonly<Record<string, readonly [string, string]>> = {
+  COMPACT: ["Şehir içinde daha kısa gövde", "Doğrulanmış uzunluğu daha kısa araçları öne alır."], LUGGAGE: ["Uzun yol için daha büyük bagaj", "Doğrulanmış bagaj hacmi daha yüksek araçları öne alır."], POWER: ["Daha yüksek motor gücü", "Doğrulanmış motor gücü daha yüksek araçları öne alır."], PRICE: ["Daha düşük satın alma fiyatı", "Yalnız kullanıcıya gösterilebilir doğrulanmış fiyatları karşılaştırır."], RANGE: ["Daha yüksek elektrikli menzil", "Katalog menzili daha yüksek araçları öne alır; gerçek menzil kullanım koşullarına göre değişir."],
+  WIDTH: ["Dar yerlerde daha avantajlı genişlik", "Gövde genişliği daha düşük araçları öne alır."], HEIGHT: ["Daha yüksek gövde", "Gövde yüksekliği daha fazla araçları öne alır."], WHEELBASE: ["Daha uzun aks mesafesi", "Ön ve arka aks arası daha uzun araçları öne alır."], TORQUE: ["Daha yüksek tork", "Doğrulanmış tork değeri daha yüksek araçları öne alır."], PAYLOAD: ["Daha yüksek taşıma kapasitesi", "Taşıyabileceği doğrulanmış yük daha fazla araçları öne alır."], TOWING: ["Daha yüksek çekme kapasitesi", "Frenli römork çekme kapasitesi daha yüksek araçları öne alır."], CONSUMPTION: ["Daha düşük tüketim", "Katalog enerji veya yakıt tüketimi daha düşük araçları öne alır."], BATTERY: ["Daha yüksek batarya kapasitesi", "Kullanılabilir batarya kapasitesi daha yüksek araçları öne alır."], CHARGING: ["Daha yüksek DC şarj gücü", "Uygun hızlı şarj cihazında daha yüksek azami gücü destekleyen araçları öne alır."],
+};
 function quickChoices(message: Message): { multiple: boolean; choices: readonly QuickChoice[] } | undefined {
   const key = message.trace?.lastQuestionKey;
   if (!key) return undefined;
@@ -37,10 +41,7 @@ function quickChoices(message: Message): { multiple: boolean; choices: readonly 
     return { multiple: true, choices: [...choices, { value: "Bu gruptakilerden hiçbiri belirleyici değil", label: "Hiçbiri belirleyici değil", description: "Bu persona farkları karar sırasını etkilemez.", exclusive: true }] };
   }
   if (key.startsWith("technicalDiscriminator:")) {
-    const labels: Readonly<Record<string, readonly [string, string]>> = {
-      COMPACT: ["Şehir içinde daha kısa gövde", "Doğrulanmış uzunluğu daha kısa araçları öne alır."], LUGGAGE: ["Uzun yol için daha büyük bagaj", "Doğrulanmış bagaj hacmi daha yüksek araçları öne alır."], POWER: ["Daha yüksek motor gücü", "Doğrulanmış motor gücü daha yüksek araçları öne alır."], PRICE: ["Daha düşük satın alma fiyatı", "Yalnız kullanıcıya gösterilebilir doğrulanmış fiyatları karşılaştırır."], RANGE: ["Daha yüksek elektrikli menzil", "Doğrulanmış elektrikli menzili daha yüksek araçları öne alır."],
-    };
-    const choices = key.slice("technicalDiscriminator:".length).split("|").flatMap((code) => labels[code] ? [{ value: labels[code][0], label: labels[code][0], description: labels[code][1] }] : []);
+    const choices = key.slice("technicalDiscriminator:".length).split("|").flatMap((code) => V3_TECHNICAL_QUICK_CHOICE_LABELS[code] ? [{ value: V3_TECHNICAL_QUICK_CHOICE_LABELS[code][0], label: V3_TECHNICAL_QUICK_CHOICE_LABELS[code][0], description: V3_TECHNICAL_QUICK_CHOICE_LABELS[code][1] }] : []);
     return { multiple: true, choices: [...choices, { value: "Bu gruptakilerden hiçbiri belirleyici değil", label: "Hiçbiri belirleyici değil", description: "Bu teknik farklar karar sırasını etkilemez.", exclusive: true }] };
   }
   if (key === "fuelType") return { multiple: true, choices: [

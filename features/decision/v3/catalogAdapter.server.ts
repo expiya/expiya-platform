@@ -84,6 +84,7 @@ function matches(variant: CatalogVariantSnapshot, preference: PreferenceEvent): 
   if (preference.field === "model") { const accepted = Array.isArray(preference.normalizedValue) ? preference.normalizedValue : [preference.normalizedValue]; return accepted.some((value) => variant.model.localeCompare(String(value), "tr", { sensitivity: "base" }) === 0); }
   if (preference.field === "seats") return (variant.decisionFacts.dimensions.seats?.value ?? 0) >= Number(preference.normalizedValue);
   if (preference.field === "price") return v34MatchesBudget(variant, Number(preference.normalizedValue));
+  if (preference.field === "electricRangeKmMin") return (variant.decisionFacts.efficiency.electricRangeKm?.value ?? 0) >= Number(preference.normalizedValue);
   if (preference.field === "equipmentFeature") return v35EquipmentMatchAuthority(variant, String(preference.normalizedValue)) !== "NO_MATCH";
   if (preference.field === "usagePurpose") {
     if (preference.normalizedValue === "COMMERCIAL")
@@ -165,15 +166,16 @@ export function planV3VerifiedEquipmentQuestion(variants: readonly CatalogVarian
   const allowed = orderedCategories ? new Set(orderedCategories) : undefined;
   const options = EQUIPMENT_FEATURE_DEFINITIONS.flatMap((definition) => {
     if (alreadyAsked.has(definition.featureCode) || (allowed && !allowed.has(definition.category))) return [];
-    const count = variants.filter((variant) => v35EquipmentMatchAuthority(variant, definition.featureCode) === "VERIFIED").length;
-    if (count === 0 || count === variants.length) return [];
-    return [{ code: definition.featureCode, label: definition.labelTr.toLocaleLowerCase("tr-TR"), category: definition.category, split: Math.min(count, variants.length - count) }];
+    const verified = variants.filter((variant) => v35EquipmentMatchAuthority(variant, definition.featureCode) === "VERIFIED").length;
+    const absent = variants.filter((variant) => v35EquipmentMatchAuthority(variant, definition.featureCode) === "NO_MATCH").length;
+    if (verified === 0 || absent === 0) return [];
+    return [{ code: definition.featureCode, label: definition.labelTr.toLocaleLowerCase("tr-TR"), category: definition.category, split: Math.min(verified, absent) }];
   }).sort((a, b) => (orderedCategories?.indexOf(a.category) ?? 0) - (orderedCategories?.indexOf(b.category) ?? 0) || b.split - a.split || a.code.localeCompare(b.code)).slice(0, 3);
   if (!options.length) return undefined;
   const featureCodes = options.map((item) => item.code);
   const labels = options.map((item) => item.label);
   const list = labels.length === 1 ? labels[0] : `${labels.slice(0, -1).join(", ")} veya ${labels.at(-1)}`;
-  return { key: `verifiedEquipment:${featureCodes.join("|")}`, featureCodes, text: `Bu donanımlar bazı varyantlarda doğrulandı; diğer varyantlarda bilgi henüz doğrulanmadığı için onları sebepsiz elemeden ilerleyeceğim. Hangisi senin için vazgeçilmez: ${list}; yoksa bu gruptakilerden hiçbiri şart değil mi?` };
+  return { key: `verifiedEquipment:${featureCodes.join("|")}`, featureCodes, text: `Bu donanımlar kalan seçenekler arasında doğrulanmış bir fark yaratıyor. Bilgisi henüz doğrulanmayan varyantları yok saymadan ilerleyeceğim. Hangisi senin için vazgeçilmez: ${list}; yoksa bu gruptakilerden hiçbiri şart değil mi?` };
 }
 
 export function rankV3Candidates(variants: readonly CatalogVariantSnapshot[], ledger: readonly PreferenceEvent[], budgetMode: BudgetDecisionMode = "NEEDS_ONLY"): readonly CatalogVariantSnapshot[] {

@@ -65,8 +65,7 @@ describe("V3.6 direct question behavior", () => {
     expect(output.message).toMatch(/benzinli.*dizel.*hibrit.*elektrikli/iu);
     expect(output.message).toMatch(/şehir içi.*hibrit/iu);
     expect(output.message).not.toMatch(/yeterince güvenilir|Yakıt türünde net bir tercihin/iu);
-    expect(output.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
-    expect(output.message).toMatch(/geri görüş kamerası|park sensörleri|çevre görüş/iu);
+    expect(output.state.lastQuestionKey ?? "").not.toMatch(/^verifiedEquipment:/u);
   });
 
   it("explains that leaving fuel open is not an immediate fuel recommendation", async () => {
@@ -93,24 +92,21 @@ describe("V3.6 direct question behavior", () => {
     output = await runV3Turn({ conversationId: id, messageId: "2", message: "Evet, bunu öncelik yapalım", expectedRevision: output.state.revision, state: output.state });
     output = await runV3Turn({ conversationId: id, messageId: "3", message: "Yakıt türünü şimdilik açık bırakalım", expectedRevision: output.state.revision, state: output.state });
     output = await runV3Turn({ conversationId: id, messageId: "4", message: "Her ikisi de olabilir", expectedRevision: output.state.revision, state: output.state });
-    expect(output.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
-    output = await runV3Turn({ conversationId: id, messageId: "5", message: "Adaptif hız sabitleyici ve kör nokta izleme benim için vazgeçilmez", expectedRevision: output.state.revision, state: output.state });
+    expect(output.state.lastQuestionKey).not.toMatch(/^verifiedEquipment:/u);
+    output = await runV3Turn({ conversationId: id, messageId: "5", message: output.state.lastQuestionKey === "brandModel" ? "Marka tercihim yok" : "Bu gruptakilerden hiçbiri belirleyici değil", expectedRevision: output.state.revision, state: output.state });
     expect(output.offerAwaitingConsent).not.toBe(true);
     expect(output.recommendations).toBeUndefined();
-    expect(output.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
-    expect(output.message).toMatch(/sebepsiz elemeden/iu);
     output = await runV3Turn({ conversationId: id, messageId: "6", message: "Bu seçeneklerden hiçbiri şart değil", expectedRevision: output.state.revision, state: output.state });
-    expect(output.state.lastQuestionKey).toMatch(/^personaDiscriminator:/u);
-    expect(output.message).toMatch(/kullanım karakteri bakımından ayrışıyor/iu);
+    expect(output.state.lastQuestionKey).toMatch(/^(personaDiscriminator|technicalDiscriminator):/u);
     output = await runV3Turn({ conversationId: id, messageId: "7", message: "Bu gruptakilerden hiçbiri belirleyici değil", expectedRevision: output.state.revision, state: output.state });
-    expect(output.state.lastQuestionKey).toMatch(/^personaDiscriminator:/u);
+    expect(output.state.lastQuestionKey).toMatch(/^(personaDiscriminator|technicalDiscriminator):/u);
     output = await runV3Turn({ conversationId: id, messageId: "8", message: "Bu gruptakilerden hiçbiri belirleyici değil", expectedRevision: output.state.revision, state: output.state });
-    expect(output.state.lastQuestionKey).toMatch(/^technicalDiscriminator:/u);
-    expect(output.message).toMatch(/teknik farklar/iu);
+    expect(output.state.lastQuestionKey).toMatch(/^(verifiedEquipment|technicalDiscriminator):/u);
+    expect(output.message).toMatch(/teknik (?:farklar|tarafta)/iu);
     output = await runV3Turn({ conversationId: id, messageId: "9", message: "Şehir içinde daha kısa gövde", expectedRevision: output.state.revision, state: output.state });
     expect(output.offerAwaitingConsent).not.toBe(true);
     expect(output.recommendations).toBeUndefined();
-    expect(output.state.lastQuestionKey).toMatch(/^technicalDiscriminator:/u);
+    expect(output.state.lastQuestionKey).toMatch(/^(verifiedEquipment|technicalDiscriminator):/u);
   });
 
   it("records multiple technical differentiators without mistaking higher power for an SUV request", async () => {

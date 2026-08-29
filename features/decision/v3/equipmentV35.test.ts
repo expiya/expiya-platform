@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { evaluateV3Catalog, v35EquipmentMatchAuthority, v35EquipmentSelectionWarning } from "./catalogAdapter.server";
+import { evaluateV3Catalog, planV3VerifiedEquipmentQuestion, v35EquipmentMatchAuthority, v35EquipmentSelectionWarning } from "./catalogAdapter.server";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
 import { applyPreferenceMessage } from "./ledger";
 import type { PreferenceEvent, V3ConversationState } from "./types";
@@ -13,6 +13,16 @@ async function conversation(id: string, messages: readonly string[]) {
 }
 
 describe("V3.5 unverified equipment selection", () => {
+  it("only asks equipment questions with verified presence and explicit absence partitions", async () => {
+    const catalog = await evaluateV3Catalog([]);
+    const electric = catalog.variants.filter((variant) => variant.decisionFacts.powertrain.fuelType.value === "BEV");
+    const plan = planV3VerifiedEquipmentQuestion(electric, [], "URBAN_DAILY");
+    if (!plan) return;
+    for (const featureCode of plan.featureCodes) {
+      expect(electric.some((variant) => v35EquipmentMatchAuthority(variant, featureCode) === "VERIFIED")).toBe(true);
+      expect(electric.some((variant) => v35EquipmentMatchAuthority(variant, featureCode) === "NO_MATCH")).toBe(true);
+    }
+  });
   it.each([
     ["Tavan taşıyıcı takılabilen bir araç olsun", ["ROOF_RACK_COMPATIBILITY"]],
     ["Bagaj filesi bağlanabilen bir araç istiyorum", ["CARGO_NET_COMPATIBILITY"]],

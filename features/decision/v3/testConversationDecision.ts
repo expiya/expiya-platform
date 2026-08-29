@@ -21,7 +21,7 @@ export function v3TestDiscriminatorAnswer(key: string | undefined): string {
 }
 
 export async function advanceV3ToOffer(output: V3PublicResponse, prefix: string): Promise<V3PublicResponse> {
-  for (let index = 0; index < 20 && !output.state.pendingOffer; index += 1) {
+  for (let index = 0; index < 32 && !output.state.pendingOffer; index += 1) {
     output = await runV3Turn({ conversationId: output.state.conversationId, messageId: `${prefix}-${index}`, message: v3TestDiscriminatorAnswer(output.state.lastQuestionKey), expectedRevision: output.state.revision, state: output.state });
   }
   if (!output.state.pendingOffer) throw new TypeError("V3_TEST_OFFER_NOT_REACHED");

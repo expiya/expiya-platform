@@ -5,6 +5,7 @@ import type {
   V3SemanticContextSignal,
   V3SemanticPreferenceSignal,
 } from "./types";
+import { deriveElectricRouteRangeRequirement } from "./electricRouteRange";
 import { resolveEquipmentRequirement } from "../../vehicle-data/equipmentEvidenceResolver";
 import { detectExplicitUsagePurpose } from "./usageSemantics";
 
@@ -615,6 +616,19 @@ export function applyPreferenceMessage(
         concept: "primaryUsage",
         field: "usagePurpose",
         value: usage.value,
+      }),
+    );
+  const routeRange = deriveElectricRouteRangeRequirement(text);
+  if (routeRange)
+    ledger = supersedeActive(
+      ledger,
+      event({
+        state: { ...state, ledger },
+        messageId,
+        text,
+        concept: "minimumElectricRange",
+        field: "electricRangeKmMin",
+        value: routeRange.minimumCatalogRangeKm,
       }),
     );
   if (/(?:bozuk(?:\s+ve\s+\p{L}+)?\s+yol|stabilize\s+yol|toprak\s+yol|mıcır(?:lı)?\s+yol|asfaltsız\s+yol|engebeli\s+yol|çamurlu\s+yol)/iu.test(text))

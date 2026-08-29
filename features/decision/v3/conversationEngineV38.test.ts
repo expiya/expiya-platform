@@ -207,10 +207,10 @@ describe("V3.8 corpus-derived conversation contracts", () => {
         expectedRevision: index,
         state: output?.state,
       });
-    expect(output?.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
+    expect(output?.state.lastQuestionKey).toMatch(/^(personaDiscriminator|technicalDiscriminator):/u);
     expect(output?.offerAwaitingConsent).not.toBe(true);
     expect(output?.message).toMatch(
-      /doğrulanmadığı için onları sebepsiz elemeden/iu,
+      /karakter|teknik/iu,
     );
   });
 

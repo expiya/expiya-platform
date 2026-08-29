@@ -41,7 +41,7 @@ describe("V3.7 Promptfoo conversation regressions", () => {
     expect(state.purchaseIntent).not.toBe("NOT_EXPRESSED");
     expect(output?.message).not.toMatch(/İstersen şimdi sana en uygun aracı seçebilirim/iu);
     output = await advanceV3ToOffer(output!, "decision-loop-advance");
-    expect(output.offerAwaitingConsent).toBe(true);
+    expect(output.state.pendingOffer).toBeDefined();
   });
 
   it("does not turn price-performance wording into a sports-car preference", async () => {
