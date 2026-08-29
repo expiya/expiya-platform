@@ -1416,7 +1416,7 @@ export async function runV3Turn(input: {
     prior.lastQuestionKey?.startsWith("technicalDiscriminator:") ||
     prior.lastQuestionKey === "brandModel";
   const discriminatorCandidates = catalog?.variants ?? [];
-  const iterativeDiscriminator = discriminatorCandidates.length > 1 && equipmentResolved && inDiscriminationSequence && !base.pendingConfirmation
+  const iterativeDiscriminator = discriminatorCandidates.length > 1 && equipmentResolved && (inDiscriminationSequence || Boolean(exactModelSelected)) && !base.pendingConfirmation
     ? (!equipmentGroupDeclined && iterativeEquipmentRounds < 3
         ? planV3VerifiedEquipmentQuestion(discriminatorCandidates, base.askedQuestionKeys, String(latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue ?? ""))
         : undefined)

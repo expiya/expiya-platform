@@ -30,6 +30,17 @@ describe("V3 catalog entity and candidate-aware question planning", () => {
     expect(catalog.variants.every((item) => item.brand === "Volkswagen" && item.model === "Golf")).toBe(true);
   });
 
+  it("does not turn the first catalog-ordered variant into a decision when an exact model still has distinguishable versions", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const output = await runV3Turn({ conversationId: "sportage-versions", messageId: "1", message: "Kia Sportage almak istiyorum", expectedRevision: 0 });
+    const catalog = await evaluateV3Catalog(output.state.ledger);
+    expect(catalog.variants).toHaveLength(6);
+    expect(output.offerAwaitingConsent).not.toBe(true);
+    expect(output.state.lastQuestionKey).toMatch(/^technicalDiscriminator:/u);
+    expect(output.message).toMatch(/referans aralıkları|teknik farklara/iu);
+    expect(output.message).toMatch(/110–132 kW/iu);
+  });
+
   it.each([
     "Bütçem hazır; 360 derece kameralı bir Volvo XC40 arıyorum.",
     "Bütçemi ayarladım, koltuk ısıtmalı bir Peugeot 3008 alacağım.",
