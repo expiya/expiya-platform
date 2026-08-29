@@ -197,10 +197,10 @@ describe("V3.8 corpus-derived conversation contracts", () => {
     expect(output.state.lastQuestionKey).toBe("purchaseInterest");
   });
 
-  it("does not mistake the Turkish word büyük for commercial cargo intent", async () => {
+  it("does not mistake large pets or a nature trip for commercial or rough-road use", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     const dog = await runV3Turn({ conversationId: "large-dogs", messageId: "1", message: "İki büyük köpeğimi hafta sonları doğaya götürmek için geniş bagajlı bir araç satın almak istiyorum.", expectedRevision: 0 });
-    expect(dog.state.ledger).toContainEqual(expect.objectContaining({ concept: "primaryUsage", normalizedValue: "MIXED_ROAD" }));
+    expect(dog.state.ledger).not.toContainEqual(expect.objectContaining({ concept: "primaryUsage", normalizedValue: "MIXED_ROAD", status: "ACTIVE" }));
     expect(dog.state.ledger).not.toContainEqual(expect.objectContaining({ concept: "primaryUsage", normalizedValue: "COMMERCIAL", status: "ACTIVE" }));
     const firstCar = await runV3Turn({ conversationId: "large-first-car", messageId: "1", message: "Ehliyetimi yeni aldım. Boyutları çok büyük olmayan otomatik ilk aracımı satın almak istiyorum.", expectedRevision: 0 });
     expect(firstCar.state.ledger).not.toContainEqual(expect.objectContaining({ concept: "primaryUsage", normalizedValue: "COMMERCIAL", status: "ACTIVE" }));

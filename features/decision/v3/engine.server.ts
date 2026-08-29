@@ -886,6 +886,26 @@ export async function runV3Turn(input: {
     /(?:tek araç|alternatif|öner(?:i|ini|inizi)?|seç(?:elim|ebilirsin| lütfen)?|göster|paylaş)/iu.test(
       input.message,
     );
+  const needsCampingClarification =
+    recommendationRequested &&
+    /\bkamp\p{L}*/iu.test(input.message) &&
+    !latestActiveLedgerEvent(ledger, "primaryUsage") &&
+    !latestActiveLedgerEvent(ledger, "bodyStyle") &&
+    !latestActiveLedgerEvent(ledger, "cargoPracticality") &&
+    !base.askedQuestionKeys.includes("campingLimitation");
+  if (needsCampingClarification)
+    return {
+      kind: "V3_CONVERSATION",
+      message:
+        "Kamp kullanımını doğru yorumlayalım: mevcut sedanın seni en çok hangi noktada kısıtlıyor—kamp ekipmanlarının sığmaması ve yükleme, bozuk veya stabilize yollarda ilerleme, araç içinde konaklama, yoksa başka bir neden mi?",
+      state: {
+        ...base,
+        askedQuestionKeys: [
+          ...new Set([...base.askedQuestionKeys, "campingLimitation"]),
+        ],
+        lastQuestionKey: "campingLimitation",
+      },
+    };
   let catalog: Awaited<ReturnType<typeof evaluateV3Catalog>> | undefined;
   if (
     ["EXPLICIT", "ACTIVE_DISCOVERY", "READY_FOR_DECISION"].includes(
@@ -1331,13 +1351,14 @@ export async function runV3Turn(input: {
   const tiedTopCandidates = discriminatorTopScore === undefined ? [] : rankedForDiscriminator.filter((variant) => Math.abs(scoreV3Candidate(variant, ledger, budgetMode) - discriminatorTopScore) < 1e-9);
   const iterativeEquipmentRounds = base.askedQuestionKeys.filter((key) => key.startsWith("verifiedEquipment:")).length;
   const iterativePersonaRounds = base.askedQuestionKeys.filter((key) => key.startsWith("personaDiscriminator:")).length;
+  const equipmentGroupDeclined = Boolean(latestActiveLedgerEvent(ledger, "equipmentNotImportant"));
   const inDiscriminationSequence =
     prior.lastQuestionKey?.startsWith("verifiedEquipment:") ||
     prior.lastQuestionKey?.startsWith("personaDiscriminator:") ||
     prior.lastQuestionKey?.startsWith("technicalDiscriminator:") ||
     prior.lastQuestionKey === "brandModel";
   const iterativeDiscriminator = tiedTopCandidates.length > 1 && equipmentResolved && inDiscriminationSequence && !base.pendingConfirmation
-    ? (iterativeEquipmentRounds < 3
+    ? (!equipmentGroupDeclined && iterativeEquipmentRounds < 3
         ? planV3VerifiedEquipmentQuestion(tiedTopCandidates, base.askedQuestionKeys, String(latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue ?? ""))
         : undefined)
       ?? (iterativePersonaRounds < 2
