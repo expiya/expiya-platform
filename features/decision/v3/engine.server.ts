@@ -1369,7 +1369,7 @@ export async function runV3Turn(input: {
   if (iterativeDiscriminator) {
     return {
       kind: "V3_CONVERSATION",
-      message: `Tek ve gerekçelendirilebilir bir karara ulaşmak için kalan seçenekleri gerçekten ayıran bir noktayı netleştirelim. ${iterativeDiscriminator.text}`,
+      message: iterativeDiscriminator.text,
       state: {
         ...base,
         askedQuestionKeys: [...new Set([...base.askedQuestionKeys, iterativeDiscriminator.key])],

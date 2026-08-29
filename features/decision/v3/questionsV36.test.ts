@@ -100,12 +100,12 @@ describe("V3.6 direct question behavior", () => {
     expect(output.message).toMatch(/gerçekten ayıran/iu);
     output = await runV3Turn({ conversationId: id, messageId: "6", message: "Bu seçeneklerden hiçbiri şart değil", expectedRevision: output.state.revision, state: output.state });
     expect(output.state.lastQuestionKey).toMatch(/^personaDiscriminator:/u);
-    expect(output.message).toMatch(/karakter olarak ayrışıyor/iu);
+    expect(output.message).toMatch(/kullanım karakteri bakımından ayrışıyor/iu);
     output = await runV3Turn({ conversationId: id, messageId: "7", message: "Bu gruptakilerden hiçbiri belirleyici değil", expectedRevision: output.state.revision, state: output.state });
     expect(output.state.lastQuestionKey).toMatch(/^personaDiscriminator:/u);
     output = await runV3Turn({ conversationId: id, messageId: "8", message: "Bu gruptakilerden hiçbiri belirleyici değil", expectedRevision: output.state.revision, state: output.state });
     expect(output.state.lastQuestionKey).toMatch(/^technicalDiscriminator:/u);
-    expect(output.message).toMatch(/doğrulanmış teknik veriler/iu);
+    expect(output.message).toMatch(/doğrulanmış teknik farklar/iu);
     output = await runV3Turn({ conversationId: id, messageId: "9", message: "Şehir içinde daha kısa gövde", expectedRevision: output.state.revision, state: output.state });
     expect(output.offerAwaitingConsent).toBe(true);
     expect(output.recommendations).toBeUndefined();

@@ -21,7 +21,11 @@ export function planV3PersonaDiscriminator(variants: readonly CatalogVariantSnap
   }).sort((a, b) => b.split - a.split).slice(0, 3);
   if (!options.length) return undefined;
   const labels = options.map((item) => item.label);
-  return { key: `personaDiscriminator:${options.map((item) => item.trait).join("|")}`, text: `Kalan araçlar karakter olarak ayrışıyor. Kararında hangisi daha ağır bassın: ${labels.length === 1 ? labels[0] : `${labels.slice(0, -1).join(", ")} veya ${labels.at(-1)}`}; yoksa bu gruptakilerden hiçbiri belirleyici değil mi?` };
+  const personaRounds = askedKeys.filter((key) => key.startsWith("personaDiscriminator:")).length;
+  const lead = personaRounds === 0
+    ? "Kalan araçlar kullanım karakteri bakımından ayrışıyor."
+    : "Kullanım karakterinde bir başka ayrım daha var.";
+  return { key: `personaDiscriminator:${options.map((item) => item.trait).join("|")}`, text: `${lead} Kararında hangisi daha ağır bassın: ${labels.length === 1 ? labels[0] : `${labels.slice(0, -1).join(", ")} veya ${labels.at(-1)}`}; yoksa bu gruptakilerden hiçbiri belirleyici değil mi?` };
 }
 
 const technicalOptions = [
@@ -44,5 +48,9 @@ export function planV3TechnicalDiscriminator(variants: readonly CatalogVariantSn
   }).slice(0, 3);
   if (!options.length) return undefined;
   const labels = options.map((item) => item.label);
-  return { key: `technicalDiscriminator:${options.map((item) => item.code).join("|")}`, text: `Kalan seçenekleri doğrulanmış teknik veriler ayırıyor. Hangisini öne alalım: ${labels.length === 1 ? labels[0] : `${labels.slice(0, -1).join(", ")} veya ${labels.at(-1)}`}; yoksa bu gruptakilerden hiçbiri belirleyici değil mi?` };
+  const technicalRounds = askedKeys.filter((key) => key.startsWith("technicalDiscriminator:")).length;
+  const lead = technicalRounds === 0
+    ? "Şimdi seçenekleri ayıran doğrulanmış teknik farklara bakalım."
+    : "Teknik tarafta geriye kalan farklı bir ölçüt var.";
+  return { key: `technicalDiscriminator:${options.map((item) => item.code).join("|")}`, text: `${lead} Hangisini öne alalım: ${labels.length === 1 ? labels[0] : `${labels.slice(0, -1).join(", ")} veya ${labels.at(-1)}`}; yoksa bu gruptakilerden hiçbiri belirleyici değil mi?` };
 }

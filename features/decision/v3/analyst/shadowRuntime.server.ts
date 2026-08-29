@@ -28,6 +28,14 @@ export function resolveAnalystMode(value = process.env.CARS_SEMANTIC_ANALYST_MOD
   }
   return "OFF";
 }
+export function shouldSampleShadow(conversationId: string, configuredRate = process.env.CARS_SEMANTIC_ANALYST_SHADOW_SAMPLE_RATE): boolean {
+  const parsed = configuredRate === undefined ? 1 : Number(configuredRate);
+  const rate = Number.isFinite(parsed) ? Math.max(0, Math.min(1, parsed)) : 0;
+  if (rate === 0) return false;
+  if (rate === 1) return true;
+  const bucket = createHash("sha256").update(conversationId).digest().readUInt32BE(0) / 0x1_0000_0000;
+  return bucket < rate;
+}
 const V3_QUESTION_BY_PLANNER_CONCEPT: Readonly<Record<string, { readonly key: string; readonly text: string }>> = {
   bodyStyleReference: { key: "bodyStyle", text: "Park kolaylığı mı, daha ferah ve yüksek bir yapı mı senin için daha önemli?" },
   fuelPreference: { key: "fuelType", text: "Yakıt türünde net bir tercihin var mı, yoksa kullanımına göre birlikte mi değerlendirelim?" },
@@ -76,6 +84,7 @@ export async function createDecisionNeutralityFingerprint(output: V3PublicRespon
 export async function runV3TurnWithAnalyst(input: Parameters<typeof runV3Turn>[0] & { readonly analystMode?: AnalystMode; readonly analystProvider?: (input: SemanticAnalystInput) => ReturnType<typeof analyzeSemanticNeeds>; readonly onAnalystTrace?: (envelope: AnalystTraceEnvelope) => void }): Promise<V3PublicResponse> {
   const mode = resolveAnalystMode(input.analystMode);
   if (mode === "OFF") return runV3Turn(input);
+  if (mode === "SHADOW" && !shouldSampleShadow(input.conversationId)) return runV3Turn(input);
   const prior = input.state; const provider = input.analystProvider ?? analyzeSemanticNeeds;
   const analysisPromise = provider({ message: input.message, sourceMessageId: input.messageId, conversationRevision: input.expectedRevision, activeExplicitStatements: (prior?.ledger ?? []).filter((item) => item.status === "ACTIVE" && item.authority === "USER_EXPLICIT").map((item) => ({ concept: item.concept, value: item.normalizedValue })), rejectedOrSuperseded: (prior?.ledger ?? []).filter((item) => ["REJECTED", "SUPERSEDED", "CLEARED"].includes(item.status)).map((item) => ({ concept: item.concept, status: item.status as "REJECTED" | "SUPERSEDED" | "CLEARED" })), pendingQuestionPurpose: prior?.lastQuestionKey, signal: input.signal });
   const output = await runV3Turn(input); const analysis = await analysisPromise; const governed = governSemanticNeedsAnalysis(input.message, analysis);

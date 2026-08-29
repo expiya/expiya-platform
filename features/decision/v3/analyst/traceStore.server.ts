@@ -10,6 +10,18 @@ export function recordAnalystTrace(envelope: AnalystTraceEnvelope): void {
   const eventKey = `${envelope.conversationId}:${envelope.sourceMessageId}:${envelope.revision}`;
   if (!recentEvents.has(eventKey)) recentEvents.set(eventKey, envelope);
   while (recentEvents.size > MAX_RECENT_EVENTS) recentEvents.delete(recentEvents.keys().next().value!);
+  if (process.env.CARS_SEMANTIC_ANALYST_DIAGNOSTICS_LOG === "true")
+    console.info(JSON.stringify({
+      event: "cars_semantic_analyst_trace",
+      mode: envelope.trace.mode,
+      origin: envelope.trace.origin,
+      acceptedExplicitFactCount: envelope.trace.acceptedExplicitFacts.length,
+      rejectedExplicitFactCount: envelope.trace.rejectedExplicitFacts.length,
+      acceptedHypothesisCount: envelope.trace.acceptedHypotheses.length,
+      rejectedHypothesisCount: envelope.trace.rejectedHypotheses.length,
+      questionSelected: envelope.trace.selectedQuestionKey !== undefined,
+      noQuestionReason: envelope.trace.noQuestionReason ?? null,
+    }));
 }
 export function readAnalystTraceForInternalDiagnostics(conversationId: string): AnalystTraceEnvelope | undefined { return latestByConversation.get(conversationId); }
 export interface AnalystRuntimeMetrics {

@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { createDecisionNeutralityFingerprint, reconcileQuestionInput, resolveAnalystMode, runV3TurnWithAnalyst, type AnalystTraceEnvelope } from "./shadowRuntime.server";
+import { createDecisionNeutralityFingerprint, reconcileQuestionInput, resolveAnalystMode, runV3TurnWithAnalyst, shouldSampleShadow, type AnalystTraceEnvelope } from "./shadowRuntime.server";
 import type { QuestionPlanningResult } from "./planner";
 import { analyzeSemanticNeedsFallback } from "./fallback";
 import { evaluateV3Catalog, rankV3Candidates } from "../catalogAdapter.server";
@@ -13,6 +13,12 @@ afterEach(() => {
   if (priorExplicitReady === undefined) delete process.env.CARS_SEMANTIC_ANALYST_EXPLICIT_FACTS_READY; else process.env.CARS_SEMANTIC_ANALYST_EXPLICIT_FACTS_READY = priorExplicitReady;
 });
 describe("OFF/SHADOW decision neutrality", () => {
+  it("samples SHADOW conversations deterministically and fails closed for invalid rates", () => {
+    expect(shouldSampleShadow("conversation", "0")).toBe(false);
+    expect(shouldSampleShadow("conversation", "1")).toBe(true);
+    expect(shouldSampleShadow("conversation", "invalid")).toBe(false);
+    expect(shouldSampleShadow("conversation", "0.25")).toBe(shouldSampleShadow("conversation", "0.25"));
+  });
   it("defaults and rolls back safely to OFF for missing or invalid mode", () => {
     expect(resolveAnalystMode(undefined)).toBe("OFF"); expect(resolveAnalystMode("INVALID")).toBe("OFF"); expect(resolveAnalystMode("SHADOW")).toBe("SHADOW");
   });

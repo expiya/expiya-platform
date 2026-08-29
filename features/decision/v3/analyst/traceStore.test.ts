@@ -1,4 +1,4 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import type { AnalystTraceEnvelope } from "./shadowRuntime.server";
 import {
   readAnalystTraceForInternalDiagnostics,
@@ -58,5 +58,19 @@ describe("conversation-scoped Analyst diagnostics", () => {
       noQuestionTurns: 2,
       modeCounts: { SHADOW: 2 },
     });
+  });
+
+  it("emits only aggregate diagnostics without conversation or message identifiers", () => {
+    resetAnalystTraceStoreForTests();
+    const prior = process.env.CARS_SEMANTIC_ANALYST_DIAGNOSTICS_LOG;
+    process.env.CARS_SEMANTIC_ANALYST_DIAGNOSTICS_LOG = "true";
+    const info = vi.spyOn(console, "info").mockImplementation(() => undefined);
+    recordAnalystTrace(envelope("private-conversation", "private-message", 1));
+    const serialized = String(info.mock.calls[0]?.[0]);
+    info.mockRestore();
+    if (prior === undefined) delete process.env.CARS_SEMANTIC_ANALYST_DIAGNOSTICS_LOG;
+    else process.env.CARS_SEMANTIC_ANALYST_DIAGNOSTICS_LOG = prior;
+    expect(serialized).toContain("cars_semantic_analyst_trace");
+    expect(serialized).not.toMatch(/private-conversation|private-message/iu);
   });
 });
