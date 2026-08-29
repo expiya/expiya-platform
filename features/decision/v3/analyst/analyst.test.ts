@@ -15,6 +15,24 @@ describe("Semantic Needs Analyst V1 contract and bounded fallback", () => {
     const result = analyzeSemanticNeedsFallback(input("Hafta sonu kamp yapıyorum."));
     expect(result.explicitFacts.some((item) => item.concept === "bodyStyleReference" || item.concept === "tractionNeed")).toBe(false); expect(result.hypotheses).toEqual([]);
   });
+  it("captures explicit charming design language without candidate authority", () => {
+    const message = "Şehir içinde kullanmak için şirin bir otomobil arıyorum.";
+    const result = analyzeSemanticNeedsFallback(input(message));
+    expect(result.explicitFacts).toContainEqual(
+      expect.objectContaining({
+        concept: "designCharacterPreference",
+        normalizedValue: "CHARMING",
+        sourceSpan: expect.objectContaining({ text: "şirin" }),
+      }),
+    );
+    const governed = governSemanticNeedsAnalysis(message, result);
+    expect(governed.acceptedExplicitFacts).toContainEqual(
+      expect.objectContaining({
+        concept: "designCharacterPreference",
+        normalizedValue: "CHARMING",
+      }),
+    );
+  });
   it("raises only a confirmable traction hypothesis for severe mud and incline", () => {
     const result = analyzeSemanticNeedsFallback(input("Şiddetli çamur ve dik ve kaygan yokuşlarda kullanacağım."));
     expect(result.hypotheses).toContainEqual(expect.objectContaining({ concept: "tractionNeed", decisionUse: "QUESTION_INPUT", confirmationRequired: true }));

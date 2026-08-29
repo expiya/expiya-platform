@@ -44,6 +44,7 @@ export const OWNER_REVIEWED_ANALYST_CORPUS_V1: readonly AnalystCorpusCase[] = [
   { id: "intercity-weekly", message: "Haftada birkaç kez şehirler arası seyahat edeceğim.", expectedExplicit: [{ concept: "primaryUsage", value: "LONG_DISTANCE" }] },
   { id: "urban-shopping", message: "Alışveriş ve kısa mesafeler için şehir içi otomobil arıyorum.", expectedExplicit: [{ concept: "primaryUsage", value: "URBAN_DAILY" }] },
   { id: "urban-commute", message: "İşe gidiş gelişte ve dar sokaklarda kullanacağım araç arıyorum.", expectedExplicit: [{ concept: "primaryUsage", value: "URBAN_DAILY" }] },
+  { id: "charming-city-car", message: "Şehir içinde kullanmak için şirin bir otomobil arıyorum.", expectedExplicit: [{ concept: "primaryUsage", value: "URBAN_DAILY" }, { concept: "designCharacterPreference", value: "CHARMING" }] },
   { id: "parallel-parking", message: "Şehir merkezinde paralel park çok zor, kolay park edilen araç istiyorum.", expectedExplicit: [{ concept: "primaryUsage", value: "URBAN_DAILY" }, { concept: "parkingDifficulty", value: "HIGH" }], expectedHypotheses: [{ concept: "maneuverabilityNeed", decisionUse: "QUESTION_INPUT" }] },
   { id: "electric-automatic", message: "Elektrikli ve otomatik bir otomobil istiyorum.", expectedExplicit: [{ concept: "fuelPreference", value: "ELEKTRİKLİ" }, { concept: "transmissionPreference", value: "OTOMATİK" }] },
   { id: "hybrid-automatic", message: "Hibrit otomatik araç arıyorum.", expectedExplicit: [{ concept: "fuelPreference", value: "HİBRİT" }, { concept: "transmissionPreference", value: "OTOMATİK" }] },

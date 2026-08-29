@@ -30,6 +30,7 @@ const canonicalExplicitValue = (fact: AnalystExplicitFact, message: string): Ana
   if (fact.concept === "bodyStyleReference") {
     const value = source.match(/suv|sedan|hatchback|station wagon|pick-?up|panelvan|mpv/iu)?.[0]; return value?.toLocaleUpperCase("tr-TR");
   }
+  if (fact.concept === "designCharacterPreference") return /şirin|sevimli|sempatik|tatlı görünümlü|retro görünümlü/iu.test(source) ? "CHARMING" : undefined;
   if (fact.concept === "brandReference" || fact.concept === "modelReference" || fact.concept === "equipmentRequirement") return source;
   return undefined;
 };
