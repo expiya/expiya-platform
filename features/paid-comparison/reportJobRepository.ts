@@ -1,4 +1,5 @@
 import type { SqlConnection, SqlQueryable } from "@/features/vehicle-data/repository";
+import type { ApprovedDecisionNeed } from "@/features/sales-advisor/types";
 
 export interface PaidComparisonReportJob {
   readonly jobId: string;
@@ -6,7 +7,7 @@ export interface PaidComparisonReportJob {
   readonly quoteId: string;
   readonly catalogReleaseVersion: string;
   readonly catalogFingerprint: string;
-  readonly approvedNeeds: readonly { readonly concept: string; readonly summary: string }[];
+  readonly approvedNeeds: readonly ApprovedDecisionNeed[];
   readonly exactVariantIds: readonly [string, string, string];
 }
 
@@ -56,7 +57,7 @@ export class PostgresPaidComparisonReportJobRepository {
       const row = result.rows?.[0];
       if (!row) return undefined;
       if (!Array.isArray(row.exact_variant_ids) || row.exact_variant_ids.length !== 3) throw new TypeError("PAID_REPORT_JOB_VARIANTS_INVALID");
-      const needs = Array.isArray(row.approved_needs) ? row.approved_needs.filter((item): item is { concept: string; summary: string } => Boolean(item && typeof item === "object" && typeof (item as { concept?: unknown }).concept === "string" && typeof (item as { summary?: unknown }).summary === "string")) : [];
+      const needs = Array.isArray(row.approved_needs) ? row.approved_needs.filter((item): item is ApprovedDecisionNeed => Boolean(item && typeof item === "object" && typeof (item as { concept?: unknown }).concept === "string" && typeof (item as { summary?: unknown }).summary === "string")) : [];
       await connection.query(`update comparison_report_jobs set status = 'RUNNING', started_at = $2, attempt_count = attempt_count + 1, failure_code = null where id = $1`, [row.job_id, now.toISOString()]);
       return { jobId: row.job_id, orderId: row.order_id, quoteId: row.quote_id, catalogReleaseVersion: row.catalog_release_version, catalogFingerprint: row.catalog_fingerprint, approvedNeeds: needs, exactVariantIds: row.exact_variant_ids as [string, string, string] };
     });

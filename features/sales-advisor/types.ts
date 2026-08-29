@@ -1,6 +1,12 @@
 export const SALES_ADVISOR_VERSION = "2.0.0" as const;
 export const VARIANT_CONTENT_SCHEMA_VERSION = "variant-content/v2" as const;
 
+export interface ApprovedDecisionNeed {
+  readonly concept: string;
+  readonly summary: string;
+  readonly value?: string | number | readonly string[];
+}
+
 export type ClaimDisposition = "VERIFIED" | "FAMILY_LEVEL" | "REPRESENTATIVE" | "APPROXIMATE" | "NO_CLAIM";
 
 export interface Phase2HandoffPayload {
@@ -11,7 +17,7 @@ export interface Phase2HandoffPayload {
   readonly selectedExactVariantId: string;
   readonly catalogRelease: string;
   readonly catalogFingerprint: string;
-  readonly approvedNeeds: readonly { readonly concept: string; readonly summary: string }[];
+  readonly approvedNeeds: readonly ApprovedDecisionNeed[];
   readonly personaMatchSummary: readonly string[];
   readonly recommendationTerms: { readonly version: string; readonly acceptedAt: string };
   readonly decisionStateDigest: string;

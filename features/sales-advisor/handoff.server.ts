@@ -21,7 +21,7 @@ const MAX_HANDOFF_CACHE = 5_000;
 
 const handoffPayloadSchema = z.strictObject({
   version: z.literal(SALES_ADVISOR_VERSION), conversationId: z.string().min(1).max(200), decisionFingerprint: z.string().regex(/^[a-f0-9]{64}$/u), offerId: z.string().min(1).max(200), selectedExactVariantId: z.string().min(1).max(300), catalogRelease: z.string().min(1).max(100), catalogFingerprint: z.string().min(1).max(120),
-  approvedNeeds: z.array(z.strictObject({ concept: z.string().min(1).max(100), summary: z.string().min(1).max(300) })).max(40), personaMatchSummary: z.array(z.string().min(1).max(300)).max(10), recommendationTerms: z.strictObject({ version: z.string().min(1).max(100), acceptedAt: z.string().datetime() }), decisionStateDigest: z.string().regex(/^[a-f0-9]{64}$/u), nonce: z.string().regex(/^[A-Za-z0-9_-]{16,80}$/u), issuedAt: z.string().datetime(), expiresAt: z.string().datetime(),
+  approvedNeeds: z.array(z.strictObject({ concept: z.string().min(1).max(100), summary: z.string().min(1).max(300), value: z.union([z.string().max(200), z.number().finite(), z.array(z.string().max(200)).max(20)]).optional() })).max(40), personaMatchSummary: z.array(z.string().min(1).max(300)).max(10), recommendationTerms: z.strictObject({ version: z.string().min(1).max(100), acceptedAt: z.string().datetime() }), decisionStateDigest: z.string().regex(/^[a-f0-9]{64}$/u), nonce: z.string().regex(/^[A-Za-z0-9_-]{16,80}$/u), issuedAt: z.string().datetime(), expiresAt: z.string().datetime(),
 });
 
 const publicValues: Readonly<Record<string, string>> = {
@@ -40,7 +40,7 @@ export const publicSummary = (event: PreferenceEvent): string => {
   return `${labels[event.concept] ?? "Onaylı tercih"}: ${value}`;
 };
 
-const approvedNeeds = (state: V3ConversationState) => state.ledger.filter((item) => item.status === "ACTIVE" && ["USER_EXPLICIT", "USER_CONFIRMED"].includes(item.authority) && ["EXPLICIT_HARD", "EXPLICIT_STRONG", "CONFIRMED_STRONG"].includes(item.strength)).map((item) => ({ concept: item.concept, summary: publicSummary(item) }));
+const approvedNeeds = (state: V3ConversationState) => state.ledger.filter((item) => item.status === "ACTIVE" && ["USER_EXPLICIT", "USER_CONFIRMED"].includes(item.authority) && ["EXPLICIT_HARD", "EXPLICIT_STRONG", "CONFIRMED_STRONG"].includes(item.strength)).map((item) => ({ concept: item.concept, summary: publicSummary(item), value: item.normalizedValue }));
 const decisionFingerprint = (state: V3ConversationState) => digest(projectV3DecisionPreferences(state.ledger, state.budgetMode ?? "NEEDS_ONLY").map(({ concept, normalizedValue, decisionUse }) => ({ concept, normalizedValue, decisionUse })));
 
 export async function createPhase2Handoff(input: { conversationId: string; stateToken?: string; offerId: string; selectedExactVariantId: string; now?: Date }): Promise<{ token: string; exactVariantId: string }> {
@@ -84,9 +84,9 @@ export type Phase3IntentPayload = {
   readonly version: "phase3-intent/v1"; readonly conversationId: string; readonly decisionFingerprint: string;
   readonly offerId: string; readonly selectedExactVariantId: string; readonly catalogRelease: string;
   readonly intent: Phase3Intent; readonly nonce: string; readonly issuedAt: string; readonly expiresAt: string; readonly executionAuthorized: false;
-  readonly approvedNeeds: readonly { readonly concept: string; readonly summary: string }[];
+  readonly approvedNeeds: Phase2HandoffPayload["approvedNeeds"];
 };
-const phase3IntentPayloadSchema = z.strictObject({ version: z.literal("phase3-intent/v1"), conversationId: z.string().min(1).max(200), decisionFingerprint: z.string().regex(/^[a-f0-9]{64}$/u), offerId: z.string().min(1).max(200), selectedExactVariantId: z.string().min(1).max(300), catalogRelease: z.string().min(1).max(100), intent: z.enum(["REQUEST_QUOTE", "REQUEST_TEST_DRIVE", "REQUEST_DEALER_CONTACT"]), nonce: z.string().regex(/^[A-Za-z0-9_-]{16,80}$/u), issuedAt: z.string().datetime(), expiresAt: z.string().datetime(), executionAuthorized: z.literal(false), approvedNeeds: z.array(z.strictObject({ concept: z.string().min(1).max(100), summary: z.string().min(1).max(300) })).max(40) });
+const phase3IntentPayloadSchema = z.strictObject({ version: z.literal("phase3-intent/v1"), conversationId: z.string().min(1).max(200), decisionFingerprint: z.string().regex(/^[a-f0-9]{64}$/u), offerId: z.string().min(1).max(200), selectedExactVariantId: z.string().min(1).max(300), catalogRelease: z.string().min(1).max(100), intent: z.enum(["REQUEST_QUOTE", "REQUEST_TEST_DRIVE", "REQUEST_DEALER_CONTACT"]), nonce: z.string().regex(/^[A-Za-z0-9_-]{16,80}$/u), issuedAt: z.string().datetime(), expiresAt: z.string().datetime(), executionAuthorized: z.literal(false), approvedNeeds: handoffPayloadSchema.shape.approvedNeeds });
 export async function createPhase3IntentHandoff(input: { phase2Token: string; intent: Phase3Intent; now?: Date }) {
   const opened = await openPhase2Experience(input.phase2Token, input.now);
   const issuedAt = input.now ?? new Date();

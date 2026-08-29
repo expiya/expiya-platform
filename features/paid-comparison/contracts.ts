@@ -1,3 +1,5 @@
+import type { ApprovedDecisionNeed } from "@/features/sales-advisor/types";
+
 export const PAID_COMPARISON_PRODUCT_CODE = "CARS_COMPARISON_3" as const;
 export const PAID_COMPARISON_PRICE_KURUS = 34_900;
 export const PAID_COMPARISON_CURRENCY = "TRY" as const;
@@ -15,7 +17,7 @@ export interface ComparisonReportQuote {
   readonly productCode: typeof PAID_COMPARISON_PRODUCT_CODE;
   readonly conversationId: string;
   readonly decisionId: string;
-  readonly approvedNeeds: readonly { readonly concept: string; readonly summary: string }[];
+  readonly approvedNeeds: readonly ApprovedDecisionNeed[];
   readonly catalogReleaseVersion: string;
   readonly catalogFingerprint: string;
   readonly vehicles: readonly ComparisonVehicleSelection[];

@@ -1,4 +1,5 @@
 import type { CatalogVariantSnapshot } from "@/features/decision/v2/catalog/types";
+import type { ApprovedDecisionNeed } from "@/features/sales-advisor/types";
 import {
   PAID_COMPARISON_CURRENCY,
   PAID_COMPARISON_PRICE_KURUS,
@@ -13,7 +14,7 @@ export function createPaidComparisonQuote(input: {
   readonly quoteId: string;
   readonly conversationId: string;
   readonly decisionId: string;
-  readonly approvedNeeds: readonly { readonly concept: string; readonly summary: string }[];
+  readonly approvedNeeds: readonly ApprovedDecisionNeed[];
   readonly decisionVariantId: string;
   readonly alternativeVariantIds: readonly [string, string];
   readonly variants: readonly CatalogVariantSnapshot[];

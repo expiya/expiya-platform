@@ -1,4 +1,6 @@
 import type { CatalogFact, CatalogVariantSnapshot } from "@/features/decision/v2/catalog/types";
+import type { ApprovedDecisionNeed } from "@/features/sales-advisor/types";
+import { scorePaidComparison } from "./scoring";
 
 type DisplayFact = { readonly value: string | number | null; readonly confidence: "LOW" | "MEDIUM" | "HIGH" | null; readonly sources: readonly string[]; readonly missing: boolean };
 
@@ -12,15 +14,17 @@ export function buildPaidComparisonReportDraft(input: {
   readonly catalogReleaseVersion: string;
   readonly catalogFingerprint: string;
   readonly generatedAt: string;
-  readonly approvedNeeds: readonly { readonly concept: string; readonly summary: string }[];
+  readonly approvedNeeds: readonly ApprovedDecisionNeed[];
   readonly variants: readonly [CatalogVariantSnapshot, CatalogVariantSnapshot, CatalogVariantSnapshot];
 }) {
+  const assessment = scorePaidComparison({ approvedNeeds: input.approvedNeeds, variants: input.variants });
   return {
     schemaVersion: "paid-comparison-report/v1" as const,
     catalogReleaseVersion: input.catalogReleaseVersion,
     catalogFingerprint: input.catalogFingerprint,
     generatedAt: input.generatedAt,
     needsSummary: input.approvedNeeds.map((item) => ({ ...item })),
+    assessment,
     sections: ["NEEDS_SUMMARY", "THREE_VEHICLE_OVERVIEW", "PERSONALIZED_TRADE_OFFS", "COST_INDICATORS", "WHEN_TO_CHOOSE_WHICH", "DECISION_VALIDATION", "SOURCES_AND_UNCERTAINTIES"] as const,
     vehicles: input.variants.map((variant, index) => ({
       exactVariantId: variant.id,
