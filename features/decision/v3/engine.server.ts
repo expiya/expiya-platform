@@ -593,6 +593,31 @@ function equipmentDecisionDisclosure(
   return "";
 }
 
+function technicalDecisionWarning(
+  variant: CatalogVariantSnapshot,
+  ledger: V3ConversationState["ledger"],
+): string | undefined {
+  const factByConcept: Readonly<Record<string, () => { readonly confidence: "LOW" | "MEDIUM" | "HIGH" } | undefined>> = {
+    candidateCompactPriority: () => variant.decisionFacts.dimensions.lengthMm,
+    candidateLuggagePriority: () => variant.decisionFacts.dimensions.luggageLitres,
+    candidatePowerPriority: () => variant.decisionFacts.powertrain.powerKw,
+    candidateRangePriority: () => variant.decisionFacts.efficiency.electricRangeKm,
+    candidateWidthPriority: () => variant.decisionFacts.dimensions.widthMm,
+    candidateHeightPriority: () => variant.decisionFacts.dimensions.heightMm,
+    candidateWheelbasePriority: () => variant.decisionFacts.dimensions.wheelbaseMm,
+    candidateTorquePriority: () => variant.decisionFacts.powertrain.torqueNm,
+    candidatePayloadPriority: () => variant.decisionFacts.dimensions.payloadKg,
+    candidateTowingPriority: () => variant.decisionFacts.dimensions.brakedTowingKg,
+    candidateConsumptionPriority: () => variant.decisionFacts.efficiency.combinedKwhPer100Km ?? variant.decisionFacts.efficiency.combinedLitresPer100Km,
+    candidateBatteryPriority: () => variant.decisionFacts.efficiency.batteryUsableKwh ?? variant.decisionFacts.efficiency.batteryCapacityKwh,
+    candidateChargingPriority: () => variant.decisionFacts.efficiency.maxDcChargeKw,
+  };
+  const selected = activeDecisionPreferences(ledger).flatMap((preference) => factByConcept[preference.concept] ? [factByConcept[preference.concept]!()] : []);
+  if (selected.some((fact) => !fact)) return "Uyarı: Kararda kullandığın teknik ölçütlerden en az biri bu varyant için katalogda bulunmuyor; satın alma öncesinde resmî teknik föyden teyit edilmelidir.";
+  if (selected.some((fact) => fact?.confidence !== "HIGH")) return "Uyarı: Kararda kullanılan bazı teknik değerlerin doğrulama seviyesi henüz tamamlanmadı; satın alma öncesinde resmî teknik föyden teyit edilmelidir.";
+  return undefined;
+}
+
 export async function runV3Turn(input: {
   readonly conversationId: string;
   readonly messageId: string;
@@ -1196,11 +1221,12 @@ export async function runV3Turn(input: {
             catalogFingerprint: current.catalogFingerprint,
           }),
         );
-        const warning =
+        const equipmentWarning =
           disclosures.find((item) => item.warning)?.warning ??
           (unmappedEquipment
             ? `${String(unmappedEquipment.normalizedValue)} bu versiyon için doğrulanamadı; araçta bulunduğuna dair kesin bir iddiada bulunmuyoruz.`
             : undefined);
+        const warning = [equipmentWarning, technicalDecisionWarning(variant, ledger)].filter(Boolean).join(" ") || undefined;
         const badge = disclosures.find((item) => item.badge)?.badge;
         const resolvedImage = resolveVehicleImage({
           variantId: variant.id,
@@ -1403,9 +1429,6 @@ export async function runV3Turn(input: {
       },
     };
   }
-  const rankedForDiscriminator = catalog?.variants.length ? rankV3Candidates(catalog.variants, ledger, budgetMode) : [];
-  const discriminatorTopScore = rankedForDiscriminator[0] ? scoreV3Candidate(rankedForDiscriminator[0], ledger, budgetMode) : undefined;
-  const tiedTopCandidates = discriminatorTopScore === undefined ? [] : rankedForDiscriminator.filter((variant) => Math.abs(scoreV3Candidate(variant, ledger, budgetMode) - discriminatorTopScore) < 1e-9);
   const iterativeEquipmentRounds = base.askedQuestionKeys.filter((key) => key.startsWith("verifiedEquipment:")).length;
   const iterativePersonaRounds = base.askedQuestionKeys.filter((key) => key.startsWith("personaDiscriminator:")).length;
   const equipmentGroupDeclined = Boolean(latestActiveLedgerEvent(ledger, "equipmentNotImportant"));
@@ -1414,14 +1437,15 @@ export async function runV3Turn(input: {
     prior.lastQuestionKey?.startsWith("personaDiscriminator:") ||
     prior.lastQuestionKey?.startsWith("technicalDiscriminator:") ||
     prior.lastQuestionKey === "brandModel";
-  const iterativeDiscriminator = tiedTopCandidates.length > 1 && equipmentResolved && inDiscriminationSequence && !base.pendingConfirmation
+  const discriminatorCandidates = catalog?.variants ?? [];
+  const iterativeDiscriminator = discriminatorCandidates.length > 1 && equipmentResolved && inDiscriminationSequence && !base.pendingConfirmation
     ? (!equipmentGroupDeclined && iterativeEquipmentRounds < 3
-        ? planV3VerifiedEquipmentQuestion(tiedTopCandidates, base.askedQuestionKeys, String(latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue ?? ""))
+        ? planV3VerifiedEquipmentQuestion(discriminatorCandidates, base.askedQuestionKeys, String(latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue ?? ""))
         : undefined)
       ?? (iterativePersonaRounds < 2
-        ? planV3PersonaDiscriminator(tiedTopCandidates, base.askedQuestionKeys, ledger)
+        ? planV3PersonaDiscriminator(discriminatorCandidates, base.askedQuestionKeys, ledger)
         : undefined)
-      ?? planV3TechnicalDiscriminator(tiedTopCandidates, base.askedQuestionKeys, ledger)
+      ?? planV3TechnicalDiscriminator(discriminatorCandidates, base.askedQuestionKeys, ledger)
     : undefined;
   if (iterativeDiscriminator) {
     return {

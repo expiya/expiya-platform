@@ -796,6 +796,15 @@ export function applyPreferenceMessage(
     POWER: { concept: "candidatePowerPriority", pattern: /motor gücü|güç/iu },
     PRICE: { concept: "candidatePricePriority", pattern: /satın alma fiyatı|daha düşük.*fiyat/iu },
     RANGE: { concept: "candidateRangePriority", pattern: /elektrikli menzil|menzil/iu },
+    WIDTH: { concept: "candidateWidthPriority", pattern: /gövde genişliği|dar yer/iu },
+    HEIGHT: { concept: "candidateHeightPriority", pattern: /yüksek gövde/iu },
+    WHEELBASE: { concept: "candidateWheelbasePriority", pattern: /aks mesafesi/iu },
+    TORQUE: { concept: "candidateTorquePriority", pattern: /tork/iu },
+    PAYLOAD: { concept: "candidatePayloadPriority", pattern: /taşıma kapasitesi/iu },
+    TOWING: { concept: "candidateTowingPriority", pattern: /römork|çekme kapasitesi/iu },
+    CONSUMPTION: { concept: "candidateConsumptionPriority", pattern: /enerji.*tüketim|yakıt tüketim|düşük tüketim/iu },
+    BATTERY: { concept: "candidateBatteryPriority", pattern: /batarya kapasitesi/iu },
+    CHARGING: { concept: "candidateChargingPriority", pattern: /dc şarj|şarj gücü/iu },
   };
   if (state.lastQuestionKey?.startsWith("technicalDiscriminator:") && !/(?:hiçbiri|bunlar.*belirleyici değil)/iu.test(text)) {
     const selected = state.lastQuestionKey.slice("technicalDiscriminator:".length).split("|").map((code) => technicalDiscriminator[code]).filter((item) => item?.pattern.test(text));

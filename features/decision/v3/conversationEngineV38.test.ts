@@ -207,10 +207,10 @@ describe("V3.8 corpus-derived conversation contracts", () => {
         expectedRevision: index,
         state: output?.state,
       });
-    expect(output?.state.lastQuestionKey).toBe("designEvidenceBoundary");
+    expect(output?.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
     expect(output?.offerAwaitingConsent).not.toBe(true);
     expect(output?.message).toMatch(
-      /tek bir aday.*doğrulayan onaylı tasarım verimiz yok/iu,
+      /doğrulanmadığı için onları sebepsiz elemeden/iu,
     );
   });
 

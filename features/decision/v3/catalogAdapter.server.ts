@@ -2,7 +2,7 @@ import activeCatalogPointer from "@/data/production/catalog/active.json";
 import { activeCatalogManifest, activeCatalogPayload, activeDecisionFacetPayload } from "@/data/production/catalog/activeCatalog.generated";
 import { buildCatalogSnapshot } from "../v2/catalog/snapshot";
 import type { CatalogVariantSnapshot } from "../v2/catalog/types";
-import { getReviewedEquipmentAssociations, getVerifiedEquipmentAssertions } from "../../vehicle-data/equipmentEvidenceResolver";
+import { getVerifiedEquipmentAssertions } from "../../vehicle-data/equipmentEvidenceResolver";
 import { vehiclePersonaSafeTraitReleaseSchema, selectOwnerApprovedSafePersonaSignals } from "../../vehicle-data/vehiclePersonaSafeTraits";
 import { activeVehiclePersonaSafeTraitRelease } from "../../../data/production/personas/safe-traits/activeVehiclePersonaSafeTraits.generated";
 import { activeDecisionPreferences } from "./ledger";
@@ -52,17 +52,21 @@ const EQUIPMENT_FACT_CODES: Readonly<Record<string, readonly string[]>> = Object
 });
 
 export type V35EquipmentMatchAuthority = "VERIFIED" | "UNVERIFIED" | "NO_MATCH";
+const equipmentAuthorityCache = new Map<string, V35EquipmentMatchAuthority>();
 export function v35EquipmentMatchAuthority(variant: CatalogVariantSnapshot, featureCode: string): V35EquipmentMatchAuthority {
+  const cacheKey = `${activeCatalogAuthority?.release ?? "unbound"}:${variant.id}:${featureCode}`;
+  const cached = equipmentAuthorityCache.get(cacheKey);
+  if (cached) return cached;
+  const remember = (value: V35EquipmentMatchAuthority) => { equipmentAuthorityCache.set(cacheKey, value); return value; };
   const accepted = EQUIPMENT_FACT_CODES[featureCode] ?? [featureCode];
   const catalogFact = variant.decisionFacts.safetyFeatureCodes.find((fact) => accepted.includes(fact.value));
-  if (catalogFact) return catalogFact.confidence === "HIGH" ? "VERIFIED" : "UNVERIFIED";
+  if (catalogFact) return remember(catalogFact.confidence === "HIGH" ? "VERIFIED" : "UNVERIFIED");
   const assertion = getVerifiedEquipmentAssertions(variant.id).find((item) => item.featureCode === featureCode);
-  if (assertion?.availabilityStatus === "NOT_AVAILABLE") return "NO_MATCH";
-  if (assertion?.verificationState === "VERIFIED" && assertion.standardOrOptional === "STANDARD") return "VERIFIED";
-  if (assertion) return "UNVERIFIED";
-  if (activeCatalogAuthority && hasProvisionalOwnerManualEquipment({ variant, featureCode, catalogRelease: activeCatalogAuthority.release, catalogFingerprint: activeCatalogAuthority.fingerprint })) return "UNVERIFIED";
-  const reviewed = getReviewedEquipmentAssociations({ exactVariantId: variant.id, featureCode: featureCode as Parameters<typeof getReviewedEquipmentAssociations>[0] extends { featureCode?: infer T } ? T : never }).length > 0;
-  return reviewed ? "UNVERIFIED" : "NO_MATCH";
+  if (assertion?.availabilityStatus === "NOT_AVAILABLE") return remember("NO_MATCH");
+  if (assertion?.verificationState === "VERIFIED" && assertion.standardOrOptional === "STANDARD") return remember("VERIFIED");
+  if (assertion) return remember("UNVERIFIED");
+  if (activeCatalogAuthority && hasProvisionalOwnerManualEquipment({ variant, featureCode, catalogRelease: activeCatalogAuthority.release, catalogFingerprint: activeCatalogAuthority.fingerprint })) return remember("UNVERIFIED");
+  return remember("UNVERIFIED");
 }
 
 export function v35EquipmentSelectionWarning(variant: CatalogVariantSnapshot, ledger: readonly PreferenceEvent[]): string | undefined {
@@ -133,12 +137,12 @@ export async function evaluateV3Catalog(ledger: readonly PreferenceEvent[], now?
   activeCatalogAuthority = { release: loaded.snapshot.authority.releaseVersion, fingerprint: loaded.snapshot.authority.catalogFingerprint };
   const onSale = loaded.snapshot.variants.filter((variant) => variant.lifecycleStatus === "ON_SALE");
   const requested = projectV3DecisionPreferences(ledger, budgetMode).filter((item) => item.decisionUse === "HARD_FILTER");
-  let variants = onSale.filter((variant) => requested.every((preference) => matches(variant, preference)));
+  const variants = onSale.filter((variant) => requested.every((preference) => matches(variant, preference)));
   const appliedEquipment: PreferenceEvent[] = [];
   const unsupportedEquipment: PreferenceEvent[] = [];
   for (const preference of activeDecisionPreferences(ledger).filter((item) => item.field === "equipmentFeature" && item.decisionUse === "HARD_FILTER")) {
     const verified = variants.filter((variant) => v35EquipmentMatchAuthority(variant, String(preference.normalizedValue)) === "VERIFIED");
-    if (verified.length > 0) { variants = verified; appliedEquipment.push(preference); }
+    if (verified.length > 0) appliedEquipment.push(preference);
     else unsupportedEquipment.push(preference);
   }
   return { initialCount: loaded.snapshot.variants.length, candidateIds: variants.map((item) => item.id), variants, appliedEquipment, unsupportedEquipment, catalogReleaseVersion: loaded.snapshot.authority.releaseVersion, catalogFingerprint: loaded.snapshot.authority.catalogFingerprint };
@@ -169,7 +173,7 @@ export function planV3VerifiedEquipmentQuestion(variants: readonly CatalogVarian
   const featureCodes = options.map((item) => item.code);
   const labels = options.map((item) => item.label);
   const list = labels.length === 1 ? labels[0] : `${labels.slice(0, -1).join(", ")} veya ${labels.at(-1)}`;
-  return { key: `verifiedEquipment:${featureCodes.join("|")}`, featureCodes, text: `Bu seçenekleri gerçekten ayıran donanımlardan hangisi senin için vazgeçilmez: ${list}; yoksa bu gruptakilerden hiçbiri şart değil mi?` };
+  return { key: `verifiedEquipment:${featureCodes.join("|")}`, featureCodes, text: `Bu donanımlar bazı varyantlarda doğrulandı; diğer varyantlarda bilgi henüz doğrulanmadığı için onları sebepsiz elemeden ilerleyeceğim. Hangisi senin için vazgeçilmez: ${list}; yoksa bu gruptakilerden hiçbiri şart değil mi?` };
 }
 
 export function rankV3Candidates(variants: readonly CatalogVariantSnapshot[], ledger: readonly PreferenceEvent[], budgetMode: BudgetDecisionMode = "NEEDS_ONLY"): readonly CatalogVariantSnapshot[] {
@@ -177,7 +181,10 @@ export function rankV3Candidates(variants: readonly CatalogVariantSnapshot[], le
 }
 
 export function scoreV3Candidate(variant: CatalogVariantSnapshot, ledger: readonly PreferenceEvent[], budgetMode: BudgetDecisionMode = "NEEDS_ONLY"): number {
-  const preferences = projectV3DecisionPreferences(ledger, budgetMode).filter((preference) => preference.concept !== "budgetMax" && preference.concept !== "budgetTarget");
+  const preferences = [
+    ...projectV3DecisionPreferences(ledger, budgetMode),
+    ...activeDecisionPreferences(ledger).filter((preference) => preference.field === "equipmentFeature"),
+  ].filter((preference) => preference.concept !== "budgetMax" && preference.concept !== "budgetTarget");
   return preferences.reduce((total, preference) => {
     if (preference.concept === "performance") return total + variant.decisionFacts.powertrain.powerKw.value / 100;
     if (preference.concept === "candidateCompactPriority") return total + (variant.decisionFacts.dimensions.lengthMm ? Math.max(0, 10 - variant.decisionFacts.dimensions.lengthMm.value / 1_000) : 0);
@@ -185,6 +192,16 @@ export function scoreV3Candidate(variant: CatalogVariantSnapshot, ledger: readon
     if (preference.concept === "candidatePowerPriority") return total + variant.decisionFacts.powertrain.powerKw.value / 100;
     if (preference.concept === "candidatePricePriority") return total - (variant.activeNewPrice?.consumerVisibility === "PUBLIC" && variant.activeNewPrice.realizationSafe ? variant.activeNewPrice.amountTry : 99_000_000) / 1_000_000;
     if (preference.concept === "candidateRangePriority") return total + (variant.decisionFacts.efficiency.electricRangeKm?.value ?? 0) / 100;
+    if (preference.concept === "candidateWidthPriority") return total - (variant.decisionFacts.dimensions.widthMm?.value ?? 9_999) / 1_000;
+    if (preference.concept === "candidateHeightPriority") return total + (variant.decisionFacts.dimensions.heightMm?.value ?? 0) / 1_000;
+    if (preference.concept === "candidateWheelbasePriority") return total + (variant.decisionFacts.dimensions.wheelbaseMm?.value ?? 0) / 1_000;
+    if (preference.concept === "candidateTorquePriority") return total + (variant.decisionFacts.powertrain.torqueNm?.value ?? 0) / 100;
+    if (preference.concept === "candidatePayloadPriority") return total + (variant.decisionFacts.dimensions.payloadKg?.value ?? 0) / 100;
+    if (preference.concept === "candidateTowingPriority") return total + (variant.decisionFacts.dimensions.brakedTowingKg?.value ?? 0) / 500;
+    if (preference.concept === "candidateConsumptionPriority") { const consumption = variant.decisionFacts.efficiency.combinedKwhPer100Km?.value ?? variant.decisionFacts.efficiency.combinedLitresPer100Km?.value; return total - (consumption ?? 99) / 10; }
+    if (preference.concept === "candidateBatteryPriority") return total + (variant.decisionFacts.efficiency.batteryUsableKwh?.value ?? variant.decisionFacts.efficiency.batteryCapacityKwh?.value ?? 0) / 20;
+    if (preference.concept === "candidateChargingPriority") return total + (variant.decisionFacts.efficiency.maxDcChargeKw?.value ?? 0) / 50;
+    if (preference.field === "equipmentFeature") { const authority = v35EquipmentMatchAuthority(variant, String(preference.normalizedValue)); return total + (authority === "VERIFIED" ? 2 : authority === "UNVERIFIED" ? 0.15 : -4); }
     if (preference.concept === "valueEconomy") return total - (variant.activeNewPrice?.amountTry ?? 99_000_000) / 10_000_000;
     if (preference.concept === "longDistanceComfort") return total + (variant.decisionFacts.bodyStyle.value.toUpperCase().includes("SUV") ? 2 : 0);
     if (preference.concept === "brandPreference" && preference.decisionUse === "SOFT_RANK") { const accepted = Array.isArray(preference.normalizedValue) ? preference.normalizedValue : [preference.normalizedValue]; return total + (accepted.some((value) => variant.brand.localeCompare(String(value), "tr", { sensitivity: "base" }) === 0) ? 10 : 0); }

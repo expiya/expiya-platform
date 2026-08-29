@@ -34,13 +34,22 @@ const technicalOptions = [
   { code: "POWER", label: "daha yüksek doğrulanmış motor gücü", values: (v: CatalogVariantSnapshot) => v.decisionFacts.powertrain.powerKw.value },
   { code: "PRICE", label: "daha düşük doğrulanmış satın alma fiyatı", values: (v: CatalogVariantSnapshot) => v.activeNewPrice?.consumerVisibility === "PUBLIC" && v.activeNewPrice.realizationSafe ? v.activeNewPrice.amountTry : undefined },
   { code: "RANGE", label: "daha yüksek doğrulanmış elektrikli menzil", values: (v: CatalogVariantSnapshot) => v.decisionFacts.efficiency.electricRangeKm?.value },
+  { code: "WIDTH", label: "dar yerlerde daha avantajlı gövde genişliği", values: (v: CatalogVariantSnapshot) => v.decisionFacts.dimensions.widthMm?.value },
+  { code: "HEIGHT", label: "daha yüksek gövde", values: (v: CatalogVariantSnapshot) => v.decisionFacts.dimensions.heightMm?.value },
+  { code: "WHEELBASE", label: "daha uzun aks mesafesi", values: (v: CatalogVariantSnapshot) => v.decisionFacts.dimensions.wheelbaseMm?.value },
+  { code: "TORQUE", label: "daha yüksek tork", values: (v: CatalogVariantSnapshot) => v.decisionFacts.powertrain.torqueNm?.value },
+  { code: "PAYLOAD", label: "daha yüksek taşıma kapasitesi", values: (v: CatalogVariantSnapshot) => v.decisionFacts.dimensions.payloadKg?.value },
+  { code: "TOWING", label: "daha yüksek frenli römork çekme kapasitesi", values: (v: CatalogVariantSnapshot) => v.decisionFacts.dimensions.brakedTowingKg?.value },
+  { code: "CONSUMPTION", label: "daha düşük enerji veya yakıt tüketimi", values: (v: CatalogVariantSnapshot) => v.decisionFacts.efficiency.combinedKwhPer100Km?.value ?? v.decisionFacts.efficiency.combinedLitresPer100Km?.value },
+  { code: "BATTERY", label: "daha yüksek kullanılabilir batarya kapasitesi", values: (v: CatalogVariantSnapshot) => v.decisionFacts.efficiency.batteryUsableKwh?.value ?? v.decisionFacts.efficiency.batteryCapacityKwh?.value },
+  { code: "CHARGING", label: "daha yüksek azami DC şarj gücü", values: (v: CatalogVariantSnapshot) => v.decisionFacts.efficiency.maxDcChargeKw?.value },
 ] as const;
 
 export function planV3TechnicalDiscriminator(variants: readonly CatalogVariantSnapshot[], askedKeys: readonly string[], ledger: readonly PreferenceEvent[]): V3CandidateDiscriminatorPlan | undefined {
   if (variants.length < 2) return undefined;
   const asked = new Set(askedKeys.flatMap((key) => key.startsWith("technicalDiscriminator:") ? key.slice("technicalDiscriminator:".length).split("|") : []));
   const activeConcepts = new Set(ledger.filter((item) => item.status === "ACTIVE").map((item) => item.concept));
-  const conceptByCode: Readonly<Record<string, string>> = { COMPACT: "candidateCompactPriority", LUGGAGE: "candidateLuggagePriority", POWER: "candidatePowerPriority", PRICE: "candidatePricePriority", RANGE: "candidateRangePriority" };
+  const conceptByCode: Readonly<Record<string, string>> = { COMPACT: "candidateCompactPriority", LUGGAGE: "candidateLuggagePriority", POWER: "candidatePowerPriority", PRICE: "candidatePricePriority", RANGE: "candidateRangePriority", WIDTH: "candidateWidthPriority", HEIGHT: "candidateHeightPriority", WHEELBASE: "candidateWheelbasePriority", TORQUE: "candidateTorquePriority", PAYLOAD: "candidatePayloadPriority", TOWING: "candidateTowingPriority", CONSUMPTION: "candidateConsumptionPriority", BATTERY: "candidateBatteryPriority", CHARGING: "candidateChargingPriority" };
   const options = technicalOptions.filter((option) => {
     if (asked.has(option.code) || activeConcepts.has(conceptByCode[option.code]!)) return false;
     const values = variants.map(option.values).filter((value): value is number => typeof value === "number" && Number.isFinite(value));
@@ -50,7 +59,7 @@ export function planV3TechnicalDiscriminator(variants: readonly CatalogVariantSn
   const labels = options.map((item) => item.label);
   const technicalRounds = askedKeys.filter((key) => key.startsWith("technicalDiscriminator:")).length;
   const lead = technicalRounds === 0
-    ? "Şimdi seçenekleri ayıran doğrulanmış teknik farklara bakalım."
-    : "Teknik tarafta geriye kalan farklı bir ölçüt var.";
+    ? "Şimdi seçenekleri ayıran teknik farklara bakalım. Doğrulama seviyesi tamamlanmamış katalog değerlerini kullanırsak bunu sonuçta ayrıca belirteceğim."
+    : "Teknik tarafta geriye kalan farklı bir ölçüt var; doğrulama seviyesi tamamlanmamış değerler sonuçta ayrıca belirtilecek.";
   return { key: `technicalDiscriminator:${options.map((item) => item.code).join("|")}`, text: `${lead} Hangisini öne alalım: ${labels.length === 1 ? labels[0] : `${labels.slice(0, -1).join(", ")} veya ${labels.at(-1)}`}; yoksa bu gruptakilerden hiçbiri belirleyici değil mi?` };
 }
