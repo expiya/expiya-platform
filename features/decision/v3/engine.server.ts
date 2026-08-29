@@ -484,7 +484,10 @@ function selectQuestion(
       text: "Sürücü dahil, aynı anda toplam kaç kişilik bir araç gerekiyor?",
     };
   if (
-    usage === "MIXED_ROAD" &&
+    (usage === "MIXED_ROAD" ||
+      (usage === "RURAL_DAILY" &&
+        active(state, "roadCondition") &&
+        active(state, "cargoRequirement"))) &&
     !active(state, "bodyStyle") &&
     !keys.has("mixedRoadBody")
   )
@@ -918,6 +921,26 @@ export async function runV3Turn(input: {
           ...new Set([...base.askedQuestionKeys, "ruralUseDetail"]),
         ],
         lastQuestionKey: "ruralUseDetail",
+      },
+    };
+  const needsRuralRoadClarification =
+    recommendationRequested &&
+    latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue ===
+      "RURAL_DAILY" &&
+    Boolean(latestActiveLedgerEvent(ledger, "cargoRequirement")) &&
+    !latestActiveLedgerEvent(ledger, "roadCondition") &&
+    !base.askedQuestionKeys.includes("ruralRoadCondition");
+  if (needsRuralRoadClarification)
+    return {
+      kind: "V3_CONVERSATION",
+      message:
+        "Taşıma ihtiyacını kaydettim. Köye gidiş geliş güzergâhında bozuk, stabilize veya toprak yol var mı; yoksa yol çoğunlukla asfalt mı?",
+      state: {
+        ...base,
+        askedQuestionKeys: [
+          ...new Set([...base.askedQuestionKeys, "ruralRoadCondition"]),
+        ],
+        lastQuestionKey: "ruralRoadCondition",
       },
     };
   const needsCampingClarification =

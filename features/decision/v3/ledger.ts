@@ -21,7 +21,7 @@ const normalizedBody = (
   if (/panel\s*van|panelvan/iu.test(text)) return "PANEL VAN";
   const explicit = [
     [/(?:minibüs|yolcu van)/iu, "PASSENGER VAN"],
-    [/(?:pick\s*up|kamyonet)/iu, "PICKUP"],
+    [/(?:pick(?:\s|-)*up|kamyonet)/iu, "PICKUP"],
     [/\bmpv\b/iu, "MPV"],
     [/coupe|coupé/iu, "COUPE"],
     [/hatchback/iu, "HATCHBACK"],
@@ -612,6 +612,30 @@ export function applyPreferenceMessage(
         value: usage.value,
       }),
     );
+  if (/(?:bozuk(?:\s+ve\s+\p{L}+)?\s+yol|stabilize\s+yol|toprak\s+yol|mıcır(?:lı)?\s+yol|asfaltsız\s+yol|engebeli\s+yol|çamurlu\s+yol)/iu.test(text))
+    ledger = supersedeActive(
+      ledger,
+      event({
+        state: { ...state, ledger },
+        messageId,
+        text,
+        concept: "roadCondition",
+        value: "ROUGH_UNPAVED",
+        use: "NONE",
+      }),
+    );
+  if (/(?:yük|koli|ürün|kargo|malzeme|ekipman|fide|toprak).{0,60}(?:taşı|götür|getir|yükle)|(?:taşı|götür|getir|yükle).{0,60}(?:yük|koli|ürün|kargo|malzeme|ekipman|fide|toprak)/iu.test(text))
+    ledger = supersedeActive(
+      ledger,
+      event({
+        state: { ...state, ledger },
+        messageId,
+        text,
+        concept: "cargoRequirement",
+        value: "GOODS_TRANSPORT",
+        use: "NONE",
+      }),
+    );
   const body = normalizedBody(text);
   const answeredBody =
     state.lastQuestionKey === "bodyStyle"
@@ -628,9 +652,14 @@ export function applyPreferenceMessage(
             : /yolcu.*yük|birlikte/iu.test(text)
               ? "PASSENGER VAN"
               : undefined
-        : state.lastQuestionKey === "mixedRoadBody" &&
-            /(?:her\s*)?ikisi de/iu.test(text)
-          ? ["SUV", "PICKUP"]
+        : state.lastQuestionKey === "mixedRoadBody"
+          ? /pick(?:\s|-)*up|açık kasa/iu.test(text)
+            ? "PICKUP"
+            : /suv|kapalı bagaj/iu.test(text)
+              ? "SUV"
+              : /(?:her\s*)?ikisi de/iu.test(text)
+                ? ["SUV", "PICKUP"]
+                : undefined
           : undefined;
   if (body ?? answeredBody)
     ledger = supersedeActive(
