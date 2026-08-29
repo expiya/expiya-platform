@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { applySemanticPreferenceSignals, latestActiveLedgerEvent } from "./ledger";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
 import { detectExplicitUsagePurpose } from "./usageSemantics";
+import { evaluateV3Catalog } from "./catalogAdapter.server";
 
 const priorDisabled = process.env.CARS_V31_PROVIDER_DISABLED;
 afterEach(() => { if (priorDisabled === undefined) delete process.env.CARS_V31_PROVIDER_DISABLED; else process.env.CARS_V31_PROVIDER_DISABLED = priorDisabled; });
@@ -98,5 +99,25 @@ describe("V3 explicit usage semantics", () => {
     expect(latestActiveLedgerEvent(explicit, "primaryUsage")).toMatchObject({ normalizedValue: "PASSENGER_TRANSPORT", authority: "USER_EXPLICIT", decisionUse: "HARD_FILTER" });
     const low = applySemanticPreferenceSignals(state, [], "m2", [{ concept: "primaryUsage", normalizedValue: "URBAN_DAILY", sourceSpan: { start: 0, end: 5, text: "Aracı" }, confidence: 0.6, explicit: true }]);
     expect(latestActiveLedgerEvent(low, "primaryUsage")).toBeUndefined();
+  });
+
+  it("filters passenger-transport discovery to verified multi-passenger body structures", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const output = await runV3Turn({
+      conversationId: "usage:school-service-candidates",
+      messageId: "m1",
+      message: "Okul servisçiliği için daha fazla yolcu kapasiteli araç arıyorum.",
+      expectedRevision: 0,
+    });
+    const catalog = await evaluateV3Catalog(output.state.ledger);
+    expect(catalog.variants.length).toBeGreaterThan(0);
+    expect(catalog.variants.length).toBeLessThan(catalog.initialCount);
+    expect(
+      catalog.variants.every((variant) => {
+        const seats = variant.decisionFacts.dimensions.seats?.value ?? 0;
+        const body = variant.decisionFacts.bodyStyle.value.toUpperCase();
+        return seats >= 6 && (body.includes("PASSENGER VAN") || body.includes("MPV"));
+      }),
+    ).toBe(true);
   });
 });

@@ -26,6 +26,8 @@ async function main() {
     publicPayloadLeakageTestsPassed: true,
     promptfooConfigurationValidated: true,
     liveModelEvaluationPassed: false,
+    explicitFactProjectionPassed: false,
+    correctionProjectionPassed: false,
   });
   const payload = { version: "semantic-needs-shadow-report/v1", mode: "BOUNDED_FALLBACK", cases: results.length, neutralCases: results.length - failures.length, failedCases: failures.map((item) => item.id), plannerQuestionCoverage: plannerQuestions / results.length, shadowActivation, ...(process.argv.includes("--details") ? { results } : {}) };
   console.log(JSON.stringify(payload, null, 2));

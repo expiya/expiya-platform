@@ -68,6 +68,8 @@ async function main() {
     publicPayloadLeakageTestsPassed: true,
     promptfooConfigurationValidated: true,
     liveModelEvaluationPassed,
+    explicitFactProjectionPassed: false,
+    correctionProjectionPassed: false,
   });
   console.log(JSON.stringify({
     version: "semantic-needs-model-evaluation/v1",

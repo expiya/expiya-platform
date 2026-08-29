@@ -10,6 +10,8 @@ export interface AnalystActivationEvidence {
   readonly publicPayloadLeakageTestsPassed: boolean;
   readonly promptfooConfigurationValidated: boolean;
   readonly liveModelEvaluationPassed: boolean;
+  readonly explicitFactProjectionPassed: boolean;
+  readonly correctionProjectionPassed: boolean;
 }
 
 export interface AnalystActivationDecision {
@@ -44,9 +46,23 @@ export function evaluateAnalystActivation(
   if (questionInputBlockers.length > 0) return { maximumSafeMode: "SHADOW", allowed: false, blockers: questionInputBlockers };
 
   if (requestedMode === "QUESTION_INPUT") return { maximumSafeMode: "QUESTION_INPUT", allowed: true, blockers: [] };
+  const explicitProjectionBlockers = [
+    ...(!evidence.explicitFactProjectionPassed
+      ? ["EXPLICIT_FACT_PROJECTION_NOT_VERIFIED"]
+      : []),
+    ...(!evidence.correctionProjectionPassed
+      ? ["EXPLICIT_CORRECTION_PROJECTION_NOT_VERIFIED"]
+      : []),
+  ];
+  if (explicitProjectionBlockers.length === 0)
+    return {
+      maximumSafeMode: "EXPLICIT_FACTS_AND_QUESTIONS",
+      allowed: true,
+      blockers: [],
+    };
   return {
     maximumSafeMode: "QUESTION_INPUT",
     allowed: false,
-    blockers: ["EXPLICIT_FACT_PROJECTION_REQUIRES_SEPARATE_ACCEPTANCE_GATE"],
+    blockers: explicitProjectionBlockers,
   };
 }

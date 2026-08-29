@@ -11,6 +11,8 @@ const evidence = (override: Partial<AnalystActivationEvidence> = {}): AnalystAct
   publicPayloadLeakageTestsPassed: true,
   promptfooConfigurationValidated: true,
   liveModelEvaluationPassed: true,
+  explicitFactProjectionPassed: true,
+  correctionProjectionPassed: true,
   ...override,
 });
 
@@ -35,11 +37,16 @@ describe("Semantic Needs Analyst activation gate", () => {
     });
   });
 
-  it("never enables explicit-fact projection through the question-input gate", () => {
+  it("enables explicit-fact projection only after its separate acceptance evidence passes", () => {
     expect(evaluateAnalystActivation("EXPLICIT_FACTS_AND_QUESTIONS", evidence())).toEqual({
+      maximumSafeMode: "EXPLICIT_FACTS_AND_QUESTIONS",
+      allowed: true,
+      blockers: [],
+    });
+    expect(evaluateAnalystActivation("EXPLICIT_FACTS_AND_QUESTIONS", evidence({ explicitFactProjectionPassed: false }))).toEqual({
       maximumSafeMode: "QUESTION_INPUT",
       allowed: false,
-      blockers: ["EXPLICIT_FACT_PROJECTION_REQUIRES_SEPARATE_ACCEPTANCE_GATE"],
+      blockers: ["EXPLICIT_FACT_PROJECTION_NOT_VERIFIED"],
     });
   });
 });

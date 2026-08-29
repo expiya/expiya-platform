@@ -81,7 +81,16 @@ function matches(variant: CatalogVariantSnapshot, preference: PreferenceEvent): 
   if (preference.field === "seats") return (variant.decisionFacts.dimensions.seats?.value ?? 0) >= Number(preference.normalizedValue);
   if (preference.field === "price") return v34MatchesBudget(variant, Number(preference.normalizedValue));
   if (preference.field === "equipmentFeature") return v35EquipmentMatchAuthority(variant, String(preference.normalizedValue)) !== "NO_MATCH";
-  if (preference.field === "usagePurpose") return preference.normalizedValue === "COMMERCIAL" ? variant.decisionFacts.vehicleUseClass?.value === "LIGHT_COMMERCIAL" : true;
+  if (preference.field === "usagePurpose") {
+    if (preference.normalizedValue === "COMMERCIAL")
+      return variant.decisionFacts.vehicleUseClass?.value === "LIGHT_COMMERCIAL";
+    if (preference.normalizedValue === "PASSENGER_TRANSPORT") {
+      const seats = variant.decisionFacts.dimensions.seats?.value ?? 0;
+      const body = variant.decisionFacts.bodyStyle.value.toLocaleUpperCase("tr-TR");
+      return seats >= 6 && (body.includes("PASSENGER VAN") || body.includes("MPV"));
+    }
+    return true;
+  }
   return true;
 }
 

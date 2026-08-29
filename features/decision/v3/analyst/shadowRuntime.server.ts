@@ -2,12 +2,13 @@ import { createHash } from "node:crypto";
 import type { CatalogVariantSnapshot } from "../../v2/catalog/types";
 import { activeDecisionPreferences } from "../ledger";
 import { evaluateV3Catalog, rankV3Candidates } from "../catalogAdapter.server";
-import { runV3Turn } from "../engine.server";
+import { createV3ConversationState, runV3Turn } from "../engine.server";
 import type { V3PublicResponse } from "../types";
 import { analyzeSemanticNeeds, type SemanticAnalystInput } from "./provider.server";
 import { governSemanticNeedsAnalysis, type RejectedSignal } from "./governance";
 import { planDeterministicQuestion, type CatalogCapabilitySnapshot, type MaterialQuestion, type QuestionEvaluation, type QuestionPlanningResult } from "./planner";
 import { recordAnalystTrace } from "./traceStore.server";
+import { projectGovernedAnalystFacts } from "./projection";
 
 export type AnalystMode = "OFF" | "SHADOW" | "QUESTION_INPUT" | "EXPLICIT_FACTS_AND_QUESTIONS";
 export interface AnalystEvaluationTrace {
@@ -21,10 +22,11 @@ export function resolveAnalystMode(value = process.env.CARS_SEMANTIC_ANALYST_MOD
   if (value === "SHADOW") return "SHADOW";
   if (value === "QUESTION_INPUT") return process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY === "true" ? "QUESTION_INPUT" : "SHADOW";
   if (value === "EXPLICIT_FACTS_AND_QUESTIONS") {
-    // Explicit-fact projection intentionally has no runtime activation path yet.
-    // The separate acceptance gate rejects this mode until append-only ledger
-    // projection and its release evidence are implemented and reviewed.
-    return process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY === "true" ? "QUESTION_INPUT" : "SHADOW";
+    if (process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY !== "true")
+      return "SHADOW";
+    return process.env.CARS_SEMANTIC_ANALYST_EXPLICIT_FACTS_READY === "true"
+      ? "EXPLICIT_FACTS_AND_QUESTIONS"
+      : "QUESTION_INPUT";
   }
   return "OFF";
 }
@@ -97,11 +99,23 @@ export async function runV3TurnWithAnalyst(input: Parameters<typeof runV3Turn>[0
   if (mode === "SHADOW" && !shouldSampleShadow(input.conversationId)) return runV3Turn(input);
   const prior = input.state; const provider = input.analystProvider ?? analyzeSemanticNeeds;
   const analysisPromise = provider({ message: input.message, sourceMessageId: input.messageId, conversationRevision: input.expectedRevision, activeExplicitStatements: (prior?.ledger ?? []).filter((item) => item.status === "ACTIVE" && item.authority === "USER_EXPLICIT").map((item) => ({ concept: item.concept, value: item.normalizedValue })), rejectedOrSuperseded: (prior?.ledger ?? []).filter((item) => ["REJECTED", "SUPERSEDED", "CLEARED"].includes(item.status)).map((item) => ({ concept: item.concept, status: item.status as "REJECTED" | "SUPERSEDED" | "CLEARED" })), pendingQuestionPurpose: prior?.lastQuestionKey, signal: input.signal });
-  const output = await runV3Turn(input); const analysis = await analysisPromise; const governed = governSemanticNeedsAnalysis(input.message, analysis);
+  const analysis = await analysisPromise;
+  const governed = governSemanticNeedsAnalysis(input.message, analysis);
+  const engineInput = mode === "EXPLICIT_FACTS_AND_QUESTIONS"
+    ? {
+        ...input,
+        state: projectGovernedAnalystFacts(
+          input.state ?? createV3ConversationState(input.conversationId),
+          input.messageId,
+          governed,
+        ),
+      }
+    : input;
+  const output = await runV3Turn(engineInput);
   const budgetMode = output.state.budgetMode ?? "NEEDS_ONLY";
   let variants: readonly CatalogVariantSnapshot[] = []; try { variants = (await evaluateV3Catalog(output.state.ledger, undefined, budgetMode)).variants; } catch { variants = []; }
   const planning = planDeterministicQuestion({ activePreferences: activeDecisionPreferences(output.state.ledger), analystFacts: governed.acceptedExplicitFacts, analystHypotheses: governed.acceptedHypotheses, candidateSnapshot: { candidateIds: variants.map((item) => item.id) }, catalogCapabilities: buildCatalogCapabilitySnapshot(variants), askedQuestionKeys: mode === "QUESTION_INPUT" ? output.state.askedQuestionKeys.filter((key) => key !== output.state.lastQuestionKey) : output.state.askedQuestionKeys, answeredConcepts: activeDecisionPreferences(output.state.ledger).map((item) => item.concept), rejectedConcepts: output.state.ledger.filter((item) => item.status === "REJECTED").map((item) => item.concept), conversationTurn: output.state.revision, questionFatigue: output.state.askedQuestionKeys.length });
-  const finalOutput = mode === "QUESTION_INPUT" ? reconcileQuestionInput(output, planning) : output;
+  const finalOutput = mode === "QUESTION_INPUT" || mode === "EXPLICIT_FACTS_AND_QUESTIONS" ? reconcileQuestionInput(output, planning) : output;
   const trace: AnalystEvaluationTrace = { mode, origin: analysis.origin, acceptedExplicitFacts: governed.acceptedExplicitFacts.map((item) => item.concept), rejectedExplicitFacts: governed.rejectedExplicitFacts, acceptedHypotheses: governed.acceptedHypotheses.map((item) => item.concept), rejectedHypotheses: governed.rejectedHypotheses, questionEvaluations: planning.evaluatedCandidates, ...(planning.selectedQuestion ? { selectedQuestionKey: planning.selectedQuestion.key } : {}), ...(planning.noQuestionReason ? { noQuestionReason: planning.noQuestionReason } : {}), decisionNeutralityFingerprint: fingerprintResponse(finalOutput, variants.map((item) => item.id), rankV3Candidates(variants, finalOutput.state.ledger, budgetMode).map((item) => item.id)) };
   const envelope = { conversationId: input.conversationId, sourceMessageId: input.messageId, revision: finalOutput.state.revision, trace };
   recordAnalystTrace(envelope); input.onAnalystTrace?.(envelope);

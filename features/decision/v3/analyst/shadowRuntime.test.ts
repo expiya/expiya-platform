@@ -28,7 +28,7 @@ describe("OFF/SHADOW decision neutrality", () => {
     process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY = "true";
     expect(resolveAnalystMode("QUESTION_INPUT")).toBe("QUESTION_INPUT"); expect(resolveAnalystMode("EXPLICIT_FACTS_AND_QUESTIONS")).toBe("QUESTION_INPUT");
     process.env.CARS_SEMANTIC_ANALYST_EXPLICIT_FACTS_READY = "true";
-    expect(resolveAnalystMode("EXPLICIT_FACTS_AND_QUESTIONS")).toBe("QUESTION_INPUT");
+    expect(resolveAnalystMode("EXPLICIT_FACTS_AND_QUESTIONS")).toBe("EXPLICIT_FACTS_AND_QUESTIONS");
   });
   it("OFF does not call the analyst", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true"; const provider = vi.fn();
@@ -77,6 +77,42 @@ describe("OFF/SHADOW decision neutrality", () => {
     expect(output.state.lastQuestionKey).toBe("passengerCapacity");
     expect(output.message).toMatch(/toplam kaç kişilik/iu);
     expect(output.message).not.toMatch(/park kolaylığı|ferah ve yüksek/iu);
+  });
+  it("projects governed model facts before candidate and question planning in explicit mode", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY = "true";
+    process.env.CARS_SEMANTIC_ANALYST_EXPLICIT_FACTS_READY = "true";
+    const message = "Öğrenci taşıma amaçlı sıfır araç arıyorum.";
+    const output = await runV3TurnWithAnalyst({
+      conversationId: "explicit-projection-runtime",
+      messageId: "m1",
+      message,
+      expectedRevision: 0,
+      analystMode: "EXPLICIT_FACTS_AND_QUESTIONS",
+      analystProvider: async () => ({
+        version: "1.0",
+        origin: "MODEL",
+        sourceMessageId: "m1",
+        conversationRevision: 0,
+        explicitFacts: [
+          {
+            concept: "primaryUsage",
+            normalizedValue: "PASSENGER_TRANSPORT",
+            sourceSpan: { start: 0, end: message.length, text: message },
+            confidence: 0.99,
+            explicitness: "USER_EXPLICIT",
+            confirmationRequired: false,
+          },
+        ],
+        hypotheses: [],
+        unknowns: [],
+        corrections: [],
+      }),
+    });
+    expect(output.state.ledger.some((item) => item.id.includes(":analyst:primaryUsage:"))).toBe(true);
+    expect(output.state.lastQuestionKey).toBe("passengerCapacity");
+    expect(output.message).toMatch(/toplam kaç kişilik/iu);
+    expect(JSON.stringify(output)).not.toMatch(/acceptedExplicitFacts|questionEvaluations|decisionNeutralityFingerprint/iu);
   });
   it("changes only the material question while preserving candidates and rank order in QUESTION_INPUT", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true"; process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY = "true";
