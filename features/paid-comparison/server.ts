@@ -30,6 +30,19 @@ export async function getPaidComparisonOptions(handoff: string, now = new Date()
   });
   return {
     decisionVariantId: opened.handoff.selectedExactVariantId,
+    decision: (() => {
+      const variant = catalog.variantById.get(opened.handoff.selectedExactVariantId)!;
+      return {
+        exactVariantId: variant.id,
+        brand: variant.brand,
+        model: variant.model,
+        trim: variant.trim,
+        bodyStyle: variant.decisionFacts.bodyStyle.value,
+        fuelType: variant.decisionFacts.powertrain.fuelType.value,
+        amountTry: variant.activeNewPrice!.amountTry,
+        priceValidFrom: variant.activeNewPrice!.validFrom,
+      };
+    })(),
     comparisonClass: catalog.variantById.get(opened.handoff.selectedExactVariantId)!.decisionFacts.bodyStyle.value,
     catalogReleaseVersion: catalog.authority.releaseVersion,
     catalogFingerprint: catalog.authority.catalogFingerprint,

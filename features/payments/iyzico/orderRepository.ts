@@ -1,4 +1,5 @@
 import type { SqlConnection, SqlQueryable } from "@/features/vehicle-data/repository";
+import { paidComparisonLegalArtifacts, type PaidComparisonLegalAcceptance } from "@/features/paid-comparison/legalArtifacts";
 
 export interface CheckoutOrderContext {
   readonly orderId: string;
@@ -9,12 +10,13 @@ export interface CheckoutOrderContext {
 }
 
 export interface IyzicoOrderRepository {
-  createFromQuote(input: { readonly orderId: string; readonly quoteId: string; readonly now: Date }): Promise<CheckoutOrderContext>;
+  createFromQuote(input: { readonly orderId: string; readonly quoteId: string; readonly now: Date; readonly legalAcceptance: PaidComparisonLegalAcceptance; readonly subjectHash: string }): Promise<CheckoutOrderContext>;
   markInitialized(input: { readonly orderId: string; readonly token: string; readonly expiresAt: Date }): Promise<void>;
   markFailed(orderId: string): Promise<void>;
   markReviewRequired(orderId: string): Promise<void>;
   findPendingByToken(token: string): Promise<CheckoutOrderContext>;
   markPaidAndQueue(input: { readonly orderId: string; readonly paymentId: string; readonly jobId: string; readonly now: Date }): Promise<void>;
+  grantReportAccess(input: { readonly orderId: string; readonly tokenHash: string }): Promise<void>;
 }
 
 export class PostgresIyzicoOrderRepository implements IyzicoOrderRepository {
@@ -36,7 +38,7 @@ export class PostgresIyzicoOrderRepository implements IyzicoOrderRepository {
     }
   }
 
-  async createFromQuote(input: { readonly orderId: string; readonly quoteId: string; readonly now: Date }): Promise<CheckoutOrderContext> {
+  async createFromQuote(input: { readonly orderId: string; readonly quoteId: string; readonly now: Date; readonly legalAcceptance: PaidComparisonLegalAcceptance; readonly subjectHash: string }): Promise<CheckoutOrderContext> {
     return this.transaction(async (connection) => {
       const result = await connection.query(
         `select id, amount_kurus, currency, status, expires_at
@@ -53,6 +55,19 @@ export class PostgresIyzicoOrderRepository implements IyzicoOrderRepository {
           (id, quote_id, provider, provider_conversation_id, status, created_at, updated_at)
          values ($1,$2,'IYZICO',$1,'CREATED',$3,$3)`,
         [input.orderId, input.quoteId, input.now.toISOString()],
+      );
+      if (input.legalAcceptance.acceptedAt !== input.now.toISOString()) throw new TypeError("PAID_COMPARISON_LEGAL_ACCEPTANCE_TIME_INVALID");
+      await connection.query(
+        `insert into paid_report_legal_acceptances
+          (order_id, quote_id, pre_information_version, pre_information_checksum,
+           distance_contract_version, distance_contract_checksum,
+           immediate_performance_version, immediate_performance_checksum, subject_hash, accepted_at)
+         values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`,
+        [input.orderId, input.quoteId,
+          input.legalAcceptance.preInformationVersion, paidComparisonLegalArtifacts.preInformation.checksum,
+          input.legalAcceptance.distanceContractVersion, paidComparisonLegalArtifacts.distanceContract.checksum,
+          input.legalAcceptance.immediatePerformanceVersion, paidComparisonLegalArtifacts.immediatePerformance.checksum,
+          input.subjectHash, input.legalAcceptance.acceptedAt],
       );
       await connection.query(`update comparison_report_quotes set status = 'CHECKOUT_STARTED' where id = $1`, [input.quoteId]);
       return { orderId: input.orderId, quoteId: input.quoteId, amountKurus: quote.amount_kurus, currency: "TRY" };
@@ -114,5 +129,14 @@ export class PostgresIyzicoOrderRepository implements IyzicoOrderRepository {
       );
       await connection.query(`update comparison_report_quotes set status = 'CONSUMED' where id = $1`, [quoteId]);
     });
+  }
+
+  async grantReportAccess(input: { readonly orderId: string; readonly tokenHash: string }): Promise<void> {
+    const result = await this.database.query(
+      `update paid_report_orders set access_token_hash = $2, updated_at = now()
+       where id = $1 and status = 'PAID' returning id`,
+      [input.orderId, input.tokenHash],
+    ) as { rows?: { id: string }[] };
+    if (!result.rows?.length) throw new TypeError("PAID_REPORT_ACCESS_GRANT_INVALID");
   }
 }

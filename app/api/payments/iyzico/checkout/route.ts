@@ -8,8 +8,20 @@ import { createIyzicoHttpClient } from "@/features/payments/iyzico/httpClient";
 import { PostgresIyzicoOrderRepository } from "@/features/payments/iyzico/orderRepository";
 import { getPostgresDatabase } from "@/lib/server/postgres";
 import { clientKey, enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
+import { paidComparisonLegalArtifacts } from "@/features/paid-comparison/legalArtifacts";
 
-const schema = z.strictObject({ quoteId: z.string().uuid(), buyer: iyzicoBuyerSchema });
+const schema = z.strictObject({
+  quoteId: z.string().uuid(),
+  buyer: iyzicoBuyerSchema,
+  legalAcceptance: z.strictObject({
+    preInformationVersion: z.literal(paidComparisonLegalArtifacts.preInformation.version),
+    distanceContractVersion: z.literal(paidComparisonLegalArtifacts.distanceContract.version),
+    immediatePerformanceVersion: z.literal(paidComparisonLegalArtifacts.immediatePerformance.version),
+    preInformationAccepted: z.literal(true),
+    distanceContractAccepted: z.literal(true),
+    immediatePerformanceAccepted: z.literal(true),
+  }),
+});
 
 function rawClientIp(request: Request): string {
   return request.headers.get("x-forwarded-for")?.split(",")[0]?.trim()
@@ -31,6 +43,7 @@ export async function POST(request: Request): Promise<Response> {
       IYZICO_LIVE_PAYMENTS_ENABLED: process.env.IYZICO_LIVE_PAYMENTS_ENABLED,
     });
     const callbackUrl = requireIyzicoCallbackUrl({ IYZICO_CALLBACK_URL: process.env.IYZICO_CALLBACK_URL, IYZICO_ENV: config.environment });
+    const now = new Date();
     const checkout = await startIyzicoCheckout({
       quoteId: input.quoteId,
       buyer: input.buyer,
@@ -39,6 +52,9 @@ export async function POST(request: Request): Promise<Response> {
       secretKey: config.secretKey,
       client: createIyzicoHttpClient(config),
       repository: new PostgresIyzicoOrderRepository(getPostgresDatabase()),
+      legalAcceptance: { ...input.legalAcceptance, acceptedAt: now.toISOString() },
+      subjectHash: clientKey(request),
+      now,
     });
     return Response.json(checkout, { status: 201, headers: { "Cache-Control": "no-store", "Referrer-Policy": "no-referrer" } });
   } catch (error) {

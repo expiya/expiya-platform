@@ -3,6 +3,7 @@ import { randomUUID } from "node:crypto";
 import type { IyzicoHttpClient } from "./httpClient";
 import { initializeIyzicoCheckout, retrieveIyzicoCheckout, type IyzicoBuyerInput } from "./checkout";
 import type { IyzicoOrderRepository } from "./orderRepository";
+import type { PaidComparisonLegalAcceptance } from "@/features/paid-comparison/legalArtifacts";
 
 export async function startIyzicoCheckout(input: {
   readonly quoteId: string;
@@ -12,12 +13,14 @@ export async function startIyzicoCheckout(input: {
   readonly secretKey: string;
   readonly client: IyzicoHttpClient;
   readonly repository: IyzicoOrderRepository;
+  readonly legalAcceptance: PaidComparisonLegalAcceptance;
+  readonly subjectHash: string;
   readonly orderId?: string;
   readonly now?: Date;
 }) {
   const now = input.now ?? new Date();
   const orderId = input.orderId ?? randomUUID();
-  const order = await input.repository.createFromQuote({ orderId, quoteId: input.quoteId, now });
+  const order = await input.repository.createFromQuote({ orderId, quoteId: input.quoteId, now, legalAcceptance: input.legalAcceptance, subjectHash: input.subjectHash });
   try {
     const checkout = await initializeIyzicoCheckout({
       client: input.client,

@@ -1,6 +1,15 @@
 import { describe, expect, it, vi } from "vitest";
 
 import { PostgresIyzicoOrderRepository } from "./orderRepository";
+import { paidComparisonLegalArtifacts, type PaidComparisonLegalAcceptance } from "@/features/paid-comparison/legalArtifacts";
+
+const legalAcceptance: PaidComparisonLegalAcceptance = {
+  preInformationVersion: paidComparisonLegalArtifacts.preInformation.version,
+  distanceContractVersion: paidComparisonLegalArtifacts.distanceContract.version,
+  immediatePerformanceVersion: paidComparisonLegalArtifacts.immediatePerformance.version,
+  preInformationAccepted: true, distanceContractAccepted: true, immediatePerformanceAccepted: true,
+  acceptedAt: "2026-08-29T10:00:00.000Z",
+};
 
 describe("PostgresIyzicoOrderRepository", () => {
   it("locks and consumes only an unexpired, exact-price quote", async () => {
@@ -9,12 +18,14 @@ describe("PostgresIyzicoOrderRepository", () => {
       .mockResolvedValueOnce({ rows: [{ id: "quote", amount_kurus: 34_900, currency: "TRY", status: "READY_FOR_CHECKOUT", expires_at: "2026-08-29T10:30:00Z" }] })
       .mockResolvedValueOnce({})
       .mockResolvedValueOnce({})
+      .mockResolvedValueOnce({})
       .mockResolvedValueOnce({});
     const release = vi.fn();
     const repository = new PostgresIyzicoOrderRepository({ query, connect: async () => ({ query, release }) });
-    await expect(repository.createFromQuote({ orderId: "order", quoteId: "quote", now: new Date("2026-08-29T10:00:00Z") }))
+    await expect(repository.createFromQuote({ orderId: "order", quoteId: "quote", now: new Date("2026-08-29T10:00:00Z"), legalAcceptance, subjectHash: "a".repeat(24) }))
       .resolves.toEqual({ orderId: "order", quoteId: "quote", amountKurus: 34_900, currency: "TRY" });
     expect(String(query.mock.calls[1]?.[0])).toContain("for update");
+    expect(String(query.mock.calls[3]?.[0])).toContain("paid_report_legal_acceptances");
     expect(query.mock.calls.at(-1)?.[0]).toBe("commit");
     expect(release).toHaveBeenCalledOnce();
   });

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import StatusPanel from "./StatusPanel";
 
 export const metadata = {
   title: "Ödeme durumu | Expiya Cars",
@@ -25,6 +26,7 @@ export default async function PaidComparisonPaymentStatusPage({
             ? "Üç araçlık karar doğrulama raporunuz hazırlanmak üzere sıraya alındı. Rapor hazır olduğunda bu ekrandan güvenli biçimde erişebileceksiniz."
             : "Kartınızdan tahsilat yapıldığına dair bir bildirim görüyorsanız yeniden ödeme denemeyin. İşlem güvenli biçimde kontrol edilecektir."}
         </p>
+        <StatusPanel paymentSucceeded={succeeded} />
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <Link href="/" className="inline-flex min-h-12 items-center justify-center rounded-xl bg-neutral-950 px-5 font-medium text-white dark:bg-white dark:text-neutral-950">
             Expiya Cars’a dön
