@@ -14,7 +14,7 @@ const exactSpan = (message: string, span: { start: number; end: number; text: st
 const canonicalExplicitValue = (fact: AnalystExplicitFact, message: string): AnalystExplicitFact["normalizedValue"] | undefined => {
   const source = fact.sourceSpan.text;
   if (fact.concept === "primaryUsage") {
-    if (/köyde|kırsalda/iu.test(message)) return "RURAL_DAILY";
+    if (/köyde|kırsalda|bağ bahçe/iu.test(message)) return "RURAL_DAILY";
     return detectExplicitUsagePurpose(message)?.value;
   }
   if (fact.concept === "roadCondition") return /bozuk|stabilize|toprak|asfaltsız|mıcırlı|engebeli/iu.test(source) ? "ROUGH_UNPAVED" : undefined;

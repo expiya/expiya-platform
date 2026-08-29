@@ -38,6 +38,7 @@ export const OWNER_REVIEWED_ANALYST_CORPUS_V1: readonly AnalystCorpusCase[] = [
   { id: "shop-goods", message: "Dükkan için kolili ürünleri taşıyacağım.", expectedExplicit: [{ concept: "primaryUsage", value: "COMMERCIAL" }, { concept: "cargoRequirement", value: "GOODS_TRANSPORT" }] },
   { id: "gravel-road", message: "Mıcırlı ve asfaltsız yollarda kullanacağım araç arıyorum.", expectedExplicit: [{ concept: "primaryUsage", value: "MIXED_ROAD" }, { concept: "roadCondition", value: "ROUGH_UNPAVED" }] },
   { id: "rural-daily", message: "Kırsalda kullanacağım, toprak yollar var.", expectedExplicit: [{ concept: "primaryUsage", value: "RURAL_DAILY" }, { concept: "roadCondition", value: "ROUGH_UNPAVED" }] },
+  { id: "rural-orchard-work", message: "Köyde yaşıyorum. Bağ bahçe işleriyle uğraşıyorum. Araç almak istiyorum.", expectedExplicit: [{ concept: "primaryUsage", value: "RURAL_DAILY" }], forbiddenExplicitValues: ["COMMERCIAL", "GOODS_TRANSPORT", "PICKUP", "AWD"] },
   { id: "family-baby", message: "Bebek ve pusetle şehir içinde kullanacağımız araç arıyorum.", expectedExplicit: [{ concept: "primaryUsage", value: "FAMILY" }] },
   { id: "family-elder", message: "Yaşlı annemi hastaneye götürmek için otomobil arıyorum.", expectedExplicit: [{ concept: "primaryUsage", value: "FAMILY" }] },
   { id: "motorway-long", message: "Otoyolda sık uzun yol yapacağım bir araç istiyorum.", expectedExplicit: [{ concept: "primaryUsage", value: "LONG_DISTANCE" }] },

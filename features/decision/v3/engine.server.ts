@@ -900,6 +900,26 @@ export async function runV3Turn(input: {
     /(?:tek araç|alternatif|öner(?:i|ini|inizi)?|seç(?:elim|ebilirsin| lütfen)?|göster|paylaş)/iu.test(
       input.message,
     );
+  const needsRuralUseClarification =
+    recommendationRequested &&
+    latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue ===
+      "RURAL_DAILY" &&
+    !latestActiveLedgerEvent(ledger, "roadCondition") &&
+    !latestActiveLedgerEvent(ledger, "cargoRequirement") &&
+    !base.askedQuestionKeys.includes("ruralUseDetail");
+  if (needsRuralUseClarification)
+    return {
+      kind: "V3_CONVERSATION",
+      message:
+        "Köy ve bağ-bahçe kullanımını anladım. Aracın seçiminde asıl belirleyici olan hangisi: bozuk veya stabilize yollarda ilerlemek, ekipman ve ürün taşımak, yoksa çoğunlukla günlük ulaşım mı?",
+      state: {
+        ...base,
+        askedQuestionKeys: [
+          ...new Set([...base.askedQuestionKeys, "ruralUseDetail"]),
+        ],
+        lastQuestionKey: "ruralUseDetail",
+      },
+    };
   const needsCampingClarification =
     recommendationRequested &&
     /\bkamp\p{L}*/iu.test(input.message) &&
