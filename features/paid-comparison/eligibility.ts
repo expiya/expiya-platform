@@ -34,6 +34,32 @@ function comparisonClass(variant: CatalogVariantSnapshot): string {
   return variant.decisionFacts.bodyStyle.value.trim().toLocaleUpperCase("tr-TR");
 }
 
+export function listPaidComparisonAlternatives(input: {
+  readonly decisionVariantId: string;
+  readonly variants: readonly CatalogVariantSnapshot[];
+}): readonly CatalogVariantSnapshot[] {
+  const decision = input.variants.find((variant) => variant.id === input.decisionVariantId);
+  if (!decision) return [];
+  const expectedClass = comparisonClass(decision);
+  const decisionPrice = decision.activeNewPrice?.amountTry;
+  return input.variants
+    .filter((variant) => (
+      variant.id !== decision.id
+      && variant.lifecycleStatus === "ON_SALE"
+      && comparisonClass(variant) === expectedClass
+      && variant.identityProvenance.length > 0
+      && hasPublicListPrice(variant)
+    ))
+    .sort((left, right) => {
+      if (decisionPrice) {
+        const leftGap = Math.abs((left.activeNewPrice?.amountTry ?? Number.MAX_SAFE_INTEGER) - decisionPrice);
+        const rightGap = Math.abs((right.activeNewPrice?.amountTry ?? Number.MAX_SAFE_INTEGER) - decisionPrice);
+        if (leftGap !== rightGap) return leftGap - rightGap;
+      }
+      return left.id.localeCompare(right.id, "tr-TR");
+    });
+}
+
 export function assessPaidComparisonEligibility(input: {
   readonly decisionVariantId: string;
   readonly alternativeVariantIds: readonly [string, string];

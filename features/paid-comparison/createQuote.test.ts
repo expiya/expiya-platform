@@ -3,7 +3,7 @@ import { describe, expect, it } from "vitest";
 import type { CatalogVariantSnapshot } from "@/features/decision/v2/catalog/types";
 import { PAID_COMPARISON_PRICE_KURUS } from "./contracts";
 import { createPaidComparisonQuote } from "./createQuote";
-import { assessPaidComparisonEligibility } from "./eligibility";
+import { assessPaidComparisonEligibility, listPaidComparisonAlternatives } from "./eligibility";
 
 function variant(id: string, bodyStyle = "Hatchback", overrides: Partial<CatalogVariantSnapshot> = {}): CatalogVariantSnapshot {
   return {
@@ -89,5 +89,22 @@ describe("paid comparison quote", () => {
       alternativeVariantIds: ["alternative-1", "alternative-2"],
       variants: [variant("decision-car"), variant("alternative-1"), variant("alternative-2", "Hatchback", { activeNewPrice: undefined })],
     })).toEqual({ eligible: false, reason: "PUBLIC_LIST_PRICE_REQUIRED", exactVariantId: "alternative-2" });
+  });
+
+  it("lists only eligible same-class alternatives ordered by price proximity", () => {
+    const priced = (id: string, amountTry: number, bodyStyle = "Hatchback") => {
+      const value = variant(id, bodyStyle);
+      return { ...value, activeNewPrice: { ...value.activeNewPrice!, amountTry } };
+    };
+    const alternatives = listPaidComparisonAlternatives({
+      decisionVariantId: "decision-car",
+      variants: [
+        priced("decision-car", 1_500_000),
+        priced("far", 2_000_000),
+        priced("near", 1_550_000),
+        priced("suv", 1_500_000, "SUV"),
+      ],
+    });
+    expect(alternatives.map((item) => item.id)).toEqual(["near", "far"]);
   });
 });
