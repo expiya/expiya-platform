@@ -3,11 +3,11 @@
 import { FormEvent, useEffect, useState } from "react";
 import Link from "next/link";
 import { paidComparisonLegalVersions } from "@/features/paid-comparison/legalVersions";
+import { PAID_COMPARISON_HANDOFF_STORAGE_KEY } from "@/features/paid-comparison/clientContract";
 
 type Vehicle = { exactVariantId: string; brand: string; model: string; trim: string; bodyStyle: string; fuelType: string; amountTry: number; priceValidFrom: string };
 type Options = { conversationId: string; decisionId: string; decision: Vehicle; comparisonClass: string; alternatives: Vehicle[] };
 type Step = "loading" | "select" | "checkout" | "error";
-const HANDOFF_KEY = "expiya:paid-comparison-handoff";
 
 function money(value: number) { return new Intl.NumberFormat("tr-TR", { style: "currency", currency: "TRY", maximumFractionDigits: 0 }).format(value); }
 async function post<T>(url: string, body: unknown): Promise<T> {
@@ -32,7 +32,7 @@ export default function PaidComparisonFlow({ legalTexts }: { legalTexts: { preIn
   const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    const value = sessionStorage.getItem(HANDOFF_KEY) ?? "";
+    const value = sessionStorage.getItem(PAID_COMPARISON_HANDOFF_STORAGE_KEY) ?? "";
     if (!value) {
       Promise.resolve().then(() => { setMessage("Karar kartından gelen güvenli seçim bilgisi bulunamadı."); setStep("error"); });
       return;
@@ -82,7 +82,7 @@ export default function PaidComparisonFlow({ legalTexts }: { legalTexts: { preIn
           immediatePerformanceAccepted: form.get("immediatePerformanceAccepted") === "on",
         },
       });
-      sessionStorage.removeItem(HANDOFF_KEY);
+      sessionStorage.removeItem(PAID_COMPARISON_HANDOFF_STORAGE_KEY);
       event.currentTarget.reset();
       window.location.assign(safeIyzicoUrl(result.paymentPageUrl));
     } catch (error) { setMessage((error as Error).message); setBusy(false); }

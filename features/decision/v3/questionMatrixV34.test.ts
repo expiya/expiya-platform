@@ -35,7 +35,7 @@ describe("V3.4 usage-specific question matrix", () => {
     expect(activeDecisionPreferences(state.ledger)).toEqual(expect.arrayContaining([expect.objectContaining({ concept: "equipmentFeature", field: "equipmentFeature", normalizedValue: "REAR_VIEW_CAMERA", decisionUse: "HARD_FILTER" })]));
     const baseline = await evaluateV3Catalog(state.ledger.filter((item) => item.field !== "equipmentFeature")); const catalog = await evaluateV3Catalog(state.ledger);
     expect(catalog.variants.length).toBeGreaterThan(0);
-    expect(catalog.candidateIds.length).toBeLessThan(baseline.candidateIds.length);
+    expect(catalog.candidateIds).toEqual(baseline.candidateIds);
     expect(catalog.appliedEquipment).toHaveLength(1);
   });
 

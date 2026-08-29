@@ -281,6 +281,14 @@ export function enforceInterpretationSemanticCompleteness(input: { readonly resu
 
   const lookup = text.match(/^\s*([\p{L}\p{N}][\p{L}\p{N}'’.-]*(?:\s+[\p{L}\p{N}][\p{L}\p{N}'’.-]*){0,2})\s+(?:katalogda\s+)?(?:var mı|mevcut mu)\??\s*$/iu);
   if (lookup && references.length === 0) { references.push({ rawText: lookup[1]!, parsedModelText: lookup[1]!, purpose: "LOOKUP_ONLY" }); addAct("MODEL_LOOKUP_REQUEST"); }
+  const genericCatalogDiscoveryQuestion = /^(?:(?:selam|merhaba)(?:lar)?[,.]?\s+)?(?:hangi|ne tür|ne çeşit)\s+(?:araçlar|arabalar|otomobiller|modeller)\s+(?:var|mevcut)(?:\s+mı)?[?.!]*$/iu.test(text);
+  if (genericCatalogDiscoveryQuestion) {
+    for (let index = acts.length - 1; index >= 0; index -= 1) if (["MODEL_LOOKUP_REQUEST", "MODEL_COMPARISON_REQUEST", "MODEL_SUITABILITY_REQUEST"].includes(acts[index]!)) acts.splice(index, 1);
+    for (let index = directAnswerRequests.length - 1; index >= 0; index -= 1) if (["MODEL_AVAILABILITY", "MODEL_COMPARISON", "MODEL_SUITABILITY"].includes(directAnswerRequests[index]!.kind)) directAnswerRequests.splice(index, 1);
+    references.splice(0, references.length);
+    addAct("VEHICLE_INTENT"); addAct("RECOMMENDATION_REQUEST");
+    if (!directAnswerRequests.some((request) => request.kind === "RECOMMENDATION_REQUEST")) directAnswerRequests.push({ kind: "RECOMMENDATION_REQUEST" });
+  }
   const descriptiveAvailabilityQuestion = catalogAttributeAvailabilityQuestion || /(?:arazi arac[ıi]).*(?:var mı|mevcut mu)/iu.test(text);
   if (descriptiveAvailabilityQuestion) {
     for (let index = acts.length - 1; index >= 0; index -= 1) if (["MODEL_LOOKUP_REQUEST", "MODEL_SUITABILITY_REQUEST"].includes(acts[index]!)) acts.splice(index, 1);

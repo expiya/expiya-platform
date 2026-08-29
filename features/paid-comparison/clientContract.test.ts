@@ -1,0 +1,20 @@
+import { describe, expect, it, vi } from "vitest";
+
+import {
+  PAID_COMPARISON_HANDOFF_STORAGE_KEY,
+  storePaidComparisonHandoff,
+} from "./clientContract";
+
+describe("paid comparison client handoff contract", () => {
+  it("stores the raw signed token under the key consumed by the comparison flow", () => {
+    const setItem = vi.fn();
+
+    storePaidComparisonHandoff({ setItem }, "p2.signed-token.signature");
+
+    expect(PAID_COMPARISON_HANDOFF_STORAGE_KEY).toBe("expiya:paid-comparison-handoff");
+    expect(setItem).toHaveBeenCalledWith(
+      "expiya:paid-comparison-handoff",
+      "p2.signed-token.signature",
+    );
+  });
+});

@@ -1,7 +1,7 @@
 import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { canonicalJson } from "../features/vehicle-data/ownerManualEvidence";
+import { canonicalJson } from "../features/automotive-knowledge/canonical";
 
 const ROOT = process.cwd();
 const OUT = path.join(ROOT, "data/research/owner-manual-evidence-v4");

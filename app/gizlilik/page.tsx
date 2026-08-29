@@ -12,7 +12,7 @@ const listClass = "list-disc space-y-2 pl-6 text-neutral-700 dark:text-neutral-3
 
 export default function PrivacyPage() {
   return (
-    <main className="min-h-screen bg-neutral-50 px-5 py-10 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:px-6 sm:py-16">
+    <main className="min-h-screen bg-white px-5 py-10 text-neutral-950 sm:px-6 sm:py-16">
       <article className="mx-auto max-w-3xl">
         <Link href="/" className="text-sm font-semibold text-neutral-600 underline underline-offset-4 hover:text-black dark:text-neutral-300 dark:hover:text-white">
           ← Expiya Cars&apos;a dön
@@ -29,7 +29,7 @@ export default function PrivacyPage() {
           <p className="text-neutral-700 dark:text-neutral-300">
             6698 sayılı Kişisel Verilerin Korunması Kanunu (&quot;KVKK&quot;) kapsamında veri sorumlusu
             <strong> SKYBIT YAZILIM VE BİLGİ TEKNOLOJİLERİ DANIŞMANLIĞI LİMİTED ŞİRKETİ</strong>&apos;dir.
-            Merkezi Fenerbahçe Mah. İğrip Sk. No: 13 İç Kapı No: 1 Kadıköy / İstanbul olan şirketin MERSİS numarası 0772162890400001&apos;dir. KVKK başvuruları için <a className="font-semibold underline underline-offset-4" href="mailto:serdar@expiya.com">serdar@expiya.com</a> adresi kullanılabilir.
+            Merkezi Fenerbahçe Mah. İğrip Sk. No: 13 İç Kapı No: 1 Kadıköy / İstanbul olan şirketin MERSİS numarası 0772162890400001&apos;dir. KVKK başvuruları için <a className="font-semibold underline underline-offset-4" href="mailto:iletisim@expiya.com">iletisim@expiya.com</a> adresi kullanılabilir.
           </p>
         </section>
 
@@ -115,7 +115,7 @@ export default function PrivacyPage() {
         <section className={sectionClass}>
           <h2 className={headingClass}>8. Başvuru yöntemi</h2>
           <p className="text-neutral-700 dark:text-neutral-300">
-            Başvurunuzu <a className="font-semibold underline underline-offset-4" href="mailto:serdar@expiya.com">serdar@expiya.com</a> adresine iletebilirsiniz. Başvurunuzda talebinizi açıkça belirtmeniz ve kimliğinizi doğrulamaya yetecek bilgileri paylaşmanız istenir; gereğinden fazla kişisel veri göndermeyin. Başvurular niteliklerine göre en kısa sürede ve en geç 30 gün içinde sonuçlandırılır. Kimlik doğrulanamayan veya başkasının verisine erişim riski doğuran taleplerde ek doğrulama istenebilir. KEP adresi ve alternatif yazılı başvuru kanalı henüz belirlenmemiştir.
+            Başvurunuzu <a className="font-semibold underline underline-offset-4" href="mailto:iletisim@expiya.com">iletisim@expiya.com</a> adresine iletebilirsiniz. Başvurunuzda talebinizi açıkça belirtmeniz ve kimliğinizi doğrulamaya yetecek bilgileri paylaşmanız istenir; gereğinden fazla kişisel veri göndermeyin. Başvurular niteliklerine göre en kısa sürede ve en geç 30 gün içinde sonuçlandırılır. Kimlik doğrulanamayan veya başkasının verisine erişim riski doğuran taleplerde ek doğrulama istenebilir. KEP adresi ve alternatif yazılı başvuru kanalı henüz belirlenmemiştir.
           </p>
         </section>
       </article>

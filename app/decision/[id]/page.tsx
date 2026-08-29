@@ -3,10 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import { saveFeedback } from "@/features/decision/feedback/saveFeedback";
 import { VehicleImageDisclosure } from "@/components/cars/VehicleImageDisclosure";
+import { PaidComparisonOffer } from "@/components/cars/PaidComparisonOffer";
 import { interpretRecommendation } from "@/features/decision/interpretRecommendation";
 import type { PersistedCarsConversation } from "@/types/carsConversation";
 import type { RecommendedCar } from "@/types/recommendation";
@@ -67,7 +68,7 @@ function readV2Card(decisionId: string): DecisionSafePublicCard | null {
 
 function V2DecisionDetail({ card }: { readonly card: DecisionSafePublicCard }) {
   const details = [card.modelYear, card.fuelLabel, card.transmissionLabel, card.bodyTypeLabel].filter(Boolean).join(" · ");
-  return <main className="min-h-screen bg-neutral-50 p-5 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:p-10">
+  return <main className="min-h-screen bg-white p-5 text-neutral-950 sm:p-10">
     <div className="mx-auto max-w-4xl">
       <Link href="/analysis" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
       <article className="mt-6 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
@@ -111,32 +112,8 @@ function readV3DecisionContext(decisionId: string): V3DecisionContext | null {
 function V3DecisionDetail({ context }: { readonly context: V3DecisionContext }) {
   const router = useRouter();
   const [opening, setOpening] = useState(false);
-  const [reportOpening, setReportOpening] = useState(false);
   const [error, setError] = useState<string>();
   const { card } = context;
-
-  const recordPaidReportEvent = useCallback((eventName: "OFFER_VIEWED" | "OFFER_CLICKED") => {
-    const eventId = crypto.randomUUID();
-    void fetch("/api/cars/paid-comparison/events", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ eventId, eventName, conversationId: context.conversationId, decisionId: context.offerId, exactVariantId: card.id }) });
-  }, [card.id, context.conversationId, context.offerId]);
-
-  useEffect(() => {
-    const key = `expiya:paid-comparison-offer-viewed:${context.offerId}:${card.id}`;
-    if (sessionStorage.getItem(key)) return;
-    sessionStorage.setItem(key, "1"); recordPaidReportEvent("OFFER_VIEWED");
-  }, [card.id, context.offerId, recordPaidReportEvent]);
-
-  async function openPaidComparison() {
-    if (reportOpening || opening) return;
-    setReportOpening(true); setError(undefined); recordPaidReportEvent("OFFER_CLICKED");
-    try {
-      const response = await fetch("/api/cars/sales-advisor/handoff", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ conversationId: context.conversationId, stateToken: context.stateToken, offerId: context.offerId, selectedExactVariantId: card.id }) });
-      const payload = await response.json() as { token?: string; error?: string };
-      if (!response.ok || !payload.token) throw new Error(payload.error ?? "Karşılaştırma raporu açılamadı.");
-      sessionStorage.setItem("expiya:paid-comparison-handoff", payload.token);
-      router.push("/cars/paid-comparison");
-    } catch (cause) { setError(cause instanceof Error ? cause.message : "Karşılaştırma raporu açılamadı."); setReportOpening(false); }
-  }
 
   async function openSalesAdvisor() {
     if (opening) return;
@@ -157,20 +134,36 @@ function V3DecisionDetail({ context }: { readonly context: V3DecisionContext }) 
     }
   }
 
-  return <main className="min-h-screen bg-neutral-50 p-5 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:p-10">
+  return <main className="min-h-screen bg-white p-5 text-neutral-950 sm:p-10">
     <div className="mx-auto max-w-4xl">
-      <Link href="/analysis?pilot=v3.8" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
+      <Link href="/" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
       <article className="mt-6 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
         <div className="relative aspect-[16/9]"><Image src={card.image} alt={`${card.title} araç görseli`} fill priority sizes="(max-width: 900px) 100vw, 850px" className="object-cover" /></div>
         <div className="space-y-5 p-6 sm:p-8">
           {card.imageStatus !== "EXACT" ? <p className="text-sm text-neutral-500">{card.imageStatus === "PLACEHOLDER" ? "Araç görseli hazırlanıyor." : `Temsilî görsel${card.representedModel ? `: ${card.representedModel}` : ""}`}</p> : null}
           {card.imageAttribution ? <p className="text-xs text-neutral-500">Görsel: {card.imageAttribution}</p> : null}
           <div><p className="text-sm font-semibold uppercase tracking-[0.18em] text-neutral-500">Önerilen araç</p><h1 className="mt-2 text-3xl font-bold sm:text-4xl">{card.title}</h1></div>
+          {card.decisionInsight ? <section className="rounded-3xl border border-emerald-200 bg-emerald-50 p-5 sm:p-6" aria-labelledby="v3-decision-title">
+            <p className="text-xs font-semibold uppercase tracking-[.18em] text-emerald-800">Karar özeti</p>
+            <h2 id="v3-decision-title" className="mt-2 text-2xl font-semibold text-emerald-950">{card.decisionInsight.leadingCandidateCount === 1 ? "Tek karar lideri" : `${card.decisionInsight.leadingCandidateCount} eşit karar liderinden biri`}</h2>
+            <div className="mt-4 grid gap-3 sm:grid-cols-2">
+              <div className="rounded-2xl bg-white p-4"><p className="text-sm text-neutral-500">Karar sırası</p><p className="mt-1 text-2xl font-semibold">1 / {card.decisionInsight.eligibleCount}</p></div>
+              <div className="rounded-2xl bg-white p-4"><p className="text-sm text-neutral-500">Lider sayısı</p><p className="mt-1 text-2xl font-semibold">{card.decisionInsight.leadingCandidateCount}</p></div>
+            </div>
+            <h3 className="mt-5 font-semibold text-emerald-950">Kararı etkileyen tercihler</h3>
+            <ul className="mt-3 grid gap-2 text-sm leading-6 text-emerald-950 sm:grid-cols-2">{card.decisionInsight.decisivePreferences.map((item) => <li key={item} className="rounded-xl bg-white px-3 py-2">✓ {item}</li>)}</ul>
+            <p className="mt-4 text-xs leading-5 text-emerald-800">Bu sıra mutlak araç kalitesi puanı değildir; görüşmede onayladığın tercihler içinde kalan uygun varyantların göreli sırasıdır.</p>
+          </section> : null}
           {card.badge ? <p className="inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-3 py-1.5 text-sm text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950 dark:text-emerald-200">{card.badge}</p> : null}
           {card.warning ? <p className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">{card.warning}</p> : null}
           {error ? <p role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-200">{error}</p> : null}
           <button type="button" onClick={() => void openSalesAdvisor()} disabled={opening} className="w-full rounded-2xl bg-emerald-600 px-5 py-4 text-left font-semibold text-white disabled:cursor-wait disabled:opacity-60">{opening ? "Satış danışmanı açılıyor…" : "Bu aracı daha yakından tanı ve satış danışmanına geç →"}</button>
-          <section className="rounded-2xl border border-emerald-200 bg-emerald-50 p-5 dark:border-emerald-900 dark:bg-emerald-950/30"><p className="text-xs font-semibold uppercase tracking-[0.16em] text-emerald-800 dark:text-emerald-300">İsteğe bağlı ayrıntılı rapor</p><h2 className="mt-2 text-xl font-semibold">Kararını iki alternatifle doğrula</h2><p className="mt-2 text-sm leading-6 text-neutral-700 dark:text-neutral-300">Bu ücretsiz karar eksiksizdir. İstersen aynı sınıftan seçeceğin iki araçla kaynaklı, kişiselleştirilmiş karşılaştırma raporu oluşturabiliriz.</p><ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral-700 dark:text-neutral-300"><li>Üç exact varyant ve güncel liste fiyatı</li><li>İhtiyaçlarına göre şeffaf puan dökümü</li><li>Hangi koşulda hangi aracın öne çıktığı</li></ul><div className="mt-4 flex items-center justify-between gap-4"><strong className="text-xl">349 TL <span className="text-xs font-normal text-neutral-600">KDV dâhil</span></strong><button type="button" onClick={() => void openPaidComparison()} disabled={reportOpening || opening} className="min-h-11 rounded-xl bg-neutral-950 px-4 text-sm font-semibold text-white disabled:opacity-50 dark:bg-white dark:text-neutral-950">{reportOpening ? "Hazırlanıyor…" : "Alternatifleri seç"}</button></div></section>
+          <PaidComparisonOffer
+            conversationId={context.conversationId}
+            stateToken={context.stateToken}
+            offerId={context.offerId}
+            selectedExactVariantId={card.id}
+          />
         </div>
       </article>
     </div>
@@ -218,7 +211,7 @@ export default function DecisionDetailPage() {
   }, [decisionId]);
 
   if (recommendation === undefined || v2Card === undefined || v3Context === undefined) {
-    return <main className="min-h-screen bg-neutral-50 dark:bg-neutral-950" aria-label="Karar yükleniyor" />;
+    return <main className="min-h-screen bg-white" aria-label="Karar yükleniyor" />;
   }
 
   if (!recommendation && v2Card) return <V2DecisionDetail card={v2Card} />;
@@ -226,7 +219,7 @@ export default function DecisionDetailPage() {
 
   if (!recommendation) {
     return (
-      <main className="min-h-screen bg-neutral-50 p-10 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
+      <main className="min-h-screen bg-white p-10 text-neutral-950">
         <div className="mx-auto max-w-3xl">
           <h1 className="text-4xl font-bold">Karar bulunamadı</h1>
           <p className="mt-4 text-neutral-600 dark:text-neutral-300">
@@ -276,7 +269,7 @@ export default function DecisionDetailPage() {
   }
 
   return (
-    <main className="min-h-screen bg-neutral-50 p-5 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:p-10">
+    <main className="min-h-screen bg-white p-5 text-neutral-950 sm:p-10">
       <div className="mx-auto max-w-4xl">
         <Link href="/analysis" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">
           ← Görüşmeye dön

@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { describe, expect, it } from "vitest";
-import { evaluateV3Catalog, rankV3Candidates } from "./catalogAdapter.server";
+import { evaluateV3Catalog, rankV3Candidates, v35EquipmentMatchAuthority } from "./catalogAdapter.server";
 import { projectV3DecisionPreferences } from "./decisionInput";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
 import type { PreferenceEvent } from "./types";
@@ -57,14 +57,14 @@ describe("V3 verified/unverified and budget decision boundary", () => {
     expect(output.state.budgetModeEvents).toEqual([]);
   });
 
-  it("uses only exact-verified standard equipment as a hard filter without changing ranking semantics", async () => {
+  it("ranks exact-verified equipment ahead without treating unknown as verified absence", async () => {
     const catalog = await evaluateV3Catalog([]);
     const equipment = { id: "e", sourceMessageId: "1", sourceTurn: 1, sourceSpan: { start: 0, end: 1, text: "x" }, concept: "equipmentFeature", field: "equipmentFeature", normalizedValue: "REAR_VIEW_CAMERA", strength: "EXPLICIT_STRONG", status: "ACTIVE", decisionUse: "HARD_FILTER", confidence: 1, authority: "USER_EXPLICIT", confirmationRequired: false } as const;
     const withEquipment = await evaluateV3Catalog([equipment]);
-    expect(withEquipment.candidateIds.length).toBeLessThan(catalog.candidateIds.length);
+    expect(withEquipment.candidateIds).toEqual(catalog.candidateIds);
     expect(withEquipment.appliedEquipment).toHaveLength(1);
     expect(withEquipment.unsupportedEquipment).toHaveLength(0);
-    expect(rankV3Candidates(withEquipment.variants, [equipment]).map((item) => item.id)).toEqual(rankV3Candidates(withEquipment.variants, []).map((item) => item.id));
+    expect(v35EquipmentMatchAuthority(rankV3Candidates(withEquipment.variants, [equipment])[0]!, "REAR_VIEW_CAMERA")).toBe("VERIFIED");
   });
 
   it("keeps an unverified-only requirement decision-neutral and reports it as unsupported", async () => {

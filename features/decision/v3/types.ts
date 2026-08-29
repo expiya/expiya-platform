@@ -8,6 +8,8 @@ export const V3_ROUTES = [
 export type V3Route = typeof V3_ROUTES[number];
 export type V3MessageAct = "SOCIAL" | "AUTOMOTIVE_QUESTION" | "VEHICLE_PURCHASE_INTENT" | "PREFERENCE_SIGNAL" | "DECISION_REQUEST" | "CORRECTION" | "CLOSING";
 export type V3SemanticContextKind = "FIRST_TIME_DRIVER" | "PURCHASE_RESEARCH" | "CURRENT_VEHICLE_OWNER";
+export const V3_USAGE_PURPOSES = ["URBAN_DAILY", "FAMILY", "LONG_DISTANCE", "COMMERCIAL", "CORPORATE_TRAVEL", "PASSENGER_TRANSPORT", "MIXED_ROAD", "RURAL_DAILY"] as const;
+export type V3UsagePurpose = typeof V3_USAGE_PURPOSES[number];
 export type PurchaseIntentState = "NOT_EXPRESSED" | "POSSIBLE" | "EXPLICIT" | "ACTIVE_DISCOVERY" | "READY_FOR_DECISION" | "ENDED_WITHOUT_INTENT";
 export type PreferenceStrength = "EXPLICIT_HARD" | "EXPLICIT_STRONG" | "CONFIRMED_STRONG" | "WEAK_SIGNAL" | "UNCONFIRMED_HYPOTHESIS";
 export type PreferenceStatus = "ACTIVE" | "REJECTED" | "SUPERSEDED" | "CLEARED";
@@ -19,6 +21,7 @@ export interface V3RecommendationTermsAcceptance { readonly version: "REC-2026.0
 
 export interface SourceSpan { readonly start: number; readonly end: number; readonly text: string }
 export interface V3SemanticContextSignal { readonly kind: V3SemanticContextKind; readonly sourceSpan: SourceSpan; readonly confidence: number }
+export interface V3SemanticPreferenceSignal { readonly concept: "primaryUsage"; readonly normalizedValue: V3UsagePurpose; readonly sourceSpan: SourceSpan; readonly confidence: number; readonly explicit: true }
 export interface RouterResult {
   readonly version: "3.8"; readonly route: V3Route; readonly confidence: number;
   readonly purchaseIntentEvidence: readonly SourceSpan[]; readonly decisionMutationAllowed: boolean;
@@ -47,8 +50,8 @@ export interface V3ConversationState {
 }
 export interface V3PublicResponse {
   readonly kind: "V3_CONVERSATION"; readonly message: string; readonly state: V3ConversationState;
-  readonly recommendations?: readonly { readonly id: string; readonly title: string; readonly image: string; readonly imageStatus: "EXACT" | "REPRESENTATIVE" | "APPROXIMATE" | "PLACEHOLDER"; readonly imageAttribution?: string; readonly representedModel?: string; readonly warning?: string; readonly badge?: string; readonly reason?: never }[];
+  readonly recommendations?: readonly { readonly id: string; readonly title: string; readonly image: string; readonly imageStatus: "EXACT" | "REPRESENTATIVE" | "APPROXIMATE" | "PLACEHOLDER"; readonly imageAttribution?: string; readonly representedModel?: string; readonly warning?: string; readonly badge?: string; readonly reason?: never; readonly decisionInsight?: { readonly eligibleCount: number; readonly leadingCandidateCount: number; readonly rank: 1; readonly decisivePreferences: readonly string[] } }[];
   readonly offerAwaitingConsent?: boolean;
-  readonly variantCounts?: { readonly total: number; readonly remaining: number };
+  readonly variantCounts?: { readonly total: number; readonly remaining: number; readonly leading?: number };
   readonly stateToken?: string;
 }

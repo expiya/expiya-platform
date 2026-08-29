@@ -4,7 +4,7 @@ import { getPostgresDatabase } from "@/lib/server/postgres";
 import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
 
 const eventSchema = z.object({
-  eventName: z.enum(["SELLER_RESEARCH_OPENED", "SELLER_RESEARCH_SUBMITTED"]),
+  eventName: z.enum(["SELLER_RESEARCH_OPENED", "SELLER_RESEARCH_SUBMITTED", "paid_comparison_offer_clicked"]),
   conversationId: z.string().uuid().optional(),
   decisionId: z.string().trim().min(1).max(100),
   carId: z.string().trim().min(1).max(100),

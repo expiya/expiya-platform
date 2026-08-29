@@ -5,6 +5,7 @@ import { createV3ConversationState, runV3Turn } from "./engine.server";
 import { routeConversationMessage } from "./router";
 import type { V3ConversationState } from "./types";
 import { createRecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
+import { advanceV3ToOffer, revealV3TestOffer } from "./testConversationDecision";
 
 async function conversation(id: string, messages: readonly string[]) {
   let state: V3ConversationState = createV3ConversationState(id); let output;
@@ -75,8 +76,8 @@ describe("V3 required conversation acceptance corpus", () => {
   });
 
   it("returns one car by default and at most three requested alternatives", async () => {
-    const one = await conversation("one", ["Yeni araç almak istiyorum", "Şehir içinde günlük kullanacağım", "Parkı kolay kompakt bir yapı olsun", "Kesin bütçem 3 milyon TL", "Elektrikli olsun", "Geri görüş kamerası kesin olsun", "Tek araç öner", "Evet, göster"]); expect(one.recommendations?.length).toBe(1);
-    const alternatives = await conversation("three", ["Yeni araç almak istiyorum", "Aile kullanımı için", "Daha ferah ve yüksek olsun", "Bütçe sorun değil", "Benzinli olsun", "Geri görüş kamerası kesin olsun", "Toyota olabilir", "Alternatif göster", "Evet, göster"]); expect(alternatives.recommendations?.length).toBeGreaterThan(0); expect(alternatives.recommendations?.length).toBeLessThanOrEqual(3);
+    let one = await conversation("one", ["Yeni araç almak istiyorum", "Şehir içinde günlük kullanacağım", "Parkı kolay kompakt bir yapı olsun", "Kesin bütçem 3 milyon TL", "Elektrikli olsun", "Geri görüş kamerası kesin olsun", "Tek araç öner"]); one = await revealV3TestOffer(await advanceV3ToOffer(one, "one-discriminator"), "one-reveal"); expect(one.recommendations?.length).toBe(1);
+    let alternatives = await conversation("three", ["Yeni araç almak istiyorum", "Aile kullanımı için", "Daha ferah ve yüksek olsun", "Bütçe sorun değil", "Benzinli olsun", "Geri görüş kamerası kesin olsun", "Toyota olabilir", "Alternatif göster"]); alternatives = await revealV3TestOffer(await advanceV3ToOffer(alternatives, "three-discriminator"), "three-reveal"); expect(alternatives.recommendations?.length).toBeGreaterThan(0); expect(alternatives.recommendations?.length).toBeLessThanOrEqual(3);
   });
 
   it("uses a bounded deterministic path when no provider is configured", async () => {

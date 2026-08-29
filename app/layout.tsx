@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Expiya Cars - Doğru Arabayı Birlikte Bulalım",
+  title: "Expiya Cars - Sana Uygun Sıfır Aracı Bul",
   description:
-    "Expiya Cars ihtiyaçlarınızı dinler, seçenekleri tartar ve net bir araç kararına ulaşmanıza yardımcı olur.",
+    "Expiya Cars, Türkiye'deki sıfır araç seçeneklerini ihtiyaçlarınıza ve bütçenize göre değerlendirerek doğru aracı seçmenize yardımcı olur.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="flex min-h-full flex-col">
         {children}
-        <footer className="border-t border-neutral-200 bg-white px-6 py-6 text-center text-sm text-neutral-600 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-300">
+        <footer className="site-legal-footer border-t border-neutral-200 bg-white px-6 py-6 text-center text-sm text-neutral-600 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-300">
           <Link href="/gizlilik" className="font-semibold underline underline-offset-4">
             Gizlilik ve KVKK Aydınlatma Metni
           </Link>

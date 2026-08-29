@@ -16,6 +16,13 @@ const weights: Readonly<Partial<Record<PreferenceEvent["concept"], Readonly<Part
   highRideHeight: { ADVENTURE: 0.75 },
   mixedRoadUse: { ADVENTURE: 0.75 },
   roofLoadLifestyle: { ADVENTURE: 0.75 },
+  candidateComfortPriority: { COMFORT: 0.75 },
+  candidatePracticalityPriority: { PRACTICALITY: 0.75 },
+  candidateTechnologyPriority: { TECHNOLOGY: 0.75 },
+  candidateSustainabilityPriority: { SUSTAINABILITY: 0.75 },
+  candidateDrivingPriority: { DRIVING_ENGAGEMENT: 0.75 },
+  candidateFamilyPriority: { FAMILY: 0.75 },
+  candidateDesignPriority: { DESIGN: 0.75 },
 });
 
 /** Persona evidence is a bounded ordering hint. It never evaluates eligibility or facts. */

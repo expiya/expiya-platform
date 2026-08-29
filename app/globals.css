@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.theme-dark, .theme-dark *));
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -11,14 +13,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    color-scheme: dark;
-  }
 }
 
 body {
@@ -54,43 +48,6 @@ select {
   opacity: 1;
 }
 
-@media (prefers-color-scheme: dark) {
-  ::placeholder {
-    color: #a3a3a3;
-  }
-
-  .expiya-adaptive-surface {
-    background-color: #0c0a09 !important;
-    color: #fafaf9 !important;
-  }
-
-  .expiya-adaptive-surface .bg-white {
-    background-color: #1c1917;
-  }
-
-  .expiya-adaptive-surface .bg-stone-50,
-  .expiya-adaptive-surface .bg-stone-100 {
-    background-color: #292524;
-  }
-
-  .expiya-adaptive-surface .border-stone-100,
-  .expiya-adaptive-surface .border-stone-200,
-  .expiya-adaptive-surface .border-stone-300 {
-    border-color: #44403c;
-  }
-
-  .expiya-adaptive-surface .text-stone-950,
-  .expiya-adaptive-surface .text-stone-900,
-  .expiya-adaptive-surface .text-stone-800 {
-    color: #fafaf9;
-  }
-
-  .expiya-adaptive-surface .text-stone-700,
-  .expiya-adaptive-surface .text-stone-600 {
-    color: #d6d3d1;
-  }
-
-  .expiya-adaptive-surface .text-stone-500 {
-    color: #a8a29e;
-  }
+body:has([data-cars-homepage]) > .site-legal-footer {
+  display: none;
 }

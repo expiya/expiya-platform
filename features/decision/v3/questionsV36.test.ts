@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { activeDecisionPreferences } from "./ledger";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
 import { routeConversationMessage } from "./router";
+import { evaluateV3Catalog } from "./catalogAdapter.server";
 
 const priorDisabled = process.env.CARS_V31_PROVIDER_DISABLED;
 afterEach(() => { if (priorDisabled === undefined) delete process.env.CARS_V31_PROVIDER_DISABLED; else process.env.CARS_V31_PROVIDER_DISABLED = priorDisabled; });
@@ -64,8 +65,79 @@ describe("V3.6 direct question behavior", () => {
     expect(output.message).toMatch(/benzinli.*dizel.*hibrit.*elektrikli/iu);
     expect(output.message).toMatch(/şehir içi.*hibrit/iu);
     expect(output.message).not.toMatch(/yeterince güvenilir|Yakıt türünde net bir tercihin/iu);
-    expect(output.state.lastQuestionKey).toMatch(/^verifiedEquipment:/u);
-    expect(output.message).toMatch(/geri görüş kamerası|park sensörleri|çevre görüş/iu);
+    expect(output.state.lastQuestionKey ?? "").not.toMatch(/^verifiedEquipment:/u);
+  });
+
+  it("explains that leaving fuel open is not an immediate fuel recommendation", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const id = "delegated-fuel-copy";
+    let output = await runV3Turn({ conversationId: id, messageId: "1", message: "Uzun yolda güvenli, aynı zamanda şehir içinde pratik bir sıfır araç arıyorum", expectedRevision: 0 });
+    while (output.state.lastQuestionKey !== "fuelType") {
+      const answer = output.state.lastQuestionKey?.startsWith("confirm:") ? "Evet, bunu öncelik yapalım" : "Bu seçeneklerden hiçbiri şart değil";
+      output = await runV3Turn({ conversationId: id, messageId: `step-${output.state.revision}`, message: answer, expectedRevision: output.state.revision, state: output.state });
+    }
+    const before = output.variantCounts?.remaining;
+    output = await runV3Turn({ conversationId: id, messageId: "fuel-open", message: "Yakıt türünü şimdilik açık bırakalım", expectedRevision: output.state.revision, state: output.state });
+    expect(output.message).toMatch(/araçları elemek için kullanmayacağım/iu);
+    expect(output.message).toMatch(/artı ve eksileriyle karşılaştıracağım/iu);
+    expect(output.state.lastQuestionKey).not.toBe("fuelType");
+    expect(activeDecisionPreferences(output.state.ledger).some((item) => item.concept === "fuelType")).toBe(false);
+    expect(output.variantCounts?.remaining).toBe(before);
+  });
+
+  it("keeps asking candidate-reducing questions instead of resolving a 12-way tie by ID", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const id = "long-road-safety-tie";
+    let output = await runV3Turn({ conversationId: id, messageId: "1", message: "Uzun yolda güvenli, aynı zamanda şehir içinde pratik bir araç arıyorum", expectedRevision: 0 });
+    output = await runV3Turn({ conversationId: id, messageId: "2", message: "Evet, bunu öncelik yapalım", expectedRevision: output.state.revision, state: output.state });
+    output = await runV3Turn({ conversationId: id, messageId: "3", message: "Yakıt türünü şimdilik açık bırakalım", expectedRevision: output.state.revision, state: output.state });
+    output = await runV3Turn({ conversationId: id, messageId: "4", message: "Her ikisi de olabilir", expectedRevision: output.state.revision, state: output.state });
+    expect(output.state.lastQuestionKey).not.toMatch(/^verifiedEquipment:/u);
+    output = await runV3Turn({ conversationId: id, messageId: "5", message: output.state.lastQuestionKey === "brandModel" ? "Marka tercihim yok" : "Bu gruptakilerden hiçbiri belirleyici değil", expectedRevision: output.state.revision, state: output.state });
+    expect(output.offerAwaitingConsent).not.toBe(true);
+    expect(output.recommendations).toBeUndefined();
+    output = await runV3Turn({ conversationId: id, messageId: "6", message: "Bu seçeneklerden hiçbiri şart değil", expectedRevision: output.state.revision, state: output.state });
+    expect(output.state.lastQuestionKey).toMatch(/^(personaDiscriminator|technicalDiscriminator):/u);
+    output = await runV3Turn({ conversationId: id, messageId: "7", message: "Bu gruptakilerden hiçbiri belirleyici değil", expectedRevision: output.state.revision, state: output.state });
+    expect(output.state.lastQuestionKey).toMatch(/^(personaDiscriminator|technicalDiscriminator):/u);
+    output = await runV3Turn({ conversationId: id, messageId: "8", message: "Bu gruptakilerden hiçbiri belirleyici değil", expectedRevision: output.state.revision, state: output.state });
+    expect(output.state.lastQuestionKey).toMatch(/^(verifiedEquipment|technicalDiscriminator):/u);
+    expect(output.message).toMatch(/teknik (?:farklar|tarafta)/iu);
+    output = await runV3Turn({ conversationId: id, messageId: "9", message: "Şehir içinde daha kısa gövde", expectedRevision: output.state.revision, state: output.state });
+    expect(output.offerAwaitingConsent).not.toBe(true);
+    expect(output.recommendations).toBeUndefined();
+    expect(output.state.lastQuestionKey).toMatch(/^(verifiedEquipment|technicalDiscriminator):/u);
+  });
+
+  it("records multiple technical differentiators without mistaking higher power for an SUV request", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const state = { ...createV3ConversationState("multi-technical"), purchaseIntent: "ACTIVE_DISCOVERY" as const, lastQuestionKey: "technicalDiscriminator:LUGGAGE|POWER", askedQuestionKeys: ["technicalDiscriminator:LUGGAGE|POWER"] };
+    const output = await runV3Turn({ conversationId: state.conversationId, messageId: "1", message: "Daha büyük bagaj veya daha yüksek doğrulanmış motor gücü", expectedRevision: 0, state });
+    const active = activeDecisionPreferences(output.state.ledger);
+    expect(active).toEqual(expect.arrayContaining([
+      expect.objectContaining({ concept: "candidateLuggagePriority" }),
+      expect.objectContaining({ concept: "candidatePowerPriority" }),
+    ]));
+    expect(active.some((item) => item.concept === "bodyStyle")).toBe(false);
+  });
+
+  it("keeps unknown-equipment electric variants and continues discriminating instead of choosing the UUID leader", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const id = "electric-city-equipment-depth";
+    let output = await runV3Turn({ conversationId: id, messageId: "1", message: "Şehir içinde günlük kullanacağım, karizmatik tam elektrikli bir araç satın almak istiyorum.", expectedRevision: 0 });
+    for (let index = 2; index < 8 && !output.state.lastQuestionKey?.startsWith("verifiedEquipment:"); index += 1) {
+      const answer = output.state.lastQuestionKey?.startsWith("confirm:") ? "Evet, bunu öncelik yapalım"
+        : output.state.lastQuestionKey === "bodyStyle" ? "Her ikisi de olabilir"
+          : output.state.lastQuestionKey === "fuelType" ? "Tam elektrikli"
+            : "Özel bir donanım şart değil";
+      output = await runV3Turn({ conversationId: id, messageId: String(index), message: answer, expectedRevision: output.state.revision, state: output.state });
+    }
+    output = await runV3Turn({ conversationId: id, messageId: "8", message: "Geri görüş kamerası, ön ve arka park sensörleri vazgeçilmez", expectedRevision: output.state.revision, state: output.state });
+    output = await runV3Turn({ conversationId: id, messageId: "9", message: "Temassız açılan bagaj kapağı, anahtarsız giriş ve anahtarsız çalıştırma vazgeçilmez", expectedRevision: output.state.revision, state: output.state });
+    const catalog = await evaluateV3Catalog(output.state.ledger, undefined, output.state.budgetMode);
+    expect(catalog.variants.length).toBeGreaterThan(1);
+    expect(output.offerAwaitingConsent).not.toBe(true);
+    expect(output.state.lastQuestionKey).toMatch(/^(verifiedEquipment|personaDiscriminator|technicalDiscriminator):/u);
   });
 
   it("varies conversational acknowledgement copy across consecutive turns", async () => {

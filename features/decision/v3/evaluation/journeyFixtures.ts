@@ -166,7 +166,7 @@ export const V3_SMOKE_JOURNEYS: readonly V3JourneyFixture[] = [
     id: "named-model-purchase",
     description: "Araç kelimesi olmadan Corolla satın alma niyetini ve model tercihini tanır",
     messages: ["Merhaba.", "Corolla almak istiyorum."],
-    expectation: { finalPurchaseIntent: "EXPLICIT", finalActivePreferences: { modelPreference: "Corolla" }, finalLastQuestionKey: "offerConsent" },
+    expectation: { finalPurchaseIntent: "EXPLICIT", finalActivePreferences: { modelPreference: "Corolla" }, finalLastQuestionKey: "technicalDiscriminator:POWER|PRICE|CONSUMPTION" },
   },
   {
     id: "first-time-driver-context",

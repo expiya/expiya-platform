@@ -34,6 +34,15 @@ function newMessage(role: CarsConversationMessage["role"], content: string) {
   return { id: crypto.randomUUID(), role, content } as const;
 }
 
+export function splitAssistantMessageSegments(content: string): readonly string[] {
+  const paragraphs = content
+    .split(/\n\s*\n/u)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+
+  return paragraphs.length > 0 ? paragraphs : [content];
+}
+
 const storageKey = "expiya:cars-conversation:v5";
 const legacyStorageKey = "expiya:cars-conversation:v4";
 
@@ -76,6 +85,11 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
   const [editingMessageId, setEditingMessageId] = useState<string | null>(null);
   const [v2MultiSelections, setV2MultiSelections] = useState<Record<string, readonly string[]>>({});
   const [isLoading, setIsLoading] = useState(false);
+  const [assistantReveal, setAssistantReveal] = useState<null | {
+    readonly messageId: string;
+    readonly visibleSegments: number;
+    readonly totalSegments: number;
+  }>(null);
   const [equipmentExplanationPendingActionId, setEquipmentExplanationPendingActionId] = useState<string | null>(null);
   const [equipmentExplanation, setEquipmentExplanation] = useState<null | { actionId: string; offerToken: string; sessionToken: string; message: string; options: readonly { id: "ACCEPT" | "DECLINE"; label: string }[]; notice?: string | null; items?: readonly { label: string; explanation: string; caveat: string }[] }>(null);
   const [isRestored, setIsRestored] = useState(false);
@@ -97,6 +111,7 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
     recommendationTermsAcceptance?: ReturnType<typeof createRecommendationTermsAcceptance>,
   ) => {
     setIsLoading(true);
+    let keepBusyForReveal = false;
 
     try {
       const response = await fetch("/api/cars/conversation", {
@@ -147,6 +162,16 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
       };
       const updatedMessages = [...nextMessages, assistantMessage];
       setMessages(updatedMessages);
+      const segmentCount = splitAssistantMessageSegments(content).length;
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (segmentCount > 1 && !reduceMotion) {
+        keepBusyForReveal = true;
+        setAssistantReveal({
+          messageId: assistantMessage.id,
+          visibleSegments: 1,
+          totalSegments: segmentCount,
+        });
+      }
       // Persist before the card can be clicked; the effect-based write can lose this race during navigation.
       sessionStorage.setItem(storageKey, JSON.stringify({
         version: 5,
@@ -162,9 +187,32 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
           : "I couldn't reach the decision service. Your conversation is safe; please try again."),
       ]);
     } finally {
-      setIsLoading(false);
+      if (!keepBusyForReveal) setIsLoading(false);
     }
   }, [isTurkish]);
+
+  useEffect(() => {
+    if (!assistantReveal) return;
+    if (assistantReveal.visibleSegments >= assistantReveal.totalSegments) {
+      const completionTimer = window.setTimeout(() => {
+        setAssistantReveal(null);
+        setIsLoading(false);
+      }, 280);
+      return () => window.clearTimeout(completionTimer);
+    }
+
+    const message = messages.find((item) => item.id === assistantReveal.messageId);
+    const nextSegment = message
+      ? splitAssistantMessageSegments(message.content)[assistantReveal.visibleSegments] ?? ""
+      : "";
+    const delay = Math.min(1100, Math.max(520, 360 + nextSegment.length * 4));
+    const revealTimer = window.setTimeout(() => {
+      setAssistantReveal((current) => current && current.messageId === assistantReveal.messageId
+        ? { ...current, visibleSegments: current.visibleSegments + 1 }
+        : current);
+    }, delay);
+    return () => window.clearTimeout(revealTimer);
+  }, [assistantReveal, messages]);
 
   useEffect(() => {
     const persisted = readPersistedConversation();
@@ -337,7 +385,7 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
   }
 
   return (
-    <main className="min-h-screen bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
+    <main className="min-h-screen bg-white text-neutral-950">
       <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
@@ -368,24 +416,42 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                   : "Describe the car you need, or name the cars you want to compare."}
               </div>
             )}
-            {messages.map((message) => (
+            {messages.map((message) => {
+              const assistantSegments = message.role === "assistant"
+                ? splitAssistantMessageSegments(message.content)
+                : [message.content];
+              const visibleSegmentCount = assistantReveal?.messageId === message.id
+                ? assistantReveal.visibleSegments
+                : assistantSegments.length;
+              const fullyRevealed = visibleSegmentCount >= assistantSegments.length;
+
+              return (
               <div
                 key={message.id}
                 className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
               >
-                <div className={`${message.recommendations?.length || message.v2Cards?.length ? "w-full" : "max-w-[88%]"} rounded-2xl px-4 py-3 leading-6 ${
+                <div className={`${message.recommendations?.length || message.v2Cards?.length ? "w-full" : "max-w-[88%]"} leading-6 ${
                   message.role === "user"
-                    ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-950"
-                    : "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100"
+                    ? "rounded-2xl bg-neutral-900 px-4 py-3 text-white dark:bg-neutral-100 dark:text-neutral-950"
+                    : "space-y-2 text-neutral-800 dark:text-neutral-100"
                 }`}>
-                  <span className="whitespace-pre-wrap">{message.content}</span>
+                  {message.role === "assistant"
+                    ? assistantSegments.slice(0, visibleSegmentCount).map((segment, index) => (
+                      <div
+                        key={`${message.id}-segment-${index}`}
+                        className="w-fit max-w-full rounded-2xl bg-neutral-100 px-4 py-3 whitespace-pre-wrap dark:bg-neutral-800"
+                      >
+                        {segment}
+                      </div>
+                    ))
+                    : <span className="whitespace-pre-wrap">{message.content}</span>}
                   {message.role === "user" && message.id === lastUserMessageId && (
                     <button type="button" onClick={() => editLastUserMessage(message)} disabled={isLoading} className="mt-2 block text-xs font-medium text-neutral-300 underline underline-offset-2 disabled:opacity-50 dark:text-neutral-600">Düzelt</button>
                   )}
-                  {message.role === "assistant" && message.v2CandidateSummary && (
+                  {fullyRevealed && message.role === "assistant" && message.v2CandidateSummary && (
                     <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400" aria-label="Kalan araç seçeneği sayısı">{message.v2CandidateSummary.label}</p>
                   )}
-                  {message.recommendations && message.recommendations.length > 0
+                  {fullyRevealed && message.recommendations && message.recommendations.length > 0
                     && shouldRenderRecommendationCards("RECOMMENDATIONS", conversation?.offerPurpose) && (
                     <div className="mt-4 grid gap-4 text-neutral-900 dark:text-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
                       {message.recommendations.map((recommendation) => (
@@ -393,12 +459,12 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                       ))}
                     </div>
                   )}
-                  {message.v2Cards && message.v2Cards.length > 0 && (
+                  {fullyRevealed && message.v2Cards && message.v2Cards.length > 0 && (
                     <div className="mt-4 grid gap-4 text-neutral-900 dark:text-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
                       {message.v2Cards.map((card) => { const action = message.equipmentExplanationActions?.find((item) => item.exactVariantId === card.exactVariantId); return <V2AuthorizedCarCard key={card.exactVariantId} card={card} equipmentAction={action} onEquipmentExplanation={action ? (actionId) => void openEquipmentExplanation(actionId, message.v2OfferToken) : undefined} equipmentExplanationPending={equipmentExplanationPendingActionId === action?.actionId} />; })}
                     </div>
                   )}
-                  {message.role === "assistant" && message.v2Options && message.v2Options.length > 0 && (
+                  {fullyRevealed && message.role === "assistant" && message.v2Options && message.v2Options.length > 0 && (
                     <div className="mt-3">
                     {message.v2OptionSelection?.mode === "MULTIPLE" && <p className="mb-2 text-xs text-neutral-500 dark:text-neutral-400">Çoklu seçim yapılabilir.</p>}
                     <div role="group" aria-label={message.v2OptionSelection?.mode === "MULTIPLE" ? "Bir veya daha fazla seçenek seçin" : "Bir seçenek seçin"} className="flex flex-wrap items-center gap-2">
@@ -411,7 +477,7 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                     </div>
                     </div>
                   )}
-                  {message.role === "assistant" && shouldShowVehicleQuickReplies(
+                  {fullyRevealed && message.role === "assistant" && shouldShowVehicleQuickReplies(
                     messages.slice(0, messages.indexOf(message)).reverse().find((item) => item.role === "user")?.content ?? "",
                     message.quickReplies,
                   ) && message.quickReplies && (
@@ -432,7 +498,7 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                       ))}
                     </div>
                   )}
-                  {message.role === "assistant" && message.discriminatorChoices && (
+                  {fullyRevealed && message.role === "assistant" && message.discriminatorChoices && (
                     <div className="mt-3 flex flex-wrap gap-2" aria-label="Karar seçenekleri">
                       {message.discriminatorChoices.map((choice) => (
                         <button
@@ -447,7 +513,7 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                       ))}
                     </div>
                   )}
-                  {message.role === "assistant" && message === messages[messages.length - 1]
+                  {fullyRevealed && message.role === "assistant" && message === messages[messages.length - 1]
                     && isRecommendationOfferAwaitingTerms && (
                     <div className="mt-4 rounded-2xl border border-neutral-300 bg-white p-4 text-sm text-neutral-800 dark:border-neutral-600 dark:bg-neutral-950 dark:text-neutral-100">
                       <p className="font-semibold">Aracı göstermeden önce</p>
@@ -482,7 +548,8 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                   )}
                 </div>
               </div>
-            ))}
+              );
+            })}
             {equipmentExplanation && (
               <div className="flex justify-start">
                 <div className="max-w-[88%] rounded-2xl bg-neutral-100 px-4 py-3 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100">

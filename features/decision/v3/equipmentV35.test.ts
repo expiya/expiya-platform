@@ -1,9 +1,10 @@
 import { describe, expect, it } from "vitest";
-import { evaluateV3Catalog, v35EquipmentMatchAuthority, v35EquipmentSelectionWarning } from "./catalogAdapter.server";
+import { evaluateV3Catalog, planV3VerifiedEquipmentQuestion, v35EquipmentMatchAuthority, v35EquipmentSelectionWarning } from "./catalogAdapter.server";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
 import { applyPreferenceMessage } from "./ledger";
 import type { PreferenceEvent, V3ConversationState } from "./types";
 import { createRecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
+import { advanceV3ToOffer, revealV3TestOffer } from "./testConversationDecision";
 
 async function conversation(id: string, messages: readonly string[]) {
   let state: V3ConversationState = createV3ConversationState(id); let output;
@@ -12,6 +13,16 @@ async function conversation(id: string, messages: readonly string[]) {
 }
 
 describe("V3.5 unverified equipment selection", () => {
+  it("only asks equipment questions with verified presence and explicit absence partitions", async () => {
+    const catalog = await evaluateV3Catalog([]);
+    const electric = catalog.variants.filter((variant) => variant.decisionFacts.powertrain.fuelType.value === "BEV");
+    const plan = planV3VerifiedEquipmentQuestion(electric, [], "URBAN_DAILY");
+    if (!plan) return;
+    for (const featureCode of plan.featureCodes) {
+      expect(electric.some((variant) => v35EquipmentMatchAuthority(variant, featureCode) === "VERIFIED")).toBe(true);
+      expect(electric.some((variant) => v35EquipmentMatchAuthority(variant, featureCode) === "NO_MATCH")).toBe(true);
+    }
+  });
   it.each([
     ["Tavan taşıyıcı takılabilen bir araç olsun", ["ROOF_RACK_COMPATIBILITY"]],
     ["Bagaj filesi bağlanabilen bir araç istiyorum", ["CARGO_NET_COMPATIBILITY"]],
@@ -22,11 +33,13 @@ describe("V3.5 unverified equipment selection", () => {
     for (const value of expected) expect(output.ledger.some((event) => event.status === "ACTIVE" && event.normalizedValue === value)).toBe(true);
   });
 
-  it("excludes unverified associations when an exact-verified standard match exists", async () => {
+  it("keeps unverified candidates when an exact-verified match exists", async () => {
     const output = await conversation("unverified-query", ["Anahtarsız çalıştırmalı yeni araç istiyorum"]);
     const catalog = await evaluateV3Catalog(output.state.ledger);
     expect(catalog.appliedEquipment).toHaveLength(1);
-    expect(catalog.variants.every((variant) => v35EquipmentMatchAuthority(variant, "KEYLESS_START") === "VERIFIED")).toBe(true);
+    expect(catalog.variants.some((variant) => v35EquipmentMatchAuthority(variant, "KEYLESS_START") === "VERIFIED")).toBe(true);
+    expect(catalog.variants.some((variant) => v35EquipmentMatchAuthority(variant, "KEYLESS_START") === "UNVERIFIED")).toBe(true);
+    expect(catalog.variants.every((variant) => v35EquipmentMatchAuthority(variant, "KEYLESS_START") !== "NO_MATCH")).toBe(true);
   });
 
   it("does not use foreign-market owner-manual capability as a filter", async () => {
@@ -47,11 +60,30 @@ describe("V3.5 unverified equipment selection", () => {
     expect(v35EquipmentSelectionWarning(verified!, [preference])).toBeUndefined();
   });
 
+  it("does not collapse the electric-city transcript to the only richly verified variant", async () => {
+    let state = createV3ConversationState("electric-city-unverified-cohort");
+    for (const [index, message] of [
+      "Tam elektrikli bir araç istiyorum",
+      "Şehir içinde günlük kullanacağım",
+      "Geri görüş kamerası, ön ve arka park sensörleri vazgeçilmez",
+      "Temassız açılan bagaj kapağı, anahtarsız giriş ve anahtarsız çalıştırma vazgeçilmez",
+    ].entries()) {
+      const applied = applyPreferenceMessage(state, `electric-city-${index}`, message);
+      state = { ...state, ledger: applied.ledger, pendingConfirmation: applied.pending };
+    }
+    const catalog = await evaluateV3Catalog(state.ledger);
+    expect(catalog.variants.length).toBeGreaterThan(1);
+    expect(catalog.variants.some((variant) => variant.id === "5a64b246-3b05-52b6-9f24-b8f52ccc2305")).toBe(true);
+    expect(catalog.variants.some((variant) => v35EquipmentMatchAuthority(variant, "HANDS_FREE_TAILGATE") === "UNVERIFIED")).toBe(true);
+  });
+
   it("publishes the warning on a card selected through unverified equipment", async () => {
-    const output = await conversation("unverified-card", [
+    let output = await conversation("unverified-card", [
       "Aile kullanımı için SUV araç almak istiyorum", "Anahtarsız çalıştırma kesin olsun", "Bütçe sorun değil",
-      "Dizel olsun", "Alfa Romeo Tonale olabilir", "Tek araç öner", "Evet, göster",
+      "Dizel olsun", "Alfa Romeo Tonale olabilir", "Tek araç öner",
     ]);
+    output = await advanceV3ToOffer(output, "unverified-card-advance");
+    output = await revealV3TestOffer(output, "unverified-card-reveal");
     expect(output.recommendations).toHaveLength(1);
     expect(output.recommendations![0]?.warning).toMatch(/doğrulanması gerekir/iu);
   });

@@ -31,6 +31,15 @@ export interface PublicVariantFact {
   readonly label: string;
   readonly value: string;
   readonly dailyMeaning?: string;
+  readonly dailyExample?: string;
+  readonly classComparison?: {
+    readonly text: string;
+    readonly peerCount: number;
+    readonly dataCount: number;
+    readonly basis: string;
+    readonly gaugePosition?: "LOW" | "MID" | "HIGH";
+    readonly gaugeTone?: "PERFORMANCE" | "NEUTRAL";
+  };
   readonly disposition: ClaimDisposition;
   readonly scopeNote?: string;
   readonly source?: { readonly label: string; readonly url: string; readonly accessedAt: string };

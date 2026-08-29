@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import type { CatalogVariantSnapshot } from "../v2/catalog/types";
 import { evaluateV3Catalog, getV3MinimumCatalogPriceTry, v34MatchesBudget, v34PriceAuthority } from "./catalogAdapter.server";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
-import { createRecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
+import { advanceV3ToOffer, revealV3TestOffer } from "./testConversationDecision";
 
 describe("V3.4 estimated and unavailable price governance", () => {
   it("derives the UI minimum budget from the active decision catalog", async () => {
@@ -35,7 +35,11 @@ describe("V3.4 estimated and unavailable price governance", () => {
 
   it("never projects a price field on a revealed public card", async () => {
     let output = await runV3Turn({ conversationId: "no-price-card", messageId: "1", message: "Yeni araç almak istiyorum", expectedRevision: 0 });
-    for (const [id, message] of [["2", "Şehir içinde günlük kullanacağım"], ["3", "Parkı kolay hatchback olsun"], ["4", "Kesin bütçem 3 milyon TL"], ["5", "Elektrikli olsun"], ["6", "Geri görüş kamerası kesin olsun"], ["7", "Tek araç öner"], ["8", "Evet, göster"]] as const) output = await runV3Turn({ conversationId: "no-price-card", messageId: id, message, expectedRevision: output.state.revision, state: output.state, ...(output.state.pendingOffer ? { recommendationTermsAcceptance: createRecommendationTermsAcceptance() } : {}) });
-    expect(output.recommendations).toHaveLength(1); expect(output.recommendations![0]).toMatchObject({ id: expect.any(String), title: expect.any(String), image: expect.any(String), imageStatus: expect.any(String) }); expect(JSON.stringify(output.recommendations)).not.toMatch(/price|fiyat|amount/iu);
+    for (const [id, message] of [["2", "Şehir içinde günlük kullanacağım"], ["3", "Parkı kolay hatchback olsun"], ["4", "Kesin bütçem 3 milyon TL"], ["5", "Elektrikli olsun"], ["6", "Geri görüş kamerası kesin olsun"], ["7", "Tek araç öner"]] as const) output = await runV3Turn({ conversationId: "no-price-card", messageId: id, message, expectedRevision: output.state.revision, state: output.state });
+    output = await revealV3TestOffer(await advanceV3ToOffer(output, "no-price-discriminator"), "no-price-reveal");
+    expect(output.recommendations).toHaveLength(1); expect(output.recommendations![0]).toMatchObject({ id: expect.any(String), title: expect.any(String), image: expect.any(String), imageStatus: expect.any(String) });
+    const publicVehicleCard = Object.fromEntries(Object.entries(output.recommendations![0]!).filter(([key]) => key !== "decisionInsight"));
+    expect(JSON.stringify(publicVehicleCard)).not.toMatch(/price|fiyat|amount/iu);
+    expect(output.recommendations![0]!.decisionInsight?.decisivePreferences.join(" ")).not.toMatch(/\b\d{1,3}(?:[.]\d{3})+\s*TL\b/iu);
   });
 });

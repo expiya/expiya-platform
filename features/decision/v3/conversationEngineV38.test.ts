@@ -166,6 +166,54 @@ describe("V3.8 corpus-derived conversation contracts", () => {
     expect(output.state.ledger).toContainEqual(expect.objectContaining({ concept, strength: "WEAK_SIGNAL", decisionUse: "QUESTION_INPUT" }));
   });
 
+  it("preserves an explicit charming-design request before generic equipment discovery", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const output = await runV3Turn({
+      conversationId: "v38-charming-city-car",
+      messageId: "1",
+      message:
+        "Merhaba, şehir içinde günlük kullanım için küçük bir araç istiyorum. Trafikte şirin modeller görüyorum ama markalarını bilmiyorum.",
+      expectedRevision: 0,
+    });
+    expect(output.state.ledger).toContainEqual(
+      expect.objectContaining({
+        concept: "distinctiveDesign",
+        strength: "WEAK_SIGNAL",
+        decisionUse: "QUESTION_INPUT",
+      }),
+    );
+    expect(output.state.pendingConfirmation?.concept).toBe(
+      "distinctiveDesign",
+    );
+    expect(output.message).toMatch(/şirin.*karakterli görünüm/iu);
+    expect(output.state.lastQuestionKey).not.toMatch(/Equipment/iu);
+  });
+
+  it("does not present the sole technical survivor as a verified charming-design match", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const messages = [
+      "Şehir içinde küçük, şirin bir otomobil arıyorum.",
+      "Evet, belirleyici olsun",
+      "Kompakt hatchback",
+      "Elektrikli veya hibrit olabilir",
+      "Geri görüş kamerası, ön park sensörleri ve arka park sensörleri vazgeçilmez.",
+    ];
+    let output;
+    for (const [index, message] of messages.entries())
+      output = await runV3Turn({
+        conversationId: "v38-charming-evidence-boundary",
+        messageId: String(index + 1),
+        message,
+        expectedRevision: index,
+        state: output?.state,
+      });
+    expect(output?.state.lastQuestionKey).toMatch(/^(personaDiscriminator|technicalDiscriminator):/u);
+    expect(output?.offerAwaitingConsent).not.toBe(true);
+    expect(output?.message).toMatch(
+      /karakter|teknik/iu,
+    );
+  });
+
   it("treats an explicitly requested panoramic roof as equipment instead of asking about parking equipment", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     const output = await runV3Turn({ conversationId: "explicit-panoramic-roof", messageId: "1", message: "Akşam sahilde panoramik cam tavandan gökyüzünü izleyebileceğimiz bir araba arıyorum.", expectedRevision: 0 });
@@ -197,10 +245,10 @@ describe("V3.8 corpus-derived conversation contracts", () => {
     expect(output.state.lastQuestionKey).toBe("purchaseInterest");
   });
 
-  it("does not mistake the Turkish word büyük for commercial cargo intent", async () => {
+  it("does not mistake large pets or a nature trip for commercial or rough-road use", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     const dog = await runV3Turn({ conversationId: "large-dogs", messageId: "1", message: "İki büyük köpeğimi hafta sonları doğaya götürmek için geniş bagajlı bir araç satın almak istiyorum.", expectedRevision: 0 });
-    expect(dog.state.ledger).toContainEqual(expect.objectContaining({ concept: "primaryUsage", normalizedValue: "MIXED_ROAD" }));
+    expect(dog.state.ledger).not.toContainEqual(expect.objectContaining({ concept: "primaryUsage", normalizedValue: "MIXED_ROAD", status: "ACTIVE" }));
     expect(dog.state.ledger).not.toContainEqual(expect.objectContaining({ concept: "primaryUsage", normalizedValue: "COMMERCIAL", status: "ACTIVE" }));
     const firstCar = await runV3Turn({ conversationId: "large-first-car", messageId: "1", message: "Ehliyetimi yeni aldım. Boyutları çok büyük olmayan otomatik ilk aracımı satın almak istiyorum.", expectedRevision: 0 });
     expect(firstCar.state.ledger).not.toContainEqual(expect.objectContaining({ concept: "primaryUsage", normalizedValue: "COMMERCIAL", status: "ACTIVE" }));

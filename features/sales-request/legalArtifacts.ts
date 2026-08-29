@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 export const DATA_CONTROLLER = {
   version: "draft-2026-08-28", legalName: "[HUKUK ONAYI: Veri sorumlusu ticaret unvanı]",
   mersis: "[HUKUK ONAYI: MERSİS numarası]", address: "[HUKUK ONAYI: Tebligata elverişli adres]",
-  applicationAddress: "[HUKUK ONAYI: KVKK başvuru e-postası veya KEP]",
+  applicationAddress: "iletisim@expiya.com",
 } as const;
 
 const checksum = (text: string) => createHash("sha256").update(text, "utf8").digest("hex");

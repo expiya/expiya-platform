@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
 import { contextualQuestion, dailyUsageContext, isTurkishPublicCopy } from "./turkishRealization";
-import { createRecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
+import { advanceV3ToOffer, revealV3TestOffer } from "./testConversationDecision";
 
 describe("V3.3 Turkish and daily-use realization", () => {
   it("uses a user-specific daily-use example from conversation history", async () => {
@@ -21,7 +21,8 @@ describe("V3.3 Turkish and daily-use realization", () => {
 
   it("reveals only brand/model titles without examples, details or experience copy", async () => {
     let output = await runV3Turn({ conversationId: "no-model-copy", messageId: "1", message: "Yeni araç almak istiyorum", expectedRevision: 0 });
-    for (const [id, message] of [["2", "Şehir içinde günlük kullanacağım"], ["3", "Parkı kolay hatchback olsun"], ["4", "Kesin bütçem 3 milyon TL"], ["5", "Elektrikli olsun"], ["6", "Geri görüş kamerası kesin olsun"], ["7", "Tek araç öner"], ["8", "Evet, göster"]] as const) output = await runV3Turn({ conversationId: "no-model-copy", messageId: id, message, expectedRevision: output.state.revision, state: output.state, ...(output.state.pendingOffer ? { recommendationTermsAcceptance: createRecommendationTermsAcceptance() } : {}) });
+    for (const [id, message] of [["2", "Şehir içinde günlük kullanacağım"], ["3", "Parkı kolay hatchback olsun"], ["4", "Kesin bütçem 3 milyon TL"], ["5", "Elektrikli olsun"], ["6", "Geri görüş kamerası kesin olsun"], ["7", "Tek araç öner"]] as const) output = await runV3Turn({ conversationId: "no-model-copy", messageId: id, message, expectedRevision: output.state.revision, state: output.state });
+    output = await revealV3TestOffer(await advanceV3ToOffer(output, "no-model-discriminator"), "no-model-reveal");
     expect(output.recommendations).toHaveLength(1); expect(output.recommendations![0]).toMatchObject({ id: expect.any(String), title: expect.any(String), image: expect.any(String), imageStatus: expect.any(String) });
     expect(output.message).toBe("Karar motorunun seçtiği aracı paylaşıyorum."); expect(output.message).not.toContain(output.recommendations![0]!.title);
   });
