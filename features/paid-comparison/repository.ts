@@ -16,10 +16,10 @@ export class PostgresPaidComparisonQuoteRepository implements PaidComparisonQuot
       await connection.query(
         `insert into comparison_report_quotes
           (id, product_code, conversation_id, decision_id, catalog_release_version,
-           catalog_fingerprint, amount_kurus, currency, tax_included, status, expires_at, created_at)
-         values ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)`,
+          catalog_fingerprint, approved_needs, amount_kurus, currency, tax_included, status, expires_at, created_at)
+         values ($1,$2,$3,$4,$5,$6,$7::jsonb,$8,$9,$10,$11,$12,$13)`,
         [quote.id, quote.productCode, quote.conversationId, quote.decisionId,
-          quote.catalogReleaseVersion, quote.catalogFingerprint, quote.amountKurus,
+          quote.catalogReleaseVersion, quote.catalogFingerprint, JSON.stringify(quote.approvedNeeds), quote.amountKurus,
           quote.currency, quote.taxIncluded, quote.status, quote.expiresAt, quote.createdAt],
       );
       for (const vehicle of quote.vehicles) {

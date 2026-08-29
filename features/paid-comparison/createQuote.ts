@@ -13,6 +13,7 @@ export function createPaidComparisonQuote(input: {
   readonly quoteId: string;
   readonly conversationId: string;
   readonly decisionId: string;
+  readonly approvedNeeds: readonly { readonly concept: string; readonly summary: string }[];
   readonly decisionVariantId: string;
   readonly alternativeVariantIds: readonly [string, string];
   readonly variants: readonly CatalogVariantSnapshot[];
@@ -28,6 +29,7 @@ export function createPaidComparisonQuote(input: {
     productCode: PAID_COMPARISON_PRODUCT_CODE,
     conversationId: input.conversationId,
     decisionId: input.decisionId,
+    approvedNeeds: input.approvedNeeds.map((item) => ({ ...item })),
     catalogReleaseVersion: input.catalogReleaseVersion,
     catalogFingerprint: input.catalogFingerprint,
     vehicles: [

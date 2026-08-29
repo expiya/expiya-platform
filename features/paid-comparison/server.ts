@@ -72,6 +72,7 @@ export async function createAndPersistPaidComparisonQuote(input: {
     quoteId: input.quoteId ?? randomUUID(),
     conversationId: opened.handoff.conversationId,
     decisionId: opened.handoff.offerId,
+    approvedNeeds: opened.handoff.approvedNeeds,
     decisionVariantId: opened.handoff.selectedExactVariantId,
     alternativeVariantIds: input.alternativeVariantIds,
     variants: catalog.variants,

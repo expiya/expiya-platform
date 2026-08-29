@@ -12,6 +12,7 @@ export function buildPaidComparisonReportDraft(input: {
   readonly catalogReleaseVersion: string;
   readonly catalogFingerprint: string;
   readonly generatedAt: string;
+  readonly approvedNeeds: readonly { readonly concept: string; readonly summary: string }[];
   readonly variants: readonly [CatalogVariantSnapshot, CatalogVariantSnapshot, CatalogVariantSnapshot];
 }) {
   return {
@@ -19,6 +20,7 @@ export function buildPaidComparisonReportDraft(input: {
     catalogReleaseVersion: input.catalogReleaseVersion,
     catalogFingerprint: input.catalogFingerprint,
     generatedAt: input.generatedAt,
+    needsSummary: input.approvedNeeds.map((item) => ({ ...item })),
     sections: ["NEEDS_SUMMARY", "THREE_VEHICLE_OVERVIEW", "PERSONALIZED_TRADE_OFFS", "COST_INDICATORS", "WHEN_TO_CHOOSE_WHICH", "DECISION_VALIDATION", "SOURCES_AND_UNCERTAINTIES"] as const,
     vehicles: input.variants.map((variant, index) => ({
       exactVariantId: variant.id,

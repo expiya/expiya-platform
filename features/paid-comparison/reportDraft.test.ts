@@ -12,10 +12,11 @@ const variant = (id: string): CatalogVariantSnapshot => ({
 
 describe("buildPaidComparisonReportDraft", () => {
   it("keeps exact variants, sources and explicit missing facts", () => {
-    const draft = buildPaidComparisonReportDraft({ catalogReleaseVersion: "1", catalogFingerprint: "sha256:test", generatedAt: "2026-08-29T10:00:00Z", variants: [variant("a"), variant("b"), variant("c")] });
+    const draft = buildPaidComparisonReportDraft({ catalogReleaseVersion: "1", catalogFingerprint: "sha256:test", generatedAt: "2026-08-29T10:00:00Z", approvedNeeds: [{ concept: "primaryUsage", summary: "Ana kullanım: şehir" }], variants: [variant("a"), variant("b"), variant("c")] });
     expect(draft.vehicles.map((item) => item.role)).toEqual(["DECISION_CARD", "ALTERNATIVE_1", "ALTERNATIVE_2"]);
     expect(draft.vehicles[0].facts.torqueNm).toMatchObject({ missing: true, value: null });
     expect(draft.vehicles[0].price.sources).toEqual(["https://maker.example/spec"]);
+    expect(draft.needsSummary[0]?.summary).toBe("Ana kullanım: şehir");
     expect(draft.vehicles.every((item) => item.salesActions.includes("REQUEST_OFFER"))).toBe(true);
   });
 });

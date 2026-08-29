@@ -15,6 +15,7 @@ export interface ComparisonReportQuote {
   readonly productCode: typeof PAID_COMPARISON_PRODUCT_CODE;
   readonly conversationId: string;
   readonly decisionId: string;
+  readonly approvedNeeds: readonly { readonly concept: string; readonly summary: string }[];
   readonly catalogReleaseVersion: string;
   readonly catalogFingerprint: string;
   readonly vehicles: readonly ComparisonVehicleSelection[];

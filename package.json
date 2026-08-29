@@ -19,6 +19,7 @@
     "db:import:catalog-candidates": "tsx scripts/import-manual-catalog-candidates.ts",
     "db:import:marketplace-pilot": "tsx scripts/import-marketplace-candidate-pilot.ts",
     "db:report:catalog-candidates": "tsx scripts/report-catalog-candidates.ts",
+    "paid-comparison:process-one": "node --env-file=.env.local --import tsx scripts/process-paid-comparison-report.ts",
     "verify:cars-catalog-blob": "node scripts/verify-cars-catalog-blob.mjs",
     "catalog:release:generate": "node --import tsx scripts/generate-production-catalog-release.ts",
     "catalog:release:verify": "node --import tsx scripts/verify-production-catalog-release.ts",

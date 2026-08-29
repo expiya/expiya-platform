@@ -96,6 +96,12 @@ export async function createPhase3IntentHandoff(input: { phase2Token: string; in
 }
 
 export async function openPhase3IntentHandoff(token: string, expectedIntent?: Phase3Intent, now = new Date()) {
+  if (token.startsWith("p3r_")) {
+    const [{ PostgresPaidReportSalesHandoffRepository }, { getPostgresDatabase }] = await Promise.all([
+      import("@/features/paid-comparison/salesHandoff.server"), import("@/lib/server/postgres"),
+    ]);
+    return new PostgresPaidReportSalesHandoffRepository(getPostgresDatabase()).open(token, expectedIntent, now);
+  }
   const [version, encoded, supplied] = token.split(".");
   if (version !== "p3" || !encoded || !supplied || token.split(".").length !== 3 || encoded.length > 64_000) throw new TypeError("PHASE3_HANDOFF_INVALID");
   const expected = sign(encoded); const left = Buffer.from(supplied); const right = Buffer.from(expected);

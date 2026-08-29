@@ -1,0 +1,39 @@
+"use client";
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+
+type Fact = { value: string | number | null; confidence: "LOW" | "MEDIUM" | "HIGH" | null; sources: string[]; missing: boolean };
+type Vehicle = { exactVariantId: string; role: string; identity: { brand: string; model: string; trim: string; sources: string[] }; price: { value: number | null; validFrom: string | null; confidence: string | null; sources: string[]; missing: boolean }; facts: Record<string, Fact> };
+type Report = { schemaVersion: string; generatedAt: string; catalogReleaseVersion: string; needsSummary: { concept: string; summary: string }[]; vehicles: Vehicle[] };
+const labels: Record<string, string> = { bodyStyle: "Gövde", modelYear: "Model yılı", fuelType: "Yakıt / enerji", powerKw: "Güç (kW)", torqueNm: "Tork (Nm)", transmission: "Şanzıman", luggageLitres: "Bagaj (L)", combinedLitresPer100Km: "Tüketim (L/100 km)", combinedKwhPer100Km: "Tüketim (kWh/100 km)", electricRangeKm: "Elektrikli menzil (km)", maxDcChargeKw: "DC şarj (kW)" };
+const money = (value: number) => new Intl.NumberFormat("tr-TR", { style: "currency", currency: "TRY", maximumFractionDigits: 0 }).format(value);
+const safeSource = (value: string) => { try { const url = new URL(value); return ["http:", "https:"].includes(url.protocol) ? url.toString() : undefined; } catch { return undefined; } };
+
+export default function PaidReportView() {
+  const router = useRouter();
+  const [report, setReport] = useState<Report>(); const [error, setError] = useState("");
+  const [pending, setPending] = useState("");
+  const [actionError, setActionError] = useState("");
+  useEffect(() => { fetch("/api/cars/paid-comparison/report", { cache: "no-store" }).then(async (response) => { const body = await response.json(); if (!response.ok) throw new Error(body.message); setReport(body); }).catch((reason: Error) => setError(reason.message)); }, []);
+  if (error) return <main className="mx-auto max-w-2xl px-5 py-16"><h1 className="text-2xl font-semibold">Rapor açılamadı</h1><p className="mt-3">{error}</p><Link href="/cars/paid-comparison/status?payment=success" className="mt-5 inline-block underline">Üretim durumuna dön</Link></main>;
+  if (!report) return <main className="mx-auto max-w-2xl px-5 py-16">Rapor güvenli biçimde yükleniyor…</main>;
+  async function startSalesAction(exactVariantId: string, intent: "REQUEST_QUOTE" | "REQUEST_TEST_DRIVE" | "REQUEST_DEALER_CONTACT") {
+    const key = `${exactVariantId}:${intent}`; setPending(key); setActionError("");
+    try {
+      const response = await fetch("/api/cars/paid-comparison/sales-handoff", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ exactVariantId, intent }) });
+      const body = await response.json(); if (!response.ok || !body.token) throw new Error(body.message ?? "Satış adımı hazırlanamadı.");
+      router.push(`/cars/sales-request/${intent}?handoff=${encodeURIComponent(body.token)}&returnTo=${encodeURIComponent("/cars/paid-comparison/report")}`);
+    } catch (reason) { setActionError(reason instanceof Error ? reason.message : "Satış adımı hazırlanamadı."); setPending(""); }
+  }
+  return <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-14">
+    <header className="rounded-3xl bg-neutral-950 p-6 text-white sm:p-10"><p className="text-sm font-semibold text-emerald-300">Expiya Cars · Karar doğrulama raporu</p><h1 className="mt-3 text-3xl font-semibold sm:text-5xl">Üç aracı, senin kararına göre karşılaştırdık.</h1><p className="mt-5 max-w-3xl text-neutral-300">Bu rapor ekspertiz veya kesin al/alma talimatı değildir. Doğrulanmış katalog verileriyle kararındaki farkları görünür kılar.</p></header>
+    <section className="mt-8 rounded-2xl border p-5"><h2 className="text-xl font-semibold">Senin onayladığın ihtiyaçlar</h2>{report.needsSummary.length ? <ul className="mt-3 list-disc space-y-2 pl-5">{report.needsSummary.map((item) => <li key={`${item.concept}:${item.summary}`}>{item.summary}</li>)}</ul> : <p className="mt-3 text-neutral-600">Bu karar için ayrıca kaydedilmiş güçlü ihtiyaç bulunmuyor.</p>}</section>
+    <section className="mt-8 overflow-x-auto"><table className="w-full min-w-[760px] border-separate border-spacing-0"><thead><tr><th className="p-3 text-left">Başlık</th>{report.vehicles.map((vehicle) => <th key={vehicle.exactVariantId} className="border-l p-3 text-left"><span className="text-xs text-emerald-700">{vehicle.role === "DECISION_CARD" ? "Karar kartın" : "Alternatif"}</span><span className="block">{vehicle.identity.brand} {vehicle.identity.model}</span><small>{vehicle.identity.trim}</small></th>)}</tr></thead><tbody><Row label="Liste fiyatı" values={report.vehicles.map((vehicle) => vehicle.price.value === null ? "Doğrulanamadı" : money(vehicle.price.value))} />{Object.keys(labels).map((key) => <Row key={key} label={labels[key]} values={report.vehicles.map((vehicle) => vehicle.facts[key]?.missing ? "Doğrulanamadı" : String(vehicle.facts[key]?.value ?? "Doğrulanamadı"))} />)}</tbody></table></section>
+    <section className="mt-8 grid gap-4 md:grid-cols-3">{report.vehicles.map((vehicle) => <article key={vehicle.exactVariantId} className="rounded-2xl border p-5"><h2 className="font-semibold">{vehicle.identity.brand} {vehicle.identity.model}</h2><p className="mt-1 text-sm text-neutral-600">{vehicle.identity.trim}</p><div className="mt-5 grid gap-2"><button disabled={Boolean(pending)} onClick={() => void startSalesAction(vehicle.exactVariantId, "REQUEST_QUOTE")} className="min-h-11 rounded-xl bg-emerald-700 px-4 text-sm font-semibold text-white disabled:opacity-50">Fiyat teklifi iste</button><button disabled={Boolean(pending)} onClick={() => void startSalesAction(vehicle.exactVariantId, "REQUEST_TEST_DRIVE")} className="min-h-11 rounded-xl border px-4 text-sm font-semibold disabled:opacity-50">Test sürüşü talebi</button><button disabled={Boolean(pending)} onClick={() => void startSalesAction(vehicle.exactVariantId, "REQUEST_DEALER_CONTACT")} className="min-h-11 rounded-xl border px-4 text-sm font-semibold disabled:opacity-50">Satıcıyla görüş</button></div></article>)}</section>
+    {actionError && <p className="mt-4 rounded-xl bg-red-50 p-4 text-sm text-red-800">{actionError} Herhangi bir talep gönderilmedi.</p>}
+    <section className="mt-8 rounded-2xl bg-neutral-100 p-5 text-sm dark:bg-neutral-900"><h2 className="font-semibold">Kaynaklar ve veri tarihi</h2><p className="mt-2">Katalog sürümü: {report.catalogReleaseVersion} · Rapor tarihi: {new Date(report.generatedAt).toLocaleString("tr-TR")}</p><ul className="mt-3 space-y-1">{[...new Set(report.vehicles.flatMap((vehicle) => [...vehicle.identity.sources, ...vehicle.price.sources, ...Object.values(vehicle.facts).flatMap((fact) => fact.sources)]))].map(safeSource).filter(Boolean).map((url) => <li key={url}><a className="break-all underline" href={url} target="_blank" rel="noreferrer">{url}</a></li>)}</ul></section>
+  </main>;
+}
+function Row({ label, values }: { label: string; values: string[] }) { return <tr><th className="border-t p-3 text-left text-sm">{label}</th>{values.map((value, index) => <td key={`${label}:${index}`} className="border-l border-t p-3 text-sm">{value}</td>)}</tr>; }

@@ -49,6 +49,7 @@ describe("paid comparison quote", () => {
       quoteId: "11111111-1111-4111-8111-111111111111",
       conversationId: "conversation",
       decisionId: "decision",
+      approvedNeeds: [{ concept: "primaryUsage", summary: "Ana kullanım: şehir" }],
       decisionVariantId: "decision-car",
       alternativeVariantIds: ["alternative-1", "alternative-2"],
       variants: [variant("decision-car"), variant("alternative-1"), variant("alternative-2")],
@@ -65,6 +66,7 @@ describe("paid comparison quote", () => {
       { exactVariantId: "alternative-2", role: "ALTERNATIVE_2" },
     ]);
     expect(quote.catalogFingerprint).toBe("fp");
+    expect(quote.approvedNeeds).toEqual([{ concept: "primaryUsage", summary: "Ana kullanım: şehir" }]);
     expect(quote.expiresAt).toBe("2026-08-29T10:30:00.000Z");
   });
 

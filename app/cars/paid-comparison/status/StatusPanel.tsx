@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 type Status = "QUEUED" | "RUNNING" | "READY" | "FAILED" | "REFUND_REQUIRED";
 
@@ -18,9 +19,9 @@ export default function StatusPanel({ paymentSucceeded }: { paymentSucceeded: bo
     return () => { active = false; window.clearInterval(interval); };
   }, [paymentSucceeded]);
   if (!paymentSucceeded) return null;
-  const copy = status === "READY" ? "Raporun hazır. Güvenli görüntüleme bağlantısı bir sonraki geliştirme diliminde etkinleşecek."
+  const copy = status === "READY" ? "Raporun hazır. Aşağıdaki güvenli bağlantıdan görüntüleyebilirsin."
     : status === "RUNNING" ? "Doğrulanmış verilerle raporun hazırlanıyor."
       : status === "FAILED" || status === "REFUND_REQUIRED" ? "Rapor üretiminde sorun oluştu. Yeniden ücret alınmadan kontrol ve gerekirse iade süreci başlatılacak."
         : "Raporun üretim sırasına alındı.";
-  return <p className="mt-4 rounded-xl bg-neutral-100 p-4 text-sm dark:bg-neutral-900" aria-live="polite">{copy}</p>;
+  return <div className="mt-4 rounded-xl bg-neutral-100 p-4 text-sm dark:bg-neutral-900" aria-live="polite"><p>{copy}</p>{status === "READY" && <Link href="/cars/paid-comparison/report" className="mt-3 inline-flex min-h-10 items-center rounded-lg bg-emerald-700 px-4 font-semibold text-white">Raporu görüntüle</Link>}</div>;
 }

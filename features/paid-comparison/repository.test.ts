@@ -8,6 +8,7 @@ const quote: ComparisonReportQuote = {
   productCode: "CARS_COMPARISON_3",
   conversationId: "conversation",
   decisionId: "decision",
+  approvedNeeds: [{ concept: "primaryUsage", summary: "Ana kullanım: şehir" }],
   catalogReleaseVersion: "1.0.0",
   catalogFingerprint: "fingerprint",
   vehicles: [
