@@ -11,6 +11,23 @@ export interface GovernedAnalysis {
 
 type AnalystSourceSpan = { readonly start: number; readonly end: number; readonly text: string };
 
+const turkishNumber = (value: number) => {
+  const ones = ["", "bir", "iki", "üç", "dört", "beş", "altı", "yedi", "sekiz", "dokuz"] as const;
+  const tens = ["", "on", "yirmi", "otuz", "kırk", "elli", "altmış", "yetmiş", "seksen", "doksan"] as const;
+  if (!Number.isInteger(value) || value < 1 || value > 99) return undefined;
+  return value < 10 ? ones[value] : [tens[Math.floor(value / 10)], ones[value % 10]].filter(Boolean).join(" ");
+};
+
+const explicitPassengerCount = (source: string, normalizedValue: AnalystExplicitFact["normalizedValue"]) => {
+  const count = Number(normalizedValue);
+  const word = turkishNumber(count);
+  if (!word) return undefined;
+  const normalizedSource = source.toLocaleLowerCase("tr-TR").replaceAll(/\s+/gu, " ");
+  const numericPattern = new RegExp(`(?:^|\\s)${count}\\s*(?:kişi|kişilik|yolcu)`, "u");
+  const wordPattern = new RegExp(`(?:^|\\s)${word}\\s+(?:kişi|kişilik|yolcu)`, "u");
+  return numericPattern.test(normalizedSource) || wordPattern.test(normalizedSource) ? count : undefined;
+};
+
 // Structured-output models can count Unicode code points instead of JavaScript
 // UTF-16 code units. The quoted text is still the authority: repair offsets only
 // when that exact quote occurs once in the untrusted user message.
@@ -30,7 +47,7 @@ const canonicalExplicitValue = (fact: AnalystExplicitFact): AnalystExplicitFact[
   if (fact.concept === "roadCondition") return fact.normalizedValue === "ROUGH_UNPAVED" ? "ROUGH_UNPAVED" : undefined;
   if (fact.concept === "parkingDifficulty") return fact.normalizedValue === "HIGH" ? "HIGH" : undefined;
   if (fact.concept === "cargoRequirement") return fact.normalizedValue === "GOODS_TRANSPORT" ? "GOODS_TRANSPORT" : undefined;
-  if (fact.concept === "passengerCapacity") { const count = Number(source.match(/\d{1,2}/u)?.[0]); return Number.isInteger(count) && count > 0 ? count : undefined; }
+  if (fact.concept === "passengerCapacity") return explicitPassengerCount(source, fact.normalizedValue);
   if (fact.concept === "fuelPreference") return ["ELEKTRİKLİ", "BENZİNLİ", "DİZEL", "HİBRİT", "LPG"].includes(String(fact.normalizedValue)) ? fact.normalizedValue : undefined;
   if (fact.concept === "transmissionPreference") return ["OTOMATİK", "MANUEL"].includes(String(fact.normalizedValue)) ? fact.normalizedValue : undefined;
   if (fact.concept === "bodyStyleReference") return ["SUV", "SEDAN", "HATCHBACK", "STATION WAGON", "PICK-UP", "PICKUP", "PANELVAN", "MPV"].includes(String(fact.normalizedValue).toLocaleUpperCase("tr-TR")) ? String(fact.normalizedValue).toLocaleUpperCase("tr-TR") : undefined;
