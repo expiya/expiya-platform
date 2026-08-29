@@ -134,12 +134,34 @@ function StatusPill({
   );
 }
 
+function FactIcon({ factKey }: { readonly factKey: string }) {
+  const category = ["power", "torque", "engineDisplacement"].includes(factKey) ? "power"
+    : ["range", "dcCharge", "batteryCapacity", "usableBattery", "electricConsumption"].includes(factKey) ? "battery"
+      : ["consumption", "fuelType", "officialCombinedRange"].includes(factKey) ? "fuel"
+        : ["luggage", "cargoVolume", "payload", "brakedTowing", "dynamicRoofLoad", "modularRoofBars"].includes(factKey) ? "cargo"
+          : ["length", "width", "height", "wheelbase", "emptyMass", "runningOrderMass", "maximumPermissibleMass"].includes(factKey) ? "measure"
+            : ["transmission", "drivenWheels"].includes(factKey) ? "drive" : "vehicle";
+  return (
+    <span className="absolute right-5 top-5 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/10 text-emerald-300" aria-hidden="true">
+      <svg viewBox="0 0 24 24" className="h-6 w-6 fill-none stroke-current" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+        {category === "power" ? <><path d="m13 2-7 12h6l-1 8 7-12h-6z" /></>
+          : category === "battery" ? <><rect x="3" y="6" width="17" height="12" rx="2" /><path d="M20 10h2v4h-2M7 10v4M11 9v6M15 10v4" /></>
+            : category === "fuel" ? <><path d="M6 21V4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v17M4 21h14M8 6h6v5H8zM16 7h2l2 3v7a2 2 0 0 0 2 2" /></>
+              : category === "cargo" ? <><path d="m4 8 8-4 8 4-8 4zM4 8v9l8 4 8-4V8M12 12v9" /></>
+                : category === "measure" ? <><path d="M4 19 19 4l2 2L6 21zM11 10l3 3M14 7l3 3M8 13l3 3" /></>
+                  : category === "drive" ? <><circle cx="8" cy="12" r="3" /><circle cx="16" cy="12" r="3" /><path d="M11 12h2M8 9V6h8v3M8 15v3h8v-3" /></>
+                    : <><path d="M3 14h18l-2-5a3 3 0 0 0-3-2H8a3 3 0 0 0-3 2zM5 14v4M19 14v4" /><circle cx="7" cy="17" r="2" /><circle cx="17" cy="17" r="2" /></>}
+      </svg>
+    </span>
+  );
+}
+
 export function ClassPositionGauge({ position }: { readonly position: "LOW" | "MID" | "HIGH" }) {
   const gradientId = useId().replaceAll(":", "");
   const needle = position === "LOW" ? { x: 39, y: 47, label: "Düşük" } : position === "HIGH" ? { x: 137, y: 47, label: "Yüksek" } : { x: 88, y: 19, label: "Orta" };
   return (
     <div className="mt-4 rounded-2xl bg-black/20 px-3 pb-3 pt-2" role="img" aria-label={`Sınıf içi göreli seviye: ${needle.label}`}>
-      <svg viewBox="0 0 176 106" className="mx-auto h-auto w-full max-w-52" aria-hidden="true">
+      <svg viewBox="0 0 176 112" className="mx-auto h-auto w-full max-w-52" aria-hidden="true">
         <defs>
           <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="0">
             <stop offset="0%" stopColor="#dc2626" />
@@ -151,11 +173,11 @@ export function ClassPositionGauge({ position }: { readonly position: "LOW" | "M
         <path d="M16 88 A72 72 0 0 1 160 88" fill="none" stroke={`url(#${gradientId})`} strokeWidth="18" strokeLinecap="round" />
         <line x1="88" y1="88" x2={needle.x} y2={needle.y} stroke="#f8fafc" strokeWidth="4" strokeLinecap="round" />
         <circle cx="88" cy="88" r="7" fill="#f8fafc" />
-        <text x="13" y="104" fill="#fca5a5" fontSize="10">Düşük</text>
-        <text x="75" y="104" fill="#fdba74" fontSize="10">Orta</text>
-        <text x="139" y="104" fill="#86efac" fontSize="10">Yüksek</text>
+        <text x="13" y="108" fill="#fca5a5" fontSize="10">Düşük</text>
+        <text x="75" y="108" fill="#fdba74" fontSize="10">Orta</text>
+        <text x="139" y="108" fill="#86efac" fontSize="10">Yüksek</text>
       </svg>
-      <p className="-mt-1 text-center text-xs font-semibold text-stone-100">Sınıf içi göreli seviye · {needle.label}</p>
+      <p className="mt-2 text-center text-xs font-semibold text-stone-100">Sınıf içi göreli seviye · {needle.label}</p>
       <p className="mt-1 text-center text-[10px] leading-4 text-stone-400">Tek başına genel kalite veya satın alma puanı değildir.</p>
     </div>
   );
@@ -611,16 +633,17 @@ export function SalesAdvisorExperience({
                 .map((item) => (
                   <article
                     key={item.key}
-                    className="rounded-3xl bg-stone-900 p-6 text-white"
+                    className="relative rounded-3xl bg-stone-900 p-6 text-white"
                   >
-                    <p className="text-xs text-emerald-300">
+                    <FactIcon factKey={item.key} />
+                    <p className="pr-14 text-xs text-emerald-300">
                       {item.label} · Doğrulanmış
                     </p>
-                    <p className="mt-3 text-3xl font-semibold">{item.value}</p>
+                    <p className="mt-3 pr-14 text-3xl font-semibold">{item.value}</p>
                     <p className="mt-4 text-sm leading-6 text-stone-300">
                       {item.dailyMeaning}
                     </p>
-                    {item.classComparison ? <div className="mt-4 rounded-2xl border border-emerald-400/25 bg-emerald-950/60 px-4 py-3 text-sm leading-6 text-stone-100"><p><span className="font-semibold text-emerald-300">Araç sınıfındaki yeri:</span> {item.classComparison.text}</p><p className="mt-2 text-xs text-stone-400">Karşılaştırma kapsamı: {item.classComparison.basis}{item.classComparison.dataCount ? ` · ${item.classComparison.dataCount} doğrulanmış veri` : ""}</p>{item.classComparison.gaugePosition ? <ClassPositionGauge position={item.classComparison.gaugePosition} /> : null}</div> : null}
+                    {item.classComparison?.dataCount ? <div className="mt-4 rounded-2xl border border-emerald-400/25 bg-emerald-950/60 px-4 py-3 text-sm leading-6 text-stone-100"><p><span className="font-semibold text-emerald-300">Araç sınıfındaki yeri:</span> {item.classComparison.text}</p><p className="mt-2 text-xs text-stone-400">Karşılaştırma kapsamı: {item.classComparison.basis} · {item.classComparison.dataCount} doğrulanmış veri</p>{item.classComparison.gaugePosition ? <ClassPositionGauge position={item.classComparison.gaugePosition} /> : null}</div> : null}
                     {item.dailyExample ? <p className="mt-3 rounded-2xl bg-white/10 px-4 py-3 text-sm leading-6 text-stone-100"><span className="font-semibold text-emerald-300">Günlük etkisi:</span> {item.dailyExample}</p> : null}
                     {dailyDecisionNote(item.key, approvedConcepts) ? <p className="mt-4 rounded-2xl border border-emerald-700/40 bg-emerald-950/70 px-4 py-3 text-xs font-medium leading-5 text-emerald-200">Karardaki önemi: {dailyDecisionNote(item.key, approvedConcepts)}</p> : null}
                   </article>
