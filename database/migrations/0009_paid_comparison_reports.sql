@@ -26,7 +26,7 @@ create table if not exists paid_report_orders (
   quote_id uuid not null unique references comparison_report_quotes(id),
   provider text not null check (provider = 'IYZICO'),
   provider_conversation_id text not null unique,
-  status text not null check (status in ('CREATED','CHECKOUT_INITIALIZED','PAID','PAYMENT_FAILED','REFUND_PENDING','REFUNDED')),
+  status text not null check (status in ('CREATED','CHECKOUT_INITIALIZED','PAID','PAYMENT_FAILED','PAYMENT_REVIEW_REQUIRED','REFUND_PENDING','REFUNDED')),
   paid_at timestamptz,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
