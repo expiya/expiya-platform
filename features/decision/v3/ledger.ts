@@ -824,6 +824,50 @@ export function applyPreferenceMessage(
     const selected = state.lastQuestionKey.slice("technicalDiscriminator:".length).split("|").map((code) => technicalDiscriminator[code]).filter((item) => item?.pattern.test(text));
     for (const item of selected) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: item.concept, value: "USER_SELECTED", use: "SOFT_RANK" }));
   }
+  const requestsMaximumPassengerCapacity =
+    /(?:en fazla|en yüksek|maksimum).{0,32}(?:kişi|kişilik|koltuk)|(?:kişi|kişilik|koltuk).{0,32}(?:en fazla|en yüksek|maksimum)/iu.test(text)
+    || (state.lastQuestionKey === "passengerCapacity"
+      && /(?:en fazla|en yüksek|maksimum).{0,24}kapasite/iu.test(text));
+  if (requestsMaximumPassengerCapacity)
+    ledger = supersedeActive(
+      ledger,
+      event({
+        state: { ...state, ledger },
+        messageId,
+        text,
+        concept: "candidateSeatsPriority",
+        value: "MAXIMIZE",
+        use: "SOFT_RANK",
+      }),
+    );
+  const directExtremePriorities: readonly {
+    readonly concept: string;
+    readonly pattern: RegExp;
+    readonly value: "MAXIMIZE" | "MINIMIZE";
+  }[] = [
+    { concept: "candidateRangePriority", pattern: /(?:en yüksek|en uzun|maksimum).{0,28}menzil/iu, value: "MAXIMIZE" },
+    { concept: "candidatePayloadPriority", pattern: /(?:en yüksek|maksimum).{0,28}(?:taşıma kapasite(?:si|li)|yük kapasite(?:si|li)|tonaj|istiap)/iu, value: "MAXIMIZE" },
+    { concept: "candidateTowingPriority", pattern: /(?:en yüksek|maksimum).{0,28}(?:çekme kapasitesi|römork)/iu, value: "MAXIMIZE" },
+    { concept: "candidatePowerPriority", pattern: /(?:en yüksek|en güçlü|maksimum).{0,28}(?:motor gücü|güç|kw)/iu, value: "MAXIMIZE" },
+    { concept: "candidateTorquePriority", pattern: /(?:en yüksek|maksimum).{0,28}tork/iu, value: "MAXIMIZE" },
+    { concept: "candidateLuggagePriority", pattern: /(?:en yüksek|en büyük|maksimum).{0,28}bagaj/iu, value: "MAXIMIZE" },
+    { concept: "candidatePricePriority", pattern: /(?:en düşük|en ucuz|minimum).{0,28}(?:fiyat|satın alma)/iu, value: "MINIMIZE" },
+    { concept: "candidateConsumptionPriority", pattern: /(?:en düşük|minimum).{0,28}(?:tüketim|yakıt|enerji)/iu, value: "MINIMIZE" },
+  ];
+  if (/(?:göster|öner|seç|hangisi|hangi araç|istiyorum)/iu.test(text)) {
+    for (const priority of directExtremePriorities.filter((item) => item.pattern.test(text)))
+      ledger = supersedeActive(
+        ledger,
+        event({
+          state: { ...state, ledger },
+          messageId,
+          text,
+          concept: priority.concept,
+          value: priority.value,
+          use: "SOFT_RANK",
+        }),
+      );
+  }
   const transmission = normalizedTransmission(text);
   if (transmission)
     ledger = supersedeActive(

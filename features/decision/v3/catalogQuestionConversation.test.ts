@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
+import { evaluateV3Catalog } from "./catalogAdapter.server";
 
 const previous = process.env.CARS_V31_PROVIDER_DISABLED;
 afterEach(() => { if (previous === undefined) delete process.env.CARS_V31_PROVIDER_DISABLED; else process.env.CARS_V31_PROVIDER_DISABLED = previous; });
@@ -19,6 +20,58 @@ describe("V3 catalog questions inside an active decision conversation", () => {
     expect(output.message).toMatch(/örnek/iu);
     expect(output.message).not.toMatch(/Günlük kullanımına uygun araç yapısını/iu);
     expect(output.state.lastQuestionKey).toBe("bodyStyle");
+  });
+
+  it("treats a follow-up request for the highest passenger capacity as a decision instruction", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let state = createV3ConversationState("school-service-maximum-capacity-decision");
+    let output = await runV3Turn({
+      conversationId: state.conversationId,
+      messageId: "1",
+      message: "Öğrenci taşımacılığı yapıyorum. Mevcut aracımın kapasitesi yeterli değil. En yüksek kapasiteli aracı arıyorum.",
+      expectedRevision: 0,
+      state,
+    });
+    state = output.state;
+    expect(state.lastQuestionKey).toBe("passengerCapacity");
+
+    output = await runV3Turn({
+      conversationId: state.conversationId,
+      messageId: "2",
+      message: "Sen bana en yüksek kapasiteli araç hangisi ise onu göster.",
+      expectedRevision: state.revision,
+      state,
+    });
+
+    expect(output.state.ledger).toEqual(expect.arrayContaining([
+      expect.objectContaining({ concept: "candidateSeatsPriority", normalizedValue: "MAXIMIZE", decisionUse: "SOFT_RANK" }),
+    ]));
+    expect(output.message).not.toMatch(/Günlük kullanımına uygun araç yapısını/iu);
+    expect(output.state.lastQuestionKey).not.toBe("bodyStyle");
+    const catalog = await evaluateV3Catalog(output.state.ledger);
+    const maximumSeats = Math.max(...catalog.variants.flatMap((variant) => variant.decisionFacts.dimensions.seats ? [variant.decisionFacts.dimensions.seats.value] : []));
+    const offered = catalog.variants.filter((variant) => output.state.pendingOffer?.candidateIds.includes(variant.id));
+    expect(offered.length).toBeGreaterThan(0);
+    expect(offered.every((variant) => variant.decisionFacts.dimensions.seats?.value === maximumSeats)).toBe(true);
+  });
+
+  it.each([
+    ["En yüksek menzilli elektrikli aracı göster", "candidateRangePriority"],
+    ["En yüksek taşıma kapasiteli aracı öner", "candidatePayloadPriority"],
+    ["En düşük tüketimli aracı seç", "candidateConsumptionPriority"],
+  ])("projects a direct catalog extreme into ranking: %s", async (message, concept) => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const state = createV3ConversationState(`catalog-extreme-${concept}`);
+    const output = await runV3Turn({
+      conversationId: state.conversationId,
+      messageId: "1",
+      message,
+      expectedRevision: 0,
+      state,
+    });
+    expect(output.state.ledger).toEqual(expect.arrayContaining([
+      expect.objectContaining({ concept, decisionUse: "SOFT_RANK" }),
+    ]));
   });
 
   it.each([
@@ -47,7 +100,8 @@ describe("V3 catalog questions inside an active decision conversation", () => {
       state,
     });
     expect(output.message).toMatch(/en yüksek elektrikli menzil/iu);
-    expect(output.message).toMatch(/exact seçenek/iu);
+    expect(output.message).toMatch(/Araç kartını göstermemi ister misin/iu);
+    expect(output.state.pendingOffer?.candidateIds.length).toBeGreaterThan(0);
     expect(output.state.purchaseIntent).not.toBe("NOT_EXPRESSED");
   });
 });

@@ -16,7 +16,7 @@ import {
   resolveV3CatalogEntities,
   scoreV3Candidate,
 } from "./catalogAdapter.server";
-import { answerV3CatalogQuestion } from "./catalogQuestion.server";
+import { answerV3CatalogQuestion, resolveV3ExtremeSelection } from "./catalogQuestion.server";
 import { planV3PersonaDiscriminator, planV3TechnicalDiscriminator } from "./candidateDiscriminator";
 import { createV31Offer, revealV31Offer } from "./offerGovernance.server";
 import { interpretV31Message } from "./semanticProvider.server";
@@ -601,6 +601,7 @@ function technicalDecisionWarning(
   const factByConcept: Readonly<Record<string, () => { readonly confidence: "LOW" | "MEDIUM" | "HIGH" } | undefined>> = {
     candidateCompactPriority: () => variant.decisionFacts.dimensions.lengthMm,
     candidateLuggagePriority: () => variant.decisionFacts.dimensions.luggageLitres,
+    candidateSeatsPriority: () => variant.decisionFacts.dimensions.seats,
     candidatePowerPriority: () => variant.decisionFacts.powertrain.powerKw,
     candidateRangePriority: () => variant.decisionFacts.efficiency.electricRangeKm,
     candidateWidthPriority: () => variant.decisionFacts.dimensions.widthMm,
@@ -928,7 +929,7 @@ export async function runV3Turn(input: {
       /^(?:evet|olur|tamam|devam|bu adayla devam)/iu.test(input.message.trim())) ||
     /(?:tek araç|alternatif|öner(?:i|ini|inizi)?|seç(?:elim|ebilirsin| lütfen)?|göster|paylaş)/iu.test(
       input.message,
-    );
+    ) || /(?:en yüksek|en uzun|en güçlü|en düşük|en ucuz|maksimum|minimum).{0,48}(?:ara[çc]|otomobil|model).{0,32}istiyorum/iu.test(input.message);
   const needsRuralUseClarification =
     recommendationRequested &&
     latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue ===
@@ -1005,8 +1006,17 @@ export async function runV3Turn(input: {
       catalog = undefined;
     }
   const concernDirect = automotiveConcernReply(input.message);
+  const extremeSelectionMessage = prior.lastQuestionKey === "passengerCapacity"
+    && /(?:en fazla|en yüksek|maksimum).{0,24}kapasite/iu.test(input.message)
+    ? `${input.message} en yüksek koltuk kapasitesi`
+    : input.message;
+  const extremeSelection = catalog
+    ? resolveV3ExtremeSelection(extremeSelectionMessage, catalog.variants)
+    : undefined;
   const catalogDirect = catalog
-    ? answerV3CatalogQuestion(input.message, catalog.variants)
+    ? extremeSelection
+      ? undefined
+      : answerV3CatalogQuestion(input.message, catalog.variants)
     : undefined;
   const fallbackDirect =
     directReply(
@@ -1300,6 +1310,44 @@ export async function runV3Turn(input: {
     Boolean(latestActiveLedgerEvent(ledger, "bodyNotImportant"));
   const brandPreference = latestActiveLedgerEvent(ledger, "brandPreference");
   const fuelPreference = latestActiveLedgerEvent(ledger, "fuelType");
+  if (recommendationRequested && extremeSelection && catalog) {
+    const selected = rankV3Candidates(extremeSelection.leaders, ledger, budgetMode).slice(0, 3);
+    const limit: 1 | 3 = selected.length === 1 ? 1 : 3;
+    const decisionFingerprint = createHash("sha256")
+      .update(JSON.stringify({
+        metric: extremeSelection.concept,
+        value: extremeSelection.value,
+        candidateIds: selected.map((variant) => variant.id),
+      }))
+      .digest("hex");
+    const governed = await createV31Offer({
+      conversationId: prior.conversationId,
+      variants: selected,
+      catalogReleaseVersion: catalog.catalogReleaseVersion,
+      catalogFingerprint: catalog.catalogFingerprint,
+      decisionFingerprint,
+      limit,
+    });
+    const formattedValue = extremeSelection.value.toLocaleString("tr-TR");
+    const tieExplanation = extremeSelection.leaders.length > 1
+      ? ` Bu değeri paylaşan ${extremeSelection.leaders.length} varyant var; mevcut diğer tercihlerine göre en güçlü ${selected.length} seçeneği hazırladım.`
+      : " Bu ölçütte katalogda tek lider var.";
+    return {
+      kind: "V3_CONVERSATION",
+      message: `Mevcut uygun seçeneklerde doğrulanmış en yüksek ${extremeSelection.label} ${formattedValue} ${extremeSelection.unit}.${tieExplanation} Araç kartını göstermemi ister misin?`,
+      state: {
+        ...base,
+        purchaseIntent: "READY_FOR_DECISION",
+        pendingOffer: {
+          offerId: governed.offer.offerId,
+          token: governed.token,
+          candidateIds: selected.map((variant) => variant.id),
+          limit,
+        },
+        lastQuestionKey: undefined,
+      },
+    };
+  }
   if (
     !acceptedBrandRelaxation &&
     catalog?.variants.length === 0 &&

@@ -191,6 +191,7 @@ export function scoreV3Candidate(variant: CatalogVariantSnapshot, ledger: readon
     if (preference.concept === "performance") return total + variant.decisionFacts.powertrain.powerKw.value / 100;
     if (preference.concept === "candidateCompactPriority") return total + (variant.decisionFacts.dimensions.lengthMm ? Math.max(0, 10 - variant.decisionFacts.dimensions.lengthMm.value / 1_000) : 0);
     if (preference.concept === "candidateLuggagePriority") return total + (variant.decisionFacts.dimensions.luggageLitres?.value ?? 0) / 100;
+    if (preference.concept === "candidateSeatsPriority") return total + (variant.decisionFacts.dimensions.seats?.value ?? 0);
     if (preference.concept === "candidatePowerPriority") return total + variant.decisionFacts.powertrain.powerKw.value / 100;
     if (preference.concept === "candidatePricePriority") return total - (variant.activeNewPrice?.consumerVisibility === "PUBLIC" && variant.activeNewPrice.realizationSafe ? variant.activeNewPrice.amountTry : 99_000_000) / 1_000_000;
     if (preference.concept === "candidateRangePriority") return total + (variant.decisionFacts.efficiency.electricRangeKm?.value ?? 0) / 100;

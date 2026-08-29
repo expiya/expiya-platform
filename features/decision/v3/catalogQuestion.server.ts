@@ -27,6 +27,46 @@ const fuelLabels: Readonly<Record<string, string>> = {
   GASOLINE: "benzinli", DIESEL: "dizel", LPG: "LPG", MHEV: "hafif hibrit", HEV: "tam hibrit", PHEV: "şarj edilebilir hibrit", BEV: "tam elektrikli", HYDROGEN: "hidrojen",
 };
 
+export interface V3ExtremeSelection {
+  readonly concept: string;
+  readonly label: string;
+  readonly unit: string;
+  readonly value: number;
+  readonly leaders: readonly CatalogVariantSnapshot[];
+}
+
+export function resolveV3ExtremeSelection(
+  message: string,
+  variants: readonly CatalogVariantSnapshot[],
+): V3ExtremeSelection | undefined {
+  if (!/(?:göster|öner|seç|hangisi|hangi araç|istiyorum)/iu.test(message)) return undefined;
+  const definitions: readonly {
+    readonly pattern: RegExp;
+    readonly concept: string;
+    readonly label: string;
+    readonly unit: string;
+    readonly mode: "MAX" | "MIN";
+    readonly select: (variant: CatalogVariantSnapshot) => number | undefined;
+    readonly scope?: (variant: CatalogVariantSnapshot) => boolean;
+  }[] = [
+    { pattern: /(?:en fazla|en yüksek|maksimum).{0,32}(?:kişi|kişilik|koltuk)/iu, concept: "candidateSeatsPriority", label: "yolcu kapasitesi", unit: "kişi", mode: "MAX", select: (v) => v.decisionFacts.dimensions.seats?.value },
+    { pattern: /(?:en yüksek|en uzun|maksimum).{0,32}menzil/iu, concept: "candidateRangePriority", label: "elektrikli menzil", unit: "km", mode: "MAX", select: (v) => v.decisionFacts.efficiency.electricRangeKm?.value, scope: (v) => v.decisionFacts.powertrain.fuelType.value === "BEV" },
+    { pattern: /(?:en yüksek|maksimum).{0,32}(?:taşıma kapasite(?:si|li)|yük kapasite(?:si|li)|tonaj|istiap)/iu, concept: "candidatePayloadPriority", label: "taşıma kapasitesi", unit: "kg", mode: "MAX", select: (v) => v.decisionFacts.dimensions.payloadKg?.value },
+    { pattern: /(?:en yüksek|maksimum).{0,32}(?:çekme kapasitesi|römork)/iu, concept: "candidateTowingPriority", label: "frenli çekme kapasitesi", unit: "kg", mode: "MAX", select: (v) => v.decisionFacts.dimensions.brakedTowingKg?.value },
+    { pattern: /(?:en yüksek|en güçlü|maksimum).{0,32}(?:motor gücü|güç|kw)/iu, concept: "candidatePowerPriority", label: "motor gücü", unit: "kW", mode: "MAX", select: (v) => v.decisionFacts.powertrain.powerKw.value },
+    { pattern: /(?:en yüksek|maksimum).{0,32}tork/iu, concept: "candidateTorquePriority", label: "tork", unit: "Nm", mode: "MAX", select: (v) => v.decisionFacts.powertrain.torqueNm?.value },
+    { pattern: /(?:en yüksek|en büyük|maksimum).{0,32}bagaj/iu, concept: "candidateLuggagePriority", label: "bagaj hacmi", unit: "litre", mode: "MAX", select: (v) => v.decisionFacts.dimensions.luggageLitres?.value },
+    { pattern: /(?:en düşük|en ucuz|minimum).{0,32}(?:fiyat|satın alma)/iu, concept: "candidatePricePriority", label: "doğrulanmış satış fiyatı", unit: "TL", mode: "MIN", select: (v) => v.activeNewPrice?.consumerVisibility === "PUBLIC" && v.activeNewPrice.realizationSafe ? v.activeNewPrice.amountTry : undefined },
+  ];
+  const definition = definitions.find((item) => item.pattern.test(message));
+  if (!definition) return undefined;
+  const scoped = definition.scope ? variants.filter(definition.scope) : variants;
+  const value = factExtreme(scoped, definition.select, definition.mode);
+  if (value === undefined) return undefined;
+  const leaders = scoped.filter((variant) => definition.select(variant) === value);
+  return { concept: definition.concept, label: definition.label, unit: definition.unit, value, leaders };
+}
+
 export function answerV3CatalogQuestion(message: string, variants: readonly CatalogVariantSnapshot[]): string | undefined {
   const text = message.toLocaleLowerCase("tr-TR");
   if (!variants.length) return undefined;
