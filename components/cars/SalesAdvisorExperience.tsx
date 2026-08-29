@@ -593,7 +593,7 @@ export function SalesAdvisorExperience({
                     <p className="mt-4 text-sm leading-6 text-stone-300">
                       {item.dailyMeaning}
                     </p>
-                    {item.classComparison ? <div className="mt-4 rounded-2xl border border-emerald-400/25 bg-emerald-950/60 px-4 py-3 text-sm leading-6 text-stone-100"><p><span className="font-semibold text-emerald-300">Araç sınıfındaki yeri:</span> {item.classComparison.text}</p><p className="mt-2 text-xs text-stone-400">Karşılaştırma kapsamı: {item.classComparison.basis} · {item.classComparison.dataCount} doğrulanmış veri</p></div> : null}
+                    {item.classComparison ? <div className="mt-4 rounded-2xl border border-emerald-400/25 bg-emerald-950/60 px-4 py-3 text-sm leading-6 text-stone-100"><p><span className="font-semibold text-emerald-300">Araç sınıfındaki yeri:</span> {item.classComparison.text}</p><p className="mt-2 text-xs text-stone-400">Karşılaştırma kapsamı: {item.classComparison.basis}{item.classComparison.dataCount ? ` · ${item.classComparison.dataCount} doğrulanmış veri` : ""}</p></div> : null}
                     {item.dailyExample ? <p className="mt-3 rounded-2xl bg-white/10 px-4 py-3 text-sm leading-6 text-stone-100"><span className="font-semibold text-emerald-300">Günlük etkisi:</span> {item.dailyExample}</p> : null}
                     {dailyDecisionNote(item.key, approvedConcepts) ? <p className="mt-4 rounded-2xl border border-emerald-700/40 bg-emerald-950/70 px-4 py-3 text-xs font-medium leading-5 text-emerald-200">Karardaki önemi: {dailyDecisionNote(item.key, approvedConcepts)}</p> : null}
                   </article>

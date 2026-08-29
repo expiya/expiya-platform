@@ -75,7 +75,20 @@ describe("versioned variant content artifact", () => {
   });
   it("does not invent a class position when fewer than three comparable verified values exist", () => {
     const artifact = buildVariantContentArtifact({ variant, peerVariants: [variant], catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });
-    expect(artifact.facts.find((item) => item.key === "power")?.classComparison).toBeUndefined();
+    expect(artifact.facts.find((item) => item.key === "power")?.classComparison).toMatchObject({ dataCount: 0, basis: "Yeterli karşılaştırma verisi yok" });
+    expect(artifact.facts.find((item) => item.key === "power")?.classComparison?.text).toMatch(/hesaplanmadı/iu);
+  });
+  it("gives every daily-meaning card an honest comparison state in the live catalog", async () => {
+    const catalog = await evaluateV3Catalog([]);
+    const jogger = catalog.variants.find((item) => item.id === "08030664-0509-51a0-ac5e-283bde7843f3");
+    expect(jogger).toBeDefined();
+    const artifact = buildVariantContentArtifact({ variant: jogger!, peerVariants: catalog.variants, catalogRelease: catalog.catalogReleaseVersion, catalogFingerprint: catalog.catalogFingerprint });
+    const dailyFacts = artifact.facts.filter((item) => item.dailyMeaning);
+    expect(dailyFacts.length).toBeGreaterThan(10);
+    expect(dailyFacts.every((item) => Boolean(item.classComparison))).toBe(true);
+    expect(dailyFacts.find((item) => item.key === "power")?.classComparison?.dataCount).toBeGreaterThanOrEqual(3);
+    expect(dailyFacts.find((item) => item.key === "consumption")?.classComparison?.dataCount).toBeGreaterThanOrEqual(3);
+    expect(dailyFacts.find((item) => item.key === "emptyMass")?.classComparison).toMatchObject({ dataCount: 0, basis: "Yeterli karşılaştırma verisi yok" });
   });
   it("rejects checksum and catalog/variant binding changes", () => {
     const artifact = buildVariantContentArtifact({ variant, catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });

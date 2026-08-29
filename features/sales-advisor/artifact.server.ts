@@ -5,7 +5,7 @@ import { v34PriceAuthority } from "@/features/decision/v3/catalogAdapter.server"
 import { SALES_ADVISOR_VERSION, VARIANT_CONTENT_SCHEMA_VERSION, type PublicVariantFact, type VariantContentArtifact } from "./types";
 import { getReviewedSalesColors, getReviewedSalesFacts, getReviewedSalesMedia } from "./salesKnowledge.server";
 import { getEquipmentPublicCopy } from "./equipmentPublicCopy";
-import { createClassComparison } from "./classComparison.server";
+import { createClassComparison, unavailableClassComparison } from "./classComparison.server";
 
 const stable = (value: unknown): string => JSON.stringify(value, (_key, item: unknown) => item && typeof item === "object" && !Array.isArray(item) ? Object.fromEntries(Object.entries(item).sort(([a], [b]) => a.localeCompare(b))) : item);
 const sha = (value: string): string => `sha256:${createHash("sha256").update(value).digest("hex")}`;
@@ -87,6 +87,12 @@ export function buildVariantContentArtifact(input: { variant: CatalogVariantSnap
     }
   }
   facts.push(...getReviewedSalesFacts(variant.id));
+  if (input.peerVariants?.length) {
+    for (let index = 0; index < facts.length; index += 1) {
+      const item = facts[index]!;
+      if (!item.classComparison && item.dailyMeaning) facts[index] = { ...item, classComparison: unavailableClassComparison(item) };
+    }
+  }
   const equipment = d.safetyFeatureCodes.filter(verified).map((item) => {
     const publicCopy = getEquipmentPublicCopy(item.value);
     if (!publicCopy) throw new TypeError(`PHASE2_EQUIPMENT_PUBLIC_COPY_MISSING:${item.value}`);
