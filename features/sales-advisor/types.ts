@@ -32,6 +32,7 @@ export interface PublicVariantFact {
     readonly dataCount: number;
     readonly basis: string;
     readonly gaugePosition?: "LOW" | "MID" | "HIGH";
+    readonly gaugeTone?: "PERFORMANCE" | "NEUTRAL";
   };
   readonly disposition: ClaimDisposition;
   readonly scopeNote?: string;

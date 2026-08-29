@@ -156,29 +156,30 @@ function FactIcon({ factKey }: { readonly factKey: string }) {
   );
 }
 
-export function ClassPositionGauge({ position }: { readonly position: "LOW" | "MID" | "HIGH" }) {
+export function ClassPositionGauge({ position, tone = "PERFORMANCE" }: { readonly position: "LOW" | "MID" | "HIGH"; readonly tone?: "PERFORMANCE" | "NEUTRAL" }) {
   const gradientId = useId().replaceAll(":", "");
-  const needle = position === "LOW" ? { x: 39, y: 47, label: "Düşük" } : position === "HIGH" ? { x: 137, y: 47, label: "Yüksek" } : { x: 88, y: 19, label: "Orta" };
+  const needle = position === "LOW" ? { x: 39, y: 47, label: tone === "NEUTRAL" ? "Alt" : "Düşük" } : position === "HIGH" ? { x: 137, y: 47, label: tone === "NEUTRAL" ? "Üst" : "Yüksek" } : { x: 88, y: 19, label: "Orta" };
+  const colors = tone === "NEUTRAL" ? ["#64748b", "#3b82f6", "#4f46e5"] as const : ["#dc2626", "#f59e0b", "#16a34a"] as const;
+  const scaleLabels = tone === "NEUTRAL" ? ["Alt", "Orta", "Üst"] as const : ["Düşük", "Orta", "Yüksek"] as const;
   return (
-    <div className="mt-4 rounded-2xl bg-black/20 px-3 pb-3 pt-2" role="img" aria-label={`Sınıf içi göreli seviye: ${needle.label}`}>
+    <div className="mt-4 rounded-2xl bg-black/20 px-3 pb-3 pt-2" role="img" aria-label={`Sınıf içi göreli ${tone === "NEUTRAL" ? "konum" : "seviye"}: ${needle.label}`}>
       <svg viewBox="0 0 176 112" className="mx-auto h-auto w-full max-w-52" aria-hidden="true">
         <defs>
           <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stopColor="#dc2626" />
-            <stop offset="42%" stopColor="#f97316" />
-            <stop offset="58%" stopColor="#f59e0b" />
-            <stop offset="100%" stopColor="#16a34a" />
+            <stop offset="0%" stopColor={colors[0]} />
+            <stop offset="50%" stopColor={colors[1]} />
+            <stop offset="100%" stopColor={colors[2]} />
           </linearGradient>
         </defs>
         <path d="M16 88 A72 72 0 0 1 160 88" fill="none" stroke={`url(#${gradientId})`} strokeWidth="18" strokeLinecap="round" />
         <line x1="88" y1="88" x2={needle.x} y2={needle.y} stroke="#f8fafc" strokeWidth="4" strokeLinecap="round" />
         <circle cx="88" cy="88" r="7" fill="#f8fafc" />
-        <text x="13" y="108" fill="#fca5a5" fontSize="10">Düşük</text>
-        <text x="75" y="108" fill="#fdba74" fontSize="10">Orta</text>
-        <text x="139" y="108" fill="#86efac" fontSize="10">Yüksek</text>
+        <text x="13" y="108" fill={tone === "NEUTRAL" ? "#cbd5e1" : "#fca5a5"} fontSize="10">{scaleLabels[0]}</text>
+        <text x="75" y="108" fill={tone === "NEUTRAL" ? "#93c5fd" : "#fdba74"} fontSize="10">{scaleLabels[1]}</text>
+        <text x="139" y="108" fill={tone === "NEUTRAL" ? "#a5b4fc" : "#86efac"} fontSize="10">{scaleLabels[2]}</text>
       </svg>
-      <p className="mt-2 text-center text-xs font-semibold text-stone-100">Sınıf içi göreli seviye · {needle.label}</p>
-      <p className="mt-1 text-center text-[10px] leading-4 text-stone-400">Tek başına genel kalite veya satın alma puanı değildir.</p>
+      <p className="mt-2 text-center text-xs font-semibold text-stone-100">Sınıf içi göreli {tone === "NEUTRAL" ? "konum" : "seviye"} · {needle.label}</p>
+      <p className="mt-1 text-center text-[10px] leading-4 text-stone-400">{tone === "NEUTRAL" ? "Bu gösterim yalnız büyüklük konumudur; iyi veya kötü puanı değildir." : "Tek başına genel kalite veya satın alma puanı değildir."}</p>
     </div>
   );
 }
@@ -643,7 +644,7 @@ export function SalesAdvisorExperience({
                     <p className="mt-4 text-sm leading-6 text-stone-300">
                       {item.dailyMeaning}
                     </p>
-                    {item.classComparison?.dataCount ? <div className="mt-4 rounded-2xl border border-emerald-400/25 bg-emerald-950/60 px-4 py-3 text-sm leading-6 text-stone-100"><p><span className="font-semibold text-emerald-300">Araç sınıfındaki yeri:</span> {item.classComparison.text}</p><p className="mt-2 text-xs text-stone-400">Karşılaştırma kapsamı: {item.classComparison.basis} · {item.classComparison.dataCount} doğrulanmış veri</p>{item.classComparison.gaugePosition ? <ClassPositionGauge position={item.classComparison.gaugePosition} /> : null}</div> : null}
+                    {item.classComparison?.dataCount ? <div className="mt-4 rounded-2xl border border-emerald-400/25 bg-emerald-950/60 px-4 py-3 text-sm leading-6 text-stone-100"><p><span className="font-semibold text-emerald-300">Araç sınıfındaki yeri:</span> {item.classComparison.text}</p><p className="mt-2 text-xs text-stone-400">Karşılaştırma kapsamı: {item.classComparison.basis} · {item.classComparison.dataCount} doğrulanmış veri</p>{item.classComparison.gaugePosition ? <ClassPositionGauge position={item.classComparison.gaugePosition} tone={item.classComparison.gaugeTone} /> : null}</div> : null}
                     {item.dailyExample ? <p className="mt-3 rounded-2xl bg-white/10 px-4 py-3 text-sm leading-6 text-stone-100"><span className="font-semibold text-emerald-300">Günlük etkisi:</span> {item.dailyExample}</p> : null}
                     {dailyDecisionNote(item.key, approvedConcepts) ? <p className="mt-4 rounded-2xl border border-emerald-700/40 bg-emerald-950/70 px-4 py-3 text-xs font-medium leading-5 text-emerald-200">Karardaki önemi: {dailyDecisionNote(item.key, approvedConcepts)}</p> : null}
                   </article>

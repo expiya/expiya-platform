@@ -11,4 +11,12 @@ describe("ClassPositionGauge", () => {
     expect(markup).toContain("#f59e0b");
     expect(markup).toContain("#16a34a");
   });
+  it("renders neutral technical size positions without red-green quality semantics", () => {
+    const markup = renderToStaticMarkup(<ClassPositionGauge position="HIGH" tone="NEUTRAL" />);
+    expect(markup).toMatch(/Sınıf içi göreli konum/u);
+    expect(markup).toContain("#64748b");
+    expect(markup).toContain("#4f46e5");
+    expect(markup).not.toContain("#dc2626");
+    expect(markup).toMatch(/iyi veya kötü puanı değildir/iu);
+  });
 });

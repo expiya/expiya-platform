@@ -79,7 +79,7 @@ describe("versioned variant content artifact", () => {
     const peers = [withEfficiency("efficient", 13, 4100), withEfficiency("selected", 16, 4300), withEfficiency("hungry", 21, 4500)];
     const artifact = buildVariantContentArtifact({ variant: peers[0]!, peerVariants: peers, catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });
     expect(artifact.facts.find((item) => item.key === "electricConsumption")?.classComparison?.gaugePosition).toBe("HIGH");
-    expect(artifact.facts.find((item) => item.key === "length")?.classComparison?.gaugePosition).toBeUndefined();
+    expect(artifact.facts.find((item) => item.key === "length")?.classComparison).toMatchObject({ gaugePosition: "LOW", gaugeTone: "NEUTRAL" });
   });
   it("does not invent a class position when fewer than three comparable verified values exist", () => {
     const artifact = buildVariantContentArtifact({ variant, peerVariants: [variant], catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });
