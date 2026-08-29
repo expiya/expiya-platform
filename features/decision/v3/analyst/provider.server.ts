@@ -17,6 +17,31 @@ const SYSTEM_POLICY = `You are an invisible Semantic Needs Analyst for a Turkish
 const DESIGN_CHARACTER_POLICY = "In a vehicle purchase request, explicit şirin, sevimli, sempatik, tatlı görünümlü or retro görünümlü wording maps to designCharacterPreference=CHARMING with its exact source span. This is a meaning fact only and never selects, filters, ranks, or recommends a candidate.";
 const RURAL_CONTEXT_POLICY = "Explicit köyde yaşıyorum, kırsalda yaşıyorum or bağ bahçe işleri wording in a vehicle purchase request maps to primaryUsage=RURAL_DAILY with its exact source span. It does not imply cargo, pickup, SUV, AWD, or commercial use.";
 
+export type AnalystProviderFailureCategory =
+  | "TIMEOUT"
+  | "AUTH"
+  | "RATE_LIMIT"
+  | "REQUEST"
+  | "UPSTREAM"
+  | "UNKNOWN";
+
+export function classifyAnalystProviderFailure(
+  error: unknown,
+  aborted: boolean,
+): AnalystProviderFailureCategory {
+  if (aborted) return "TIMEOUT";
+  const value =
+    typeof error === "object" && error !== null
+      ? (error as { status?: unknown })
+      : undefined;
+  const status = Number(value?.status);
+  if (status === 401 || status === 403) return "AUTH";
+  if (status === 429) return "RATE_LIMIT";
+  if (status >= 400 && status < 500) return "REQUEST";
+  if (status >= 500) return "UPSTREAM";
+  return "UNKNOWN";
+}
+
 export async function analyzeSemanticNeeds(input: SemanticAnalystInput): Promise<SemanticNeedsAnalysisV1> {
   const fallback = () => analyzeSemanticNeedsFallback(input);
   if (!process.env.OPENAI_API_KEY || process.env.CARS_SEMANTIC_ANALYST_PROVIDER_DISABLED === "true") {
@@ -41,6 +66,15 @@ export async function analyzeSemanticNeeds(input: SemanticAnalystInput): Promise
       ...response.output_parsed,
       corrections: response.output_parsed.corrections.map(({ replacementValue, ...correction }) => replacementValue === null ? correction : { ...correction, replacementValue }),
     };
-  } catch (error) { if (input.providerFailureMode === "THROW") throw error; return fallback(); }
+  } catch (error) {
+    if (input.providerFailureMode === "THROW") throw error;
+    console.warn(
+      JSON.stringify({
+        event: "cars_semantic_analyst_provider_fallback",
+        category: classifyAnalystProviderFailure(error, controller.signal.aborted),
+      }),
+    );
+    return fallback();
+  }
   finally { clearTimeout(timeout); input.signal?.removeEventListener("abort", forward); }
 }
