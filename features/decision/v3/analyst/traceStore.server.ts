@@ -17,8 +17,10 @@ export function recordAnalystTrace(envelope: AnalystTraceEnvelope): void {
       origin: envelope.trace.origin,
       acceptedExplicitFactCount: envelope.trace.acceptedExplicitFacts.length,
       rejectedExplicitFactCount: envelope.trace.rejectedExplicitFacts.length,
+      rejectedExplicitFactReasons: envelope.trace.rejectedExplicitFacts.map((item) => item.reasonCode),
       acceptedHypothesisCount: envelope.trace.acceptedHypotheses.length,
       rejectedHypothesisCount: envelope.trace.rejectedHypotheses.length,
+      rejectedHypothesisReasons: envelope.trace.rejectedHypotheses.map((item) => item.reasonCode),
       questionSelected: envelope.trace.selectedQuestionKey !== undefined,
       noQuestionReason: envelope.trace.noQuestionReason ?? null,
     }));
