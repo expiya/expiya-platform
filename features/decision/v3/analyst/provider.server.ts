@@ -26,9 +26,9 @@ export async function analyzeSemanticNeeds(input: SemanticAnalystInput): Promise
   const timeoutMs = Math.max(1_000, Math.min(60_000, input.providerTimeoutMs ?? 8_000));
   const controller = new AbortController(); const timeout = setTimeout(() => controller.abort(), timeoutMs); const forward = () => controller.abort(); input.signal?.addEventListener("abort", forward, { once: true });
   try {
-    const response = await getOpenAIClient().responses.parse({ model: process.env.OPENAI_CARS_ANALYST_MODEL?.trim() || process.env.OPENAI_CARS_CONVERSATION_MODEL?.trim() || "gpt-5.5", store: false, max_output_tokens: 1_200,
+    const response = await getOpenAIClient().responses.parse({ model: process.env.OPENAI_CARS_ANALYST_MODEL?.trim() || process.env.OPENAI_CARS_CONVERSATION_MODEL?.trim() || "gpt-5.5", store: false, max_output_tokens: 1_200, reasoning: { effort: "none" },
       input: [{ role: "system", content: `${SYSTEM_POLICY} ${DESIGN_CHARACTER_POLICY} ${RURAL_CONTEXT_POLICY}` }, { role: "user", content: JSON.stringify({ latestMessage: input.message, activeExplicitStatements: input.activeExplicitStatements, rejectedOrSuperseded: input.rejectedOrSuperseded, pendingQuestionPurpose: input.pendingQuestionPurpose, sanitizedConversationSummary: input.sanitizedConversationSummary }) }],
-      text: { format: zodTextFormat(semanticNeedsAnalysisPayloadSchema, "semantic_needs_analysis_v1") } }, { timeout: timeoutMs, signal: controller.signal });
+      text: { verbosity: "low", format: zodTextFormat(semanticNeedsAnalysisPayloadSchema, "semantic_needs_analysis_v1") } }, { timeout: timeoutMs, signal: controller.signal });
     if (!response.output_parsed) {
       if (input.providerFailureMode === "THROW") throw new Error("SEMANTIC_ANALYST_STRUCTURED_OUTPUT_MISSING");
       return fallback();
