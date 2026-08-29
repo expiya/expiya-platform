@@ -44,6 +44,16 @@ const V3_QUESTION_BY_PLANNER_CONCEPT: Readonly<Record<string, { readonly key: st
 const RECONCILABLE_V3_QUESTIONS = new Set(Object.values(V3_QUESTION_BY_PLANNER_CONCEPT).map((item) => item.key));
 export function reconcileQuestionInput(output: V3PublicResponse, planning: QuestionPlanningResult): V3PublicResponse {
   if (output.state.pendingOffer || output.offerAwaitingConsent || output.recommendations || !output.state.lastQuestionKey || !RECONCILABLE_V3_QUESTIONS.has(output.state.lastQuestionKey)) return output;
+  const primaryUsage = activeDecisionPreferences(output.state.ledger).find(
+    (item) => item.concept === "primaryUsage",
+  )?.normalizedValue;
+  // Passenger capacity is a domain prerequisite, not an interchangeable
+  // discriminator. A generic high-reduction question must never displace it.
+  if (
+    output.state.lastQuestionKey === "passengerCapacity" &&
+    primaryUsage === "PASSENGER_TRANSPORT"
+  )
+    return output;
   const selected = planning.selectedQuestion ? V3_QUESTION_BY_PLANNER_CONCEPT[planning.selectedQuestion.concept] : undefined;
   if (!selected || selected.key === output.state.lastQuestionKey) return output;
   return {

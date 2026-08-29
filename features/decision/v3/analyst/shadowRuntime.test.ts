@@ -62,6 +62,22 @@ describe("OFF/SHADOW decision neutrality", () => {
     expect(reconciled.state.lastQuestionKey).toBe("bodyStyle"); expect(reconciled.state.askedQuestionKeys).toEqual(["bodyStyle"]); expect(reconciled.message).toContain("Park kolaylığı");
     expect(reconcileQuestionInput({ ...output, offerAwaitingConsent: true }, planning)).toEqual({ ...output, offerAwaitingConsent: true });
   });
+  it("never replaces the required passenger-capacity question with a generic discriminator", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY = "true";
+    const output = await runV3TurnWithAnalyst({
+      conversationId: "school-service-capacity",
+      messageId: "m1",
+      message:
+        "Okul servisçiliği yapıyorum. Acilen daha fazla yolcu kapasiteli bir araca ihtiyacım var.",
+      expectedRevision: 0,
+      analystMode: "QUESTION_INPUT",
+      analystProvider: async (value) => analyzeSemanticNeedsFallback(value),
+    });
+    expect(output.state.lastQuestionKey).toBe("passengerCapacity");
+    expect(output.message).toMatch(/toplam kaç kişilik/iu);
+    expect(output.message).not.toMatch(/park kolaylığı|ferah ve yüksek/iu);
+  });
   it("changes only the material question while preserving candidates and rank order in QUESTION_INPUT", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true"; process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY = "true";
     const turn = { messageId: "m1", message: "Uzun yolda kullanacağım bir araç arıyorum.", expectedRevision: 0 } as const;
