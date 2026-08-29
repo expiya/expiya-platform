@@ -84,6 +84,19 @@ describe("Semantic Needs Analyst V1 contract and bounded fallback", () => {
     expect(governed.rejectedExplicitFacts).toEqual([]);
     expect(governed.acceptedExplicitFacts[0]?.sourceSpan).toEqual({ start: 13, end: 23, text: "elektrikli" });
   });
+  it("accepts a high-confidence controlled semantic fact without requiring the fallback regex", () => {
+    const message = "On altı kişiyi aynı rota üzerinde götüreceğim bir araç arıyorum.";
+    const governed = governSemanticNeedsAnalysis(message, {
+      version: "1.0", origin: "MODEL", sourceMessageId: "m1", conversationRevision: 0,
+      explicitFacts: [{
+        concept: "primaryUsage", normalizedValue: "PASSENGER_TRANSPORT",
+        sourceSpan: { start: 0, end: message.length, text: message }, confidence: 0.97,
+        explicitness: "USER_EXPLICIT", confirmationRequired: false,
+      }], hypotheses: [], unknowns: [], corrections: [],
+    });
+    expect(governed.rejectedExplicitFacts).toEqual([]);
+    expect(governed.acceptedExplicitFacts[0]?.normalizedValue).toBe("PASSENGER_TRANSPORT");
+  });
   it("accepts at most one fact and one hypothesis per concept", () => {
     const message = "SUV istiyorum ve SUV olsun";
     const first = { concept: "bodyStyleReference" as const, normalizedValue: "SUV", sourceSpan: { start: 0, end: 3, text: "SUV" }, confidence: 0.99, explicitness: "USER_EXPLICIT" as const, confirmationRequired: false as const };

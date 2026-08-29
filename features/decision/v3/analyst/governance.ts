@@ -1,5 +1,4 @@
 import type { AnalystCorrection, AnalystExplicitFact, AnalystHypothesis, SemanticNeedsAnalysisV1 } from "./contract";
-import { detectExplicitUsagePurpose } from "../usageSemantics";
 
 export interface RejectedSignal { readonly concept: string; readonly reasonCode: string }
 export interface GovernedAnalystFact extends AnalystExplicitFact { readonly governance: "ACCEPTED_EXPLICIT" }
@@ -22,26 +21,20 @@ const resolveExactSpan = (message: string, span: AnalystSourceSpan): AnalystSour
   if (start < 0 || message.indexOf(span.text, start + 1) >= 0) return undefined;
   return { start, end: start + span.text.length, text: span.text };
 };
-const canonicalExplicitValue = (fact: AnalystExplicitFact, message: string): AnalystExplicitFact["normalizedValue"] | undefined => {
+const canonicalExplicitValue = (fact: AnalystExplicitFact): AnalystExplicitFact["normalizedValue"] | undefined => {
   const source = fact.sourceSpan.text;
   if (fact.concept === "primaryUsage") {
-    if (/köyde|kırsalda|bağ bahçe/iu.test(message)) return "RURAL_DAILY";
-    return detectExplicitUsagePurpose(message)?.value;
+    const value = String(fact.normalizedValue);
+    return ["URBAN_DAILY", "FAMILY", "LONG_DISTANCE", "COMMERCIAL", "CORPORATE_TRAVEL", "PASSENGER_TRANSPORT", "MIXED_ROAD", "RURAL_DAILY"].includes(value) ? value : undefined;
   }
-  if (fact.concept === "roadCondition") return /bozuk|stabilize|toprak|asfaltsız|mıcırlı|engebeli/iu.test(source) ? "ROUGH_UNPAVED" : undefined;
-  if (fact.concept === "parkingDifficulty") return /park|dar sokak/iu.test(source) ? "HIGH" : undefined;
-  if (fact.concept === "cargoRequirement") return /yük|koli|ürün|kargo|paket|malzeme/iu.test(source) ? "GOODS_TRANSPORT" : undefined;
+  if (fact.concept === "roadCondition") return fact.normalizedValue === "ROUGH_UNPAVED" ? "ROUGH_UNPAVED" : undefined;
+  if (fact.concept === "parkingDifficulty") return fact.normalizedValue === "HIGH" ? "HIGH" : undefined;
+  if (fact.concept === "cargoRequirement") return fact.normalizedValue === "GOODS_TRANSPORT" ? "GOODS_TRANSPORT" : undefined;
   if (fact.concept === "passengerCapacity") { const count = Number(source.match(/\d{1,2}/u)?.[0]); return Number.isInteger(count) && count > 0 ? count : undefined; }
-  if (fact.concept === "fuelPreference") {
-    const value = source.match(/elektrikli|benzinli|dizel|hibrit|lpg/iu)?.[0]; return value?.toLocaleUpperCase("tr-TR");
-  }
-  if (fact.concept === "transmissionPreference") {
-    const value = source.match(/otomatik|manuel/iu)?.[0]; return value?.toLocaleUpperCase("tr-TR");
-  }
-  if (fact.concept === "bodyStyleReference") {
-    const value = source.match(/suv|sedan|hatchback|station wagon|pick-?up|panelvan|mpv/iu)?.[0]; return value?.toLocaleUpperCase("tr-TR");
-  }
-  if (fact.concept === "designCharacterPreference") return /şirin|sevimli|sempatik|tatlı görünümlü|retro görünümlü/iu.test(source) ? "CHARMING" : undefined;
+  if (fact.concept === "fuelPreference") return ["ELEKTRİKLİ", "BENZİNLİ", "DİZEL", "HİBRİT", "LPG"].includes(String(fact.normalizedValue)) ? fact.normalizedValue : undefined;
+  if (fact.concept === "transmissionPreference") return ["OTOMATİK", "MANUEL"].includes(String(fact.normalizedValue)) ? fact.normalizedValue : undefined;
+  if (fact.concept === "bodyStyleReference") return ["SUV", "SEDAN", "HATCHBACK", "STATION WAGON", "PICK-UP", "PICKUP", "PANELVAN", "MPV"].includes(String(fact.normalizedValue).toLocaleUpperCase("tr-TR")) ? String(fact.normalizedValue).toLocaleUpperCase("tr-TR") : undefined;
+  if (fact.concept === "designCharacterPreference") return fact.normalizedValue === "CHARMING" ? "CHARMING" : undefined;
   if (fact.concept === "brandReference" || fact.concept === "modelReference" || fact.concept === "equipmentRequirement") return source;
   return undefined;
 };
@@ -57,7 +50,7 @@ export function governSemanticNeedsAnalysis(message: string, analysis: SemanticN
   const acceptedFactConcepts = new Set<string>();
   for (const fact of analysis.explicitFacts) {
     const sourceSpan = resolveExactSpan(message, fact.sourceSpan);
-    const canonicalValue = canonicalExplicitValue(fact, message);
+    const canonicalValue = canonicalExplicitValue(fact);
     const reason = !sourceSpan ? "SOURCE_SPAN_MISMATCH" : fact.confidence < 0.9 ? "EXPLICIT_CONFIDENCE_TOO_LOW" : acceptedFactConcepts.has(fact.concept) ? "DUPLICATE_EXPLICIT_CONCEPT" : canonicalValue === undefined ? "NORMALIZED_VALUE_NOT_ALLOWED" : undefined;
     if (reason) rejectedExplicitFacts.push({ concept: fact.concept, reasonCode: reason });
     else { acceptedFactConcepts.add(fact.concept); acceptedExplicitFacts.push({ ...fact, sourceSpan: sourceSpan!, normalizedValue: canonicalValue!, governance: "ACCEPTED_EXPLICIT" }); }
