@@ -5,6 +5,7 @@ import { v34PriceAuthority } from "@/features/decision/v3/catalogAdapter.server"
 import { SALES_ADVISOR_VERSION, VARIANT_CONTENT_SCHEMA_VERSION, type PublicVariantFact, type VariantContentArtifact } from "./types";
 import { getReviewedSalesColors, getReviewedSalesFacts, getReviewedSalesMedia } from "./salesKnowledge.server";
 import { getEquipmentPublicCopy } from "./equipmentPublicCopy";
+import { createClassComparison } from "./classComparison.server";
 
 const stable = (value: unknown): string => JSON.stringify(value, (_key, item: unknown) => item && typeof item === "object" && !Array.isArray(item) ? Object.fromEntries(Object.entries(item).sort(([a], [b]) => a.localeCompare(b))) : item);
 const sha = (value: string): string => `sha256:${createHash("sha256").update(value).digest("hex")}`;
@@ -12,7 +13,7 @@ const verified = <T,>(fact: CatalogFact<T> | undefined): fact is CatalogFact<T> 
 const dailyMeanings: Readonly<Record<string, string>> = {
   bodyStyle: "Gövde yapısı; oturma yüksekliği, park kolaylığı, kabin ve bagaj kullanımını birlikte etkiler.",
   fuelType: "Yakıt türü; şarj ihtiyacı, kullanım maliyeti ve uzun yol planını doğrudan etkiler.",
-  power: "Güç değeri hızlanma ve yüklü kullanımdaki rezerv hakkında somut bir referanstır.",
+  power: "Güç değeri motorun üretebildiği çıktıyı gösterir. Tek başına ivmelenme süresi değildir; 0–100 km/s sonucu için araç ağırlığı, çekiş düzeni ve doğrulanmış hızlanma verisi de gerekir.",
   torque: "Tork, özellikle ilk hareket, ara hızlanma ve yüklü kullanımda aracın çekiş hissini etkiler.",
   engineDisplacement: "Motor hacmi tek başına performansı belirlemez; vergi, tüketim ve motor karakteri değerlendirilirken diğer verilerle birlikte okunur.",
   transmission: "Şanzıman tipi yoğun trafikte kullanım rahatlığını ve aracın hızlanma karakterini etkiler.",
@@ -59,13 +60,13 @@ const dailyExamples: Readonly<Record<string, string>> = {
 const fact = <T,>(key: string, label: string, source: CatalogFact<T> | undefined, format: (value: T) => string, dailyMeaning?: string): PublicVariantFact | undefined => verified(source) ? { key, label, value: format(source.value), disposition: "VERIFIED", ...((dailyMeaning ?? dailyMeanings[key]) ? { dailyMeaning: dailyMeaning ?? dailyMeanings[key] } : {}), ...(dailyExamples[key] ? { dailyExample: dailyExamples[key] } : {}) } : undefined;
 const fuel: Record<string, string> = { GASOLINE: "Benzin", DIESEL: "Dizel", LPG: "LPG", MHEV: "Hafif hibrit", HEV: "Hibrit", PHEV: "Şarj edilebilir hibrit", BEV: "Elektrik", HYDROGEN: "Hidrojen" };
 
-export function buildVariantContentArtifact(input: { variant: CatalogVariantSnapshot; catalogRelease: string; catalogFingerprint: string }): VariantContentArtifact {
+export function buildVariantContentArtifact(input: { variant: CatalogVariantSnapshot; catalogRelease: string; catalogFingerprint: string; peerVariants?: readonly CatalogVariantSnapshot[] }): VariantContentArtifact {
   const { variant } = input;
   if (variant.market !== "TR" || variant.lifecycleStatus !== "ON_SALE") throw new TypeError("PHASE2_VARIANT_NOT_PUBLISHABLE");
   const d = variant.decisionFacts;
   const facts = [
     fact("bodyStyle", "Gövde", d.bodyStyle, String), fact("fuelType", "Yakıt", d.powertrain.fuelType, (v) => fuel[v] ?? v),
-    fact("power", "Güç", d.powertrain.powerKw, (v) => `${v} kW / ${Math.round(v * 1.35962)} bg`, "Güç değeri hızlanma ve yüklü kullanımdaki rezerv hakkında somut bir referanstır."),
+    fact("power", "Güç", d.powertrain.powerKw, (v) => `${v} kW / ${Math.round(v * 1.35962)} bg`, dailyMeanings.power),
     fact("torque", "Tork", d.powertrain.torqueNm, (v) => `${v} Nm`), fact("engineDisplacement", "Motor hacmi", d.powertrain.engineDisplacementCc, (v) => `${v} cm³`),
     fact("transmission", "Şanzıman", d.powertrain.transmission, String), fact("drivenWheels", "Çekiş", d.powertrain.drivenWheels, String), fact("seats", "Koltuk", d.dimensions.seats, (v) => `${v} kişilik`),
     fact("luggage", "Bagaj", d.dimensions.luggageLitres, (v) => `${v} litre`, "Bagaj hacmi günlük eşya ve seyahat yükü için ölçülebilir alanı gösterir."),
@@ -78,6 +79,13 @@ export function buildVariantContentArtifact(input: { variant: CatalogVariantSnap
     fact("dcCharge", "DC şarj", d.efficiency.maxDcChargeKw, (v) => `${v} kW`),
     fact("batteryCapacity", "Batarya kapasitesi", d.efficiency.batteryCapacityKwh, (v) => `${v} kWh`), fact("usableBattery", "Kullanılabilir batarya", d.efficiency.batteryUsableKwh, (v) => `${v} kWh`),
   ].filter((item): item is PublicVariantFact => Boolean(item));
+  if (input.peerVariants?.length) {
+    for (let index = 0; index < facts.length; index += 1) {
+      const item = facts[index]!;
+      const classComparison = createClassComparison(variant, input.peerVariants, item.key);
+      if (classComparison) facts[index] = { ...item, classComparison };
+    }
+  }
   facts.push(...getReviewedSalesFacts(variant.id));
   const equipment = d.safetyFeatureCodes.filter(verified).map((item) => {
     const publicCopy = getEquipmentPublicCopy(item.value);

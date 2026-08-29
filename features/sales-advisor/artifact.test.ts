@@ -65,6 +65,18 @@ describe("versioned variant content artifact", () => {
       dailyMeaning: expect.stringMatching(/geri manevrada/iu),
     });
   });
+  it("positions numeric facts against verified variants in the same body and powertrain group", () => {
+    const peer = (id: string, powerKw: number): CatalogVariantSnapshot => ({ ...variant, id, decisionFacts: { ...variant.decisionFacts, powertrain: { ...variant.decisionFacts.powertrain, powerKw: f(powerKw) } } });
+    const peers = [peer("low", 90), peer("mid", 150), peer("high", 220)];
+    const artifact = buildVariantContentArtifact({ variant, peerVariants: peers, catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });
+    expect(artifact.facts.find((item) => item.key === "power")?.classComparison).toMatchObject({ dataCount: 3, basis: "SUV ve BEV araçlar" });
+    expect(artifact.facts.find((item) => item.key === "power")?.classComparison?.text).toMatch(/orta bölüm/iu);
+    expect(artifact.facts.find((item) => item.key === "power")?.dailyMeaning).toMatch(/tek başına ivmelenme süresi değildir/iu);
+  });
+  it("does not invent a class position when fewer than three comparable verified values exist", () => {
+    const artifact = buildVariantContentArtifact({ variant, peerVariants: [variant], catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });
+    expect(artifact.facts.find((item) => item.key === "power")?.classComparison).toBeUndefined();
+  });
   it("rejects checksum and catalog/variant binding changes", () => {
     const artifact = buildVariantContentArtifact({ variant, catalogRelease: "v1", catalogFingerprint: "sha256:catalog" });
     expect(() => validateVariantContentArtifact({ ...artifact, title: "Değişti" }, { exactVariantId: "exact-1", catalogRelease: "v1", catalogFingerprint: "sha256:catalog" })).toThrow("CHECKSUM");

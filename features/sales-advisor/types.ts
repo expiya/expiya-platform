@@ -26,6 +26,12 @@ export interface PublicVariantFact {
   readonly value: string;
   readonly dailyMeaning?: string;
   readonly dailyExample?: string;
+  readonly classComparison?: {
+    readonly text: string;
+    readonly peerCount: number;
+    readonly dataCount: number;
+    readonly basis: string;
+  };
   readonly disposition: ClaimDisposition;
   readonly scopeNote?: string;
   readonly source?: { readonly label: string; readonly url: string; readonly accessedAt: string };

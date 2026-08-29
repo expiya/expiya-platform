@@ -61,7 +61,7 @@ export async function openPhase2Experience(token: string, now = new Date()) {
   if (catalog.catalogReleaseVersion !== payload.catalogRelease || catalog.catalogFingerprint !== payload.catalogFingerprint) throw new TypeError("PHASE2_CATALOG_STALE");
   const variant = catalog.variants.find((item) => item.id === payload.selectedExactVariantId);
   if (!variant) throw new TypeError("PHASE2_VARIANT_STALE");
-  const artifact = buildVariantContentArtifact({ variant, catalogRelease: catalog.catalogReleaseVersion, catalogFingerprint: catalog.catalogFingerprint });
+  const artifact = buildVariantContentArtifact({ variant, catalogRelease: catalog.catalogReleaseVersion, catalogFingerprint: catalog.catalogFingerprint, peerVariants: catalog.variants });
   validateVariantContentArtifact(artifact, { exactVariantId: payload.selectedExactVariantId, catalogRelease: payload.catalogRelease, catalogFingerprint: payload.catalogFingerprint });
   return { handoff: payload, artifact };
 }
@@ -97,7 +97,7 @@ export async function openPhase3IntentHandoff(token: string, expectedIntent?: Ph
   if (catalog.catalogReleaseVersion !== payload.catalogRelease) throw new TypeError("PHASE3_CATALOG_STALE");
   const variant = catalog.variants.find((item) => item.id === payload.selectedExactVariantId);
   if (!variant) throw new TypeError("PHASE3_VARIANT_STALE");
-  const artifact = buildVariantContentArtifact({ variant, catalogRelease: catalog.catalogReleaseVersion, catalogFingerprint: catalog.catalogFingerprint });
+  const artifact = buildVariantContentArtifact({ variant, catalogRelease: catalog.catalogReleaseVersion, catalogFingerprint: catalog.catalogFingerprint, peerVariants: catalog.variants });
   return { handoff: payload, artifact };
 }
 
