@@ -38,4 +38,22 @@ describe("POST /api/product-events", () => {
     expect(response.status).toBe(400);
     expect(query).not.toHaveBeenCalled();
   });
+
+  it("records a paid comparison offer click without location data", async () => {
+    const response = await POST(new Request("https://expiya.com/api/product-events", {
+      method: "POST",
+      body: JSON.stringify({
+        eventName: "paid_comparison_offer_clicked",
+        conversationId: "b47ecb8a-d1eb-4ae5-a697-03e5b13a63f2",
+        decisionId: "v3-variant-1",
+        carId: "variant-1",
+      }),
+    }));
+
+    expect(response.status).toBe(201);
+    expect(query).toHaveBeenCalledWith(
+      expect.stringContaining("insert into product_events"),
+      expect.arrayContaining(["paid_comparison_offer_clicked", "v3-variant-1", "variant-1"]),
+    );
+  });
 });

@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 import { saveFeedback } from "@/features/decision/feedback/saveFeedback";
 import { VehicleImageDisclosure } from "@/components/cars/VehicleImageDisclosure";
+import { PaidComparisonOffer } from "@/components/cars/PaidComparisonOffer";
 import { interpretRecommendation } from "@/features/decision/interpretRecommendation";
 import type { PersistedCarsConversation } from "@/types/carsConversation";
 import type { RecommendedCar } from "@/types/recommendation";
@@ -157,6 +158,12 @@ function V3DecisionDetail({ context }: { readonly context: V3DecisionContext }) 
           {card.warning ? <p className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-950 dark:border-amber-900 dark:bg-amber-950/40 dark:text-amber-100">{card.warning}</p> : null}
           {error ? <p role="alert" className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-200">{error}</p> : null}
           <button type="button" onClick={() => void openSalesAdvisor()} disabled={opening} className="w-full rounded-2xl bg-emerald-600 px-5 py-4 text-left font-semibold text-white disabled:cursor-wait disabled:opacity-60">{opening ? "Satış danışmanı açılıyor…" : "Bu aracı daha yakından tanı ve satış danışmanına geç →"}</button>
+          <PaidComparisonOffer
+            conversationId={context.conversationId}
+            stateToken={context.stateToken}
+            offerId={context.offerId}
+            selectedExactVariantId={card.id}
+          />
         </div>
       </article>
     </div>
