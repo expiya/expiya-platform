@@ -2,8 +2,8 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { runV3Turn } from "@/features/decision/v3/engine.server";
 import { sealV31State } from "@/features/decision/v3/stateToken.server";
 import { resetV31OffersForTests } from "@/features/decision/v3/offerGovernance.server";
-import type { V3PublicResponse } from "@/features/decision/v3/types";
-import { createPhase2Handoff, createPhase3IntentHandoff, openPhase2Experience, openPhase3IntentHandoff, publicSummary, resetPhase2HandoffsForTests } from "./handoff.server";
+import type { V3ConversationState, V3PublicResponse } from "@/features/decision/v3/types";
+import { approvedNeedsForPhase2, createPhase2Handoff, createPhase3IntentHandoff, openPhase2Experience, openPhase3IntentHandoff, publicSummary, resetPhase2HandoffsForTests } from "./handoff.server";
 import type { PreferenceEvent } from "@/features/decision/v3/types";
 import { advanceV3ToOffer, revealV3TestOffer } from "@/features/decision/v3/testConversationDecision";
 
@@ -28,6 +28,14 @@ describe("signed phase 2 handoff", () => {
     expect(publicSummary(summaryEvent("transmission", "AUTOMATIC"))).toBe("Şanzıman tercihi: otomatik");
     expect(publicSummary(summaryEvent("minimumSeats", 2))).toBe("Kullanım kapasitesi: en az 2 kişi");
     expect(publicSummary(summaryEvent("equipmentNotImportant", "MINIMAL"))).toBe("Ek donanım şartı: başka bir donanım zorunlu değil");
+  });
+  it("shows only latest positive hard filters in the Phase 2 fit section", () => {
+    const alpine = { ...summaryEvent("modelPreference", "Alpine"), id: "old-model", field: "model", decisionUse: "HARD_FILTER" as const };
+    const dacia = { ...summaryEvent("modelPreference", "Jogger"), id: "new-model", field: "model", decisionUse: "HARD_FILTER" as const };
+    const soft = { ...summaryEvent("candidateDrivingPriority", "DRIVING_ENJOYMENT"), id: "soft", decisionUse: "SOFT_RANK" as const };
+    const negative = { ...summaryEvent("equipmentNotImportant", "MINIMAL"), id: "negative", decisionUse: "NONE" as const };
+    const state = { version: "3.8", conversationId: "fit", revision: 4, processedMessages: {}, purchaseIntent: "ACTIVE_DISCOVERY", intentObservationTurns: 1, ledger: [alpine, dacia, soft, negative], askedQuestionKeys: [], ended: false } satisfies V3ConversationState;
+    expect(approvedNeedsForPhase2(state)).toEqual([{ concept: "modelPreference", summary: "Model tercihi: Jogger" }]);
   });
   it("rejects tampering, cross-conversation binding and expiry", async () => {
     const output = await revealed("phase2-reject"); const selected = output.recommendations![0]!.id; const valid = await createPhase2Handoff({ conversationId: output.state.conversationId, stateToken: sealV31State(output.state), offerId: output.state.recommendationTermsAcceptance!.offerId, selectedExactVariantId: selected });
