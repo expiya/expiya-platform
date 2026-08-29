@@ -110,9 +110,36 @@ describe("OFF/SHADOW decision neutrality", () => {
       }),
     });
     expect(output.state.ledger.some((item) => item.id.includes(":analyst:primaryUsage:"))).toBe(true);
+    expect(output.state.ledger.filter((item) => item.concept === "primaryUsage")).toHaveLength(1);
     expect(output.state.lastQuestionKey).toBe("passengerCapacity");
     expect(output.message).toMatch(/toplam kaç kişilik/iu);
     expect(JSON.stringify(output)).not.toMatch(/acceptedExplicitFacts|questionEvaluations|decisionNeutralityFingerprint/iu);
+  });
+  it("uses model-only passenger intent and a written capacity without asking either again", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY = "true";
+    process.env.CARS_SEMANTIC_ANALYST_EXPLICIT_FACTS_READY = "true";
+    const message = "Sekiz kişiyi aynı rota üzerinde götüreceğim bir sıfır araç arıyorum.";
+    const output = await runV3TurnWithAnalyst({
+      conversationId: "explicit-written-passenger-capacity",
+      messageId: "m1", message, expectedRevision: 0,
+      analystMode: "EXPLICIT_FACTS_AND_QUESTIONS",
+      analystProvider: async () => ({
+        version: "1.0", origin: "MODEL", sourceMessageId: "m1", conversationRevision: 0,
+        explicitFacts: [
+          { concept: "primaryUsage", normalizedValue: "PASSENGER_TRANSPORT", sourceSpan: { start: 0, end: message.length, text: message }, confidence: 0.99, explicitness: "USER_EXPLICIT", confirmationRequired: false },
+          { concept: "passengerCapacity", normalizedValue: 8, sourceSpan: { start: 0, end: message.length, text: message }, confidence: 0.99, explicitness: "USER_EXPLICIT", confirmationRequired: false },
+        ],
+        hypotheses: [], unknowns: [], corrections: [],
+      }),
+    });
+    expect(output.state.ledger).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: expect.stringContaining(":analyst:primaryUsage:"), normalizedValue: "PASSENGER_TRANSPORT" }),
+      expect.objectContaining({ id: expect.stringContaining(":analyst:minimumSeats:"), normalizedValue: 8 }),
+    ]));
+    expect(output.state.ledger.filter((item) => item.concept === "primaryUsage")).toHaveLength(1);
+    expect(output.state.lastQuestionKey).not.toBe("passengerCapacity");
+    expect(output.message).not.toMatch(/toplam kaç kişilik/iu);
   });
   it("changes only the material question while preserving candidates and rank order in QUESTION_INPUT", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true"; process.env.CARS_SEMANTIC_ANALYST_QUESTION_INPUT_READY = "true";

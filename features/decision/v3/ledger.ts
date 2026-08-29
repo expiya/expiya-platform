@@ -292,6 +292,11 @@ function supersedeActive(
     .reverse()
     .find((item) => item.concept === sameConcept && item.status === "ACTIVE");
   if (!prior) return [...ledger, next];
+  if (
+    prior.sourceMessageId === next.sourceMessageId &&
+    JSON.stringify(prior.normalizedValue) === JSON.stringify(next.normalizedValue)
+  )
+    return [...ledger];
   return [
     ...ledger,
     {
