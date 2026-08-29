@@ -45,15 +45,46 @@ const technicalOptions = [
   { code: "CHARGING", label: "daha yüksek azami DC şarj gücü", values: (v: CatalogVariantSnapshot) => v.decisionFacts.efficiency.maxDcChargeKw?.value },
 ] as const;
 
+const trNumber = (value: number, maximumFractionDigits = 1) => new Intl.NumberFormat("tr-TR", { maximumFractionDigits }).format(value);
+
+function technicalReference(code: string, values: readonly number[], total: number, variants: readonly CatalogVariantSnapshot[]): string {
+  const minimum = Math.min(...values);
+  const maximum = Math.max(...values);
+  const coverage = `${values.length}/${total} varyantta veri`;
+  const range = (convert: (value: number) => number, unit: string, digits = 1) => `${trNumber(convert(minimum), digits)}–${trNumber(convert(maximum), digits)} ${unit}`;
+  const valueRange = code === "PRICE"
+    ? range((value) => value / 1_000_000, "milyon TL")
+    : code === "RANGE" ? range((value) => value, "km", 0)
+      : code === "COMPACT" ? range((value) => value / 1_000, "m")
+        : ["WIDTH", "HEIGHT", "WHEELBASE"].includes(code) ? range((value) => value / 10, "cm", 0)
+          : code === "LUGGAGE" ? range((value) => value, "litre", 0)
+            : code === "POWER" || code === "CHARGING" ? range((value) => value, "kW", 0)
+              : code === "TORQUE" ? range((value) => value, "Nm", 0)
+                : code === "PAYLOAD" || code === "TOWING" ? range((value) => value, "kg", 0)
+                  : code === "BATTERY" ? range((value) => value, "kWh")
+                    : code === "CONSUMPTION"
+                      ? range((value) => value, variants.some((variant) => variant.decisionFacts.efficiency.combinedKwhPer100Km) ? "kWh/100 km" : "L/100 km")
+                      : range((value) => value, "");
+  const title: Readonly<Record<string, string>> = {
+    COMPACT: "Gövde uzunluğu", LUGGAGE: "Bagaj hacmi", POWER: "Motor gücü", PRICE: "Doğrulanmış satış fiyatı", RANGE: "Elektrikli menzil", WIDTH: "Gövde genişliği", HEIGHT: "Gövde yüksekliği", WHEELBASE: "Aks mesafesi", TORQUE: "Tork", PAYLOAD: "Taşıma kapasitesi", TOWING: "Frenli römork kapasitesi", CONSUMPTION: "Karma tüketim", BATTERY: "Batarya kapasitesi", CHARGING: "Azami DC şarj gücü",
+  };
+  return `${title[code] ?? code}: ${valueRange} (${coverage})`;
+}
+
 export function planV3TechnicalDiscriminator(variants: readonly CatalogVariantSnapshot[], askedKeys: readonly string[], ledger: readonly PreferenceEvent[]): V3CandidateDiscriminatorPlan | undefined {
   if (variants.length < 2) return undefined;
   const asked = new Set(askedKeys.flatMap((key) => key.startsWith("technicalDiscriminator:") ? key.slice("technicalDiscriminator:".length).split("|") : []));
   const activeConcepts = new Set(ledger.filter((item) => item.status === "ACTIVE").map((item) => item.concept));
   const conceptByCode: Readonly<Record<string, string>> = { COMPACT: "candidateCompactPriority", LUGGAGE: "candidateLuggagePriority", POWER: "candidatePowerPriority", PRICE: "candidatePricePriority", RANGE: "candidateRangePriority", WIDTH: "candidateWidthPriority", HEIGHT: "candidateHeightPriority", WHEELBASE: "candidateWheelbasePriority", TORQUE: "candidateTorquePriority", PAYLOAD: "candidatePayloadPriority", TOWING: "candidateTowingPriority", CONSUMPTION: "candidateConsumptionPriority", BATTERY: "candidateBatteryPriority", CHARGING: "candidateChargingPriority" };
-  const options = technicalOptions.filter((option) => {
-    if (asked.has(option.code) || activeConcepts.has(conceptByCode[option.code]!)) return false;
+  const options = technicalOptions.flatMap((option) => {
+    if (asked.has(option.code) || activeConcepts.has(conceptByCode[option.code]!)) return [];
+    if (option.code === "CONSUMPTION") {
+      const hasElectricUnit = variants.some((variant) => variant.decisionFacts.efficiency.combinedKwhPer100Km);
+      const hasFuelUnit = variants.some((variant) => variant.decisionFacts.efficiency.combinedLitresPer100Km);
+      if (hasElectricUnit && hasFuelUnit) return [];
+    }
     const values = variants.map(option.values).filter((value): value is number => typeof value === "number" && Number.isFinite(value));
-    return values.length >= 2 && new Set(values).size > 1;
+    return values.length >= 2 && new Set(values).size > 1 ? [{ ...option, valuesInPool: values }] : [];
   }).slice(0, 3);
   if (!options.length) return undefined;
   const labels = options.map((item) => item.label);
@@ -61,5 +92,6 @@ export function planV3TechnicalDiscriminator(variants: readonly CatalogVariantSn
   const lead = technicalRounds === 0
     ? "Şimdi seçenekleri ayıran teknik farklara bakalım. Doğrulama seviyesi tamamlanmamış katalog değerlerini kullanırsak bunu sonuçta ayrıca belirteceğim."
     : "Teknik tarafta geriye kalan farklı bir ölçüt var; doğrulama seviyesi tamamlanmamış değerler sonuçta ayrıca belirtilecek.";
-  return { key: `technicalDiscriminator:${options.map((item) => item.code).join("|")}`, text: `${lead} Hangisini öne alalım: ${labels.length === 1 ? labels[0] : `${labels.slice(0, -1).join(", ")} veya ${labels.at(-1)}`}; yoksa bu gruptakilerden hiçbiri belirleyici değil mi?` };
+  const references = options.map((item) => technicalReference(item.code, item.valuesInPool, variants.length, variants)).join(" · ");
+  return { key: `technicalDiscriminator:${options.map((item) => item.code).join("|")}`, text: `${lead} Kalan seçeneklerde referans aralıkları şöyle: ${references}. “Daha yüksek” veya “daha düşük”, yalnız bu kalan seçeneklerin gösterilen aralığına göredir. Hangisini öne alalım: ${labels.length === 1 ? labels[0] : `${labels.slice(0, -1).join(", ")} veya ${labels.at(-1)}`}; yoksa bu gruptakilerden hiçbiri belirleyici değil mi?` };
 }
