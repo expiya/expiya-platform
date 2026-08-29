@@ -486,8 +486,8 @@ function selectQuestion(
   if (
     (usage === "MIXED_ROAD" ||
       (usage === "RURAL_DAILY" &&
-        active(state, "roadCondition") &&
-        active(state, "cargoRequirement"))) &&
+        Boolean(latestActiveLedgerEvent(state.ledger, "roadCondition")) &&
+        Boolean(latestActiveLedgerEvent(state.ledger, "cargoRequirement")))) &&
     !active(state, "bodyStyle") &&
     !keys.has("mixedRoadBody")
   )

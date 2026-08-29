@@ -67,4 +67,16 @@ describe("rural cargo body continuity", () => {
       );
     }
   });
+
+  it("uses the cargo-aware SUV versus pick-up question when both rural road and load needs are explicit", async () => {
+    const output = await runV3Turn({
+      conversationId: "rural-road-and-cargo",
+      messageId: "m1",
+      message:
+        "Köyde bozuk ve stabilize yollarda ekipman ve fide taşımak için araç önerir misin?",
+      expectedRevision: 0,
+    });
+    expect(output.state.lastQuestionKey).toBe("mixedRoadBody");
+    expect(output.message).toMatch(/SUV.*pick-up/iu);
+  });
 });
