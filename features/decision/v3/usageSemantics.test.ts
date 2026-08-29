@@ -18,6 +18,7 @@ describe("V3 explicit usage semantics", () => {
     ["Bozuk köy yollarında kullanacağım.", "MIXED_ROAD"],
     ["Köyde kullanacağım, bozuk ve stabilize yollarda rahatlıkla gidebilen bir araç arıyorum.", "MIXED_ROAD"],
     ["Köyde kullanacağım.", "MIXED_ROAD"],
+    ["Köyde yaşıyorum, bağ bahçe işleriyle uğraşıyorum ve araç almak istiyorum.", "RURAL_DAILY"],
     ["Stabilize yollarda kullanacağım.", "MIXED_ROAD"],
   ])("classifies explicit usage: %s", (message, expected) => {
     expect(detectExplicitUsagePurpose(message)?.value).toBe(expected);
@@ -63,6 +64,24 @@ describe("V3 explicit usage semantics", () => {
     expect(latestActiveLedgerEvent(output.state.ledger, "primaryUsage")).toBeUndefined();
     expect((output.message.match(/\?/gu) ?? [])).toHaveLength(1);
     expect(output.state.lastQuestionKey).toBe("primaryUsage");
+  });
+
+  it("does not ask rural use again when village life and orchard work are explicit", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const output = await runV3Turn({
+      conversationId: "usage:rural-orchard",
+      messageId: "m1",
+      message:
+        "Köyde yaşıyorum. Bağ bahçe işleriyle uğraşıyorum. Araç almak istiyorum, ne önerirsin?",
+      expectedRevision: 0,
+    });
+    expect(
+      latestActiveLedgerEvent(output.state.ledger, "primaryUsage")
+        ?.normalizedValue,
+    ).toBe("RURAL_DAILY");
+    expect(output.message).not.toMatch(/nerede ve ne için/iu);
+    expect(output.message).toMatch(/bozuk veya stabilize.*ekipman ve ürün.*günlük ulaşım/iu);
+    expect(output.message).not.toMatch(/SUV.*pick-up/iu);
   });
 
   it("does not invent camping or four-wheel drive for an explicit village-road need", async () => {

@@ -11,6 +11,17 @@ describe("Semantic Needs Analyst V1 contract and bounded fallback", () => {
     expect(result.hypotheses).toEqual(expect.arrayContaining([expect.objectContaining({ concept: "groundClearanceNeed", decisionUse: "QUESTION_INPUT", confirmationRequired: true }), expect.objectContaining({ concept: "tractionNeed", decisionUse: "NONE" })]));
     expect(result.explicitFacts.some((item) => ["SUV", "AWD", "PICKUP", "COMMERCIAL"].includes(String(item.normalizedValue)))).toBe(false);
   });
+  it("recognizes village residence and orchard work as explicit rural context", () => {
+    const message =
+      "Köyde yaşıyorum. Bağ bahçe işleriyle uğraşıyorum. Araç almak istiyorum.";
+    const result = analyzeSemanticNeedsFallback(input(message));
+    expect(result.explicitFacts).toContainEqual(
+      expect.objectContaining({
+        concept: "primaryUsage",
+        normalizedValue: "RURAL_DAILY",
+      }),
+    );
+  });
   it("does not turn camping alone into SUV or AWD", () => {
     const result = analyzeSemanticNeedsFallback(input("Hafta sonu kamp yapıyorum."));
     expect(result.explicitFacts.some((item) => item.concept === "bodyStyleReference" || item.concept === "tractionNeed")).toBe(false); expect(result.hypotheses).toEqual([]);
