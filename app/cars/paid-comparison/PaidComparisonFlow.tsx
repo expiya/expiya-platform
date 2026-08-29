@@ -89,7 +89,7 @@ export default function PaidComparisonFlow({ legalTexts }: { legalTexts: { preIn
   }
 
   return <main className="mx-auto min-h-screen max-w-3xl px-4 py-8 sm:py-14">
-    <header><p className="text-sm font-semibold text-emerald-700">Expiya Cars</p><h1 className="mt-2 text-3xl font-semibold tracking-tight">3 araç karar doğrulama raporu</h1><p className="mt-3 text-neutral-600 dark:text-neutral-300">Karar kartındaki aracın yanında aynı sınıftan iki aracı sen seç. KDV dâhil tek fiyat: <strong>349 TL</strong>.</p></header>
+    <header><p className="text-sm font-semibold text-emerald-700">Expiya Cars</p><h1 className="mt-2 text-3xl font-semibold tracking-tight">3 araç karar doğrulama raporu</h1><p className="mt-3 text-neutral-600 dark:text-neutral-300">Karar kartındaki aracın yanında aynı sınıftan iki aracı sen seç. KDV dâhil tek fiyat: <strong>349 TL</strong>.</p><Link href="/cars/paid-comparison/sample" className="mt-3 inline-block text-sm font-semibold text-emerald-700 underline">Satın almadan önce örnek raporu gör</Link></header>
     {step === "loading" && <p className="mt-10">Seçenekler hazırlanıyor…</p>}
     {step === "error" && <section className="mt-8 rounded-2xl border p-5"><p>{message}</p><Link className="mt-4 inline-block underline" href="/">Karar ekranına dön</Link></section>}
     {step === "select" && options && <section className="mt-8">
