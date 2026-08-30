@@ -10,8 +10,12 @@ const nextConfig: NextConfig = {
       "./data/production/rec-offer-audit-foundation/**/*",
     ],
     "/api/cars/paid-comparison/report/pdf": [
-      "./node_modules/@fontsource/noto-sans/files/noto-sans-latin-ext-400-normal.woff2",
-      "./node_modules/@fontsource/noto-sans/files/noto-sans-latin-ext-700-normal.woff2",
+      "./node_modules/pdfjs-dist/standard_fonts/LiberationSans-Regular.ttf",
+      "./node_modules/pdfjs-dist/standard_fonts/LiberationSans-Bold.ttf",
+    ],
+    "/api/cars/paid-comparison/sample/pdf": [
+      "./node_modules/pdfjs-dist/standard_fonts/LiberationSans-Regular.ttf",
+      "./node_modules/pdfjs-dist/standard_fonts/LiberationSans-Bold.ttf",
     ],
   },
   images: {
