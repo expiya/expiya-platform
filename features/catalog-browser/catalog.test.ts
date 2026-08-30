@@ -1,10 +1,15 @@
 import { describe, expect, it, vi } from "vitest";
 vi.mock("server-only", () => ({}));
-import { getCatalogBrowserPage, parseCatalogBrowserQuery } from "./catalog.server";
+import { DEFAULT_CATALOG_CLASS, DEFAULT_CATALOG_SORT, getCatalogBrowserPage, parseCatalogBrowserQuery } from "./catalog.server";
 
 describe("catalog browser", () => {
   it("parses bounded public filters", () => {
     expect(parseCatalogBrowserQuery({ brand: "Kia", page: "-2", sort: "PRICE_ASC", maxPrice: "3.000.000 TL" })).toMatchObject({ brand: "Kia", page: 1, sort: "PRICE_ASC", maxPriceTry: 3_000_000 });
+  });
+
+  it("opens with focused defaults but preserves an explicit all-class search", () => {
+    expect(parseCatalogBrowserQuery({})).toMatchObject({ useClass: DEFAULT_CATALOG_CLASS, sort: DEFAULT_CATALOG_SORT });
+    expect(parseCatalogBrowserQuery({ class: "", sort: "BRAND_ASC" })).toMatchObject({ useClass: "", sort: "BRAND_ASC" });
   });
 
   it("reads the active catalog and filters exact public rows", async () => {

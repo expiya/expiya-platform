@@ -476,6 +476,10 @@ export function SalesAdvisorExperience({
           </nav>
           <Link
             href={backHref}
+            onClick={fromCatalog ? (event) => {
+              const stored = sessionStorage.getItem("expiya:catalog-return-url");
+              if (stored?.startsWith("/cars/catalog") && !stored.includes("//")) { event.preventDefault(); router.push(stored); }
+            } : undefined}
             className="rounded-full border border-stone-300 px-4 py-2 text-xs font-medium hover:border-stone-500 hover:bg-stone-50"
           >
             {backLabel}

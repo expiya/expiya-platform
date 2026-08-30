@@ -4,9 +4,11 @@ import { evaluateV3Catalog } from "@/features/decision/v3/catalogAdapter.server"
 import type { CatalogVariantSnapshot } from "@/features/decision/v2/catalog/types";
 import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
 
-export const CATALOG_PAGE_SIZE = 40;
+export const CATALOG_PAGE_SIZE = 24;
 
 export type CatalogSort = "BRAND_ASC" | "PRICE_ASC" | "PRICE_DESC" | "YEAR_DESC" | "SEATS_DESC";
+export const DEFAULT_CATALOG_CLASS = "PASSENGER";
+export const DEFAULT_CATALOG_SORT: CatalogSort = "PRICE_ASC";
 export interface CatalogBrowserQuery {
   readonly q: string;
   readonly brand: string;
@@ -59,8 +61,9 @@ export function parseCatalogBrowserQuery(input: Record<string, string | string[]
   const one = (key: string) => String(Array.isArray(input[key]) ? input[key]?.[0] ?? "" : input[key] ?? "").trim().slice(0, 100);
   const money = (key: string) => { const value = Number(one(key).replace(/[^\d]/gu, "")); return Number.isSafeInteger(value) && value > 0 ? value : undefined; };
   const requestedSort = one("sort");
-  const sort: CatalogSort = ["BRAND_ASC", "PRICE_ASC", "PRICE_DESC", "YEAR_DESC", "SEATS_DESC"].includes(requestedSort) ? requestedSort as CatalogSort : "BRAND_ASC";
-  return { q: one("q"), brand: one("brand"), useClass: one("class"), bodyStyle: one("body"), fuelType: one("fuel"), minPriceTry: money("minPrice"), maxPriceTry: money("maxPrice"), sort, page: Math.max(1, Math.min(100, Number(one("page")) || 1)) };
+  const sort: CatalogSort = ["BRAND_ASC", "PRICE_ASC", "PRICE_DESC", "YEAR_DESC", "SEATS_DESC"].includes(requestedSort) ? requestedSort as CatalogSort : DEFAULT_CATALOG_SORT;
+  const useClass = Object.hasOwn(input, "class") ? one("class") : DEFAULT_CATALOG_CLASS;
+  return { q: one("q"), brand: one("brand"), useClass, bodyStyle: one("body"), fuelType: one("fuel"), minPriceTry: money("minPrice"), maxPriceTry: money("maxPrice"), sort, page: Math.max(1, Math.min(100, Number(one("page")) || 1)) };
 }
 
 function matchesQuery(variant: CatalogVariantSnapshot, query: CatalogBrowserQuery): boolean {
@@ -101,5 +104,5 @@ export async function getCatalogBrowserPage(query: CatalogBrowserQuery, now = ne
     const price = publicPrice(variant, now);
     return { id: variant.id, image: image.path, imageStatus: image.status, brand: variant.brand, model: variant.model, trim: variant.trim, modelYear: variant.decisionFacts.modelYear.value, useClass: labelUseClass(variant.decisionFacts.vehicleUseClass?.value), bodyStyle: labelBody(variant.decisionFacts.bodyStyle.value), fuelType: fuelLabels[variant.decisionFacts.powertrain.fuelType.value] ?? variant.decisionFacts.powertrain.fuelType.value, transmission: variant.decisionFacts.powertrain.transmission.value, seats: variant.decisionFacts.dimensions.seats?.value, priceDisplay: price.display, priceStatus: price.status };
   });
-  return { rows, total: filtered.length, initialCount: all.length, page, pageCount, release: catalog.catalogReleaseVersion, facets: { brands, useClasses: useClasses.map((value) => ({ value, label: labelUseClass(value) })), bodyStyles: bodyStyles.map((value) => ({ value, label: labelBody(value) })), fuelTypes: fuelTypes.map((value) => ({ value, label: fuelLabels[value] ?? value })) } };
+  return { rows, total: filtered.length, initialCount: all.length, brandCount: brands.length, modelCount: new Set(all.map((item) => `${item.brand}\u0000${item.model}`)).size, classCount: useClasses.length, page, pageCount, facets: { brands, useClasses: useClasses.map((value) => ({ value, label: labelUseClass(value) })), bodyStyles: bodyStyles.map((value) => ({ value, label: labelBody(value) })), fuelTypes: fuelTypes.map((value) => ({ value, label: fuelLabels[value] ?? value })) } };
 }

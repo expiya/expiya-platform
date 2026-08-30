@@ -10,6 +10,7 @@ export function CatalogVariantOpenButton({ exactVariantId }: { readonly exactVar
     if (status === "LOADING") return;
     setStatus("LOADING");
     try {
+      sessionStorage.setItem("expiya:catalog-return-url", `${window.location.pathname}${window.location.search}`);
       const response = await fetch("/api/cars/catalog/handoff", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ exactVariantId }) });
       const payload = await response.json() as { token?: string; message?: string };
       if (!response.ok || !payload.token) throw new Error(payload.message ?? "Araç sayfası açılamadı.");
