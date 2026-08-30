@@ -11,6 +11,7 @@ export type ClaimDisposition = "VERIFIED" | "FAMILY_LEVEL" | "REPRESENTATIVE" | 
 
 export interface Phase2HandoffPayload {
   readonly version: typeof SALES_ADVISOR_VERSION;
+  readonly entrySource?: "DECISION" | "CATALOG";
   readonly conversationId: string;
   readonly decisionFingerprint: string;
   readonly offerId: string;
@@ -19,7 +20,7 @@ export interface Phase2HandoffPayload {
   readonly catalogFingerprint: string;
   readonly approvedNeeds: readonly ApprovedDecisionNeed[];
   readonly personaMatchSummary: readonly string[];
-  readonly recommendationTerms: { readonly version: string; readonly acceptedAt: string };
+  readonly recommendationTerms?: { readonly version: string; readonly acceptedAt: string };
   readonly decisionStateDigest: string;
   readonly nonce: string;
   readonly issuedAt: string;

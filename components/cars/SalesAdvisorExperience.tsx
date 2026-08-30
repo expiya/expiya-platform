@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { UnlockedReportVehicles } from "@/components/cars/UnlockedReportVehicles";
+import { PaidComparisonOffer } from "@/components/cars/PaidComparisonOffer";
 import { productEvents, recordProductEvent, recordProductEventOnce, type Phase3AnalyticsIntent } from "@/lib/analytics/productEvents";
 import type { AdvisorReply } from "@/features/sales-advisor/advisor";
 import { humanizePreferenceText } from "@/features/decision/v3/preferencePresentation";
@@ -445,6 +446,10 @@ export function SalesAdvisorExperience({
       </main>
     );
   const { artifact, handoff } = data;
+  const fromCatalog = handoff.entrySource === "CATALOG";
+  const backHref = fromCatalog ? "/cars/catalog" : "/?resume=conversation#sohbet";
+  const backLabel = fromCatalog ? "Araç kataloğuna dön" : "Karar motoru sohbetine dön";
+  const pageNavigation = fromCatalog ? navigation.filter(([id]) => id !== "fit") : navigation;
   const hero = artifact.media[activeMedia] ?? artifact.media[0];
   const highlightFacts = artifact.facts.slice(0, 4);
   const approvedConcepts = new Set(handoff.approvedNeeds.map((need) => need.concept));
@@ -459,7 +464,7 @@ export function SalesAdvisorExperience({
             aria-label="Varyant sayfası"
             className="hidden gap-6 text-xs text-stone-600 lg:flex"
           >
-            {navigation.map(([id, label]) => (
+            {pageNavigation.map(([id, label]) => (
               <a
                 key={id}
                 href={`#${id}`}
@@ -470,10 +475,10 @@ export function SalesAdvisorExperience({
             ))}
           </nav>
           <Link
-            href="/?resume=conversation#sohbet"
+            href={backHref}
             className="rounded-full border border-stone-300 px-4 py-2 text-xs font-medium hover:border-stone-500 hover:bg-stone-50"
           >
-            Karar motoru sohbetine dön
+            {backLabel}
           </Link>
         </div>
       </header>
@@ -569,7 +574,7 @@ export function SalesAdvisorExperience({
       </section>
       <div className="border-b border-stone-200 bg-white">
         <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-5 py-3 sm:px-8 lg:hidden">
-          {navigation.map(([id, label]) => (
+          {pageNavigation.map(([id, label]) => (
             <a
               key={id}
               href={`#${id}`}
@@ -582,7 +587,7 @@ export function SalesAdvisorExperience({
       </div>
       <div className="mx-auto max-w-7xl px-5 pb-16 pt-10 sm:px-8">
         <div className="flex min-w-0 flex-col gap-16">
-          <section id="fit" aria-labelledby="fit-title">
+          {!fromCatalog ? <section id="fit" aria-labelledby="fit-title">
             <div className="flex items-end justify-between gap-4">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[.24em] text-emerald-700">
@@ -626,7 +631,7 @@ export function SalesAdvisorExperience({
                 varsayılmaz.
               </p>
             ) : null}
-          </section>
+          </section> : null}
           <section aria-labelledby="daily-title">
             <p className="text-xs font-semibold uppercase tracking-[.24em] text-emerald-700">
               Gerçek hayatta
@@ -953,6 +958,9 @@ export function SalesAdvisorExperience({
             onDraft={setDraft}
             onSubmit={submit}
           />
+        </div>
+        <div className="mx-auto max-w-4xl px-5 pb-10 sm:px-8">
+          <PaidComparisonOffer conversationId={handoff.conversationId} offerId={handoff.offerId} selectedExactVariantId={exactVariantId} phase2Token={token} entrySource={handoff.entrySource} />
         </div>
         <UnlockedReportVehicles currentExactVariantId={exactVariantId} />
       </section>

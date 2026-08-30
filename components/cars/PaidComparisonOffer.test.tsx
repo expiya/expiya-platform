@@ -35,4 +35,17 @@ describe("PaidComparisonOffer", () => {
 
     expect(html).toContain("2 araç seç ve karşılaştır");
   });
+
+  it("describes a catalog-selected vehicle without presenting it as a recommendation", () => {
+    const html = renderToStaticMarkup(<PaidComparisonOffer
+      conversationId="conversation-1"
+      phase2Token="signed-phase-2"
+      offerId="offer-1"
+      selectedExactVariantId="variant-1"
+      entrySource="CATALOG"
+    />);
+
+    expect(html).toContain("Seçtiğin araç rapora otomatik eklenir");
+    expect(html).not.toContain("Önerdiğimiz araç rapora otomatik eklenir");
+  });
 });

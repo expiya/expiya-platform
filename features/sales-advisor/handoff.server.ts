@@ -23,7 +23,7 @@ const MAX_HANDOFF_CACHE = 5_000;
 
 const handoffPayloadSchema = z.strictObject({
   version: z.literal(SALES_ADVISOR_VERSION), conversationId: z.string().min(1).max(200), decisionFingerprint: z.string().regex(/^[a-f0-9]{64}$/u), offerId: z.string().min(1).max(200), selectedExactVariantId: z.string().min(1).max(300), catalogRelease: z.string().min(1).max(100), catalogFingerprint: z.string().min(1).max(120),
-  approvedNeeds: z.array(z.strictObject({ concept: z.string().min(1).max(100), summary: z.string().min(1).max(300), value: z.union([z.string().max(200), z.number().finite(), z.array(z.string().max(200)).max(20)]).optional() })).max(40), personaMatchSummary: z.array(z.string().min(1).max(300)).max(10), recommendationTerms: z.strictObject({ version: z.string().min(1).max(100), acceptedAt: z.string().datetime() }), decisionStateDigest: z.string().regex(/^[a-f0-9]{64}$/u), nonce: z.string().regex(/^[A-Za-z0-9_-]{16,80}$/u), issuedAt: z.string().datetime(), expiresAt: z.string().datetime(),
+  entrySource: z.enum(["DECISION", "CATALOG"]).optional(), approvedNeeds: z.array(z.strictObject({ concept: z.string().min(1).max(100), summary: z.string().min(1).max(300), value: z.union([z.string().max(200), z.number().finite(), z.array(z.string().max(200)).max(20)]).optional() })).max(40), personaMatchSummary: z.array(z.string().min(1).max(300)).max(10), recommendationTerms: z.strictObject({ version: z.string().min(1).max(100), acceptedAt: z.string().datetime() }).optional(), decisionStateDigest: z.string().regex(/^[a-f0-9]{64}$/u), nonce: z.string().regex(/^[A-Za-z0-9_-]{16,80}$/u), issuedAt: z.string().datetime(), expiresAt: z.string().datetime(),
 });
 
 export const publicSummary = (event: PreferenceEvent): string => publicPreferenceSummary(event);
@@ -59,9 +59,19 @@ export async function createPhase2Handoff(input: { conversationId: string; state
   const replay = cache.get(key); if (replay) return { token: replay, exactVariantId: input.selectedExactVariantId };
   const issued = input.now ?? new Date();
   const positiveEquipment = catalog.appliedEquipment.filter((item) => v35EquipmentMatchAuthority(selectedVariant, String(item.normalizedValue)) === "VERIFIED");
-  const payload: Phase2HandoffPayload = { version: SALES_ADVISOR_VERSION, conversationId: state.conversationId, decisionFingerprint: offer.decisionFingerprint, offerId: offer.offerId, selectedExactVariantId: input.selectedExactVariantId, catalogRelease: offer.catalogReleaseVersion, catalogFingerprint: offer.catalogFingerprint, approvedNeeds: approvedNeedsForPhase2(state, positiveEquipment), personaMatchSummary: ["Seçilen varyant, Aşama 1'deki onaylı tercih bağlamıyla eşleşti."], recommendationTerms: { version: state.recommendationTermsAcceptance.version, acceptedAt: state.recommendationTermsAcceptance.acceptedAt }, decisionStateDigest: digest(state), nonce: randomBytes(18).toString("base64url"), issuedAt: issued.toISOString(), expiresAt: new Date(issued.getTime() + 24 * 60 * 60_000).toISOString() };
+  const payload: Phase2HandoffPayload = { version: SALES_ADVISOR_VERSION, entrySource: "DECISION", conversationId: state.conversationId, decisionFingerprint: offer.decisionFingerprint, offerId: offer.offerId, selectedExactVariantId: input.selectedExactVariantId, catalogRelease: offer.catalogReleaseVersion, catalogFingerprint: offer.catalogFingerprint, approvedNeeds: approvedNeedsForPhase2(state, positiveEquipment), personaMatchSummary: ["Seçilen varyant, Aşama 1'deki onaylı tercih bağlamıyla eşleşti."], recommendationTerms: { version: state.recommendationTermsAcceptance.version, acceptedAt: state.recommendationTermsAcceptance.acceptedAt }, decisionStateDigest: digest(state), nonce: randomBytes(18).toString("base64url"), issuedAt: issued.toISOString(), expiresAt: new Date(issued.getTime() + 24 * 60 * 60_000).toISOString() };
   const encoded = Buffer.from(JSON.stringify(payload)).toString("base64url"); const token = `p2.${encoded}.${sign(encoded)}`; cache.set(key, token); while (cache.size > MAX_HANDOFF_CACHE) cache.delete(cache.keys().next().value!);
   return { token, exactVariantId: input.selectedExactVariantId };
+}
+
+export async function createCatalogPhase2Handoff(input: { selectedExactVariantId: string; now?: Date }): Promise<{ token: string; exactVariantId: string }> {
+  const issued = input.now ?? new Date();
+  const catalog = await evaluateV3Catalog([], issued);
+  if (!catalog.variants.some((item) => item.id === input.selectedExactVariantId)) throw new TypeError("PHASE2_VARIANT_STALE");
+  const nonce = randomBytes(18).toString("base64url");
+  const payload: Phase2HandoffPayload = { version: SALES_ADVISOR_VERSION, entrySource: "CATALOG", conversationId: `catalog:${nonce}`, decisionFingerprint: digest({ source: "CATALOG", variant: input.selectedExactVariantId, release: catalog.catalogReleaseVersion }), offerId: `catalog:${nonce}`, selectedExactVariantId: input.selectedExactVariantId, catalogRelease: catalog.catalogReleaseVersion, catalogFingerprint: catalog.catalogFingerprint, approvedNeeds: [], personaMatchSummary: [], decisionStateDigest: digest({ source: "CATALOG", variant: input.selectedExactVariantId, fingerprint: catalog.catalogFingerprint }), nonce, issuedAt: issued.toISOString(), expiresAt: new Date(issued.getTime() + 24 * 60 * 60_000).toISOString() };
+  const encoded = Buffer.from(JSON.stringify(payload)).toString("base64url");
+  return { token: `p2.${encoded}.${sign(encoded)}`, exactVariantId: input.selectedExactVariantId };
 }
 
 export async function openPhase2Experience(token: string, now = new Date()) {
@@ -72,8 +82,10 @@ export async function openPhase2Experience(token: string, now = new Date()) {
   const payload = handoffPayloadSchema.parse(JSON.parse(Buffer.from(encoded, "base64url").toString("utf8")));
   const issuedAt = Date.parse(payload.issuedAt); const expiresAt = Date.parse(payload.expiresAt);
   if (expiresAt <= now.getTime() || issuedAt > now.getTime() + 60_000 || expiresAt - issuedAt > 24 * 60 * 60_000) throw new TypeError("PHASE2_HANDOFF_STALE");
-  const offer = await getRevealedV31Offer(payload.offerId);
-  if (!offer || offer.conversationId !== payload.conversationId || offer.decisionFingerprint !== payload.decisionFingerprint || !offer.candidateRefs.some((item) => item.exactVariantId === payload.selectedExactVariantId)) throw new TypeError("PHASE2_HANDOFF_REVOKED");
+  if ((payload.entrySource ?? "DECISION") === "DECISION") {
+    const offer = await getRevealedV31Offer(payload.offerId);
+    if (!offer || offer.conversationId !== payload.conversationId || offer.decisionFingerprint !== payload.decisionFingerprint || !offer.candidateRefs.some((item) => item.exactVariantId === payload.selectedExactVariantId)) throw new TypeError("PHASE2_HANDOFF_REVOKED");
+  } else if (!payload.conversationId.startsWith("catalog:") || !payload.offerId.startsWith("catalog:") || payload.approvedNeeds.length || payload.recommendationTerms) throw new TypeError("PHASE2_HANDOFF_BINDING_INVALID");
   const catalog = await evaluateV3Catalog([], now);
   if (catalog.catalogReleaseVersion !== payload.catalogRelease || catalog.catalogFingerprint !== payload.catalogFingerprint) throw new TypeError("PHASE2_CATALOG_STALE");
   const variant = catalog.variants.find((item) => item.id === payload.selectedExactVariantId);
@@ -89,12 +101,13 @@ export type Phase3IntentPayload = {
   readonly offerId: string; readonly selectedExactVariantId: string; readonly catalogRelease: string;
   readonly intent: Phase3Intent; readonly nonce: string; readonly issuedAt: string; readonly expiresAt: string; readonly executionAuthorized: false;
   readonly approvedNeeds: Phase2HandoffPayload["approvedNeeds"];
+  readonly entrySource?: "DECISION" | "CATALOG";
 };
-const phase3IntentPayloadSchema = z.strictObject({ version: z.literal("phase3-intent/v1"), conversationId: z.string().min(1).max(200), decisionFingerprint: z.string().regex(/^[a-f0-9]{64}$/u), offerId: z.string().min(1).max(200), selectedExactVariantId: z.string().min(1).max(300), catalogRelease: z.string().min(1).max(100), intent: z.enum(["REQUEST_QUOTE", "REQUEST_TEST_DRIVE", "REQUEST_DEALER_CONTACT"]), nonce: z.string().regex(/^[A-Za-z0-9_-]{16,80}$/u), issuedAt: z.string().datetime(), expiresAt: z.string().datetime(), executionAuthorized: z.literal(false), approvedNeeds: handoffPayloadSchema.shape.approvedNeeds });
+const phase3IntentPayloadSchema = z.strictObject({ version: z.literal("phase3-intent/v1"), entrySource: z.enum(["DECISION", "CATALOG"]).optional(), conversationId: z.string().min(1).max(200), decisionFingerprint: z.string().regex(/^[a-f0-9]{64}$/u), offerId: z.string().min(1).max(200), selectedExactVariantId: z.string().min(1).max(300), catalogRelease: z.string().min(1).max(100), intent: z.enum(["REQUEST_QUOTE", "REQUEST_TEST_DRIVE", "REQUEST_DEALER_CONTACT"]), nonce: z.string().regex(/^[A-Za-z0-9_-]{16,80}$/u), issuedAt: z.string().datetime(), expiresAt: z.string().datetime(), executionAuthorized: z.literal(false), approvedNeeds: handoffPayloadSchema.shape.approvedNeeds });
 export async function createPhase3IntentHandoff(input: { phase2Token: string; intent: Phase3Intent; now?: Date }) {
   const opened = await openPhase2Experience(input.phase2Token, input.now);
   const issuedAt = input.now ?? new Date();
-  const payload: Phase3IntentPayload = { version: "phase3-intent/v1", conversationId: opened.handoff.conversationId, decisionFingerprint: opened.handoff.decisionFingerprint, offerId: opened.handoff.offerId, selectedExactVariantId: opened.handoff.selectedExactVariantId, catalogRelease: opened.handoff.catalogRelease, intent: input.intent, nonce: randomBytes(18).toString("base64url"), issuedAt: issuedAt.toISOString(), expiresAt: new Date(issuedAt.getTime() + 30 * 60_000).toISOString(), executionAuthorized: false, approvedNeeds: opened.handoff.approvedNeeds };
+  const payload: Phase3IntentPayload = { version: "phase3-intent/v1", entrySource: opened.handoff.entrySource, conversationId: opened.handoff.conversationId, decisionFingerprint: opened.handoff.decisionFingerprint, offerId: opened.handoff.offerId, selectedExactVariantId: opened.handoff.selectedExactVariantId, catalogRelease: opened.handoff.catalogRelease, intent: input.intent, nonce: randomBytes(18).toString("base64url"), issuedAt: issuedAt.toISOString(), expiresAt: new Date(issuedAt.getTime() + 30 * 60_000).toISOString(), executionAuthorized: false, approvedNeeds: opened.handoff.approvedNeeds };
   const encoded = Buffer.from(JSON.stringify(payload)).toString("base64url");
   return { status: "HANDOFF_READY" as const, intent: input.intent, token: `p3.${encoded}.${sign(encoded)}`, executionAuthorized: false as const };
 }
@@ -115,8 +128,10 @@ export async function openPhase3IntentHandoff(token: string, expectedIntent?: Ph
   const issuedAt = Date.parse(payload.issuedAt); const expiresAt = Date.parse(payload.expiresAt);
   if (expiresAt <= now.getTime() || issuedAt > now.getTime() + 60_000 || expiresAt - issuedAt > 30 * 60_000) throw new TypeError("PHASE3_HANDOFF_STALE");
   if (expectedIntent && payload.intent !== expectedIntent) throw new TypeError("PHASE3_INTENT_MISMATCH");
-  const offer = await getRevealedV31Offer(payload.offerId);
-  if (!offer || offer.conversationId !== payload.conversationId || offer.decisionFingerprint !== payload.decisionFingerprint || offer.catalogReleaseVersion !== payload.catalogRelease || !offer.candidateRefs.some((item) => item.exactVariantId === payload.selectedExactVariantId)) throw new TypeError("PHASE3_HANDOFF_REVOKED");
+  if ((payload.entrySource ?? "DECISION") === "DECISION") {
+    const offer = await getRevealedV31Offer(payload.offerId);
+    if (!offer || offer.conversationId !== payload.conversationId || offer.decisionFingerprint !== payload.decisionFingerprint || offer.catalogReleaseVersion !== payload.catalogRelease || !offer.candidateRefs.some((item) => item.exactVariantId === payload.selectedExactVariantId)) throw new TypeError("PHASE3_HANDOFF_REVOKED");
+  } else if (!payload.conversationId.startsWith("catalog:") || !payload.offerId.startsWith("catalog:") || payload.approvedNeeds.length) throw new TypeError("PHASE3_HANDOFF_BINDING_INVALID");
   const catalog = await evaluateV3Catalog([], now);
   if (catalog.catalogReleaseVersion !== payload.catalogRelease) throw new TypeError("PHASE3_CATALOG_STALE");
   const variant = catalog.variants.find((item) => item.id === payload.selectedExactVariantId);

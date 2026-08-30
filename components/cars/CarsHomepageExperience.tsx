@@ -47,6 +47,7 @@ export function CarsHomepageExperience({ children, startConversation = false }: 
               Sohbete başla
               <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </button>
+            <Link href="/cars/catalog" className="inline-flex min-h-14 items-center rounded-full border border-stone-300 bg-white/90 px-6 text-base font-semibold text-stone-900 shadow-sm transition hover:border-emerald-600 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700">Araç kataloğunu incele</Link>
             <span className="text-sm text-stone-500">Ücretsiz · Türkçe · Kendi hızında</span>
           </div>
         </div>

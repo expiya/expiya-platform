@@ -3,7 +3,7 @@ import { runV3Turn } from "@/features/decision/v3/engine.server";
 import { sealV31State } from "@/features/decision/v3/stateToken.server";
 import { resetV31OffersForTests } from "@/features/decision/v3/offerGovernance.server";
 import type { V3ConversationState, V3PublicResponse } from "@/features/decision/v3/types";
-import { approvedNeedsForPhase2, createPhase2Handoff, createPhase3IntentHandoff, openPhase2Experience, openPhase3IntentHandoff, publicSummary, resetPhase2HandoffsForTests } from "./handoff.server";
+import { approvedNeedsForPhase2, createCatalogPhase2Handoff, createPhase2Handoff, createPhase3IntentHandoff, openPhase2Experience, openPhase3IntentHandoff, publicSummary, resetPhase2HandoffsForTests } from "./handoff.server";
 import type { PreferenceEvent } from "@/features/decision/v3/types";
 import { advanceV3ToOffer, revealV3TestOffer } from "@/features/decision/v3/testConversationDecision";
 
@@ -24,6 +24,17 @@ describe("signed phase 2 handoff", () => {
     const phase3 = await createPhase3IntentHandoff({ phase2Token: first.token, intent: "REQUEST_TEST_DRIVE" }); expect(phase3).toMatchObject({ status: "HANDOFF_READY", executionAuthorized: false, intent: "REQUEST_TEST_DRIVE" });
     const phase3Opened = await openPhase3IntentHandoff(phase3.token, "REQUEST_TEST_DRIVE"); expect(phase3Opened.handoff.selectedExactVariantId).toBe(selected); await expect(openPhase3IntentHandoff(phase3.token, "REQUEST_QUOTE")).rejects.toThrow("INTENT_MISMATCH"); await expect(openPhase3IntentHandoff(`${phase3.token}x`)).rejects.toThrow("TAMPERED"); await expect(openPhase3IntentHandoff(phase3.token, undefined, new Date(Date.now() + 31 * 60_000))).rejects.toThrow("STALE"); expect(JSON.stringify(output.state)).toBe(before);
   }, 30_000);
+  it("opens a catalog-selected variant without inventing decision needs", async () => {
+    const catalogVariantId = "08030664-0509-51a0-ac5e-283bde7843f3";
+    const created = await createCatalogPhase2Handoff({ selectedExactVariantId: catalogVariantId });
+    const opened = await openPhase2Experience(created.token);
+    expect(opened.handoff).toMatchObject({ entrySource: "CATALOG", selectedExactVariantId: catalogVariantId, approvedNeeds: [] });
+    expect(opened.handoff.recommendationTerms).toBeUndefined();
+    expect(opened.artifact.exactVariantId).toBe(catalogVariantId);
+    const phase3 = await createPhase3IntentHandoff({ phase2Token: created.token, intent: "REQUEST_TEST_DRIVE" });
+    const phase3Opened = await openPhase3IntentHandoff(phase3.token, "REQUEST_TEST_DRIVE");
+    expect(phase3Opened.handoff).toMatchObject({ entrySource: "CATALOG", selectedExactVariantId: catalogVariantId, approvedNeeds: [] });
+  });
   it("turns internal transmission, seat and equipment values into natural Turkish", () => {
     expect(publicSummary(summaryEvent("transmission", "AUTOMATIC"))).toBe("Şanzıman tercihi: otomatik");
     expect(publicSummary(summaryEvent("minimumSeats", 2))).toBe("Kullanım kapasitesi: en az 2 kişi");

@@ -10,6 +10,7 @@ type PaidComparisonOfferProps = {
   readonly conversationId: string;
   readonly offerId: string;
   readonly selectedExactVariantId: string;
+  readonly entrySource?: "DECISION" | "CATALOG";
 } & (
   | { readonly phase2Token: string; readonly stateToken?: never }
   | { readonly phase2Token?: never; readonly stateToken: string }
@@ -89,7 +90,7 @@ export function PaidComparisonOffer(props: PaidComparisonOfferProps) {
         </div>
 
         <p id="paid-comparison-description" className="mt-4 text-sm leading-6 text-neutral-700 sm:text-base sm:leading-7">
-          Önerdiğimiz araç rapora otomatik eklenir. Aynı sınıftan senin seçeceğin 2 araçla ihtiyaçlarına göre ayrıntılı karşılaştırılır.
+          {props.entrySource === "CATALOG" ? "Seçtiğin araç" : "Önerdiğimiz araç"} rapora otomatik eklenir. Aynı sınıftan senin seçeceğin 2 araçla ihtiyaçlarına göre ayrıntılı karşılaştırılır.
         </p>
         <p className="mt-3 text-sm leading-6 text-neutral-600">
           Donanım, teknik özellikler, kullanım uygunluğu, maliyet göstergeleri ve araçlar arasındaki önemli farklar tek raporda. Raporu web üzerinde açabilir veya A4 PDF olarak indirebilirsin.
