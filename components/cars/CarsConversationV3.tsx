@@ -105,13 +105,44 @@ function quickChoices(message: Message): { multiple: boolean; choices: readonly 
   ] };
   return undefined;
 }
-function assistantMessageParts(content: string): readonly string[] {
+export function assistantMessageParts(content: string): readonly string[] {
   if (content.length < 190) return [content];
   const sentences = content.match(/[^.!?]+[.!?]+|[^.!?]+$/gu)?.map((item) => item.trim()).filter(Boolean) ?? [content];
   if (sentences.length < 2) return [content];
   const parts: string[] = [];
   for (const sentence of sentences) { const last = parts.at(-1); if (last && last.length + sentence.length < 210) parts[parts.length - 1] = `${last} ${sentence}`; else parts.push(sentence); }
   return parts;
+}
+
+export function typewriterChunkSize(length: number): number {
+  return Math.max(1, Math.ceil(length / 110));
+}
+
+function SequentialAssistantParts({ messageId, parts, animate, onComplete }: { readonly messageId: string; readonly parts: readonly string[]; readonly animate: boolean; readonly onComplete: () => void }) {
+  const [partIndex, setPartIndex] = useState(animate ? 0 : parts.length);
+  const [characterCount, setCharacterCount] = useState(0);
+  const completed = useRef(false); const onCompleteRef = useRef(onComplete); const tail = useRef<HTMLSpanElement>(null);
+  useEffect(() => { onCompleteRef.current = onComplete; }, [onComplete]);
+  useEffect(() => {
+    if (!animate || completed.current) return;
+    const current = parts[partIndex];
+    if (current === undefined) {
+      completed.current = true; onCompleteRef.current(); return;
+    }
+    if (characterCount < current.length) {
+      const timer = window.setTimeout(() => setCharacterCount((count) => Math.min(current.length, count + typewriterChunkSize(current.length))), 22);
+      return () => window.clearTimeout(timer);
+    }
+    if (partIndex < parts.length - 1) {
+      const timer = window.setTimeout(() => { setPartIndex((index) => index + 1); setCharacterCount(0); }, 440);
+      return () => window.clearTimeout(timer);
+    }
+    const timer = window.setTimeout(() => { completed.current = true; onCompleteRef.current(); }, 280);
+    return () => window.clearTimeout(timer);
+  }, [animate, characterCount, partIndex, parts]);
+  useEffect(() => { if (animate) tail.current?.scrollIntoView({ block: "nearest" }); }, [animate, characterCount, partIndex]);
+  if (!animate) return <>{parts.map((part, index) => <div key={`${messageId}:part:${index}`} className="rounded-2xl rounded-bl-md bg-white px-3.5 py-2.5 text-[15px] text-stone-800 shadow-sm ring-1 ring-stone-200 dark:bg-stone-800 dark:text-stone-100 dark:ring-stone-700"><p className="whitespace-pre-wrap leading-6">{part}</p></div>)}</>;
+  return <><span className="sr-only">{parts.join(" ")}</span>{parts.slice(0, partIndex + 1).map((part, index) => <div aria-hidden="true" key={`${messageId}:part:${index}`} className="rounded-2xl rounded-bl-md bg-white px-3.5 py-2.5 text-[15px] text-stone-800 shadow-sm ring-1 ring-stone-200 dark:bg-stone-800 dark:text-stone-100 dark:ring-stone-700"><p className="whitespace-pre-wrap leading-6">{index < partIndex ? part : part.slice(0, characterCount)}{index === partIndex && <span className="ml-0.5 inline-block h-4 w-0.5 translate-y-0.5 animate-pulse bg-emerald-600 motion-reduce:hidden"/>}</p></div>)}<span ref={tail}/></>;
 }
 
 function buttonPrompt(message: Message, hasChoices: boolean): string {
@@ -133,12 +164,13 @@ function variantCountCopy(counts: NonNullable<Message["variantCounts"]>): string
     : `${counts.total} satıştaki varyant, onayladığın önceliklere göre sıralanıyor${leadership}`;
 }
 
-function ConversationMessage({ message, selected, interactive, termsChecked, onTermsChecked, onAcceptTerms, onDeclineTerms, onToggle, onSend, onPhase2 }: { readonly message: Message; readonly selected: readonly string[]; readonly interactive: boolean; readonly termsChecked: boolean; readonly onTermsChecked: (checked: boolean) => void; readonly onAcceptTerms: () => void; readonly onDeclineTerms: () => void; readonly onToggle: (choice: QuickChoice, multiple: boolean) => void; readonly onSend: () => void; readonly onPhase2: (exactVariantId: string) => void }) {
+function ConversationMessage({ message, selected, interactive, revealing, onRevealComplete, termsChecked, onTermsChecked, onAcceptTerms, onDeclineTerms, onToggle, onSend, onPhase2 }: { readonly message: Message; readonly selected: readonly string[]; readonly interactive: boolean; readonly revealing: boolean; readonly onRevealComplete: () => void; readonly termsChecked: boolean; readonly onTermsChecked: (checked: boolean) => void; readonly onAcceptTerms: () => void; readonly onDeclineTerms: () => void; readonly onToggle: (choice: QuickChoice, multiple: boolean) => void; readonly onSend: () => void; readonly onPhase2: (exactVariantId: string) => void }) {
   if (message.role === "user") return <div className="ml-auto flex max-w-[88%] items-end gap-2 sm:max-w-[78%]"><div className="rounded-2xl rounded-br-md bg-emerald-100 px-3.5 py-2.5 text-[15px] text-emerald-950 shadow-sm ring-1 ring-emerald-200 dark:bg-emerald-800 dark:text-white dark:ring-emerald-700"><p className="whitespace-pre-wrap leading-6">{message.content}</p></div></div>;
-  const choiceGroup = interactive ? quickChoices(message) : undefined;
-  const parts = assistantMessageParts(buttonPrompt(message, Boolean(choiceGroup)));
+  const availableChoiceGroup = quickChoices(message);
+  const choiceGroup = interactive ? availableChoiceGroup : undefined;
+  const parts = assistantMessageParts(buttonPrompt(message, Boolean(availableChoiceGroup)));
   return <div className="max-w-[92%] space-y-1.5 sm:max-w-[82%]">
-    {parts.map((part, index) => <div key={`${message.id}:part:${index}`} className="rounded-2xl rounded-bl-md bg-white px-3.5 py-2.5 text-[15px] text-stone-800 shadow-sm ring-1 ring-stone-200 dark:bg-stone-800 dark:text-stone-100 dark:ring-stone-700"><p className="whitespace-pre-wrap leading-6">{part}</p></div>)}
+    <SequentialAssistantParts messageId={message.id} parts={parts} animate={revealing} onComplete={onRevealComplete}/>
     {choiceGroup && <div className="rounded-2xl border border-stone-200 bg-white/90 p-2.5 shadow-sm dark:border-stone-700 dark:bg-stone-900" role="group" aria-label="Yanıt seçenekleri">
       <div className="grid gap-1.5">{choiceGroup.choices.map((choice) => { const active = selected.includes(choice.value); return <button key={choice.value} type="button" aria-pressed={active} onClick={() => onToggle(choice, choiceGroup.multiple)} className={`rounded-xl border px-3 py-2 text-left text-sm transition ${active ? "border-emerald-600 bg-emerald-50 text-emerald-950 ring-1 ring-emerald-500 dark:bg-emerald-950 dark:text-emerald-100" : "border-stone-200 bg-stone-50 text-stone-900 hover:border-stone-400 dark:border-stone-700 dark:bg-stone-950 dark:text-stone-100 dark:hover:border-stone-500"}`}><span className="block font-semibold">{choice.label}</span><span className="mt-0.5 block text-xs leading-5 text-stone-500 dark:text-stone-400">{choice.description}</span></button>; })}</div>
       <button type="button" disabled={!selected.length} onClick={onSend} className="mt-2.5 w-full rounded-xl bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-500 disabled:cursor-not-allowed disabled:opacity-40">{selected.length > 1 ? `${selected.length} seçimi gönder` : "Seçimi gönder"}</button>
@@ -151,8 +183,8 @@ function ConversationMessage({ message, selected, interactive, termsChecked, onT
       <button type="button" onClick={onDeclineTerms} className="mt-2 w-full rounded-xl border border-stone-300 bg-white px-5 py-3 font-semibold text-stone-800">Kabul etmeden sohbete devam et</button>
       <p className="mt-3 text-xs leading-5 text-stone-500">Kabul etmezsen araç kartı gösterilmez. KVKK aydınlatması ve diğer izinler bu kabulden ayrıdır.</p>
     </div>}
-    {message.variantCounts && <p className="px-1 pt-1 text-[11px] text-stone-500 dark:text-stone-400">{variantCountCopy(message.variantCounts)}</p>}
-    {message.recommendations?.map((item, index) => <article key={item.id} className="group overflow-hidden rounded-2xl border border-stone-200 bg-white text-stone-950 shadow-sm transition hover:border-stone-400 hover:shadow-xl"><TrackedVehicleLink href={`/decision/v3-${encodeURIComponent(item.id)}`} ariaLabel={`${item.title} ayrıntısını aç`} surface="v3_recommendations" position={index + 1} className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600"><div className="relative aspect-[16/9] overflow-hidden bg-stone-100"><Image src={item.image} alt={`${item.title} araç görseli`} fill sizes="(max-width: 768px) 100vw, 700px" className="object-cover transition duration-300 group-hover:scale-[1.025]"/>{item.imageStatus !== "EXACT" && <span className="absolute bottom-3 right-3 rounded-full bg-black/75 px-2.5 py-1 text-[11px] font-medium text-white">{item.imageStatus === "PLACEHOLDER" ? "Görsel hazırlanıyor" : "Temsilî görsel"}</span>}</div><div className="p-4">{item.badge && <p className="mb-2 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-2 py-1 text-xs text-emerald-800">{item.badge}</p>}<h2 className="font-semibold">{item.title}</h2>{item.imageAttribution && <p className="mt-1 text-xs text-stone-500">Görsel: {item.imageAttribution}</p>}{item.warning && <p className="mt-2 text-sm leading-6 text-amber-800">{item.warning}</p>}<p className="mt-4 border-t border-stone-200 pt-3 text-sm text-stone-500">Araç ayrıntısını aç →</p></div></TrackedVehicleLink><div className="border-t border-stone-200 p-4"><button type="button" onClick={() => onPhase2(item.id)} className="w-full rounded-xl bg-emerald-700 px-4 py-3 text-left text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Bu kararı beğendim, aracı daha yakından tanımak istiyorum.</button></div></article>)}
+    {!revealing && message.variantCounts && <p className="px-1 pt-1 text-[11px] text-stone-500 dark:text-stone-400">{variantCountCopy(message.variantCounts)}</p>}
+    {!revealing && message.recommendations?.map((item, index) => <article key={item.id} className="group overflow-hidden rounded-2xl border border-stone-200 bg-white text-stone-950 shadow-sm transition hover:border-stone-400 hover:shadow-xl"><TrackedVehicleLink href={`/decision/v3-${encodeURIComponent(item.id)}`} ariaLabel={`${item.title} ayrıntısını aç`} surface="v3_recommendations" position={index + 1} className="block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-600"><div className="relative aspect-[16/9] overflow-hidden bg-stone-100"><Image src={item.image} alt={`${item.title} araç görseli`} fill sizes="(max-width: 768px) 100vw, 700px" className="object-cover transition duration-300 group-hover:scale-[1.025]"/>{item.imageStatus !== "EXACT" && <span className="absolute bottom-3 right-3 rounded-full bg-black/75 px-2.5 py-1 text-[11px] font-medium text-white">{item.imageStatus === "PLACEHOLDER" ? "Görsel hazırlanıyor" : "Temsilî görsel"}</span>}</div><div className="p-4">{item.badge && <p className="mb-2 inline-flex rounded-full border border-emerald-200 bg-emerald-50 px-2 py-1 text-xs text-emerald-800">{item.badge}</p>}<h2 className="font-semibold">{item.title}</h2>{item.imageAttribution && <p className="mt-1 text-xs text-stone-500">Görsel: {item.imageAttribution}</p>}{item.warning && <p className="mt-2 text-sm leading-6 text-amber-800">{item.warning}</p>}<p className="mt-4 border-t border-stone-200 pt-3 text-sm text-stone-500">Araç ayrıntısını aç →</p></div></TrackedVehicleLink><div className="border-t border-stone-200 p-4"><button type="button" onClick={() => onPhase2(item.id)} className="w-full rounded-xl bg-emerald-700 px-4 py-3 text-left text-sm font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600">Bu kararı beğendim, aracı daha yakından tanımak istiyorum.</button></div></article>)}
   </div>;
 }
   const storageKey = "expiya:cars-conversation:v3.8-pilot";
@@ -167,6 +199,7 @@ export function CarsConversationV3({ initialQuery = "", minimumBudgetTry }: { re
   const conversationEndRef = useRef<HTMLDivElement>(null);
   const [conversationId, setConversationId] = useState<string>(() => crypto.randomUUID()); const [state, setState] = useState<V3ConversationState>();
   const [messages, setMessages] = useState<Message[]>([]); const [draft, setDraft] = useState(""); const [loading, setLoading] = useState(false); const [archiveError, setArchiveError] = useState<string>();
+  const [revealingMessageId, setRevealingMessageId] = useState<string>();
   const [stateToken, setStateToken] = useState<string>();
   const [selectedChoices, setSelectedChoices] = useState<Readonly<Record<string, readonly string[]>>>({});
   const [recommendationTermsChecked, setRecommendationTermsChecked] = useState(false);
@@ -175,7 +208,7 @@ export function CarsConversationV3({ initialQuery = "", minimumBudgetTry }: { re
   const [restored, setRestored] = useState(false);
   const budgetMode = state?.budgetMode ?? "NEEDS_ONLY";
   const budgetFilterEnabled = budgetMode === "BUDGET_AS_DECISION_FILTER" || budgetEditorOpen;
-  const latestVariantCounts = [...messages].reverse().find((message) => message.variantCounts)?.variantCounts;
+  const latestVariantCounts = revealingMessageId ? undefined : [...messages].reverse().find((message) => message.variantCounts)?.variantCounts;
   const latestAssistantMessageId = [...messages].reverse().find((message) => message.role === "assistant")?.id;
   const recommendationTermsRequired = Boolean([...messages].reverse().find((message) => message.role === "assistant")?.trace?.offerAwaitingConsent);
   useEffect(() => { try { const stored = JSON.parse(sessionStorage.getItem(storageKey) ?? "null") as { state?: V3ConversationState; stateToken?: string; messages?: Message[] } | null; if (stored?.state?.version === "3.8") { setConversationId(stored.state.conversationId); setState(stored.state); setStateToken(stored.stateToken); setMessages(stored.messages ?? []); } } finally { setRestored(true); } }, []);
@@ -192,15 +225,20 @@ export function CarsConversationV3({ initialQuery = "", minimumBudgetTry }: { re
   async function send(content: string, recommendationTermsAcceptance?: RecommendationTermsAcceptance) {
     if (!content.trim() || loading) return; const user: Message = { id: crypto.randomUUID(), role: "user", content: content.trim() };
     setMessages((current) => [...current, user]); setDraft(""); setLoading(true);
+    let keepLoadingForReveal = false;
     try {
       const response = await fetch("/api/cars/conversation/v3", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ conversationId: state?.conversationId ?? conversationId, messageId: user.id, message: user.content, expectedRevision: state?.revision ?? 0, stateToken, includePilotDiagnostics: true, recommendationTermsAcceptance }) });
       const payload = await response.json() as V3PublicResponse | { message: string };
       if (!response.ok || !("state" in payload)) throw new Error(payload.message);
       recordProductEventOnce("chat-started:v3", productEvents.chatStarted("v3"));
       if (payload.recommendations?.length) recordProductEventOnce("recommendations-revealed:v3", productEvents.recommendationsRevealed("v3_recommendations", payload.recommendations.length));
-      setState(payload.state); setStateToken(payload.stateToken); setMessages((current) => [...current, { id: crypto.randomUUID(), role: "assistant", content: payload.message, recommendations: payload.recommendations, variantCounts: payload.variantCounts, trace: { revision: payload.state.revision, purchaseIntent: payload.state.purchaseIntent, route: payload.state.lastRoute, lastQuestionKey: payload.state.lastQuestionKey, ledger: payload.state.ledger, offerAwaitingConsent: Boolean(payload.offerAwaitingConsent) } }]);
+      const assistantId = crypto.randomUUID();
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      keepLoadingForReveal = !reduceMotion && Boolean(payload.message.trim());
+      setState(payload.state); setStateToken(payload.stateToken); setMessages((current) => [...current, { id: assistantId, role: "assistant", content: payload.message, recommendations: payload.recommendations, variantCounts: payload.variantCounts, trace: { revision: payload.state.revision, purchaseIntent: payload.state.purchaseIntent, route: payload.state.lastRoute, lastQuestionKey: payload.state.lastQuestionKey, ledger: payload.state.ledger, offerAwaitingConsent: Boolean(payload.offerAwaitingConsent) } }]);
+      if (keepLoadingForReveal) setRevealingMessageId(assistantId);
     } catch { setMessages((current) => [...current, { id: crypto.randomUUID(), role: "assistant", content: "Şu anda yanıt veremiyorum; mesajın tarayıcında korundu. Lütfen yeniden dene." }]); }
-    finally { setLoading(false); }
+    finally { if (!keepLoadingForReveal) setLoading(false); }
   }
   useEffect(() => { if (!initialQuery.trim() || !restored || messages.length > 0) return; const timer = window.setTimeout(() => void send(initialQuery), 0); return () => window.clearTimeout(timer); }, [initialQuery, restored]); // eslint-disable-line react-hooks/exhaustive-deps
   function submit(event: FormEvent) { event.preventDefault(); void send(draft); }
@@ -229,7 +267,7 @@ export function CarsConversationV3({ initialQuery = "", minimumBudgetTry }: { re
   function deleteConversation() {
     if (!messages.length || loading) return;
     sessionStorage.removeItem(storageKey);
-    setConversationId(crypto.randomUUID()); setState(undefined); setStateToken(undefined); setMessages([]); setDraft("");
+    setConversationId(crypto.randomUUID()); setState(undefined); setStateToken(undefined); setMessages([]); setDraft(""); setRevealingMessageId(undefined);
     setSelectedChoices({}); setRecommendationTermsChecked(false); setBudgetDraft(""); setBudgetEditorOpen(false); setArchiveError(undefined);
   }
   return <main onClickCapture={persistConversationBeforeNavigation} className="min-h-screen bg-white px-3 py-4 text-stone-950 sm:px-5 sm:py-8"><section className="mx-auto flex min-h-[calc(100dvh-2rem)] max-w-4xl flex-col overflow-hidden rounded-[1.75rem] border border-stone-200 bg-[#f7f8f5] shadow-xl sm:min-h-[82vh]">
@@ -243,7 +281,7 @@ export function CarsConversationV3({ initialQuery = "", minimumBudgetTry }: { re
       {state?.budgetMetadata && <p className={`mt-2 text-xs ${state.budgetMetadata.includedInDecision ? "text-emerald-700 dark:text-emerald-300" : "text-amber-800 dark:text-amber-300"}`}>{state.budgetMetadata.amountTry.toLocaleString("tr-TR")} TL bütçe {state.budgetMetadata.includedInDecision ? "karar filtresine dahil" : "kaydedildi; karar filtresine dahil edilmedi"}.</p>}
     </section>
     {archiveError && <p role="alert" className="border-b border-rose-200 bg-rose-50 px-6 py-3 text-sm text-rose-800 dark:border-rose-900 dark:bg-rose-950/40 dark:text-rose-300">{archiveError}</p>}
-    <div className="flex-1 space-y-2 overflow-y-auto bg-[radial-gradient(circle_at_top,#f5f1e8_0,transparent_42%)] px-3 py-4 dark:bg-[radial-gradient(circle_at_top,#292524_0,transparent_45%)] sm:px-6" role="log" aria-live="polite" aria-relevant="additions text">{messages.length === 0 && <div className="max-w-[92%] rounded-2xl rounded-bl-md bg-white px-3.5 py-2.5 text-[15px] leading-6 text-stone-700 shadow-sm ring-1 ring-stone-200 dark:bg-stone-800 dark:text-stone-200 dark:ring-stone-700 sm:max-w-[82%]">Merhaba! Nasıl bir araç aradığını anlat; istersen yalnızca günlük kullanımından söz ederek başlayabilirsin.</div>}{messages.map((message) => <ConversationMessage key={message.id} message={message} selected={selectedChoices[message.id] ?? []} interactive={!loading && message.id === latestAssistantMessageId} termsChecked={recommendationTermsChecked} onTermsChecked={setRecommendationTermsChecked} onAcceptTerms={acceptRecommendationTermsAndReveal} onDeclineTerms={() => void send("Şimdilik gösterme.")} onToggle={(choice, multiple) => toggleChoice(message.id, choice, multiple)} onSend={() => sendChoices(message)} onPhase2={(exactVariantId) => void openPhase2(exactVariantId)}/>)}{loading && <div className="inline-flex items-center gap-1 rounded-2xl rounded-bl-md bg-white px-4 py-3 shadow-sm ring-1 ring-stone-200 dark:bg-stone-800 dark:ring-stone-700" role="status" aria-label="Yanıt hazırlanıyor"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-stone-400"/><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-stone-400 [animation-delay:150ms]"/><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-stone-400 [animation-delay:300ms]"/></div>}<div ref={conversationEndRef}/></div>
+    <div className="flex-1 space-y-2 overflow-y-auto bg-[radial-gradient(circle_at_top,#f5f1e8_0,transparent_42%)] px-3 py-4 dark:bg-[radial-gradient(circle_at_top,#292524_0,transparent_45%)] sm:px-6" role="log" aria-live="polite" aria-relevant="additions text">{messages.length === 0 && <div className="max-w-[92%] rounded-2xl rounded-bl-md bg-white px-3.5 py-2.5 text-[15px] leading-6 text-stone-700 shadow-sm ring-1 ring-stone-200 dark:bg-stone-800 dark:text-stone-200 dark:ring-stone-700 sm:max-w-[82%]">Merhaba! Nasıl bir araç aradığını anlat; istersen yalnızca günlük kullanımından söz ederek başlayabilirsin.</div>}{messages.map((message) => <ConversationMessage key={message.id} message={message} selected={selectedChoices[message.id] ?? []} interactive={!loading && message.id === latestAssistantMessageId} revealing={message.id === revealingMessageId} onRevealComplete={() => { if (message.id === revealingMessageId) { setRevealingMessageId(undefined); setLoading(false); } }} termsChecked={recommendationTermsChecked} onTermsChecked={setRecommendationTermsChecked} onAcceptTerms={acceptRecommendationTermsAndReveal} onDeclineTerms={() => void send("Şimdilik gösterme.")} onToggle={(choice, multiple) => toggleChoice(message.id, choice, multiple)} onSend={() => sendChoices(message)} onPhase2={(exactVariantId) => void openPhase2(exactVariantId)}/>)}{loading && !revealingMessageId && <div className="inline-flex items-center gap-1 rounded-2xl rounded-bl-md bg-white px-4 py-3 shadow-sm ring-1 ring-stone-200 dark:bg-stone-800 dark:ring-stone-700" role="status" aria-label="Yanıt hazırlanıyor"><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-stone-400"/><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-stone-400 [animation-delay:150ms]"/><span className="h-1.5 w-1.5 animate-pulse rounded-full bg-stone-400 [animation-delay:300ms]"/></div>}<div ref={conversationEndRef}/></div>
     <form onSubmit={submit} className="flex items-end gap-2 border-t border-stone-200 bg-white/95 p-3 backdrop-blur dark:border-stone-800 dark:bg-stone-950/90 sm:p-4"><textarea aria-label="Mesajınız" value={draft} disabled={recommendationTermsRequired || loading} onChange={(event) => setDraft(event.target.value)} onKeyDown={submitOnEnter} rows={1} className="max-h-32 min-h-12 flex-1 resize-none rounded-2xl border border-stone-300 bg-stone-50 px-4 py-3 text-[15px] text-stone-900 outline-none transition placeholder:text-stone-400 focus:border-emerald-600 focus:ring-2 focus:ring-emerald-100 disabled:cursor-not-allowed disabled:opacity-50 dark:border-stone-700 dark:bg-stone-900 dark:text-stone-100 dark:focus:ring-emerald-950" placeholder={recommendationTermsRequired ? "Devam etmek için yukarıdaki seçimi kullan…" : "Mesajını yaz…"}/><button disabled={loading || recommendationTermsRequired || !draft.trim()} aria-label="Mesajı gönder" className="flex min-h-12 items-center rounded-full bg-emerald-600 px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-emerald-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 disabled:opacity-40">Gönder <span className="ml-2" aria-hidden="true">↑</span></button></form>
   </section></main>;
 }
