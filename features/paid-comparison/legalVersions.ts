@@ -1,5 +1,5 @@
 export const paidComparisonLegalVersions = {
-  preInformation: "paid-report-pre-information/v1",
-  distanceContract: "paid-report-distance-contract/v1",
-  immediatePerformance: "paid-report-immediate-performance/v1",
+  preInformation: "paid-report-pre-information/v2-draft",
+  distanceContract: "paid-report-distance-contract/v2-draft",
+  immediatePerformance: "paid-report-immediate-performance/v2-draft",
 } as const;
