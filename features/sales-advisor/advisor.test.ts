@@ -25,4 +25,15 @@ describe("Turkish sales advisor", () => {
     expect(reply.messages.join(" ")).not.toContain("1.354 kg");
   });
   it("does not use pressure or artificial scarcity corpus", () => { const corpus = ["Fiyatı ne?", "Dezavantajı var mı?", "Bana anlat"].flatMap((question) => answerSalesAdvisor({ question, artifact, handoff }).messages).join(" "); expect(corpus).not.toMatch(/son fırsat|hemen al|stok tüken|kaçırma|acil|only|buy now/iu); });
+  it("answers multiple requested facts instead of silently dropping all but one", () => {
+    const withPerformance = { ...artifact, facts: [...artifact.facts, { key: "power", label: "Güç", value: "110 kW", disposition: "VERIFIED" as const }, { key: "torque", label: "Tork", value: "250 Nm", disposition: "VERIFIED" as const }] };
+    const semantic = { intent: "FACT_QUERY" as const, requestedFactKeys: ["power", "torque"], requestedEquipmentKeys: [], comparisonVehicleNames: [], answerMode: "EXPLAIN_BENEFIT" as const, clarification: null, confidence: 0.98, origin: "MODEL" as const };
+    const reply = answerSalesAdvisor({ question: "Gücü ve torku ne, günlük hayatta ne fark eder?", artifact: withPerformance, handoff, semantic });
+    expect(reply.messages.join(" ")).toMatch(/Güç:/u); expect(reply.messages.join(" ")).toMatch(/Tork:/u);
+  });
+
+  it("resolves a bounded follow-up from the same conversation history", () => {
+    const reply = answerSalesAdvisor({ question: "Bu ne anlama geliyor?", artifact, handoff, history: [{ role: "assistant", text: "Bagaj: 420 litre." }] });
+    expect(reply.messages[0]).toBe("Bagaj: 420 litre.");
+  });
 });

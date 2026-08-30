@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 import {
-  enforcePhase2RateLimits, isPhase2ExtractionAttempt, Phase2SecurityError, phase2SafeError,
+  claimPhase2ChatTurn, enforcePhase2RateLimits, isPhase2ExtractionAttempt, Phase2SecurityError, phase2SafeError,
   readPhase2Json, resetPhase2SecurityForTests, validatePhase2Question, withPhase2ConversationLock, withPhase2Idempotency,
 } from "./security.server";
 
@@ -53,6 +53,21 @@ describe("phase 2 adversarial security boundary", () => {
     const replay = await withPhase2Idempotency("conversation:offer:variant:message", { question: "Menzili nedir?" }, async () => ({ messages: [String(++calls)] }));
     expect(replay).toEqual(first); expect(calls).toBe(1);
     await expect(withPhase2Idempotency("conversation:offer:variant:message", { question: "Başka soru" }, async () => ({ messages: ["unreachable"] }))).rejects.toThrow("PHASE2_MESSAGE_PAYLOAD_CONFLICT");
+  });
+
+  it("accepts at most ten advisor turns for one exact-variant scope", async () => {
+    const handoff = { conversationId: "conversation-a", offerId: "offer-a", selectedExactVariantId: "variant-a", expiresAt: new Date(Date.now() + 60_000).toISOString() };
+    for (let index = 1; index <= 10; index += 1) {
+      await expect(claimPhase2ChatTurn(handoff)).resolves.toMatchObject({ used: index, limit: 10, accepted: true });
+    }
+    await expect(claimPhase2ChatTurn(handoff)).resolves.toEqual({ used: 10, limit: 10, remaining: 0, ended: true, accepted: false });
+  });
+
+  it("keeps turn budgets isolated by conversation, offer and exact variant", async () => {
+    const expiresAt = new Date(Date.now() + 60_000).toISOString();
+    const first = await claimPhase2ChatTurn({ conversationId: "conversation-a", offerId: "offer-a", selectedExactVariantId: "variant-a", expiresAt });
+    const isolated = await claimPhase2ChatTurn({ conversationId: "conversation-a", offerId: "offer-a", selectedExactVariantId: "variant-b", expiresAt });
+    expect(first.used).toBe(1); expect(isolated.used).toBe(1);
   });
 
   it.each([

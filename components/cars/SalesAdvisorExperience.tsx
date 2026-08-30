@@ -192,13 +192,18 @@ function AdvisorPanel({
   sending,
   onDraft,
   onSubmit,
+  turnsUsed,
+  turnLimit,
 }: {
   readonly messages: readonly ChatMessage[];
   readonly draft: string;
   readonly sending: boolean;
   readonly onDraft: (value: string) => void;
   readonly onSubmit: (event: React.FormEvent) => void;
+  readonly turnsUsed: number;
+  readonly turnLimit: number;
 }) {
+  const ended = turnsUsed >= turnLimit;
   const end = useRef<HTMLDivElement>(null);
   useEffect(() => {
     if (messages.length) end.current?.scrollIntoView({ block: "nearest" });
@@ -223,6 +228,9 @@ function AdvisorPanel({
               Yapay zekâ destekli · bağlayıcı teklif değildir
             </p>
           </div>
+          <span className="ml-auto rounded-full border border-white/20 px-3 py-1 text-xs text-stone-200" aria-label={`${turnLimit} sorudan ${turnsUsed} tanesi kullanıldı`}>
+            {turnsUsed}/{turnLimit}
+          </span>
         </div>
       </div>
       <div
@@ -262,12 +270,12 @@ function AdvisorPanel({
             id="advisor-question"
             value={draft}
             onChange={(event) => onDraft(event.target.value)}
-            disabled={sending}
-            placeholder="Bu araçla ilgili bir şey sor…"
+            disabled={sending || ended}
+            placeholder={ended ? "10 soruluk görüşme tamamlandı" : "Bu araçla ilgili bir şey sor…"}
             className="min-w-0 flex-1 rounded-full bg-stone-100 px-4 py-3 text-sm outline-none ring-emerald-600 focus:ring-2"
           />
           <button
-            disabled={sending || !draft.trim()}
+            disabled={sending || ended || !draft.trim()}
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-emerald-600 text-white transition hover:bg-emerald-500 disabled:opacity-40"
             aria-label="Soruyu gönder"
           >
@@ -283,6 +291,7 @@ function AdvisorPanel({
           </button>
         </div>
         <p className="mt-2 px-2 text-[10px] leading-4 text-stone-500">
+          {ended ? "Bu araç için 10 soruluk danışman görüşmesi tamamlandı. " : `Bu görüşmede en fazla ${turnLimit} soru sorabilirsin. `}
           Aynı araç oturumunda işlenir; kişisel veya hassas veri yazmayın.{" "}
           <Link
             href="/satis-danismani-bilgilendirmesi"
@@ -310,6 +319,7 @@ export function SalesAdvisorExperience({
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [sending, setSending] = useState(false);
+  const [turnsUsed, setTurnsUsed] = useState(0);
   const [phase3Pending, setPhase3Pending] = useState<Phase3Intent>();
   const [activeMedia, setActiveMedia] = useState(0);
   useEffect(() => {
@@ -334,7 +344,7 @@ export function SalesAdvisorExperience({
   async function submit(event: React.FormEvent) {
     event.preventDefault();
     const question = draft.trim();
-    if (!question || sending) return;
+    if (!question || sending || turnsUsed >= 10) return;
     const messageId = crypto.randomUUID();
     setDraft("");
     setSending(true);
@@ -352,6 +362,7 @@ export function SalesAdvisorExperience({
         error?: string;
       };
       if (!response.ok) throw new Error(payload.error ?? "Yanıt hazırlanamadı");
+      if (payload.turn) setTurnsUsed(payload.turn.used);
       setMessages((current) => [
         ...current,
         ...payload.messages.map((text, index) => ({
@@ -946,6 +957,8 @@ export function SalesAdvisorExperience({
             sending={sending}
             onDraft={setDraft}
             onSubmit={submit}
+            turnsUsed={turnsUsed}
+            turnLimit={10}
           />
         </div>
         <div className="mx-auto max-w-7xl px-5 pb-10 sm:px-8">
