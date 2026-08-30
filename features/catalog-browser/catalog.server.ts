@@ -35,6 +35,7 @@ export interface CatalogBrowserRow {
   readonly transmission: string;
   readonly seats?: number;
   readonly priceDisplay: string;
+  readonly priceDateDisplay?: string;
   readonly priceStatus: "VERIFIED" | "EXPIRED" | "INTERNAL_ONLY" | "UNAVAILABLE";
 }
 
@@ -56,6 +57,7 @@ const publicPrice = (variant: CatalogVariantSnapshot, now: Date) => {
   const expired = Boolean(price.validUntil && Date.parse(price.validUntil) < now.getTime());
   return { display: `${price.amountTry.toLocaleString("tr-TR")} TL`, status: expired ? "EXPIRED" as const : "VERIFIED" as const };
 };
+const formatDate = (value?: string) => value && !Number.isNaN(Date.parse(value)) ? new Intl.DateTimeFormat("tr-TR", { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Istanbul" }).format(new Date(value)) : undefined;
 
 export function parseCatalogBrowserQuery(input: Record<string, string | string[] | undefined>): CatalogBrowserQuery {
   const one = (key: string) => String(Array.isArray(input[key]) ? input[key]?.[0] ?? "" : input[key] ?? "").trim().slice(0, 100);
@@ -102,7 +104,7 @@ export async function getCatalogBrowserPage(query: CatalogBrowserQuery, now = ne
   const rows: CatalogBrowserRow[] = selected.map((variant) => {
     const image = resolveVehicleImage({ variantId: variant.id, brand: variant.brand, model: variant.model, bodyStyle: variant.decisionFacts.bodyStyle.value, modelYear: variant.decisionFacts.modelYear.value });
     const price = publicPrice(variant, now);
-    return { id: variant.id, image: image.path, imageStatus: image.status, brand: variant.brand, model: variant.model, trim: variant.trim, modelYear: variant.decisionFacts.modelYear.value, useClass: labelUseClass(variant.decisionFacts.vehicleUseClass?.value), bodyStyle: labelBody(variant.decisionFacts.bodyStyle.value), fuelType: fuelLabels[variant.decisionFacts.powertrain.fuelType.value] ?? variant.decisionFacts.powertrain.fuelType.value, transmission: variant.decisionFacts.powertrain.transmission.value, seats: variant.decisionFacts.dimensions.seats?.value, priceDisplay: price.display, priceStatus: price.status };
+    return { id: variant.id, image: image.path, imageStatus: image.status, brand: variant.brand, model: variant.model, trim: variant.trim, modelYear: variant.decisionFacts.modelYear.value, useClass: labelUseClass(variant.decisionFacts.vehicleUseClass?.value), bodyStyle: labelBody(variant.decisionFacts.bodyStyle.value), fuelType: fuelLabels[variant.decisionFacts.powertrain.fuelType.value] ?? variant.decisionFacts.powertrain.fuelType.value, transmission: variant.decisionFacts.powertrain.transmission.value, seats: variant.decisionFacts.dimensions.seats?.value, priceDisplay: price.display, priceDateDisplay: price.status === "VERIFIED" || price.status === "EXPIRED" ? formatDate(variant.activeNewPrice?.validFrom) : undefined, priceStatus: price.status };
   });
   return { rows, total: filtered.length, initialCount: all.length, brandCount: brands.length, modelCount: new Set(all.map((item) => `${item.brand}\u0000${item.model}`)).size, classCount: useClasses.length, page, pageCount, facets: { brands, useClasses: useClasses.map((value) => ({ value, label: labelUseClass(value) })), bodyStyles: bodyStyles.map((value) => ({ value, label: labelBody(value) })), fuelTypes: fuelTypes.map((value) => ({ value, label: fuelLabels[value] ?? value })) } };
 }
