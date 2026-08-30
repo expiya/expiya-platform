@@ -233,9 +233,10 @@ function AdvisorPanel({
         aria-live="polite"
       >
         <div className="max-w-[92%] rounded-2xl rounded-tl-sm bg-white p-4 text-sm leading-6 shadow-sm">
-          Merhaba, seçtiğin bu exact varyantla ilgili teknik özellik, donanım,
-          fiyat veya günlük kullanım sorularını mevcut kanıtlarla
-          yanıtlayabilirim. Doğrulanmamış bilgiyi kesinleştirmem.
+          Merhaba, bu exact varyantın teknik özellikleri, donanımı, fiyatı,
+          günlük kullanımı, finansmanı, kaskosu ve bakımı hakkında yardımcı
+          olabilirim. Başka araçlarla kıyaslama istersen seni kişisel
+          karşılaştırma raporuna yönlendiririm.
         </div>
         {messages.map((message) => (
           <div
