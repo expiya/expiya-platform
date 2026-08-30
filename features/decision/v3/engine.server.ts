@@ -1481,7 +1481,7 @@ export async function runV3Turn(input: {
     prior.lastQuestionKey?.startsWith("technicalDiscriminator:") ||
     prior.lastQuestionKey === "brandModel";
   const discriminatorCandidates = catalog?.variants ?? [];
-  const iterativeDiscriminator = discriminatorCandidates.length > 1 && equipmentResolved && (inDiscriminationSequence || Boolean(exactModelSelected)) && !base.pendingConfirmation
+  const iterativeDiscriminator = discriminatorCandidates.length > 1 && equipmentResolved && (recommendationRequested || inDiscriminationSequence || Boolean(exactModelSelected)) && !base.pendingConfirmation
     ? (!equipmentGroupDeclined && iterativeEquipmentRounds < 3
         ? planV3VerifiedEquipmentQuestion(discriminatorCandidates, base.askedQuestionKeys, String(latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue ?? ""))
         : undefined)
@@ -1531,15 +1531,16 @@ export async function runV3Turn(input: {
     };
   }
   const needsNeutralTieBreak =
-    !active(base, "brandPreference") &&
     !active(base, "modelPreference") &&
     hasBroadNeutralTie(catalog?.variants, ledger, budgetMode) &&
     !base.finalBrandModelQuestionAsked;
+  const neutralTieQuestion = brandPreference
+    ? `${String(brandPreference.normalizedValue)} modelleri içinde özellikle yakın hissettiğin bir model var mı; yoksa model tercihin olmadığını söyleyebilirsin.`
+    : "İhtiyaçlarını karşılayan birkaç güçlü seçenek aynı puanda kaldı. Özellikle yakın hissettiğin bir marka veya model var mı; yoksa marka tercihin olmadığını söyleyebilirsin.";
   if (recommendationRequested && needsNeutralTieBreak) {
     return {
       kind: "V3_CONVERSATION",
-      message:
-        "İhtiyaçlarını karşılayan birkaç güçlü seçenek aynı puanda kaldı. Özellikle yakın hissettiğin bir marka veya model var mı; yoksa marka tercihin olmadığını söyleyebilirsin.",
+      message: neutralTieQuestion,
       state: {
         ...base,
         askedQuestionKeys: [
@@ -1611,8 +1612,7 @@ export async function runV3Turn(input: {
   if (!question && needsNeutralTieBreak) {
     return {
       kind: "V3_CONVERSATION",
-      message:
-        "İhtiyaçlarını karşılayan birkaç güçlü seçenek aynı puanda kaldı. Özellikle yakın hissettiğin bir marka veya model var mı; yoksa marka tercihin olmadığını söyleyebilirsin.",
+      message: neutralTieQuestion,
       state: {
         ...base,
         askedQuestionKeys: [
