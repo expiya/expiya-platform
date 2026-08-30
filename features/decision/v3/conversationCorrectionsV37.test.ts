@@ -119,4 +119,23 @@ describe("V3.7 conversation and ranking corrections", () => {
     expect(output.message).toMatch(/sürücü dahil.*toplam kaç kişi/iu);
     expect(output.message).not.toMatch(/nerede ve ne için kullanacaksın/iu);
   });
+
+  it("does not reveal an arbitrary Nissan variant while four eligible variants still have material differences", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let state = createV3ConversationState("nissan-four-candidates");
+    let output;
+    for (const [id, message] of [
+      ["1", "Nissan modelleri ile ilgileniyorum"],
+      ["2", "İşe gidiş ve aile yolculukları beraber"],
+      ["3", "Ferah ve yüksek SUV"],
+      ["4", "Hibrit veya elektrikli olabilir"],
+      ["5", "Bana uygun aracı öner"],
+    ] as const) { output = await turn(state, id, message); state = output.state; }
+    const catalog = await evaluateV3Catalog(state.ledger);
+    expect(catalog.variants.length).toBeGreaterThan(1);
+    expect(output?.offerAwaitingConsent).not.toBe(true);
+    expect(output?.state.pendingOffer).toBeUndefined();
+    expect(output?.state.lastQuestionKey).toMatch(/^(?:verifiedEquipment|personaDiscriminator|technicalDiscriminator):/u);
+    expect(output?.message).not.toMatch(/tek seçimi hazırladım|Göstermemi ister misin/iu);
+  });
 });
