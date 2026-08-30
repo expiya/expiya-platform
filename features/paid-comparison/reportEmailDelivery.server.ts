@@ -1,6 +1,6 @@
 import type { SqlConnection, SqlQueryable } from "@/features/vehicle-data/repository";
 import { createPaidComparisonPdf, type PaidComparisonPdfInput } from "./pdfDocument.server";
-import { decryptPaidReportDeliveryEmail } from "./deliveryEmailCipher.server";
+import { decryptPaidReportDeliveryEmail, maskPaidReportDeliveryEmail } from "./deliveryEmailCipher.server";
 export type PaidReportEmailJob = { orderId: string; deliveryEmailEncrypted: string; document: PaidComparisonPdfInput };
 export interface PaidReportEmailOutboxRepository { claim(now: Date): Promise<PaidReportEmailJob | undefined>; complete(orderId: string, providerMessageId: string, now: Date): Promise<void>; fail(orderId: string, failureCode: string): Promise<void> }
 export interface PaidReportEmailClient { send(input: { to: string; pdf: Uint8Array; idempotencyKey: string }): Promise<{ messageId: string }> }
@@ -12,8 +12,18 @@ export class PostgresPaidReportEmailOutboxRepository implements PaidReportEmailO
   async fail(orderId: string, failureCode: string) { await this.database.query(`update paid_report_email_outbox set status='FAILED',failure_code=$2 where order_id=$1 and status='SENDING'`, [orderId, failureCode.slice(0, 80)]); }
 }
 export class ResendPaidReportEmailClient implements PaidReportEmailClient {
-  constructor(private readonly config: { apiKey: string; from: string }, private readonly fetcher: typeof fetch = fetch) {}
-  async send(input: { to: string; pdf: Uint8Array; idempotencyKey: string }) { const response = await this.fetcher("https://api.resend.com/emails", { method: "POST", headers: { Authorization: `Bearer ${this.config.apiKey}`, "Content-Type": "application/json", "Idempotency-Key": input.idempotencyKey }, body: JSON.stringify({ from: this.config.from, to: [input.to], subject: "Expiya Cars karşılaştırma raporun hazır", html: "<p>Expiya Cars 3 araç karşılaştırma raporun ektedir.</p><p>Fiyat, donanım ve teslim koşullarını satın alma öncesinde yetkili satıcıdan doğrula.</p>", attachments: [{ filename: "expiya-cars-3-arac-karsilastirma-raporu.pdf", content: Buffer.from(input.pdf).toString("base64") }] }) }); if (!response.ok) throw new TypeError(`RESEND_EMAIL_FAILED_${response.status}`); const body = await response.json() as { id?: unknown }; if (typeof body.id !== "string") throw new TypeError("RESEND_EMAIL_RESPONSE_INVALID"); return { messageId: body.id }; }
+  constructor(private readonly config: { apiKey: string; from: string; internalNotificationEmail?: string }, private readonly fetcher: typeof fetch = fetch) {}
+  async send(input: { to: string; pdf: Uint8Array; idempotencyKey: string }) {
+    const headers = { Authorization: `Bearer ${this.config.apiKey}`, "Content-Type": "application/json" };
+    const response = await this.fetcher("https://api.resend.com/emails", { method: "POST", headers: { ...headers, "Idempotency-Key": input.idempotencyKey }, body: JSON.stringify({ from: this.config.from, to: [input.to], subject: "Expiya Cars karşılaştırma raporun hazır", html: "<p>Expiya Cars 3 araç karşılaştırma raporun ektedir.</p><p>Fiyat, donanım ve teslim koşullarını satın alma öncesinde yetkili satıcıdan doğrula.</p>", attachments: [{ filename: "expiya-cars-3-arac-karsilastirma-raporu.pdf", content: Buffer.from(input.pdf).toString("base64") }] }) });
+    if (!response.ok) throw new TypeError(`RESEND_EMAIL_FAILED_${response.status}`);
+    const body = await response.json() as { id?: unknown };
+    if (typeof body.id !== "string") throw new TypeError("RESEND_EMAIL_RESPONSE_INVALID");
+    if (this.config.internalNotificationEmail) {
+      await this.fetcher("https://api.resend.com/emails", { method: "POST", headers: { ...headers, "Idempotency-Key": `${input.idempotencyKey}/internal` }, body: JSON.stringify({ from: this.config.from, to: [this.config.internalNotificationEmail], subject: "Expiya Cars rapor teslim edildi", html: `<p>Yeni bir ücretli karşılaştırma raporu müşteriye teslim edildi.</p><p>Sipariş referansı: ${input.idempotencyKey.replace("paid-report/", "")}</p><p>Alıcı: ${maskPaidReportDeliveryEmail(input.to)}</p><p>Bu operasyon bildiriminde kişiselleştirilmiş rapor ve müşteri verisi eki bulunmaz.</p>` }) }).catch(() => undefined);
+    }
+    return { messageId: body.id };
+  }
 }
 export async function processOnePaidReportEmail(input: { repository: PaidReportEmailOutboxRepository; client: PaidReportEmailClient; now?: Date; environment?: NodeJS.ProcessEnv }) { const now = input.now ?? new Date(); const job = await input.repository.claim(now); if (!job) return { status: "IDLE" as const }; try { const to = decryptPaidReportDeliveryEmail(job.deliveryEmailEncrypted, input.environment); const pdf = await createPaidComparisonPdf(job.document); const sent = await input.client.send({ to, pdf, idempotencyKey: `paid-report/${job.orderId}` }); await input.repository.complete(job.orderId, sent.messageId, now); return { status: "SENT" as const, orderId: job.orderId }; } catch (error) { await input.repository.fail(job.orderId, error instanceof Error ? error.message : "PAID_REPORT_EMAIL_FAILED"); return { status: "FAILED" as const, orderId: job.orderId }; } }
-export function resolvePaidReportEmailConfig(environment: NodeJS.ProcessEnv = process.env) { const apiKey = environment.RESEND_API_KEY; const from = environment.PAID_REPORT_FROM_EMAIL; if (!apiKey || !from) throw new TypeError("PAID_REPORT_EMAIL_CONFIG_REQUIRED"); return { apiKey, from }; }
+export function resolvePaidReportEmailConfig(environment: NodeJS.ProcessEnv = process.env) { const apiKey = environment.RESEND_API_KEY; const from = environment.PAID_REPORT_FROM_EMAIL; if (!apiKey || !from) throw new TypeError("PAID_REPORT_EMAIL_CONFIG_REQUIRED"); return { apiKey, from, internalNotificationEmail: environment.PAID_REPORT_INTERNAL_NOTIFICATION_EMAIL }; }
