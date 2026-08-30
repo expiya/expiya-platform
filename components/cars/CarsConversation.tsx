@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { CarCard } from "@/components/cars/CarCard";
 import { V2AuthorizedCarCard } from "@/components/cars/V2AuthorizedCarCard";
 import { clearSubmittedV2MultiSelection, selectedV2OptionLabels, toggleV2MultiSelection } from "@/components/cars/v2MultiSelectState";
+import { productEvents, recordProductEventOnce } from "@/lib/analytics/productEvents";
 import {
   createRecommendationTermsAcceptance,
   RECOMMENDATION_TERMS_VERSION,
@@ -129,6 +130,9 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
         }),
       });
       const payload = await response.json() as CarsConversationResponse | { message?: string };
+      if (response.ok) recordProductEventOnce("chat-started:legacy", productEvents.chatStarted("legacy"));
+      if (response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS" && payload.recommendations.length > 0) recordProductEventOnce("recommendations-revealed:legacy", productEvents.recommendationsRevealed("legacy_recommendations", payload.recommendations.length));
+      if (response.ok && "kind" in payload && payload.kind === "V2_DECISION" && payload.cards.length > 0) recordProductEventOnce("recommendations-revealed:v2", productEvents.recommendationsRevealed("v2_recommendations", payload.cards.length));
       const content = payload.message ?? (isTurkish
         ? "Cevabınızı işleyemedim. Lütfen yeniden deneyin."
         : "I couldn't process that answer. Please try again.");
@@ -454,14 +458,14 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                   {fullyRevealed && message.recommendations && message.recommendations.length > 0
                     && shouldRenderRecommendationCards("RECOMMENDATIONS", conversation?.offerPurpose) && (
                     <div className="mt-4 grid gap-4 text-neutral-900 dark:text-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
-                      {message.recommendations.map((recommendation) => (
-                        <CarCard key={recommendation.car.id} recommendedCar={recommendation} locale={locale} />
+                      {message.recommendations.map((recommendation, index) => (
+                        <CarCard key={recommendation.car.id} recommendedCar={recommendation} locale={locale} position={index + 1} />
                       ))}
                     </div>
                   )}
                   {fullyRevealed && message.v2Cards && message.v2Cards.length > 0 && (
                     <div className="mt-4 grid gap-4 text-neutral-900 dark:text-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
-                      {message.v2Cards.map((card) => { const action = message.equipmentExplanationActions?.find((item) => item.exactVariantId === card.exactVariantId); return <V2AuthorizedCarCard key={card.exactVariantId} card={card} equipmentAction={action} onEquipmentExplanation={action ? (actionId) => void openEquipmentExplanation(actionId, message.v2OfferToken) : undefined} equipmentExplanationPending={equipmentExplanationPendingActionId === action?.actionId} />; })}
+                      {message.v2Cards.map((card, index) => { const action = message.equipmentExplanationActions?.find((item) => item.exactVariantId === card.exactVariantId); return <V2AuthorizedCarCard key={card.exactVariantId} card={card} position={index + 1} equipmentAction={action} onEquipmentExplanation={action ? (actionId) => void openEquipmentExplanation(actionId, message.v2OfferToken) : undefined} equipmentExplanationPending={equipmentExplanationPendingActionId === action?.actionId} />; })}
                     </div>
                   )}
                   {fullyRevealed && message.role === "assistant" && message.v2Options && message.v2Options.length > 0 && (

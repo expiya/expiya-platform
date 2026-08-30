@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { UnlockedReportVehicles } from "@/components/cars/UnlockedReportVehicles";
+import { productEvents, recordProductEvent, recordProductEventOnce, type Phase3AnalyticsIntent } from "@/lib/analytics/productEvents";
 import type { AdvisorReply } from "@/features/sales-advisor/advisor";
 import { humanizePreferenceText } from "@/features/decision/v3/preferencePresentation";
 import type {
@@ -326,6 +327,7 @@ export function SalesAdvisorExperience({
         )
           throw new Error(payload.error ?? "Bağlantı doğrulanamadı");
         setData(payload);
+        recordProductEventOnce("sales-advisor-started", productEvents.salesAdvisorStarted());
       })
       .catch((reason: Error) => setError(reason.message));
   }, [exactVariantId, token]);
@@ -376,6 +378,12 @@ export function SalesAdvisorExperience({
   }
   async function preparePhase3(intent: Phase3Intent, label: string) {
     if (phase3Pending) return;
+    const analyticsIntent: Record<Phase3Intent, Phase3AnalyticsIntent> = {
+      REQUEST_QUOTE: "quote",
+      REQUEST_TEST_DRIVE: "test_drive",
+      REQUEST_DEALER_CONTACT: "dealer_contact",
+    };
+    recordProductEvent(productEvents.phase3CtaClicked(analyticsIntent[intent]));
     setPhase3Pending(intent);
     try {
       const response = await fetch("/api/cars/sales-advisor/phase3-handoff", {
