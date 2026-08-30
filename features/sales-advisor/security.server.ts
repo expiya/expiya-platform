@@ -11,7 +11,9 @@ type Counter = { count: number; resetAt: number };
 const counters = new Map<string, Counter>();
 const locks = new Map<string, { owner: string; expiresAt: number }>();
 const replays = new Map<string, { requestDigest: string; response: unknown; expiresAt: number }>();
+const turnBudgets = new Map<string, Counter>();
 const MAX_LOCAL_ENTRIES = 5_000;
+export const MAX_PHASE2_CHAT_TURNS = 10;
 
 const policies: Record<Phase2Operation, readonly { kind: "client" | Subject["kind"]; limit: number; windowMs: number }[]> = {
   HANDOFF: [{ kind: "client", limit: 8, windowMs: 60_000 }, { kind: "client", limit: 3, windowMs: 10_000 }, { kind: "session", limit: 4, windowMs: 60_000 }],
@@ -22,6 +24,7 @@ const policies: Record<Phase2Operation, readonly { kind: "client" | Subject["kin
 
 const RATE_SCRIPT = "local max=0; local ttl=0; for i=1,#KEYS do local n=redis.call('INCR',KEYS[i]); if n==1 then redis.call('PEXPIRE',KEYS[i],ARGV[i*2-1]) end; local t=redis.call('PTTL',KEYS[i]); if n>tonumber(ARGV[i*2]) then max=1; if t>ttl then ttl=t end end end; return {max,ttl}";
 const RELEASE_SCRIPT = "if redis.call('GET',KEYS[1])==ARGV[1] then return redis.call('DEL',KEYS[1]) else return 0 end";
+const CLAIM_TURN_SCRIPT = "local n=tonumber(redis.call('GET',KEYS[1]) or '0'); local lim=tonumber(ARGV[1]); if n>=lim then return {n,0} end; n=redis.call('INCR',KEYS[1]); if n==1 then redis.call('PEXPIRE',KEYS[1],ARGV[2]) end; return {n,1}";
 const REPLAY_TTL_MS = 60 * 60_000;
 
 export class Phase2SecurityError extends Error {
@@ -46,7 +49,8 @@ function pruneLocal(now: number) {
   for (const [key, value] of counters) if (value.resetAt <= now) counters.delete(key);
   for (const [key, value] of locks) if (value.expiresAt <= now) locks.delete(key);
   for (const [key, value] of replays) if (value.expiresAt <= now) replays.delete(key);
-  for (const map of [counters, locks, replays]) while (map.size > MAX_LOCAL_ENTRIES) map.delete(map.keys().next().value!);
+  for (const [key, value] of turnBudgets) if (value.resetAt <= now) turnBudgets.delete(key);
+  for (const map of [counters, locks, replays, turnBudgets]) while (map.size > MAX_LOCAL_ENTRIES) map.delete(map.keys().next().value!);
 }
 
 function clientIdentity(request: Request): string {
@@ -96,6 +100,45 @@ export function phase2Subjects(handoff: { conversationId: string; offerId: strin
   return [{ kind: "conversation", value: handoff.conversationId }, { kind: "offer", value: handoff.offerId }, { kind: "variant", value: handoff.selectedExactVariantId }];
 }
 export const phase2SessionSubject = (token: string): Subject => ({ kind: "session", value: token });
+
+export interface Phase2TurnBudget {
+  readonly used: number;
+  readonly limit: typeof MAX_PHASE2_CHAT_TURNS;
+  readonly remaining: number;
+  readonly ended: boolean;
+  readonly accepted: boolean;
+}
+
+export async function claimPhase2ChatTurn(handoff: { conversationId: string; offerId: string; selectedExactVariantId: string; expiresAt: string }): Promise<Phase2TurnBudget> {
+  const key = `phase2:turns:${hash(`${handoff.conversationId}:${handoff.offerId}:${handoff.selectedExactVariantId}`)}`;
+  const now = Date.now();
+  const expiry = Date.parse(handoff.expiresAt);
+  const ttlMs = Math.max(1_000, Math.min(Number.isFinite(expiry) ? expiry - now : REPLAY_TTL_MS, 24 * 60 * 60_000));
+  const redis = redisConfig();
+  let used: number;
+  let accepted: boolean;
+  if (!redis) {
+    if (isProduction() && !allowsPreviewMemorySecurity()) throw new Phase2SecurityError("SECURITY_BACKEND_UNAVAILABLE", 503);
+    pruneLocal(now);
+    const current = turnBudgets.get(key);
+    accepted = !current || current.resetAt <= now || current.count < MAX_PHASE2_CHAT_TURNS;
+    used = !current || current.resetAt <= now ? 1 : Math.min(MAX_PHASE2_CHAT_TURNS, current.count + 1);
+    turnBudgets.set(key, { count: used, resetAt: now + ttlMs });
+  } else {
+    try {
+      const response = await redisCommand(redis, ["EVAL", CLAIM_TURN_SCRIPT, "1", key, String(MAX_PHASE2_CHAT_TURNS), String(ttlMs)]);
+      const result = response.result as [number, number];
+      used = Number(result?.[0]);
+      accepted = Number(result?.[1]) === 1;
+      if (!Number.isFinite(used)) throw new Error("TURN_STORE_PAYLOAD");
+    } catch {
+      logPhase2SecurityEvent("security_backend_unavailable", { operation: "CHAT", backend: "redis" });
+      throw new Phase2SecurityError("SECURITY_BACKEND_UNAVAILABLE", 503);
+    }
+  }
+  const bounded = Math.min(MAX_PHASE2_CHAT_TURNS, Math.max(0, used));
+  return { used: bounded, limit: MAX_PHASE2_CHAT_TURNS, remaining: MAX_PHASE2_CHAT_TURNS - bounded, ended: bounded >= MAX_PHASE2_CHAT_TURNS, accepted };
+}
 
 async function redisCommand(redis: { url: string; token: string }, command: readonly string[]) {
   const response = await fetch(redis.url, { method: "POST", headers: { Authorization: `Bearer ${redis.token}`, "Content-Type": "application/json" }, body: JSON.stringify(command), cache: "no-store", signal: AbortSignal.timeout(2_000) });
@@ -157,4 +200,4 @@ export function phase2SafeError(error: unknown): Response {
   const conflict = error instanceof Error && /^(PHASE2|PHASE3)_/u.test(error.message); return Response.json({ message: conflict ? "Bağlantı doğrulanamadı veya süresi doldu. Lütfen araç önerisi ekranından yeniden aç." : "İstek şu anda işlenemiyor. Lütfen kısa bir süre sonra yeniden dene." }, { status: conflict ? 409 : 503, headers: { "Cache-Control": "no-store" } });
 }
 
-export function resetPhase2SecurityForTests() { counters.clear(); locks.clear(); replays.clear(); }
+export function resetPhase2SecurityForTests() { counters.clear(); locks.clear(); replays.clear(); turnBudgets.clear(); }

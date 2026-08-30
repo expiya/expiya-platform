@@ -57,7 +57,19 @@ const dailyExamples: Readonly<Record<string, string>> = {
   batteryCapacity: "Örneğin daha büyük batarya menzil potansiyeli sağlayabilir, ancak tüketim yüksekse tek başına daha uzun menzil garanti etmez.",
   usableBattery: "Örneğin rota planında sürüşe ayrılan gerçek enerji kapasitesini karşılaştırmak için brüt değerden daha doğrudan bir ölçüdür.",
 };
-const fact = <T,>(key: string, label: string, source: CatalogFact<T> | undefined, format: (value: T) => string, dailyMeaning?: string): PublicVariantFact | undefined => verified(source) ? { key, label, value: format(source.value), disposition: "VERIFIED", ...((dailyMeaning ?? dailyMeanings[key]) ? { dailyMeaning: dailyMeaning ?? dailyMeanings[key] } : {}), ...(dailyExamples[key] ? { dailyExample: dailyExamples[key] } : {}) } : undefined;
+const fact = <T,>(key: string, label: string, source: CatalogFact<T> | undefined, format: (value: T) => string, dailyMeaning?: string): PublicVariantFact | undefined => {
+  if (!verified(source)) return undefined;
+  const provenance = source.provenance[0]!;
+  return {
+    key,
+    label,
+    value: format(source.value),
+    disposition: "VERIFIED",
+    ...((dailyMeaning ?? dailyMeanings[key]) ? { dailyMeaning: dailyMeaning ?? dailyMeanings[key] } : {}),
+    ...(dailyExamples[key] ? { dailyExample: dailyExamples[key] } : {}),
+    source: { label: provenance.sourceId, url: provenance.sourceUrl, accessedAt: provenance.accessedAt },
+  };
+};
 const fuel: Record<string, string> = { GASOLINE: "Benzin", DIESEL: "Dizel", LPG: "LPG", MHEV: "Hafif hibrit", HEV: "Hibrit", PHEV: "Şarj edilebilir hibrit", BEV: "Elektrik", HYDROGEN: "Hidrojen" };
 
 export function buildVariantContentArtifact(input: { variant: CatalogVariantSnapshot; catalogRelease: string; catalogFingerprint: string; peerVariants?: readonly CatalogVariantSnapshot[] }): VariantContentArtifact {
