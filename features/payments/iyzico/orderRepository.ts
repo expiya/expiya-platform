@@ -1,6 +1,7 @@
 import type { SqlConnection, SqlQueryable } from "@/features/vehicle-data/repository";
 import { randomUUID } from "node:crypto";
 import { paidComparisonLegalArtifacts, type PaidComparisonLegalAcceptance } from "@/features/paid-comparison/legalArtifacts";
+import { encryptPaidReportDeliveryEmail, maskPaidReportDeliveryEmail } from "@/features/paid-comparison/deliveryEmailCipher.server";
 
 export interface CheckoutOrderContext {
   readonly orderId: string;
@@ -11,7 +12,7 @@ export interface CheckoutOrderContext {
 }
 
 export interface IyzicoOrderRepository {
-  createFromQuote(input: { readonly orderId: string; readonly quoteId: string; readonly now: Date; readonly legalAcceptance: PaidComparisonLegalAcceptance; readonly subjectHash: string }): Promise<CheckoutOrderContext>;
+  createFromQuote(input: { readonly orderId: string; readonly quoteId: string; readonly now: Date; readonly legalAcceptance: PaidComparisonLegalAcceptance; readonly subjectHash: string; readonly deliveryEmail?: string }): Promise<CheckoutOrderContext>;
   markInitialized(input: { readonly orderId: string; readonly token: string; readonly expiresAt: Date }): Promise<void>;
   markFailed(orderId: string): Promise<void>;
   markReviewRequired(orderId: string): Promise<void>;
@@ -39,7 +40,7 @@ export class PostgresIyzicoOrderRepository implements IyzicoOrderRepository {
     }
   }
 
-  async createFromQuote(input: { readonly orderId: string; readonly quoteId: string; readonly now: Date; readonly legalAcceptance: PaidComparisonLegalAcceptance; readonly subjectHash: string }): Promise<CheckoutOrderContext> {
+  async createFromQuote(input: { readonly orderId: string; readonly quoteId: string; readonly now: Date; readonly legalAcceptance: PaidComparisonLegalAcceptance; readonly subjectHash: string; readonly deliveryEmail?: string }): Promise<CheckoutOrderContext> {
     return this.transaction(async (connection) => {
       const result = await connection.query(
         `select id, amount_kurus, currency, status, expires_at
@@ -53,9 +54,9 @@ export class PostgresIyzicoOrderRepository implements IyzicoOrderRepository {
       if (quote.amount_kurus !== 34_900 || quote.currency !== "TRY") throw new TypeError("PAID_COMPARISON_QUOTE_PRICE_INVALID");
       await connection.query(
         `insert into paid_report_orders
-          (id, quote_id, provider, provider_conversation_id, status, created_at, updated_at)
-         values ($1,$2,'IYZICO',$1,'CREATED',$3,$3)`,
-        [input.orderId, input.quoteId, input.now.toISOString()],
+          (id, quote_id, provider, provider_conversation_id, status, delivery_email_encrypted, delivery_email_masked, created_at, updated_at)
+         values ($1,$2,'IYZICO',$1,'CREATED',$3,$4,$5,$5)`,
+        [input.orderId, input.quoteId, input.deliveryEmail ? encryptPaidReportDeliveryEmail(input.deliveryEmail) : null, input.deliveryEmail ? maskPaidReportDeliveryEmail(input.deliveryEmail) : null, input.now.toISOString()],
       );
       if (input.legalAcceptance.acceptedAt !== input.now.toISOString()) throw new TypeError("PAID_COMPARISON_LEGAL_ACCEPTANCE_TIME_INVALID");
       await connection.query(

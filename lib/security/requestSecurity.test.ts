@@ -15,6 +15,16 @@ describe("request security", () => {
     expect(verifySameOrigin(request({ headers: { "content-type": "application/json", origin: "https://evil.example" } }))?.status).toBe(403);
   });
 
+  it("accepts localhost and IPv4 loopback aliases on the same development port", () => {
+    const local = new Request("http://localhost:4051/api/test", { method: "POST", headers: { "content-type": "application/json", origin: "http://127.0.0.1:4051" }, body: "{}" });
+    expect(verifySameOrigin(local)).toBeUndefined();
+  });
+
+  it("rejects a loopback alias on another port", () => {
+    const local = new Request("http://localhost:4051/api/test", { method: "POST", headers: { "content-type": "application/json", origin: "http://127.0.0.1:4052" }, body: "{}" });
+    expect(verifySameOrigin(local)?.status).toBe(403);
+  });
+
   it("rejects non-JSON writes", () => {
     expect(verifySameOrigin(request({ headers: { "content-type": "text/plain" } }))?.status).toBe(415);
   });

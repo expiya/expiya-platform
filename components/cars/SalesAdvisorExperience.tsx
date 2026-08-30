@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState } from "react";
 import { PaidComparisonOffer } from "@/components/cars/PaidComparisonOffer";
+import { UnlockedReportVehicles } from "@/components/cars/UnlockedReportVehicles";
 import type { AdvisorReply } from "@/features/sales-advisor/advisor";
 import { humanizePreferenceText } from "@/features/decision/v3/preferencePresentation";
 import type {
@@ -954,6 +955,7 @@ export function SalesAdvisorExperience({
             selectedExactVariantId={handoff.selectedExactVariantId}
           />
         </div>
+        <UnlockedReportVehicles currentExactVariantId={exactVariantId} />
       </section>
     </main>
   );

@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
       "./data/production/catalog/governance/**/*",
       "./data/production/rec-offer-audit-foundation/**/*",
     ],
+    "/api/cars/paid-comparison/report/pdf": [
+      "./node_modules/@fontsource/noto-sans/files/noto-sans-latin-ext-400-normal.woff2",
+      "./node_modules/@fontsource/noto-sans/files/noto-sans-latin-ext-700-normal.woff2",
+    ],
   },
   images: {
     remotePatterns: [{

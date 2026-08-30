@@ -6,6 +6,29 @@ export interface PaidComparisonQuoteRepository {
   createQuote(quote: ComparisonReportQuote): Promise<void>;
 }
 
+const developmentQuotes = new Map<string, ComparisonReportQuote>();
+
+export class DevelopmentPaidComparisonQuoteRepository implements PaidComparisonQuoteRepository {
+  async createQuote(quote: ComparisonReportQuote): Promise<void> {
+    if (process.env.NODE_ENV === "production") throw new TypeError("DEVELOPMENT_QUOTE_STORE_DISABLED");
+    developmentQuotes.set(quote.id, quote);
+  }
+
+  find(quoteId: string): ComparisonReportQuote | undefined {
+    if (process.env.NODE_ENV === "production") return undefined;
+    return developmentQuotes.get(quoteId);
+  }
+}
+
+export function resetDevelopmentPaidComparisonQuotesForTests(): void {
+  developmentQuotes.clear();
+}
+
+export function findDevelopmentPaidComparisonQuote(quoteId: string): ComparisonReportQuote | undefined {
+  if (process.env.NODE_ENV === "production") return undefined;
+  return developmentQuotes.get(quoteId);
+}
+
 export class PostgresPaidComparisonQuoteRepository implements PaidComparisonQuoteRepository {
   constructor(private readonly database: SqlQueryable) {}
 

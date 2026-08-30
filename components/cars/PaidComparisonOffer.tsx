@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { storePaidComparisonHandoff } from "@/features/paid-comparison/clientContract";
+import { storePaidComparisonHandoff, storePaidComparisonReturnUrl } from "@/features/paid-comparison/clientContract";
 
 type PaidComparisonOfferProps = {
   readonly conversationId: string;
@@ -18,10 +18,12 @@ type PaidComparisonOfferProps = {
 export function PaidComparisonOffer(props: PaidComparisonOfferProps) {
   const router = useRouter();
   const [status, setStatus] = useState<"IDLE" | "LOADING" | "ERROR">("IDLE");
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function beginComparison() {
     if (status === "LOADING") return;
     setStatus("LOADING");
+    setErrorMessage("");
 
     void fetch("/api/product-events", {
       method: "POST",
@@ -48,14 +50,16 @@ export function PaidComparisonOffer(props: PaidComparisonOfferProps) {
             selectedExactVariantId: props.selectedExactVariantId,
           }),
         });
-        const payload = await response.json() as { token?: string; error?: string };
-        if (!response.ok || !payload.token) throw new Error(payload.error);
+        const payload = await response.json() as { token?: string; error?: string; message?: string };
+        if (!response.ok || !payload.token) throw new Error(payload.message ?? payload.error ?? "Rapor teklifi oluşturulamadı.");
         token = payload.token;
       }
 
       storePaidComparisonHandoff(sessionStorage, token);
+      storePaidComparisonReturnUrl(sessionStorage, `${window.location.pathname}${window.location.search}`);
       router.push("/cars/paid-comparison");
-    } catch {
+    } catch (error) {
+      setErrorMessage(error instanceof Error && error.message ? error.message : "Rapor teklifi oluşturulamadı.");
       setStatus("ERROR");
     }
   }
@@ -64,19 +68,19 @@ export function PaidComparisonOffer(props: PaidComparisonOfferProps) {
     <section
       aria-labelledby="paid-comparison-title"
       aria-describedby="paid-comparison-description paid-comparison-trust"
-      className="mt-8 overflow-hidden rounded-3xl border border-sky-200 bg-gradient-to-br from-sky-50 via-white to-emerald-50 shadow-[0_18px_45px_-32px_rgba(2,132,199,0.45)]"
+      className="mt-8 overflow-hidden rounded-3xl border border-stone-200 bg-gradient-to-br from-emerald-50 via-white to-[#f7f8f5] shadow-[0_18px_55px_-35px_rgba(28,25,23,.25)]"
     >
       <div className="p-5 sm:p-6">
         <div className="flex items-start gap-4">
-          <span aria-hidden="true" className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-sky-100 text-sky-800">
+          <span aria-hidden="true" className="flex size-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-800">
             <svg viewBox="0 0 24 24" fill="none" className="size-6" stroke="currentColor" strokeWidth="1.8">
               <path d="M4 7.5h16M7.5 4v7M16.5 4v7M5 14h4l1.5 2h3L15 14h4v5H5v-5Z" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </span>
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-2">
-              <p className="text-xs font-bold uppercase tracking-[0.16em] text-sky-800">Kişisel Araç Karşılaştırma Raporu</p>
-              <span className="rounded-full border border-sky-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-sky-800">İsteğe bağlı · Ücretli</span>
+              <p className="text-xs font-bold uppercase tracking-[.22em] text-emerald-800">Kişisel Araç Karşılaştırma Raporu</p>
+              <span className="rounded-full border border-emerald-200 bg-white px-2.5 py-1 text-[11px] font-semibold text-emerald-800">İsteğe bağlı · Ücretli</span>
             </div>
             <h2 id="paid-comparison-title" className="mt-2 text-xl font-semibold leading-tight text-neutral-950 sm:text-2xl">
               Kararını ayrıntılı karşılaştırmayla doğrula
@@ -107,7 +111,7 @@ export function PaidComparisonOffer(props: PaidComparisonOfferProps) {
 
         {status === "ERROR" ? (
           <p role="alert" className="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm leading-5 text-red-800">
-            Karşılaştırma başlangıcı hazırlanamadı. Bağlantını kontrol edip yeniden deneyebilirsin.
+            {errorMessage || "Rapor teklifi oluşturulamadı."}
           </p>
         ) : null}
 
@@ -117,13 +121,13 @@ export function PaidComparisonOffer(props: PaidComparisonOfferProps) {
             onClick={() => void beginComparison()}
             disabled={status === "LOADING"}
             aria-busy={status === "LOADING"}
-            className="min-h-12 rounded-2xl bg-sky-700 px-5 py-3 text-center text-sm font-semibold text-white shadow-sm transition hover:bg-sky-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700 disabled:cursor-wait disabled:bg-sky-500"
+            className="min-h-12 rounded-full bg-emerald-700 px-6 py-3 text-center text-sm font-semibold text-white shadow-[0_12px_30px_rgba(4,120,87,.18)] transition hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 disabled:cursor-wait disabled:bg-emerald-500"
           >
             {status === "LOADING" ? "Karşılaştırma hazırlanıyor…" : status === "ERROR" ? "Yeniden dene" : "2 araç seç ve karşılaştır"}
           </button>
           <Link
             href="/cars/paid-comparison/sample"
-            className="min-h-11 rounded-xl px-3 py-3 text-center text-sm font-semibold text-sky-800 underline decoration-sky-300 underline-offset-4 transition hover:text-sky-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-700"
+            className="min-h-11 rounded-full px-3 py-3 text-center text-sm font-semibold text-emerald-800 underline decoration-emerald-300 underline-offset-4 transition hover:text-emerald-950 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700"
           >
             Örnek raporu incele
           </Link>

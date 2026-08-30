@@ -20,7 +20,7 @@ export async function startIyzicoCheckout(input: {
 }) {
   const now = input.now ?? new Date();
   const orderId = input.orderId ?? randomUUID();
-  const order = await input.repository.createFromQuote({ orderId, quoteId: input.quoteId, now, legalAcceptance: input.legalAcceptance, subjectHash: input.subjectHash });
+  const order = await input.repository.createFromQuote({ orderId, quoteId: input.quoteId, now, legalAcceptance: input.legalAcceptance, subjectHash: input.subjectHash, deliveryEmail: input.buyer.email });
   try {
     const checkout = await initializeIyzicoCheckout({
       client: input.client,

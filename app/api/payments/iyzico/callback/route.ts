@@ -5,6 +5,8 @@ import { PostgresIyzicoOrderRepository } from "@/features/payments/iyzico/orderR
 import { getPostgresDatabase } from "@/lib/server/postgres";
 import { enforceRateLimit } from "@/lib/security/requestSecurity";
 import { createPaidReportAccessToken, hashPaidReportAccessToken, paidReportAccessCookie } from "@/features/paid-comparison/reportAccess";
+import { DevelopmentIyzicoOrderRepository } from "@/features/payments/iyzico/developmentOrderRepository";
+import { buildIyzicoCallbackRedirect } from "@/features/payments/iyzico/callbackResponse";
 
 async function readToken(request: Request): Promise<string> {
   const declared = Number(request.headers.get("content-length") ?? 0);
@@ -30,7 +32,9 @@ export async function POST(request: Request): Promise<Response> {
       IYZICO_SECRET_KEY: process.env.IYZICO_SECRET_KEY,
       IYZICO_LIVE_PAYMENTS_ENABLED: process.env.IYZICO_LIVE_PAYMENTS_ENABLED,
     });
-    const repository = new PostgresIyzicoOrderRepository(getPostgresDatabase());
+    const repository = DevelopmentIyzicoOrderRepository.hasPendingToken(token)
+      ? new DevelopmentIyzicoOrderRepository()
+      : new PostgresIyzicoOrderRepository(getPostgresDatabase());
     const finalized = await finalizeIyzicoCheckout({
       token,
       secretKey: config.secretKey,
@@ -45,9 +49,5 @@ export async function POST(request: Request): Promise<Response> {
   } catch {
     // Do not disclose payment or provider details on the browser redirect.
   }
-  const destination = new URL("/cars/paid-comparison/status", request.url);
-  destination.searchParams.set("payment", outcome);
-  const response = Response.redirect(destination, 303);
-  if (accessCookie) response.headers.set("Set-Cookie", accessCookie);
-  return response;
+  return buildIyzicoCallbackRedirect({ requestUrl: request.url, configuredCallbackUrl: process.env.IYZICO_CALLBACK_URL, outcome, accessCookie });
 }

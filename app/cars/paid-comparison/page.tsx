@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default function PaidComparisonPage() {
-  return <PaidComparisonFlow legalTexts={{
+  return <PaidComparisonFlow checkoutEnabled={process.env.PAID_COMPARISON_CHECKOUT_ENABLED === "true"} legalTexts={{
     preInformation: paidComparisonLegalArtifacts.preInformation.text,
     distanceContract: paidComparisonLegalArtifacts.distanceContract.text,
     immediatePerformance: paidComparisonLegalArtifacts.immediatePerformance.text,

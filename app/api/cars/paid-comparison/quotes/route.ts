@@ -27,7 +27,8 @@ export async function POST(request: Request): Promise<Response> {
     }, { status: 201, headers: { "Cache-Control": "no-store", "Referrer-Policy": "no-referrer" } });
   } catch (error) {
     const invalid = error instanceof z.ZodError;
-    return Response.json({ message: invalid ? "Geçersiz istek." : "Rapor teklifi oluşturulamadı." }, {
+    const developmentMessage = process.env.NODE_ENV !== "production" && error instanceof Error ? `Rapor teklifi oluşturulamadı: ${error.message}` : "Rapor teklifi oluşturulamadı.";
+    return Response.json({ message: invalid ? "Geçersiz istek." : developmentMessage }, {
       status: invalid ? 400 : 409,
       headers: { "Cache-Control": "no-store" },
     });

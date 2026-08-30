@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { assessPaidComparisonReadiness } from "./readiness";
 
-const base = { mode: "sandbox" as const, databaseUrl: "postgres://db", signingSecret: "s".repeat(32), iyzicoApiKey: "sandbox-key", iyzicoSecretKey: "sandbox-secret", callbackUrl: "https://sandbox.example.com/api/payments/iyzico/callback" };
+const base = { mode: "sandbox" as const, databaseUrl: "postgres://db", signingSecret: "s".repeat(32), iyzicoApiKey: "sandbox-key", iyzicoSecretKey: "sandbox-secret", callbackUrl: "https://sandbox.example.com/api/payments/iyzico/callback", piiEncryptionKey: Buffer.alloc(32, 1).toString("base64url"), resendApiKey: "re_test", reportFromEmail: "Expiya Cars <rapor@example.com>" };
 describe("paid comparison readiness", () => {
   it("allows sandbox validation without pretending legal launch approval exists", () => {
     expect(assessPaidComparisonReadiness(base)).toEqual({ mode: "sandbox", ready: true, failures: [] });

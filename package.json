@@ -20,6 +20,8 @@
     "db:import:marketplace-pilot": "tsx scripts/import-marketplace-candidate-pilot.ts",
     "db:report:catalog-candidates": "tsx scripts/report-catalog-candidates.ts",
     "paid-comparison:process-one": "node --env-file=.env.local --import tsx scripts/process-paid-comparison-report.ts",
+    "paid-comparison:email:process-one": "node --env-file=.env.local --import tsx scripts/process-paid-report-email.ts",
+    "paid-comparison:pii-key:generate": "node --import tsx scripts/generate-paid-report-pii-key.ts",
     "paid-comparison:readiness": "node --env-file-if-exists=.env.local --import tsx scripts/check-paid-comparison-readiness.ts",
     "verify:cars-catalog-blob": "node scripts/verify-cars-catalog-blob.mjs",
     "catalog:release:generate": "node --import tsx scripts/generate-production-catalog-release.ts",
@@ -59,10 +61,14 @@
     "vehicle-evidence:apply-hardening": "node --import tsx scripts/apply-post-batch01-hardening.ts"
   },
   "dependencies": {
+    "@fontsource/noto-sans": "^5.3.0",
+    "@pdf-lib/fontkit": "^1.1.1",
     "@sentry/nextjs": "^10.70.0",
     "@vercel/blob": "^2.8.0",
     "next": "16.3.0",
     "openai": "^7.4.0",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^6.3.289",
     "pg": "^8.23.0",
     "react": "19.2.8",
     "react-dom": "19.2.8",

@@ -45,7 +45,18 @@ export function verifySameOrigin(request: Request): Response | undefined {
   const origin = request.headers.get("origin");
   if (!origin) return undefined;
   const expectedOrigin = new URL(request.url).origin;
-  if (origin !== expectedOrigin) return Response.json({ message: "Bu kaynaktan gelen isteğe izin verilmiyor." }, { status: 403 });
+  if (origin !== expectedOrigin) {
+    let localDevelopmentAlias = false;
+    if (process.env.NODE_ENV !== "production") {
+      try {
+        const supplied = new URL(origin); const expected = new URL(expectedOrigin);
+        const loopback = new Set(["localhost", "127.0.0.1", "[::1]"]);
+        localDevelopmentAlias = loopback.has(supplied.hostname) && loopback.has(expected.hostname)
+          && supplied.protocol === expected.protocol && supplied.port === expected.port;
+      } catch { localDevelopmentAlias = false; }
+    }
+    if (!localDevelopmentAlias) return Response.json({ message: "Bu kaynaktan gelen isteğe izin verilmiyor." }, { status: 403 });
+  }
 }
 
 function enforceMemoryRateLimit(request: Request, policy: RateLimitPolicy): Response | undefined {

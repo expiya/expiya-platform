@@ -3,9 +3,30 @@ import { evaluateV3Catalog } from "@/features/decision/v3/catalogAdapter.server"
 import { buildVariantContentArtifact } from "@/features/sales-advisor/artifact.server";
 import type { Phase3Intent, Phase3IntentPayload } from "@/features/sales-advisor/handoff.server";
 import type { SqlQueryable } from "@/features/vehicle-data/repository";
+import { DevelopmentIyzicoOrderRepository } from "@/features/payments/iyzico/developmentOrderRepository";
 
 const TOKEN_PREFIX = "p3r_";
 const digest = (value: string) => createHash("sha256").update(value, "utf8").digest("hex");
+const developmentHandoffs = new Map<string, Phase3IntentPayload>();
+
+export class DevelopmentPaidReportSalesHandoffRepository {
+  async issue(input: { readonly accessTokenHash: string; readonly exactVariantId: string; readonly intent: Phase3Intent; readonly now: Date }): Promise<string> {
+    if (process.env.NODE_ENV === "production") throw new TypeError("DEVELOPMENT_PAYMENT_STORE_DISABLED");
+    const context = DevelopmentIyzicoOrderRepository.findUnlockedSalesContext(input.accessTokenHash, input.exactVariantId);
+    if (!context) throw new TypeError("PAID_REPORT_SALES_CONTEXT_INVALID");
+    const token = `p3r_dev_${randomBytes(32).toString("base64url")}`;
+    const payload: Phase3IntentPayload = { version: "phase3-intent/v1", conversationId: `paid-dev:${input.accessTokenHash.slice(0, 24)}`, decisionFingerprint: digest(`${input.accessTokenHash}:${context.catalogFingerprint}`), offerId: `paid-dev:${input.accessTokenHash.slice(0, 16)}`, selectedExactVariantId: input.exactVariantId, catalogRelease: context.catalogRelease, intent: input.intent, nonce: token.slice(8, 32), issuedAt: input.now.toISOString(), expiresAt: new Date(input.now.getTime() + 30 * 60_000).toISOString(), executionAuthorized: false, approvedNeeds: context.approvedNeeds };
+    developmentHandoffs.set(token, payload); return token;
+  }
+  static has(token: string): boolean { return process.env.NODE_ENV !== "production" && developmentHandoffs.has(token); }
+  async open(token: string, expectedIntent: Phase3Intent | undefined, now: Date) {
+    const payload = developmentHandoffs.get(token); if (!payload || Date.parse(payload.expiresAt) <= now.getTime()) throw new TypeError("PHASE3_HANDOFF_STALE");
+    if (expectedIntent && payload.intent !== expectedIntent) throw new TypeError("PHASE3_INTENT_MISMATCH");
+    const catalog = await evaluateV3Catalog([], now); if (catalog.catalogReleaseVersion !== payload.catalogRelease) throw new TypeError("PHASE3_CATALOG_STALE");
+    const variant = catalog.variants.find(item => item.id === payload.selectedExactVariantId); if (!variant) throw new TypeError("PHASE3_VARIANT_STALE");
+    return { handoff: payload, artifact: buildVariantContentArtifact({ variant, catalogRelease: catalog.catalogReleaseVersion, catalogFingerprint: catalog.catalogFingerprint, peerVariants: catalog.variants }) };
+  }
+}
 
 export class PostgresPaidReportSalesHandoffRepository {
   constructor(private readonly database: SqlQueryable) {}

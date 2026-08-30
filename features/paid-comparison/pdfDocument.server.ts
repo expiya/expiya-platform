@@ -1,0 +1,65 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import fontkit from "@pdf-lib/fontkit";
+import { PDFDocument, rgb, type PDFFont, type PDFPage } from "pdf-lib";
+
+type Fact = { value: string | number | null; missing: boolean; sources?: readonly string[] };
+type PdfVehicle = { exactVariantId: string; role: string; identity: { brand: string; model: string; trim: string; sources?: readonly string[] }; price: { value: number | null; validFrom: string | null; sources?: readonly string[] }; facts: Record<string, Fact>; safetyFeatures?: readonly Fact[]; imageUrl?: string; imageStatus?: string };
+export type PaidComparisonPdfInput = { generatedAt: string; catalogReleaseVersion: string; needsSummary: readonly { summary: string }[]; assessment: { conclusion: string; scores: readonly { exactVariantId: string; score: number | null }[]; conditions: readonly { exactVariantId: string; text: string }[] }; vehicles: readonly PdfVehicle[] };
+
+const A4: [number, number] = [595.28, 841.89];
+const navy = rgb(0.063, 0.165, 0.263); const blue = rgb(0.11, 0.39, 0.95); const green = rgb(0.09, 0.61, 0.38); const ink = rgb(0.08, 0.14, 0.21); const muted = rgb(0.32, 0.4, 0.48); const pale = rgb(0.965, 0.98, 0.99); const line = rgb(0.84, 0.89, 0.93); const amber = rgb(0.9, 0.54, 0);
+
+function wrap(text: string, font: PDFFont, size: number, width: number): string[] {
+  const words = text.replace(/\s+/gu, " ").trim().split(" "); const lines: string[] = []; let current = "";
+  for (const word of words) { const candidate = current ? `${current} ${word}` : word; if (font.widthOfTextAtSize(candidate, size) <= width) current = candidate; else { if (current) lines.push(current); current = word; } }
+  if (current) lines.push(current); return lines.length ? lines : [""];
+}
+function text(page: PDFPage, value: string, x: number, y: number, options: { font: PDFFont; size?: number; color?: ReturnType<typeof rgb>; width?: number; lineHeight?: number } ): number {
+  const size = options.size ?? 9; const lines = options.width ? wrap(value, options.font, size, options.width) : [value]; const height = options.lineHeight ?? size * 1.3;
+  lines.forEach((item, index) => page.drawText(item, { x, y: y - index * height, size, font: options.font, color: options.color ?? ink })); return y - lines.length * height;
+}
+function sectionTitle(page: PDFPage, title: string, y: number, bold: PDFFont, number: string): number {
+  page.drawCircle({ x: 42, y: y - 2, size: 13, color: blue }); text(page, number, 35, y - 6, { font: bold, size: 8, color: rgb(1,1,1) }); text(page, title, 62, y + 2, { font: bold, size: 17, color: navy }); page.drawLine({ start: { x: 32, y: y - 22 }, end: { x: 563, y: y - 22 }, color: line, thickness: 1 }); return y - 42;
+}
+function footer(page: PDFPage, regular: PDFFont, pageNumber: number) { page.drawLine({ start: { x: 32, y: 30 }, end: { x: 563, y: 30 }, color: line, thickness: .7 }); text(page, "Expiya Cars - Karar desteği; ekspertiz veya kesin satın alma talimatı değildir.", 32, 18, { font: regular, size: 6.5, color: muted }); text(page, String(pageNumber), 548, 18, { font: regular, size: 7, color: muted }); }
+const formatValue = (fact: Fact | undefined) => !fact || fact.missing || fact.value === null ? "Doğrulanmış veri yok" : String(fact.value);
+const money = (value: number | null) => value === null ? "Doğrulanmış veri yok" : `${new Intl.NumberFormat("tr-TR", { maximumFractionDigits: 0 }).format(value)} TL`;
+const dateOnly = (value: string | null) => { if (!value) return "Doğrulanmış veri yok"; const parsed = new Date(value); return Number.isNaN(parsed.getTime()) ? value.split("T")[0] ?? value : new Intl.DateTimeFormat("tr-TR", { day: "2-digit", month: "2-digit", year: "numeric" }).format(parsed); };
+
+export async function createPaidComparisonPdf(report: PaidComparisonPdfInput): Promise<Uint8Array> {
+  const pdf = await PDFDocument.create(); pdf.registerFontkit(fontkit);
+  const fontRoot = path.join(process.cwd(), "node_modules", "@fontsource", "noto-sans", "files");
+  const [regularBytes, boldBytes] = await Promise.all([readFile(path.join(fontRoot, "noto-sans-latin-ext-400-normal.woff2")), readFile(path.join(fontRoot, "noto-sans-latin-ext-700-normal.woff2"))]);
+  const regular = await pdf.embedFont(regularBytes, { subset: false }); const bold = await pdf.embedFont(boldBytes, { subset: false });
+  const pages: PDFPage[] = []; const addPage = () => { const page = pdf.addPage(A4); pages.push(page); return page; };
+  const vehicles = report.vehicles.slice(0, 3);
+
+  let page = addPage(); page.drawRectangle({ x: 0, y: 0, width: A4[0], height: A4[1], color: navy });
+  text(page, "EXPIYA CARS", 42, 790, { font: bold, size: 11, color: rgb(.55,.9,.75) }); text(page, "3 araç karşılaştırma", 42, 735, { font: bold, size: 29, color: rgb(1,1,1) }); text(page, "analizi", 42, 697, { font: bold, size: 29, color: rgb(1,1,1) });
+  text(page, "Kişiselleştirilmiş karar doğrulama raporu", 42, 650, { font: regular, size: 12, color: rgb(.85,.9,.95) });
+  for (let index=0; index<vehicles.length; index++) { const vehicle=vehicles[index]!; const x=42+index*174; page.drawRectangle({ x, y: 390, width: 158, height: 210, color: index===0 ? rgb(.9,.96,.93) : rgb(.95,.97,.99), borderColor: index===0 ? green : line, borderWidth: 1 });
+    if (vehicle.imageUrl) { try { const bytes=vehicle.imageUrl.startsWith("/") ? await readFile(path.join(process.cwd(),"public",vehicle.imageUrl.replace(/^\/+/, ""))) : new Uint8Array(await (await fetch(vehicle.imageUrl, { signal: AbortSignal.timeout(8_000) })).arrayBuffer()); const image=vehicle.imageUrl.toLowerCase().split("?")[0]?.endsWith(".png") ? await pdf.embedPng(bytes) : await pdf.embedJpg(bytes); const scaled=image.scaleToFit(146,90); page.drawImage(image,{x:x+6+(146-scaled.width)/2,y:500+(90-scaled.height)/2,width:scaled.width,height:scaled.height}); } catch { page.drawRectangle({x:x+6,y:500,width:146,height:90,color:line}); } }
+    text(page,index===0?"KARAR ARACI":"ALTERNATİF",x+10,480,{font:bold,size:7,color:index===0?green:blue}); text(page,`${vehicle.identity.brand} ${vehicle.identity.model}`,x+10,458,{font:bold,size:12,color:navy,width:138}); text(page,vehicle.identity.trim,x+10,420,{font:regular,size:8,color:muted,width:138}); text(page,money(vehicle.price.value),x+10,400,{font:bold,size:10,color:ink}); }
+  page.drawRectangle({x:42,y:250,width:506,height:90,color:rgb(.99,.95,.86),borderColor:amber,borderWidth:1}); text(page,"VERİ VE KULLANIM UYARISI",56,315,{font:bold,size:9,color:amber}); text(page,"Doğrulanamayan alanlar boş bırakılır. Fiyat, donanım, garanti, stok ve teslim koşullarını satın alma öncesinde yetkili satıcı veya distribütörden doğrulayın.",56,292,{font:regular,size:9,color:ink,width:475,lineHeight:13}); text(page,`Oluşturma: ${new Date(report.generatedAt).toLocaleString("tr-TR")}  |  Katalog: ${report.catalogReleaseVersion}`,42,70,{font:regular,size:7,color:rgb(.75,.82,.88)});
+
+  page=addPage(); let y=sectionTitle(page,"İhtiyaç özeti ve karar",790,bold,"1");
+  if (report.needsSummary.length) for (const need of report.needsSummary) { page.drawCircle({x:43,y:y+3,size:4,color:green}); y=text(page,need.summary,56,y+7,{font:regular,size:10,width:485,lineHeight:14})-8; } else y=text(page,"Bu test kararında ayrıntılı ihtiyaç bağlamı bulunmuyor.",42,y,{font:regular,size:10,color:muted})-12;
+  page.drawRectangle({x:42,y:y-120,width:506,height:110,color:rgb(.91,.97,.94),borderColor:green,borderWidth:1}); text(page,"KARAR DOĞRULAMA SONUCU",58,y-36,{font:bold,size:9,color:green}); text(page,report.assessment.conclusion,58,y-62,{font:bold,size:15,color:navy,width:470,lineHeight:19}); y-=155;
+  for (const vehicle of vehicles) { const score=report.assessment.scores.find(item=>item.exactVariantId===vehicle.exactVariantId)?.score; text(page,`${vehicle.identity.brand} ${vehicle.identity.model}`,42,y,{font:bold,size:9,width:150}); page.drawRectangle({x:205,y:y-2,width:260,height:10,color:line}); if(score!==null&&score!==undefined)page.drawRectangle({x:205,y:y-2,width:260*score/100,height:10,color:score>=75?green:blue}); text(page,score===null||score===undefined?"—":`${score}/100`,485,y,{font:bold,size:9,color:score!==null&&score!==undefined?green:muted}); y-=30; }
+  y-=10; text(page,"Hangi koşulda hangisi?",42,y,{font:bold,size:14,color:navy}); y-=25; for(const condition of report.assessment.conditions){const vehicle=vehicles.find(v=>v.exactVariantId===condition.exactVariantId);y=text(page,`${vehicle?.identity.brand ?? "Araç"} ${vehicle?.identity.model ?? ""}: ${condition.text}`,42,y,{font:regular,size:9,width:500,lineHeight:13})-8;}
+
+  const groups: readonly [string,string,readonly [string,string][]][] = [
+    ["Araç kimliği ve fiyat","2",[["Liste fiyatı","price"],["Fiyat tarihi","priceDate"],["Model yılı","modelYear"],["Gövde","bodyStyle"],["Yakıt / enerji","fuelType"],["Şanzıman","transmission"]]],
+    ["Motor, aktarma ve verimlilik","3",[["Güç (kW)","powerKw"],["Tork (Nm)","torqueNm"],["Motor hacmi (cc)","engineDisplacementCc"],["Çekiş","drivenWheels"],["Tüketim (L/100 km)","combinedLitresPer100Km"],["Tüketim (kWh/100 km)","combinedKwhPer100Km"],["Elektrikli menzil (km)","electricRangeKm"],["DC şarj (kW)","maxDcChargeKw"]]],
+    ["Boyutlar ve günlük kullanım","4",[["Koltuk","seats"],["Bagaj (L)","luggageLitres"],["Kargo hacmi (L)","cargoVolumeLitres"],["Uzunluk (mm)","lengthMm"],["Genişlik (mm)","widthMm"],["Yükseklik (mm)","heightMm"],["Aks mesafesi (mm)","wheelbaseMm"],["Frenli çekme (kg)","brakedTowingKg"]]],
+  ];
+  for(const [titleValue,number,rows] of groups){page=addPage();y=sectionTitle(page,titleValue,790,bold,number);const col=[42,192,313,434];const widths=[148,120,120,120];for(let c=0;c<4;c++){page.drawRectangle({x:col[c]!,y:y-45,width:widths[c]!,height:45,color:c===0?pale:(c===1?rgb(.91,.97,.94):pale),borderColor:line,borderWidth:.5});text(page,c===0?"Başlık":`${vehicles[c-1]?.identity.brand ?? ""} ${vehicles[c-1]?.identity.model ?? ""}`,col[c]!+6,y-18,{font:bold,size:8,width:widths[c]!-12});}y-=45;for(const [label,key] of rows){let maxLines=1;const vals=vehicles.map(v=>key==="price"?money(v.price.value):key==="priceDate"?dateOnly(v.price.validFrom):formatValue(v.facts[key]));for(const value of vals)maxLines=Math.max(maxLines,wrap(value,regular,7.5,108).length);const h=Math.max(28,maxLines*10+10);page.drawRectangle({x:42,y:y-h,width:148,height:h,color:pale,borderColor:line,borderWidth:.5});text(page,label,48,y-15,{font:bold,size:7.5,width:136});vals.forEach((value,i)=>{page.drawRectangle({x:col[i+1]!,y:y-h,width:120,height:h,color:rgb(1,1,1),borderColor:line,borderWidth:.5});text(page,value,col[i+1]!+6,y-15,{font:regular,size:7.5,width:108,lineHeight:10});});y-=h;}}
+
+  page=addPage();y=sectionTitle(page,"Güvenlik, donanım ve eksik veri",790,bold,"5");text(page,"Doğrulanmış güvenlik kayıtları",42,y,{font:bold,size:13,color:navy});y-=25;for(const vehicle of vehicles){text(page,`${vehicle.identity.brand} ${vehicle.identity.model}`,42,y,{font:bold,size:9});const safety=vehicle.safetyFeatures??[];y=text(page,safety.length?safety.map(formatValue).join(" • "):"Doğrulanmış güvenlik donanımı kaydı yok.",42,y-18,{font:regular,size:8,width:500,lineHeight:12})-14;}
+  const missing=["Konfor donanımları","Multimedya ve bağlantı","Dış renk seçenekleri","Garanti","Servis ağı göstergeleri","Bakım maliyeti","MTV ve sigorta göstergeleri","Kullanım kılavuzu kanıtları"];y-=10;text(page,"Henüz tamamlanmayan katmanlar",42,y,{font:bold,size:13,color:navy});y-=24;for(const item of missing){page.drawCircle({x:45,y:y+3,size:4,color:amber});text(page,`${item}: doğrulanmış veri yok; özelliğin bulunmadığı anlamına gelmez.`,58,y+7,{font:regular,size:8.5,width:485});y-=25;}
+
+  page=addPage();y=sectionTitle(page,"Kaynaklar, hukuk ve satış adımları",790,bold,"6");const legal=["Bu rapor ekspertiz, teknik inceleme, bağlayıcı teklif veya kesin al/alma talimatı değildir.","Bilgiler hatalı, eksik, gecikmeli veya güncelliğini yitirmiş olabilir.","Expiya Cars ve Skybit; üretici, distribütör veya yetkili satıcının temsilcisi ya da garantörü değildir.","Fiyat, stok, donanım, garanti ve teslim koşulları satın alma öncesinde ilgili yetkili taraftan doğrulanmalıdır.","Satış bağlantısına tıklamak tek başına teklif, rezervasyon veya satış oluşturmaz."];for(const item of legal){page.drawCircle({x:45,y:y+3,size:5,color:amber});y=text(page,item,60,y+7,{font:regular,size:9,width:480,lineHeight:13})-10;}
+  y-=10;text(page,"Veri kaynakları",42,y,{font:bold,size:13,color:navy});y-=23;const sources=[...new Set(vehicles.flatMap(v=>[...(v.identity.sources??[]),...(v.price.sources??[]),...Object.values(v.facts).flatMap(f=>f.sources??[])]))];for(const source of sources.slice(0,16)){y=text(page,source,42,y,{font:regular,size:7,color:blue,width:500,lineHeight:10})-4;if(y<70)break;}
+  pages.forEach((item,index)=>footer(item,regular,index+1)); pdf.setTitle("Expiya Cars 3 Araç Karşılaştırma Raporu");pdf.setAuthor("Expiya Cars / Skybit");pdf.setSubject("Kişiselleştirilmiş araç karar doğrulama raporu");return pdf.save();
+}

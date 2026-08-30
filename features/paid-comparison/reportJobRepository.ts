@@ -75,9 +75,24 @@ export class PostgresPaidComparisonReportJobRepository {
       const result = await connection.query(`update comparison_report_jobs set status = 'SUCCEEDED', completed_at = $2 where id = $1 and status = 'RUNNING' returning id`, [input.job.jobId, input.generatedAt.toISOString()]) as { rows?: { id: string }[] };
       if (!result.rows?.length) throw new TypeError("PAID_REPORT_JOB_COMPLETE_TRANSITION_INVALID");
       await connection.query(
+        `insert into paid_report_vehicle_entitlements
+          (order_id, quote_id, conversation_id, exact_variant_id, source_role, catalog_release_version, granted_at)
+         select $1, q.id, q.conversation_id, v.exact_variant_id, v.role, q.catalog_release_version, $3
+           from comparison_report_quotes q join comparison_report_quote_vehicles v on v.quote_id = q.id
+          where q.id = $2
+         on conflict (order_id, exact_variant_id) do nothing`,
+        [input.job.orderId, input.job.quoteId, input.generatedAt.toISOString()],
+      );
+      await connection.query(
         `insert into paid_comparison_events (id, event_name, quote_id, order_id)
          values ($1,'REPORT_READY',$2,$3)`,
         [randomUUID(), input.job.quoteId, input.job.orderId],
+      );
+      await connection.query(
+        `insert into paid_report_email_outbox (order_id, report_id, status, created_at)
+         select $1,$2,'PENDING',$3 from paid_report_orders where id = $1 and delivery_email_encrypted is not null
+         on conflict (order_id) do nothing`,
+        [input.job.orderId, input.reportId, input.generatedAt.toISOString()],
       );
     });
   }

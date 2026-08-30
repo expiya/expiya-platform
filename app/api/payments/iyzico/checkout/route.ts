@@ -9,6 +9,8 @@ import { PostgresIyzicoOrderRepository } from "@/features/payments/iyzico/orderR
 import { getPostgresDatabase } from "@/lib/server/postgres";
 import { clientKey, enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
 import { paidComparisonLegalArtifacts } from "@/features/paid-comparison/legalArtifacts";
+import { findDevelopmentPaidComparisonQuote } from "@/features/paid-comparison/repository";
+import { DevelopmentIyzicoOrderRepository } from "@/features/payments/iyzico/developmentOrderRepository";
 
 const schema = z.strictObject({
   quoteId: z.string().uuid(),
@@ -29,9 +31,24 @@ function rawClientIp(request: Request): string {
     || "127.0.0.1";
 }
 
+function checkoutErrorMessage(error: unknown): string {
+  if (process.env.NODE_ENV === "production" || !(error instanceof Error)) return "Ödeme başlatılamadı.";
+  if (error.message === "IYZICO_CREDENTIALS_REQUIRED") return "iyzico sandbox API anahtarı ve güvenlik anahtarı yerel test ortamında yapılandırılmadı.";
+  if (error.message === "IYZICO_SANDBOX_CREDENTIALS_REQUIRED") return "Yerel testte yalnız iyzico sandbox anahtarları kullanılabilir.";
+  if (error.message === "IYZICO_CALLBACK_URL_REQUIRED") return "iyzico sandbox callback adresi yerel test ortamında yapılandırılmadı.";
+  if (error.message === "PAID_COMPARISON_QUOTE_NOT_CHECKOUT_READY") return "Yerel test teklifi ödeme deposunda bulunamadı. Test veritabanı bağlantısı gerekiyor.";
+  return "Ödeme başlatılamadı. Yerel sandbox yapılandırmasını kontrol edin.";
+}
+
 export async function POST(request: Request): Promise<Response> {
   const rejected = verifySameOrigin(request);
   if (rejected) return rejected;
+  if (process.env.PAID_COMPARISON_CHECKOUT_ENABLED !== "true") {
+    return Response.json({ message: "Satın alma işlemi henüz kullanıma açılmadı." }, {
+      status: 503,
+      headers: { "Cache-Control": "no-store" },
+    });
+  }
   const limited = await enforceRateLimit(request, { scope: "iyzico-checkout", limit: 5, windowMs: 10 * 60_000, subject: clientKey(request) });
   if (limited) return limited;
   try {
@@ -51,7 +68,9 @@ export async function POST(request: Request): Promise<Response> {
       callbackUrl,
       secretKey: config.secretKey,
       client: createIyzicoHttpClient(config),
-      repository: new PostgresIyzicoOrderRepository(getPostgresDatabase()),
+      repository: findDevelopmentPaidComparisonQuote(input.quoteId)
+        ? new DevelopmentIyzicoOrderRepository()
+        : new PostgresIyzicoOrderRepository(getPostgresDatabase()),
       legalAcceptance: { ...input.legalAcceptance, acceptedAt: now.toISOString() },
       subjectHash: clientKey(request),
       now,
@@ -59,7 +78,7 @@ export async function POST(request: Request): Promise<Response> {
     return Response.json(checkout, { status: 201, headers: { "Cache-Control": "no-store", "Referrer-Policy": "no-referrer" } });
   } catch (error) {
     const invalid = error instanceof z.ZodError;
-    return Response.json({ message: invalid ? "Ödeme bilgileri geçersiz." : "Ödeme başlatılamadı." }, {
+    return Response.json({ message: invalid ? "Ödeme bilgileri geçersiz." : checkoutErrorMessage(error) }, {
       status: invalid ? 400 : 409,
       headers: { "Cache-Control": "no-store" },
     });

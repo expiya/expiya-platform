@@ -6,10 +6,31 @@ import { openPhase2Experience } from "@/features/sales-advisor/handoff.server";
 import { getPostgresDatabase } from "@/lib/server/postgres";
 import { createPaidComparisonQuote } from "./createQuote";
 import { listPaidComparisonAlternatives } from "./eligibility";
-import { PostgresPaidComparisonQuoteRepository, type PaidComparisonQuoteRepository } from "./repository";
+import { DevelopmentPaidComparisonQuoteRepository, PostgresPaidComparisonQuoteRepository, type PaidComparisonQuoteRepository } from "./repository";
+import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
+import type { CatalogVariantSnapshot } from "@/features/decision/v2/catalog/types";
+import { isDevPaidComparisonHandoff, openDevPaidComparisonHandoff } from "./devFixture.server";
+import { isPaidRecomparisonHandoff, PostgresPaidRecomparisonHandoffRepository } from "./recomparisonHandoff.server";
+
+function publicVehicle(variant: CatalogVariantSnapshot) {
+  const image = resolveVehicleImage({ variantId: variant.id, brand: variant.brand, model: variant.model, bodyStyle: variant.decisionFacts.bodyStyle.value, modelYear: variant.decisionFacts.modelYear.value });
+  return {
+    exactVariantId: variant.id,
+    brand: variant.brand,
+    model: variant.model,
+    trim: variant.trim,
+    bodyStyle: variant.decisionFacts.bodyStyle.value,
+    fuelType: variant.decisionFacts.powertrain.fuelType.value,
+    amountTry: variant.activeNewPrice!.amountTry,
+    priceValidFrom: variant.activeNewPrice!.validFrom,
+    imageUrl: image.path,
+    imageAlt: `${variant.brand} ${variant.model} ${variant.trim} araç görseli`,
+    imageStatus: image.status,
+  };
+}
 
 async function authorizedContext(handoff: string, now: Date) {
-  const opened = await openPhase2Experience(handoff, now);
+  const opened = isDevPaidComparisonHandoff(handoff) ? openDevPaidComparisonHandoff(handoff, now) : isPaidRecomparisonHandoff(handoff) ? await new PostgresPaidRecomparisonHandoffRepository(getPostgresDatabase()).open(handoff, now) : await openPhase2Experience(handoff, now);
   const loaded = await loadActiveCatalogSnapshot({
     repository: createProductionCatalogReleaseRepository(process.cwd()),
     now,
@@ -24,40 +45,25 @@ async function authorizedContext(handoff: string, now: Date) {
 
 export async function getPaidComparisonOptions(handoff: string, now = new Date()) {
   const { opened, catalog } = await authorizedContext(handoff, now);
-  const alternatives = listPaidComparisonAlternatives({
+  const eligibleAlternatives = listPaidComparisonAlternatives({
     decisionVariantId: opened.handoff.selectedExactVariantId,
     variants: catalog.variants,
   });
+  const alternatives = isDevPaidComparisonHandoff(handoff)
+    ? eligibleAlternatives.filter((variant) => resolveVehicleImage({ variantId: variant.id, brand: variant.brand, model: variant.model, bodyStyle: variant.decisionFacts.bodyStyle.value, modelYear: variant.decisionFacts.modelYear.value }).status !== "PLACEHOLDER")
+    : eligibleAlternatives;
   return {
     conversationId: opened.handoff.conversationId,
     decisionId: opened.handoff.offerId,
     decisionVariantId: opened.handoff.selectedExactVariantId,
     decision: (() => {
       const variant = catalog.variantById.get(opened.handoff.selectedExactVariantId)!;
-      return {
-        exactVariantId: variant.id,
-        brand: variant.brand,
-        model: variant.model,
-        trim: variant.trim,
-        bodyStyle: variant.decisionFacts.bodyStyle.value,
-        fuelType: variant.decisionFacts.powertrain.fuelType.value,
-        amountTry: variant.activeNewPrice!.amountTry,
-        priceValidFrom: variant.activeNewPrice!.validFrom,
-      };
+      return publicVehicle(variant);
     })(),
     comparisonClass: catalog.variantById.get(opened.handoff.selectedExactVariantId)!.decisionFacts.bodyStyle.value,
     catalogReleaseVersion: catalog.authority.releaseVersion,
     catalogFingerprint: catalog.authority.catalogFingerprint,
-    alternatives: alternatives.map((variant) => ({
-      exactVariantId: variant.id,
-      brand: variant.brand,
-      model: variant.model,
-      trim: variant.trim,
-      bodyStyle: variant.decisionFacts.bodyStyle.value,
-      fuelType: variant.decisionFacts.powertrain.fuelType.value,
-      amountTry: variant.activeNewPrice!.amountTry,
-      priceValidFrom: variant.activeNewPrice!.validFrom,
-    })),
+    alternatives: alternatives.map(publicVehicle),
   };
 }
 
@@ -82,7 +88,9 @@ export async function createAndPersistPaidComparisonQuote(input: {
     catalogFingerprint: catalog.authority.catalogFingerprint,
     now,
   });
-  const repository = input.repository ?? new PostgresPaidComparisonQuoteRepository(getPostgresDatabase());
+  const repository = input.repository ?? (isDevPaidComparisonHandoff(input.handoff)
+    ? new DevelopmentPaidComparisonQuoteRepository()
+    : new PostgresPaidComparisonQuoteRepository(getPostgresDatabase()));
   await repository.createQuote(quote);
   return quote;
 }
