@@ -20,6 +20,25 @@ describe("V3.7 conversation and ranking corrections", () => {
     expect(output.message).not.toMatch(/yeterince güvenilir ve somut bir yanıt veremiyorum/iu);
   });
 
+  it("binds a bare number to the pending passenger-capacity question", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const state = {
+      ...createV3ConversationState("bare-passenger-capacity"),
+      purchaseIntent: "ACTIVE_DISCOVERY" as const,
+      lastQuestionKey: "passengerCapacity",
+      askedQuestionKeys: ["passengerCapacity"],
+    };
+
+    const output = await turn(state, "1", "5");
+
+    expect(latestActiveLedgerEvent(output.state.ledger, "minimumSeats")).toMatchObject({
+      normalizedValue: 5,
+      decisionUse: "HARD_FILTER",
+    });
+    expect(output.message).not.toMatch(/açık bir soru görünmüyor|otomotivle ilgili/iu);
+    expect(output.state.lastQuestionKey).not.toBe("passengerCapacity");
+  });
+
   it("reflects newly learned usage once instead of prefixing every question", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     let state = createV3ConversationState("short-context"); state = (await turn(state, "1", "Araç almak istiyorum")).state;

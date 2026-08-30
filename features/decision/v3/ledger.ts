@@ -1170,7 +1170,11 @@ export function applyPreferenceMessage(
         use: "SOFT_RANK",
       }),
     );
-  const party = text.match(/(\d+)\s*kiş/iu);
+  const party =
+    text.match(/(\d+)\s*kiş/iu) ??
+    (state.lastQuestionKey === "passengerCapacity"
+      ? text.match(/^\s*(\d{1,2})\s*$/u)
+      : null);
   if (party)
     ledger = supersedeActive(
       ledger,

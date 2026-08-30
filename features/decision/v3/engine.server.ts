@@ -1044,7 +1044,9 @@ export async function runV3Turn(input: {
       observationTurns,
     ) ?? concernDirect;
   const modelDirect =
-    semantic.directResponse && isTurkishPublicCopy(semantic.directResponse)
+    router.route !== "QUESTION_ANSWER" &&
+    semantic.directResponse &&
+    isTurkishPublicCopy(semantic.directResponse)
       ? semantic.directResponse
       : undefined;
   const modelDirectIsRefusal =
