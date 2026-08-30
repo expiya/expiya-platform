@@ -53,7 +53,7 @@ function numericComparison(variant: CatalogVariantSnapshot, variants: readonly C
     : directional.has(key) ? `değer grubun ${position} bölümünde yer alıyor` : `ölçü grubun ${position} bölümünde yer alıyor; bu konum tek başına daha iyi veya daha kötü anlamına gelmiyor`;
   const rawGauge = position === "alt" ? "LOW" : position === "üst" ? "HIGH" : "MID";
   const gaugePosition = lowerIsMoreEfficient.has(key) ? (rawGauge === "LOW" ? "HIGH" : rawGauge === "HIGH" ? "LOW" : "MID") : rawGauge;
-  const gaugeTone = lowerIsMoreEfficient.has(key) || directional.has(key) ? "PERFORMANCE" as const : "NEUTRAL" as const;
+  const gaugeTone = lowerIsMoreEfficient.has(key) ? "EFFICIENCY" as const : directional.has(key) ? "PERFORMANCE" as const : "NEUTRAL" as const;
   return { text: `${phrase[0]!.toLocaleUpperCase("tr-TR")}${phrase.slice(1)} ${values.length} varyantın doğrulanmış verisiyle karşılaştırıldığında ${direction}.`, peerCount: peers.length, dataCount: values.length, basis, gaugePosition, gaugeTone };
 }
 

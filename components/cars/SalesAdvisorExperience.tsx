@@ -157,13 +157,14 @@ function FactIcon({ factKey }: { readonly factKey: string }) {
   );
 }
 
-export function ClassPositionGauge({ position, tone = "PERFORMANCE" }: { readonly position: "LOW" | "MID" | "HIGH"; readonly tone?: "PERFORMANCE" | "NEUTRAL" }) {
+export function ClassPositionGauge({ position, tone = "PERFORMANCE" }: { readonly position: "LOW" | "MID" | "HIGH"; readonly tone?: "PERFORMANCE" | "EFFICIENCY" | "NEUTRAL" }) {
   const gradientId = useId().replaceAll(":", "");
-  const needle = position === "LOW" ? { x: 39, y: 47, label: tone === "NEUTRAL" ? "Alt" : "Düşük" } : position === "HIGH" ? { x: 137, y: 47, label: tone === "NEUTRAL" ? "Üst" : "Yüksek" } : { x: 88, y: 19, label: "Orta" };
+  const scaleLabels = tone === "NEUTRAL" ? ["Alt", "Orta", "Üst"] as const : tone === "EFFICIENCY" ? ["Yüksek", "Orta", "Düşük"] as const : ["Düşük", "Orta", "Yüksek"] as const;
+  const needle = position === "LOW" ? { x: 39, y: 47, label: scaleLabels[0] } : position === "HIGH" ? { x: 137, y: 47, label: scaleLabels[2] } : { x: 88, y: 19, label: scaleLabels[1] };
   const colors = tone === "NEUTRAL" ? ["#64748b", "#3b82f6", "#4f46e5"] as const : ["#dc2626", "#f59e0b", "#16a34a"] as const;
-  const scaleLabels = tone === "NEUTRAL" ? ["Alt", "Orta", "Üst"] as const : ["Düşük", "Orta", "Yüksek"] as const;
+  const metricLabel = tone === "EFFICIENCY" ? "tüketim seviyesi" : tone === "NEUTRAL" ? "konum" : "seviye";
   return (
-    <div className="mt-4 rounded-2xl bg-black/20 px-3 pb-3 pt-2" role="img" aria-label={`Sınıf içi göreli ${tone === "NEUTRAL" ? "konum" : "seviye"}: ${needle.label}`}>
+    <div className="mt-4 rounded-2xl bg-black/20 px-3 pb-3 pt-2" role="img" aria-label={`Sınıf içi göreli ${metricLabel}: ${needle.label}`}>
       <svg viewBox="0 0 176 112" className="mx-auto h-auto w-full max-w-52" aria-hidden="true">
         <defs>
           <linearGradient id={gradientId} x1="0" y1="0" x2="1" y2="0">
@@ -179,8 +180,8 @@ export function ClassPositionGauge({ position, tone = "PERFORMANCE" }: { readonl
         <text x="75" y="108" fill={tone === "NEUTRAL" ? "#93c5fd" : "#fdba74"} fontSize="10">{scaleLabels[1]}</text>
         <text x="139" y="108" fill={tone === "NEUTRAL" ? "#a5b4fc" : "#86efac"} fontSize="10">{scaleLabels[2]}</text>
       </svg>
-      <p className="mt-2 text-center text-xs font-semibold text-stone-100">Sınıf içi göreli {tone === "NEUTRAL" ? "konum" : "seviye"} · {needle.label}</p>
-      <p className="mt-1 text-center text-[10px] leading-4 text-stone-400">{tone === "NEUTRAL" ? "Bu gösterim yalnız büyüklük konumudur; iyi veya kötü puanı değildir." : "Tek başına genel kalite veya satın alma puanı değildir."}</p>
+      <p className="mt-2 text-center text-xs font-semibold text-stone-100">Sınıf içi göreli {metricLabel} · {needle.label}</p>
+      <p className="mt-1 text-center text-[10px] leading-4 text-stone-400">{tone === "NEUTRAL" ? "Bu gösterim yalnız büyüklük konumudur; iyi veya kötü puanı değildir." : tone === "EFFICIENCY" ? "Daha düşük tüketim, aynı enerji veya yakıt fiyatında kullanım maliyeti açısından daha olumludur." : "Tek başına genel kalite veya satın alma puanı değildir."}</p>
     </div>
   );
 }
@@ -229,9 +230,10 @@ function AdvisorPanel({
         aria-live="polite"
       >
         <div className="max-w-[92%] rounded-2xl rounded-tl-sm bg-white p-4 text-sm leading-6 shadow-sm">
-          Merhaba, seçtiğin bu exact varyantla ilgili teknik özellik, donanım,
-          fiyat veya günlük kullanım sorularını mevcut kanıtlarla
-          yanıtlayabilirim. Doğrulanmamış bilgiyi kesinleştirmem.
+          Merhaba, bu exact varyantın teknik özellikleri, donanımı, fiyatı,
+          günlük kullanımı, finansmanı, kaskosu ve bakımı hakkında yardımcı
+          olabilirim. Başka araçlarla kıyaslama istersen seni kişisel
+          karşılaştırma raporuna yönlendiririm.
         </div>
         {messages.map((message) => (
           <div

@@ -11,6 +11,18 @@ describe("Turkish sales advisor", () => {
   it("resolves compositional language through a bounded semantic plan", () => { const withSeats = { ...artifact, facts: [...artifact.facts, { key: "seats", label: "Koltuk", value: "8 kişilik", disposition: "VERIFIED" as const }] }; const semantic = { intent: "FACT_QUERY" as const, requestedFactKeys: ["seats"], requestedEquipmentKeys: [], comparisonVehicleNames: [], answerMode: "EXPLAIN_BENEFIT" as const, clarification: null, confidence: 0.98, origin: "MODEL" as const }; expect(answerSalesAdvisor({ question: "Biz sekiz kişiyiz, hepimiz birlikte seyahat edebilir miyiz?", artifact: withSeats, handoff, semantic }).messages[0]).toBe("Koltuk: 8 kişilik."); });
   it("discloses missing colors and video", () => { expect(answerSalesAdvisor({ question: "Renkleri neler?", artifact, handoff }).messages.join(" ")).toMatch(/doğrulanmış renk kaydı henüz yok/u); expect(answerSalesAdvisor({ question: "Videosu var mı?", artifact, handoff }).messages.join(" ")).toMatch(/video doğrulanmadığı/u); });
   it("answers weight with an explicit non-exact scope", () => { const reply = answerSalesAdvisor({ question: "Bu aracın ağırlığı nedir?", artifact, handoff }); expect(reply.messages[0]).toContain("1.354 kg"); expect(reply.messages.join(" ")).toContain("kesin değeri olarak sunmuyorum"); });
-  it("allows explicit decision-neutral comparison", () => { const rival = { ...artifact, exactVariantId: "r", title: "Rakip Model", identity: { ...artifact.identity, brand: "Rakip", model: "Model" } }; const reply = answerSalesAdvisor({ question: "Rakip Model ile karşılaştır", artifact, handoff, comparisonArtifacts: [rival] }); expect(reply.messages.join(" ")).toMatch(/kararını değiştirmeden/u); expect(reply.messages.join(" ")).toContain("Rakip Model"); expect(reply.messages.join(" ")).toMatch(/doğrulanmayan alan için ‘yok’ demem/u); expect(reply.messages.join(" ")).toMatch(/genel kalite veya güvenlik düzeyini göstermez/u); });
+  it("redirects every comparison request to the personal report", () => { const reply = answerSalesAdvisor({ question: "Rakip Model ile karşılaştır", artifact, handoff }); expect(reply.messages.join(" ")).toMatch(/yalnız Araç Varyant/u); expect(reply.action).toEqual({ label: "2 araç seç ve karşılaştır", href: "#paid-comparison-title" }); });
+  it("rejects off-topic requests while preserving selected-vehicle ownership help", () => {
+    expect(answerSalesAdvisor({ question: "Bana yemek tarifi ver", artifact, handoff }).messages.join(" ")).toMatch(/yalnız Araç Varyant/u);
+    expect(answerSalesAdvisor({ question: "Bu aracın kaskosunda neye bakmalıyım?", artifact, handoff }).messages.join(" ")).toMatch(/hasarsızlık|orijinal parça/u);
+    expect(answerSalesAdvisor({ question: "Bakım aralığı nedir?", artifact, handoff }).messages.join(" ")).toMatch(/kullanım kılavuzu|bakım planı/u);
+    expect(answerSalesAdvisor({ question: "Finansman seçeneklerini açıkla", artifact, handoff }).messages.join(" ")).toMatch(/toplam geri ödeme/u);
+    expect(answerSalesAdvisor({ question: "İkinci el piyasası ve MTV nasıl?", artifact, handoff }).messages.join(" ")).toMatch(/gerçekleşmiş satış|resmî tarife/u);
+  });
+  it("summarizes all available verified technical facts", () => {
+    const reply = answerSalesAdvisor({ question: "Tüm teknik özelliklerini anlat", artifact, handoff });
+    expect(reply.messages.join(" ")).toContain("Bagaj: 420 litre");
+    expect(reply.messages.join(" ")).not.toContain("1.354 kg");
+  });
   it("does not use pressure or artificial scarcity corpus", () => { const corpus = ["Fiyatı ne?", "Dezavantajı var mı?", "Bana anlat"].flatMap((question) => answerSalesAdvisor({ question, artifact, handoff }).messages).join(" "); expect(corpus).not.toMatch(/son fırsat|hemen al|stok tüken|kaçırma|acil|only|buy now/iu); });
 });

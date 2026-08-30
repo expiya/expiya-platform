@@ -11,6 +11,7 @@ const aliases: Readonly<Record<string, readonly string[]>> = {
   seats: ["koltuk", "koltuk sayisi", "kac kisilik", "kisi kapasitesi", "yolcu", "yolcu sayisi", "yolcu kapasitesi", "kapasite"], luggage: ["bagaj", "bagaj hacmi"], cargoVolume: ["yukleme hacmi", "azami bagaj"], payload: ["tasima kapasitesi", "yuk kapasitesi"], brakedTowing: ["romork", "cekme kapasitesi"],
   length: ["uzunluk", "boyu"], width: ["genislik", "eni"], height: ["yukseklik"], wheelbase: ["dingil mesafesi"], fuelType: ["yakit", "benzin", "dizel", "lpg", "elektrik"], consumption: ["tuketim", "ne kadar yakar", "yakit tuketimi"], electricConsumption: ["elektrik tuketimi"], range: ["elektrikli menzil"], officialCombinedRange: ["toplam menzil", "bir depo", "menzil"], dcCharge: ["dc sarj", "hizli sarj"], batteryCapacity: ["batarya", "batarya kapasitesi"], usableBattery: ["kullanilabilir batarya"],
   modularRoofBars: ["tavan bari", "tavan barlari", "portbagaj", "tavan tasiyici", "arac ustu ekipman", "tavan ustu aksesuar"], dynamicRoofLoad: ["tavan yuku", "tavan tasima kapasitesi", "tavana kac kilo", "portbagaj kapasitesi"],
+  warranty: ["garanti", "garanti suresi"], maintenanceInterval: ["bakim araligi", "servis araligi", "periyodik bakim"], serviceInterval: ["servis araligi", "bakim araligi"],
 };
 
 function factScore(question: string, item: PublicVariantFact): number {
@@ -26,23 +27,67 @@ function findFact(question: string, artifact: VariantContentArtifact): PublicVar
 const scopeSentence = (fact: PublicVariantFact) => fact.disposition === "VERIFIED" ? "Bu değer Türkiye pazarı için exact varyanta bağlı doğrulanmış katalog kaydıdır." : `${fact.scopeNote ?? "Bu bilgi exact varyant yerine daha geniş bir kapsama aittir."} Bu nedenle Türkiye'deki aracın kesin değeri olarak sunmuyorum.`;
 function directAnswer(fact: PublicVariantFact): AdvisorReply { return { messages: [`${fact.label}: ${fact.value}.${fact.dailyMeaning ? ` ${fact.dailyMeaning}` : ""}`, scopeSentence(fact), ...(fact.source ? [`Kaynak: ${fact.source.label} — ${fact.source.url}`] : [])] }; }
 
-function mentionedComparisons(question: string, selected: VariantContentArtifact, candidates: readonly VariantContentArtifact[]): readonly VariantContentArtifact[] {
-  const q = ` ${normalize(question)} `;
-  return candidates.filter((candidate) => candidate.exactVariantId !== selected.exactVariantId && [`${candidate.identity.brand} ${candidate.identity.model}`, candidate.identity.model].some((name) => { const needle = normalize(name); return needle.length > 2 && q.includes(` ${needle} `); })).filter((candidate, index, all) => all.findIndex((item) => item.exactVariantId === candidate.exactVariantId) === index).slice(0, 3);
+const comparisonRequest = (value: string) => /(?:rakip|başka (?:bir )?araç|alternatif|hangisini al|karşılaştır|kıyasla|versus|\bvs\b)/iu.test(value);
+const explicitlyOffTopic = (value: string) => /(?:hava durumu|yemek tarifi|siyaset|seçim sonucu|kod yaz|programlama|şiir|futbol|maç sonucu|kripto|borsa|sağlık tavsiyesi|hukuk danışmanlığı)/iu.test(value);
+
+function paidComparisonRedirect(title: string): AdvisorReply {
+  return {
+    messages: [
+      `Bu sohbet yalnız ${title} için ayrılmıştır; burada başka bir aracı değerlendirmem veya iki araç arasında seçim yapmam.`,
+      "Bu aracı aynı sınıftan iki alternatifle teknik özellik, donanım, kullanım uygunluğu ve maliyet göstergeleri üzerinden karşılaştırmak için kişisel karşılaştırma raporunu kullanabilirsin.",
+    ],
+    action: { label: "2 araç seç ve karşılaştır", href: "#paid-comparison-title" },
+  };
 }
 
-function compare(input: { question: string; artifact: VariantContentArtifact; candidates: readonly VariantContentArtifact[] }): AdvisorReply {
-  const mentioned = mentionedComparisons(input.question, input.artifact, input.candidates);
-  if (!mentioned.length) return { messages: ["Karşılaştırabilirim; seçtiğin araç ana referans olarak kalır ve Aşama 1 kararın değişmez.", "Karşılaştırmak istediğin marka ve modeli yazarsan ortak doğrulanmış verileri yan yana göstereceğim."] };
-  const field = findFact(input.question, input.artifact); const keys = field ? [field.key] : ["price", "power", "seats", "luggage", "consumption"];
-  const lines = [input.artifact, ...mentioned].map((vehicle) => { const values = keys.flatMap((key) => { if (key === "price") return [`fiyat ${vehicle.price.display}`]; const found = vehicle.facts.find((item) => item.key === key && item.disposition === "VERIFIED"); return found ? [`${found.label.toLocaleLowerCase("tr-TR")} ${found.value}`] : []; }); return `${vehicle.title}: ${values.length ? values.join(" · ") : "ortak exact doğrulanmış alan bulunamadı"}.`; });
-  return { messages: [`${mentioned.map((item) => item.title).join(" ve ")} ile kararını değiştirmeden karşılaştırdım.`, ...lines, "Yalnız iki araçta aynı kapsamda doğrulanmış alanları yan yana gösteririm; doğrulanmayan alan için ‘yok’ demem.", "Bu tekil veriler araçların genel kalite veya güvenlik düzeyini göstermez ve Aşama 1 sıralamasını değiştirmez."] };
+function ownershipAnswer(question: string, artifact: VariantContentArtifact): AdvisorReply {
+  const n = normalize(question);
+  if (/(finansman|kredi|faiz|taksit|pesinat)/u.test(n)) return { messages: [
+    `${artifact.title} için finansmanı peşinat, vade, aylık faiz veya kâr payı, tahsis masrafı ve toplam geri ödeme üzerinden değerlendirmek gerekir.`,
+    artifact.price.status === "VERIFIED" ? `Hesaplamaya başlangıç referansı olarak ${artifact.price.display} kullanılabilir; kampanya, stok ve krediye bağlı nihai satış fiyatı yetkili satıcı teklifinde doğrulanmalıdır.` : "Doğrulanmış güncel satış fiyatı bulunmadığı için aylık ödeme veya toplam geri ödeme tutarı üretmiyorum; önce yetkili satıcıdan güncel fiyat ve finansman teklifi alınmalıdır.",
+    "Teklif geldiğinde peşinat, vade ve aylık ödeme bilgilerini yazarsan toplam maliyeti kalem kalem açıklayabilirim.",
+  ] };
+  if (/(kasko|sigorta|trafik sigortasi)/u.test(n)) return { messages: [
+    `${artifact.title} için kasko primi; sürücü geçmişi, il, kullanım türü, hasarsızlık, teminatlar, muafiyet ve sigorta şirketinin güncel tarifesine göre kişiye özel hesaplanır.`,
+    "Sağlıklı karşılaştırmada yalnız primi değil; yetkili servis/onarıma ilişkin koşulları, orijinal parça kapsamını, ikame aracı, mini onarımı, muafiyeti ve elektrikliyse batarya teminatını birlikte kontrol et.",
+    "Bu veriler olmadan kesin prim söylemek yanıltıcı olur; teklif kalemlerini paylaşırsan kapsam farklarını bu araç özelinde açıklayabilirim.",
+  ] };
+  if (/(bakim|servis|garanti|yedek parca|onarim)/u.test(n)) return { messages: [
+    `${artifact.title} için periyodik bakım zamanı ve kapsamı model yılına, motora, kullanım koşullarına ve Türkiye garanti/bakım planına bağlıdır.`,
+    "Bu exact varyantın yayımlanmış bakım periyodu karttaki kanıt paketinde yer almıyorsa kilometre veya süre uydurmam; güncel kullanım kılavuzu ile yetkili servis bakım planı esas alınmalıdır.",
+    "Teklifte bakım paketi, garanti süresi, aşınan parçalar, yol yardımı ve ikame araç kapsamını ayrı kalemler halinde istemeni öneririm.",
+  ] };
+  if (/(ikinci el|deger kaybi|piyasa|mtv|vergi)/u.test(n)) return { messages: [
+    `${artifact.title} için piyasa değerlendirmesinde güncel satış fiyatı, arz ve teslim süresi, ikinci el ilanları değil gerçekleşmiş satış eğilimi, garanti durumu, servis ağı ve kullanım maliyeti birlikte ele alınmalıdır.`,
+    "MTV ve diğer güncel tutarlar tescil tarihi, motor/güç bilgisi ve yürürlükteki tarifeye bağlıdır. Tarihli resmî tarife veya teklif olmadan kesin tutar üretmem.",
+    "Güncel satıcı teklifi, vergi kalemi ya da ikinci el değerleme belgesi paylaşırsan bu araç özelinde ne anlama geldiğini açıklayabilirim.",
+  ] };
+  return { messages: [
+    `${artifact.title} için sahip olma maliyetini satış fiyatı, finansman toplam geri ödemesi, kasko ve trafik sigortası, vergi, enerji/yakıt, periyodik bakım, lastik ve değer kaybı birlikte oluşturur.`,
+    "Kişiye ve tarihe bağlı tutarları kesinleştirmek için güncel teklif gerekir; elindeki teklif kalemlerini paylaşırsan bu araç özelinde anlaşılır bir maliyet dökümüne çevirebilirim.",
+  ] };
 }
 
-export function answerSalesAdvisor(input: { question: string; artifact: VariantContentArtifact; handoff: Phase2HandoffPayload; comparisonArtifacts?: readonly VariantContentArtifact[]; semantic?: SalesSemanticInterpretation }): AdvisorReply {
+function technicalOverview(artifact: VariantContentArtifact): AdvisorReply {
+  const verified = artifact.facts.filter((item) => item.disposition === "VERIFIED");
+  const lines = verified.reduce<string[]>((groups, item, index) => {
+    const group = Math.floor(index / 5);
+    groups[group] = [...(groups[group] ? [groups[group]!] : []), `${item.label}: ${item.value}`].join(" · ");
+    return groups;
+  }, []);
+  return { messages: [
+    `${artifact.title} için mevcut doğrulanmış teknik özet:`,
+    ...lines.slice(0, 4),
+    artifact.equipment.length ? `Doğrulanmış donanımlar: ${artifact.equipment.slice(0, 8).map((item) => item.value).join(", ")}.` : "Bu exact varyant için yayımlanabilir doğrulanmış donanım listesi henüz bulunmuyor.",
+    "Bir değerin günlük kullanımdaki anlamını sorarsan sınıf içindeki konumuyla birlikte açıklayabilirim.",
+  ] };
+}
+
+export function answerSalesAdvisor(input: { question: string; artifact: VariantContentArtifact; handoff: Phase2HandoffPayload; semantic?: SalesSemanticInterpretation }): AdvisorReply {
   const q = input.question.trim(); const n = normalize(q); if (!q) throw new TypeError("PHASE2_QUESTION_EMPTY");
+  if (input.semantic?.intent === "COMPARISON" || comparisonRequest(q)) return paidComparisonRedirect(input.artifact.title);
+  if (explicitlyOffTopic(q)) return { messages: [`Bu sohbet yalnız ${input.artifact.title} ve bu araca sahip olma süreciyle ilgilidir. Teknik özellik, donanım, kullanım, fiyat, finansman, kasko veya bakım hakkında yardımcı olabilirim.`] };
   if (input.semantic?.answerMode === "CLARIFY" && input.semantic.clarification) return { messages: [input.semantic.clarification] };
-  if (input.semantic?.intent === "COMPARISON") return compare({ question: `${q} ${input.semantic.comparisonVehicleNames.join(" ")}`, artifact: input.artifact, candidates: input.comparisonArtifacts ?? [] });
   const semanticFact = input.semantic?.requestedFactKeys.map((key) => input.artifact.facts.find((item) => item.key === key)).find((item): item is PublicVariantFact => Boolean(item));
   if (semanticFact) {
     const reply = directAnswer(semanticFact);
@@ -51,14 +96,15 @@ export function answerSalesAdvisor(input: { question: string; artifact: VariantC
   }
   const semanticEquipment = input.semantic?.requestedEquipmentKeys.map((key) => input.artifact.equipment.find((item) => item.key === key)).find((item): item is PublicVariantFact => Boolean(item));
   if (semanticEquipment) return { messages: [`Evet, ${semanticEquipment.value} bu exact varyantın doğrulanmış donanım kaydında yer alıyor.`, "Satın alma öncesinde üretim tarihi ve güncel sipariş formundaki donanımı bayiyle son kez teyit etmeni öneririm."] };
-  if (/(rakip|baska arac|alternatif|hangisini al|karsilastir|versus| vs )/u.test(` ${n} `)) return compare({ question: q, artifact: input.artifact, candidates: input.comparisonArtifacts ?? [] });
   if (/(fiyat|kac para|ucret)/u.test(n)) return { messages: [`${input.artifact.title} için fiyat durumu: ${input.artifact.price.display}.`, input.artifact.price.note, "İstersen bu exact varyant için yan etkisiz teklif geçişini hazırlayabilirim."] };
   if (/renk/u.test(n)) return { messages: [input.artifact.colors.length ? `Yayınlanabilir renk seçenekleri: ${input.artifact.colors.map((item) => item.value).join(", ")}.` : "Bu market, model yılı ve exact varyant için doğrulanmış renk kaydı henüz yok; renk seçeneği iddiasında bulunmayacağım.", ...(input.artifact.colors[0]?.scopeNote ? [input.artifact.colors[0].scopeNote] : [])] };
   if (/video/u.test(n)) return { messages: [input.artifact.video ? "Bu varyant için doğrulanmış tanıtım videosu sayfada yer alıyor." : "Bu exact varyanta bağlı resmî veya lisanslı bir video doğrulanmadığı için video göstermiyorum."] };
   const matching = findFact(q, input.artifact); if (matching) return directAnswer(matching);
+  if (input.semantic?.intent === "OWNERSHIP_QUERY" || /(finansman|kredi|faiz|taksit|pesinat|kasko|sigorta|bakim|servis|garanti|yedek parca|onarim|sahip olma maliyeti|ikinci el|deger kaybi|piyasa|mtv|vergi)/u.test(n)) return ownershipAnswer(q, input.artifact);
+  if (/(tum teknik|teknik bilgiler|teknik ozellikler|ozelliklerini anlat|detayli anlat)/u.test(n)) return technicalOverview(input.artifact);
   const equipment = input.artifact.equipment.find((item) => { const needle = normalize(item.value); const words = [...tokens(item.value)]; return n.includes(needle) || words.filter((word) => n.includes(word)).length >= Math.min(2, words.length); });
   if (equipment) return { messages: [`Evet, ${equipment.value} bu exact varyantın doğrulanmış donanım kaydında yer alıyor.`, "Satın alma öncesinde üretim tarihi ve güncel sipariş formundaki donanımı bayiyle son kez teyit etmeni öneririm."] };
   if (/(dezavantaj|eksi|zayif|olumsuz)/u.test(n)) return { messages: ["Zayıf noktayı saklamam; ancak kanıtsız bir kusur da üretmem.", "Bagaj, tüketim, ağırlık, boyut, performans veya donanım gibi ölçütlerden birini söylersen exact veriyi ve eksik kalan tarafı açıkça değerlendirebilirim."] };
-  if (/(neden|anlat|uygun|avantaj|almali)/u.test(n)) { const strengths = input.artifact.facts.filter((item) => item.disposition === "VERIFIED" && item.dailyMeaning).slice(0, 2); const need = input.handoff.approvedNeeds[0]?.summary; return { messages: [`${input.artifact.title}, ${strengths.length ? strengths.map((item) => `${item.label.toLocaleLowerCase("tr-TR")} ${item.value}`).join(" ve ") : "doğrulanmış teknik yapısı"} ile güçlü bir seçenek.`, ...strengths.slice(0, 1).map((item) => item.dailyMeaning!), ...(need ? [`Bunu Aşama 1'de onayladığın “${need}” ihtiyacı açısından değerlendirebilirim; senin söylemediğin bir kullanım biçimi varsaymam.`] : []), "İstersen en çok önem verdiğin ölçütte bir rakiple açıkça kıyaslayalım."] }; }
-  return { messages: [`${input.artifact.title} hakkında sorunu doğrudan yanıtlamak için hazırım. Ağırlık, motor, tork, tüketim, bagaj, boyut, donanım, fiyat veya belirttiğin bir rakiple karşılaştırma sorabilirsin.`, "Doğrulanmamış özelliği varmış gibi anlatmam; kapsamı daha geniş olan bilgiyi de açıkça etiketlerim."] };
+  if (/(neden|anlat|uygun|avantaj|almali)/u.test(n)) { const strengths = input.artifact.facts.filter((item) => item.disposition === "VERIFIED" && item.dailyMeaning).slice(0, 2); const need = input.handoff.approvedNeeds[0]?.summary; return { messages: [`${input.artifact.title}, ${strengths.length ? strengths.map((item) => `${item.label.toLocaleLowerCase("tr-TR")} ${item.value}`).join(" ve ") : "doğrulanmış teknik yapısı"} ile güçlü bir seçenek.`, ...strengths.slice(0, 1).map((item) => item.dailyMeaning!), ...(need ? [`Bunu karar görüşmesinde onayladığın “${need}” ihtiyacı açısından değerlendirebilirim; senin söylemediğin bir kullanım biçimi varsaymam.`] : []), "Bu aracın teknik verileri, donanımı, kullanım maliyeti veya satın alma süreciyle ilgili ayrıntıyı sorabilirsin."] }; }
+  return { messages: [`Sorunu ${input.artifact.title} özelinde yanıtlayabilirim. Teknik özellik, donanım, günlük kullanım, fiyat, finansman, kasko veya bakım başlıklarından hangisini incelemek istediğini biraz daha açık yazar mısın?`, "Exact kaydı bulunmayan güncel veya kişiye özel tutarı uydurmam; bunun yerine hangi belge veya tekliften doğrulanacağını açıkça söylerim."] };
 }
