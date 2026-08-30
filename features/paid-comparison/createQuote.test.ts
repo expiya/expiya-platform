@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { CatalogVariantSnapshot } from "@/features/decision/v2/catalog/types";
-import { PAID_COMPARISON_PRICE_KURUS } from "./contracts";
+import { PAID_COMPARISON_NET_KURUS, PAID_COMPARISON_PRICE_KURUS, PAID_COMPARISON_VAT_KURUS, PAID_COMPARISON_VAT_RATE_PERCENT } from "./contracts";
 import { createPaidComparisonQuote } from "./createQuote";
 import { assessPaidComparisonEligibility, listPaidComparisonAlternatives } from "./eligibility";
 
@@ -59,6 +59,10 @@ describe("paid comparison quote", () => {
     });
 
     expect(quote.amountKurus).toBe(PAID_COMPARISON_PRICE_KURUS);
+    expect(PAID_COMPARISON_VAT_RATE_PERCENT).toBe(20);
+    expect(PAID_COMPARISON_NET_KURUS).toBe(29_083);
+    expect(PAID_COMPARISON_VAT_KURUS).toBe(5_817);
+    expect(PAID_COMPARISON_NET_KURUS + PAID_COMPARISON_VAT_KURUS).toBe(quote.amountKurus);
     expect(quote.taxIncluded).toBe(true);
     expect(quote.vehicles).toEqual([
       { exactVariantId: "decision-car", role: "DECISION_CARD" },
