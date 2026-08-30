@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
 
+import { TrackedVehicleLink } from "@/components/analytics/TrackedVehicleLink";
 import type { RecommendedCar } from "@/types/recommendation";
 import { priceFreshnessWarning } from "@/components/cars/priceFreshnessWarning";
 import { VehicleImageDisclosure } from "@/components/cars/VehicleImageDisclosure";
@@ -8,6 +8,7 @@ import { VehicleImageDisclosure } from "@/components/cars/VehicleImageDisclosure
 interface CarCardProps {
   recommendedCar: RecommendedCar;
   locale?: "tr" | "en";
+  position?: number;
 }
 
 const fuelTranslations: Record<string, string> = {
@@ -17,7 +18,7 @@ const fuelTranslations: Record<string, string> = {
   Electric: "Elektrik",
 };
 
-export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
+export function CarCard({ recommendedCar, locale = "tr", position = 1 }: CarCardProps) {
   const { car, decision, isTopPick, pricePresentation } = recommendedCar;
   const isTurkish = locale === "tr";
   const title = `${car.brand} ${car.model}`;
@@ -31,9 +32,11 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
   const freshnessWarning = priceFreshnessWarning(pricePresentation, locale);
 
   return (
-    <Link
+    <TrackedVehicleLink
       href={`/decision/${decision.decisionId}`}
-      aria-label={`${title} ${isTurkish ? "karar ayrıntısını aç" : "open decision details"}`}
+      ariaLabel={`${title} ${isTurkish ? "karar ayrıntısını aç" : "open decision details"}`}
+      surface="legacy_recommendations"
+      position={position}
       className="group block overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm transition duration-200 hover:-translate-y-1 hover:border-neutral-400 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black dark:border-neutral-700 dark:bg-neutral-900 dark:hover:border-neutral-500 dark:focus-visible:outline-white"
     >
       <article>
@@ -113,6 +116,6 @@ export function CarCard({ recommendedCar, locale = "tr" }: CarCardProps) {
           </div>
         </div>
       </article>
-    </Link>
+    </TrackedVehicleLink>
   );
 }
