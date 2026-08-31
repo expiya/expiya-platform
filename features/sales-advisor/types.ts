@@ -39,6 +39,8 @@ export interface PublicVariantFact {
     readonly dataCount: number;
     readonly basis: string;
     readonly gaugePosition?: "LOW" | "MID" | "HIGH";
+    /** Visual position on the gauge, from 0 (left) to 1 (right). */
+    readonly gaugePercentile?: number;
     readonly gaugeTone?: "PERFORMANCE" | "NEUTRAL";
   };
   readonly disposition: ClaimDisposition;
