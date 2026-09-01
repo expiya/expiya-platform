@@ -34,6 +34,7 @@ import {
 import { productScopeReply } from "./productScope";
 import type { CatalogVariantSnapshot } from "../v2/catalog/types";
 import type {
+  PreferenceEvent,
   PurchaseIntentState,
   V3ConversationState,
   V3PublicResponse,
@@ -43,6 +44,22 @@ import { projectEquipmentCardDisclosure } from "./equipmentCardProjection";
 import type { RecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
 import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
 import { cars as legacyRepresentativeCars } from "@/data/car";
+
+export function withoutRejectedLoadInference(
+  events: readonly PreferenceEvent[],
+  messageId: string,
+  rejectedLoadExample: boolean,
+): readonly PreferenceEvent[] {
+  if (!rejectedLoadExample) return events;
+  return events.filter(
+    (item) =>
+      item.sourceMessageId !== messageId ||
+      !(
+        item.concept === "cargoRequirement" ||
+        (item.concept === "primaryUsage" && item.normalizedValue === "COMMERCIAL")
+      ),
+  );
+}
 import { publicPreferenceSummary } from "./preferencePresentation";
 import { isReferenceSimilarityRequest, referenceQuestionKey, referenceVehicleQuestion, resolveReferenceVehicle } from "./referenceVehicle";
 import { evaluateConversationPolicy } from "./conversationPolicy";
@@ -813,6 +830,10 @@ export async function runV3Turn(input: {
     /(?:evet|olur|tamam|çıkar|esnet|vazgeç|önemli değil|şart değil)/iu.test(
       input.message,
     );
+  const rejectedLoadExample =
+    /(?:yük\s+taşıma).{0,50}(?:nereden|nerden|neden|ne alaka|demedim|söylemedim)|(?:nereden|nerden|neden|ne alaka).{0,50}(?:yük\s+taşıma)/iu.test(input.message) &&
+    !latestActiveLedgerEvent(prior.ledger, "cargoRequirement") &&
+    latestActiveLedgerEvent(prior.ledger, "primaryUsage")?.normalizedValue !== "COMMERCIAL";
   let ledger = prior.ledger;
   let pendingConfirmation = prior.pendingConfirmation;
   if (
@@ -824,6 +845,7 @@ export async function runV3Turn(input: {
       input.messageId,
       input.message,
     ));
+  ledger = withoutRejectedLoadInference(ledger, input.messageId, rejectedLoadExample);
   if (
     router.decisionMutationAllowed &&
     scopeReply?.kind !== "USED_VEHICLE_SELECTION"
@@ -841,6 +863,7 @@ export async function runV3Turn(input: {
       input.messageId,
       semantic.preferenceSignals,
     );
+    ledger = withoutRejectedLoadInference(ledger, input.messageId, rejectedLoadExample);
   }
   ledger = applySemanticContextSignals(
     prior,
@@ -1077,10 +1100,6 @@ export async function runV3Turn(input: {
       : answerV3CatalogQuestion(input.message, catalog.variants)
     : undefined;
   const affectiveKinds = new Set(semantic.affectiveSignals.map((signal) => signal.kind));
-  const rejectedLoadExample =
-    /(?:yük\s+taşıma).{0,50}(?:nereden|neden|ne alaka|demedim|söylemedim)|(?:nereden|neden|ne alaka).{0,50}(?:yük\s+taşıma)/iu.test(input.message) &&
-    !latestActiveLedgerEvent(ledger, "cargoRequirement") &&
-    latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue !== "COMMERCIAL";
   const referenceMeaningAnswer =
     ["vehicleReferenceMeaning", "unavailableReferenceChoice"].includes(prior.lastQuestionKey ?? "") &&
     prior.pendingVehicleReference

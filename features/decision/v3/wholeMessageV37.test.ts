@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest";
 import { activeDecisionPreferences, latestActiveLedgerEvent } from "./ledger";
-import { createV3ConversationState, runV3Turn } from "./engine.server";
+import { createV3ConversationState, runV3Turn, withoutRejectedLoadInference } from "./engine.server";
 import { interpretV31Message } from "./semanticProvider.server";
 
 const priorDisabled = process.env.CARS_V31_PROVIDER_DISABLED;
@@ -8,6 +8,24 @@ afterEach(() => { if (priorDisabled === undefined) delete process.env.CARS_V31_P
 
 describe("V3.7 whole-message interpretation", () => {
   const message = "Sürücü ehliyetimi bugün aldım, heyecanlıyım. İlk aracımı almak için araştırma yapıyorum.";
+
+  it("drops model-inferred commercial intent when the user rejects the load example", () => {
+    const shared = {
+      sourceTurn: 2,
+      sourceSpan: { start: 0, end: 11, text: "yük taşıma" },
+      strength: "EXPLICIT_STRONG" as const,
+      status: "ACTIVE" as const,
+      confidence: 0.96,
+      authority: "MODEL_INFERENCE" as const,
+      confirmationRequired: false,
+    };
+    const events = [
+      { ...shared, id: "family", sourceMessageId: "2", concept: "primaryUsage", normalizedValue: "FAMILY", decisionUse: "HARD_FILTER" as const },
+      { ...shared, id: "commercial", sourceMessageId: "2", concept: "primaryUsage", normalizedValue: "COMMERCIAL", decisionUse: "HARD_FILTER" as const },
+      { ...shared, id: "cargo", sourceMessageId: "2", concept: "cargoRequirement", normalizedValue: "REQUIRED", decisionUse: "HARD_FILTER" as const },
+    ];
+    expect(withoutRejectedLoadInference(events, "2", true).map((event) => event.id)).toEqual(["family"]);
+  });
 
   it("provides structured intent, acts and human context to the decision engine", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
