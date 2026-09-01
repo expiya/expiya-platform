@@ -13,7 +13,7 @@ import equipmentPointer from "@/data/production/equipment-evidence/active.json";
 import { activeEquipmentEvidencePayload, activeEquipmentEvidenceRelease } from "@/data/production/equipment-evidence/activeEquipmentEvidence.generated";
 import dailyLifePointer from "@/data/production/equipment-daily-life/active.json";
 import { activeEquipmentDailyLifePayload, activeEquipmentDailyLifeRelease } from "@/data/production/equipment-daily-life/activeEquipmentDailyLife.generated";
-import { activeEquipmentPublicExplanationAuthorityPayload, activeEquipmentPublicExplanationAuthorityRelease } from "@/data/production/equipment-public-explanation-authority/activeEquipmentPublicExplanationAuthority.generated";
+import { activeEquipmentPublicExplanationAuthorityPayload } from "@/data/production/equipment-public-explanation-authority/activeEquipmentPublicExplanationAuthority.generated";
 import dailyLifeLegalCorrectionPredecessor from "@/data/production/equipment-daily-life/releases/v1.0.0-catalog-v0.55.4-2026-08-20/equipment-daily-life.json";
 import type { EquipmentAvailabilityStatus, EquipmentFeatureCode, EquipmentProvisionMode } from "@/types/equipmentEvidence";
 import type { EquipmentDailyLifeEntry, EquipmentDailyLifeLayer } from "@/types/equipmentDailyLife";

@@ -1,18 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { PrivacyAnalytics } from "@/components/analytics/PrivacyAnalytics";
+import "@fontsource/noto-sans/400.css";
+import "@fontsource/noto-sans/600.css";
+import "@fontsource/noto-sans/700.css";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "Expiya Cars - Sana Uygun Sıfır Aracı Bul",
@@ -20,12 +13,9 @@ export const metadata: Metadata = {
     "Expiya Cars, Türkiye'deki sıfır araç seçeneklerini ihtiyaçlarınıza ve bütçenize göre değerlendirerek doğru aracı seçmenize yardımcı olur.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { readonly children: ReactNode }) {
   return (
-    <html
-      lang="tr"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="tr" className="h-full antialiased">
       <body className="flex min-h-full flex-col">
         {children}
         <footer className="site-legal-footer border-t border-neutral-200 bg-white px-6 py-6 text-center text-sm text-neutral-600 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-300">
