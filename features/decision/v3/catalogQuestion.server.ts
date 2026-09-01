@@ -70,7 +70,7 @@ export function resolveV3ExtremeSelection(
 export function answerV3CatalogQuestion(message: string, variants: readonly CatalogVariantSnapshot[]): string | undefined {
   const text = message.toLocaleLowerCase("tr-TR");
   if (!variants.length) return undefined;
-  const catalogLookup = /\?|(?:kaç|hangi(?:si|leri)?|ne kadar|neler|nedir|var mı|bulunuyor mu|listele|göster|seçenekleri görmek|seçeneklerini görmek|arasından)/iu.test(text)
+  const catalogLookup = /\?|(?:kaç|hangi(?:si|leri)?|ne kadar|neler|nedir|var mı|bulunuyor mu|listele|göster|seçenekleri görmek|seçeneklerini görmek|arasından|daha ucuz)/iu.test(text)
     || /(?:en yüksek|en düşük|en uzun|en güçlü|en geniş|maksimum|minimum).*sahip.*(?:satın almak|seçmek|istiyorum)/iu.test(text);
   if (!catalogLookup) return undefined;
   const scoped = scope(variants.length);
@@ -149,7 +149,7 @@ export function answerV3CatalogQuestion(message: string, variants: readonly Cata
     return `${scoped} doğrulanmış en yüksek ${item.label} ${trNumber(value)} ${item.unit}. Bu değere ulaşan exact seçenekler: ${preview(leaders)}.${item.label === "elektrikli menzil" ? " Bu resmî test değeridir; gerçek menzil hava, hız, yük ve iklimlendirmeye göre değişebilir." : ""}`;
   }
 
-  if (/(?:en ucuz|en düşük fiyat|minimum fiyat|fiyatı en düşük)|(?:en pahalı|en yüksek fiyat|maksimum fiyat)/iu.test(text)) {
+  if (/(?:en ucuz|daha ucuz|hangisi ucuz|hangisi daha ucuz|en düşük fiyat|minimum fiyat|fiyatı en düşük)|(?:en pahalı|en yüksek fiyat|maksimum fiyat)/iu.test(text)) {
     const publicPrices = variants.flatMap((variant) => {
       const price = variant.activeNewPrice;
       return price && price.consumerVisibility === "PUBLIC" && price.realizationSafe && ["LIST", "CAMPAIGN"].includes(price.priceType) ? [{ variant, amount: price.amountTry }] : [];
@@ -159,6 +159,16 @@ export function answerV3CatalogQuestion(message: string, variants: readonly Cata
     const amount = wantsMaximum ? Math.max(...publicPrices.map((item) => item.amount)) : Math.min(...publicPrices.map((item) => item.amount));
     const examples = unique(publicPrices.filter((item) => item.amount === amount).map((item) => `${item.variant.brand} ${item.variant.model}`)).slice(0, 3).join(", ");
     return `${scoped} kullanıcıya gösterilebilir doğrulanmış ${wantsMaximum ? "en yüksek" : "en düşük"} fiyat ${trNumber(amount)} TL; örnek araçlar: ${examples}. Fiyat ve stok satın alma öncesinde satıcıdan doğrulanmalıdır.`;
+  }
+
+  if (/(?:kaç para|fiyatlar? (?:ne kadar|nedir|nasıl)|hangi fiyatlardan başlıyor|fiyat aralığı)/iu.test(text)) {
+    const publicPrices = variants.flatMap((variant) => {
+      const price = variant.activeNewPrice;
+      return price && price.consumerVisibility === "PUBLIC" && price.realizationSafe && ["LIST", "CAMPAIGN"].includes(price.priceType) ? [price.amountTry] : [];
+    });
+    if (!publicPrices.length) return `${scoped} kullanıcıya gösterilebilen doğrulanmış güncel fiyat bulunmuyor.`;
+    const minimum = Math.min(...publicPrices), maximum = Math.max(...publicPrices);
+    return `${scoped} kullanıcıya gösterilebilir doğrulanmış fiyatlar ${trNumber(minimum)} TL'den başlayıp ${trNumber(maximum)} TL'ye kadar çıkıyor. İstersen bütçeni karar filtresi olarak açabilir veya en uygun fiyatlı araçları sorabilirsin. Fiyat ve stok satın alma öncesinde satıcıdan doğrulanmalıdır.`;
   }
 
   if (/(?:kaç|hangi)\s+(?:farklı\s+)?(?:marka|markalar)|marka seçenekleri/iu.test(text)) {

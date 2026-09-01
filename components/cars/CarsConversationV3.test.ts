@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { assistantMessageParts, typewriterChunkSize, V3_TECHNICAL_QUICK_CHOICE_LABELS } from "./CarsConversationV3";
+import { assistantMessageParts, buttonPrompt, quickChoices, typewriterChunkSize, V3_TECHNICAL_QUICK_CHOICE_LABELS } from "./CarsConversationV3";
 
 describe("V3 technical quick choices", () => {
   it("has a visible button definition for every technical discriminator", () => {
@@ -14,6 +14,23 @@ describe("V3 technical quick choices", () => {
 });
 
 describe("V3 sequential assistant reveal", () => {
+  it("never offers an exact vehicle after the reference is known to be unavailable", () => {
+    const choices = quickChoices({
+      id: "reference-unavailable",
+      role: "assistant",
+      content: "Birebir araç aktif katalogda bulunmuyor.",
+      trace: { revision: 1, purchaseIntent: "EXPLICIT", lastQuestionKey: "unavailableReferenceChoice", ledger: [], offerAwaitingConsent: false },
+    });
+    expect(choices?.choices.map((choice) => choice.label)).toEqual([
+      "Araç hakkında bilgi",
+      "Güncel benzerini bul",
+    ]);
+    expect(choices?.choices.some((choice) => /birebir/iu.test(choice.label))).toBe(false);
+  });
+  it("keeps the human purchase-interest response above its choices", () => {
+    const content = "Bu eğlenceli bir başlangıç! Hayalindeki aracı birlikte keşfedebiliriz. Bunu yalnızca merak için mi soruyorsun, yoksa kendin için bir araç seçmeyi düşünüyor musun?";
+    expect(buttonPrompt({ id: "1", role: "assistant", content, trace: { revision: 1, purchaseIntent: "NOT_EXPRESSED", lastQuestionKey: "purchaseInterest", ledger: [], offerAwaitingConsent: false } }, true)).toBe(content);
+  });
   it("keeps short answers in one bubble and splits long answers into readable bubbles", () => {
     expect(assistantMessageParts("Kısa ve net bir yanıt.")).toEqual(["Kısa ve net bir yanıt."]);
     const long = "İlk açıklama kullanıcının ihtiyacını anlaşılır biçimde özetler ve önemli bağlamı açıklar. İkinci açıklama seçenekler arasındaki farkı daha ayrıntılı biçimde anlatır ve kararın nasıl ilerleyeceğini gösterir. Üçüncü açıklama kullanıcıdan yalnız bir sonraki anlamlı seçimi ister.";

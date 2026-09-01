@@ -643,7 +643,10 @@ export function applyPreferenceMessage(
         use: "NONE",
       }),
     );
-  if (/(?:yük|koli|ürün|kargo|malzeme|ekipman|fide|toprak).{0,60}(?:taşı|götür|getir|yükle)|(?:taşı|götür|getir|yükle).{0,60}(?:yük|koli|ürün|kargo|malzeme|ekipman|fide|toprak)/iu.test(text))
+  if (
+    !/(?:yük\s+taşıma).{0,50}(?:nereden|neden|ne alaka|demedim|söylemedim)|(?:nereden|neden|ne alaka).{0,50}(?:yük\s+taşıma)/iu.test(text) &&
+    /(?:yük|koli|ürün|kargo|malzeme|ekipman|fide|toprak).{0,60}(?:taşı|götür|getir|yükle)|(?:taşı|götür|getir|yükle).{0,60}(?:yük|koli|ürün|kargo|malzeme|ekipman|fide|toprak)/iu.test(text)
+  )
     ledger = supersedeActive(
       ledger,
       event({
@@ -804,6 +807,17 @@ export function applyPreferenceMessage(
     const selected = state.lastQuestionKey.slice("personaDiscriminator:".length).split("|").map((code) => personaDiscriminator[code]).filter((item) => item?.pattern.test(text));
     for (const item of selected) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: item.concept, value: "USER_SELECTED", use: "SOFT_RANK" }));
   }
+  if (state.lastQuestionKey === "referenceVehicleTraits:DODGE_VIPER") {
+    const selections: readonly [RegExp, string, string][] = [
+      [/tasarım/iu, "candidateDesignPriority", "USER_SELECTED"],
+      [/performans|hızlanma/iu, "candidatePowerPriority", "USER_SELECTED"],
+      [/sürüş karakteri|sürüş keyfi/iu, "candidateDrivingPriority", "USER_SELECTED"],
+    ];
+    for (const [, concept, value] of selections.filter(([pattern]) => pattern.test(text)))
+      ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept, value, use: "SOFT_RANK" }));
+    if (/alçak spor/iu.test(text))
+      ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "bodyStyle", field: "bodyStyle", value: "COUPE", use: "HARD_FILTER" }));
+  }
   const technicalDiscriminator: Readonly<Record<string, { concept: string; pattern: RegExp }>> = {
     COMPACT: { concept: "candidateCompactPriority", pattern: /kısa|kolay manevra|kompakt/iu },
     LUGGAGE: { concept: "candidateLuggagePriority", pattern: /büyük bagaj|bagaj/iu },
@@ -868,6 +882,8 @@ export function applyPreferenceMessage(
         }),
       );
   }
+  if (/(?:daha az yakan|daha düşük tüketim|daha ekonomik|yakıtı daha ekonomik)/iu.test(text))
+    ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "candidateConsumptionPriority", value: "MINIMIZE", use: "SOFT_RANK" }));
   const transmission = normalizedTransmission(text);
   if (transmission)
     ledger = supersedeActive(
@@ -1440,6 +1456,7 @@ export function applyCatalogEntitySignals(
 ): readonly PreferenceEvent[] {
   let next = [...ledger];
   const tentative = /(?:olabilir|olsa da olur|örneğin|gibi|benzer|muadil|alternatif)/iu.test(text);
+  const rejected = /(?:istemiyorum|olmasın|hariç|dışında|sevmiyorum|tercih etmiyorum)/iu.test(text);
   if (signals.brands.length)
     next = supersedeActive(
       next,
@@ -1447,8 +1464,8 @@ export function applyCatalogEntitySignals(
         state: { ...state, ledger: next },
         messageId,
         text,
-        concept: "brandPreference",
-        field: "brand",
+        concept: rejected ? "excludedBrand" : "brandPreference",
+        field: rejected ? "excludedBrand" : "brand",
         value:
           signals.brands.length === 1 ? signals.brands[0]! : signals.brands,
         use: tentative ? "SOFT_RANK" : "HARD_FILTER",
@@ -1464,8 +1481,8 @@ export function applyCatalogEntitySignals(
         state: { ...state, ledger: next },
         messageId,
         text,
-        concept: "modelPreference",
-        field: "model",
+        concept: rejected ? "excludedModel" : "modelPreference",
+        field: rejected ? "excludedModel" : "model",
         value:
           signals.models.length === 1 ? signals.models[0]! : signals.models,
         use: tentative ? "SOFT_RANK" : "HARD_FILTER",
@@ -1486,6 +1503,8 @@ export function applySemanticContextSignals(
     FIRST_TIME_DRIVER: "firstTimeDriverContext",
     PURCHASE_RESEARCH: "purchaseResearchContext",
     CURRENT_VEHICLE_OWNER: "currentVehicleContext",
+    NO_CURRENT_VEHICLE: "noCurrentVehicleContext",
+    NEW_PARENT_CONTEXT: "newParentContext",
   };
   const next = [...ledger];
   for (const signal of signals) {
@@ -1526,9 +1545,14 @@ export function applySemanticPreferenceSignals(
 ): readonly PreferenceEvent[] {
   let next = [...ledger];
   for (const signal of signals) {
+    const rejectedOrQuotedUsage =
+      /(?:nereden çıktı|neden çıktı|ne alaka|demedim|söylemedim|istemiyorum|değil)/iu.test(
+        signal.sourceSpan.text,
+      );
     if (
       !signal.explicit ||
       signal.confidence < 0.75 ||
+      rejectedOrQuotedUsage ||
       latestActiveLedgerEvent(next, signal.concept)?.sourceMessageId ===
         messageId
     )

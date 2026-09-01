@@ -59,7 +59,7 @@ describe("V3 catalog entity and candidate-aware question planning", () => {
     expect(latestActiveLedgerEvent(output.state.ledger, "modelPreference")).toMatchObject({ normalizedValue: "Passat", decisionUse: "SOFT_RANK" });
     expect(output.message).toMatch(/referans araç[\s\S]*Yeni Passat Variant/iu);
     expect(output.message).not.toMatch(/uygun araç kalmıyor|gövde tipini esnet/iu);
-    expect(output.state.lastQuestionKey).toBe("referenceVehiclePriorities");
+    expect(output.state.lastQuestionKey).toBe("referenceVehicleTraits:VOLKSWAGEN_PASSAT");
     expect((await evaluateV3Catalog(output.state.ledger)).variants.length).toBeGreaterThan(0);
 
     output = await runV3Turn({
@@ -71,6 +71,37 @@ describe("V3 catalog entity and candidate-aware question planning", () => {
     });
     expect(output.message).toMatch(/tamamen üretimden kalkmış değil[\s\S]*sedan gövde artık sunulmuyor[\s\S]*2 Passat Variant/iu);
     expect(output.message).toMatch(/uzun yol konforu[\s\S]*geniş arka koltuk[\s\S]*büyük bagaj[\s\S]*sedan/iu);
+  });
+
+  it("interprets a misspelled historical Viper as a reference and asks which trait matters", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let output = await runV3Turn({ conversationId: "viper-reference", messageId: "1", message: "Doge Viper benzeri bir araç arıyorum", expectedRevision: 0 });
+    expect(output.state.referenceVehicle).toEqual({ id: "DODGE_VIPER", canonicalName: "Dodge Viper" });
+    expect(output.state.lastQuestionKey).toBe("referenceVehicleTraits:DODGE_VIPER");
+    expect(output.message).toMatch(/referans araç[\s\S]*en çok çeken taraf/iu);
+    expect(output.message).not.toMatch(/nerede ve ne için|park kolaylığı mı/iu);
+    expect(activeDecisionPreferences(output.state.ledger).some((item) => item.concept === "modelPreference" && item.normalizedValue === "Viper")).toBe(false);
+
+    output = await runV3Turn({ conversationId: "viper-reference", messageId: "2", message: "Güçlü hızlanma ve performans", expectedRevision: output.state.revision, state: output.state });
+    expect(latestActiveLedgerEvent(output.state.ledger, "candidatePowerPriority")).toMatchObject({ decisionUse: "SOFT_RANK", authority: "USER_EXPLICIT" });
+    expect(output.state.lastQuestionKey).not.toBe("bodyStyle");
+  });
+
+  it("remembers a historical reference across an information turn", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let output = await runV3Turn({ conversationId: "viper-followup", messageId: "1", message: "Doge Viper modeli hakkında bilgi verir misin?", expectedRevision: 0 });
+    expect(output.state.referenceVehicle?.id).toBe("DODGE_VIPER");
+    output = await runV3Turn({ conversationId: "viper-followup", messageId: "2", message: "Buna benzer hangi aracı tavsiye edersin?", expectedRevision: output.state.revision, state: output.state });
+    expect(output.state.lastQuestionKey).toBe("referenceVehicleTraits:DODGE_VIPER");
+    expect(output.message).toContain("Dodge Viper'ı referans araç olarak aldım");
+  });
+
+  it("only applies a reference body trait after the user confirms it", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let output = await runV3Turn({ conversationId: "viper-body", messageId: "1", message: "Dodge Viper tarzı bir otomobil almak istiyorum", expectedRevision: 0 });
+    expect(latestActiveLedgerEvent(output.state.ledger, "bodyStyle")).toBeUndefined();
+    output = await runV3Turn({ conversationId: "viper-body", messageId: "2", message: "Alçak spor otomobil yapısı", expectedRevision: output.state.revision, state: output.state });
+    expect(latestActiveLedgerEvent(output.state.ledger, "bodyStyle")).toMatchObject({ normalizedValue: "COUPE", decisionUse: "HARD_FILTER", authority: "USER_EXPLICIT" });
   });
 
   it.each([

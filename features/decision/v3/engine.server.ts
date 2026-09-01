@@ -44,6 +44,9 @@ import type { RecommendationTermsAcceptance } from "@/lib/legal/recommendationTe
 import { resolveVehicleImage } from "@/features/vehicle-data/resolveVehicleImage";
 import { cars as legacyRepresentativeCars } from "@/data/car";
 import { publicPreferenceSummary } from "./preferencePresentation";
+import { isReferenceSimilarityRequest, referenceQuestionKey, referenceVehicleQuestion, resolveReferenceVehicle } from "./referenceVehicle";
+import { evaluateConversationPolicy } from "./conversationPolicy";
+import { answerBoundedVehicleReferenceQuestion } from "./culturalVehicleReference";
 
 export function createV3ConversationState(
   conversationId: string,
@@ -66,6 +69,19 @@ const budgetModeOf = (state: V3ConversationState) =>
   state.budgetMode ?? "NEEDS_ONLY";
 const fingerprint = (text: string) =>
   createHash("sha256").update(text).digest("hex");
+const canonicalReferenceMatchesVariant = (
+  canonicalVehicle: string,
+  variant: CatalogVariantSnapshot,
+) => {
+  const canonical = canonicalVehicle.replace(/\([^)]*\)/gu, "").trim().toLocaleLowerCase("tr-TR");
+  const brand = variant.brand.toLocaleLowerCase("tr-TR");
+  const model = variant.model.toLocaleLowerCase("tr-TR");
+  if (canonical === "ford mustang")
+    return brand === "ford" && /^mustang(?:\s|$)/u.test(model) && !/mach[ -]?e/u.test(model);
+  const tokens = canonical.split(/\s+/u).slice(0, 2);
+  const identity = `${brand} ${model}`;
+  return tokens.every((token) => identity.includes(token));
+};
 const active = (state: V3ConversationState, concept: string) =>
   activeDecisionPreferences(state.ledger).some(
     (item) => item.concept === concept,
@@ -79,7 +95,12 @@ function nextIntent(
   message: string,
   semanticAssessment: "NOT_EXPRESSED" | "POSSIBLE" | "EXPLICIT",
 ): PurchaseIntentState {
-  if (prior === "ENDED_WITHOUT_INTENT") return prior;
+  if (prior === "ENDED_WITHOUT_INTENT")
+    return route === "PURCHASE_INTENT_DISCOVERY" ||
+      route === "RECOMMENDATION_OR_OFFER" ||
+      semanticAssessment === "EXPLICIT"
+      ? "EXPLICIT"
+      : prior;
   if (
     route === "PURCHASE_INTENT_DISCOVERY" ||
     route === "RECOMMENDATION_OR_OFFER"
@@ -644,6 +665,35 @@ export async function runV3Turn(input: {
   }
   if (prior.revision !== input.expectedRevision)
     throw new TypeError("V3_REVISION_CONFLICT");
+  const conversationPolicy = evaluateConversationPolicy(input.message, prior.boundaryViolationCount ?? 0);
+  if (conversationPolicy.kind !== "CONTINUE") {
+    const ended = conversationPolicy.kind === "END" || (conversationPolicy.kind === "BOUNDARY" && conversationPolicy.terminate);
+    return {
+      kind: "V3_CONVERSATION",
+      message: conversationPolicy.message,
+      state: {
+        ...prior,
+        revision: prior.revision + 1,
+        processedMessages: { ...prior.processedMessages, [input.messageId]: hash },
+        lastRoute: conversationPolicy.kind === "REDIRECT" ? "OFF_TOPIC_REQUEST" : "SAFETY_BOUNDARY",
+        lastQuestionKey: undefined,
+        ended,
+        boundaryViolationCount: conversationPolicy.kind === "BOUNDARY" ? (prior.boundaryViolationCount ?? 0) + 1 : (prior.boundaryViolationCount ?? 0),
+      },
+    };
+  }
+  if (prior.ended)
+    return {
+      kind: "V3_CONVERSATION",
+      message: "Bu görüşme sona erdi. Araç seçimi veya otomotiv bilgisi için yeni bir görüşme başlatabilirsin.",
+      state: { ...prior, revision: prior.revision + 1, processedMessages: { ...prior.processedMessages, [input.messageId]: hash } },
+    };
+  if (prior.revision >= 20)
+    return {
+      kind: "V3_CONVERSATION",
+      message: "Bu görüşmede 20 mesajlık sınıra ulaştık. Tercihlerini karıştırmadan devam edebilmek için yeni bir görüşme başlatmanı öneririm.",
+      state: { ...prior, revision: prior.revision + 1, processedMessages: { ...prior.processedMessages, [input.messageId]: hash }, lastQuestionKey: undefined, ended: true },
+    };
   const budgetFilterRejected =
     /bütçe(?:mi|yi)?.*(?:(?:karar )?filtresine\s+(?:dahil\s+)?(?:etmek\s+)?istemiyorum|(?:karar )?filtresini\s+kullanma|karardan çıkar|filtre dışı)|ihtiyaç odaklı devam/iu.test(
       input.message,
@@ -841,6 +891,14 @@ export async function runV3Turn(input: {
     ...(requestedRecommendationLimit
       ? { preferredRecommendationLimit: requestedRecommendationLimit }
       : {}),
+    ...((resolveReferenceVehicle(input.message) ?? prior.referenceVehicle)
+      ? { referenceVehicle: (() => { const reference = resolveReferenceVehicle(input.message); return reference ? { id: reference.id, canonicalName: reference.canonicalName } : prior.referenceVehicle; })() }
+      : {}),
+    pendingVehicleReference:
+      prior.lastQuestionKey === "vehicleReferenceMeaning"
+        ? undefined
+        : semantic.vehicleReferenceSignals.find((signal) => signal.confidence >= 0.75) ??
+          prior.pendingVehicleReference,
   };
   const modeOnlyMessage =
     /^(?:bütçemi karar filtresi olarak kullan|bütçeyi karardan çıkar,? ihtiyaç odaklı devam)[.! ]*$/iu.test(
@@ -1018,9 +1076,155 @@ export async function runV3Turn(input: {
       ? undefined
       : answerV3CatalogQuestion(input.message, catalog.variants)
     : undefined;
-  const passatReferenceRequest = /passat/iu.test(input.message)
-    && /(?:eski|önceki|mevcut|benzer|gibi|muadil|alternatif|üretilmiyor|üretimden kalk|satılmıyor)/iu.test(input.message);
-  if (passatReferenceRequest && catalog?.variants.length) {
+  const affectiveKinds = new Set(semantic.affectiveSignals.map((signal) => signal.kind));
+  const rejectedLoadExample =
+    /(?:yük\s+taşıma).{0,50}(?:nereden|neden|ne alaka|demedim|söylemedim)|(?:nereden|neden|ne alaka).{0,50}(?:yük\s+taşıma)/iu.test(input.message) &&
+    !latestActiveLedgerEvent(ledger, "cargoRequirement") &&
+    latestActiveLedgerEvent(ledger, "primaryUsage")?.normalizedValue !== "COMMERCIAL";
+  const referenceMeaningAnswer =
+    ["vehicleReferenceMeaning", "unavailableReferenceChoice"].includes(prior.lastQuestionKey ?? "") &&
+    prior.pendingVehicleReference
+      ? prior.pendingVehicleReference
+      : undefined;
+  if (referenceMeaningAnswer) {
+    const wantsExact = /(?:birebir|marka.{0,12}model|aynı araç|gerçek araç)/iu.test(input.message);
+    if (wantsExact) {
+      if (!referenceMeaningAnswer.canonicalVehicle) {
+        return {
+          kind: "V3_CONVERSATION",
+          message:
+            "Birebir aracı istediğini anladım; ancak tarifteki referansın gerçek marka-modelini henüz güvenle çözemedim. Yapımın adını, yaklaşık yılını, karakterin adını veya hatırladığın başka bir sahneyi söylersen önce aracı netleştirelim; model belli olmadan ihtiyaç sorularına geçmeyeceğim.",
+          state: {
+            ...base,
+            pendingVehicleReference: referenceMeaningAnswer,
+            askedQuestionKeys: [...new Set([...base.askedQuestionKeys, "vehicleReferenceClarification"])],
+            lastQuestionKey: "vehicleReferenceClarification",
+          },
+        };
+      }
+      const available = Boolean(catalog?.variants.some((variant) => {
+        return canonicalReferenceMatchesVariant(referenceMeaningAnswer.canonicalVehicle!, variant);
+      }));
+      return {
+        kind: "V3_CONVERSATION",
+        message: available
+          ? `Birebir referansın ${referenceMeaningAnswer.canonicalVehicle}. Bu araç ailesi aktif sıfır kilometre kataloğunda bulunuyor; şimdi mevcut exact varyantlarını karşılaştırabiliriz.`
+          : `Birebir referansın ${referenceMeaningAnswer.canonicalVehicle}. Bu araç aktif Türkiye sıfır kilometre kataloğunda bulunmuyor; dolayısıyla onu satıştaki yeni bir araçmış gibi öneremem. İstersen yalnızca bu araç hakkında bilgi verebilirim veya görünüşü ve karakteri benzer güncel sıfır araçları birlikte arayabiliriz.`,
+        state: {
+          ...base,
+          pendingVehicleReference: referenceMeaningAnswer,
+          askedQuestionKeys: [...new Set([...base.askedQuestionKeys, "unavailableReferenceChoice"])],
+          lastQuestionKey: available ? "referenceCatalogVariants" : "unavailableReferenceChoice",
+        },
+      };
+    }
+  }
+  const openWorldVehicleAnswer = answerBoundedVehicleReferenceQuestion(input.message);
+  if (openWorldVehicleAnswer) {
+    return {
+      kind: "V3_CONVERSATION",
+      message: openWorldVehicleAnswer,
+      state: {
+        ...base,
+        pendingVehicleReference:
+          semantic.vehicleReferenceSignals.find((signal) => signal.confidence >= 0.75) ??
+          prior.pendingVehicleReference,
+        lastQuestionKey: undefined,
+      },
+    };
+  }
+  const semanticVehicleReference = semantic.vehicleReferenceSignals.find(
+    (signal) => signal.confidence >= 0.75,
+  );
+  if (
+    semanticVehicleReference &&
+    !(
+      purchaseIntent === "NOT_EXPRESSED" &&
+      (affectiveKinds.has("NOSTALGIA") || affectiveKinds.has("ASPIRATION"))
+    )
+  ) {
+    const referenceLabel = semanticVehicleReference.referenceText.charAt(0).toLocaleUpperCase("tr-TR") +
+      semanticVehicleReference.referenceText.slice(1);
+    const identity = semanticVehicleReference.canonicalVehicle
+      ? `Bu referans gerçek otomobil tarafında ${semanticVehicleReference.canonicalVehicle} ile ilişkilendiriliyor.`
+      : "Bu referansın tek bir marka-model karşılığını güvenle sabitlemek mümkün değil.";
+    const canonicalInActiveCatalog = Boolean(
+      semanticVehicleReference.canonicalVehicle &&
+      catalog?.variants.some((variant) => {
+        return canonicalReferenceMatchesVariant(semanticVehicleReference.canonicalVehicle!, variant);
+      }),
+    );
+    const availability = semanticVehicleReference.canonicalVehicle && catalog
+      ? canonicalInActiveCatalog
+        ? "Bu araç ailesinin güncel sıfır kilometre seçenekleri aktif katalogda ayrıca kontrol edilebilir."
+        : "Birebir araç aktif Türkiye sıfır kilometre kataloğunda bulunmuyor; istersek aynı karakteri taşıyan güncel sıfır araçları araştırabiliriz."
+      : "";
+    const referenceUnavailable = Boolean(
+      semanticVehicleReference.canonicalVehicle && catalog && !canonicalInActiveCatalog,
+    );
+    const ambiguity = semanticVehicleReference.ambiguity === "MULTIPLE_VEHICLES"
+      ? "Farklı yapımlarda veya dönemlerde birden fazla araç ya da nesil kullanılmış olabileceği için önce sende hangi tarafının karşılık bulduğunu netleştirelim."
+      : "Model adını doğrudan seçim filtresine çevirmeden, sende hangi tarafının karşılık bulduğunu netleştirelim.";
+    return {
+      kind: "V3_CONVERSATION",
+      message: `${referenceLabel} güçlü ve karakterli bir otomobil referansı. ${identity} ${availability} ${ambiguity} ${referenceUnavailable ? "Bu araç hakkında bilgi mi almak istersin, yoksa görünüşü ve karakteri benzer güncel sıfır araçları mı arayalım?" : "Birebir marka-model mi önemli; yoksa görünüşü, performans karakteri veya yarattığı his mi?"}`.replace(/\s{2,}/gu, " "),
+      state: {
+        ...base,
+        pendingVehicleReference: semanticVehicleReference,
+        askedQuestionKeys: [...new Set([...base.askedQuestionKeys, referenceUnavailable ? "unavailableReferenceChoice" : "vehicleReferenceMeaning"])],
+        lastQuestionKey: referenceUnavailable ? "unavailableReferenceChoice" : "vehicleReferenceMeaning",
+      },
+    };
+  }
+  const affectiveAutomotiveReflection =
+    (affectiveKinds.has("NOSTALGIA") || affectiveKinds.has("ASPIRATION")) &&
+    (catalogEntities.brands.length > 0 ||
+      catalogEntities.models.length > 0 ||
+      router.route === "SOCIAL_CONVERSATION" ||
+      /(?:ara[çc]|araba|otomobil|model)/iu.test(input.message));
+  if (
+    affectiveAutomotiveReflection &&
+    purchaseIntent === "NOT_EXPRESSED" &&
+    !base.askedQuestionKeys.includes("purchaseInterest")
+  ) {
+    const reflection = affectiveKinds.has("NOSTALGIA")
+      ? "Bazı otomobiller yalnız bir model olarak kalmıyor; insanın geçmişiyle ve hayalleriyle bağ kuruyor. Bunun sende de özel bir karşılığı olduğu belli."
+      : "Bu, sıradan bir otomobil ilgisinden çok daha kişisel bir hayal gibi geliyor.";
+    return {
+      kind: "V3_CONVERSATION",
+      message: `${reflection} Onu biraz konuşmak mı istersin, yoksa bugün satışta olan ve aynı duyguyu verebilecek sıfır bir araç mı arıyorsun?`,
+      state: {
+        ...base,
+        askedQuestionKeys: [...base.askedQuestionKeys, "purchaseInterest"],
+        lastQuestionKey: "purchaseInterest",
+      },
+    };
+  }
+  const hasNoCurrentVehicle = semantic.contextSignals.some(
+    (signal) => signal.kind === "NO_CURRENT_VEHICLE" && signal.confidence >= 0.75,
+  );
+  if (
+    hasNoCurrentVehicle &&
+    !["EXPLICIT", "ACTIVE_DISCOVERY", "READY_FOR_DECISION"].includes(purchaseIntent) &&
+    !base.askedQuestionKeys.includes("purchaseInterest")
+  ) {
+    return {
+      kind: "V3_CONVERSATION",
+      message:
+        "Araçsız olmanın günlük hayatı zorlaştırabildiğini tahmin edebiliyorum. Bunu yalnızca paylaşmak mı istedin, yoksa kendi kullanımın için bir araç seçmene yardımcı olmamı ister misin?",
+      state: {
+        ...base,
+        askedQuestionKeys: [...base.askedQuestionKeys, "purchaseInterest"],
+        lastQuestionKey: "purchaseInterest",
+      },
+    };
+  }
+  const currentReference = resolveReferenceVehicle(input.message)
+    ?? (base.referenceVehicle ? { ...base.referenceVehicle, aliases: [], traits: [] } : undefined);
+  const referenceSimilarityRequest = currentReference
+    && isReferenceSimilarityRequest(input.message, Boolean(prior.referenceVehicle));
+  if (referenceSimilarityRequest && catalog?.variants.length) {
+    if (currentReference.id === "VOLKSWAGEN_PASSAT") {
     const activePassatCount = catalog.variants.filter((variant) => variant.model.localeCompare("Passat", "tr", { sensitivity: "base" }) === 0).length;
     const lifecycleNote = /(?:üretilmiyor|üretimden kalk|satılmıyor)/iu.test(input.message)
       ? `Passat tamamen üretimden kalkmış değil: Avrupa'da sedan gövde artık sunulmuyor, Passat adı Variant yani station wagon gövdeyle devam ediyor. Expiya'nın güncel Türkiye sıfır araç kataloğunda ${activePassatCount} Passat Variant seçeneği bulunuyor. `
@@ -1030,13 +1234,38 @@ export async function runV3Turn(input: {
       message: `${lifecycleNote}Eski Passat'ı birebir model zorunluluğu olarak değil, referans araç olarak aldım. Yeni Passat Variant'ı mı değerlendirelim; yoksa eski Passat'taki uzun yol konforu, geniş arka koltuk alanı, büyük bagaj veya dengeli sedan yapısından hangilerini koruyalım?`,
       state: {
         ...base,
-        askedQuestionKeys: [...new Set([...base.askedQuestionKeys, "referenceVehiclePriorities"])],
-        lastQuestionKey: "referenceVehiclePriorities",
+        askedQuestionKeys: [...new Set([...base.askedQuestionKeys, referenceQuestionKey(currentReference)])],
+        lastQuestionKey: referenceQuestionKey(currentReference),
+      },
+    };
+    }
+    return {
+      kind: "V3_CONVERSATION",
+      message: referenceVehicleQuestion(currentReference),
+      state: {
+        ...base,
+        askedQuestionKeys: [...new Set([...base.askedQuestionKeys, referenceQuestionKey(currentReference)])],
+        lastQuestionKey: referenceQuestionKey(currentReference),
       },
     };
   }
+  const emotionalSocialDirect = router.route === "SOCIAL_CONVERSATION"
+    ? affectiveKinds.has("CELEBRATION")
+      ? semantic.directResponse && isTurkishPublicCopy(semantic.directResponse)
+        ? semantic.directResponse
+        : semantic.acknowledgement && isTurkishPublicCopy(semantic.acknowledgement)
+          ? semantic.acknowledgement
+          : "Tebrik ederim! Bu gerçekten özel ve sevindirici bir gelişme."
+      : affectiveKinds.has("FRUSTRATION")
+      ? "Bunun seni epey yorduğu belli. Derdin araçlarla ilgiliyse anlat; birlikte sakin sakin toparlayabiliriz."
+      : affectiveKinds.has("CONCERN")
+        ? "Canının sıkkın olduğu belli. Konu araçlarla ilgiliyse seni dinliyorum; ne olduğunu anlatabilirsin."
+        : affectiveKinds.has("UNCERTAINTY")
+          ? "Kafanın karışması çok doğal. Konu araçlarsa birlikte adım adım netleştirebiliriz."
+          : undefined
+    : undefined;
   const fallbackDirect =
-    directReply(
+    emotionalSocialDirect ?? directReply(
       semantic.messageActs.includes("AUTOMOTIVE_QUESTION")
         ? "AUTOMOTIVE_INFORMATION"
         : router.route,
@@ -1059,6 +1288,10 @@ export async function runV3Turn(input: {
       : modelDirect && !(modelDirectIsRefusal && fallbackDirect)
         ? modelDirect
         : fallbackDirect);
+  const standalonePriceQuestion =
+    /(?:kaç para|fiyatlar? (?:ne kadar|nedir|nasıl)|hangi fiyatlardan başlıyor|fiyat aralığı|en ucuz|daha ucuz|hangisi (?:daha )?ucuz|en düşük fiyat|minimum fiyat)/iu.test(
+      input.message,
+    );
   if (scopeReply) {
     const followUp = ["EXPLICIT", "ACTIVE_DISCOVERY"].includes(purchaseIntent)
       ? selectQuestion(base, catalog?.variants)
@@ -1122,7 +1355,7 @@ export async function runV3Turn(input: {
     };
   }
   if (direct) {
-    const followUp =
+    const followUp = !standalonePriceQuestion &&
       (router.route === "AUTOMOTIVE_INFORMATION" ||
         semantic.messageActs.includes("AUTOMOTIVE_QUESTION") ||
         Boolean(concernDirect)) &&
@@ -1420,10 +1653,17 @@ export async function runV3Turn(input: {
       (exactModelSelected && !budgetKnown))
   ) {
     const readinessQuestion = selectQuestion(base, catalog?.variants);
-    if (readinessQuestion)
+    if (readinessQuestion) {
+      const readinessPrefix = rejectedLoadExample
+        ? "Haklısın; yük taşımayı senin ihtiyacın olarak çıkarmadım, yalnız genel bir örnek olarak söylemiştim. Bu örnek bağlamına uygun değildi ve kararına kaydedilmedi. Aile kullanımını esas alıyorum."
+        : affectiveKinds.has("CELEBRATION")
+          ? semantic.acknowledgement && isTurkishPublicCopy(semantic.acknowledgement)
+            ? semantic.acknowledgement
+            : "Tebrik ederim; bu güzel gelişmeye eşlik edecek aracı birlikte dikkatle seçelim."
+          : "Doğru tek aracı seçebilmem için bir noktayı netleştirelim.";
       return {
         kind: "V3_CONVERSATION",
-        message: `Doğru tek aracı seçebilmem için bir noktayı netleştirelim. ${contextualQuestion(base, readinessQuestion.key, readinessQuestion.text)}`,
+        message: `${readinessPrefix} ${contextualQuestion(base, readinessQuestion.key, readinessQuestion.text)}`,
         state: {
           ...base,
           askedQuestionKeys: [
@@ -1432,6 +1672,7 @@ export async function runV3Turn(input: {
           lastQuestionKey: readinessQuestion.key,
         },
       };
+    }
   }
   const equipmentRounds = base.askedQuestionKeys.filter((key) =>
     key.startsWith("verifiedEquipment:"),
@@ -1626,42 +1867,49 @@ export async function runV3Turn(input: {
     };
   }
   const normalizedMessage = input.message.toLocaleLowerCase("tr");
-  const boundedPurchaseAcknowledgement = /moralim.*bozuk/iu.test(input.message)
-    ? "Moral bozukluğunu anladım; bari araç seçimini keyifli ve mantıklı bir karara çevirelim."
-    : /hanımla kavga|baskı yapıyor/iu.test(input.message)
-      ? "Evdeki otomobil gündemi iyice ciddileşmiş; seçimi sakin ve doğru ölçütlerle toparlayalım."
-      : /fıkra gibi bir piyasa/iu.test(input.message)
-        ? "Piyasa kısmı gerçekten fıkra gibi; finali doğru araçla bağlayalım."
-        : /chatbotlar.*yardımcı olamıyor/iu.test(input.message)
-          ? "Bu kez şansını boşa çıkarmayalım; verdiğin koşullarla doğrudan ilerleyelim."
-          : /toplu taşıma|otobüsle (?:uğraş|git|gel)|otobüsten/iu.test(
-                input.message,
-              )
-            ? "Toplu taşıma sabrını tüketmiş; seni gerçekten rahatlatacak seçeneği bulalım."
-            : /arkadaşım dürtükledi/iu.test(input.message)
-              ? "Arkadaş dürtmesiyle başlayan konu ciddi bir alıma dönmüş; acele etmeden doğru aracı bulalım."
-              : /(?:hangi araçlar|araçlarınız neler)/iu.test(input.message)
-                ? "Binek, SUV, elektrikli, hibrit ve ticari kullanıma uygun farklı seçeneklerimiz var; sana uygun olan gruptan başlayalım."
-                : /ehliyet/u.test(normalizedMessage) &&
-                    /ilk arac[ıi]m[ıi]/u.test(normalizedMessage)
-                  ? "Tebrik ederim; ehliyetini alıp ilk aracını araştırmaya başlamak gerçekten heyecanlı bir adım."
-                  : "Harika, ihtiyacını birlikte netleştirelim.";
+  const boundedPurchaseAcknowledgement = affectiveKinds.has("CELEBRATION")
+    ? "Tebrik ederim; bu güzel gelişmeye eşlik edecek aracı birlikte dikkatle seçelim."
+    : affectiveKinds.has("EXCITEMENT")
+      ? "Bu heyecanın kararına da yansıdığı belli; onu doğru ihtiyaçlarla sağlam bir seçime çevirelim."
+      : affectiveKinds.has("FRUSTRATION")
+        ? "Bu sürecin seni yorduğu belli; işi sadeleştirip gerçekten fark yaratan ölçütlerle ilerleyelim."
+        : affectiveKinds.has("CONCERN")
+          ? "Kaygını göz ardı etmeyelim; belirsizliği azaltacak somut ölçütlerle ilerleyelim."
+          : affectiveKinds.has("URGENCY")
+            ? "Zaman baskısını dikkate alıyorum; acele karar vermeden yalnız belirleyici ihtiyaçlara odaklanalım."
+            : affectiveKinds.has("UNCERTAINTY")
+              ? "Kararsız olman çok doğal; seçenekleri adım adım azaltarak net bir sonuca ulaşabiliriz."
+              : affectiveKinds.has("NOSTALGIA")
+                ? "Bu seçimin sende geçmişten gelen kişisel bir karşılığı olduğu belli; o duyguyu bugünkü ihtiyaçlarınla birlikte ele alalım."
+                : affectiveKinds.has("ASPIRATION")
+                  ? "Hayalindeki otomobil hissini kaybetmeden ihtiyaçlarına uyan gerçekçi seçimi birlikte bulalım."
+                  : /(?:hangi araçlar|araçlarınız neler)/iu.test(input.message)
+                    ? "Binek, SUV, elektrikli, hibrit ve ticari kullanıma uygun farklı seçeneklerimiz var; sana uygun olan gruptan başlayalım."
+                    : /ehliyet/u.test(normalizedMessage) &&
+                        /ilk arac[ıi]m[ıi]/u.test(normalizedMessage)
+                      ? "Tebrik ederim; ehliyetini alıp ilk aracını araştırmaya başlamak gerçekten heyecanlı bir adım."
+                      : "Harika, ihtiyacını birlikte netleştirelim.";
   const delegatedFuelThisTurn =
     prior.lastQuestionKey === "fuelType" &&
     latestActiveLedgerEvent(ledger, "fuelDelegated")?.sourceMessageId === input.messageId;
+  const semanticAcknowledgement =
+    semantic.acknowledgement && isTurkishPublicCopy(semantic.acknowledgement)
+      ? semantic.acknowledgement
+      : undefined;
   const prefix =
     delegatedFuelThisTurn
       ? "Yakıt türünü şimdilik açık bırakıyorum; bunu araçları elemek için kullanmayacağım. Diğer ihtiyaçların netleşince kalan seçeneklerin yakıt türlerini kullanımına göre artı ve eksileriyle karşılaştıracağım."
+      : affectiveKinds.size > 0
+        ? semanticAcknowledgement ?? boundedPurchaseAcknowledgement
       : router.route === "PURCHASE_INTENT_DISCOVERY"
-      ? semantic.acknowledgement &&
-        isTurkishPublicCopy(semantic.acknowledgement)
-        ? semantic.acknowledgement
-        : boundedPurchaseAcknowledgement
+      ? semanticAcknowledgement ?? boundedPurchaseAcknowledgement
       : router.route === "CORRECTION_OR_RELAXATION"
         ? "Tamam, önceki tercihi güncelledim; seçeneklerin yeniden genişlemesi normal."
         : conversationalAcknowledgement(base);
   const routeRangeThisTurn = deriveElectricRouteRangeRequirement(input.message);
-  const contextualPrefix = routeRangeThisTurn
+  const contextualPrefix = rejectedLoadExample
+    ? "Haklısın; yük taşımayı senin ihtiyacın olarak çıkarmadım, yalnız genel bir örnek olarak söylemiştim. Bu örnek bağlamına uygun değildi ve kararına kaydedilmedi. Aile kullanımını esas alıyorum."
+    : routeRangeThisTurn
     ? electricRouteRangeAcknowledgement(routeRangeThisTurn)
     : prefix;
   if (!question && catalog?.variants.length) {

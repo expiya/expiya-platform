@@ -7,7 +7,9 @@ export const V3_ROUTES = [
 
 export type V3Route = typeof V3_ROUTES[number];
 export type V3MessageAct = "SOCIAL" | "AUTOMOTIVE_QUESTION" | "VEHICLE_PURCHASE_INTENT" | "PREFERENCE_SIGNAL" | "DECISION_REQUEST" | "CORRECTION" | "CLOSING";
-export type V3SemanticContextKind = "FIRST_TIME_DRIVER" | "PURCHASE_RESEARCH" | "CURRENT_VEHICLE_OWNER";
+export type V3SemanticContextKind = "FIRST_TIME_DRIVER" | "PURCHASE_RESEARCH" | "CURRENT_VEHICLE_OWNER" | "NO_CURRENT_VEHICLE" | "NEW_PARENT_CONTEXT";
+export const V3_AFFECTIVE_KINDS = ["ASPIRATION", "NOSTALGIA", "EXCITEMENT", "UNCERTAINTY", "CONCERN", "FRUSTRATION", "URGENCY", "CELEBRATION"] as const;
+export type V3AffectiveKind = typeof V3_AFFECTIVE_KINDS[number];
 export const V3_USAGE_PURPOSES = ["URBAN_DAILY", "FAMILY", "LONG_DISTANCE", "COMMERCIAL", "CORPORATE_TRAVEL", "PASSENGER_TRANSPORT", "MIXED_ROAD", "RURAL_DAILY"] as const;
 export type V3UsagePurpose = typeof V3_USAGE_PURPOSES[number];
 export type PurchaseIntentState = "NOT_EXPRESSED" | "POSSIBLE" | "EXPLICIT" | "ACTIVE_DISCOVERY" | "READY_FOR_DECISION" | "ENDED_WITHOUT_INTENT";
@@ -21,6 +23,15 @@ export interface V3RecommendationTermsAcceptance { readonly version: "REC-2026.0
 
 export interface SourceSpan { readonly start: number; readonly end: number; readonly text: string }
 export interface V3SemanticContextSignal { readonly kind: V3SemanticContextKind; readonly sourceSpan: SourceSpan; readonly confidence: number }
+export interface V3AffectiveSignal { readonly kind: V3AffectiveKind; readonly sourceSpan: SourceSpan; readonly confidence: number }
+export interface V3VehicleReferenceSignal {
+  readonly kind: "POP_CULTURE" | "HISTORICAL_MODEL" | "PERSONAL_REFERENCE";
+  readonly referenceText: string;
+  readonly canonicalVehicle?: string;
+  readonly sourceSpan: SourceSpan;
+  readonly confidence: number;
+  readonly ambiguity: "EXACT_VEHICLE" | "MULTIPLE_VEHICLES" | "SYMBOLIC_ONLY";
+}
 export interface V3SemanticPreferenceSignal { readonly concept: "primaryUsage"; readonly normalizedValue: V3UsagePurpose; readonly sourceSpan: SourceSpan; readonly confidence: number; readonly explicit: true }
 export interface RouterResult {
   readonly version: "3.8"; readonly route: V3Route; readonly confidence: number;
@@ -47,6 +58,9 @@ export interface V3ConversationState {
   readonly pendingOffer?: { readonly offerId: string; readonly token: string; readonly candidateIds: readonly string[]; readonly limit: 1 | 3 };
   readonly recommendationTermsAcceptance?: V3RecommendationTermsAcceptance;
   readonly budgetMode?: BudgetDecisionMode; readonly budgetModeEvents?: readonly BudgetModeEvent[]; readonly budgetMetadata?: ConversationBudgetMetadata;
+  readonly referenceVehicle?: { readonly id: "DODGE_VIPER" | "VOLKSWAGEN_PASSAT"; readonly canonicalName: string };
+  readonly pendingVehicleReference?: V3VehicleReferenceSignal;
+  readonly boundaryViolationCount?: number;
 }
 export interface V3PublicResponse {
   readonly kind: "V3_CONVERSATION"; readonly message: string; readonly state: V3ConversationState;

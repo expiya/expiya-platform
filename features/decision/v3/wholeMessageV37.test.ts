@@ -30,4 +30,30 @@ describe("V3.7 whole-message interpretation", () => {
     expect(latestActiveLedgerEvent(output.state.ledger, "firstTimeDriverContext")).toMatchObject({ decisionUse: "NONE" });
     expect(activeDecisionPreferences(output.state.ledger)).toHaveLength(0);
   });
+
+  it("keeps a new-parent conversation family-aware and repairs a rejected generic example", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    let output = await runV3Turn({
+      conversationId: "new-parent-family",
+      messageId: "1",
+      message: "Bebeğimiz oldu. Eşim ve ben bir araba almaya karar verdik.",
+      expectedRevision: 0,
+    });
+    expect(output.message).toMatch(/Tebrik ederim/iu);
+    expect(output.message).toMatch(/Yeni aile düzeninizde/iu);
+    expect(output.message).not.toMatch(/yük taşıma/iu);
+    expect(latestActiveLedgerEvent(output.state.ledger, "newParentContext")).toMatchObject({ decisionUse: "NONE" });
+    expect(latestActiveLedgerEvent(output.state.ledger, "primaryUsage")).toBeUndefined();
+
+    output = await runV3Turn({
+      conversationId: "new-parent-family",
+      messageId: "2",
+      message: "Aile arabası istiyorum. Yük taşıma nereden çıktı böyle?",
+      expectedRevision: 1,
+      state: output.state,
+    });
+    expect(latestActiveLedgerEvent(output.state.ledger, "primaryUsage")).toMatchObject({ normalizedValue: "FAMILY" });
+    expect(output.message).toMatch(/yalnız genel bir örnek.*kararına kaydedilmedi.*Aile kullanımını esas alıyorum/iu);
+    expect(latestActiveLedgerEvent(output.state.ledger, "cargoRequirement")).toBeUndefined();
+  });
 });

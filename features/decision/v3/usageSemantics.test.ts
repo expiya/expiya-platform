@@ -101,6 +101,19 @@ describe("V3 explicit usage semantics", () => {
     expect(latestActiveLedgerEvent(low, "primaryUsage")).toBeUndefined();
   });
 
+  it("rejects a usage signal quoted only to dispute the assistant", () => {
+    const state = createV3ConversationState("usage-objection");
+    const message = "Yük taşıma nereden çıktı böyle?";
+    const ledger = applySemanticPreferenceSignals(state, [], "m1", [{
+      concept: "primaryUsage",
+      normalizedValue: "COMMERCIAL",
+      sourceSpan: { start: 0, end: message.length, text: message },
+      confidence: 0.99,
+      explicit: true,
+    }]);
+    expect(latestActiveLedgerEvent(ledger, "primaryUsage")).toBeUndefined();
+  });
+
   it("filters passenger-transport discovery to verified multi-passenger body structures", async () => {
     process.env.CARS_V31_PROVIDER_DISABLED = "true";
     const output = await runV3Turn({

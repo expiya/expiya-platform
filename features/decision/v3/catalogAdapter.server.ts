@@ -78,6 +78,8 @@ export function v35EquipmentSelectionWarning(variant: CatalogVariantSnapshot, le
 }
 
 function matches(variant: CatalogVariantSnapshot, preference: PreferenceEvent): boolean {
+  if (preference.field === "excludedBrand") { const excluded = Array.isArray(preference.normalizedValue) ? preference.normalizedValue : [preference.normalizedValue]; return !excluded.some((value) => variant.brand.localeCompare(String(value), "tr", { sensitivity: "base" }) === 0); }
+  if (preference.field === "excludedModel") { const excluded = Array.isArray(preference.normalizedValue) ? preference.normalizedValue : [preference.normalizedValue]; return !excluded.some((value) => variant.model.localeCompare(String(value), "tr", { sensitivity: "base" }) === 0); }
   if (preference.field === "bodyStyle") { const accepted = Array.isArray(preference.normalizedValue) ? preference.normalizedValue : [preference.normalizedValue]; return accepted.some((value) => variant.decisionFacts.bodyStyle.value.toUpperCase().includes(String(value).toUpperCase())); }
   if (preference.field === "fuelType") { const accepted = Array.isArray(preference.normalizedValue) ? preference.normalizedValue : [preference.normalizedValue]; return accepted.includes(variant.decisionFacts.powertrain.fuelType.value); }
   if (preference.field === "transmission") { const value = variant.decisionFacts.powertrain.transmission.value.toLocaleLowerCase("en-US"); return preference.normalizedValue === "MANUAL" ? /manual/u.test(value) : /automatic|dct|dsg|cvt|e-cvt|steptronic/u.test(value); }

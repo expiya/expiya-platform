@@ -30,11 +30,15 @@ describe("atomic Equipment pilot activation", () => {
     const runtimeImports = files.filter((file) => !file.endsWith(".test.ts") && readFileSync(path.join(ROOT, "features/decision", file), "utf8").match(/equipmentEvidenceResolver|activeEquipmentEvidence|equipment-evidence/u));
     expect(runtimeImports).toEqual([
       "v3/catalogAdapter.server.ts",
+      "v3/catalogQuestion.server.ts",
       "v3/equipmentCardProjection.ts",
       "v3/ledger.ts",
     ]);
+    const catalogQuestion = readFileSync(path.join(ROOT, "features/decision/v3/catalogQuestion.server.ts"), "utf8");
+    expect(catalogQuestion).toMatch(/v35EquipmentMatchAuthority\(variant, featureCode\) === "VERIFIED"/u);
+    expect(catalogQuestion).not.toMatch(/rankV3Candidates|scoreV3Candidate|HARD_FILTER/u);
     const adapter = readFileSync(path.join(ROOT, "features/decision/v3/catalogAdapter.server.ts"), "utf8");
-    expect(adapter).toMatch(/getReviewedEquipmentAssociations, getVerifiedEquipmentAssertions/u);
+    expect(adapter).toMatch(/getVerifiedEquipmentAssertions/u);
     expect(adapter).not.toMatch(/activeEquipmentEvidence|equipment-evidence\/active/u);
     expect(adapter).toMatch(/verificationState === "VERIFIED" && assertion\.standardOrOptional === "STANDARD"/u);
     expect(adapter).toMatch(/v35EquipmentMatchAuthority\(variant, String\(preference\.normalizedValue\)\) === "VERIFIED"/u);

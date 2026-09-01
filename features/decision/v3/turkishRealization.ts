@@ -29,12 +29,16 @@ export function dailyUsageContext(state: V3ConversationState) {
 }
 
 export function conversationalAcknowledgement(state: V3ConversationState) {
-  const variants = ["Anlıyorum.", "Ne demek istediğini anlıyorum.", "Bu önceliğini anlıyorum.", "Söylediğin noktayı anlıyorum."] as const;
+  const variants = ["Anlıyorum.", "Güzel, bu önemli bir ayrıntı.", "Tamam, bunu netleştirdik.", "Bu önceliğini anlıyorum.", "İyi gidiyoruz; söylediğin noktayı kaydettim."] as const;
   return variants[state.revision % variants.length];
 }
 
 export function contextualQuestion(state: V3ConversationState, key: string, question: string) {
-  if (key === "primaryUsage") return "Aracı daha çok nerede ve ne için kullanacaksın; örneğin işe gidiş, aile yolculuğu, uzun yol ya da yük taşıma mı?";
+  if (key === "primaryUsage") {
+    if (latestActiveLedgerEvent(state.ledger, "newParentContext"))
+      return "Yeni aile düzeninizde aracı öncelikle günlük aile yolculukları için mi düşünüyorsunuz; yoksa işe gidiş veya uzun yol da düzenli kullanımın önemli bir parçası mı olacak?";
+    return "Aracı daha çok nerede ve ne için kullanacaksın; örneğin işe gidiş, aile yolculuğu, uzun yol ya da yük taşıma mı?";
+  }
   const usage = latestActiveLedgerEvent(state.ledger, "primaryUsage");
   return usage?.sourceTurn === state.revision ? `${dailyUsageContext(state)} sorayım: ${question}` : question;
 }
