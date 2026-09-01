@@ -169,7 +169,7 @@ export function buttonPrompt(message: Message, hasChoices: boolean): string {
   if (key.startsWith("confirm:")) return message.content;
   if (key.startsWith("constraintRelaxation:")) return "Seçenekleri yeniden genişletmek için esnetebileceğin tercihi seçebilirsin.";
   const prompts: Readonly<Record<string, string>> = {
-    fuelType: "Günlük kullanımına uygun yakıt seçeneklerini seçebilirsin.", bodyStyle: "Günlük kullanımına uygun araç yapısını seçebilirsin.", mixedRoadBody: "Karma yol kullanımına uygun yapıyı seçebilirsin.", commercialConfiguration: "Yükleme düzenine uygun araç yapısını seçebilirsin.", recommendationStart: "Hazırsan araç seçimine geçebiliriz.", catalogBrandRelaxation: "Motor tercihini koruyarak marka konusunda nasıl ilerleyeceğini seçebilirsin.", brandModel: "Marka tercihin yoksa bunu seçebilir veya istediğin markayı yazabilirsin.",
+    recommendationStart: "Hazırsan araç seçimine geçebiliriz.", catalogBrandRelaxation: "Motor tercihini koruyarak marka konusunda nasıl ilerleyeceğini seçebilirsin.", brandModel: "Marka tercihin yoksa bunu seçebilir veya istediğin markayı yazabilirsin.",
   };
   return prompts[key] ?? message.content;
 }

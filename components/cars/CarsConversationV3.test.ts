@@ -31,6 +31,10 @@ describe("V3 sequential assistant reveal", () => {
     const content = "Bu eğlenceli bir başlangıç! Hayalindeki aracı birlikte keşfedebiliriz. Bunu yalnızca merak için mi soruyorsun, yoksa kendin için bir araç seçmeyi düşünüyor musun?";
     expect(buttonPrompt({ id: "1", role: "assistant", content, trace: { revision: 1, purchaseIntent: "NOT_EXPRESSED", lastQuestionKey: "purchaseInterest", ledger: [], offerAwaitingConsent: false } }, true)).toBe(content);
   });
+  it("keeps contextual guidance above structural quick choices", () => {
+    const content = "Haklısın; yük taşımayı sen söylemedin. Aile kullanımını esas alıyorum. Park kolaylığı mı, daha ferah ve yüksek bir yapı mı senin için daha önemli?";
+    expect(buttonPrompt({ id: "2", role: "assistant", content, trace: { revision: 2, purchaseIntent: "EXPLICIT", lastQuestionKey: "bodyStyle", ledger: [], offerAwaitingConsent: false } }, true)).toBe(content);
+  });
   it("keeps short answers in one bubble and splits long answers into readable bubbles", () => {
     expect(assistantMessageParts("Kısa ve net bir yanıt.")).toEqual(["Kısa ve net bir yanıt."]);
     const long = "İlk açıklama kullanıcının ihtiyacını anlaşılır biçimde özetler ve önemli bağlamı açıklar. İkinci açıklama seçenekler arasındaki farkı daha ayrıntılı biçimde anlatır ve kararın nasıl ilerleyeceğini gösterir. Üçüncü açıklama kullanıcıdan yalnız bir sonraki anlamlı seçimi ister.";
