@@ -5,4 +5,3 @@ describe("RLS adversarial migration gate matrix",()=>{
   it("covers every required attack surface",()=>{expect(new Set(usedCarsRlsAdversarialMatrix.map(item=>item.surface))).toEqual(new Set(["TENANT_ROW","BRANCH_ROW","COMPOSITE_FK","IMPORT","MODERATION","PUBLIC_READER","POOL_CONTEXT","TENANT_CLOSURE","PRIVILEGED_ROLE","EXPORT"]));});
   it("keeps the gate incomplete until all scenarios execute",()=>{const partial=assessRlsAdversarialCoverage(["RLS-001"]);expect(partial.complete).toBe(false);expect(partial.missing).toContain("RLS-012");const complete=assessRlsAdversarialCoverage(usedCarsRlsAdversarialMatrix.map(item=>item.id));expect(complete).toEqual({complete:true,missing:[]});});
 });
-

@@ -110,4 +110,3 @@ export function findForbiddenPublicKeys(value: unknown): readonly string[] {
   visit(value);
   return [...found].sort();
 }
-

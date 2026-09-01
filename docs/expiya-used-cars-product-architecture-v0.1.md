@@ -1,9 +1,9 @@
 # Expiya İkinci El — Ürün, Tasarım ve Mimari Başlangıç Belgesi
 
-Durum: `PROPOSAL / IMPLEMENTATION BLOCKED PENDING OWNER APPROVAL`  
-Sürüm: `0.1`  
-Tarih: `2026-08-31`  
-Kapsam: Türkiye'deki doğrulanmış kurumsal ikinci el satıcılar ve bu stoklarla ihtiyaç/risk eşleştirmesi  
+Durum: `PROPOSAL / IMPLEMENTATION BLOCKED PENDING OWNER APPROVAL`
+Sürüm: `0.1`
+Tarih: `2026-08-31`
+Kapsam: Türkiye'deki doğrulanmış kurumsal ikinci el satıcılar ve bu stoklarla ihtiyaç/risk eşleştirmesi
 Kapsam dışı: production yayını, gerçek üyelik/ödeme, gerçek ilan/lead, scraping, production veri tabanı yazımı
 
 ## 0. Yönetici özeti ve karar ilkeleri
@@ -98,7 +98,7 @@ ops.expiya.internal (public DNS zorunlu değil)
 
 ### 2.2 B2C navigasyon
 
-Ana navigasyon: `Sıfır Araç` · `İkinci El` · `Nasıl çalışır?` · `Güven yaklaşımı`  
+Ana navigasyon: `Sıfır Araç` · `İkinci El` · `Nasıl çalışır?` · `Güven yaklaşımı`
 İkinci el alt navigasyon: `İhtiyacımı anlat` · `Stokları keşfet` · `Karşılaştır` · `Kontrol rehberi`
 
 “Stokları keşfet” erişilebilir olmalı, fakat ürünün birincil CTA'sı sohbet/rehberli karar olmalıdır. Filtreler sonuç daraltma aracı; ürünün karar otoritesi değildir.

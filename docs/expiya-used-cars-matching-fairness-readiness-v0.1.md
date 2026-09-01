@@ -1,6 +1,6 @@
 # Expiya İkinci El — Eşleştirme, Ticari Tarafsızlık ve Foundation Readiness v0.1
 
-Durum: `FOUNDATION COMPLETE / PILOT AND PRODUCTION BLOCKED`  
+Durum: `FOUNDATION COMPLETE / PILOT AND PRODUCTION BLOCKED`
 Tarih: `2026-09-01`
 
 ## Eşleştirme sınırı
@@ -66,4 +66,3 @@ Bloklayan sonraki program işleri:
 7. Pentest, DPIA, incident/DSAR/backup-deletion rehearsal.
 
 Bu belge gerçek pilot veya production açılış onayı değildir.
-

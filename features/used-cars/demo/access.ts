@@ -10,4 +10,3 @@ export const DEMO_BRANCHES = Object.freeze([
   { id: "demo-branch-istanbul", name: "İstanbul Merkez", stock: 18, users: 11, status: "ACTIVE" },
   { id: "demo-branch-kocaeli", name: "Kocaeli Şube", stock: 10, users: 6, status: "ACTIVE" },
 ]);
-

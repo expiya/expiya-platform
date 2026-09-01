@@ -63,4 +63,3 @@ describe("classic vehicle high-risk public claims", () => {
     expect(evaluateClassicClaim("PERIOD_CORRECT", { ...evidence, assertionStatus: "MISSING" })).toMatchObject({ display: "HIDDEN" });
   });
 });
-

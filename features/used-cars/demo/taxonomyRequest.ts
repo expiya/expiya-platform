@@ -13,4 +13,3 @@ export const DEMO_IDENTITY_REQUEST: DemoTaxonomyIdentityRequest = Object.freeze(
   approximatePeriod: "1972–1976 (satıcı tahmini)", evidenceTypes: ["Ruhsat kopyası", "Şasi etiketi fotoğrafı", "Dönem broşürü referansı"],
   status: "EVIDENCE_REVIEW", sellerCanCreateCanonicalIdentity: false,
 });
-

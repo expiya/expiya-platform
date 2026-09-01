@@ -31,4 +31,3 @@ export const usedCarPreferenceLedgerSchema = z.object({
   if (value.downPaymentTry !== undefined && value.totalBudgetTry !== undefined && value.downPaymentTry > value.totalBudgetTry) ctx.addIssue({ code: "custom", path: ["downPaymentTry"], message: "Peşinat toplam bütçeyi aşamaz." });
   if (!value.classicInterest && value.classicPurpose !== undefined) ctx.addIssue({ code: "custom", path: ["classicPurpose"], message: "Klasik araç amacı yalnız klasik ilgisi varsa seçilebilir." });
 });
-

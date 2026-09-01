@@ -27,4 +27,3 @@ export function assertValidMatchDimensions(dimensions: UsedCarMatchDimensions): 
     if (!Number.isFinite(value) || value < 0 || value > 1) throw new Error(`INVALID_MATCH_DIMENSION:${key}`);
   }
 }
-

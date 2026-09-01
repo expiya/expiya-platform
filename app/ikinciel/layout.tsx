@@ -9,4 +9,3 @@ export const metadata: Metadata = {
 export default function UsedCarsLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <div className="min-h-screen bg-[#f7f6f1] text-stone-950"><UsedCarsHeader />{children}</div>;
 }
-

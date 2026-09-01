@@ -14,4 +14,3 @@ export interface UsedCarLeadHandoff {
   readonly executionAuthorized: false;
   readonly expiresAt: string;
 }
-

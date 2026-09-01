@@ -25,4 +25,3 @@ export const usedVehicleDraftInputSchema = z.object({
 });
 
 export type UsedVehicleDraftInput = z.infer<typeof usedVehicleDraftInputSchema>;
-

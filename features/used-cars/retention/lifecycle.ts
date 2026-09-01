@@ -49,4 +49,3 @@ export function evaluateConsentWithdrawal(deliveredAt: string | null): ConsentWi
     priorLawfulProcessingReversed: false,
   });
 }
-

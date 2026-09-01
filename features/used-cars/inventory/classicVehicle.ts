@@ -15,4 +15,3 @@ export interface ClassicVehicleProfile {
   readonly useAndStorageConditions: UsedCarFieldAssertion<readonly string[]>;
   readonly expertReviewRequirements: readonly string[];
 }
-

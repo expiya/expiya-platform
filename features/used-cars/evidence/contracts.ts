@@ -21,4 +21,3 @@ export function canRenderAsExpiyaVerified(assertion: UsedCarFieldAssertion<unkno
     && assertion.assertedBy === "EXPIYA"
     && assertion.sourceReferenceIds.length > 0;
 }
-

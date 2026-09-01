@@ -11,4 +11,3 @@ export interface DealerOrganization {
   readonly lifecycleStatus: DealerLifecycleStatus;
   readonly branchIds: readonly string[];
 }
-

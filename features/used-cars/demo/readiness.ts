@@ -7,4 +7,3 @@ export const DEMO_MVP_CHECKS = Object.freeze([
   { area: "Gerçek pilot veri", ready: false, note: "Yetki ve onay verilmedi" },
   { area: "Production launch", ready: false, note: "Bilinçli olarak yetkisiz" },
 ]);
-

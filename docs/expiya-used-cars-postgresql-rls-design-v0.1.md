@@ -1,6 +1,6 @@
 # Expiya İkinci El — PostgreSQL Tenant İzolasyonu ve RLS Tasarımı v0.1
 
-Durum: `DESIGN ONLY / NOT A MIGRATION / NO DATABASE WRITE`  
+Durum: `DESIGN ONLY / NOT A MIGRATION / NO DATABASE WRITE`
 Tarih: `2026-09-01`
 
 ## 1. Amaç ve sınır

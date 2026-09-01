@@ -16,4 +16,3 @@ export const summarizeDemoImport = (rows: readonly DemoImportRow[]) => ({
   rejected: rows.filter(row => row.status !== "ACCEPTED").length,
   writeAuthorized: false as const,
 });
-

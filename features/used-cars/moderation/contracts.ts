@@ -17,4 +17,3 @@ export interface ModerationEvent {
   readonly actorId: string;
   readonly occurredAt: string;
 }
-

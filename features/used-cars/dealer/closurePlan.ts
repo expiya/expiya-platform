@@ -35,4 +35,3 @@ export function validateDealerClosurePlan(plan: DealerClosurePlan): readonly str
   if(plan.executionAuthorized) errors.push("UNREVIEWED_EXECUTION_FORBIDDEN");
   return Object.freeze(errors);
 }
-

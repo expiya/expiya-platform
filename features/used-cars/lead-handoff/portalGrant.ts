@@ -37,4 +37,3 @@ export function evaluatePartnerPortalGrant(input: {
   if (input.now >= grant.expiresAt) return "EXPIRED";
   return "ALLOW_ONCE";
 }
-

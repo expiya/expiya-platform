@@ -1,6 +1,6 @@
 # Expiya İkinci El — Kurucu kararları iç inceleme raporu v0.1
 
-Tarih: 1 Eylül 2026  
+Tarih: 1 Eylül 2026
 Bağlı kabul: `UC-RAT-2026-09-01-001`
 
 ## Sonuç

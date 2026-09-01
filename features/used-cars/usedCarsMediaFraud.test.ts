@@ -64,4 +64,3 @@ describe("used-cars duplicate and fraud signal boundary", () => {
     expect(evaluateRiskSignals([signal("CRITICAL", "DISMISSED")])).toEqual({ publicationBlocked: false, manualReviewRequired: false, automaticFraudConclusion: false, signalCodes: [] });
   });
 });
-

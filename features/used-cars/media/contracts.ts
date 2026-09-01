@@ -58,4 +58,3 @@ export function canTransitionMedia(from: UsedCarMediaState, to: UsedCarMediaStat
   };
   return next[from].includes(to);
 }
-

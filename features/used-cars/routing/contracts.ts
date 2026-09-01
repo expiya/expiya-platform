@@ -24,4 +24,3 @@ export function buildFutureUsedCarsUrl(currentPath: string): string {
   if (currentPath !== "/ikinciel" && !currentPath.startsWith("/ikinciel/")) throw new Error("NOT_A_USED_CARS_LEGACY_PATH");
   return currentPath.replace(/^\/ikinciel(?=\/|$)/u, "/cars/ikinciel");
 }
-

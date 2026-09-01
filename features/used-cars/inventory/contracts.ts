@@ -36,4 +36,3 @@ export interface UsedVehicleRevision {
   readonly createdByActorId: string;
   readonly createdAt: string;
 }
-

@@ -14,4 +14,3 @@ export const DEMO_MEMBERSHIP_PLANS: readonly DemoMembershipPlan[] = Object.freez
   { code: "GROWTH", name: "Büyüme", audience: "Çok şubeli galeri ve yetkili satıcı", stockLimit: 150, branchLimit: 5, analytics: "ADVANCED", feedIntegration: true, organicRankingBenefit: false },
   { code: "ENTERPRISE", name: "Kurumsal", audience: "Filo ve yüksek hacimli operasyon", stockLimit: "CUSTOM", branchLimit: "CUSTOM", analytics: "ADVANCED", feedIntegration: true, organicRankingBenefit: false },
 ]);
-

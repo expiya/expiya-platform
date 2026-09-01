@@ -70,4 +70,3 @@ export function projectPartnerLeadFields(input: UsedCarLeadSubmission & { readon
   if (input.sharePreferenceSummary && input.preferenceSummary) output.preferenceSummary = input.preferenceSummary;
   return Object.freeze(output);
 }
-

@@ -8,4 +8,3 @@ export const DEMO_FRAUD_SIGNALS = Object.freeze([
   { signal: "IMAGE_REUSE", result: "REVIEW", action: "MODERATOR_QUEUE" },
   { signal: "PRICE_ANOMALY", result: "UNAVAILABLE", action: "NO_UNSOURCED_CLAIM" },
 ]);
-

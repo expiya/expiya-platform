@@ -25,4 +25,3 @@ export interface UsedCarPreferenceLedger {
   readonly classicInterest: boolean;
   readonly classicPurpose?: "DAILY_USE" | "COLLECTION";
 }
-

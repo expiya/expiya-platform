@@ -37,4 +37,3 @@ export interface TaxonomyIdentityRequest {
   readonly status: "OPEN" | "IN_REVIEW" | "RESOLVED" | "REJECTED";
   readonly resolvedTaxonomyEntityId?: string;
 }
-

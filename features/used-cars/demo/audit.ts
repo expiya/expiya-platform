@@ -11,4 +11,3 @@ export function buildDemoAuditChain(): readonly UsedCarsAuditEnvelope[] {
   inputs.forEach((input,index) => events.push(createAuditEnvelope({ version: "used-cars-audit/v1", sequence: index+1, tenantId: "demo-tenant-marmara", previousEventHash: events.at(-1)?.eventHash ?? null, ...input })));
   return Object.freeze(events);
 }
-

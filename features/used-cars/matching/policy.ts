@@ -108,4 +108,3 @@ export function rankOrganicMatches(results: readonly UsedCarMatchResult[]): read
   const score = (item: UsedCarMatchResult) => item.dimensions.needFit * 0.35 + item.dimensions.budgetFit * 0.2 + item.dimensions.riskFit * 0.25 + item.dimensions.evidenceReadiness * 0.15 + item.dimensions.operationalAvailability * 0.05;
   return Object.freeze([...results].sort((left, right) => score(right) - score(left) || left.inventoryUnitId.localeCompare(right.inventoryUnitId, "en")));
 }
-

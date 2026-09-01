@@ -13,4 +13,3 @@ export function ImportDryRunDemo() {
       <div className="mt-5 flex flex-wrap justify-between gap-3"><button type="button" onClick={() => setRan(false)} className="rounded-xl border border-stone-300 px-5 py-3 font-bold">Başa dön</button><button disabled type="button" className="cursor-not-allowed rounded-xl bg-stone-300 px-5 py-3 font-black text-stone-600">Yazmayı yetkilendir — demo kapalı</button></div></section>}
     <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm leading-6 text-amber-950"><strong>İzolasyon:</strong> Her satır aktif tenant ile doğrulanır. Başka tenant kimliği taşıyan satır reddedilir; kısmi veya sessiz cross-tenant write yapılmaz.</div></div></main>;
 }
-

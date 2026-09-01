@@ -17,4 +17,3 @@ export function isDealerPublishingEligible(gates: PublishingGates): boolean {
     && gates.operationalReviewPassed
     && gates.moderationEnabled;
 }
-

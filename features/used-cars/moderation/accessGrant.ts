@@ -49,4 +49,3 @@ export function evaluateModerationAccess(grant: ModerationAccessGrant, request: 
 export function grantContainsForbiddenCapabilities(grant: ModerationAccessGrant): boolean {
   return grant.rawLeadAccessAllowed !== false || grant.tenantImpersonationAllowed !== false;
 }
-

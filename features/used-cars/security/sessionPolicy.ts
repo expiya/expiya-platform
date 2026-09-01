@@ -25,4 +25,3 @@ export function evaluatePartnerSession(input:{readonly session:PartnerSessionSta
   if(now>=session.lastRotatedAt+partnerSessionPolicy.rotationIntervalSeconds)return {decision:"ROTATE",reason:"ROTATION_DUE"};
   return {decision:"ALLOW"};
 }
-

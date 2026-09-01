@@ -55,4 +55,3 @@ export function detectDuplicateSignals(subject: DuplicateCandidateInput, candida
   }
   return Object.freeze([...codes]);
 }
-

@@ -56,4 +56,3 @@ Alternatif son durum `ANONYMIZED`; legal hold sırasında `LEGAL_HOLD` uygulanı
 7. Mali kayıt, uyuşmazlık ve zamanaşımı süreleri.
 8. Backup ve disaster-recovery imha kanıtı.
 9. Video/AI conversational commerce için ayrı DPIA gereksinimi.
-

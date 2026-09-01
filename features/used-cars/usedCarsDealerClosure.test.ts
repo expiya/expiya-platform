@@ -8,4 +8,3 @@ describe("dealer closure fail-closed plan",()=>{
   it("keeps execution unauthorized until an orchestration review",()=>expect(plan().executionAuthorized).toBe(false));
   it("detects partial and unsafe closure plans",()=>{const value=plan(); const partial={...value,actions:value.actions.filter(action=>action.type!=="REVOKE_LEAD_GRANTS")} as DealerClosurePlan; expect(validateDealerClosurePlan(partial)).toContain("MISSING_ACTION:REVOKE_LEAD_GRANTS"); const unsafe={...value,actions:[...value.actions,{type:"REVOKE_SESSIONS" as const,failClosed:false as never}]} as DealerClosurePlan; expect(validateDealerClosurePlan(unsafe)).toContain("NON_FAIL_CLOSED_ACTION");});
 });
-

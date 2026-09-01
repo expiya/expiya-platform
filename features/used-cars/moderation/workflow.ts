@@ -30,4 +30,3 @@ export function canPerformSecondReview(task: ModerationTask, actorId: string): b
 export function isModerationDecisionComplete(task: ModerationTask): boolean {
   return task.status === "DECIDED" && Boolean(task.assignedActorId && task.decision && task.reasonCode && task.subjectRevisionId);
 }
-

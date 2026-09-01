@@ -18,4 +18,3 @@ export const DEMO_ONBOARDING_GATES: readonly DemoOnboardingGate[] = Object.freez
 
 export const canDemoDealerPublish = (gates: readonly DemoOnboardingGate[]) =>
   gates.length > 0 && gates.every(gate => gate.status === "COMPLETE");
-

@@ -40,4 +40,3 @@ export function isListingPublic(
     && listing.freshnessValidUntil >= nowIso
     && isDealerPublishingEligible(dealerGates);
 }
-

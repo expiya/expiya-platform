@@ -37,4 +37,3 @@ export function evaluateIdempotency(input:{readonly existing:UsedCarsIdempotency
   if(record.status==="FAILED_RETRYABLE")return {decision:"RETRY"};
   return {decision:"CONFLICT",reason:"FINAL_FAILURE"};
 }
-

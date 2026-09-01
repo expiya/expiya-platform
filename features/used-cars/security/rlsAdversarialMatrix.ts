@@ -22,4 +22,3 @@ export function assessRlsAdversarialCoverage(executedScenarioIds:readonly string
   const executed=new Set(executedScenarioIds);const missing=usedCarsRlsAdversarialMatrix.filter(scenario=>!executed.has(scenario.id)).map(scenario=>scenario.id);
   return Object.freeze({complete:missing.length===0,missing:Object.freeze(missing)});
 }
-

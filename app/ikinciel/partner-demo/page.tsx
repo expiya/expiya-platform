@@ -4,4 +4,3 @@ import { PartnerDashboardDemo } from "@/components/used-cars/PartnerDashboardDem
 export const metadata: Metadata = { title: "Expiya Partner Paneli · Tasarım Demosu" };
 
 export default function UsedCarsPartnerDemoPage() { return <PartnerDashboardDemo />; }
-

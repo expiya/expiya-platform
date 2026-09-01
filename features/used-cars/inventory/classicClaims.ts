@@ -33,4 +33,3 @@ export function evaluateClassicClaim(claim: ClassicHighRiskClaim, evidence: Clas
   if (verified) return Object.freeze({ display: "EXPIYA_VERIFIED", wording: `${claim} iddiası belirtilen kanıt kapsamıyla doğrulandı.`, purchaseInstructionAllowed: false, specialistInspectionRequired: true });
   return Object.freeze({ display: "DEALER_DECLARATION", wording: `${claim} satıcı beyanıdır; Expiya tarafından doğrulanmış değildir.`, purchaseInstructionAllowed: false, specialistInspectionRequired: true });
 }
-

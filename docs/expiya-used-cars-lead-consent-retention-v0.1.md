@@ -1,6 +1,6 @@
 # Expiya İkinci El — Lead, Consent, Partner Portal ve Saklama Sınırı v0.1
 
-Durum: `FOUNDATION / LEGAL REVIEW REQUIRED / NO REAL DELIVERY`  
+Durum: `FOUNDATION / LEGAL REVIEW REQUIRED / NO REAL DELIVERY`
 Tarih: `2026-09-01`
 
 ## Temel sınırlar
@@ -43,4 +43,3 @@ Primary silme, yedek imhası değildir. Backup expiry ayrı takip edilir. Consen
 - DSAR kimlik doğrulama, 30 günlük takip ve üçüncü kişi verisi koruması.
 - Backup deletion ve legal-hold runbook'u.
 - 6563/İYS pazarlama onay/ret süreci.
-

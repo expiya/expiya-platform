@@ -99,4 +99,3 @@ Public reader base tabloları okuyamaz. `published_listing_projection` şu alanl
 - Public role yalnız projection view erişimine sahip mi?
 - Tenant değişikliği UPDATE ile mümkün mü? Cevap hayır olmalı.
 - `ON DELETE CASCADE` yalnız açıkça incelenmiş tablolarda mı?
-

@@ -41,4 +41,3 @@ export function verifyAuditChain(events: readonly UsedCarsAuditEnvelope[]): bool
   }
   return true;
 }
-

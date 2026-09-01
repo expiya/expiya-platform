@@ -7,4 +7,3 @@ export const DEMO_CLASSIC_CLAIMS: readonly DemoClassicClaimDisposition[] = Objec
   { claim: "PERIOD_CORRECT", display: "HIDDEN", specialistRequired: true },
 ]);
 export const isClassicClaimVerified = (claim: DemoClassicClaimDisposition) => claim.display === ("EXPIYA_VERIFIED" as string);
-

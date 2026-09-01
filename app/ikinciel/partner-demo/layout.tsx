@@ -9,4 +9,3 @@ export const metadata: Metadata = {
 export default function PartnerDemoLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <div data-security-surface="partner-demo" data-production-auth="disabled">{children}</div>;
 }
-

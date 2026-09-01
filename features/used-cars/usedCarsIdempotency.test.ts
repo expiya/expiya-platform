@@ -10,4 +10,3 @@ describe("tenant-scoped mutation idempotency",()=>{
   it("rejects tenant, action and payload substitution",()=>{expect(evaluateIdempotency({...request,tenantId:"tenant-b"})).toEqual({decision:"CONFLICT",reason:"TENANT_MISMATCH"});expect(evaluateIdempotency({...request,action:"INVENTORY_CREATE"})).toEqual({decision:"CONFLICT",reason:"ACTION_MISMATCH"});expect(evaluateIdempotency({...request,requestFingerprint:"sha256:other"})).toEqual({decision:"CONFLICT",reason:"PAYLOAD_MISMATCH"});});
   it("separates retryable, final and expired outcomes",()=>{expect(evaluateIdempotency({...request,existing:{...record,status:"FAILED_RETRYABLE"}})).toEqual({decision:"RETRY"});expect(evaluateIdempotency({...request,existing:{...record,status:"FAILED_FINAL"}})).toEqual({decision:"CONFLICT",reason:"FINAL_FAILURE"});expect(evaluateIdempotency({...request,now:record.expiresAt})).toEqual({decision:"CONFLICT",reason:"EXPIRED_KEY_REUSE_FORBIDDEN"});});
 });
-

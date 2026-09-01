@@ -31,4 +31,3 @@ export function isAutomatedAcquisitionAllowed(source: UsedTaxonomySource): boole
     && ["OPEN_LICENSE", "LICENSED"].includes(source.usagePermission)
     && source.authority !== "DEALER_SUBMISSION";
 }
-

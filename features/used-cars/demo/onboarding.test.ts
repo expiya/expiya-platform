@@ -11,4 +11,3 @@ describe("partner onboarding demo gates", () => {
     expect(DEMO_ONBOARDING_GATES.some(gate => gate.owner === "EXPIYA")).toBe(true);
   });
 });
-

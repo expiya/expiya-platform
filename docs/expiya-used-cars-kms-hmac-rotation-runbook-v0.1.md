@@ -104,4 +104,3 @@ Fingerprint deterministik olduğu için rotation sırasında aynı kaydın eski 
 - Log redaction testi geçti.
 - Eski/yeni version dual-read ve rollback doğrulandı.
 - Hukuk, güvenlik ve platform owner imzaları tamamlandı.
-

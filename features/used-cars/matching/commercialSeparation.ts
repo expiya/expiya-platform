@@ -29,4 +29,3 @@ export function composeSearchSurface(organic: readonly UsedCarMatchResult[], spo
   if (sponsored.some((placement) => placement.label !== "SPONSORED")) throw new Error("SPONSORED_LABEL_REQUIRED");
   return Object.freeze({ organic: Object.freeze([...organic]), sponsored: Object.freeze([...sponsored]), streamsMixed: false });
 }
-

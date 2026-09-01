@@ -43,4 +43,3 @@ export function assessUsedCarsFoundationReadiness(input: UsedCarsFoundationReadi
     blockingCodes: Object.freeze(blockingCodes),
   });
 }
-

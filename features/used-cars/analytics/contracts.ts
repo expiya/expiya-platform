@@ -29,4 +29,3 @@ export function validateAnalyticsStream(event: UsedCarsAnalyticsEvent): boolean 
   if (sponsored && (typeof event.attributes.campaignId !== "string" || event.attributes.sponsored !== true)) return false;
   return organic || sponsored || !event.eventName.includes("impression");
 }
-

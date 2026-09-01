@@ -22,4 +22,3 @@ export function canAccessTenantResource(actor: TenantActor, resource: TenantReso
   if (!resource.branchId || actor.role === "DEALER_OWNER" || actor.role === "DEALER_ADMIN") return true;
   return actor.branchIds.includes(resource.branchId);
 }
-

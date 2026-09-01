@@ -1,6 +1,6 @@
 # Expiya İkinci El — Medya, Belge, Duplicate ve Fraud Sınırı v0.1
 
-Durum: `FOUNDATION / NO STORAGE OR SCANNER ADAPTER / NO AUTOMATIC ENFORCEMENT`  
+Durum: `FOUNDATION / NO STORAGE OR SCANNER ADAPTER / NO AUTOMATIC ENFORCEMENT`
 Tarih: `2026-09-01`
 
 ## 1. Yükleme yaşam döngüsü
@@ -82,4 +82,3 @@ Loglara dosya bytes, OCR metni, VIN/plaka, object URL, signed URL, AV vendor raw
 - Keyed-HMAC/KMS key rotasyonu.
 - Fraud moderasyon SLA, dört göz ve itiraz akışı.
 - Zararlı dosya olay müdahale runbook'u.
-

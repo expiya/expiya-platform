@@ -65,4 +65,3 @@ export function isIdentityRequestResolved(resolution: IdentityRequestResolution)
     && resolution.secondReviewerApproved
     && Boolean(resolution.resolvedTaxonomyEntityId);
 }
-

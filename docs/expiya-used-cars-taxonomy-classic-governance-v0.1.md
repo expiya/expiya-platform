@@ -1,6 +1,6 @@
 # Expiya İkinci El — Taxonomy ve Klasik Araç Yönetişimi v0.1
 
-Durum: `FOUNDATION / NO TAXONOMY DATA IMPORT / NO PUBLIC CLAIMS`  
+Durum: `FOUNDATION / NO TAXONOMY DATA IMPORT / NO PUBLIC CLAIMS`
 Tarih: `2026-09-01`
 
 ## Taxonomy release otoritesi
@@ -48,4 +48,3 @@ Satıcı yüklemesi araştırma girdisidir; canonical kimliği tek başına doğ
 - Klasik uzman yeterlilik, çıkar çatışması ve sorumluluk modeli.
 - Arşiv belgelerinin kullanım izni ve PII redaksiyonu.
 - Release imza/checksum ve rollback rehearsal.
-

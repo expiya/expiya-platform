@@ -7,4 +7,3 @@ export const DEMO_DEMAND_BUCKETS: readonly DemoDemandBucket[] = Object.freeze([
 ]);
 export const DEMO_FUNNEL = Object.freeze({ organicImpressions: 1240, detailOpens: 386, consentedLeads: 42, contacted: 35 });
 export const DEMO_ANALYTICS_CONTRACT = Object.freeze({ namespace: "used_partner", containsPii: false, containsPlanCode: false, sponsoredMixed: false });
-

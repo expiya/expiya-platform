@@ -30,4 +30,3 @@ export function projectTenantPublicListings(snapshot: TenantPublicationSnapshot)
   }
   return Object.freeze({ version: "used-cars-publication-result/v1", tenantId: snapshot.tenantId, snapshotAt: snapshot.snapshotAt, published: Object.freeze(published), blockedListingIds: Object.freeze(blocked), failClosed: blocked.length > 0 });
 }
-

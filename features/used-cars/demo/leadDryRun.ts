@@ -20,4 +20,3 @@ export function dryRunDemoLead(input: DemoLeadDryRunInput): DemoLeadDryRunResult
   const errorCodes = [...(submission.success?[]:submission.error.issues.map(issue=>`submission.${issue.path.join(".")}:${issue.code}`)), ...(receipt.success?[]:receipt.error.issues.map(issue=>`receipt.${issue.path.join(".")}:${issue.code}`))];
   return Object.freeze({ accepted:input.consentGranted&&errorCodes.length===0, errorCodes:Object.freeze(input.consentGranted?errorCodes:["CONSENT_REQUIRED",...errorCodes]), ...(input.consentGranted&&errorCodes.length===0?{handoff}:{}), executionAuthorized:false, writeAuthorized:false });
 }
-

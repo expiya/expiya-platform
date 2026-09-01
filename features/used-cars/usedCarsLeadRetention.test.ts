@@ -90,4 +90,3 @@ describe("used-cars retention and deletion lifecycle", () => {
     expect(evaluateConsentWithdrawal("2026-09-01T10:00:00.000Z")).toMatchObject({ pendingPortalGrantsRevoked: false, deliveredRecipientNotificationRequired: true, priorLawfulProcessingReversed: false });
   });
 });
-

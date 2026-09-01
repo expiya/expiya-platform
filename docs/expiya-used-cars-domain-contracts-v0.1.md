@@ -1,6 +1,6 @@
 # Expiya İkinci El — Domain Contracts & Isolation Foundation v0.1
 
-Durum: `FOUNDATION ONLY / NO PRODUCTION AUTHORITY`  
+Durum: `FOUNDATION ONLY / NO PRODUCTION AUTHORITY`
 Tarih: `2026-09-01`
 
 Bu teknik foundation, onaylanan ürün/mimari başlangıç belgesinin ilk dar uygulamasıdır. UI, route, veri tabanı migration'ı, authentication adapteri, gerçek dosya yükleme, gerçek firma/ilan/lead, ödeme ve production deployment içermez.

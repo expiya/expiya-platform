@@ -31,4 +31,3 @@ export function authorizeExpiyaAction(role: ExpiyaRole, action: UsedCarsAction, 
   if (!stepUpVerified) return false;
   return expiyaPermissions[role].includes(action);
 }
-

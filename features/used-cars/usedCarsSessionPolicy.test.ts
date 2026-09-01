@@ -9,4 +9,3 @@ describe("partner session security policy",()=>{
   it("requires MFA and applies stricter freshness to PII",()=>{expect(evaluatePartnerSession({session:{...session,mfaVerifiedAt:null},authoritative:auth,actionRisk:"READ",now:2100})).toEqual({decision:"REAUTH_MFA",reason:"MFA_REQUIRED"});expect(evaluatePartnerSession({session:{...session,mfaVerifiedAt:1000},authoritative:auth,actionRisk:"PII_ACCESS",now:1700})).toEqual({decision:"REAUTH_MFA",reason:"MFA_STALE"});});
   it("rotates an otherwise valid session without extending absolute lifetime",()=>expect(evaluatePartnerSession({session:{...session,lastRotatedAt:1000,mfaVerifiedAt:2050},authoritative:auth,actionRisk:"MUTATION",now:2100})).toEqual({decision:"ROTATE",reason:"ROTATION_DUE"}));
 });
-

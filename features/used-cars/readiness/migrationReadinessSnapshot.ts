@@ -17,4 +17,3 @@ export const usedCarsMigrationReadinessSnapshot = Object.freeze({
 });
 
 export const currentUsedCarsMigrationReadiness=assessMigrationReadiness(usedCarsMigrationReadinessSnapshot.prerequisites);
-

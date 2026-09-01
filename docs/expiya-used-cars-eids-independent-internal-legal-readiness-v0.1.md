@@ -1,8 +1,8 @@
 # Expiya İkinci El — EİDS-bağımsız iç hukuk ve KVKK hazırlık paketi v0.1
 
-Durum: `INTERNAL_PREPARATION_COMPLETE / PRODUCTION_NO-GO`  
-Tarih: 2 Eylül 2026  
-Sahip: SKYBIT  
+Durum: `INTERNAL_PREPARATION_COMPLETE / PRODUCTION_NO-GO`
+Tarih: 2 Eylül 2026
+Sahip: SKYBIT
 İletişim: `iletisim@expiya.com`
 
 Bu belge hukuk bürosu görüşü veya üretim yetkisi değildir. EİDS başvurusu sonuçlanıncaya ve gerçek sağlayıcı/iş ortağı bilgileri kesinleşinceye kadar ikinci el yüzeyinde yalnız sentetik demo kullanılabilir. Belgedeki kontrollü taslak kararlar, iç ürün ve teknik hazırlığın ilerlemesini sağlar; gerçek kişisel veri işleme, ilan yayını, lead aktarımı, ticari ileti, ödeme, video veya AI sağlayıcı aktarımını açmaz.
