@@ -1,0 +1,11 @@
+export type BackupDataClass="TENANT_OPERATIONAL"|"SENSITIVE_IDENTIFIERS"|"MEDIA_DOCUMENTS"|"TAXONOMY_RELEASES"|"AUDIT_CHAIN"|"CONFIGURATION";
+export interface BackupPolicy {readonly dataClass:BackupDataClass;readonly rpoMinutes:number;readonly rtoMinutes:number;readonly retentionDays:number;readonly encrypted:true;readonly immutable:boolean;readonly crossRegionAllowed:false;readonly restoreRequiresTwoPersonApproval:boolean}
+export const usedCarsBackupPolicies:readonly BackupPolicy[]=Object.freeze([
+ {dataClass:"TENANT_OPERATIONAL",rpoMinutes:15,rtoMinutes:240,retentionDays:35,encrypted:true,immutable:true,crossRegionAllowed:false,restoreRequiresTwoPersonApproval:true},
+ {dataClass:"SENSITIVE_IDENTIFIERS",rpoMinutes:15,rtoMinutes:240,retentionDays:35,encrypted:true,immutable:true,crossRegionAllowed:false,restoreRequiresTwoPersonApproval:true},
+ {dataClass:"MEDIA_DOCUMENTS",rpoMinutes:60,rtoMinutes:480,retentionDays:35,encrypted:true,immutable:true,crossRegionAllowed:false,restoreRequiresTwoPersonApproval:true},
+ {dataClass:"TAXONOMY_RELEASES",rpoMinutes:1440,rtoMinutes:120,retentionDays:365,encrypted:true,immutable:true,crossRegionAllowed:false,restoreRequiresTwoPersonApproval:false},
+ {dataClass:"AUDIT_CHAIN",rpoMinutes:5,rtoMinutes:240,retentionDays:90,encrypted:true,immutable:true,crossRegionAllowed:false,restoreRequiresTwoPersonApproval:true},
+ {dataClass:"CONFIGURATION",rpoMinutes:1440,rtoMinutes:120,retentionDays:90,encrypted:true,immutable:false,crossRegionAllowed:false,restoreRequiresTwoPersonApproval:true},
+]);
+export function validateBackupPolicies(policies:readonly BackupPolicy[]):readonly string[]{const codes:string[]=[];if(new Set(policies.map(policy=>policy.dataClass)).size!==6)codes.push("DATA_CLASS_COVERAGE_INCOMPLETE");for(const policy of policies){if(policy.rpoMinutes<=0||policy.rtoMinutes<=0||policy.retentionDays<=0)codes.push("INVALID_RECOVERY_TARGET");if(!policy.encrypted)codes.push("ENCRYPTION_REQUIRED");if(policy.crossRegionAllowed)codes.push("CROSS_REGION_NOT_APPROVED");if(["TENANT_OPERATIONAL","SENSITIVE_IDENTIFIERS","MEDIA_DOCUMENTS","AUDIT_CHAIN"].includes(policy.dataClass)&&!policy.immutable)codes.push("IMMUTABILITY_REQUIRED");}return Object.freeze([...new Set(codes)]);}

@@ -1,0 +1,8 @@
+export type ExperimentKillSwitchScenario = "CROSS_TENANT" | "CONSENT_FAILURE" | "MISLEADING_VERIFICATION" | "PRESCRIPTIVE_PURCHASE" | "SPONSORED_ORGANIC_MIXING" | "ACCESSIBILITY_REGRESSION" | "COMPLAINT_THRESHOLD" | "ERROR_THRESHOLD" | "GLOBAL_EXPERIMENT_DISABLE";
+export const requiredExperimentKillSwitchScenarios: readonly ExperimentKillSwitchScenario[] = Object.freeze(["CROSS_TENANT", "CONSENT_FAILURE", "MISLEADING_VERIFICATION", "PRESCRIPTIVE_PURCHASE", "SPONSORED_ORGANIC_MIXING", "ACCESSIBILITY_REGRESSION", "COMPLAINT_THRESHOLD", "ERROR_THRESHOLD", "GLOBAL_EXPERIMENT_DISABLE"]);
+export interface ExperimentKillSwitchResult { readonly scenario: ExperimentKillSwitchScenario; readonly syntheticOnly: true; readonly environment: "STAGING"; readonly triggerDetected: boolean; readonly allocationStopped: boolean; readonly baselineRestored: boolean; readonly recoveryTimeSeconds: number; readonly evidenceChecksum: string; readonly reviewerId: string | null }
+export function assessExperimentKillSwitchSuite(results: readonly ExperimentKillSwitchResult[]) {
+  const checksum = /^sha256:[a-f0-9]{64}$/u;
+  const missing = requiredExperimentKillSwitchScenarios.filter((scenario) => !results.some((result) => result.scenario === scenario && result.syntheticOnly && result.environment === "STAGING" && result.triggerDetected && result.allocationStopped && result.baselineRestored && result.recoveryTimeSeconds > 0 && result.recoveryTimeSeconds <= 300 && checksum.test(result.evidenceChecksum) && Boolean(result.reviewerId)));
+  return Object.freeze({ complete: missing.length === 0, missing: Object.freeze(missing), killSwitchActivationAuthorized: false as const, automaticWinnerRolloutAuthorized: false as const });
+}

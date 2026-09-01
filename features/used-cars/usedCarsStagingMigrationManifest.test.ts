@@ -1,0 +1,8 @@
+import { describe, expect, it } from "vitest";
+import { requiredStagingMigrationPhases, validateStagingMigrationManifest } from "./staging/migrationManifest";
+const checksum = `sha256:${"a".repeat(64)}`;
+describe("used-cars staging migration manifest", () => {
+  it("requires nine ordered safety phases", () => expect(requiredStagingMigrationPhases).toHaveLength(9));
+  it("accepts a fully reviewed manifest without authorizing execution", () => expect(validateStagingMigrationManifest({ manifestId: "m", sourceDesignPath: "database/design/used_cars_staging_v0_1.sql.disabled", sourceDesignChecksum: checksum, generatedMigrationPath: null, phases: requiredStagingMigrationPhases, dbaReviewerId: "dba", securityReviewerId: "security", legalGateEvidenceId: "legal", kmsGateEvidenceId: "kms", rollbackArtifactChecksum: checksum, targetEnvironment: "STAGING", syntheticDataOnly: true, executable: false })).toMatchObject({ promotableToExecutableReview: true, executionAuthorized: false, productionWriteAuthorized: false }));
+  it("rejects a prematurely generated migration path", () => expect(validateStagingMigrationManifest({ manifestId: "m", sourceDesignPath: "database/design/used_cars_staging_v0_1.sql.disabled", sourceDesignChecksum: checksum, generatedMigrationPath: "database/migrations/used.sql", phases: requiredStagingMigrationPhases, dbaReviewerId: "dba", securityReviewerId: "security", legalGateEvidenceId: "legal", kmsGateEvidenceId: "kms", rollbackArtifactChecksum: checksum, targetEnvironment: "STAGING", syntheticDataOnly: true, executable: false }).codes).toContain("EXECUTABLE_MIGRATION_PATH_FORBIDDEN_BEFORE_PROMOTION"));
+});

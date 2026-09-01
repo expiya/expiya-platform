@@ -1,0 +1,13 @@
+import { describe, expect, it } from "vitest";
+import { evaluateModerationAccess, grantContainsForbiddenCapabilities, type ModerationAccessGrant, type ModerationAccessRequest } from "./moderation/accessGrant";
+
+const grant: ModerationAccessGrant = { version: "used-cars-moderation-grant/v1", grantId: "grant-1", taskId: "task-1", tenantId: "tenant-1", subjectId: "listing-1", subjectRevisionId: "revision-7", documentId: "document-3", actorId: "moderator-2", purpose: "DOCUMENT_REVIEW", issuedAt: "2026-09-01T18:00:00Z", expiresAt: "2026-09-01T18:10:00Z", revokedAt: null, firstDecisionActorId: "moderator-1", rawLeadAccessAllowed: false, tenantImpersonationAllowed: false };
+const request: ModerationAccessRequest = { taskId: "task-1", subjectId: "listing-1", subjectRevisionId: "revision-7", documentId: "document-3", actorId: "moderator-2", purpose: "DOCUMENT_REVIEW", now: "2026-09-01T18:05:00Z" };
+
+describe("moderator short-lived access grants", () => {
+  it("allows only an exact grant match and requires audit", () => { expect(evaluateModerationAccess(grant, request)).toEqual({ allowed: true, auditRequired: true }); expect(grantContainsForbiddenCapabilities(grant)).toBe(false); });
+  it("fails closed for expiry and revocation", () => { expect(evaluateModerationAccess(grant, { ...request, now: grant.expiresAt })).toEqual({ allowed: false, reason: "EXPIRED" }); expect(evaluateModerationAccess({ ...grant, revokedAt: "2026-09-01T18:04:00Z" }, request)).toEqual({ allowed: false, reason: "REVOKED" }); });
+  it("blocks task, subject, revision, document, actor and purpose substitution", () => { const mutations: Array<[Partial<ModerationAccessRequest>, string]> = [[{ taskId: "task-other" }, "TASK_MISMATCH"], [{ subjectId: "listing-other" }, "SUBJECT_MISMATCH"], [{ subjectRevisionId: "revision-other" }, "REVISION_MISMATCH"], [{ documentId: "document-other" }, "DOCUMENT_MISMATCH"], [{ actorId: "moderator-other" }, "ACTOR_MISMATCH"], [{ purpose: "SUBJECT_REVIEW" }, "PURPOSE_MISMATCH"]]; for (const [mutation,reason] of mutations) expect(evaluateModerationAccess(grant, { ...request, ...mutation })).toEqual({ allowed: false, reason }); });
+  it("prevents the first decision actor from performing second review", () => { const secondReviewGrant: ModerationAccessGrant = { ...grant, documentId: null, actorId: "moderator-1", purpose: "SECOND_REVIEW", firstDecisionActorId: "moderator-1" }; expect(evaluateModerationAccess(secondReviewGrant, { ...request, documentId: undefined, actorId: "moderator-1", purpose: "SECOND_REVIEW" })).toEqual({ allowed: false, reason: "SAME_ACTOR_SECOND_REVIEW" }); });
+});
+

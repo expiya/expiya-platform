@@ -1,0 +1,14 @@
+export type VerticalSliceStep = "IDENTITY_LOGIN" | "TENANT_CONTEXT" | "INVENTORY_CREATE" | "MODERATION_REVIEW" | "PUBLIC_PROJECTION" | "LISTING_READ" | "FAIL_CLOSED_SUSPENSION" | "AUDIT_CHAIN";
+export interface VerticalSliceCheckpoint { readonly step: VerticalSliceStep; readonly owner: "ENGINEERING" | "SECURITY" | "OPERATIONS"; readonly expectedEvidence: readonly string[]; readonly externalSideEffectAllowed: false }
+export const usedCarsFirstStagingVerticalSlice: readonly VerticalSliceCheckpoint[] = Object.freeze([
+  { step: "IDENTITY_LOGIN", owner: "SECURITY", expectedEvidence: ["MFA-authenticated synthetic partner principal", "separate audience claim"], externalSideEffectAllowed: false },
+  { step: "TENANT_CONTEXT", owner: "ENGINEERING", expectedEvidence: ["transaction-local tenant/actor/branch settings", "connection reuse negative test"], externalSideEffectAllowed: false },
+  { step: "INVENTORY_CREATE", owner: "ENGINEERING", expectedEvidence: ["synthetic taxonomy ID", "encrypted fake VIN and HMAC fingerprint", "immutable revision"], externalSideEffectAllowed: false },
+  { step: "MODERATION_REVIEW", owner: "OPERATIONS", expectedEvidence: ["task-scoped grant", "independent second review"], externalSideEffectAllowed: false },
+  { step: "PUBLIC_PROJECTION", owner: "ENGINEERING", expectedEvidence: ["field allowlist", "VIN/plate/document absence", "evidence labels"], externalSideEffectAllowed: false },
+  { step: "LISTING_READ", owner: "ENGINEERING", expectedEvidence: ["read-only public DB role", "synthetic disclosure", "noindex staging"], externalSideEffectAllowed: false },
+  { step: "FAIL_CLOSED_SUSPENSION", owner: "SECURITY", expectedEvidence: ["zero public rows after tenant suspension", "grant and session revocation"], externalSideEffectAllowed: false },
+  { step: "AUDIT_CHAIN", owner: "SECURITY", expectedEvidence: ["hash-chain verification", "redacted event export"], externalSideEffectAllowed: false },
+]);
+export interface VerticalSliceResult { readonly step: VerticalSliceStep; readonly passed: boolean; readonly evidenceChecksums: readonly string[]; readonly executedAt: string; readonly environment: "STAGING"; readonly syntheticDataOnly: true }
+export function assessStagingVerticalSlice(results: readonly VerticalSliceResult[]) { const missing = usedCarsFirstStagingVerticalSlice.filter((checkpoint) => !results.some((result) => result.step === checkpoint.step && result.passed && result.syntheticDataOnly && result.environment === "STAGING" && result.evidenceChecksums.length >= checkpoint.expectedEvidence.length && result.evidenceChecksums.every((value) => /^sha256:[a-f0-9]{64}$/u.test(value)))).map((checkpoint) => checkpoint.step); return Object.freeze({ complete: missing.length === 0, missing: Object.freeze(missing), productionPromotionAuthorized: false as const, realDataUseAuthorized: false as const }); }
