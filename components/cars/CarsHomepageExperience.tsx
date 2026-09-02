@@ -48,6 +48,10 @@ export function CarsHomepageExperience({ children, startConversation = false }: 
               <span className="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
             </button>
             <Link href="/cars/catalog" className="inline-flex min-h-14 items-center rounded-full border border-stone-300 bg-white/90 px-6 text-base font-semibold text-stone-900 shadow-sm transition hover:border-emerald-600 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700">Araç kataloğunu incele</Link>
+            <Link href="/ikinciel" className="inline-flex min-h-14 items-center gap-2 rounded-full border border-amber-300 bg-amber-50/95 px-6 text-base font-semibold text-amber-950 shadow-sm transition hover:border-amber-500 hover:bg-amber-100 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-amber-700">
+              İkinci el
+              <span className="rounded-full bg-amber-200 px-2 py-0.5 text-[11px] font-bold uppercase tracking-[.08em] text-amber-950">Çok yakında</span>
+            </Link>
             <span className="text-sm text-stone-500">Ücretsiz · Türkçe · Kendi hızında</span>
           </div>
         </div>
@@ -76,7 +80,7 @@ export function CarsHomepageExperience({ children, startConversation = false }: 
     <footer className="border-t border-stone-200 bg-white px-5 py-10 text-stone-600 sm:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div><p className="text-lg font-semibold text-stone-950">EXPIYA <span className="font-light text-emerald-700">CARS</span></p><p className="mt-3 max-w-xl text-sm leading-6">Expiya Cars, SKYBIT Yazılım ve Bilgi Teknolojileri Danışmanlığı Ltd. Şti. tarafından geliştirilen yapay zekâ destekli sıfır araç karar platformudur.</p></div>
-        <nav aria-label="Yasal bağlantılar" className="flex flex-wrap gap-5 text-sm"><Link href="/gizlilik" className="hover:text-stone-950">Gizlilik ve KVKK</Link><Link href="/arac-oneri-kosullari" className="hover:text-stone-950">Araç önerisi koşulları</Link><Link href="/satis-danismani-bilgilendirmesi" className="hover:text-stone-950">Satış danışmanı bilgisi</Link></nav>
+        <nav aria-label="Site bağlantıları" className="flex flex-wrap gap-5 text-sm"><Link href="/ikinciel" className="hover:text-stone-950">İkinci el · çok yakında</Link><Link href="/gizlilik" className="hover:text-stone-950">Gizlilik ve KVKK</Link><Link href="/arac-oneri-kosullari" className="hover:text-stone-950">Araç önerisi koşulları</Link><Link href="/satis-danismani-bilgilendirmesi" className="hover:text-stone-950">Satış danışmanı bilgisi</Link></nav>
       </div>
       <div className="mx-auto mt-8 flex max-w-7xl items-center justify-between border-t border-stone-200 pt-6 text-xs"><span>© 2026 SKYBIT</span><span className="font-semibold tracking-[.24em] text-stone-400">XPY</span></div>
     </footer>
