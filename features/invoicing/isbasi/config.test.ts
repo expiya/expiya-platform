@@ -19,4 +19,17 @@ describe("İşbaşı configuration", () => {
     expect(() => resolveIsbasiConfig({ ...credentials, ISBASI_ENV: "live", ISBASI_API_BASE_URL: "https://api.example.com" })).toThrow("ISBASI_LIVE_INVOICING_DISABLED");
     expect(() => resolveIsbasiConfig({ ...credentials, ISBASI_ENV: "live", ISBASI_LIVE_INVOICING_ENABLED: "true", ISBASI_API_BASE_URL: "https://api.example.com" })).toThrow("ISBASI_PROVIDER_ORIGIN_REQUIRED");
   });
+
+  it("accepts only Logo's confirmed live origin when the explicit live gate is open", () => {
+    expect(resolveIsbasiConfig({
+      ...credentials,
+      ISBASI_ENV: "live",
+      ISBASI_LIVE_INVOICING_ENABLED: "true",
+      ISBASI_API_BASE_URL: "https://lite-mw.isbasi.com",
+    })).toMatchObject({
+      environment: "live",
+      baseUrl: "https://lite-mw.isbasi.com",
+      loginPath: "/api/v1.0/user/integrationLogin",
+    });
+  });
 });
