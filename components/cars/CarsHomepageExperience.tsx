@@ -25,7 +25,7 @@ export function CarsHomepageExperience({ children, startConversation = false }: 
 
       <div className="relative mx-auto flex min-h-[92svh] max-w-7xl flex-col px-5 pb-10 pt-6 sm:px-8 lg:px-12">
         <header className="flex items-center justify-between">
-          <Link href="/" className="inline-flex items-baseline gap-2 text-lg font-bold tracking-tight" aria-label="Expiya Cars ana sayfa">
+          <Link href="/cars" className="inline-flex items-baseline gap-2 text-lg font-bold tracking-tight" aria-label="Expiya Cars ana sayfa">
             EXPIYA <span className="font-light text-emerald-700">CARS</span>
           </Link>
           <p className="hidden text-xs font-medium uppercase tracking-[.22em] text-stone-500 sm:block">Experience · Powered by You</p>
@@ -80,7 +80,7 @@ export function CarsHomepageExperience({ children, startConversation = false }: 
     <footer className="border-t border-stone-200 bg-white px-5 py-10 text-stone-600 sm:px-8">
       <div className="mx-auto flex max-w-7xl flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <div><p className="text-lg font-semibold text-stone-950">EXPIYA <span className="font-light text-emerald-700">CARS</span></p><p className="mt-3 max-w-xl text-sm leading-6">Expiya Cars, SKYBIT Yazılım ve Bilgi Teknolojileri Danışmanlığı Ltd. Şti. tarafından geliştirilen yapay zekâ destekli sıfır araç karar platformudur.</p></div>
-        <nav aria-label="Site bağlantıları" className="flex flex-wrap gap-5 text-sm"><Link href="/ikinciel" className="hover:text-stone-950">İkinci el · çok yakında</Link><Link href="/gizlilik" className="hover:text-stone-950">Gizlilik ve KVKK</Link><Link href="/arac-oneri-kosullari" className="hover:text-stone-950">Araç önerisi koşulları</Link><Link href="/satis-danismani-bilgilendirmesi" className="hover:text-stone-950">Satış danışmanı bilgisi</Link></nav>
+        <nav aria-label="Site bağlantıları" className="flex flex-wrap gap-5 text-sm"><Link href="/" className="hover:text-stone-950">Expiya Platform</Link><Link href="/ikinciel" className="hover:text-stone-950">İkinci el · çok yakında</Link><Link href="/gizlilik" className="hover:text-stone-950">Gizlilik ve KVKK</Link><Link href="/cars/arac-oneri-kosullari" className="hover:text-stone-950">Araç önerisi koşulları</Link><Link href="/cars/satis-danismani-bilgilendirmesi" className="hover:text-stone-950">Satış danışmanı bilgisi</Link></nav>
       </div>
       <div className="mx-auto mt-8 flex max-w-7xl items-center justify-between border-t border-stone-200 pt-6 text-xs"><span>© 2026 SKYBIT</span><span className="font-semibold tracking-[.24em] text-stone-400">XPY</span></div>
     </footer>

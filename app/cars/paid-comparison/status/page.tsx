@@ -28,7 +28,7 @@ export default async function PaidComparisonPaymentStatusPage({
         </p>
         <StatusPanel paymentSucceeded={succeeded} />
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
-          <Link href="/" className="inline-flex min-h-12 items-center justify-center rounded-full bg-emerald-700 px-5 font-semibold text-white">
+          <Link href="/cars" className="inline-flex min-h-12 items-center justify-center rounded-full bg-emerald-700 px-5 font-semibold text-white">
             Expiya Cars’a dön
           </Link>
           <Link href="/gizlilik" className="inline-flex min-h-12 items-center justify-center rounded-full border border-stone-300 px-5 font-semibold text-stone-700">

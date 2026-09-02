@@ -14,7 +14,7 @@ export default function DevPaidComparisonBootstrap() {
         const payload = await response.json() as { token?: string; title?: string; message?: string };
         if (!response.ok || !payload.token) throw new Error(payload.message ?? "Test karşılaştırması hazırlanamadı.");
         storePaidComparisonHandoff(sessionStorage, payload.token);
-        storePaidComparisonReturnUrl(sessionStorage, "/");
+        storePaidComparisonReturnUrl(sessionStorage, "/cars");
         setMessage(`${payload.title ?? "Örnek araç"} ile karşılaştırma açılıyor…`);
         router.replace("/cars/paid-comparison");
       })

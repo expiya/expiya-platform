@@ -24,10 +24,10 @@ describe("paid comparison client handoff contract", () => {
     const values = new Map<string, string>();
     const storage = { setItem: (key: string, value: string) => values.set(key, value) };
 
-    storePaidComparisonReturnUrl(storage, "/decision/v3-car?source=card");
-    expect(values.get(PAID_COMPARISON_RETURN_URL_STORAGE_KEY)).toBe("/decision/v3-car?source=card");
+    storePaidComparisonReturnUrl(storage, "/cars/decision/v3-car?source=card");
+    expect(values.get(PAID_COMPARISON_RETURN_URL_STORAGE_KEY)).toBe("/cars/decision/v3-car?source=card");
 
     storePaidComparisonReturnUrl(storage, "//attacker.example/path");
-    expect(values.get(PAID_COMPARISON_RETURN_URL_STORAGE_KEY)).toBe("/decision/v3-car?source=card");
+    expect(values.get(PAID_COMPARISON_RETURN_URL_STORAGE_KEY)).toBe("/cars/decision/v3-car?source=card");
   });
 });

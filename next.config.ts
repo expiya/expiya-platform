@@ -1,8 +1,12 @@
 import type { NextConfig } from "next";
 import { withSentryConfig } from "@sentry/nextjs";
+import { legacyCarsRedirects } from "./lib/routing/carsRoutes";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  async redirects() {
+    return [...legacyCarsRedirects];
+  },
   outputFileTracingIncludes: {
     "/api/cars/conversation": [
       "./data/production/personas/safe-traits/**/*",

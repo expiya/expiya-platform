@@ -6,13 +6,14 @@ import { RECOMMENDATION_TERMS_VERSION } from "@/lib/legal/recommendationTerms";
 export const metadata: Metadata = {
   title: "Araç Önerisi ve Katalog Kullanım Koşulları | Expiya Cars",
   description: "Expiya Cars araç önerilerinin, katalog verilerinin ve karar desteğinin kapsamı.",
+  alternates: { canonical: "/cars/arac-oneri-kosullari" },
 };
 
 export default function RecommendationTermsPage() {
   return (
     <main className="min-h-screen bg-white px-5 py-12 text-neutral-950 sm:px-8">
       <article className="mx-auto max-w-3xl rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 sm:p-10">
-        <Link href="/analysis" className="text-sm font-semibold underline underline-offset-4">← Görüşmeye dön</Link>
+        <Link href="/cars/analysis" className="text-sm font-semibold underline underline-offset-4">← Görüşmeye dön</Link>
         <p className="mt-8 text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">{RECOMMENDATION_TERMS_VERSION}</p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Araç Önerisi ve Katalog Kullanım Koşulları</h1>
 

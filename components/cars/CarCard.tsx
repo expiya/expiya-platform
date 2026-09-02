@@ -33,7 +33,7 @@ export function CarCard({ recommendedCar, locale = "tr", position = 1 }: CarCard
 
   return (
     <TrackedVehicleLink
-      href={`/decision/${decision.decisionId}`}
+      href={`/cars/decision/${decision.decisionId}`}
       ariaLabel={`${title} ${isTurkish ? "karar ayrıntısını aç" : "open decision details"}`}
       surface="legacy_recommendations"
       position={position}

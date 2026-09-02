@@ -8,9 +8,9 @@ import "@fontsource/noto-sans/700.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Expiya Cars - Sana Uygun Sıfır Aracı Bul",
-  description:
-    "Expiya Cars, Türkiye'deki sıfır araç seçeneklerini ihtiyaçlarınıza ve bütçenize göre değerlendirerek doğru aracı seçmenize yardımcı olur.",
+  metadataBase: new URL("https://www.expiya.com"),
+  title: "Expiya — Karar Platformu",
+  description: "Önemli seçimlerde seçenekleri değerlendirmenize ve kararınızı netleştirmenize yardımcı olan Expiya platformu.",
 };
 
 export default function RootLayout({ children }: { readonly children: ReactNode }) {
