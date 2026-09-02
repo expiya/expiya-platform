@@ -1,4 +1,5 @@
 import { PAID_COMPARISON_LEGAL_READY } from "./legalArtifacts";
+import { assessIsbasiEnvironment } from "@/features/invoicing/isbasi/readiness";
 
 export type PaidComparisonReadinessFailure =
   | "DATABASE_URL_MISSING" | "SIGNING_SECRET_MISSING" | "IYZICO_CREDENTIALS_MISSING"
@@ -42,6 +43,14 @@ export function assessPaidComparisonReadiness(input: {
 
 export function assessPaidComparisonEnvironment(environment: NodeJS.ProcessEnv) {
   const mode = environment.IYZICO_ENV === "live" ? "live" : "sandbox";
+  const invoiceProvider = assessIsbasiEnvironment({
+    ISBASI_ENV: environment.ISBASI_ENV,
+    ISBASI_API_BASE_URL: environment.ISBASI_API_BASE_URL,
+    ISBASI_API_KEY: environment.ISBASI_API_KEY,
+    ISBASI_USERNAME: environment.ISBASI_USERNAME,
+    ISBASI_PASSWORD: environment.ISBASI_PASSWORD,
+    ISBASI_LIVE_INVOICING_ENABLED: environment.ISBASI_LIVE_INVOICING_ENABLED,
+  });
   return assessPaidComparisonReadiness({
     mode,
     databaseUrl: environment.DATABASE_URL,
@@ -51,7 +60,9 @@ export function assessPaidComparisonEnvironment(environment: NodeJS.ProcessEnv) 
     callbackUrl: environment.IYZICO_CALLBACK_URL,
     liveGateEnabled: environment.IYZICO_LIVE_PAYMENTS_ENABLED === "true",
     legalReady: PAID_COMPARISON_LEGAL_READY && environment.PAID_COMPARISON_LEGAL_APPROVED === "true",
-    invoiceReady: environment.SKYBIT_INVOICE_PROCESS_READY === "true",
+    invoiceReady: environment.SKYBIT_INVOICE_PROCESS_READY === "true"
+      && invoiceProvider.ready
+      && invoiceProvider.mode === "live",
     sandboxE2ePassed: environment.PAID_COMPARISON_SANDBOX_E2E_PASSED === "true",
     piiEncryptionKey: environment.PAID_REPORT_PII_KEY,
     resendApiKey: environment.RESEND_API_KEY,
