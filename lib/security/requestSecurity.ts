@@ -42,6 +42,10 @@ function logSecurityEvent(event: string, fields: Record<string, string | number>
 export function verifySameOrigin(request: Request): Response | undefined {
   const contentType = request.headers.get("content-type")?.split(";")[0];
   if (contentType !== "application/json") return Response.json({ message: "Yalnızca JSON istekleri kabul ediliyor." }, { status: 415 });
+  return verifyRequestOrigin(request);
+}
+
+export function verifyRequestOrigin(request: Request): Response | undefined {
   const origin = request.headers.get("origin");
   if (!origin) return undefined;
   const expectedOrigin = new URL(request.url).origin;

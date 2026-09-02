@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const mocks = vi.hoisted(() => ({
   create: vi.fn(),
   enforceRateLimit: vi.fn(),
-  verifySameOrigin: vi.fn(),
+  verifyRequestOrigin: vi.fn(),
 }));
 
 vi.mock("@/lib/openai", () => ({
@@ -11,7 +11,7 @@ vi.mock("@/lib/openai", () => ({
 }));
 vi.mock("@/lib/security/requestSecurity", () => ({
   enforceRateLimit: mocks.enforceRateLimit,
-  verifySameOrigin: mocks.verifySameOrigin,
+  verifyRequestOrigin: mocks.verifyRequestOrigin,
 }));
 
 import { POST } from "./route";
@@ -49,7 +49,7 @@ describe("first-message Turkish voice transcription", () => {
   });
 
   it("honors same-origin and rate-limit rejections", async () => {
-    mocks.verifySameOrigin.mockReturnValueOnce(new Response(null, { status: 403 }));
+    mocks.verifyRequestOrigin.mockReturnValueOnce(new Response(null, { status: 403 }));
     expect((await POST(requestWithAudio())).status).toBe(403);
     expect(mocks.enforceRateLimit).not.toHaveBeenCalled();
   });

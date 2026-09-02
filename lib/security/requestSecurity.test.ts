@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "./requestSecurity";
+import { enforceRateLimit, readJsonWithLimit, verifyRequestOrigin, verifySameOrigin } from "./requestSecurity";
 
 function request(overrides: RequestInit = {}) {
   return new Request("https://expiya.com/api/test", { method: "POST", headers: { "content-type": "application/json", "x-forwarded-for": crypto.randomUUID(), ...overrides.headers }, body: overrides.body ?? "{}" });
@@ -27,6 +27,15 @@ describe("request security", () => {
 
   it("rejects non-JSON writes", () => {
     expect(verifySameOrigin(request({ headers: { "content-type": "text/plain" } }))?.status).toBe(415);
+  });
+
+  it("allows same-origin multipart requests when the route validates its media type", () => {
+    const input = new Request("https://expiya.com/api/test", {
+      method: "POST",
+      headers: { origin: "https://expiya.com", "content-type": "multipart/form-data; boundary=test" },
+    });
+    expect(verifyRequestOrigin(input)).toBeUndefined();
+    expect(verifySameOrigin(input)?.status).toBe(415);
   });
 
   it("limits repeated requests per client and scope", async () => {

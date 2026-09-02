@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 import { getOpenAIClient } from "@/lib/openai";
-import { enforceRateLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
+import { enforceRateLimit, verifyRequestOrigin } from "@/lib/security/requestSecurity";
 
 const MAX_AUDIO_BYTES = 6 * 1024 * 1024;
 const allowedAudioTypes = new Set([
@@ -27,7 +27,7 @@ async function hasExpectedAudioSignature(file: File, type: string): Promise<bool
 }
 
 export async function POST(request: Request): Promise<Response> {
-  const originRejected = verifySameOrigin(request);
+  const originRejected = verifyRequestOrigin(request);
   if (originRejected) return originRejected;
   const limited = await enforceRateLimit(request, { scope: "cars-first-voice-message", limit: 5, windowMs: 10 * 60_000 });
   if (limited) return limited;

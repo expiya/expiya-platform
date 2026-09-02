@@ -100,11 +100,19 @@ export function FirstMessageVoiceInput({
           type="button"
           disabled={disabled || recordingState === "transcribing"}
           onClick={recordingState === "recording" ? stopRecording : () => void startRecording()}
-          className={`inline-flex min-h-11 items-center gap-2 rounded-full px-4 text-sm font-semibold text-white shadow-sm transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 disabled:cursor-not-allowed disabled:opacity-50 ${recordingState === "recording" ? "bg-rose-600 hover:bg-rose-500" : "bg-emerald-700 hover:bg-emerald-600"}`}
+          className={`inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-full text-white shadow-sm transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 disabled:cursor-not-allowed disabled:opacity-50 ${recordingState === "recording" ? "bg-rose-600 hover:bg-rose-500" : "bg-emerald-700 hover:bg-emerald-600"}`}
           aria-label={recordingState === "recording" ? "Ses kaydını bitir" : "İlk mesajı sesli anlat"}
+          title={recordingState === "recording" ? "Ses kaydını bitir" : "İlk mesajı sesli anlat"}
         >
-          <span aria-hidden="true">{recordingState === "recording" ? "■" : "●"}</span>
-          {recordingState === "recording" ? "Kaydı bitir" : recordingState === "transcribing" ? "Türkçe metne çevriliyor…" : "İlk mesajını sesli anlat"}
+          {recordingState === "recording" ? (
+            <span aria-hidden="true" className="h-4 w-4 rounded-sm bg-white" />
+          ) : (
+            <svg aria-hidden="true" viewBox="0 0 24 24" className={`h-6 w-6 fill-none stroke-current ${recordingState === "transcribing" ? "animate-pulse" : ""}`} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="9" y="2" width="6" height="12" rx="3" />
+              <path d="M5 10a7 7 0 0 0 14 0M12 17v5M8 22h8" />
+            </svg>
+          )}
+          <span className="sr-only">{recordingState === "recording" ? "Kaydı bitir" : recordingState === "transcribing" ? "Türkçe metne çevriliyor" : "İlk mesajını sesli anlat"}</span>
         </button>
         <p className="min-w-0 flex-1 text-xs leading-5 text-stone-600 dark:text-stone-300">
           {recordingState === "recording" ? `Dinliyorum · ${elapsedSeconds}/60 saniye` : "En fazla 60 saniye konuş. Metni kontrol edip düzenledikten sonra sen gönderirsin."}
