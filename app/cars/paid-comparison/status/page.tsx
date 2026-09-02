@@ -1,5 +1,6 @@
 import Link from "next/link";
 import StatusPanel from "./StatusPanel";
+import InvoiceForm from "./InvoiceForm";
 
 export const metadata = {
   title: "Ödeme durumu | Expiya Cars",
@@ -13,6 +14,8 @@ export default async function PaidComparisonPaymentStatusPage({
 }) {
   const { payment } = await searchParams;
   const succeeded = payment === "success";
+  const invoiceEnabled = process.env.ISBASI_LIVE_INVOICING_ENABLED === "true"
+    && process.env.SKYBIT_INVOICE_PROCESS_READY === "true";
 
   return (
     <main className="min-h-screen bg-[#f7f8f5] text-stone-950"><header className="border-b border-stone-200 bg-white"><div className="mx-auto max-w-5xl px-5 py-5 text-lg font-bold tracking-tight">EXPIYA <span className="font-light text-emerald-700">CARS</span></div></header><div className="mx-auto flex min-h-[70vh] max-w-2xl items-center px-5 py-16">
@@ -27,6 +30,7 @@ export default async function PaidComparisonPaymentStatusPage({
             : "Kartınızdan tahsilat yapıldığına dair bir bildirim görüyorsanız yeniden ödeme denemeyin. İşlem güvenli biçimde kontrol edilecektir."}
         </p>
         <StatusPanel paymentSucceeded={succeeded} />
+        {succeeded && invoiceEnabled && <InvoiceForm />}
         <div className="mt-7 flex flex-col gap-3 sm:flex-row">
           <Link href="/cars" className="inline-flex min-h-12 items-center justify-center rounded-full bg-emerald-700 px-5 font-semibold text-white">
             Expiya Cars’a dön
