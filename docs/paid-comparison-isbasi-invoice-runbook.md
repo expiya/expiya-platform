@@ -37,9 +37,9 @@ bearer token, tenantId, TCKN/VKN, açık adres, telefon veya e-posta yazılmamal
    58,17 TL KDV = 349,00 TL), belge türünü ve internet satışına ilişkin zorunlu alanları
    yazılı olarak onaylar.
 3. Sentetik bir alıcıyla yalnız bir sandbox fatura oluşturulur; dönen invoice ID kaydedilir.
-4. Aynı sipariş için tekrar deneme yapılarak uygulama seviyesindeki unique order kilidinin
-   ikinci yazmayı engellediği doğrulanır. Bu kilit henüz uygulanmadığı için bu adım şu an
-   `BLOCKED` durumundadır.
+4. Aynı sipariş için paralel/tekrar istek yapılarak `paid_report_invoices.order_id`
+   birincil anahtar kilidinin ikinci sağlayıcı yazmasını engellediği doğrulanır. Belirsiz
+   sağlayıcı sonucu otomatik tekrar edilmez; `REVIEW_REQUIRED` durumuna alınır.
 5. Sandbox belgesinin İşbaşı panelindeki matrah/KDV/toplam ve belge durumu kontrol edilir.
 6. Hatalı token, 401/403/429/5xx, timeout ve bilinmeyen yanıt testleri yapılır; kullanıcıya
    sağlayıcı gövdesi veya PII sızmadığı doğrulanır.
@@ -49,8 +49,8 @@ bearer token, tenantId, TCKN/VKN, açık adres, telefon veya e-posta yazılmamal
 
 - Fatura için gereken TCKN/VKN ve adresin ödeme ile callback arasındaki yaşam döngüsü:
   ham değeri kalıcı saklamayan, KVKK saklama/silme süresi belirlenmiş bir tasarım.
-- Sipariş başına tek fatura garantisi: veritabanında `order_id` unique outbox kaydı,
-  atomik claim, sınırlı retry ve manuel inceleme durumu.
+- `0017_paid_report_invoices.sql` migration'ının hedef veritabanına uygulanması ve
+  `PROCESSING`/`ISSUED`/`REVIEW_REQUIRED` operasyon prosedürünün doğrulanması.
 - İşbaşı'nın canlı BASE_URL ve anahtarlarının doğrulanması ve rotasyon prosedürü.
 - Sandbox E2E kanıtı, muhasebe onayı ve hata/iptal/iade mutabakatı.
 - `SKYBIT_INVOICE_PROCESS_READY=true` ve `ISBASI_LIVE_INVOICING_ENABLED=true`
