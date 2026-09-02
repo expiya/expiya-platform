@@ -4,7 +4,8 @@
 
 Kod, Logo İşbaşı'nın 1.0.9 tarihli resmî Swagger sözleşmesindeki tek hesaplı giriş ve
 `POST /api/v1.0/invoices/integrationInvoices` uçlarını temel alır. Sandbox hostu kodda
-tam origin olarak sabitlenmiştir. Canlı host, canlı mod ve ayrıca
+tam origin olarak sabitlenmiştir. Logo'nun destek kaydı üzerinden bildirdiği canlı origin
+`https://lite-mw.isbasi.com` olarak ayrıca sabitlenmiştir. Canlı host, canlı mod ve ayrıca
 `ISBASI_LIVE_INVOICING_ENABLED=true` olmadan kabul edilmez.
 
 Bu değişiklik gerçek fatura kesimini etkinleştirmez. Sağlayıcıya yazma çağrısı yapan bir

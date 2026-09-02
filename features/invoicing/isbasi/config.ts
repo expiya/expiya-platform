@@ -1,6 +1,7 @@
 import "server-only";
 
 const SANDBOX_ORIGIN = "https://soho-isbasi-mwv2-test.logo-paas.com" as const;
+const LIVE_ORIGIN = "https://lite-mw.isbasi.com" as const;
 
 export interface IsbasiEnvironment {
   readonly ISBASI_ENV?: string;
@@ -25,7 +26,7 @@ function validatedOrigin(value: string): string {
   if (url.protocol !== "https:" || url.username || url.password || url.port || url.pathname !== "/" || url.search || url.hash) {
     throw new TypeError("ISBASI_BASE_URL_INVALID");
   }
-  if (url.hostname !== "logo-paas.com" && !url.hostname.endsWith(".logo-paas.com")) {
+  if (url.origin !== SANDBOX_ORIGIN && url.origin !== LIVE_ORIGIN) {
     throw new TypeError("ISBASI_PROVIDER_ORIGIN_REQUIRED");
   }
   return url.origin;
@@ -45,7 +46,7 @@ export function resolveIsbasiConfig(environment: IsbasiEnvironment): IsbasiConfi
 
   const baseUrl = validatedOrigin(environment.ISBASI_API_BASE_URL?.trim() || SANDBOX_ORIGIN);
   if (mode === "sandbox" && baseUrl !== SANDBOX_ORIGIN) throw new TypeError("ISBASI_SANDBOX_ORIGIN_REQUIRED");
-  if (mode === "live" && baseUrl === SANDBOX_ORIGIN) throw new TypeError("ISBASI_LIVE_ORIGIN_REQUIRED");
+  if (mode === "live" && baseUrl !== LIVE_ORIGIN) throw new TypeError("ISBASI_LIVE_ORIGIN_REQUIRED");
 
   return {
     environment: mode,

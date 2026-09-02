@@ -1,4 +1,5 @@
 const SANDBOX_ORIGIN = "https://soho-isbasi-mwv2-test.logo-paas.com";
+const LIVE_ORIGIN = "https://lite-mw.isbasi.com";
 
 export interface IsbasiReadinessEnvironment {
   readonly ISBASI_ENV?: string;
@@ -17,9 +18,9 @@ export function assessIsbasiEnvironment(environment: IsbasiReadinessEnvironment)
   try {
     const url = new URL(environment.ISBASI_API_BASE_URL?.trim() || SANDBOX_ORIGIN);
     if (url.protocol !== "https:" || url.username || url.password || url.port || url.pathname !== "/" || url.search || url.hash) failures.push("ISBASI_BASE_URL_INVALID");
-    if (url.hostname !== "logo-paas.com" && !url.hostname.endsWith(".logo-paas.com")) failures.push("ISBASI_PROVIDER_ORIGIN_REQUIRED");
+    if (url.origin !== SANDBOX_ORIGIN && url.origin !== LIVE_ORIGIN) failures.push("ISBASI_PROVIDER_ORIGIN_REQUIRED");
     if (mode === "sandbox" && url.origin !== SANDBOX_ORIGIN) failures.push("ISBASI_SANDBOX_ORIGIN_REQUIRED");
-    if (mode === "live" && url.origin === SANDBOX_ORIGIN) failures.push("ISBASI_LIVE_ORIGIN_REQUIRED");
+    if (mode === "live" && url.origin !== LIVE_ORIGIN) failures.push("ISBASI_LIVE_ORIGIN_REQUIRED");
   } catch {
     failures.push("ISBASI_BASE_URL_INVALID");
   }
