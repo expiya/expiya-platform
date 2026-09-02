@@ -32,7 +32,7 @@ export default function PaidComparisonFlow({ checkoutEnabled, legalTexts }: { ch
   const [step, setStep] = useState<Step>("loading");
   const [message, setMessage] = useState("");
   const [busy, setBusy] = useState(false);
-  const [returnUrl, setReturnUrl] = useState("/");
+  const [returnUrl, setReturnUrl] = useState("/cars");
 
   useEffect(() => {
     const storedReturnUrl = sessionStorage.getItem(PAID_COMPARISON_RETURN_URL_STORAGE_KEY) ?? "";
@@ -95,7 +95,7 @@ export default function PaidComparisonFlow({ checkoutEnabled, legalTexts }: { ch
   }
 
   return <main className="min-h-screen bg-[#f7f8f5] text-stone-950">
-    <header className="border-b border-stone-200 bg-white"><div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-5"><Link href="/" className="text-lg font-bold tracking-tight">EXPIYA <span className="font-light text-emerald-700">CARS</span></Link><p className="hidden text-xs font-medium uppercase tracking-[.22em] text-stone-500 sm:block">Experience · Powered by You</p></div></header>
+    <header className="border-b border-stone-200 bg-white"><div className="mx-auto flex max-w-5xl items-center justify-between px-5 py-5"><Link href="/cars" className="text-lg font-bold tracking-tight">EXPIYA <span className="font-light text-emerald-700">CARS</span></Link><p className="hidden text-xs font-medium uppercase tracking-[.22em] text-stone-500 sm:block">Experience · Powered by You</p></div></header>
     <div className="mx-auto max-w-5xl px-5 py-8 sm:py-14"><header><Link href={returnUrl} className="mb-6 inline-flex min-h-11 items-center rounded-full border border-stone-300 bg-white px-5 text-sm font-semibold text-stone-800 transition hover:border-stone-500">← Araç kararıma dön</Link><p className="text-xs font-semibold uppercase tracking-[.28em] text-emerald-700">Kişisel karşılaştırma</p><h1 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-[-.04em] text-stone-950 sm:text-5xl">3 araç karar doğrulama raporu</h1><p className="mt-5 max-w-2xl leading-7 text-stone-600">Karar kartındaki aracın yanında aynı sınıftan iki aracı sen seç. KDV dâhil tek fiyat: <strong className="text-stone-950">349 TL</strong>.</p><Link href="/cars/paid-comparison/sample" className="mt-4 inline-block text-sm font-semibold text-emerald-700 underline underline-offset-4">Satın almadan önce örnek raporu gör</Link></header>
     {step === "loading" && <p className="mt-10">Seçenekler hazırlanıyor…</p>}
     {step === "error" && <section className="mt-8 rounded-2xl border p-5"><p>{message}</p><Link className="mt-4 inline-block underline" href={returnUrl}>Araç kararıma dön</Link></section>}

@@ -70,7 +70,7 @@ function V2DecisionDetail({ card }: { readonly card: DecisionSafePublicCard }) {
   const details = [card.modelYear, card.fuelLabel, card.transmissionLabel, card.bodyTypeLabel].filter(Boolean).join(" · ");
   return <main className="min-h-screen bg-white p-5 text-neutral-950 sm:p-10">
     <div className="mx-auto max-w-4xl">
-      <Link href="/analysis" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
+      <Link href="/cars/analysis" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
       <article className="mt-6 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
         <div className="relative aspect-[16/9]"><Image src={card.image} alt={`${card.brand} ${card.model}`} fill priority sizes="(max-width: 900px) 100vw, 850px" className="object-cover" /></div>
         <div className="space-y-5 p-6 sm:p-8">
@@ -136,7 +136,7 @@ function V3DecisionDetail({ context }: { readonly context: V3DecisionContext }) 
 
   return <main className="min-h-screen bg-white p-5 text-neutral-950 sm:p-10">
     <div className="mx-auto max-w-4xl">
-      <Link href="/" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
+      <Link href="/cars" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">← Görüşmeye dön</Link>
       <article className="mt-6 overflow-hidden rounded-3xl border border-neutral-200 bg-white shadow-sm dark:border-neutral-800 dark:bg-neutral-900">
         <div className="relative aspect-[16/9]"><Image src={card.image} alt={`${card.title} araç görseli`} fill priority sizes="(max-width: 900px) 100vw, 850px" className="object-cover" /></div>
         <div className="space-y-5 p-6 sm:p-8">
@@ -225,7 +225,7 @@ export default function DecisionDetailPage() {
           <p className="mt-4 text-neutral-600 dark:text-neutral-300">
             Bu karar bu tarayıcıdaki mevcut görüşmede bulunmuyor.
           </p>
-          <Link href="/" className="mt-6 inline-flex rounded-xl bg-black px-5 py-3 font-semibold text-white">
+          <Link href="/cars" className="mt-6 inline-flex rounded-xl bg-black px-5 py-3 font-semibold text-white">
             Yeni görüşme başlat
           </Link>
         </div>
@@ -271,7 +271,7 @@ export default function DecisionDetailPage() {
   return (
     <main className="min-h-screen bg-white p-5 text-neutral-950 sm:p-10">
       <div className="mx-auto max-w-4xl">
-        <Link href="/analysis" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">
+        <Link href="/cars/analysis" className="text-sm font-semibold text-neutral-600 hover:text-black dark:text-neutral-300 dark:hover:text-white">
           ← Görüşmeye dön
         </Link>
         <h1 className="mt-5 text-4xl font-bold">Bu araç sizin için ne ifade ediyor?</h1>

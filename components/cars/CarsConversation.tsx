@@ -529,7 +529,7 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                           onChange={(event) => setRecommendationTermsChecked(event.target.checked)}
                           className="mt-1 h-4 w-4 accent-neutral-950"
                         />
-                        <span><Link href="/arac-oneri-kosullari" className="font-semibold underline underline-offset-4">Araç Önerisi ve Katalog Kullanım Koşulları’nı</Link> ({RECOMMENDATION_TERMS_VERSION}) okudum ve kabul ediyorum.</span>
+                        <span><Link href="/cars/arac-oneri-kosullari" className="font-semibold underline underline-offset-4">Araç Önerisi ve Katalog Kullanım Koşulları’nı</Link> ({RECOMMENDATION_TERMS_VERSION}) okudum ve kabul ediyorum.</span>
                       </label>
                       <button
                         type="button"

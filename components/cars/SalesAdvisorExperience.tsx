@@ -287,7 +287,7 @@ function AdvisorPanel({
         <p className="mt-2 px-2 text-[10px] leading-4 text-stone-500">
           Aynı araç oturumunda işlenir; kişisel veya hassas veri yazmayın.{" "}
           <Link
-            href="/satis-danismani-bilgilendirmesi"
+            href="/cars/satis-danismani-bilgilendirmesi"
             target="_blank"
             className="font-semibold underline underline-offset-2"
           >
@@ -430,7 +430,7 @@ export function SalesAdvisorExperience({
             Bağlantı eski, değiştirilmiş veya bu görüşmeye ait değil.
           </p>
           <Link
-            href="/?resume=conversation#sohbet"
+            href="/cars?resume=conversation#sohbet"
             className="mt-6 inline-flex rounded-full bg-emerald-700 px-5 py-3 font-semibold text-white"
           >
             Karar motoru sohbetine dön
@@ -449,7 +449,7 @@ export function SalesAdvisorExperience({
     );
   const { artifact, handoff } = data;
   const fromCatalog = handoff.entrySource === "CATALOG";
-  const backHref = fromCatalog ? "/cars/catalog" : "/?resume=conversation#sohbet";
+  const backHref = fromCatalog ? "/cars/catalog" : "/cars?resume=conversation#sohbet";
   const backLabel = fromCatalog ? "Araç kataloğuna dön" : "Karar motoru sohbetine dön";
   const pageNavigation = fromCatalog ? navigation.filter(([id]) => id !== "fit") : navigation;
   const hero = artifact.media[activeMedia] ?? artifact.media[0];
@@ -459,7 +459,7 @@ export function SalesAdvisorExperience({
     <main className="expiya-adaptive-surface min-h-screen bg-white text-stone-950">
       <header className="sticky top-0 z-40 border-b border-stone-200 bg-white/95 text-stone-950 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-5 sm:px-8">
-          <Link href="/" className="text-lg font-bold tracking-tight">
+          <Link href="/cars" className="text-lg font-bold tracking-tight">
             EXPIYA <span className="font-light text-emerald-700">CARS</span>
           </Link>
           <nav

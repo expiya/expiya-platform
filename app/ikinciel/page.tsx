@@ -10,10 +10,10 @@ export default function UsedCarsComingSoonPage() {
     <main className="min-h-screen bg-white px-5 py-6 text-stone-950 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-6xl">
         <header className="flex items-center justify-between border-b border-stone-200 pb-5">
-          <Link href="/" className="inline-flex items-baseline gap-2 text-lg font-bold tracking-tight" aria-label="Expiya Cars ana sayfa">
+          <Link href="/cars" className="inline-flex items-baseline gap-2 text-lg font-bold tracking-tight" aria-label="Expiya Cars ana sayfa">
             EXPIYA <span className="font-light text-emerald-700">CARS</span>
           </Link>
-          <Link href="/" className="inline-flex min-h-11 items-center rounded-full border border-stone-300 px-4 text-sm font-semibold hover:border-emerald-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700">
+          <Link href="/cars" className="inline-flex min-h-11 items-center rounded-full border border-stone-300 px-4 text-sm font-semibold hover:border-emerald-600 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700">
             Sıfır araçlara dön
           </Link>
         </header>

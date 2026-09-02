@@ -3,6 +3,7 @@
 import { Analytics, type BeforeSendEvent } from "@vercel/analytics/next";
 
 const dynamicPathRules: readonly [RegExp, string][] = [
+  [/^\/cars\/decision\/[^/]+$/u, "/cars/decision/[id]"],
   [/^\/decision\/[^/]+$/u, "/decision/[id]"],
   [/^\/cars\/variant\/[^/]+$/u, "/cars/variant/[id]"],
   [/^\/cars\/sales-request\/[^/]+$/u, "/cars/sales-request/[intent]"],
