@@ -8,8 +8,8 @@ import PlatformHome, { metadata } from "./page";
 describe("Expiya platform landing", () => {
   it("offers Cars as the active domain and marks future domains as upcoming", () => {
     const html = renderToStaticMarkup(<PlatformHome />);
-    expect(html).toContain("Ne seçmek istiyorsunuz?");
-    expect(html).toContain("Expiya Sekreter");
+    expect(html).toContain("Ne satın almak istiyorsunuz?");
+    expect(html).toContain("Bireysel satın alma platformu");
     expect(html).toContain('href="/cars"');
     expect(html).toContain("Otomobiller");
     expect(html).toContain("Elektronik");
@@ -21,7 +21,7 @@ describe("Expiya platform landing", () => {
   });
 
   it("publishes platform metadata at the root canonical URL", () => {
-    expect(metadata.title).toBe("Expiya — Karar Platformu");
+    expect(metadata.title).toBe("Expiya — Bireysel Satın Alma Platformu");
     expect(metadata.alternates).toEqual({ canonical: "/" });
   });
 });

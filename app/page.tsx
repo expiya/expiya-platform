@@ -3,35 +3,35 @@ import Link from "next/link";
 import { UpperSecretary } from "@/components/platform/UpperSecretary";
 
 export const metadata: Metadata = {
-  title: "Expiya — Karar Platformu",
-  description: "Otomobil, ev yaşamı, seyahat ve eğitim gibi önemli seçimlerde karar vermenize yardımcı olan Expiya platformu.",
+  title: "Expiya — Bireysel Satın Alma Platformu",
+  description: "Otomobilden elektroniğe, günlük satın alma kararlarınızı ihtiyaçlarınıza göre netleştiren Expiya bireysel satın alma platformu.",
   alternates: { canonical: "/" },
 };
 
 const departments: readonly { readonly name: string; readonly href?: string; readonly tone: string }[] = [
-  { name: "Otomobiller", href: "/cars", tone: "from-emerald-200 to-teal-100" },
-  { name: "Elektronik", tone: "from-teal-200 to-cyan-100" },
-  { name: "Ev aletleri", tone: "from-cyan-200 to-sky-100" },
-  { name: "Oteller", tone: "from-sky-200 to-indigo-100" },
-  { name: "Kurslar", tone: "from-indigo-200 to-violet-100" },
-  { name: "Evler", tone: "from-violet-200 to-fuchsia-100" },
+  { name: "Otomobiller", href: "/cars", tone: "from-black to-neutral-600" },
+  { name: "Elektronik", tone: "from-neutral-950 to-neutral-500" },
+  { name: "Ev aletleri", tone: "from-neutral-900 to-neutral-400" },
+  { name: "Oteller", tone: "from-neutral-800 to-neutral-400" },
+  { name: "Kurslar", tone: "from-neutral-700 to-neutral-300" },
+  { name: "Evler", tone: "from-neutral-600 to-neutral-300" },
 ];
 
 export default function PlatformHome() {
   return (
-    <main className="min-h-screen bg-[#fafaf7] px-5 py-8 text-stone-950 sm:px-8 sm:py-12">
-      <div className="mx-auto max-w-6xl">
+    <main className="min-h-screen bg-[#f7f7f5] px-5 py-7 text-neutral-950 sm:px-8 sm:py-9">
+      <div className="mx-auto flex min-h-[calc(100vh-3.5rem)] max-w-7xl flex-col sm:min-h-[calc(100vh-4.5rem)]">
         <header className="flex items-center justify-between">
           <p className="text-lg font-bold tracking-[0.2em]">EXPIYA</p>
-          <p className="text-xs text-stone-500">Karar platformu</p>
+          <p className="text-xs font-medium uppercase tracking-[.15em] text-neutral-500">Bireysel satın alma platformu</p>
         </header>
-        <div className="py-16 sm:py-24"><UpperSecretary /></div>
-        <nav aria-label="Departmanlar" className="overflow-x-auto pb-3">
-          <div className="mx-auto flex w-max min-w-full justify-center gap-2">
+        <div className="flex flex-1 items-center py-14 sm:py-20"><UpperSecretary /></div>
+        <nav aria-label="Satın alma departmanları" className="overflow-x-auto pb-5 pt-4">
+          <div className="mx-auto flex w-max min-w-full items-baseline justify-center gap-x-7 gap-y-3 sm:gap-x-10">
             {departments.map((department) => department.href ? (
-              <Link key={department.name} href={department.href} className={`rounded-full bg-gradient-to-r ${department.tone} px-5 py-3 text-sm font-semibold text-stone-900 transition hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700`}>{department.name}</Link>
+              <Link key={department.name} href={department.href} className={`bg-gradient-to-r ${department.tone} bg-clip-text text-2xl font-black uppercase tracking-[-.04em] text-transparent transition hover:opacity-55 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900 sm:text-3xl lg:text-4xl`}>{department.name}</Link>
             ) : (
-              <span key={department.name} aria-label={`${department.name}, yakında`} className={`rounded-full bg-gradient-to-r ${department.tone} px-5 py-3 text-sm font-semibold text-stone-600 opacity-70`}>{department.name}</span>
+              <span key={department.name} aria-label={`${department.name}, yakında`} className={`bg-gradient-to-r ${department.tone} bg-clip-text text-2xl font-black uppercase tracking-[-.04em] text-transparent sm:text-3xl lg:text-4xl`}>{department.name}</span>
             ))}
           </div>
         </nav>
