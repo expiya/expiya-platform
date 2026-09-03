@@ -4,7 +4,7 @@ import { UpperSecretary } from "@/components/platform/UpperSecretary";
 
 export const metadata: Metadata = {
   title: "Expiya — Bireysel Satın Alma Platformu",
-  description: "Otomobilden elektroniğe, günlük satın alma kararlarınızı ihtiyaçlarınıza göre netleştiren Expiya bireysel satın alma platformu.",
+  description: "Expiya, ihtiyaçlarınızı anlayan, seçenekleri güvenilir verilerle karşılaştıran ve size gerekçeli satın alma kararları sunan bireysel satın alma platformudur.",
   alternates: { canonical: "/" },
 };
 

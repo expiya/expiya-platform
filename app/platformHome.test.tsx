@@ -10,6 +10,8 @@ describe("Expiya platform landing", () => {
     const html = renderToStaticMarkup(<PlatformHome />);
     expect(html).toContain("Ne satın almak istiyorsunuz?");
     expect(html).toContain("Bireysel satın alma platformu");
+    expect(html).toContain("Çok seçenek. Tek, gerekçeli karar.");
+    expect(html).toContain("Sponsorlu sıralamalara göre değil");
     expect(html).toContain("Ailem için güvenli bir otomobil arıyorum");
     expect(html).toContain('href="/cars"');
     expect(html).toContain("Otomobil");

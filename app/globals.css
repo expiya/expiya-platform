@@ -54,27 +54,17 @@ body:has([data-cars-homepage]) > .site-legal-footer {
   display: none;
 }
 
-@keyframes secretary-suggestion-slide {
-  from {
-    opacity: 0;
-    transform: translateY(0.7rem);
-  }
-  18%, 82% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-0.7rem);
-  }
+@keyframes secretary-cursor-blink {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
 }
 
-.secretary-suggestion {
-  animation: secretary-suggestion-slide 3.2s ease-in-out both;
+.secretary-type-cursor {
+  animation: secretary-cursor-blink 0.9s step-end infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .secretary-suggestion {
+  .secretary-type-cursor {
     animation: none;
   }
 }
