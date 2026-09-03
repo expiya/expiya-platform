@@ -38,7 +38,7 @@ export function classifySecretaryMessage(rawMessage: string): SecretaryOutcome {
     const departmentId = departments[0] as Exclude<SecretaryDepartmentId, "CARS">;
     return { kind: "UNSUPPORTED", departmentId, message: upcomingMessages[departmentId] };
   }
-  if (/^(merhaba|selam|günaydın|iyi (günler|akşamlar)|hey)[.! ]*$/iu.test(message)) return { kind: "NON_DECISION", message: "Merhaba, hoş geldiniz. Ne konuda karar vermenize yardımcı olabilirim?" };
+  if (/^(merhaba|selam|günaydın|iyi (günler|akşamlar)|hey)[.! ]*$/iu.test(message)) return { kind: "NON_DECISION", message: "Merhaba, hoş geldiniz. Ne satın almak istediğinizi anlatabilirsiniz." };
   if (/\b(expiya nedir|ne yapıyorsunuz|nasıl çalışıyor)\b/iu.test(message)) return { kind: "NON_DECISION", message: "Expiya, önemli seçimlerinizi ihtiyaçlarınıza göre netleştiren bir karar platformudur. Şu anda otomobil bölümü kullanıma açık." };
   return { kind: "CLARIFY", message: "Size doğru bölümde yardımcı olabilmem için, ne seçmek istediğinizi biraz daha açık söyler misiniz?" };
 }

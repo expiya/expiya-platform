@@ -13,7 +13,7 @@ interface SecretaryResponse {
 export function UpperSecretary() {
   const router = useRouter();
   const [draft, setDraft] = useState("");
-  const [reply, setReply] = useState("Merhaba, hoş geldiniz. Ne seçmek istediğinizi anlatabilirsiniz.");
+  const [reply, setReply] = useState("Merhaba, hoş geldiniz. Ne satın almak istediğinizi anlatabilirsiniz.");
   const [loading, setLoading] = useState(false);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
