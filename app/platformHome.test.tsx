@@ -11,12 +11,12 @@ describe("Expiya platform landing", () => {
     expect(html).toContain("Ne satın almak istiyorsunuz?");
     expect(html).toContain("Bireysel satın alma platformu");
     expect(html).toContain('href="/cars"');
-    expect(html).toContain("Otomobiller");
+    expect(html).toContain("Otomobil");
     expect(html).toContain("Elektronik");
     expect(html).toContain("Ev aletleri");
-    expect(html).toContain("Oteller");
-    expect(html).toContain("Kurslar");
-    expect(html).toContain("Evler");
+    expect(html).toContain("Otel");
+    expect(html).toContain("Kurs");
+    expect(html).toContain("Konut");
     expect(html).not.toContain("Bu karar deneyimi hazırlanıyor");
   });
 

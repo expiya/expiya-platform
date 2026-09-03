@@ -9,12 +9,12 @@ export const metadata: Metadata = {
 };
 
 const departments: readonly { readonly name: string; readonly href?: string; readonly tone: string }[] = [
-  { name: "Otomobiller", href: "/cars", tone: "from-black to-neutral-600" },
+  { name: "Otomobil", href: "/cars", tone: "from-black to-neutral-600" },
   { name: "Elektronik", tone: "from-neutral-950 to-neutral-500" },
   { name: "Ev aletleri", tone: "from-neutral-900 to-neutral-400" },
-  { name: "Oteller", tone: "from-neutral-800 to-neutral-400" },
-  { name: "Kurslar", tone: "from-neutral-700 to-neutral-300" },
-  { name: "Evler", tone: "from-neutral-600 to-neutral-300" },
+  { name: "Otel", tone: "from-neutral-800 to-neutral-400" },
+  { name: "Kurs", tone: "from-neutral-700 to-neutral-300" },
+  { name: "Konut", tone: "from-neutral-600 to-neutral-300" },
 ];
 
 export default function PlatformHome() {
