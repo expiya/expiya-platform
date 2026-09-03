@@ -27,7 +27,7 @@ export default function PlatformHome() {
         </header>
         <div className="flex flex-1 items-center py-14 sm:py-20"><UpperSecretary /></div>
         <nav aria-label="Satın alma departmanları" className="overflow-x-auto pb-5 pt-4">
-          <div className="mx-auto flex w-max min-w-full items-baseline justify-center gap-x-5 sm:gap-x-7">
+          <div className="mx-auto flex w-max min-w-full items-baseline justify-center gap-x-3 sm:gap-x-4">
             {departments.map((department) => department.href ? (
               <Link key={department.name} href={department.href} className={`whitespace-nowrap bg-gradient-to-r ${department.tone} bg-clip-text text-[clamp(1.2rem,1.65vw,1.55rem)] font-black uppercase tracking-[-.04em] text-transparent transition hover:opacity-55 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900`}>{department.name}</Link>
             ) : (
