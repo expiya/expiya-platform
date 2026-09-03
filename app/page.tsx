@@ -29,9 +29,9 @@ export default function PlatformHome() {
         <nav aria-label="Satın alma departmanları" className="overflow-x-auto pb-5 pt-4">
           <div className="mx-auto flex w-max min-w-full items-baseline justify-center gap-x-5 sm:gap-x-7">
             {departments.map((department) => department.href ? (
-              <Link key={department.name} href={department.href} className={`whitespace-nowrap bg-gradient-to-r ${department.tone} bg-clip-text text-[clamp(1.35rem,2.15vw,2rem)] font-black uppercase tracking-[-.04em] text-transparent transition hover:opacity-55 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900`}>{department.name}</Link>
+              <Link key={department.name} href={department.href} className={`whitespace-nowrap bg-gradient-to-r ${department.tone} bg-clip-text text-[clamp(1.2rem,1.65vw,1.55rem)] font-black uppercase tracking-[-.04em] text-transparent transition hover:opacity-55 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900`}>{department.name}</Link>
             ) : (
-              <span key={department.name} aria-label={`${department.name}, yakında`} className={`whitespace-nowrap bg-gradient-to-r ${department.tone} bg-clip-text text-[clamp(1.35rem,2.15vw,2rem)] font-black uppercase tracking-[-.04em] text-transparent`}>{department.name}</span>
+              <span key={department.name} aria-label={`${department.name}, yakında`} className={`whitespace-nowrap bg-gradient-to-r ${department.tone} bg-clip-text text-[clamp(1.2rem,1.65vw,1.55rem)] font-black uppercase tracking-[-.04em] text-transparent`}>{department.name}</span>
             ))}
           </div>
         </nav>
