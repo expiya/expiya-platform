@@ -1,49 +1,40 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { UpperSecretary } from "@/components/platform/UpperSecretary";
 
 export const metadata: Metadata = {
-  title: "Expiya — Karar Platformu",
-  description: "Otomobil, ev yaşamı, seyahat ve eğitim gibi önemli seçimlerde karar vermenize yardımcı olan Expiya platformu.",
+  title: "Expiya — Bireysel Satın Alma Platformu",
+  description: "Otomobilden elektroniğe, günlük satın alma kararlarınızı ihtiyaçlarınıza göre netleştiren Expiya bireysel satın alma platformu.",
   alternates: { canonical: "/" },
 };
 
-const upcomingDomains = ["Ev aletleri", "Oteller", "Kurslar", "Evler"] as const;
+const departments: readonly { readonly name: string; readonly href?: string; readonly tone: string }[] = [
+  { name: "Otomobil", href: "/cars", tone: "from-black to-neutral-600" },
+  { name: "Elektronik", tone: "from-neutral-950 to-neutral-500" },
+  { name: "Ev aletleri", tone: "from-neutral-900 to-neutral-400" },
+  { name: "Otel", tone: "from-neutral-800 to-neutral-400" },
+  { name: "Kurs", tone: "from-neutral-700 to-neutral-300" },
+  { name: "Konut", tone: "from-neutral-600 to-neutral-300" },
+];
 
 export default function PlatformHome() {
   return (
-    <main className="min-h-screen bg-[#f7f8f5] px-5 py-10 text-stone-950 sm:px-8 sm:py-16">
-      <div className="mx-auto max-w-6xl">
-        <header className="border-b border-stone-200 pb-6">
-          <p className="text-xl font-bold tracking-[0.18em]">EXPIYA</p>
-          <p className="mt-2 text-sm text-stone-500">Experience · Powered by You</p>
+    <main className="min-h-screen bg-[#f7f7f5] px-5 py-7 text-neutral-950 sm:px-8 sm:py-9">
+      <div className="mx-auto flex min-h-[calc(100vh-3.5rem)] max-w-7xl flex-col sm:min-h-[calc(100vh-4.5rem)]">
+        <header className="flex items-center justify-between">
+          <p className="text-lg font-bold tracking-[0.2em]">EXPIYA</p>
+          <p className="text-xs font-medium uppercase tracking-[.15em] text-neutral-500">Bireysel satın alma platformu</p>
         </header>
-
-        <section className="py-14 sm:py-20" aria-labelledby="platform-title">
-          <p className="text-xs font-semibold uppercase tracking-[.28em] text-emerald-700">Karar platformu</p>
-          <h1 id="platform-title" className="mt-5 max-w-3xl text-5xl font-semibold tracking-[-.05em] sm:text-7xl">
-            Ne seçiyorsun?
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-stone-600">
-            İhtiyaçlarını anlat; seçenekleri birlikte değerlendirelim ve senin için önemli olan kararı netleştirelim.
-          </p>
-
-          <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            <Link href="/cars" className="group rounded-3xl border border-emerald-300 bg-white p-7 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-600 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700">
-              <span className="text-xs font-semibold uppercase tracking-[.2em] text-emerald-700">Kullanıma açık</span>
-              <h2 className="mt-4 text-3xl font-semibold">Otomobiller</h2>
-              <p className="mt-3 leading-7 text-stone-600">İhtiyaçlarına ve bütçene uygun sıfır aracı birlikte seç.</p>
-              <span className="mt-8 inline-flex font-semibold text-emerald-800">Expiya Cars’a git <span className="ml-2 transition-transform group-hover:translate-x-1" aria-hidden="true">→</span></span>
-            </Link>
-
-            {upcomingDomains.map((domain) => (
-              <article key={domain} className="rounded-3xl border border-stone-200 bg-white/70 p-7 text-stone-500">
-                <span className="text-xs font-semibold uppercase tracking-[.2em]">Yakında</span>
-                <h2 className="mt-4 text-2xl font-semibold text-stone-700">{domain}</h2>
-                <p className="mt-3 text-sm leading-6">Bu karar deneyimi hazırlanıyor.</p>
-              </article>
+        <div className="flex flex-1 items-center py-14 sm:py-20"><UpperSecretary /></div>
+        <nav aria-label="Satın alma departmanları" className="overflow-x-auto pb-5 pt-4">
+          <div className="mx-auto flex w-max min-w-full items-baseline justify-center gap-x-3 sm:gap-x-4">
+            {departments.map((department) => department.href ? (
+              <Link key={department.name} href={department.href} className={`whitespace-nowrap bg-gradient-to-r ${department.tone} bg-clip-text text-[clamp(1.2rem,1.65vw,1.55rem)] font-black uppercase tracking-[-.04em] text-transparent transition hover:opacity-55 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-neutral-900`}>{department.name}</Link>
+            ) : (
+              <span key={department.name} aria-label={`${department.name}, yakında`} className={`whitespace-nowrap bg-gradient-to-r ${department.tone} bg-clip-text text-[clamp(1.2rem,1.65vw,1.55rem)] font-black uppercase tracking-[-.04em] text-transparent`}>{department.name}</span>
             ))}
           </div>
-        </section>
+        </nav>
       </div>
     </main>
   );
