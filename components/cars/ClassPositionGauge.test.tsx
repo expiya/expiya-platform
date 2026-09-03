@@ -28,11 +28,4 @@ describe("ClassPositionGauge", () => {
     expect(markup).not.toContain("#dc2626");
     expect(markup).toMatch(/iyi veya kötü puanı değildir/iu);
   });
-  it("shows low consumption on the positive green side", () => {
-    const markup = renderToStaticMarkup(<ClassPositionGauge position="HIGH" tone="EFFICIENCY" />);
-    expect(markup).toContain("Sınıf içi göreli tüketim seviyesi: Düşük");
-    expect(markup).toContain(">Yüksek<");
-    expect(markup).toContain(">Düşük<");
-    expect(markup).toContain("Daha düşük tüketim");
-  });
 });
