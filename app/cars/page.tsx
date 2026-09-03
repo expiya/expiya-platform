@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/cars" },
 };
 
-export default async function CarsHome({ searchParams }: { readonly searchParams: Promise<{ resume?: string }> }) {
-  const { resume } = await searchParams;
-  return <CarsHomepageExperience startConversation={resume === "conversation"}><CarsConversationV3 minimumBudgetTry={await getV3MinimumCatalogPriceTry()} /></CarsHomepageExperience>;
+export default async function CarsHome({ searchParams }: { readonly searchParams: Promise<{ resume?: string; entry?: string }> }) {
+  const { resume, entry } = await searchParams;
+  const secretaryHandoff = entry === "secretary";
+  return <CarsHomepageExperience startConversation={resume === "conversation" || secretaryHandoff}><CarsConversationV3 secretaryHandoff={secretaryHandoff} minimumBudgetTry={await getV3MinimumCatalogPriceTry()} /></CarsHomepageExperience>;
 }
