@@ -20,10 +20,9 @@ describe("conversation-local semantic recovery", () => {
     expect(createConversationLocalSemanticRecoveryQuestion({ userText: "İçi ferah olsun", memory, snapshot, candidateIds: ["v1"], bodyStyleAlreadyInterpreted: false })).toBeNull();
   });
 
-  it("clarifies ambiguous economic language only when earlier discovery stages allow it", () => {
-    expect(createConversationLocalSemanticRecoveryQuestion({ userText: "Ekonomik olsun", memory, snapshot, candidateIds: ["v1"], bodyStyleAlreadyInterpreted: true, priceMeaningClarificationEligible: false })).toBeNull();
-    const question = createConversationLocalSemanticRecoveryQuestion({ userText: "Ekonomik olsun", memory, snapshot, candidateIds: ["v1"], bodyStyleAlreadyInterpreted: true, priceMeaningClarificationEligible: true });
-    expect(question).toMatchObject({ stage: "BUDGET", question: { stableSemanticKey: "semanticRecovery.economicMeaning", selectionMode: "SINGLE" } });
+  it("clarifies ambiguous economic language when the user raises it instead of postponing the meaning", () => {
+    const question = createConversationLocalSemanticRecoveryQuestion({ userText: "Ekonomik olsun", memory, snapshot, candidateIds: ["v1"], bodyStyleAlreadyInterpreted: true, priceMeaningClarificationEligible: false });
+    expect(question).toMatchObject({ stage: "USAGE_CONTEXT", blockedUntilStagesComplete: [], question: { stableSemanticKey: "semanticRecovery.economicMeaning", selectionMode: "SINGLE" } });
   });
 
   it("does not repeat a completed economic clarification", () => {

@@ -19,7 +19,7 @@ export type EquipmentAvailabilityStatus = "STANDARD" | "OPTIONAL" | "PACKAGE_DEP
 export type EquipmentProvisionMode = "INCLUDED" | "FACTORY_OPTION" | "PACKAGE_OPTION" | "NOT_OFFERED" | "UNRESOLVED";
 export type EquipmentDecisionUse = "HARD_FILTER_ELIGIBLE" | "HARD_FILTER_AFTER_CONFIRMATION" | "SOFT_PREFERENCE" | "EXPLANATION_ONLY";
 export type EquipmentSourceApplicability = "EXACT_VARIANT" | "EXACT_TRIM" | "MODEL_YEAR_TRIM" | "MODEL_FAMILY" | "UNRESOLVED";
-export type EquipmentSourceAuthority = "OFFICIAL_MANUFACTURER" | "TR_DISTRIBUTOR" | "OFFICIAL_BROCHURE" | "OFFICIAL_CONFIGURATOR" | "OFFICIAL_PRICE_EQUIPMENT_LIST";
+export type EquipmentSourceAuthority = "OFFICIAL_MANUFACTURER" | "TR_DISTRIBUTOR" | "OFFICIAL_BROCHURE" | "OFFICIAL_CONFIGURATOR" | "OFFICIAL_PRICE_EQUIPMENT_LIST" | "OFFICIAL_OWNER_MANUAL" | "OFFICIAL_VIN_DOCUMENT";
 export type EquipmentVerificationState = "VERIFIED" | "PROVISIONAL" | "UNVERIFIED";
 export type EquipmentConfidence = "HIGH" | "MEDIUM" | "LOW";
 export type EquipmentConflictState = "CLEAR" | "CONFLICTING" | "SUPERSEDED";
@@ -49,7 +49,7 @@ export interface EquipmentDerivedArtifactProvenance {
 
 export interface EquipmentFeatureDefinition {
   readonly featureCode: EquipmentFeatureCode;
-  readonly category: "ADAS" | "PARKING" | "OCCUPANT_SAFETY" | "CABIN_COMFORT" | "ACCESS" | "CONNECTIVITY" | "LIGHTING" | "OFF_ROAD";
+  readonly category: "ADAS" | "PARKING" | "OCCUPANT_SAFETY" | "CABIN_COMFORT" | "ACCESS" | "CONNECTIVITY" | "LIGHTING" | "OFF_ROAD" | "CARGO" | "TOWING" | "CAPACITY" | "CHARGING" | "MAINTENANCE" | "WHEELS_TYRES";
   readonly defaultDecisionUse: EquipmentDecisionUse;
   readonly labelTr: string;
   readonly cohortPolicyId: EquipmentCohortPolicyId;
@@ -135,7 +135,7 @@ export interface EquipmentPilotMatrixRow {
 }
 
 export interface EquipmentSourceProvenance {
-  readonly sourceId: string; readonly registryRelease: string; readonly sourceType: "OFFICIAL_WEB" | "OFFICIAL_TECH_SPEC" | "OFFICIAL_BROCHURE" | "OFFICIAL_CONFIGURATOR" | "OFFICIAL_PRICE_LIST" | "OFFICIAL_EQUIPMENT_LIST";
+  readonly sourceId: string; readonly registryRelease: string; readonly sourceType: "OFFICIAL_WEB" | "OFFICIAL_TECH_SPEC" | "OFFICIAL_BROCHURE" | "OFFICIAL_CONFIGURATOR" | "OFFICIAL_PRICE_LIST" | "OFFICIAL_EQUIPMENT_LIST" | "OFFICIAL_OWNER_MANUAL" | "OFFICIAL_INFOTAINMENT_MANUAL" | "OFFICIAL_QUICK_REFERENCE_GUIDE" | "OFFICIAL_VIN_DOCUMENT" | "OFFICIAL_SERVICE_SCHEDULE";
   readonly sourceAuthority: EquipmentSourceAuthority; readonly originalUrl: string; readonly artifactReference: string;
   readonly artifactSha256: `sha256:${string}`; readonly observedAt: string; readonly publishedAt?: string; readonly effectiveAt?: string;
 }

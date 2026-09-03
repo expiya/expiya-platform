@@ -31,7 +31,7 @@ export type DecisionAction =
 export type MaterialQuestionAnswerCapability = "ANSWER" | "SKIP" | "UNKNOWN" | "NOT_IMPORTANT";
 
 export interface MaterialQuestionOptionProvenance {
-  readonly source: "CURRENT_CANDIDATE_POOL" | "VERSIONED_PRODUCT_POLICY" | "OWNER_EDITORIAL";
+  readonly source: "CURRENT_CANDIDATE_POOL" | "VERSIONED_PRODUCT_POLICY" | "OWNER_EDITORIAL" | "SEMANTIC_INTERPRETATION";
   readonly candidatePoolFingerprint: string;
   readonly supportingCandidateIds: readonly string[];
   readonly authorityReference: string;

@@ -8,11 +8,14 @@ export const metadata: Metadata = {
   description: "Expiya Cars araç önerilerinin, katalog verilerinin ve karar desteğinin kapsamı.",
 };
 
-export default function RecommendationTermsPage() {
+export default async function RecommendationTermsPage({ searchParams }: { readonly searchParams: Promise<{ returnTo?: string | string[] }> }) {
+  const requested = (await searchParams).returnTo;
+  const candidate = Array.isArray(requested) ? requested[0] : requested;
+  const returnTo = candidate === "/analysis?pilot=v3.8" ? candidate : "/analysis";
   return (
     <main className="min-h-screen bg-neutral-50 px-5 py-12 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50 sm:px-8">
       <article className="mx-auto max-w-3xl rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 sm:p-10">
-        <Link href="/analysis" className="text-sm font-semibold underline underline-offset-4">← Görüşmeye dön</Link>
+        <Link href={returnTo} className="text-sm font-semibold underline underline-offset-4">← Görüşmeye dön</Link>
         <p className="mt-8 text-sm font-semibold uppercase tracking-[0.16em] text-neutral-500">{RECOMMENDATION_TERMS_VERSION}</p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">Araç Önerisi ve Katalog Kullanım Koşulları</h1>
 
@@ -80,7 +83,7 @@ export default function RecommendationTermsPage() {
 
           <section>
             <h2 className="text-xl font-semibold text-neutral-950 dark:text-white">10. Kişisel veriler ve sohbet</h2>
-            <p className="mt-2">Sohbet, Expiya’nın kalıcı kullanıcı hesabı veya kalıcı konuşma veritabanına kaydedilmez; mevcut görüşme aynı tarayıcı sekmesindeki oturum depolamasında tutulur ve “Görüşmeyi sil” işlemiyle ya da tarayıcı sekmesi kapandığında bu kopya kaldırılır. Ancak mesajlar hizmetin çalışması için SKYBIT sunucularına ve yapay zekâ hizmet sağlayıcısı OpenAI’ye iletilir; sağlayıcıların güvenlik kayıtları ve yasal saklama süreleri uygulanabilir. Ayrıntılar ayrı KVKK Aydınlatma Metni ve Gizlilik Politikası’nda açıklanmalıdır: <strong>[DOLDURULACAK BAĞLANTI]</strong>.</p>
+            <p className="mt-2">Standart sohbette mevcut görüşme aynı tarayıcı sekmesindeki oturum depolamasında tutulur ve “Görüşmeyi sil” işlemiyle ya da tarayıcı sekmesi kapandığında bu kopya kaldırılır. Kimlik doğrulanmış pilot programında ise test analizi amacıyla kullanıcı adı, transcript, karar anlık görüntüsü, tur sayıları ve tamamlanma zamanı “Görüşmeyi sil” işlemi sırasında Expiya sunucusunda arşivlenir. Mesajlar hizmetin çalışması için SKYBIT sunucularına ve yapay zekâ hizmet sağlayıcısı OpenAI’ye iletilebilir; sağlayıcıların güvenlik kayıtları ve yasal saklama süreleri uygulanabilir. Pilot katılımcılara saklama süresi ile silme ve itiraz yolu ayrıca bildirilmelidir.</p>
             <p className="mt-2">Kullanıcı sohbet alanına telefon, e-posta, kimlik numarası, sağlık bilgisi veya başka özel nitelikli ya da gereksiz kişisel veri yazmamalıdır.</p>
           </section>
 

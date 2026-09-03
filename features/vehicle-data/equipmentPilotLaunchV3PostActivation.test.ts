@@ -4,9 +4,9 @@ import { loadActiveRecOfferAuditFoundation } from "@/features/decision/v2/offer/
 import { createEquipmentExplanationCtas } from "./equipmentPublicExplanationFacade.server";
 import { loadActiveEquipmentPublicExplanationIntegration } from "./equipmentPublicExplanationIntegrationRuntime.server";
 
-describe("Equipment pilot launch V3 post-activation", () => {
+describe("Equipment pilot launch V9 post-activation", () => {
   it("loads both checksum-bound ACTIVE chains", () => {
-    expect(loadActiveRecOfferAuditFoundation()).toMatchObject({ status: "ACTIVE", pointer: { activeFoundationRelease: "v1.0.1-catalog-v0.55.4-2026-08-20" } });
+    expect(loadActiveRecOfferAuditFoundation()).toMatchObject({ status: "ACTIVE", pointer: { activeFoundationRelease: "v1.0.7-catalog-v0.55.4-2026-08-22" } });
     expect(loadActiveEquipmentPublicExplanationIntegration()).toMatchObject({ status: "ACTIVE", policy: { integrationRelease: "v0.1.0-catalog-v0.55.4-2026-08-20", publicEffect: "ENABLED" } });
   });
 

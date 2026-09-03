@@ -2,18 +2,18 @@
 export const activeRecOfferAuditFoundation = Object.freeze({
   "schemaVersion": "1.0.0",
   "state": "ACTIVE",
-  "activeFoundationRelease": "v1.0.1-catalog-v0.55.4-2026-08-20",
-  "payloadChecksum": "sha256:39f9d24ec819fc932673fd54bf40370de1841091bd70a66039731c65bd0d6d82",
-  "manifestChecksum": "sha256:2b88aa75fd39d7722d9287d6d2396e3179557de5273cc08643d28b440e9ca52e",
-  "ownerAuthorizationEventId": "EPEI-LAUNCHAUTH-56645A7D5AFA0B51A928",
-  "ownerAuthorizationEventChecksum": "sha256:c0138f00ec34a0dfcc4eeb6859b1a2314f618068dc89c699aa8237b27310bd6c",
-  "cutoverEventId": "REC-CUTOVER-CDBD23E79B0943F14BDA",
-  "cutoverEventChecksum": "sha256:94a4d15cc396e24fb5141397a92307eb3ca4e1c6e0e3b2caca62cacb716c7dce",
-  "cutoverAt": "2026-08-20T15:21:32.489Z",
+  "activeFoundationRelease": "v1.0.7-catalog-v0.55.4-2026-08-22",
+  "payloadChecksum": "sha256:c8deaa8d3f157fb2db104f1a06648d68d3b8630a9edc39b1e0d080b0e269a4de",
+  "manifestChecksum": "sha256:588e3bc3f9dd98994cb733bd897ea4dcd3b57268fcb9b871cc7041d69fa1d226",
+  "ownerAuthorizationEventId": "EPEI-LAUNCHAUTH-B53D16FC726BDC76AF6D",
+  "ownerAuthorizationEventChecksum": "sha256:fc36c85cdd8cda22e8d031d211cdad522d82602cf28590ecaf7c8eaec31bc4e9",
+  "cutoverEventId": "REC-CUTOVER-791EBF0541568209A953",
+  "cutoverEventChecksum": "sha256:54426b509aed1b80a399f94e6f045c95bb7fc84a487b79fc81654129cc8985ee",
+  "cutoverAt": "2026-08-22T17:39:34.367Z",
   "sequencePolicyId": "REC_OFFER_AUDIT_SEQUENCE_V1",
   "acceptanceSequence": 1,
   "revealSequence": 2,
   "rollbackTarget": "SAFE_PREDECESSOR_ROUTE_STORE",
   "decisionEngineEffect": "ZERO"
 } as const);
-export const activeRecOfferAuditFoundationPointerChecksum = "sha256:efc51b5e0bc194df28652a2f9933d5ab8c4038ef94a005e0854b60152be8fa74" as const;
+export const activeRecOfferAuditFoundationPointerChecksum = "sha256:a091384f71c18928986a06c2b97f9cdf6d117ac4a21f5bc67c1fa75dc0530e97" as const;

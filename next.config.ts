@@ -46,5 +46,11 @@ export default withSentryConfig(nextConfig, {
   silent: true,
   telemetry: false,
   sourcemaps: { deleteSourcemapsAfterUpload: true },
-  webpack: { treeshake: { removeDebugLogging: true } },
+  webpack: {
+    // Source-map upload and build-time instrumentation require Sentry build
+    // credentials. Keep local/reproducible builds independent from that
+    // external capability; authenticated production builds retain it.
+    disableSentryConfig: !process.env.SENTRY_AUTH_TOKEN,
+    treeshake: { removeDebugLogging: true },
+  },
 });

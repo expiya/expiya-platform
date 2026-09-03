@@ -28,7 +28,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="flex min-h-full flex-col">
         {children}
         <footer className="border-t border-neutral-200 bg-white px-6 py-6 text-center text-sm text-neutral-600 dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-300">
-          <Link href="/gizlilik" className="font-semibold underline underline-offset-4">
+          <Link href="/gizlilik" className="inline-flex min-h-11 items-center font-semibold underline underline-offset-4">
             Gizlilik ve KVKK Aydınlatma Metni
           </Link>
         </footer>

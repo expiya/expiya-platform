@@ -15,6 +15,8 @@ const RELAXATION_FUEL_LABELS: Readonly<Record<string, string>> = Object.freeze({
 });
 
 export function materialQuestionText(question: MaterialQuestion): string {
+  if (question.stableSemanticKey === "contextualBridge.urbanCampingSUV") return "Anlattığın kullanımda önce teknik çekiş türünü seçmek zorunda değilsin. Hem şehir içinde kullanışlı hem de hafta sonu kamp yollarında daha rahat olabilecek SUV/crossover araçları değerlendirelim mi?";
+  if (question.stableSemanticKey.startsWith("semanticIntelligence.")) return "Seni doğru anlayabilmem için, bu ifadeyle aşağıdaki anlamlardan hangisini kastediyorsun?";
   if (question.stableSemanticKey.startsWith("technicalConflict.")) {
     const [, field, rawValue, rawBody = ""] = question.stableSemanticKey.split(".");
     const value = decodeURIComponent(rawValue ?? "");
@@ -32,9 +34,9 @@ export function materialQuestionText(question: MaterialQuestion): string {
     const budget = Number(rawBudget).toLocaleString("tr-TR");
     return `${preference || "Mevcut araç"} tercihini ${budget} TL bütçe içinde karşılayan bir seçenek bulamadım. Bütçe artırılabilir mi? Son şanzıman tercihin esneyebilir mi? Gövde tipi yerine yakın bir araç türü düşünülebilir mi?`;
   }
-  if (question.stableSemanticKey === "refinement.bodyStyle") return "Birden fazla gövde tipi açık kaldı. Adayları üçe indirebilmek için hangisini önceliklendirelim?";
-  if (question.stableSemanticKey === "refinement.fuelType") return "Birden fazla yakıt türü açık kaldı. Adayları üçe indirebilmek için hangisini önceliklendirelim?";
-  if (question.stableSemanticKey === "refinement.catalogIdentity") return "Kalan seçenekler temel tercihlerinde aynı düzeyde. Fiyatı kullanmadan ilerlemek için hangi marka veya model sana daha yakın?";
+  if (question.stableSemanticKey === "refinement.bodyStyle") return "Doğru aracı seçebilmem için hangi gövde tipini önceliklendirelim?";
+  if (question.stableSemanticKey === "refinement.fuelType") return "Doğru aracı seçebilmem için hangi enerji türünü önceliklendirelim?";
+  if (question.stableSemanticKey === "refinement.catalogIdentity") return "Kalan araçlar ihtiyaçlarını benzer düzeyde karşılıyor. Son kararı verebilmem için hangi marka veya model sana daha yakın?";
   if (question.stableSemanticKey.startsWith("preferenceRelaxation.")) {
     const [, field, encodedValue] = question.stableSemanticKey.split(".");
     const rawValue = decodeURIComponent(encodedValue ?? "");

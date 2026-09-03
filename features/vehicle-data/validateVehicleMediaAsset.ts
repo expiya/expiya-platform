@@ -7,7 +7,9 @@ export type VehicleMediaValidationIssue =
   | "OWNER_ATTESTATION_FOR_NON_ATTESTED_ASSET"
   | "OPEN_LICENSE_IDENTITY_VERIFICATION_REQUIRED"
   | "OPEN_LICENSE_IDENTITY_VERIFICATION_INVALID"
-  | "OPEN_LICENSE_EXACT_SCOPE_REQUIRED";
+  | "OPEN_LICENSE_EXACT_SCOPE_REQUIRED"
+  | "REMOTE_PREVIEW_SOURCE_REQUIRED"
+  | "REMOTE_PREVIEW_ATTRIBUTION_REQUIRED";
 
 export function validateVehicleMediaAsset(asset: VehicleMediaAsset): readonly VehicleMediaValidationIssue[] {
   const issues: VehicleMediaValidationIssue[] = [];
@@ -20,9 +22,14 @@ export function validateVehicleMediaAsset(asset: VehicleMediaAsset): readonly Ve
   } else if (asset.ownerAttestation) {
     issues.push("OWNER_ATTESTATION_FOR_NON_ATTESTED_ASSET");
   }
+  if (asset.usagePermission === "REMOTE_PREVIEW") {
+    if (!asset.sourcePageUrl.trim() || !asset.originalAssetUrl?.trim() || asset.fileHash || asset.storagePath.trim()) issues.push("REMOTE_PREVIEW_SOURCE_REQUIRED");
+    if (!asset.attributionText?.trim()) issues.push("REMOTE_PREVIEW_ATTRIBUTION_REQUIRED");
+  }
   if (asset.usagePermission === "OPEN_LICENSE") {
-    if (asset.scope !== "VARIANT" && asset.scope !== "GENERATION_BODY") issues.push("OPEN_LICENSE_EXACT_SCOPE_REQUIRED");
+    if (!asset.licenseName?.trim() || !asset.licenseUrl?.trim() || !asset.attributionText?.trim()) issues.push("OPEN_LICENSE_EXACT_SCOPE_REQUIRED");
     const verification = asset.identityVerification;
+    if (!verification && asset.scope !== "VARIANT" && asset.scope !== "GENERATION_BODY") return issues;
     if (!verification) issues.push("OPEN_LICENSE_IDENTITY_VERIFICATION_REQUIRED");
     else if (verification.status !== "VERIFIED_EXACT"
       || verification.method !== "GOVERNED_REFERENCE_PIXEL_SIMILARITY_V1"

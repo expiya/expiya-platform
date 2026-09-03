@@ -1,4 +1,5 @@
 import type { RouterResult, SourceSpan, V3Route } from "./types";
+import { detectExplicitUsagePurpose } from "./usageSemantics";
 
 const span = (text: string): SourceSpan => ({ start: 0, end: text.length, text });
 const has = (text: string, pattern: RegExp) => pattern.test(text);
@@ -12,10 +13,11 @@ export function routeConversationMessage(message: string, context: { readonly ha
   const namedProductPurchase = !offTopicProduct && has(text, /(?:^|\s)[\p{L}\d.-]+(?:\s+[\p{L}\d.-]+){0,3}\s+(?:modelini\s+)?(?:satın\s+)?almak\s+istiyorum[.!]?$/iu);
   const shoppingSubject = /(?:ara[çc]\p{L}*|araba\p{L}*|otomobil\p{L}*|model|suv|coupe|crossover|hatchback|sedan|mpv|kombi\s*van|panel\s*van|panelvan|minibüs|kamyonet|pick\s*up|4x4|dört çeker)/iu;
   const shoppingAction = /(?:satın al|alacağ|almak|almamız|alacağız|alıyorum|alırım|alayım|alabilirim|almaya|bakıyor|bakıyorum|arıyor|arıyorum|arayış|istiyor|istiyorum|ihtiyac|lazım|gerekiyor|araştır|kapatacağ|kapatmam|seçmeye|seçmek|seçim|danışmak|yardımcı)/iu;
+  const explicitUsage = detectExplicitUsagePurpose(text);
   const recommendationRequest = has(text, /(?:öner|seç|hangisini al|hangi model|en iyi|tek araç|alternatif|göster|hazırla|karar ver)/iu);
   const comparisonInformationOnly = informationQuestion && has(text, /(?:mi\s+(?:yoksa|veya)|yoksa|arasındaki fark|neye bakmak|ne kadar|nasıl çalış|doğru mu)/iu) && !has(text, /(?:alacağım|alıyorum|almaya hazırım|hemen al|satın alacağ|kapora|bütçem|bütçeyle|ödemem hazır)/iu);
   const holisticVehicleWish = automotiveSubject && /(?:olsun|lazım|yaşatsın|hissettirsin|bulalım|arayış|öner|arıyorum|bakıyorum|istiyorum|ne var)/iu.test(text);
-  const purchaseEvidence = !comparisonInformationOnly && (namedProductPurchase || holisticVehicleWish || (shoppingSubject.test(text) && shoppingAction.test(text)) || (automotiveSubject && recommendationRequest) || (automotiveSubject && /(?:bakıyorum|arıyorum|istiyorum|ihtiyac|lazım|alayım|alabilirim|almaya hazırım|ödemem hazır|nakit.{0,20}hazır|hemen al|hemen alıyorum|hemen alırım|kapatacağ|kapatmam)/iu.test(text)) || /bütçe(?:m|mi|miz)?[\s\S]{0,180}(?:hemen\s+)?(?:alıyorum|alırım|alayım|almaya hazırım)/iu.test(text) || has(text, /(?:(?:sizde|elinizde|katalogda) (?:hangi araçlar var|ne var)|ne var (?:sizde|elinizde|katalogda)|hangi araçlarınız var|araçlarınız neler|aracımı.*değiştir|toplu taşımadan yoruldum|ayağımı yerden kesecek|ehliyet(?:imi)?.*(?:ilk )?arac(?:ımı|ımı).*araştır)/iu));
+  const purchaseEvidence = !comparisonInformationOnly && (namedProductPurchase || holisticVehicleWish || (shoppingSubject.test(text) && shoppingAction.test(text)) || (Boolean(explicitUsage) && automotiveSubject && /(?:yeni|sıfır|al|ara|bak|ihtiyaç|lazım|kullanacak)/iu.test(text)) || (automotiveSubject && recommendationRequest) || (automotiveSubject && /(?:bakıyorum|arıyorum|istiyorum|ihtiyac|lazım|alayım|alabilirim|almaya hazırım|ödemem hazır|nakit.{0,20}hazır|hemen al|hemen alıyorum|hemen alırım|kapatacağ|kapatmam)/iu.test(text)) || /bütçe(?:m|mi|miz)?[\s\S]{0,180}(?:hemen\s+)?(?:alıyorum|alırım|alayım|almaya hazırım)/iu.test(text) || has(text, /(?:(?:sizde|elinizde|katalogda) (?:hangi araçlar var|ne var)|ne var (?:sizde|elinizde|katalogda)|hangi araçlarınız var|araçlarınız neler|aracımı.*değiştir|toplu taşımadan yoruldum|ayağımı yerden kesecek|ehliyet(?:imi)?.*(?:ilk )?arac(?:ımı|ımı).*araştır)/iu));
   let route: V3Route; let reason: string; let confidence = 0.94;
   if (has(text, /(?:kendime zarar|intihar|öldürmek|silah yap|bomba yap)/iu)) { route = "SAFETY_BOUNDARY"; reason = "Safety-sensitive request"; }
   else if (has(text, /^(?:hoşça kal|görüşürüz|teşekkürler,? bu kadar|kapat(?:alım)?)\.?$/iu)) { route = "CLOSING_OR_TERMINATION"; reason = "Explicit closing"; }

@@ -14,7 +14,16 @@ export type EventBoundActivationInputs = Readonly<{ launchManifestId: string; la
 export function deriveEventBoundIntegrationTargets(input: EventBoundActivationInputs, mode: "PRODUCTION" | "TEST_ONLY" = "PRODUCTION") {
   const issues: string[] = [];
   if (input.productionReleaseId.endsWith("-candidate")) issues.push("CANDIDATE_RELEASE_REJECTED");
-  if (input.launchManifestId !== "EPEI-PILOT-LAUNCH-V3" || input.foundationProductionReleaseId !== "v1.0.1-catalog-v0.55.4-2026-08-20") issues.push("SINGLE_LAUNCH_BINDING_MISMATCH");
+  const approvedLaunchFoundationPairs = new Map([
+    ["EPEI-PILOT-LAUNCH-V3", "v1.0.1-catalog-v0.55.4-2026-08-20"],
+    ["EPEI-PILOT-LAUNCH-V4", "v1.0.2-catalog-v0.55.4-2026-08-22"],
+    ["EPEI-PILOT-LAUNCH-V5", "v1.0.3-catalog-v0.55.4-2026-08-22"],
+    ["EPEI-PILOT-LAUNCH-V6", "v1.0.4-catalog-v0.55.4-2026-08-22"],
+    ["EPEI-PILOT-LAUNCH-V7", "v1.0.5-catalog-v0.55.4-2026-08-22"],
+    ["EPEI-PILOT-LAUNCH-V8", "v1.0.6-catalog-v0.55.4-2026-08-22"],
+    ["EPEI-PILOT-LAUNCH-V9", "v1.0.7-catalog-v0.55.4-2026-08-22"],
+  ]);
+  if (approvedLaunchFoundationPairs.get(input.launchManifestId) !== input.foundationProductionReleaseId) issues.push("SINGLE_LAUNCH_BINDING_MISMATCH");
   if (input.productionReleaseId !== "v0.1.0-catalog-v0.55.4-2026-08-20" || input.productionPayloadChecksum !== "sha256:7fb57a834501114eafe16f6ea601aceea8e5cc4a51994129ff0161f1867ad1e5" || input.productionManifestChecksum !== "sha256:b563f9b2577a2f5fe3ffcd34637aa7ae6fbada913ed63cd8b6f3f5abefdb33ff") issues.push("PRODUCTION_BINDING_MISMATCH");
   if (input.productionCompositeChecksum !== "sha256:34eae64907d0fc62a73f5d2691a12f440f8adbba40a243dff08cfa9509fcc082") issues.push("COMPOSITE_BINDING_MISMATCH");
   for (const value of [input.launchManifestChecksum, input.foundationPayloadChecksum, input.foundationManifestChecksum, input.runtimeContractCompositeChecksum, input.activationPolicyChecksum, input.productionPayloadChecksum, input.productionManifestChecksum, input.productionCompositeChecksum, input.activationAuthorizationManifestChecksum, input.ownerAuthorization.eventChecksum, input.activationEvent.eventChecksum, input.pilotScopeChecksum, input.authorityPayloadChecksum, input.dailyLifePayloadChecksum]) if (!/^sha256:[a-f0-9]{64}$/u.test(value)) issues.push("CHECKSUM_FORMAT_INVALID");

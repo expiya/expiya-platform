@@ -27,3 +27,8 @@ yarn-error.log*
 # IDE
 .vscode/
 .env*
+
+# Promptfoo local state and generated evaluation reports
+/evals/cars-v3/.promptfoo/
+/evals/cars-v3/results/*
+!/evals/cars-v3/results/.gitkeep

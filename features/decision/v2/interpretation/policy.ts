@@ -2,7 +2,7 @@ import type { DecisionFieldRegistry } from "../filter/types";
 import type { InterpretationDiagnostic, InterpretationResult, ProposedBudgetMutation, ProposedPersonaMutation, ValidatedConstraintMutation, ValidatedInterpretation } from "./types";
 
 const HARD_LANGUAGE = /(en az|en fazla|kesin(?:likle)?|şart|olmazsa olmaz|istemiyorum|olmasın|olmalı|zorunda|mutlaka|max(?:imum)?|maksimum|tavan|üzerine çıkmam|üzerine çıkamam|üstüne çıkmam|üstüne çıkamam|dedim|değil|gerekiyor|gerekli|sadece|yalnızca)|(?:\d+|dört|beş|altı|yedi|sekiz|dokuz)\s+(?:kişilik|koltuk)(?:\s+kapasitesine\s+sahip)?\s+olsun|(?:kapalı yük alanı|kapalı kasa|panel ?van|caddy tarzı).*(?:istiyorum|olsun)/iu;
-const PERSONA_LANGUAGE = /(premium|şık|tasarım|sportif|ağırbaşlı|prestijli|teknolojik|fütüristik|maceracı|macera\s+ruh(?:u|lu)|sade|minimalist|dikkat çekici|gösterişsiz|dinamik|erkeksi|ikinci el|değer kayb|değerini koru|etkile)/iu;
+const PERSONA_LANGUAGE = /(premium|şık|tasarım|sportif|performans|çevik|sürüş hissi|aile|konfor|rahat|yormayan|yormasın|ağırbaşlı|prestijli|teknolojik|fütüristik|maceracı|macera\s+ruh(?:u|lu)|arazi|off[ -]?road|yük|eşya|ticari|ekonomik|düşük maliyet|az yak|sade|minimalist|dikkat çekici|gösterişsiz|dinamik|erkeksi|ikinci el|değer kayb|değerini koru|etkile)/iu;
 export function normalizeFuelInterpretation(sourceText: string): { readonly operator: "EQUALS" | "ONE_OF"; readonly value: string | readonly string[] } | null {
   const value = sourceText.toLocaleLowerCase("tr-TR"); const fuels = new Set<string>();
   const specificHybrid = /plug[ -]?in|şarjlı h[ıi]bri[td]|mild|hafif h[ıi]bri[td]|tam h[ıi]bri[td]|şarjsız h[ıi]bri[td]/u.test(value);

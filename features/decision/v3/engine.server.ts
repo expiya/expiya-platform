@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { applyCatalogEntitySignals, applyPreferenceMessage, applySemanticContextSignals, activeDecisionPreferences, latestActiveLedgerEvent } from "./ledger";
+import { applyCatalogEntitySignals, applyPreferenceMessage, applySemanticContextSignals, applySemanticPreferenceSignals, activeDecisionPreferences, latestActiveLedgerEvent } from "./ledger";
 import { evaluateV3Catalog, planV3VerifiedEquipmentQuestion, rankV3Candidates, resolveV3CatalogEntities, scoreV3Candidate } from "./catalogAdapter.server";
 import { createV31Offer, revealV31Offer } from "./offerGovernance.server";
 import { interpretV31Message } from "./semanticProvider.server";
@@ -82,7 +82,7 @@ const preferenceLabel = (preference: ReturnType<typeof activeDecisionPreferences
   if (preference.concept === "budgetMax") return `${Number(preference.normalizedValue).toLocaleString("tr-TR")} TL bütçe üst sınırı`;
   if (preference.concept === "transmission") return preference.normalizedValue === "MANUAL" ? "manuel vites" : "otomatik vites";
   if (preference.concept === "fuelType") { const labels: Readonly<Record<string, string>> = { BEV: "elektrikli", HEV: "hibrit", DIESEL: "dizel", GASOLINE: "benzinli" }; const values = Array.isArray(preference.normalizedValue) ? preference.normalizedValue : [preference.normalizedValue]; return `${values.map((value) => labels[String(value)] ?? String(value)).join(" veya ")} yakıt tercihi`; }
-  if (preference.concept === "primaryUsage") { const labels: Readonly<Record<string, string>> = { URBAN_DAILY: "şehir içi kullanım", FAMILY: "aile kullanımı", LONG_DISTANCE: "uzun yol kullanımı", COMMERCIAL: "ticari yük taşıma", CORPORATE_TRAVEL: "müşteri ziyaretleri", MIXED_ROAD: "kamp ve karma yol kullanımı" }; return labels[String(preference.normalizedValue)] ?? "kullanım amacı"; }
+  if (preference.concept === "primaryUsage") { const labels: Readonly<Record<string, string>> = { URBAN_DAILY: "şehir içi kullanım", FAMILY: "aile kullanımı", LONG_DISTANCE: "uzun yol kullanımı", COMMERCIAL: "ticari yük taşıma", CORPORATE_TRAVEL: "müşteri ziyaretleri", PASSENGER_TRANSPORT: "yolcu taşıma", MIXED_ROAD: "kamp ve karma yol kullanımı" }; return labels[String(preference.normalizedValue)] ?? "kullanım amacı"; }
   if (preference.concept === "bodyStyle") { const values = Array.isArray(preference.normalizedValue) ? preference.normalizedValue : [preference.normalizedValue]; return `${values.map((value) => String(value).toLocaleLowerCase("tr-TR")).join(" veya ")} gövde tercihi`; }
   if (preference.concept === "modelPreference") return `${(Array.isArray(preference.normalizedValue) ? preference.normalizedValue : [preference.normalizedValue]).join(" veya ")} model tercihi`;
   if (preference.concept === "brandPreference") return `${(Array.isArray(preference.normalizedValue) ? preference.normalizedValue : [preference.normalizedValue]).join(" veya ")} marka tercihi`;
@@ -141,6 +141,7 @@ function selectQuestion(state: V3ConversationState, variants?: readonly CatalogV
   const usage = latestActiveLedgerEvent(state.ledger, "primaryUsage")?.normalizedValue;
   if (!active(state, "primaryUsage") && body === "COUPE" && !keys.has("coupePracticality")) return { key: "coupePracticality", text: "Coupe seçimin net; günlük kullanımda arka koltuk ve bagaj alanından ne kadar ödün verebilirsin?" };
   if (!active(state, "primaryUsage") && !keys.has("primaryUsage") && questionCanReduceCandidates("primaryUsage", variants)) return { key: "primaryUsage", text: "Aracı en çok hangi günlük ihtiyaç için kullanacaksın?" };
+  if (usage === "PASSENGER_TRANSPORT" && !latestActiveLedgerEvent(state.ledger, "minimumSeats") && !keys.has("passengerCapacity")) return { key: "passengerCapacity", text: "Sürücü dahil, aynı anda toplam kaç kişilik bir araç gerekiyor?" };
   if (usage === "MIXED_ROAD" && !active(state, "bodyStyle") && !keys.has("mixedRoadBody")) return { key: "mixedRoadBody", text: "Arazi ve 4x4 kullanımı net; kapalı bagajlı bir SUV mu, yoksa açık kasalı bir pick-up mı sana daha uygun?" };
   if (usage === "COMMERCIAL" && !questionIsResolved(state, "fuelType") && questionCanReduceCandidates("fuelType", variants)) return { key: "fuelType", text: candidateAwareQuestionText("fuelType", variants) };
   if (usage === "COMMERCIAL" && !active(state, "bodyStyle") && !keys.has("commercialConfiguration")) return { key: "commercialConfiguration", text: "Yükleme düzenini doğru seçelim: kapalı ve geniş yük alanlı panelvan mı, açık kasalı pick-up mı, yoksa yolcu ve yükü birlikte taşıyan bir yapı mı işine daha uygun?" };
@@ -211,6 +212,7 @@ export async function runV3Turn(input: { readonly conversationId: string; readon
   if (router.decisionMutationAllowed && scopeReply?.kind !== "USED_VEHICLE_SELECTION") ({ ledger, pending: pendingConfirmation } = applyPreferenceMessage(interpretationPrior, input.messageId, input.message));
   if (router.decisionMutationAllowed && scopeReply?.kind !== "USED_VEHICLE_SELECTION") {
     ledger = applyCatalogEntitySignals(prior, ledger, input.messageId, input.message, catalogEntities);
+    ledger = applySemanticPreferenceSignals(prior, ledger, input.messageId, semantic.preferenceSignals);
   }
   ledger = applySemanticContextSignals(prior, ledger, input.messageId, semantic.contextSignals);
   const budgetEvent = latestActiveLedgerEvent(ledger, "budgetMax") ?? latestActiveLedgerEvent(ledger, "budgetTarget");

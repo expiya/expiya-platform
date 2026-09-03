@@ -1,5 +1,6 @@
-import type { PendingConfirmation, PreferenceEvent, V3ConversationState, V3SemanticContextSignal } from "./types";
+import type { PendingConfirmation, PreferenceEvent, V3ConversationState, V3SemanticContextSignal, V3SemanticPreferenceSignal } from "./types";
 import { resolveEquipmentRequirement } from "../../vehicle-data/equipmentEvidenceResolver";
+import { detectExplicitUsagePurpose } from "./usageSemantics";
 
 const whole = (text: string) => ({ start: 0, end: text.length, text });
 const normalizedBody = (text: string): string | readonly string[] | undefined => {
@@ -25,17 +26,6 @@ const normalizedFuel = (text: string) => {
   return values.length > 1 ? values : values[0];
 };
 const normalizedTransmission = (text: string) => /manuel/iu.test(text) ? "MANUAL" : /otomatik(?!\s*(?:park|klima))|dsg|dct|cvt|e-?dct|tork konvertör/iu.test(text) ? "AUTOMATIC" : undefined;
-const normalizedUsage = (text: string) => {
-  const normalized = text.replace(/ticari(?: kullanım)?\s+(?:değil|istemiyorum)|yük\s+taşım(?:ıyorum|ayacağım)/giu, "");
-  if (/(?:aile|çocuk(?!luğum|\s*oyuncağı)|bebek|puset|kalabalık sülale|yaşlı (?:ann|bab)|annemi|babamı)/iu.test(normalized)) return "FAMILY";
-  if (/(?:satış (?:departmanı|ekibi)|müşteri(?:leri)? ziyaret|saha ekibi|şirket aracı|filo)/iu.test(normalized)) return "CORPORATE_TRAVEL";
-  if (/(?:bisiklet|kamp|açık hava|outdoor|spor).{0,40}(?:malzeme|ekipman)|doğa(?:ya|da)|patika/iu.test(normalized)) return "MIXED_ROAD";
-  if (/(?:^|\s)yük(?:\s|$)|yük taşı|kargo|dağıtım|ticari|şantiye|dükkan teslimat|kurye|(?:^|\s)iş\s+(?:için|amaçlı)|işimde/iu.test(normalized)) return "COMMERCIAL";
-  if (/(?:kamp|arazi|bozuk yol|köy|4x4|dört çeker)/iu.test(normalized)) return "MIXED_ROAD";
-  if (/(?:uzun yol|şehirler arası|seyahat|ege turnesi|otoyol)/iu.test(normalized)) return "LONG_DISTANCE";
-  if (/(?:şehir içi|şehir merkez|dar sokak|paralel park|günlük|işe (?:gidip|gidiş)|iş gidiş|okul|ayağımı yerden|toplu taşıma|otobüsle uğraş)/iu.test(normalized)) return "URBAN_DAILY";
-  return undefined;
-};
 const normalizedEquipments = (text: string): readonly string[] => [
   [/270\s*(?:derece)?.*arka kapı/iu, "REAR_DOOR_OPENING_270"], [/180\s*(?:derece)?.*arka kapı/iu, "REAR_DOOR_OPENING_180"],
   [/elektrikli kayar (?:yan )?kapı/iu, "POWER_SLIDING_SIDE_DOOR"], [/(?:tavan taşıyıcı|portbagaj).{0,40}(?:uyum|takıl|montaj|destek)|(?:uyumlu|takılabilen).{0,30}(?:tavan taşıyıcı|portbagaj)/iu, "ROOF_RACK_COMPATIBILITY"],
@@ -154,7 +144,7 @@ export function applyPreferenceMessage(state: V3ConversationState, messageId: st
   if (/(?:fiyat|bütçe).*(?:rakam|sayı|net (?:bir )?sınır).*(?:veremem|söyleyemem|bilmiyorum)|rakam veremem/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "budgetUnspecified", value: "UNSPECIFIED", use: "NONE" }));
   if ((state.lastQuestionKey === "budget" || state.lastQuestionKey === "exactBudget") && /(?:net (?:bir )?rakam|rakamı|bütçe).*(?:belirlemedim|belli değil|henüz yok)/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "budgetUnspecified", value: "UNSPECIFIED", use: "NONE" }));
   if (state.lastQuestionKey === "exactBudget" && !budgetAmount(text, true) && /(?:öner|seç|göster|paylaş|marka.?model)/iu.test(text)) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "budgetUnspecified", value: "UNSPECIFIED", use: "NONE", authority: "PRODUCT_POLICY" }));
-  const usage = normalizedUsage(text); if (usage && (state.lastQuestionKey === "primaryUsage" || /(?:kullan|ihtiyaç|amaç|iş|ticari|aile|çocuk|bebek|kamp|arazi|4x4|uzun yol|ege turnesi|şehir içi|şehir merkez|dar sokak|paralel park|işe gidip|ayağımı yerden|otobüs|kargo|dağıtım|yük|müşteri ziyaret|sülale)/iu.test(text))) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "primaryUsage", field: "usagePurpose", value: usage }));
+  const usage = detectExplicitUsagePurpose(text); if (usage) ledger = supersedeActive(ledger, event({ state: { ...state, ledger }, messageId, text, concept: "primaryUsage", field: "usagePurpose", value: usage.value }));
   const body = normalizedBody(text);
   const answeredBody = state.lastQuestionKey === "bodyStyle" ? (/park|kompakt|küçük/iu.test(text) ? "HATCHBACK" : /ferah|yüksek|geniş/iu.test(text) ? "SUV" : undefined)
     : state.lastQuestionKey === "commercialConfiguration" ? (/panelvan|kapalı.*yük/iu.test(text) ? "PANEL VAN" : /pick.?up|açık kasa/iu.test(text) ? "PICKUP" : /yolcu.*yük|birlikte/iu.test(text) ? "PASSENGER VAN" : undefined)
@@ -281,6 +271,15 @@ export function applySemanticContextSignals(state: V3ConversationState, ledger: 
     const concept = conceptByKind[signal.kind];
     if (next.some((item) => item.concept === concept && item.status === "ACTIVE" && item.sourceMessageId === messageId)) continue;
     next.push({ id: `${messageId}:semantic:${signal.kind}:${next.length}`, sourceMessageId: messageId, sourceTurn: state.revision + 1, sourceSpan: signal.sourceSpan, concept, field: "conversationContext", normalizedValue: signal.kind, strength: "UNCONFIRMED_HYPOTHESIS", status: "ACTIVE", decisionUse: "NONE", confidence: signal.confidence, authority: "MODEL_INFERENCE", confirmationRequired: false });
+  }
+  return next;
+}
+
+export function applySemanticPreferenceSignals(state: V3ConversationState, ledger: readonly PreferenceEvent[], messageId: string, signals: readonly V3SemanticPreferenceSignal[]): readonly PreferenceEvent[] {
+  let next = [...ledger];
+  for (const signal of signals) {
+    if (!signal.explicit || signal.confidence < 0.75 || latestActiveLedgerEvent(next, signal.concept)?.sourceMessageId === messageId) continue;
+    next = supersedeActive(next, { id: `${messageId}:semantic:${signal.concept}:${next.length}`, sourceMessageId: messageId, sourceTurn: state.revision + 1, sourceSpan: signal.sourceSpan, concept: signal.concept, field: "usagePurpose", normalizedValue: signal.normalizedValue, strength: "EXPLICIT_STRONG", status: "ACTIVE", decisionUse: "HARD_FILTER", confidence: signal.confidence, authority: "USER_EXPLICIT", confirmationRequired: false });
   }
   return next;
 }

@@ -58,6 +58,132 @@ describe("production V2 composition with real WP pipeline", () => {
     expect(output.cards).toEqual([]);
     expect(output.offer).toBeUndefined();
   });
+  it("uses a three-plus-two turn sales-intent budget and ends without purchase intent", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const store = new InMemoryV2ConversationStore();
+    const messages = Object.fromEntries(Array.from({ length: 6 }, (_, index) => {
+      const messageId = `social-${index + 1}`;
+      return [messageId, result(messageId, ["SOCIAL_MESSAGE"], { socialSignal: { kind: "GENERAL" } })];
+    }));
+    const composition = createCarsDecisionV2ProductionComposition({ store, interpreter: model(messages), realizer: fallbackRealizer, shadow: true });
+    const outputs = [];
+    for (let index = 0; index < 6; index += 1) outputs.push(await runCarsDecisionTurnV2({ conversationId: "sales-intent-budget", messageId: `social-${index + 1}`, idempotencyKey: `social-${index + 1}`, expectedConversationRevision: index, userMessage: `Biraz sohbet edelim ${index + 1}`, requestTime: `2026-08-23T00:0${index}:00.000Z` }, composition));
+    expect(outputs[2]!.message).not.toMatch(/yakın zamanda araç almayı düşünüyor musun/iu);
+    expect(outputs[3]!.message).toMatch(/somut bir araç seçimine çevirelim mi/iu);
+    expect(outputs[4]!.message).toMatch(/yakın zamanda araç almayı düşünüyor musun/iu);
+    expect(outputs[5]).toMatchObject({ state: "LIMITED_OR_ENDED" });
+    expect(outputs[5]!.message).toMatch(/araç alma niyetin oluşmadığı için görüşmeyi burada kapatıyorum/iu);
+    expect((await store.load("sales-intent-budget"))!.memory!.vehicleIntentEstablished).toBe(false);
+  });
+  it("handles hot-weather small talk naturally and keeps unsupported climate-control jargon out of the sale", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const store = new InMemoryV2ConversationStore();
+    const semanticInterpreter = { interpretAutomotiveSemantics: async (request: { messageId: string }) => request.messageId === "climate"
+      ? { schemaVersion: "ASIL-0.1", messageId: request.messageId, concepts: [], archetypes: [], analogies: [], qualitativeNeeds: [], ambiguities: [{ code: "AIR_CONDITIONING_TYPE", sourceSpan: "klimalı", clarificationCandidates: ["Basic air conditioning may be intended.", "Automatic climate control may be intended.", "Multi-zone climate control may be intended."] }], candidateInterpretations: [], requestedFacts: [], conversationalAct: "VEHICLE_DISCOVERY", providerStatus: "AVAILABLE" }
+      : { schemaVersion: "ASIL-0.1", messageId: request.messageId, concepts: [], archetypes: [], analogies: [], qualitativeNeeds: [], ambiguities: [], candidateInterpretations: [], requestedFacts: [], conversationalAct: "OTHER", providerStatus: "AVAILABLE" } };
+    const composition = createCarsDecisionV2ProductionComposition({
+      store,
+      semanticInterpreter,
+      interpreter: model({
+        weather: result("weather", ["OFF_TOPIC"], { offTopicSignal: { detected: true } }),
+        climate: result("climate", ["VEHICLE_INTENT", "RECOMMENDATION_REQUEST", "PREFERENCE_STATEMENT"], { directAnswerRequests: [{ kind: "RECOMMENDATION_REQUEST" }], constraintMutations: [{ operation: "ADD", fieldId: "comfort", normalizedValue: "AIR_CONDITIONING_IMPORTANT", explicitness: "EXPLICIT_PREFERENCE", confidence: 1, sourceSpan: "klimalı" }], ambiguities: [{ code: "AIR_CONDITIONING_TYPE", sourceSpan: "klimalı" }] }),
+      }),
+      realizer: fallbackRealizer,
+      shadow: true,
+    });
+    const weather = await runCarsDecisionTurnV2({ conversationId: "hot-weather-climate", messageId: "weather", idempotencyKey: "weather", expectedConversationRevision: 0, userMessage: "Bugün hava çok sıcak ya", requestTime: "2026-08-23T00:00:00.000Z" }, composition);
+    expect(weather.message).toMatch(/sıcak hava.*araç içindeki serinlik/iu);
+    expect(weather.message).not.toMatch(/görüşme araç seçimine odaklanıyor/iu);
+    expect(weather.candidateSummary).toBeUndefined();
+
+    const climate = await runCarsDecisionTurnV2({ conversationId: "hot-weather-climate", messageId: "climate", idempotencyKey: "climate", expectedConversationRevision: 1, userMessage: "Tamam, hava sıcak; klimalı bir araç olsun.", requestTime: "2026-08-23T00:01:00.000Z" }, composition);
+    expect(climate.message).not.toMatch(/basic air conditioning|automatic climate control|multi-zone/iu);
+    expect(climate.options.map((option) => option.label).join(" ")).not.toMatch(/basic air conditioning|automatic climate control|multi-zone/iu);
+    expect(climate.candidateSummary).toBeUndefined();
+    expect((await store.load("hot-weather-climate"))!.memory!.events).toEqual(expect.arrayContaining([expect.objectContaining({ eventType: "CONSTRAINT", field: "comfort", sourceText: "klimalı" })]));
+  });
+  it("acknowledges a personal everyday update instead of treating it as an ambiguous vehicle decision", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const store = new InMemoryV2ConversationStore();
+    const composition = createCarsDecisionV2ProductionComposition({
+      store,
+      interpreter: model({ exam: result("exam", ["OFF_TOPIC"], { offTopicSignal: { detected: true }, ambiguities: [{ code: "UNKNOWN_DECISION_PHRASE", sourceSpan: "yarın okulda sınav var." }] }) }),
+      realizer: fallbackRealizer,
+      shadow: true,
+    });
+    const output = await runCarsDecisionTurnV2({ conversationId: "personal-exam-update", messageId: "exam", idempotencyKey: "exam", expectedConversationRevision: 0, userMessage: "Yarın okulda sınav var.", requestTime: "2026-08-23T03:00:00.000Z" }, composition);
+    expect(output).toMatchObject({ state: "SOCIAL", cards: [], options: [] });
+    expect(output.message).toMatch(/şimdiden başarılar.*sınavın güzel geçer/iu);
+    expect(output.message).not.toMatch(/neyi kastettiğinden emin olamadım|görüşme araç seçimine odaklanıyor/iu);
+    expect(output.candidateSummary).toBeUndefined();
+  });
+  it("answers a casual conversational question without sending provider ambiguity into vehicle clarification", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const store = new InMemoryV2ConversationStore();
+    const composition = createCarsDecisionV2ProductionComposition({
+      store,
+      interpreter: model({ match: result("match", ["OFF_TOPIC"], { offTopicSignal: { detected: true }, ambiguities: [{ code: "UNKNOWN_DECISION_PHRASE", sourceSpan: "dün akşamki maçı izledin mi?" }] }) }),
+      realizer: fallbackRealizer,
+      shadow: true,
+    });
+    const output = await runCarsDecisionTurnV2({ conversationId: "casual-match-question", messageId: "match", idempotencyKey: "match", expectedConversationRevision: 0, userMessage: "Dün akşamki maçı izledin mi?", requestTime: "2026-08-23T03:10:00.000Z" }, composition);
+    expect(output).toMatchObject({ state: "SOCIAL", cards: [], options: [] });
+    expect(output.message).toMatch(/maç izleyemiyorum.*hangi maç/iu);
+    expect(output.message).not.toMatch(/neyi kastettiğinden emin olamadım|görüşme araç seçimine odaklanıyor/iu);
+    expect(output.candidateSummary).toBeUndefined();
+  });
+  it("turns family, commuting and camping context into a natural SUV confirmation before technical drive-layout questions", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const store = new InMemoryV2ConversationStore();
+    const composition = createCarsDecisionV2ProductionComposition({
+      store,
+      interpreter: model({
+        family: result("family", ["VEHICLE_INTENT", "RECOMMENDATION_REQUEST"], { directAnswerRequests: [{ kind: "RECOMMENDATION_REQUEST" }] }),
+        camping: result("camping", ["USAGE_STATEMENT", "DONT_KNOW"], { constraintMutations: [{ operation: "ADD", fieldId: "seats", normalizedValue: { operator: "EQUALS", value: 4, unit: "COUNT" }, explicitness: "EXPLICIT_PREFERENCE", confidence: 1, sourceSpan: "4 kişilik bir aileyiz" }] }),
+        why: result("why", []),
+        explain: result("explain", []),
+      }),
+      realizer: fallbackRealizer,
+      shadow: true,
+    });
+    const first = await runCarsDecisionTurnV2({ conversationId: "family-camping-advisor", messageId: "family", idempotencyKey: "family", expectedConversationRevision: 0, userMessage: "Toplu taşıma ile işe gidip gelmekten yoruldum. Bir araç almak istiyorum. Hem ikinci çocuk da yolda. Arabasız olmaz.", requestTime: "2026-08-23T01:00:00.000Z" }, composition);
+    expect(first.message).toMatch(/gözünüz aydın.*ailenizin.*araç/iu);
+
+    const camping = await runCarsDecisionTurnV2({ conversationId: "family-camping-advisor", messageId: "camping", idempotencyKey: "camping", expectedConversationRevision: 1, userMessage: "Bilmiyorum. 4 kişilik bir aileyiz. Kamp yapmayı seviyoruz. İşe gidiş geliş için kullanacağım ama hafta sonları kamp yaparız, bozuk yollarda gidebilmeli.", requestTime: "2026-08-23T01:01:00.000Z" }, composition);
+    expect(camping.message).toMatch(/şehir içinde.*kamp.*SUV\/crossover/iu);
+    expect(camping.message).not.toMatch(/çekiş tercihin var mı/iu);
+    expect(camping.options.map((option) => option.label)).toEqual(["SUV/crossover araçları değerlendirelim"]);
+
+    const why = await runCarsDecisionTurnV2({ conversationId: "family-camping-advisor", messageId: "why", idempotencyKey: "why", expectedConversationRevision: 2, userMessage: "Ne önemi var?", requestTime: "2026-08-23T01:02:00.000Z" }, composition);
+    expect(why.message).toMatch(/hatchback.*SUV\/crossover.*kullanım amacından/iu);
+    expect(why.message).not.toMatch(/neyi kastettiğinden emin olamadım/iu);
+
+    const explained = await runCarsDecisionTurnV2({ conversationId: "family-camping-advisor", messageId: "explain", idempotencyKey: "explain", expectedConversationRevision: 3, userMessage: "Önden çekiş veya arkadan itiş ne fark ediyor bilmiyorum.", requestTime: "2026-08-23T01:03:00.000Z" }, composition);
+    expect(explained.message).toMatch(/FWD.*ön tekerleklere.*RWD.*arka tekerleklere/iu);
+    expect(explained.message).not.toMatch(/çekiş tercihin net/iu);
+    expect((await store.load("family-camping-advisor"))!.memory!.events.filter((event) => event.eventType === "CONSTRAINT" && event.field === "drivenWheels")).toEqual([]);
+  });
+  it("does not import details from another family conversation and resolves economic language with a useful choice", async () => {
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const store = new InMemoryV2ConversationStore();
+    const composition = createCarsDecisionV2ProductionComposition({
+      store,
+      interpreter: model({
+        baby: result("baby", ["VEHICLE_INTENT", "RECOMMENDATION_REQUEST"], { directAnswerRequests: [{ kind: "RECOMMENDATION_REQUEST" }] }),
+        economic: result("economic", ["PREFERENCE_STATEMENT"], { ambiguities: [{ code: "AMBIGUOUS_ECONOMIC_MEANING", sourceSpan: "evet ama bütçemiz fazla değil. ekonomik bir şey bakıyoruz." }] }),
+      }),
+      realizer: fallbackRealizer,
+      shadow: true,
+    });
+    const first = await runCarsDecisionTurnV2({ conversationId: "baby-economic-advisor", messageId: "baby", idempotencyKey: "baby", expectedConversationRevision: 0, userMessage: "Bebeğimiz olacak. Yeni bir araca ihtiyacımız var. Ne önerirsin?", requestTime: "2026-08-23T02:00:00.000Z" }, composition);
+    expect(first.message).toMatch(/gözünüz aydın.*ailenizin.*araç/iu);
+    expect(first.message).not.toMatch(/dört kişi|işe gidiş/iu);
+
+    const economic = await runCarsDecisionTurnV2({ conversationId: "baby-economic-advisor", messageId: "economic", idempotencyKey: "economic", expectedConversationRevision: 1, userMessage: "Evet ama bütçemiz fazla değil. Ekonomik bir şey bakıyoruz.", requestTime: "2026-08-23T02:01:00.000Z" }, composition);
+    expect(economic.message).toMatch(/ekonomik derken.*satın alma fiyatı.*kullanım.*maliyeti/iu);
+    expect(economic.message).not.toMatch(/neyi kastettiğinden emin olamadım/iu);
+    expect(economic.options.map((option) => option.label)).toEqual(["Satın alma fiyatı erişilebilir olsun", "Kullanım ve yakıt maliyeti düşük olsun"]);
+  });
   it("asks explicitly about an uncertain expression and does not create an offer", async () => {
     const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
     const traces: Readonly<Record<string, unknown>>[] = [];
@@ -68,6 +194,73 @@ describe("production V2 composition with real WP pipeline", () => {
     expect(output.cards).toEqual([]);
     expect(output.offer).toBeUndefined();
     expect(traces.findLast((trace) => trace.phase === "DECISION")).toMatchObject({ action: "ANSWER_DIRECTLY", offerCreated: false });
+  });
+  it("renders ASIL reference meanings as a bounded clarification question without mutating the decision", async () => {
+    const store = new InMemoryV2ConversationStore();
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    const semanticInterpreter = { interpretAutomotiveSemantics: async () => ({ schemaVersion: "ASIL-0.1", messageId: "vito", concepts: [{ id: "reference", concept: "REFERENCE_ANALOGY", polarity: "POSITIVE", sourceSpan: "Vito tarzı", explicitness: "USER_EXPLICIT", confidence: 0.96, confirmationStatus: "CONFIRMED_BY_USER", projectionHint: null }], archetypes: [], analogies: [{ rawText: "Vito", relation: "SIMILAR_TO", parsedBrandText: null, parsedModelText: "Vito", intendedAttribute: null, sourceSpan: "Vito tarzı", explicitness: "USER_EXPLICIT", confidence: 0.95, confirmationStatus: "CONFIRMED_BY_USER" }], qualitativeNeeds: [], ambiguities: [{ code: "REFERENCE_ATTRIBUTE_UNCLEAR", sourceSpan: "Vito tarzı", clarificationCandidates: ["Yolcu taşıma/minibüs karakteri", "Yük taşıma/ticari van karakteri", "Karma yolcu ve yük kullanımı"] }], candidateInterpretations: [], requestedFacts: [], conversationalAct: "VEHICLE_DISCOVERY", providerStatus: "AVAILABLE" }) };
+    const composition = createCarsDecisionV2ProductionComposition({ store, semanticInterpreter, interpreter: model({ vito: result("vito", ["VEHICLE_INTENT", "RECOMMENDATION_REQUEST"], { directAnswerRequests: [{ kind: "RECOMMENDATION_REQUEST" }] }) }), realizer: fallbackRealizer, shadow: true });
+    const output = await runCarsDecisionTurnV2({ conversationId: "asil-vito", messageId: "vito", idempotencyKey: "vito", expectedConversationRevision: 0, userMessage: "Vito tarzı bir araç arıyorum", requestTime: "2026-08-20T06:01:15.000Z" }, composition);
+    expect(output.state).toBe("UNDERSTANDING_NEEDS");
+    expect(output.message).toMatch(/hangi.*kastediyorsun/iu);
+    expect(output.options.map((option) => option.label)).toEqual(["Düzenli yolcu taşıma ve çok koltuklu kullanım", "Yük ve eşya taşıma odaklı ticari kullanım", "Yolcu ve yükü birlikte taşıyan karma kullanım"]);
+    expect((await store.load("asil-vito"))?.memory?.decisionFingerprint).toBeTruthy();
+    expect((await store.load("asil-vito"))?.memory?.events.some((event) => event.eventType === "CONSTRAINT")).toBe(false);
+    const selected = output.options[0]!;
+    const clarified = await runCarsDecisionTurnV2({ conversationId: "asil-vito", messageId: "vito-answer", idempotencyKey: "vito-answer", expectedConversationRevision: 1, userMessage: selected.label, typedOptionId: selected.id, requestTime: "2026-08-20T06:01:16.000Z" }, composition);
+    expect(clarified.options.map((option) => option.label)).toEqual(["Yolcu vanı", "MPV"]);
+    const memory = (await store.load("asil-vito"))!.memory!;
+    expect(memory.events).toEqual(expect.arrayContaining([expect.objectContaining({ eventType: "CONSTRAINT", field: "usageScenario", normalizedValue: "PASSENGER_TRANSPORT", decisionEffect: "STRONG_RANK" })]));
+    expect(memory.materialQuestionHistory.find((item) => item.stableSemanticKey.startsWith("semanticIntelligence."))?.answerStatus).toBe("ANSWERED");
+  });
+  it("keeps an explicit electric preference while clarifying small-car meaning and explains jargon in context", async () => {
+    const store = new InMemoryV2ConversationStore();
+    const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };
+    let semanticCalls = 0;
+    const semanticInterpreter = { interpretAutomotiveSemantics: async (request: { messageId: string }) => {
+      semanticCalls += 1;
+      return { schemaVersion: "ASIL-0.1", messageId: request.messageId, concepts: [], archetypes: [], analogies: [], qualitativeNeeds: [], ambiguities: [{ code: "SMALL_VEHICLE_MEANING", sourceSpan: "küçük", clarificationCandidates: ["A-segment city car", "B-segment small hatchback", "Any compact urban hatchback regardless of exact segment", "two-person micro car"] }], candidateInterpretations: [], requestedFacts: [], conversationalAct: "VEHICLE_DISCOVERY", providerStatus: "AVAILABLE" };
+    } };
+    const composition = createCarsDecisionV2ProductionComposition({
+      store,
+      semanticInterpreter,
+      interpreter: model({ first: result("first", ["VEHICLE_INTENT", "RECOMMENDATION_REQUEST", "PREFERENCE_STATEMENT"], { directAnswerRequests: [{ kind: "RECOMMENDATION_REQUEST" }], constraintMutations: [{ operation: "ADD", fieldId: "fuelType", normalizedValue: { operator: "EQUALS", value: "BEV" }, explicitness: "EXPLICIT_PREFERENCE", confidence: 1, sourceSpan: "elektrikli" }], ambiguities: [{ code: "SMALL_VEHICLE_MEANING", sourceSpan: "küçük" }] }) }),
+      realizer: fallbackRealizer,
+      shadow: true,
+    });
+    const first = await runCarsDecisionTurnV2({ conversationId: "small-electric-explanation", messageId: "first", idempotencyKey: "first", expectedConversationRevision: 0, userMessage: "Küçük elektrikli araçlardan almak istiyorum.", requestTime: "2026-08-23T00:00:00.000Z" }, composition);
+    expect(first.options.map((option) => option.label)).toEqual([
+      "Şehir içinde kolay kullanılan, en küçük otomobil sınıfı",
+      "Clio veya Polo boyutlarında küçük otomobil",
+      "Kesin sınıfı önemli olmayan, şehirde kullanışlı küçük otomobil",
+      "Çoğunlukla iki kişilik, çok küçük şehir aracı",
+    ]);
+    const afterFirst = (await store.load("small-electric-explanation"))!.memory!;
+    expect(afterFirst.events).toEqual(expect.arrayContaining([expect.objectContaining({ eventType: "CONSTRAINT", field: "fuelType", normalizedValue: { operator: "EQUALS", value: "BEV" } })]));
+    expect(first.candidateSummary!.count).toBeLessThan(await activeVariantCount());
+
+    const explained = await runCarsDecisionTurnV2({ conversationId: "small-electric-explanation", messageId: "explain", idempotencyKey: "explain", expectedConversationRevision: 1, userMessage: "Bunların ne anlama geldiğini bilmiyorum.", requestTime: "2026-08-23T00:01:00.000Z" }, composition);
+    expect(explained.options).toEqual([]);
+    expect(explained.candidateSummary!.count).toBe(first.candidateSummary!.count);
+    expect(explained.message).toMatch(/teknik sınıf adlarını bilmen gerekmiyor[\s\S]*A segmenti[\s\S]*B segmenti/iu);
+    expect(explained.message).toMatch(/kolay park edilmesi[\s\S]*dört kişinin rahat/iu);
+    expect(semanticCalls).toBe(1);
+    expect((await store.load("small-electric-explanation"))!.memory!.events).toEqual(expect.arrayContaining([expect.objectContaining({ eventType: "CONSTRAINT", field: "fuelType" })]));
+
+    const languageCorrection = await runCarsDecisionTurnV2({ conversationId: "small-electric-explanation", messageId: "language-correction", idempotencyKey: "language-correction", expectedConversationRevision: 2, userMessage: "Ne demek istiyorsun, anlamadım; neden İngilizce konuşuyorsun?", requestTime: "2026-08-23T00:02:00.000Z" }, composition);
+    expect(languageCorrection.message).toMatch(/Haklısın; İngilizce seçenek göstermem hataydı/iu);
+    expect(languageCorrection.message).not.toMatch(/Sedan ayrı bagajlı|Benzinli ve dizel/iu);
+    expect(semanticCalls).toBe(1);
+  });
+  it("enriches a deterministic family request with an explicit ASIL performance persona without inventing a power threshold", async () => {
+    const store = new InMemoryV2ConversationStore();
+    const semanticInterpreter = { interpretAutomotiveSemantics: async () => ({ schemaVersion: "ASIL-0.1", messageId: "performance-family", concepts: [{ id: "performance", concept: "PERFORMANCE_ORIENTED_VEHICLE", polarity: "POSITIVE", sourceSpan: "Performanslı", explicitness: "USER_EXPLICIT", confidence: 0.96, confirmationStatus: "CONFIRMED_BY_USER", projectionHint: null }], archetypes: [], analogies: [], qualitativeNeeds: [], ambiguities: [], candidateInterpretations: [], requestedFacts: [], conversationalAct: "VEHICLE_DISCOVERY", providerStatus: "AVAILABLE" }) };
+    const composition = createCarsDecisionV2ProductionComposition({ store, semanticInterpreter, interpreter: model({}), realizer, shadow: true });
+    await runCarsDecisionTurnV2({ conversationId: "asil-performance-family", messageId: "performance-family", idempotencyKey: "performance-family", expectedConversationRevision: 0, userMessage: "Performanslı ama aileye uygun bir araba istiyorum", requestTime: "2026-08-20T06:01:20.000Z" }, composition);
+    const memory = (await store.load("asil-performance-family"))!.memory!;
+    expect(memory.persona).toMatchObject({ activated: true, requestedTraits: ["DRIVING_ENGAGEMENT"] });
+    expect(memory.events).toEqual(expect.arrayContaining([expect.objectContaining({ eventType: "CONSTRAINT", field: "usageScenario", normalizedValue: "FAMILY" }), expect.objectContaining({ eventType: "PERSONA_ACTIVATED", requestedTraits: ["DRIVING_ENGAGEMENT"] })]));
+    expect(memory.events.some((event) => event.eventType === "CONSTRAINT" && event.field === "powerKw")).toBe(false);
   });
   it("treats recognized accident anxiety as human context instead of an unknown decision phrase", async () => {
     const fallbackRealizer: NaturalRealizationModel = { realize: async () => ({ message: "", usedExplanationFactIds: [], mentionedCandidateIds: [] }) };

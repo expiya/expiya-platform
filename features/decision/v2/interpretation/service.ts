@@ -3,6 +3,8 @@ import { createStructuredInterpretationRequest } from "./prompt";
 import { validateInterpretationPolicy } from "./policy";
 import { parseInterpretationResult } from "./schema";
 import type { AuthoritativeSemanticPlan, StructuredInterpretationModel } from "./types";
+import type { CatalogSnapshot } from "../catalog/types";
+import { compileAutomotiveSemantics, createCatalogCapabilityRegistry, interpretAutomotiveSemantics, mergeDecisionCompilation, type AutomotiveSemanticModel } from "../semantic-intelligence";
 import { assessInterpretationSemanticCompleteness, enforceInterpretationSemanticCompleteness, isControlledBodyStyleVehicleRequest, isControlledCatalogAttributeAvailabilityRequest, isControlledOpenEndedVehicleRequest, isControlledSocialMessage, isControlledTechnicalInformationRequest, isControlledUsageRecommendationRequest, isControlledVehicleSelectionStatement } from "./semanticCompleteness";
 import { createAuthoritativeSemanticPlan } from "./authorityPlan";
 import type { InterpretationResult } from "./types";
@@ -10,15 +12,45 @@ import { isControlledHumanContextVehicleRequest } from "./humanContextPolicy";
 
 function suspendDecisionEffectsWhileAmbiguous(result: InterpretationResult): InterpretationResult {
   if (result.ambiguities.length === 0) return result;
+  const normalize = (value: string) => value.normalize("NFKC").toLocaleLowerCase("tr-TR").replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  const ambiguousSpans = result.ambiguities.map((ambiguity) => normalize(ambiguity.sourceSpan)).filter(Boolean);
+  const isAmbiguousSource = (sourceSpan: string | undefined) => {
+    const source = normalize(sourceSpan ?? "");
+    return !source || ambiguousSpans.some((ambiguous) => source === ambiguous || source.includes(ambiguous) || ambiguous.includes(source));
+  };
+  const independentlyGroundedConstraint = (mutation: InterpretationResult["constraintMutations"][number]) => {
+    const source = mutation.sourceSpan.toLocaleLowerCase("tr-TR");
+    if (mutation.fieldId === "fuelType") return /elektrik|elketrik|benzin|dizel|mazot|lpg|hibrit|hibrid|hidrojen/u.test(source);
+    if (mutation.fieldId === "transmission") return /otomatik|manuel|düz vites/u.test(source);
+    if (mutation.fieldId === "bodyStyle") return /suv|crossover|hatchback|sedan|coupe|liftback|station wagon|pickup|pikap|panel van|yolcu vanı|passenger van|mpv/u.test(source);
+    if (mutation.fieldId === "drivenWheels") return /4x4|awd|fwd|rwd|dört çeker|önden çekiş|arkadan (?:itiş|çekiş)/u.test(source);
+    if (mutation.fieldId === "seats") return /(?:\d+|iki|üç|dört|beş|altı|yedi|sekiz|dokuz)\s*(?:kişilik|koltuk)/u.test(source);
+    if (mutation.fieldId === "comfort") return /klima|iklimlendirme|havalandırma|serin|konfor|rahat/u.test(source);
+    return false;
+  };
+  const independentlyGroundedBudget = (mutation: InterpretationResult["budgetMutations"][number]) => {
+    const source = mutation.sourceSpan.toLocaleLowerCase("tr-TR");
+    if (["AVAILABLE_CASH", "MINIMUM_BUDGET", "PREFERRED_BUDGET", "MAXIMUM_HARD_CEILING"].includes(mutation.field)) return /\d+(?:[.,]\d+)?\s*(?:milyon|mn|bin|tl|₺)/u.test(source);
+    if (mutation.field === "FINANCE_FLEXIBILITY" || mutation.field === "UNRESOLVED_FINANCED_CEILING") return /kredi|finansman|taksit/u.test(source);
+    return mutation.operation === "EXCLUDE_FROM_DECISION" && /bütçe.*(?:önemli değil|hariç|dahil etme|katma|uygulama)/u.test(source);
+  };
+  const independentlyGroundedPersona = (mutation: InterpretationResult["personaMutations"][number]) => mutation.operation === "DEACTIVATE"
+    || /premium|şık|tasarım|sportif|performans|konfor|rahat|aile|teknolojik|havalı|prestij|ekonomik|sade|minimalist/u.test(mutation.sourceSpan.toLocaleLowerCase("tr-TR"));
   return Object.freeze({
     ...result,
-    constraintMutations: Object.freeze([]),
-    budgetMutations: Object.freeze([]),
-    modelReferences: Object.freeze([]),
-    personaMutations: Object.freeze([]),
-    corrections: Object.freeze([]),
+    constraintMutations: Object.freeze(result.constraintMutations.filter((mutation) => !isAmbiguousSource(mutation.sourceSpan) || independentlyGroundedConstraint(mutation))),
+    budgetMutations: Object.freeze(result.budgetMutations.filter((mutation) => !isAmbiguousSource(mutation.sourceSpan) || independentlyGroundedBudget(mutation))),
+    modelReferences: Object.freeze(result.modelReferences.filter((reference) => !isAmbiguousSource(reference.rawText))),
+    personaMutations: Object.freeze(result.personaMutations.filter((mutation) => !isAmbiguousSource(mutation.sourceSpan) || independentlyGroundedPersona(mutation))),
+    corrections: Object.freeze(result.corrections.filter((correction) => !isAmbiguousSource(correction.sourceSpan))),
     candidateRejection: undefined,
   });
+}
+
+export function interpretDeterministicSemanticQuestionExplanation(input: { readonly messageId: string; readonly userText: string; readonly fieldRegistry: DecisionFieldRegistry; readonly activeFieldIds?: readonly string[] }): AuthoritativeSemanticPlan {
+  const raw: InterpretationResult = { schemaVersion: 1, messageId: input.messageId, acts: ["TECHNICAL_EXPLANATION_REQUEST"], directAnswerRequests: [{ kind: "TECHNICAL_EXPLANATION" }], constraintMutations: [], budgetMutations: [], modelReferences: [], personaMutations: [], corrections: [], ambiguities: [] };
+  const validated = validateInterpretationPolicy({ result: raw, userText: input.userText, fieldRegistry: input.fieldRegistry, activeFieldIds: input.activeFieldIds ?? [], openMaterialQuestionField: "semanticMeaning", dailyLifeMappingIds: [], revealedCandidateReferences: [] });
+  return createAuthoritativeSemanticPlan({ raw, validated });
 }
 
 export function interpretDeterministicMaterialQuestionAnswer(input: { readonly messageId: string; readonly userText: string; readonly fieldRegistry: DecisionFieldRegistry; readonly activeFieldIds?: readonly string[]; readonly openMaterialQuestionField: string; readonly revealedCandidateReferences?: readonly string[] }): AuthoritativeSemanticPlan {
@@ -26,6 +58,16 @@ export function interpretDeterministicMaterialQuestionAnswer(input: { readonly m
   const activeFieldIds = input.activeFieldIds ?? [];
   const result = enforceInterpretationSemanticCompleteness({ result: raw, userText: input.userText, activeFieldIds, openMaterialQuestionField: input.openMaterialQuestionField, revealedCandidateReferences: input.revealedCandidateReferences ?? [] });
   const validated = validateInterpretationPolicy({ result, userText: input.userText, fieldRegistry: input.fieldRegistry, activeFieldIds, openMaterialQuestionField: input.openMaterialQuestionField, dailyLifeMappingIds: [], revealedCandidateReferences: input.revealedCandidateReferences ?? [] });
+  return createAuthoritativeSemanticPlan({ raw, validated });
+}
+export function interpretDeterministicAutomotiveSemanticAnswer(input: { readonly messageId: string; readonly userText: string; readonly fieldRegistry: DecisionFieldRegistry; readonly activeFieldIds?: readonly string[] }): AuthoritativeSemanticPlan | null {
+  const text = input.userText.trim();
+  const usageScenario = text === "Düzenli yolcu taşıma ve çok koltuklu kullanım" ? "PASSENGER_TRANSPORT"
+    : text === "Yük ve eşya taşıma odaklı ticari kullanım" ? "GENERAL_CARGO"
+    : undefined;
+  if (!usageScenario) return null;
+  const raw: InterpretationResult = { schemaVersion: 1, messageId: input.messageId, acts: ["QUESTION_ANSWER", "USAGE_STATEMENT", "VEHICLE_INTENT"], directAnswerRequests: [], constraintMutations: [{ operation: "ADD", fieldId: "usageScenario", normalizedValue: usageScenario, explicitness: "EXPLICIT_PREFERENCE", confidence: 1, sourceSpan: text }], budgetMutations: [], modelReferences: [], personaMutations: [], corrections: [], ambiguities: [] };
+  const validated = validateInterpretationPolicy({ result: raw, userText: text, fieldRegistry: input.fieldRegistry, activeFieldIds: input.activeFieldIds ?? [], openMaterialQuestionField: "semanticMeaning", dailyLifeMappingIds: [], revealedCandidateReferences: [] });
   return createAuthoritativeSemanticPlan({ raw, validated });
 }
 export function isDeterministicShortMaterialQuestionAnswer(userText: string): boolean {
@@ -105,3 +147,25 @@ export function interpretDeterministicControlledVehicleRequest(input: { readonly
   return plan;
 }
 export async function interpretUserMessage(input: { readonly model: StructuredInterpretationModel; readonly messageId: string; readonly userText: string; readonly fieldRegistry: DecisionFieldRegistry; readonly activeFieldIds?: readonly string[]; readonly openMaterialQuestionField?: string; readonly dailyLifeMappingIds?: readonly string[]; readonly revealedCandidateReferences?: readonly string[] }): Promise<AuthoritativeSemanticPlan> { const raw = await input.model.interpret(createStructuredInterpretationRequest(input.messageId, input.userText)); const parsed = parseInterpretationResult(raw); if (parsed.messageId !== input.messageId) throw new TypeError("Interpretation messageId mismatch."); const activeFieldIds = input.activeFieldIds ?? []; const completed = enforceInterpretationSemanticCompleteness({ result: parsed, userText: input.userText, activeFieldIds, openMaterialQuestionField: input.openMaterialQuestionField, revealedCandidateReferences: input.revealedCandidateReferences ?? [] }); const result = suspendDecisionEffectsWhileAmbiguous(completed); const validated = validateInterpretationPolicy({ result, userText: input.userText, fieldRegistry: input.fieldRegistry, activeFieldIds, openMaterialQuestionField: input.openMaterialQuestionField, dailyLifeMappingIds: input.dailyLifeMappingIds ?? [], revealedCandidateReferences: input.revealedCandidateReferences ?? [] }); const plan = createAuthoritativeSemanticPlan({ raw: parsed, validated }); const completeness = assessInterpretationSemanticCompleteness({ interpretation: plan, userText: input.userText, activeFieldIds }); if (!completeness.complete && result.ambiguities.length === 0) throw new TypeError(`SEMANTIC_COMPLETENESS_FAILED:${completeness.codes.join(",")}`); return plan; }
+
+export async function interpretUserMessageWithAutomotiveSemantics(input: Parameters<typeof interpretUserMessage>[0] & { readonly semanticModel: AutomotiveSemanticModel; readonly catalog: CatalogSnapshot }): Promise<AuthoritativeSemanticPlan> {
+  const [semantics, interpretationAttempt] = await Promise.all([
+    interpretAutomotiveSemantics({ model: input.semanticModel, messageId: input.messageId, userText: input.userText }),
+    input.model.interpret(createStructuredInterpretationRequest(input.messageId, input.userText)).then((value) => ({ ok: true as const, value }), () => ({ ok: false as const })),
+  ]);
+  const raw: unknown = interpretationAttempt.ok ? interpretationAttempt.value : { schemaVersion: 1, messageId: input.messageId, acts: [], directAnswerRequests: [], constraintMutations: [], budgetMutations: [], modelReferences: [], personaMutations: [], corrections: [], ambiguities: semantics.ambiguities.length ? semantics.ambiguities.map(({ code, sourceSpan }) => ({ code, sourceSpan })) : [{ code: "PROVIDER_UNAVAILABLE_SAFE_CLARIFICATION", sourceSpan: input.userText.slice(0, 500) || "(boş)" }] };
+  const parsed = parseInterpretationResult(raw);
+  if (parsed.messageId !== input.messageId) throw new TypeError("Interpretation messageId mismatch.");
+  const compilation = compileAutomotiveSemantics({ result: semantics, registry: createCatalogCapabilityRegistry(input.catalog), userText: input.userText });
+  const merged = mergeDecisionCompilation(parsed, compilation);
+  const plan = await interpretUserMessage({ ...input, model: { interpret: async () => merged } });
+  return Object.freeze({ ...plan, automotiveSemantics: semantics, semanticCompilation: compilation });
+}
+export async function enrichAuthoritativePlanWithAutomotiveSemantics(input: { readonly plan: AuthoritativeSemanticPlan; readonly semanticModel: AutomotiveSemanticModel; readonly catalog: CatalogSnapshot; readonly userText: string; readonly fieldRegistry: DecisionFieldRegistry; readonly activeFieldIds?: readonly string[]; readonly openMaterialQuestionField?: string; readonly revealedCandidateReferences?: readonly string[] }): Promise<AuthoritativeSemanticPlan> {
+  const semantics = await interpretAutomotiveSemantics({ model: input.semanticModel, messageId: input.plan.result.messageId, userText: input.userText });
+  const compilation = compileAutomotiveSemantics({ result: semantics, registry: createCatalogCapabilityRegistry(input.catalog), userText: input.userText });
+  const merged = mergeDecisionCompilation(input.plan.result, compilation);
+  const validated = validateInterpretationPolicy({ result: merged, userText: input.userText, fieldRegistry: input.fieldRegistry, activeFieldIds: input.activeFieldIds ?? [], openMaterialQuestionField: input.openMaterialQuestionField, dailyLifeMappingIds: [], revealedCandidateReferences: input.revealedCandidateReferences ?? [] });
+  const plan = createAuthoritativeSemanticPlan({ raw: input.plan.result, validated });
+  return Object.freeze({ ...plan, automotiveSemantics: semantics, semanticCompilation: compilation });
+}

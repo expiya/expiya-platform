@@ -14,7 +14,7 @@ const api = "https://commons.wikimedia.org/w/api.php";
 interface Family {
   key: string; brand: string; model: string; generation?: string; bodyStyle: string; modelYear: number;
 }
-interface SearchRecord { familyKey: string; status: "PUBLISHED" | "NO_MATCH" | "REJECTED" | "ERROR"; note?: string; fileTitle?: string; }
+interface SearchRecord { familyKey: string; status: "RIGHTS_REVIEW" | "PUBLISHED" | "NO_MATCH" | "REJECTED" | "ERROR"; note?: string; fileTitle?: string; }
 interface Output { schemaVersion: string; catalogRelease: string; generatedAt: string; assets: VehicleMediaAsset[]; searchRecords: SearchRecord[]; }
 interface CommonsPage { title: string; snippet?: string; imageinfo?: Array<{ thumburl?: string; url?: string; width?: number; height?: number; mime?: string; extmetadata?: Record<string, { value?: string }> }>; }
 
@@ -140,11 +140,11 @@ async function processFamily(family: Family, token: string): Promise<{ asset?: V
       generation: family.generation, bodyStyle: family.bodyStyle, modelYearFrom: family.modelYear, modelYearTo: family.modelYear,
       kind: "HERO_EXTERIOR", storagePath: blob.url, sourcePageUrl: info.pageUrl, originalAssetUrl: info.url,
       rightsHolder: info.artist, usagePermission: "OPEN_LICENSE", licenseName: info.license, licenseUrl: info.licenseUrl,
-      attributionText: `${info.artist} — ${info.license}`, publicationState: "PUBLISHED", isPrimary: true,
+      attributionText: `${info.artist} — ${info.license}`, publicationState: "RIGHTS_REVIEW", isPrimary: true,
       reviewedAt: new Date().toISOString(), fileHash: `sha256:${hash}`,
-      applicabilityNotes: ["Open-license representative model image from Wikimedia Commons", "Trim, model year, color, and market equipment may differ"],
+      applicabilityNotes: ["Open-license candidate from Wikimedia Commons", "Promotion must assign VARIANT or GENERATION_BODY scope after exact metadata and >=95% governed-reference pixel similarity verification"],
     };
-    return { asset, record: { familyKey: family.key, status: "PUBLISHED", fileTitle: title } };
+    return { asset, record: { familyKey: family.key, status: "RIGHTS_REVIEW", fileTitle: title, note: "Awaiting governed-reference exact-identity verification" } };
   } catch (error) { return { record: { familyKey: family.key, status: "ERROR", note: String(error) } }; }
 }
 

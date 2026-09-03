@@ -11,6 +11,7 @@ describe("human context and conversational etiquette policy", () => {
     ["Bu kadar seçenek yüzünden endişeliyim.", "ANXIETY"],
     ["Önerini beğenmedim, bu olmadı.", "DISAPPOINTMENT"],
     ["Evlendim, ailemiz büyüyor.", "LIFE_CHANGE"],
+    ["İkinci çocuk da yolda, arabasız olmaz.", "LIFE_CHANGE"],
     ["Yeni araba için sabırsızlanıyorum.", "EXCITEMENT"],
     ["Dört tekerli terapi olsun 😂", "HUMOR"],
   ] as const)("recognizes %s as %s", (message, expected) => {
@@ -21,5 +22,11 @@ describe("human context and conversational etiquette policy", () => {
 
   it("does not manufacture emotional context from an ordinary vehicle fact", () => {
     expect(detectHumanContext("Şehir içinde kullanacağım, otomatik olsun.")).toBeNull();
+  });
+
+  it("congratulates a growing family in natural Turkish", () => {
+    const acknowledgement = detectHumanContext("İkinci çocuk da yolda, arabasız olmaz.")?.safeAcknowledgement ?? "";
+    expect(acknowledgement).toMatch(/gözünüz aydın.*ailenizin.*araç/iu);
+    expect(acknowledgement).not.toMatch(/dört kişi|işe gidiş/iu);
   });
 });

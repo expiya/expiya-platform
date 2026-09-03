@@ -23,6 +23,7 @@ export function dailyUsageContext(state: V3ConversationState) {
     case "LONG_DISTANCE": return "Uzun yolculuklarda rahat ve yorucu olmayan bir kullanımı düşünerek";
     case "COMMERCIAL": return "Günlük iş akışında yükleme ve sık duraklamaları düşünerek";
     case "CORPORATE_TRAVEL": return "Satış ekibinin şehir içi ve şehir dışı müşteri ziyaretlerini düşünerek";
+    case "PASSENGER_TRANSPORT": return "Yolcuların rahatça inip binmesini ve birlikte seyahat etmesini düşünerek";
     default: return "Günlük kullanımda; örneğin işe gidiş, aile yolculuğu veya kısa şehir işleri gibi ihtiyaçları düşünerek";
   }
 }

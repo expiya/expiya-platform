@@ -5,7 +5,7 @@ import path from "node:path";
 import { deriveEventBoundFoundationTargets, deriveEventBoundIntegrationTargets } from "../features/vehicle-data/equipmentPublicExplanationIntegrationActivation.server";
 
 const root = process.cwd();
-const launchId = "EPEI-PILOT-LAUNCH-V3";
+const launchId = "EPEI-PILOT-LAUNCH-V9";
 const launchDir = path.join(root, "data/production/equipment-public-explanation-integration/governance/launch-preparations", launchId);
 const json = (value: unknown) => `${JSON.stringify(value, null, 2)}\n`;
 const sha = (text: string) => `sha256:${createHash("sha256").update(text).digest("hex")}`;
@@ -15,7 +15,7 @@ async function main() {
 const manifestText = await readFile(path.join(launchDir, "single-pilot-launch-manifest.json"), "utf8");
 const manifest = JSON.parse(manifestText);
 const checksums = JSON.parse(await readFile(path.join(launchDir, "checksums.json"), "utf8"));
-if (sha(manifestText) !== checksums["single-pilot-launch-manifest.json"] || sha(manifestText) !== "sha256:24a6081aa7b052b3e3cd41475eb199babe6d484aeb6927d96072c1d8c5424354") throw new Error("LAUNCH_MANIFEST_CHECKSUM_INVALID");
+if (sha(manifestText) !== checksums["single-pilot-launch-manifest.json"] || sha(manifestText) !== "sha256:703a61c5bdef36f06f8868adf4a66019667717c58c2e46e13cf4722d1c886c10") throw new Error("LAUNCH_MANIFEST_CHECKSUM_INVALID");
 
 const authorizedAt = new Date().toISOString();
 const ownerStatement = await readFile(path.join(launchDir, "owner-single-pilot-launch-authorization.txt"), "utf8");

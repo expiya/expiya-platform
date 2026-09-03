@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
-import manifest from "@/data/production/equipment-public-explanation-integration/governance/launch-preparations/EPEI-PILOT-LAUNCH-V3/single-pilot-launch-manifest.json";
-import checksums from "@/data/production/equipment-public-explanation-integration/governance/launch-preparations/EPEI-PILOT-LAUNCH-V3/checksums.json";
+import manifest from "@/data/production/equipment-public-explanation-integration/governance/launch-preparations/EPEI-PILOT-LAUNCH-V9/single-pilot-launch-manifest.json";
+import checksums from "@/data/production/equipment-public-explanation-integration/governance/launch-preparations/EPEI-PILOT-LAUNCH-V9/checksums.json";
 import { deriveEventBoundFoundationTargets, deriveEventBoundIntegrationTargets, simulateAtomicIntegrationInstall } from "./equipmentPublicExplanationIntegrationActivation.server";
 
 const owner = { eventId: "EPEI-ACTAUTH-TEST_ONLY", eventChecksum: `sha256:${"a".repeat(64)}`, ownerActorId: "EQUIPMENT_OWNER_001" as const, authorizedAt: "2026-08-20T14:00:00.000Z", synthetic: true, timeSource: "TEST_FIXTURE_ONLY" };

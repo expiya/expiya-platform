@@ -7,9 +7,9 @@ const sha = (text) => `sha256:${createHash("sha256").update(text).digest("hex")}
 const json = (value) => `${JSON.stringify(value, null, 2)}\n`;
 const read = (relative) => readFile(path.join(root, relative), "utf8");
 const FOUNDATION_CANDIDATE = "v1.0.0-catalog-v0.55.4-2026-08-20-candidate";
-const FOUNDATION_RELEASE = "v1.0.1-catalog-v0.55.4-2026-08-20";
+const FOUNDATION_RELEASE = "v1.0.7-catalog-v0.55.4-2026-08-22";
 const INTEGRATION_RELEASE = "v0.1.0-catalog-v0.55.4-2026-08-20";
-const LAUNCH_ID = "EPEI-PILOT-LAUNCH-V3";
+const LAUNCH_ID = "EPEI-PILOT-LAUNCH-V9";
 const base = "data/production/rec-offer-audit-foundation";
 const candidateDir = `${base}/release-candidates/${FOUNDATION_CANDIDATE}`;
 const releaseDir = `${base}/releases/${FOUNDATION_RELEASE}`;
@@ -33,6 +33,7 @@ if (daily.activeEquipmentDailyLifeRelease !== "v1.0.1-catalog-v0.55.4-2026-08-20
 const contractPaths = Object.freeze([
   "app/api/cars/conversation/route.ts", "features/decision/v2/integration/publicRoute.server.ts", "features/decision/v2/orchestrator/types.ts", "features/decision/v2/orchestrator/runCarsDecisionTurnV2.ts",
   "features/decision/v2/persistence/postgresStore.server.ts", "features/decision/v2/orchestrator/store.ts", "features/decision/v2/domain/conversationEvent.ts", "features/decision/v2/domain/eventDecisionImpact.ts", "features/decision/v2/schema/conversationEventSchema.ts",
+  "features/decision/v2/offer/types.ts", "features/decision/v2/offer/signer.server.ts", "features/decision/v2/offer/store.ts", "features/decision/v2/offer/authorize.ts",
   "features/decision/v2/offer/recOfferAuditFoundation.server.ts", "features/vehicle-data/equipmentRecommendationOfferAuditAdapter.server.ts", "features/vehicle-data/equipmentAuditAuthorizationResolver.server.ts",
   "features/decision/v2/offer/recOfferAuditFoundationRuntime.server.ts", "features/vehicle-data/equipmentPublicExplanationIntegrationRuntime.server.ts",
   "features/vehicle-data/equipmentPublicExplanationIntegrationLifecycle.server.ts", "features/vehicle-data/equipmentPublicExplanationIntegrationActivation.server.ts", "features/vehicle-data/equipmentPublicExplanationFacade.server.ts", "app/api/cars/equipment-explanation/route.ts",

@@ -43,12 +43,18 @@ export function createConversationEventsFromInterpretation(input: { readonly tur
       && (input.interpretation.acceptedBudgetMutations.length > 0 || input.interpretation.acceptedConstraintMutations.some((mutation) => ["bodyStyle", "fuelType", "transmission"].includes(mutation.fieldId)));
     const genericDecline = /^\s*(?:fark etmez|önemli değil|geç)\s*[.!]?\s*$/iu.test(input.turn.userMessage);
     const declined = genericDecline || matchingConstraintMutation?.operation === "DECLINE";
-    const deferred = input.interpretation.result.acts.includes("DONT_KNOW") || /(?:bunu|kullanım(?: ayrıntısını)?|gövde(?:yi| tipini)?|yakıtı)\s+sonra\s+konuşalım/iu.test(input.turn.userMessage);
-    const answered = Boolean(matchingConstraintMutation || matchingBudgetMutation || affordabilityConflictAnswered);
+    const deferred = input.interpretation.result.acts.includes("DONT_KNOW")
+      || /^\s*(?:bilmiyorum|fikrim yok|emin değilim)(?:\b|[,.])/iu.test(input.turn.userMessage)
+      || /(?:bunu|kullanım(?: ayrıntısını)?|gövde(?:yi| tipini)?|yakıtı)\s+sonra\s+konuşalım/iu.test(input.turn.userMessage);
+    const semanticMeaningAnswered = openQuestion.field === "semanticMeaning" && (Boolean(input.turn.typedOptionId || input.turn.typedOptionIds?.length) || Boolean(input.interpretation.automotiveSemantics) && (input.interpretation.automotiveSemantics?.ambiguities.length ?? 1) === 0);
+    const answered = Boolean(matchingConstraintMutation || matchingBudgetMutation || affordabilityConflictAnswered || semanticMeaningAnswered);
     const supersedingFields = new Set(["usageScenario", "usageArchitecture", "bodyStyle", "seats", "drivenWheels", "fuelType", "transmission"]);
     const supersededByCrossFieldMutation = !answered
       && openQuestion.field !== "budget"
-      && input.interpretation.acceptedConstraintMutations.some((mutation) => mutation.fieldId !== openQuestion.field && supersedingFields.has(mutation.fieldId));
+      && input.interpretation.acceptedConstraintMutations.some((mutation) =>
+        mutation.fieldId !== openQuestion.field
+        && supersedingFields.has(mutation.fieldId)
+        && !(openQuestion.field === "bodyStyle" && ["usageScenario", "seats"].includes(mutation.fieldId)));
     if (declined || deferred || answered || supersededByCrossFieldMutation) push({ eventType: "MATERIAL_QUESTION_DISPOSITION", questionId: openQuestion.questionId, stableSemanticKey: openQuestion.stableSemanticKey, status: declined ? "DECLINED" : deferred ? "DEFERRED" : supersededByCrossFieldMutation ? "SUPERSEDED" : "ANSWERED" });
   }
   const priorConstraints = input.previous?.events.filter((event): event is ConstraintEvent => event.eventType === "CONSTRAINT") ?? [];

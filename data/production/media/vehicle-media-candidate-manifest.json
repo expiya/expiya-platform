@@ -1,14 +1,14 @@
 {
   "schemaVersion": "0.2.0",
-  "generatedAt": "2026-08-18T16:01:54.445Z",
-  "catalogRelease": "v0.55.1",
-  "catalogPayloadHash": "sha256:96f318680dd788c9df0827cbe3ce5635a36a5f1b354ab8fc7e6654bfa3ddc07e",
+  "generatedAt": "2026-08-22T09:08:24.862Z",
+  "catalogRelease": "v0.55.4",
+  "catalogPayloadHash": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
   "policy": "OFFICIAL_SOURCE_CANDIDATE_OWNER_ATTESTATION_REQUIRED_FOR_PUBLICATION",
   "totals": {
-    "DOWNLOADED": 120,
-    "NO_IMAGE_METADATA": 41,
-    "SOURCE_FETCH_FAILED": 187,
-    "ASSET_FETCH_FAILED": 53
+    "DOWNLOADED": 113,
+    "NO_IMAGE_METADATA": 37,
+    "SOURCE_FETCH_FAILED": 185,
+    "ASSET_FETCH_FAILED": 54
   },
   "records": [
     {
@@ -46,18 +46,6 @@
       "sourcePageUrl": "https://www.alfaromeo.com.tr/arac-modelleri/yeni-tonale",
       "status": "SOURCE_FETCH_FAILED",
       "note": "HTTP 403"
-    },
-    {
-      "familyKey": "Alpine|A110|Coupe",
-      "brand": "Alpine",
-      "model": "A110",
-      "bodyStyle": "Coupe",
-      "sourcePageUrl": "https://www.alpinecars.com.tr/modeller/a110-gt.html",
-      "discoveredAssetUrl": "https://cdn.group.renault.com/alp/master/alpine-new-cars/product-plans/a110gt/hero-zone/alpine-a110-gt-001-mobile-manufactured-in-europe_pp-flag-tr.jpg.ximg.small.jpg/e8394641d8.jpg",
-      "localPath": "data/production/media/candidates/8bd7f90764925781168d28fc344a7e25e3769f786e5109f79aac0e75ede57e52.jpg",
-      "sha256": "8bd7f90764925781168d28fc344a7e25e3769f786e5109f79aac0e75ede57e52",
-      "contentType": "image/jpeg",
-      "status": "DOWNLOADED"
     },
     {
       "familyKey": "Alpine|A290|Hatchback",
@@ -162,7 +150,7 @@
       "bodyStyle": "Sedan",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|A3 Sportback|Hatchback",
@@ -171,7 +159,7 @@
       "bodyStyle": "Hatchback",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|A5 Avant|Station Wagon",
@@ -180,7 +168,7 @@
       "bodyStyle": "Station Wagon",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|A5 Sedan|Liftback",
@@ -189,7 +177,7 @@
       "bodyStyle": "Liftback",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|A6 Avant e-tron|Station Wagon",
@@ -198,7 +186,7 @@
       "bodyStyle": "Station Wagon",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|A6 Sedan|Sedan",
@@ -207,7 +195,7 @@
       "bodyStyle": "Sedan",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|A6 Sportback e-tron|Liftback",
@@ -216,7 +204,7 @@
       "bodyStyle": "Liftback",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|A8 L|Sedan",
@@ -225,7 +213,7 @@
       "bodyStyle": "Sedan",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|e-tron GT|Sedan",
@@ -234,7 +222,7 @@
       "bodyStyle": "Sedan",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|Q2|SUV",
@@ -243,7 +231,7 @@
       "bodyStyle": "SUV",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|Q3 Sportback|Fastback SUV",
@@ -252,7 +240,7 @@
       "bodyStyle": "Fastback SUV",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|Q3|SUV",
@@ -261,7 +249,7 @@
       "bodyStyle": "SUV",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|Q4 e-tron|SUV",
@@ -270,7 +258,7 @@
       "bodyStyle": "SUV",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|Q4 Sportback e-tron|Fastback SUV",
@@ -279,7 +267,7 @@
       "bodyStyle": "Fastback SUV",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|Q5 Sportback|Fastback SUV",
@@ -288,7 +276,7 @@
       "bodyStyle": "Fastback SUV",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|Q5|SUV",
@@ -297,7 +285,7 @@
       "bodyStyle": "SUV",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|Q6 e-tron|SUV",
@@ -306,7 +294,7 @@
       "bodyStyle": "SUV",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|Q6 Sportback e-tron|Fastback SUV",
@@ -315,7 +303,7 @@
       "bodyStyle": "Fastback SUV",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|Q7|SUV",
@@ -324,7 +312,7 @@
       "bodyStyle": "SUV",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Audi|Q8|Fastback SUV",
@@ -333,7 +321,7 @@
       "bodyStyle": "Fastback SUV",
       "sourcePageUrl": "https://www.audi.com.tr/tr/models/",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 503"
+      "note": "HTTP 403"
     },
     {
       "familyKey": "Bentley|Bentayga EWB|SUV",
@@ -1027,35 +1015,15 @@
       "status": "DOWNLOADED"
     },
     {
-      "familyKey": "Dacia|Bigster|SUV",
-      "brand": "Dacia",
-      "model": "Bigster",
-      "bodyStyle": "SUV",
-      "sourcePageUrl": "https://www.dacia.com.tr/modeller/bigster.html",
-      "status": "NO_IMAGE_METADATA"
-    },
-    {
-      "familyKey": "Dacia|Duster|SUV",
-      "brand": "Dacia",
-      "model": "Duster",
-      "bodyStyle": "SUV",
-      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-duster.html",
-      "discoveredAssetUrl": "https://cdn.group.renault.com/dac/master/dacia-vn/editorial/new-homepage/dacia-homepage-card4-desktop-001.jpg.ximg.large.jpg/52d1ba559e.jpg",
-      "localPath": "data/production/media/candidates/d759a989be50a353af881b97e1e9c45bd18399a8ef7fc431e6d26d8075acefc4.jpg",
-      "sha256": "d759a989be50a353af881b97e1e9c45bd18399a8ef7fc431e6d26d8075acefc4",
-      "contentType": "image/jpeg",
-      "status": "DOWNLOADED"
-    },
-    {
       "familyKey": "Dacia|Jogger|MPV",
       "brand": "Dacia",
       "model": "Jogger",
       "bodyStyle": "MPV",
-      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-jogger.html",
-      "discoveredAssetUrl": "https://cdn.group.renault.com/dac/master/dacia-vn/vehicules/rji/jogger-ri1-ph2/herozone-banners/jogger-ri1-ph2-herozone-001-desktop.jpg.ximg.large.jpg/458f9ef69f.jpg",
-      "localPath": "data/production/media/candidates/50a4ee3e7188aa6021d76b4f37823fd49a41f7307c13bcc7a048f98eaae2e2bc.jpg",
-      "sha256": "50a4ee3e7188aa6021d76b4f37823fd49a41f7307c13bcc7a048f98eaae2e2bc",
-      "contentType": "image/jpeg",
+      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-jogger/konfigurator-yeni.html",
+      "discoveredAssetUrl": "https://www.dacia.com.tr/agg/vn/unique/grade_carrousel_main_1_medium/r_brandSite_carPicker_1.png?uri=https%3A%2F%2Ftr.co.rplug.renault.com%2Fc%2FBADP5%2FA",
+      "localPath": "data/production/media/candidates/6d188ff5816880405018fff9c6fbadcf966f800b5330ad008bb688077f37d4b4.png",
+      "sha256": "6d188ff5816880405018fff9c6fbadcf966f800b5330ad008bb688077f37d4b4",
+      "contentType": "image/png",
       "status": "DOWNLOADED"
     },
     {
@@ -1063,23 +1031,21 @@
       "brand": "Dacia",
       "model": "Logan",
       "bodyStyle": "Sedan",
-      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-logan/konfigurator-yeni.html",
-      "discoveredAssetUrl": "https://www.dacia.com.tr/agg/vn/unique/grade_carrousel_main_1_medium/r_brandSite_carPicker_1.png?uri=https%3A%2F%2Ftr.co.rplug.renault.com%2Fc%2FBADP4%2FA",
-      "localPath": "data/production/media/candidates/0e2ebbfe0b9812a5fc9696ae80e613a034a7775d25be7640aaac2b50b807bd53.png",
-      "sha256": "0e2ebbfe0b9812a5fc9696ae80e613a034a7775d25be7640aaac2b50b807bd53",
-      "contentType": "image/png",
-      "status": "DOWNLOADED"
+      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-logan.html",
+      "discoveredAssetUrl": "https://cdn.group.renault.com/dac/master/dacia-vn/vehicules/logan/logan-li1-ph2/herozone-banners/dacia-logan-li1-ph2-herozone-001-desktop.jpg.ximg.large.jpg/27ae8c6dae.jpg",
+      "status": "ASSET_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
     },
     {
       "familyKey": "Dacia|Sandero Stepway|SUV",
       "brand": "Dacia",
       "model": "Sandero Stepway",
       "bodyStyle": "SUV",
-      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-sandero-stepway.html",
-      "discoveredAssetUrl": "https://cdn.group.renault.com/dac/tr/dacia-new-cars/editorial/sandero-stepway/sandero-stepway-bi1-ph2/tr-dacia-sandero-stepway-bi1-ph2-01.jpg.ximg.large.jpg/4a0b8ac502.jpg",
-      "localPath": "data/production/media/candidates/1559374f8a824b5719e65f948924f965e90dbdd29ad2526f1d23acf838384c0e.jpg",
-      "sha256": "1559374f8a824b5719e65f948924f965e90dbdd29ad2526f1d23acf838384c0e",
-      "contentType": "image/jpeg",
+      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-sandero-stepway-bi1-ph2/konfigurator-yeni.html",
+      "discoveredAssetUrl": "https://www.dacia.com.tr/agg/vn/unique/grade_carrousel_main_1_medium/r_brandSite_carPicker_1.png?uri=https%3A%2F%2Ftr.co.rplug.renault.com%2Fc%2FBADP30AhhAiF1F2%2FA",
+      "localPath": "data/production/media/candidates/56ddd86e2b5a35882b48845af8c5745a26a269c337ef2db4e8fcfdf05303116f.png",
+      "sha256": "56ddd86e2b5a35882b48845af8c5745a26a269c337ef2db4e8fcfdf05303116f",
+      "contentType": "image/png",
       "status": "DOWNLOADED"
     },
     {
@@ -1087,19 +1053,11 @@
       "brand": "Dacia",
       "model": "Sandero",
       "bodyStyle": "Hatchback",
-      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-sandero-bi1-ph2/konfigurator.html",
-      "status": "NO_IMAGE_METADATA"
-    },
-    {
-      "familyKey": "Dacia|Spring|Hatchback",
-      "brand": "Dacia",
-      "model": "Spring",
-      "bodyStyle": "Hatchback",
-      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-dacia-spring.html",
-      "discoveredAssetUrl": "https://cdn.group.renault.com/dac/master/dacia-vn/editorial/new-homepage/dacia-homepage-card4-desktop-001.jpg.ximg.large.jpg/52d1ba559e.jpg",
-      "localPath": "data/production/media/candidates/d759a989be50a353af881b97e1e9c45bd18399a8ef7fc431e6d26d8075acefc4.jpg",
-      "sha256": "d759a989be50a353af881b97e1e9c45bd18399a8ef7fc431e6d26d8075acefc4",
-      "contentType": "image/jpeg",
+      "sourcePageUrl": "https://www.dacia.com.tr/modeller/yeni-sandero-bi1-ph2/konfigurator-yeni.html",
+      "discoveredAssetUrl": "https://www.dacia.com.tr/agg/vn/unique/grade_carrousel_main_1_medium/r_brandSite_carPicker_1.png?uri=https%3A%2F%2Ftr.co.rplug.renault.com%2Fc%2FBADP30AhhAiFzF0%2FA",
+      "localPath": "data/production/media/candidates/6812afe6211b67dcca2d7749a2def3ca029e72ba77544ce3187c1ef75a1a1564.png",
+      "sha256": "6812afe6211b67dcca2d7749a2def3ca029e72ba77544ce3187c1ef75a1a1564",
+      "contentType": "image/png",
       "status": "DOWNLOADED"
     },
     {
@@ -1148,7 +1106,7 @@
       "bodyStyle": "Coupe",
       "sourcePageUrl": "https://www.ferrari.com/tr-TR/auto/car-range",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 403"
+      "note": "TypeError: fetch failed"
     },
     {
       "familyKey": "Ferrari|296 GTB|Coupe",
@@ -1175,7 +1133,7 @@
       "bodyStyle": "Coupe",
       "sourcePageUrl": "https://www.ferrari.com/tr-TR/auto/car-range",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 403"
+      "note": "TypeError: fetch failed"
     },
     {
       "familyKey": "Ferrari|Purosangue|SUV",
@@ -1254,15 +1212,6 @@
       "brand": "Fiat",
       "model": "Ducato Kamyonet",
       "bodyStyle": "Chassis Cab",
-      "sourcePageUrl": "https://www.fiat.com.tr/professional",
-      "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 403"
-    },
-    {
-      "familyKey": "Fiat|Ducato Minibüs|Passenger Van",
-      "brand": "Fiat",
-      "model": "Ducato Minibüs",
-      "bodyStyle": "Passenger Van",
       "sourcePageUrl": "https://www.fiat.com.tr/professional",
       "status": "SOURCE_FETCH_FAILED",
       "note": "HTTP 403"
@@ -1693,15 +1642,6 @@
       "note": "TimeoutError: The operation was aborted due to timeout"
     },
     {
-      "familyKey": "Hyundai|KONA|SUV",
-      "brand": "Hyundai",
-      "model": "KONA",
-      "bodyStyle": "SUV",
-      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/kona-digital-brosurpdf",
-      "status": "NO_IMAGE_METADATA",
-      "note": "PDF requires brochure extraction"
-    },
-    {
       "familyKey": "Hyundai|SANTA FE Hibrit|SUV",
       "brand": "Hyundai",
       "model": "SANTA FE Hibrit",
@@ -1716,14 +1656,6 @@
       "model": "STARIA Hibrit",
       "bodyStyle": "MPV",
       "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/staria-digital-brosur",
-      "status": "NO_IMAGE_METADATA"
-    },
-    {
-      "familyKey": "Hyundai|TUCSON Hibrit|SUV",
-      "brand": "Hyundai",
-      "model": "TUCSON Hibrit",
-      "bodyStyle": "SUV",
-      "sourcePageUrl": "https://dmassets.hyundai.com/is/content/hyundaiautoever/tucson-digital-brosurpdf",
       "status": "NO_IMAGE_METADATA",
       "note": "PDF requires brochure extraction"
     },
@@ -2462,15 +2394,6 @@
       "note": "TypeError: fetch failed"
     },
     {
-      "familyKey": "Mercedes-Benz|Vito Panelvan|Panel Van",
-      "brand": "Mercedes-Benz",
-      "model": "Vito Panelvan",
-      "bodyStyle": "Panel Van",
-      "sourcePageUrl": "https://www.mercedes-benz.com.tr/vans",
-      "status": "SOURCE_FETCH_FAILED",
-      "note": "TypeError: fetch failed"
-    },
-    {
       "familyKey": "MG|Cyberster|Convertible",
       "brand": "MG",
       "model": "Cyberster",
@@ -2666,7 +2589,7 @@
       "bodyStyle": "Passenger Van",
       "sourcePageUrl": "https://www.nissan.com.tr/araclar/yeni-araclar.html",
       "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 404"
+      "note": "TypeError: fetch failed"
     },
     {
       "familyKey": "Nissan|Townstar EV Van|Panel Van",
@@ -2674,11 +2597,8 @@
       "model": "Townstar EV Van",
       "bodyStyle": "Panel Van",
       "sourcePageUrl": "https://www.nissan.com.tr/",
-      "discoveredAssetUrl": "https://www-europe.nissan-cdn.net/content/dam/Nissan/turkey/vehicles/townstar/townstar-van/packshots/TOWNSTAR_VAN_600x337_.jpg.ximg.l_3_m.smart.jpg",
-      "localPath": "data/production/media/candidates/abfd9eee04f3c292ec77870dafac2c344b41c76526de4c07802c5842f06dd41d.jpg",
-      "sha256": "abfd9eee04f3c292ec77870dafac2c344b41c76526de4c07802c5842f06dd41d",
-      "contentType": "image/jpeg",
-      "status": "DOWNLOADED"
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
     },
     {
       "familyKey": "Nissan|Townstar Van|Panel Van",
@@ -2708,9 +2628,9 @@
       "bodyStyle": "SUV",
       "sourcePageUrl": "https://www.omodajaecoo.com.tr/",
       "discoveredAssetUrl": "https://www.omodajaecoo.com.tr/wp-content/uploads/2026/01/opengraph-omodajaecoo.png",
-      "localPath": "data/production/media/candidates/a31cf7ff4803ee0a139e48411b626756d4179dab34d73cf11c3b74d0ac0edce6.webp",
-      "sha256": "a31cf7ff4803ee0a139e48411b626756d4179dab34d73cf11c3b74d0ac0edce6",
-      "contentType": "image/webp",
+      "localPath": "data/production/media/candidates/fd6515a6a9eeb195bfb4490036b5a2f054778fb114d86ea60f35c578109c9dc9.png",
+      "sha256": "fd6515a6a9eeb195bfb4490036b5a2f054778fb114d86ea60f35c578109c9dc9",
+      "contentType": "image/png",
       "status": "DOWNLOADED"
     },
     {
@@ -2739,15 +2659,6 @@
       "brand": "Opel",
       "model": "Astra Sports Tourer",
       "bodyStyle": "Station Wagon",
-      "sourcePageUrl": "https://www.opel.com.tr/",
-      "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 403"
-    },
-    {
-      "familyKey": "Opel|Astra|Hatchback",
-      "brand": "Opel",
-      "model": "Astra",
-      "bodyStyle": "Hatchback",
       "sourcePageUrl": "https://www.opel.com.tr/",
       "status": "SOURCE_FETCH_FAILED",
       "note": "HTTP 403"
@@ -2956,15 +2867,6 @@
       "note": "HTTP 403"
     },
     {
-      "familyKey": "Peugeot|E-2008|SUV",
-      "brand": "Peugeot",
-      "model": "E-2008",
-      "bodyStyle": "SUV",
-      "sourcePageUrl": "https://www.peugeot.com.tr/",
-      "status": "SOURCE_FETCH_FAILED",
-      "note": "HTTP 403"
-    },
-    {
       "familyKey": "Peugeot|E-208|Hatchback",
       "brand": "Peugeot",
       "model": "E-208",
@@ -3044,18 +2946,6 @@
       "sourcePageUrl": "https://www.peugeot.com.tr/modeller/ticari-araclar.html",
       "status": "SOURCE_FETCH_FAILED",
       "note": "HTTP 403"
-    },
-    {
-      "familyKey": "Porsche|718 Boxster|Convertible",
-      "brand": "Porsche",
-      "model": "718 Boxster",
-      "bodyStyle": "Convertible",
-      "sourcePageUrl": "https://www.porsche.com.tr/modeller",
-      "discoveredAssetUrl": "https://cdn.porsche.com.tr/assets/718menuyeni.png",
-      "localPath": "data/production/media/candidates/55f8938daf714356e3395ea5955dab36b4238289bcd42afdb1f768a483fc0d1c.png",
-      "sha256": "55f8938daf714356e3395ea5955dab36b4238289bcd42afdb1f768a483fc0d1c",
-      "contentType": "image/png",
-      "status": "DOWNLOADED"
     },
     {
       "familyKey": "Porsche|718 Cayman|Coupe",
@@ -3220,8 +3110,8 @@
       "bodyStyle": "Panel Van",
       "sourcePageUrl": "https://ticari.renault.com.tr/",
       "discoveredAssetUrl": "https://ticari.renault.com.tr/agg/vn/unique/ONE_DACIA_PP_LARGE_DENSITY1/r_brandSite_carPicker_1.png?uri=https%3A%2F%2Ftr.co.rplug.renault.com%2Fproduct%2Fmodel%2FM4H%2Fyeni-master-panelvan%2Fc%2FA-ODQG-ENS_0MDL2P1SERIELIM2_",
-      "localPath": "data/production/media/candidates/f1fe81ebc75aa588a2086ceef74d1fcfeb9b048bb98aafc4f604916ac95eb4f8.png",
-      "sha256": "f1fe81ebc75aa588a2086ceef74d1fcfeb9b048bb98aafc4f604916ac95eb4f8",
+      "localPath": "data/production/media/candidates/9011c6aa8cb51cbf944a88e9ce81eb4f35e78d2d799d67a58912c894e2202506.png",
+      "sha256": "9011c6aa8cb51cbf944a88e9ce81eb4f35e78d2d799d67a58912c894e2202506",
       "contentType": "image/png",
       "status": "DOWNLOADED"
     },
@@ -3232,10 +3122,8 @@
       "bodyStyle": "Hatchback",
       "sourcePageUrl": "https://www.renault.com.tr/konfigurator-tum-modeller.html",
       "discoveredAssetUrl": "https://www.renault.com.tr/agg/vn/unique/ONE_DACIA_PP_LARGE_DENSITY1/r_brandSite_carPicker_1.png?uri=https%3A%2F%2Ftr.co.rplug.renault.com%2Fproduct%2Fmodel%2FZO1%2Fmegane-e-tech%2Fc%2FA-ENS_0MDL2P1SERIELIM2_-BIYVM",
-      "localPath": "data/production/media/candidates/068b331276a906029f5385ad376a440798678f8dfadcfb1cd0db9ece28dc5e95.png",
-      "sha256": "068b331276a906029f5385ad376a440798678f8dfadcfb1cd0db9ece28dc5e95",
-      "contentType": "image/png",
-      "status": "DOWNLOADED"
+      "status": "ASSET_FETCH_FAILED",
+      "note": "HTTP 404; image/png"
     },
     {
       "familyKey": "Renault|Megane Sedan|Sedan",
@@ -3303,11 +3191,8 @@
       "model": "Trafic Panelvan",
       "bodyStyle": "Panel Van",
       "sourcePageUrl": "https://ticari.renault.com.tr/",
-      "discoveredAssetUrl": "https://ticari.renault.com.tr/agg/vn/unique/ONE_DACIA_PP_LARGE_DENSITY1/r_brandSite_carPicker_1.png?uri=https%3A%2F%2Ftr.co.rplug.renault.com%2Fproduct%2Fmodel%2FTRU%2Ftrafic-panelvan%2Fc%2FA-ENS_0MDL2P1SERIELIM2_-TEKNA",
-      "localPath": "data/production/media/candidates/a3e3e2f8a7b61961adeca2942c37bea951316f7683ecc3e2414cfe85294e809b.png",
-      "sha256": "a3e3e2f8a7b61961adeca2942c37bea951316f7683ecc3e2414cfe85294e809b",
-      "contentType": "image/png",
-      "status": "DOWNLOADED"
+      "status": "SOURCE_FETCH_FAILED",
+      "note": "TypeError: fetch failed"
     },
     {
       "familyKey": "Rolls-Royce|Cullinan|SUV",
@@ -3396,18 +3281,6 @@
       "discoveredAssetUrl": "https://fs.seat.com.tr/assets/Layout/Header/DetailedHeaderLinkSection/Modeller/ibiza.png",
       "localPath": "data/production/media/candidates/60b969d6be08b8b45620e44f0138ac425d2f913b6dabdd792693519491426600.png",
       "sha256": "60b969d6be08b8b45620e44f0138ac425d2f913b6dabdd792693519491426600",
-      "contentType": "image/png",
-      "status": "DOWNLOADED"
-    },
-    {
-      "familyKey": "SEAT|Leon|Hatchback",
-      "brand": "SEAT",
-      "model": "Leon",
-      "bodyStyle": "Hatchback",
-      "sourcePageUrl": "https://www.seat.com.tr/",
-      "discoveredAssetUrl": "https://fs.seat.com.tr/assets/Layout/Header/DetailedHeaderLinkSection/Modeller/leon.png",
-      "localPath": "data/production/media/candidates/2327550f1583b50dbd1161b7647bb95f8c5055f127bbe6b5288c018cebca95d5.png",
-      "sha256": "2327550f1583b50dbd1161b7647bb95f8c5055f127bbe6b5288c018cebca95d5",
       "contentType": "image/png",
       "status": "DOWNLOADED"
     },
@@ -3679,9 +3552,11 @@
       "model": "Hilux",
       "bodyStyle": "Pickup",
       "sourcePageUrl": "https://www.toyota.com.tr/",
-      "discoveredAssetUrl": "https://www.toyota.com.tr/0/image-quality/70/day-exterior-03_040.png",
-      "status": "ASSET_FETCH_FAILED",
-      "note": "HTTP 404; text/html"
+      "discoveredAssetUrl": "https://turkiye.toyota.com.tr/middle/fiyat-listesi/images/hilux-lansman/2_Mobil_400x100.png",
+      "localPath": "data/production/media/candidates/818553679493aaaef1e8afe8d9376555654f57065e4b9c2a1bf355d8d3500e73.png",
+      "sha256": "818553679493aaaef1e8afe8d9376555654f57065e4b9c2a1bf355d8d3500e73",
+      "contentType": "image/png",
+      "status": "DOWNLOADED"
     },
     {
       "familyKey": "Toyota|Land Cruiser Prado|SUV",

@@ -1,10 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
-  <title id="title">Araç görseli hazırlanıyor</title>
-  <desc id="desc">Lisanslı model görseli bulunmayan üretim araçları için nötr yer tutucu</desc>
-  <rect width="1200" height="900" fill="#e5e7eb"/>
-  <path d="M245 565h710l-62-168c-18-49-65-82-118-82H443c-52 0-99 32-118 81l-80 169Z" fill="#9ca3af"/>
-  <path d="M389 402c11-29 39-48 70-48h299c31 0 59 19 70 48l35 94H354l35-94Z" fill="#f3f4f6"/>
-  <circle cx="390" cy="595" r="76" fill="#374151"/><circle cx="810" cy="595" r="76" fill="#374151"/>
-  <circle cx="390" cy="595" r="35" fill="#d1d5db"/><circle cx="810" cy="595" r="35" fill="#d1d5db"/>
-  <text x="600" y="760" text-anchor="middle" font-family="sans-serif" font-size="38" fill="#4b5563">Kaynaklı araç kaydı</text>
+  <title id="title">Doğrulanmış araç görseli bekleniyor</title>
+  <desc id="desc">Tam model eşleşmeli ve yayın hakkı doğrulanmış fotoğraf bulunamadığında kullanılan nötr araç görseli</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#e2e8f0"/></linearGradient>
+    <linearGradient id="car" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#64748b"/><stop offset="1" stop-color="#334155"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-30%" width="140%" height="180%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#0f172a" flood-opacity=".18"/></filter>
+  </defs>
+  <rect width="1200" height="900" rx="40" fill="url(#bg)"/>
+  <circle cx="600" cy="390" r="270" fill="#fff" opacity=".72"/>
+  <g filter="url(#shadow)">
+    <path d="M224 560c7-46 35-80 81-94l73-23 91-126c22-31 57-49 95-49h152c42 0 80 22 101 58l66 114 54 17c44 14 70 45 76 91l7 57H215l9-45Z" fill="url(#car)"/>
+    <path d="M464 421l70-96c9-13 24-21 40-21h137c18 0 35 10 44 26l53 91H464Z" fill="#dbeafe" opacity=".9"/>
+    <path d="M588 304v117" stroke="#94a3b8" stroke-width="10" opacity=".55"/>
+    <path d="M270 514h657" stroke="#94a3b8" stroke-width="9" stroke-linecap="round" opacity=".5"/>
+    <circle cx="390" cy="594" r="76" fill="#0f172a"/><circle cx="830" cy="594" r="76" fill="#0f172a"/>
+    <circle cx="390" cy="594" r="39" fill="#cbd5e1"/><circle cx="830" cy="594" r="39" fill="#cbd5e1"/>
+    <circle cx="390" cy="594" r="15" fill="#64748b"/><circle cx="830" cy="594" r="15" fill="#64748b"/>
+    <rect x="247" y="511" width="78" height="25" rx="12" fill="#f8fafc" opacity=".9"/><rect x="895" y="511" width="78" height="25" rx="12" fill="#f8fafc" opacity=".9"/>
+  </g>
+  <g font-family="Inter, ui-sans-serif, system-ui, sans-serif" text-anchor="middle">
+    <text x="600" y="748" font-size="38" font-weight="650" fill="#1e293b">Doğrulanmış fotoğraf bekleniyor</text>
+    <text x="600" y="798" font-size="25" fill="#64748b">Yalnız tam model eşleşmeli ve lisanslı görseller yayınlanır</text>
+  </g>
 </svg>

@@ -91,4 +91,13 @@ describe("V3.7 conversation and ranking corrections", () => {
     expect(output.message).toMatch(/4\.444\.000 TL kesin üst sınırını karar filtresine uyguladım/iu);
     expect(output.state.lastQuestionKey).toBeUndefined();
   });
+
+  it("understands passenger transport as the stated usage and asks capacity instead of usage again", async () => {
+    process.env.CARS_V31_PROVIDER_DISABLED = "true";
+    const output = await turn(createV3ConversationState("passenger-transport"), "1", "Yolcu taşıma amaçlı araç arıyorum");
+    expect(latestActiveLedgerEvent(output.state.ledger, "primaryUsage")).toMatchObject({ normalizedValue: "PASSENGER_TRANSPORT", decisionUse: "HARD_FILTER" });
+    expect(output.state.lastQuestionKey).toBe("passengerCapacity");
+    expect(output.message).toMatch(/sürücü dahil.*toplam kaç kişi/iu);
+    expect(output.message).not.toMatch(/nerede ve ne için kullanacaksın/iu);
+  });
 });

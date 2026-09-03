@@ -19,8 +19,8 @@ function question(stableSemanticKey: string): MaterialQuestion {
 }
 
 describe("materialQuestionText preference relaxation", () => {
-  it("explains why a multi-selection must be refined before the offer", () => {
-    expect(materialQuestionText(question("refinement.fuelType"))).toContain("Adayları üçe indirebilmek");
+  it("frames refinement as one useful step toward the right vehicle", () => {
+    expect(materialQuestionText(question("refinement.fuelType"))).toBe("Doğru aracı seçebilmem için hangi enerji türünü önceliklendirelim?");
   });
   it("names the failed body preference and asks for a guided relaxation", () => {
     expect(materialQuestionText(question("preferenceRelaxation.bodyStyle.Sedan"))).toBe(
