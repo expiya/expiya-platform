@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { choiceSubmissionText, consumerQuestionIsSafe, consumerQuestionText, defineXpyQuestionPack, selectHighestMaterialQuestion, validateChoiceSubmission } from "./questionGuidance";
+import { assessCandidateFactMateriality, choiceSubmissionText, consumerQuestionIsSafe, consumerQuestionText, defineXpyQuestionPack, selectHighestMaterialQuestion, validateChoiceSubmission } from "./questionGuidance";
 
 describe("XPY bounded question contract", () => {
   const pack = defineXpyQuestionPack({ packId: "test/v1", questions: {
@@ -12,6 +12,25 @@ describe("XPY bounded question contract", () => {
       { stableKey: "blocked", answerable: false, materialDecisionValue: 99, question: "blocked" },
       { stableKey: "high", answerable: true, materialDecisionValue: 8, question: "high" },
     ])).toBe("high");
+  });
+
+  it.each(["CARS", "APPLIANCES", "ELECTRONICS"])("applies the same candidate-split gate to %s", () => {
+    const candidates = [
+      { candidateId: "a", facts: { universal: true, discriminator: 1 } },
+      { candidateId: "b", facts: { universal: true, discriminator: 2 } },
+      { candidateId: "c", facts: { universal: true } },
+    ];
+    expect(assessCandidateFactMateriality(candidates, ["universal"])).toMatchObject({ material: false, reason: "UNIVERSAL_VALUE" });
+    expect(assessCandidateFactMateriality(candidates, ["discriminator"])).toMatchObject({ material: true, reason: "CANDIDATE_SPLIT", impact: 2 });
+    expect(assessCandidateFactMateriality(candidates, ["missing"])).toMatchObject({ material: false, reason: "NO_GOVERNED_EVIDENCE" });
+  });
+
+  it("does not pretend predominantly unknown evidence distinguishes candidates", () => {
+    expect(assessCandidateFactMateriality([
+      { candidateId: "a", facts: { battery: 6000 } },
+      { candidateId: "b", facts: {} },
+      { candidateId: "c", facts: {} },
+    ], ["battery"])).toMatchObject({ material: false, reason: "PREDOMINANTLY_UNKNOWN" });
   });
 
   it("accepts only the pending pack-owned value", () => {

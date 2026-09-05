@@ -46,6 +46,13 @@ describe("all-active-category executable behavioral acceptance", () => {
     const authority = { policy, catalog }, store = new MemoryElectronicsConversationStore(), conversationId = crypto.randomUUID();
     const boot = await bootstrapElectronicsConversation({ store, authority, conversationId, categoryId, messageId: "create" });
     expect(boot.status).toBe("OK"); if (boot.status !== "OK") return;
+    if (categoryId === "SMARTPHONE") {
+      expect(boot.outcome).toMatchObject({ kind: "CLARIFY", questionKey: "NON_DOMINATED_SET" });
+      expect(boot.state.askedQuestionKeys).toEqual([]);
+      expect(publicCopy(boot.outcome)).not.toMatch(rawKey);
+      expect(recoverElectronicsConversation(authority, await store.load(conversationId))).toMatchObject({ kind: "CONVERSATION", revision: 1 });
+      return;
+    }
     expect(boot.outcome.kind).toBe("ASK");
     expect(boot.outcome.message.match(/\?/gu)).toHaveLength(1);
     expect(publicCopy(boot.outcome)).not.toMatch(rawKey);
