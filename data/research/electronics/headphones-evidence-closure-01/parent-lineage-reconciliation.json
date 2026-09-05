@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "electronics-parent-lineage-reconciliation/v1",
+  "parentWorkUnit": "WU-ELECTRONICS-AMAZON-TR-CATALOG-COVERAGE-EXPANSION-01",
+  "disposition": "MECHANICAL_CANONICALIZATION_ERROR_REPAIRED",
+  "materialPayloadChange": false,
+  "path": "before-state.json",
+  "originalDeclaredDigest": "sha256:eebe448472d75408c07c57a891ee1542b0902c8d11bec6ebeb3bd69c0a4655b0",
+  "repairedPersistedPayloadDigest": "sha256:f6ed79a0f2a77ca4b321888a281a0ea5f90295fcc7a76ccf1e6456ef532f61b3",
+  "proof": {
+    "omittedPropertyPath": "base.activeCatalogDigest",
+    "inMemoryValue": "undefined",
+    "persistedJsonBehavior": "JSON.stringify omitted the undefined-valued property",
+    "legacyCanonicalBehavior": "custom canonicalizer emitted the non-JSON token undefined",
+    "reproducedLegacyDigest": true
+  },
+  "repair": "Parent manifest now binds the actual persisted canonical JSON payload; both historical and repaired digests are preserved here.",
+  "prevention": "Canonicalizers reject undefined and other non-JSON values."
+}

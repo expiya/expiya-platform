@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "unified-production-candidate-plan/v1",
+  "workUnit": "WU-ELECTRONICS-HEADPHONES-UNIFIED-PRODUCTION-RELEASE-01",
+  "declaredBeforeIntegration": true,
+  "baseline": {
+    "gitHead": "246e4c02278fa664093f4eed9fb218ed6a556aca",
+    "mode": "existing-authoritative-dirty-worktree",
+    "lastHealthyDeploymentId": "dpl_HaWPMfPkwSrQGCuFBik2Ajm4Pt8H"
+  },
+  "included": [
+    { "class": "HEADPHONES_AUTHORITY_LINEAGE", "gitRange": "246e4c02278fa664093f4eed9fb218ed6a556aca..d7f9dcf348ca947cca4ff8c3fdc4ab302d19be6e", "policy": "Import every named path at d7f9dcf except preserve and extend the newer shared Vitest configuration." },
+    { "class": "APPROVED_SUPPORTED_AREAS_UX", "sourceManifest": "docs/audits/WU-XPY-DEPARTMENT-LANDING-SUPPORTED-AREAS-CLEANUP-01.candidate-manifest.json", "policy": "Include only the seven listed source files when their SHA-256 values match." },
+    { "class": "APPROVED_ROOT_FUTURE_DEPARTMENTS_UX", "sourceManifest": "docs/audits/WU-PLATFORM-ROOT-FUTURE-DEPARTMENTS-UX-CORRECTION-01.candidate-manifest.json", "policy": "Include only the four listed source files when their SHA-256 values match." },
+    { "class": "RELEASE_AUDIT", "path": "docs/audits/WU-ELECTRONICS-HEADPHONES-UNIFIED-PRODUCTION-RELEASE-01.planned-manifest.json" }
+  ],
+  "excluded": {
+    "paths": "Every pre-existing dirty path not named by the included authority ranges/manifests",
+    "forbiddenSnapshot": "/private/tmp/expiya-supported-areas-release.5A385u",
+    "forbiddenDeploymentId": "dpl_YwKZMRmnxJNmcnGJhGs5t3NaV1J2"
+  }
+}

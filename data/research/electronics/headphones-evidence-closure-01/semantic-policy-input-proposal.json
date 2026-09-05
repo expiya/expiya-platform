@@ -1,0 +1,30 @@
+{
+  "authorityStatus": "CANDIDATE_INPUT_NOT_ACTIVE_POLICY",
+  "technicalFactNotDailyLifeInterpretation": true,
+  "personaNotUserFact": true,
+  "candidateQuestions": [
+    "wearing form preference: over-ear/on-ear/in-ear/open-fit/open-ear",
+    "commute/travel noise-control need",
+    "calls/meetings where microphone evidence exists",
+    "battery session duration",
+    "wired connector/source requirement",
+    "platform and codec compatibility",
+    "gaming latency requirement",
+    "water exposure",
+    "portability/weight"
+  ],
+  "suppressWithoutEvidence": [
+    "comfort",
+    "fit quality",
+    "sound quality",
+    "call quality",
+    "sport suitability"
+  ],
+  "comparison": {
+    "unknownsRemainUnknown": true,
+    "tiesAllowed": true,
+    "nonDominatedResultsAllowed": true,
+    "rankingInputs": []
+  },
+  "yRuntimeEffect": "NONE"
+}
