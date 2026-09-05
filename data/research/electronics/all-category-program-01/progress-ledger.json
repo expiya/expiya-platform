@@ -1,0 +1,262 @@
+{
+  "workUnit": "WU-ELECTRONICS-ALL-CATEGORY-AMAZON-TR-END-TO-END-01",
+  "catalogAuthority": {
+    "productCount": 68,
+    "categoryCount": 24,
+    "headphonesCount": 18,
+    "releaseDigest": "sha256:918db07bf66983a1679d4c72752bde1b87ca50dca90dc932c596e95922b78ced"
+  },
+  "statuses": {
+    "TECHNICAL_CATALOG_READY": true,
+    "XPY_READY": true,
+    "AMAZON_COVERAGE_INCOMPLETE": true
+  },
+  "amazonChannelRef": "AMAZON_TR_APPROVED_API",
+  "waves": [
+    {
+      "wave": 1,
+      "categoryIds": [
+        "COMPUTER_AUDIO",
+        "DIGITAL_CAMERA",
+        "EXTERNAL_STORAGE",
+        "E_READER",
+        "FITNESS_TRACKER",
+        "GAME_CONSOLE"
+      ],
+      "terminal": true
+    },
+    {
+      "wave": 2,
+      "categoryIds": [
+        "HEADPHONES",
+        "HOME_SECURITY_CAMERA",
+        "LAPTOP",
+        "MONITOR",
+        "NETWORK_ATTACHED_STORAGE",
+        "PORTABLE_SPEAKER"
+      ],
+      "terminal": true
+    },
+    {
+      "wave": 3,
+      "categoryIds": [
+        "PRINTER",
+        "PROJECTOR",
+        "SMARTPHONE",
+        "SMARTWATCH",
+        "SMART_HOME_HUB",
+        "SOUNDBAR"
+      ],
+      "terminal": true
+    },
+    {
+      "wave": 4,
+      "categoryIds": [
+        "TABLET",
+        "TELEVISION",
+        "UNINTERRUPTIBLE_POWER_SUPPLY",
+        "VIDEO_DOORBELL",
+        "WEBCAM",
+        "WIFI_ROUTER_MESH"
+      ],
+      "terminal": true
+    }
+  ],
+  "categories": [
+    {
+      "categoryId": "COMPUTER_AUDIO",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "DIGITAL_CAMERA",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "EXTERNAL_STORAGE",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "E_READER",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "FITNESS_TRACKER",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "GAME_CONSOLE",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "HEADPHONES",
+      "productCount": 18,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 18
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "LAPTOP",
+      "productCount": 3,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 3
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "MONITOR",
+      "productCount": 3,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 1,
+        "RETAINED_INPUT_REQUIRES_PRIMARY_SOURCE_REBIND": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "PORTABLE_SPEAKER",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "PRINTER",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "PROJECTOR",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "SMARTPHONE",
+      "productCount": 3,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2,
+        "RETAINED_INPUT_REQUIRES_PRIMARY_SOURCE_REBIND": 1
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "SMARTWATCH",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "SMART_HOME_HUB",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "SOUNDBAR",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "TABLET",
+      "productCount": 3,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 1,
+        "RETAINED_INPUT_REQUIRES_PRIMARY_SOURCE_REBIND": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "TELEVISION",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "VIDEO_DOORBELL",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "WEBCAM",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    },
+    {
+      "categoryId": "WIFI_ROUTER_MESH",
+      "productCount": 2,
+      "observationTerminalStates": {
+        "RETAINED_TECHNICAL_CANDIDATE": 2
+      },
+      "packageState": "ACHIEVABLE_PACKAGE_COMPLETE_PENDING_CONSOLIDATED_OWNER_APPROVAL"
+    }
+  ]
+}

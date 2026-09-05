@@ -1,0 +1,21 @@
+{
+  "channelId": "AMAZON_TR_APPROVED_API",
+  "status": "BLOCKED_EXTERNAL_ACQUISITION_CHANNEL",
+  "recordedOnce": true,
+  "attemptedInThisRun": false,
+  "blockedCapabilities": [
+    "exhaustive_amazon_discovery",
+    "amazon_offer_binding",
+    "amazon_price",
+    "amazon_affiliate"
+  ],
+  "unaffectedCapabilities": [
+    "manufacturer_tr_research",
+    "lawful_retail_discovery",
+    "technical_evidence",
+    "semantics",
+    "xpy",
+    "release_preparation"
+  ],
+  "policy": "No scraping, credential bypass, inferred price, affiliate claim, or exhaustive Amazon coverage claim."
+}

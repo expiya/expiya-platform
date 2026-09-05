@@ -1,0 +1,32 @@
+{
+  "approvalPackageId": "ELECTRONICS-ALL-CATEGORY-OAM-01",
+  "decision": "PENDING_ONE_CONSOLIDATED_DIGEST_SPECIFIC_OWNER_APPROVAL",
+  "requestedScope": "Activate the bounded non-Amazon technical catalog and semantic candidates; keep all Amazon commerce fields disabled.",
+  "immutableBoundaries": [
+    "brand_neutral",
+    "catalog_order_neutral",
+    "price_neutral",
+    "affiliate_neutral",
+    "unknown_preserving",
+    "fail_closed_y"
+  ],
+  "statuses": {
+    "TECHNICAL_CATALOG_READY": true,
+    "XPY_READY": true,
+    "AMAZON_COVERAGE_INCOMPLETE": true
+  },
+  "counts": {
+    "categories": 24,
+    "products": 68,
+    "headphones": 18,
+    "nonHeadphones": 50,
+    "matrixCells": 384
+  },
+  "artifactDigests": {
+    "amazonChannel": "sha256:233d1d75e80e6ec480e7c975f06883c5645f52349ac394c9b5010e857101ce40",
+    "channelMatrix": "sha256:5a0b3c48ff7ab6e9f226edccabdd5373d891712d1a7a2a85142865fa25ac7a36",
+    "domainPacks": "sha256:bc44cbe9c47c5a653127d134dbce744d6f1da664e80a3cf0b9ef350bcb1b7dfb",
+    "progressLedger": "sha256:dde98883487e6ec762fd5cbb2fe04af68d6843d0e0df7d07d04f3a5066244ffa",
+    "matrix": "sha256:97b25f1cc6849fc8a3e918ff0c87cd251a3409d540402ea59b278930c58b39a4"
+  }
+}
