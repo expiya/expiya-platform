@@ -1,0 +1,174 @@
+{
+  "status": "CANDIDATE_NOT_ACTIVE",
+  "products": [
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "manufacturer": "HONOR",
+      "modelCode": "DNY-NX9",
+      "configuration": "HONOR 400|8GB|256GB|Gece Siyahı|5G|TR",
+      "facts": {
+        "storage_gb": 256,
+        "memory_gb": 8,
+        "chipset": null,
+        "display_inches": 6.55,
+        "display_panel": null,
+        "refresh_hz": null,
+        "battery_mah": 6000,
+        "charging_watts": null,
+        "wireless_charging": null,
+        "camera_configuration": null,
+        "optical_image_stabilization": null,
+        "ip_rating": null,
+        "cellular_generation": "5G",
+        "esim": null,
+        "os_version": null,
+        "support_years": null
+      },
+      "sourceIds": [
+        "honor-tr:HONOR400",
+        "honor-global:DNY-NX9"
+      ],
+      "proposedStatus": "PRESERVED_CURRENT_EXACT"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "manufacturer": "Samsung",
+      "modelCode": "SM-A266BZKCTUR",
+      "configuration": "Galaxy A26 5G|8GB|256GB|Black|TR",
+      "facts": {
+        "storage_gb": 256,
+        "memory_gb": 8,
+        "chipset": null,
+        "display_inches": null,
+        "display_panel": null,
+        "refresh_hz": null,
+        "battery_mah": null,
+        "charging_watts": null,
+        "wireless_charging": null,
+        "camera_configuration": null,
+        "optical_image_stabilization": null,
+        "ip_rating": null,
+        "cellular_generation": "5G",
+        "esim": null,
+        "os_version": null,
+        "support_years": null
+      },
+      "sourceIds": [
+        "samsung-tr:SM-A266BZKCTUR"
+      ],
+      "proposedStatus": "PRESERVED_CURRENT_EXACT"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "manufacturer": "Samsung",
+      "modelCode": "SM-A366BZKGTUR",
+      "configuration": "Galaxy A36 5G|8GB|256GB|Black|TR",
+      "facts": {
+        "storage_gb": 256,
+        "memory_gb": 8,
+        "chipset": null,
+        "display_inches": null,
+        "display_panel": null,
+        "refresh_hz": null,
+        "battery_mah": null,
+        "charging_watts": null,
+        "wireless_charging": null,
+        "camera_configuration": null,
+        "optical_image_stabilization": null,
+        "ip_rating": null,
+        "cellular_generation": "5G",
+        "esim": null,
+        "os_version": null,
+        "support_years": null
+      },
+      "sourceIds": [
+        "samsung-tr:SM-A366BZKGTUR"
+      ],
+      "proposedStatus": "PRESERVED_CURRENT_EXACT"
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "manufacturer": "Apple",
+      "modelCode": "iPhone 16e",
+      "configuration": "128GB|White|TR",
+      "facts": {
+        "storage_gb": 128,
+        "memory_gb": null,
+        "chipset": "A18",
+        "display_inches": 6.1,
+        "display_panel": "OLED",
+        "refresh_hz": null,
+        "battery_mah": null,
+        "charging_watts": null,
+        "wireless_charging": true,
+        "camera_configuration": "48MP Fusion + 12MP front",
+        "optical_image_stabilization": null,
+        "ip_rating": "IP68",
+        "cellular_generation": "5G",
+        "esim": true,
+        "os_version": null,
+        "support_years": null
+      },
+      "sourceIds": [
+        "apple-tr:iphone-16e-spec"
+      ],
+      "proposedStatus": "NEW_CANDIDATE_NOT_ACTIVE"
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black",
+      "manufacturer": "Xiaomi",
+      "modelCode": "Redmi Note 14 Pro",
+      "configuration": "8GB|256GB|Midnight Black|TR",
+      "facts": {
+        "storage_gb": 256,
+        "memory_gb": 8,
+        "chipset": "Helio G100-Ultra",
+        "display_inches": 6.67,
+        "display_panel": "AMOLED",
+        "refresh_hz": 120,
+        "battery_mah": 5500,
+        "charging_watts": 45,
+        "wireless_charging": null,
+        "camera_configuration": "200MP OIS + 8MP ultrawide + 2MP macro; 32MP front",
+        "optical_image_stabilization": true,
+        "ip_rating": "IP64",
+        "cellular_generation": "4G",
+        "esim": false,
+        "os_version": "Xiaomi HyperOS",
+        "support_years": null
+      },
+      "sourceIds": [
+        "xiaomi-tr:redmi-note-14-pro-spec"
+      ],
+      "proposedStatus": "NEW_CANDIDATE_NOT_ACTIVE"
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:14t-12-256-black",
+      "manufacturer": "Xiaomi",
+      "modelCode": "14T",
+      "configuration": "12GB|256GB|Titan Black|TR",
+      "facts": {
+        "storage_gb": 256,
+        "memory_gb": 12,
+        "chipset": "Dimensity 8300-Ultra",
+        "display_inches": 6.67,
+        "display_panel": "AMOLED",
+        "refresh_hz": 144,
+        "battery_mah": 5000,
+        "charging_watts": 67,
+        "wireless_charging": false,
+        "camera_configuration": "50MP main OIS + 50MP telephoto + 12MP ultrawide; 32MP front",
+        "optical_image_stabilization": true,
+        "ip_rating": "IP68",
+        "cellular_generation": "5G",
+        "esim": true,
+        "os_version": "Xiaomi HyperOS",
+        "support_years": null
+      },
+      "sourceIds": [
+        "xiaomi-tr:14t-spec"
+      ],
+      "proposedStatus": "NEW_CANDIDATE_NOT_ACTIVE"
+    }
+  ]
+}

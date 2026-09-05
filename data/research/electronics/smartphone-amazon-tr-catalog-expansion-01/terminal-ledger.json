@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "electronics-smartphone-terminal-ledger/v1",
+  "workUnit": "WU-ELECTRONICS-SMARTPHONE-AMAZON-TR-CATALOG-EXPANSION-01",
+  "generatedAt": "2026-09-06T03:00:00.000Z",
+  "observations": [
+    {
+      "query": "akıllı telefon 256 GB",
+      "page": 1,
+      "asin": "B0DSWCG72N",
+      "observedTitle": "Redmi Note 14 Pro 8GB RAM, 256GB ROM, Siyah",
+      "observedAt": "2026-09-06T03:00:00.000Z",
+      "canonicalUrl": "https://www.amazon.com.tr/dp/B0DSWCG72N",
+      "terminalState": "ADMITTED",
+      "exactProductId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black",
+      "reason": "Exact 8+256 GB configuration appears on Xiaomi Türkiye specifications."
+    },
+    {
+      "query": "akıllı telefon 128 GB",
+      "page": 1,
+      "asin": "B0DXRBRLSY",
+      "observedTitle": "Apple iPhone 16e (128 GB), Beyaz",
+      "observedAt": "2026-09-06T03:00:00.000Z",
+      "canonicalUrl": "https://www.amazon.com.tr/dp/B0DXRBRLSY",
+      "terminalState": "ADMITTED",
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "reason": "Apple Türkiye support specifications enumerate 128 GB and white."
+    },
+    {
+      "query": "akıllı telefon 256 GB",
+      "page": 1,
+      "asin": "B0DGLV15YR",
+      "observedTitle": "Xiaomi 14T 12GB RAM 256GB ROM, Titan Siyah",
+      "observedAt": "2026-09-06T03:00:00.000Z",
+      "canonicalUrl": "https://www.amazon.com.tr/dp/B0DGLV15YR",
+      "terminalState": "ADMITTED",
+      "exactProductId": "electronics:smartphone:xiaomi:14t-12-256-black",
+      "reason": "Exact configuration reconciled to Xiaomi Türkiye product specifications."
+    },
+    {
+      "query": "Samsung telefon 256 GB",
+      "page": 1,
+      "asin": "B0CR6RKN78",
+      "observedTitle": "Samsung Galaxy S24+ 12 GB RAM, 256 GB, Siyah",
+      "observedAt": "2026-09-06T03:00:00.000Z",
+      "canonicalUrl": "https://www.amazon.com.tr/dp/B0CR6RKN78",
+      "terminalState": "REJECTED_IDENTITY_AMBIGUOUS",
+      "exactProductId": null,
+      "reason": "Amazon did not expose a Türkiye exact SKU; a generic Samsung Türkiye family page cannot close configuration identity."
+    },
+    {
+      "query": "POCO telefon",
+      "page": 1,
+      "asin": "B0DQLL7HWR",
+      "observedTitle": "POCO X7 Pro 12GB RAM 512GB ROM, Sarı",
+      "observedAt": "2026-09-06T03:00:00.000Z",
+      "canonicalUrl": "https://www.amazon.com.tr/dp/B0DQLL7HWR",
+      "terminalState": "REJECTED_INSUFFICIENT_TR_APPLICABILITY",
+      "exactProductId": null,
+      "reason": "Amazon observation did not bind an exact manufacturer Türkiye SKU/configuration."
+    },
+    {
+      "query": "POCO telefon",
+      "page": 1,
+      "asin": "B0D383RCLP",
+      "observedTitle": "Poco F6 Pro 12GB RAM 512GB ROM, Siyah",
+      "observedAt": "2026-09-06T03:00:00.000Z",
+      "canonicalUrl": "https://www.amazon.com.tr/dp/B0D383RCLP",
+      "terminalState": "RETIRED_UNSUPPORTED",
+      "exactProductId": null,
+      "reason": "No current Türkiye lifecycle/support admission was established in this pass."
+    },
+    {
+      "query": "POCO telefon",
+      "page": 1,
+      "asin": "B0BV6JK81H",
+      "observedTitle": "Xiaomi POCO X5 Pro 5G 8GB RAM 256GB, Siyah",
+      "observedAt": "2026-09-06T03:00:00.000Z",
+      "canonicalUrl": "https://www.amazon.com.tr/dp/B0BV6JK81H",
+      "terminalState": "RETIRED_UNSUPPORTED",
+      "exactProductId": null,
+      "reason": "Older listing has no current Türkiye lifecycle/support admission in this pass."
+    }
+  ]
+}
