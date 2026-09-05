@@ -1,0 +1,1017 @@
+{
+  "schemaVersion": "electronics-smartphone-owner-approval-package/v1",
+  "workUnit": "WU-ELECTRONICS-SMARTPHONE-AMAZON-TR-CATALOG-EXPANSION-01",
+  "verdict": "COVERAGE_INCOMPLETE",
+  "baseGitRef": "6858382",
+  "counts": {
+    "amazonQueryRuns": 4,
+    "observedAsins": 7,
+    "retained": 7,
+    "reconciled": 7,
+    "admittedExactProducts": 6,
+    "newExactProducts": 3,
+    "rejected": 4
+  },
+  "products": [
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "manufacturer": "HONOR",
+      "modelCode": "DNY-NX9",
+      "configuration": "HONOR 400|8GB|256GB|Gece Siyahı|5G|TR",
+      "facts": {
+        "storage_gb": 256,
+        "memory_gb": 8,
+        "chipset": null,
+        "display_inches": 6.55,
+        "display_panel": null,
+        "refresh_hz": null,
+        "battery_mah": 6000,
+        "charging_watts": null,
+        "wireless_charging": null,
+        "camera_configuration": null,
+        "optical_image_stabilization": null,
+        "ip_rating": null,
+        "cellular_generation": "5G",
+        "esim": null,
+        "os_version": null,
+        "support_years": null
+      },
+      "sourceIds": [
+        "honor-tr:HONOR400",
+        "honor-global:DNY-NX9"
+      ],
+      "proposedStatus": "PRESERVED_CURRENT_EXACT"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "manufacturer": "Samsung",
+      "modelCode": "SM-A266BZKCTUR",
+      "configuration": "Galaxy A26 5G|8GB|256GB|Black|TR",
+      "facts": {
+        "storage_gb": 256,
+        "memory_gb": 8,
+        "chipset": null,
+        "display_inches": null,
+        "display_panel": null,
+        "refresh_hz": null,
+        "battery_mah": null,
+        "charging_watts": null,
+        "wireless_charging": null,
+        "camera_configuration": null,
+        "optical_image_stabilization": null,
+        "ip_rating": null,
+        "cellular_generation": "5G",
+        "esim": null,
+        "os_version": null,
+        "support_years": null
+      },
+      "sourceIds": [
+        "samsung-tr:SM-A266BZKCTUR"
+      ],
+      "proposedStatus": "PRESERVED_CURRENT_EXACT"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "manufacturer": "Samsung",
+      "modelCode": "SM-A366BZKGTUR",
+      "configuration": "Galaxy A36 5G|8GB|256GB|Black|TR",
+      "facts": {
+        "storage_gb": 256,
+        "memory_gb": 8,
+        "chipset": null,
+        "display_inches": null,
+        "display_panel": null,
+        "refresh_hz": null,
+        "battery_mah": null,
+        "charging_watts": null,
+        "wireless_charging": null,
+        "camera_configuration": null,
+        "optical_image_stabilization": null,
+        "ip_rating": null,
+        "cellular_generation": "5G",
+        "esim": null,
+        "os_version": null,
+        "support_years": null
+      },
+      "sourceIds": [
+        "samsung-tr:SM-A366BZKGTUR"
+      ],
+      "proposedStatus": "PRESERVED_CURRENT_EXACT"
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "manufacturer": "Apple",
+      "modelCode": "iPhone 16e",
+      "configuration": "128GB|White|TR",
+      "facts": {
+        "storage_gb": 128,
+        "memory_gb": null,
+        "chipset": "A18",
+        "display_inches": 6.1,
+        "display_panel": "OLED",
+        "refresh_hz": null,
+        "battery_mah": null,
+        "charging_watts": null,
+        "wireless_charging": true,
+        "camera_configuration": "48MP Fusion + 12MP front",
+        "optical_image_stabilization": null,
+        "ip_rating": "IP68",
+        "cellular_generation": "5G",
+        "esim": true,
+        "os_version": null,
+        "support_years": null
+      },
+      "sourceIds": [
+        "apple-tr:iphone-16e-spec"
+      ],
+      "proposedStatus": "NEW_CANDIDATE_NOT_ACTIVE"
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black",
+      "manufacturer": "Xiaomi",
+      "modelCode": "Redmi Note 14 Pro",
+      "configuration": "8GB|256GB|Midnight Black|TR",
+      "facts": {
+        "storage_gb": 256,
+        "memory_gb": 8,
+        "chipset": "Helio G100-Ultra",
+        "display_inches": 6.67,
+        "display_panel": "AMOLED",
+        "refresh_hz": 120,
+        "battery_mah": 5500,
+        "charging_watts": 45,
+        "wireless_charging": null,
+        "camera_configuration": "200MP OIS + 8MP ultrawide + 2MP macro; 32MP front",
+        "optical_image_stabilization": true,
+        "ip_rating": "IP64",
+        "cellular_generation": "4G",
+        "esim": false,
+        "os_version": "Xiaomi HyperOS",
+        "support_years": null
+      },
+      "sourceIds": [
+        "xiaomi-tr:redmi-note-14-pro-spec"
+      ],
+      "proposedStatus": "NEW_CANDIDATE_NOT_ACTIVE"
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:14t-12-256-black",
+      "manufacturer": "Xiaomi",
+      "modelCode": "14T",
+      "configuration": "12GB|256GB|Titan Black|TR",
+      "facts": {
+        "storage_gb": 256,
+        "memory_gb": 12,
+        "chipset": "Dimensity 8300-Ultra",
+        "display_inches": 6.67,
+        "display_panel": "AMOLED",
+        "refresh_hz": 144,
+        "battery_mah": 5000,
+        "charging_watts": 67,
+        "wireless_charging": false,
+        "camera_configuration": "50MP main OIS + 50MP telephoto + 12MP ultrawide; 32MP front",
+        "optical_image_stabilization": true,
+        "ip_rating": "IP68",
+        "cellular_generation": "5G",
+        "esim": true,
+        "os_version": "Xiaomi HyperOS",
+        "support_years": null
+      },
+      "sourceIds": [
+        "xiaomi-tr:14t-spec"
+      ],
+      "proposedStatus": "NEW_CANDIDATE_NOT_ACTIVE"
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "honor-tr:HONOR400",
+      "authority": "MANUFACTURER_TR",
+      "url": "https://www.honor.com/tr/phones/honor-400/",
+      "supports": [
+        "current exact family",
+        "8+256 configuration",
+        "display",
+        "battery"
+      ]
+    },
+    {
+      "sourceId": "honor-global:DNY-NX9",
+      "authority": "MANUFACTURER_GLOBAL_ENRICHMENT_ONLY",
+      "url": "https://www.honor.com/global/phones/honor-400/spec/",
+      "supports": [
+        "model code enrichment; not Türkiye applicability alone"
+      ]
+    },
+    {
+      "sourceId": "samsung-tr:SM-A266BZKCTUR",
+      "authority": "MANUFACTURER_TR",
+      "url": "https://www.samsung.com/tr/smartphones/galaxy-a/galaxy-a26-5g-black-256gb-sm-a266bzkctur/",
+      "supports": [
+        "current exact Türkiye SKU",
+        "8+256 configuration",
+        "5G"
+      ]
+    },
+    {
+      "sourceId": "samsung-tr:SM-A366BZKGTUR",
+      "authority": "MANUFACTURER_TR",
+      "url": "https://www.samsung.com/tr/smartphones/galaxy-a/galaxy-a36-5g-black-256gb-sm-a366bzkgtur/",
+      "supports": [
+        "current exact Türkiye SKU",
+        "8+256 configuration",
+        "5G"
+      ]
+    },
+    {
+      "sourceId": "apple-tr:iphone-16e-spec",
+      "authority": "MANUFACTURER_TR",
+      "url": "https://support.apple.com/tr-tr/122208",
+      "supports": [
+        "identity",
+        "storage",
+        "display",
+        "dimensions",
+        "weight",
+        "chipset",
+        "camera",
+        "IP68",
+        "SIM/eSIM",
+        "OS"
+      ]
+    },
+    {
+      "sourceId": "xiaomi-tr:redmi-note-14-pro-spec",
+      "authority": "MANUFACTURER_TR",
+      "url": "https://www.mi.com/tr/product/redmi-note-14-pro/specs/",
+      "supports": [
+        "identity",
+        "8+256 configuration",
+        "chipset",
+        "display",
+        "battery",
+        "charging",
+        "camera/OIS",
+        "IP64",
+        "SIM",
+        "connectivity"
+      ]
+    },
+    {
+      "sourceId": "xiaomi-tr:14t-spec",
+      "authority": "MANUFACTURER_TR",
+      "url": "https://www.mi.com/tr/product/xiaomi-14t/specs/",
+      "supports": [
+        "identity",
+        "12+256 configuration",
+        "chipset",
+        "display",
+        "battery",
+        "charging",
+        "camera/OIS",
+        "IP68",
+        "SIM/eSIM",
+        "connectivity"
+      ]
+    },
+    {
+      "sourceId": "samsung-tr:s24-plus-spec",
+      "authority": "MANUFACTURER_TR",
+      "url": "https://www.samsung.com/tr/smartphones/galaxy-s24/specs/",
+      "supports": [
+        "family",
+        "256 GB configuration",
+        "chipset",
+        "display",
+        "battery",
+        "charging",
+        "camera/OIS",
+        "IP68",
+        "SIM/eSIM",
+        "connectivity"
+      ]
+    },
+    {
+      "sourceId": "samsung-tr:s25-example",
+      "authority": "MANUFACTURER_TR",
+      "url": "https://www.samsung.com/tr/business/smartphones/galaxy-s/galaxy-s25-silver-shadow-256gb-sm-s931bzsgtur/",
+      "supports": [
+        "future candidate exact Türkiye SKU pattern"
+      ]
+    },
+    {
+      "sourceId": "honor-tr:magic7-pro",
+      "authority": "MANUFACTURER_TR",
+      "url": "https://www.honor.com/tr/phones/honor-magic7-pro/",
+      "supports": [
+        "future candidate family",
+        "display",
+        "chipset",
+        "camera/OIS",
+        "charging",
+        "IP68/IP69"
+      ]
+    }
+  ],
+  "unknownLedger": [
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "factKey": "chipset",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "factKey": "display_panel",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "factKey": "refresh_hz",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "factKey": "charging_watts",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "factKey": "wireless_charging",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "factKey": "camera_configuration",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "factKey": "optical_image_stabilization",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "factKey": "ip_rating",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "factKey": "esim",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "factKey": "os_version",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "factKey": "support_years",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "chipset",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "display_inches",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "display_panel",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "refresh_hz",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "battery_mah",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "charging_watts",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "wireless_charging",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "camera_configuration",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "optical_image_stabilization",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "ip_rating",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "esim",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "os_version",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factKey": "support_years",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "chipset",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "display_inches",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "display_panel",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "refresh_hz",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "battery_mah",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "charging_watts",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "wireless_charging",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "camera_configuration",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "optical_image_stabilization",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "ip_rating",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "esim",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "os_version",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factKey": "support_years",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "factKey": "memory_gb",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "factKey": "refresh_hz",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "factKey": "battery_mah",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "factKey": "charging_watts",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "factKey": "optical_image_stabilization",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "factKey": "os_version",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "factKey": "support_years",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black",
+      "factKey": "wireless_charging",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black",
+      "factKey": "support_years",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:14t-12-256-black",
+      "factKey": "support_years",
+      "value": "UNKNOWN",
+      "reason": "No exact source-bound manufacturer Türkiye fact admitted."
+    }
+  ],
+  "materialityMatrix": [
+    {
+      "factKey": "storage_gb",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": 256,
+        "electronics:smartphone:samsung:sm-a266bzkctur": 256,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": 256,
+        "electronics:smartphone:apple:iphone-16e-128-white": 128,
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": 256,
+        "electronics:smartphone:xiaomi:14t-12-256-black": 256
+      },
+      "assessment": {
+        "known": 6,
+        "unknown": 0,
+        "distinctKnown": 2,
+        "material": true
+      }
+    },
+    {
+      "factKey": "memory_gb",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": 8,
+        "electronics:smartphone:samsung:sm-a266bzkctur": 8,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": 8,
+        "electronics:smartphone:apple:iphone-16e-128-white": null,
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": 8,
+        "electronics:smartphone:xiaomi:14t-12-256-black": 12
+      },
+      "assessment": {
+        "known": 5,
+        "unknown": 1,
+        "distinctKnown": 2,
+        "material": true
+      }
+    },
+    {
+      "factKey": "chipset",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": "A18",
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": "Helio G100-Ultra",
+        "electronics:smartphone:xiaomi:14t-12-256-black": "Dimensity 8300-Ultra"
+      },
+      "assessment": {
+        "known": 3,
+        "unknown": 3,
+        "distinctKnown": 3,
+        "material": false
+      }
+    },
+    {
+      "factKey": "display_inches",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": 6.55,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": 6.1,
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": 6.67,
+        "electronics:smartphone:xiaomi:14t-12-256-black": 6.67
+      },
+      "assessment": {
+        "known": 4,
+        "unknown": 2,
+        "distinctKnown": 3,
+        "material": true
+      }
+    },
+    {
+      "factKey": "display_panel",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": "OLED",
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": "AMOLED",
+        "electronics:smartphone:xiaomi:14t-12-256-black": "AMOLED"
+      },
+      "assessment": {
+        "known": 3,
+        "unknown": 3,
+        "distinctKnown": 2,
+        "material": false
+      }
+    },
+    {
+      "factKey": "refresh_hz",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": null,
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": 120,
+        "electronics:smartphone:xiaomi:14t-12-256-black": 144
+      },
+      "assessment": {
+        "known": 2,
+        "unknown": 4,
+        "distinctKnown": 2,
+        "material": false
+      }
+    },
+    {
+      "factKey": "battery_mah",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": 6000,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": null,
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": 5500,
+        "electronics:smartphone:xiaomi:14t-12-256-black": 5000
+      },
+      "assessment": {
+        "known": 3,
+        "unknown": 3,
+        "distinctKnown": 3,
+        "material": false
+      }
+    },
+    {
+      "factKey": "charging_watts",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": null,
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": 45,
+        "electronics:smartphone:xiaomi:14t-12-256-black": 67
+      },
+      "assessment": {
+        "known": 2,
+        "unknown": 4,
+        "distinctKnown": 2,
+        "material": false
+      }
+    },
+    {
+      "factKey": "wireless_charging",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": true,
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": null,
+        "electronics:smartphone:xiaomi:14t-12-256-black": false
+      },
+      "assessment": {
+        "known": 2,
+        "unknown": 4,
+        "distinctKnown": 2,
+        "material": false
+      }
+    },
+    {
+      "factKey": "camera_configuration",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": "48MP Fusion + 12MP front",
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": "200MP OIS + 8MP ultrawide + 2MP macro; 32MP front",
+        "electronics:smartphone:xiaomi:14t-12-256-black": "50MP main OIS + 50MP telephoto + 12MP ultrawide; 32MP front"
+      },
+      "assessment": {
+        "known": 3,
+        "unknown": 3,
+        "distinctKnown": 3,
+        "material": false
+      }
+    },
+    {
+      "factKey": "optical_image_stabilization",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": null,
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": true,
+        "electronics:smartphone:xiaomi:14t-12-256-black": true
+      },
+      "assessment": {
+        "known": 2,
+        "unknown": 4,
+        "distinctKnown": 1,
+        "material": false
+      }
+    },
+    {
+      "factKey": "ip_rating",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": "IP68",
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": "IP64",
+        "electronics:smartphone:xiaomi:14t-12-256-black": "IP68"
+      },
+      "assessment": {
+        "known": 3,
+        "unknown": 3,
+        "distinctKnown": 2,
+        "material": false
+      }
+    },
+    {
+      "factKey": "cellular_generation",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": "5G",
+        "electronics:smartphone:samsung:sm-a266bzkctur": "5G",
+        "electronics:smartphone:samsung:sm-a366bzkgtur": "5G",
+        "electronics:smartphone:apple:iphone-16e-128-white": "5G",
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": "4G",
+        "electronics:smartphone:xiaomi:14t-12-256-black": "5G"
+      },
+      "assessment": {
+        "known": 6,
+        "unknown": 0,
+        "distinctKnown": 2,
+        "material": true
+      }
+    },
+    {
+      "factKey": "esim",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": true,
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": false,
+        "electronics:smartphone:xiaomi:14t-12-256-black": true
+      },
+      "assessment": {
+        "known": 3,
+        "unknown": 3,
+        "distinctKnown": 2,
+        "material": false
+      }
+    },
+    {
+      "factKey": "os_version",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": null,
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": "Xiaomi HyperOS",
+        "electronics:smartphone:xiaomi:14t-12-256-black": "Xiaomi HyperOS"
+      },
+      "assessment": {
+        "known": 2,
+        "unknown": 4,
+        "distinctKnown": 1,
+        "material": false
+      }
+    },
+    {
+      "factKey": "support_years",
+      "values": {
+        "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+        "electronics:smartphone:samsung:sm-a266bzkctur": null,
+        "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+        "electronics:smartphone:apple:iphone-16e-128-white": null,
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": null,
+        "electronics:smartphone:xiaomi:14t-12-256-black": null
+      },
+      "assessment": {
+        "known": 0,
+        "unknown": 6,
+        "distinctKnown": 0,
+        "material": false
+      }
+    }
+  ],
+  "semanticProposal": {
+    "status": "PROPOSAL_ONLY",
+    "rawKeysExposed": false,
+    "mappings": [
+      {
+        "concept": "STORAGE_NEEDS",
+        "facts": [
+          "storage_gb"
+        ],
+        "gate": "MATERIAL",
+        "promptTr": "Fotoğraf, video ve uygulamalar için daha geniş depolama alanı senin için önemli mi?"
+      },
+      {
+        "concept": "SCREEN_EXPERIENCE",
+        "facts": [
+          "display_inches"
+        ],
+        "gate": "MATERIAL",
+        "promptTr": "Daha büyük ekran alanı senin için önemli mi?"
+      },
+      {
+        "concept": "NETWORK_GENERATION",
+        "facts": [
+          "cellular_generation"
+        ],
+        "gate": "MATERIAL",
+        "promptTr": "5G bağlantısı senin için önemli mi?"
+      },
+      {
+        "concept": "CHARGING_ACCESS",
+        "facts": [
+          "charging_watts",
+          "wireless_charging"
+        ],
+        "gate": "SUPPRESSED_PREDOMINANTLY_UNKNOWN",
+        "promptTr": "Kısa şarj fırsatlarında daha hızlı dolum veya kablosuz şarj senin için önemli mi?"
+      },
+      {
+        "concept": "CAMERA_USE",
+        "facts": [
+          "camera_configuration",
+          "optical_image_stabilization"
+        ],
+        "gate": "SUPPRESSED_PREDOMINANTLY_UNKNOWN",
+        "promptTr": "Hareketli ya da düşük ışıklı çekimlerde optik sabitleme senin için önemli mi?"
+      },
+      {
+        "concept": "WATER_EXPOSURE",
+        "facts": [
+          "ip_rating"
+        ],
+        "gate": "SUPPRESSED_PREDOMINANTLY_UNKNOWN",
+        "promptTr": "Yağmur ve su sıçramalarına karşı belgeli koruma senin için önemli mi?"
+      },
+      {
+        "concept": "SIM_ESIM",
+        "facts": [
+          "esim"
+        ],
+        "gate": "SUPPRESSED_PREDOMINANTLY_UNKNOWN",
+        "promptTr": "Fiziksel SIM yanında eSIM kullanabilmek senin için önemli mi?"
+      },
+      {
+        "concept": "SUPPORT_LONGEVITY",
+        "facts": [
+          "support_years"
+        ],
+        "gate": "SUPPRESSED_PREDOMINANTLY_UNKNOWN",
+        "promptTr": "Üreticinin açıkça taahhüt ettiği uzun güncelleme süresi senin için önemli mi?"
+      }
+    ],
+    "suppressed": [
+      {
+        "concept": "WORKLOAD_PERFORMANCE",
+        "reason": "No approved chipset-to-workload performance-class mapping."
+      },
+      {
+        "concept": "BRAND",
+        "reason": "Brand is explicit user context only; never prompted or scored."
+      }
+    ]
+  },
+  "invariants": {
+    "amazonTechnicalAuthority": "NONE",
+    "priceRankingEffect": "NONE",
+    "affiliateRankingEffect": "NONE",
+    "sellerClaimTechnicalEffect": "NONE",
+    "brandPrompting": "PROHIBITED",
+    "brandExplicitContextOnly": true,
+    "catalogOrderRankingEffect": "NONE",
+    "personaEffect": "NONE",
+    "commerceEffect": "NONE",
+    "activePointerMutation": false,
+    "runtimeMutation": false,
+    "activationPerformed": false
+  },
+  "preview": {
+    "before": {
+      "outcome": "NON_DOMINATED_SET",
+      "candidateCount": 3,
+      "questions": []
+    },
+    "after": {
+      "outcomeSequence": [
+        "ASK:STORAGE_NEEDS",
+        "ASK:SCREEN_EXPERIENCE",
+        "ASK:NETWORK_GENERATION",
+        "NON_DOMINATED_SET"
+      ],
+      "oneQuestionAtATime": true,
+      "noWinnerFabricated": true,
+      "suppressedPredominantlyUnknown": [
+        "CHARGING_ACCESS",
+        "CAMERA_USE",
+        "WATER_EXPOSURE",
+        "SIM_ESIM",
+        "SUPPORT_LONGEVITY"
+      ]
+    }
+  },
+  "coverage": {
+    "represented": [
+      "mainstream/value",
+      "compact-screen",
+      "large-screen",
+      "camera-oriented",
+      "battery-oriented",
+      "premium"
+    ],
+    "missing": [
+      "exact foldable Türkiye SKU",
+      "exact rugged/durable Türkiye SKU"
+    ],
+    "unresolvedCandidates": [
+      "Samsung Galaxy Z Flip6 12GB/256GB Türkiye exact SKU",
+      "HONOR Magic7 Pro Türkiye exact RAM/storage SKU"
+    ]
+  },
+  "approval": {
+    "status": "NOT_ELIGIBLE",
+    "reason": "Named foldable and durable/rugged market segments remain unreconciled.",
+    "activationAllowed": false
+  }
+}

@@ -1,0 +1,130 @@
+[
+  {
+    "sourceId": "honor-tr:HONOR400",
+    "authority": "MANUFACTURER_TR",
+    "url": "https://www.honor.com/tr/phones/honor-400/",
+    "supports": [
+      "current exact family",
+      "8+256 configuration",
+      "display",
+      "battery"
+    ]
+  },
+  {
+    "sourceId": "honor-global:DNY-NX9",
+    "authority": "MANUFACTURER_GLOBAL_ENRICHMENT_ONLY",
+    "url": "https://www.honor.com/global/phones/honor-400/spec/",
+    "supports": [
+      "model code enrichment; not Türkiye applicability alone"
+    ]
+  },
+  {
+    "sourceId": "samsung-tr:SM-A266BZKCTUR",
+    "authority": "MANUFACTURER_TR",
+    "url": "https://www.samsung.com/tr/smartphones/galaxy-a/galaxy-a26-5g-black-256gb-sm-a266bzkctur/",
+    "supports": [
+      "current exact Türkiye SKU",
+      "8+256 configuration",
+      "5G"
+    ]
+  },
+  {
+    "sourceId": "samsung-tr:SM-A366BZKGTUR",
+    "authority": "MANUFACTURER_TR",
+    "url": "https://www.samsung.com/tr/smartphones/galaxy-a/galaxy-a36-5g-black-256gb-sm-a366bzkgtur/",
+    "supports": [
+      "current exact Türkiye SKU",
+      "8+256 configuration",
+      "5G"
+    ]
+  },
+  {
+    "sourceId": "apple-tr:iphone-16e-spec",
+    "authority": "MANUFACTURER_TR",
+    "url": "https://support.apple.com/tr-tr/122208",
+    "supports": [
+      "identity",
+      "storage",
+      "display",
+      "dimensions",
+      "weight",
+      "chipset",
+      "camera",
+      "IP68",
+      "SIM/eSIM",
+      "OS"
+    ]
+  },
+  {
+    "sourceId": "xiaomi-tr:redmi-note-14-pro-spec",
+    "authority": "MANUFACTURER_TR",
+    "url": "https://www.mi.com/tr/product/redmi-note-14-pro/specs/",
+    "supports": [
+      "identity",
+      "8+256 configuration",
+      "chipset",
+      "display",
+      "battery",
+      "charging",
+      "camera/OIS",
+      "IP64",
+      "SIM",
+      "connectivity"
+    ]
+  },
+  {
+    "sourceId": "xiaomi-tr:14t-spec",
+    "authority": "MANUFACTURER_TR",
+    "url": "https://www.mi.com/tr/product/xiaomi-14t/specs/",
+    "supports": [
+      "identity",
+      "12+256 configuration",
+      "chipset",
+      "display",
+      "battery",
+      "charging",
+      "camera/OIS",
+      "IP68",
+      "SIM/eSIM",
+      "connectivity"
+    ]
+  },
+  {
+    "sourceId": "samsung-tr:s24-plus-spec",
+    "authority": "MANUFACTURER_TR",
+    "url": "https://www.samsung.com/tr/smartphones/galaxy-s24/specs/",
+    "supports": [
+      "family",
+      "256 GB configuration",
+      "chipset",
+      "display",
+      "battery",
+      "charging",
+      "camera/OIS",
+      "IP68",
+      "SIM/eSIM",
+      "connectivity"
+    ]
+  },
+  {
+    "sourceId": "samsung-tr:s25-example",
+    "authority": "MANUFACTURER_TR",
+    "url": "https://www.samsung.com/tr/business/smartphones/galaxy-s/galaxy-s25-silver-shadow-256gb-sm-s931bzsgtur/",
+    "supports": [
+      "future candidate exact Türkiye SKU pattern"
+    ]
+  },
+  {
+    "sourceId": "honor-tr:magic7-pro",
+    "authority": "MANUFACTURER_TR",
+    "url": "https://www.honor.com/tr/phones/honor-magic7-pro/",
+    "supports": [
+      "future candidate family",
+      "display",
+      "chipset",
+      "camera/OIS",
+      "charging",
+      "IP68/IP69"
+    ]
+  }
+]

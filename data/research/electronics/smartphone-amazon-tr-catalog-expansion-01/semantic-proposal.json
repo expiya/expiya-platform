@@ -1,0 +1,82 @@
+{
+  "status": "PROPOSAL_ONLY",
+  "rawKeysExposed": false,
+  "mappings": [
+    {
+      "concept": "STORAGE_NEEDS",
+      "facts": [
+        "storage_gb"
+      ],
+      "gate": "MATERIAL",
+      "promptTr": "Fotoğraf, video ve uygulamalar için daha geniş depolama alanı senin için önemli mi?"
+    },
+    {
+      "concept": "SCREEN_EXPERIENCE",
+      "facts": [
+        "display_inches"
+      ],
+      "gate": "MATERIAL",
+      "promptTr": "Daha büyük ekran alanı senin için önemli mi?"
+    },
+    {
+      "concept": "NETWORK_GENERATION",
+      "facts": [
+        "cellular_generation"
+      ],
+      "gate": "MATERIAL",
+      "promptTr": "5G bağlantısı senin için önemli mi?"
+    },
+    {
+      "concept": "CHARGING_ACCESS",
+      "facts": [
+        "charging_watts",
+        "wireless_charging"
+      ],
+      "gate": "SUPPRESSED_PREDOMINANTLY_UNKNOWN",
+      "promptTr": "Kısa şarj fırsatlarında daha hızlı dolum veya kablosuz şarj senin için önemli mi?"
+    },
+    {
+      "concept": "CAMERA_USE",
+      "facts": [
+        "camera_configuration",
+        "optical_image_stabilization"
+      ],
+      "gate": "SUPPRESSED_PREDOMINANTLY_UNKNOWN",
+      "promptTr": "Hareketli ya da düşük ışıklı çekimlerde optik sabitleme senin için önemli mi?"
+    },
+    {
+      "concept": "WATER_EXPOSURE",
+      "facts": [
+        "ip_rating"
+      ],
+      "gate": "SUPPRESSED_PREDOMINANTLY_UNKNOWN",
+      "promptTr": "Yağmur ve su sıçramalarına karşı belgeli koruma senin için önemli mi?"
+    },
+    {
+      "concept": "SIM_ESIM",
+      "facts": [
+        "esim"
+      ],
+      "gate": "SUPPRESSED_PREDOMINANTLY_UNKNOWN",
+      "promptTr": "Fiziksel SIM yanında eSIM kullanabilmek senin için önemli mi?"
+    },
+    {
+      "concept": "SUPPORT_LONGEVITY",
+      "facts": [
+        "support_years"
+      ],
+      "gate": "SUPPRESSED_PREDOMINANTLY_UNKNOWN",
+      "promptTr": "Üreticinin açıkça taahhüt ettiği uzun güncelleme süresi senin için önemli mi?"
+    }
+  ],
+  "suppressed": [
+    {
+      "concept": "WORKLOAD_PERFORMANCE",
+      "reason": "No approved chipset-to-workload performance-class mapping."
+    },
+    {
+      "concept": "BRAND",
+      "reason": "Brand is explicit user context only; never prompted or scored."
+    }
+  ]
+}

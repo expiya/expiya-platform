@@ -1,0 +1,274 @@
+[
+  {
+    "factKey": "storage_gb",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": 256,
+      "electronics:smartphone:samsung:sm-a266bzkctur": 256,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": 256,
+      "electronics:smartphone:apple:iphone-16e-128-white": 128,
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": 256,
+      "electronics:smartphone:xiaomi:14t-12-256-black": 256
+    },
+    "assessment": {
+      "known": 6,
+      "unknown": 0,
+      "distinctKnown": 2,
+      "material": true
+    }
+  },
+  {
+    "factKey": "memory_gb",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": 8,
+      "electronics:smartphone:samsung:sm-a266bzkctur": 8,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": 8,
+      "electronics:smartphone:apple:iphone-16e-128-white": null,
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": 8,
+      "electronics:smartphone:xiaomi:14t-12-256-black": 12
+    },
+    "assessment": {
+      "known": 5,
+      "unknown": 1,
+      "distinctKnown": 2,
+      "material": true
+    }
+  },
+  {
+    "factKey": "chipset",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": "A18",
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": "Helio G100-Ultra",
+      "electronics:smartphone:xiaomi:14t-12-256-black": "Dimensity 8300-Ultra"
+    },
+    "assessment": {
+      "known": 3,
+      "unknown": 3,
+      "distinctKnown": 3,
+      "material": false
+    }
+  },
+  {
+    "factKey": "display_inches",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": 6.55,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": 6.1,
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": 6.67,
+      "electronics:smartphone:xiaomi:14t-12-256-black": 6.67
+    },
+    "assessment": {
+      "known": 4,
+      "unknown": 2,
+      "distinctKnown": 3,
+      "material": true
+    }
+  },
+  {
+    "factKey": "display_panel",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": "OLED",
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": "AMOLED",
+      "electronics:smartphone:xiaomi:14t-12-256-black": "AMOLED"
+    },
+    "assessment": {
+      "known": 3,
+      "unknown": 3,
+      "distinctKnown": 2,
+      "material": false
+    }
+  },
+  {
+    "factKey": "refresh_hz",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": null,
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": 120,
+      "electronics:smartphone:xiaomi:14t-12-256-black": 144
+    },
+    "assessment": {
+      "known": 2,
+      "unknown": 4,
+      "distinctKnown": 2,
+      "material": false
+    }
+  },
+  {
+    "factKey": "battery_mah",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": 6000,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": null,
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": 5500,
+      "electronics:smartphone:xiaomi:14t-12-256-black": 5000
+    },
+    "assessment": {
+      "known": 3,
+      "unknown": 3,
+      "distinctKnown": 3,
+      "material": false
+    }
+  },
+  {
+    "factKey": "charging_watts",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": null,
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": 45,
+      "electronics:smartphone:xiaomi:14t-12-256-black": 67
+    },
+    "assessment": {
+      "known": 2,
+      "unknown": 4,
+      "distinctKnown": 2,
+      "material": false
+    }
+  },
+  {
+    "factKey": "wireless_charging",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": true,
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": null,
+      "electronics:smartphone:xiaomi:14t-12-256-black": false
+    },
+    "assessment": {
+      "known": 2,
+      "unknown": 4,
+      "distinctKnown": 2,
+      "material": false
+    }
+  },
+  {
+    "factKey": "camera_configuration",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": "48MP Fusion + 12MP front",
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": "200MP OIS + 8MP ultrawide + 2MP macro; 32MP front",
+      "electronics:smartphone:xiaomi:14t-12-256-black": "50MP main OIS + 50MP telephoto + 12MP ultrawide; 32MP front"
+    },
+    "assessment": {
+      "known": 3,
+      "unknown": 3,
+      "distinctKnown": 3,
+      "material": false
+    }
+  },
+  {
+    "factKey": "optical_image_stabilization",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": null,
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": true,
+      "electronics:smartphone:xiaomi:14t-12-256-black": true
+    },
+    "assessment": {
+      "known": 2,
+      "unknown": 4,
+      "distinctKnown": 1,
+      "material": false
+    }
+  },
+  {
+    "factKey": "ip_rating",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": "IP68",
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": "IP64",
+      "electronics:smartphone:xiaomi:14t-12-256-black": "IP68"
+    },
+    "assessment": {
+      "known": 3,
+      "unknown": 3,
+      "distinctKnown": 2,
+      "material": false
+    }
+  },
+  {
+    "factKey": "cellular_generation",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": "5G",
+      "electronics:smartphone:samsung:sm-a266bzkctur": "5G",
+      "electronics:smartphone:samsung:sm-a366bzkgtur": "5G",
+      "electronics:smartphone:apple:iphone-16e-128-white": "5G",
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": "4G",
+      "electronics:smartphone:xiaomi:14t-12-256-black": "5G"
+    },
+    "assessment": {
+      "known": 6,
+      "unknown": 0,
+      "distinctKnown": 2,
+      "material": true
+    }
+  },
+  {
+    "factKey": "esim",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": true,
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": false,
+      "electronics:smartphone:xiaomi:14t-12-256-black": true
+    },
+    "assessment": {
+      "known": 3,
+      "unknown": 3,
+      "distinctKnown": 2,
+      "material": false
+    }
+  },
+  {
+    "factKey": "os_version",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": null,
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": "Xiaomi HyperOS",
+      "electronics:smartphone:xiaomi:14t-12-256-black": "Xiaomi HyperOS"
+    },
+    "assessment": {
+      "known": 2,
+      "unknown": 4,
+      "distinctKnown": 1,
+      "material": false
+    }
+  },
+  {
+    "factKey": "support_years",
+    "values": {
+      "electronics:smartphone:honor:dny-nx9-8-256-black": null,
+      "electronics:smartphone:samsung:sm-a266bzkctur": null,
+      "electronics:smartphone:samsung:sm-a366bzkgtur": null,
+      "electronics:smartphone:apple:iphone-16e-128-white": null,
+      "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black": null,
+      "electronics:smartphone:xiaomi:14t-12-256-black": null
+    },
+    "assessment": {
+      "known": 0,
+      "unknown": 6,
+      "distinctKnown": 0,
+      "material": false
+    }
+  }
+]
