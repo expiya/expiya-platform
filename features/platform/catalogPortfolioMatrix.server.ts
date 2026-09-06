@@ -7,6 +7,8 @@ const EXPECTED_AREAS = [
   "Apparel", "Kitchen", "Musical Instruments", "Office Products", "Automotive", "Toys", "Health & Personal Care", "Sporting Goods", "Video Games", "Home Improvement",
 ] as const;
 
+const includesString = (values: readonly string[], value: string): boolean => values.includes(value);
+
 export function validateCatalogPortfolioMatrix(): readonly string[] {
   const issues: string[] = [];
   const areas = portfolio.areas;
@@ -22,7 +24,7 @@ export function validateCatalogPortfolioMatrix(): readonly string[] {
   if (areas.some(area => area.mgc.some(categoryId => !categoryById.has(categoryId)))) issues.push("UNKNOWN_MGC_CATEGORY");
   if (areas.some(area => area.disposition.startsWith("POOR_FIT") ? area.mgc.length !== 0 || area.targetDepartmentId !== null : area.mgc.length < 3 || area.mgc.length > 5 || !area.targetDepartmentId)) issues.push("MGC_SIZE_OR_FIT_MISMATCH");
   if (categories.some(category => category.status === "ACTIVE_REUSE" && !activeDepartmentIds.has(category.ownerDepartmentId))) issues.push("ACTIVE_REUSE_OWNER_NOT_ACTIVE");
-  if (areas.some(area => area.overlapAliases.some(alias => !area.mgc.includes(alias.canonicalCategoryId) || !categoryById.has(alias.canonicalCategoryId)))) issues.push("INVALID_OVERLAP_ALIAS");
+  if (areas.some(area => area.overlapAliases.some(alias => !includesString(area.mgc, alias.canonicalCategoryId) || !categoryById.has(alias.canonicalCategoryId)))) issues.push("INVALID_OVERLAP_ALIAS");
   if (sources.sources.some(source => source.kind === "EXTERNAL_DISCOVERY" && source.role !== "DISCOVERY_AND_RETAIL_TAXONOMY_ONLY")) issues.push("EXTERNAL_SOURCE_AUTHORITY_LEAKAGE");
   if (!portfolio.authorityConflicts.some(conflict => conflict.id === "CONFLICT-ELECTRONICS-VERSION-NAME")) issues.push("ELECTRONICS_VERSION_CONFLICT_NOT_RECORDED");
   return Object.freeze(issues);
