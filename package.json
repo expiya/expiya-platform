@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "npm run catalog:active:sync && npm run technical-daily-life:active:sync && npm run persona-safe-traits:active:sync && next dev",
     "cars:dev:validation": "node --env-file=.env.local scripts/run-cars-validation-dev.mjs",
-    "build": "npm run catalog:active:sync && npm run technical-daily-life:active:sync && npm run persona-safe-traits:active:sync && npm run verify:active-production-catalog && npm run verify:technical-daily-life && npm run verify:persona-safe-traits && npm run verify:vehicle-evidence-runtime-artifact && next build --webpack",
+    "build": "npm run catalog:active:sync && npm run technical-daily-life:active:sync && npm run persona-safe-traits:active:sync && npm run verify:active-production-catalog && npm run verify:technical-daily-life && npm run verify:persona-safe-traits && npm run verify:vehicle-evidence-runtime-artifact && npm run typecheck:release && next build --webpack",
+    "typecheck:release": "tsc --noEmit --incremental false",
     "start": "next start",
     "lint": "eslint",
     "test": "npm run catalog:active:sync && npm run technical-daily-life:active:sync && npm run persona-safe-traits:active:sync && vitest run",

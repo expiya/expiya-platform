@@ -4,6 +4,10 @@ import { withSentryConfig } from "@sentry/nextjs";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   allowedDevOrigins: ["127.0.0.1"],
+  // The release build runs a cache-independent TypeScript gate immediately
+  // before Next. Avoid running Next's duplicate incremental checker, which can
+  // inherit a stale Vercel build cache and outlive the platform build limit.
+  typescript: { ignoreBuildErrors: true },
   outputFileTracingIncludes: {
     "/api/appliances/conversation": ["./data/production/appliances/**/*"],
     "/api/electronics/conversation": ["./data/production/electronics/**/*"],
