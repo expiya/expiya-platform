@@ -17,7 +17,7 @@ describe("authoritative catalog directory", () => {
   it("automatically follows registry and catalog activation or removal", () => {
     const registry = [{ departmentId: "DEMO", publicLabelTr: "Deneme", canonicalPath: "/demo", status: "ACTIVE", capabilities: { ACTIVE: { status: "ACTIVE", publicLabelTr: "Aktif", destination: "/demo/active" }, OFF: { status: "NOT_READY", publicLabelTr: "Kapalı", destination: "/demo/off" } } }] satisfies readonly DepartmentRegistryEntry[];
     const active = new Map([["DEMO", [{ categoryId: "ACTIVE", identity: "one", label: "Marka Model" }, { categoryId: "OFF", identity: "future", label: "Gelecek Model" }]]]);
-    expect(buildCatalogDirectory(registry, active)).toEqual([{ id: "DEMO", label: "Deneme", href: "/demo", categories: [{ id: "ACTIVE", label: "Aktif", href: "/demo/active", variants: [{ identity: "one", label: "Marka Model" }] }] }]);
+    expect(buildCatalogDirectory(registry, active)).toEqual([{ id: "DEMO", label: "Deneme", href: "/demo", categories: [{ id: "ACTIVE", label: "Aktif", href: "/demo/active", variants: [{ label: "Marka Model" }] }] }]);
     expect(buildCatalogDirectory([{ ...registry[0], status: "NOT_READY" }], active)).toEqual([]);
     expect(buildCatalogDirectory(registry, new Map([["DEMO", []]]))[0]?.categories[0]?.variants).toEqual([]);
   });

@@ -13,13 +13,13 @@ import { MOBILITY_PRODUCTS } from "@/features/mobility/catalog";
 import { MOBILITY_AUTHORITY_DIGEST } from "@/features/mobility/domainPack";
 import { ACTIVE_DEPARTMENT_REGISTRY, type DepartmentRegistryEntry } from "./departmentRegistry";
 
-export interface CatalogDirectoryVariant { readonly identity: string; readonly label: string }
+export interface CatalogDirectoryVariant { readonly label: string }
 export interface CatalogDirectoryCategory { readonly id: string; readonly label: string; readonly href: string; readonly variants: readonly CatalogDirectoryVariant[] }
 export interface CatalogDirectoryDepartment { readonly id: string; readonly label: string; readonly href: string; readonly categories: readonly CatalogDirectoryCategory[] }
 
 type ProductRow = { readonly categoryId: string; readonly identity: string; readonly label: string };
 const tr = (a: string, b: string) => a.localeCompare(b, "tr-TR");
-const variant = (identity: string, label: string): CatalogDirectoryVariant => Object.freeze({ identity, label });
+const variant = (label: string): CatalogDirectoryVariant => Object.freeze({ label });
 const brandLabel = (value: string) => value.split(/([ -])/u).map(part => /^[a-zçğıöşü]/u.test(part) ? `${part[0]!.toLocaleUpperCase("tr-TR")}${part.slice(1)}` : part).join("");
 
 export function buildCatalogDirectory(registry: readonly DepartmentRegistryEntry[], rows: ReadonlyMap<string, readonly ProductRow[]>): readonly CatalogDirectoryDepartment[] {
@@ -27,7 +27,7 @@ export function buildCatalogDirectory(registry: readonly DepartmentRegistryEntry
     id: department.departmentId, label: department.publicLabelTr, href: department.canonicalPath,
     categories: Object.freeze(Object.entries(department.capabilities).filter(([, capability]) => capability.status === "ACTIVE").map(([id, capability]) => Object.freeze({
       id, label: capability.publicLabelTr, href: capability.destination,
-      variants: Object.freeze((rows.get(department.departmentId) ?? []).filter(row => row.categoryId === id).map(row => variant(row.identity, row.label)).sort((a, b) => tr(a.label, b.label))),
+      variants: Object.freeze((rows.get(department.departmentId) ?? []).filter(row => row.categoryId === id).map(row => variant(row.label)).sort((a, b) => tr(a.label, b.label))),
     }))),
   })));
 }
