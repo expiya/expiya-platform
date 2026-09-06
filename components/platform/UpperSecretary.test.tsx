@@ -17,4 +17,10 @@ describe("UpperSecretary cancellable navigation", () => {
     expect(source).toContain("window.cancelAnimationFrame(frame)");
     expect(source.indexOf("saveSecretaryPendingMessage(sessionStorage")).toBeLessThan(source.indexOf("router.push(pendingRoute.destination)"));
   });
+  it("renders accessible, wrapping clarification buttons and keeps free-text correction", () => {
+    expect(source).toContain('aria-label="Yönlendirme seçenekleri"');
+    expect(source).toContain("flex-wrap");
+    expect(source).toContain("selectChoice(choice)");
+    expect(source).toContain("if (choices.length) setChoices([])");
+  });
 });
