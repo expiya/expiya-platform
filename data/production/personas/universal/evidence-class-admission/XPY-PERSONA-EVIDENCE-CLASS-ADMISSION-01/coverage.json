@@ -1,0 +1,421 @@
+{
+  "processed": 169,
+  "evidenceClass": {
+    "INTENDED_POSITIONING": {
+      "assertions": 3,
+      "projectedProducts": 3
+    },
+    "EDITORIALLY_OBSERVED": {
+      "assertions": 0,
+      "projectedProducts": 0
+    },
+    "INDEPENDENTLY_CORROBORATED": {
+      "assertions": 2,
+      "projectedProducts": 2
+    }
+  },
+  "inheritanceScope": {
+    "VARIANT_PERSONA": 0,
+    "MODEL_PERSONA": 0,
+    "PRODUCT_FAMILY_PERSONA": 4,
+    "PRODUCT_CLASS_PERSONA": 0,
+    "BRAND_PERSONA": 0
+  },
+  "governed": 4,
+  "unknown": 165,
+  "conflicted": 0,
+  "byCategory": [
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "AIR_FRYER",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "AIR_PURIFIER",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "BLENDER",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "BUILT_IN_OVEN",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "COUNTERTOP_MICROWAVE_OVEN",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "DISHWASHER",
+      "products": 7,
+      "governed": 0,
+      "unknown": 7,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "DRYER",
+      "products": 7,
+      "governed": 0,
+      "unknown": 7,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "FILTER_COFFEE_MACHINE",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "FOOD_PROCESSOR",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "FREESTANDING_COOKER",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "FREEZER",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "HOB",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "MANUAL_ESPRESSO_MACHINE",
+      "products": 3,
+      "governed": 1,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "RANGE_HOOD",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "REFRIGERATOR",
+      "products": 8,
+      "governed": 0,
+      "unknown": 8,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "ROBOT_VACUUM",
+      "products": 4,
+      "governed": 0,
+      "unknown": 4,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "VACUUM",
+      "products": 4,
+      "governed": 0,
+      "unknown": 4,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "products": 29,
+      "governed": 0,
+      "unknown": 29,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "BABY_AND_CHILD",
+      "categoryId": "STROLLER",
+      "products": 4,
+      "governed": 1,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "COMPUTER_AUDIO",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "DIGITAL_CAMERA",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "E_READER",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "EXTERNAL_STORAGE",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "FITNESS_TRACKER",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "GAME_CONSOLE",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "HEADPHONES",
+      "products": 2,
+      "governed": 1,
+      "unknown": 1,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "LAPTOP",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "MONITOR",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PORTABLE_SPEAKER",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PRINTER",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PROJECTOR",
+      "products": 2,
+      "governed": 1,
+      "unknown": 1,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMART_HOME_HUB",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMARTPHONE",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMARTWATCH",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SOUNDBAR",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "TABLET",
+      "products": 3,
+      "governed": 0,
+      "unknown": 3,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "TELEVISION",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "VIDEO_DOORBELL",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "WEBCAM",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "products": 2,
+      "governed": 0,
+      "unknown": 2,
+      "conflicted": 0
+    }
+  ]
+}

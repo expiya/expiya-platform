@@ -1,0 +1,617 @@
+[
+  {
+    "categoryId": "LAPTOP",
+    "before": [
+      "electronics:laptop:huawei:53014qhr",
+      "electronics:laptop:lenovo:83k2001vtr",
+      "electronics:laptop:lenovo:83k20077tr"
+    ],
+    "productionAfter": [
+      "electronics:laptop:huawei:53014qhr",
+      "electronics:laptop:lenovo:83k2001vtr",
+      "electronics:laptop:lenovo:83k20077tr"
+    ],
+    "shadowAfterPolicyApproval": [
+      "electronics:laptop:huawei:53014qhr",
+      "electronics:laptop:lenovo:83k2001vtr",
+      "electronics:laptop:lenovo:83k20077tr"
+    ],
+    "membershipIdentical": true,
+    "candidateCap": 0.75,
+    "selectionOutcome": "NON_DOMINATED_SET",
+    "singleSelectionAuthorized": false,
+    "catalogOrderIndependent": true,
+    "traces": [
+      {
+        "exactCandidateId": "electronics:laptop:huawei:53014qhr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "electronics:laptop:lenovo:83k2001vtr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "electronics:laptop:lenovo:83k20077tr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      }
+    ]
+  },
+  {
+    "categoryId": "SMARTPHONE",
+    "before": [
+      "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "electronics:smartphone:samsung:sm-a266bzkctur",
+      "electronics:smartphone:samsung:sm-a366bzkgtur"
+    ],
+    "productionAfter": [
+      "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "electronics:smartphone:samsung:sm-a266bzkctur",
+      "electronics:smartphone:samsung:sm-a366bzkgtur"
+    ],
+    "shadowAfterPolicyApproval": [
+      "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "electronics:smartphone:samsung:sm-a266bzkctur",
+      "electronics:smartphone:samsung:sm-a366bzkgtur"
+    ],
+    "membershipIdentical": true,
+    "candidateCap": 0.75,
+    "selectionOutcome": "NON_DOMINATED_SET",
+    "singleSelectionAuthorized": false,
+    "catalogOrderIndependent": true,
+    "traces": [
+      {
+        "exactCandidateId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "electronics:smartphone:samsung:sm-a266bzkctur",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      }
+    ]
+  },
+  {
+    "categoryId": "WASHING_MACHINE",
+    "before": [
+      "appliances:wm:tr:altus:al-cm-101254-d",
+      "appliances:wm:tr:arcelik:10120-imp",
+      "appliances:wm:tr:beko:cmx-10120",
+      "appliances:wm:tr:beko:cmx-11140",
+      "appliances:wm:tr:beko:cmx-8100",
+      "appliances:wm:tr:beko:cmxt-9120",
+      "appliances:wm:tr:bosch:wgb244a0tr",
+      "appliances:wm:tr:bosch:wgb254a1tr",
+      "appliances:wm:tr:bosch:wgb254axtr",
+      "appliances:wm:tr:bosch:wgk264y0tr",
+      "appliances:wm:tr:electrolux:ew6f3411act",
+      "appliances:wm:tr:electrolux:ew6f3494t",
+      "appliances:wm:tr:electrolux:ew7f4404ut",
+      "appliances:wm:tr:electrolux:ew7f4422ct",
+      "appliances:wm:tr:lg:f4r3tyw3we",
+      "appliances:wm:tr:lg:f4r5vyw2t",
+      "appliances:wm:tr:lg:f4t2vym1s",
+      "appliances:wm:tr:lg:f4v5ryp0w",
+      "appliances:wm:tr:lg:f4y5eywyj",
+      "appliances:wm:tr:miele:wwa120-wcs-8kg-active",
+      "appliances:wm:tr:samsung:ww11db8b95gbah",
+      "appliances:wm:tr:samsung:ww11dg6b25leah",
+      "appliances:wm:tr:samsung:ww90cgc04daeah",
+      "appliances:wm:tr:samsung:ww90dg6u25leah",
+      "appliances:wm:tr:samsung:ww90ta046ah-ah",
+      "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "appliances:wm:tr:vestel:cmi-87402-wifi",
+      "appliances:wm:tr:vestel:cmi-97402-wifi",
+      "appliances:wm:tr:vestel:cmi-99422-wifi"
+    ],
+    "productionAfter": [
+      "appliances:wm:tr:altus:al-cm-101254-d",
+      "appliances:wm:tr:arcelik:10120-imp",
+      "appliances:wm:tr:beko:cmx-10120",
+      "appliances:wm:tr:beko:cmx-11140",
+      "appliances:wm:tr:beko:cmx-8100",
+      "appliances:wm:tr:beko:cmxt-9120",
+      "appliances:wm:tr:bosch:wgb244a0tr",
+      "appliances:wm:tr:bosch:wgb254a1tr",
+      "appliances:wm:tr:bosch:wgb254axtr",
+      "appliances:wm:tr:bosch:wgk264y0tr",
+      "appliances:wm:tr:electrolux:ew6f3411act",
+      "appliances:wm:tr:electrolux:ew6f3494t",
+      "appliances:wm:tr:electrolux:ew7f4404ut",
+      "appliances:wm:tr:electrolux:ew7f4422ct",
+      "appliances:wm:tr:lg:f4r3tyw3we",
+      "appliances:wm:tr:lg:f4r5vyw2t",
+      "appliances:wm:tr:lg:f4t2vym1s",
+      "appliances:wm:tr:lg:f4v5ryp0w",
+      "appliances:wm:tr:lg:f4y5eywyj",
+      "appliances:wm:tr:miele:wwa120-wcs-8kg-active",
+      "appliances:wm:tr:samsung:ww11db8b95gbah",
+      "appliances:wm:tr:samsung:ww11dg6b25leah",
+      "appliances:wm:tr:samsung:ww90cgc04daeah",
+      "appliances:wm:tr:samsung:ww90dg6u25leah",
+      "appliances:wm:tr:samsung:ww90ta046ah-ah",
+      "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "appliances:wm:tr:vestel:cmi-87402-wifi",
+      "appliances:wm:tr:vestel:cmi-97402-wifi",
+      "appliances:wm:tr:vestel:cmi-99422-wifi"
+    ],
+    "shadowAfterPolicyApproval": [
+      "appliances:wm:tr:altus:al-cm-101254-d",
+      "appliances:wm:tr:arcelik:10120-imp",
+      "appliances:wm:tr:beko:cmx-10120",
+      "appliances:wm:tr:beko:cmx-11140",
+      "appliances:wm:tr:beko:cmx-8100",
+      "appliances:wm:tr:beko:cmxt-9120",
+      "appliances:wm:tr:bosch:wgb244a0tr",
+      "appliances:wm:tr:bosch:wgb254a1tr",
+      "appliances:wm:tr:bosch:wgb254axtr",
+      "appliances:wm:tr:bosch:wgk264y0tr",
+      "appliances:wm:tr:electrolux:ew6f3411act",
+      "appliances:wm:tr:electrolux:ew6f3494t",
+      "appliances:wm:tr:electrolux:ew7f4404ut",
+      "appliances:wm:tr:electrolux:ew7f4422ct",
+      "appliances:wm:tr:lg:f4r3tyw3we",
+      "appliances:wm:tr:lg:f4r5vyw2t",
+      "appliances:wm:tr:lg:f4t2vym1s",
+      "appliances:wm:tr:lg:f4v5ryp0w",
+      "appliances:wm:tr:lg:f4y5eywyj",
+      "appliances:wm:tr:miele:wwa120-wcs-8kg-active",
+      "appliances:wm:tr:samsung:ww11db8b95gbah",
+      "appliances:wm:tr:samsung:ww11dg6b25leah",
+      "appliances:wm:tr:samsung:ww90cgc04daeah",
+      "appliances:wm:tr:samsung:ww90dg6u25leah",
+      "appliances:wm:tr:samsung:ww90ta046ah-ah",
+      "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "appliances:wm:tr:vestel:cmi-87402-wifi",
+      "appliances:wm:tr:vestel:cmi-97402-wifi",
+      "appliances:wm:tr:vestel:cmi-99422-wifi"
+    ],
+    "membershipIdentical": true,
+    "candidateCap": 0.75,
+    "selectionOutcome": "NON_DOMINATED_SET",
+    "singleSelectionAuthorized": false,
+    "catalogOrderIndependent": true,
+    "traces": [
+      {
+        "exactCandidateId": "appliances:wm:tr:altus:al-cm-101254-d",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:arcelik:10120-imp",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:beko:cmx-10120",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:beko:cmx-11140",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:beko:cmx-8100",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:beko:cmxt-9120",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:bosch:wgb244a0tr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:bosch:wgb254a1tr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:bosch:wgb254axtr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:bosch:wgk264y0tr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:electrolux:ew6f3411act",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:electrolux:ew6f3494t",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:electrolux:ew7f4404ut",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:electrolux:ew7f4422ct",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:lg:f4r3tyw3we",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:lg:f4r5vyw2t",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:lg:f4t2vym1s",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:lg:f4v5ryp0w",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:lg:f4y5eywyj",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:miele:wwa120-wcs-8kg-active",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:samsung:ww11db8b95gbah",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:samsung:ww11dg6b25leah",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:samsung:ww90cgc04daeah",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:samsung:ww90dg6u25leah",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:samsung:ww90ta046ah-ah",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:vestel:cmi-108442-wifi",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:vestel:cmi-87402-wifi",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:vestel:cmi-97402-wifi",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:vestel:cmi-99422-wifi",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      }
+    ]
+  },
+  {
+    "categoryId": "REFRIGERATOR",
+    "before": [
+      "appliances:refrigerator:tr:arcelik:270475-mb",
+      "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "appliances:refrigerator:tr:samsung:rf57c510esr-tr",
+      "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+      "BOSCH_KGN55CIE0N_TR",
+      "LG_GC_B569NLLM_TR",
+      "SAMSUNG_RB34C6B0E12_TR",
+      "SIEMENS_KG56NVWD0N_TR"
+    ],
+    "productionAfter": [
+      "appliances:refrigerator:tr:arcelik:270475-mb",
+      "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "appliances:refrigerator:tr:samsung:rf57c510esr-tr",
+      "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+      "BOSCH_KGN55CIE0N_TR",
+      "LG_GC_B569NLLM_TR",
+      "SAMSUNG_RB34C6B0E12_TR",
+      "SIEMENS_KG56NVWD0N_TR"
+    ],
+    "shadowAfterPolicyApproval": [
+      "appliances:refrigerator:tr:arcelik:270475-mb",
+      "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "appliances:refrigerator:tr:samsung:rf57c510esr-tr",
+      "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+      "BOSCH_KGN55CIE0N_TR",
+      "LG_GC_B569NLLM_TR",
+      "SAMSUNG_RB34C6B0E12_TR",
+      "SIEMENS_KG56NVWD0N_TR"
+    ],
+    "membershipIdentical": true,
+    "candidateCap": 0.75,
+    "selectionOutcome": "NON_DOMINATED_SET",
+    "singleSelectionAuthorized": false,
+    "catalogOrderIndependent": true,
+    "traces": [
+      {
+        "exactCandidateId": "appliances:refrigerator:tr:arcelik:270475-mb",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:refrigerator:tr:samsung:rf57c510esr-tr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "BOSCH_KGN55CIE0N_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "LG_GC_B569NLLM_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "SAMSUNG_RB34C6B0E12_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "SIEMENS_KG56NVWD0N_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      }
+    ]
+  },
+  {
+    "categoryId": "MANUAL_ESPRESSO_MACHINE",
+    "before": [
+      "DELONGHI_EC685_M_TR",
+      "PHILIPS_PSA3228_01_TR",
+      "SMEG_ECF02CREU_TR"
+    ],
+    "productionAfter": [
+      "DELONGHI_EC685_M_TR",
+      "PHILIPS_PSA3228_01_TR",
+      "SMEG_ECF02CREU_TR"
+    ],
+    "shadowAfterPolicyApproval": [
+      "SMEG_ECF02CREU_TR",
+      "DELONGHI_EC685_M_TR",
+      "PHILIPS_PSA3228_01_TR"
+    ],
+    "membershipIdentical": true,
+    "candidateCap": 0.75,
+    "selectionOutcome": "TIED_TOP_SET",
+    "singleSelectionAuthorized": false,
+    "catalogOrderIndependent": true,
+    "traces": [
+      {
+        "exactCandidateId": "SMEG_ECF02CREU_TR",
+        "score": 0.25,
+        "contributions": [
+          {
+            "eventId": "trace:MANUAL_ESPRESSO_MACHINE:0",
+            "preferenceKey": "DESIGN_LED",
+            "mappingRef": "POSITIONING-SMEG-ECF02-DESIGN",
+            "evidenceRef": "POSITIONING-SMEG-ECF02-OFFICIAL",
+            "contribution": 0.25,
+            "reasonCode": "PERSONA_DESIGN_LED_INTENDED_POSITIONING"
+          }
+        ],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "DELONGHI_EC685_M_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "PHILIPS_PSA3228_01_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      }
+    ]
+  },
+  {
+    "categoryId": "HEADPHONES",
+    "before": [
+      "electronics:headphones:huawei:freebuds-6-black",
+      "electronics:headphones:sony:wh1000xm5b-ce7"
+    ],
+    "productionAfter": [
+      "electronics:headphones:huawei:freebuds-6-black",
+      "electronics:headphones:sony:wh1000xm5b-ce7"
+    ],
+    "shadowAfterPolicyApproval": [
+      "electronics:headphones:sony:wh1000xm5b-ce7",
+      "electronics:headphones:huawei:freebuds-6-black"
+    ],
+    "membershipIdentical": true,
+    "candidateCap": 0.75,
+    "selectionOutcome": "TIED_TOP_SET",
+    "singleSelectionAuthorized": false,
+    "catalogOrderIndependent": true,
+    "traces": [
+      {
+        "exactCandidateId": "electronics:headphones:sony:wh1000xm5b-ce7",
+        "score": 0.5,
+        "contributions": [
+          {
+            "eventId": "trace:HEADPHONES:0",
+            "preferenceKey": "DESIGN_LED",
+            "mappingRef": "CORROBORATED-SONY-WH1000XM5-DESIGN",
+            "evidenceRef": "EXT-SONY-XM5-RTINGS-2025+EXT-SONY-XM5-SOUNDGUYS-2025",
+            "contribution": 0.5,
+            "reasonCode": "PERSONA_DESIGN_LED_INDEPENDENTLY_CORROBORATED"
+          }
+        ],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "electronics:headphones:huawei:freebuds-6-black",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      }
+    ]
+  },
+  {
+    "categoryId": "STROLLER",
+    "before": [
+      "CHICCO_BELLAGIO_07087183330000_TR",
+      "CHICCO_GOODY_PLUS_04079877190000_TR",
+      "CHICCO_MYSA_05087158450000_TR",
+      "CYBEX_BALIOS_S_LUX_520001251_TR"
+    ],
+    "productionAfter": [
+      "CHICCO_BELLAGIO_07087183330000_TR",
+      "CHICCO_GOODY_PLUS_04079877190000_TR",
+      "CHICCO_MYSA_05087158450000_TR",
+      "CYBEX_BALIOS_S_LUX_520001251_TR"
+    ],
+    "shadowAfterPolicyApproval": [
+      "CYBEX_BALIOS_S_LUX_520001251_TR",
+      "CHICCO_BELLAGIO_07087183330000_TR",
+      "CHICCO_GOODY_PLUS_04079877190000_TR",
+      "CHICCO_MYSA_05087158450000_TR"
+    ],
+    "membershipIdentical": true,
+    "candidateCap": 0.75,
+    "selectionOutcome": "TIED_TOP_SET",
+    "singleSelectionAuthorized": false,
+    "catalogOrderIndependent": true,
+    "traces": [
+      {
+        "exactCandidateId": "CYBEX_BALIOS_S_LUX_520001251_TR",
+        "score": 0.75,
+        "contributions": [
+          {
+            "eventId": "trace:STROLLER:0",
+            "preferenceKey": "DESIGN_LED",
+            "mappingRef": "CORROBORATED-CYBEX-BALIOS-DESIGN",
+            "evidenceRef": "EXT-CYBEX-BALIOS-MFM-2023+EXT-CYBEX-BALIOS-BGL-2024",
+            "contribution": 0.5,
+            "reasonCode": "PERSONA_DESIGN_LED_INDEPENDENTLY_CORROBORATED+INTENDED_POSITIONING"
+          },
+          {
+            "eventId": "trace:STROLLER:1",
+            "preferenceKey": "PREMIUM_POSITIONING",
+            "mappingRef": "POSITIONING-CYBEX-BALIOS-PREMIUM",
+            "evidenceRef": "POSITIONING-CYBEX-BALIOS-OFFICIAL",
+            "contribution": 0.25,
+            "reasonCode": "PERSONA_PREMIUM_POSITIONING_INDEPENDENTLY_CORROBORATED+INTENDED_POSITIONING"
+          }
+        ],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "CHICCO_BELLAGIO_07087183330000_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "CHICCO_GOODY_PLUS_04079877190000_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      },
+      {
+        "exactCandidateId": "CHICCO_MYSA_05087158450000_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": []
+      }
+    ]
+  }
+]

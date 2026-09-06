@@ -1,0 +1,86 @@
+[
+  {
+    "assertionId": "CORROBORATED-SONY-WH1000XM5-DESIGN",
+    "evidenceClass": "INDEPENDENTLY_CORROBORATED",
+    "assertionScope": "PRODUCT_FAMILY_PERSONA",
+    "trait": "DESIGN_LED",
+    "contribution": 0.5,
+    "sourceIds": [
+      "EXT-SONY-XM5-RTINGS-2025",
+      "EXT-SONY-XM5-SOUNDGUYS-2025"
+    ],
+    "sourceLineageIds": [
+      "RTINGS:SONY-WH1000XM5",
+      "SOUNDGUYS:SONY-WH1000XM5"
+    ],
+    "independentSourceCount": 2,
+    "sourceType": "INDEPENDENT_EDITORIAL",
+    "technicalOrPerformanceClaim": false
+  },
+  {
+    "assertionId": "CORROBORATED-CYBEX-BALIOS-DESIGN",
+    "evidenceClass": "INDEPENDENTLY_CORROBORATED",
+    "assertionScope": "PRODUCT_FAMILY_PERSONA",
+    "trait": "DESIGN_LED",
+    "contribution": 0.5,
+    "sourceIds": [
+      "EXT-CYBEX-BALIOS-MFM-2023",
+      "EXT-CYBEX-BALIOS-BGL-2024"
+    ],
+    "sourceLineageIds": [
+      "MADEFORMUMS:CYBEX-BALIOS",
+      "BABYGEARLAB:CYBEX-BALIOS"
+    ],
+    "independentSourceCount": 2,
+    "sourceType": "INDEPENDENT_EDITORIAL",
+    "technicalOrPerformanceClaim": false
+  },
+  {
+    "assertionId": "POSITIONING-CYBEX-BALIOS-PREMIUM",
+    "evidenceClass": "INTENDED_POSITIONING",
+    "assertionScope": "PRODUCT_FAMILY_PERSONA",
+    "trait": "PREMIUM_POSITIONING",
+    "contribution": 0.25,
+    "sourceIds": [
+      "POSITIONING-CYBEX-BALIOS-OFFICIAL"
+    ],
+    "sourceLineageIds": [
+      "CYBEX:OFFICIAL:BALIOS"
+    ],
+    "independentSourceCount": 0,
+    "sourceType": "MANUFACTURER_CONTROLLED",
+    "technicalOrPerformanceClaim": false
+  },
+  {
+    "assertionId": "POSITIONING-SMEG-ECF02-DESIGN",
+    "evidenceClass": "INTENDED_POSITIONING",
+    "assertionScope": "PRODUCT_FAMILY_PERSONA",
+    "trait": "DESIGN_LED",
+    "contribution": 0.25,
+    "sourceIds": [
+      "POSITIONING-SMEG-ECF02-OFFICIAL"
+    ],
+    "sourceLineageIds": [
+      "SMEG:OFFICIAL:ECF02"
+    ],
+    "independentSourceCount": 0,
+    "sourceType": "MANUFACTURER_CONTROLLED",
+    "technicalOrPerformanceClaim": false
+  },
+  {
+    "assertionId": "POSITIONING-SAMSUNG-FREESTYLE2-PLAYFUL",
+    "evidenceClass": "INTENDED_POSITIONING",
+    "assertionScope": "PRODUCT_FAMILY_PERSONA",
+    "trait": "PLAYFUL",
+    "contribution": 0.25,
+    "sourceIds": [
+      "POSITIONING-SAMSUNG-FREESTYLE2-OFFICIAL"
+    ],
+    "sourceLineageIds": [
+      "SAMSUNG:OFFICIAL:FREESTYLE2"
+    ],
+    "independentSourceCount": 0,
+    "sourceType": "MANUFACTURER_CONTROLLED",
+    "technicalOrPerformanceClaim": false
+  }
+]
