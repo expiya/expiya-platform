@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "xpy-persona-turkish-expression-mapping/v1",
+  "vocabulary": [
+    {
+      "trait": "ADVENTURE",
+      "meaning": "Outdoor, exploratory or rugged-use character",
+      "turkishExpressions": [
+        "maceracı",
+        "outdoor ruhlu"
+      ],
+      "aliases": [],
+      "mappingStatus": "VOCABULARY_ONLY_NO_CURRENT_QUALIFIED_PROJECTION",
+      "categories": []
+    },
+    {
+      "trait": "CHARISMATIC",
+      "meaning": "Strong and memorable non-technical character",
+      "turkishExpressions": [
+        "karizmatik",
+        "karakterli"
+      ],
+      "aliases": [],
+      "mappingStatus": "VOCABULARY_ONLY_NO_CURRENT_QUALIFIED_PROJECTION",
+      "categories": []
+    },
+    {
+      "trait": "COMFORT",
+      "meaning": "Comfort-oriented character, never a comfort fact",
+      "turkishExpressions": [
+        "konfor odaklı",
+        "rahat hissettiren"
+      ],
+      "aliases": [],
+      "mappingStatus": "VOCABULARY_ONLY_NO_CURRENT_QUALIFIED_PROJECTION",
+      "categories": []
+    },
+    {
+      "trait": "COMPACT_FEELING",
+      "meaning": "Perceived spatial lightness or unobtrusiveness, not dimensions",
+      "turkishExpressions": [
+        "kompakt hissettiren",
+        "az yer kaplıyor hissi veren"
+      ],
+      "aliases": [],
+      "mappingStatus": "VOCABULARY_ONLY_NO_CURRENT_QUALIFIED_PROJECTION",
+      "categories": []
+    },
+    {
+      "trait": "DESIGN_LED",
+      "meaning": "Design is a central positioning theme",
+      "turkishExpressions": [
+        "tasarım odaklı",
+        "tasarımı ön planda"
+      ],
+      "aliases": [
+        "DESIGN"
+      ],
+      "mappingStatus": "MAPPED_TO_GOVERNED_PROJECTION",
+      "categories": [
+        "MANUAL_ESPRESSO_MACHINE",
+        "STROLLER",
+        "HEADPHONES"
+      ]
+    },
+    {
+      "trait": "DRIVING_ENGAGEMENT",
+      "meaning": "Cars-only engagement character retained from V3.9",
+      "turkishExpressions": [
+        "sürüşü keyifli",
+        "sürücü odaklı"
+      ],
+      "aliases": [],
+      "mappingStatus": "VOCABULARY_ONLY_NO_CURRENT_QUALIFIED_PROJECTION",
+      "categories": []
+    },
+    {
+      "trait": "FAMILY_ORIENTED",
+      "meaning": "Family-life positioning, not capacity or safety proof",
+      "turkishExpressions": [
+        "aile odaklı",
+        "aileye hitap eden"
+      ],
+      "aliases": [
+        "FAMILY"
+      ],
+      "mappingStatus": "VOCABULARY_ONLY_NO_CURRENT_QUALIFIED_PROJECTION",
+      "categories": []
+    },
+    {
+      "trait": "PLAYFUL",
+      "meaning": "Playful, colourful or expressive character",
+      "turkishExpressions": [
+        "eğlenceli",
+        "oyuncu",
+        "renkli karakterli"
+      ],
+      "aliases": [],
+      "mappingStatus": "MAPPED_TO_GOVERNED_PROJECTION",
+      "categories": [
+        "PROJECTOR"
+      ]
+    },
+    {
+      "trait": "PRACTICALITY",
+      "meaning": "Pragmatic/everyday-use character, not capability proof",
+      "turkishExpressions": [
+        "pragmatik",
+        "işlev odaklı",
+        "gösterişsiz iş gören"
+      ],
+      "aliases": [
+        "PRAGMATIC"
+      ],
+      "mappingStatus": "VOCABULARY_ONLY_NO_CURRENT_QUALIFIED_PROJECTION",
+      "categories": []
+    },
+    {
+      "trait": "PREMIUM_POSITIONING",
+      "meaning": "Premium positioning only; never price or quality inference",
+      "turkishExpressions": [
+        "premium hisli",
+        "üst segment algılı"
+      ],
+      "aliases": [
+        "PRESTIGE"
+      ],
+      "mappingStatus": "MAPPED_TO_GOVERNED_PROJECTION",
+      "categories": [
+        "STROLLER"
+      ]
+    },
+    {
+      "trait": "PROFESSIONAL",
+      "meaning": "Professional/work-oriented character",
+      "turkishExpressions": [
+        "profesyonel",
+        "iş odaklı",
+        "kurumsal görünümlü"
+      ],
+      "aliases": [],
+      "mappingStatus": "VOCABULARY_ONLY_NO_CURRENT_QUALIFIED_PROJECTION",
+      "categories": []
+    },
+    {
+      "trait": "TECHNOLOGY",
+      "meaning": "Technology-led character, not technical superiority",
+      "turkishExpressions": [
+        "teknoloji odaklı",
+        "teknolojik hisli"
+      ],
+      "aliases": [],
+      "mappingStatus": "VOCABULARY_ONLY_NO_CURRENT_QUALIFIED_PROJECTION",
+      "categories": []
+    },
+    {
+      "trait": "UNDERSTATED",
+      "meaning": "Restrained, quiet visual character",
+      "turkishExpressions": [
+        "sade",
+        "abartısız",
+        "minimal"
+      ],
+      "aliases": [],
+      "mappingStatus": "VOCABULARY_ONLY_NO_CURRENT_QUALIFIED_PROJECTION",
+      "categories": []
+    },
+    {
+      "trait": "VISUALLY_DISTINCTIVE",
+      "meaning": "Visually differentiated character",
+      "turkishExpressions": [
+        "görsel olarak ayırt edici",
+        "özgün görünümlü",
+        "dikkat çekici"
+      ],
+      "aliases": [],
+      "mappingStatus": "VOCABULARY_ONLY_NO_CURRENT_QUALIFIED_PROJECTION",
+      "categories": []
+    }
+  ],
+  "totals": {
+    "traits": 14,
+    "turkishExpressions": 33,
+    "traitsWithQualifiedProjection": 3,
+    "categoriesWithUsableMapping": 4,
+    "categoriesFailClosedLocally": 45
+  },
+  "interpretationBoundary": "EXACT_APPROVED_EXPRESSIONS_TO_TRAIT_ONLY_NO_FREE_TEXT_INFERENCE"
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "xpy-universal-persona-projection-atomic-activation-plan/v1",
+  "state": "BLOCKED_PENDING_EXPLICIT_DIGEST_BOUND_APPROVAL",
+  "preconditions": [
+    "Approval statement and package digest match exactly.",
+    "All source Domain Pack and active-pointer snapshot digests still match.",
+    "Future catalog inventory is reconciled 1:1 before activation.",
+    "Full validation and production build pass on the activation commit."
+  ],
+  "atomicSteps": [
+    "Create one universal Persona active pointer bound to this immutable release.",
+    "Switch only APPLIANCES, ELECTRONICS and BABY_AND_CHILD bounded-soft-ranking registrations from FAILED_CLOSED to the approved category-local bindings.",
+    "Keep categories without usable mappings locally FAILED_CLOSED while unrelated mapped categories remain available.",
+    "Verify all pre/post membership digests, Cars V3.9 hashes and active-pointer targets before commit."
+  ],
+  "rollback": "Restore the pre-activation pointers and Domain Pack registrations in one commit; retain immutable evidence, approval and audit artifacts.",
+  "deployRequiresSeparateAuthorization": true
+}

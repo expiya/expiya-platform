@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "xpy-universal-persona-projection-manifest/v1",
+  "workUnitId": "WU-XPY-UNIVERSAL-PERSONA-PROJECTION-MATERIALIZATION-01",
+  "releaseId": "XPY-UNIVERSAL-PERSONA-PROJECTION-TR-v0.1-owner-review",
+  "generatedAt": "2026-09-06T00:00:00.000Z",
+  "lifecycle": "OWNER_REVIEW_CANDIDATE_NOT_ACTIVE",
+  "approvedEvidenceClassPackageDigest": "sha256:85bb241c57b995c95b7118b022c2272cf541a189c7c6f451839e7d7a7ba67610",
+  "ownerApprovalEventId": "PERSONA-EVIDENCE-CLASS-OWNER-APPROVAL-20260906",
+  "sharedBoundedSoftRankingCommit": "1733879262dbd99bfcd137e60057cde308d0f05a",
+  "counts": {
+    "exactProducts": 169,
+    "governed": 4,
+    "unknown": 165,
+    "conflicted": 0,
+    "categories": 49
+  },
+  "artifactDigests": {
+    "projection-candidate.json": "sha256:5cdcd020825d6408893fa0724136bd7289b6be079a2e3beed808885ff01ea61d",
+    "category-coverage.json": "sha256:df53786f0330f8be4c918c54e9e0cb96694d4babc3c5acf6aa9eabbd12431fa0",
+    "turkish-expression-mappings.json": "sha256:ccc23dd846f5d87f2dfef9410b045260bb7e1844d03d5428903ba02db3330f80",
+    "shadow-traces.json": "sha256:23fa3deeb042286b3a2b58cf189e03cadd5534d14c51c055b77542cbf68cc136",
+    "invariant-proofs.json": "sha256:97a59248240439eec455e21b6cce72ad365926237924e21ec3c23bb5d7eb6d62",
+    "active-pointer-snapshot.json": "sha256:33476a8b268b50f0c91039a720cacf27f62182d8bc0f32c32125fc761870da24",
+    "cars-v39-immutability.json": "sha256:66aa4df9a9fdf11f317ed76f019e0af931f1d15aa9011415241b74c8773fe769",
+    "policy-binding.json": "sha256:4d6ad0892b5754f3e8fae7afec7c2aaa7fb2e2bad11c1fe0376bbea44ee3bab9"
+  },
+  "activePointerChanged": false,
+  "rankingChanged": false,
+  "catalogMembershipChanged": false,
+  "deploymentPerformed": false,
+  "packageDigest": "sha256:62d2d5f23cb92b337052fdb0e3eb16c8b96126e3bc156fa16ebaac11be03f4aa"
+}

@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "xpy-persona-projection-policy-binding/v1",
+  "evidencePolicy": {
+    "schemaVersion": "xpy-persona-evidence-class-policy/v1",
+    "status": "PROPOSED_OWNER_APPROVAL_REQUIRED",
+    "classes": {
+      "INTENDED_POSITIONING": {
+        "eligibleSources": [
+          "MANUFACTURER_CONTROLLED",
+          "DISCLOSED_ADVERTORIAL"
+        ],
+        "maximumContribution": 0.25,
+        "allowedScopes": [
+          "BRAND_PERSONA",
+          "PRODUCT_CLASS_PERSONA",
+          "PRODUCT_FAMILY_PERSONA"
+        ],
+        "authority": "POSITIONING_ONLY"
+      },
+      "EDITORIALLY_OBSERVED": {
+        "eligibleSources": [
+          "ONE_REPUTABLE_INDEPENDENT_COMPATIBLE_SOURCE"
+        ],
+        "maximumContribution": 0.5,
+        "authority": "BOUNDED_OBSERVATION_WITH_LIMITATIONS"
+      },
+      "INDEPENDENTLY_CORROBORATED": {
+        "eligibleSources": [
+          "TWO_INDEPENDENT_COMPATIBLE_SOURCES",
+          "GOVERNED_MULTI_PLATFORM_USER_THEME"
+        ],
+        "maximumContribution": 0.75,
+        "authority": "BOUNDED_CORROBORATED_PERSONA"
+      }
+    },
+    "aggregateCandidateCap": 0.75,
+    "sameTraitDeduplication": true,
+    "sharedSourceLineageDeduplication": true,
+    "unknownEffect": 0,
+    "membershipEffect": "NONE",
+    "personaOnlySelectionAuthority": "NONE",
+    "technicalTruthAuthority": "NONE",
+    "carsV39Mutation": "FORBIDDEN"
+  },
+  "approvedPackageDigest": "sha256:85bb241c57b995c95b7118b022c2272cf541a189c7c6f451839e7d7a7ba67610",
+  "ownerApprovalEventId": "PERSONA-EVIDENCE-CLASS-OWNER-APPROVAL-20260906",
+  "sharedBoundedSoftRankingCommit": "1733879262dbd99bfcd137e60057cde308d0f05a",
+  "activationAuthority": "NONE_CANDIDATE_ONLY"
+}
