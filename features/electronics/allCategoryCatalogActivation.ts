@@ -1,8 +1,24 @@
+import { createHash } from "node:crypto";
 import { mkdir, readFile, rename, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-import { canonicalJson, sha256Bytes, sha256Canonical } from "./headphonesOwnerApprovalPackage";
 import type { ElectronicsRuntimeCatalog } from "./runtimeAuthority.server";
+
+const canonical = (value: unknown): string => {
+  if (value === undefined || typeof value === "function" || typeof value === "symbol" || typeof value === "bigint") {
+    throw new TypeError("NON_JSON_VALUE");
+  }
+  if (value === null || typeof value !== "object") return JSON.stringify(value);
+  if (Array.isArray(value)) return `[${value.map(canonical).join(",")}]`;
+  return `{${Object.entries(value as Record<string, unknown>)
+    .sort(([left], [right]) => left.localeCompare(right, "en"))
+    .map(([key, child]) => `${JSON.stringify(key)}:${canonical(child)}`)
+    .join(",")}}`;
+};
+const canonicalJson = (value: unknown): string => `${canonical(value)}\n`;
+const sha256Bytes = (value: string | Buffer): `sha256:${string}` =>
+  `sha256:${createHash("sha256").update(value).digest("hex")}`;
+const sha256Canonical = (value: unknown): `sha256:${string}` => sha256Bytes(canonical(value));
 
 export const ALL_CATEGORY_PACKAGE_ID = "ELECTRONICS-ALL-CATEGORY-EXPANSION-OAM-02" as const;
 export const ALL_CATEGORY_PACKAGE_DIGEST = "sha256:89d80a38e972b34c094b737a67de32d3f6bd2a38c40c14db39b3200bc66b305d" as const;

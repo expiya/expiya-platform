@@ -10,9 +10,11 @@ const APPLIANCE_FOLDER_CATEGORY: Readonly<Record<string, SecretaryCategoryId>> =
   "washing-machines":"WASHING_MACHINE","refrigerators":"REFRIGERATOR","dishwashers":"DISHWASHER","dryers":"DRYER","vacuums":"VACUUM","robot-vacuums":"ROBOT_VACUUM","freezers":"FREEZER","built-in-ovens":"BUILT_IN_OVEN","freestanding-cookers":"FREESTANDING_COOKER","hobs":"HOB","range-hoods":"RANGE_HOOD","countertop-microwave-ovens":"COUNTERTOP_MICROWAVE_OVEN","built-in-microwave-ovens":"BUILT_IN_MICROWAVE_OVEN","air-purifiers":"AIR_PURIFIER","fully-automatic-espresso-machines":"FULLY_AUTOMATIC_ESPRESSO_MACHINE","manual-espresso-machines":"MANUAL_ESPRESSO_MACHINE","filter-coffee-machines":"FILTER_COFFEE_MACHINE","turkish-coffee-machines":"TURKISH_COFFEE_MACHINE","air-fryers":"AIR_FRYER","blenders":"BLENDER","food-processors":"FOOD_PROCESSOR","electric-storage-water-heaters":"ELECTRIC_STORAGE_WATER_HEATER","instantaneous-electric-water-heaters":"INSTANTANEOUS_ELECTRIC_WATER_HEATER","split-air-conditioners":"SPLIT_AIR_CONDITIONER",
 });
 
-type Json = Record<string, any>;
+type Json = Record<string, unknown>;
 const read = (root:string,file:string): {raw:string; value:Json} => { const raw=readFileSync(path.join(root,file),"utf8"); return {raw,value:JSON.parse(raw)}; };
 const sha = (raw:string) => createHash("sha256").update(raw).digest("hex");
+const records = (value: unknown): Json[] => Array.isArray(value) ? value.filter((item): item is Json => item !== null && typeof item === "object" && !Array.isArray(item)) : [];
+const object = (value: unknown): Json => value !== null && typeof value === "object" && !Array.isArray(value) ? value as Json : {};
 const exact = (value:Json) => [value.exactProductId,value.productId,value.modelCode,value.manufacturerModelIdentifier,value.configurationIdentity].filter((item):item is string=>typeof item==="string");
 const identity = (departmentId:string,categoryId:SecretaryCategoryId|undefined,value:Json): GovernedProductIdentity | undefined => {
   const brand=value.manufacturer??value.brand??value.brandId; const model=value.model??value.modelCode??value.manufacturerModelIdentifier;
@@ -25,7 +27,7 @@ export function loadActiveSecretaryProductIdentityIndex(root=process.cwd()): Sec
     const ep=read(root,"data/production/electronics/runtime/active.json").value;
     if(ep.lifecycle!=="ACTIVE"||ep.runtimeActive!==true||typeof ep.catalogFile!=="string") throw new Error("INVALID_ELECTRONICS_POINTER");
     const ec=read(root,ep.catalogFile); if(`sha256:${sha(ec.raw)}`!==ep.catalogArtifactSha256) throw new Error("ELECTRONICS_DIGEST_MISMATCH");
-    for(const item of ec.value.products??[]) { const record=identity("ELECTRONICS",item.categoryId,item); if(record) products.push(record); else throw new Error("MALFORMED_ELECTRONICS_IDENTITY"); }
+    for(const item of records(ec.value.products)) { const record=identity("ELECTRONICS",item.categoryId as SecretaryCategoryId | undefined,item); if(record) products.push(record); else throw new Error("MALFORMED_ELECTRONICS_IDENTITY"); }
     const appliancesRoot=path.join(root,"data/production/appliances");
     for(const folder of readdirSync(appliancesRoot,{withFileTypes:true}).filter(item=>item.isDirectory())) {
       let pointer:Json; try { pointer=read(root,`data/production/appliances/${folder.name}/active.json`).value; } catch { continue; }
@@ -35,11 +37,11 @@ export function loadActiveSecretaryProductIdentityIndex(root=process.cwd()): Sec
       if(!artifact) continue;
       const expected=pointer.artifactSha256??pointer.decisionArtifactSha256; if(typeof expected==="string"&&sha(artifact.raw)!==expected) throw new Error(`APPLIANCES_DIGEST_MISMATCH:${folder.name}`);
       const governedCategory=APPLIANCE_FOLDER_CATEGORY[folder.name]; if(!governedCategory) continue;
-      for(const item of artifact.value.products??[]) { const category=(item.categoryId??item.productType??artifact.value.categoryId??governedCategory) as SecretaryCategoryId; const record=identity("APPLIANCES",category,item); if(record) products.push(record); }
+      for(const item of records(artifact.value.products)) { const category=(item.categoryId??item.productType??artifact.value.categoryId??governedCategory) as SecretaryCategoryId; const record=identity("APPLIANCES",category,item); if(record) products.push(record); }
     }
     const cp=read(root,"data/production/catalog/active.json").value; if(cp.state!=="ACTIVE") throw new Error("INVALID_CARS_POINTER");
     const cc=read(root,`data/production/catalog/releases/v${cp.active_catalog_release_version}/catalog.json`).value;
-    for(const item of cc.records??[]) { const variant=item.variant??{}; const brand=variant.brand?.value, model=variant.model?.value; if(typeof brand==="string"&&typeof model==="string") products.push({departmentId:"CARS",brand,model,exactIdentifiers:[variant.id].filter(Boolean)}); }
+    for(const item of records(cc.records)) { const variant=object(item.variant); const brand=object(variant.brand).value, model=object(variant.model).value; if(typeof brand==="string"&&typeof model==="string") products.push({departmentId:"CARS",brand,model,exactIdentifiers:[variant.id].filter((id): id is string => typeof id === "string")}); }
     products.push(...STROLLER_PRODUCTS.map(item=>({departmentId:"BABY_AND_CHILD",categoryId:"STROLLER" as const,brand:item.manufacturer,model:item.model,exactIdentifiers:[item.exactProductId,item.configurationIdentity]})));
     products.push(...MOBILITY_PRODUCTS.map(item=>({departmentId:"MOBILITY",categoryId:item.categoryId,brand:item.brand,family:item.family,model:item.model,exactIdentifiers:[item.exactProductId,item.configurationIdentity]})));
     return buildSecretaryProductIdentityIndex(products);
