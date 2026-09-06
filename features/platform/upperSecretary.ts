@@ -1,7 +1,8 @@
 import { SECRETARY_NEGATIVE_COMPOUNDS, SECRETARY_ROUTE_DESCRIPTORS, SECRETARY_UMBRELLAS, choicesFor, containsPhrase, findSecretaryPhraseSpans, normalizeSecretaryPhrase, type ActiveSecretaryDepartmentId, type SecretaryRouteChoice, type SecretaryRouteDescriptor, type SecretaryUmbrella } from "./secretaryRoutingPack";
+import { matchSecretaryProductIdentity, type SecretaryProductIdentityIndex } from "./secretaryProductIdentityIndex";
 export type SecretaryResultKind = "GREETING" | "CLARIFY_DESTINATION" | "PROPOSE_NAVIGATION" | "FAQ_RESPONSE" | "UNSUPPORTED_DESTINATION" | "SAFETY_WARNING" | "SESSION_FROZEN";
 export type SecretaryOutcome = { readonly kind: Exclude<SecretaryResultKind, "PROPOSE_NAVIGATION">; readonly message: string; readonly link?: string; readonly choices?: readonly SecretaryRouteChoice[] } | { readonly kind: "PROPOSE_NAVIGATION"; readonly departmentId: ActiveSecretaryDepartmentId; readonly destination: string; readonly message: string };
-export interface SecretarySessionContext { readonly priorClearViolations?: number }
+export interface SecretarySessionContext { readonly priorClearViolations?: number; readonly productIdentityIndex?: SecretaryProductIdentityIndex }
 const clearAbusePatterns = [/\b(aptal|salak|gerizekalı|gerizekali)\b/iu, /\b(seni öldür|sizi öldür|geber|katledeceğim|katledecegim)\b/iu, /\b(siktir|orospu|piç|pic)\b/iu];
 type Mention = { readonly start: number; readonly end: number; readonly tokenCount: number; readonly descriptor?: SecretaryRouteDescriptor; readonly umbrella?: SecretaryUmbrella };
 const overlaps = (left: Pick<Mention, "start" | "end">, right: Pick<Mention, "start" | "end">) => left.start < right.end && right.start < left.end;
@@ -29,6 +30,9 @@ export function classifySecretaryMessage(rawMessage: string, context: SecretaryS
   if (containsPhrase(message, "hangi bölümler") || containsPhrase(message, "aktif bölümler")) return { kind: "FAQ_RESPONSE", message: "Şu anda Otomobil, Ev Ürünleri, Elektronik, Bebek & Çocuk ve Mobilite bölümleri aktiftir." };
   if (containsPhrase(message, "sekreter ne yapar") || containsPhrase(message, "sekreterin görevi")) return { kind: "FAQ_RESPONSE", message: "Sekreter, isteğinizi anlayıp sizi yalnızca aktif ve uygun bölüme yönlendirir; ürün önerisi veya sıralaması yapmaz." };
   if (containsPhrase(message, "hediye")) return { kind: "CLARIFY_DESTINATION", message: "Elbette. Hangi tür ürün için hediye arıyorsunuz?" };
+  const identityChoices = context.productIdentityIndex ? matchSecretaryProductIdentity(message, context.productIdentityIndex) : [];
+  if (identityChoices.length === 1) { const choice = identityChoices[0]; return { kind: "PROPOSE_NAVIGATION", departmentId: choice.departmentId, destination: choice.destination, message: `${choice.label} bölümüne yönlendiriliyorsunuz.` }; }
+  if (identityChoices.length > 1) return { kind: "CLARIFY_DESTINATION", message: "Bu marka birden fazla aktif kategoride bulunuyor. Hangi ürün türünü arıyorsunuz?", choices: identityChoices };
   const mentions = governedMentions(message);
   const choices = [...new Map(mentions.flatMap(mention => mention.descriptor ? [{ label: mention.descriptor.localizedLabel, departmentId: mention.descriptor.departmentId, destination: mention.descriptor.destination }] : mention.umbrella ? choicesFor(mention.umbrella) : []).map(choice => [choice.destination, choice])).values()];
   const uniqueDescriptor = choices.length === 1 ? SECRETARY_ROUTE_DESCRIPTORS.find(item => item.destination === choices[0].destination) : undefined;
