@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { classifySecretaryMessage } from "@/features/platform/upperSecretary";
+import { loadActiveSecretaryProductIdentityIndex } from "@/features/platform/secretaryProductIdentityIndex.server";
 import { enforceRateLimit, readJsonWithLimit, verifySameOrigin } from "@/lib/security/requestSecurity";
 
 const bodySchema = z.object({ message: z.string().trim().min(1).max(1_000), priorClearViolations: z.number().int().min(0).max(1).optional() }).strict();
@@ -12,7 +13,7 @@ export async function POST(request: Request): Promise<Response> {
   try {
     const parsed = bodySchema.safeParse(await readJsonWithLimit(request, 4_096));
     if (!parsed.success) return Response.json({ message: "Mesajınızı kontrol edip yeniden deneyin." }, { status: 400 });
-    return Response.json(classifySecretaryMessage(parsed.data.message, { priorClearViolations: parsed.data.priorClearViolations }), { headers: { "Cache-Control": "no-store" } });
+    return Response.json(classifySecretaryMessage(parsed.data.message, { priorClearViolations: parsed.data.priorClearViolations, productIdentityIndex: loadActiveSecretaryProductIdentityIndex() }), { headers: { "Cache-Control": "no-store" } });
   } catch {
     return Response.json({ message: "Şu anda yardımcı olamıyorum. Lütfen yeniden deneyin." }, { status: 400, headers: { "Cache-Control": "no-store" } });
   }
