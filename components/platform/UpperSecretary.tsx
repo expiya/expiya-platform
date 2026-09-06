@@ -10,7 +10,11 @@ import type { SecretaryRouteChoice } from "@/features/platform/secretaryRoutingP
 interface SecretaryResponse { readonly kind: SecretaryResultKind; readonly message: string; readonly destination?: string; readonly link?: string; readonly choices?: readonly SecretaryRouteChoice[] }
 interface PendingRoute { readonly destination: string; readonly originalMessage: string }
 export const SECRETARY_NAVIGATION_DELAY_MS = 3_000;
+export const SECRETARY_PLACEHOLDER_TYPE_MS = 55;
+export const SECRETARY_PLACEHOLDER_HOLD_MS = 1_100;
+export const SECRETARY_PLACEHOLDER_DELETE_MS = 30;
 interface SecretarySuggestion { readonly id: string; readonly label: string }
+type PlaceholderPhase = "TYPING" | "HOLDING" | "DELETING";
 
 function greetingForHour(hour: number): string { return `${hour < 12 ? "Günaydın" : hour >= 18 ? "İyi akşamlar" : "Merhaba"}, hoş geldiniz. Ne satın almak istediğinizi anlatabilirsiniz.`; }
 
@@ -27,15 +31,28 @@ export function UpperSecretary({ suggestions }: { readonly suggestions: readonly
   const [remainingSeconds, setRemainingSeconds] = useState(3);
   const [progressStarted, setProgressStarted] = useState(false);
   const [suggestionIndex, setSuggestionIndex] = useState(0);
+  const [placeholderText, setPlaceholderText] = useState("");
+  const [placeholderPhase, setPlaceholderPhase] = useState<PlaceholderPhase>("TYPING");
   const [messageFocused, setMessageFocused] = useState(false);
   const navigationCommitted = useRef(false);
 
   useEffect(() => { const timer = window.setTimeout(() => setReply(greetingForHour(new Date().getHours())), 0); return () => window.clearTimeout(timer); }, []);
   useEffect(() => {
-    if (messageFocused || draft || frozen || suggestions.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const timer = window.setInterval(() => setSuggestionIndex(current => (current + 1) % suggestions.length), 6_000);
-    return () => window.clearInterval(timer);
-  }, [draft, frozen, messageFocused, suggestions.length]);
+    if (messageFocused || draft || frozen) return;
+    const target=suggestions[suggestionIndex%suggestions.length]?.label??"Ne aradığınızı yazın";
+    const reducedMotion=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const delay=reducedMotion?0:placeholderPhase==="HOLDING"?SECRETARY_PLACEHOLDER_HOLD_MS:placeholderPhase==="DELETING"?SECRETARY_PLACEHOLDER_DELETE_MS:SECRETARY_PLACEHOLDER_TYPE_MS;
+    const timeout=window.setTimeout(()=>{
+      if(reducedMotion){if(placeholderText!==target)setPlaceholderText(target);return;}
+      if(placeholderPhase==="TYPING"){
+        if(placeholderText.length<target.length)setPlaceholderText(target.slice(0,placeholderText.length+1));
+        else setPlaceholderPhase("HOLDING");
+      }else if(placeholderPhase==="HOLDING")setPlaceholderPhase("DELETING");
+      else if(placeholderText.length>0)setPlaceholderText(current=>current.slice(0,-1));
+      else{setSuggestionIndex(current=>(current+1)%Math.max(1,suggestions.length));setPlaceholderPhase("TYPING");}
+    },delay);
+    return()=>window.clearTimeout(timeout);
+  },[draft,frozen,messageFocused,placeholderPhase,placeholderText,suggestionIndex,suggestions]);
 
   useEffect(() => {
     if (!pendingRoute) return;
@@ -88,7 +105,7 @@ export function UpperSecretary({ suggestions }: { readonly suggestions: readonly
     </div>
     <form onSubmit={submit} className="relative mt-4 flex items-end gap-2 overflow-hidden rounded-[1.75rem] border border-stone-200 bg-white p-2.5 shadow-[0_12px_45px_rgba(0,0,0,.09)] transition focus-within:border-stone-400">
       <label className="sr-only" htmlFor="secretary-message">Ne seçmek istediğinizi anlatın</label>
-      <textarea id="secretary-message" rows={1} maxLength={1000} value={draft} disabled={loading || frozen} placeholder={frozen ? "" : suggestions[suggestionIndex]?.label ?? "Ne aradığınızı yazın"} onFocus={() => setMessageFocused(true)} onBlur={() => setMessageFocused(false)} onChange={event => { if (pendingRoute) cancelNavigation("Önceki yönlendirme durduruldu; yeni isteğinizi yazabilirsiniz."); if (choices.length) setChoices([]); setDraft(event.target.value); }} onKeyDown={event => { if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); event.currentTarget.form?.requestSubmit(); } }} className="relative z-10 min-h-14 min-w-0 flex-1 resize-none bg-transparent px-4 py-4 text-left text-base leading-6 outline-none placeholder:text-stone-400 disabled:opacity-60" />
+      <textarea id="secretary-message" rows={1} maxLength={1000} value={draft} disabled={loading || frozen} placeholder={frozen ? "" : placeholderText} onFocus={() => setMessageFocused(true)} onBlur={() => setMessageFocused(false)} onChange={event => { if (pendingRoute) cancelNavigation("Önceki yönlendirme durduruldu; yeni isteğinizi yazabilirsiniz."); if (choices.length) setChoices([]); setDraft(event.target.value); }} onKeyDown={event => { if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); event.currentTarget.form?.requestSubmit(); } }} className="relative z-10 min-h-14 min-w-0 flex-1 resize-none bg-transparent px-4 py-4 text-left text-base leading-6 outline-none placeholder:text-stone-400 disabled:opacity-60" />
       <button type="submit" disabled={loading || frozen || !draft.trim()} className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-lg text-white hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 disabled:bg-stone-300" aria-label="Mesajı gönder">↑</button>
     </form>
   </section>;

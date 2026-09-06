@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
-import { SECRETARY_NAVIGATION_DELAY_MS } from "./UpperSecretary";
+import { SECRETARY_NAVIGATION_DELAY_MS, SECRETARY_PLACEHOLDER_DELETE_MS, SECRETARY_PLACEHOLDER_HOLD_MS, SECRETARY_PLACEHOLDER_TYPE_MS } from "./UpperSecretary";
 
 describe("UpperSecretary cancellable navigation", () => {
   const source = readFileSync(path.join(process.cwd(), "components/platform/UpperSecretary.tsx"), "utf8");
@@ -23,10 +23,17 @@ describe("UpperSecretary cancellable navigation", () => {
     expect(source).toContain("selectChoice(choice)");
     expect(source).toContain("if (choices.length) setChoices([])");
   });
-  it("shows one passive registry example only as a placeholder and pauses it during input", () => {
-    expect(source).toContain('placeholder={frozen ? "" : suggestions[suggestionIndex]?.label');
+  it("types and deletes passive registry examples without touching the real input value", () => {
+    expect([SECRETARY_PLACEHOLDER_TYPE_MS,SECRETARY_PLACEHOLDER_HOLD_MS,SECRETARY_PLACEHOLDER_DELETE_MS]).toEqual([55,1_100,30]);
+    expect(source).toContain('placeholder={frozen ? "" : placeholderText}');
+    expect(source).toContain('type PlaceholderPhase = "TYPING" | "HOLDING" | "DELETING"');
+    expect(source).toContain("target.slice(0,placeholderText.length+1)");
+    expect(source).toContain("current.slice(0,-1)");
     expect(source).toContain("messageFocused || draft || frozen");
     expect(source).toContain("onFocus={() => setMessageFocused(true)}");
+    expect(source).toContain("onBlur={() => setMessageFocused(false)}");
+    expect(source).toContain('value={draft}');
+    expect(source).toContain('prefers-reduced-motion: reduce');
     expect(source).not.toContain('aria-label="Örnek aramalar"');
     expect(source).not.toContain("Önceki örnek aramalar");
     expect(source).not.toContain("Sonraki örnek aramalar");

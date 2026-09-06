@@ -1,7 +1,7 @@
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
 import { ExpiyaInfo } from "@/components/platform/ExpiyaInfo";
-import { ACTIVE_PLATFORM_DISCOVERY, SECRETARY_SEARCH_SUGGESTIONS, buildActivePlatformDiscovery } from "./platformDiscovery";
+import { ACTIVE_PLATFORM_DISCOVERY, SECRETARY_SEARCH_SUGGESTIONS, buildActivePlatformDiscovery, buildSecretarySearchSuggestions } from "./platformDiscovery";
 import type { DepartmentRegistryEntry } from "./departmentRegistry";
 
 describe("registry-driven platform discovery",()=>{
@@ -19,6 +19,7 @@ describe("registry-driven platform discovery",()=>{
     expect(new Set(SECRETARY_SEARCH_SUGGESTIONS.map(item=>item.label)).size).toBe(SECRETARY_SEARCH_SUGGESTIONS.length);
     expect(categories.every(category=>category.example.endsWith(" arıyorum")&&!/[A-Z]{3,}_/u.test(category.example))).toBe(true);
     expect(SECRETARY_SEARCH_SUGGESTIONS.every(item=>item.label.endsWith(" arıyorum")&&!/[A-Z]{3,}_/u.test(item.label))).toBe(true);
+    expect(SECRETARY_SEARCH_SUGGESTIONS.slice(1).every((item,index)=>item.id.split(":")[0]!==SECRETARY_SEARCH_SUGGESTIONS[index]?.id.split(":")[0])).toBe(true);
   });
   it("automatically follows registry activation and removal",()=>{
     const capability={status:"ACTIVE",publicLabelTr:"Deneme ürünü",destination:"/demo?category=DEMO"} as const;
@@ -26,5 +27,12 @@ describe("registry-driven platform discovery",()=>{
     const inactive={...active,departmentId:"OFF",status:"NOT_READY"} satisfies DepartmentRegistryEntry;
     expect(buildActivePlatformDiscovery([active,inactive])).toEqual([{id:"DEMO",label:"Deneme",href:"/demo",categories:[{id:"DEMO",label:"Deneme ürünü",href:"/demo?category=DEMO",example:"Deneme ürünü arıyorum"}]}]);
     expect(buildActivePlatformDiscovery([{...active,capabilities:{DEMO:{...capability,status:"NOT_READY"}}}])).toEqual([{id:"DEMO",label:"Deneme",href:"/demo",categories:[]}]);
+  });
+  it("interleaves registry additions deterministically across departments",()=>{
+    const discovery=buildActivePlatformDiscovery([
+      {departmentId:"FIRST",publicLabelTr:"Birinci",canonicalPath:"/first",status:"ACTIVE",capabilities:{A:{status:"ACTIVE",publicLabelTr:"A ürünü",destination:"/first/a"},B:{status:"ACTIVE",publicLabelTr:"B ürünü",destination:"/first/b"}}},
+      {departmentId:"SECOND",publicLabelTr:"İkinci",canonicalPath:"/second",status:"ACTIVE",capabilities:{C:{status:"ACTIVE",publicLabelTr:"C ürünü",destination:"/second/c"},D:{status:"ACTIVE",publicLabelTr:"D ürünü",destination:"/second/d"}}},
+    ] as readonly DepartmentRegistryEntry[]);
+    expect(buildSecretarySearchSuggestions(discovery).map(item=>item.id)).toEqual(["FIRST:A","SECOND:C","FIRST:B","SECOND:D"]);
   });
 });
