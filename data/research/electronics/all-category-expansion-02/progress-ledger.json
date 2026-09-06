@@ -1,0 +1,1091 @@
+{
+  "schemaVersion": "electronics-all-category-progress/v2",
+  "workUnit": "WU-ELECTRONICS-ALL-CATEGORY-AMAZON-TR-END-TO-END-01",
+  "baseline": {
+    "releaseDigest": "sha256:918db07bf66983a1679d4c72752bde1b87ca50dca90dc932c596e95922b78ced",
+    "productCount": 68,
+    "headphonesCount": 18,
+    "nonHeadphonesCount": 50
+  },
+  "amazonCoverage": "INCOMPLETE_APPROVED_API_UNAVAILABLE_NO_RETRY",
+  "categories": [
+    {
+      "categoryId": "COMPUTER_AUDIO",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:computer-audio:edifier:r1280dbs-black",
+        "electronics:computer-audio:logitech:980-001295"
+      ],
+      "addedMembership": [
+        "electronics:computer-audio:logitech:980-001348"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "channel_configuration",
+        "power_rms_w",
+        "connectivity",
+        "subwoofer_included"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:computer-audio:logitech:980-001348:product",
+          "electronics:computer-audio:logitech:980-001348:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "COMPUTER_AUDIO:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "DIGITAL_CAMERA",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:digital-camera:canon:5811c013",
+        "electronics:digital-camera:sony:zve10m2b-cec"
+      ],
+      "addedMembership": [
+        "electronics:digital-camera:canon:6536c013"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 6,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "sensor",
+        "megapixels",
+        "mount",
+        "body_or_kit"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:digital-camera:canon:6536c013:product",
+          "electronics:digital-camera:canon:6536c013:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "DIGITAL_CAMERA:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "EXTERNAL_STORAGE",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:external-storage:samsung:mu-pg1t0b-ww",
+        "electronics:external-storage:sandisk:sdssde61-1t00-g25"
+      ],
+      "addedMembership": [
+        "electronics:external-storage:samsung:mu-pe2t0s-ww"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "capacity_tb",
+        "interface",
+        "read_mbps",
+        "write_mbps"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:external-storage:samsung:mu-pe2t0s-ww:product",
+          "electronics:external-storage:samsung:mu-pe2t0s-ww:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "EXTERNAL_STORAGE:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "E_READER",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:e-reader:kobo:n367",
+        "electronics:e-reader:kobo:n428"
+      ],
+      "addedMembership": [
+        "electronics:e-reader:kobo:n365"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 3,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 6,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "display_inches",
+        "resolution",
+        "storage_gb",
+        "water_resistance"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:e-reader:kobo:n365:product",
+          "electronics:e-reader:kobo:n365:support",
+          "e-reader:kobo-tr:retailer-directory"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "E_READER:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "FITNESS_TRACKER",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:fitness-tracker:huawei:nor-b19-black",
+        "electronics:fitness-tracker:xiaomi:m2435b1-black"
+      ],
+      "addedMembership": [
+        "electronics:fitness-tracker:xiaomi:smart-band-10-black"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "display_inches",
+        "panel",
+        "refresh_hz",
+        "water_resistance"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:fitness-tracker:xiaomi:smart-band-10-black:product",
+          "electronics:fitness-tracker:xiaomi:smart-band-10-black:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "FITNESS_TRACKER:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "GAME_CONSOLE",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+        "electronics:game-console:sony:cfi-7021"
+      ],
+      "addedMembership": [
+        "electronics:game-console:sony:cfi-2016a01"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "storage_gb",
+        "disc_drive",
+        "resolution_output",
+        "ray_tracing"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:game-console:sony:cfi-2016a01:product",
+          "electronics:game-console:sony:cfi-2016a01:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "GAME_CONSOLE:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "HEADPHONES",
+      "beforeCount": 18,
+      "afterCandidateCount": 18,
+      "beforeMembership": [
+        "electronics:headphones:apple:airpods-4-with-active-noise-cancellation:standard",
+        "electronics:headphones:apple:airpods-pro-3:standard",
+        "electronics:headphones:apple:earpods-usb-c:myqy3tu-a",
+        "electronics:headphones:apple:earpods-with-3-5-mm-headphone-plug:mwu53tu-a",
+        "electronics:headphones:huawei:freebuds-6-black",
+        "electronics:headphones:huawei:freebuds-6:purple",
+        "electronics:headphones:huawei:freebuds-6i:white",
+        "electronics:headphones:huawei:freebuds-7i:black",
+        "electronics:headphones:huawei:freebuds-se-2:white",
+        "electronics:headphones:huawei:freebuds-se-4-anc:white",
+        "electronics:headphones:hyperx:cloud-iii-s-wireless:black",
+        "electronics:headphones:hyperx:cloud-iii:black",
+        "electronics:headphones:marshall:major-v:cream",
+        "electronics:headphones:philips:headphones-with-microphone:black",
+        "electronics:headphones:samsung:galaxy-buds3-fe:black",
+        "electronics:headphones:samsung:type-c-earphones:black",
+        "electronics:headphones:sony:wh1000xm5b-ce7",
+        "electronics:headphones:ugreen:hitune-s3:black"
+      ],
+      "addedMembership": [],
+      "removedMembership": [],
+      "sourcesInspected": 1,
+      "observations": 18,
+      "reconciled": 18,
+      "admitted": 0,
+      "rejected": 0,
+      "retained": 18,
+      "factCount": 0,
+      "unknownCount": 0,
+      "discriminatorCoverage": [],
+      "zeroAdditionExplanation": "Excluded by organizer authority: the approved 18-product slice is frozen and its research must not be reopened.",
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": []
+    },
+    {
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+        "electronics:home-security-camera:tp-link:tapo-c225-eu-v1"
+      ],
+      "addedMembership": [
+        "electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "resolution",
+        "pan_tilt",
+        "weather_resistance",
+        "local_storage"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:product",
+          "electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "HOME_SECURITY_CAMERA:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "LAPTOP",
+      "beforeCount": 3,
+      "afterCandidateCount": 4,
+      "beforeMembership": [
+        "electronics:laptop:huawei:53014qhr",
+        "electronics:laptop:lenovo:83k2001vtr",
+        "electronics:laptop:lenovo:83k20077tr"
+      ],
+      "addedMembership": [
+        "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 5,
+      "reconciled": 5,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 3,
+      "factCount": 6,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "display_inches",
+        "resolution",
+        "memory_gb",
+        "storage_gb"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:product",
+          "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "LAPTOP:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "MONITOR",
+      "beforeCount": 3,
+      "afterCandidateCount": 4,
+      "beforeMembership": [
+        "electronics:monitor:lg:27gs50f-b",
+        "electronics:monitor:samsung:ls27c902pauxuf",
+        "electronics:monitor:samsung:ls27f612eauxuf"
+      ],
+      "addedMembership": [
+        "electronics:monitor:samsung:ls27cg552euxuf"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 5,
+      "reconciled": 5,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 3,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "display_inches",
+        "resolution",
+        "refresh_hz",
+        "curvature"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:monitor:samsung:ls27cg552euxuf:product",
+          "electronics:monitor:samsung:ls27cg552euxuf:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "MONITOR:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:nas:qnap:ts-264-8g-diskless",
+        "electronics:nas:synology:ds224plus-diskless-2gb"
+      ],
+      "addedMembership": [
+        "electronics:nas:synology:ds925plus-diskless-4gb"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "drive_bays",
+        "memory_gb",
+        "ethernet",
+        "m2_slots"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:nas:synology:ds925plus-diskless-4gb:product",
+          "electronics:nas:synology:ds925plus-diskless-4gb:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "NETWORK_ATTACHED_STORAGE:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "PORTABLE_SPEAKER",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:portable-speaker:jbl:jblflip7blk",
+        "electronics:portable-speaker:sony:srsult10b-ce7"
+      ],
+      "addedMembership": [
+        "electronics:portable-speaker:jbl:jblcharge6blk"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 6,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "battery_hours",
+        "playtime_boost_hours",
+        "ip_rating",
+        "bluetooth"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:portable-speaker:jbl:jblcharge6blk:product",
+          "electronics:portable-speaker:jbl:jblcharge6blk:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "PORTABLE_SPEAKER:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "PRINTER",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:printer:epson:c11cj67435",
+        "electronics:printer:hp:7md72a"
+      ],
+      "addedMembership": [
+        "electronics:printer:epson:c11cj88403"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "print_color",
+        "print_duplex",
+        "adf",
+        "ethernet"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:printer:epson:c11cj88403:product",
+          "electronics:printer:epson:c11cj88403:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "PRINTER:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "PROJECTOR",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:projector:epson:v11ha85040",
+        "electronics:projector:samsung:sp-lff3claxxtk"
+      ],
+      "addedMembership": [
+        "electronics:projector:epson:v11hb72242"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "resolution",
+        "brightness_lumens",
+        "technology",
+        "google_tv"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:projector:epson:v11hb72242:product",
+          "electronics:projector:epson:v11hb72242:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "PROJECTOR:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "SMARTPHONE",
+      "beforeCount": 3,
+      "afterCandidateCount": 6,
+      "beforeMembership": [
+        "electronics:smartphone:honor:dny-nx9-8-256-black",
+        "electronics:smartphone:samsung:sm-a266bzkctur",
+        "electronics:smartphone:samsung:sm-a366bzkgtur"
+      ],
+      "addedMembership": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:xiaomi:14t-12-256-black",
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 6,
+      "observations": 7,
+      "reconciled": 7,
+      "admitted": 3,
+      "rejected": 1,
+      "retained": 3,
+      "factCount": 38,
+      "unknownCount": 6,
+      "discriminatorCoverage": [
+        "storage_gb",
+        "chipset",
+        "display_inches",
+        "display_panel",
+        "memory_gb"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:smartphone:apple:iphone-16e-128-white:product",
+          "electronics:smartphone:apple:iphone-16e-128-white:support",
+          "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "electronics:smartphone:xiaomi:14t-12-256-black:support",
+          "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "SMARTPHONE:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "SMARTWATCH",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:smartwatch:huawei:vli-b19-46-black",
+        "electronics:smartwatch:samsung:sm-l330ndaatur"
+      ],
+      "addedMembership": [
+        "electronics:smartwatch:samsung:sm-l310nzgatur"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "case_mm",
+        "connectivity",
+        "storage_gb",
+        "water_resistance"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:smartwatch:samsung:sm-l310nzgatur:product",
+          "electronics:smartwatch:samsung:sm-l310nzgatur:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "SMARTWATCH:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "SMART_HOME_HUB",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+        "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1"
+      ],
+      "addedMembership": [
+        "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "protocol",
+        "device_capacity",
+        "chime",
+        "alarm"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:product",
+          "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "SMART_HOME_HUB:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "SOUNDBAR",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:soundbar:lg:s70ty",
+        "electronics:soundbar:samsung:hw-q800f-tk"
+      ],
+      "addedMembership": [
+        "electronics:soundbar:samsung:hw-q990f-tk"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "channels",
+        "hdmi_earc",
+        "dolby_atmos",
+        "subwoofer_included"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:soundbar:samsung:hw-q990f-tk:product",
+          "electronics:soundbar:samsung:hw-q990f-tk:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "SOUNDBAR:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "TABLET",
+      "beforeCount": 3,
+      "afterCandidateCount": 4,
+      "beforeMembership": [
+        "electronics:tablet:huawei:txz-w09-8-128-gray",
+        "electronics:tablet:samsung:sm-x520nzsptur",
+        "electronics:tablet:samsung:sm-x730nzsptur"
+      ],
+      "addedMembership": [
+        "electronics:tablet:apple:ipad-a16-wifi-128-silver"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 5,
+      "reconciled": 5,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 3,
+      "factCount": 6,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "display_inches",
+        "resolution",
+        "storage_gb",
+        "wifi_standard"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:tablet:apple:ipad-a16-wifi-128-silver:product",
+          "electronics:tablet:apple:ipad-a16-wifi-128-silver:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "TABLET:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "TELEVISION",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:television:lg:oled55b65la",
+        "electronics:television:next:ye-55gfsg8-qled"
+      ],
+      "addedMembership": [
+        "electronics:television:samsung:qe75qn90fatxtk"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "display_inches",
+        "resolution",
+        "panel",
+        "processor"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:television:samsung:qe75qn90fatxtk:product",
+          "electronics:television:samsung:qe75qn90fatxtk:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "TELEVISION:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:ups:apc:bx1200mi-gr",
+        "electronics:ups:eaton:5e1200ui"
+      ],
+      "addedMembership": [
+        "electronics:ups:apc:br1200si"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "topology",
+        "power_va",
+        "power_w",
+        "outlets"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:ups:apc:br1200si:product",
+          "electronics:ups:apc:br1200si:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "UNINTERRUPTIBLE_POWER_SUPPLY:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "VIDEO_DOORBELL",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+        "electronics:video-doorbell:tp-link:tapo-d235"
+      ],
+      "addedMembership": [
+        "electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "resolution",
+        "power",
+        "hub_included",
+        "local_storage"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:product",
+          "electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "VIDEO_DOORBELL:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "WEBCAM",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:webcam:asus:webcam-c3",
+        "electronics:webcam:logitech:960-001422"
+      ],
+      "addedMembership": [
+        "electronics:webcam:logitech:960-001088"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "resolution_fps",
+        "field_of_view_degrees",
+        "connectivity",
+        "focus"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:webcam:logitech:960-001088:product",
+          "electronics:webcam:logitech:960-001088:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "WEBCAM:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    },
+    {
+      "categoryId": "WIFI_ROUTER_MESH",
+      "beforeCount": 2,
+      "afterCandidateCount": 3,
+      "beforeMembership": [
+        "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+        "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack"
+      ],
+      "addedMembership": [
+        "electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack"
+      ],
+      "removedMembership": [],
+      "sourcesInspected": 2,
+      "observations": 4,
+      "reconciled": 4,
+      "admitted": 1,
+      "rejected": 1,
+      "retained": 2,
+      "factCount": 5,
+      "unknownCount": 2,
+      "discriminatorCoverage": [
+        "wifi_generation",
+        "aggregate_class",
+        "unit_count",
+        "ethernet_ports_per_unit"
+      ],
+      "boundedScopeEvidence": {
+        "mode": "EXACT_ADMISSIONS_FROM_INSPECTED_PRIMARY_TURKIYE_SURFACES",
+        "sourceIds": [
+          "electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:product",
+          "electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:support"
+        ],
+        "note": "This is a bounded exact-configuration pass, not an exhaustive market-size claim; all other non-exact observations reached an explicit rejection."
+      },
+      "expansionPassState": "COMPLETE_EVIDENCED",
+      "technicalCatalogReadyForProgram": true,
+      "rejections": [
+        {
+          "observationId": "WIFI_ROUTER_MESH:family-or-region-ambiguous",
+          "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+          "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted."
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "sourcesInspected": 52,
+    "observations": 116,
+    "reconciled": 116,
+    "admitted": 25,
+    "rejected": 23,
+    "afterCandidateCount": 93,
+    "nonHeadphonesAfterCandidateCount": 75
+  },
+  "statuses": {
+    "TECHNICAL_CATALOG_READY": true,
+    "XPY_READY": true,
+    "AMAZON_COVERAGE_INCOMPLETE": true
+  }
+}

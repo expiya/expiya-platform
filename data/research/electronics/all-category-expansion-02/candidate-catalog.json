@@ -1,0 +1,3200 @@
+{
+  "schemaVersion": "electronics-candidate-catalog/v2",
+  "baselineReleaseDigest": "sha256:918db07bf66983a1679d4c72752bde1b87ca50dca90dc932c596e95922b78ced",
+  "retainedBaselineProductIds": [
+    "electronics:computer-audio:edifier:r1280dbs-black",
+    "electronics:computer-audio:logitech:980-001295",
+    "electronics:digital-camera:canon:5811c013",
+    "electronics:digital-camera:sony:zve10m2b-cec",
+    "electronics:e-reader:kobo:n367",
+    "electronics:e-reader:kobo:n428",
+    "electronics:external-storage:samsung:mu-pg1t0b-ww",
+    "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+    "electronics:fitness-tracker:huawei:nor-b19-black",
+    "electronics:fitness-tracker:xiaomi:m2435b1-black",
+    "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+    "electronics:game-console:sony:cfi-7021",
+    "electronics:headphones:apple:airpods-4-with-active-noise-cancellation:standard",
+    "electronics:headphones:apple:airpods-pro-3:standard",
+    "electronics:headphones:apple:earpods-usb-c:myqy3tu-a",
+    "electronics:headphones:apple:earpods-with-3-5-mm-headphone-plug:mwu53tu-a",
+    "electronics:headphones:huawei:freebuds-6-black",
+    "electronics:headphones:huawei:freebuds-6:purple",
+    "electronics:headphones:huawei:freebuds-6i:white",
+    "electronics:headphones:huawei:freebuds-7i:black",
+    "electronics:headphones:huawei:freebuds-se-2:white",
+    "electronics:headphones:huawei:freebuds-se-4-anc:white",
+    "electronics:headphones:hyperx:cloud-iii-s-wireless:black",
+    "electronics:headphones:hyperx:cloud-iii:black",
+    "electronics:headphones:marshall:major-v:cream",
+    "electronics:headphones:philips:headphones-with-microphone:black",
+    "electronics:headphones:samsung:galaxy-buds3-fe:black",
+    "electronics:headphones:samsung:type-c-earphones:black",
+    "electronics:headphones:sony:wh1000xm5b-ce7",
+    "electronics:headphones:ugreen:hitune-s3:black",
+    "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+    "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+    "electronics:laptop:huawei:53014qhr",
+    "electronics:laptop:lenovo:83k2001vtr",
+    "electronics:laptop:lenovo:83k20077tr",
+    "electronics:monitor:lg:27gs50f-b",
+    "electronics:monitor:samsung:ls27c902pauxuf",
+    "electronics:monitor:samsung:ls27f612eauxuf",
+    "electronics:nas:qnap:ts-264-8g-diskless",
+    "electronics:nas:synology:ds224plus-diskless-2gb",
+    "electronics:portable-speaker:jbl:jblflip7blk",
+    "electronics:portable-speaker:sony:srsult10b-ce7",
+    "electronics:printer:epson:c11cj67435",
+    "electronics:printer:hp:7md72a",
+    "electronics:projector:epson:v11ha85040",
+    "electronics:projector:samsung:sp-lff3claxxtk",
+    "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+    "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+    "electronics:smartphone:honor:dny-nx9-8-256-black",
+    "electronics:smartphone:samsung:sm-a266bzkctur",
+    "electronics:smartphone:samsung:sm-a366bzkgtur",
+    "electronics:smartwatch:huawei:vli-b19-46-black",
+    "electronics:smartwatch:samsung:sm-l330ndaatur",
+    "electronics:soundbar:lg:s70ty",
+    "electronics:soundbar:samsung:hw-q800f-tk",
+    "electronics:tablet:huawei:txz-w09-8-128-gray",
+    "electronics:tablet:samsung:sm-x520nzsptur",
+    "electronics:tablet:samsung:sm-x730nzsptur",
+    "electronics:television:lg:oled55b65la",
+    "electronics:television:next:ye-55gfsg8-qled",
+    "electronics:ups:apc:bx1200mi-gr",
+    "electronics:ups:eaton:5e1200ui",
+    "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+    "electronics:video-doorbell:tp-link:tapo-d235",
+    "electronics:webcam:asus:webcam-c3",
+    "electronics:webcam:logitech:960-001422",
+    "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+    "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack"
+  ],
+  "newAdmissions": [
+    {
+      "categoryId": "COMPUTER_AUDIO",
+      "exactProductId": "electronics:computer-audio:logitech:980-001348",
+      "manufacturer": "Logitech",
+      "modelCode": "980-001348",
+      "configurationIdentity": "Z407|2.1|Bluetooth/USB/3.5mm|Graphite|TR",
+      "sourceUrl": "https://www.logitech.com/tr-tr/products/speakers/z407-bluetooth-computer-speakers.980-001348.html",
+      "supportUrl": "https://support.logi.com/hc/tr/articles/360053242214-Z407-Bluetooth-Computer-Speakers-with-Subwoofer-and-Wireless-control",
+      "facts": [
+        {
+          "factId": "exp02:electronics:computer-audio:logitech:980-001348:channel_configuration:1",
+          "key": "channel_configuration",
+          "value": "2.1",
+          "sourceId": "electronics:computer-audio:logitech:980-001348:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:computer-audio:logitech:980-001348:power_rms_w:2",
+          "key": "power_rms_w",
+          "value": 40,
+          "sourceId": "electronics:computer-audio:logitech:980-001348:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:computer-audio:logitech:980-001348:connectivity:3",
+          "key": "connectivity",
+          "value": "Bluetooth 5.0/USB/3.5mm",
+          "sourceId": "electronics:computer-audio:logitech:980-001348:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:computer-audio:logitech:980-001348:subwoofer_included:4",
+          "key": "subwoofer_included",
+          "value": true,
+          "sourceId": "electronics:computer-audio:logitech:980-001348:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:computer-audio:logitech:980-001348:wireless_control_dial:5",
+          "key": "wireless_control_dial",
+          "value": true,
+          "sourceId": "electronics:computer-audio:logitech:980-001348:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "ROOM_SPECIFIC_ACOUSTIC_RESULT_UNKNOWN",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "capabilities": [
+        "channel_configuration",
+        "power_rms_w",
+        "connectivity",
+        "subwoofer_included",
+        "wireless_control_dial"
+      ],
+      "limitations": [
+        "ROOM_SPECIFIC_ACOUSTIC_RESULT_UNKNOWN",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:computer-audio:logitech:980-001348:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:computer-audio:logitech:980-001348:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "channel_configuration",
+          "value": "2.1",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "power_rms_w",
+          "value": 40,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "connectivity",
+          "value": "Bluetooth 5.0/USB/3.5mm",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "subwoofer_included",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "channel_configuration",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "power_rms_w",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "connectivity",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "subwoofer_included",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "DIGITAL_CAMERA",
+      "exactProductId": "electronics:digital-camera:canon:6536c013",
+      "manufacturer": "Canon",
+      "modelCode": "6536C013",
+      "configurationIdentity": "EOS R5 Mark II|Body|RF mount|Black|TR",
+      "sourceUrl": "https://www.canon.com.tr/cameras/eos-r5-mark-ii/",
+      "supportUrl": "https://www.canon.com.tr/support/consumer/products/cameras/eos-r/eos-r5-mark-ii.html",
+      "facts": [
+        {
+          "factId": "exp02:electronics:digital-camera:canon:6536c013:sensor:1",
+          "key": "sensor",
+          "value": "Full-frame stacked CMOS",
+          "sourceId": "electronics:digital-camera:canon:6536c013:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:digital-camera:canon:6536c013:megapixels:2",
+          "key": "megapixels",
+          "value": 45,
+          "sourceId": "electronics:digital-camera:canon:6536c013:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:digital-camera:canon:6536c013:mount:3",
+          "key": "mount",
+          "value": "Canon RF",
+          "sourceId": "electronics:digital-camera:canon:6536c013:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:digital-camera:canon:6536c013:body_or_kit:4",
+          "key": "body_or_kit",
+          "value": "Body",
+          "sourceId": "electronics:digital-camera:canon:6536c013:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:digital-camera:canon:6536c013:video:5",
+          "key": "video",
+          "value": "8K 60p RAW",
+          "sourceId": "electronics:digital-camera:canon:6536c013:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:digital-camera:canon:6536c013:stabilization:6",
+          "key": "stabilization",
+          "value": "in-body",
+          "sourceId": "electronics:digital-camera:canon:6536c013:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "LENS_NOT_INCLUDED",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "capabilities": [
+        "sensor",
+        "megapixels",
+        "mount",
+        "body_or_kit",
+        "video",
+        "stabilization"
+      ],
+      "limitations": [
+        "LENS_NOT_INCLUDED",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:digital-camera:canon:6536c013:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:digital-camera:canon:6536c013:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "sensor",
+          "value": "Full-frame stacked CMOS",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "megapixels",
+          "value": 45,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "mount",
+          "value": "Canon RF",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "body_or_kit",
+          "value": "Body",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "sensor",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "megapixels",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "mount",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "body_or_kit",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "E_READER",
+      "exactProductId": "electronics:e-reader:kobo:n365",
+      "manufacturer": "Rakuten Kobo",
+      "modelCode": "N365",
+      "configurationIdentity": "Kobo Clara BW|16GB|Black|6in monochrome|TR retail channel",
+      "sourceUrl": "https://gl.kobobooks.com/products/kobo-clara-bw",
+      "supportUrl": "https://help.kobo.com/hc/en-us/articles/1500008911921-Kobo-eReader-model-numbers",
+      "facts": [
+        {
+          "factId": "exp02:electronics:e-reader:kobo:n365:display_inches:1",
+          "key": "display_inches",
+          "value": 6,
+          "sourceId": "electronics:e-reader:kobo:n365:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:e-reader:kobo:n365:resolution:2",
+          "key": "resolution",
+          "value": "1448x1072",
+          "sourceId": "electronics:e-reader:kobo:n365:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:e-reader:kobo:n365:storage_gb:3",
+          "key": "storage_gb",
+          "value": 16,
+          "sourceId": "electronics:e-reader:kobo:n365:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:e-reader:kobo:n365:water_resistance:4",
+          "key": "water_resistance",
+          "value": "IPX8",
+          "sourceId": "electronics:e-reader:kobo:n365:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:e-reader:kobo:n365:battery_mah:5",
+          "key": "battery_mah",
+          "value": 1500,
+          "sourceId": "electronics:e-reader:kobo:n365:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:e-reader:kobo:n365:weight_g:6",
+          "key": "weight_g",
+          "value": 174,
+          "sourceId": "electronics:e-reader:kobo:n365:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "TURKIYE_RETAILER_STOCK_NOT_BOUND",
+        "AUDIOBOOK_AVAILABILITY_COUNTRY_DEPENDENT"
+      ],
+      "capabilities": [
+        "display_inches",
+        "resolution",
+        "storage_gb",
+        "water_resistance",
+        "battery_mah",
+        "weight_g"
+      ],
+      "limitations": [
+        "TURKIYE_RETAILER_STOCK_NOT_BOUND",
+        "AUDIOBOOK_AVAILABILITY_COUNTRY_DEPENDENT"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:e-reader:kobo:n365:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:e-reader:kobo:n365:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "display_inches",
+          "value": 6,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "resolution",
+          "value": "1448x1072",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "storage_gb",
+          "value": 16,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "water_resistance",
+          "value": "IPX8",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "display_inches",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "resolution",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "storage_gb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "water_resistance",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "EXTERNAL_STORAGE",
+      "exactProductId": "electronics:external-storage:samsung:mu-pe2t0s-ww",
+      "manufacturer": "Samsung",
+      "modelCode": "MU-PE2T0S/WW",
+      "configurationIdentity": "T7 Shield|2TB|Blue|USB 3.2 Gen2|TR",
+      "sourceUrl": "https://semiconductor.samsung.com/consumer-storage/portable-ssd/t7-shield/",
+      "supportUrl": "https://semiconductor.samsung.com/consumer-storage/support/tools/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:external-storage:samsung:mu-pe2t0s-ww:capacity_tb:1",
+          "key": "capacity_tb",
+          "value": 2,
+          "sourceId": "electronics:external-storage:samsung:mu-pe2t0s-ww:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:external-storage:samsung:mu-pe2t0s-ww:interface:2",
+          "key": "interface",
+          "value": "USB 3.2 Gen 2",
+          "sourceId": "electronics:external-storage:samsung:mu-pe2t0s-ww:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:external-storage:samsung:mu-pe2t0s-ww:read_mbps:3",
+          "key": "read_mbps",
+          "value": 1050,
+          "sourceId": "electronics:external-storage:samsung:mu-pe2t0s-ww:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:external-storage:samsung:mu-pe2t0s-ww:write_mbps:4",
+          "key": "write_mbps",
+          "value": 1000,
+          "sourceId": "electronics:external-storage:samsung:mu-pe2t0s-ww:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:external-storage:samsung:mu-pe2t0s-ww:ip_rating:5",
+          "key": "ip_rating",
+          "value": "IP65",
+          "sourceId": "electronics:external-storage:samsung:mu-pe2t0s-ww:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "HOST_SUSTAINED_SPEED_UNKNOWN",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "capabilities": [
+        "capacity_tb",
+        "interface",
+        "read_mbps",
+        "write_mbps",
+        "ip_rating"
+      ],
+      "limitations": [
+        "HOST_SUSTAINED_SPEED_UNKNOWN",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:external-storage:samsung:mu-pe2t0s-ww:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:external-storage:samsung:mu-pe2t0s-ww:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "capacity_tb",
+          "value": 2,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "interface",
+          "value": "USB 3.2 Gen 2",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "read_mbps",
+          "value": 1050,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "write_mbps",
+          "value": 1000,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "capacity_tb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "interface",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "read_mbps",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "write_mbps",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "FITNESS_TRACKER",
+      "exactProductId": "electronics:fitness-tracker:xiaomi:smart-band-10-black",
+      "manufacturer": "Xiaomi",
+      "modelCode": "Xiaomi Smart Band 10",
+      "configurationIdentity": "Black|Standard edition|TR",
+      "sourceUrl": "https://www.mi.com/tr/product/xiaomi-smart-band-10/specs/",
+      "supportUrl": "https://www.mi.com/tr/support/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:fitness-tracker:xiaomi:smart-band-10-black:display_inches:1",
+          "key": "display_inches",
+          "value": 1.72,
+          "sourceId": "electronics:fitness-tracker:xiaomi:smart-band-10-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:fitness-tracker:xiaomi:smart-band-10-black:panel:2",
+          "key": "panel",
+          "value": "AMOLED",
+          "sourceId": "electronics:fitness-tracker:xiaomi:smart-band-10-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:fitness-tracker:xiaomi:smart-band-10-black:refresh_hz:3",
+          "key": "refresh_hz",
+          "value": 60,
+          "sourceId": "electronics:fitness-tracker:xiaomi:smart-band-10-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:fitness-tracker:xiaomi:smart-band-10-black:water_resistance:4",
+          "key": "water_resistance",
+          "value": "5ATM",
+          "sourceId": "electronics:fitness-tracker:xiaomi:smart-band-10-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:fitness-tracker:xiaomi:smart-band-10-black:battery_mah:5",
+          "key": "battery_mah",
+          "value": 233,
+          "sourceId": "electronics:fitness-tracker:xiaomi:smart-band-10-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "BATTERY_RESULT_USAGE_DEPENDENT",
+        "HEALTH_MEASUREMENTS_NOT_MEDICAL"
+      ],
+      "capabilities": [
+        "display_inches",
+        "panel",
+        "refresh_hz",
+        "water_resistance",
+        "battery_mah"
+      ],
+      "limitations": [
+        "BATTERY_RESULT_USAGE_DEPENDENT",
+        "HEALTH_MEASUREMENTS_NOT_MEDICAL"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:fitness-tracker:xiaomi:smart-band-10-black:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:fitness-tracker:xiaomi:smart-band-10-black:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "display_inches",
+          "value": 1.72,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "panel",
+          "value": "AMOLED",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "refresh_hz",
+          "value": 60,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "water_resistance",
+          "value": "5ATM",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "display_inches",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "panel",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "refresh_hz",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "water_resistance",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "GAME_CONSOLE",
+      "exactProductId": "electronics:game-console:sony:cfi-2016a01",
+      "manufacturer": "Sony Interactive Entertainment",
+      "modelCode": "CFI-2016A01",
+      "configurationIdentity": "PlayStation 5 slim|Disc drive included|1TB|White|TR",
+      "sourceUrl": "https://www.playstation.com/tr-tr/ps5/",
+      "supportUrl": "https://www.playstation.com/tr-tr/support/hardware/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:game-console:sony:cfi-2016a01:storage_gb:1",
+          "key": "storage_gb",
+          "value": 1000,
+          "sourceId": "electronics:game-console:sony:cfi-2016a01:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:game-console:sony:cfi-2016a01:disc_drive:2",
+          "key": "disc_drive",
+          "value": true,
+          "sourceId": "electronics:game-console:sony:cfi-2016a01:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:game-console:sony:cfi-2016a01:resolution_output:3",
+          "key": "resolution_output",
+          "value": "up to 4K",
+          "sourceId": "electronics:game-console:sony:cfi-2016a01:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:game-console:sony:cfi-2016a01:ray_tracing:4",
+          "key": "ray_tracing",
+          "value": true,
+          "sourceId": "electronics:game-console:sony:cfi-2016a01:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:game-console:sony:cfi-2016a01:haptic_controller_included:5",
+          "key": "haptic_controller_included",
+          "value": true,
+          "sourceId": "electronics:game-console:sony:cfi-2016a01:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "CHASSIS_REVISION_AFTER_CFI_2016_UNKNOWN",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "capabilities": [
+        "storage_gb",
+        "disc_drive",
+        "resolution_output",
+        "ray_tracing",
+        "haptic_controller_included"
+      ],
+      "limitations": [
+        "CHASSIS_REVISION_AFTER_CFI_2016_UNKNOWN",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:game-console:sony:cfi-2016a01:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:game-console:sony:cfi-2016a01:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "storage_gb",
+          "value": 1000,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "disc_drive",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "resolution_output",
+          "value": "up to 4K",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "ray_tracing",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "storage_gb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "disc_drive",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "resolution_output",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "ray_tracing",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "exactProductId": "electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2",
+      "manufacturer": "TP-Link",
+      "modelCode": "Tapo C520WS(EU) V2",
+      "configurationIdentity": "Outdoor pan/tilt|2K QHD|EU V2|TR",
+      "sourceUrl": "https://www.tp-link.com/tr/home-networking/cloud-camera/tapo-c520ws/",
+      "supportUrl": "https://www.tp-link.com/tr/support/download/tapo-c520ws/v2/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:resolution:1",
+          "key": "resolution",
+          "value": "2K QHD",
+          "sourceId": "electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:pan_tilt:2",
+          "key": "pan_tilt",
+          "value": true,
+          "sourceId": "electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:weather_resistance:3",
+          "key": "weather_resistance",
+          "value": "IP66",
+          "sourceId": "electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:local_storage:4",
+          "key": "local_storage",
+          "value": "microSD up to 512GB",
+          "sourceId": "electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:connectivity:5",
+          "key": "connectivity",
+          "value": "Wi-Fi/Ethernet",
+          "sourceId": "electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "SUBSCRIPTION_FEATURES_MAY_CHANGE",
+        "INSTALLATION_VIEW_DEPENDENT"
+      ],
+      "capabilities": [
+        "resolution",
+        "pan_tilt",
+        "weather_resistance",
+        "local_storage",
+        "connectivity"
+      ],
+      "limitations": [
+        "SUBSCRIPTION_FEATURES_MAY_CHANGE",
+        "INSTALLATION_VIEW_DEPENDENT"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "resolution",
+          "value": "2K QHD",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "pan_tilt",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "weather_resistance",
+          "value": "IP66",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "local_storage",
+          "value": "microSD up to 512GB",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "resolution",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "pan_tilt",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "weather_resistance",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "local_storage",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "LAPTOP",
+      "exactProductId": "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue",
+      "manufacturer": "Apple",
+      "modelCode": "MacBook Air 13-inch M4 (2025)",
+      "configurationIdentity": "13.6in|M4 10CPU/8GPU|16GB|256GB|Sky Blue|TR",
+      "sourceUrl": "https://support.apple.com/tr-tr/122209",
+      "supportUrl": "https://support.apple.com/tr-tr/guide/macbook-air/welcome/mac",
+      "facts": [
+        {
+          "factId": "exp02:electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:display_inches:1",
+          "key": "display_inches",
+          "value": 13.6,
+          "sourceId": "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:resolution:2",
+          "key": "resolution",
+          "value": "2560x1664",
+          "sourceId": "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:memory_gb:3",
+          "key": "memory_gb",
+          "value": 16,
+          "sourceId": "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:storage_gb:4",
+          "key": "storage_gb",
+          "value": 256,
+          "sourceId": "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:battery_video_hours:5",
+          "key": "battery_video_hours",
+          "value": 18,
+          "sourceId": "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:weight_kg:6",
+          "key": "weight_kg",
+          "value": 1.24,
+          "sourceId": "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "ORDERABLE_PART_NUMBER_NOT_BOUND",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "capabilities": [
+        "display_inches",
+        "resolution",
+        "memory_gb",
+        "storage_gb",
+        "battery_video_hours",
+        "weight_kg"
+      ],
+      "limitations": [
+        "ORDERABLE_PART_NUMBER_NOT_BOUND",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "display_inches",
+          "value": 13.6,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "resolution",
+          "value": "2560x1664",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "memory_gb",
+          "value": 16,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "storage_gb",
+          "value": 256,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "display_inches",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "resolution",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "memory_gb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "storage_gb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "MONITOR",
+      "exactProductId": "electronics:monitor:samsung:ls27cg552euxuf",
+      "manufacturer": "Samsung",
+      "modelCode": "LS27CG552EUXUF",
+      "configurationIdentity": "Odyssey G5 G55C|27in|QHD|165Hz|Black|TR",
+      "sourceUrl": "https://www.samsung.com/tr/monitors/gaming/odyssey-g5-g55c-27-inch-165hz-curved-qhd-ls27cg552euxuf/",
+      "supportUrl": "https://www.samsung.com/tr/support/model/LS27CG552EUXUF/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:monitor:samsung:ls27cg552euxuf:display_inches:1",
+          "key": "display_inches",
+          "value": 27,
+          "sourceId": "electronics:monitor:samsung:ls27cg552euxuf:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:monitor:samsung:ls27cg552euxuf:resolution:2",
+          "key": "resolution",
+          "value": "2560x1440",
+          "sourceId": "electronics:monitor:samsung:ls27cg552euxuf:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:monitor:samsung:ls27cg552euxuf:refresh_hz:3",
+          "key": "refresh_hz",
+          "value": 165,
+          "sourceId": "electronics:monitor:samsung:ls27cg552euxuf:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:monitor:samsung:ls27cg552euxuf:curvature:4",
+          "key": "curvature",
+          "value": "1000R",
+          "sourceId": "electronics:monitor:samsung:ls27cg552euxuf:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:monitor:samsung:ls27cg552euxuf:adaptive_sync:5",
+          "key": "adaptive_sync",
+          "value": "AMD FreeSync",
+          "sourceId": "electronics:monitor:samsung:ls27cg552euxuf:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "PANEL_REVISION_UNKNOWN",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "capabilities": [
+        "display_inches",
+        "resolution",
+        "refresh_hz",
+        "curvature",
+        "adaptive_sync"
+      ],
+      "limitations": [
+        "PANEL_REVISION_UNKNOWN",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:monitor:samsung:ls27cg552euxuf:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:monitor:samsung:ls27cg552euxuf:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "display_inches",
+          "value": 27,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "resolution",
+          "value": "2560x1440",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "refresh_hz",
+          "value": 165,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "curvature",
+          "value": "1000R",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "display_inches",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "resolution",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "refresh_hz",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "curvature",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "exactProductId": "electronics:nas:synology:ds925plus-diskless-4gb",
+      "manufacturer": "Synology",
+      "modelCode": "DS925+",
+      "configurationIdentity": "4-bay|Diskless|4GB ECC|TR",
+      "sourceUrl": "https://www.synology.com/tr-tr/products/DS925+",
+      "supportUrl": "https://www.synology.com/tr-tr/support/download/DS925+",
+      "facts": [
+        {
+          "factId": "exp02:electronics:nas:synology:ds925plus-diskless-4gb:drive_bays:1",
+          "key": "drive_bays",
+          "value": 4,
+          "sourceId": "electronics:nas:synology:ds925plus-diskless-4gb:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:nas:synology:ds925plus-diskless-4gb:memory_gb:2",
+          "key": "memory_gb",
+          "value": 4,
+          "sourceId": "electronics:nas:synology:ds925plus-diskless-4gb:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:nas:synology:ds925plus-diskless-4gb:ethernet:3",
+          "key": "ethernet",
+          "value": "2 x 2.5GbE",
+          "sourceId": "electronics:nas:synology:ds925plus-diskless-4gb:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:nas:synology:ds925plus-diskless-4gb:m2_slots:4",
+          "key": "m2_slots",
+          "value": 2,
+          "sourceId": "electronics:nas:synology:ds925plus-diskless-4gb:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:nas:synology:ds925plus-diskless-4gb:drives_included:5",
+          "key": "drives_included",
+          "value": false,
+          "sourceId": "electronics:nas:synology:ds925plus-diskless-4gb:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "DRIVE_COMPATIBILITY_SELECTION_REQUIRED",
+        "WORKLOAD_SPECIFIC_PERFORMANCE_UNKNOWN"
+      ],
+      "capabilities": [
+        "drive_bays",
+        "memory_gb",
+        "ethernet",
+        "m2_slots",
+        "drives_included"
+      ],
+      "limitations": [
+        "DRIVE_COMPATIBILITY_SELECTION_REQUIRED",
+        "WORKLOAD_SPECIFIC_PERFORMANCE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:nas:synology:ds925plus-diskless-4gb:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:nas:synology:ds925plus-diskless-4gb:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "drive_bays",
+          "value": 4,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "memory_gb",
+          "value": 4,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "ethernet",
+          "value": "2 x 2.5GbE",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "m2_slots",
+          "value": 2,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "drive_bays",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "memory_gb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "ethernet",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "m2_slots",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "PORTABLE_SPEAKER",
+      "exactProductId": "electronics:portable-speaker:jbl:jblcharge6blk",
+      "manufacturer": "JBL",
+      "modelCode": "JBLCHARGE6BLK",
+      "configurationIdentity": "Charge 6|Black|Bluetooth portable speaker|TR",
+      "sourceUrl": "https://www.jbl.com.tr/CHARGE-6.html",
+      "supportUrl": "https://support.jbl.com/tr/tr/speakers/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:portable-speaker:jbl:jblcharge6blk:battery_hours:1",
+          "key": "battery_hours",
+          "value": 24,
+          "sourceId": "electronics:portable-speaker:jbl:jblcharge6blk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:portable-speaker:jbl:jblcharge6blk:playtime_boost_hours:2",
+          "key": "playtime_boost_hours",
+          "value": 4,
+          "sourceId": "electronics:portable-speaker:jbl:jblcharge6blk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:portable-speaker:jbl:jblcharge6blk:ip_rating:3",
+          "key": "ip_rating",
+          "value": "IP68",
+          "sourceId": "electronics:portable-speaker:jbl:jblcharge6blk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:portable-speaker:jbl:jblcharge6blk:bluetooth:4",
+          "key": "bluetooth",
+          "value": "5.4",
+          "sourceId": "electronics:portable-speaker:jbl:jblcharge6blk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:portable-speaker:jbl:jblcharge6blk:powerbank:5",
+          "key": "powerbank",
+          "value": true,
+          "sourceId": "electronics:portable-speaker:jbl:jblcharge6blk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:portable-speaker:jbl:jblcharge6blk:weight_kg:6",
+          "key": "weight_kg",
+          "value": 0.96,
+          "sourceId": "electronics:portable-speaker:jbl:jblcharge6blk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "EXACT_WARRANTY_START_DATE_UNKNOWN",
+        "BATTERY_LONGEVITY_UNKNOWN"
+      ],
+      "capabilities": [
+        "battery_hours",
+        "playtime_boost_hours",
+        "ip_rating",
+        "bluetooth",
+        "powerbank",
+        "weight_kg"
+      ],
+      "limitations": [
+        "EXACT_WARRANTY_START_DATE_UNKNOWN",
+        "BATTERY_LONGEVITY_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:portable-speaker:jbl:jblcharge6blk:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:portable-speaker:jbl:jblcharge6blk:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "battery_hours",
+          "value": 24,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "playtime_boost_hours",
+          "value": 4,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "ip_rating",
+          "value": "IP68",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "bluetooth",
+          "value": "5.4",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "battery_hours",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "playtime_boost_hours",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "ip_rating",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "bluetooth",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "PRINTER",
+      "exactProductId": "electronics:printer:epson:c11cj88403",
+      "manufacturer": "Epson",
+      "modelCode": "C11CJ88403",
+      "configurationIdentity": "EcoTank Business+ L6490|A4 colour MFP|ADF|Ethernet/Wi-Fi|TR",
+      "sourceUrl": "https://www.epson.com.tr/printers/ecotank/business-plus/ecotank-business-l6490-c11cj88403",
+      "supportUrl": "https://www.epson.com.tr/printers/ecotank/business-plus/ecotank-business-l6490-c11cj88403",
+      "facts": [
+        {
+          "factId": "exp02:electronics:printer:epson:c11cj88403:print_color:1",
+          "key": "print_color",
+          "value": true,
+          "sourceId": "electronics:printer:epson:c11cj88403:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:printer:epson:c11cj88403:print_duplex:2",
+          "key": "print_duplex",
+          "value": true,
+          "sourceId": "electronics:printer:epson:c11cj88403:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:printer:epson:c11cj88403:adf:3",
+          "key": "adf",
+          "value": true,
+          "sourceId": "electronics:printer:epson:c11cj88403:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:printer:epson:c11cj88403:ethernet:4",
+          "key": "ethernet",
+          "value": true,
+          "sourceId": "electronics:printer:epson:c11cj88403:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:printer:epson:c11cj88403:ink_system:5",
+          "key": "ink_system",
+          "value": "refillable tank",
+          "sourceId": "electronics:printer:epson:c11cj88403:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "PAGE_YIELD_DEPENDS_ON_USAGE",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "capabilities": [
+        "print_color",
+        "print_duplex",
+        "adf",
+        "ethernet",
+        "ink_system"
+      ],
+      "limitations": [
+        "PAGE_YIELD_DEPENDS_ON_USAGE",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:printer:epson:c11cj88403:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:printer:epson:c11cj88403:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "print_color",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "print_duplex",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "adf",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "ethernet",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "print_color",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "print_duplex",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "adf",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "ethernet",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "PROJECTOR",
+      "exactProductId": "electronics:projector:epson:v11hb72242",
+      "manufacturer": "Epson",
+      "modelCode": "V11HB72242",
+      "configurationIdentity": "Lifestudio Pop EF-61|Full HD|Google TV|Red|TR",
+      "sourceUrl": "https://www.epson.com.tr/projectors/home/entertainment/ef-61r-v11hb72242",
+      "supportUrl": "https://www.epson.com.tr/projectors/home/entertainment/ef-61r-v11hb72242",
+      "facts": [
+        {
+          "factId": "exp02:electronics:projector:epson:v11hb72242:resolution:1",
+          "key": "resolution",
+          "value": "1920x1080",
+          "sourceId": "electronics:projector:epson:v11hb72242:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:projector:epson:v11hb72242:brightness_lumens:2",
+          "key": "brightness_lumens",
+          "value": 700,
+          "sourceId": "electronics:projector:epson:v11hb72242:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:projector:epson:v11hb72242:technology:3",
+          "key": "technology",
+          "value": "3LCD laser",
+          "sourceId": "electronics:projector:epson:v11hb72242:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:projector:epson:v11hb72242:google_tv:4",
+          "key": "google_tv",
+          "value": true,
+          "sourceId": "electronics:projector:epson:v11hb72242:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:projector:epson:v11hb72242:speakers:5",
+          "key": "speakers",
+          "value": "2 x 5W Sound by Bose",
+          "sourceId": "electronics:projector:epson:v11hb72242:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "STREAMING_APP_AVAILABILITY_VARIABLE",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "capabilities": [
+        "resolution",
+        "brightness_lumens",
+        "technology",
+        "google_tv",
+        "speakers"
+      ],
+      "limitations": [
+        "STREAMING_APP_AVAILABILITY_VARIABLE",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:projector:epson:v11hb72242:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:projector:epson:v11hb72242:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "resolution",
+          "value": "1920x1080",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "brightness_lumens",
+          "value": 700,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "technology",
+          "value": "3LCD laser",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "google_tv",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "resolution",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "brightness_lumens",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "technology",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "google_tv",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "SMART_HOME_HUB",
+      "exactProductId": "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1",
+      "manufacturer": "TP-Link",
+      "modelCode": "Tapo H100(EU) V1",
+      "configurationIdentity": "Smart IoT Hub with chime|EU V1|TR",
+      "sourceUrl": "https://www.tp-link.com/tr/home-networking/smart-hub/tapo-h100/",
+      "supportUrl": "https://www.tp-link.com/tr/support/download/tapo-h100/v1/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:protocol:1",
+          "key": "protocol",
+          "value": "Tapo Sub-G 868MHz",
+          "sourceId": "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:device_capacity:2",
+          "key": "device_capacity",
+          "value": 64,
+          "sourceId": "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:chime:3",
+          "key": "chime",
+          "value": true,
+          "sourceId": "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:alarm:4",
+          "key": "alarm",
+          "value": true,
+          "sourceId": "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:power:5",
+          "key": "power",
+          "value": "AC plug",
+          "sourceId": "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "MATTER_CONTROLLER_NOT_CLAIMED",
+        "THIRD_PARTY_DEVICE_COMPATIBILITY_UNKNOWN"
+      ],
+      "capabilities": [
+        "protocol",
+        "device_capacity",
+        "chime",
+        "alarm",
+        "power"
+      ],
+      "limitations": [
+        "MATTER_CONTROLLER_NOT_CLAIMED",
+        "THIRD_PARTY_DEVICE_COMPATIBILITY_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "protocol",
+          "value": "Tapo Sub-G 868MHz",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "device_capacity",
+          "value": 64,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "chime",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "alarm",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "protocol",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "device_capacity",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "chime",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "alarm",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "SMARTPHONE",
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "manufacturer": "Apple",
+      "modelCode": "iPhone 16e",
+      "configurationIdentity": "storage_gb=128|chipset=A18|display_inches=6.1|display_panel=OLED|wireless_charging=true|camera_configuration=48MP Fusion + 12MP front|ip_rating=IP68|cellular_generation=5G|esim=true",
+      "sourceUrl": "https://support.apple.com/tr-tr/122208",
+      "supportUrl": "https://support.apple.com/tr-tr/iphone",
+      "facts": [
+        {
+          "factId": "exp02:electronics:smartphone:apple:iphone-16e-128-white:storage_gb:1",
+          "key": "storage_gb",
+          "value": 128,
+          "sourceId": "electronics:smartphone:apple:iphone-16e-128-white:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:apple:iphone-16e-128-white:chipset:2",
+          "key": "chipset",
+          "value": "A18",
+          "sourceId": "electronics:smartphone:apple:iphone-16e-128-white:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:apple:iphone-16e-128-white:display_inches:3",
+          "key": "display_inches",
+          "value": 6.1,
+          "sourceId": "electronics:smartphone:apple:iphone-16e-128-white:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:apple:iphone-16e-128-white:display_panel:4",
+          "key": "display_panel",
+          "value": "OLED",
+          "sourceId": "electronics:smartphone:apple:iphone-16e-128-white:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:apple:iphone-16e-128-white:wireless_charging:5",
+          "key": "wireless_charging",
+          "value": true,
+          "sourceId": "electronics:smartphone:apple:iphone-16e-128-white:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:apple:iphone-16e-128-white:camera_configuration:6",
+          "key": "camera_configuration",
+          "value": "48MP Fusion + 12MP front",
+          "sourceId": "electronics:smartphone:apple:iphone-16e-128-white:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:apple:iphone-16e-128-white:ip_rating:7",
+          "key": "ip_rating",
+          "value": "IP68",
+          "sourceId": "electronics:smartphone:apple:iphone-16e-128-white:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:apple:iphone-16e-128-white:cellular_generation:8",
+          "key": "cellular_generation",
+          "value": "5G",
+          "sourceId": "electronics:smartphone:apple:iphone-16e-128-white:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:apple:iphone-16e-128-white:esim:9",
+          "key": "esim",
+          "value": true,
+          "sourceId": "electronics:smartphone:apple:iphone-16e-128-white:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "EXACT_WARRANTY_START_DATE_UNKNOWN",
+        "SOFTWARE_SUPPORT_END_DATE_NOT_BOUND"
+      ],
+      "capabilities": [
+        "storage_gb",
+        "chipset",
+        "display_inches",
+        "display_panel",
+        "wireless_charging",
+        "camera_configuration",
+        "ip_rating",
+        "cellular_generation",
+        "esim"
+      ],
+      "limitations": [
+        "EXACT_WARRANTY_START_DATE_UNKNOWN",
+        "SOFTWARE_SUPPORT_END_DATE_NOT_BOUND"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:smartphone:apple:iphone-16e-128-white:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:smartphone:apple:iphone-16e-128-white:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "storage_gb",
+          "value": 128,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "chipset",
+          "value": "A18",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "display_inches",
+          "value": 6.1,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "display_panel",
+          "value": "OLED",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "storage_gb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "chipset",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "display_inches",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "display_panel",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "SMARTPHONE",
+      "exactProductId": "electronics:smartphone:xiaomi:14t-12-256-black",
+      "manufacturer": "Xiaomi",
+      "modelCode": "14T",
+      "configurationIdentity": "storage_gb=256|memory_gb=12|chipset=Dimensity 8300-Ultra|display_inches=6.67|display_panel=AMOLED|refresh_hz=144|battery_mah=5000|charging_watts=67|wireless_charging=false|camera_configuration=50MP main OIS + 50MP telephoto + 12MP ultrawide; 32MP front|optical_image_stabilization=true|ip_rating=IP68|cellular_generation=5G|esim=true|os_version=Xiaomi HyperOS",
+      "sourceUrl": "https://www.mi.com/tr/product/xiaomi-14t/specs/",
+      "supportUrl": "https://www.mi.com/tr/support/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:storage_gb:1",
+          "key": "storage_gb",
+          "value": 256,
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:memory_gb:2",
+          "key": "memory_gb",
+          "value": 12,
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:chipset:3",
+          "key": "chipset",
+          "value": "Dimensity 8300-Ultra",
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:display_inches:4",
+          "key": "display_inches",
+          "value": 6.67,
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:display_panel:5",
+          "key": "display_panel",
+          "value": "AMOLED",
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:refresh_hz:6",
+          "key": "refresh_hz",
+          "value": 144,
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:battery_mah:7",
+          "key": "battery_mah",
+          "value": 5000,
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:charging_watts:8",
+          "key": "charging_watts",
+          "value": 67,
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:wireless_charging:9",
+          "key": "wireless_charging",
+          "value": false,
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:camera_configuration:10",
+          "key": "camera_configuration",
+          "value": "50MP main OIS + 50MP telephoto + 12MP ultrawide; 32MP front",
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:optical_image_stabilization:11",
+          "key": "optical_image_stabilization",
+          "value": true,
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:ip_rating:12",
+          "key": "ip_rating",
+          "value": "IP68",
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:cellular_generation:13",
+          "key": "cellular_generation",
+          "value": "5G",
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:esim:14",
+          "key": "esim",
+          "value": true,
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:14t-12-256-black:os_version:15",
+          "key": "os_version",
+          "value": "Xiaomi HyperOS",
+          "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "EXACT_WARRANTY_START_DATE_UNKNOWN",
+        "SOFTWARE_SUPPORT_END_DATE_NOT_BOUND"
+      ],
+      "capabilities": [
+        "storage_gb",
+        "memory_gb",
+        "chipset",
+        "display_inches",
+        "display_panel",
+        "refresh_hz",
+        "battery_mah",
+        "charging_watts",
+        "wireless_charging",
+        "camera_configuration",
+        "optical_image_stabilization",
+        "ip_rating",
+        "cellular_generation",
+        "esim",
+        "os_version"
+      ],
+      "limitations": [
+        "EXACT_WARRANTY_START_DATE_UNKNOWN",
+        "SOFTWARE_SUPPORT_END_DATE_NOT_BOUND"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:smartphone:xiaomi:14t-12-256-black:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "storage_gb",
+          "value": 256,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "memory_gb",
+          "value": 12,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "chipset",
+          "value": "Dimensity 8300-Ultra",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "display_inches",
+          "value": 6.67,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "storage_gb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "memory_gb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "chipset",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "display_inches",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "SMARTPHONE",
+      "exactProductId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black",
+      "manufacturer": "Xiaomi",
+      "modelCode": "Redmi Note 14 Pro",
+      "configurationIdentity": "storage_gb=256|memory_gb=8|chipset=Helio G100-Ultra|display_inches=6.67|display_panel=AMOLED|refresh_hz=120|battery_mah=5500|charging_watts=45|camera_configuration=200MP OIS + 8MP ultrawide + 2MP macro; 32MP front|optical_image_stabilization=true|ip_rating=IP64|cellular_generation=4G|esim=false|os_version=Xiaomi HyperOS",
+      "sourceUrl": "https://www.mi.com/tr/product/redmi-note-14-pro/specs/",
+      "supportUrl": "https://www.mi.com/tr/support/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:storage_gb:1",
+          "key": "storage_gb",
+          "value": 256,
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:memory_gb:2",
+          "key": "memory_gb",
+          "value": 8,
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:chipset:3",
+          "key": "chipset",
+          "value": "Helio G100-Ultra",
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:display_inches:4",
+          "key": "display_inches",
+          "value": 6.67,
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:display_panel:5",
+          "key": "display_panel",
+          "value": "AMOLED",
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:refresh_hz:6",
+          "key": "refresh_hz",
+          "value": 120,
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:battery_mah:7",
+          "key": "battery_mah",
+          "value": 5500,
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:charging_watts:8",
+          "key": "charging_watts",
+          "value": 45,
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:camera_configuration:9",
+          "key": "camera_configuration",
+          "value": "200MP OIS + 8MP ultrawide + 2MP macro; 32MP front",
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:optical_image_stabilization:10",
+          "key": "optical_image_stabilization",
+          "value": true,
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:ip_rating:11",
+          "key": "ip_rating",
+          "value": "IP64",
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:cellular_generation:12",
+          "key": "cellular_generation",
+          "value": "4G",
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:esim:13",
+          "key": "esim",
+          "value": false,
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:os_version:14",
+          "key": "os_version",
+          "value": "Xiaomi HyperOS",
+          "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "EXACT_WARRANTY_START_DATE_UNKNOWN",
+        "SOFTWARE_SUPPORT_END_DATE_NOT_BOUND"
+      ],
+      "capabilities": [
+        "storage_gb",
+        "memory_gb",
+        "chipset",
+        "display_inches",
+        "display_panel",
+        "refresh_hz",
+        "battery_mah",
+        "charging_watts",
+        "camera_configuration",
+        "optical_image_stabilization",
+        "ip_rating",
+        "cellular_generation",
+        "esim",
+        "os_version"
+      ],
+      "limitations": [
+        "EXACT_WARRANTY_START_DATE_UNKNOWN",
+        "SOFTWARE_SUPPORT_END_DATE_NOT_BOUND"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "storage_gb",
+          "value": 256,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "memory_gb",
+          "value": 8,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "chipset",
+          "value": "Helio G100-Ultra",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "display_inches",
+          "value": 6.67,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "storage_gb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "memory_gb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "chipset",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "display_inches",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "SMARTWATCH",
+      "exactProductId": "electronics:smartwatch:samsung:sm-l310nzgatur",
+      "manufacturer": "Samsung",
+      "modelCode": "SM-L310NZGATUR",
+      "configurationIdentity": "Galaxy Watch7|44mm|Bluetooth|Green|TR",
+      "sourceUrl": "https://www.samsung.com/tr/watches/galaxy-watch/galaxy-watch7-44mm-green-bluetooth-sm-l310nzgatur/",
+      "supportUrl": "https://www.samsung.com/tr/support/model/SM-L310NZGATUR/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:smartwatch:samsung:sm-l310nzgatur:case_mm:1",
+          "key": "case_mm",
+          "value": 44,
+          "sourceId": "electronics:smartwatch:samsung:sm-l310nzgatur:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartwatch:samsung:sm-l310nzgatur:connectivity:2",
+          "key": "connectivity",
+          "value": "Bluetooth/Wi-Fi/GPS",
+          "sourceId": "electronics:smartwatch:samsung:sm-l310nzgatur:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartwatch:samsung:sm-l310nzgatur:storage_gb:3",
+          "key": "storage_gb",
+          "value": 32,
+          "sourceId": "electronics:smartwatch:samsung:sm-l310nzgatur:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartwatch:samsung:sm-l310nzgatur:water_resistance:4",
+          "key": "water_resistance",
+          "value": "5ATM/IP68",
+          "sourceId": "electronics:smartwatch:samsung:sm-l310nzgatur:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:smartwatch:samsung:sm-l310nzgatur:operating_system:5",
+          "key": "operating_system",
+          "value": "Wear OS",
+          "sourceId": "electronics:smartwatch:samsung:sm-l310nzgatur:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "BATTERY_RESULT_USAGE_DEPENDENT",
+        "HEALTH_FEATURE_AVAILABILITY_REGION_DEPENDENT"
+      ],
+      "capabilities": [
+        "case_mm",
+        "connectivity",
+        "storage_gb",
+        "water_resistance",
+        "operating_system"
+      ],
+      "limitations": [
+        "BATTERY_RESULT_USAGE_DEPENDENT",
+        "HEALTH_FEATURE_AVAILABILITY_REGION_DEPENDENT"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:smartwatch:samsung:sm-l310nzgatur:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:smartwatch:samsung:sm-l310nzgatur:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "case_mm",
+          "value": 44,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "connectivity",
+          "value": "Bluetooth/Wi-Fi/GPS",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "storage_gb",
+          "value": 32,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "water_resistance",
+          "value": "5ATM/IP68",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "case_mm",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "connectivity",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "storage_gb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "water_resistance",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "SOUNDBAR",
+      "exactProductId": "electronics:soundbar:samsung:hw-q990f-tk",
+      "manufacturer": "Samsung",
+      "modelCode": "HW-Q990F/TK",
+      "configurationIdentity": "Q-Series 2025|11.1.4ch|Wireless subwoofer/rears included|TR",
+      "sourceUrl": "https://www.samsung.com/tr/audio-devices/soundbar/q990f-black-hw-q990f-tk/",
+      "supportUrl": "https://www.samsung.com/tr/support/model/HW-Q990F/TK/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:soundbar:samsung:hw-q990f-tk:channels:1",
+          "key": "channels",
+          "value": "11.1.4",
+          "sourceId": "electronics:soundbar:samsung:hw-q990f-tk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:soundbar:samsung:hw-q990f-tk:hdmi_earc:2",
+          "key": "hdmi_earc",
+          "value": true,
+          "sourceId": "electronics:soundbar:samsung:hw-q990f-tk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:soundbar:samsung:hw-q990f-tk:dolby_atmos:3",
+          "key": "dolby_atmos",
+          "value": true,
+          "sourceId": "electronics:soundbar:samsung:hw-q990f-tk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:soundbar:samsung:hw-q990f-tk:subwoofer_included:4",
+          "key": "subwoofer_included",
+          "value": true,
+          "sourceId": "electronics:soundbar:samsung:hw-q990f-tk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:soundbar:samsung:hw-q990f-tk:rear_speakers_included:5",
+          "key": "rear_speakers_included",
+          "value": true,
+          "sourceId": "electronics:soundbar:samsung:hw-q990f-tk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "ROOM_SPECIFIC_ACOUSTIC_RESULT_UNKNOWN",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "capabilities": [
+        "channels",
+        "hdmi_earc",
+        "dolby_atmos",
+        "subwoofer_included",
+        "rear_speakers_included"
+      ],
+      "limitations": [
+        "ROOM_SPECIFIC_ACOUSTIC_RESULT_UNKNOWN",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:soundbar:samsung:hw-q990f-tk:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:soundbar:samsung:hw-q990f-tk:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "channels",
+          "value": "11.1.4",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "hdmi_earc",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "dolby_atmos",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "subwoofer_included",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "channels",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "hdmi_earc",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "dolby_atmos",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "subwoofer_included",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "TABLET",
+      "exactProductId": "electronics:tablet:apple:ipad-a16-wifi-128-silver",
+      "manufacturer": "Apple",
+      "modelCode": "iPad (A16) A3354",
+      "configurationIdentity": "Wi-Fi|128GB|Silver|A3354|TR",
+      "sourceUrl": "https://support.apple.com/tr-tr/122240",
+      "supportUrl": "https://support.apple.com/tr-tr/guide/ipad/welcome/ipados",
+      "facts": [
+        {
+          "factId": "exp02:electronics:tablet:apple:ipad-a16-wifi-128-silver:display_inches:1",
+          "key": "display_inches",
+          "value": 10.86,
+          "sourceId": "electronics:tablet:apple:ipad-a16-wifi-128-silver:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:tablet:apple:ipad-a16-wifi-128-silver:resolution:2",
+          "key": "resolution",
+          "value": "2360x1640",
+          "sourceId": "electronics:tablet:apple:ipad-a16-wifi-128-silver:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:tablet:apple:ipad-a16-wifi-128-silver:storage_gb:3",
+          "key": "storage_gb",
+          "value": 128,
+          "sourceId": "electronics:tablet:apple:ipad-a16-wifi-128-silver:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:tablet:apple:ipad-a16-wifi-128-silver:wifi_standard:4",
+          "key": "wifi_standard",
+          "value": "Wi-Fi 6",
+          "sourceId": "electronics:tablet:apple:ipad-a16-wifi-128-silver:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:tablet:apple:ipad-a16-wifi-128-silver:weight_g:5",
+          "key": "weight_g",
+          "value": 477,
+          "sourceId": "electronics:tablet:apple:ipad-a16-wifi-128-silver:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:tablet:apple:ipad-a16-wifi-128-silver:battery_web_hours:6",
+          "key": "battery_web_hours",
+          "value": 10,
+          "sourceId": "electronics:tablet:apple:ipad-a16-wifi-128-silver:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "ORDERABLE_PART_NUMBER_NOT_BOUND",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "capabilities": [
+        "display_inches",
+        "resolution",
+        "storage_gb",
+        "wifi_standard",
+        "weight_g",
+        "battery_web_hours"
+      ],
+      "limitations": [
+        "ORDERABLE_PART_NUMBER_NOT_BOUND",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:tablet:apple:ipad-a16-wifi-128-silver:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:tablet:apple:ipad-a16-wifi-128-silver:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "display_inches",
+          "value": 10.86,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "resolution",
+          "value": "2360x1640",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "storage_gb",
+          "value": 128,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "wifi_standard",
+          "value": "Wi-Fi 6",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "display_inches",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "resolution",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "storage_gb",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "wifi_standard",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "TELEVISION",
+      "exactProductId": "electronics:television:samsung:qe75qn90fatxtk",
+      "manufacturer": "Samsung",
+      "modelCode": "QE75QN90FATXTK",
+      "configurationIdentity": "QN90F 2025|75in|4K Neo QLED Mini LED|TR",
+      "sourceUrl": "https://www.samsung.com/tr/tvs/qled-tv/qn90f-75-inch-neo-qled-4k-mini-led-smart-tv-qe75qn90fatxtk/",
+      "supportUrl": "https://www.samsung.com/tr/support/model/QE75QN90FATXTK/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:television:samsung:qe75qn90fatxtk:display_inches:1",
+          "key": "display_inches",
+          "value": 75,
+          "sourceId": "electronics:television:samsung:qe75qn90fatxtk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:television:samsung:qe75qn90fatxtk:resolution:2",
+          "key": "resolution",
+          "value": "3840x2160",
+          "sourceId": "electronics:television:samsung:qe75qn90fatxtk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:television:samsung:qe75qn90fatxtk:panel:3",
+          "key": "panel",
+          "value": "Neo QLED Mini LED",
+          "sourceId": "electronics:television:samsung:qe75qn90fatxtk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:television:samsung:qe75qn90fatxtk:processor:4",
+          "key": "processor",
+          "value": "NQ4 AI Gen3",
+          "sourceId": "electronics:television:samsung:qe75qn90fatxtk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:television:samsung:qe75qn90fatxtk:anti_glare:5",
+          "key": "anti_glare",
+          "value": true,
+          "sourceId": "electronics:television:samsung:qe75qn90fatxtk:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "PANEL_SUPPLIER_UNKNOWN",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "capabilities": [
+        "display_inches",
+        "resolution",
+        "panel",
+        "processor",
+        "anti_glare"
+      ],
+      "limitations": [
+        "PANEL_SUPPLIER_UNKNOWN",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:television:samsung:qe75qn90fatxtk:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:television:samsung:qe75qn90fatxtk:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "display_inches",
+          "value": 75,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "resolution",
+          "value": "3840x2160",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "panel",
+          "value": "Neo QLED Mini LED",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "processor",
+          "value": "NQ4 AI Gen3",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "display_inches",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "resolution",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "panel",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "processor",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "exactProductId": "electronics:ups:apc:br1200si",
+      "manufacturer": "APC",
+      "modelCode": "BR1200SI",
+      "configurationIdentity": "Back-UPS Pro|Line-interactive|1200VA|720W|6 IEC|TR",
+      "sourceUrl": "https://www.se.com/tr/tr/product/BR1200SI/",
+      "supportUrl": "https://www.se.com/tr/tr/product/BR1200SI/apc-backups-pro-1200va-720w-tower-230v-6x-iec-c13-outlets-avr-lcd-user-replaceable-battery/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:ups:apc:br1200si:topology:1",
+          "key": "topology",
+          "value": "line-interactive AVR",
+          "sourceId": "electronics:ups:apc:br1200si:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:ups:apc:br1200si:power_va:2",
+          "key": "power_va",
+          "value": 1200,
+          "sourceId": "electronics:ups:apc:br1200si:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:ups:apc:br1200si:power_w:3",
+          "key": "power_w",
+          "value": 720,
+          "sourceId": "electronics:ups:apc:br1200si:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:ups:apc:br1200si:outlets:4",
+          "key": "outlets",
+          "value": "6 x IEC C13",
+          "sourceId": "electronics:ups:apc:br1200si:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:ups:apc:br1200si:battery_replaceable:5",
+          "key": "battery_replaceable",
+          "value": true,
+          "sourceId": "electronics:ups:apc:br1200si:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "RUNTIME_LOAD_DEPENDENT",
+        "BATTERY_SERVICE_LIFE_UNKNOWN"
+      ],
+      "capabilities": [
+        "topology",
+        "power_va",
+        "power_w",
+        "outlets",
+        "battery_replaceable"
+      ],
+      "limitations": [
+        "RUNTIME_LOAD_DEPENDENT",
+        "BATTERY_SERVICE_LIFE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:ups:apc:br1200si:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:ups:apc:br1200si:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "topology",
+          "value": "line-interactive AVR",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "power_va",
+          "value": 1200,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "power_w",
+          "value": 720,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "outlets",
+          "value": "6 x IEC C13",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "topology",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "power_va",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "power_w",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "outlets",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "VIDEO_DOORBELL",
+      "exactProductId": "electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1",
+      "manufacturer": "TP-Link",
+      "modelCode": "Tapo D230S1(EU) V1",
+      "configurationIdentity": "Battery doorbell kit|Hub included|EU V1|TR",
+      "sourceUrl": "https://www.tp-link.com/tr/home-networking/cloud-camera/tapo-d230s1/",
+      "supportUrl": "https://www.tp-link.com/tr/support/download/tapo-d230s1/v1/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:resolution:1",
+          "key": "resolution",
+          "value": "2K 5MP",
+          "sourceId": "electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:power:2",
+          "key": "power",
+          "value": "rechargeable battery",
+          "sourceId": "electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:hub_included:3",
+          "key": "hub_included",
+          "value": true,
+          "sourceId": "electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:local_storage:4",
+          "key": "local_storage",
+          "value": "hub microSD",
+          "sourceId": "electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:weather_resistance:5",
+          "key": "weather_resistance",
+          "value": "IP64",
+          "sourceId": "electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "CHIME_PLACEMENT_RESULT_UNKNOWN",
+        "SUBSCRIPTION_FEATURES_MAY_CHANGE"
+      ],
+      "capabilities": [
+        "resolution",
+        "power",
+        "hub_included",
+        "local_storage",
+        "weather_resistance"
+      ],
+      "limitations": [
+        "CHIME_PLACEMENT_RESULT_UNKNOWN",
+        "SUBSCRIPTION_FEATURES_MAY_CHANGE"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "resolution",
+          "value": "2K 5MP",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "power",
+          "value": "rechargeable battery",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "hub_included",
+          "value": true,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "local_storage",
+          "value": "hub microSD",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "resolution",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "power",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "hub_included",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "local_storage",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "WEBCAM",
+      "exactProductId": "electronics:webcam:logitech:960-001088",
+      "manufacturer": "Logitech",
+      "modelCode": "960-001088",
+      "configurationIdentity": "C920 HD Pro|1080p30|USB-A|Black|TR",
+      "sourceUrl": "https://www.logitech.com/tr-tr/products/webcams/c920-pro-hd-webcam.960-001088.html",
+      "supportUrl": "https://support.logi.com/hc/tr/articles/360024849133",
+      "facts": [
+        {
+          "factId": "exp02:electronics:webcam:logitech:960-001088:resolution_fps:1",
+          "key": "resolution_fps",
+          "value": "1080p30",
+          "sourceId": "electronics:webcam:logitech:960-001088:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:webcam:logitech:960-001088:field_of_view_degrees:2",
+          "key": "field_of_view_degrees",
+          "value": 78,
+          "sourceId": "electronics:webcam:logitech:960-001088:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:webcam:logitech:960-001088:connectivity:3",
+          "key": "connectivity",
+          "value": "USB-A",
+          "sourceId": "electronics:webcam:logitech:960-001088:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:webcam:logitech:960-001088:focus:4",
+          "key": "focus",
+          "value": "autofocus",
+          "sourceId": "electronics:webcam:logitech:960-001088:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:webcam:logitech:960-001088:microphones:5",
+          "key": "microphones",
+          "value": "dual stereo",
+          "sourceId": "electronics:webcam:logitech:960-001088:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "LOW_LIGHT_RESULT_ENVIRONMENT_DEPENDENT",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "capabilities": [
+        "resolution_fps",
+        "field_of_view_degrees",
+        "connectivity",
+        "focus",
+        "microphones"
+      ],
+      "limitations": [
+        "LOW_LIGHT_RESULT_ENVIRONMENT_DEPENDENT",
+        "EXACT_WARRANTY_START_DATE_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:webcam:logitech:960-001088:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:webcam:logitech:960-001088:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "resolution_fps",
+          "value": "1080p30",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "field_of_view_degrees",
+          "value": 78,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "connectivity",
+          "value": "USB-A",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "focus",
+          "value": "autofocus",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "resolution_fps",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "field_of_view_degrees",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "connectivity",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "focus",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "WIFI_ROUTER_MESH",
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack",
+      "manufacturer": "TP-Link",
+      "modelCode": "Deco X50(EU) V1 3-pack",
+      "configurationIdentity": "Wi-Fi 6 AX3000|3-pack|EU V1|TR",
+      "sourceUrl": "https://www.tp-link.com/tr/home-networking/deco/deco-x50/",
+      "supportUrl": "https://www.tp-link.com/tr/support/download/deco-x50/v1/",
+      "facts": [
+        {
+          "factId": "exp02:electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:wifi_generation:1",
+          "key": "wifi_generation",
+          "value": "Wi-Fi 6",
+          "sourceId": "electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:aggregate_class:2",
+          "key": "aggregate_class",
+          "value": "AX3000",
+          "sourceId": "electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:unit_count:3",
+          "key": "unit_count",
+          "value": 3,
+          "sourceId": "electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:ethernet_ports_per_unit:4",
+          "key": "ethernet_ports_per_unit",
+          "value": "3 x 1GbE",
+          "sourceId": "electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        },
+        {
+          "factId": "exp02:electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:security:5",
+          "key": "security",
+          "value": "WPA3",
+          "sourceId": "electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:product",
+          "locator": "Exact named configuration field on manufacturer-controlled source"
+        }
+      ],
+      "unknownCodes": [
+        "DWELLING_SPECIFIC_COVERAGE_UNKNOWN",
+        "ISP_COMPATIBILITY_UNKNOWN"
+      ],
+      "capabilities": [
+        "wifi_generation",
+        "aggregate_class",
+        "unit_count",
+        "ethernet_ports_per_unit",
+        "security"
+      ],
+      "limitations": [
+        "DWELLING_SPECIFIC_COVERAGE_UNKNOWN",
+        "ISP_COMPATIBILITY_UNKNOWN"
+      ],
+      "manualsSupport": {
+        "state": "SOURCE_BOUND",
+        "sourceId": "electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:support"
+      },
+      "lifecycleWarranty": {
+        "state": "PARTIAL_UNKNOWN_PRESERVED",
+        "sourceId": "electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack:support"
+      },
+      "dailyLifeProjections": [
+        {
+          "factKey": "wifi_generation",
+          "value": "Wi-Fi 6",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "aggregate_class",
+          "value": "AX3000",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "unit_count",
+          "value": 3,
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        },
+        {
+          "factKey": "ethernet_ports_per_unit",
+          "value": "3 x 1GbE",
+          "claimMode": "BOUNDED_FACT_TO_USE_PROJECTION"
+        }
+      ],
+      "materialityMappings": [
+        {
+          "discriminator": "wifi_generation",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "aggregate_class",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "unit_count",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        },
+        {
+          "discriminator": "ethernet_ports_per_unit",
+          "askOnlyWhenCandidatesDiffer": true,
+          "unknownIsNotFalse": true
+        }
+      ],
+      "terminalState": "ADMITTED_EXACT_TURKIYE_TECHNICAL_CANDIDATE",
+      "personaEffect": "NONE",
+      "commerceEffect": "NONE"
+    }
+  ]
+}
