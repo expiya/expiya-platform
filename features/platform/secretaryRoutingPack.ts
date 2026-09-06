@@ -2,8 +2,8 @@ import { APPLIANCES_CATEGORY_REGISTRY, type ActiveAppliancesCategoryId } from "@
 import { ELECTRONICS_CATEGORY_REGISTRY, type ElectronicsCategoryId } from "@/features/electronics/architectureBaseline";
 import { resolveDepartment, resolveDepartmentCapability } from "./departmentRegistry";
 
-export type ActiveSecretaryDepartmentId = "CARS" | "APPLIANCES" | "ELECTRONICS" | "BABY_AND_CHILD" | "MOBILITY";
-export type SecretaryCategoryId = ActiveAppliancesCategoryId | ElectronicsCategoryId | "STROLLER" | "ELECTRIC_SCOOTER" | "ELECTRIC_BICYCLE" | "BICYCLE";
+export type ActiveSecretaryDepartmentId = "CARS" | "APPLIANCES" | "ELECTRONICS" | "BABY_AND_CHILD" | "MOBILITY" | "TOOLS";
+export type SecretaryCategoryId = ActiveAppliancesCategoryId | ElectronicsCategoryId | "STROLLER" | "ELECTRIC_SCOOTER" | "ELECTRIC_BICYCLE" | "BICYCLE" | "CORDLESS_DRILL";
 export interface SecretaryRouteDescriptor { readonly departmentId: ActiveSecretaryDepartmentId; readonly localizedLabel: string; readonly categoryId?: SecretaryCategoryId; readonly aliases: readonly string[]; readonly destination: string }
 export interface SecretaryRouteChoice { readonly label: string; readonly departmentId: ActiveSecretaryDepartmentId; readonly destination: string }
 export interface SecretaryUmbrella { readonly aliases: readonly string[]; readonly question: string; readonly categoryIds: readonly SecretaryCategoryId[] }
@@ -26,6 +26,7 @@ export const SECRETARY_ROUTE_DESCRIPTORS: readonly SecretaryRouteDescriptor[] = 
   route("MOBILITY", "Elektrikli scooter", ["elektrikli scooter", "e scooter", "e-scooter", "scooter"], "/mobility?entry=secretary&category=ELECTRIC_SCOOTER", "ELECTRIC_SCOOTER"),
   route("MOBILITY", "Elektrikli bisiklet", ["elektrikli bisiklet", "e bike", "e-bike"], "/mobility?entry=secretary&category=ELECTRIC_BICYCLE", "ELECTRIC_BICYCLE"),
   route("MOBILITY", "Bisiklet", ["şehir bisikleti", "dağ bisikleti", "katlanır bisiklet", "bisiklet"], "/mobility?entry=secretary&category=BICYCLE", "BICYCLE"),
+  route("TOOLS", "Akülü matkap", ["akülü matkap", "akülü darbeli matkap", "şarjlı matkap", "şarjlı darbeli matkap"], "/tools?entry=secretary&category=CORDLESS_DRILL", "CORDLESS_DRILL"),
   ...APPLIANCES_CATEGORY_REGISTRY.filter(item => item.status === "ACTIVE").map(item => route("APPLIANCES", item.publicLabelTr, APPLIANCE_ALIASES[item.categoryId] ?? [item.publicLabelTr], `/appliances?entry=secretary&category=${item.categoryId}`, item.categoryId)),
   ...ELECTRONICS_CATEGORY_REGISTRY.map(item => route("ELECTRONICS", item.publicLabelTr, ELECTRONICS_ALIASES[item.categoryId] ?? [item.publicLabelTr], `/electronics/analysis?category=${item.categoryId}&entry=secretary`, item.categoryId)),
 ]);
@@ -64,7 +65,7 @@ export function validateSecretaryRouteDescriptors(): readonly string[] {
     if (descriptor.categoryId) categoryIds.add(descriptor.categoryId);
     for (const rawAlias of descriptor.aliases) { const alias = normalizeSecretaryPhrase(rawAlias); if (alias.length < 2) issues.push(`UNSAFE_ALIAS:${alias}`); const owner = aliases.get(alias); if (owner && owner !== descriptor.destination) issues.push(`CONFLICTING_ALIAS:${alias}`); aliases.set(alias, descriptor.destination); }
   }
-  for (const departmentId of ["APPLIANCES", "ELECTRONICS", "BABY_AND_CHILD"] as const) for (const [id, capability] of Object.entries(resolveDepartment(departmentId)?.capabilities ?? {})) if (capability.status === "ACTIVE" && !categoryIds.has(id)) issues.push(`NO_ROUTING_METADATA:${id}`);
+  for (const departmentId of ["APPLIANCES", "ELECTRONICS", "BABY_AND_CHILD", "TOOLS"] as const) for (const [id, capability] of Object.entries(resolveDepartment(departmentId)?.capabilities ?? {})) if (capability.status === "ACTIVE" && !categoryIds.has(id)) issues.push(`NO_ROUTING_METADATA:${id}`);
   return Object.freeze(issues);
 }
 const descriptorIssues = validateSecretaryRouteDescriptors();

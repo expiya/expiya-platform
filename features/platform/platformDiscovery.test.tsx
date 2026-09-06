@@ -6,8 +6,9 @@ import type { DepartmentRegistryEntry } from "./departmentRegistry";
 
 describe("registry-driven platform discovery",()=>{
   it("lists exactly active departments and active categories with direct links",()=>{
-    expect(ACTIVE_PLATFORM_DISCOVERY).toHaveLength(5);
-    expect(ACTIVE_PLATFORM_DISCOVERY.flatMap(item=>item.categories)).toHaveLength(52);
+    expect(ACTIVE_PLATFORM_DISCOVERY).toHaveLength(6);
+    expect(ACTIVE_PLATFORM_DISCOVERY.flatMap(item=>item.categories)).toHaveLength(53);
+    expect(ACTIVE_PLATFORM_DISCOVERY.find(item=>item.id==="TOOLS")?.categories).toEqual([expect.objectContaining({id:"CORDLESS_DRILL",href:"/tools?entry=secretary&category=CORDLESS_DRILL"})]);
     const html=renderToStaticMarkup(<ExpiyaInfo/>);
     for(const department of ACTIVE_PLATFORM_DISCOVERY){expect(html).toContain(`href="${department.href}`);for(const category of department.categories)expect(html).toContain(`href="${category.href.replaceAll("&","&amp;")}"`);}
     expect(html).not.toMatch(/HOTELS|EVENTS|FUTURE|NOT_READY/u);

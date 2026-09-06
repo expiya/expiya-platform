@@ -2,6 +2,7 @@ import { APPLIANCES_PRODUCT_TYPES } from "@/features/appliances/contracts";
 import { ELECTRONICS_CATEGORY_IDS } from "@/features/electronics/architectureBaseline";
 
 export const XPY_STAGE_ONE_ADAPTER_REGISTRY = Object.freeze({
+  TOOLS: Object.freeze({ CORDLESS_DRILL: "cordless-drill-stage1-presentation/v1" }),
   CARS: Object.freeze({ NEW_CAR: "cars-stage1-presentation/v1" }),
   APPLIANCES: Object.freeze(Object.fromEntries(APPLIANCES_PRODUCT_TYPES.map(category => [category, "appliances-stage1-presentation/v1"])) as Record<typeof APPLIANCES_PRODUCT_TYPES[number], string>),
   ELECTRONICS: Object.freeze(Object.fromEntries(ELECTRONICS_CATEGORY_IDS.map(category => [category, "electronics-stage1-presentation/v1"])) as Record<typeof ELECTRONICS_CATEGORY_IDS[number], string>),
