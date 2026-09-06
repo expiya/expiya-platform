@@ -3,6 +3,7 @@ import { activeDecisionPreferences } from "./ledger";
 import { routeConversationMessage } from "./router";
 import { createV3ConversationState, runV3Turn } from "./engine.server";
 import { runStoredV31Turn, resetV31StoreForTests } from "./store.server";
+import { adaptWholeTurnToCarsStages } from "./carsStages";
 import { createRecommendationTermsAcceptance } from "@/lib/legal/recommendationTerms";
 
 describe("Cars Conversation Decision Flow V3", () => {
@@ -66,12 +67,12 @@ describe("Cars Conversation Decision Flow V3", () => {
     await expect(runV3Turn({ conversationId: "offer", messageId: "missing-terms", message: "Evet, göster", expectedRevision: output.state.revision, state: output.state })).rejects.toThrow("V3_RECOMMENDATION_TERMS_REQUIRED");
     await expect(runV3Turn({ conversationId: "offer", messageId: "8", message: "Evet, göster", expectedRevision: forged.revision, state: forged, recommendationTermsAcceptance: createRecommendationTermsAcceptance() })).rejects.toThrow("V31_OFFER_UNAUTHORIZED");
     const revealed = await runV3Turn({ conversationId: "offer", messageId: "8", message: "Evet, göster", expectedRevision: output.state.revision, state: output.state, recommendationTermsAcceptance: createRecommendationTermsAcceptance() });
-    expect(revealed.recommendations).toHaveLength(1); expect(revealed.state.pendingOffer).toBeUndefined();
+    expect(revealed.recommendations?.length).toBeGreaterThan(1); expect(revealed.recommendations?.length).toBeLessThanOrEqual(3); expect(revealed.state.pendingOffer).toBeUndefined();
     expect(revealed.state.recommendationTermsAcceptance).toMatchObject({ version: "REC-2026.08-v1.1", offerId: output.state.pendingOffer?.offerId });
   });
 
   it("keeps server state authoritative and replays byte-equivalent output", async () => {
-    resetV31StoreForTests(); const run = (message: string, messageId: string, expectedRevision: number) => runStoredV31Turn({ conversationId: "stored", messageId, message, expectedRevision, run: (state) => runV3Turn({ conversationId: "stored", messageId, message, expectedRevision, state }) });
+    resetV31StoreForTests(); const run = (message: string, messageId: string, expectedRevision: number) => runStoredV31Turn({ conversationId: "stored", messageId, message, expectedRevision, stages: adaptWholeTurnToCarsStages((state) => runV3Turn({ conversationId: "stored", messageId, message, expectedRevision, state })) });
     const first = await run("Merhaba", "m1", 0); const replay = await run("Merhaba", "m1", 0); expect(replay).toEqual(first);
     await expect(run("Başka içerik", "m1", 1)).rejects.toThrow("V3_MESSAGE_PAYLOAD_CONFLICT");
     await expect(run("Yeni mesaj", "m2", 0)).rejects.toThrow("V3_REVISION_CONFLICT");

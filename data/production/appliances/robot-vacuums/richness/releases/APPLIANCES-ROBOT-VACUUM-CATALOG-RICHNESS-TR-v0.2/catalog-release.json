@@ -1,0 +1,2733 @@
+{
+  "schemaVersion": "XPY_CATALOG/v0.1",
+  "releaseId": "appliances:robot-vacuum:catalog-richness:tr:v0.2",
+  "releaseVersion": "APPLIANCES-ROBOT-VACUUM-CATALOG-RICHNESS-TR-v0.2",
+  "departmentId": "APPLIANCES",
+  "categoryId": "ROBOT_VACUUM",
+  "market": "TR",
+  "lifecycle": "FROZEN",
+  "effectiveAt": "2026-09-04T23:00:00.000+03:00",
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "ROBOT_VACUUM_SEMANTIC_REGISTRY/v0.2",
+    "semanticAuthorityDigest": "sha256:1fa4b3ddfb9fb50641c1155704b5d98718eea612fe59cbed381d40583cdae76f",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "sources": [
+    {
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "kind": "OFFICIAL",
+      "uri": "https://www.bosch-home.com.tr/tr/product/BCRC2W",
+      "version": "observed-2026-09-03",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "BOSCH-SPOTLESS-COMPARE-TR",
+      "kind": "OFFICIAL",
+      "uri": "https://www.bosch-home.com.tr/urunler/elektrikli-supurgeler/spotless-robot-supurgeler-ortak-ve-model-bazli-ozellikler",
+      "version": "observed-2026-09-03",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "XIAOMI-H40-TR",
+      "kind": "OFFICIAL",
+      "uri": "https://www.mi.com/tr/product/xiaomi-robot-vacuum-h40/",
+      "version": "observed-2026-09-03",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "XIAOMI-H40-SPECS-TR",
+      "kind": "OFFICIAL",
+      "uri": "https://www.mi.com/tr/product/xiaomi-robot-vacuum-h40/specs/",
+      "version": "observed-2026-09-03",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "XIAOMI-X20-PRO-TR",
+      "kind": "OFFICIAL",
+      "uri": "https://www.mi.com/tr/product/xiaomi-robot-vacuum-x20-pro/",
+      "version": "observed-2026-09-03",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "kind": "OFFICIAL",
+      "uri": "https://www.samsung.com/tr/business/vacuum-cleaners/robot/vr7700bm-ebony-black-vr3mb77312k-tr/",
+      "version": "observed-2026-09-03",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr-TR"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:widthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-fact:bosch_bcrc2w_tr:widthMm",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.widthMm",
+        "value": 353,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:depthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-fact:bosch_bcrc2w_tr:depthMm",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.depthMm",
+        "value": 351,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:heightMm",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-fact:bosch_bcrc2w_tr:heightMm",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.heightMm",
+        "value": 96,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:thresholdMm",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-fact:bosch_bcrc2w_tr:thresholdMm",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.thresholdMm",
+        "value": 20,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:dustMl",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-fact:bosch_bcrc2w_tr:dustMl",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.dustMl",
+        "value": 400,
+        "unit": "mL",
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:waterMl",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-fact:bosch_bcrc2w_tr:waterMl",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.waterMl",
+        "value": 180,
+        "unit": "mL",
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:manufacturerPascal",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-fact:bosch_bcrc2w_tr:manufacturerPascal",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Manufacturer Pa cannot rank suction or cleaning performance."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.manufacturerPascal",
+        "value": 11000,
+        "unit": "Pa manufacturer claim",
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:wetMop",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-capability:bosch_bcrc2w_tr:wetMop",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.wetMop",
+        "value": true,
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:mapping",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-capability:bosch_bcrc2w_tr:mapping",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.mapping",
+        "value": true,
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:appControl",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-capability:bosch_bcrc2w_tr:appControl",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.appControl",
+        "value": true,
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:autoChargeReturn",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-capability:bosch_bcrc2w_tr:autoChargeReturn",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.autoChargeReturn",
+        "value": true,
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:autoEmpty",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-capability:bosch_bcrc2w_tr:autoEmpty",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.autoEmpty",
+        "value": false,
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:mopLift",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-BCRC2W-TR",
+      "assertionId": "robot-vacuum-capability:bosch_bcrc2w_tr:mopLift",
+      "offeringIds": [
+        "BOSCH_BCRC2W_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.mopLift",
+        "value": false,
+        "applicability": {
+          "offeringId": "BOSCH_BCRC2W_TR",
+          "market": "TR",
+          "model": "BCRC2W",
+          "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:widthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:widthMm",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.widthMm",
+        "value": 340,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:depthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:depthMm",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.depthMm",
+        "value": 340,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:heightMm",
+      "kind": "TECHNICAL",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:heightMm",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.heightMm",
+        "value": 97,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:thresholdMm",
+      "kind": "TECHNICAL",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:thresholdMm",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.thresholdMm",
+        "value": 20,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:batteryMah",
+      "kind": "TECHNICAL",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:batteryMah",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.batteryMah",
+        "value": 5200,
+        "unit": "mAh",
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:runtimeMinutes",
+      "kind": "TECHNICAL",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:runtimeMinutes",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Runtime is meaningful only with its exact declared context and is not home coverage."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.runtimeMinutes",
+        "value": 180,
+        "unit": "min",
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:runtimeContext",
+      "kind": "TECHNICAL",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:runtimeContext",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.runtimeContext",
+        "value": "STANDARD_MODE_MANUFACTURER_TEST",
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:manufacturerPascal",
+      "kind": "TECHNICAL",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:manufacturerPascal",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Manufacturer Pa cannot rank suction or cleaning performance."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.manufacturerPascal",
+        "value": 10000,
+        "unit": "Pa manufacturer claim",
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:wetMop",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_h40_ov51_tr:wetMop",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.wetMop",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:mapping",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_h40_ov51_tr:mapping",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.mapping",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:appControl",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_h40_ov51_tr:appControl",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.appControl",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:autoChargeReturn",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_h40_ov51_tr:autoChargeReturn",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.autoChargeReturn",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:autoEmpty",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_h40_ov51_tr:autoEmpty",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.autoEmpty",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:mopLift",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-H40-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_h40_ov51_tr:mopLift",
+      "offeringIds": [
+        "XIAOMI_H40_OV51_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.mopLift",
+        "value": false,
+        "applicability": {
+          "offeringId": "XIAOMI_H40_OV51_TR",
+          "market": "TR",
+          "model": "Robot Vacuum H40 / OV51",
+          "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:xiaomi_x20_pro_tr:manufacturerPascal",
+      "kind": "TECHNICAL",
+      "sourceId": "XIAOMI-X20-PRO-TR",
+      "assertionId": "robot-vacuum-fact:xiaomi_x20_pro_tr:manufacturerPascal",
+      "offeringIds": [
+        "XIAOMI_X20_PRO_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Manufacturer Pa cannot rank suction or cleaning performance."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.manufacturerPascal",
+        "value": 7000,
+        "unit": "Pa manufacturer claim",
+        "applicability": {
+          "offeringId": "XIAOMI_X20_PRO_TR",
+          "market": "TR",
+          "model": "Robot Vacuum X20 Pro",
+          "configuration": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:wetMop",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-X20-PRO-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_x20_pro_tr:wetMop",
+      "offeringIds": [
+        "XIAOMI_X20_PRO_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.wetMop",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_X20_PRO_TR",
+          "market": "TR",
+          "model": "Robot Vacuum X20 Pro",
+          "configuration": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:mapping",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-X20-PRO-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_x20_pro_tr:mapping",
+      "offeringIds": [
+        "XIAOMI_X20_PRO_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.mapping",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_X20_PRO_TR",
+          "market": "TR",
+          "model": "Robot Vacuum X20 Pro",
+          "configuration": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:appControl",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-X20-PRO-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_x20_pro_tr:appControl",
+      "offeringIds": [
+        "XIAOMI_X20_PRO_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.appControl",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_X20_PRO_TR",
+          "market": "TR",
+          "model": "Robot Vacuum X20 Pro",
+          "configuration": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:autoChargeReturn",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-X20-PRO-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_x20_pro_tr:autoChargeReturn",
+      "offeringIds": [
+        "XIAOMI_X20_PRO_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.autoChargeReturn",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_X20_PRO_TR",
+          "market": "TR",
+          "model": "Robot Vacuum X20 Pro",
+          "configuration": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:autoEmpty",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-X20-PRO-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_x20_pro_tr:autoEmpty",
+      "offeringIds": [
+        "XIAOMI_X20_PRO_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.autoEmpty",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_X20_PRO_TR",
+          "market": "TR",
+          "model": "Robot Vacuum X20 Pro",
+          "configuration": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:mopLift",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-X20-PRO-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_x20_pro_tr:mopLift",
+      "offeringIds": [
+        "XIAOMI_X20_PRO_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.mopLift",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_X20_PRO_TR",
+          "market": "TR",
+          "model": "Robot Vacuum X20 Pro",
+          "configuration": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:mopWash",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-X20-PRO-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_x20_pro_tr:mopWash",
+      "offeringIds": [
+        "XIAOMI_X20_PRO_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.mopWash",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_X20_PRO_TR",
+          "market": "TR",
+          "model": "Robot Vacuum X20 Pro",
+          "configuration": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:mopDry",
+      "kind": "CAPABILITY",
+      "sourceId": "XIAOMI-X20-PRO-TR",
+      "assertionId": "robot-vacuum-capability:xiaomi_x20_pro_tr:mopDry",
+      "offeringIds": [
+        "XIAOMI_X20_PRO_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.mopDry",
+        "value": true,
+        "applicability": {
+          "offeringId": "XIAOMI_X20_PRO_TR",
+          "market": "TR",
+          "model": "Robot Vacuum X20 Pro",
+          "configuration": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:widthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:widthMm",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.widthMm",
+        "value": 353,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:depthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:depthMm",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.depthMm",
+        "value": 357,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:heightMm",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:heightMm",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.heightMm",
+        "value": 105,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:dustMl",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:dustMl",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.dustMl",
+        "value": 500,
+        "unit": "mL",
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:waterMl",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:waterMl",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.waterMl",
+        "value": 220,
+        "unit": "mL",
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:runtimeMinutes",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:runtimeMinutes",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Runtime is meaningful only with its exact declared context and is not home coverage."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.runtimeMinutes",
+        "value": 180,
+        "unit": "min",
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:runtimeContext",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:runtimeContext",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.runtimeContext",
+        "value": "MANUFACTURER_MAX_MODE_UNSPECIFIED",
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:wetMop",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-capability:samsung_vr3mb77312k_tr:wetMop",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.wetMop",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:mapping",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-capability:samsung_vr3mb77312k_tr:mapping",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.mapping",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:appControl",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-capability:samsung_vr3mb77312k_tr:appControl",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.appControl",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:autoChargeReturn",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-capability:samsung_vr3mb77312k_tr:autoChargeReturn",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.autoChargeReturn",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:autoEmpty",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-capability:samsung_vr3mb77312k_tr:autoEmpty",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.autoEmpty",
+        "value": false,
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:mopLift",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-VR3MB77312K-TR",
+      "assertionId": "robot-vacuum-capability:samsung_vr3mb77312k_tr:mopLift",
+      "offeringIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Presence does not establish cleaning, navigation, obstacle, autonomy, privacy, reliability, or app-quality outcomes."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.mopLift",
+        "value": false,
+        "applicability": {
+          "offeringId": "SAMSUNG_VR3MB77312K_TR",
+          "market": "TR",
+          "model": "VR3MB77312K/TR",
+          "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+          "status": "EXACT"
+        }
+      }
+    }
+  ],
+  "offerings": [
+    {
+      "offeringId": "BOSCH_BCRC2W_TR",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-03T12:00:00.000+03:00",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Bosch",
+        "model": "BCRC2W",
+        "configuration": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+        "identifiers": {
+          "productId": "BOSCH_BCRC2W_TR"
+        }
+      }
+    },
+    {
+      "offeringId": "XIAOMI_H40_OV51_TR",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-03T12:00:00.000+03:00",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Xiaomi",
+        "model": "Robot Vacuum H40 / OV51",
+        "configuration": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+        "identifiers": {
+          "productId": "XIAOMI_H40_OV51_TR"
+        }
+      }
+    },
+    {
+      "offeringId": "XIAOMI_X20_PRO_TR",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-03T12:00:00.000+03:00",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Xiaomi",
+        "model": "Robot Vacuum X20 Pro",
+        "configuration": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+        "identifiers": {
+          "productId": "XIAOMI_X20_PRO_TR"
+        }
+      }
+    },
+    {
+      "offeringId": "SAMSUNG_VR3MB77312K_TR",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-03T12:00:00.000+03:00",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Samsung",
+        "model": "VR3MB77312K/TR",
+        "configuration": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+        "identifiers": {
+          "productId": "SAMSUNG_VR3MB77312K_TR"
+        }
+      }
+    }
+  ],
+  "layers": {
+    "l1Facts": [
+      {
+        "factId": "robot-vacuum-fact:bosch_bcrc2w_tr:widthMm",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "widthMm",
+        "value": 353,
+        "unit": "mm",
+        "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:widthMm"
+      },
+      {
+        "factId": "robot-vacuum-fact:bosch_bcrc2w_tr:depthMm",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "depthMm",
+        "value": 351,
+        "unit": "mm",
+        "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:depthMm"
+      },
+      {
+        "factId": "robot-vacuum-fact:bosch_bcrc2w_tr:heightMm",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "heightMm",
+        "value": 96,
+        "unit": "mm",
+        "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:heightMm"
+      },
+      {
+        "factId": "robot-vacuum-fact:bosch_bcrc2w_tr:thresholdMm",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "thresholdMm",
+        "value": 20,
+        "unit": "mm",
+        "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:thresholdMm"
+      },
+      {
+        "factId": "robot-vacuum-fact:bosch_bcrc2w_tr:dustMl",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "dustMl",
+        "value": 400,
+        "unit": "mL",
+        "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:dustMl"
+      },
+      {
+        "factId": "robot-vacuum-fact:bosch_bcrc2w_tr:waterMl",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "waterMl",
+        "value": 180,
+        "unit": "mL",
+        "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:waterMl"
+      },
+      {
+        "factId": "robot-vacuum-fact:bosch_bcrc2w_tr:manufacturerPascal",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "manufacturerPascal",
+        "value": 11000,
+        "unit": "Pa manufacturer claim",
+        "evidenceId": "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:manufacturerPascal"
+      },
+      {
+        "factId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:widthMm",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "widthMm",
+        "value": 340,
+        "unit": "mm",
+        "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:widthMm"
+      },
+      {
+        "factId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:depthMm",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "depthMm",
+        "value": 340,
+        "unit": "mm",
+        "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:depthMm"
+      },
+      {
+        "factId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:heightMm",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "heightMm",
+        "value": 97,
+        "unit": "mm",
+        "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:heightMm"
+      },
+      {
+        "factId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:thresholdMm",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "thresholdMm",
+        "value": 20,
+        "unit": "mm",
+        "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:thresholdMm"
+      },
+      {
+        "factId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:batteryMah",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "batteryMah",
+        "value": 5200,
+        "unit": "mAh",
+        "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:batteryMah"
+      },
+      {
+        "factId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:runtimeMinutes",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "runtimeMinutes",
+        "value": 180,
+        "unit": "min",
+        "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:runtimeMinutes"
+      },
+      {
+        "factId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:runtimeContext",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "runtimeContext",
+        "value": "STANDARD_MODE_MANUFACTURER_TEST",
+        "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:runtimeContext"
+      },
+      {
+        "factId": "robot-vacuum-fact:xiaomi_h40_ov51_tr:manufacturerPascal",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "manufacturerPascal",
+        "value": 10000,
+        "unit": "Pa manufacturer claim",
+        "evidenceId": "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:manufacturerPascal"
+      },
+      {
+        "factId": "robot-vacuum-fact:xiaomi_x20_pro_tr:manufacturerPascal",
+        "offeringId": "XIAOMI_X20_PRO_TR",
+        "key": "manufacturerPascal",
+        "value": 7000,
+        "unit": "Pa manufacturer claim",
+        "evidenceId": "robot-vacuum-evidence-fact:xiaomi_x20_pro_tr:manufacturerPascal"
+      },
+      {
+        "factId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:widthMm",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "widthMm",
+        "value": 353,
+        "unit": "mm",
+        "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:widthMm"
+      },
+      {
+        "factId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:depthMm",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "depthMm",
+        "value": 357,
+        "unit": "mm",
+        "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:depthMm"
+      },
+      {
+        "factId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:heightMm",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "heightMm",
+        "value": 105,
+        "unit": "mm",
+        "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:heightMm"
+      },
+      {
+        "factId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:dustMl",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "dustMl",
+        "value": 500,
+        "unit": "mL",
+        "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:dustMl"
+      },
+      {
+        "factId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:waterMl",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "waterMl",
+        "value": 220,
+        "unit": "mL",
+        "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:waterMl"
+      },
+      {
+        "factId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:runtimeMinutes",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "runtimeMinutes",
+        "value": 180,
+        "unit": "min",
+        "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:runtimeMinutes"
+      },
+      {
+        "factId": "robot-vacuum-fact:samsung_vr3mb77312k_tr:runtimeContext",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "runtimeContext",
+        "value": "MANUFACTURER_MAX_MODE_UNSPECIFIED",
+        "evidenceId": "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:runtimeContext"
+      }
+    ],
+    "l2Capabilities": [
+      {
+        "capabilityId": "robot-vacuum-capability:bosch_bcrc2w_tr:wetMop",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "wetMop",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:wetMop",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:bosch_bcrc2w_tr:mapping",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "mapping",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:mapping",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:bosch_bcrc2w_tr:appControl",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "appControl",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:appControl",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:bosch_bcrc2w_tr:autoChargeReturn",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "autoChargeReturn",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:autoChargeReturn",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:bosch_bcrc2w_tr:autoEmpty",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "autoEmpty",
+        "state": "ABSENT",
+        "evidenceId": "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:autoEmpty",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:bosch_bcrc2w_tr:mopLift",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "key": "mopLift",
+        "state": "ABSENT",
+        "evidenceId": "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:mopLift",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_h40_ov51_tr:wetMop",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "wetMop",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:wetMop",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_h40_ov51_tr:mapping",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "mapping",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:mapping",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_h40_ov51_tr:appControl",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "appControl",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:appControl",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_h40_ov51_tr:autoChargeReturn",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "autoChargeReturn",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:autoChargeReturn",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_h40_ov51_tr:autoEmpty",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "autoEmpty",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:autoEmpty",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_h40_ov51_tr:mopLift",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "key": "mopLift",
+        "state": "ABSENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:mopLift",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_x20_pro_tr:wetMop",
+        "offeringId": "XIAOMI_X20_PRO_TR",
+        "key": "wetMop",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:wetMop",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_x20_pro_tr:mapping",
+        "offeringId": "XIAOMI_X20_PRO_TR",
+        "key": "mapping",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:mapping",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_x20_pro_tr:appControl",
+        "offeringId": "XIAOMI_X20_PRO_TR",
+        "key": "appControl",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:appControl",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_x20_pro_tr:autoChargeReturn",
+        "offeringId": "XIAOMI_X20_PRO_TR",
+        "key": "autoChargeReturn",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:autoChargeReturn",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_x20_pro_tr:autoEmpty",
+        "offeringId": "XIAOMI_X20_PRO_TR",
+        "key": "autoEmpty",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:autoEmpty",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_x20_pro_tr:mopLift",
+        "offeringId": "XIAOMI_X20_PRO_TR",
+        "key": "mopLift",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:mopLift",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_x20_pro_tr:mopWash",
+        "offeringId": "XIAOMI_X20_PRO_TR",
+        "key": "mopWash",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:mopWash",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:xiaomi_x20_pro_tr:mopDry",
+        "offeringId": "XIAOMI_X20_PRO_TR",
+        "key": "mopDry",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:mopDry",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:samsung_vr3mb77312k_tr:wetMop",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "wetMop",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:wetMop",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:samsung_vr3mb77312k_tr:mapping",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "mapping",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:mapping",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:samsung_vr3mb77312k_tr:appControl",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "appControl",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:appControl",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:samsung_vr3mb77312k_tr:autoChargeReturn",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "autoChargeReturn",
+        "state": "PRESENT",
+        "evidenceId": "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:autoChargeReturn",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:samsung_vr3mb77312k_tr:autoEmpty",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "autoEmpty",
+        "state": "ABSENT",
+        "evidenceId": "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:autoEmpty",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "robot-vacuum-capability:samsung_vr3mb77312k_tr:mopLift",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "key": "mopLift",
+        "state": "ABSENT",
+        "evidenceId": "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:mopLift",
+        "limitations": [
+          "No performance or behavior outcome is guaranteed."
+        ]
+      }
+    ],
+    "l3UsageSemantics": [
+      {
+        "semanticId": "robot-vacuum-semantic:dimensions",
+        "meaning": "Declared dimensions support exact clearance checks only; they do not establish navigation or fit across a home.",
+        "factIds": [
+          "robot-vacuum-fact:bosch_bcrc2w_tr:widthMm",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:widthMm",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:widthMm",
+          "robot-vacuum-fact:bosch_bcrc2w_tr:depthMm",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:depthMm",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:depthMm",
+          "robot-vacuum-fact:bosch_bcrc2w_tr:heightMm",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:heightMm",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:heightMm"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "robot-vacuum-semantic:threshold",
+        "meaning": "Manufacturer maximum threshold is a bounded claim, not an obstacle-crossing guarantee in a particular home.",
+        "factIds": [
+          "robot-vacuum-fact:bosch_bcrc2w_tr:thresholdMm",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:thresholdMm"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "robot-vacuum-semantic:containers",
+        "meaning": "Declared dust and water capacities are equipment facts, not emptying, mopping, or coverage outcomes.",
+        "factIds": [
+          "robot-vacuum-fact:bosch_bcrc2w_tr:dustMl",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:dustMl",
+          "robot-vacuum-fact:bosch_bcrc2w_tr:waterMl",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:waterMl"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "robot-vacuum-semantic:runtime",
+        "meaning": "Runtime is comparable only under the same stated mode and test context; missing context stays unknown and battery capacity is not a runtime substitute.",
+        "factIds": [
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:runtimeMinutes",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:runtimeMinutes",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:runtimeContext",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:runtimeContext",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:batteryMah"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "robot-vacuum-semantic:pascal",
+        "meaning": "Manufacturer Pa is a marketing specification and cannot rank suction, cleaning performance, or suitability.",
+        "factIds": [
+          "robot-vacuum-fact:bosch_bcrc2w_tr:manufacturerPascal",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:manufacturerPascal",
+          "robot-vacuum-fact:xiaomi_x20_pro_tr:manufacturerPascal"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "robot-vacuum-semantic:automation",
+        "meaning": "Station and mop-care states answer exact equipment questions only; they do not prove autonomy or reliability.",
+        "factIds": [],
+        "capabilityIds": [
+          "robot-vacuum-capability:bosch_bcrc2w_tr:autoEmpty",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:autoEmpty",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:autoEmpty",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:autoEmpty",
+          "robot-vacuum-capability:bosch_bcrc2w_tr:autoChargeReturn",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:autoChargeReturn",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:autoChargeReturn",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:autoChargeReturn",
+          "robot-vacuum-capability:bosch_bcrc2w_tr:mopLift",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:mopLift",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:mopLift",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:mopLift",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:mopWash",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:mopDry"
+        ]
+      },
+      {
+        "semanticId": "robot-vacuum-semantic:navigation-app",
+        "meaning": "Mapping and app-control presence do not establish navigation quality, obstacle avoidance, privacy, connectivity reliability, or app behavior.",
+        "factIds": [],
+        "capabilityIds": [
+          "robot-vacuum-capability:bosch_bcrc2w_tr:mapping",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:mapping",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:mapping",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:mapping",
+          "robot-vacuum-capability:bosch_bcrc2w_tr:appControl",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:appControl",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:appControl",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:appControl"
+        ]
+      },
+      {
+        "semanticId": "robot-vacuum-semantic:mopping",
+        "meaning": "Wet-mop presence does not establish stain removal, floor compatibility, mopping quality, or surface safety.",
+        "factIds": [],
+        "capabilityIds": [
+          "robot-vacuum-capability:bosch_bcrc2w_tr:wetMop",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:wetMop",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:wetMop",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:wetMop"
+        ]
+      }
+    ],
+    "l4Needs": [
+      {
+        "needId": "ROBOT_HEIGHT",
+        "meaning": "ROBOT HEIGHT"
+      },
+      {
+        "needId": "THRESHOLD",
+        "meaning": "THRESHOLD"
+      },
+      {
+        "needId": "DUST_CAPACITY",
+        "meaning": "DUST CAPACITY"
+      },
+      {
+        "needId": "WATER_CAPACITY",
+        "meaning": "WATER CAPACITY"
+      },
+      {
+        "needId": "RUNTIME_CONTEXT",
+        "meaning": "RUNTIME CONTEXT"
+      },
+      {
+        "needId": "AUTO_EMPTY_REQUIREMENT",
+        "meaning": "AUTO EMPTY REQUIREMENT"
+      },
+      {
+        "needId": "MOP_LIFT_REQUIREMENT",
+        "meaning": "MOP LIFT REQUIREMENT"
+      },
+      {
+        "needId": "MOP_CARE_REQUIREMENT",
+        "meaning": "MOP CARE REQUIREMENT"
+      },
+      {
+        "needId": "APP_CONTROL_REQUIREMENT",
+        "meaning": "APP CONTROL REQUIREMENT"
+      },
+      {
+        "needId": "BUDGET_SENSITIVITY",
+        "meaning": "BUDGET SENSITIVITY"
+      }
+    ],
+    "l4NeedEvidenceMappings": [
+      {
+        "mappingId": "robot-vacuum-map:heightMm",
+        "needId": "ROBOT_HEIGHT",
+        "eligibleFactIds": [
+          "robot-vacuum-fact:bosch_bcrc2w_tr:heightMm",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:heightMm",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:heightMm"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "robot-vacuum-map:thresholdMm",
+        "needId": "THRESHOLD",
+        "eligibleFactIds": [
+          "robot-vacuum-fact:bosch_bcrc2w_tr:thresholdMm",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:thresholdMm"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "robot-vacuum-map:dustMl",
+        "needId": "DUST_CAPACITY",
+        "eligibleFactIds": [
+          "robot-vacuum-fact:bosch_bcrc2w_tr:dustMl",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:dustMl"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "robot-vacuum-map:waterMl",
+        "needId": "WATER_CAPACITY",
+        "eligibleFactIds": [
+          "robot-vacuum-fact:bosch_bcrc2w_tr:waterMl",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:waterMl"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "robot-vacuum-map:runtime",
+        "needId": "RUNTIME_CONTEXT",
+        "eligibleFactIds": [
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:runtimeMinutes",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:runtimeMinutes",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:runtimeContext",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:runtimeContext"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "robot-vacuum-map:autoEmpty",
+        "needId": "AUTO_EMPTY_REQUIREMENT",
+        "eligibleFactIds": [],
+        "eligibleCapabilityIds": [
+          "robot-vacuum-capability:bosch_bcrc2w_tr:autoEmpty",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:autoEmpty",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:autoEmpty",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:autoEmpty"
+        ],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "robot-vacuum-map:mopLift",
+        "needId": "MOP_LIFT_REQUIREMENT",
+        "eligibleFactIds": [],
+        "eligibleCapabilityIds": [
+          "robot-vacuum-capability:bosch_bcrc2w_tr:mopLift",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:mopLift",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:mopLift",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:mopLift"
+        ],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "robot-vacuum-map:appControl",
+        "needId": "APP_CONTROL_REQUIREMENT",
+        "eligibleFactIds": [],
+        "eligibleCapabilityIds": [
+          "robot-vacuum-capability:bosch_bcrc2w_tr:appControl",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:appControl",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:appControl",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:appControl"
+        ],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "robot-vacuum-map:mop-care",
+        "needId": "MOP_CARE_REQUIREMENT",
+        "eligibleFactIds": [],
+        "eligibleCapabilityIds": [
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:mopWash",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:mopDry"
+        ],
+        "policy": "HARD_FILTER"
+      }
+    ],
+    "l5PersonaSignals": [
+      {
+        "signalId": "robot-vacuum-planning:low-furniture",
+        "needIds": [
+          "ROBOT_HEIGHT"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "robot-vacuum-planning:thresholds",
+        "needIds": [
+          "THRESHOLD"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "robot-vacuum-planning:station-care",
+        "needIds": [
+          "AUTO_EMPTY_REQUIREMENT",
+          "MOP_CARE_REQUIREMENT"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "robot-vacuum-planning:connectivity",
+        "needIds": [
+          "APP_CONTROL_REQUIREMENT"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      }
+    ],
+    "l6DailyLifeInterpretations": [
+      {
+        "interpretationId": "robot-vacuum-interpretation:bosch_bcrc2w_tr:fit",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "text": "Published dimensions and threshold claim can inform exact clearance and threshold questions only.",
+        "factIds": [
+          "robot-vacuum-fact:bosch_bcrc2w_tr:widthMm",
+          "robot-vacuum-fact:bosch_bcrc2w_tr:depthMm",
+          "robot-vacuum-fact:bosch_bcrc2w_tr:heightMm",
+          "robot-vacuum-fact:bosch_bcrc2w_tr:thresholdMm"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:bosch_bcrc2w_tr:capacity-runtime",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "text": "Container, battery and runtime declarations can be shown with exact context; missing context stays unknown.",
+        "factIds": [
+          "robot-vacuum-fact:bosch_bcrc2w_tr:dustMl",
+          "robot-vacuum-fact:bosch_bcrc2w_tr:waterMl"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:bosch_bcrc2w_tr:automation",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "text": "Exact station and mop-care states answer bounded equipment questions only.",
+        "factIds": [],
+        "capabilityIds": [
+          "robot-vacuum-capability:bosch_bcrc2w_tr:autoChargeReturn",
+          "robot-vacuum-capability:bosch_bcrc2w_tr:autoEmpty",
+          "robot-vacuum-capability:bosch_bcrc2w_tr:mopLift"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:bosch_bcrc2w_tr:mapping-app",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "text": "Mapping, app and wet-mop states identify listed functions only, not performance or behavior.",
+        "factIds": [],
+        "capabilityIds": [
+          "robot-vacuum-capability:bosch_bcrc2w_tr:wetMop",
+          "robot-vacuum-capability:bosch_bcrc2w_tr:mapping",
+          "robot-vacuum-capability:bosch_bcrc2w_tr:appControl"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:xiaomi_h40_ov51_tr:fit",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "text": "Published dimensions and threshold claim can inform exact clearance and threshold questions only.",
+        "factIds": [
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:widthMm",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:depthMm",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:heightMm",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:thresholdMm"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:xiaomi_h40_ov51_tr:capacity-runtime",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "text": "Container, battery and runtime declarations can be shown with exact context; missing context stays unknown.",
+        "factIds": [
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:batteryMah",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:runtimeMinutes",
+          "robot-vacuum-fact:xiaomi_h40_ov51_tr:runtimeContext"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:xiaomi_h40_ov51_tr:automation",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "text": "Exact station and mop-care states answer bounded equipment questions only.",
+        "factIds": [],
+        "capabilityIds": [
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:autoChargeReturn",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:autoEmpty",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:mopLift"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:xiaomi_h40_ov51_tr:mapping-app",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "text": "Mapping, app and wet-mop states identify listed functions only, not performance or behavior.",
+        "factIds": [],
+        "capabilityIds": [
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:wetMop",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:mapping",
+          "robot-vacuum-capability:xiaomi_h40_ov51_tr:appControl"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:xiaomi_x20_pro_tr:automation",
+        "offeringId": "XIAOMI_X20_PRO_TR",
+        "text": "Exact station and mop-care states answer bounded equipment questions only.",
+        "factIds": [],
+        "capabilityIds": [
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:autoChargeReturn",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:autoEmpty",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:mopLift",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:mopWash",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:mopDry"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:xiaomi_x20_pro_tr:mapping-app",
+        "offeringId": "XIAOMI_X20_PRO_TR",
+        "text": "Mapping, app and wet-mop states identify listed functions only, not performance or behavior.",
+        "factIds": [],
+        "capabilityIds": [
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:wetMop",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:mapping",
+          "robot-vacuum-capability:xiaomi_x20_pro_tr:appControl"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:samsung_vr3mb77312k_tr:fit",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "text": "Published dimensions and threshold claim can inform exact clearance and threshold questions only.",
+        "factIds": [
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:widthMm",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:depthMm",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:heightMm"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:samsung_vr3mb77312k_tr:capacity-runtime",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "text": "Container, battery and runtime declarations can be shown with exact context; missing context stays unknown.",
+        "factIds": [
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:dustMl",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:waterMl",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:runtimeMinutes",
+          "robot-vacuum-fact:samsung_vr3mb77312k_tr:runtimeContext"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:samsung_vr3mb77312k_tr:automation",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "text": "Exact station and mop-care states answer bounded equipment questions only.",
+        "factIds": [],
+        "capabilityIds": [
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:autoChargeReturn",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:autoEmpty",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:mopLift"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "robot-vacuum-interpretation:samsung_vr3mb77312k_tr:mapping-app",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "text": "Mapping, app and wet-mop states identify listed functions only, not performance or behavior.",
+        "factIds": [],
+        "capabilityIds": [
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:wetMop",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:mapping",
+          "robot-vacuum-capability:samsung_vr3mb77312k_tr:appControl"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T23:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, navigation, obstacle, autonomy, privacy, reliability, floor-safety, or app-quality outcome guarantee."
+        ]
+      }
+    ],
+    "l7ExperienceRules": [],
+    "l8DecisionProjections": [
+      {
+        "projectionId": "robot-vacuum-decision-projection:bosch_bcrc2w_tr:exact",
+        "offeringId": "BOSCH_BCRC2W_TR",
+        "eligibleEvidenceIds": [
+          "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:widthMm",
+          "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:depthMm",
+          "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:heightMm",
+          "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:thresholdMm",
+          "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:dustMl",
+          "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:waterMl",
+          "robot-vacuum-evidence-fact:bosch_bcrc2w_tr:manufacturerPascal",
+          "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:wetMop",
+          "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:mapping",
+          "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:appControl",
+          "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:autoChargeReturn",
+          "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:autoEmpty",
+          "robot-vacuum-evidence-capability:bosch_bcrc2w_tr:mopLift"
+        ],
+        "needMappingIds": [
+          "robot-vacuum-map:heightMm",
+          "robot-vacuum-map:thresholdMm",
+          "robot-vacuum-map:dustMl",
+          "robot-vacuum-map:waterMl",
+          "robot-vacuum-map:autoEmpty",
+          "robot-vacuum-map:mopLift",
+          "robot-vacuum-map:appControl"
+        ],
+        "limitations": [
+          "Exact Robot Vacuum evidence only; unknowns remain neutral.",
+          "Pa, derived planning, interpretations, commerce, media and Advisor cannot filter, rank, or authorize."
+        ],
+        "disclosures": [
+          "Frozen v0.1 membership, blockers and Y remain unchanged.",
+          "No cleaning, navigation, obstacle, autonomy, privacy or app outcome is guaranteed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "robot-vacuum-decision-projection:xiaomi_h40_ov51_tr:exact",
+        "offeringId": "XIAOMI_H40_OV51_TR",
+        "eligibleEvidenceIds": [
+          "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:widthMm",
+          "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:depthMm",
+          "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:heightMm",
+          "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:thresholdMm",
+          "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:batteryMah",
+          "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:runtimeMinutes",
+          "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:runtimeContext",
+          "robot-vacuum-evidence-fact:xiaomi_h40_ov51_tr:manufacturerPascal",
+          "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:wetMop",
+          "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:mapping",
+          "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:appControl",
+          "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:autoChargeReturn",
+          "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:autoEmpty",
+          "robot-vacuum-evidence-capability:xiaomi_h40_ov51_tr:mopLift"
+        ],
+        "needMappingIds": [
+          "robot-vacuum-map:heightMm",
+          "robot-vacuum-map:thresholdMm",
+          "robot-vacuum-map:runtime",
+          "robot-vacuum-map:autoEmpty",
+          "robot-vacuum-map:mopLift",
+          "robot-vacuum-map:appControl"
+        ],
+        "limitations": [
+          "Exact Robot Vacuum evidence only; unknowns remain neutral.",
+          "Pa, derived planning, interpretations, commerce, media and Advisor cannot filter, rank, or authorize."
+        ],
+        "disclosures": [
+          "Frozen v0.1 membership, blockers and Y remain unchanged.",
+          "No cleaning, navigation, obstacle, autonomy, privacy or app outcome is guaranteed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "robot-vacuum-decision-projection:xiaomi_x20_pro_tr:exact",
+        "offeringId": "XIAOMI_X20_PRO_TR",
+        "eligibleEvidenceIds": [
+          "robot-vacuum-evidence-fact:xiaomi_x20_pro_tr:manufacturerPascal",
+          "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:wetMop",
+          "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:mapping",
+          "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:appControl",
+          "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:autoChargeReturn",
+          "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:autoEmpty",
+          "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:mopLift",
+          "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:mopWash",
+          "robot-vacuum-evidence-capability:xiaomi_x20_pro_tr:mopDry"
+        ],
+        "needMappingIds": [
+          "robot-vacuum-map:autoEmpty",
+          "robot-vacuum-map:mopLift",
+          "robot-vacuum-map:appControl",
+          "robot-vacuum-map:mop-care"
+        ],
+        "limitations": [
+          "Exact Robot Vacuum evidence only; unknowns remain neutral.",
+          "Pa, derived planning, interpretations, commerce, media and Advisor cannot filter, rank, or authorize."
+        ],
+        "disclosures": [
+          "Frozen v0.1 membership, blockers and Y remain unchanged.",
+          "No cleaning, navigation, obstacle, autonomy, privacy or app outcome is guaranteed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "robot-vacuum-decision-projection:samsung_vr3mb77312k_tr:exact",
+        "offeringId": "SAMSUNG_VR3MB77312K_TR",
+        "eligibleEvidenceIds": [
+          "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:widthMm",
+          "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:depthMm",
+          "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:heightMm",
+          "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:dustMl",
+          "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:waterMl",
+          "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:runtimeMinutes",
+          "robot-vacuum-evidence-fact:samsung_vr3mb77312k_tr:runtimeContext",
+          "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:wetMop",
+          "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:mapping",
+          "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:appControl",
+          "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:autoChargeReturn",
+          "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:autoEmpty",
+          "robot-vacuum-evidence-capability:samsung_vr3mb77312k_tr:mopLift"
+        ],
+        "needMappingIds": [
+          "robot-vacuum-map:heightMm",
+          "robot-vacuum-map:dustMl",
+          "robot-vacuum-map:waterMl",
+          "robot-vacuum-map:runtime",
+          "robot-vacuum-map:autoEmpty",
+          "robot-vacuum-map:mopLift",
+          "robot-vacuum-map:appControl"
+        ],
+        "limitations": [
+          "Exact Robot Vacuum evidence only; unknowns remain neutral.",
+          "Pa, derived planning, interpretations, commerce, media and Advisor cannot filter, rank, or authorize."
+        ],
+        "disclosures": [
+          "Frozen v0.1 membership, blockers and Y remain unchanged.",
+          "No cleaning, navigation, obstacle, autonomy, privacy or app outcome is guaranteed."
+        ],
+        "traceability": "EXACT"
+      }
+    ],
+    "l9AdvisorKnowledge": []
+  },
+  "externalBoundaries": {
+    "commerce": "EXTERNAL_VOLATILE_EXACT_IDENTITY_JOIN_ONLY",
+    "media": "EXTERNAL_VOLATILE_EXACT_IDENTITY_JOIN_ONLY",
+    "offerIdentityAuthority": "NONE",
+    "offerRankingAuthority": "NONE",
+    "affiliateRankingAuthority": "NONE"
+  },
+  "releaseDigest": "sha256:e943678e25d449e29859d6b72c1225093a64dc0882065f569d78921ab7bc3539"
+}

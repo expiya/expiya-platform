@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "appliances-authority-manifest/v1",
+  "departmentId": "APPLIANCES",
+  "productType": "WASHING_MACHINE",
+  "market": "TR",
+  "catalogReleaseVersion": "APPLIANCES-WM-TR-v0.2",
+  "catalogDigest": "1b89b1bcfb3bc7c8e19a1916417c67db6246c44ec9d55fa835ec6bfa9fbad587",
+  "catalogArtifactSha256": "ce62509117adb1858ec009ed2b607d33a6038207c0865e7364952a2e700977ac",
+  "membershipDigest": "9823549a4200da0cf88e4460c73f9861f81d7b0959e79ca16a45beacf1b098f2",
+  "memberCount": 29,
+  "semanticRegistryVersion": "WASHING_MACHINE_SEMANTIC_REGISTRY/v0.1",
+  "semanticRegistryDigest": "44784b43d818bee505e85f66ed60ce065809a1ff2bd42852157d4e44d7d7038a",
+  "catalogSchemaVersion": "WASHING_MACHINE_CANONICAL_CATALOG/v0.1",
+  "semanticSchemaVersion": "WASHING_MACHINE_SEMANTIC_REGISTRY/v0.1",
+  "lifecycle": "ACTIVE",
+  "decisionAdoption": {
+    "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-DECISION-ADOPTION-01",
+    "sourceBatchDigest": "sha256:b3cb67e1dd00dc6c529ae750679e8276c13f9723d4e1d77737a7f39aee441ea2",
+    "sourcePackageSha256": "2e76d621ce5569d7005ea29ab10e70f1807199038d1d973a681baee829210732",
+    "catalogActivationId": "APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55",
+    "parentReleaseVersion": "APPLIANCES-WM-TR-v0.1",
+    "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+    "decisionAuthorityApproval": "EXPLICIT_PRODUCT_OWNER_APPROVAL",
+    "commerceBoundary": "L10_NO_DECISION_EFFECT",
+    "admittedOfferingIds": [
+      "appliances:wm:tr:samsung:ww90ta046ah-ah",
+      "appliances:wm:tr:vestel:cmi-97402-wifi",
+      "appliances:wm:tr:arcelik:10120-imp",
+      "appliances:wm:tr:altus:al-cm-101254-d",
+      "appliances:wm:tr:samsung:ww11dg6b25leah"
+    ],
+    "excludedOfferingIds": [
+      "appliances:dishwasher:tr:teka:dfi-46700-ttm"
+    ]
+  }
+}

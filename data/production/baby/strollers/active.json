@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "baby-stroller-active-pointer/v1",
+  "departmentId": "BABY_AND_CHILD",
+  "activeCapabilities": ["STROLLER"],
+  "release": "BABY-STROLLER-TR-v0.2-approval-candidate",
+  "authorityDigest": "sha256:e0f9a3bd92488849e81b0462ada33056a450bab9f5f08759fbf01e91bbc9e4ae",
+  "approvalEventSha256": "sha256:bb25d562071c2dbe73bb978b489fa7a5cd709391bda13a043b6eafd2837f26a0",
+  "activationEventSha256": "sha256:f31de7c5c32b02024f45a0094163bc20867c37bab8281395c96623d65242a656",
+  "activationEvent": "data/production/baby/strollers/governance/activation-events/BABY-STROLLER-ACT-E0F9A3BD92488849/activation.json",
+  "rollback": {
+    "previousState": "INACTIVE_NO_PRIOR_POINTER",
+    "previousPointer": null
+  }
+}

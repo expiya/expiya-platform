@@ -1,0 +1,4389 @@
+{
+  "schemaVersion": "dryer-read-projection-verification/v1",
+  "status": "NON_PRODUCTION_GOVERNANCE_VERIFICATION",
+  "entitlementAuthority": "SYNTHETIC_TEST_ONLY_NOT_USER_ACCESS",
+  "comparison": {
+    "schemaVersion": "XPY_COMPARISON_EVIDENCE_PROJECTION/v0.1",
+    "readOnly": true,
+    "catalogReleaseId": "appliances:dryer:catalog-richness:tr:v0.2",
+    "catalogReleaseDigest": "sha256:cb360607540a60b2d4519bf422d1c87f6d53240ce2b33b6bf0d895785e12df98",
+    "market": "TR",
+    "authorization": {
+      "purchaseStatus": "PURCHASED",
+      "entitlementId": "GOVERNANCE-VERIFICATION-NON-PRODUCTION",
+      "comparisonSetId": "DRYER-THREE-EXACT-GOVERNANCE-VERIFICATION",
+      "exactOfferingIds": [
+        "BEKO_KMX_82_TR",
+        "BEKO_KM_99_TR",
+        "BOSCH_WQG24100TR"
+      ]
+    },
+    "offerings": [
+      {
+        "offeringId": "BEKO_KMX_82_TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Beko",
+          "model": "KMX 82",
+          "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+          "identifiers": {
+            "productId": "BEKO_KMX_82_TR",
+            "manufacturerProductCode": "7184270260"
+          }
+        }
+      },
+      {
+        "offeringId": "BEKO_KM_99_TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Beko",
+          "model": "KM 99",
+          "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+          "identifiers": {
+            "productId": "BEKO_KM_99_TR"
+          }
+        }
+      },
+      {
+        "offeringId": "BOSCH_WQG24100TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Bosch",
+          "model": "WQG24100TR",
+          "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+          "identifiers": {
+            "productId": "BOSCH_WQG24100TR",
+            "gtin": "4242005281251",
+            "documentCode": "9001745932"
+          }
+        }
+      }
+    ],
+    "evidence": [
+      {
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:rateddryloadcapacity",
+        "kind": "TECHNICAL",
+        "sourceId": "BEKO-KMX82-FICHE-TR",
+        "assertionId": "dryer-assertion:beko-kmx-82-tr:rateddryloadcapacity",
+        "offeringIds": [
+          "BEKO_KMX_82_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [],
+        "assertion": {
+          "locator": "PDF p.1 / Anma kapasitesi",
+          "value": 8,
+          "unit": "kg",
+          "applicability": {
+            "offeringId": "BEKO_KMX_82_TR",
+            "market": "TR",
+            "model": "KMX 82",
+            "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:bodywidth",
+        "kind": "TECHNICAL",
+        "sourceId": "BEKO-KMX82-FICHE-TR",
+        "assertionId": "dryer-assertion:beko-kmx-82-tr:bodywidth",
+        "offeringIds": [
+          "BEKO_KMX_82_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Fiche rounds width to 60 cm; the asserted 598 mm value is inherited from the approved parent and corroborated by the exact-model-list manual."
+        ],
+        "assertion": {
+          "locator": "PDF p.1 / Boyutlar; exact manual p.13 refines 59.8 cm",
+          "value": 598,
+          "unit": "mm",
+          "applicability": {
+            "offeringId": "BEKO_KMX_82_TR",
+            "market": "TR",
+            "model": "KMX 82",
+            "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:bodyheight",
+        "kind": "TECHNICAL",
+        "sourceId": "BEKO-KMX82-PRODUCT-TR",
+        "assertionId": "dryer-assertion:beko-kmx-82-tr:bodyheight",
+        "offeringIds": [
+          "BEKO_KMX_82_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "The fiche lists rounded height 85 cm; 846 mm remains the approved parent value."
+        ],
+        "assertion": {
+          "locator": "domain-pack.products[BEKO_KMX_82_TR].technicalFacts.heightMm",
+          "value": 846,
+          "unit": "mm",
+          "applicability": {
+            "offeringId": "BEKO_KMX_82_TR",
+            "market": "TR",
+            "model": "KMX 82",
+            "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:bodydepth",
+        "kind": "TECHNICAL",
+        "sourceId": "BEKO-KMX82-FICHE-TR",
+        "assertionId": "dryer-assertion:beko-kmx-82-tr:bodydepth",
+        "offeringIds": [
+          "BEKO_KMX_82_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [],
+        "assertion": {
+          "locator": "PDF p.1 / Boyutlar; exact manual p.13: 54.5 cm",
+          "value": 545,
+          "unit": "mm",
+          "applicability": {
+            "offeringId": "BEKO_KMX_82_TR",
+            "market": "TR",
+            "model": "KMX 82",
+            "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:directdrain",
+        "kind": "CAPABILITY",
+        "sourceId": "BEKO-KMX82-PRODUCT-TR",
+        "assertionId": "dryer-assertion:beko-kmx-82-tr:directdrain",
+        "offeringIds": [
+          "BEKO_KMX_82_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [],
+        "assertion": {
+          "locator": "domain-pack.products[BEKO_KMX_82_TR].capabilities.directDrain",
+          "value": "PRESENT",
+          "applicability": {
+            "offeringId": "BEKO_KMX_82_TR",
+            "market": "TR",
+            "model": "KMX 82",
+            "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:sensordrying",
+        "kind": "CAPABILITY",
+        "sourceId": "BEKO-KMX82-PRODUCT-TR",
+        "assertionId": "dryer-assertion:beko-kmx-82-tr:sensordrying",
+        "offeringIds": [
+          "BEKO_KMX_82_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Sensor presence does not guarantee a drying outcome for every load."
+        ],
+        "assertion": {
+          "locator": "domain-pack.products[BEKO_KMX_82_TR].capabilities.sensorDrying",
+          "value": "PRESENT",
+          "applicability": {
+            "offeringId": "BEKO_KMX_82_TR",
+            "market": "TR",
+            "model": "KMX 82",
+            "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-km-99-tr:fact:rateddryloadcapacity",
+        "kind": "TECHNICAL",
+        "sourceId": "BEKO-KM99-PRODUCT-TR",
+        "assertionId": "dryer-assertion:beko-km-99-tr:rateddryloadcapacity",
+        "offeringIds": [
+          "BEKO_KM_99_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "MEDIUM",
+        "status": "REVIEWED",
+        "limitations": [
+          "The official product page was automation-blocked during preparation; this assertion preserves the approved parent value and review status."
+        ],
+        "assertion": {
+          "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.capacityKg",
+          "value": 9,
+          "unit": "kg",
+          "applicability": {
+            "offeringId": "BEKO_KM_99_TR",
+            "market": "TR",
+            "model": "KM 99",
+            "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-km-99-tr:fact:bodywidth",
+        "kind": "TECHNICAL",
+        "sourceId": "BEKO-KM99-PRODUCT-TR",
+        "assertionId": "dryer-assertion:beko-km-99-tr:bodywidth",
+        "offeringIds": [
+          "BEKO_KM_99_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "MEDIUM",
+        "status": "REVIEWED",
+        "limitations": [],
+        "assertion": {
+          "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.widthMm",
+          "value": 597,
+          "unit": "mm",
+          "applicability": {
+            "offeringId": "BEKO_KM_99_TR",
+            "market": "TR",
+            "model": "KM 99",
+            "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-km-99-tr:fact:bodyheight",
+        "kind": "TECHNICAL",
+        "sourceId": "BEKO-KM99-PRODUCT-TR",
+        "assertionId": "dryer-assertion:beko-km-99-tr:bodyheight",
+        "offeringIds": [
+          "BEKO_KM_99_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "MEDIUM",
+        "status": "REVIEWED",
+        "limitations": [],
+        "assertion": {
+          "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.heightMm",
+          "value": 846,
+          "unit": "mm",
+          "applicability": {
+            "offeringId": "BEKO_KM_99_TR",
+            "market": "TR",
+            "model": "KM 99",
+            "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-km-99-tr:fact:bodydepth",
+        "kind": "TECHNICAL",
+        "sourceId": "BEKO-KM99-PRODUCT-TR",
+        "assertionId": "dryer-assertion:beko-km-99-tr:bodydepth",
+        "offeringIds": [
+          "BEKO_KM_99_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "MEDIUM",
+        "status": "REVIEWED",
+        "limitations": [],
+        "assertion": {
+          "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.depthMm",
+          "value": 654,
+          "unit": "mm",
+          "applicability": {
+            "offeringId": "BEKO_KM_99_TR",
+            "market": "TR",
+            "model": "KM 99",
+            "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-km-99-tr:capability:directdrain",
+        "kind": "CAPABILITY",
+        "sourceId": "BEKO-KM99-PRODUCT-TR",
+        "assertionId": "dryer-assertion:beko-km-99-tr:directdrain",
+        "offeringIds": [
+          "BEKO_KM_99_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "MEDIUM",
+        "status": "REVIEWED",
+        "limitations": [],
+        "assertion": {
+          "locator": "domain-pack.products[BEKO_KM_99_TR].capabilities.directDrain",
+          "value": "PRESENT",
+          "applicability": {
+            "offeringId": "BEKO_KM_99_TR",
+            "market": "TR",
+            "model": "KM 99",
+            "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-km-99-tr:capability:sensordrying",
+        "kind": "CAPABILITY",
+        "sourceId": "BEKO-KM99-PRODUCT-TR",
+        "assertionId": "dryer-assertion:beko-km-99-tr:sensordrying",
+        "offeringIds": [
+          "BEKO_KM_99_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "MEDIUM",
+        "status": "REVIEWED",
+        "limitations": [
+          "Sensor presence does not guarantee a drying outcome for every load."
+        ],
+        "assertion": {
+          "locator": "domain-pack.products[BEKO_KM_99_TR].capabilities.sensorDrying",
+          "value": "PRESENT",
+          "applicability": {
+            "offeringId": "BEKO_KM_99_TR",
+            "market": "TR",
+            "model": "KM 99",
+            "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:rateddryloadcapacity",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+        "assertionId": "dryer-assertion:bosch-wqg24100tr:rateddryloadcapacity",
+        "offeringIds": [
+          "BOSCH_WQG24100TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Manual p.50 corroboration remains L9 and is not the L1 authority."
+        ],
+        "assertion": {
+          "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.capacityKg",
+          "value": 9,
+          "unit": "kg",
+          "applicability": {
+            "offeringId": "BOSCH_WQG24100TR",
+            "market": "TR",
+            "model": "WQG24100TR",
+            "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:bodywidth",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+        "assertionId": "dryer-assertion:bosch-wqg24100tr:bodywidth",
+        "offeringIds": [
+          "BOSCH_WQG24100TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [],
+        "assertion": {
+          "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.widthMm",
+          "value": 598,
+          "unit": "mm",
+          "applicability": {
+            "offeringId": "BOSCH_WQG24100TR",
+            "market": "TR",
+            "model": "WQG24100TR",
+            "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:bodyheight",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+        "assertionId": "dryer-assertion:bosch-wqg24100tr:bodyheight",
+        "offeringIds": [
+          "BOSCH_WQG24100TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [],
+        "assertion": {
+          "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.heightMm",
+          "value": 842,
+          "unit": "mm",
+          "applicability": {
+            "offeringId": "BOSCH_WQG24100TR",
+            "market": "TR",
+            "model": "WQG24100TR",
+            "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:bodydepth",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+        "assertionId": "dryer-assertion:bosch-wqg24100tr:bodydepth",
+        "offeringIds": [
+          "BOSCH_WQG24100TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [],
+        "assertion": {
+          "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.depthMm",
+          "value": 613,
+          "unit": "mm",
+          "applicability": {
+            "offeringId": "BOSCH_WQG24100TR",
+            "market": "TR",
+            "model": "WQG24100TR",
+            "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:dooropendepth",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+        "assertionId": "dryer-assertion:bosch-wqg24100tr:dooropendepth",
+        "offeringIds": [
+          "BOSCH_WQG24100TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [],
+        "assertion": {
+          "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.doorOpenDepthMm",
+          "value": 1096,
+          "unit": "mm",
+          "applicability": {
+            "offeringId": "BOSCH_WQG24100TR",
+            "market": "TR",
+            "model": "WQG24100TR",
+            "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:capability:directdrain",
+        "kind": "CAPABILITY",
+        "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+        "assertionId": "dryer-assertion:bosch-wqg24100tr:directdrain",
+        "offeringIds": [
+          "BOSCH_WQG24100TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [],
+        "assertion": {
+          "locator": "domain-pack.products[BOSCH_WQG24100TR].capabilities.directDrain",
+          "value": "PRESENT",
+          "applicability": {
+            "offeringId": "BOSCH_WQG24100TR",
+            "market": "TR",
+            "model": "WQG24100TR",
+            "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:capability:sensordrying",
+        "kind": "CAPABILITY",
+        "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+        "assertionId": "dryer-assertion:bosch-wqg24100tr:sensordrying",
+        "offeringIds": [
+          "BOSCH_WQG24100TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Sensor presence does not guarantee a drying outcome for every load."
+        ],
+        "assertion": {
+          "locator": "domain-pack.products[BOSCH_WQG24100TR].capabilities.sensorDrying",
+          "value": "PRESENT",
+          "applicability": {
+            "offeringId": "BOSCH_WQG24100TR",
+            "market": "TR",
+            "model": "WQG24100TR",
+            "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-p-13-3-1-teknik-zellikler",
+        "kind": "MANUAL",
+        "sourceId": "BEKO-KMX82-MANUAL-TR",
+        "assertionId": "dryer-manual-assertion:beko-kmx-82-tr:pdf-p-13-3-1-teknik-zellikler",
+        "offeringIds": [
+          "BEKO_KMX_82_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "MEDIUM",
+        "status": "VERIFIED",
+        "limitations": [
+          "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+        ],
+        "assertion": {
+          "locator": "PDF p.13 / 3.1 Teknik özellikler",
+          "value": "The manual lists 8 kg maximum dry-load capacity and 59.8 × 84.6 × 54.5 cm body dimensions.",
+          "applicability": {
+            "offeringId": "BEKO_KMX_82_TR",
+            "market": "TR",
+            "model": "KMX 82",
+            "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+            "status": "BOUNDED"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-p-16-4-3-su-giderine-ba-lanmas",
+        "kind": "MANUAL",
+        "sourceId": "BEKO-KMX82-MANUAL-TR",
+        "assertionId": "dryer-manual-assertion:beko-kmx-82-tr:pdf-p-16-4-3-su-giderine-ba-lanmas",
+        "offeringIds": [
+          "BEKO_KMX_82_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "MEDIUM",
+        "status": "VERIFIED",
+        "limitations": [
+          "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+        ],
+        "assertion": {
+          "locator": "PDF p.16 / 4.3 Su giderine bağlanması",
+          "value": "The supplied drain hose can route condensate directly; the manual specifies a maximum 80 cm connection height and no hose extension.",
+          "applicability": {
+            "offeringId": "BEKO_KMX_82_TR",
+            "market": "TR",
+            "model": "KMX 82",
+            "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+            "status": "BOUNDED"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-pp-21-23-6-4-program-se-imi-ve-t-ketim-tablosu",
+        "kind": "MANUAL",
+        "sourceId": "BEKO-KMX82-MANUAL-TR",
+        "assertionId": "dryer-manual-assertion:beko-kmx-82-tr:pdf-pp-21-23-6-4-program-se-imi-ve-t-ketim-tablosu",
+        "offeringIds": [
+          "BEKO_KMX_82_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "MEDIUM",
+        "status": "VERIFIED",
+        "limitations": [
+          "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion.",
+          "Program text does not guarantee care, hygiene, speed or dryness outcomes."
+        ],
+        "assertion": {
+          "locator": "PDF pp.21-23 / 6.4 Program seçimi ve tüketim tablosu",
+          "value": "Program descriptions, maximum loads, indicative durations, energy values and the 64 dB(A) declaration are model-manual operating context.",
+          "applicability": {
+            "offeringId": "BEKO_KMX_82_TR",
+            "market": "TR",
+            "model": "KMX 82",
+            "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+            "status": "BOUNDED"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-pp-27-29-7-bak-m-ve-temizlik",
+        "kind": "MANUAL",
+        "sourceId": "BEKO-KMX82-MANUAL-TR",
+        "assertionId": "dryer-manual-assertion:beko-kmx-82-tr:pdf-pp-27-29-7-bak-m-ve-temizlik",
+        "offeringIds": [
+          "BEKO_KMX_82_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "MEDIUM",
+        "status": "VERIFIED",
+        "limitations": [
+          "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+        ],
+        "assertion": {
+          "locator": "PDF pp.27-29 / 7 Bakım ve temizlik",
+          "value": "The manual requires lint-filter/door-area cleaning after each cycle, sensor cleaning four times yearly, condensate-container handling, and condenser inspection at least every six months.",
+          "applicability": {
+            "offeringId": "BEKO_KMX_82_TR",
+            "market": "TR",
+            "model": "KMX 82",
+            "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+            "status": "BOUNDED"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-13-16-4-3-4-5-kurma-ve-ba-lama",
+        "kind": "MANUAL",
+        "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+        "assertionId": "dryer-manual-assertion:bosch-wqg24100tr:pdf-pp-13-16-4-3-4-5-kurma-ve-ba-lama",
+        "offeringIds": [
+          "BOSCH_WQG24100TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "The manual cover and document code identify WQG24100TR exactly.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+        ],
+        "assertion": {
+          "locator": "PDF pp.13-16 / 4.3-4.5 Kurma ve bağlama",
+          "value": "The manual states placement, stacking, drain-routing and leveling constraints, including model-specific drain connection ranges.",
+          "applicability": {
+            "offeringId": "BOSCH_WQG24100TR",
+            "market": "TR",
+            "model": "WQG24100TR",
+            "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-19-27-6-9-ekran-tu-lar-kurutma-hedefi-ve-programlar",
+        "kind": "MANUAL",
+        "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+        "assertionId": "dryer-manual-assertion:bosch-wqg24100tr:pdf-pp-19-27-6-9-ekran-tu-lar-kurutma-hedefi-ve-programlar",
+        "offeringIds": [
+          "BOSCH_WQG24100TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "The manual cover and document code identify WQG24100TR exactly.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion.",
+          "Manual descriptions are operating guidance, not guaranteed outcomes or L2 presence assertions."
+        ],
+        "assertion": {
+          "locator": "PDF pp.19-27 / 6-9 Ekran, tuşlar, kurutma hedefi ve programlar",
+          "value": "The exact manual explains sensor-controlled automatic programs, target dryness, delicate/half-load/quiet controls and program-specific maximum loads.",
+          "applicability": {
+            "offeringId": "BOSCH_WQG24100TR",
+            "market": "TR",
+            "model": "WQG24100TR",
+            "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-31-34-39-12-9-12-11-and-15-3",
+        "kind": "MANUAL",
+        "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+        "assertionId": "dryer-manual-assertion:bosch-wqg24100tr:pdf-pp-31-34-39-12-9-12-11-and-15-3",
+        "offeringIds": [
+          "BOSCH_WQG24100TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "The manual cover and document code identify WQG24100TR exactly.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+        ],
+        "assertion": {
+          "locator": "PDF pp.31-34,39 / 12.9-12.11 and 15.3",
+          "value": "The exact manual describes lint-filter, base-unit-filter, condensate-container and moisture-sensor maintenance.",
+          "applicability": {
+            "offeringId": "BOSCH_WQG24100TR",
+            "market": "TR",
+            "model": "WQG24100TR",
+            "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-49-50-19-t-ketim-de-erleri-and-20-teknik-veriler",
+        "kind": "MANUAL",
+        "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+        "assertionId": "dryer-manual-assertion:bosch-wqg24100tr:pdf-pp-49-50-19-t-ketim-de-erleri-and-20-teknik-veriler",
+        "offeringIds": [
+          "BOSCH_WQG24100TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "The manual cover and document code identify WQG24100TR exactly.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion.",
+          "These values remain L9 and are not promoted into decision evidence in this release."
+        ],
+        "assertion": {
+          "locator": "PDF pp.49-50 / 19 Tüketim değerleri and 20 Teknik veriler",
+          "value": "The exact manual publishes program/load/moisture-specific energy values and body/door-state dimensions, with an explicit warning that actual values vary by load, environment and options.",
+          "applicability": {
+            "offeringId": "BOSCH_WQG24100TR",
+            "market": "TR",
+            "model": "WQG24100TR",
+            "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+            "status": "EXACT"
+          }
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": "BEKO-KMX82-PRODUCT-TR",
+        "kind": "OFFICIAL",
+        "uri": "https://www.beko.com.tr/8-kg-kurutma-makinesi/kmx-82-kurutma-makinesi",
+        "version": "observed-2026-09-03",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "REVIEWED",
+        "language": "tr-TR"
+      },
+      {
+        "sourceId": "BEKO-KMX82-FICHE-TR",
+        "kind": "OFFICIAL",
+        "uri": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/7184270260_MDM_PRODUCT_FICHE_EU_2021_tr_TR.pdf",
+        "version": "7184270260/2026-09-04",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "VERIFIED",
+        "artifactSha256": "sha256:95513f4f61249307b795ec77a1b49d226f869f89a0d377dfedc8f3c574dd15ae",
+        "language": "tr-TR",
+        "documentCode": "7184270260"
+      },
+      {
+        "sourceId": "BEKO-KMX82-MANUAL-TR",
+        "kind": "MANUAL",
+        "uri": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/7184270260_MDM2_USER_MANUAL_FILE_tr_TR.pdf",
+        "version": "2960314264_TR/30-01-26",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "BOUNDED",
+        "status": "VERIFIED",
+        "artifactSha256": "sha256:6928129d754bece05ca0c1594f6650d3941d0662598d691e9d83802ac477c6df",
+        "language": "tr-TR",
+        "documentCode": "2960314264_TR"
+      },
+      {
+        "sourceId": "BEKO-KM99-PRODUCT-TR",
+        "kind": "OFFICIAL",
+        "uri": "https://www.beko.com.tr/kurutma-makinesi/km-99-kurutma-makinesi",
+        "version": "parent-reviewed-2026-09-03",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "REVIEWED",
+        "language": "tr-TR"
+      },
+      {
+        "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+        "kind": "OFFICIAL",
+        "uri": "https://www.bosch-home.com.tr/tr/product/WQG24100TR",
+        "version": "observed-2026-09-03",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "VERIFIED",
+        "language": "tr-TR"
+      },
+      {
+        "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+        "kind": "MANUAL",
+        "uri": "https://media3.bosch-home.com/Documents/9001745932_A.pdf",
+        "version": "9001745932/020510",
+        "observedAt": "2026-09-03T00:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "VERIFIED",
+        "artifactSha256": "sha256:0788d7d66c3bd4ceb7bc889296de05a2e7af3b890d892adec456bd1ba8fb0f91",
+        "language": "tr-TR",
+        "documentCode": "9001745932"
+      }
+    ],
+    "dailyLifeInterpretations": [
+      {
+        "interpretationId": "dryer-interpretation:beko-kmx-82-tr:capacity",
+        "offeringId": "BEKO_KMX_82_TR",
+        "text": "The published capacity is useful for checking a stated minimum dry-load requirement, but it is not a people-to-kilograms formula.",
+        "factIds": [
+          "dryer-fact:beko-kmx-82-tr:rateddryloadcapacity"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Actual load composition and program limits still apply."
+        ],
+        "nonGuarantees": [
+          "No household-size fit or throughput guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:beko-kmx-82-tr:installation",
+        "offeringId": "BEKO_KMX_82_TR",
+        "text": "Published body dimensions can be checked against like-for-like space bounds; missing door-open depth stays unknown and neutral.",
+        "factIds": [
+          "dryer-fact:beko-kmx-82-tr:bodywidth",
+          "dryer-fact:beko-kmx-82-tr:bodyheight",
+          "dryer-fact:beko-kmx-82-tr:bodydepth"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Clearance, ventilation, hose and stacking instructions require the applicable manual."
+        ],
+        "nonGuarantees": [
+          "No installation-fit guarantee without a complete user-space envelope."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:beko-kmx-82-tr:drain",
+        "offeringId": "BEKO_KMX_82_TR",
+        "text": "A verified direct-drain option may reduce routine condensate-container emptying when a compliant drain route is available.",
+        "factIds": [],
+        "capabilityIds": [
+          "dryer-capability:beko-kmx-82-tr:directdrain"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Hose routing, height and connection limits remain model-specific."
+        ],
+        "nonGuarantees": [
+          "No plumbing suitability or leak-free-operation guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:beko-kmx-82-tr:sensor",
+        "offeringId": "BEKO_KMX_82_TR",
+        "text": "Sensor control can adapt an automatic cycle to measured moisture, while selection, load composition and sensor cleanliness still matter.",
+        "factIds": [],
+        "capabilityIds": [
+          "dryer-capability:beko-kmx-82-tr:sensordrying"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Use the exact manual for operation and cleaning."
+        ],
+        "nonGuarantees": [
+          "No exact final-dryness or fabric-protection guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:beko-km-99-tr:capacity",
+        "offeringId": "BEKO_KM_99_TR",
+        "text": "The published capacity is useful for checking a stated minimum dry-load requirement, but it is not a people-to-kilograms formula.",
+        "factIds": [
+          "dryer-fact:beko-km-99-tr:rateddryloadcapacity"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Actual load composition and program limits still apply."
+        ],
+        "nonGuarantees": [
+          "No household-size fit or throughput guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:beko-km-99-tr:installation",
+        "offeringId": "BEKO_KM_99_TR",
+        "text": "Published body dimensions can be checked against like-for-like space bounds; missing door-open depth stays unknown and neutral.",
+        "factIds": [
+          "dryer-fact:beko-km-99-tr:bodywidth",
+          "dryer-fact:beko-km-99-tr:bodyheight",
+          "dryer-fact:beko-km-99-tr:bodydepth"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Clearance, ventilation, hose and stacking instructions require the applicable manual."
+        ],
+        "nonGuarantees": [
+          "No installation-fit guarantee without a complete user-space envelope."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:beko-km-99-tr:drain",
+        "offeringId": "BEKO_KM_99_TR",
+        "text": "A verified direct-drain option may reduce routine condensate-container emptying when a compliant drain route is available.",
+        "factIds": [],
+        "capabilityIds": [
+          "dryer-capability:beko-km-99-tr:directdrain"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Hose routing, height and connection limits remain model-specific."
+        ],
+        "nonGuarantees": [
+          "No plumbing suitability or leak-free-operation guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:beko-km-99-tr:sensor",
+        "offeringId": "BEKO_KM_99_TR",
+        "text": "Sensor control can adapt an automatic cycle to measured moisture, while selection, load composition and sensor cleanliness still matter.",
+        "factIds": [],
+        "capabilityIds": [
+          "dryer-capability:beko-km-99-tr:sensordrying"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Use the exact manual for operation and cleaning."
+        ],
+        "nonGuarantees": [
+          "No exact final-dryness or fabric-protection guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:bosch-wqg24100tr:capacity",
+        "offeringId": "BOSCH_WQG24100TR",
+        "text": "The published capacity is useful for checking a stated minimum dry-load requirement, but it is not a people-to-kilograms formula.",
+        "factIds": [
+          "dryer-fact:bosch-wqg24100tr:rateddryloadcapacity"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Actual load composition and program limits still apply."
+        ],
+        "nonGuarantees": [
+          "No household-size fit or throughput guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:bosch-wqg24100tr:installation",
+        "offeringId": "BOSCH_WQG24100TR",
+        "text": "Published body dimensions can be checked against like-for-like space bounds; missing door-open depth stays unknown and neutral.",
+        "factIds": [
+          "dryer-fact:bosch-wqg24100tr:bodywidth",
+          "dryer-fact:bosch-wqg24100tr:bodyheight",
+          "dryer-fact:bosch-wqg24100tr:bodydepth",
+          "dryer-fact:bosch-wqg24100tr:doorcloseddepth",
+          "dryer-fact:bosch-wqg24100tr:dooropendepth"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Clearance, ventilation, hose and stacking instructions require the applicable manual."
+        ],
+        "nonGuarantees": [
+          "No installation-fit guarantee without a complete user-space envelope."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:bosch-wqg24100tr:drain",
+        "offeringId": "BOSCH_WQG24100TR",
+        "text": "A verified direct-drain option may reduce routine condensate-container emptying when a compliant drain route is available.",
+        "factIds": [],
+        "capabilityIds": [
+          "dryer-capability:bosch-wqg24100tr:directdrain"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Hose routing, height and connection limits remain model-specific."
+        ],
+        "nonGuarantees": [
+          "No plumbing suitability or leak-free-operation guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:bosch-wqg24100tr:sensor",
+        "offeringId": "BOSCH_WQG24100TR",
+        "text": "Sensor control can adapt an automatic cycle to measured moisture, while selection, load composition and sensor cleanliness still matter.",
+        "factIds": [],
+        "capabilityIds": [
+          "dryer-capability:bosch-wqg24100tr:sensordrying"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Use the exact manual for operation and cleaning."
+        ],
+        "nonGuarantees": [
+          "No exact final-dryness or fabric-protection guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:beko-kmx-82-tr:care",
+        "offeringId": "BEKO_KMX_82_TR",
+        "text": "The exact-model authority lists delicate, duvet, hygienic-drying and express programs, which can make those named use cases available within their stated limits.",
+        "factIds": [],
+        "capabilityIds": [
+          "dryer-capability:beko-kmx-82-tr:program-delicate-care",
+          "dryer-capability:beko-kmx-82-tr:program-duvet-drying",
+          "dryer-capability:beko-kmx-82-tr:program-hygienic-drying",
+          "dryer-capability:beko-kmx-82-tr:program-express-30"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Textile care labels and program-specific loads remain controlling."
+        ],
+        "nonGuarantees": [
+          "No hygiene, crease, speed, or fabric-protection outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:beko-km-99-tr:care",
+        "offeringId": "BEKO_KM_99_TR",
+        "text": "The exact-model authority lists wool, duvet, outdoor, hygienic-drying and express programs plus a quiet mode, each usable only within its documented scope.",
+        "factIds": [],
+        "capabilityIds": [
+          "dryer-capability:beko-km-99-tr:quietprogram",
+          "dryer-capability:beko-km-99-tr:program-wool-care",
+          "dryer-capability:beko-km-99-tr:program-duvet-drying",
+          "dryer-capability:beko-km-99-tr:program-outdoor-care",
+          "dryer-capability:beko-km-99-tr:program-hygienic-drying",
+          "dryer-capability:beko-km-99-tr:program-express-30"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "The exact user manual and measurement regimes are unresolved in this release."
+        ],
+        "nonGuarantees": [
+          "No quietness, hygiene, speed, or fabric-protection outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:beko-kmx-82-tr:maintenance",
+        "offeringId": "BEKO_KMX_82_TR",
+        "text": "The published lint-filter and condenser tasks indicate recurring user maintenance rather than a maintenance-free appliance.",
+        "factIds": [],
+        "capabilityIds": [
+          "dryer-capability:beko-kmx-82-tr:maintenance-lintfilter",
+          "dryer-capability:beko-kmx-82-tr:maintenance-condenserperiodic"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Actual frequency depends on use and indicators."
+        ],
+        "nonGuarantees": [
+          "No low-maintenance or performance guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:bosch-wqg24100tr:maintenance",
+        "offeringId": "BOSCH_WQG24100TR",
+        "text": "The published lint-filter, base-unit-filter and condensate-container tasks indicate multiple maintenance touchpoints; direct drain may change the container routine.",
+        "factIds": [],
+        "capabilityIds": [
+          "dryer-capability:bosch-wqg24100tr:directdrain",
+          "dryer-capability:bosch-wqg24100tr:maintenance-lintfilter",
+          "dryer-capability:bosch-wqg24100tr:maintenance-baseunitfilter",
+          "dryer-capability:bosch-wqg24100tr:maintenance-condensatecontainer"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Follow the exact manual and on-device warnings."
+        ],
+        "nonGuarantees": [
+          "No low-maintenance or uninterrupted-operation guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:beko-kmx-82-tr:efficiency-noise",
+        "offeringId": "BEKO_KMX_82_TR",
+        "text": "The standardized fiche values support bounded evidence display, but household energy cost and perceived sound depend on use and environment.",
+        "factIds": [
+          "dryer-fact:beko-kmx-82-tr:weightedenergypercycle",
+          "dryer-fact:beko-kmx-82-tr:acousticairbornenoise"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Compare only identical measurement scope and units."
+        ],
+        "nonGuarantees": [
+          "No low-bill or quiet-home guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dryer-interpretation:beko-km-99-tr:unknown-regimes",
+        "offeringId": "BEKO_KM_99_TR",
+        "text": "The parent release contains energy and noise numbers whose measurement regimes are unresolved; they remain visible as facts but cannot establish an advantage.",
+        "factIds": [
+          "dryer-fact:beko-km-99-tr:annualenergyunknownregime",
+          "dryer-fact:beko-km-99-tr:noiseunknownregime"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "polarity": "UNKNOWN",
+        "limitations": [
+          "Excluded from governed comparison dimensions."
+        ],
+        "nonGuarantees": [
+          "No efficiency or quietness claim."
+        ]
+      }
+    ],
+    "advisorKnowledge": [
+      {
+        "knowledgeId": "dryer-knowledge:beko-kmx-82-tr:pdf-p-13-3-1-teknik-zellikler",
+        "offeringId": "BEKO_KMX_82_TR",
+        "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+        "market": "TR",
+        "sourceId": "BEKO-KMX82-MANUAL-TR",
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-p-13-3-1-teknik-zellikler",
+        "sourceSection": "PDF p.13 / 3.1 Teknik özellikler",
+        "text": "The manual lists 8 kg maximum dry-load capacity and 59.8 × 84.6 × 54.5 cm body dimensions.",
+        "sourceArtifactSha256": "sha256:6928129d754bece05ca0c1594f6650d3941d0662598d691e9d83802ac477c6df",
+        "language": "tr-TR",
+        "applicability": "BOUNDED_MODEL_LIST",
+        "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "limitations": [
+          "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+        ],
+        "knowledgeKind": "MANUAL",
+        "decisionAuthority": "NONE"
+      },
+      {
+        "knowledgeId": "dryer-knowledge:beko-kmx-82-tr:pdf-p-16-4-3-su-giderine-ba-lanmas",
+        "offeringId": "BEKO_KMX_82_TR",
+        "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+        "market": "TR",
+        "sourceId": "BEKO-KMX82-MANUAL-TR",
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-p-16-4-3-su-giderine-ba-lanmas",
+        "sourceSection": "PDF p.16 / 4.3 Su giderine bağlanması",
+        "text": "The supplied drain hose can route condensate directly; the manual specifies a maximum 80 cm connection height and no hose extension.",
+        "sourceArtifactSha256": "sha256:6928129d754bece05ca0c1594f6650d3941d0662598d691e9d83802ac477c6df",
+        "language": "tr-TR",
+        "applicability": "BOUNDED_MODEL_LIST",
+        "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "limitations": [
+          "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+        ],
+        "knowledgeKind": "INSTALLATION",
+        "decisionAuthority": "NONE"
+      },
+      {
+        "knowledgeId": "dryer-knowledge:beko-kmx-82-tr:pdf-pp-21-23-6-4-program-se-imi-ve-t-ketim-tablosu",
+        "offeringId": "BEKO_KMX_82_TR",
+        "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+        "market": "TR",
+        "sourceId": "BEKO-KMX82-MANUAL-TR",
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-pp-21-23-6-4-program-se-imi-ve-t-ketim-tablosu",
+        "sourceSection": "PDF pp.21-23 / 6.4 Program seçimi ve tüketim tablosu",
+        "text": "Program descriptions, maximum loads, indicative durations, energy values and the 64 dB(A) declaration are model-manual operating context.",
+        "sourceArtifactSha256": "sha256:6928129d754bece05ca0c1594f6650d3941d0662598d691e9d83802ac477c6df",
+        "language": "tr-TR",
+        "applicability": "BOUNDED_MODEL_LIST",
+        "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "limitations": [
+          "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion.",
+          "Program text does not guarantee care, hygiene, speed or dryness outcomes."
+        ],
+        "knowledgeKind": "USAGE",
+        "decisionAuthority": "NONE"
+      },
+      {
+        "knowledgeId": "dryer-knowledge:beko-kmx-82-tr:pdf-pp-27-29-7-bak-m-ve-temizlik",
+        "offeringId": "BEKO_KMX_82_TR",
+        "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+        "market": "TR",
+        "sourceId": "BEKO-KMX82-MANUAL-TR",
+        "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-pp-27-29-7-bak-m-ve-temizlik",
+        "sourceSection": "PDF pp.27-29 / 7 Bakım ve temizlik",
+        "text": "The manual requires lint-filter/door-area cleaning after each cycle, sensor cleaning four times yearly, condensate-container handling, and condenser inspection at least every six months.",
+        "sourceArtifactSha256": "sha256:6928129d754bece05ca0c1594f6650d3941d0662598d691e9d83802ac477c6df",
+        "language": "tr-TR",
+        "applicability": "BOUNDED_MODEL_LIST",
+        "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "limitations": [
+          "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+        ],
+        "knowledgeKind": "MAINTENANCE",
+        "decisionAuthority": "NONE"
+      },
+      {
+        "knowledgeId": "dryer-knowledge:bosch-wqg24100tr:pdf-pp-13-16-4-3-4-5-kurma-ve-ba-lama",
+        "offeringId": "BOSCH_WQG24100TR",
+        "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+        "market": "TR",
+        "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-13-16-4-3-4-5-kurma-ve-ba-lama",
+        "sourceSection": "PDF pp.13-16 / 4.3-4.5 Kurma ve bağlama",
+        "text": "The manual states placement, stacking, drain-routing and leveling constraints, including model-specific drain connection ranges.",
+        "sourceArtifactSha256": "sha256:0788d7d66c3bd4ceb7bc889296de05a2e7af3b890d892adec456bd1ba8fb0f91",
+        "language": "tr-TR",
+        "applicability": "EXACT_MODEL",
+        "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "limitations": [
+          "The manual cover and document code identify WQG24100TR exactly.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+        ],
+        "knowledgeKind": "INSTALLATION",
+        "decisionAuthority": "NONE"
+      },
+      {
+        "knowledgeId": "dryer-knowledge:bosch-wqg24100tr:pdf-pp-19-27-6-9-ekran-tu-lar-kurutma-hedefi-ve-programlar",
+        "offeringId": "BOSCH_WQG24100TR",
+        "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+        "market": "TR",
+        "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-19-27-6-9-ekran-tu-lar-kurutma-hedefi-ve-programlar",
+        "sourceSection": "PDF pp.19-27 / 6-9 Ekran, tuşlar, kurutma hedefi ve programlar",
+        "text": "The exact manual explains sensor-controlled automatic programs, target dryness, delicate/half-load/quiet controls and program-specific maximum loads.",
+        "sourceArtifactSha256": "sha256:0788d7d66c3bd4ceb7bc889296de05a2e7af3b890d892adec456bd1ba8fb0f91",
+        "language": "tr-TR",
+        "applicability": "EXACT_MODEL",
+        "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "limitations": [
+          "The manual cover and document code identify WQG24100TR exactly.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion.",
+          "Manual descriptions are operating guidance, not guaranteed outcomes or L2 presence assertions."
+        ],
+        "knowledgeKind": "USAGE",
+        "decisionAuthority": "NONE"
+      },
+      {
+        "knowledgeId": "dryer-knowledge:bosch-wqg24100tr:pdf-pp-31-34-39-12-9-12-11-and-15-3",
+        "offeringId": "BOSCH_WQG24100TR",
+        "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+        "market": "TR",
+        "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-31-34-39-12-9-12-11-and-15-3",
+        "sourceSection": "PDF pp.31-34,39 / 12.9-12.11 and 15.3",
+        "text": "The exact manual describes lint-filter, base-unit-filter, condensate-container and moisture-sensor maintenance.",
+        "sourceArtifactSha256": "sha256:0788d7d66c3bd4ceb7bc889296de05a2e7af3b890d892adec456bd1ba8fb0f91",
+        "language": "tr-TR",
+        "applicability": "EXACT_MODEL",
+        "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "limitations": [
+          "The manual cover and document code identify WQG24100TR exactly.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+        ],
+        "knowledgeKind": "MAINTENANCE",
+        "decisionAuthority": "NONE"
+      },
+      {
+        "knowledgeId": "dryer-knowledge:bosch-wqg24100tr:pdf-pp-49-50-19-t-ketim-de-erleri-and-20-teknik-veriler",
+        "offeringId": "BOSCH_WQG24100TR",
+        "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+        "market": "TR",
+        "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+        "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-49-50-19-t-ketim-de-erleri-and-20-teknik-veriler",
+        "sourceSection": "PDF pp.49-50 / 19 Tüketim değerleri and 20 Teknik veriler",
+        "text": "The exact manual publishes program/load/moisture-specific energy values and body/door-state dimensions, with an explicit warning that actual values vary by load, environment and options.",
+        "sourceArtifactSha256": "sha256:0788d7d66c3bd4ceb7bc889296de05a2e7af3b890d892adec456bd1ba8fb0f91",
+        "language": "tr-TR",
+        "applicability": "EXACT_MODEL",
+        "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+        "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+        "limitations": [
+          "The manual cover and document code identify WQG24100TR exactly.",
+          "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion.",
+          "These values remain L9 and are not promoted into decision evidence in this release."
+        ],
+        "knowledgeKind": "LIMITATION",
+        "decisionAuthority": "NONE"
+      }
+    ],
+    "rules": {
+      "unknownTreatment": "NEUTRAL_NO_PENALTY",
+      "incomparableTreatment": "FAIL_CLOSED",
+      "dimensionAndLabelAuthority": "DOMAIN_PACK_ONLY",
+      "decisionAuthority": "NONE"
+    },
+    "dimensions": [
+      {
+        "dimensionId": "dryer.rated-dry-load-capacity",
+        "humanLabel": "Anma kuru yük kapasitesi",
+        "scope": "EXACT_TR_CONFIGURATION_RATED_DRY_LOAD",
+        "cells": [
+          {
+            "offeringId": "BEKO_KMX_82_TR",
+            "state": "KNOWN",
+            "value": 8,
+            "unit": "kg",
+            "evidenceIds": [
+              "dryer-evidence:beko-kmx-82-tr:fact:rateddryloadcapacity"
+            ],
+            "limitations": []
+          },
+          {
+            "offeringId": "BEKO_KM_99_TR",
+            "state": "KNOWN",
+            "value": 9,
+            "unit": "kg",
+            "evidenceIds": [
+              "dryer-evidence:beko-km-99-tr:fact:rateddryloadcapacity"
+            ],
+            "limitations": [
+              "The official product page was automation-blocked during preparation; this assertion preserves the approved parent value and review status."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_WQG24100TR",
+            "state": "KNOWN",
+            "value": 9,
+            "unit": "kg",
+            "evidenceIds": [
+              "dryer-evidence:bosch-wqg24100tr:fact:rateddryloadcapacity"
+            ],
+            "limitations": [
+              "Manual p.50 corroboration remains L9 and is not the L1 authority."
+            ]
+          }
+        ]
+      },
+      {
+        "dimensionId": "dryer.body-width",
+        "humanLabel": "Gövde genişliği",
+        "scope": "EXACT_TR_CONFIGURATION_BODY",
+        "cells": [
+          {
+            "offeringId": "BEKO_KMX_82_TR",
+            "state": "KNOWN",
+            "value": 598,
+            "unit": "mm",
+            "evidenceIds": [
+              "dryer-evidence:beko-kmx-82-tr:fact:bodywidth"
+            ],
+            "limitations": [
+              "Fiche rounds width to 60 cm; the asserted 598 mm value is inherited from the approved parent and corroborated by the exact-model-list manual."
+            ]
+          },
+          {
+            "offeringId": "BEKO_KM_99_TR",
+            "state": "KNOWN",
+            "value": 597,
+            "unit": "mm",
+            "evidenceIds": [
+              "dryer-evidence:beko-km-99-tr:fact:bodywidth"
+            ],
+            "limitations": []
+          },
+          {
+            "offeringId": "BOSCH_WQG24100TR",
+            "state": "KNOWN",
+            "value": 598,
+            "unit": "mm",
+            "evidenceIds": [
+              "dryer-evidence:bosch-wqg24100tr:fact:bodywidth"
+            ],
+            "limitations": []
+          }
+        ]
+      },
+      {
+        "dimensionId": "dryer.body-height",
+        "humanLabel": "Gövde yüksekliği",
+        "scope": "EXACT_TR_CONFIGURATION_BODY",
+        "cells": [
+          {
+            "offeringId": "BEKO_KMX_82_TR",
+            "state": "KNOWN",
+            "value": 846,
+            "unit": "mm",
+            "evidenceIds": [
+              "dryer-evidence:beko-kmx-82-tr:fact:bodyheight"
+            ],
+            "limitations": [
+              "The fiche lists rounded height 85 cm; 846 mm remains the approved parent value."
+            ]
+          },
+          {
+            "offeringId": "BEKO_KM_99_TR",
+            "state": "KNOWN",
+            "value": 846,
+            "unit": "mm",
+            "evidenceIds": [
+              "dryer-evidence:beko-km-99-tr:fact:bodyheight"
+            ],
+            "limitations": []
+          },
+          {
+            "offeringId": "BOSCH_WQG24100TR",
+            "state": "KNOWN",
+            "value": 842,
+            "unit": "mm",
+            "evidenceIds": [
+              "dryer-evidence:bosch-wqg24100tr:fact:bodyheight"
+            ],
+            "limitations": []
+          }
+        ]
+      },
+      {
+        "dimensionId": "dryer.body-depth",
+        "humanLabel": "Gövde derinliği",
+        "scope": "EXACT_TR_CONFIGURATION_BODY",
+        "cells": [
+          {
+            "offeringId": "BEKO_KMX_82_TR",
+            "state": "KNOWN",
+            "value": 545,
+            "unit": "mm",
+            "evidenceIds": [
+              "dryer-evidence:beko-kmx-82-tr:fact:bodydepth"
+            ],
+            "limitations": []
+          },
+          {
+            "offeringId": "BEKO_KM_99_TR",
+            "state": "KNOWN",
+            "value": 654,
+            "unit": "mm",
+            "evidenceIds": [
+              "dryer-evidence:beko-km-99-tr:fact:bodydepth"
+            ],
+            "limitations": []
+          },
+          {
+            "offeringId": "BOSCH_WQG24100TR",
+            "state": "KNOWN",
+            "value": 613,
+            "unit": "mm",
+            "evidenceIds": [
+              "dryer-evidence:bosch-wqg24100tr:fact:bodydepth"
+            ],
+            "limitations": []
+          }
+        ]
+      },
+      {
+        "dimensionId": "dryer.door-open-depth",
+        "humanLabel": "Kapak açık derinlik",
+        "scope": "EXACT_TR_CONFIGURATION_DOOR_OPEN_ENVELOPE",
+        "cells": [
+          {
+            "offeringId": "BEKO_KMX_82_TR",
+            "state": "UNKNOWN",
+            "evidenceIds": [],
+            "limitations": [
+              "No governed comparable fact is available; unknown is not worse."
+            ]
+          },
+          {
+            "offeringId": "BEKO_KM_99_TR",
+            "state": "UNKNOWN",
+            "evidenceIds": [],
+            "limitations": [
+              "No governed comparable fact is available; unknown is not worse."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_WQG24100TR",
+            "state": "KNOWN",
+            "value": 1096,
+            "unit": "mm",
+            "evidenceIds": [
+              "dryer-evidence:bosch-wqg24100tr:fact:dooropendepth"
+            ],
+            "limitations": []
+          }
+        ]
+      },
+      {
+        "dimensionId": "dryer.direct-drain",
+        "humanLabel": "Doğrudan su tahliyesi",
+        "scope": "EXACT_TR_CONFIGURATION_CAPABILITY",
+        "cells": [
+          {
+            "offeringId": "BEKO_KMX_82_TR",
+            "state": "KNOWN",
+            "value": "PRESENT",
+            "evidenceIds": [
+              "dryer-evidence:beko-kmx-82-tr:capability:directdrain"
+            ],
+            "limitations": []
+          },
+          {
+            "offeringId": "BEKO_KM_99_TR",
+            "state": "KNOWN",
+            "value": "PRESENT",
+            "evidenceIds": [
+              "dryer-evidence:beko-km-99-tr:capability:directdrain"
+            ],
+            "limitations": []
+          },
+          {
+            "offeringId": "BOSCH_WQG24100TR",
+            "state": "KNOWN",
+            "value": "PRESENT",
+            "evidenceIds": [
+              "dryer-evidence:bosch-wqg24100tr:capability:directdrain"
+            ],
+            "limitations": []
+          }
+        ]
+      },
+      {
+        "dimensionId": "dryer.sensor-drying",
+        "humanLabel": "Sensör kontrollü kurutma",
+        "scope": "EXACT_TR_CONFIGURATION_CAPABILITY",
+        "cells": [
+          {
+            "offeringId": "BEKO_KMX_82_TR",
+            "state": "KNOWN",
+            "value": "PRESENT",
+            "evidenceIds": [
+              "dryer-evidence:beko-kmx-82-tr:capability:sensordrying"
+            ],
+            "limitations": [
+              "Sensor presence does not guarantee a drying outcome for every load.",
+              "Sensor presence does not guarantee a drying outcome for every load."
+            ]
+          },
+          {
+            "offeringId": "BEKO_KM_99_TR",
+            "state": "KNOWN",
+            "value": "PRESENT",
+            "evidenceIds": [
+              "dryer-evidence:beko-km-99-tr:capability:sensordrying"
+            ],
+            "limitations": [
+              "Sensor presence does not guarantee a drying outcome for every load.",
+              "Sensor presence does not guarantee a drying outcome for every load."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_WQG24100TR",
+            "state": "KNOWN",
+            "value": "PRESENT",
+            "evidenceIds": [
+              "dryer-evidence:bosch-wqg24100tr:capability:sensordrying"
+            ],
+            "limitations": [
+              "Sensor presence does not guarantee a drying outcome for every load.",
+              "Sensor presence does not guarantee a drying outcome for every load."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "advisors": [
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "GOVERNANCE-VERIFICATION:BEKO_KMX_82_TR",
+        "exactOfferingId": "BEKO_KMX_82_TR"
+      },
+      "catalogReleaseId": "appliances:dryer:catalog-richness:tr:v0.2",
+      "catalogReleaseDigest": "sha256:cb360607540a60b2d4519bf422d1c87f6d53240ce2b33b6bf0d895785e12df98",
+      "offering": {
+        "offeringId": "BEKO_KMX_82_TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Beko",
+          "model": "KMX 82",
+          "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+          "identifiers": {
+            "productId": "BEKO_KMX_82_TR",
+            "manufacturerProductCode": "7184270260"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "dryer-fact:beko-kmx-82-tr:function",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "function",
+          "value": "DRYING_ONLY",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:function"
+        },
+        {
+          "factId": "dryer-fact:beko-kmx-82-tr:installation",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "installation",
+          "value": "FREESTANDING",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:installation"
+        },
+        {
+          "factId": "dryer-fact:beko-kmx-82-tr:technology",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "technology",
+          "value": "HEAT_PUMP",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:technology"
+        },
+        {
+          "factId": "dryer-fact:beko-kmx-82-tr:rateddryloadcapacity",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "ratedDryLoadCapacity",
+          "value": 8,
+          "unit": "kg",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:rateddryloadcapacity"
+        },
+        {
+          "factId": "dryer-fact:beko-kmx-82-tr:bodywidth",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "bodyWidth",
+          "value": 598,
+          "unit": "mm",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:bodywidth"
+        },
+        {
+          "factId": "dryer-fact:beko-kmx-82-tr:bodyheight",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "bodyHeight",
+          "value": 846,
+          "unit": "mm",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:bodyheight"
+        },
+        {
+          "factId": "dryer-fact:beko-kmx-82-tr:bodydepth",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "bodyDepth",
+          "value": 545,
+          "unit": "mm",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:bodydepth"
+        },
+        {
+          "factId": "dryer-fact:beko-kmx-82-tr:weightedenergypercycle",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "weightedEnergyPerCycle",
+          "value": 1.44,
+          "unit": "kWh/cycle",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:weightedenergypercycle"
+        },
+        {
+          "factId": "dryer-fact:beko-kmx-82-tr:acousticairbornenoise",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "acousticAirborneNoise",
+          "value": 64,
+          "unit": "dB(A) re 1 pW",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:acousticairbornenoise"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "dryer-capability:beko-kmx-82-tr:directdrain",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "directDrain",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:directdrain",
+          "limitations": []
+        },
+        {
+          "capabilityId": "dryer-capability:beko-kmx-82-tr:sensordrying",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "sensorDrying",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:sensordrying",
+          "limitations": [
+            "Sensor presence does not guarantee a drying outcome for every load."
+          ]
+        },
+        {
+          "capabilityId": "dryer-capability:beko-kmx-82-tr:program-delicate-care",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "program.DELICATE_CARE",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:program-delicate-care",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ]
+        },
+        {
+          "capabilityId": "dryer-capability:beko-kmx-82-tr:program-duvet-drying",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "program.DUVET_DRYING",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:program-duvet-drying",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ]
+        },
+        {
+          "capabilityId": "dryer-capability:beko-kmx-82-tr:program-hygienic-drying",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "program.HYGIENIC_DRYING",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:program-hygienic-drying",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ]
+        },
+        {
+          "capabilityId": "dryer-capability:beko-kmx-82-tr:program-express-30",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "program.EXPRESS_30",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:program-express-30",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ]
+        },
+        {
+          "capabilityId": "dryer-capability:beko-kmx-82-tr:maintenance-lintfilter",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "maintenance.lintFilter",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:maintenance-lintfilter",
+          "limitations": []
+        },
+        {
+          "capabilityId": "dryer-capability:beko-kmx-82-tr:maintenance-condenserperiodic",
+          "offeringId": "BEKO_KMX_82_TR",
+          "key": "maintenance.condenserPeriodic",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:maintenance-condenserperiodic",
+          "limitations": []
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "dryer-interpretation:beko-kmx-82-tr:capacity",
+          "offeringId": "BEKO_KMX_82_TR",
+          "text": "The published capacity is useful for checking a stated minimum dry-load requirement, but it is not a people-to-kilograms formula.",
+          "factIds": [
+            "dryer-fact:beko-kmx-82-tr:rateddryloadcapacity"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Actual load composition and program limits still apply."
+          ],
+          "nonGuarantees": [
+            "No household-size fit or throughput guarantee."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:beko-kmx-82-tr:installation",
+          "offeringId": "BEKO_KMX_82_TR",
+          "text": "Published body dimensions can be checked against like-for-like space bounds; missing door-open depth stays unknown and neutral.",
+          "factIds": [
+            "dryer-fact:beko-kmx-82-tr:bodywidth",
+            "dryer-fact:beko-kmx-82-tr:bodyheight",
+            "dryer-fact:beko-kmx-82-tr:bodydepth"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Clearance, ventilation, hose and stacking instructions require the applicable manual."
+          ],
+          "nonGuarantees": [
+            "No installation-fit guarantee without a complete user-space envelope."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:beko-kmx-82-tr:drain",
+          "offeringId": "BEKO_KMX_82_TR",
+          "text": "A verified direct-drain option may reduce routine condensate-container emptying when a compliant drain route is available.",
+          "factIds": [],
+          "capabilityIds": [
+            "dryer-capability:beko-kmx-82-tr:directdrain"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "POSITIVE",
+          "limitations": [
+            "Hose routing, height and connection limits remain model-specific."
+          ],
+          "nonGuarantees": [
+            "No plumbing suitability or leak-free-operation guarantee."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:beko-kmx-82-tr:sensor",
+          "offeringId": "BEKO_KMX_82_TR",
+          "text": "Sensor control can adapt an automatic cycle to measured moisture, while selection, load composition and sensor cleanliness still matter.",
+          "factIds": [],
+          "capabilityIds": [
+            "dryer-capability:beko-kmx-82-tr:sensordrying"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "POSITIVE",
+          "limitations": [
+            "Use the exact manual for operation and cleaning."
+          ],
+          "nonGuarantees": [
+            "No exact final-dryness or fabric-protection guarantee."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:beko-kmx-82-tr:care",
+          "offeringId": "BEKO_KMX_82_TR",
+          "text": "The exact-model authority lists delicate, duvet, hygienic-drying and express programs, which can make those named use cases available within their stated limits.",
+          "factIds": [],
+          "capabilityIds": [
+            "dryer-capability:beko-kmx-82-tr:program-delicate-care",
+            "dryer-capability:beko-kmx-82-tr:program-duvet-drying",
+            "dryer-capability:beko-kmx-82-tr:program-hygienic-drying",
+            "dryer-capability:beko-kmx-82-tr:program-express-30"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "POSITIVE",
+          "limitations": [
+            "Textile care labels and program-specific loads remain controlling."
+          ],
+          "nonGuarantees": [
+            "No hygiene, crease, speed, or fabric-protection outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:beko-kmx-82-tr:maintenance",
+          "offeringId": "BEKO_KMX_82_TR",
+          "text": "The published lint-filter and condenser tasks indicate recurring user maintenance rather than a maintenance-free appliance.",
+          "factIds": [],
+          "capabilityIds": [
+            "dryer-capability:beko-kmx-82-tr:maintenance-lintfilter",
+            "dryer-capability:beko-kmx-82-tr:maintenance-condenserperiodic"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Actual frequency depends on use and indicators."
+          ],
+          "nonGuarantees": [
+            "No low-maintenance or performance guarantee."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:beko-kmx-82-tr:efficiency-noise",
+          "offeringId": "BEKO_KMX_82_TR",
+          "text": "The standardized fiche values support bounded evidence display, but household energy cost and perceived sound depend on use and environment.",
+          "factIds": [
+            "dryer-fact:beko-kmx-82-tr:weightedenergypercycle",
+            "dryer-fact:beko-kmx-82-tr:acousticairbornenoise"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Compare only identical measurement scope and units."
+          ],
+          "nonGuarantees": [
+            "No low-bill or quiet-home guarantee."
+          ]
+        }
+      ],
+      "advisorKnowledge": [
+        {
+          "knowledgeId": "dryer-knowledge:beko-kmx-82-tr:pdf-p-13-3-1-teknik-zellikler",
+          "offeringId": "BEKO_KMX_82_TR",
+          "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+          "market": "TR",
+          "sourceId": "BEKO-KMX82-MANUAL-TR",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-p-13-3-1-teknik-zellikler",
+          "sourceSection": "PDF p.13 / 3.1 Teknik özellikler",
+          "text": "The manual lists 8 kg maximum dry-load capacity and 59.8 × 84.6 × 54.5 cm body dimensions.",
+          "sourceArtifactSha256": "sha256:6928129d754bece05ca0c1594f6650d3941d0662598d691e9d83802ac477c6df",
+          "language": "tr-TR",
+          "applicability": "BOUNDED_MODEL_LIST",
+          "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "limitations": [
+            "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+          ],
+          "knowledgeKind": "MANUAL",
+          "decisionAuthority": "NONE"
+        },
+        {
+          "knowledgeId": "dryer-knowledge:beko-kmx-82-tr:pdf-p-16-4-3-su-giderine-ba-lanmas",
+          "offeringId": "BEKO_KMX_82_TR",
+          "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+          "market": "TR",
+          "sourceId": "BEKO-KMX82-MANUAL-TR",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-p-16-4-3-su-giderine-ba-lanmas",
+          "sourceSection": "PDF p.16 / 4.3 Su giderine bağlanması",
+          "text": "The supplied drain hose can route condensate directly; the manual specifies a maximum 80 cm connection height and no hose extension.",
+          "sourceArtifactSha256": "sha256:6928129d754bece05ca0c1594f6650d3941d0662598d691e9d83802ac477c6df",
+          "language": "tr-TR",
+          "applicability": "BOUNDED_MODEL_LIST",
+          "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "limitations": [
+            "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+          ],
+          "knowledgeKind": "INSTALLATION",
+          "decisionAuthority": "NONE"
+        },
+        {
+          "knowledgeId": "dryer-knowledge:beko-kmx-82-tr:pdf-pp-21-23-6-4-program-se-imi-ve-t-ketim-tablosu",
+          "offeringId": "BEKO_KMX_82_TR",
+          "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+          "market": "TR",
+          "sourceId": "BEKO-KMX82-MANUAL-TR",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-pp-21-23-6-4-program-se-imi-ve-t-ketim-tablosu",
+          "sourceSection": "PDF pp.21-23 / 6.4 Program seçimi ve tüketim tablosu",
+          "text": "Program descriptions, maximum loads, indicative durations, energy values and the 64 dB(A) declaration are model-manual operating context.",
+          "sourceArtifactSha256": "sha256:6928129d754bece05ca0c1594f6650d3941d0662598d691e9d83802ac477c6df",
+          "language": "tr-TR",
+          "applicability": "BOUNDED_MODEL_LIST",
+          "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "limitations": [
+            "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion.",
+            "Program text does not guarantee care, hygiene, speed or dryness outcomes."
+          ],
+          "knowledgeKind": "USAGE",
+          "decisionAuthority": "NONE"
+        },
+        {
+          "knowledgeId": "dryer-knowledge:beko-kmx-82-tr:pdf-pp-27-29-7-bak-m-ve-temizlik",
+          "offeringId": "BEKO_KMX_82_TR",
+          "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+          "market": "TR",
+          "sourceId": "BEKO-KMX82-MANUAL-TR",
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-pp-27-29-7-bak-m-ve-temizlik",
+          "sourceSection": "PDF pp.27-29 / 7 Bakım ve temizlik",
+          "text": "The manual requires lint-filter/door-area cleaning after each cycle, sensor cleaning four times yearly, condensate-container handling, and condenser inspection at least every six months.",
+          "sourceArtifactSha256": "sha256:6928129d754bece05ca0c1594f6650d3941d0662598d691e9d83802ac477c6df",
+          "language": "tr-TR",
+          "applicability": "BOUNDED_MODEL_LIST",
+          "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "limitations": [
+            "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+          ],
+          "knowledgeKind": "MAINTENANCE",
+          "decisionAuthority": "NONE"
+        }
+      ],
+      "evidence": [
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:function",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KMX82-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:function",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KMX_82_TR].technicalFacts.function",
+            "value": "DRYING_ONLY",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:installation",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KMX82-FICHE-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:installation",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "PDF p.1 / Tip: Bağımsız",
+            "value": "FREESTANDING",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:technology",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KMX82-FICHE-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:technology",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "PDF p.1 / Isı pompası ile donatılmış",
+            "value": "HEAT_PUMP",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:rateddryloadcapacity",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KMX82-FICHE-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:rateddryloadcapacity",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "PDF p.1 / Anma kapasitesi",
+            "value": 8,
+            "unit": "kg",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:bodywidth",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KMX82-FICHE-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:bodywidth",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Fiche rounds width to 60 cm; the asserted 598 mm value is inherited from the approved parent and corroborated by the exact-model-list manual."
+          ],
+          "assertion": {
+            "locator": "PDF p.1 / Boyutlar; exact manual p.13 refines 59.8 cm",
+            "value": 598,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:bodyheight",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KMX82-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:bodyheight",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "The fiche lists rounded height 85 cm; 846 mm remains the approved parent value."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KMX_82_TR].technicalFacts.heightMm",
+            "value": 846,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:bodydepth",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KMX82-FICHE-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:bodydepth",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "PDF p.1 / Boyutlar; exact manual p.13: 54.5 cm",
+            "value": 545,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:weightedenergypercycle",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KMX82-FICHE-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:weightedenergypercycle",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "This value must not be compared with annual consumption or a named-program/load measurement."
+          ],
+          "assertion": {
+            "locator": "PDF p.1 / Kurutma döngüsü başına ağırlıklı enerji tüketimi",
+            "value": 1.44,
+            "unit": "kWh/cycle",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:fact:acousticairbornenoise",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KMX82-FICHE-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:acousticairbornenoise",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Standardized declaration is not a promise of perceived quietness in a home."
+          ],
+          "assertion": {
+            "locator": "PDF p.1 / Akustik hava kaynaklı gürültü emisyonu",
+            "value": 64,
+            "unit": "dB(A) re 1 pW",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:directdrain",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KMX82-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:directdrain",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KMX_82_TR].capabilities.directDrain",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:sensordrying",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KMX82-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:sensordrying",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Sensor presence does not guarantee a drying outcome for every load."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KMX_82_TR].capabilities.sensorDrying",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:program-delicate-care",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KMX82-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:program-delicate-care",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KMX_82_TR].capabilities.programs.DELICATE_CARE",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:program-duvet-drying",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KMX82-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:program-duvet-drying",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KMX_82_TR].capabilities.programs.DUVET_DRYING",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:program-hygienic-drying",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KMX82-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:program-hygienic-drying",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KMX_82_TR].capabilities.programs.HYGIENIC_DRYING",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:program-express-30",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KMX82-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:program-express-30",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KMX_82_TR].capabilities.programs.EXPRESS_30",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:maintenance-lintfilter",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KMX82-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:maintenance-lintfilter",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KMX_82_TR].capabilities.maintenance.LINT_FILTER",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:capability:maintenance-condenserperiodic",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KMX82-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-kmx-82-tr:maintenance-condenserperiodic",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KMX_82_TR].capabilities.maintenance.CONDENSER_PERIODIC",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-p-13-3-1-teknik-zellikler",
+          "kind": "MANUAL",
+          "sourceId": "BEKO-KMX82-MANUAL-TR",
+          "assertionId": "dryer-manual-assertion:beko-kmx-82-tr:pdf-p-13-3-1-teknik-zellikler",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "VERIFIED",
+          "limitations": [
+            "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+          ],
+          "assertion": {
+            "locator": "PDF p.13 / 3.1 Teknik özellikler",
+            "value": "The manual lists 8 kg maximum dry-load capacity and 59.8 × 84.6 × 54.5 cm body dimensions.",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "BOUNDED"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-p-16-4-3-su-giderine-ba-lanmas",
+          "kind": "MANUAL",
+          "sourceId": "BEKO-KMX82-MANUAL-TR",
+          "assertionId": "dryer-manual-assertion:beko-kmx-82-tr:pdf-p-16-4-3-su-giderine-ba-lanmas",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "VERIFIED",
+          "limitations": [
+            "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+          ],
+          "assertion": {
+            "locator": "PDF p.16 / 4.3 Su giderine bağlanması",
+            "value": "The supplied drain hose can route condensate directly; the manual specifies a maximum 80 cm connection height and no hose extension.",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "BOUNDED"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-pp-21-23-6-4-program-se-imi-ve-t-ketim-tablosu",
+          "kind": "MANUAL",
+          "sourceId": "BEKO-KMX82-MANUAL-TR",
+          "assertionId": "dryer-manual-assertion:beko-kmx-82-tr:pdf-pp-21-23-6-4-program-se-imi-ve-t-ketim-tablosu",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "VERIFIED",
+          "limitations": [
+            "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion.",
+            "Program text does not guarantee care, hygiene, speed or dryness outcomes."
+          ],
+          "assertion": {
+            "locator": "PDF pp.21-23 / 6.4 Program seçimi ve tüketim tablosu",
+            "value": "Program descriptions, maximum loads, indicative durations, energy values and the 64 dB(A) declaration are model-manual operating context.",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "BOUNDED"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-kmx-82-tr:manual:pdf-pp-27-29-7-bak-m-ve-temizlik",
+          "kind": "MANUAL",
+          "sourceId": "BEKO-KMX82-MANUAL-TR",
+          "assertionId": "dryer-manual-assertion:beko-kmx-82-tr:pdf-pp-27-29-7-bak-m-ve-temizlik",
+          "offeringIds": [
+            "BEKO_KMX_82_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "VERIFIED",
+          "limitations": [
+            "The manual covers KMX 81 and KMX 82; only text applicable to KMX 82 without optional-model inference is exposed.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+          ],
+          "assertion": {
+            "locator": "PDF pp.27-29 / 7 Bakım ve temizlik",
+            "value": "The manual requires lint-filter/door-area cleaning after each cycle, sensor cleaning four times yearly, condensate-container handling, and condenser inspection at least every six months.",
+            "applicability": {
+              "offeringId": "BEKO_KMX_82_TR",
+              "market": "TR",
+              "model": "KMX 82",
+              "configuration": "Beko KMX 82 / TR / heat-pump / drying-only",
+              "status": "BOUNDED"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "BEKO-KMX82-PRODUCT-TR",
+          "kind": "OFFICIAL",
+          "uri": "https://www.beko.com.tr/8-kg-kurutma-makinesi/kmx-82-kurutma-makinesi",
+          "version": "observed-2026-09-03",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "REVIEWED",
+          "language": "tr-TR"
+        },
+        {
+          "sourceId": "BEKO-KMX82-FICHE-TR",
+          "kind": "OFFICIAL",
+          "uri": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/7184270260_MDM_PRODUCT_FICHE_EU_2021_tr_TR.pdf",
+          "version": "7184270260/2026-09-04",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "VERIFIED",
+          "artifactSha256": "sha256:95513f4f61249307b795ec77a1b49d226f869f89a0d377dfedc8f3c574dd15ae",
+          "language": "tr-TR",
+          "documentCode": "7184270260"
+        },
+        {
+          "sourceId": "BEKO-KMX82-MANUAL-TR",
+          "kind": "MANUAL",
+          "uri": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/7184270260_MDM2_USER_MANUAL_FILE_tr_TR.pdf",
+          "version": "2960314264_TR/30-01-26",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "BOUNDED",
+          "status": "VERIFIED",
+          "artifactSha256": "sha256:6928129d754bece05ca0c1594f6650d3941d0662598d691e9d83802ac477c6df",
+          "language": "tr-TR",
+          "documentCode": "2960314264_TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    },
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "GOVERNANCE-VERIFICATION:BEKO_KM_99_TR",
+        "exactOfferingId": "BEKO_KM_99_TR"
+      },
+      "catalogReleaseId": "appliances:dryer:catalog-richness:tr:v0.2",
+      "catalogReleaseDigest": "sha256:cb360607540a60b2d4519bf422d1c87f6d53240ce2b33b6bf0d895785e12df98",
+      "offering": {
+        "offeringId": "BEKO_KM_99_TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Beko",
+          "model": "KM 99",
+          "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+          "identifiers": {
+            "productId": "BEKO_KM_99_TR"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "dryer-fact:beko-km-99-tr:function",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "function",
+          "value": "DRYING_ONLY",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:function"
+        },
+        {
+          "factId": "dryer-fact:beko-km-99-tr:installation",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "installation",
+          "value": "FREESTANDING",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:installation"
+        },
+        {
+          "factId": "dryer-fact:beko-km-99-tr:technology",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "technology",
+          "value": "HEAT_PUMP",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:technology"
+        },
+        {
+          "factId": "dryer-fact:beko-km-99-tr:rateddryloadcapacity",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "ratedDryLoadCapacity",
+          "value": 9,
+          "unit": "kg",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:rateddryloadcapacity"
+        },
+        {
+          "factId": "dryer-fact:beko-km-99-tr:bodywidth",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "bodyWidth",
+          "value": 597,
+          "unit": "mm",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:bodywidth"
+        },
+        {
+          "factId": "dryer-fact:beko-km-99-tr:bodyheight",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "bodyHeight",
+          "value": 846,
+          "unit": "mm",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:bodyheight"
+        },
+        {
+          "factId": "dryer-fact:beko-km-99-tr:bodydepth",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "bodyDepth",
+          "value": 654,
+          "unit": "mm",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:bodydepth"
+        },
+        {
+          "factId": "dryer-fact:beko-km-99-tr:annualenergyunknownregime",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "annualEnergyUnknownRegime",
+          "value": 194.4,
+          "unit": "kWh/year",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:annualenergyunknownregime"
+        },
+        {
+          "factId": "dryer-fact:beko-km-99-tr:noiseunknownregime",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "noiseUnknownRegime",
+          "value": 64,
+          "unit": "dB(A)",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:noiseunknownregime"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "dryer-capability:beko-km-99-tr:directdrain",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "directDrain",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:directdrain",
+          "limitations": []
+        },
+        {
+          "capabilityId": "dryer-capability:beko-km-99-tr:sensordrying",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "sensorDrying",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:sensordrying",
+          "limitations": [
+            "Sensor presence does not guarantee a drying outcome for every load."
+          ]
+        },
+        {
+          "capabilityId": "dryer-capability:beko-km-99-tr:quietprogram",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "quietProgram",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:quietprogram",
+          "limitations": [
+            "Program name does not establish lower standardized noise or perceived quietness."
+          ]
+        },
+        {
+          "capabilityId": "dryer-capability:beko-km-99-tr:program-wool-care",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "program.WOOL_CARE",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:program-wool-care",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ]
+        },
+        {
+          "capabilityId": "dryer-capability:beko-km-99-tr:program-duvet-drying",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "program.DUVET_DRYING",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:program-duvet-drying",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ]
+        },
+        {
+          "capabilityId": "dryer-capability:beko-km-99-tr:program-outdoor-care",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "program.OUTDOOR_CARE",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:program-outdoor-care",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ]
+        },
+        {
+          "capabilityId": "dryer-capability:beko-km-99-tr:program-hygienic-drying",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "program.HYGIENIC_DRYING",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:program-hygienic-drying",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ]
+        },
+        {
+          "capabilityId": "dryer-capability:beko-km-99-tr:program-express-30",
+          "offeringId": "BEKO_KM_99_TR",
+          "key": "program.EXPRESS_30",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:program-express-30",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ]
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "dryer-interpretation:beko-km-99-tr:capacity",
+          "offeringId": "BEKO_KM_99_TR",
+          "text": "The published capacity is useful for checking a stated minimum dry-load requirement, but it is not a people-to-kilograms formula.",
+          "factIds": [
+            "dryer-fact:beko-km-99-tr:rateddryloadcapacity"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Actual load composition and program limits still apply."
+          ],
+          "nonGuarantees": [
+            "No household-size fit or throughput guarantee."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:beko-km-99-tr:installation",
+          "offeringId": "BEKO_KM_99_TR",
+          "text": "Published body dimensions can be checked against like-for-like space bounds; missing door-open depth stays unknown and neutral.",
+          "factIds": [
+            "dryer-fact:beko-km-99-tr:bodywidth",
+            "dryer-fact:beko-km-99-tr:bodyheight",
+            "dryer-fact:beko-km-99-tr:bodydepth"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Clearance, ventilation, hose and stacking instructions require the applicable manual."
+          ],
+          "nonGuarantees": [
+            "No installation-fit guarantee without a complete user-space envelope."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:beko-km-99-tr:drain",
+          "offeringId": "BEKO_KM_99_TR",
+          "text": "A verified direct-drain option may reduce routine condensate-container emptying when a compliant drain route is available.",
+          "factIds": [],
+          "capabilityIds": [
+            "dryer-capability:beko-km-99-tr:directdrain"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "POSITIVE",
+          "limitations": [
+            "Hose routing, height and connection limits remain model-specific."
+          ],
+          "nonGuarantees": [
+            "No plumbing suitability or leak-free-operation guarantee."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:beko-km-99-tr:sensor",
+          "offeringId": "BEKO_KM_99_TR",
+          "text": "Sensor control can adapt an automatic cycle to measured moisture, while selection, load composition and sensor cleanliness still matter.",
+          "factIds": [],
+          "capabilityIds": [
+            "dryer-capability:beko-km-99-tr:sensordrying"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "POSITIVE",
+          "limitations": [
+            "Use the exact manual for operation and cleaning."
+          ],
+          "nonGuarantees": [
+            "No exact final-dryness or fabric-protection guarantee."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:beko-km-99-tr:care",
+          "offeringId": "BEKO_KM_99_TR",
+          "text": "The exact-model authority lists wool, duvet, outdoor, hygienic-drying and express programs plus a quiet mode, each usable only within its documented scope.",
+          "factIds": [],
+          "capabilityIds": [
+            "dryer-capability:beko-km-99-tr:quietprogram",
+            "dryer-capability:beko-km-99-tr:program-wool-care",
+            "dryer-capability:beko-km-99-tr:program-duvet-drying",
+            "dryer-capability:beko-km-99-tr:program-outdoor-care",
+            "dryer-capability:beko-km-99-tr:program-hygienic-drying",
+            "dryer-capability:beko-km-99-tr:program-express-30"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "POSITIVE",
+          "limitations": [
+            "The exact user manual and measurement regimes are unresolved in this release."
+          ],
+          "nonGuarantees": [
+            "No quietness, hygiene, speed, or fabric-protection outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:beko-km-99-tr:unknown-regimes",
+          "offeringId": "BEKO_KM_99_TR",
+          "text": "The parent release contains energy and noise numbers whose measurement regimes are unresolved; they remain visible as facts but cannot establish an advantage.",
+          "factIds": [
+            "dryer-fact:beko-km-99-tr:annualenergyunknownregime",
+            "dryer-fact:beko-km-99-tr:noiseunknownregime"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "UNKNOWN",
+          "limitations": [
+            "Excluded from governed comparison dimensions."
+          ],
+          "nonGuarantees": [
+            "No efficiency or quietness claim."
+          ]
+        }
+      ],
+      "advisorKnowledge": [],
+      "evidence": [
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:function",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:function",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.function",
+            "value": "DRYING_ONLY",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:installation",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:installation",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.installation",
+            "value": "FREESTANDING",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:technology",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:technology",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.technology",
+            "value": "HEAT_PUMP",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:rateddryloadcapacity",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:rateddryloadcapacity",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [
+            "The official product page was automation-blocked during preparation; this assertion preserves the approved parent value and review status."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.capacityKg",
+            "value": 9,
+            "unit": "kg",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:bodywidth",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:bodywidth",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.widthMm",
+            "value": 597,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:bodyheight",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:bodyheight",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.heightMm",
+            "value": 846,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:bodydepth",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:bodydepth",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.depthMm",
+            "value": 654,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:annualenergyunknownregime",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:annualenergyunknownregime",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [
+            "Measurement regime is unresolved; excluded from comparison dimensions and advantage claims."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.annualEnergyKwh",
+            "value": 194.4,
+            "unit": "kWh/year",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:fact:noiseunknownregime",
+          "kind": "TECHNICAL",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:noiseunknownregime",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [
+            "Measurement regime is unresolved; excluded from comparison dimensions and quietness claims."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].technicalFacts.noiseDbA",
+            "value": 64,
+            "unit": "dB(A)",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:directdrain",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:directdrain",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].capabilities.directDrain",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:sensordrying",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:sensordrying",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [
+            "Sensor presence does not guarantee a drying outcome for every load."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].capabilities.sensorDrying",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:quietprogram",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:quietprogram",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [
+            "Program name does not establish lower standardized noise or perceived quietness."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].capabilities.quietProgram",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:program-wool-care",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:program-wool-care",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].capabilities.programs.WOOL_CARE",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:program-duvet-drying",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:program-duvet-drying",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].capabilities.programs.DUVET_DRYING",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:program-outdoor-care",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:program-outdoor-care",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].capabilities.programs.OUTDOOR_CARE",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:program-hygienic-drying",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:program-hygienic-drying",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].capabilities.programs.HYGIENIC_DRYING",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:beko-km-99-tr:capability:program-express-30",
+          "kind": "CAPABILITY",
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "assertionId": "dryer-assertion:beko-km-99-tr:program-express-30",
+          "offeringIds": [
+            "BEKO_KM_99_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "MEDIUM",
+          "status": "REVIEWED",
+          "limitations": [
+            "Program presence does not guarantee a fabric-care, hygiene, speed, or dryness outcome."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BEKO_KM_99_TR].capabilities.programs.EXPRESS_30",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BEKO_KM_99_TR",
+              "market": "TR",
+              "model": "KM 99",
+              "configuration": "Beko KM 99 / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "BEKO-KM99-PRODUCT-TR",
+          "kind": "OFFICIAL",
+          "uri": "https://www.beko.com.tr/kurutma-makinesi/km-99-kurutma-makinesi",
+          "version": "parent-reviewed-2026-09-03",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "REVIEWED",
+          "language": "tr-TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    },
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "GOVERNANCE-VERIFICATION:BOSCH_WQG24100TR",
+        "exactOfferingId": "BOSCH_WQG24100TR"
+      },
+      "catalogReleaseId": "appliances:dryer:catalog-richness:tr:v0.2",
+      "catalogReleaseDigest": "sha256:cb360607540a60b2d4519bf422d1c87f6d53240ce2b33b6bf0d895785e12df98",
+      "offering": {
+        "offeringId": "BOSCH_WQG24100TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Bosch",
+          "model": "WQG24100TR",
+          "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+          "identifiers": {
+            "productId": "BOSCH_WQG24100TR",
+            "gtin": "4242005281251",
+            "documentCode": "9001745932"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "dryer-fact:bosch-wqg24100tr:function",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "function",
+          "value": "DRYING_ONLY",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:function"
+        },
+        {
+          "factId": "dryer-fact:bosch-wqg24100tr:installation",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "installation",
+          "value": "FREESTANDING",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:installation"
+        },
+        {
+          "factId": "dryer-fact:bosch-wqg24100tr:technology",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "technology",
+          "value": "HEAT_PUMP",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:technology"
+        },
+        {
+          "factId": "dryer-fact:bosch-wqg24100tr:rateddryloadcapacity",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "ratedDryLoadCapacity",
+          "value": 9,
+          "unit": "kg",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:rateddryloadcapacity"
+        },
+        {
+          "factId": "dryer-fact:bosch-wqg24100tr:bodywidth",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "bodyWidth",
+          "value": 598,
+          "unit": "mm",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:bodywidth"
+        },
+        {
+          "factId": "dryer-fact:bosch-wqg24100tr:bodyheight",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "bodyHeight",
+          "value": 842,
+          "unit": "mm",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:bodyheight"
+        },
+        {
+          "factId": "dryer-fact:bosch-wqg24100tr:bodydepth",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "bodyDepth",
+          "value": 613,
+          "unit": "mm",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:bodydepth"
+        },
+        {
+          "factId": "dryer-fact:bosch-wqg24100tr:doorcloseddepth",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "doorClosedDepth",
+          "value": 648,
+          "unit": "mm",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:doorcloseddepth"
+        },
+        {
+          "factId": "dryer-fact:bosch-wqg24100tr:dooropendepth",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "doorOpenDepth",
+          "value": 1096,
+          "unit": "mm",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:dooropendepth"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "dryer-capability:bosch-wqg24100tr:directdrain",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "directDrain",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:capability:directdrain",
+          "limitations": []
+        },
+        {
+          "capabilityId": "dryer-capability:bosch-wqg24100tr:sensordrying",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "sensorDrying",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:capability:sensordrying",
+          "limitations": [
+            "Sensor presence does not guarantee a drying outcome for every load."
+          ]
+        },
+        {
+          "capabilityId": "dryer-capability:bosch-wqg24100tr:maintenance-lintfilter",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "maintenance.lintFilter",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:capability:maintenance-lintfilter",
+          "limitations": []
+        },
+        {
+          "capabilityId": "dryer-capability:bosch-wqg24100tr:maintenance-baseunitfilter",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "maintenance.baseUnitFilter",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:capability:maintenance-baseunitfilter",
+          "limitations": []
+        },
+        {
+          "capabilityId": "dryer-capability:bosch-wqg24100tr:maintenance-condensatecontainer",
+          "offeringId": "BOSCH_WQG24100TR",
+          "key": "maintenance.condensateContainer",
+          "state": "PRESENT",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:capability:maintenance-condensatecontainer",
+          "limitations": []
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "dryer-interpretation:bosch-wqg24100tr:capacity",
+          "offeringId": "BOSCH_WQG24100TR",
+          "text": "The published capacity is useful for checking a stated minimum dry-load requirement, but it is not a people-to-kilograms formula.",
+          "factIds": [
+            "dryer-fact:bosch-wqg24100tr:rateddryloadcapacity"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Actual load composition and program limits still apply."
+          ],
+          "nonGuarantees": [
+            "No household-size fit or throughput guarantee."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:bosch-wqg24100tr:installation",
+          "offeringId": "BOSCH_WQG24100TR",
+          "text": "Published body dimensions can be checked against like-for-like space bounds; missing door-open depth stays unknown and neutral.",
+          "factIds": [
+            "dryer-fact:bosch-wqg24100tr:bodywidth",
+            "dryer-fact:bosch-wqg24100tr:bodyheight",
+            "dryer-fact:bosch-wqg24100tr:bodydepth",
+            "dryer-fact:bosch-wqg24100tr:doorcloseddepth",
+            "dryer-fact:bosch-wqg24100tr:dooropendepth"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Clearance, ventilation, hose and stacking instructions require the applicable manual."
+          ],
+          "nonGuarantees": [
+            "No installation-fit guarantee without a complete user-space envelope."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:bosch-wqg24100tr:drain",
+          "offeringId": "BOSCH_WQG24100TR",
+          "text": "A verified direct-drain option may reduce routine condensate-container emptying when a compliant drain route is available.",
+          "factIds": [],
+          "capabilityIds": [
+            "dryer-capability:bosch-wqg24100tr:directdrain"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "POSITIVE",
+          "limitations": [
+            "Hose routing, height and connection limits remain model-specific."
+          ],
+          "nonGuarantees": [
+            "No plumbing suitability or leak-free-operation guarantee."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:bosch-wqg24100tr:sensor",
+          "offeringId": "BOSCH_WQG24100TR",
+          "text": "Sensor control can adapt an automatic cycle to measured moisture, while selection, load composition and sensor cleanliness still matter.",
+          "factIds": [],
+          "capabilityIds": [
+            "dryer-capability:bosch-wqg24100tr:sensordrying"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "POSITIVE",
+          "limitations": [
+            "Use the exact manual for operation and cleaning."
+          ],
+          "nonGuarantees": [
+            "No exact final-dryness or fabric-protection guarantee."
+          ]
+        },
+        {
+          "interpretationId": "dryer-interpretation:bosch-wqg24100tr:maintenance",
+          "offeringId": "BOSCH_WQG24100TR",
+          "text": "The published lint-filter, base-unit-filter and condensate-container tasks indicate multiple maintenance touchpoints; direct drain may change the container routine.",
+          "factIds": [],
+          "capabilityIds": [
+            "dryer-capability:bosch-wqg24100tr:directdrain",
+            "dryer-capability:bosch-wqg24100tr:maintenance-lintfilter",
+            "dryer-capability:bosch-wqg24100tr:maintenance-baseunitfilter",
+            "dryer-capability:bosch-wqg24100tr:maintenance-condensatecontainer"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Follow the exact manual and on-device warnings."
+          ],
+          "nonGuarantees": [
+            "No low-maintenance or uninterrupted-operation guarantee."
+          ]
+        }
+      ],
+      "advisorKnowledge": [
+        {
+          "knowledgeId": "dryer-knowledge:bosch-wqg24100tr:pdf-pp-13-16-4-3-4-5-kurma-ve-ba-lama",
+          "offeringId": "BOSCH_WQG24100TR",
+          "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+          "market": "TR",
+          "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-13-16-4-3-4-5-kurma-ve-ba-lama",
+          "sourceSection": "PDF pp.13-16 / 4.3-4.5 Kurma ve bağlama",
+          "text": "The manual states placement, stacking, drain-routing and leveling constraints, including model-specific drain connection ranges.",
+          "sourceArtifactSha256": "sha256:0788d7d66c3bd4ceb7bc889296de05a2e7af3b890d892adec456bd1ba8fb0f91",
+          "language": "tr-TR",
+          "applicability": "EXACT_MODEL",
+          "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "limitations": [
+            "The manual cover and document code identify WQG24100TR exactly.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+          ],
+          "knowledgeKind": "INSTALLATION",
+          "decisionAuthority": "NONE"
+        },
+        {
+          "knowledgeId": "dryer-knowledge:bosch-wqg24100tr:pdf-pp-19-27-6-9-ekran-tu-lar-kurutma-hedefi-ve-programlar",
+          "offeringId": "BOSCH_WQG24100TR",
+          "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+          "market": "TR",
+          "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-19-27-6-9-ekran-tu-lar-kurutma-hedefi-ve-programlar",
+          "sourceSection": "PDF pp.19-27 / 6-9 Ekran, tuşlar, kurutma hedefi ve programlar",
+          "text": "The exact manual explains sensor-controlled automatic programs, target dryness, delicate/half-load/quiet controls and program-specific maximum loads.",
+          "sourceArtifactSha256": "sha256:0788d7d66c3bd4ceb7bc889296de05a2e7af3b890d892adec456bd1ba8fb0f91",
+          "language": "tr-TR",
+          "applicability": "EXACT_MODEL",
+          "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "limitations": [
+            "The manual cover and document code identify WQG24100TR exactly.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion.",
+            "Manual descriptions are operating guidance, not guaranteed outcomes or L2 presence assertions."
+          ],
+          "knowledgeKind": "USAGE",
+          "decisionAuthority": "NONE"
+        },
+        {
+          "knowledgeId": "dryer-knowledge:bosch-wqg24100tr:pdf-pp-31-34-39-12-9-12-11-and-15-3",
+          "offeringId": "BOSCH_WQG24100TR",
+          "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+          "market": "TR",
+          "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-31-34-39-12-9-12-11-and-15-3",
+          "sourceSection": "PDF pp.31-34,39 / 12.9-12.11 and 15.3",
+          "text": "The exact manual describes lint-filter, base-unit-filter, condensate-container and moisture-sensor maintenance.",
+          "sourceArtifactSha256": "sha256:0788d7d66c3bd4ceb7bc889296de05a2e7af3b890d892adec456bd1ba8fb0f91",
+          "language": "tr-TR",
+          "applicability": "EXACT_MODEL",
+          "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "limitations": [
+            "The manual cover and document code identify WQG24100TR exactly.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+          ],
+          "knowledgeKind": "MAINTENANCE",
+          "decisionAuthority": "NONE"
+        },
+        {
+          "knowledgeId": "dryer-knowledge:bosch-wqg24100tr:pdf-pp-49-50-19-t-ketim-de-erleri-and-20-teknik-veriler",
+          "offeringId": "BOSCH_WQG24100TR",
+          "offeringVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+          "market": "TR",
+          "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-49-50-19-t-ketim-de-erleri-and-20-teknik-veriler",
+          "sourceSection": "PDF pp.49-50 / 19 Tüketim değerleri and 20 Teknik veriler",
+          "text": "The exact manual publishes program/load/moisture-specific energy values and body/door-state dimensions, with an explicit warning that actual values vary by load, environment and options.",
+          "sourceArtifactSha256": "sha256:0788d7d66c3bd4ceb7bc889296de05a2e7af3b890d892adec456bd1ba8fb0f91",
+          "language": "tr-TR",
+          "applicability": "EXACT_MODEL",
+          "reviewAuthority": "APPLIANCES_DRYER_EVIDENCE_REVIEW/v0.2",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "limitations": [
+            "The manual cover and document code identify WQG24100TR exactly.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion.",
+            "These values remain L9 and are not promoted into decision evidence in this release."
+          ],
+          "knowledgeKind": "LIMITATION",
+          "decisionAuthority": "NONE"
+        }
+      ],
+      "evidence": [
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:function",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:function",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.function",
+            "value": "DRYING_ONLY",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:installation",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:installation",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.installation",
+            "value": "FREESTANDING",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:technology",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:technology",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.technology",
+            "value": "HEAT_PUMP",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:rateddryloadcapacity",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:rateddryloadcapacity",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Manual p.50 corroboration remains L9 and is not the L1 authority."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.capacityKg",
+            "value": 9,
+            "unit": "kg",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:bodywidth",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:bodywidth",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.widthMm",
+            "value": 598,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:bodyheight",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:bodyheight",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.heightMm",
+            "value": 842,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:bodydepth",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:bodydepth",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.depthMm",
+            "value": 613,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:doorcloseddepth",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:doorcloseddepth",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.doorClosedDepthMm",
+            "value": 648,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:fact:dooropendepth",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:dooropendepth",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].technicalFacts.doorOpenDepthMm",
+            "value": 1096,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:capability:directdrain",
+          "kind": "CAPABILITY",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:directdrain",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].capabilities.directDrain",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:capability:sensordrying",
+          "kind": "CAPABILITY",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:sensordrying",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Sensor presence does not guarantee a drying outcome for every load."
+          ],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].capabilities.sensorDrying",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:capability:maintenance-lintfilter",
+          "kind": "CAPABILITY",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:maintenance-lintfilter",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].capabilities.maintenance.LINT_FILTER",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:capability:maintenance-baseunitfilter",
+          "kind": "CAPABILITY",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:maintenance-baseunitfilter",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].capabilities.maintenance.BASE_UNIT_FILTER",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:capability:maintenance-condensatecontainer",
+          "kind": "CAPABILITY",
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "assertionId": "dryer-assertion:bosch-wqg24100tr:maintenance-condensatecontainer",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [],
+          "assertion": {
+            "locator": "domain-pack.products[BOSCH_WQG24100TR].capabilities.maintenance.CONDENSATE_CONTAINER",
+            "value": "PRESENT",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-13-16-4-3-4-5-kurma-ve-ba-lama",
+          "kind": "MANUAL",
+          "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+          "assertionId": "dryer-manual-assertion:bosch-wqg24100tr:pdf-pp-13-16-4-3-4-5-kurma-ve-ba-lama",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "The manual cover and document code identify WQG24100TR exactly.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+          ],
+          "assertion": {
+            "locator": "PDF pp.13-16 / 4.3-4.5 Kurma ve bağlama",
+            "value": "The manual states placement, stacking, drain-routing and leveling constraints, including model-specific drain connection ranges.",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-19-27-6-9-ekran-tu-lar-kurutma-hedefi-ve-programlar",
+          "kind": "MANUAL",
+          "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+          "assertionId": "dryer-manual-assertion:bosch-wqg24100tr:pdf-pp-19-27-6-9-ekran-tu-lar-kurutma-hedefi-ve-programlar",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "The manual cover and document code identify WQG24100TR exactly.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion.",
+            "Manual descriptions are operating guidance, not guaranteed outcomes or L2 presence assertions."
+          ],
+          "assertion": {
+            "locator": "PDF pp.19-27 / 6-9 Ekran, tuşlar, kurutma hedefi ve programlar",
+            "value": "The exact manual explains sensor-controlled automatic programs, target dryness, delicate/half-load/quiet controls and program-specific maximum loads.",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-31-34-39-12-9-12-11-and-15-3",
+          "kind": "MANUAL",
+          "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+          "assertionId": "dryer-manual-assertion:bosch-wqg24100tr:pdf-pp-31-34-39-12-9-12-11-and-15-3",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "The manual cover and document code identify WQG24100TR exactly.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion."
+          ],
+          "assertion": {
+            "locator": "PDF pp.31-34,39 / 12.9-12.11 and 15.3",
+            "value": "The exact manual describes lint-filter, base-unit-filter, condensate-container and moisture-sensor maintenance.",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "dryer-evidence:bosch-wqg24100tr:manual:pdf-pp-49-50-19-t-ketim-de-erleri-and-20-teknik-veriler",
+          "kind": "MANUAL",
+          "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+          "assertionId": "dryer-manual-assertion:bosch-wqg24100tr:pdf-pp-49-50-19-t-ketim-de-erleri-and-20-teknik-veriler",
+          "offeringIds": [
+            "BOSCH_WQG24100TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "The manual cover and document code identify WQG24100TR exactly.",
+            "Read-only L9; it cannot establish equipment presence or enter L1/L8 without governed promotion.",
+            "These values remain L9 and are not promoted into decision evidence in this release."
+          ],
+          "assertion": {
+            "locator": "PDF pp.49-50 / 19 Tüketim değerleri and 20 Teknik veriler",
+            "value": "The exact manual publishes program/load/moisture-specific energy values and body/door-state dimensions, with an explicit warning that actual values vary by load, environment and options.",
+            "applicability": {
+              "offeringId": "BOSCH_WQG24100TR",
+              "market": "TR",
+              "model": "WQG24100TR",
+              "configuration": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+          "kind": "OFFICIAL",
+          "uri": "https://www.bosch-home.com.tr/tr/product/WQG24100TR",
+          "version": "observed-2026-09-03",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "VERIFIED",
+          "language": "tr-TR"
+        },
+        {
+          "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+          "kind": "MANUAL",
+          "uri": "https://media3.bosch-home.com/Documents/9001745932_A.pdf",
+          "version": "9001745932/020510",
+          "observedAt": "2026-09-03T00:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T17:30:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "VERIFIED",
+          "artifactSha256": "sha256:0788d7d66c3bd4ceb7bc889296de05a2e7af3b890d892adec456bd1ba8fb0f91",
+          "language": "tr-TR",
+          "documentCode": "9001745932"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    }
+  ]
+}

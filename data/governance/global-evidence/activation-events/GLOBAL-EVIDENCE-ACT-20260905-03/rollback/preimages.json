@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "xpy-global-evidence-rollback-checkpoint/v1",
+  "targets": {
+    "data/production/cars-global-evidence/active.json": "ABSENT",
+    "data/production/cars-global-evidence/activeCarsGlobalEvidence.generated.ts": "ABSENT",
+    "data/production/equipment-evidence/active.json": "sha256:101803fb4195c8cfe724715ece539d5ba88fb797f6a0194657b2166043feee4b",
+    "data/production/equipment-evidence/activeEquipmentEvidence.generated.ts": "sha256:e282e22700252fd0fe9b45d36be2c2c4953beb916367e8e390dbbb1977466396",
+    "data/production/appliances/global-evidence/active.json": "ABSENT",
+    "data/production/appliances/global-evidence/activeGlobalEvidence.generated.ts": "ABSENT",
+    "data/production/appliances/manuals/active.json": "sha256:d83c13b339c4663ec07bd46bacfb7231074f672f518ded0cea783129b3eac990"
+  },
+  "presentBytesRoot": "data/governance/global-evidence/activation-events/GLOBAL-EVIDENCE-ACT-20260905-03/rollback",
+  "absentTargets": [
+    "data/production/cars-global-evidence/active.json",
+    "data/production/cars-global-evidence/activeCarsGlobalEvidence.generated.ts",
+    "data/production/appliances/global-evidence/active.json",
+    "data/production/appliances/global-evidence/activeGlobalEvidence.generated.ts"
+  ],
+  "mediaPointerIncluded": false
+}

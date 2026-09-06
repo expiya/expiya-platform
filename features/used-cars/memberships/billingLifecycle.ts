@@ -1,0 +1,8 @@
+export type SubscriptionStatus="TRIAL"|"ACTIVE"|"PAST_DUE"|"SUSPENDED"|"CANCELLED"|"EXPIRED";
+export type InvoiceStatus="DRAFT"|"ISSUED"|"PAID"|"VOID"|"OVERDUE"|"REFUNDED";
+const subscriptionTransitions:Readonly<Record<SubscriptionStatus,readonly SubscriptionStatus[]>>={TRIAL:["ACTIVE","EXPIRED","CANCELLED"],ACTIVE:["PAST_DUE","CANCELLED","EXPIRED"],PAST_DUE:["ACTIVE","SUSPENDED","CANCELLED"],SUSPENDED:["ACTIVE","CANCELLED"],CANCELLED:[],EXPIRED:[]};
+const invoiceTransitions:Readonly<Record<InvoiceStatus,readonly InvoiceStatus[]>>={DRAFT:["ISSUED","VOID"],ISSUED:["PAID","OVERDUE","VOID"],PAID:["REFUNDED"],VOID:[],OVERDUE:["PAID","VOID"],REFUNDED:[]};
+export function canTransitionSubscription(from:SubscriptionStatus,to:SubscriptionStatus):boolean{return subscriptionTransitions[from].includes(to);}
+export function canTransitionInvoice(from:InvoiceStatus,to:InvoiceStatus):boolean{return invoiceTransitions[from].includes(to);}
+export interface PaymentEvent {readonly providerEventId:string;readonly tenantId:string;readonly amountMinor:number;readonly currency:"TRY";readonly signatureVerified:boolean;readonly idempotencyRecorded:boolean;readonly invoiceId:string}
+export function acceptPaymentEvent(event:PaymentEvent):{readonly accepted:boolean;readonly membershipActivatedAutomatically:false;readonly reason?:string}{if(!event.signatureVerified)return {accepted:false,membershipActivatedAutomatically:false,reason:"SIGNATURE_INVALID"};if(!event.idempotencyRecorded)return {accepted:false,membershipActivatedAutomatically:false,reason:"IDEMPOTENCY_REQUIRED"};if(event.amountMinor<=0)return {accepted:false,membershipActivatedAutomatically:false,reason:"INVALID_AMOUNT"};return {accepted:true,membershipActivatedAutomatically:false};}

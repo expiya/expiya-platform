@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "appliances-dryer-active-pointer/v3",
+  "releaseVersion": "APPLIANCES-DRYER-TR-v0.2",
+  "artifactSha256": "9e6524963f6d000d637382d377d8deeaac72cad7efeab9c746929540f2a5a5c8",
+  "lifecycle": "ACTIVE",
+  "richness": {
+    "releaseVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.3-candidate",
+    "releaseDigest": "sha256:7ee85698a3c539efec4360141d97d8e6b3ffe027280f0e0855b91595a9f2042a",
+    "catalogArtifactSha256": "063b821a16e0db387485511014183e464810da19e03237bffed3d9bd5b0adc1f",
+    "membershipDigest": "5507a1154ef157f6b04b4f46e5def35a41233c426b227e5a90689f787db4b5a7",
+    "activationManifest": "data/production/appliances/catalog-adoption/governance/activation-events/APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55/activation.json",
+    "activationManifestSha256": "0c4e649281401e919c6b79b5b6b11a839764c76f93507c94af2f859cb38df0f1",
+    "lifecycle": "ACTIVE_READ_ONLY"
+  },
+  "decisionActivation": {
+    "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-DECISION-ADOPTION-01",
+    "approvalManifest": "data/production/appliances/decision-adoption/governance/approval-events/APPLIANCES-MAJOR-DECISION-POA-2E76D621CE55/approval.json",
+    "approvalManifestSha256": "9f8358bb289e4648f5d0d9de4fd5366b82d4650b3556a74ae2c63a2dd6eb85e9",
+    "lifecycle": "ACTIVE_DECISION_AUTHORITY"
+  }
+}

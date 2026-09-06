@@ -1,0 +1,191 @@
+{
+  "schemaVersion": "appliances-dryer-stage1-preparation/v1",
+  "workUnitId": "EXPIYA-DRYER-ORCHESTRATED-01",
+  "createdAt": "2026-09-03T00:00:00+03:00",
+  "runtimeActive": false,
+  "productDecisionsApproved": false,
+  "proposedScope": {
+    "market": "TR",
+    "use": "HOUSEHOLD",
+    "installation": "FREESTANDING",
+    "dryingTechnology": "HEAT_PUMP",
+    "function": "DRYING_ONLY",
+    "approvalStatus": "PROPOSED_SINGLE_SCOPE_DECISION"
+  },
+  "candidates": [
+    {
+      "manufacturer": "Beko",
+      "modelCode": "KMX 82",
+      "exactConfigurationStatus": "MODEL_CODE_IDENTIFIED",
+      "facts": {
+        "ratedDryingCapacity": {
+          "value": 8,
+          "unit": "kg",
+          "standard": "MANUFACTURER_PRODUCT_FICHE_RATED_CAPACITY"
+        },
+        "technology": "HEAT_PUMP",
+        "dimensions": {
+          "width": 59.8,
+          "height": 84.6,
+          "depth": 54.5,
+          "unit": "cm"
+        },
+        "acousticAirborneNoise": {
+          "value": 64,
+          "unit": "dB(A) re 1 pW",
+          "standard": "MANUFACTURER_PRODUCT_FICHE_ACOUSTIC_AIRBORNE_NOISE"
+        },
+        "weightedEnergyConsumptionPerCycle": {
+          "value": 1.44,
+          "unit": "kWh/cycle",
+          "standard": "MANUFACTURER_PRODUCT_FICHE_WEIGHTED_ENERGY_CONSUMPTION"
+        },
+        "directDrain": true,
+        "sensorDrying": true,
+        "programEvidence": [
+          "DELICATES",
+          "DUVET",
+          "HYGIENIC_DRYING",
+          "EXPRESS_30"
+        ]
+      },
+      "sources": [
+        {
+          "type": "MANUFACTURER_TR_PRODUCT_PAGE",
+          "url": "https://www.beko.com.tr/8-kg-kurutma-makinesi/kmx-82-kurutma-makinesi",
+          "accessedAt": "2026-09-03",
+          "accessResult": "HTTP_403_AUTOMATION_BLOCKED"
+        },
+        {
+          "type": "MANUFACTURER_PRODUCT_FICHE",
+          "url": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/7184270260_MDM_PRODUCT_FICHE_EU_2021_tr_TR.pdf",
+          "accessedAt": "2026-09-03",
+          "accessResult": "HTTP_200_PDF_VERIFIED",
+          "documentProductCode": "7184270260"
+        },
+        {
+          "type": "MANUFACTURER_USER_MANUAL",
+          "url": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/7184270260_MDM2_USER_MANUAL_FILE_tr_TR.pdf",
+          "accessedAt": "2026-09-03",
+          "accessResult": "HTTP_200_PDF_VERIFIED",
+          "documentProductCode": "7184270260"
+        }
+      ]
+    },
+    {
+      "manufacturer": "Beko",
+      "modelCode": "KM 99",
+      "exactConfigurationStatus": "MODEL_CODE_IDENTIFIED",
+      "facts": {
+        "ratedDryingCapacity": {
+          "value": 9,
+          "unit": "kg",
+          "standard": "unknown"
+        },
+        "technology": "HEAT_PUMP",
+        "dimensions": {
+          "width": 59.7,
+          "height": 84.6,
+          "depth": 65.4,
+          "unit": "cm"
+        },
+        "acousticAirborneNoise": {
+          "value": 64,
+          "unit": "dB(A)",
+          "standard": "unknown"
+        },
+        "annualEnergyConsumption": {
+          "value": 194.4,
+          "unit": "kWh/year",
+          "standard": "unknown"
+        },
+        "sensorDrying": true,
+        "quietProgram": true,
+        "programEvidence": [
+          "WOOL",
+          "QUIET",
+          "DUVET_BED_LINEN",
+          "OUTDOOR_SPORT"
+        ],
+        "directDrain": true
+      },
+      "sources": [
+        {
+          "type": "MANUFACTURER_TR_PRODUCT_PAGE",
+          "url": "https://www.beko.com.tr/kurutma-makinesi/km-99-kurutma-makinesi",
+          "accessedAt": "2026-09-03",
+          "accessResult": "HTTP_403_AUTOMATION_BLOCKED"
+        },
+        {
+          "type": "MANUFACTURER_PRODUCT_FICHE",
+          "url": "unknown",
+          "accessedAt": "2026-09-03",
+          "note": "Manufacturer page exposes a document link, but this preparation pass could not resolve it reliably."
+        }
+      ]
+    },
+    {
+      "manufacturer": "Bosch",
+      "modelCode": "WQG24100TR",
+      "exactConfigurationStatus": "MODEL_CODE_IDENTIFIED",
+      "facts": {
+        "ratedDryingCapacity": {
+          "value": 9,
+          "unit": "kg",
+          "standard": "MANUFACTURER_MANUAL_MAX_LOAD"
+        },
+        "technology": "HEAT_PUMP",
+        "dimensions": {
+          "width": 59.8,
+          "height": 84.2,
+          "depth": 61.3,
+          "doorClosedDepth": 64.8,
+          "doorOpenDepth": 109.6,
+          "unit": "cm"
+        },
+        "ecoCottonFullLoadAt1400Rpm": {
+          "energy": 1.82,
+          "energyUnit": "kWh/cycle",
+          "duration": "03:30",
+          "initialMoisture": 50,
+          "moistureUnit": "%",
+          "standard": "MANUFACTURER_MANUAL_CONSUMPTION_TABLE"
+        },
+        "directDrainSupport": true,
+        "maintenance": [
+          "LINT_FILTER",
+          "BASE_UNIT_FILTER_SYSTEM",
+          "CONDENSATE_CONTAINER"
+        ]
+      },
+      "sources": [
+        {
+          "type": "MANUFACTURER_TR_PRODUCT_PAGE",
+          "url": "https://www.bosch-home.com.tr/tr/product/WQG24100TR",
+          "accessedAt": "2026-09-03",
+          "accessResult": "HTTP_200_HTML_VERIFIED",
+          "gtin": "4242005281251"
+        },
+        {
+          "type": "MANUFACTURER_USER_AND_INSTALLATION_MANUAL",
+          "url": "https://media3.bosch-home.com/Documents/9001745932_A.pdf",
+          "accessedAt": "2026-09-03",
+          "accessResult": "HTTP_200_PDF_VERIFIED",
+          "documentCode": "9001745932"
+        },
+        {
+          "type": "MANUFACTURER_PRODUCT_FICHE",
+          "url": "https://media3.bsh-group.com/Documents/eudatasheet/tr-TR/WQG24100TR.pdf",
+          "accessedAt": "2026-09-03",
+          "accessResult": "DISCOVERED_ON_VERIFIED_MANUFACTURER_PRODUCT_PAGE_NOT_YET_EXTRACTED"
+        }
+      ]
+    }
+  ],
+  "comparisonLimitations": [
+    "Unknown energy-label or measurement regimes are not normalized or compared.",
+    "Program names establish availability only; they do not establish fabric-care outcomes.",
+    "Marketing claims are not promoted to technical facts without a matching technical document.",
+    "Price observations are intentionally absent from this non-active evidence inventory."
+  ]
+}

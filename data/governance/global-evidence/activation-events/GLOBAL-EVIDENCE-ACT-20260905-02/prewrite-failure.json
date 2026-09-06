@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "xpy-global-evidence-prewrite-failure/v1",
+  "activationEventId": "GLOBAL-EVIDENCE-ACT-20260905-02",
+  "workUnitId": "WU-XPY-GLOBAL-EVIDENCE-AUTHORIZED-ACTIVATION-02",
+  "failedAt": "2026-09-04T23:12:50Z",
+  "status": "FAILED_CLOSED_BEFORE_POINTER_WRITE",
+  "reason": "ROLLBACK_CHECKPOINT_PARENT_DIRECTORY_MISSING",
+  "authorizedTargetWriteCount": 0,
+  "allSevenPreimagesVerifiedAfterFailure": true,
+  "retryEventId": "GLOBAL-EVIDENCE-ACT-20260905-03"
+}

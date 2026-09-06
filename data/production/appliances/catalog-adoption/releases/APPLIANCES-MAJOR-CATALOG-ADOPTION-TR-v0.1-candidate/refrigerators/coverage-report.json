@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "major-appliance-category-adoption-coverage/v1",
+  "categoryId": "REFRIGERATOR",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+  "verdict": "ADMITTED_TO_FROZEN_CANDIDATE_RELEASE_ACTIVATION_BLOCKED_APPROVAL",
+  "counts": {
+    "priorOfferings": 4,
+    "admittedOfferings": 4,
+    "candidateOfferings": 8,
+    "newSources": 4,
+    "newEvidenceAssertions": 77,
+    "newFacts": 60,
+    "newCapabilities": 17,
+    "newDailyLifeInterpretations": 4,
+    "newDecisionProjections": 4,
+    "newAdvisorKnowledge": 0
+  },
+  "layers": {
+    "L0": "COMPLETE",
+    "L1": "COMPLETE",
+    "L2": "COMPLETE",
+    "L3": "COMPLETE",
+    "L4": "COMPLETE",
+    "L5": "COMPLETE_PLANNING_ONLY_NO_Y",
+    "L6": "COMPLETE_SEPARATE_FROM_TECHNICAL_TRUTH",
+    "L7": "ABSENT_NO_GOVERNED_EXPERIENCE",
+    "L8": "COMPLETE_NEUTRAL_UNKNOWN_LIMITED",
+    "L9": "DISABLED_NO_CHECKSUM_PINNED_EXACT_MANUAL",
+    "L10": "PARTIAL_EXTERNAL_VOLATILE_AMAZON_ONLY"
+  },
+  "perProduct": [
+    {
+      "offeringId": "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "A++ is a legacy energy regime and must not be compared to current A-G classes.",
+        "Current base warranty duration and installation ventilation/door-clearance envelope are unknown; L9 is disabled."
+      ]
+    },
+    {
+      "offeringId": "appliances:refrigerator:tr:arcelik:270475-mb",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Base warranty duration and ventilation/door-clearance envelope remain unknown.",
+        "Exact manual bytes are not retained; L9 is disabled."
+      ]
+    },
+    {
+      "offeringId": "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Installation ventilation and door-open clearance envelope remain unknown.",
+        "Exact manual bytes are not retained; L9 is disabled."
+      ]
+    },
+    {
+      "offeringId": "appliances:refrigerator:tr:samsung:rf57c510esr-tr",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Installation ventilation and door-open clearance envelope remain unknown.",
+        "Exact manual bytes are not retained; L9 is disabled."
+      ]
+    }
+  ],
+  "nonRegression": {
+    "existingOfferingsRetained": true,
+    "existingEvidenceRetained": true,
+    "activePointerChanged": false,
+    "currentYAuthorityChanged": false,
+    "rankingOrRemovalIntroduced": false
+  }
+}

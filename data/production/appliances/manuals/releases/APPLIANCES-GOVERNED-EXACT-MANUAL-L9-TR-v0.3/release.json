@@ -1,0 +1,2284 @@
+{
+  "schemaVersion": "appliances-governed-manual-release/v1",
+  "releaseId": "APPLIANCES-GOVERNED-EXACT-MANUAL-L9-TR-v0.3",
+  "generatedAt": "2026-09-04T23:12:16.897Z",
+  "lifecycle": "FROZEN_READ_ONLY",
+  "authority": "L9_ADVISOR_ONLY",
+  "parentPolicy": "IMMUTABLE_NO_OVERWRITE",
+  "inventoryDigest": "sha256:be63261103a0637c2a5524124a2d260d34a42842278ccb49595de0dde20ca323",
+  "members": [
+    {
+      "categoryId": "AIR_FRYER",
+      "productId": "NINJA_AF400EU_TR",
+      "brand": "Ninja",
+      "model": "Foodi MAX Dual Zone AF400EU",
+      "configurationIdentity": "Ninja AF400EU / Türkiye-listed / two independent 4.75 L drawers / crisper plates included",
+      "parentRelease": "APPLIANCES-AIR-FRYER-TR-v0.1",
+      "parentArtifactSha256": "9bf4520152c9386361ded1aa8f26c34ca74c4f478edc80c2cf44b764891a5ec0",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "AIR_FRYER",
+      "productId": "PHILIPS_NA350_00_TR",
+      "brand": "Philips",
+      "model": "3000 Series NA350/00",
+      "configurationIdentity": "Philips NA350/00 / TR / 6 L + 3 L independently controlled dual baskets / no separately sold accessory assumed",
+      "parentRelease": "APPLIANCES-AIR-FRYER-TR-v0.1",
+      "parentArtifactSha256": "9bf4520152c9386361ded1aa8f26c34ca74c4f478edc80c2cf44b764891a5ec0",
+      "discoveredManuals": [
+        {
+          "sourceId": "PHILIPS-NA350-SUPPORT",
+          "url": "https://www.philips.com.tr/c-p/NA350_00/3000-serisi-cift-hazneli-airfryer/destek",
+          "kind": "SUPPORT_INDEX"
+        }
+      ]
+    },
+    {
+      "categoryId": "AIR_FRYER",
+      "productId": "TEFAL_EY855D_TR",
+      "brand": "Tefal",
+      "model": "Easy Fry Mega EY855D",
+      "configurationIdentity": "Tefal EY855D / TR / single removable basket / included grid only where exact product page lists it",
+      "parentRelease": "APPLIANCES-AIR-FRYER-TR-v0.1",
+      "parentArtifactSha256": "9bf4520152c9386361ded1aa8f26c34ca74c4f478edc80c2cf44b764891a5ec0",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "AIR_PURIFIER",
+      "productId": "DYSON_BP02_TR",
+      "brand": "Dyson",
+      "model": "BP02",
+      "configurationIdentity": "Dyson Purifier Big+Quiet BP02 / Türkiye / beyaz-parlak gümüş",
+      "parentRelease": "APPLIANCES-AIR-PURIFIER-TR-v0.1",
+      "parentArtifactSha256": "d21ab492fe10bced158437ea230d14984337b8194cdcdc7de1e53876a1141266",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "AIR_PURIFIER",
+      "productId": "PHILIPS_AC1711_10_TR",
+      "brand": "Philips",
+      "model": "AC1711/10",
+      "configurationIdentity": "Philips 1000 Series AC1711/10 / Türkiye / orta boy oda hava temizleyici",
+      "parentRelease": "APPLIANCES-AIR-PURIFIER-TR-v0.1",
+      "parentArtifactSha256": "d21ab492fe10bced158437ea230d14984337b8194cdcdc7de1e53876a1141266",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "AIR_PURIFIER",
+      "productId": "XIAOMI_AC_M16_SC_TR",
+      "brand": "Xiaomi",
+      "model": "AC-M16-SC",
+      "configurationIdentity": "Xiaomi Smart Air Purifier 4 AC-M16-SC / Türkiye / 250 x 250 x 555 mm",
+      "parentRelease": "APPLIANCES-AIR-PURIFIER-TR-v0.1",
+      "parentArtifactSha256": "d21ab492fe10bced158437ea230d14984337b8194cdcdc7de1e53876a1141266",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "BLENDER",
+      "productId": "BOSCH_MMB6172S_TR",
+      "brand": "Bosch",
+      "model": "VitaPower Serie 4 MMB6172S",
+      "configurationIdentity": "Bosch MMB6172S / TR / 1.5 L ThermoSafe glass jug / four-wing stainless-steel blade",
+      "parentRelease": "APPLIANCES-BLENDER-TR-v0.1",
+      "parentArtifactSha256": "3cef3ca88b75f093d4bc0876a70279ff996bd8079c795a69cb56549c3c5c739a",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "BLENDER",
+      "productId": "PHILIPS_HR2291_41_TR",
+      "brand": "Philips",
+      "model": "Series 3000 HR2291/41",
+      "configurationIdentity": "Philips HR2291/41 / TR / glass jug / exact blade assembly / no unlisted accessory assumed",
+      "parentRelease": "APPLIANCES-BLENDER-TR-v0.1",
+      "parentArtifactSha256": "3cef3ca88b75f093d4bc0876a70279ff996bd8079c795a69cb56549c3c5c739a",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "BLENDER",
+      "productId": "TEFAL_BL811D_TR",
+      "brand": "Tefal",
+      "model": "Perfectmix+ BL811D",
+      "configurationIdentity": "Tefal BL811D / TR / 2 L glass jug / six-blade assembly / exact supplied accessories only",
+      "parentRelease": "APPLIANCES-BLENDER-TR-v0.1",
+      "parentArtifactSha256": "3cef3ca88b75f093d4bc0876a70279ff996bd8079c795a69cb56549c3c5c739a",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "productId": "ARCELIK_MA2030S_TR",
+      "brand": "Arçelik",
+      "model": "MA 2030 S",
+      "configurationIdentity": "Arçelik MA 2030 S / Türkiye / ankastre mikrodalga / siyah / 20 L",
+      "parentRelease": "APPLIANCES-BUILT-IN-MICROWAVE-TR-v0.1",
+      "parentArtifactSha256": "3b2cde0c3b7c9d2a26e7905da497d41093b390106663eb2e7a9f5d259a9d3125",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "productId": "BEKO_BMC2030S_TR",
+      "brand": "Beko",
+      "model": "BMC 2030 S",
+      "configurationIdentity": "Beko BMC 2030 S / Türkiye / ankastre mikrodalga / siyah / 20 L",
+      "parentRelease": "APPLIANCES-BUILT-IN-MICROWAVE-TR-v0.1",
+      "parentArtifactSha256": "3b2cde0c3b7c9d2a26e7905da497d41093b390106663eb2e7a9f5d259a9d3125",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "productId": "SIEMENS_BE525LMB2_TR",
+      "brand": "Siemens",
+      "model": "BE525LMB2",
+      "configurationIdentity": "Siemens BE525LMB2 / Türkiye / iQ500 ankastre / siyah / ızgara",
+      "parentRelease": "APPLIANCES-BUILT-IN-MICROWAVE-TR-v0.1",
+      "parentArtifactSha256": "3b2cde0c3b7c9d2a26e7905da497d41093b390106663eb2e7a9f5d259a9d3125",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "BUILT_IN_OVEN",
+      "productId": "ARCELIK_AFC_120_S_TR",
+      "brand": "Arçelik",
+      "model": "AFC 120 S",
+      "configurationIdentity": "Arçelik AFC 120 S / Türkiye / 60 cm sınıfı ankastre elektrikli fırın / siyah",
+      "parentRelease": "APPLIANCES-BUILT-IN-OVEN-TR-v0.2",
+      "parentArtifactSha256": "470870f8cf31173c425b549c9f3147379d2edc1c47c6a4b2e45faf64bc7da590",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "BUILT_IN_OVEN",
+      "productId": "BEKO_BFC_221_HB_TR",
+      "brand": "Beko",
+      "model": "BFC 221 HB",
+      "configurationIdentity": "Beko BFC 221 HB / Türkiye / 60 cm sınıfı ankastre elektrikli fırın / Harmony beyaz",
+      "parentRelease": "APPLIANCES-BUILT-IN-OVEN-TR-v0.2",
+      "parentArtifactSha256": "470870f8cf31173c425b549c9f3147379d2edc1c47c6a4b2e45faf64bc7da590",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "BUILT_IN_OVEN",
+      "productId": "BOSCH_HBF534ES3T_TR",
+      "brand": "Bosch",
+      "model": "HBF534ES3T",
+      "configurationIdentity": "Bosch HBF534ES3T / Türkiye / 60 x 60 cm ankastre fırın / inox",
+      "parentRelease": "APPLIANCES-BUILT-IN-OVEN-TR-v0.2",
+      "parentArtifactSha256": "470870f8cf31173c425b549c9f3147379d2edc1c47c6a4b2e45faf64bc7da590",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "COUNTERTOP_MICROWAVE_OVEN",
+      "productId": "ARCELIK_MD20K_VINTAGE_TR",
+      "brand": "Arçelik",
+      "model": "MD 20 K Vintage",
+      "configurationIdentity": "Arçelik MD 20 K Vintage / Türkiye / solo tezgâh üstü / kırmızı / 20 L / 800 W",
+      "parentRelease": "APPLIANCES-COUNTERTOP-MICROWAVE-TR-v0.1",
+      "parentArtifactSha256": "a53ce62183f4a484caaee660fcbfe22e857b43ad9be7b3c62895d1f6ff7e33bc",
+      "discoveredManuals": [
+        {
+          "sourceId": "ARCELIK-MD20K-MANUAL",
+          "url": "https://www.arcelik.com.tr/medias/tr-TR-8818371100-202012222316127-User-Manual-File-Long-tr-TR.pdf",
+          "kind": "DIRECT_PDF"
+        }
+      ]
+    },
+    {
+      "categoryId": "COUNTERTOP_MICROWAVE_OVEN",
+      "productId": "BEKO_BMD200G_TR",
+      "brand": "Beko",
+      "model": "BMD 200 G",
+      "configurationIdentity": "Beko BMD 200 G / Türkiye / solo tezgâh üstü",
+      "parentRelease": "APPLIANCES-COUNTERTOP-MICROWAVE-TR-v0.1",
+      "parentArtifactSha256": "a53ce62183f4a484caaee660fcbfe22e857b43ad9be7b3c62895d1f6ff7e33bc",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "COUNTERTOP_MICROWAVE_OVEN",
+      "productId": "SIEMENS_FF023LMS1_TR",
+      "brand": "Siemens",
+      "model": "FF023LMS1",
+      "configurationIdentity": "Siemens FF023LMS1 / Türkiye / iQ300 solo / inox / 20 L / 800 W",
+      "parentRelease": "APPLIANCES-COUNTERTOP-MICROWAVE-TR-v0.1",
+      "parentArtifactSha256": "a53ce62183f4a484caaee660fcbfe22e857b43ad9be7b3c62895d1f6ff7e33bc",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "productId": "BEKO_BM4044_TR",
+      "brand": "Beko",
+      "model": "BM 4044",
+      "configurationIdentity": "Beko BM 4044 / Türkiye / solo / 60 cm",
+      "parentRelease": "APPLIANCES-DISHWASHER-TR-v0.1",
+      "parentArtifactSha256": "66973c59f1b752f2598b4c6b30d6dc0d2b272948a342b33a08f4cd8f68f9124e",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "productId": "BOSCH_SMS4IKI62T_TR",
+      "brand": "Bosch",
+      "model": "SMS4IKI62T",
+      "configurationIdentity": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+      "parentRelease": "APPLIANCES-DISHWASHER-TR-v0.1",
+      "parentArtifactSha256": "66973c59f1b752f2598b4c6b30d6dc0d2b272948a342b33a08f4cd8f68f9124e",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "productId": "SAMSUNG_DW60DG560FWQTR",
+      "brand": "Samsung",
+      "model": "DW60DG560FWQTR",
+      "configurationIdentity": "Samsung DW60DG560FWQTR / Türkiye / solo / 60 cm",
+      "parentRelease": "APPLIANCES-DISHWASHER-TR-v0.1",
+      "parentArtifactSha256": "66973c59f1b752f2598b4c6b30d6dc0d2b272948a342b33a08f4cd8f68f9124e",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "productId": "SIEMENS_SN25EI63MT_TR",
+      "brand": "Siemens",
+      "model": "SN25EI63MT",
+      "configurationIdentity": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+      "parentRelease": "APPLIANCES-DISHWASHER-TR-v0.1",
+      "parentArtifactSha256": "66973c59f1b752f2598b4c6b30d6dc0d2b272948a342b33a08f4cd8f68f9124e",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "DRYER",
+      "productId": "BEKO_KM_99_TR",
+      "brand": "Beko",
+      "model": "KM 99",
+      "configurationIdentity": "Beko KM 99 / TR / heat-pump / drying-only",
+      "parentRelease": "APPLIANCES-DRYER-TR-v0.1",
+      "parentArtifactSha256": "3ef3ce69874ced7d210c97545d35e82a9a2fae2933a7d7d715ae411224943f48",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "DRYER",
+      "productId": "BEKO_KMX_82_TR",
+      "brand": "Beko",
+      "model": "KMX 82",
+      "configurationIdentity": "Beko KMX 82 / TR / heat-pump / drying-only",
+      "parentRelease": "APPLIANCES-DRYER-TR-v0.1",
+      "parentArtifactSha256": "3ef3ce69874ced7d210c97545d35e82a9a2fae2933a7d7d715ae411224943f48",
+      "discoveredManuals": [
+        {
+          "sourceId": "BEKO-KMX82-MANUAL-TR",
+          "url": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/7184270260_MDM2_USER_MANUAL_FILE_tr_TR.pdf",
+          "kind": "DIRECT_PDF"
+        }
+      ]
+    },
+    {
+      "categoryId": "DRYER",
+      "productId": "BOSCH_WQG24100TR",
+      "brand": "Bosch",
+      "model": "WQG24100TR",
+      "configurationIdentity": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+      "parentRelease": "APPLIANCES-DRYER-TR-v0.1",
+      "parentArtifactSha256": "3ef3ce69874ced7d210c97545d35e82a9a2fae2933a7d7d715ae411224943f48",
+      "discoveredManuals": [
+        {
+          "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+          "url": "https://media3.bosch-home.com/Documents/9001745932_A.pdf",
+          "kind": "DIRECT_PDF"
+        }
+      ]
+    },
+    {
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "productId": "ARCELIK_T7365_ECO_TR",
+      "brand": "Arçelik",
+      "model": "T 7365 ECO",
+      "configurationIdentity": "Arçelik T 7365 ECO / TR / 65 L vertical electric storage water heater / exact included safety hardware and site installation remain manual-and-service governed",
+      "parentRelease": "APPLIANCES-ELECTRIC-STORAGE-WATER-HEATER-TR-v0.1",
+      "parentArtifactSha256": "26cfd53a0e2841a0cb452dd8d975fe713599f03bb9b2afcd3831abf3d9f6cd55",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "productId": "BAYMAK_XLS65_TR",
+      "brand": "Baymak",
+      "model": "Aqua X-Konfor X-LS 65",
+      "configurationIdentity": "Baymak Aqua X-Konfor X-LS 65 / TR / 65 L cylindrical electric storage water heater / 1/2 inch declared water connection",
+      "parentRelease": "APPLIANCES-ELECTRIC-STORAGE-WATER-HEATER-TR-v0.1",
+      "parentArtifactSha256": "26cfd53a0e2841a0cb452dd8d975fe713599f03bb9b2afcd3831abf3d9f6cd55",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "productId": "BEKO_BKT650_B_TR",
+      "brand": "Beko",
+      "model": "BKT 650 B",
+      "configurationIdentity": "Beko BKT 650 B / TR / 65 L standard electric storage water heater / exact installation envelope service governed",
+      "parentRelease": "APPLIANCES-ELECTRIC-STORAGE-WATER-HEATER-TR-v0.1",
+      "parentArtifactSha256": "26cfd53a0e2841a0cb452dd8d975fe713599f03bb9b2afcd3831abf3d9f6cd55",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "FILTER_COFFEE_MACHINE",
+      "productId": "ARCELIK_CM3940P_TR",
+      "brand": "Arçelik",
+      "model": "CM 3940 P",
+      "configurationIdentity": "Arçelik CM 3940 P / Türkiye / filtre kahve / cam sürahi",
+      "parentRelease": "APPLIANCES-FILTER-COFFEE-TR-v0.1",
+      "parentArtifactSha256": "0a5f212425df2d3a4a1212936c02eafd5397f8fec50b6f19dd6cfbafa6feb273",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "FILTER_COFFEE_MACHINE",
+      "productId": "BOSCH_TKA6A041_TR",
+      "brand": "Bosch",
+      "model": "ComfortLine TKA6A041",
+      "configurationIdentity": "Bosch ComfortLine TKA6A041 / Türkiye / filtre kahve / cam sürahi",
+      "parentRelease": "APPLIANCES-FILTER-COFFEE-TR-v0.1",
+      "parentArtifactSha256": "0a5f212425df2d3a4a1212936c02eafd5397f8fec50b6f19dd6cfbafa6feb273",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "FILTER_COFFEE_MACHINE",
+      "productId": "PHILIPS_HD7462_20_TR",
+      "brand": "Philips",
+      "model": "Daily Collection HD7462/20",
+      "configurationIdentity": "Philips Daily Collection HD7462/20 / Türkiye / filtre kahve / cam sürahi",
+      "parentRelease": "APPLIANCES-FILTER-COFFEE-TR-v0.1",
+      "parentArtifactSha256": "0a5f212425df2d3a4a1212936c02eafd5397f8fec50b6f19dd6cfbafa6feb273",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "FOOD_PROCESSOR",
+      "productId": "BOSCH_MCM3501M_TR",
+      "brand": "Bosch",
+      "model": "MultiTalent 3 MCM3501M",
+      "configurationIdentity": "Bosch MCM3501M / TR / 2.3 L bowl / exact MultiLevel6 knife, reversible discs and supplied bundle",
+      "parentRelease": "APPLIANCES-FOOD-PROCESSOR-TR-v0.1",
+      "parentArtifactSha256": "a7a8c9fc5a10bc24c558fc4fea385d8e378939173d78a9a72d35c1d36f693013",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "FOOD_PROCESSOR",
+      "productId": "KENWOOD_FDP65_450WH_TR",
+      "brand": "Kenwood",
+      "model": "MultiPro Express FDP65.450WH",
+      "configurationIdentity": "Kenwood FDP65.450WH / Türkiye-listed / 3 L bowl / exact Express Serve, discs, knife and kneading-tool bundle",
+      "parentRelease": "APPLIANCES-FOOD-PROCESSOR-TR-v0.1",
+      "parentArtifactSha256": "a7a8c9fc5a10bc24c558fc4fea385d8e378939173d78a9a72d35c1d36f693013",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "FOOD_PROCESSOR",
+      "productId": "PHILIPS_HR7778_00_TR",
+      "brand": "Philips",
+      "model": "7000 Series HR7778/00",
+      "configurationIdentity": "Philips HR7778/00 / TR support-listed / 3.4 L bowl / exact discs, blade and accessories documented for this suffix",
+      "parentRelease": "APPLIANCES-FOOD-PROCESSOR-TR-v0.1",
+      "parentArtifactSha256": "a7a8c9fc5a10bc24c558fc4fea385d8e378939173d78a9a72d35c1d36f693013",
+      "discoveredManuals": [
+        {
+          "sourceId": "PHILIPS-HR7778-SUPPORT",
+          "url": "https://www.philips.com.tr/c-p/HR7778_00/7000-serisi-mutfak-robotu/destek",
+          "kind": "SUPPORT_INDEX"
+        }
+      ]
+    },
+    {
+      "categoryId": "FREESTANDING_COOKER",
+      "productId": "ARCELIK_8315_TR",
+      "brand": "Arçelik",
+      "model": "8315",
+      "configurationIdentity": "Arçelik 8315 / Türkiye / solo ocaklı fırın / 4 göz LPG gazlı ocak + elektrikli fırın / beyaz",
+      "parentRelease": "APPLIANCES-FREESTANDING-COOKER-TR-v0.2",
+      "parentArtifactSha256": "0d1da44f4abc5035018ac94e6594c45533764e01070aaf4cee3370e23558e457",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "FREESTANDING_COOKER",
+      "productId": "BEKO_FE_411_TR",
+      "brand": "Beko",
+      "model": "FE 411",
+      "configurationIdentity": "Beko FE 411 / Türkiye / solo ocaklı fırın / 4 göz LPG gazlı ocak + elektrikli fırın / beyaz",
+      "parentRelease": "APPLIANCES-FREESTANDING-COOKER-TR-v0.2",
+      "parentArtifactSha256": "0d1da44f4abc5035018ac94e6594c45533764e01070aaf4cee3370e23558e457",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "FREESTANDING_COOKER",
+      "productId": "BOSCH_HXR390H21T_TR",
+      "brand": "Bosch",
+      "model": "HXR390H21T",
+      "configurationIdentity": "Bosch HXR390H21T / Türkiye / solo / gazlı ocak + elektrikli fırın / beyaz",
+      "parentRelease": "APPLIANCES-FREESTANDING-COOKER-TR-v0.2",
+      "parentArtifactSha256": "0d1da44f4abc5035018ac94e6594c45533764e01070aaf4cee3370e23558e457",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "FREEZER",
+      "productId": "ARCELIK_2071_NFB_TR",
+      "brand": "Arçelik",
+      "model": "2071 NFB",
+      "configurationIdentity": "Arçelik 2071 NFB / Türkiye / solo dikey tek kapılı derin dondurucu / No Frost / beyaz",
+      "parentRelease": "APPLIANCES-FREEZER-TR-v0.2",
+      "parentArtifactSha256": "5f1751280849fcf49c42f081a1c6d2d1cef052a085c27ea9835a247eefe2dc31",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "FREEZER",
+      "productId": "ARCELIK_2682_NFB_TR",
+      "brand": "Arçelik",
+      "model": "2682 NFB",
+      "configurationIdentity": "Arçelik 2682 NFB / Türkiye / solo dikey çekmeceli derin dondurucu / No Frost / beyaz",
+      "parentRelease": "APPLIANCES-FREEZER-TR-v0.2",
+      "parentArtifactSha256": "5f1751280849fcf49c42f081a1c6d2d1cef052a085c27ea9835a247eefe2dc31",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "FREEZER",
+      "productId": "BOSCH_GSN33VWE0N_TR",
+      "brand": "Bosch",
+      "model": "GSN33VWE0N",
+      "configurationIdentity": "Bosch GSN33VWE0N / Türkiye / solo dikey derin dondurucu / 176 x 60 cm",
+      "parentRelease": "APPLIANCES-FREEZER-TR-v0.2",
+      "parentArtifactSha256": "5f1751280849fcf49c42f081a1c6d2d1cef052a085c27ea9835a247eefe2dc31",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "productId": "DELONGHI_ECAM220_22_GB_TR",
+      "brand": "De'Longhi",
+      "model": "Magnifica Start ECAM220.22.GB",
+      "configurationIdentity": "De'Longhi Magnifica Start ECAM220.22.GB / Türkiye / dahili öğütücü / manuel süt köpürtücü",
+      "parentRelease": "APPLIANCES-FULLY-AUTOMATIC-ESPRESSO-TR-v0.1",
+      "parentArtifactSha256": "b8a069f0271f71a28d5593669e1c07bd565801e2ed78d97058198b814478b41a",
+      "discoveredManuals": [
+        {
+          "sourceId": "DELONGHI-ECAM22022-MANUAL",
+          "url": "https://www.delonghi.com/medias/ECAM220.20-ECAM220.21-ECAM220.22-Instruction-Manual-TR.pdf",
+          "kind": "DIRECT_PDF"
+        }
+      ]
+    },
+    {
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "productId": "PHILIPS_EP2220_10_TR",
+      "brand": "Philips",
+      "model": "Series 2200 EP2220/10",
+      "configurationIdentity": "Philips Series 2200 EP2220/10 / Türkiye / dahili seramik öğütücü / klasik süt köpürtücü",
+      "parentRelease": "APPLIANCES-FULLY-AUTOMATIC-ESPRESSO-TR-v0.1",
+      "parentArtifactSha256": "b8a069f0271f71a28d5593669e1c07bd565801e2ed78d97058198b814478b41a",
+      "discoveredManuals": [
+        {
+          "sourceId": "PHILIPS-EP2220-SUPPORT",
+          "url": "https://www.philips.com.tr/c-p/EP2220_10/series-2200-tam-otomatik-espresso-makineleri/destek",
+          "kind": "SUPPORT_INDEX"
+        }
+      ]
+    },
+    {
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "productId": "SIEMENS_TP511R09_TR",
+      "brand": "Siemens",
+      "model": "EQ.500 classic TP511R09",
+      "configurationIdentity": "Siemens EQ.500 classic TP511R09 / Türkiye / tam otomatik / süt hortumlu sistem",
+      "parentRelease": "APPLIANCES-FULLY-AUTOMATIC-ESPRESSO-TR-v0.1",
+      "parentArtifactSha256": "b8a069f0271f71a28d5593669e1c07bd565801e2ed78d97058198b814478b41a",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "HOB",
+      "productId": "ARCELIK_OI_602_1_YS_TR",
+      "brand": "Arçelik",
+      "model": "OI 602-1 YS",
+      "configurationIdentity": "Arçelik OI 602-1 YS / Türkiye / 58 cm ankastre indüksiyonlu cam ocak / 4 göz, 1 Flexi bölme",
+      "parentRelease": "APPLIANCES-HOB-TR-v0.2",
+      "parentArtifactSha256": "ca6fe60b378642bb8179c91d2d135d9842c7d345e355a7a587c7186203866646",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "HOB",
+      "productId": "BEKO_BOI_6021_YS_TR",
+      "brand": "Beko",
+      "model": "BOI 6021 YS",
+      "configurationIdentity": "Beko BOI 6021 YS / Türkiye / 58 cm ankastre indüksiyonlu cam ocak / 4 göz, 1 Flexi bölme",
+      "parentRelease": "APPLIANCES-HOB-TR-v0.2",
+      "parentArtifactSha256": "ca6fe60b378642bb8179c91d2d135d9842c7d345e355a7a587c7186203866646",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "HOB",
+      "productId": "BOSCH_PUE611BB5E_TR",
+      "brand": "Bosch",
+      "model": "PUE611BB5E",
+      "configurationIdentity": "Bosch PUE611BB5E / Türkiye / 60 cm çerçevesiz ankastre indüksiyonlu ocak",
+      "parentRelease": "APPLIANCES-HOB-TR-v0.2",
+      "parentArtifactSha256": "ca6fe60b378642bb8179c91d2d135d9842c7d345e355a7a587c7186203866646",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "productId": "ARCELIK_E7526_ASI_TR",
+      "brand": "Arçelik",
+      "model": "E 7526 ASİ",
+      "configurationIdentity": "Arçelik E 7526 ASİ / TR / instantaneous electric shower water heater / exact included shower head",
+      "parentRelease": "APPLIANCES-INSTANTANEOUS-ELECTRIC-WATER-HEATER-TR-v0.1",
+      "parentArtifactSha256": "8b5f5083203ec1e34657c86b6ebb07fb789b32b3e5c26940565bdc19341fdb3a",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "productId": "ARNICA_EG54030_HAMMAM_TR",
+      "brand": "Arnica",
+      "model": "EG54030 Hammam",
+      "configurationIdentity": "Arnica EG54030 Hammam / TR manufacturer catalog exact code / instantaneous electric shower water heater",
+      "parentRelease": "APPLIANCES-INSTANTANEOUS-ELECTRIC-WATER-HEATER-TR-v0.1",
+      "parentArtifactSha256": "8b5f5083203ec1e34657c86b6ebb07fb789b32b3e5c26940565bdc19341fdb3a",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "productId": "ARZUM_AR012_LAGUNA_TR",
+      "brand": "Arzum",
+      "model": "AR 012 Laguna",
+      "configurationIdentity": "Arzum AR 012 Laguna / TR exact manufacturer manual identity / instantaneous electric shower water heater",
+      "parentRelease": "APPLIANCES-INSTANTANEOUS-ELECTRIC-WATER-HEATER-TR-v0.1",
+      "parentArtifactSha256": "8b5f5083203ec1e34657c86b6ebb07fb789b32b3e5c26940565bdc19341fdb3a",
+      "discoveredManuals": [
+        {
+          "sourceId": "ARZUM-AR012-MANUAL-URL",
+          "url": "https://destek.arzum.com.tr/manuals/arzum-laguna-elektrikli-sofben-ar012.pdf",
+          "kind": "DIRECT_PDF"
+        }
+      ]
+    },
+    {
+      "categoryId": "MANUAL_ESPRESSO_MACHINE",
+      "productId": "DELONGHI_EC685_M_TR",
+      "brand": "De'Longhi",
+      "model": "Dedica Style EC685.M",
+      "configurationIdentity": "De'Longhi Dedica Style EC685.M / Türkiye / manuel portafiltre / süt köpürtücü / harici öğütücü dahil değil",
+      "parentRelease": "APPLIANCES-MANUAL-ESPRESSO-TR-v0.1",
+      "parentArtifactSha256": "ea0e366f87a7e3e38cbaa9d456495c6dcc5a87d69e5c3c614e653a28c753d3d0",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "MANUAL_ESPRESSO_MACHINE",
+      "productId": "PHILIPS_PSA3228_01_TR",
+      "brand": "Philips",
+      "model": "Barista Brew PSA3228/01",
+      "configurationIdentity": "Philips Barista Brew PSA3228/01 / Türkiye / yarı otomatik portafiltre / entegre öğütücü exact yapılandırması",
+      "parentRelease": "APPLIANCES-MANUAL-ESPRESSO-TR-v0.1",
+      "parentArtifactSha256": "ea0e366f87a7e3e38cbaa9d456495c6dcc5a87d69e5c3c614e653a28c753d3d0",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "MANUAL_ESPRESSO_MACHINE",
+      "productId": "SMEG_ECF02CREU_TR",
+      "brand": "Smeg",
+      "model": "ECF02CREU",
+      "configurationIdentity": "Smeg ECF02CREU / Türkiye / manuel espresso / krem / buhar çubuğu / harici öğütücü dahil değil",
+      "parentRelease": "APPLIANCES-MANUAL-ESPRESSO-TR-v0.1",
+      "parentArtifactSha256": "ea0e366f87a7e3e38cbaa9d456495c6dcc5a87d69e5c3c614e653a28c753d3d0",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "RANGE_HOOD",
+      "productId": "ARCELIK_ADE_6041_B1_TR",
+      "brand": "Arçelik",
+      "model": "ADE 6041 B1",
+      "configurationIdentity": "Arçelik ADE 6041 B1 / Türkiye / 60 cm duvar tipi eğimli davlumbaz / beyaz",
+      "parentRelease": "APPLIANCES-RANGE-HOOD-TR-v0.2",
+      "parentArtifactSha256": "7f21c385de1446349ce9ddfa4ce6cf2b0d0d3adb4f0504696792f10e27c586fe",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "RANGE_HOOD",
+      "productId": "ARCELIK_P_18_YCB_TR",
+      "brand": "Arçelik",
+      "model": "P 18 YCB",
+      "configurationIdentity": "Arçelik P 18 YCB / Türkiye / 60 cm duvar tipi eğimli davlumbaz / beyaz",
+      "parentRelease": "APPLIANCES-RANGE-HOOD-TR-v0.2",
+      "parentArtifactSha256": "7f21c385de1446349ce9ddfa4ce6cf2b0d0d3adb4f0504696792f10e27c586fe",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "RANGE_HOOD",
+      "productId": "BOSCH_DWP64CC50T_TR",
+      "brand": "Bosch",
+      "model": "DWP64CC50T",
+      "configurationIdentity": "Bosch DWP64CC50T / Türkiye / 60 cm duvar tipi davlumbaz / paslanmaz çelik",
+      "parentRelease": "APPLIANCES-RANGE-HOOD-TR-v0.2",
+      "parentArtifactSha256": "7f21c385de1446349ce9ddfa4ce6cf2b0d0d3adb4f0504696792f10e27c586fe",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "productId": "BOSCH_KGN55CIE0N_TR",
+      "brand": "Bosch",
+      "model": "KGN55CIE0N",
+      "configurationIdentity": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+      "parentRelease": "APPLIANCES-REFRIGERATOR-TR-v0.1",
+      "parentArtifactSha256": "4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "productId": "LG_GC_B569NLLM_TR",
+      "brand": "LG",
+      "model": "GC-B569NLLM",
+      "configurationIdentity": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+      "parentRelease": "APPLIANCES-REFRIGERATOR-TR-v0.1",
+      "parentArtifactSha256": "4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "productId": "SAMSUNG_RB34C6B0E12_TR",
+      "brand": "Samsung",
+      "model": "RB34C6B0E12/TR",
+      "configurationIdentity": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+      "parentRelease": "APPLIANCES-REFRIGERATOR-TR-v0.1",
+      "parentArtifactSha256": "4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "productId": "SIEMENS_KG56NVWD0N_TR",
+      "brand": "Siemens",
+      "model": "KG56NVWD0N",
+      "configurationIdentity": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+      "parentRelease": "APPLIANCES-REFRIGERATOR-TR-v0.1",
+      "parentArtifactSha256": "4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "ROBOT_VACUUM",
+      "productId": "BOSCH_BCRC2W_TR",
+      "brand": "Bosch",
+      "model": "BCRC2W",
+      "configurationIdentity": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+      "parentRelease": "APPLIANCES-ROBOT-VACUUM-TR-v0.1",
+      "parentArtifactSha256": "86b3932c87873ffcb67bd53b91c162dd167fc3bb22bcec6a2cb9b759ffd79533",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "ROBOT_VACUUM",
+      "productId": "SAMSUNG_VR3MB77312K_TR",
+      "brand": "Samsung",
+      "model": "VR3MB77312K/TR",
+      "configurationIdentity": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+      "parentRelease": "APPLIANCES-ROBOT-VACUUM-TR-v0.1",
+      "parentArtifactSha256": "86b3932c87873ffcb67bd53b91c162dd167fc3bb22bcec6a2cb9b759ffd79533",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "ROBOT_VACUUM",
+      "productId": "XIAOMI_H40_OV51_TR",
+      "brand": "Xiaomi",
+      "model": "Robot Vacuum H40 / OV51",
+      "configurationIdentity": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+      "parentRelease": "APPLIANCES-ROBOT-VACUUM-TR-v0.1",
+      "parentArtifactSha256": "86b3932c87873ffcb67bd53b91c162dd167fc3bb22bcec6a2cb9b759ffd79533",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "ROBOT_VACUUM",
+      "productId": "XIAOMI_X20_PRO_TR",
+      "brand": "Xiaomi",
+      "model": "Robot Vacuum X20 Pro",
+      "configurationIdentity": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+      "parentRelease": "APPLIANCES-ROBOT-VACUUM-TR-v0.1",
+      "parentArtifactSha256": "86b3932c87873ffcb67bd53b91c162dd167fc3bb22bcec6a2cb9b759ffd79533",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "productId": "BOSCH_CL2000U_W_26_E__CL2000_26_E_TR",
+      "brand": "Bosch",
+      "model": "CL2000U W 26 E + CL2000 26 E",
+      "configurationIdentity": "Bosch Türkiye exact single-split pair / indoor CL2000U W 26 E order 7733701986 / outdoor CL2000 26 E order 7733701987",
+      "parentRelease": "APPLIANCES-SPLIT-AIR-CONDITIONER-TR-v0.1",
+      "parentArtifactSha256": "e31449770c198f0018a6b8204ed2274b0b523ebb3ce785545961bd437bd2bce3",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "productId": "BOSCH_CL3000IU_W_35_E__CL3000I_35_E_TR",
+      "brand": "Bosch",
+      "model": "CL3000iU W 35 E + CL3000i 35 E",
+      "configurationIdentity": "Bosch Türkiye exact single-split pair / indoor CL3000iU W 35 E order 7733701566 / outdoor CL3000i 35 E order 7733701567",
+      "parentRelease": "APPLIANCES-SPLIT-AIR-CONDITIONER-TR-v0.1",
+      "parentArtifactSha256": "e31449770c198f0018a6b8204ed2274b0b523ebb3ce785545961bd437bd2bce3",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "productId": "TOSHIBA_RAS_B24B2KV2G_TR__RAS_24B2AV2G_TR",
+      "brand": "Toshiba",
+      "model": "RAS-B24B2KV2G-TR + RAS-24B2AV2G-TR",
+      "configurationIdentity": "Toshiba Türkiye exact single-split pair / indoor RAS-B24B2KV2G-TR / outdoor RAS-24B2AV2G-TR",
+      "parentRelease": "APPLIANCES-SPLIT-AIR-CONDITIONER-TR-v0.1",
+      "parentArtifactSha256": "e31449770c198f0018a6b8204ed2274b0b523ebb3ce785545961bd437bd2bce3",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "productId": "ARCELIK_K3300_TFF_TR",
+      "brand": "Arçelik",
+      "model": "K 3300 TFF",
+      "configurationIdentity": "Arçelik K 3300 TFF / Türkiye / CookSense / tek cezve",
+      "parentRelease": "APPLIANCES-TURKISH-COFFEE-TR-v0.1",
+      "parentArtifactSha256": "e2e3d2872c9ef1257ecdf341c31ea004a1598dca7f4afb17e9b566a87af20384",
+      "discoveredManuals": [
+        {
+          "sourceId": "ARCELIK-K3300-MANUAL",
+          "url": "https://download.arcelik.com.tr/download.usagemanuals/k-3300-siyah-turk-kahvesi-makinesi-pisirici-ve-isitici-kullanim-kilavuzu-tr_TR_201505111553108_User-20Manual-20-20Filetur-A.pdf",
+          "kind": "DIRECT_PDF"
+        }
+      ]
+    },
+    {
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "productId": "ARZUM_OK004_0400_TR",
+      "brand": "Arzum",
+      "model": "OKKA Minio OK004-0400",
+      "configurationIdentity": "Arzum OKKA Minio OK004-0400 / Türkiye / bakır / 4 fincan / taşma önleyici sistem",
+      "parentRelease": "APPLIANCES-TURKISH-COFFEE-TR-v0.1",
+      "parentArtifactSha256": "e2e3d2872c9ef1257ecdf341c31ea004a1598dca7f4afb17e9b566a87af20384",
+      "discoveredManuals": [
+        {
+          "sourceId": "ARZUM-OK004-MANUAL",
+          "url": "https://destek.arzum.com.tr/manuals/arzum-okka-minio-turk-kahvesi-makinesi-ok004-n.pdf",
+          "kind": "DIRECT_PDF"
+        }
+      ]
+    },
+    {
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "productId": "KARACA_HATIR_HUP_TR",
+      "brand": "Karaca",
+      "model": "Hatır Hüp",
+      "configurationIdentity": "Karaca Hatır Hüp / Türkiye / Türk kahvesi makinesi / 5 fincan",
+      "parentRelease": "APPLIANCES-TURKISH-COFFEE-TR-v0.1",
+      "parentArtifactSha256": "e2e3d2872c9ef1257ecdf341c31ea004a1598dca7f4afb17e9b566a87af20384",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "VACUUM",
+      "productId": "BOSCH_BGC21X300_TR",
+      "brand": "Bosch",
+      "model": "BGC21X300",
+      "configurationIdentity": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+      "parentRelease": "APPLIANCES-VACUUM-TR-v0.1",
+      "parentArtifactSha256": "849467eb66b81d4042076da4e1023836b56974a1d6e2fbfd9fd67d34555ad343",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "VACUUM",
+      "productId": "BOSCH_BGC41PET_TR",
+      "brand": "Bosch",
+      "model": "BGC41PET",
+      "configurationIdentity": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+      "parentRelease": "APPLIANCES-VACUUM-TR-v0.1",
+      "parentArtifactSha256": "849467eb66b81d4042076da4e1023836b56974a1d6e2fbfd9fd67d34555ad343",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "VACUUM",
+      "productId": "PHILIPS_FC9330_07_TR",
+      "brand": "Philips",
+      "model": "FC9330/07",
+      "configurationIdentity": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+      "parentRelease": "APPLIANCES-VACUUM-TR-v0.1",
+      "parentArtifactSha256": "849467eb66b81d4042076da4e1023836b56974a1d6e2fbfd9fd67d34555ad343",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "VACUUM",
+      "productId": "PHILIPS_FC9750_07_TR",
+      "brand": "Philips",
+      "model": "FC9750/07",
+      "configurationIdentity": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+      "parentRelease": "APPLIANCES-VACUUM-TR-v0.1",
+      "parentArtifactSha256": "849467eb66b81d4042076da4e1023836b56974a1d6e2fbfd9fd67d34555ad343",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:beko:cmx-10120",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:beko:cmx-10120",
+      "configurationIdentity": "Beko|CMX 10120|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": [
+        {
+          "sourceId": "src:appliances:wm:beko:d30f263070e8fac0",
+          "url": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/457100000016_MDM2_USER_MANUAL_FILE_tr_TR.pdf",
+          "kind": "DIRECT_PDF"
+        }
+      ]
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:beko:cmx-11140",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:beko:cmx-11140",
+      "configurationIdentity": "Beko|CMX 11140|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": [
+        {
+          "sourceId": "src:appliances:wm:beko:bd2f5c8949d8a9d9",
+          "url": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/457100000021_MDM2_USER_MANUAL_FILE_tr_TR.pdf",
+          "kind": "DIRECT_PDF"
+        }
+      ]
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:beko:cmx-8100",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:beko:cmx-8100",
+      "configurationIdentity": "Beko|CMX 8100|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": [
+        {
+          "sourceId": "src:appliances:wm:beko:52304d508afe48ed",
+          "url": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/457100000009_USERMANUALFILELONG_457100000009_tr_TR20240424-183412-591.pdf",
+          "kind": "DIRECT_PDF"
+        }
+      ]
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:beko:cmxt-9120",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:beko:cmxt-9120",
+      "configurationIdentity": "Beko|CMXT 9120|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:bosch:wgb244a0tr",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:bosch:wgb244a0tr",
+      "configurationIdentity": "Bosch|WGB244A0TR|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:bosch:wgb254a1tr",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:bosch:wgb254a1tr",
+      "configurationIdentity": "Bosch|WGB254A1TR|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:bosch:wgb254axtr",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:bosch:wgb254axtr",
+      "configurationIdentity": "Bosch|WGB254AXTR|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:bosch:wgk264y0tr",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:bosch:wgk264y0tr",
+      "configurationIdentity": "Bosch|WGK264Y0TR|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:electrolux:ew6f3411act",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:electrolux:ew6f3411act",
+      "configurationIdentity": "Electrolux|EW6F3411ACT|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:electrolux:ew6f3494t",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:electrolux:ew6f3494t",
+      "configurationIdentity": "Electrolux|EW6F3494T|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:electrolux:ew7f4404ut",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:electrolux:ew7f4404ut",
+      "configurationIdentity": "Electrolux|EW7F4404UT|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:electrolux:ew7f4422ct",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:electrolux:ew7f4422ct",
+      "configurationIdentity": "Electrolux|EW7F4422CT|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:lg:f4r3tyw3we",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:lg:f4r3tyw3we",
+      "configurationIdentity": "LG|F4R3TYW3WE|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:lg:f4r5vyw2t",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:lg:f4r5vyw2t",
+      "configurationIdentity": "LG|F4R5VYW2T|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:lg:f4t2vym1s",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:lg:f4t2vym1s",
+      "configurationIdentity": "LG|F4T2VYM1S|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:lg:f4v5ryp0w",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:lg:f4v5ryp0w",
+      "configurationIdentity": "LG|F4V5RYP0W|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:lg:f4y5eywyj",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:lg:f4y5eywyj",
+      "configurationIdentity": "LG|F4Y5EYWYJ|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:miele:wwa120-wcs-8kg-active",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:miele:wwa120-wcs-8kg-active",
+      "configurationIdentity": "Miele|WWA120 WCS 8kg Active|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:samsung:ww11db8b95gbah",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:samsung:ww11db8b95gbah",
+      "configurationIdentity": "Samsung|WW11DB8B95GBAH|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:samsung:ww90cgc04daeah",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:samsung:ww90cgc04daeah",
+      "configurationIdentity": "Samsung|WW90CGC04DAEAH|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:samsung:ww90dg6u25leah",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:samsung:ww90dg6u25leah",
+      "configurationIdentity": "Samsung|WW90DG6U25LEAH|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "configurationIdentity": "Vestel|CMI 108442 WIFI|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": []
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:vestel:cmi-87402-wifi",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:vestel:cmi-87402-wifi",
+      "configurationIdentity": "Vestel|CMI 87402 WIFI|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": [
+        {
+          "sourceId": "src:appliances:wm:vestel:0ed83af57ae5db65",
+          "url": "https://statik.vestel.com.tr/webfiles/20350199_k.pdf",
+          "kind": "DIRECT_PDF"
+        }
+      ]
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:vestel:cmi-99422-wifi",
+      "brand": "UNKNOWN",
+      "model": "appliances:wm:tr:vestel:cmi-99422-wifi",
+      "configurationIdentity": "Vestel|CMI 99422 WIFI|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "parentRelease": "APPLIANCES-WM-TR-v0.1",
+      "parentArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "discoveredManuals": [
+        {
+          "sourceId": "src:appliances:wm:vestel:1df0de54bb9f6d05",
+          "url": "https://statik.vestel.com.tr/webfiles/20350211_k.pdf",
+          "kind": "DIRECT_PDF"
+        }
+      ]
+    }
+  ],
+  "manuals": [
+    {
+      "manualId": "APPL-MANUAL-6928129D754BECE0",
+      "sourceId": "BEKO-KMX82-MANUAL-TR",
+      "sourceUrl": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/7184270260_MDM2_USER_MANUAL_FILE_tr_TR.pdf",
+      "retrievedAt": "2026-09-04T12:00:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 2374734,
+      "artifactSha256": "sha256:6928129d754bece05ca0c1594f6650d3941d0662598d691e9d83802ac477c6df",
+      "textArtifactSha256": "sha256:47f923ba25b51e5ab7221090e233a5a582647d15cdf0236f7eac32605c84b680",
+      "categoryId": "DRYER",
+      "productId": "BEKO_KMX_82_TR",
+      "exactProductCode": "KMX82",
+      "identityLocator": {
+        "page": 1,
+        "section": "KMX 82"
+      },
+      "pageCount": 35,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/6928129d754bece0.pdf",
+      "immutableTextPath": "text/6928129d754bece0.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-0788D7D66C3BD4CE",
+      "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+      "sourceUrl": "https://media3.bosch-home.com/Documents/9001745932_A.pdf",
+      "retrievedAt": "2026-09-04T12:00:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 4022721,
+      "artifactSha256": "sha256:0788d7d66c3bd4ceb7bc889296de05a2e7af3b890d892adec456bd1ba8fb0f91",
+      "textArtifactSha256": "sha256:98d70c28ea71baf26a728f635c692aa9b1e574f2ef5216702756752a4b397164",
+      "categoryId": "DRYER",
+      "productId": "BOSCH_WQG24100TR",
+      "exactProductCode": "WQG24100",
+      "identityLocator": {
+        "page": 1,
+        "section": "WQG24100TR"
+      },
+      "pageCount": 52,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/0788d7d66c3bd4ce.pdf",
+      "immutableTextPath": "text/0788d7d66c3bd4ce.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-16781E5559F44C15",
+      "sourceId": "BAYMAK-XLS65-MANUAL-TR",
+      "sourceUrl": "https://www.baymak.com.tr/media/7498/baymak-aqua-x-termosifon-montaj-ve-kullanim-kilavuzu.pdf",
+      "retrievedAt": "2026-09-04T18:30:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 1823228,
+      "artifactSha256": "sha256:16781e5559f44c151edb27a3959ce666bb9f8f80fa0d77bf70d5bae3d680ae35",
+      "textArtifactSha256": "sha256:4e8627986c583fd3a455092e22104f534b6d2851b539eee1ea678843795508cd",
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "productId": "BAYMAK_XLS65_TR",
+      "exactProductCode": "65 X-LS",
+      "identityLocator": {
+        "page": 1,
+        "section": "50 X-LS/ 65 X-LS / 80 X-LS /100 X-LS"
+      },
+      "pageCount": 16,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/16781e5559f44c15.pdf",
+      "immutableTextPath": "text/16781e5559f44c15.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-78E8D6C5C0D5016B",
+      "sourceId": "PHILIPS-HR7778-MANUAL-PDF",
+      "sourceUrl": "https://dam.versuni.com/m/5e5ac195308416da/original/User-Manual-Philips-7000-Series-Food-processor-HR7778_00.pdf",
+      "retrievedAt": "2026-09-04T18:30:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 28733250,
+      "artifactSha256": "sha256:78e8d6c5c0d5016b302b98148cb9ded21f1a720523e6f0b45fd223cc38b71a8b",
+      "textArtifactSha256": "sha256:e0ffa77b9996fe3ab1cf4f2ef16927a257ce0df25aa20c7cea53d23b46296933",
+      "categoryId": "FOOD_PROCESSOR",
+      "productId": "PHILIPS_HR7778_00_TR",
+      "exactProductCode": "HR7778",
+      "identityLocator": {
+        "page": 1,
+        "section": "HR7778"
+      },
+      "pageCount": 128,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/78e8d6c5c0d5016b.pdf",
+      "immutableTextPath": "text/78e8d6c5c0d5016b.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-0A9E3ED06A1236A3",
+      "sourceId": "BOSCH-HXR390H21T-MANUAL-TR",
+      "sourceUrl": "https://media3.bsh-group.com/Documents/9001946020_F.pdf",
+      "retrievedAt": "2026-09-04T18:30:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 1556779,
+      "artifactSha256": "sha256:0a9e3ed06a1236a32fe52bfdf7038aa8192ccb84dc6f11d174c267bc8afe9185",
+      "textArtifactSha256": "sha256:604315b96ccd049483f654822274b3d578acec72fb113e588402a70d216a24b9",
+      "categoryId": "FREESTANDING_COOKER",
+      "productId": "BOSCH_HXR390H21T_TR",
+      "exactProductCode": "HXR390H21T",
+      "identityLocator": {
+        "page": 1,
+        "section": "HXR390H21T"
+      },
+      "pageCount": 44,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/0a9e3ed06a1236a3.pdf",
+      "immutableTextPath": "text/0a9e3ed06a1236a3.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-F8765B6C1374F16F",
+      "sourceId": "PHILIPS-EP2220-MANUAL-PDF",
+      "sourceUrl": "https://dam.versuni.com/m/43f5d99f5574a42e/original/CO_2025_800-Series_1200-Series_2200-Series_3200-Series_Manual-Philips_EU9.pdf",
+      "retrievedAt": "2026-09-04T18:30:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 7222541,
+      "artifactSha256": "sha256:f8765b6c1374f16f8c2edb6a208e7a37cf53dfcb49723984688e3e87f77403f3",
+      "textArtifactSha256": "sha256:bb21111923faebe565334d20b754c702e7eca3381da88ebbac32b5d187e7297f",
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "productId": "PHILIPS_EP2220_10_TR",
+      "exactProductCode": "EP2220",
+      "identityLocator": {
+        "page": 3,
+        "section": "EP2220"
+      },
+      "pageCount": 635,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/f8765b6c1374f16f.pdf",
+      "immutableTextPath": "text/f8765b6c1374f16f.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-B87F6C2168F55185",
+      "sourceId": "ARZUM-AR012-MANUAL-URL",
+      "sourceUrl": "https://destek.arzum.com.tr/manuals/arzum-laguna-elektrikli-sofben-ar012.pdf",
+      "retrievedAt": "2026-09-04T12:00:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 951048,
+      "artifactSha256": "sha256:b87f6c2168f551857c4d0ae61973a0d8f6f4a266caca476d555f22ec1bd3539c",
+      "textArtifactSha256": "sha256:48862fd25aafb29e012d9486859998641b5bef6a1f974dfaef475d8b844be3ce",
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "productId": "ARZUM_AR012_LAGUNA_TR",
+      "exactProductCode": "AR012",
+      "identityLocator": {
+        "page": 1,
+        "section": "AR 012 ELEKTRİKLİ ŞOFBEN"
+      },
+      "pageCount": 32,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/b87f6c2168f55185.pdf",
+      "immutableTextPath": "text/b87f6c2168f55185.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-5500FA9577073349",
+      "sourceId": "GLOBAL-EVIDENCE-5500FA9577073349",
+      "sourceUrl": "https://download.arcelik.com.tr/Download.UsageManuals/FACELIFT_ARCELIK/tr_TR_201801040913912_User%20Manual%20-%20Filetr_TR.PDF",
+      "retrievedAt": "2026-09-04T21:29:10.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 1771584,
+      "artifactSha256": "sha256:5500fa95770733498cfcfdb52d159537eb52604d1cba800ca8ffc8a112954c6e",
+      "textArtifactSha256": "sha256:1cc6f3718db1153d8f7838195c344c55dfb4aab7ac63c877def569eaaa4950ea",
+      "categoryId": "RANGE_HOOD",
+      "productId": "ARCELIK_P_18_YCB_TR",
+      "exactProductCode": "P 18 YCB",
+      "identityLocator": {
+        "page": 7,
+        "section": "P 18 YCB"
+      },
+      "pageCount": 20,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/5500fa9577073349.pdf",
+      "immutableTextPath": "text/5500fa9577073349.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-13DB1583DF58DFB2",
+      "sourceId": "ARCELIK-K3300-MANUAL",
+      "sourceUrl": "https://download.arcelik.com.tr/download.usagemanuals/k-3300-siyah-turk-kahvesi-makinesi-pisirici-ve-isitici-kullanim-kilavuzu-tr_TR_201505111553108_User-20Manual-20-20Filetur-A.pdf",
+      "retrievedAt": "2026-09-04T12:00:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 543609,
+      "artifactSha256": "sha256:13db1583df58dfb235fe8abf88ba413af030da69135391c29b846cb3385963b9",
+      "textArtifactSha256": "sha256:10097de517edd40d7d6fb39d7e4fa65ed5a3dea015a749abf6a954c393a924e6",
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "productId": "ARCELIK_K3300_TFF_TR",
+      "exactProductCode": "K3300",
+      "identityLocator": {
+        "page": 1,
+        "section": "K 3300"
+      },
+      "pageCount": 24,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/13db1583df58dfb2.pdf",
+      "immutableTextPath": "text/13db1583df58dfb2.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-4B192FA6005159D1",
+      "sourceId": "ARZUM-OK004-MANUAL",
+      "sourceUrl": "https://destek.arzum.com.tr/manuals/arzum-okka-minio-turk-kahvesi-makinesi-ok004-n.pdf",
+      "retrievedAt": "2026-09-04T12:00:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 1137433,
+      "artifactSha256": "sha256:4b192fa6005159d194600294c28697800e67071888b1f75def8f9526ff519937",
+      "textArtifactSha256": "sha256:8d99d5acda772068e710acce03c93b4eb7f8ec64dc66162e878e2d4f6c96d88f",
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "productId": "ARZUM_OK004_0400_TR",
+      "exactProductCode": "OK004",
+      "identityLocator": {
+        "page": 3,
+        "section": "OK004 / OK004-N / OK004-K / OK004-MC"
+      },
+      "pageCount": 52,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/4b192fa6005159d1.pdf",
+      "immutableTextPath": "text/4b192fa6005159d1.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-8902605FA2B7AA07",
+      "sourceId": "src:appliances:wm:beko:d30f263070e8fac0",
+      "sourceUrl": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/457100000016_MDM2_USER_MANUAL_FILE_tr_TR.pdf",
+      "retrievedAt": "2026-09-04T12:00:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 1372958,
+      "artifactSha256": "sha256:8902605fa2b7aa07e1f8e27cd22d649cd01b7503208f9bd0ba8db8a0593b63e4",
+      "textArtifactSha256": "sha256:6f77584601d829c86e2351b9ff06036fd42b418b8807185bdb17d6affead9c67",
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:beko:cmx-10120",
+      "exactProductCode": "CMX10120",
+      "identityLocator": {
+        "page": 1,
+        "section": "CMX 10120"
+      },
+      "pageCount": 43,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/8902605fa2b7aa07.pdf",
+      "immutableTextPath": "text/8902605fa2b7aa07.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-A6275AC1AF9B9022",
+      "sourceId": "src:appliances:wm:beko:bd2f5c8949d8a9d9",
+      "sourceUrl": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/457100000021_MDM2_USER_MANUAL_FILE_tr_TR.pdf",
+      "retrievedAt": "2026-09-04T12:00:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 1374465,
+      "artifactSha256": "sha256:a6275ac1af9b90220dac4251aa9654c878399d6a1e895330ce115ad0b98834c8",
+      "textArtifactSha256": "sha256:814ab801cdbee9a6219b0bb961e2ed9a7b9115b1f4811180bab5f456a851fcaf",
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:beko:cmx-11140",
+      "exactProductCode": "CMX11140",
+      "identityLocator": {
+        "page": 1,
+        "section": "CMX 11140"
+      },
+      "pageCount": 43,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/a6275ac1af9b9022.pdf",
+      "immutableTextPath": "text/a6275ac1af9b9022.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-BF82FEEDB3FA682E",
+      "sourceId": "src:appliances:wm:beko:52304d508afe48ed",
+      "sourceUrl": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/457100000009_USERMANUALFILELONG_457100000009_tr_TR20240424-183412-591.pdf",
+      "retrievedAt": "2026-09-04T12:00:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 1365061,
+      "artifactSha256": "sha256:bf82feedb3fa682ea775845d7841eb3801d15cc44f2d3a1352fcb393c107bab3",
+      "textArtifactSha256": "sha256:be3b3c88caa24a6cbd7d2fe576596bb1eb05f0aaf4218b7fee7911a48541f828",
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:beko:cmx-8100",
+      "exactProductCode": "CMX8100",
+      "identityLocator": {
+        "page": 1,
+        "section": "CMX 8100"
+      },
+      "pageCount": 43,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/bf82feedb3fa682e.pdf",
+      "immutableTextPath": "text/bf82feedb3fa682e.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-3C6546F698FEE918",
+      "sourceId": "GLOBAL-EVIDENCE-3C6546F698FEE918",
+      "sourceUrl": "https://media3.bosch-home.com/Documents/9001708433_D.pdf",
+      "retrievedAt": "2026-09-04T21:29:10.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 3727971,
+      "artifactSha256": "sha256:3c6546f698fee9186601d06d76e3c3056ca7bf522d32c57effa7da7bb73aa5fd",
+      "textArtifactSha256": "sha256:546070619b10184dc03b611174313a7e0ca0574c7d4d2cbb865316c532bc8222",
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:bosch:wgb244a0tr",
+      "exactProductCode": "WGB244A0TR",
+      "identityLocator": {
+        "page": 1,
+        "section": "Çamaşır makinesi WGB244A0TR"
+      },
+      "pageCount": 60,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/3c6546f698fee918.pdf",
+      "immutableTextPath": "text/3c6546f698fee918.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-589323F52663B11F",
+      "sourceId": "GLOBAL-EVIDENCE-589323F52663B11F",
+      "sourceUrl": "https://statik.vestel.com.tr/webfiles/20350192_k.pdf",
+      "retrievedAt": "2026-09-04T21:29:10.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 4632311,
+      "artifactSha256": "sha256:589323f52663b11fcf31f5d6fe87dc3db4c7cfcbf3f362f4380f67a30eef2417",
+      "textArtifactSha256": "sha256:17be95fe0d74b5bbe2ae734d115dd68aa8e2d004e01103217573ff9e9509ade3",
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "exactProductCode": "CMI 108442 WIFI",
+      "identityLocator": {
+        "page": 1,
+        "section": "CMI 108442 WIFI"
+      },
+      "pageCount": 46,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/589323f52663b11f.pdf",
+      "immutableTextPath": "text/589323f52663b11f.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-70E8958CAF1A46FB",
+      "sourceId": "src:appliances:wm:vestel:0ed83af57ae5db65",
+      "sourceUrl": "https://statik.vestel.com.tr/webfiles/20350199_k.pdf",
+      "retrievedAt": "2026-09-04T12:00:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 4492785,
+      "artifactSha256": "sha256:70e8958caf1a46fbd9ae81971bbccc8031056995140cf3d68a3d30807ce93b16",
+      "textArtifactSha256": "sha256:8b66a28af598289f569555f8a0b05ebf10db64a32c527c782b26817ffc2f6e85",
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:vestel:cmi-87402-wifi",
+      "exactProductCode": "CMI87402",
+      "identityLocator": {
+        "page": 1,
+        "section": "CMI 87402 WIFI"
+      },
+      "pageCount": 46,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/70e8958caf1a46fb.pdf",
+      "immutableTextPath": "text/70e8958caf1a46fb.txt"
+    },
+    {
+      "manualId": "APPL-MANUAL-B4A3CF20FC74E6FE",
+      "sourceId": "src:appliances:wm:vestel:1df0de54bb9f6d05",
+      "sourceUrl": "https://statik.vestel.com.tr/webfiles/20350211_k.pdf",
+      "retrievedAt": "2026-09-04T12:00:00.000Z",
+      "contentType": "application/pdf",
+      "byteLength": 4353317,
+      "artifactSha256": "sha256:b4a3cf20fc74e6fe5e2f69b0950a7d46d9139c487349d381b1b8cceaede19f64",
+      "textArtifactSha256": "sha256:8a48438209325f7fe518f4ab593923984b3813113551d40ca32645cc0b9be8c4",
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:vestel:cmi-99422-wifi",
+      "exactProductCode": "CMI99422",
+      "identityLocator": {
+        "page": 1,
+        "section": "CMI 99422 WIFI"
+      },
+      "pageCount": 45,
+      "language": "tr-TR",
+      "immutableBytesPath": "bytes/b4a3cf20fc74e6fe.pdf",
+      "immutableTextPath": "text/b4a3cf20fc74e6fe.txt"
+    }
+  ],
+  "l9AdvisorKnowledge": [
+    {
+      "knowledgeId": "l9-global:appliances:wm:tr:bosch:wgb244a0tr:6",
+      "manualId": "APPL-MANUAL-3C6546F698FEE918",
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:bosch:wgb244a0tr",
+      "statement": "Consult the exact WGB244A0TR manual section 'Güvenli kurulum' for safety guidance.",
+      "locator": {
+        "page": 5,
+        "section": "Güvenli kurulum"
+      },
+      "knowledgeKind": "SAFETY",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": false,
+      "publicSourceDisclosure": "WGB244A0TR üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "l9-global:appliances:wm:tr:bosch:wgb244a0tr:7",
+      "manualId": "APPL-MANUAL-3C6546F698FEE918",
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:bosch:wgb244a0tr",
+      "statement": "Consult the exact WGB244A0TR manual section 'Cihazı temizleme ve bakımını yapma' for maintenance guidance.",
+      "locator": {
+        "page": 39,
+        "section": "Cihazı temizleme ve bakımını yapma"
+      },
+      "knowledgeKind": "MAINTENANCE",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": false,
+      "publicSourceDisclosure": "WGB244A0TR üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "l9-global:appliances:wm:tr:vestel:cmi-108442-wifi:4",
+      "manualId": "APPL-MANUAL-589323F52663B11F",
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "statement": "Consult the exact CMI 108442 WIFI manual section 'Uzaktan Erişim Ayarı' for program_behavior guidance.",
+      "locator": {
+        "page": 22,
+        "section": "Uzaktan Erişim Ayarı"
+      },
+      "knowledgeKind": "USAGE",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": false,
+      "publicSourceDisclosure": "CMI 108442 WIFI üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "l9-global:appliances:wm:tr:vestel:cmi-108442-wifi:5",
+      "manualId": "APPL-MANUAL-589323F52663B11F",
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "statement": "Consult the exact CMI 108442 WIFI manual section 'Makinenizin Bakım ve Temizliği' for maintenance guidance.",
+      "locator": {
+        "page": 33,
+        "section": "Makinenizin Bakım ve Temizliği"
+      },
+      "knowledgeKind": "MAINTENANCE",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": false,
+      "publicSourceDisclosure": "CMI 108442 WIFI üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "L9-13DB1583DF58DFB2-1",
+      "manualId": "APPL-MANUAL-13DB1583DF58DFB2",
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "productId": "ARCELIK_K3300_TFF_TR",
+      "statement": "Temizlikten önce cihazın enerjisi kesilmeli ve exact kılavuzdaki temizlik sınırları izlenmelidir.",
+      "locator": {
+        "page": 3,
+        "section": "temiz"
+      },
+      "knowledgeKind": "MAINTENANCE",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": false,
+      "publicSourceDisclosure": "Arçelik K 3300 TFF üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "l9-global:ARCELIK_P_18_YCB_TR:2",
+      "manualId": "APPL-MANUAL-5500FA9577073349",
+      "categoryId": "RANGE_HOOD",
+      "productId": "ARCELIK_P_18_YCB_TR",
+      "statement": "Consult the exact P 18 YCB manual section 'Cihazınızın Montajı - minimum hob distance' for installation guidance.",
+      "locator": {
+        "page": 8,
+        "section": "Cihazınızın Montajı"
+      },
+      "knowledgeKind": "INSTALLATION",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": true,
+      "publicSourceDisclosure": "Arçelik P 18 YCB üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "l9-global:ARCELIK_P_18_YCB_TR:3",
+      "manualId": "APPL-MANUAL-5500FA9577073349",
+      "categoryId": "RANGE_HOOD",
+      "productId": "ARCELIK_P_18_YCB_TR",
+      "statement": "Consult the exact P 18 YCB manual section 'Temizlik ve Bakım' for maintenance guidance.",
+      "locator": {
+        "page": 16,
+        "section": "Temizlik ve Bakım"
+      },
+      "knowledgeKind": "MAINTENANCE",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": false,
+      "publicSourceDisclosure": "Arçelik P 18 YCB üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "L9-B87F6C2168F55185-1",
+      "manualId": "APPL-MANUAL-B87F6C2168F55185",
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "productId": "ARZUM_AR012_LAGUNA_TR",
+      "statement": "Elektrik bağlantısı koruyucu topraklama gerektirir; kurulum ve bağlantı uygun yetkinlikte profesyonel tarafından doğrulanmalıdır.",
+      "locator": {
+        "page": 4,
+        "section": "topraklı"
+      },
+      "knowledgeKind": "INSTALLATION",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": true,
+      "publicSourceDisclosure": "Arzum AR 012 Laguna üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "l9-global:ARZUM_AR012_LAGUNA_TR:1",
+      "manualId": "APPL-MANUAL-B87F6C2168F55185",
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "productId": "ARZUM_AR012_LAGUNA_TR",
+      "statement": "Consult the exact AR 012 manual section 'MONTAJ ŞEMASI' for installation guidance.",
+      "locator": {
+        "page": 10,
+        "section": "MONTAJ ŞEMASI"
+      },
+      "knowledgeKind": "INSTALLATION",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": true,
+      "publicSourceDisclosure": "Arzum AR 012 Laguna üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "L9-4B192FA6005159D1-1",
+      "manualId": "APPL-MANUAL-4B192FA6005159D1",
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "productId": "ARZUM_OK004_0400_TR",
+      "statement": "Pişirme sırasında sıcak yüzey ve buhar riski vardır; cihaz exact kılavuzdaki güvenli kullanım ve temizlik adımlarına göre kullanılmalıdır.",
+      "locator": {
+        "page": 6,
+        "section": "sıcak"
+      },
+      "knowledgeKind": "SAFETY",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": false,
+      "publicSourceDisclosure": "Arzum OKKA Minio OK004-0400 üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "L9-16781E5559F44C15-1",
+      "manualId": "APPL-MANUAL-16781E5559F44C15",
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "productId": "BAYMAK_XLS65_TR",
+      "statement": "Montaj, ilk çalıştırma ve güvenlik kontrolleri exact kılavuz sınırında yetkili servis veya uygun yetkinlikte profesyonel tarafından doğrulanmalıdır.",
+      "locator": {
+        "page": 2,
+        "section": "yetkili servis"
+      },
+      "knowledgeKind": "INSTALLATION",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": true,
+      "publicSourceDisclosure": "Baymak Aqua X-Konfor X-LS 65 üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "L9-6928129D754BECE0-1",
+      "manualId": "APPL-MANUAL-6928129D754BECE0",
+      "categoryId": "DRYER",
+      "productId": "BEKO_KMX_82_TR",
+      "statement": "Tiftik filtresi kılavuzda tarif edilen bakım düzeninde temizlenmelidir; bakım öncesinde cihaz güvenli duruma alınmalıdır.",
+      "locator": {
+        "page": 4,
+        "section": "filtre"
+      },
+      "knowledgeKind": "MAINTENANCE",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": false,
+      "publicSourceDisclosure": "Beko KMX 82 üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "L9-0A9E3ED06A1236A3-1",
+      "manualId": "APPL-MANUAL-0A9E3ED06A1236A3",
+      "categoryId": "FREESTANDING_COOKER",
+      "productId": "BOSCH_HXR390H21T_TR",
+      "statement": "Gaz türü, gaz bağlantısı ve soketsiz elektrik bağlantısı eğitimli uzman tarafından doğrulanmalıdır; kullanıcıya DIY bağlantı adımı verilmez.",
+      "locator": {
+        "page": 2,
+        "section": "eğitimli bir uzman"
+      },
+      "knowledgeKind": "INSTALLATION",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": true,
+      "publicSourceDisclosure": "Bosch HXR390H21T üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "L9-0788D7D66C3BD4CE-1",
+      "manualId": "APPL-MANUAL-0788D7D66C3BD4CE",
+      "categoryId": "DRYER",
+      "productId": "BOSCH_WQG24100TR",
+      "statement": "Tiftik filtresi kılavuzdaki prosedüre göre düzenli temizlenmelidir; bu bilgi kurutma sonucu veya bakım sıklığı garantisi değildir.",
+      "locator": {
+        "page": 2,
+        "section": "Tiftik filtresi"
+      },
+      "knowledgeKind": "MAINTENANCE",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": false,
+      "publicSourceDisclosure": "Bosch WQG24100TR üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "L9-F8765B6C1374F16F-1",
+      "manualId": "APPL-MANUAL-F8765B6C1374F16F",
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "productId": "PHILIPS_EP2220_10_TR",
+      "statement": "Kireç çözme ve gıda temaslı parçaların temizliği exact kılavuzdaki bakım programına göre yürütülmelidir; sonuç veya bakım aralığı garantisi değildir.",
+      "locator": {
+        "page": 498,
+        "section": "kireç çözme"
+      },
+      "knowledgeKind": "MAINTENANCE",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": false,
+      "publicSourceDisclosure": "Philips Series 2200 EP2220/10 üretici kullanım kılavuzu"
+    },
+    {
+      "knowledgeId": "L9-78E8D6C5C0D5016B-1",
+      "manualId": "APPL-MANUAL-78E8D6C5C0D5016B",
+      "categoryId": "FOOD_PROCESSOR",
+      "productId": "PHILIPS_HR7778_00_TR",
+      "statement": "Temizlikten önce cihazın enerjisi kesilmeli; keskin bıçak ve diskler exact kılavuzdaki güvenli tutuş ve temizlik sınırlarıyla ele alınmalıdır.",
+      "locator": {
+        "page": 112,
+        "section": "temizlemeden önce"
+      },
+      "knowledgeKind": "MAINTENANCE",
+      "decisionAuthority": "NONE",
+      "candidateEffect": "NONE",
+      "professionalInstallationRequired": false,
+      "publicSourceDisclosure": "Philips 7000 Series HR7778/00 üretici kullanım kılavuzu"
+    }
+  ],
+  "blockers": [
+    {
+      "categoryId": "AIR_FRYER",
+      "productId": "NINJA_AF400EU_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "AIR_FRYER",
+      "productId": "PHILIPS_NA350_00_TR",
+      "sourceUrl": "https://www.philips.com.tr/c-p/NA350_00/3000-serisi-cift-hazneli-airfryer/destek",
+      "code": "SUPPORT_INDEX_DYNAMIC",
+      "retryable": true,
+      "detail": "Official support index requires a separately resolved immutable PDF URL."
+    },
+    {
+      "categoryId": "AIR_FRYER",
+      "productId": "TEFAL_EY855D_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "AIR_PURIFIER",
+      "productId": "DYSON_BP02_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "AIR_PURIFIER",
+      "productId": "PHILIPS_AC1711_10_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "AIR_PURIFIER",
+      "productId": "XIAOMI_AC_M16_SC_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "BLENDER",
+      "productId": "BOSCH_MMB6172S_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "BLENDER",
+      "productId": "PHILIPS_HR2291_41_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "BLENDER",
+      "productId": "TEFAL_BL811D_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "productId": "ARCELIK_MA2030S_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "productId": "BEKO_BMC2030S_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "productId": "SIEMENS_BE525LMB2_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "BUILT_IN_OVEN",
+      "productId": "ARCELIK_AFC_120_S_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "BUILT_IN_OVEN",
+      "productId": "BEKO_BFC_221_HB_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "BUILT_IN_OVEN",
+      "productId": "BOSCH_HBF534ES3T_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "COUNTERTOP_MICROWAVE_OVEN",
+      "productId": "ARCELIK_MD20K_VINTAGE_TR",
+      "sourceUrl": "https://www.arcelik.com.tr/medias/tr-TR-8818371100-202012222316127-User-Manual-File-Long-tr-TR.pdf",
+      "code": "DOWNLOAD_FAILED",
+      "retryable": true,
+      "detail": "HTTP_400"
+    },
+    {
+      "categoryId": "COUNTERTOP_MICROWAVE_OVEN",
+      "productId": "BEKO_BMD200G_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "COUNTERTOP_MICROWAVE_OVEN",
+      "productId": "SIEMENS_FF023LMS1_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "productId": "BEKO_BM4044_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "productId": "BOSCH_SMS4IKI62T_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "productId": "SAMSUNG_DW60DG560FWQTR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "productId": "SIEMENS_SN25EI63MT_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "DRYER",
+      "productId": "BEKO_KM_99_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "productId": "ARCELIK_T7365_ECO_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "productId": "BEKO_BKT650_B_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "FILTER_COFFEE_MACHINE",
+      "productId": "ARCELIK_CM3940P_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "FILTER_COFFEE_MACHINE",
+      "productId": "BOSCH_TKA6A041_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "FILTER_COFFEE_MACHINE",
+      "productId": "PHILIPS_HD7462_20_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "FOOD_PROCESSOR",
+      "productId": "BOSCH_MCM3501M_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "FOOD_PROCESSOR",
+      "productId": "KENWOOD_FDP65_450WH_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "FREESTANDING_COOKER",
+      "productId": "ARCELIK_8315_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "FREESTANDING_COOKER",
+      "productId": "BEKO_FE_411_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "FREEZER",
+      "productId": "ARCELIK_2071_NFB_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "FREEZER",
+      "productId": "ARCELIK_2682_NFB_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "FREEZER",
+      "productId": "BOSCH_GSN33VWE0N_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "productId": "DELONGHI_ECAM220_22_GB_TR",
+      "sourceUrl": "https://www.delonghi.com/medias/ECAM220.20-ECAM220.21-ECAM220.22-Instruction-Manual-TR.pdf",
+      "code": "DOWNLOAD_FAILED",
+      "retryable": true,
+      "detail": "HTTP_403"
+    },
+    {
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "productId": "SIEMENS_TP511R09_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "HOB",
+      "productId": "ARCELIK_OI_602_1_YS_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "HOB",
+      "productId": "BEKO_BOI_6021_YS_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "HOB",
+      "productId": "BOSCH_PUE611BB5E_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "productId": "ARCELIK_E7526_ASI_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "productId": "ARNICA_EG54030_HAMMAM_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "MANUAL_ESPRESSO_MACHINE",
+      "productId": "DELONGHI_EC685_M_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "MANUAL_ESPRESSO_MACHINE",
+      "productId": "PHILIPS_PSA3228_01_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "MANUAL_ESPRESSO_MACHINE",
+      "productId": "SMEG_ECF02CREU_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "RANGE_HOOD",
+      "productId": "ARCELIK_ADE_6041_B1_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "RANGE_HOOD",
+      "productId": "ARCELIK_P_18_YCB_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "RANGE_HOOD",
+      "productId": "BOSCH_DWP64CC50T_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "productId": "BOSCH_KGN55CIE0N_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "productId": "LG_GC_B569NLLM_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "productId": "SAMSUNG_RB34C6B0E12_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "productId": "SIEMENS_KG56NVWD0N_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "ROBOT_VACUUM",
+      "productId": "BOSCH_BCRC2W_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "ROBOT_VACUUM",
+      "productId": "SAMSUNG_VR3MB77312K_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "ROBOT_VACUUM",
+      "productId": "XIAOMI_H40_OV51_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "ROBOT_VACUUM",
+      "productId": "XIAOMI_X20_PRO_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "productId": "BOSCH_CL2000U_W_26_E__CL2000_26_E_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "productId": "BOSCH_CL3000IU_W_35_E__CL3000I_35_E_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "productId": "TOSHIBA_RAS_B24B2KV2G_TR__RAS_24B2AV2G_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "productId": "KARACA_HATIR_HUP_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "VACUUM",
+      "productId": "BOSCH_BGC21X300_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "VACUUM",
+      "productId": "BOSCH_BGC41PET_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "VACUUM",
+      "productId": "PHILIPS_FC9330_07_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "VACUUM",
+      "productId": "PHILIPS_FC9750_07_TR",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:beko:cmxt-9120",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:bosch:wgb244a0tr",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:bosch:wgb254a1tr",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:bosch:wgb254axtr",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:bosch:wgk264y0tr",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:electrolux:ew6f3411act",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:electrolux:ew6f3494t",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:electrolux:ew7f4404ut",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:electrolux:ew7f4422ct",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:lg:f4r3tyw3we",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:lg:f4r5vyw2t",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:lg:f4t2vym1s",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:lg:f4v5ryp0w",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:lg:f4y5eywyj",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:miele:wwa120-wcs-8kg-active",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:samsung:ww11db8b95gbah",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:samsung:ww90cgc04daeah",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:samsung:ww90dg6u25leah",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "productId": "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "code": "NO_MANUAL_IDENTIFIER",
+      "retryable": true,
+      "detail": "No official manual URL or support identifier is bound to this exact catalog member."
+    }
+  ],
+  "boundaries": {
+    "candidateEligibility": "NONE",
+    "scoring": "NONE",
+    "sufficiency": "NONE",
+    "recommendation": "NONE",
+    "y": "NONE",
+    "absenceTreatment": "NEUTRAL",
+    "crossProductPromotion": "FORBIDDEN"
+  },
+  "releaseDigest": "sha256:cd64ccd63d08e673d2a2528c307c2a91a864fb5cefa1487bda2a56eab382f4c0"
+}

@@ -1,0 +1,52 @@
+{
+  "schemaVersion": "electronics-category-policy-manifest/v1",
+  "workUnitId": "WU-ELECTRONICS-CATEGORY-POLICY-FREEZE-01",
+  "policyVersion": "ELECTRONICS-CATEGORY-POLICY-TR-v1.0",
+  "verdict": "IMPLEMENTED",
+  "categoryCount": 24,
+  "evidenceChain": [
+    {
+      "wave": 1,
+      "releaseVersion": "ELECTRONICS-WAVE-1-DIVERSITY-REPAIR-TR-v0.1",
+      "releaseDigest": "sha256:4f66ab249373ae03580733249472a3ddebc3fe0369707afd7abec14d2e6b5ab2",
+      "artifactPath": "data/production/electronics/wave-1-repair/releases/ELECTRONICS-WAVE-1-DIVERSITY-REPAIR-TR-v0.1/repair-release.json",
+      "manifestDigest": "sha256:75c58768eb48472894e646b0b47ceb82f57d90e2198f62d5ca99dab6064dcb88"
+    },
+    {
+      "wave": 2,
+      "releaseVersion": "ELECTRONICS-WAVE-2-GAME-CONSOLE-IDENTITY-REPAIR-TR-v0.1",
+      "releaseDigest": "sha256:824b159a07e7e6c586b687627bb29591a417454c6d475cbbcdba7dec915598f1",
+      "artifactPath": "data/production/electronics/wave-2-repair/releases/ELECTRONICS-WAVE-2-GAME-CONSOLE-IDENTITY-REPAIR-TR-v0.1/repair-release.json",
+      "manifestDigest": "sha256:95a5f2be882fab949ca3c734c928863b696fdce79852067afcf613b58bacba48"
+    },
+    {
+      "wave": 3,
+      "releaseVersion": "ELECTRONICS-WAVE-3-EVIDENCE-TR-v0.1",
+      "releaseDigest": "sha256:13fe5452cff50e1115f39b68c3a8382f249caa7a5d71c9651a44991a068ca773",
+      "artifactPath": "data/production/electronics/wave-3-evidence/releases/ELECTRONICS-WAVE-3-EVIDENCE-TR-v0.1/evidence-release.json",
+      "manifestDigest": "sha256:6b729365188945afaeb0045108521229dacdc942c1ec169e72846ae0016130ae"
+    },
+    {
+      "wave": 4,
+      "releaseVersion": "ELECTRONICS-WAVE-4-SMART-HOME-HUB-REPAIR-TR-v0.1",
+      "releaseDigest": "sha256:548f7337fc9de4cbf70b04c8f4b8ff39d6059ee2b7b71a4da91733a3d44e1975",
+      "artifactPath": "data/production/electronics/wave-4-repair/releases/ELECTRONICS-WAVE-4-SMART-HOME-HUB-REPAIR-TR-v0.1/repair-release.json",
+      "manifestDigest": "sha256:ec4a3e8755e4cbc70f8a0fa78dc862509c30ab0b403624e91296dda34a4e6d2a"
+    }
+  ],
+  "policyDigest": "sha256:0f4db5148d6a6971b7a9341b2c0c56c298753dd2ab592b75d09fbdd372b7c20a",
+  "policyArtifactSha256": "sha256:b174414791e300f4e850e90eb3a567e2eb209f73c9126d82531757613be39a28",
+  "approvalEventDigest": "sha256:b8ce9f2331999e1377fc30a0fdc87428800caf6c3763a8dc05c250946eefdba5",
+  "approvalArtifactSha256": "sha256:f7f5378691d6ff59010e6f9700146b289f16bb0260c26235a878ab33670dc500",
+  "policyAuthorityActive": true,
+  "runtimeActive": false,
+  "boundaries": {
+    "departmentRegistryActivated": false,
+    "domainPackActivated": false,
+    "persistenceChanged": false,
+    "publicUiChanged": false,
+    "productionRuntimeActivated": false,
+    "deployed": false
+  },
+  "manifestPayloadDigest": "sha256:6f7efb226d8ee1ec1542a7d7fe98df859466637f1112bc4b8af3ce13315b39f4"
+}

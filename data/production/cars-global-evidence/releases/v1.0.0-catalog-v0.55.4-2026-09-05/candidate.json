@@ -1,0 +1,43 @@
+{
+  "activationPerformed": false,
+  "activePointersMutated": false,
+  "compatibleCatalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "compatibleCatalogRelease": "v0.55.4",
+  "components": {
+    "dailyLifeCandidate": {
+      "path": "daily-life-exact-applications.json",
+      "release": "v1.1.0-high-materiality-exact-applications-catalog-v0.55.4-2026-09-04",
+      "sha256": "sha256:c4ff154b97b871d924d46831ea586c733923a3cef210a28a9d6bea4346fbdb27",
+      "sourcePath": "data/production/equipment-daily-life/releases/v1.1.0-high-materiality-exact-applications-catalog-v0.55.4-2026-09-04/equipment-daily-life-exact-applications.json"
+    },
+    "equipmentCandidate": {
+      "path": "data/production/equipment-evidence/releases/v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04/equipment-evidence.json",
+      "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+      "sha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533"
+    },
+    "manualByteIndex": {
+      "path": "manual-index.json",
+      "readyExactVariantIds": [
+        "11382bb9-bf71-52bf-9d0b-33befe86da7e",
+        "4c22cb31-e980-4dc8-8525-c47363783d96",
+        "8332f9df-5df5-5626-9d5f-22fbed616a56"
+      ]
+    },
+    "researchLedger": {
+      "path": "research-ledger.json",
+      "rowCount": 549
+    }
+  },
+  "decisionAuthority": {
+    "dailyLife": "EXPLANATION_ONLY_NONE_FOR_SELECTION_OR_AUTHORIZATION",
+    "exactCatalogTechnicalFacts": "UNCHANGED_EXISTING_AUTHORITY",
+    "exactEquipment": "SHADOW_AND_EXPLANATION_DISABLED_PENDING_CONSOLIDATION_REVIEW",
+    "exactManualL9": "READ_ONLY_NONE_FOR_P_Y_FILTERING_RANKING_OR_AUTHORIZATION",
+    "familyManualEvidence": "FAMILY_SCOPED_READ_ONLY",
+    "persona": "SOFT_PLANNING_ONLY"
+  },
+  "generatedAt": "2026-09-05T01:10:00.000+03:00",
+  "releaseVersion": "v1.0.0-catalog-v0.55.4-2026-09-05",
+  "schemaVersion": "XPY_CARS_GLOBAL_EVIDENCE_CANDIDATE/v1",
+  "state": "IMMUTABLE_RELEASE_CANDIDATE_NOT_ACTIVE"
+}

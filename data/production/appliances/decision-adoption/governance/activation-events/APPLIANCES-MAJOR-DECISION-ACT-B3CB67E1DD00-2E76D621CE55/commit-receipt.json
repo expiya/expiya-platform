@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "major-appliance-decision-activation-receipt/v1",
+  "activationId": "APPLIANCES-MAJOR-DECISION-ACT-B3CB67E1DD00-2E76D621CE55",
+  "committedAt": "2026-09-05T16:00:00.000+03:00",
+  "state": "COMMITTED",
+  "activationArtifact": "data/production/appliances/decision-adoption/governance/activation-events/APPLIANCES-MAJOR-DECISION-ACT-B3CB67E1DD00-2E76D621CE55/activation.json",
+  "activationArtifactSha256": "3c428e658792f6bee0dad899ba4ffb0aa28cfa76ac48286d64b416e2b5bdd67e",
+  "approvalArtifact": "data/production/appliances/decision-adoption/governance/approval-events/APPLIANCES-MAJOR-DECISION-POA-2E76D621CE55/approval.json",
+  "approvalArtifactSha256": "9f8358bb289e4648f5d0d9de4fd5366b82d4650b3556a74ae2c63a2dd6eb85e9",
+  "pointers": [
+    {
+      "path": "data/production/appliances/washing-machines/active.json",
+      "beforeSha256": "d28774aee8d2a2e2738b055f4e0abe33010255933a14279b3c255977f4fec8e0",
+      "afterSha256": "ab3cabd998f6f90d07582db43b6145788588b37edfc48a4ff078404638d0d6ae"
+    },
+    {
+      "path": "data/production/appliances/dryers/active.json",
+      "beforeSha256": "0879f5c675b50b727009d2ab716f5c33e66cd861073b5dc7082fdc48af190c95",
+      "afterSha256": "753acb1b093a1751ffb414bae661122ee3a92ca7763b206798066e2c109b2a5c"
+    },
+    {
+      "path": "data/production/appliances/dishwashers/active.json",
+      "beforeSha256": "d239288916ae9bc4f17fdf6bf02a538e92c5eecbe1067bcc7f73629c30bc055d",
+      "afterSha256": "c044a9f68e8a346829abd33bbc5b65e692c1b4a90e46c1696a7dcef1574dddc3"
+    },
+    {
+      "path": "data/production/appliances/refrigerators/active.json",
+      "beforeSha256": "98fde7b0e98beb5d1aff9bd0a9b95c6fd6994bcf3aa7578456d9c8daf4dc8994",
+      "afterSha256": "fd9aa1c7d068870edd3b45d98a777116d0f985b950c1ef56284ec29788188517"
+    },
+    {
+      "path": "data/production/appliances/question-policy/active.json",
+      "beforeSha256": "153d56806e0642f7ee1f113dd15d56defb750e545bb94ae9851c0872fa545404",
+      "afterSha256": "9b2b799b7c018182746258e2b84f89dff4fe3997a13c6c74690ffeda545b8dfc"
+    },
+    {
+      "path": "data/production/appliances/sufficiency-recommendation-entry/active.json",
+      "beforeSha256": "10f4a75fc68b80f9b0d3546155365ddab903ef8bed700b1149fd1b89bb206a5a",
+      "afterSha256": "a816d413c4ad93c738e7b2764167b53220d3ac838e4663395ba455cd1c1a4d45"
+    },
+    {
+      "path": "data/production/appliances/candidate-selection-policy/active.json",
+      "beforeSha256": "4599dbba12d115f6172873d61614006295399cb70d594784a13bbfc651a096a5",
+      "afterSha256": "9d532c021d95c25876b6e7099b1ab4e53191210cc8ccd692153df73a10b47073"
+    },
+    {
+      "path": "data/production/appliances/recommendation-construction-policy/active.json",
+      "beforeSha256": "3e055e1a33276c4f5f3e42f2e727d905366191f70fe5b53e8154c1626177c4ac",
+      "afterSha256": "e4cd0345e9cab113d6948d68b38a952a71d5126b88e4f76af74cc990f26d38ed"
+    }
+  ],
+  "decisionCounts": [
+    29,
+    7,
+    7,
+    8
+  ],
+  "recommendationAuthority": {
+    "catalogRelease": "APPLIANCES-WM-TR-v0.2",
+    "questionPolicyDigest": "f5bcc250d3484c2a114c403b05970dc4c9c82412919ba7b6bcee0c0927d9100d",
+    "sufficiencyPolicyDigest": "1ea9819b5e686a6d631bff2d4e27303dd4a1769469e4259a4e215689e0408828",
+    "selectionPolicyDigest": "d6665b24f8097fee1c99cd84c9855f777d2d8241be05f3417aa2cc2bd6af9ea6",
+    "constructionPolicyDigest": "758ff2fe35578aa447f4316dfb869450d02edd54708a07e0ee2931e2cfac7c95",
+    "priceProjectionStatus": "UNAVAILABLE"
+  },
+  "verification": {
+    "exactSixteenPresent": true,
+    "blockedTekaAbsent": true,
+    "l10DecisionEffect": "NONE"
+  }
+}

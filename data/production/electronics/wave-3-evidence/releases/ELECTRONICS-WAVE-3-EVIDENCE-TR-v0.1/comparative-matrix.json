@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "electronics-wave-3-comparison/v1",
+  "categories": [
+    {
+      "categoryId": "WIFI_ROUTER_MESH",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 6,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "exactProductIds": [
+        "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+        "electronics:wifi-router-mesh:asus:xd5-w-2-pk"
+      ],
+      "fields": [
+        "aggregate_class",
+        "ethernet_ports_per_unit",
+        "regional_revision",
+        "regional_variant",
+        "unit_count",
+        "wifi_generation"
+      ]
+    },
+    {
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 5,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "exactProductIds": [
+        "electronics:nas:synology:ds224plus-diskless-2gb",
+        "electronics:nas:qnap:ts-264-8g-diskless"
+      ],
+      "fields": [
+        "bay_count",
+        "cpu",
+        "disk_population",
+        "memory_gb",
+        "network_ports"
+      ]
+    },
+    {
+      "categoryId": "EXTERNAL_STORAGE",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 6,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "exactProductIds": [
+        "electronics:external-storage:samsung:mu-pg1t0b-ww",
+        "electronics:external-storage:sandisk:sdssde61-1t00-g25"
+      ],
+      "fields": [
+        "capacity_tb",
+        "ingress_rating",
+        "interface",
+        "max_read_mbps",
+        "media_type",
+        "warranty_years"
+      ]
+    },
+    {
+      "categoryId": "PRINTER",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 5,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "exactProductIds": [
+        "electronics:printer:epson:c11cj67435",
+        "electronics:printer:hp:7md72a"
+      ],
+      "fields": [
+        "color_capability",
+        "connectivity",
+        "duplex",
+        "functions",
+        "print_technology"
+      ]
+    },
+    {
+      "categoryId": "WEBCAM",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 5,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "exactProductIds": [
+        "electronics:webcam:logitech:960-001422",
+        "electronics:webcam:asus:webcam-c3"
+      ],
+      "fields": [
+        "connectivity",
+        "field_of_view",
+        "focus",
+        "microphones",
+        "resolution_fps"
+      ]
+    },
+    {
+      "categoryId": "COMPUTER_AUDIO",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 6,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "exactProductIds": [
+        "electronics:computer-audio:logitech:980-001295",
+        "electronics:computer-audio:edifier:r1280dbs-black"
+      ],
+      "fields": [
+        "channel_configuration",
+        "connectivity",
+        "device_switching",
+        "included_subwoofer",
+        "power_rms_w",
+        "subwoofer_output"
+      ]
+    }
+  ]
+}

@@ -74,8 +74,8 @@ describe("V3 required conversation acceptance corpus", () => {
     expect(activeDecisionPreferences(output.state.ledger).some((item) => item.concept === "budgetMax")).toBe(false);
   });
 
-  it("returns one car by default and at most three requested alternatives", async () => {
-    const one = await conversation("one", ["Yeni araç almak istiyorum", "Şehir içinde günlük kullanacağım", "Parkı kolay kompakt bir yapı olsun", "Kesin bütçem 3 milyon TL", "Elektrikli olsun", "Geri görüş kamerası kesin olsun", "Tek araç öner", "Evet, göster"]); expect(one.recommendations?.length).toBe(1);
+  it("returns up to three tied cars and at most three requested alternatives", async () => {
+    const one = await conversation("one", ["Yeni araç almak istiyorum", "Şehir içinde günlük kullanacağım", "Parkı kolay kompakt bir yapı olsun", "Kesin bütçem 3 milyon TL", "Elektrikli olsun", "Geri görüş kamerası kesin olsun", "Tek araç öner", "Evet, göster"]); expect(one.recommendations?.length).toBeGreaterThan(1); expect(one.recommendations?.length).toBeLessThanOrEqual(3);
     const alternatives = await conversation("three", ["Yeni araç almak istiyorum", "Aile kullanımı için", "Daha ferah ve yüksek olsun", "Bütçe sorun değil", "Benzinli olsun", "Geri görüş kamerası kesin olsun", "Toyota olabilir", "Alternatif göster", "Evet, göster"]); expect(alternatives.recommendations?.length).toBeGreaterThan(0); expect(alternatives.recommendations?.length).toBeLessThanOrEqual(3);
   });
 

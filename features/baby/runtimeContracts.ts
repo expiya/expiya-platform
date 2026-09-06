@@ -3,3 +3,4 @@ export type BabyOutcome={kind:"ASK"|"RESPOND"|"CLARIFY"|"DECISION_READY"|"UNSUPP
 export type BabyState={conversationId:string;schemaVersion:"baby-stroller-conversation/v1";revision:number;departmentId:"BABY_AND_CHILD";categoryId:"STROLLER";pinnedCatalogRelease:string;pinnedCatalogDigest:string;pinnedPolicyDigest:string;preferences:StrollerPreferences;askedQuestionKeys:string[];pendingQuestionKey?:string;selectedProductId?:string;lastOutcome?:BabyOutcome;createdAt:string;updatedAt:string};
 export type BabyStoredOutcome={conversationId:string;revision:number;state:BabyState;publicOutcome:BabyOutcome};
 export type BabyStoredMessage={messageId:string;payloadHash:string;committedRevision:number;outcome:BabyStoredOutcome};
+

@@ -15,6 +15,23 @@ describe("request security", () => {
     expect(verifySameOrigin(request({ headers: { "content-type": "application/json", origin: "https://evil.example" } }))?.status).toBe(403);
   });
 
+  it("accepts localhost and IPv4 loopback aliases on the same preview port", () => {
+    const preview = new Request("http://localhost:4043/api/test", { method: "POST", headers: { "content-type": "application/json", origin: "http://127.0.0.1:4043" }, body: "{}" });
+    expect(verifySameOrigin(preview)).toBeUndefined();
+  });
+
+  it("rejects loopback aliases when protocol or port differs", () => {
+    const wrongPort = new Request("http://localhost:4043/api/test", { method: "POST", headers: { "content-type": "application/json", origin: "http://127.0.0.1:4044" }, body: "{}" });
+    const wrongProtocol = new Request("http://localhost:4043/api/test", { method: "POST", headers: { "content-type": "application/json", origin: "https://127.0.0.1:4043" }, body: "{}" });
+    expect(verifySameOrigin(wrongPort)?.status).toBe(403);
+    expect(verifySameOrigin(wrongProtocol)?.status).toBe(403);
+  });
+
+  it("rejects malformed and untrusted remote origins", () => {
+    expect(verifySameOrigin(request({ headers: { "content-type": "application/json", origin: "not-an-origin" } }))?.status).toBe(403);
+    expect(verifySameOrigin(new Request("http://localhost:4043/api/test", { method: "POST", headers: { "content-type": "application/json", origin: "http://preview.example:4043" }, body: "{}" }))?.status).toBe(403);
+  });
+
   it("rejects non-JSON writes", () => {
     expect(verifySameOrigin(request({ headers: { "content-type": "text/plain" } }))?.status).toBe(415);
   });

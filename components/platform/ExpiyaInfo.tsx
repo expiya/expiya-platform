@@ -1,0 +1,17 @@
+import Link from "next/link";
+
+const xpy = [
+  ["X", "İhtiyacınızı anlatın", "Kararı etkileyen beklentileri kendi cümlelerinizle paylaşın."],
+  ["P", "Soruları netleştirin", "Eksik bilgiler doğru sırada ve yalnızca gerektiği kadar sorulur."],
+  ["Y", "Gerekçeli sonuca ulaşın", "Seçenekler doğrulanmış bilgiyle değerlendirilir; bilinmeyenler açıkça belirtilir."],
+] as const;
+
+export function ExpiyaInfo() {
+  return <main className="min-h-dvh bg-[#f5f3ee] text-stone-950">
+    <header className="mx-auto flex max-w-6xl items-center justify-between px-5 py-6 sm:px-8"><Link href="/" className="text-lg font-black tracking-[-.07em]">EXPIYA</Link><Link href="/" className="text-sm text-stone-600 underline underline-offset-4">Ana sayfaya dön</Link></header>
+    <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"><p className="text-xs font-bold uppercase tracking-[.3em] text-emerald-800">Expiya nedir?</p><h1 className="mt-5 max-w-4xl text-5xl font-medium tracking-[-.055em] sm:text-7xl">Karara giden yolu görünür kılar.</h1><p className="mt-8 max-w-3xl text-lg leading-8 text-stone-600">Expiya, ihtiyacınızı anlamak için konuşur; yalnız doğrulanmış bilgi sınırları içinde seçenekleri değerlendirir ve sonucun gerekçesini görünür tutar.</p></section>
+    <section className="bg-emerald-950 text-white"><div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 sm:px-8 md:grid-cols-3 sm:py-20">{xpy.map(([letter, title, description]) => <article key={letter} className="border-t border-emerald-800 pt-6"><span className="font-mono text-4xl text-emerald-300">{letter}</span><h2 className="mt-8 text-2xl font-semibold">{title}</h2><p className="mt-3 leading-7 text-emerald-100/75">{description}</p></article>)}</div></section>
+    <section className="mx-auto max-w-6xl px-5 py-16 sm:px-8 sm:py-24"><h2 className="text-4xl font-medium tracking-[-.045em]">Üç aşama, açık sınırlar.</h2><ol className="mt-10 grid gap-4 md:grid-cols-3"><li className="rounded-3xl border border-stone-200 bg-white p-7"><strong>AŞAMA 1 · Karar</strong><p className="mt-3 leading-7 text-stone-600">İhtiyaç ve karar ölçütleri konuşularak netleştirilir.</p></li><li className="rounded-3xl border border-stone-200 bg-white p-7"><strong>AŞAMA 2 · Değerlendirme</strong><p className="mt-3 leading-7 text-stone-600">Yalnız AŞAMA 1’den güvenli geçiş yapılan seçeneğin ayrıntıları incelenir.</p></li><li className="rounded-3xl border border-stone-200 bg-white p-7"><strong>AŞAMA 3 · Eylem</strong><p className="mt-3 leading-7 text-stone-600">Yalnız ilgili bölüm desteklediğinde ve açık onayla kullanılabilir.</p></li></ol></section>
+    <section aria-labelledby="trust-title" className="mx-auto max-w-6xl px-5 pb-20 sm:px-8 sm:pb-28"><p className="text-xs font-bold uppercase tracking-[.3em] text-emerald-800">Karar ve güven</p><h2 id="trust-title" className="mt-4 text-4xl font-medium tracking-[-.045em]">Bilmediğini tahmin etmez.</h2><p className="mt-6 max-w-3xl text-lg leading-8 text-stone-600">Ürün kimliği, teknik bilgi veya güncel fiyat doğrulanamıyorsa bunu açıkça söyler; bilinmeyen veriyi sessizce avantaja ya da elemeye dönüştürmez.</p></section>
+  </main>;
+}

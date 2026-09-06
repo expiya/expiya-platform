@@ -1,0 +1,273 @@
+{
+  "schemaVersion": "major-appliance-adoption-semantic-registry/v1",
+  "categoryId": "DISHWASHER",
+  "releaseVersion": "APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.3-candidate",
+  "semanticAuthorityVersion": "DISHWASHER_SEMANTIC_REGISTRY/v0.3-candidate",
+  "semanticAuthorityDigest": "sha256:d31126100c71521506b7f4eacf3bd6a8b89615fdf11347efce526aa13e41e3c3",
+  "additions": {
+    "version": "DISHWASHER_SEMANTIC_REGISTRY/v0.3-candidate",
+    "semantic": {
+      "semanticId": "adoption-semantic:d-shwasher:published-context",
+      "meaning": "Published capacity, dimensions, energy, water and noise are exact-configuration evidence with their stated regimes; they do not guarantee fit, bills, quietness, service outcomes or household results.",
+      "factIds": [
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:lifecyclestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:warrantyservicestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:installationguidancestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:safetyguidancestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:installationtype",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:placesettings",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:energyclass",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:energypercyclekwh",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:waterpercyclel",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:noisedba",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:widthmm",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:heightmm",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:depthmm",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:lifecyclestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:warrantyservicestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:installationguidancestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:safetyguidancestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:installationtype",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:placesettings",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:energyclass",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:energypercyclekwh",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:waterpercyclel",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:noisedba",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:widthmm",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:heightmm",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:depthmm",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:lifecyclestatus",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:warrantyservicestatus",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationguidancestatus",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:safetyguidancestatus",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationtype",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:placesettings",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energyclass",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energypercyclekwh",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:waterpercyclel",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:noisedba",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:widthmm",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:heightmm",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:depthmm"
+      ],
+      "capabilityIds": [
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:wifibluetooth",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:automaticdooropen",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:halfload",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:overflowprotection",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:childlock",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:wifibluetooth",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:automaticdooropen",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:halfload",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:soilsensor",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:overflowprotection",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:childlock",
+        "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:childlock",
+        "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:thirdrack",
+        "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:delaystart",
+        "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:voltageprotection"
+      ]
+    },
+    "need": {
+      "needId": "ADOPTION_DISHWASHER_DOCUMENTED_FIT",
+      "meaning": "Check an explicit load/storage, installation, consumption, noise, safety, warranty or lifecycle requirement against exact Türkiye evidence."
+    },
+    "mapping": {
+      "mappingId": "adoption-need-map:d-shwasher:documented-fit",
+      "needId": "ADOPTION_DISHWASHER_DOCUMENTED_FIT",
+      "eligibleFactIds": [
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:lifecyclestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:warrantyservicestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:installationguidancestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:safetyguidancestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:installationtype",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:placesettings",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:energyclass",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:energypercyclekwh",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:waterpercyclel",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:noisedba",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:widthmm",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:heightmm",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:depthmm",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:lifecyclestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:warrantyservicestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:installationguidancestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:safetyguidancestatus",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:installationtype",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:placesettings",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:energyclass",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:energypercyclekwh",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:waterpercyclel",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:noisedba",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:widthmm",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:heightmm",
+        "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:depthmm",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:lifecyclestatus",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:warrantyservicestatus",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationguidancestatus",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:safetyguidancestatus",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationtype",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:placesettings",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energyclass",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energypercyclekwh",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:waterpercyclel",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:noisedba",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:widthmm",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:heightmm",
+        "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:depthmm"
+      ],
+      "eligibleCapabilityIds": [
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:wifibluetooth",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:automaticdooropen",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:halfload",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:overflowprotection",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:childlock",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:wifibluetooth",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:automaticdooropen",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:halfload",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:soilsensor",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:overflowprotection",
+        "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:childlock",
+        "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:childlock",
+        "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:thirdrack",
+        "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:delaystart",
+        "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:voltageprotection"
+      ],
+      "policy": "QUESTION_INPUT"
+    },
+    "persona": {
+      "signalId": "adoption-planning:d-shwasher:documented-fit",
+      "needIds": [
+        "ADOPTION_DISHWASHER_DOCUMENTED_FIT"
+      ],
+      "authority": "DOMAIN_PLANNING",
+      "classification": "DERIVED_PLANNING",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    "dailyLife": [
+      {
+        "interpretationId": "adoption-interpretation:appliances-dishwasher-tr-arcelik-a-710-i:published-fit",
+        "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+        "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+        "factIds": [
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:lifecyclestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:warrantyservicestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:installationguidancestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:safetyguidancestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:installationtype",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:placesettings",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:energyclass",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:energypercyclekwh",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:waterpercyclel",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:noisedba",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:widthmm",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:heightmm",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:depthmm"
+        ],
+        "capabilityIds": [
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:wifibluetooth",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:automaticdooropen",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:halfload",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:overflowprotection",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:childlock"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "No result, savings, quietness, freshness, care or longevity guarantee."
+        ],
+        "nonGuarantees": [
+          "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+        ]
+      },
+      {
+        "interpretationId": "adoption-interpretation:appliances-dishwasher-tr-arcelik-a-811-i:published-fit",
+        "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+        "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+        "factIds": [
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:lifecyclestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:warrantyservicestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:installationguidancestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:safetyguidancestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:installationtype",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:placesettings",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:energyclass",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:energypercyclekwh",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:waterpercyclel",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:noisedba",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:widthmm",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:heightmm",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:depthmm"
+        ],
+        "capabilityIds": [
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:wifibluetooth",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:automaticdooropen",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:halfload",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:soilsensor",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:overflowprotection",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:childlock"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "No result, savings, quietness, freshness, care or longevity guarantee."
+        ],
+        "nonGuarantees": [
+          "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+        ]
+      },
+      {
+        "interpretationId": "adoption-interpretation:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:published-fit",
+        "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+        "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+        "factIds": [
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:lifecyclestatus",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:warrantyservicestatus",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationguidancestatus",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:safetyguidancestatus",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationtype",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:placesettings",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energyclass",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energypercyclekwh",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:waterpercyclel",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:noisedba",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:widthmm",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:heightmm",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:depthmm"
+        ],
+        "capabilityIds": [
+          "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:childlock",
+          "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:thirdrack",
+          "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:delaystart",
+          "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:voltageprotection"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "No result, savings, quietness, freshness, care or longevity guarantee."
+        ],
+        "nonGuarantees": [
+          "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+        ]
+      }
+    ],
+    "boundaries": {
+      "personaDecisionUse": "NONE",
+      "experienceAuthority": "NONE",
+      "manualDecisionAuthority": "NONE",
+      "commerceAuthority": "NONE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED"
+    }
+  },
+  "boundaries": {
+    "L5": "PLANNING_ONLY_NO_Y",
+    "L6": "SEPARATE_INTERPRETATION_NOT_TECHNICAL_TRUTH",
+    "L7": "ABSENT",
+    "L9": "DISABLED_WITHOUT_PINNED_ARTIFACT_CHECKSUM_AND_LOCATOR",
+    "L10": "EXTERNAL_VOLATILE_ONLY"
+  }
+}

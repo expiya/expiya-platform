@@ -1,0 +1,26 @@
+powertrain_id,generation_id,marketing_name,fuel_type,electrification_type,engine_displacement_cc,power_kw,power_ps,torque_nm,transmission_type,transmission_gears,drivetrain,battery_usable_kwh,identity_status,legacy_motor_text,notes
+PWR-000001,GEN-000001,TCe EDC 115 hp,PETROL,NONE,1199,85,115,190,DCT,6,FWD,,VERIFIED,TCe EDC 115 hp,"Official Renault Türkiye technical page verifies engine, 6-speed DCT and FWD."
+PWR-000002,GEN-000002,1.6 M.Jet 130 HP Manual,DIESEL,NONE,1598,96,130,320,MANUAL,6,FWD,,VERIFIED,1.6 M.Jet 130 HP,"Pilot closure: exact Easy configuration resolved to current 2026 6-speed manual diesel, avoiding unsupported trim+automatic linkage."
+PWR-000003,GEN-000003,1.8 Hybrid e-CVT,PETROL,HEV,1798,103,140,,E_CVT,,FWD,,VERIFIED,1.8 Hybrid e-CVT,Toyota Jan 2026 brochure verifies 140 HP / 103 kW hybrid system and e-CVT.
+PWR-000004,GEN-000004,1.4L Boosterjet 48V SHVS MHEV 6AT AllGrip,PETROL,MHEV,1373,,109,235,AUTOMATIC,6,4WD,,VERIFIED,1.4 MHEV 6AT AllGrip,"Suzuki Türkiye technical page verifies 109 PS, 235 Nm, 6AT and AllGrip 4x4."
+PWR-000005,GEN-000005,1.5L DM-i Design,PETROL,PHEV,1498,160,218,300,E_CVT,,FWD,,VERIFIED,1.5L Design,"BYD Türkiye Mar 2026 brochure. 18.3 kWh is published as battery capacity, not explicitly usable."
+PWR-000006,GEN-000006,Electric 58.3 kWh,ELECTRIC,BEV,,150,204,283,SINGLE_SPEED,,FWD,,VERIFIED,Electric Prestige,Kia Türkiye EV3 technical page verifies 150 kW / 204 PS / 283 Nm. Battery capacity is not labeled gross/usable.
+PWR-000007,GEN-000007,V2 RWD Uzun Menzil,ELECTRIC,BEV,,160,218,,SINGLE_SPEED,,RWD,,VERIFIED,RWD Long Range,Current official Togg price list identifies V2 RWD Uzun Menzil; Media Center T10X V2 technical set is used for V2 evidence.
+PWR-000008,GEN-000008,Eco-G 120 auto,LPG,NONE,1199,,120,197,DCT,6,FWD,,VERIFIED,Eco-G 120 auto,"Dacia Türkiye verifies LPG+petrol, 6-speed EDC, 4x2, 1199 cc and 197 Nm."
+PWR-000009,GEN-000009,1.0 T-GDI 90 PS 7DCT,PETROL,NONE,998,66,90,172,DCT,7,FWD,,VERIFIED,1.0 T-GDI 90 PS 7DCT,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000010,GEN-000010,1.5L VTEC Turbo ECO LPG CVT,LPG,NONE,1498,134,182,240,CVT,,FWD,,VERIFIED,1.5L VTEC Turbo ECO LPG CVT,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000011,GEN-000011,1.3 DIG-T Mild Hybrid X-Tronic,PETROL,MHEV,1332,116,158,270,CVT,,FWD,,VERIFIED,1.3 DIG-T Mild Hybrid X-Tronic,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000012,GEN-000011,e-POWER 190,PETROL,HEV,1497,140,190,330,SINGLE_SPEED,,FWD,,VERIFIED,e-POWER 190,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000013,GEN-000012,1.5 TSI mHEV 150 PS DSG,PETROL,MHEV,1498,110,150,250,DCT,7,FWD,,VERIFIED,1.5 TSI mHEV 150 PS DSG,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000014,GEN-000013,Eco-G 120 auto,LPG,NONE,,,120,,DCT,6,FWD,,PROVISIONAL,Eco-G 120 auto,"POST_BATCH01_HARDENING closure attempted. Official current configurator exposes Eco-G 120 auto under Extreme choices, but deterministic selected-state/model-year evidence was not captured; remains PROVISIONAL."
+PWR-000015,GEN-000014,full hybrid E-Tech 200 hp,PETROL,HEV,,,200,,AUTOMATIC,,FWD,,VERIFIED,full hybrid E-Tech 200 hp,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000016,GEN-000015,1.8 Hybrid 140 e-CVT,PETROL,HEV,1798,103,140,142,E_CVT,,FWD,,VERIFIED,1.8 Hybrid 140 e-CVT,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000017,GEN-000016,1.5L Hybrid e-CVT,PETROL,HEV,1498,,122,131,E_CVT,,FWD,,VERIFIED,1.5L Hybrid e-CVT,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000018,GEN-000017,2.0i e-BOXER Lineartronic AWD,PETROL,HEV,1995,100,136,182,CVT,,AWD,,VERIFIED,2.0i e-BOXER Lineartronic AWD,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000019,GEN-000018,1.5 eTSI 150 PS DSG mHEV,PETROL,MHEV,1498,110,150,250,DCT,7,FWD,,VERIFIED,1.5 eTSI 150 PS DSG mHEV,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000020,GEN-000018,1.5 e-HYBRID 272 PS DSG,PETROL,PHEV,1498,200,272,,DCT,6,FWD,,VERIFIED,1.5 e-HYBRID 272 PS DSG,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000021,GEN-000019,1.5 Turbo Hybrid+ 224 PS,PETROL,HEV,1498,165,224,340,AUTOMATIC,,FWD,,VERIFIED,1.5 Turbo Hybrid+ 224 PS,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000022,GEN-000020,60 61 kWh 140 kW,ELECTRIC,BEV,,140,190,350,SINGLE_SPEED,,RWD,,VERIFIED,60 61 kWh 140 kW,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000023,GEN-000021,1.5 TSI mHEV 150 PS DSG,PETROL,MHEV,1498,110,150,250,DCT,7,FWD,,VERIFIED,1.5 TSI mHEV 150 PS DSG,SCALE_BATCH_01; official Turkey-market product/brochure applicability.
+PWR-000024,GEN-000022,2.0i e-BOXER Lineartronic AWD,PETROL,HEV,1995,,136,,CVT,,AWD,,VERIFIED,2.0i e-BOXER Lineartronic AWD,"POST_BATCH01_HARDENING: official Turkey technical sheet verifies 2.0i e-BOXER, 1995 cc, Lineartronic CVT and active-torque-distribution AWD (SRC-000042)."
+PWR-000025,GEN-000023,1.0 TSI 115 PS DSG,PETROL,NONE,999,85,115,200,DCT,7,FWD,,VERIFIED,1.0 TSI 115 PS DSG,"POST_BATCH01_HARDENING: official Turkey comparison/model pages verify 1.0 TSI 115 PS DSG, 999 cc, 85 kW and 200 Nm for Scala Premium (SRC-000038/040)."

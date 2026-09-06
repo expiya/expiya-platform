@@ -21,12 +21,12 @@ describe("validateVehicleMediaAsset", () => {
       attestedBy: "Serdar Akgül", attestedAt: "2026-08-16T13:00:00.000Z",
       statement: "I attest that Expiya may display this supplied asset commercially.",
       evidenceReference: "media-intake:2026-08-16:001", permittedUses: ["COMMERCIAL_DISPLAY"],
-    } })).toEqual([]);
+    } })).toEqual(["OWNER_ATTESTATION_NOT_A_RIGHTS_LICENSE", "GOVERNED_MEDIA_INVALID"]);
   });
 
   it("does not publish an open-license discovery before exact-identity verification", () => {
     expect(validateVehicleMediaAsset({
-      ...asset, usagePermission: "OPEN_LICENSE", ownerAttestation: undefined,
+      ...asset, scope: "VARIANT", variantId: "variant-1", usagePermission: "OPEN_LICENSE", ownerAttestation: undefined,
       licenseName: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
     })).toContain("OPEN_LICENSE_IDENTITY_VERIFICATION_REQUIRED");
   });
@@ -37,6 +37,7 @@ describe("validateVehicleMediaAsset", () => {
       ...asset, scope: "GENERATION_BODY", generation: "E210", bodyStyle: "Sedan",
       usagePermission: "OPEN_LICENSE", ownerAttestation: undefined, fileHash: hash,
       licenseName: "CC BY-SA 4.0", licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+      attributionText: "Example attribution",
       identityVerification: {
         status: "VERIFIED_EXACT", method: "GOVERNED_REFERENCE_PIXEL_SIMILARITY_V1",
         similarityScore: 0.97, threshold: 0.95, metadataExact: true,
@@ -44,5 +45,13 @@ describe("validateVehicleMediaAsset", () => {
         candidateFileHash: hash, verifiedAt: "2026-08-22T10:00:00.000Z",
       },
     })).toEqual([]);
+  });
+
+  it("requires source and attribution for remote previews", () => {
+    expect(validateVehicleMediaAsset({ ...asset, usagePermission: "REMOTE_PREVIEW", ownerAttestation: undefined })).toEqual(["REMOTE_PREVIEW_SOURCE_REQUIRED", "REMOTE_PREVIEW_ATTRIBUTION_REQUIRED", "GOVERNED_MEDIA_INVALID"]);
+  });
+
+  it("keeps a non-persisted remote preview as discovery until a display license is encoded", () => {
+    expect(validateVehicleMediaAsset({ ...asset, usagePermission: "REMOTE_PREVIEW", ownerAttestation: undefined, storagePath: "", sourcePageUrl: "https://manufacturer.example/model", originalAssetUrl: "https://manufacturer.example/model/hero.jpg", attributionText: "Image: Manufacturer media kit" })).toEqual(["GOVERNED_MEDIA_INVALID"]);
   });
 });

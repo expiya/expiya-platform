@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "dishwasher-richness-activation/v1",
+  "activationId": "DISHWASHER-RICHNESS-ACT-72F7564DCD40B370B7B6",
+  "activatedAt": "2026-09-04T21:30:00.000+03:00",
+  "state": "ACTIVE_READ_ONLY_SEMANTIC_COMPOSITE",
+  "releaseVersion": "APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.2",
+  "releaseDigest": "sha256:72f7564dcd40b370b7b656a22fcc5d61127defe81d771e688cce3f9d889d9866",
+  "catalogArtifactSha256": "7237a05c25c245473fd00fab0b96dd531a92f1082e288bb7e2533373e159f5ee",
+  "semanticArtifactSha256": "2fdc69774099ecc570de13fe678f672238091a972f78b6d7e0d26ac8a0f612be",
+  "projectionsArtifactSha256": "6132f0a80ab53cb353144079b926014658e5209815d702f320b7ee1896ec113e",
+  "immutableManifestSha256": "6776a2c8b3e709a533e87f8148c59c314c4f7c4aa8aa8c4d934a6873b9a07f37",
+  "membershipDigest": "53b8a8aaa9dfeb13fe939a553ae4a7128c39dcb46fa074f18d6eca071ee0cf11",
+  "decisionAuthority": {
+    "releaseVersion": "APPLIANCES-DISHWASHER-TR-v0.1",
+    "artifactSha256": "66973c59f1b752f2598b4c6b30d6dc0d2b272948a342b33a08f4cd8f68f9124e",
+    "ySemantics": "UNCHANGED"
+  },
+  "productOwnerApproval": {
+    "approved": true,
+    "workUnitId": "WU-XPY-APPL-DISHWASHER-CATALOG-RICHNESS-01",
+    "scope": "COMPOSITE_READ_ONLY_RICHNESS_ACTIVATION"
+  },
+  "review": [
+    {
+      "check": "PARENT_AND_MEMBERSHIP",
+      "status": "PASS",
+      "evidence": "All four exact identities match the byte-pinned v0.1 parent."
+    },
+    {
+      "check": "ASSERTION_LEVEL_AUTHORITY",
+      "status": "PASS",
+      "evidence": "37 assertions bind exact TR identities to registered sources."
+    },
+    {
+      "check": "NEUTRAL_UNKNOWNS",
+      "status": "PASS",
+      "evidence": "Beko regime-dependent comparison cells remain unknown and neutral."
+    },
+    {
+      "check": "SEMANTIC_BOUNDARIES",
+      "status": "PASS",
+      "evidence": "No manual, experience, persona decision influence, cross-category meaning, or commerce authority."
+    },
+    {
+      "check": "ADVISOR_AND_COMPARISON",
+      "status": "PASS",
+      "evidence": "Four bounded read-only Advisor projections pass; comparison rejects unpaid access."
+    },
+    {
+      "check": "Y_NON_REGRESSION",
+      "status": "PASS",
+      "evidence": "Decision/Y authority remains the original v0.1 digest and selection policy."
+    }
+  ],
+  "remainingUnknowns": [
+    "All products: installation service envelope and exact manual unknown",
+    "Beko: declaration regime and resource/noise comparability unknown",
+    "L7 governed experience absent",
+    "L9 checksum-bound exact manual knowledge absent",
+    "L10 commerce/media external"
+  ]
+}

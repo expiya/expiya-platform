@@ -1,0 +1,521 @@
+{
+  "envelopeSchemaVersion": "washing-machine-sufficiency-recommendation-entry-policy-artifact/v1",
+  "canonicalSerialization": "CANONICAL_JSON_SORTED_KEYS_V1",
+  "policyDigest": "1ea9819b5e686a6d631bff2d4e27303dd4a1769469e4259a4e215689e0408828",
+  "payload": {
+    "schemaVersion": "washing-machine-sufficiency-recommendation-entry-policy/v1",
+    "policyId": "WASHING_MACHINE_SUFFICIENCY_RECOMMENDATION_ENTRY_POLICY/v0.1",
+    "governanceStatus": "APPROVED",
+    "lifecycle": "FROZEN",
+    "runtimeActive": true,
+    "department": "APPLIANCES",
+    "capability": "WASHING_MACHINE",
+    "market": "TR",
+    "stage": "AŞAMA_1",
+    "approvedAt": "2026-09-03T12:00:00+03:00",
+    "provenance": {
+      "draftWorkUnit": "WU-APPL-SUFFICIENCY-RECOMMENDATION-POLICY-01",
+      "approvalWorkUnit": "WU-APPL-SUFFICIENCY-RECOMMENDATION-POLICY-APPROVAL-FREEZE-01",
+      "approvedBy": "ORGANIZATOR",
+      "reviewVerdict": "ACCEPTED_WITH_REQUIRED_AMENDMENTS",
+      "draftSource": "Historical review source: /Users/serdarakgul/.codex/worktrees/faf0/expiya-platform; recreated and revalidated against authoritative checkout",
+      "amendments": [
+        "HARD_BUDGET_PRICE_UNCERTAINTY",
+        "MULTIPLE_CANDIDATE_HANDOFF"
+      ]
+    },
+    "bindings": {
+      "catalog": {
+        "release": "APPLIANCES-WM-TR-v0.2",
+        "releaseDigest": "1b89b1bcfb3bc7c8e19a1916417c67db6246c44ec9d55fa835ec6bfa9fbad587",
+        "membershipDigest": "9823549a4200da0cf88e4460c73f9861f81d7b0959e79ca16a45beacf1b098f2",
+        "artifactSha256": "ce62509117adb1858ec009ed2b607d33a6038207c0865e7364952a2e700977ac"
+      },
+      "semanticRegistry": {
+        "id": "WASHING_MACHINE_SEMANTIC_REGISTRY/v0.1",
+        "digest": "44784b43d818bee505e85f66ed60ce065809a1ff2bd42852157d4e44d7d7038a"
+      },
+      "questionPolicy": {
+        "id": "WASHING_MACHINE_QUESTION_POLICY/v0.1",
+        "digest": "f5bcc250d3484c2a114c403b05970dc4c9c82412919ba7b6bcee0c0927d9100d"
+      },
+      "candidateEvaluationPolicy": "appliances-candidate-evaluation/v1",
+      "questionPlannerContract": "appliances-question-selection/v1"
+    },
+    "precedence": [
+      "FAILED_CLOSED",
+      "CLARIFICATION_REQUIRED",
+      "MORE_INFORMATION_REQUIRED",
+      "UNRESOLVED_HARD_UNCERTAINTY",
+      "NO_RECOMMENDATION_ELIGIBLE_CANDIDATE",
+      "RECOMMENDATION_POOL_ELIGIBLE"
+    ],
+    "outcomes": [
+      {
+        "kind": "FAILED_CLOSED",
+        "meaning": "Authority or integrity validation failed.",
+        "permission": "Diagnostics only.",
+        "prohibition": "No lower-precedence outcome may be emitted."
+      },
+      {
+        "kind": "CLARIFICATION_REQUIRED",
+        "meaning": "A governed clarification is pending.",
+        "permission": "Request the governed clarification.",
+        "prohibition": "Do not infer accepted context."
+      },
+      {
+        "kind": "MORE_INFORMATION_REQUIRED",
+        "meaning": "A currently applicable material governed question remains.",
+        "permission": "Ask the governed question.",
+        "prohibition": "No question is globally mandatory."
+      },
+      {
+        "kind": "UNRESOLVED_HARD_UNCERTAINTY",
+        "meaning": "Hard eligibility remains unresolved after planning.",
+        "permission": "Expose exact unresolved partitions and recovery need.",
+        "prohibition": "Do not convert unknown to incompatibility."
+      },
+      {
+        "kind": "NO_RECOMMENDATION_ELIGIBLE_CANDIDATE",
+        "meaning": "All otherwise eligible candidates are conclusively hard incompatible.",
+        "permission": "Expose conclusive zero with provenance.",
+        "prohibition": "Do not use when unknown candidates remain."
+      },
+      {
+        "kind": "RECOMMENDATION_POOL_ELIGIBLE",
+        "meaning": "A non-ranked exact candidate pool passed entry gates for later governed selection.",
+        "permission": "Hand off the non-ranked pool.",
+        "prohibition": "This grants no winner, ordering, recommendation, or decision authorization."
+      }
+    ],
+    "plannerMapping": {
+      "FAILED_CLOSED": "FAILED_CLOSED",
+      "CLARIFY": "CLARIFICATION_REQUIRED",
+      "ASK": "MORE_INFORMATION_REQUIRED",
+      "NO_AUTHORIZED_MATERIAL_QUESTION": "CONTINUE_REMAINING_GATES_NEUTRAL_ONLY"
+    },
+    "contextPolicy": {
+      "accepted": [
+        "ACCEPTED_EXPLICIT",
+        "ACCEPTED_CONFIRMED",
+        "ACCEPTED_INTERPRETED"
+      ],
+      "nonSatisfying": [
+        "PENDING",
+        "REJECTED",
+        "SUPERSEDED",
+        "CLEARED",
+        "CONTRADICTED",
+        "RAW_UTTERANCE",
+        "MODEL_PROPOSAL"
+      ],
+      "questionApplicability": "ONLY_CURRENTLY_APPLICABLE_AND_MATERIAL_QUESTIONS_BLOCK; NO_GLOBALLY_MANDATORY_QUESTION"
+    },
+    "uncertaintyPolicy": {
+      "hard": {
+        "effect": "BLOCKING_EXCEPT_APPROVED_MIXED_PRICE_CASE",
+        "states": [
+          "HARD_ELIGIBILITY_UNKNOWN",
+          "HARD_NOT_EVALUATED",
+          "UNEVALUATED_ACCEPTED_HARD_CONSTRAINT",
+          "UNRESOLVED_CONTRADICTION",
+          "PENDING_CONFIRMATION",
+          "AUTHORITY_REQUIRED_EVIDENCE_UNKNOWN"
+        ]
+      },
+      "soft": {
+        "effect": "NON_BLOCKING",
+        "disclosure": "REQUIRED_WHEN_LATER_RATIONALE_OR_COMPARISON_DEPENDS_ON_IT"
+      },
+      "unknownClassification": "MUST_NOT_CONVERT_TO_COMPATIBLE_OR_INCOMPATIBLE"
+    },
+    "pricePolicy": {
+      "states": [
+        {
+          "state": "NO_HARD_BUDGET",
+          "classification": "PRICE_HAS_NO_ENTRY_EFFECT",
+          "outcome": "CONTINUE",
+          "unknownPreservation": "NOT_APPLICABLE",
+          "disclosureRequired": false
+        },
+        {
+          "state": "FRESH_COMPATIBLE",
+          "classification": "PRICE_COMPATIBLE",
+          "outcome": "KNOWN_COMPATIBLE_POOL",
+          "unknownPreservation": "NOT_APPLICABLE",
+          "disclosureRequired": true
+        },
+        {
+          "state": "FRESH_INCOMPATIBLE",
+          "classification": "BUDGET_INCOMPATIBLE",
+          "outcome": "KNOWN_INCOMPATIBLE_SET",
+          "unknownPreservation": "NOT_TECHNICALLY_ELIMINATED",
+          "disclosureRequired": true
+        },
+        {
+          "state": "UNKNOWN_OR_UNUSABLE",
+          "classification": "BUDGET_ELIGIBILITY_UNKNOWN",
+          "outcome": "PRESERVE_SEPARATELY",
+          "unknownPreservation": "EXPLICIT_SEPARATE_SET",
+          "disclosureRequired": true
+        },
+        {
+          "state": "MIXED_COMPATIBLE_AND_UNKNOWN",
+          "classification": "PARTIAL_PRICE_COVERAGE",
+          "outcome": "CONTINUE_WITH_KNOWN_COMPATIBLE_POOL",
+          "unknownPreservation": "EXPLICIT_SEPARATE_SET",
+          "disclosureRequired": true
+        },
+        {
+          "state": "ZERO_COMPATIBLE_WITH_UNKNOWNS",
+          "classification": "UNRESOLVED_PRICE_COVERAGE",
+          "outcome": "UNRESOLVED_HARD_UNCERTAINTY",
+          "unknownPreservation": "EXPLICIT_SEPARATE_SET",
+          "disclosureRequired": true
+        },
+        {
+          "state": "ALL_CONCLUSIVELY_OVER_BUDGET",
+          "classification": "CONCLUSIVE_BUDGET_ZERO",
+          "outcome": "NO_RECOMMENDATION_ELIGIBLE_CANDIDATE",
+          "unknownPreservation": "EMPTY_SET",
+          "disclosureRequired": true
+        },
+        {
+          "state": "ENTIRE_PROJECTION_STALE",
+          "classification": "NO_FRESH_CANDIDATE_SPECIFIC_PRICE",
+          "outcome": "UNRESOLVED_HARD_UNCERTAINTY",
+          "unknownPreservation": "ALL_OTHERWISE_ELIGIBLE_IDS",
+          "disclosureRequired": true
+        },
+        {
+          "state": "BINDING_MISMATCH",
+          "classification": "AUTHORITY_FAILURE",
+          "outcome": "FAILED_CLOSED",
+          "unknownPreservation": "UNTRUSTED",
+          "disclosureRequired": true
+        }
+      ],
+      "affiliateAvailabilityEffect": "NONE",
+      "requiredProvenance": [
+        "knownCompatibleCandidateIds",
+        "knownIncompatibleCandidateIds",
+        "budgetUnknownCandidateIds",
+        "priceSnapshotIdentity",
+        "freshnessState",
+        "coverageLimitation",
+        "acceptedHardBudgetContextReference"
+      ]
+    },
+    "candidateCountPolicy": [
+      {
+        "state": "CONCLUSIVE_ZERO",
+        "outcome": "NO_RECOMMENDATION_ELIGIBLE_CANDIDATE",
+        "contract": "All candidates conclusively hard incompatible and no unknown remains."
+      },
+      {
+        "state": "ZERO_KNOWN_PLUS_UNKNOWN",
+        "outcome": "UNRESOLVED_HARD_UNCERTAINTY",
+        "contract": "Unknown candidates remain explicitly preserved."
+      },
+      {
+        "state": "SINGLETON",
+        "outcome": "RECOMMENDATION_POOL_ELIGIBLE",
+        "contract": "One candidate forms a singleton non-ranked pool only after all gates pass."
+      },
+      {
+        "state": "MULTIPLE",
+        "outcome": "RECOMMENDATION_POOL_ELIGIBLE",
+        "contract": "Multiple candidates form a non-ranked pool requiring later governed selection policy."
+      },
+      {
+        "state": "AUTHORITY_FAILURE",
+        "outcome": "FAILED_CLOSED",
+        "contract": "No candidate-count conclusion is trusted."
+      }
+    ],
+    "poolContract": {
+      "form": "EXACT_UNIQUE_CANONICALLY_SERIALIZED_NON_RANKED_CANDIDATE_IDS",
+      "canonicalOrderMeaning": "SERIALIZATION_ONLY",
+      "singletonAllowed": true,
+      "multipleAllowed": true,
+      "unknownCandidateSet": "SEPARATE_EXPLICIT_PRESERVED_SET",
+      "provides": [],
+      "selectionPolicyDependency": "REQUIRED_BEFORE_ANY_WINNER_ORDER_OR_RECOMMENDATION_FOR_MULTIPLE_CANDIDATES"
+    },
+    "exclusions": {
+      "capacity": {
+        "missingContextEffect": "NONE",
+        "questionRequired": false,
+        "kilogramThreshold": "ABSENT",
+        "householdMapping": "FORBIDDEN"
+      },
+      "persona": {
+        "sufficiencyEffect": "NONE",
+        "recommendationEntryEffect": "NONE"
+      }
+    },
+    "requiredDisclosures": [
+      "exact canonical candidate ID partitions",
+      "authority identities and digests",
+      "context and evaluation provenance",
+      "hard and soft uncertainty limitations",
+      "price coverage provenance when a hard budget is active",
+      "selection policy required for multiple candidates"
+    ],
+    "failClosedRules": [
+      "missing or unsafe active binding",
+      "invalid policy schema",
+      "policy digest mismatch",
+      "policy not approved frozen and active",
+      "catalog binding mismatch",
+      "Semantic Registry binding mismatch",
+      "Question Policy binding mismatch",
+      "candidate policy binding mismatch",
+      "planner policy binding mismatch",
+      "ambiguous or incomplete precedence",
+      "incomplete price or candidate-count states",
+      "invalid selection dependency",
+      "capacity or persona authority violation"
+    ],
+    "productDecisionRegister": [
+      {
+        "decisionId": "PDR-001",
+        "topic": "outcome precedence",
+        "approvedDecision": "Use the frozen six-outcome total order.",
+        "runtimeConsequence": "Higher precedence always wins.",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "PDR-002",
+        "topic": "planner mapping",
+        "approvedDecision": "Map failure clarification and ask directly; neutral no-question continues gates.",
+        "runtimeConsequence": "Neutral planning absence proves nothing alone.",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "PDR-003",
+        "topic": "applicable questions",
+        "approvedDecision": "Only applicable material governed questions block.",
+        "runtimeConsequence": "No globally mandatory question.",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "PDR-004",
+        "topic": "accepted context",
+        "approvedDecision": "Only the three accepted states satisfy authoritative context.",
+        "runtimeConsequence": "Raw proposals and inactive states cannot satisfy gates.",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "PDR-005",
+        "topic": "hard uncertainty",
+        "approvedDecision": "Hard uncertainty blocks except the approved mixed-price case.",
+        "runtimeConsequence": "Unknown remains distinct.",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "PDR-006",
+        "topic": "soft uncertainty",
+        "approvedDecision": "Soft non-filtering uncertainty does not block and may require disclosure.",
+        "runtimeConsequence": "No hidden hard gate.",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "PDR-007",
+        "topic": "hard-budget prices",
+        "approvedDecision": "Classify candidate prices individually and permit mixed known-compatible plus unknown handoff.",
+        "runtimeConsequence": "Unknown IDs remain separate with mandatory coverage disclosure.",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "PDR-008",
+        "topic": "zero candidates",
+        "approvedDecision": "Distinguish conclusive zero unknown zero and authority failure.",
+        "runtimeConsequence": "No false no-candidate conclusion.",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "PDR-009",
+        "topic": "singleton",
+        "approvedDecision": "A singleton is neither necessary nor independently sufficient.",
+        "runtimeConsequence": "All prior gates still apply.",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "PDR-010",
+        "topic": "multiple candidates",
+        "approvedDecision": "Expose only a non-ranked pool and require later governed selection.",
+        "runtimeConsequence": "No implicit catalog or price ordering.",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "PDR-011",
+        "topic": "capacity",
+        "approvedDecision": "Missing capacity does not block and no kilogram threshold or household mapping exists.",
+        "runtimeConsequence": "Capacity remains excluded.",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "PDR-012",
+        "topic": "persona",
+        "approvedDecision": "Sufficiency and recommendation-entry effects are NONE.",
+        "runtimeConsequence": "Persona cannot satisfy or block entry.",
+        "approvalStatus": "APPROVED"
+      }
+    ],
+    "traceabilityMatrix": [
+      {
+        "ruleId": "SRP-001",
+        "input": "planner or authority failure",
+        "authority": "fail-closed contracts",
+        "output": "FAILED_CLOSED",
+        "blocking": "BLOCKING",
+        "disclosure": "failure reason"
+      },
+      {
+        "ruleId": "SRP-002",
+        "input": "planner CLARIFY",
+        "authority": "question planner",
+        "output": "CLARIFICATION_REQUIRED",
+        "blocking": "BLOCKING",
+        "disclosure": "clarification reference"
+      },
+      {
+        "ruleId": "SRP-003",
+        "input": "planner ASK",
+        "authority": "question policy",
+        "output": "MORE_INFORMATION_REQUIRED",
+        "blocking": "BLOCKING",
+        "disclosure": "question identity"
+      },
+      {
+        "ruleId": "SRP-004",
+        "input": "neutral no-question",
+        "authority": "question policy",
+        "output": "continue gates",
+        "blocking": "CONDITIONAL",
+        "disclosure": "neutral meaning"
+      },
+      {
+        "ruleId": "SRP-005",
+        "input": "inactive or non-authoritative context",
+        "authority": "context ledger",
+        "output": "not satisfied",
+        "blocking": "CONDITIONAL",
+        "disclosure": "material status"
+      },
+      {
+        "ruleId": "SRP-006",
+        "input": "unresolved hard uncertainty",
+        "authority": "candidate evaluation",
+        "output": "UNRESOLVED_HARD_UNCERTAINTY",
+        "blocking": "BLOCKING",
+        "disclosure": "unknown IDs and reasons"
+      },
+      {
+        "ruleId": "SRP-007",
+        "input": "soft unknown",
+        "authority": "semantic registry",
+        "output": "continue gates",
+        "blocking": "NON_BLOCKING",
+        "disclosure": "when later rationale depends"
+      },
+      {
+        "ruleId": "SRP-008",
+        "input": "no hard budget",
+        "authority": "approved amendment one",
+        "output": "price ignored for entry",
+        "blocking": "NON_BLOCKING",
+        "disclosure": "only if later presented"
+      },
+      {
+        "ruleId": "SRP-009",
+        "input": "fresh compatible price",
+        "authority": "approved amendment one",
+        "output": "known compatible pool",
+        "blocking": "NON_BLOCKING",
+        "disclosure": "price provenance"
+      },
+      {
+        "ruleId": "SRP-010",
+        "input": "fresh over-budget price",
+        "authority": "approved amendment one",
+        "output": "known incompatible set",
+        "blocking": "NON_BLOCKING",
+        "disclosure": "not technical elimination"
+      },
+      {
+        "ruleId": "SRP-011",
+        "input": "unknown or unusable price",
+        "authority": "approved amendment one",
+        "output": "preserve budget unknown",
+        "blocking": "CONDITIONAL",
+        "disclosure": "exact unknown IDs"
+      },
+      {
+        "ruleId": "SRP-012",
+        "input": "compatible plus unknown prices",
+        "authority": "approved amendment one",
+        "output": "continue with known compatible pool",
+        "blocking": "NON_BLOCKING",
+        "disclosure": "mandatory price coverage"
+      },
+      {
+        "ruleId": "SRP-013",
+        "input": "zero compatible plus unknown prices",
+        "authority": "approved amendment one",
+        "output": "UNRESOLVED_HARD_UNCERTAINTY",
+        "blocking": "BLOCKING",
+        "disclosure": "unknown IDs"
+      },
+      {
+        "ruleId": "SRP-014",
+        "input": "all fresh prices over budget",
+        "authority": "approved amendment one",
+        "output": "NO_RECOMMENDATION_ELIGIBLE_CANDIDATE",
+        "blocking": "BLOCKING",
+        "disclosure": "conclusive price set"
+      },
+      {
+        "ruleId": "SRP-015",
+        "input": "entire projection stale",
+        "authority": "approved amendment one",
+        "output": "UNRESOLVED_HARD_UNCERTAINTY",
+        "blocking": "BLOCKING",
+        "disclosure": "freshness and coverage"
+      },
+      {
+        "ruleId": "SRP-016",
+        "input": "price binding mismatch",
+        "authority": "price authority",
+        "output": "FAILED_CLOSED",
+        "blocking": "BLOCKING",
+        "disclosure": "binding mismatch"
+      },
+      {
+        "ruleId": "SRP-017",
+        "input": "singleton or multiple eligible",
+        "authority": "approved amendment two",
+        "output": "RECOMMENDATION_POOL_ELIGIBLE",
+        "blocking": "NON_BLOCKING",
+        "disclosure": "non-ranked and selection dependency"
+      },
+      {
+        "ruleId": "SRP-018",
+        "input": "capacity absent or persona present",
+        "authority": "frozen exclusions",
+        "output": "continue gates",
+        "blocking": "NON_BLOCKING",
+        "disclosure": "effects are NONE"
+      }
+    ],
+    "scope": {
+      "boundaryOutput": "NON_RANKED_CANDIDATE_POOL_ONLY",
+      "selectionImplementation": "OUT_OF_SCOPE",
+      "recommendationConstruction": "OUT_OF_SCOPE",
+      "decisionAuthorization": "OUT_OF_SCOPE",
+      "runtimeEvaluator": "OUT_OF_SCOPE",
+      "commerceEffect": "NONE"
+    }
+  }
+}

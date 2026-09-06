@@ -1,0 +1,61 @@
+{
+  "artifactVersion": "0.1.0",
+  "datasetVersion": "0.4.0",
+  "datasetReleaseHash": "b3ee43a0e1245a2c3b0954c1698d0c2d424e2cc38861ffef4fb315b9c8bdcfeb",
+  "schemaVersion": "0.1",
+  "mappingVersion": "0.1.0-pilot.1",
+  "mappingHash": "a81c4a24a46f45d0695c50dd1cd6cb6d4095f110fca0bcd62c39fadec0e552bf",
+  "dictionaryRevision": "vehicle-evidence-0.4.0:data_dictionary.csv",
+  "dictionaryHash": "7aa8579ccd0a118c0bf98075f62ac7e62ee8297f44422125f40be956db676a95",
+  "productionCatalogRevision": "pilot-vehicles:2026-08-14",
+  "generatedAt": "2026-08-14T20:00:00.000Z",
+  "generatorVersion": "vehicle-evidence-runtime-artifact:v1",
+  "validationStatus": "PASS",
+  "evidenceValidator": { "version": "vehicle-evidence:v0.4.0", "status": "PASS" },
+  "mappingValidator": { "version": "vehicle-candidate-identity-map:v1", "status": "PASS" },
+  "policy": {
+    "id": "cars.requirement-to-evidence",
+    "version": "0.1.0",
+    "migratedCategories": ["seats"]
+  },
+  "candidates": [
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0001",
+      "vehicleVariantId": "a3728e65-51b2-447f-a6c3-a1f64db8a310",
+      "configurationId": "CFG-000037",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "value": 7,
+          "factId": "FAC-000178",
+          "assertionIds": ["AST-000332"],
+          "sourceIds": ["SRC-000050"],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "limitations": []
+        }
+      }
+    },
+    {
+      "runtimeVehicleCandidateId": "RVC-PILOT-0002",
+      "vehicleVariantId": "62465336-2cfb-4ccd-b9a7-36467d63497f",
+      "configurationId": "CFG-000055",
+      "mappingStatus": "VERIFIED_ONE_TO_ONE",
+      "facts": {
+        "seats": {
+          "status": "AVAILABLE",
+          "value": 5,
+          "factId": "FAC-000251",
+          "assertionIds": ["AST-000447"],
+          "sourceIds": ["SRC-000065"],
+          "scope": "CONFIGURATION",
+          "evidenceState": "VERIFIED",
+          "applicability": "EXACT",
+          "limitations": []
+        }
+      }
+    }
+  ]
+}

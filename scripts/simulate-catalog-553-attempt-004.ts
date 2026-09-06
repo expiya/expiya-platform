@@ -45,7 +45,7 @@ async function main(): Promise<void> {
   const coverage = equipment.coverage;
   if (coverage?.catalogVariantCount !== 549 || coverage.verifiedAssertionCoverage?.exactVariantCount !== 4 || coverage.reviewedAssociationOnlyCoverage?.exactVariantCount !== 2 || coverage.uncoveredCoverage?.exactVariantCount !== 543 || equipment.decisionAuthority !== "SHADOW_AND_EXPLANATION_DISABLED") throw new Error("EQUIPMENT_RUNTIME_COVERAGE_OR_AUTHORITY");
   const quarantine = JSON.parse(await readFile(path.join(root, "data/production/catalog/releases/v0.55.3/quarantine-registry.json"), "utf8")).records.map((item: { exactVariantId: string }) => item.exactVariantId);
-  const refs = [equipment.verifiedAssertions, equipment.reviewedAssociations, equipment.verifiedTrimLinks, equipment.projections].flat().filter((item): item is { exactVariantId: string } => Boolean(item && typeof item === "object" && "exactVariantId" in item && typeof item.exactVariantId === "string")).filter((item) => quarantine.includes(item.exactVariantId));
+  const refs = [equipment.verifiedAssertions, equipment.reviewedAssociations, equipment.verifiedTrimLinks, equipment.projections].flat().filter((item) => quarantine.includes(item.exactVariantId));
   if (refs.length) throw new Error("EQUIPMENT_QUARANTINE_REFERENCE");
   const imported: Record<string, boolean> = {};
   for (const [key, [directory, moduleName]] of Object.entries(layerPaths)) {

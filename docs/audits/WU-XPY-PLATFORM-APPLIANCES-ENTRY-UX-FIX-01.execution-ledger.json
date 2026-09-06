@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "xpy-platform-appliances-entry-ux-fix-ledger/v1",
+  "workUnitId": "WU-XPY-PLATFORM-APPLIANCES-ENTRY-UX-FIX-01",
+  "completedAt": "2026-09-05T12:39:06+03:00",
+  "verdict": "DEPLOYED_AND_VERIFIED",
+  "scope": {
+    "implemented": [
+      "Conversation-first Expiya platform landing with a central Secretary and explicit Cars and Appliances departments",
+      "Dedicated Expiya information page linked from the platform and Appliances surfaces",
+      "Compact Appliances landing with 24 active category entries and disclosed category-specific symbolic fallbacks",
+      "Single-question Appliances Stage 1 entry with persistent composer visibility and safe draft restoration on request failure",
+      "Turkish air-purifier room-area parsing stored as context-only PM_CADR input before the next material question"
+    ],
+    "authorityFilesIncluded": 78,
+    "catalogOrRankingExpansion": false,
+    "existingGovernedProductMediaChanged": false,
+    "unrelatedConcurrentCheckoutWorkIncluded": false
+  },
+  "repository": {
+    "authoritativeCheckout": "/Users/serdarakgul/Projects/expiya-platform",
+    "branch": "codex/persona-evidence-v39",
+    "gitHead": "246e4c02278fa664093f4eed9fb218ed6a556aca",
+    "worktreeMode": "DIRTY_WORKTREE_ISOLATED_SNAPSHOT",
+    "commitCreated": false,
+    "pushPerformed": false,
+    "existingChangesPreserved": true
+  },
+  "database": {
+    "provider": "PRODUCTION_POSTGRESQL",
+    "migration": "database/migrations/0013_appliances_new_category_foundation.sql",
+    "sha256": "e4bdf5574eebc3189af7c15a7053bd4c7612bbb2b646ce5524ee551026ecb598",
+    "execution": "TRANSACTIONAL_DDL_WITH_5_SECOND_LOCK_TIMEOUT",
+    "preflightConversationCount": 77,
+    "preflightIncompatibleRows": 0,
+    "postMigrationConversationCount": 77,
+    "recognizedProductTypes": 24,
+    "dataDeletion": false,
+    "postSmokeConversationCount": 101,
+    "postSmokeSyntheticCategoryCount": 24,
+    "status": "APPLIED_AND_VERIFIED"
+  },
+  "verification": {
+    "focusedTests": "PASS; 7 files; 68 tests",
+    "additionalApiAndAdvisoryTests": "PASS; 3 files; 205 tests",
+    "typescript": "PASS",
+    "scopedEslint": "PASS; globals.css emitted only the expected ignored-file warning",
+    "localProductionBuild": "PASS; isolated audited snapshot; Node 24.20.0; webpack",
+    "remoteProductionBuild": "PASS; Vercel Node 24.x; catalog, technical-daily-life, persona-safe-trait and vehicle-evidence gates; TypeScript; 611 static pages",
+    "repositoryWideTestObservation": "5345 tests passed; two pre-existing unrelated Cars expectation failures remained in features/decision/v3/budgetV32.test.ts and features/decision/v3/corporateSalesV37.test.ts",
+    "productionHttp": {
+      "/": 200,
+      "/expiya-nedir": 200,
+      "/appliances": 200,
+      "/cars": 200,
+      "secretaryAppliancesRouting": "PASS",
+      "all24CategoryCreates": "PASS; HTTP 200; revision 1",
+      "airPurifierTurn": "PASS; HTTP 200; revision 2; ASK appliances.air-purifier.material"
+    },
+    "productionBrowser": {
+      "viewports": [
+        "1440x900",
+        "390x844"
+      ],
+      "horizontalOverflow": false,
+      "consoleOrPageErrors": 0,
+      "categoryCards": 24,
+      "secretaryAndDepartmentNavInFirstViewport": true,
+      "stageOneComposerVisible": true,
+      "singleOpeningQuestion": true
+    },
+    "airPurifierPersistence": {
+      "conversationId": "0693190f-8f32-4c42-b9e3-9db2a6566d70",
+      "roomAreaM2": 10,
+      "approximate": true,
+      "selectionUse": "CONTEXT_ONLY",
+      "genericCoveragePromise": false
+    }
+  },
+  "deployment": {
+    "provider": "VERCEL",
+    "project": "expiya/expiya-platform-qw7q",
+    "projectId": "prj_aTU4JVC9CT5mN9dk5CWogfiV3A1q",
+    "target": "production",
+    "readyState": "READY",
+    "deploymentId": "dpl_8AA8LPazZMAxh1DKj6gw4QyjwoK1",
+    "immutableUrl": "https://expiya-platform-qw7q-jortxi4rp-expiya.vercel.app",
+    "productionUrl": "https://www.expiya.com",
+    "sourceSnapshot": {
+      "path": "/private/tmp/expiya-appliances-ux-deploy-gRr2Sh",
+      "authorizedApproximateSizeMb": 56,
+      "deploymentFileCount": 1428,
+      "uploadedDeltaBytes": 143000,
+      "environmentOrKeyFiles": 0
+    }
+  },
+  "rollback": {
+    "applicationTargetDeploymentId": "dpl_99BL7WX7J3CA7fvk3May1vtCniSC",
+    "applicationTarget": "https://expiya-platform-qw7q-len4psfyz-expiya.vercel.app",
+    "command": "vercel rollback expiya-platform-qw7q-len4psfyz-expiya.vercel.app --scope expiya",
+    "requiredNow": false,
+    "databaseStrategy": "Keep migration 0013 applied because it is an additive compatibility widening and production now contains rows for the newly recognized categories. Use a forward fix for schema incidents rather than narrowing the constraint or deleting conversations."
+  },
+  "remainingGaps": [
+    "No release commit or push was created from the dirty authoritative checkout; production was deployed from the isolated audited snapshot.",
+    "The 24 production category smoke records are retained as append-only synthetic verification evidence."
+  ]
+}

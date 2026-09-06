@@ -1,6 +1,6 @@
 # WU-BABY-STROLLER-END-TO-END-01 — consolidated owner approval
 
-Status: `READY_FOR_OWNER_APPROVAL`
+Status: `OWNER_APPROVED_AND_REPOSITORY_ACTIVATED`
 
 Candidate release: `BABY-STROLLER-TR-v0.2-approval-candidate`
 

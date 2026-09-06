@@ -7,6 +7,7 @@ import type { PreferenceEvent, V3ConversationState } from "@/features/decision/v
 import { buildVariantContentArtifact, validateVariantContentArtifact } from "./artifact.server";
 import { SALES_ADVISOR_VERSION, type Phase2HandoffPayload } from "./types";
 import { z } from "zod";
+import { createXpyStageThreeAuthorityBinding, validateXpyStageThreeEntry, xpyStageThreeAuthorityBindingSchema, type XpyStageThreeAuthorityBinding } from "@/features/xpy/stageThree/contracts";
 
 const localSecret = randomBytes(32).toString("hex");
 const signingSecret = () => {
@@ -20,7 +21,7 @@ const cache = new Map<string, string>();
 const MAX_HANDOFF_CACHE = 5_000;
 
 const handoffPayloadSchema = z.strictObject({
-  version: z.literal(SALES_ADVISOR_VERSION), conversationId: z.string().min(1).max(200), decisionFingerprint: z.string().regex(/^[a-f0-9]{64}$/u), offerId: z.string().min(1).max(200), selectedExactVariantId: z.string().min(1).max(300), catalogRelease: z.string().min(1).max(100), catalogFingerprint: z.string().min(1).max(120),
+  version: z.literal(SALES_ADVISOR_VERSION), conversationId: z.string().min(1).max(200), decisionRevision: z.number().int().positive(), decisionFingerprint: z.string().regex(/^[a-f0-9]{64}$/u), offerId: z.string().min(1).max(200), selectedExactVariantId: z.string().min(1).max(300), catalogRelease: z.string().min(1).max(100), catalogFingerprint: z.string().min(1).max(120),
   approvedNeeds: z.array(z.strictObject({ concept: z.string().min(1).max(100), summary: z.string().min(1).max(300) })).max(40), personaMatchSummary: z.array(z.string().min(1).max(300)).max(10), recommendationTerms: z.strictObject({ version: z.string().min(1).max(100), acceptedAt: z.string().datetime() }), decisionStateDigest: z.string().regex(/^[a-f0-9]{64}$/u), nonce: z.string().regex(/^[A-Za-z0-9_-]{16,80}$/u), issuedAt: z.string().datetime(), expiresAt: z.string().datetime(),
 });
 
@@ -31,6 +32,7 @@ const publicValues: Readonly<Record<string, string>> = {
   NOT_IMPORTANT: "bu başlık karar için önemli değil", REAR_VIEW_CAMERA: "geri görüş kamerası", SURROUND_VIEW_CAMERA_360: "360° çevre görüş kamerası", PARKING_SENSORS: "park sensörleri", ADAPTIVE_CRUISE_CONTROL: "adaptif hız sabitleyici", BLIND_SPOT_MONITOR: "kör nokta izleme",
   AUTOMATIC: "otomatik", MANUAL: "manuel", MINIMAL: "başka bir donanım zorunlu değil",
 };
+const configurationIdentity = (artifact: ReturnType<typeof buildVariantContentArtifact>) => `${artifact.identity.brand}|${artifact.identity.model}|${artifact.identity.trim}|${artifact.identity.modelYear}|TR`;
 const formatPublicValue = (value: string | number | readonly string[]) => Array.isArray(value) ? value.map((item) => publicValues[String(item)] ?? String(item)).join(", ") : publicValues[String(value)] ?? String(value);
 
 export const publicSummary = (event: PreferenceEvent): string => {
@@ -55,7 +57,7 @@ export async function createPhase2Handoff(input: { conversationId: string; state
   const key = `${offer.offerId}:${input.selectedExactVariantId}:${state.revision}`;
   const replay = cache.get(key); if (replay) return { token: replay, exactVariantId: input.selectedExactVariantId };
   const issued = input.now ?? new Date();
-  const payload: Phase2HandoffPayload = { version: SALES_ADVISOR_VERSION, conversationId: state.conversationId, decisionFingerprint: offer.decisionFingerprint, offerId: offer.offerId, selectedExactVariantId: input.selectedExactVariantId, catalogRelease: offer.catalogReleaseVersion, catalogFingerprint: offer.catalogFingerprint, approvedNeeds: approvedNeeds(state), personaMatchSummary: ["Seçilen varyant, Aşama 1'deki onaylı tercih bağlamıyla eşleşti."], recommendationTerms: { version: state.recommendationTermsAcceptance.version, acceptedAt: state.recommendationTermsAcceptance.acceptedAt }, decisionStateDigest: digest(state), nonce: randomBytes(18).toString("base64url"), issuedAt: issued.toISOString(), expiresAt: new Date(issued.getTime() + 24 * 60 * 60_000).toISOString() };
+  const payload: Phase2HandoffPayload = { version: SALES_ADVISOR_VERSION, conversationId: state.conversationId, decisionRevision: state.revision, decisionFingerprint: offer.decisionFingerprint, offerId: offer.offerId, selectedExactVariantId: input.selectedExactVariantId, catalogRelease: offer.catalogReleaseVersion, catalogFingerprint: offer.catalogFingerprint, approvedNeeds: approvedNeeds(state), personaMatchSummary: ["Seçilen varyant, Aşama 1'deki onaylı tercih bağlamıyla eşleşti."], recommendationTerms: { version: state.recommendationTermsAcceptance.version, acceptedAt: state.recommendationTermsAcceptance.acceptedAt }, decisionStateDigest: digest(state), nonce: randomBytes(18).toString("base64url"), issuedAt: issued.toISOString(), expiresAt: new Date(issued.getTime() + 24 * 60 * 60_000).toISOString() };
   const encoded = Buffer.from(JSON.stringify(payload)).toString("base64url"); const token = `p2.${encoded}.${sign(encoded)}`; cache.set(key, token); while (cache.size > MAX_HANDOFF_CACHE) cache.delete(cache.keys().next().value!);
   return { token, exactVariantId: input.selectedExactVariantId };
 }
@@ -82,15 +84,19 @@ export async function openPhase2Experience(token: string, now = new Date()) {
 export type Phase3Intent = "REQUEST_QUOTE" | "REQUEST_TEST_DRIVE" | "REQUEST_DEALER_CONTACT";
 export type Phase3IntentPayload = {
   readonly version: "phase3-intent/v1"; readonly conversationId: string; readonly decisionFingerprint: string;
-  readonly offerId: string; readonly selectedExactVariantId: string; readonly catalogRelease: string;
+  readonly decisionRevision: number; readonly decisionStateDigest: string; readonly offerId: string; readonly selectedExactVariantId: string; readonly configurationIdentity: string; readonly catalogRelease: string; readonly catalogFingerprint: string;
   readonly intent: Phase3Intent; readonly nonce: string; readonly issuedAt: string; readonly expiresAt: string; readonly executionAuthorized: false;
   readonly approvedNeeds: readonly { readonly concept: string; readonly summary: string }[];
+  readonly authority: XpyStageThreeAuthorityBinding;
 };
-const phase3IntentPayloadSchema = z.strictObject({ version: z.literal("phase3-intent/v1"), conversationId: z.string().min(1).max(200), decisionFingerprint: z.string().regex(/^[a-f0-9]{64}$/u), offerId: z.string().min(1).max(200), selectedExactVariantId: z.string().min(1).max(300), catalogRelease: z.string().min(1).max(100), intent: z.enum(["REQUEST_QUOTE", "REQUEST_TEST_DRIVE", "REQUEST_DEALER_CONTACT"]), nonce: z.string().regex(/^[A-Za-z0-9_-]{16,80}$/u), issuedAt: z.string().datetime(), expiresAt: z.string().datetime(), executionAuthorized: z.literal(false), approvedNeeds: z.array(z.strictObject({ concept: z.string().min(1).max(100), summary: z.string().min(1).max(300) })).max(40) });
+const phase3IntentPayloadSchema = z.strictObject({ version: z.literal("phase3-intent/v1"), conversationId: z.string().min(1).max(200), decisionRevision: z.number().int().positive(), decisionStateDigest: z.string().regex(/^[a-f0-9]{64}$/u), decisionFingerprint: z.string().regex(/^[a-f0-9]{64}$/u), offerId: z.string().min(1).max(200), selectedExactVariantId: z.string().min(1).max(300), configurationIdentity: z.string().min(1).max(500), catalogRelease: z.string().min(1).max(100), catalogFingerprint: z.string().min(1).max(120), intent: z.enum(["REQUEST_QUOTE", "REQUEST_TEST_DRIVE", "REQUEST_DEALER_CONTACT"]), nonce: z.string().regex(/^[A-Za-z0-9_-]{16,80}$/u), issuedAt: z.string().datetime(), expiresAt: z.string().datetime(), executionAuthorized: z.literal(false), approvedNeeds: z.array(z.strictObject({ concept: z.string().min(1).max(100), summary: z.string().min(1).max(300) })).max(40), authority: xpyStageThreeAuthorityBindingSchema });
+const phaseTwoAuthorityDigest = (handoff: Phase2HandoffPayload) => digest({ version: handoff.version, conversationId: handoff.conversationId, decisionRevision: handoff.decisionRevision, decisionFingerprint: handoff.decisionFingerprint, offerId: handoff.offerId, selectedExactVariantId: handoff.selectedExactVariantId, catalogRelease: handoff.catalogRelease, catalogFingerprint: handoff.catalogFingerprint, decisionStateDigest: handoff.decisionStateDigest });
 export async function createPhase3IntentHandoff(input: { phase2Token: string; intent: Phase3Intent; now?: Date }) {
   const opened = await openPhase2Experience(input.phase2Token, input.now);
   const issuedAt = input.now ?? new Date();
-  const payload: Phase3IntentPayload = { version: "phase3-intent/v1", conversationId: opened.handoff.conversationId, decisionFingerprint: opened.handoff.decisionFingerprint, offerId: opened.handoff.offerId, selectedExactVariantId: opened.handoff.selectedExactVariantId, catalogRelease: opened.handoff.catalogRelease, intent: input.intent, nonce: randomBytes(18).toString("base64url"), issuedAt: issuedAt.toISOString(), expiresAt: new Date(issuedAt.getTime() + 30 * 60_000).toISOString(), executionAuthorized: false, approvedNeeds: opened.handoff.approvedNeeds };
+  const expiresAt = new Date(issuedAt.getTime() + 30 * 60_000); const exactConfigurationIdentity = configurationIdentity(opened.artifact); const parentStageTwoDigest = phaseTwoAuthorityDigest(opened.handoff);
+  const authority = createXpyStageThreeAuthorityBinding({ departmentId: "CARS", categoryId: "NEW_CAR", conversationId: opened.handoff.conversationId, decisionRevision: opened.handoff.decisionRevision, decisionFingerprint: opened.handoff.decisionFingerprint, exactProductId: opened.handoff.selectedExactVariantId, configurationIdentity: exactConfigurationIdentity, evidence: { release: opened.handoff.catalogRelease, fingerprint: opened.handoff.catalogFingerprint }, parentStageTwoDigest, intendedAction: input.intent, issuedAt, expiresAt });
+  const payload: Phase3IntentPayload = { version: "phase3-intent/v1", conversationId: opened.handoff.conversationId, decisionRevision: opened.handoff.decisionRevision, decisionStateDigest: opened.handoff.decisionStateDigest, decisionFingerprint: opened.handoff.decisionFingerprint, offerId: opened.handoff.offerId, selectedExactVariantId: opened.handoff.selectedExactVariantId, configurationIdentity: exactConfigurationIdentity, catalogRelease: opened.handoff.catalogRelease, catalogFingerprint: opened.handoff.catalogFingerprint, intent: input.intent, nonce: randomBytes(18).toString("base64url"), issuedAt: issuedAt.toISOString(), expiresAt: expiresAt.toISOString(), executionAuthorized: false, approvedNeeds: opened.handoff.approvedNeeds, authority };
   const encoded = Buffer.from(JSON.stringify(payload)).toString("base64url");
   return { status: "HANDOFF_READY" as const, intent: input.intent, token: `p3.${encoded}.${sign(encoded)}`, executionAuthorized: false as const };
 }
@@ -105,12 +111,16 @@ export async function openPhase3IntentHandoff(token: string, expectedIntent?: Ph
   if (expiresAt <= now.getTime() || issuedAt > now.getTime() + 60_000 || expiresAt - issuedAt > 30 * 60_000) throw new TypeError("PHASE3_HANDOFF_STALE");
   if (expectedIntent && payload.intent !== expectedIntent) throw new TypeError("PHASE3_INTENT_MISMATCH");
   const offer = getRevealedV31Offer(payload.offerId);
-  if (!offer || offer.conversationId !== payload.conversationId || offer.decisionFingerprint !== payload.decisionFingerprint || offer.catalogReleaseVersion !== payload.catalogRelease || !offer.candidateRefs.some((item) => item.exactVariantId === payload.selectedExactVariantId)) throw new TypeError("PHASE3_HANDOFF_REVOKED");
+  if (!offer || offer.conversationId !== payload.conversationId || offer.decisionFingerprint !== payload.decisionFingerprint || offer.catalogReleaseVersion !== payload.catalogRelease || offer.catalogFingerprint !== payload.catalogFingerprint || !offer.candidateRefs.some((item) => item.exactVariantId === payload.selectedExactVariantId)) throw new TypeError("PHASE3_HANDOFF_REVOKED");
   const catalog = await evaluateV3Catalog([], now);
-  if (catalog.catalogReleaseVersion !== payload.catalogRelease) throw new TypeError("PHASE3_CATALOG_STALE");
+  if (catalog.catalogReleaseVersion !== payload.catalogRelease || catalog.catalogFingerprint !== payload.catalogFingerprint) throw new TypeError("PHASE3_CATALOG_STALE");
   const variant = catalog.variants.find((item) => item.id === payload.selectedExactVariantId);
   if (!variant) throw new TypeError("PHASE3_VARIANT_STALE");
   const artifact = buildVariantContentArtifact({ variant, catalogRelease: catalog.catalogReleaseVersion, catalogFingerprint: catalog.catalogFingerprint });
+  const parentStageTwoDigest = digest({ version: SALES_ADVISOR_VERSION, conversationId: payload.conversationId, decisionRevision: payload.decisionRevision, decisionFingerprint: payload.decisionFingerprint, offerId: payload.offerId, selectedExactVariantId: payload.selectedExactVariantId, catalogRelease: payload.catalogRelease, catalogFingerprint: payload.catalogFingerprint, decisionStateDigest: payload.decisionStateDigest });
+  const exactConfigurationIdentity = configurationIdentity(artifact);
+  const authority = validateXpyStageThreeEntry(payload.authority, { departmentId: "CARS", categoryId: "NEW_CAR", conversationId: payload.conversationId, decisionRevision: payload.decisionRevision, decisionFingerprint: payload.decisionFingerprint, exactProductId: payload.selectedExactVariantId, configurationIdentity: exactConfigurationIdentity, evidence: { release: catalog.catalogReleaseVersion, fingerprint: catalog.catalogFingerprint }, parentStageTwoDigest, intendedAction: payload.intent }, now);
+  if (authority.status !== "AUTHORIZED" || payload.configurationIdentity !== exactConfigurationIdentity) throw new TypeError("PHASE3_AUTHORITY_MISMATCH");
   return { handoff: payload, artifact };
 }
 

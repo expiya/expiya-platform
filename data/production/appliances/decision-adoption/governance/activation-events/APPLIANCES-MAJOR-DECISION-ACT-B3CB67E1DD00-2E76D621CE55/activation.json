@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "major-appliance-decision-activation/v1",
+  "activationId": "APPLIANCES-MAJOR-DECISION-ACT-B3CB67E1DD00-2E76D621CE55",
+  "activatedAt": "2026-09-05T16:00:00.000+03:00",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-DECISION-ADOPTION-01",
+  "state": "ACTIVE_XPY_Y_DECISION_MEMBERSHIP",
+  "source": {
+    "batchDigest": "sha256:b3cb67e1dd00dc6c529ae750679e8276c13f9723d4e1d77737a7f39aee441ea2",
+    "packageSha256": "2e76d621ce5569d7005ea29ab10e70f1807199038d1d973a681baee829210732",
+    "readOnlyCatalogActivationId": "APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55"
+  },
+  "approvalArtifact": {
+    "path": "data/production/appliances/decision-adoption/governance/approval-events/APPLIANCES-MAJOR-DECISION-POA-2E76D621CE55/approval.json",
+    "sha256": "9f8358bb289e4648f5d0d9de4fd5366b82d4650b3556a74ae2c63a2dd6eb85e9"
+  },
+  "rollbackArtifact": {
+    "path": "data/production/appliances/decision-adoption/governance/activation-events/APPLIANCES-MAJOR-DECISION-ACT-B3CB67E1DD00-2E76D621CE55/rollback.json",
+    "sha256": "7b56db7e04a83cc03f01ab70e7590a6faed6c395c4df6415b02f266c6a8daef4"
+  },
+  "releases": [
+    {
+      "category": "WASHING_MACHINE",
+      "releaseVersion": "APPLIANCES-WM-TR-v0.2",
+      "artifactSha256": "ce62509117adb1858ec009ed2b607d33a6038207c0865e7364952a2e700977ac",
+      "membershipDigest": "9823549a4200da0cf88e4460c73f9861f81d7b0959e79ca16a45beacf1b098f2",
+      "count": 29
+    },
+    {
+      "category": "DRYER",
+      "releaseVersion": "APPLIANCES-DRYER-TR-v0.2",
+      "artifactSha256": "9e6524963f6d000d637382d377d8deeaac72cad7efeab9c746929540f2a5a5c8",
+      "count": 7
+    },
+    {
+      "category": "DISHWASHER",
+      "releaseVersion": "APPLIANCES-DISHWASHER-TR-v0.2",
+      "artifactSha256": "5bf0aa3dab0bb16c6db1bc7944370a20f2911caeccc0d48f60aa80cb2a399506",
+      "count": 7
+    },
+    {
+      "category": "REFRIGERATOR",
+      "releaseVersion": "APPLIANCES-REFRIGERATOR-TR-v0.2",
+      "artifactSha256": "5b15f32f26e207fa83208a97208f189367aa98e404d4f1f709a520a06b875e0b",
+      "count": 8
+    }
+  ],
+  "policyBindings": [
+    {
+      "kind": "question",
+      "digest": "f5bcc250d3484c2a114c403b05970dc4c9c82412919ba7b6bcee0c0927d9100d",
+      "artifact": "data/production/appliances/question-policy/releases/WASHING_MACHINE_QUESTION_POLICY-v0.2/policy.json"
+    },
+    {
+      "kind": "sufficiency",
+      "digest": "1ea9819b5e686a6d631bff2d4e27303dd4a1769469e4259a4e215689e0408828",
+      "artifact": "data/production/appliances/sufficiency-recommendation-entry/releases/WASHING_MACHINE_SUFFICIENCY_RECOMMENDATION_ENTRY_POLICY-v0.2/policy.json"
+    },
+    {
+      "kind": "selection",
+      "digest": "d6665b24f8097fee1c99cd84c9855f777d2d8241be05f3417aa2cc2bd6af9ea6",
+      "artifact": "data/production/appliances/candidate-selection-policy/releases/WASHING_MACHINE_CANDIDATE_SELECTION_POLICY-v0.2/policy.json"
+    },
+    {
+      "kind": "construction",
+      "digest": "758ff2fe35578aa447f4316dfb869450d02edd54708a07e0ee2931e2cfac7c95",
+      "artifact": "data/production/appliances/recommendation-construction-policy/releases/WASHING_MACHINE_RECOMMENDATION_CONSTRUCTION_POLICY-v0.2/policy.json"
+    }
+  ],
+  "commerceBoundary": "L10_NO_DECISION_EFFECT",
+  "excludedOfferingIds": [
+    "appliances:dishwasher:tr:teka:dfi-46700-ttm"
+  ],
+  "transaction": {
+    "pointerCount": 8,
+    "mode": "ALL_OR_BYTE_EXACT_ROLLBACK"
+  }
+}

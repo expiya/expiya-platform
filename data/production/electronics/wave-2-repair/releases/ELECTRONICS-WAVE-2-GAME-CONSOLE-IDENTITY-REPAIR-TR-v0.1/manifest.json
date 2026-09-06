@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "electronics-wave-2-game-console-repair-manifest/v1",
+  "workUnitId": "WU-ELECTRONICS-WAVE-2-GAME-CONSOLE-IDENTITY-REPAIR-01",
+  "releaseVersion": "ELECTRONICS-WAVE-2-GAME-CONSOLE-IDENTITY-REPAIR-TR-v0.1",
+  "verdict": "IMPLEMENTED",
+  "parentReleaseDigest": "sha256:a92d56041f9150a87a5d4e01ae230217465b53507d247f8d134f28be2050892d",
+  "counts": {
+    "categories": 6,
+    "products": 12,
+    "sources": 18,
+    "comparativeFacts": 62,
+    "manuals": 2,
+    "unknowns": 36
+  },
+  "readiness": {
+    "DECISION_EVIDENCE_READY": 6,
+    "POLICY_REVIEW_REQUIRED": 0
+  },
+  "identityRepair": {
+    "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+    "disposition": "RESOLVED_BY_INDEPENDENT_TR_APPLICABILITY_AND_OFFICIAL_TECHNICAL_IDENTITY",
+    "hardwareRevision": "MODEL_1883",
+    "manufacturerProductId": "8ZCBGTT29H9C",
+    "trApplicabilitySourceId": "xbox-tr:Series-S",
+    "technicalIdentitySourceId": "microsoft-uk:8ZCBGTT29H9C",
+    "revisionSensitiveClaims": "LIMITED_TO_MODEL_1883_SOURCE_SCOPE",
+    "distinctConfigurationKey": "SERIES_S|1TB|ALL_DIGITAL|CARBON_BLACK|MODEL_1883|NO_BUNDLE"
+  },
+  "unchangedProof": {
+    "scope": "ALL_NON_XBOX_WAVE_2_ENTITIES",
+    "parentSubsetDigest": "sha256:22254c005346d058b860a6601c1bb668b85aace1e0e9ea9265172156de3f82ae",
+    "childSubsetDigest": "sha256:22254c005346d058b860a6601c1bb668b85aace1e0e9ea9265172156de3f82ae",
+    "byteEquivalent": true
+  },
+  "artifacts": {
+    "repair-release.json": "sha256:824b159a07e7e6c586b687627bb29591a417454c6d475cbbcdba7dec915598f1",
+    "reconciliation.json": "sha256:bcfe5a1679d0b8e9c64afd722e0f268c111d2676bbd0f813dbf4b388996826e6"
+  },
+  "activation": {
+    "l7Experience": "ABSENT",
+    "mediaImported": false,
+    "l10YEffect": "NONE",
+    "amazonStatusEffect": "NONE",
+    "activationPerformed": false,
+    "registryChanged": false,
+    "runtimeChanged": false,
+    "databaseChanged": false,
+    "pointerChanged": false,
+    "deploymentPerformed": false
+  }
+}

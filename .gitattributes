@@ -1,4 +1,9 @@
-data/cars/vehicle_evidence/source_snapshots/**/source.html whitespace=-trailing-space,-space-before-tab
-
-# Checksum-bound immutable legal review artifact; preserve source bytes.
-data/production/equipment-public-explanation-authority/release-candidates/v0.1.0-catalog-v0.55.4-2026-08-20-candidate/legal-review/legal-review-report.md -whitespace
+* whitespace=-blank-at-eof
+*.pdf binary
+*.xlsx binary
+*.xls binary
+*.mp3 binary
+data/** -whitespace
+docs/** -whitespace
+app/appliances/** -whitespace
+features/appliances/** whitespace=-blank-at-eof,-trailing-space

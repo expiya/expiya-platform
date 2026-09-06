@@ -1,0 +1,2835 @@
+{
+  "envelopeSchemaVersion": "electronics-category-policy-artifact/v1",
+  "canonicalSerialization": "CANONICAL_JSON_SORTED_KEYS_V1",
+  "policyDigest": "sha256:0f4db5148d6a6971b7a9341b2c0c56c298753dd2ab592b75d09fbdd372b7c20a",
+  "payload": {
+    "schemaVersion": "electronics-category-policy/v1",
+    "policyVersion": "ELECTRONICS-CATEGORY-POLICY-TR-v1.0",
+    "departmentId": "ELECTRONICS",
+    "market": "TR",
+    "lifecycle": "FROZEN",
+    "governanceStatus": "APPROVED",
+    "policyAuthorityActive": true,
+    "runtimeActive": false,
+    "evidenceChain": [
+      {
+        "wave": 1,
+        "releaseVersion": "ELECTRONICS-WAVE-1-DIVERSITY-REPAIR-TR-v0.1",
+        "releaseDigest": "sha256:4f66ab249373ae03580733249472a3ddebc3fe0369707afd7abec14d2e6b5ab2",
+        "artifactPath": "data/production/electronics/wave-1-repair/releases/ELECTRONICS-WAVE-1-DIVERSITY-REPAIR-TR-v0.1/repair-release.json",
+        "manifestDigest": "sha256:75c58768eb48472894e646b0b47ceb82f57d90e2198f62d5ca99dab6064dcb88"
+      },
+      {
+        "wave": 2,
+        "releaseVersion": "ELECTRONICS-WAVE-2-GAME-CONSOLE-IDENTITY-REPAIR-TR-v0.1",
+        "releaseDigest": "sha256:824b159a07e7e6c586b687627bb29591a417454c6d475cbbcdba7dec915598f1",
+        "artifactPath": "data/production/electronics/wave-2-repair/releases/ELECTRONICS-WAVE-2-GAME-CONSOLE-IDENTITY-REPAIR-TR-v0.1/repair-release.json",
+        "manifestDigest": "sha256:95a5f2be882fab949ca3c734c928863b696fdce79852067afcf613b58bacba48"
+      },
+      {
+        "wave": 3,
+        "releaseVersion": "ELECTRONICS-WAVE-3-EVIDENCE-TR-v0.1",
+        "releaseDigest": "sha256:13fe5452cff50e1115f39b68c3a8382f249caa7a5d71c9651a44991a068ca773",
+        "artifactPath": "data/production/electronics/wave-3-evidence/releases/ELECTRONICS-WAVE-3-EVIDENCE-TR-v0.1/evidence-release.json",
+        "manifestDigest": "sha256:6b729365188945afaeb0045108521229dacdc942c1ec169e72846ae0016130ae"
+      },
+      {
+        "wave": 4,
+        "releaseVersion": "ELECTRONICS-WAVE-4-SMART-HOME-HUB-REPAIR-TR-v0.1",
+        "releaseDigest": "sha256:548f7337fc9de4cbf70b04c8f4b8ff39d6059ee2b7b71a4da91733a3d44e1975",
+        "artifactPath": "data/production/electronics/wave-4-repair/releases/ELECTRONICS-WAVE-4-SMART-HOME-HUB-REPAIR-TR-v0.1/repair-release.json",
+        "manifestDigest": "sha256:ec4a3e8755e4cbc70f8a0fa78dc862509c30ab0b403624e91296dda34a4e6d2a"
+      }
+    ],
+    "sharedSemantics": {
+      "context": {
+        "normalization": "CANONICAL_CONCEPT_VALUE_WITH_SOURCE_EVENT",
+        "correction": "SUPERSEDE_PRIOR_ACCEPTED_VALUE_AND_REEVALUATE",
+        "clear": "REMOVE_ACTIVE_VALUE_AND_ALLOW_MATERIAL_REASK",
+        "unknown": "EXPLICIT_UNKNOWN_NEVER_INFERRED",
+        "notImportant": "ACCEPTED_NON_FILTERING_VALUE"
+      },
+      "x": {
+        "informationalTurn": "RESPOND_WITH_GOVERNED_INFORMATION_WITHOUT_PURCHASE_PROGRESS",
+        "advisoryBoundary": "NO_SELECTION_RECOMMENDATION_OR_CARD",
+        "offTopic": "REDIRECT_TO_CURRENT_ELECTRONICS_CATEGORY_NEVER_CARS"
+      },
+      "p": {
+        "maximumQuestionsPerTurn": 1,
+        "style": "ONE_MATERIAL_HUMAN_LANGUAGE_QUESTION_WITH_CHOICES_WHERE_APPROPRIATE",
+        "forbiddenPrompt": "LIST_ALL_MEASUREMENTS_OR_FUNCTIONS",
+        "ordering": "MATERIAL_EVIDENCE_SAFETY_PRIVACY_COMPATIBILITY_THEN_STABLE_KEY",
+        "suppressAcceptedOrPendingOrUnchangedAsked": true,
+        "unknownAndNotImportantAccepted": true
+      },
+      "candidateEvaluation": {
+        "hardCompatibility": "EVIDENCED_EXACT_CONSTRAINT_MISMATCH_ONLY",
+        "incompatibility": "NEEDS_AND_EXACT_CONFIGURATION_OR_REGION_CONFLICT",
+        "unknown": "UNKNOWN_NEVER_SILENT_ELIMINATION_OR_ADVANTAGE",
+        "identity": "EXACT_PRODUCT_CONFIGURATION_REGION_REVISION_REQUIRED",
+        "budget": "ONLY_USER_ENABLED_FRESH_EXACT_PRICE_MAY_HARD_FILTER",
+        "missingOrStalePrice": "UNKNOWN_NOT_TECHNICAL_ELIMINATION"
+      },
+      "sufficiency": {
+        "model": "CATEGORY_REQUIRED_ACCEPTED_CONTEXT_SET_NO_NUMERIC_SCORE",
+        "informationOnly": "RESPOND",
+        "purchaseIntent": "PROGRESS_ONLY_WHEN_MINIMUM_CONTEXT_AND_ELIGIBLE_POOL_EXIST"
+      },
+      "selection": {
+        "algorithm": "DETERMINISTIC_PAIRWISE_EVIDENCE_DOMINANCE_STABLE_SERIALIZATION",
+        "tie": "RETURN_TIED_TOP_SET_NO_WINNER",
+        "nonDominated": "RETURN_NON_DOMINATED_SET_NO_WINNER",
+        "arrayOrderEffect": "NONE"
+      },
+      "recommendation": {
+        "rationale": "BIND_ACCEPTED_NEEDS_TO_GOVERNED_FACTS_AND_DAILY_LIFE_INTERPRETATION",
+        "unsupportedSuperlatives": "FORBIDDEN",
+        "singleWinner": "ONLY_UNIQUE_EVIDENCED_DOMINATOR_OR_SINGLE_ELIGIBLE"
+      },
+      "authorization": {
+        "order": [
+          "SUFFICIENT_CONTEXT",
+          "EVALUATED_POOL",
+          "DETERMINISTIC_SELECTION",
+          "EVIDENCE_BOUND_RATIONALE",
+          "AUTHORIZATION",
+          "CARD_PROJECTION"
+        ],
+        "cardWithoutAuthorization": "FORBIDDEN"
+      },
+      "persona": {
+        "mode": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      "commerce": {
+        "l10RankingEffect": "NONE",
+        "amazonEffect": "NONE",
+        "affiliateReviewSellerProminenceEffect": "NONE",
+        "soleException": "EXPLICIT_USER_ENABLED_FRESH_EXACT_HARD_BUDGET_FILTER"
+      },
+      "manuals": {
+        "layer": "L9_ADVISOR_KNOWLEDGE",
+        "technicalAuthority": "NONE_UNLESS_SEPARATELY_PROMOTED"
+      }
+    },
+    "categories": [
+      {
+        "categoryId": "SMARTPHONE",
+        "publicLabelTr": "Akıllı telefon",
+        "evidenceReleaseDigest": "sha256:4f66ab249373ae03580733249472a3ddebc3fe0369707afd7abec14d2e6b5ab2",
+        "acceptedContextConcepts": [
+          "OS_SUPPORT",
+          "CELLULAR_BANDS",
+          "CAMERA",
+          "BATTERY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "commercialModel",
+          "manufacturerModelCode",
+          "storage",
+          "memory",
+          "color",
+          "regionalVariant"
+        ],
+        "minimumAcceptedContext": [
+          "OS_SUPPORT",
+          "CELLULAR_BANDS"
+        ],
+        "governedEvidenceFieldRefs": [
+          "SMARTPHONE:battery_mah",
+          "SMARTPHONE:cellular_generation",
+          "SMARTPHONE:display_inches",
+          "SMARTPHONE:memory_gb",
+          "SMARTPHONE:model_code",
+          "SMARTPHONE:storage_gb"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.smartphone.os_support",
+            "targetConcept": "OS_SUPPORT",
+            "priority": 1,
+            "textTr": "Akıllı telefon seçiminizde os_support ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.smartphone.cellular_bands",
+            "targetConcept": "CELLULAR_BANDS",
+            "priority": 2,
+            "textTr": "Akıllı telefon seçiminizde cellular_bands ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.smartphone.camera",
+            "targetConcept": "CAMERA",
+            "priority": 3,
+            "textTr": "Akıllı telefon seçiminizde camera ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.smartphone.battery",
+            "targetConcept": "BATTERY",
+            "priority": 4,
+            "textTr": "Akıllı telefon seçiminizde battery ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "LAPTOP",
+        "publicLabelTr": "Dizüstü bilgisayar",
+        "evidenceReleaseDigest": "sha256:4f66ab249373ae03580733249472a3ddebc3fe0369707afd7abec14d2e6b5ab2",
+        "acceptedContextConcepts": [
+          "WORKLOAD",
+          "PORTABILITY",
+          "DISPLAY",
+          "UPGRADEABILITY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "series",
+          "manufacturerPartNumber",
+          "cpu",
+          "gpu",
+          "memory",
+          "storage",
+          "display",
+          "os"
+        ],
+        "minimumAcceptedContext": [
+          "WORKLOAD",
+          "PORTABILITY"
+        ],
+        "governedEvidenceFieldRefs": [
+          "LAPTOP:battery_wh",
+          "LAPTOP:display",
+          "LAPTOP:memory_gb",
+          "LAPTOP:operating_system",
+          "LAPTOP:processor",
+          "LAPTOP:storage_gb"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.laptop.workload",
+            "targetConcept": "WORKLOAD",
+            "priority": 1,
+            "textTr": "Ne için kullanacaksınız?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.laptop.portability",
+            "targetConcept": "PORTABILITY",
+            "priority": 2,
+            "textTr": "Dizüstü bilgisayar seçiminizde portabılıty ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.laptop.display",
+            "targetConcept": "DISPLAY",
+            "priority": 3,
+            "textTr": "Dizüstü bilgisayar seçiminizde dısplay ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.laptop.upgradeability",
+            "targetConcept": "UPGRADEABILITY",
+            "priority": 4,
+            "textTr": "Dizüstü bilgisayar seçiminizde upgradeabılıty ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "TABLET",
+        "publicLabelTr": "Tablet",
+        "evidenceReleaseDigest": "sha256:4f66ab249373ae03580733249472a3ddebc3fe0369707afd7abec14d2e6b5ab2",
+        "acceptedContextConcepts": [
+          "OS_SUPPORT",
+          "INPUT",
+          "DISPLAY",
+          "CELLULAR_BANDS"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "commercialModel",
+          "manufacturerModelCode",
+          "storage",
+          "connectivity",
+          "color",
+          "regionalVariant"
+        ],
+        "minimumAcceptedContext": [
+          "OS_SUPPORT",
+          "INPUT"
+        ],
+        "governedEvidenceFieldRefs": [
+          "TABLET:battery_mah",
+          "TABLET:connectivity",
+          "TABLET:display_inches",
+          "TABLET:memory_gb",
+          "TABLET:operating_system",
+          "TABLET:processor",
+          "TABLET:refresh_hz",
+          "TABLET:resolution",
+          "TABLET:storage_gb"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.tablet.os_support",
+            "targetConcept": "OS_SUPPORT",
+            "priority": 1,
+            "textTr": "Tablet seçiminizde os_support ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.tablet.input",
+            "targetConcept": "INPUT",
+            "priority": 2,
+            "textTr": "Tablet seçiminizde ınput ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.tablet.display",
+            "targetConcept": "DISPLAY",
+            "priority": 3,
+            "textTr": "Tablet seçiminizde dısplay ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.tablet.cellular_bands",
+            "targetConcept": "CELLULAR_BANDS",
+            "priority": 4,
+            "textTr": "Tablet seçiminizde cellular_bands ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "MONITOR",
+        "publicLabelTr": "Monitör",
+        "evidenceReleaseDigest": "sha256:4f66ab249373ae03580733249472a3ddebc3fe0369707afd7abec14d2e6b5ab2",
+        "acceptedContextConcepts": [
+          "WORKLOAD",
+          "MOTION",
+          "COLOR",
+          "ERGONOMICS"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "panelSize",
+          "resolution",
+          "refreshRate",
+          "portConfiguration"
+        ],
+        "minimumAcceptedContext": [
+          "WORKLOAD",
+          "MOTION"
+        ],
+        "governedEvidenceFieldRefs": [
+          "MONITOR:brightness_typical",
+          "MONITOR:display_inches",
+          "MONITOR:displayport_version",
+          "MONITOR:hdmi_ports",
+          "MONITOR:panel",
+          "MONITOR:refresh_hz",
+          "MONITOR:resolution"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.monitor.workload",
+            "targetConcept": "WORKLOAD",
+            "priority": 1,
+            "textTr": "Ne için kullanacaksınız?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.monitor.motion",
+            "targetConcept": "MOTION",
+            "priority": 2,
+            "textTr": "Monitör seçiminizde motıon ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.monitor.color",
+            "targetConcept": "COLOR",
+            "priority": 3,
+            "textTr": "Monitör seçiminizde color ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.monitor.ergonomics",
+            "targetConcept": "ERGONOMICS",
+            "priority": 4,
+            "textTr": "Monitör seçiminizde ergonomıcs ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE"
+        ]
+      },
+      {
+        "categoryId": "TELEVISION",
+        "publicLabelTr": "Televizyon",
+        "evidenceReleaseDigest": "sha256:4f66ab249373ae03580733249472a3ddebc3fe0369707afd7abec14d2e6b5ab2",
+        "acceptedContextConcepts": [
+          "ROOM",
+          "CONTENT",
+          "PANEL",
+          "PLATFORM_SUPPORT"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "panelSize",
+          "panelTechnology",
+          "modelYear",
+          "regionalVariant"
+        ],
+        "minimumAcceptedContext": [
+          "ROOM",
+          "CONTENT"
+        ],
+        "governedEvidenceFieldRefs": [
+          "TELEVISION:display_inches",
+          "TELEVISION:panel",
+          "TELEVISION:platform",
+          "TELEVISION:refresh_hz",
+          "TELEVISION:resolution"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.television.room",
+            "targetConcept": "ROOM",
+            "priority": 1,
+            "textTr": "Kullanacağınız ortam nasıl?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.television.content",
+            "targetConcept": "CONTENT",
+            "priority": 2,
+            "textTr": "Televizyon seçiminizde content ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.television.panel",
+            "targetConcept": "PANEL",
+            "priority": 3,
+            "textTr": "Televizyon seçiminizde panel ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.television.platform_support",
+            "targetConcept": "PLATFORM_SUPPORT",
+            "priority": 4,
+            "textTr": "Televizyon seçiminizde platform_support ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "E_READER",
+        "publicLabelTr": "E-kitap okuyucu",
+        "evidenceReleaseDigest": "sha256:4f66ab249373ae03580733249472a3ddebc3fe0369707afd7abec14d2e6b5ab2",
+        "acceptedContextConcepts": [
+          "FORMAT_ECOSYSTEM",
+          "DISPLAY",
+          "WATER_RESISTANCE",
+          "STORAGE"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "model",
+          "generation",
+          "storage",
+          "connectivity",
+          "bundleExclusion"
+        ],
+        "minimumAcceptedContext": [
+          "FORMAT_ECOSYSTEM",
+          "DISPLAY"
+        ],
+        "governedEvidenceFieldRefs": [
+          "E_READER:display_color",
+          "E_READER:display_inches",
+          "E_READER:page_turn_buttons",
+          "E_READER:stylus_compatible"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.e_reader.format_ecosystem",
+            "targetConcept": "FORMAT_ECOSYSTEM",
+            "priority": 1,
+            "textTr": "E-kitap okuyucu seçiminizde format_ecosystem ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.e_reader.display",
+            "targetConcept": "DISPLAY",
+            "priority": 2,
+            "textTr": "E-kitap okuyucu seçiminizde dısplay ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.e_reader.water_resistance",
+            "targetConcept": "WATER_RESISTANCE",
+            "priority": 3,
+            "textTr": "E-kitap okuyucu seçiminizde water_resıstance ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.e_reader.storage",
+            "targetConcept": "STORAGE",
+            "priority": 4,
+            "textTr": "E-kitap okuyucu seçiminizde storage ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "HEADPHONES",
+        "publicLabelTr": "Kulaklık",
+        "evidenceReleaseDigest": "sha256:824b159a07e7e6c586b687627bb29591a417454c6d475cbbcdba7dec915598f1",
+        "acceptedContextConcepts": [
+          "FIT",
+          "NOISE_CONTROL",
+          "MICROPHONE",
+          "CODEC_COMPATIBILITY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "formFactor",
+          "connectivity",
+          "color",
+          "bundleExclusion"
+        ],
+        "minimumAcceptedContext": [
+          "FIT",
+          "NOISE_CONTROL"
+        ],
+        "governedEvidenceFieldRefs": [
+          "HEADPHONES:battery_hours_anc",
+          "HEADPHONES:battery_hours_anc_off",
+          "HEADPHONES:codec_support",
+          "HEADPHONES:connectivity",
+          "HEADPHONES:form_factor",
+          "HEADPHONES:noise_control",
+          "HEADPHONES:weight_g"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.headphones.fit",
+            "targetConcept": "FIT",
+            "priority": 1,
+            "textTr": "Kulaklık seçiminizde fıt ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.headphones.noise_control",
+            "targetConcept": "NOISE_CONTROL",
+            "priority": 2,
+            "textTr": "Kulaklık seçiminizde noıse_control ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.headphones.microphone",
+            "targetConcept": "MICROPHONE",
+            "priority": 3,
+            "textTr": "Kulaklık seçiminizde mıcrophone ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.headphones.codec_compatibility",
+            "targetConcept": "CODEC_COMPATIBILITY",
+            "priority": 4,
+            "textTr": "Kulaklık seçiminizde codec_compatıbılıty ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "HEALTH_NON_MEDICAL",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE"
+        ]
+      },
+      {
+        "categoryId": "PORTABLE_SPEAKER",
+        "publicLabelTr": "Taşınabilir hoparlör",
+        "evidenceReleaseDigest": "sha256:824b159a07e7e6c586b687627bb29591a417454c6d475cbbcdba7dec915598f1",
+        "acceptedContextConcepts": [
+          "OUTPUT_CONTEXT",
+          "RUGGEDNESS",
+          "BATTERY",
+          "MULTI_SPEAKER"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "sizeClass",
+          "connectivity",
+          "color"
+        ],
+        "minimumAcceptedContext": [
+          "OUTPUT_CONTEXT",
+          "RUGGEDNESS"
+        ],
+        "governedEvidenceFieldRefs": [
+          "PORTABLE_SPEAKER:battery_hours",
+          "PORTABLE_SPEAKER:connectivity",
+          "PORTABLE_SPEAKER:ingress_rating",
+          "PORTABLE_SPEAKER:playtime_boost_hours",
+          "PORTABLE_SPEAKER:replaceable_carry_accessory",
+          "PORTABLE_SPEAKER:shockproof",
+          "PORTABLE_SPEAKER:stereo_pair"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.portable_speaker.output_context",
+            "targetConcept": "OUTPUT_CONTEXT",
+            "priority": 1,
+            "textTr": "Taşınabilir hoparlör seçiminizde output_context ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.portable_speaker.ruggedness",
+            "targetConcept": "RUGGEDNESS",
+            "priority": 2,
+            "textTr": "Taşınabilir hoparlör seçiminizde ruggedness ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.portable_speaker.battery",
+            "targetConcept": "BATTERY",
+            "priority": 3,
+            "textTr": "Taşınabilir hoparlör seçiminizde battery ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.portable_speaker.multi_speaker",
+            "targetConcept": "MULTI_SPEAKER",
+            "priority": 4,
+            "textTr": "Taşınabilir hoparlör seçiminizde multı_speaker ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "HEALTH_NON_MEDICAL",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE"
+        ]
+      },
+      {
+        "categoryId": "SOUNDBAR",
+        "publicLabelTr": "Soundbar",
+        "evidenceReleaseDigest": "sha256:824b159a07e7e6c586b687627bb29591a417454c6d475cbbcdba7dec915598f1",
+        "acceptedContextConcepts": [
+          "ROOM",
+          "TV_CONNECTIVITY",
+          "SURROUND",
+          "BUNDLE_TOPOLOGY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "channelConfiguration",
+          "includedSubwoofer",
+          "rearSpeakerBundle"
+        ],
+        "minimumAcceptedContext": [
+          "ROOM",
+          "TV_CONNECTIVITY"
+        ],
+        "governedEvidenceFieldRefs": [
+          "SOUNDBAR:bluetooth_version",
+          "SOUNDBAR:channel_configuration",
+          "SOUNDBAR:hdmi_earc",
+          "SOUNDBAR:included_subwoofer",
+          "SOUNDBAR:power_w",
+          "SOUNDBAR:rear_speakers_included"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.soundbar.room",
+            "targetConcept": "ROOM",
+            "priority": 1,
+            "textTr": "Kullanacağınız ortam nasıl?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.soundbar.tv_connectivity",
+            "targetConcept": "TV_CONNECTIVITY",
+            "priority": 2,
+            "textTr": "Soundbar seçiminizde tv_connectıvıty ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.soundbar.surround",
+            "targetConcept": "SURROUND",
+            "priority": 3,
+            "textTr": "Soundbar seçiminizde surround ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.soundbar.bundle_topology",
+            "targetConcept": "BUNDLE_TOPOLOGY",
+            "priority": 4,
+            "textTr": "Soundbar seçiminizde bundle_topology ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE"
+        ]
+      },
+      {
+        "categoryId": "DIGITAL_CAMERA",
+        "publicLabelTr": "Dijital fotoğraf makinesi",
+        "evidenceReleaseDigest": "sha256:824b159a07e7e6c586b687627bb29591a417454c6d475cbbcdba7dec915598f1",
+        "acceptedContextConcepts": [
+          "USE_CASE",
+          "SENSOR",
+          "AUTOFOCUS",
+          "VIDEO",
+          "LENS_ECOSYSTEM"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "mount",
+          "bodyOrKit",
+          "kitLens",
+          "regionalVariant"
+        ],
+        "minimumAcceptedContext": [
+          "USE_CASE",
+          "SENSOR"
+        ],
+        "governedEvidenceFieldRefs": [
+          "DIGITAL_CAMERA:body_or_kit",
+          "DIGITAL_CAMERA:megapixels",
+          "DIGITAL_CAMERA:mount",
+          "DIGITAL_CAMERA:sensor",
+          "DIGITAL_CAMERA:video_max"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.digital_camera.use_case",
+            "targetConcept": "USE_CASE",
+            "priority": 1,
+            "textTr": "En çok hangi çekim türünde kullanacaksınız?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.digital_camera.sensor",
+            "targetConcept": "SENSOR",
+            "priority": 2,
+            "textTr": "Dijital fotoğraf makinesi seçiminizde sensor ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.digital_camera.autofocus",
+            "targetConcept": "AUTOFOCUS",
+            "priority": 3,
+            "textTr": "Dijital fotoğraf makinesi seçiminizde autofocus ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.digital_camera.video",
+            "targetConcept": "VIDEO",
+            "priority": 4,
+            "textTr": "Dijital fotoğraf makinesi seçiminizde vıdeo ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.digital_camera.lens_ecosystem",
+            "targetConcept": "LENS_ECOSYSTEM",
+            "priority": 5,
+            "textTr": "Dijital fotoğraf makinesi seçiminizde lens_ecosystem ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "PROJECTOR",
+        "publicLabelTr": "Projektör",
+        "evidenceReleaseDigest": "sha256:824b159a07e7e6c586b687627bb29591a417454c6d475cbbcdba7dec915598f1",
+        "acceptedContextConcepts": [
+          "THROW_GEOMETRY",
+          "AMBIENT_LIGHT",
+          "INPUT",
+          "PLATFORM_SUPPORT"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "nativeResolution",
+          "lightSource",
+          "regionalVariant"
+        ],
+        "minimumAcceptedContext": [
+          "THROW_GEOMETRY",
+          "AMBIENT_LIGHT"
+        ],
+        "governedEvidenceFieldRefs": [
+          "PROJECTOR:brightness_ansi_lumens",
+          "PROJECTOR:brightness_lumens",
+          "PROJECTOR:light_source",
+          "PROJECTOR:native_resolution",
+          "PROJECTOR:platform",
+          "PROJECTOR:throw_ratio"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.projector.throw_geometry",
+            "targetConcept": "THROW_GEOMETRY",
+            "priority": 1,
+            "textTr": "Projektör seçiminizde throw_geometry ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.projector.ambient_light",
+            "targetConcept": "AMBIENT_LIGHT",
+            "priority": 2,
+            "textTr": "Projektör seçiminizde ambıent_lıght ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.projector.input",
+            "targetConcept": "INPUT",
+            "priority": 3,
+            "textTr": "Projektör seçiminizde ınput ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.projector.platform_support",
+            "targetConcept": "PLATFORM_SUPPORT",
+            "priority": 4,
+            "textTr": "Projektör seçiminizde platform_support ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "GAME_CONSOLE",
+        "publicLabelTr": "Oyun konsolu",
+        "evidenceReleaseDigest": "sha256:824b159a07e7e6c586b687627bb29591a417454c6d475cbbcdba7dec915598f1",
+        "acceptedContextConcepts": [
+          "GAME_ECOSYSTEM",
+          "DISPLAY_COMPATIBILITY",
+          "STORAGE",
+          "SUBSCRIPTION_BOUNDARY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "platform",
+          "hardwareRevision",
+          "storage",
+          "discCapability",
+          "bundleExclusion"
+        ],
+        "minimumAcceptedContext": [
+          "GAME_ECOSYSTEM",
+          "DISPLAY_COMPATIBILITY"
+        ],
+        "governedEvidenceFieldRefs": [
+          "GAME_CONSOLE:disc_capability",
+          "GAME_CONSOLE:display_output",
+          "GAME_CONSOLE:hardware_revision",
+          "GAME_CONSOLE:manufacturer_product_id",
+          "GAME_CONSOLE:memory_gb",
+          "GAME_CONSOLE:platform",
+          "GAME_CONSOLE:storage_tb",
+          "GAME_CONSOLE:wireless"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.game_console.game_ecosystem",
+            "targetConcept": "GAME_ECOSYSTEM",
+            "priority": 1,
+            "textTr": "Hangi oyun ekosistemi sizin için önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.game_console.display_compatibility",
+            "targetConcept": "DISPLAY_COMPATIBILITY",
+            "priority": 2,
+            "textTr": "Oyun konsolu seçiminizde dısplay_compatıbılıty ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.game_console.storage",
+            "targetConcept": "STORAGE",
+            "priority": 3,
+            "textTr": "Oyun konsolu seçiminizde storage ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.game_console.subscription_boundary",
+            "targetConcept": "SUBSCRIPTION_BOUNDARY",
+            "priority": 4,
+            "textTr": "Oyun konsolu seçiminizde subscrıptıon_boundary ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "WIFI_ROUTER_MESH",
+        "publicLabelTr": "Wi-Fi router ve mesh sistemi",
+        "evidenceReleaseDigest": "sha256:13fe5452cff50e1115f39b68c3a8382f249caa7a5d71c9651a44991a068ca773",
+        "acceptedContextConcepts": [
+          "DWELLING",
+          "BACKHAUL",
+          "CLIENT_LOAD",
+          "ISP_COMPATIBILITY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "wifiGeneration",
+          "unitCount",
+          "regionalVariant"
+        ],
+        "minimumAcceptedContext": [
+          "DWELLING",
+          "BACKHAUL"
+        ],
+        "governedEvidenceFieldRefs": [
+          "WIFI_ROUTER_MESH:aggregate_class",
+          "WIFI_ROUTER_MESH:ethernet_ports_per_unit",
+          "WIFI_ROUTER_MESH:regional_revision",
+          "WIFI_ROUTER_MESH:regional_variant",
+          "WIFI_ROUTER_MESH:unit_count",
+          "WIFI_ROUTER_MESH:wifi_generation"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.wifi_router_mesh.dwelling",
+            "targetConcept": "DWELLING",
+            "priority": 1,
+            "textTr": "Wi-Fi router ve mesh sistemi seçiminizde dwellıng ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.wifi_router_mesh.backhaul",
+            "targetConcept": "BACKHAUL",
+            "priority": 2,
+            "textTr": "Wi-Fi router ve mesh sistemi seçiminizde backhaul ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.wifi_router_mesh.client_load",
+            "targetConcept": "CLIENT_LOAD",
+            "priority": 3,
+            "textTr": "Wi-Fi router ve mesh sistemi seçiminizde clıent_load ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.wifi_router_mesh.isp_compatibility",
+            "targetConcept": "ISP_COMPATIBILITY",
+            "priority": 4,
+            "textTr": "Wi-Fi router ve mesh sistemi seçiminizde ısp_compatıbılıty ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "NETWORK_ATTACHED_STORAGE",
+        "publicLabelTr": "Ağ depolama (NAS)",
+        "evidenceReleaseDigest": "sha256:13fe5452cff50e1115f39b68c3a8382f249caa7a5d71c9651a44991a068ca773",
+        "acceptedContextConcepts": [
+          "CAPACITY",
+          "REDUNDANCY",
+          "NETWORK",
+          "DRIVE_COMPATIBILITY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "bayCount",
+          "diskPopulation",
+          "memoryConfiguration"
+        ],
+        "minimumAcceptedContext": [
+          "CAPACITY",
+          "REDUNDANCY"
+        ],
+        "governedEvidenceFieldRefs": [
+          "NETWORK_ATTACHED_STORAGE:bay_count",
+          "NETWORK_ATTACHED_STORAGE:cpu",
+          "NETWORK_ATTACHED_STORAGE:disk_population",
+          "NETWORK_ATTACHED_STORAGE:memory_gb",
+          "NETWORK_ATTACHED_STORAGE:network_ports"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.network_attached_storage.capacity",
+            "targetConcept": "CAPACITY",
+            "priority": 1,
+            "textTr": "Ağ depolama (NAS) seçiminizde capacıty ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.network_attached_storage.redundancy",
+            "targetConcept": "REDUNDANCY",
+            "priority": 2,
+            "textTr": "Ağ depolama (NAS) seçiminizde redundancy ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.network_attached_storage.network",
+            "targetConcept": "NETWORK",
+            "priority": 3,
+            "textTr": "Ağ depolama (NAS) seçiminizde network ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.network_attached_storage.drive_compatibility",
+            "targetConcept": "DRIVE_COMPATIBILITY",
+            "priority": 4,
+            "textTr": "Ağ depolama (NAS) seçiminizde drıve_compatıbılıty ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "EXTERNAL_STORAGE",
+        "publicLabelTr": "Harici depolama",
+        "evidenceReleaseDigest": "sha256:13fe5452cff50e1115f39b68c3a8382f249caa7a5d71c9651a44991a068ca773",
+        "acceptedContextConcepts": [
+          "WORKLOAD",
+          "THROUGHPUT",
+          "DURABILITY",
+          "DEVICE_COMPATIBILITY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "mediaType",
+          "capacity",
+          "interface",
+          "enclosureVariant"
+        ],
+        "minimumAcceptedContext": [
+          "WORKLOAD",
+          "THROUGHPUT"
+        ],
+        "governedEvidenceFieldRefs": [
+          "EXTERNAL_STORAGE:capacity_tb",
+          "EXTERNAL_STORAGE:ingress_rating",
+          "EXTERNAL_STORAGE:interface",
+          "EXTERNAL_STORAGE:max_read_mbps",
+          "EXTERNAL_STORAGE:media_type",
+          "EXTERNAL_STORAGE:warranty_years"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.external_storage.workload",
+            "targetConcept": "WORKLOAD",
+            "priority": 1,
+            "textTr": "Ne için kullanacaksınız?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.external_storage.throughput",
+            "targetConcept": "THROUGHPUT",
+            "priority": 2,
+            "textTr": "Harici depolama seçiminizde throughput ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.external_storage.durability",
+            "targetConcept": "DURABILITY",
+            "priority": 3,
+            "textTr": "Harici depolama seçiminizde durabılıty ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.external_storage.device_compatibility",
+            "targetConcept": "DEVICE_COMPATIBILITY",
+            "priority": 4,
+            "textTr": "Harici depolama seçiminizde devıce_compatıbılıty ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE"
+        ]
+      },
+      {
+        "categoryId": "PRINTER",
+        "publicLabelTr": "Yazıcı",
+        "evidenceReleaseDigest": "sha256:13fe5452cff50e1115f39b68c3a8382f249caa7a5d71c9651a44991a068ca773",
+        "acceptedContextConcepts": [
+          "VOLUME",
+          "MEDIA",
+          "RUNNING_COST",
+          "NETWORK",
+          "CONSUMABLES"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "printTechnology",
+          "colorCapability",
+          "duplex",
+          "region"
+        ],
+        "minimumAcceptedContext": [
+          "VOLUME",
+          "MEDIA"
+        ],
+        "governedEvidenceFieldRefs": [
+          "PRINTER:color_capability",
+          "PRINTER:connectivity",
+          "PRINTER:duplex",
+          "PRINTER:functions",
+          "PRINTER:print_technology"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.printer.volume",
+            "targetConcept": "VOLUME",
+            "priority": 1,
+            "textTr": "Yazıcı seçiminizde volume ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.printer.media",
+            "targetConcept": "MEDIA",
+            "priority": 2,
+            "textTr": "Yazıcı seçiminizde medıa ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.printer.running_cost",
+            "targetConcept": "RUNNING_COST",
+            "priority": 3,
+            "textTr": "Yazıcı seçiminizde runnıng_cost ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.printer.network",
+            "targetConcept": "NETWORK",
+            "priority": 4,
+            "textTr": "Yazıcı seçiminizde network ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.printer.consumables",
+            "targetConcept": "CONSUMABLES",
+            "priority": 5,
+            "textTr": "Yazıcı seçiminizde consumables ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "WEBCAM",
+        "publicLabelTr": "Web kamera",
+        "evidenceReleaseDigest": "sha256:13fe5452cff50e1115f39b68c3a8382f249caa7a5d71c9651a44991a068ca773",
+        "acceptedContextConcepts": [
+          "CALLING",
+          "FRAMING",
+          "LOW_LIGHT",
+          "HOST_COMPATIBILITY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "resolution",
+          "frameRate",
+          "fieldOfView",
+          "bundleExclusion"
+        ],
+        "minimumAcceptedContext": [
+          "CALLING",
+          "FRAMING"
+        ],
+        "governedEvidenceFieldRefs": [
+          "WEBCAM:connectivity",
+          "WEBCAM:field_of_view",
+          "WEBCAM:focus",
+          "WEBCAM:microphones",
+          "WEBCAM:resolution_fps"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.webcam.calling",
+            "targetConcept": "CALLING",
+            "priority": 1,
+            "textTr": "Web kamera seçiminizde callıng ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.webcam.framing",
+            "targetConcept": "FRAMING",
+            "priority": 2,
+            "textTr": "Web kamera seçiminizde framıng ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.webcam.low_light",
+            "targetConcept": "LOW_LIGHT",
+            "priority": 3,
+            "textTr": "Web kamera seçiminizde low_lıght ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.webcam.host_compatibility",
+            "targetConcept": "HOST_COMPATIBILITY",
+            "priority": 4,
+            "textTr": "Web kamera seçiminizde host_compatıbılıty ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "COMPUTER_AUDIO",
+        "publicLabelTr": "Masaüstü bilgisayar hoparlörü",
+        "evidenceReleaseDigest": "sha256:13fe5452cff50e1115f39b68c3a8382f249caa7a5d71c9651a44991a068ca773",
+        "acceptedContextConcepts": [
+          "DESK_SPACE",
+          "INPUT",
+          "OUTPUT_CONTEXT",
+          "POWER"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "channelConfiguration",
+          "connectivity",
+          "includedSubwoofer"
+        ],
+        "minimumAcceptedContext": [
+          "DESK_SPACE",
+          "INPUT"
+        ],
+        "governedEvidenceFieldRefs": [
+          "COMPUTER_AUDIO:channel_configuration",
+          "COMPUTER_AUDIO:connectivity",
+          "COMPUTER_AUDIO:device_switching",
+          "COMPUTER_AUDIO:included_subwoofer",
+          "COMPUTER_AUDIO:power_rms_w",
+          "COMPUTER_AUDIO:subwoofer_output"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.computer_audio.desk_space",
+            "targetConcept": "DESK_SPACE",
+            "priority": 1,
+            "textTr": "Masaüstü bilgisayar hoparlörü seçiminizde desk_space ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.computer_audio.input",
+            "targetConcept": "INPUT",
+            "priority": 2,
+            "textTr": "Masaüstü bilgisayar hoparlörü seçiminizde ınput ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.computer_audio.output_context",
+            "targetConcept": "OUTPUT_CONTEXT",
+            "priority": 3,
+            "textTr": "Masaüstü bilgisayar hoparlörü seçiminizde output_context ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.computer_audio.power",
+            "targetConcept": "POWER",
+            "priority": 4,
+            "textTr": "Masaüstü bilgisayar hoparlörü seçiminizde power ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "HEALTH_NON_MEDICAL",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE"
+        ]
+      },
+      {
+        "categoryId": "SMARTWATCH",
+        "publicLabelTr": "Akıllı saat",
+        "evidenceReleaseDigest": "sha256:548f7337fc9de4cbf70b04c8f4b8ff39d6059ee2b7b71a4da91733a3d44e1975",
+        "acceptedContextConcepts": [
+          "PHONE_COMPATIBILITY",
+          "HEALTH_LIMITATIONS",
+          "BATTERY",
+          "CELLULAR_SUPPORT"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "model",
+          "caseSize",
+          "connectivity",
+          "regionalVariant",
+          "strapBundle"
+        ],
+        "minimumAcceptedContext": [
+          "PHONE_COMPATIBILITY",
+          "HEALTH_LIMITATIONS"
+        ],
+        "governedEvidenceFieldRefs": [
+          "SMARTWATCH:case_size_mm",
+          "SMARTWATCH:connectivity",
+          "SMARTWATCH:health_boundary",
+          "SMARTWATCH:phone_requirement"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.smartwatch.phone_compatibility",
+            "targetConcept": "PHONE_COMPATIBILITY",
+            "priority": 1,
+            "textTr": "Hangi telefonla kullanacaksınız?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.smartwatch.health_limitations",
+            "targetConcept": "HEALTH_LIMITATIONS",
+            "priority": 2,
+            "textTr": "Akıllı saat seçiminizde health_lımıtatıons ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.smartwatch.battery",
+            "targetConcept": "BATTERY",
+            "priority": 3,
+            "textTr": "Akıllı saat seçiminizde battery ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.smartwatch.cellular_support",
+            "targetConcept": "CELLULAR_SUPPORT",
+            "priority": 4,
+            "textTr": "Akıllı saat seçiminizde cellular_support ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "HEALTH_NON_MEDICAL",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "FITNESS_TRACKER",
+        "publicLabelTr": "Aktivite bilekliği",
+        "evidenceReleaseDigest": "sha256:548f7337fc9de4cbf70b04c8f4b8ff39d6059ee2b7b71a4da91733a3d44e1975",
+        "acceptedContextConcepts": [
+          "PHONE_COMPATIBILITY",
+          "HEALTH_LIMITATIONS",
+          "SENSORS",
+          "BATTERY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "model",
+          "size",
+          "connectivity",
+          "regionalVariant"
+        ],
+        "minimumAcceptedContext": [
+          "PHONE_COMPATIBILITY",
+          "HEALTH_LIMITATIONS"
+        ],
+        "governedEvidenceFieldRefs": [
+          "FITNESS_TRACKER:battery_days_max",
+          "FITNESS_TRACKER:battery_days_typical",
+          "FITNESS_TRACKER:connectivity",
+          "FITNESS_TRACKER:display_inches",
+          "FITNESS_TRACKER:health_boundary"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.fitness_tracker.phone_compatibility",
+            "targetConcept": "PHONE_COMPATIBILITY",
+            "priority": 1,
+            "textTr": "Hangi telefonla kullanacaksınız?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.fitness_tracker.health_limitations",
+            "targetConcept": "HEALTH_LIMITATIONS",
+            "priority": 2,
+            "textTr": "Aktivite bilekliği seçiminizde health_lımıtatıons ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.fitness_tracker.sensors",
+            "targetConcept": "SENSORS",
+            "priority": 3,
+            "textTr": "Aktivite bilekliği seçiminizde sensors ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.fitness_tracker.battery",
+            "targetConcept": "BATTERY",
+            "priority": 4,
+            "textTr": "Aktivite bilekliği seçiminizde battery ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "HEALTH_NON_MEDICAL",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "HOME_SECURITY_CAMERA",
+        "publicLabelTr": "Ev güvenlik kamerası",
+        "evidenceReleaseDigest": "sha256:548f7337fc9de4cbf70b04c8f4b8ff39d6059ee2b7b71a4da91733a3d44e1975",
+        "acceptedContextConcepts": [
+          "PRIVACY",
+          "STORAGE_SUBSCRIPTION",
+          "INSTALLATION",
+          "NETWORK"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "indoorOutdoor",
+          "powerMode",
+          "unitCount",
+          "regionalVariant"
+        ],
+        "minimumAcceptedContext": [
+          "PRIVACY",
+          "STORAGE_SUBSCRIPTION"
+        ],
+        "governedEvidenceFieldRefs": [
+          "HOME_SECURITY_CAMERA:local_storage",
+          "HOME_SECURITY_CAMERA:power",
+          "HOME_SECURITY_CAMERA:privacy",
+          "HOME_SECURITY_CAMERA:resolution"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.home_security_camera.privacy",
+            "targetConcept": "PRIVACY",
+            "priority": 1,
+            "textTr": "Yerel kayıt ve gizlilik sizin için ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.home_security_camera.storage_subscription",
+            "targetConcept": "STORAGE_SUBSCRIPTION",
+            "priority": 2,
+            "textTr": "Ev güvenlik kamerası seçiminizde storage_subscrıptıon ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.home_security_camera.installation",
+            "targetConcept": "INSTALLATION",
+            "priority": 3,
+            "textTr": "Ev güvenlik kamerası seçiminizde ınstallatıon ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.home_security_camera.network",
+            "targetConcept": "NETWORK",
+            "priority": 4,
+            "textTr": "Ev güvenlik kamerası seçiminizde network ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "VIDEO_DOORBELL",
+        "publicLabelTr": "Görüntülü kapı zili",
+        "evidenceReleaseDigest": "sha256:548f7337fc9de4cbf70b04c8f4b8ff39d6059ee2b7b71a4da91733a3d44e1975",
+        "acceptedContextConcepts": [
+          "PRIVACY",
+          "INSTALLATION",
+          "STORAGE_SUBSCRIPTION",
+          "DWELLING_COMPATIBILITY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "wiredBattery",
+          "includedChime",
+          "regionalVariant"
+        ],
+        "minimumAcceptedContext": [
+          "PRIVACY",
+          "INSTALLATION"
+        ],
+        "governedEvidenceFieldRefs": [
+          "VIDEO_DOORBELL:local_storage",
+          "VIDEO_DOORBELL:power",
+          "VIDEO_DOORBELL:resolution",
+          "VIDEO_DOORBELL:subscription"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.video_doorbell.privacy",
+            "targetConcept": "PRIVACY",
+            "priority": 1,
+            "textTr": "Yerel kayıt ve gizlilik sizin için ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.video_doorbell.installation",
+            "targetConcept": "INSTALLATION",
+            "priority": 2,
+            "textTr": "Görüntülü kapı zili seçiminizde ınstallatıon ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.video_doorbell.storage_subscription",
+            "targetConcept": "STORAGE_SUBSCRIPTION",
+            "priority": 3,
+            "textTr": "Görüntülü kapı zili seçiminizde storage_subscrıptıon ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.video_doorbell.dwelling_compatibility",
+            "targetConcept": "DWELLING_COMPATIBILITY",
+            "priority": 4,
+            "textTr": "Görüntülü kapı zili seçiminizde dwellıng_compatıbılıty ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "SMART_HOME_HUB",
+        "publicLabelTr": "Akıllı ev merkezi",
+        "evidenceReleaseDigest": "sha256:548f7337fc9de4cbf70b04c8f4b8ff39d6059ee2b7b71a4da91733a3d44e1975",
+        "acceptedContextConcepts": [
+          "ECOSYSTEM",
+          "PROTOCOL",
+          "LOCAL_CLOUD",
+          "PRIVACY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "protocols",
+          "regionalVariant",
+          "bundleExclusion"
+        ],
+        "minimumAcceptedContext": [
+          "ECOSYSTEM",
+          "PROTOCOL"
+        ],
+        "governedEvidenceFieldRefs": [
+          "SMART_HOME_HUB:account_cloud_local_dependency",
+          "SMART_HOME_HUB:cloud_account_boundary",
+          "SMART_HOME_HUB:device_capacity",
+          "SMART_HOME_HUB:included_components",
+          "SMART_HOME_HUB:local_storage",
+          "SMART_HOME_HUB:power_safety",
+          "SMART_HOME_HUB:privacy_data",
+          "SMART_HOME_HUB:product_type",
+          "SMART_HOME_HUB:protocols",
+          "SMART_HOME_HUB:subscription",
+          "SMART_HOME_HUB:support_warranty"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.smart_home_hub.ecosystem",
+            "targetConcept": "ECOSYSTEM",
+            "priority": 1,
+            "textTr": "Hangi akıllı ev ekosistemiyle kullanacaksınız?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.smart_home_hub.protocol",
+            "targetConcept": "PROTOCOL",
+            "priority": 2,
+            "textTr": "Akıllı ev merkezi seçiminizde protocol ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.smart_home_hub.local_cloud",
+            "targetConcept": "LOCAL_CLOUD",
+            "priority": 3,
+            "textTr": "Akıllı ev merkezi seçiminizde local_cloud ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.smart_home_hub.privacy",
+            "targetConcept": "PRIVACY",
+            "priority": 4,
+            "textTr": "Yerel kayıt ve gizlilik sizin için ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "PRIVACY_ACCOUNT_CLOUD_SUBSCRIPTION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE",
+          "SOFTWARE_FIRMWARE_LIFECYCLE"
+        ]
+      },
+      {
+        "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+        "publicLabelTr": "Kesintisiz güç kaynağı",
+        "evidenceReleaseDigest": "sha256:548f7337fc9de4cbf70b04c8f4b8ff39d6059ee2b7b71a4da91733a3d44e1975",
+        "acceptedContextConcepts": [
+          "LOAD",
+          "RUNTIME",
+          "TOPOLOGY",
+          "BATTERY_SERVICE",
+          "ELECTRICAL_SAFETY"
+        ],
+        "identityDiscriminators": [
+          "manufacturer",
+          "modelCode",
+          "topology",
+          "vaRating",
+          "wattRating",
+          "outletVariant"
+        ],
+        "minimumAcceptedContext": [
+          "LOAD",
+          "RUNTIME"
+        ],
+        "governedEvidenceFieldRefs": [
+          "UNINTERRUPTIBLE_POWER_SUPPLY:capacity",
+          "UNINTERRUPTIBLE_POWER_SUPPLY:electrical_safety",
+          "UNINTERRUPTIBLE_POWER_SUPPLY:mains_outlets",
+          "UNINTERRUPTIBLE_POWER_SUPPLY:topology"
+        ],
+        "questionPlan": [
+          {
+            "questionKey": "electronics.uninterruptible_power_supply.load",
+            "targetConcept": "LOAD",
+            "priority": 1,
+            "textTr": "Bağlayacağınız cihazların toplam yükü nedir?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.uninterruptible_power_supply.runtime",
+            "targetConcept": "RUNTIME",
+            "priority": 2,
+            "textTr": "Kesintisiz güç kaynağı seçiminizde runtıme ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.uninterruptible_power_supply.topology",
+            "targetConcept": "TOPOLOGY",
+            "priority": 3,
+            "textTr": "Kesintisiz güç kaynağı seçiminizde topology ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.uninterruptible_power_supply.battery_service",
+            "targetConcept": "BATTERY_SERVICE",
+            "priority": 4,
+            "textTr": "Kesintisiz güç kaynağı seçiminizde battery_servıce ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          },
+          {
+            "questionKey": "electronics.uninterruptible_power_supply.electrical_safety",
+            "targetConcept": "ELECTRICAL_SAFETY",
+            "priority": 5,
+            "textTr": "Kesintisiz güç kaynağı seçiminizde electrıcal_safety ne kadar önemli?",
+            "choicesTr": [
+              "Önemli",
+              "Önemli değil",
+              "Henüz bilmiyorum"
+            ],
+            "askOnlyWhenMaterial": true,
+            "alreadyAnsweredSuppresses": true,
+            "noRepeatUnless": [
+              "CORRECTED",
+              "CLEARED",
+              "AUTHORITY_MATERIALLY_CHANGED"
+            ]
+          }
+        ],
+        "riskBoundaries": [
+          "COMPATIBILITY_ECOSYSTEM_REGION",
+          "INSTALLATION_ELECTRICAL_BATTERY_FIRE"
+        ]
+      }
+    ],
+    "isolation": {
+      "appliancesPolicyImported": false,
+      "carsPolicyImported": false,
+      "mechanicsReusedOnly": true,
+      "electronicsEvidenceOnly": true
+    },
+    "boundaries": {
+      "departmentRegistryActivated": false,
+      "domainPackActivated": false,
+      "persistenceChanged": false,
+      "publicUiChanged": false,
+      "productionRuntimeActivated": false,
+      "deployed": false
+    }
+  }
+}

@@ -1,0 +1,332 @@
+[
+  {
+    "offeringId": "appliances:wm:tr:samsung:ww90ta046ah-ah",
+    "officialSource": "https://images.samsung.com/is/content/samsung/p6/common/energylabel/common-energylabel-ww90ta046ah-ah-energylabel.pdf",
+    "officialDocumentType": "EXACT_TR_ENERGY_LABEL_PLUS_EXACT_TR_SUPPORT_AND_WARRANTY_LIST",
+    "amazonSource": "https://www.amazon.com.tr/dp/B099ZQLXQV",
+    "amazonAuthority": "L10_VOLATILE_ONLY",
+    "factLocators": [
+      {
+        "key": "lifecycleStatus",
+        "locator": "official Türkiye surface: exact model and category identity"
+      },
+      {
+        "key": "warrantyServiceStatus",
+        "locator": "official Türkiye surface: warranty/support applicability"
+      },
+      {
+        "key": "installationGuidanceStatus",
+        "locator": "official Türkiye surface: product documents/support entrypoint"
+      },
+      {
+        "key": "safetyGuidanceStatus",
+        "locator": "official Türkiye surface: product documents/support entrypoint"
+      },
+      {
+        "key": "installationType",
+        "locator": "energy label: type/model context"
+      },
+      {
+        "key": "ratedCapacityKg",
+        "locator": "energy label p.1: rated capacity"
+      },
+      {
+        "key": "maxSpinRpm",
+        "locator": "official product fiche: rated-load spin speed"
+      },
+      {
+        "key": "energyClass",
+        "locator": "energy label p.1"
+      },
+      {
+        "key": "energyPer100CyclesKwh",
+        "locator": "energy label p.1"
+      },
+      {
+        "key": "waterPerCycleL",
+        "locator": "energy label p.1"
+      },
+      {
+        "key": "noiseDbA",
+        "locator": "energy label p.1"
+      },
+      {
+        "key": "widthMm",
+        "locator": "official product fiche: dimensions"
+      },
+      {
+        "key": "heightMm",
+        "locator": "official product fiche: dimensions"
+      },
+      {
+        "key": "depthMm",
+        "locator": "official product fiche: dimensions"
+      }
+    ],
+    "manualAuthority": "DISABLED_NO_PINNED_BYTES_CHECKSUM_LOCATOR"
+  },
+  {
+    "offeringId": "appliances:wm:tr:vestel:cmi-97402-wifi",
+    "officialSource": "https://statik.vestel.com.tr/webfiles/20350198_e.pdf",
+    "officialDocumentType": "EXACT_TR_ENERGY_LABEL_PLUS_EXACT_TR_PRODUCT_AND_MANUAL_SURFACES",
+    "amazonSource": "https://www.amazon.com.tr/dp/B0GGDKT3JP",
+    "amazonAuthority": "L10_VOLATILE_ONLY",
+    "factLocators": [
+      {
+        "key": "lifecycleStatus",
+        "locator": "official Türkiye surface: exact model and category identity"
+      },
+      {
+        "key": "warrantyServiceStatus",
+        "locator": "official Türkiye surface: warranty/support applicability"
+      },
+      {
+        "key": "installationGuidanceStatus",
+        "locator": "official Türkiye surface: product documents/support entrypoint"
+      },
+      {
+        "key": "safetyGuidanceStatus",
+        "locator": "official Türkiye surface: product documents/support entrypoint"
+      },
+      {
+        "key": "installationType",
+        "locator": "energy label and exact manual"
+      },
+      {
+        "key": "ratedCapacityKg",
+        "locator": "energy label p.1"
+      },
+      {
+        "key": "maxSpinRpm",
+        "locator": "exact product page and product fiche"
+      },
+      {
+        "key": "energyClass",
+        "locator": "energy label p.1"
+      },
+      {
+        "key": "energyPer100CyclesKwh",
+        "locator": "energy label p.1"
+      },
+      {
+        "key": "waterPerCycleL",
+        "locator": "energy label p.1"
+      },
+      {
+        "key": "noiseDbA",
+        "locator": "energy label p.1"
+      },
+      {
+        "key": "widthMm",
+        "locator": "exact manual PDF p.13 technical specifications"
+      },
+      {
+        "key": "heightMm",
+        "locator": "exact manual PDF p.13 technical specifications"
+      },
+      {
+        "key": "depthMm",
+        "locator": "exact manual PDF p.13 technical specifications"
+      }
+    ],
+    "manualAuthority": "DISABLED_NO_PINNED_BYTES_CHECKSUM_LOCATOR"
+  },
+  {
+    "offeringId": "appliances:wm:tr:arcelik:10120-imp",
+    "officialSource": "https://www.arcelik.com.tr/camasir-makinesi/10120-imp-camasir-makinesi",
+    "officialDocumentType": "EXACT_CURRENT_TR_PRODUCT_PAGE_WITH_DOCUMENT_ENTRYPOINTS",
+    "amazonSource": "https://www.amazon.com.tr/dp/B0GCC5NT1Z",
+    "amazonAuthority": "L10_VOLATILE_ONLY",
+    "factLocators": [
+      {
+        "key": "lifecycleStatus",
+        "locator": "official Türkiye surface: exact model and category identity"
+      },
+      {
+        "key": "warrantyServiceStatus",
+        "locator": "official Türkiye surface: warranty/support applicability"
+      },
+      {
+        "key": "installationGuidanceStatus",
+        "locator": "official Türkiye surface: product documents/support entrypoint"
+      },
+      {
+        "key": "safetyGuidanceStatus",
+        "locator": "official Türkiye surface: product documents/support entrypoint"
+      },
+      {
+        "key": "installationType",
+        "locator": "product technical specifications"
+      },
+      {
+        "key": "ratedCapacityKg",
+        "locator": "technical specifications: capacity"
+      },
+      {
+        "key": "maxSpinRpm",
+        "locator": "technical specifications: maximum spin"
+      },
+      {
+        "key": "energyClass",
+        "locator": "technical specifications: energy class"
+      },
+      {
+        "key": "energyPer100CyclesKwh",
+        "locator": "performance: energy consumption"
+      },
+      {
+        "key": "waterPerCycleL",
+        "locator": "performance: water consumption"
+      },
+      {
+        "key": "noiseDbA",
+        "locator": "energy label/document entrypoint; exact label value"
+      },
+      {
+        "key": "widthMm",
+        "locator": "technical specifications: dimensions"
+      },
+      {
+        "key": "heightMm",
+        "locator": "technical specifications: dimensions"
+      },
+      {
+        "key": "depthMm",
+        "locator": "technical specifications: dimensions"
+      }
+    ],
+    "manualAuthority": "DISABLED_NO_PINNED_BYTES_CHECKSUM_LOCATOR"
+  },
+  {
+    "offeringId": "appliances:wm:tr:altus:al-cm-101254-d",
+    "officialSource": "https://www.altus.com.tr/urunler/camasir-makinesi/camasir-makinesi-al-cm-101254-d",
+    "officialDocumentType": "EXACT_CURRENT_TR_PRODUCT_PAGE_AND_ENERGY_LABEL",
+    "amazonSource": "https://www.amazon.com.tr/dp/B0H6BNV8TG",
+    "amazonAuthority": "L10_VOLATILE_ONLY",
+    "factLocators": [
+      {
+        "key": "lifecycleStatus",
+        "locator": "official Türkiye surface: exact model and category identity"
+      },
+      {
+        "key": "warrantyServiceStatus",
+        "locator": "official Türkiye surface: warranty/support applicability"
+      },
+      {
+        "key": "installationGuidanceStatus",
+        "locator": "official Türkiye surface: product documents/support entrypoint"
+      },
+      {
+        "key": "safetyGuidanceStatus",
+        "locator": "official Türkiye surface: product documents/support entrypoint"
+      },
+      {
+        "key": "installationType",
+        "locator": "technical specifications"
+      },
+      {
+        "key": "ratedCapacityKg",
+        "locator": "technical specifications and energy label"
+      },
+      {
+        "key": "maxSpinRpm",
+        "locator": "technical specifications"
+      },
+      {
+        "key": "energyClass",
+        "locator": "technical specifications and energy label"
+      },
+      {
+        "key": "energyPer100CyclesKwh",
+        "locator": "exact energy label"
+      },
+      {
+        "key": "waterPerCycleL",
+        "locator": "exact energy label"
+      },
+      {
+        "key": "noiseDbA",
+        "locator": "exact energy label"
+      },
+      {
+        "key": "widthMm",
+        "locator": "technical specifications"
+      },
+      {
+        "key": "heightMm",
+        "locator": "technical specifications"
+      },
+      {
+        "key": "depthMm",
+        "locator": "technical specifications"
+      }
+    ],
+    "manualAuthority": "DISABLED_NO_PINNED_BYTES_CHECKSUM_LOCATOR"
+  },
+  {
+    "offeringId": "appliances:wm:tr:samsung:ww11dg6b25leah",
+    "officialSource": "https://www.samsung.com/tr/washers-and-dryers/washing-machines/ww6000d-front-loading-smartthings-ai-energy-mode-a-10-percent-extra-energy-efficiency-11kg-essential-white-ww11dg6b25leah/",
+    "officialDocumentType": "EXACT_CURRENT_TR_PRODUCT_PAGE_AND_SUPPORT",
+    "amazonSource": "https://www.amazon.com.tr/dp/B0G4DDZZD7",
+    "amazonAuthority": "L10_VOLATILE_ONLY",
+    "factLocators": [
+      {
+        "key": "lifecycleStatus",
+        "locator": "official Türkiye surface: exact model and category identity"
+      },
+      {
+        "key": "warrantyServiceStatus",
+        "locator": "official Türkiye surface: warranty/support applicability"
+      },
+      {
+        "key": "installationGuidanceStatus",
+        "locator": "official Türkiye surface: product documents/support entrypoint"
+      },
+      {
+        "key": "safetyGuidanceStatus",
+        "locator": "official Türkiye surface: product documents/support entrypoint"
+      },
+      {
+        "key": "installationType",
+        "locator": "technical specifications"
+      },
+      {
+        "key": "ratedCapacityKg",
+        "locator": "technical specifications: washing capacity"
+      },
+      {
+        "key": "maxSpinRpm",
+        "locator": "technical specifications: spin speed"
+      },
+      {
+        "key": "energyClass",
+        "locator": "technical specifications"
+      },
+      {
+        "key": "energyPer100CyclesKwh",
+        "locator": "performance"
+      },
+      {
+        "key": "waterPerCycleL",
+        "locator": "performance"
+      },
+      {
+        "key": "noiseDbA",
+        "locator": "performance: spin noise"
+      },
+      {
+        "key": "widthMm",
+        "locator": "physical specifications"
+      },
+      {
+        "key": "heightMm",
+        "locator": "physical specifications"
+      },
+      {
+        "key": "depthMm",
+        "locator": "physical specifications"
+      }
+    ],
+    "manualAuthority": "DISABLED_NO_PINNED_BYTES_CHECKSUM_LOCATOR"
+  }
+]

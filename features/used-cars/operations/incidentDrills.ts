@@ -1,0 +1,7 @@
+export type PilotIncidentDrillId = "CROSS_TENANT_ACCESS" | "ACCOUNT_TAKEOVER" | "MALWARE_UPLOAD" | "FALSE_VERIFICATION" | "DEALER_APPEAL" | "MODERATION_BACKLOG" | "STALE_OR_SOLD_STOCK" | "PILOT_EMERGENCY_STOP";
+export interface PilotIncidentDrillResult { readonly drillId: PilotIncidentDrillId; readonly completedAt: string | null; readonly participantActorIds: readonly string[]; readonly evidenceChecksum: string | null; readonly passed: boolean; readonly findingsClosed: boolean; readonly stopAuthorityExercised: boolean }
+export const requiredPilotIncidentDrills: readonly PilotIncidentDrillId[] = Object.freeze(["CROSS_TENANT_ACCESS", "ACCOUNT_TAKEOVER", "MALWARE_UPLOAD", "FALSE_VERIFICATION", "DEALER_APPEAL", "MODERATION_BACKLOG", "STALE_OR_SOLD_STOCK", "PILOT_EMERGENCY_STOP"]);
+export function assessPilotIncidentDrills(results: readonly PilotIncidentDrillResult[]) {
+  const missing = requiredPilotIncidentDrills.filter((drillId) => !results.some((result) => result.drillId === drillId && result.completedAt && result.participantActorIds.length >= 2 && new Set(result.participantActorIds).size >= 2 && /^sha256:[a-f0-9]{64}$/u.test(result.evidenceChecksum ?? "") && result.passed && result.findingsClosed && (drillId !== "PILOT_EMERGENCY_STOP" || result.stopAuthorityExercised)));
+  return Object.freeze({ ready: missing.length === 0, missing: Object.freeze(missing), productionActionsAuthorized: false as const });
+}

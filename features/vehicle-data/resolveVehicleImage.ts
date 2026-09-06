@@ -1,8 +1,9 @@
 import { productionVehicleMediaAssets } from "@/data/production/vehicleMediaAssets";
 import type { VehicleMediaAsset } from "@/types/vehicleMedia";
 import { isPublishableVehicleMediaAsset } from "@/features/vehicle-data/validateVehicleMediaAsset";
+import type { GovernedMediaDisposition } from "@/features/media/governedProductMedia";
 
-export const PRODUCTION_VEHICLE_PLACEHOLDER = "/cars/production-placeholder.svg";
+export const PRODUCTION_VEHICLE_PLACEHOLDER = "/cars/owned-representative.svg";
 
 export interface VehicleImageIdentity {
   readonly variantId: string;
@@ -19,6 +20,9 @@ export interface ResolvedVehicleImage {
   readonly assetId?: string;
   readonly attributionText?: string;
   readonly representedModel?: string;
+  readonly disposition?: GovernedMediaDisposition;
+  readonly linkTarget?: string;
+  readonly disclosure?: string;
 }
 
 const normalize = (value: string | undefined) => value?.trim().toLocaleUpperCase("tr-TR");
@@ -65,13 +69,25 @@ export function resolveVehicleImage(
     .sort((left, right) => authorityPriority(right) - authorityPriority(left)
       || scopePriority[right.scope] - scopePriority[left.scope])[0];
   if (!asset) {
-    return { path: PRODUCTION_VEHICLE_PLACEHOLDER, status: "PLACEHOLDER" };
+    return {
+      path: PRODUCTION_VEHICLE_PLACEHOLDER,
+      status: "REPRESENTATIVE",
+      assetId: "owned-representative:vehicle",
+      attributionText: "Expiya görseli",
+      representedModel: "genel araç illüstrasyonu",
+      disposition: "OWNED_REPRESENTATIVE",
+      disclosure: "Temsilî illüstrasyon; önerilen aracın birebir fotoğrafı değildir.",
+    };
   }
+  const disposition = asset.governance?.disposition ?? (asset.scope === "VARIANT" ? "EXACT_LICENSED" : "MODEL_FAMILY_LICENSED");
   return {
     path: asset.storagePath,
     status: asset.scope === "VARIANT" ? "EXACT" : "REPRESENTATIVE",
     assetId: asset.id,
     attributionText: asset.attributionText,
     representedModel: asset.scope === "VARIANT" ? undefined : `${asset.brand} ${asset.model}`,
+    disposition,
+    linkTarget: asset.governance?.requiredLinkTarget ?? undefined,
+    disclosure: asset.governance?.requiredDisclosure ?? undefined,
   };
 }

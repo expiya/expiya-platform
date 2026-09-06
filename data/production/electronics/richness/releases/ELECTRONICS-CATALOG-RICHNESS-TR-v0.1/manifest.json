@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "electronics-richness-manifest/v1",
+  "workUnitId": "WU-ELECTRONICS-CATALOG-RICHNESS-01",
+  "releaseVersion": "ELECTRONICS-CATALOG-RICHNESS-TR-v0.1",
+  "verdict": "PARTIAL",
+  "inputs": {
+    "amazon": "sha256:09ef0e34db66fa00f9fb3b98f83db0370f1e0a2905da805c50282073576e3a20",
+    "turkey": "sha256:159fd871ec94071cfb87fb1def85302baeba5710d4de708da9aa87fafc4c500f",
+    "reconciliation": "sha256:a487ad809306da0bbd6947a34ce01f549fc8bcc424ca11af8dfa32c4bd4a46ab"
+  },
+  "counts": {
+    "products": 16,
+    "representedCategories": 11,
+    "allCategories": 24,
+    "sources": 16,
+    "evidence": 32,
+    "facts": 16,
+    "capabilities": 16,
+    "unknowns": 64
+  },
+  "readiness": {
+    "NO_CANDIDATES": 13,
+    "SINGLE_CANDIDATE_INFORMATION_ONLY": 6,
+    "MULTI_CANDIDATE_POLICY_REQUIRED": 5,
+    "DECISION_DATA_READY": 0
+  },
+  "artifacts": {
+    "catalog-release.json": "sha256:0c7eb5c0566c17ba2c7a48c8e30071991c03e027fc9faa853cb0f12670160cc4",
+    "source-registry.json": "sha256:2fa3c865ad8a4eef24b4c5f11a89dceddd3075beb22ce92a34fb31cafd7c7f2e",
+    "governance-report.json": "sha256:fce195d91f851f9fe6b0790b0912a66f8321f8c7caa0d0b9a73c3f3d3558cc70",
+    "commerce-media.json": "sha256:04a74a62265bff7fcfb5bc9e0406c1762c72dc537411cd49d8738f2dff57a1e4"
+  },
+  "activation": {
+    "performed": false,
+    "registryChanged": false,
+    "domainPackChanged": false,
+    "runtimeChanged": false,
+    "databaseChanged": false,
+    "pointerChanged": false,
+    "deploymentPerformed": false
+  }
+}

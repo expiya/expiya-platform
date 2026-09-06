@@ -1,0 +1,50 @@
+import { createHash } from "node:crypto";
+import { z } from "zod";
+
+export const QUESTION_POLICY_ID = "WASHING_MACHINE_QUESTION_POLICY/v0.1" as const;
+export const QUESTION_POLICY_CANONICALIZATION = "CANONICAL_JSON_SORTED_KEYS_V1" as const;
+
+const answerDomain = z.discriminatedUnion("type", [
+  z.strictObject({ type: z.literal("INTEGER"), unit: z.enum(["mm", "TRY"]), minimum: z.number().int(), maximum: z.number().int(), normalizedShape: z.string().min(1) }),
+  z.strictObject({ type: z.literal("ENUM"), values: z.array(z.string().min(1)).min(2), normalizedShape: z.string().min(1) }),
+]);
+const question = z.strictObject({
+  questionKey: z.string().regex(/^appliances\.wm\.[a-zA-Z0-9.]+$/u), targetConcept: z.string().min(1), kind: z.literal("DISCOVERY_ASK"), priority: z.number().int().positive(), dependencies: z.array(z.string()), answerDomain,
+  materiality: z.strictObject({ requiresCandidateDifference: z.string().min(1), requiresContextCondition: z.string().min(1), candidateEffect: z.string().min(1), softPreferenceEffect: z.literal("NON_FILTERING") }),
+  suppression: z.array(z.string().min(1)).min(1), reopening: z.array(z.string().min(1)).min(1),
+  realization: z.strictObject({ model: z.literal("APPROVED_TEMPLATE"), templateRef: z.string().min(1), textTr: z.string().min(1) }),
+  semanticAuthorityRef: z.string().min(1), candidateEffectRef: z.string().min(1), governanceClassification: z.literal("APPROVED_PRODUCT_GOVERNANCE"),
+});
+const decision = z.strictObject({ decisionId:z.string(), topic:z.string(), authorityEvidence:z.string(), approvedDecision:z.string(), alternativesConsidered:z.array(z.string()), runtimeConsequence:z.string(), riskControlled:z.string(), governanceClassification:z.enum(["APPROVED_PRODUCT_GOVERNANCE","EXISTING_ARCHITECTURE_CONSTRAINT","EXISTING_SEMANTIC_AUTHORITY"]), approvalStatus:z.literal("APPROVED") });
+export const washingMachineQuestionPolicyPayloadSchema = z.strictObject({
+  schemaVersion:z.literal("washing-machine-question-policy/v1"), policyId:z.literal(QUESTION_POLICY_ID), governanceStatus:z.literal("APPROVED"), lifecycle:z.literal("FROZEN"), runtimeActive:z.literal(true), departmentId:z.literal("APPLIANCES"), productType:z.literal("WASHING_MACHINE"), market:z.literal("TR"), stage:z.literal("AŞAMA_1"), approvedAt:z.string().datetime({offset:true}),
+  provenance:z.strictObject({draftWorkUnit:z.literal("WU-APPL-QUESTION-POLICY-01"),approvalWorkUnit:z.literal("WU-APPL-QUESTION-POLICY-APPROVAL-01"),approvedBy:z.literal("ORGANIZATOR"),reviewVerdict:z.literal("ACCEPTED_WITH_REQUIRED_AMENDMENT"),amendment:z.literal("REMOTE_CONTROL_DOMAIN_WANTED_OR_NOT_IMPORTANT")}),
+  bindings:z.strictObject({semanticRegistryVersion:z.literal("WASHING_MACHINE_SEMANTIC_REGISTRY/v0.1"),semanticRegistryDigest:z.string().regex(/^[a-f0-9]{64}$/u),catalogRelease:z.string().regex(/^APPLIANCES-WM-TR-v\d+\.\d+$/u),catalogDigest:z.string().regex(/^[a-f0-9]{64}$/u),candidateEvaluationPolicy:z.literal("appliances-candidate-evaluation/v1")}),
+  selectionPolicy:z.strictObject({clarificationPrecedence:z.literal(true),maximumQuestionsPerSelection:z.literal(1),priorityModel:z.literal("TOTAL_ORDER_THEN_STABLE_KEY"),stableQuestionKeyTieBreak:z.literal(true),personaInfluence:z.literal("NONE"),candidateArrayOrderInfluence:z.literal("NONE"),noQuestionMeaning:z.literal("NO_AUTHORIZED_MATERIAL_QUESTION; NOT_SUFFICIENCY; NOT_RECOMMENDATION_READY; NOT_DECISION_READY; NOT_COMPLETE")}),
+  suppressionPolicy:z.strictObject({acceptedTargetSuppresses:z.boolean(),pendingTargetSuppresses:z.boolean(),unchangedAskedStateSuppresses:z.boolean(),fingerprintCannotOverrideActiveAcceptedAnswer:z.boolean(),transcriptInference:z.literal("FORBIDDEN"),retryOrTimeReopening:z.literal("FORBIDDEN")}),
+  reopeningPolicy:z.strictObject({authorizedReasons:z.tuple([z.literal("TARGET_CLEARED"),z.literal("TARGET_CORRECTED"),z.literal("TARGET_SUPERSEDED"),z.literal("MATERIALLY_CHANGED_EVALUATION_AUTHORITY")])}),
+  questions:z.array(question).length(7),
+  excludedTopics:z.array(z.strictObject({topic:z.string(),classification:z.enum(["FROZEN_EXCLUSION","NON_MATERIAL","ADVISOR_ONLY","UNSUPPORTED_PENDING_PRODUCT_DECISION"]),reason:z.string()})).min(1),
+  decisionRegister:z.array(decision).min(1),
+  failClosedContract:z.strictObject({version:z.literal("appliances-question-policy-fail-closed/v1"),fallback:z.literal("NONE")}),
+});
+export const washingMachineQuestionPolicyArtifactSchema = z.strictObject({
+  envelopeSchemaVersion:z.literal("washing-machine-question-policy-artifact/v1"), canonicalSerialization:z.literal(QUESTION_POLICY_CANONICALIZATION), policyDigest:z.string().regex(/^[a-f0-9]{64}$/u), payload:washingMachineQuestionPolicyPayloadSchema,
+});
+export const washingMachineQuestionPolicyActivePointerSchema = z.strictObject({ schemaVersion:z.literal("appliances-question-policy-active-pointer/v1"), policyId:z.literal(QUESTION_POLICY_ID), policyDigest:z.string().regex(/^[a-f0-9]{64}$/u), policyFile:z.string(), lifecycle:z.literal("ACTIVE") });
+export type WashingMachineQuestionPolicyPayload = z.infer<typeof washingMachineQuestionPolicyPayloadSchema>;
+export type WashingMachineQuestionPolicyArtifact = z.infer<typeof washingMachineQuestionPolicyArtifactSchema>;
+
+export function canonicalizeQuestionPolicy(value:unknown):unknown { if(Array.isArray(value))return value.map(canonicalizeQuestionPolicy);if(value&&typeof value==="object")return Object.fromEntries(Object.entries(value as Record<string,unknown>).sort(([a],[b])=>a.localeCompare(b)).map(([key,item])=>[key,canonicalizeQuestionPolicy(item)]));return value; }
+export function digestQuestionPolicy(payload:unknown):string { return createHash("sha256").update(JSON.stringify(canonicalizeQuestionPolicy(payload))).digest("hex"); }
+
+export type QuestionPolicyIntegrityFailure = "POLICY_SCHEMA_INVALID"|"POLICY_DIGEST_MISMATCH"|"POLICY_NOT_APPROVED"|"POLICY_NOT_FROZEN"|"POLICY_NOT_ACTIVE"|"SEMANTIC_BINDING_MISMATCH"|"CATALOG_BINDING_MISMATCH"|"DUPLICATE_QUESTION_KEY"|"UNKNOWN_TARGET_CONCEPT"|"UNKNOWN_DISCRIMINATOR"|"INVALID_ANSWER_DOMAIN"|"AMBIGUOUS_PRIORITY"|"DEPENDENCY_CYCLE"|"MISSING_TEMPLATE"|"INCOMPATIBLE_AUTHORITY";
+export function validateQuestionPolicyIntegrity(input:{artifact:unknown;expectedDigest:string;conceptIds:ReadonlySet<string>;discriminators:ReadonlySet<string>;catalogRelease:string;catalogDigest:string;semanticDigest:string}):{status:"VALID";artifact:WashingMachineQuestionPolicyArtifact}|{status:"INVALID";reason:QuestionPolicyIntegrityFailure}{
+ const parsed=washingMachineQuestionPolicyArtifactSchema.safeParse(input.artifact);if(!parsed.success){const raw=input.artifact as Record<string,unknown>|null;const payload=raw?.payload as Record<string,unknown>|undefined;if(payload?.governanceStatus!==undefined&&payload.governanceStatus!=="APPROVED")return{status:"INVALID",reason:"POLICY_NOT_APPROVED"};if(payload?.lifecycle!==undefined&&payload.lifecycle!=="FROZEN")return{status:"INVALID",reason:"POLICY_NOT_FROZEN"};if(payload?.runtimeActive!==undefined&&payload.runtimeActive!==true)return{status:"INVALID",reason:"POLICY_NOT_ACTIVE"};return{status:"INVALID",reason:"POLICY_SCHEMA_INVALID"};}
+ const artifact=parsed.data,p=artifact.payload;if(artifact.policyDigest!==input.expectedDigest||digestQuestionPolicy(p)!==artifact.policyDigest)return{status:"INVALID",reason:"POLICY_DIGEST_MISMATCH"};if(p.bindings.catalogRelease!==input.catalogRelease||p.bindings.catalogDigest!==input.catalogDigest)return{status:"INVALID",reason:"CATALOG_BINDING_MISMATCH"};if(p.bindings.semanticRegistryDigest!==input.semanticDigest)return{status:"INVALID",reason:"SEMANTIC_BINDING_MISMATCH"};
+ const keys=p.questions.map(q=>q.questionKey),priorities=p.questions.map(q=>q.priority);if(new Set(keys).size!==keys.length)return{status:"INVALID",reason:"DUPLICATE_QUESTION_KEY"};if(new Set(priorities).size!==priorities.length)return{status:"INVALID",reason:"AMBIGUOUS_PRIORITY"};
+ for(const q of p.questions){if(!input.conceptIds.has(q.targetConcept))return{status:"INVALID",reason:"UNKNOWN_TARGET_CONCEPT"};if(!input.discriminators.has(q.materiality.requiresCandidateDifference))return{status:"INVALID",reason:"UNKNOWN_DISCRIMINATOR"};if(q.answerDomain.type==="INTEGER"&&q.answerDomain.minimum>=q.answerDomain.maximum)return{status:"INVALID",reason:"INVALID_ANSWER_DOMAIN"};if(q.answerDomain.type==="ENUM"&&new Set(q.answerDomain.values).size!==q.answerDomain.values.length)return{status:"INVALID",reason:"INVALID_ANSWER_DOMAIN"};if(!q.realization.templateRef||!q.realization.textTr)return{status:"INVALID",reason:"MISSING_TEMPLATE"};if(q.dependencies.some(d=>!keys.includes(d)))return{status:"INVALID",reason:"INCOMPATIBLE_AUTHORITY"};}
+ const graph=new Map(p.questions.map(q=>[q.questionKey,q.dependencies]));const visiting=new Set<string>(),visited=new Set<string>();const cycle=(k:string):boolean=>{if(visiting.has(k))return true;if(visited.has(k))return false;visiting.add(k);for(const n of graph.get(k)??[])if(cycle(n))return true;visiting.delete(k);visited.add(k);return false;};if(keys.some(cycle))return{status:"INVALID",reason:"DEPENDENCY_CYCLE"};
+ if(!p.suppressionPolicy.acceptedTargetSuppresses||!p.suppressionPolicy.pendingTargetSuppresses||!p.suppressionPolicy.unchangedAskedStateSuppresses||!p.suppressionPolicy.fingerprintCannotOverrideActiveAcceptedAnswer)return{status:"INVALID",reason:"INCOMPATIBLE_AUTHORITY"};
+ const remote=p.questions.find(q=>q.targetConcept==="REMOTE_CONTROL");if(!remote||remote.answerDomain.type!=="ENUM"||remote.answerDomain.values.join("|")!=="WANTED|NOT_IMPORTANT"||/PROHIBITED|REQUIRED|kesinlikle olmasın/iu.test(JSON.stringify(remote)))return{status:"INVALID",reason:"INVALID_ANSWER_DOMAIN"};if(p.questions.some(q=>/capacity|minimum.*kg/iu.test(q.questionKey))||!p.excludedTopics.some(x=>x.topic==="CAPACITY_MINIMUM_KG"&&x.classification==="FROZEN_EXCLUSION"))return{status:"INVALID",reason:"INCOMPATIBLE_AUTHORITY"};if(/"(?:rank|score|winner|recommendation|sufficiencyRule|decisionCard|advisor)"\s*:/iu.test(JSON.stringify(p)))return{status:"INVALID",reason:"INCOMPATIBLE_AUTHORITY"};return{status:"VALID",artifact};
+}

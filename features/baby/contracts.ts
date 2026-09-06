@@ -32,3 +32,4 @@ export interface StrollerProduct {
 
 export const STROLLER_NEEDS = ["USE_STAGE", "NEWBORN", "TRANSPORT_CONTEXT", "CARRY_WEIGHT", "FOLDED_SIZE", "CABIN_TRAVEL", "SURFACE", "SEAT_DIRECTION", "RECLINE", "TRAVEL_SYSTEM", "BASKET_LOAD", "FOLDING", "BUDGET"] as const;
 export type StrollerNeed = typeof STROLLER_NEEDS[number];
+

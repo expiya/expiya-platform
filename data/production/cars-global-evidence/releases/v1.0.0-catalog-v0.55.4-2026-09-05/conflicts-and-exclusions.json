@@ -1,0 +1,1408 @@
+{
+  "exclusions": [
+    {
+      "code": "CROSS_MARKET_TRIM_INFERENCE_FORBIDDEN",
+      "count": 549,
+      "effect": "No global/family manual was promoted to exact equipment without the owner-reviewed exact-TR bridge."
+    },
+    {
+      "code": "MERCHANT_AND_PRICE_EVIDENCE_OUT_OF_SCOPE",
+      "count": 549,
+      "effect": "No offer, retailer, affiliate, current-price, review, or media-license evidence was added."
+    },
+    {
+      "code": "MANUAL_WITHOUT_LOCAL_BYTES_NOT_L9_READY",
+      "count": 546,
+      "effect": "Indexed remote manual metadata remains non-ready until bytes, digest, applicability and locators are all present."
+    },
+    {
+      "code": "PERSONA_DECISION_AUTHORITY_NONE",
+      "count": 549,
+      "effect": "Persona evidence remains soft planning only."
+    }
+  ],
+  "explicitConflicts": [],
+  "releaseVersion": "v1.0.0-catalog-v0.55.4-2026-09-05",
+  "researchedInconclusive": [
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "00ac8628-7be2-5cc8-8151-335698d4fe69",
+      "model": "A6 Sedan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Lamborghini",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "01e37cd6-f497-5c74-a372-5f7fd71a8edf",
+      "model": "Revuelto",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "03b387a7-5140-595a-a1a7-b549222548aa",
+      "model": "Golf",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "058cfcbc-ef9b-54d3-9bd9-16d518dbe516",
+      "model": "i4 Gran Coupe",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "06d935f4-6d33-4bc7-9e89-375b8db885df",
+      "model": "320i Sedan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "0896af49-b815-52b0-8b59-acf3045e572a",
+      "model": "Q6 Sportback e-tron",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "MINI",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "0b0a5bf4-1bf2-5cb0-82b0-ca000687ea0e",
+      "model": "Countryman Electric",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Maserati",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "0b9ac43e-3178-5abe-bc64-822bf37c7971",
+      "model": "Grecale",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "MINI",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "0bbaab64-c30f-52f4-a812-8e49705e6ba2",
+      "model": "Cooper Cabrio",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "JAECOO",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "0fd1461c-debf-5e27-a5b8-cc44f8852b53",
+      "model": "JAECOO 7",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "10a2938a-f8a4-5605-8c93-9afb37900352",
+      "model": "5 Serisi Sedan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Isuzu",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "1151a5b1-d33d-5701-afda-5518b1de962a",
+      "model": "D-Max",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "15d824de-96d9-5da7-8735-09ab1d70bd74",
+      "model": "i7",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "1692aba6-f62c-527a-bb8f-62a0a1f5071d",
+      "model": "ID.4",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Ferrari",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "179b378e-094f-5ace-82ed-eb8e57174ce9",
+      "model": "296 GTB",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Alfa Romeo",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "1a3cc01d-3bfa-56f3-817f-4cc77e723ef8",
+      "model": "Junior",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "1b1537dd-ba55-5523-9156-8060254b0aec",
+      "model": "Caddy Cargo",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "1b92a7ed-9195-5c1f-88a6-a0d437531869",
+      "model": "Taycan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "1c4e3049-0e51-5898-9e6d-fe6dbea39986",
+      "model": "Panamera",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Subaru",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "1d3ff890-6978-5e2b-8cba-11bb56b9e33e",
+      "model": "Solterra",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Subaru",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "1e753239-9ff2-5a6d-b169-acb5daedcaf2",
+      "model": "Forester",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "200418b4-4f15-5ab6-bc4d-e7d74c8e8ac1",
+      "model": "i5 Touring",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "21e9ae26-4c56-5195-8d70-7c8417aadb83",
+      "model": "A5 Avant",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "25e3b4b7-ac8b-5d82-a850-fdc96a89f8ab",
+      "model": "Q4 Sportback e-tron",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "MINI",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "2648d972-cd5a-557a-8516-7ced4ee82d6f",
+      "model": "Cooper 5 Kapı",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Alfa Romeo",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "264b5fce-77ce-570d-8201-47bdd4b52799",
+      "model": "Giulia",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "26f58ed6-11b5-5442-b167-f77a452811af",
+      "model": "i5 Sedan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "270a7089-478f-5aa3-9ad1-77b6d01c8185",
+      "model": "Caravelle",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "295c42ab-f3c1-5f82-a283-318f1a511487",
+      "model": "Amarok",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Suzuki",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "29a16738-dd92-54cb-9e27-9e0ce8724a57",
+      "model": "Swift",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "2a3b9e38-d870-5d7f-b562-247ca0d7da28",
+      "model": "Q3 Sportback",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "2c23b5a2-386b-5ca2-9129-869d966d6396",
+      "model": "M5 Sedan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Aston Martin",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "2c4ac1cf-3135-55c6-b8cf-1277d1533b05",
+      "model": "Vanquish",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "MINI",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "2d666356-6c9e-5a88-9fec-b05085497088",
+      "model": "Aceman",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Isuzu",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "2e83b3e7-2bca-5aaf-b678-e1c2e55dedef",
+      "model": "NLR",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "319266b4-797b-5bf9-8f19-1cdcfb37e377",
+      "model": "ID.4",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Rolls-Royce",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "32874439-bb6b-5ddf-ba88-6a57593dec22",
+      "model": "Ghost Extended",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "337a42c2-5fbc-5004-a2e5-128212201373",
+      "model": "4 Serisi Gran Coupe",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Alpine",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "35a63f96-c05b-5d9c-8f9e-f427461dbfc4",
+      "model": "A290",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "35b60c29-a27c-50b2-9de7-fc166e2798be",
+      "model": "X1",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "DS Automobiles",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "383485ef-1654-53d7-b910-387a48638995",
+      "model": "N°8",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "39708cbb-23b8-50f4-916e-9604f7afd35a",
+      "model": "Passat",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Ferrari",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "397524e9-65ad-589c-9fb9-1edd070e1b3f",
+      "model": "296 GTS",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "DS Automobiles",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "39761164-4352-53b0-83bb-b075e59c19c6",
+      "model": "N°4",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Bentley",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "39c8664a-0cd5-5b5b-824c-f5bbf53379df",
+      "model": "Bentayga EWB",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Aston Martin",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "3b15a64a-7afd-55cf-a799-10d65de101c1",
+      "model": "DB12",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "3d9edbae-0e2c-5a7e-adc2-28ab19cf629e",
+      "model": "Cayenne",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "MINI",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "3dbac626-c314-5228-9387-01376266d40f",
+      "model": "Countryman",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "42253743-ec64-52ed-8f72-c69af3030c2f",
+      "model": "Cayenne Coupe",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Alpine",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "43175d0e-3667-5e76-ae83-ebd56173495e",
+      "model": "A390",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "DS Automobiles",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "46680fd4-5a3f-5979-847c-63a8a2e0d4aa",
+      "model": "N°4",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Lamborghini",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "485f6799-476e-57e5-9f52-98f3ffd37c56",
+      "model": "Urus SE",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "492d30ba-0f56-5dc7-af01-a48bc69f0af0",
+      "model": "X6 M",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "4a3d2e28-e993-5c53-830b-198d10c5df61",
+      "model": "Taigo",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "4aa32908-ee8a-53e0-b1e9-d2118cbcf6d0",
+      "model": "Yeni iX",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "4ae4ae67-8829-5903-a4bc-5ee832a2a0af",
+      "model": "Macan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Isuzu",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "4babaf68-a7f0-5e01-91af-d5163aa86d98",
+      "model": "D-Max",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "4d0b8395-1247-508c-9fcc-e70b8f945fdf",
+      "model": "Cayenne",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "4d1110ae-7869-52c6-8625-5ec3afec3a65",
+      "model": "Q6 e-tron",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Rolls-Royce",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "4dac9d3e-8e61-590f-b24b-9c6c97974226",
+      "model": "Phantom Extended",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "4f1ce5da-e520-53db-b7c3-d681a1e2cf6c",
+      "model": "A3 Sedan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Ferrari",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "4f965042-42e0-526a-9fab-f01bacf567b5",
+      "model": "Roma Spider",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "5048654f-6181-52a5-81e0-09f10af93cca",
+      "model": "Transporter Pikap",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "MINI",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "5135f2e9-c70a-5a7b-b12c-f9fa016508a0",
+      "model": "Cooper Electric",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Ferrari",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "519db949-adcd-5422-9376-a16c560faf50",
+      "model": "12Cilindri",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "523e9c9a-b831-5ca2-ad74-020fc9e1afc5",
+      "model": "iX1",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "52b9c436-8703-5eab-ad32-23de1aac2526",
+      "model": "X1",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Alfa Romeo",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "54bbe431-a3c2-56d0-8177-cefdf0330bcb",
+      "model": "Tonale",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Alfa Romeo",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "5a64b246-3b05-52b6-9f24-b8f52ccc2305",
+      "model": "Junior",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "5ba85d4e-d2ef-5f36-a81c-0c98dfd8cd16",
+      "model": "M5 Touring",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "OMODA",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "5d9324ac-68a9-51be-9b54-0427bbdbf294",
+      "model": "OMODA 5",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "61a12810-90be-5836-ba5d-9369ba8607b6",
+      "model": "Transporter Kombi",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "KGM",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "6296ae8f-595a-51d3-95b2-33e18e67a642",
+      "model": "Musso Grand",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "62d395d6-7f93-5f60-b188-6457b9c8e7f1",
+      "model": "i7",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "63996e51-187e-538b-9667-8e8de862fbb7",
+      "model": "Transporter Panelvan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "DS Automobiles",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "63eeaaa7-3e34-5e88-90ff-ba3b3a0ee543",
+      "model": "DS 7",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "656f694d-2834-5778-99c3-7a48cccc51ea",
+      "model": "Panamera",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "67f1cf59-1e18-50c3-86aa-84e85d4614e3",
+      "model": "911",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "68411267-4dbf-53f7-b80d-1de4b385812c",
+      "model": "4 Serisi Coupe",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "MINI",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "6984912b-97ab-5b67-bf91-6d2617947829",
+      "model": "Cooper",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "6a4469d3-1b1f-5cb7-8ea0-524d26ed0b57",
+      "model": "911",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Jeep",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "6a7b42f3-f7eb-5b62-a76d-4e4dcfb430a4",
+      "model": "Avenger",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "6b0698f8-5e46-57e2-bf3c-609fff5c5db8",
+      "model": "Q5",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "6be3b368-8846-54b0-8a67-7cd6c2566d45",
+      "model": "M3 Touring",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "6d6c0805-8779-5764-a42a-48850990a60c",
+      "model": "A8 L",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "6db4330b-662d-501c-9ee6-a4edafdebadc",
+      "model": "7 Serisi Sedan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "6f59ee33-2626-5981-be12-07592c241a0f",
+      "model": "A6 Sportback e-tron",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "6f5b3e79-38f9-504f-9867-4592c5e1da69",
+      "model": "Tayron",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "70752653-c340-5f89-8296-c7785599c8d5",
+      "model": "i5 Sedan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Rolls-Royce",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "72551e5c-1b42-5c86-b3cc-fa21b92a7b62",
+      "model": "Spectre",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "73740173-4fb6-56dd-bd1c-80f2f0fa2746",
+      "model": "718 Cayman",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "KGM",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "7460d274-ff68-5a23-8cb4-44a4b88499ac",
+      "model": "Actyon",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "DS Automobiles",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "74a6ac53-d07c-5879-a208-38882fdcfbfa",
+      "model": "DS 7",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Chery",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "7509a98c-893f-5f79-ae42-b3003829f832",
+      "model": "TIGGO7",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Suzuki",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "7626ea2a-8056-5ba0-8b4d-56a47adba73d",
+      "model": "Vitara",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "78ff0729-83b9-5384-98b4-19dd7e56d9fc",
+      "model": "Q8",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "7aa1ffd9-53f3-5e3a-a900-c84fc5b0cb53",
+      "model": "i5 Touring",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "KGM",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "7b092531-17f0-5815-abce-f750cfa37525",
+      "model": "Torres",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "7cb92413-e5c4-5350-bade-6819ecd13d2f",
+      "model": "Q4 e-tron",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Chery",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "7e1c8402-5fe6-5935-bc4c-9d0653456636",
+      "model": "TIGGO8",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Rolls-Royce",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "7e840998-8c00-5bf1-9d27-5463a59c5552",
+      "model": "Ghost",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "7e88adde-05ce-5c65-b603-039b5eae70a7",
+      "model": "Q5 Sportback",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "KGM",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "7e9e1e11-67ec-5b1f-8ca1-b73fd107f155",
+      "model": "Torres EVX",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Ferrari",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "7f1dd322-5792-52c2-b30d-6debb119d306",
+      "model": "Amalfi",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "80c216aa-28ef-5b37-ba74-ba9580cb6828",
+      "model": "Touareg",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "DFSK",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "81684697-8283-53b5-8f52-0d359a477f91",
+      "model": "E5",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Maserati",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "81713a1a-bc32-58db-9507-5f5971a43394",
+      "model": "GranTurismo",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Alpine",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "82d670d8-fc16-5d18-8106-cfeb987c3fba",
+      "model": "A290",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "838577a9-8a78-5c4d-a9c5-7a27fe450e7d",
+      "model": "M4 Cabrio",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "840c7862-ffc8-5a5b-8ede-7646090f6b36",
+      "model": "Multivan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "MINI",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "84b825bc-3de4-5a11-9d65-31094f71ccc5",
+      "model": "Aceman",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Hongqi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "8595a510-0cb1-5c31-aa88-8001a034baa3",
+      "model": "HS5",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "86bec1c3-7166-52f7-8253-908486d76fcf",
+      "model": "Macan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Lamborghini",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "86c8dcf6-f343-5933-b1eb-98b6a2a69c8c",
+      "model": "Temerario",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "KGM",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "87519baa-8eec-58b5-a0ea-9dc29cc9f013",
+      "model": "Korando",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "88e8284e-7ebc-5487-b421-b1a6861d23a6",
+      "model": "5 Serisi Sedan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "89035e2b-e401-56b8-b184-d2c8ad9735a2",
+      "model": "4 Serisi Coupe",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "8a908ccc-0fce-5c03-ad9b-fac77cd87229",
+      "model": "X2",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "8bab7cda-9130-573c-b7d5-4e879c2b69fc",
+      "model": "4 Serisi Cabrio",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "8fad57d9-01cb-5573-9ad5-28b09c16ce2e",
+      "model": "Q2",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "MINI",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "9107f5d5-8148-5ac4-a856-5024361fb867",
+      "model": "Cooper Electric",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Rolls-Royce",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "91447230-8be8-560c-860f-b4c51b25d8b9",
+      "model": "Cullinan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Bentley",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "91b362fb-b2ea-5502-849f-d5ad440e5e14",
+      "model": "Bentayga",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "91d4e4a4-4e98-585b-81b1-80989abd3446",
+      "model": "M3 Sedan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "91da3d5e-fb58-5d14-8b1a-fcd6ef2d986c",
+      "model": "A5 Sedan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Suzuki",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "92ec1ee8-e612-5ccf-b6eb-6ae74a448224",
+      "model": "Vitara",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "932929fe-d06b-5200-a351-ba1048af06f9",
+      "model": "2 Serisi Gran Coupe",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "93bc694e-eb79-51ce-9e4a-1f8da93df54c",
+      "model": "X5",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Bentley",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "95bd2cd3-7940-5678-8a8f-56ec41f5c3d0",
+      "model": "Continental GT",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Hongqi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "964929a6-5b56-5b5f-bcfe-96d5154f52e0",
+      "model": "E-HS9",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "96709fe8-e166-570a-83b1-716b8fd02bd9",
+      "model": "Tiguan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "OMODA",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "983a28d7-3ce9-5814-9142-e2352a0abdbf",
+      "model": "OMODA 7",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Aston Martin",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "9ab6efae-ab58-55b3-8035-bb8f69660195",
+      "model": "Vantage",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "9c44220b-895c-5fd4-a441-3dcca607dc13",
+      "model": "T-Roc",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "9d6c4994-a8ae-5fd5-998d-b91dec421c2f",
+      "model": "A3 Sportback",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "9e3b32b2-ddde-5b37-8db4-cae7df7e3db8",
+      "model": "Yeni iX2",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "9eee329e-aec2-5788-ad84-b46616b60795",
+      "model": "Yeni iX3",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Suzuki",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "9f160319-f411-577b-9f4c-ec3209fa89d0",
+      "model": "Vitara",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Aston Martin",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "a05f328b-3476-5270-a443-d07cda0a2497",
+      "model": "DB12",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "a3986be9-7eef-53d7-a931-12ef6dc41fe5",
+      "model": "Taycan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Rolls-Royce",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "a3fcce46-0f25-515c-b7a4-fe433295021c",
+      "model": "Phantom",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "a78d8042-bc0e-5da3-992a-d3c882800d6f",
+      "model": "Yeni iX1",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Alfa Romeo",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "a99a4d47-3052-5a9d-81fd-c812ca0b970c",
+      "model": "Stelvio",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Aston Martin",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "aa755af5-7de8-5f76-8429-3f657a5a0c07",
+      "model": "DBX",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "aefb90cf-29ac-540e-994e-1ca91cba2bd8",
+      "model": "X5 M",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Isuzu",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "af4a1637-d7e4-5310-9da3-8bca020857ba",
+      "model": "BIG.e",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Hongqi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "af581cb2-c87f-5e00-906d-ef52855dd6de",
+      "model": "H9",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "b0323cbe-f34c-5ce1-be8c-0abca07889b7",
+      "model": "2 Serisi Active Tourer",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "b0dc7682-7bae-50a1-8aca-0869eb4b364c",
+      "model": "e-tron GT",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Leapmotor",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "b1d209d4-af04-537b-a2b6-280c5bbee05e",
+      "model": "T03",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Bentley",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "b1dc656b-e78c-57ab-9a44-924716ba6c2b",
+      "model": "Continental GTC",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "b45c9284-8289-5bbd-9d00-934248d7c366",
+      "model": "Yeni iX",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "be4426d1-7595-5155-8b25-d7e54d2b9f43",
+      "model": "Macan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Subaru",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "be7adb05-62ce-5175-a12c-8cb601310d87",
+      "model": "Solterra",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Jeep",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "c162e3cf-b2a9-5302-835c-609efa3779fe",
+      "model": "Avenger",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "c18b2188-6ba1-5a65-8632-9a4135db7e1b",
+      "model": "2 Serisi Active Tourer",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Maserati",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "c58345b8-b7a5-56b2-ba9f-81a8f3e15796",
+      "model": "Grecale",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "c65d7611-c10a-5647-82fc-a6696a6f80da",
+      "model": "T-Cross",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Ferrari",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "c66e55ee-4274-534c-b78a-56f8501d7b43",
+      "model": "Purosangue",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "c6735e4f-3b1f-5fb4-96e4-3ad9425e0d32",
+      "model": "iX2",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "c71add74-3999-5684-94ee-45757d663ccc",
+      "model": "X3",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "MINI",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "c94fa76b-d405-5883-a608-c2f0179d7277",
+      "model": "Cooper",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "DS Automobiles",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "cae88a9a-f765-5052-8df5-e6886a36b073",
+      "model": "N°8",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Isuzu",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "d085d257-20db-51af-9a49-5e2fa65e4b17",
+      "model": "D-Max",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "KGM",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "d196f92d-a1f9-5b1d-98c9-74ae9d5da500",
+      "model": "Tivoli",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "d27ec137-448d-5d0c-9cf3-d0869ac754af",
+      "model": "X2",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "d3016e28-fe9c-5994-bd03-0aa75913d2b4",
+      "model": "Tiguan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "d88a9d50-5c26-5661-b7ad-0a4ee5f96a79",
+      "model": "Polo",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "KGM",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "d8d45ff8-5771-5830-88c5-ef7e02a5f921",
+      "model": "Rexton",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Porsche",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "db7a8dff-9338-5d3f-bc68-b6e6da138786",
+      "model": "911",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "dc4d2d7b-7d59-5123-89f4-24e6050ce536",
+      "model": "X1",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Jeep",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "dd247caa-2ffa-53dc-b007-bd89b34d0e9d",
+      "model": "Avenger",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Hongqi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "e0f40f24-1cca-5486-805c-7c1e30859a60",
+      "model": "E-QM5",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Chery",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "e67b42cc-1fa6-5d26-a1b2-30d844374ada",
+      "model": "TIGGO7",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "e826371f-8d38-5cfd-a1c6-495663945f6e",
+      "model": "i5 Sedan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "e9eb90d0-c858-5cc0-9b85-0afc4c834f19",
+      "model": "ID.Buzz Cargo",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "ea882702-21eb-5778-9f86-04138aedaefe",
+      "model": "ID.7",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Isuzu",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "eb781920-1d63-5ce1-8dcd-594e5feb4ffa",
+      "model": "D-Max",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Maserati",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "ebc626dc-01e8-5109-83cc-135541c6934d",
+      "model": "Grecale Folgore",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Chery",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "ebcac0a6-2a06-5661-a59e-53e7b4532983",
+      "model": "TIGGO7",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "ecb012cb-3be2-5308-acc7-284b6478900c",
+      "model": "Golf",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "ed20f032-dc54-57f5-ae83-0773b9b7c6ad",
+      "model": "Q7",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Aston Martin",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "ed52a38b-70f5-55c2-ae9e-f98e64a2e776",
+      "model": "Vantage",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "edc7f094-f2fc-5280-955f-b17a1bb69ac5",
+      "model": "M4 Coupe",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "ee569d78-4f0a-5505-9241-6f9f1438c907",
+      "model": "X3",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "ef25106c-874e-5f58-bf95-31747bca6e91",
+      "model": "X6",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Alfa Romeo",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "f12f742b-111c-54de-a006-61361fb1ae04",
+      "model": "Tonale",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Maserati",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "f19bf149-b4ea-582a-bc18-addcdfe63716",
+      "model": "GranTurismo Folgore",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Bentley",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "f1bded9d-fcf7-5c5b-b996-472eedbb7747",
+      "model": "Flying Spur",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "f23e0ef9-b808-545e-833b-c5dc6ec7e79d",
+      "model": "Q3",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "f6dd5d13-d8c9-5a92-a299-b6094aa3639b",
+      "model": "1 Serisi",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Audi",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "f74d7af2-2773-52f7-a156-955ce1d26434",
+      "model": "A6 Avant e-tron",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "fa4f2760-32ab-5e25-8b24-7b82cf6063f8",
+      "model": "Crafter Panelvan",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Suzuki",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "fad6163a-4951-5093-b658-0ba73b04ac02",
+      "model": "Vitara",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Subaru",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "fcc02e3e-24d0-54e3-9318-d8d2401e7435",
+      "model": "Crosstrek",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "BMW",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "fcfff03b-61a0-57b2-b2a3-f159e639cbc5",
+      "model": "X7",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    },
+    {
+      "brand": "Volkswagen",
+      "disposition": "UNKNOWN_NO_NEGATIVE_INFERENCE",
+      "exactVariantId": "fe517901-d2cf-56af-b630-0d0210ec90a5",
+      "model": "Passat",
+      "reason": "ACCESS_REVIEW_REQUIRED"
+    }
+  ],
+  "schemaVersion": "XPY_CARS_GLOBAL_EVIDENCE_EXCLUSIONS/v1"
+}

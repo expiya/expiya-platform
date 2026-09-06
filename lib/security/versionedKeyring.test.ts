@@ -1,0 +1,7 @@
+import {describe,expect,it} from "vitest";
+import {StaticLocalTestKeyProvider,VersionedHmacKeyring,checkSigningKeyReadiness,type KeyAuditEvent} from "./versionedKeyring.server";
+const key=(id:string,state:"ACTIVE"|"VERIFY_ONLY"|"REVOKED",secret=`${id}-0123456789012345678901234567890123456789`)=>({id,state,secret});
+describe("versioned signing keyring",()=>{
+ it("rotates with overlap then retires the old key",()=>{const old=new VersionedHmacKeyring(new StaticLocalTestKeyProvider([key("v1","ACTIVE")]));const signed=old.sign("body");const overlap=new VersionedHmacKeyring(new StaticLocalTestKeyProvider([key("v2","ACTIVE"),key("v1","VERIFY_ONLY")]));expect(overlap.verify(signed.kid,"body",signed.signature)).toBe("VALID");const retired=new VersionedHmacKeyring(new StaticLocalTestKeyProvider([key("v2","ACTIVE"),key("v1","REVOKED")]));expect(retired.verify(signed.kid,"body",signed.signature)).toBe("REVOKED_KEY");});
+ it("rejects wrong ids, absent active key and weak material without leaking material to audit",()=>{const events:KeyAuditEvent[]=[];const ring=new VersionedHmacKeyring(new StaticLocalTestKeyProvider([key("v1","ACTIVE")]),event=>events.push(event));expect(ring.verify("wrong","body","x")).toBe("UNKNOWN_KEY");expect(JSON.stringify(events)).not.toContain(key("v1","ACTIVE").secret);expect(checkSigningKeyReadiness(new StaticLocalTestKeyProvider([key("v1","VERIFY_ONLY")]))).toMatchObject({ready:false});expect(checkSigningKeyReadiness(new StaticLocalTestKeyProvider([key("v1","ACTIVE","short")]))).toMatchObject({ready:false});});
+});

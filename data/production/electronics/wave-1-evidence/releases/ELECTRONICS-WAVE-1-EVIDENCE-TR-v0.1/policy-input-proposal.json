@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "electronics-wave-1-policy-input-proposal/v1",
+  "status": "DRAFT_NON_ACTIVE",
+  "categories": [
+    {
+      "categoryId": "SMARTPHONE",
+      "questionInputs": [
+        "memory_gb",
+        "storage_gb",
+        "cellular_generation"
+      ],
+      "sufficiencyThresholds": "UNDEFINED_REQUIRES_CATEGORY_REVIEW",
+      "rankingWeights": "NONE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "amazonAvailabilityEffect": "NONE"
+    },
+    {
+      "categoryId": "LAPTOP",
+      "questionInputs": [
+        "processor",
+        "memory_gb",
+        "storage_gb",
+        "display"
+      ],
+      "sufficiencyThresholds": "UNDEFINED_REQUIRES_CATEGORY_REVIEW",
+      "rankingWeights": "NONE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "amazonAvailabilityEffect": "NONE"
+    },
+    {
+      "categoryId": "TABLET",
+      "questionInputs": [
+        "storage_gb",
+        "display_inches",
+        "connectivity"
+      ],
+      "sufficiencyThresholds": "UNDEFINED_REQUIRES_CATEGORY_REVIEW",
+      "rankingWeights": "NONE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "amazonAvailabilityEffect": "NONE"
+    },
+    {
+      "categoryId": "MONITOR",
+      "questionInputs": [
+        "display_inches",
+        "resolution",
+        "refresh_hz"
+      ],
+      "sufficiencyThresholds": "UNDEFINED_REQUIRES_CATEGORY_REVIEW",
+      "rankingWeights": "NONE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "amazonAvailabilityEffect": "NONE"
+    },
+    {
+      "categoryId": "TELEVISION",
+      "questionInputs": [
+        "display_inches",
+        "resolution",
+        "refresh_hz",
+        "panel",
+        "platform"
+      ],
+      "sufficiencyThresholds": "UNDEFINED_REQUIRES_CATEGORY_REVIEW",
+      "rankingWeights": "NONE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "amazonAvailabilityEffect": "NONE"
+    },
+    {
+      "categoryId": "E_READER",
+      "questionInputs": [
+        "display_inches",
+        "display_color",
+        "page_turn_buttons",
+        "stylus_compatible"
+      ],
+      "sufficiencyThresholds": "UNDEFINED_REQUIRES_CATEGORY_REVIEW",
+      "rankingWeights": "NONE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "amazonAvailabilityEffect": "NONE"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+import { createHash } from "node:crypto"; import { readFileSync } from "node:fs"; import path from "node:path"; import { describe, expect, it } from "vitest";
+import { ELECTRONICS_WAVE_4_CATEGORY_IDS, ELECTRONICS_WAVE_4_PARENT_DIGEST, validateWave4EvidenceClosure, type Wave4EvidenceRelease } from "./wave4EvidenceClosure";
+const root = process.cwd(); const release = JSON.parse(readFileSync(path.join(root, "data/production/electronics/wave-4-evidence/releases/ELECTRONICS-WAVE-4-EVIDENCE-TR-v0.1/evidence-release.json"), "utf8")) as Wave4EvidenceRelease;
+describe("Wave 4 evidence closure", () => {
+  it("covers the exact six baseline categories and validates", () => { expect(ELECTRONICS_WAVE_4_CATEGORY_IDS).toEqual(["SMARTWATCH", "FITNESS_TRACKER", "HOME_SECURITY_CAMERA", "VIDEO_DOORBELL", "SMART_HOME_HUB", "UNINTERRUPTIBLE_POWER_SUPPLY"]); expect(validateWave4EvidenceClosure(release)).toEqual([]); });
+  it("keeps material privacy, health, subscription and safety gaps out of ready categories", () => { for (const row of release.categoryReadiness.filter(item => item.readiness === "DECISION_EVIDENCE_READY")) expect(Object.values(release.riskGates.find(gate => gate.categoryId === row.categoryId)!)).not.toContain("BLOCKED_MATERIAL"); });
+  it("binds local manuals", () => { for (const manual of release.manuals) expect(`sha256:${createHash("sha256").update(readFileSync(path.join(root, manual.localPath))).digest("hex")}`).toBe(manual.sha256); });
+  it("pins Wave 3 without mutation", () => { const raw = readFileSync(path.join(root, "data/production/electronics/wave-3-evidence/releases/ELECTRONICS-WAVE-3-EVIDENCE-TR-v0.1/evidence-release.json")); expect(`sha256:${createHash("sha256").update(raw).digest("hex")}`).toBe(ELECTRONICS_WAVE_4_PARENT_DIGEST); });
+  it("keeps unknowns and commerce neutral", () => { expect(release.unknownsAndConflicts.every(row => row.effect === "NEUTRAL_FAIL_CLOSED")).toBe(true); expect(release.boundaries).toMatchObject({ l10YEffect: "NONE", amazonStatusEffect: "NONE", activationPerformed: false }); });
+});

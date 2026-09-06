@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "major-appliance-catalog-adoption-approval-package/v1",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+  "releaseId": "APPLIANCES-MAJOR-CATALOG-ADOPTION-TR-v0.1-candidate",
+  "requestedApproval": "PRODUCT_OWNER_MEMBERSHIP_AND_DECISION_AUTHORITY_ACTIVATION",
+  "status": "AWAITING_MANDATORY_APPROVAL",
+  "approved": false,
+  "scope": {
+    "admittedProducts": 16,
+    "categories": 4,
+    "removals": 0,
+    "replacements": 0,
+    "rankingChanges": 0,
+    "blockedEvidenceProducts": 1
+  },
+  "candidateBindings": [
+    {
+      "categoryId": "WASHING_MACHINE",
+      "releasePath": "data/production/appliances/catalog-adoption/releases/APPLIANCES-MAJOR-CATALOG-ADOPTION-TR-v0.1-candidate/washing-machines/catalog-release.json",
+      "manifestPath": "data/production/appliances/catalog-adoption/releases/APPLIANCES-MAJOR-CATALOG-ADOPTION-TR-v0.1-candidate/washing-machines/manifest.json",
+      "releaseVersion": "APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "catalogArtifactSha256": "2a85eb2f5be54a97468a7ac4c66f6ab14e02cf7677702258e2243b8d54d2ee85",
+      "manifestArtifactSha256": "b335de26ac63411254d2ed81a2c0615f99661ccb68ac253153501087b09aad97",
+      "membershipDigest": "9823549a4200da0cf88e4460c73f9861f81d7b0959e79ca16a45beacf1b098f2",
+      "memberCount": 29,
+      "priorMemberCount": 24,
+      "admittedOfferingIds": [
+        "appliances:wm:tr:samsung:ww90ta046ah-ah",
+        "appliances:wm:tr:vestel:cmi-97402-wifi",
+        "appliances:wm:tr:arcelik:10120-imp",
+        "appliances:wm:tr:altus:al-cm-101254-d",
+        "appliances:wm:tr:samsung:ww11dg6b25leah"
+      ],
+      "activePointerPath": "data/production/appliances/washing-machines/active.json",
+      "activePointerSha256": "2a6c3a99ffe8df1153487cae5a46c6ef8e354ef75807f8a6f012e3180e909b3f",
+      "activeDecisionReleaseVersion": "APPLIANCES-WM-TR-v0.1",
+      "activeDecisionArtifactPath": "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/catalog.json",
+      "activeDecisionArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b"
+    },
+    {
+      "categoryId": "DRYER",
+      "releasePath": "data/production/appliances/catalog-adoption/releases/APPLIANCES-MAJOR-CATALOG-ADOPTION-TR-v0.1-candidate/dryers/catalog-release.json",
+      "manifestPath": "data/production/appliances/catalog-adoption/releases/APPLIANCES-MAJOR-CATALOG-ADOPTION-TR-v0.1-candidate/dryers/manifest.json",
+      "releaseVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "catalogArtifactSha256": "063b821a16e0db387485511014183e464810da19e03237bffed3d9bd5b0adc1f",
+      "manifestArtifactSha256": "d3292972bc9a1d11d63de063403c0672d339d88914f86ebeacac9737b138c709",
+      "membershipDigest": "5507a1154ef157f6b04b4f46e5def35a41233c426b227e5a90689f787db4b5a7",
+      "memberCount": 7,
+      "priorMemberCount": 3,
+      "admittedOfferingIds": [
+        "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+        "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+        "appliances:dryer:tr:arcelik:1201-kmx",
+        "appliances:dryer:tr:samsung:dv10dg54a0abah"
+      ],
+      "activePointerPath": "data/production/appliances/dryers/active.json",
+      "activePointerSha256": "32bf083531c2a0b87a969ed610fd23087e9bec9bb80f04937b41d23bb4f57af2",
+      "activeDecisionReleaseVersion": "APPLIANCES-DRYER-TR-v0.1",
+      "activeDecisionArtifactPath": "data/production/appliances/dryers/releases/APPLIANCES-DRYER-TR-v0.1/domain-pack.json",
+      "activeDecisionArtifactSha256": "3ef3ce69874ced7d210c97545d35e82a9a2fae2933a7d7d715ae411224943f48"
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "releasePath": "data/production/appliances/catalog-adoption/releases/APPLIANCES-MAJOR-CATALOG-ADOPTION-TR-v0.1-candidate/dishwashers/catalog-release.json",
+      "manifestPath": "data/production/appliances/catalog-adoption/releases/APPLIANCES-MAJOR-CATALOG-ADOPTION-TR-v0.1-candidate/dishwashers/manifest.json",
+      "releaseVersion": "APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "catalogArtifactSha256": "662964e296e3717d56a0428932d5bdbf8df986b9816b9604458d5805dec5dc3d",
+      "manifestArtifactSha256": "5c3ac1ee6ed844259f849e15864486820df41da80e1637e6bb4fe42c66f539bc",
+      "membershipDigest": "a8bdab0f17770acfc60abd382f9ef66193c0d48e3fc2548f51bda15731a5c7d4",
+      "memberCount": 7,
+      "priorMemberCount": 4,
+      "admittedOfferingIds": [
+        "appliances:dishwasher:tr:arcelik:a-710-i",
+        "appliances:dishwasher:tr:arcelik:a-811-i",
+        "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+      ],
+      "activePointerPath": "data/production/appliances/dishwashers/active.json",
+      "activePointerSha256": "6dacfc77be2f1078e2b025ebf287009989b969e2b1b720e8343ecbb981bee5c4",
+      "activeDecisionReleaseVersion": "APPLIANCES-DISHWASHER-TR-v0.1",
+      "activeDecisionArtifactPath": "data/production/appliances/dishwashers/releases/APPLIANCES-DISHWASHER-TR-v0.1/domain-pack.json",
+      "activeDecisionArtifactSha256": "66973c59f1b752f2598b4c6b30d6dc0d2b272948a342b33a08f4cd8f68f9124e"
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "releasePath": "data/production/appliances/catalog-adoption/releases/APPLIANCES-MAJOR-CATALOG-ADOPTION-TR-v0.1-candidate/refrigerators/catalog-release.json",
+      "manifestPath": "data/production/appliances/catalog-adoption/releases/APPLIANCES-MAJOR-CATALOG-ADOPTION-TR-v0.1-candidate/refrigerators/manifest.json",
+      "releaseVersion": "APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "catalogArtifactSha256": "886e6a4d79e856286712a86fa78761253f89bcbab03e1ebea3561c9f06877387",
+      "manifestArtifactSha256": "e9716db2e6c4659eddef18d97b24c756ea5786eb195aa140033f64f76213d4fb",
+      "membershipDigest": "2460570b7fbfe22f8a9eb558442c7c56d25cff4f10bed08b791288f17a29da02",
+      "memberCount": 8,
+      "priorMemberCount": 4,
+      "admittedOfferingIds": [
+        "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+        "appliances:refrigerator:tr:arcelik:270475-mb",
+        "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+        "appliances:refrigerator:tr:samsung:rf57c510esr-tr"
+      ],
+      "activePointerPath": "data/production/appliances/refrigerators/active.json",
+      "activePointerSha256": "6485888509cb0af285087f1d431857e9bbe5ffe0985b6bc1b9b943c3cf02daee",
+      "activeDecisionReleaseVersion": "APPLIANCES-REFRIGERATOR-TR-v0.1",
+      "activeDecisionArtifactPath": "data/production/appliances/refrigerators/releases/APPLIANCES-REFRIGERATOR-TR-v0.1/domain-pack.json",
+      "activeDecisionArtifactSha256": "4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825"
+    }
+  ],
+  "approvalsRequired": [
+    {
+      "role": "PRODUCT_OWNER",
+      "decision": "PENDING",
+      "scope": "NEW_CATEGORY_MEMBERSHIP_AND_TRANSACTIONAL_ACTIVE_POINTER_CHANGE"
+    }
+  ],
+  "transactionPlan": [
+    "Re-review volatile lifecycle/warranty/offer state at activation time.",
+    "Materialize category-native decision-authority successor releases from these approved exact identities without replacing current members.",
+    "Rebind v0.3 richness candidates to the approved native parents and rerun fail-closed loaders.",
+    "Create immutable activation events with approval identity and artifact digests.",
+    "Atomically update all four category active pointers; abort the whole transaction on any digest, membership, identity, compatibility or projection failure."
+  ],
+  "rollback": "Before pointer commit, no runtime rollback is needed. After an approved atomic activation, restore all four prior pointer bytes as one transaction if post-activation verification fails.",
+  "forbidden": [
+    "SELF_APPROVAL",
+    "PARTIAL_POINTER_ACTIVATION",
+    "AMAZON_AS_PRODUCT_TRUTH",
+    "MANUAL_PROSE_WITHOUT_CHECKSUM_AND_LOCATOR",
+    "RANKING_OR_REMOVAL_OF_EXISTING_PRODUCTS"
+  ]
+}

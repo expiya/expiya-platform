@@ -1,0 +1,144 @@
+{
+  "schemaVersion": "electronics-wave-2-comparison/v1",
+  "categories": [
+    {
+      "categoryId": "HEADPHONES",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 7,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "exactProductIds": [
+        "electronics:headphones:sony:wh1000xm5b-ce7",
+        "electronics:headphones:huawei:freebuds-6-black"
+      ],
+      "fields": [
+        "battery_hours_anc",
+        "battery_hours_anc_off",
+        "codec_support",
+        "connectivity",
+        "form_factor",
+        "noise_control",
+        "weight_g"
+      ]
+    },
+    {
+      "categoryId": "PORTABLE_SPEAKER",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 7,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "exactProductIds": [
+        "electronics:portable-speaker:jbl:jblflip7blk",
+        "electronics:portable-speaker:sony:srsult10b-ce7"
+      ],
+      "fields": [
+        "battery_hours",
+        "connectivity",
+        "ingress_rating",
+        "playtime_boost_hours",
+        "replaceable_carry_accessory",
+        "shockproof",
+        "stereo_pair"
+      ]
+    },
+    {
+      "categoryId": "SOUNDBAR",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 6,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "exactProductIds": [
+        "electronics:soundbar:samsung:hw-q800f-tk",
+        "electronics:soundbar:lg:s70ty"
+      ],
+      "fields": [
+        "bluetooth_version",
+        "channel_configuration",
+        "hdmi_earc",
+        "included_subwoofer",
+        "power_w",
+        "rear_speakers_included"
+      ]
+    },
+    {
+      "categoryId": "DIGITAL_CAMERA",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 5,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "exactProductIds": [
+        "electronics:digital-camera:sony:zve10m2b-cec",
+        "electronics:digital-camera:canon:5811c013"
+      ],
+      "fields": [
+        "body_or_kit",
+        "megapixels",
+        "mount",
+        "sensor",
+        "video_max"
+      ]
+    },
+    {
+      "categoryId": "PROJECTOR",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 6,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "exactProductIds": [
+        "electronics:projector:epson:v11ha85040",
+        "electronics:projector:samsung:sp-lff3claxxtk"
+      ],
+      "fields": [
+        "brightness_ansi_lumens",
+        "brightness_lumens",
+        "light_source",
+        "native_resolution",
+        "platform",
+        "throw_ratio"
+      ]
+    },
+    {
+      "categoryId": "GAME_CONSOLE",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 6,
+      "readiness": "POLICY_REVIEW_REQUIRED",
+      "reasons": [
+        "UNRESOLVED_EXACT_IDENTITY:hardwareRevision"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "exactProductIds": [
+        "electronics:game-console:sony:cfi-7021",
+        "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black"
+      ],
+      "fields": [
+        "disc_capability",
+        "display_output",
+        "memory_gb",
+        "platform",
+        "storage_tb",
+        "wireless"
+      ]
+    }
+  ]
+}

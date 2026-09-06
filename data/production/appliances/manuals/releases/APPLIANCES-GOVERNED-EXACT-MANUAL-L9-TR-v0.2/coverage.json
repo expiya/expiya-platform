@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "appliances-manual-coverage/v2",
+  "releaseId": "APPLIANCES-GOVERNED-EXACT-MANUAL-L9-TR-v0.2",
+  "before": {
+    "releaseId": "APPLIANCES-GOVERNED-EXACT-MANUAL-L9-TR-v0.1",
+    "totalMembers": 97,
+    "categories": 24,
+    "manualCount": 10,
+    "l9EntryCount": 5,
+    "blockerCount": 87,
+    "membersWithoutManualId": 82
+  },
+  "after": {
+    "totalMembers": 97,
+    "categories": 24,
+    "manualCount": 14,
+    "l9EntryCount": 9,
+    "blockerCount": 83,
+    "membersWithoutAdmittedManual": 83
+  },
+  "categories": [
+    {
+      "categoryId": "AIR_FRYER",
+      "members": 3,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 3
+    },
+    {
+      "categoryId": "AIR_PURIFIER",
+      "members": 3,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 3
+    },
+    {
+      "categoryId": "BLENDER",
+      "members": 3,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 3
+    },
+    {
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "members": 3,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 3
+    },
+    {
+      "categoryId": "BUILT_IN_OVEN",
+      "members": 3,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 3
+    },
+    {
+      "categoryId": "COUNTERTOP_MICROWAVE_OVEN",
+      "members": 3,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 3
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "members": 4,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 4
+    },
+    {
+      "categoryId": "DRYER",
+      "members": 3,
+      "manuals": 2,
+      "l9Entries": 2,
+      "blockers": 1
+    },
+    {
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "members": 3,
+      "manuals": 1,
+      "l9Entries": 1,
+      "blockers": 2
+    },
+    {
+      "categoryId": "FILTER_COFFEE_MACHINE",
+      "members": 3,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 3
+    },
+    {
+      "categoryId": "FOOD_PROCESSOR",
+      "members": 3,
+      "manuals": 1,
+      "l9Entries": 1,
+      "blockers": 2
+    },
+    {
+      "categoryId": "FREESTANDING_COOKER",
+      "members": 3,
+      "manuals": 1,
+      "l9Entries": 1,
+      "blockers": 2
+    },
+    {
+      "categoryId": "FREEZER",
+      "members": 3,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 3
+    },
+    {
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "members": 3,
+      "manuals": 1,
+      "l9Entries": 1,
+      "blockers": 2
+    },
+    {
+      "categoryId": "HOB",
+      "members": 3,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 3
+    },
+    {
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "members": 3,
+      "manuals": 1,
+      "l9Entries": 1,
+      "blockers": 2
+    },
+    {
+      "categoryId": "MANUAL_ESPRESSO_MACHINE",
+      "members": 3,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 3
+    },
+    {
+      "categoryId": "RANGE_HOOD",
+      "members": 3,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 3
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "members": 4,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 4
+    },
+    {
+      "categoryId": "ROBOT_VACUUM",
+      "members": 4,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 4
+    },
+    {
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "members": 3,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 3
+    },
+    {
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "members": 3,
+      "manuals": 2,
+      "l9Entries": 2,
+      "blockers": 1
+    },
+    {
+      "categoryId": "VACUUM",
+      "members": 4,
+      "manuals": 0,
+      "l9Entries": 0,
+      "blockers": 4
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "members": 24,
+      "manuals": 5,
+      "l9Entries": 0,
+      "blockers": 19
+    }
+  ],
+  "next": "WU-XPY-APPL-AŞAMA2-SALES-ACTION-STANDARDIZATION-01"
+}

@@ -1,0 +1,4247 @@
+{
+  "schemaVersion": "XPY_CATALOG/v0.1",
+  "releaseId": "appliances:refrigerator:catalog-richness:tr:v0.2",
+  "releaseVersion": "APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.2",
+  "departmentId": "APPLIANCES",
+  "categoryId": "REFRIGERATOR",
+  "market": "TR",
+  "lifecycle": "FROZEN",
+  "effectiveAt": "2026-09-04T19:30:00.000+03:00",
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "REFRIGERATOR_SEMANTIC_REGISTRY/v0.2",
+    "semanticAuthorityDigest": "sha256:b4f0d6e7fca7e66631d004503027aac6ec7cdac0c7ec51bacea189dcb7b3e02e",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "sources": [
+    {
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "uri": "https://www.samsung.com/tr/business/refrigerators/bottom-mount-freezer/bespoke-bmfreezer-with-smartthings-ai-energy-mode-344l-clean-white-rb34c6b0e12-tr/",
+      "kind": "OFFICIAL",
+      "version": "parent-reviewed-2026-09-03",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "REVIEWED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "uri": "https://images.samsung.com/is/content/samsung/p6/common/energylabel/common-energylabel-rb34c6b0e12-tr-productfiche.pdf",
+      "kind": "REGULATORY",
+      "version": "parent-reviewed-2026-09-03",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "REVIEWED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "uri": "https://www.bosch-home.com.tr/tr/product/prboschfridge70/KGN55CIE0N",
+      "kind": "OFFICIAL",
+      "version": "parent-reviewed-2026-09-03",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "REVIEWED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "BOSCH-KGN55CIE0N-TR-FICHE",
+      "uri": "https://media3.bsh-group.com/Documents/eudatasheet/tr-TR/KGN55CIE0N.pdf",
+      "kind": "REGULATORY",
+      "version": "parent-reviewed-2026-09-03",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "REVIEWED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "uri": "https://www.siemens-home.bsh-group.com/tr/tr/product/buzdolaplari-ve-derin-dondurucular/solo-buzdolaplari-ve-derin-dondurucular/alttan-donduruculu-solo-buzdolaplari/KG56NVWD0N",
+      "kind": "OFFICIAL",
+      "version": "parent-reviewed-2026-09-03",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "REVIEWED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "uri": "https://media3.bsh-group.com/Documents/eudatasheet/tr-TR/KG56NVWD0N.pdf",
+      "kind": "REGULATORY",
+      "version": "parent-reviewed-2026-09-03",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "REVIEWED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "LG-GC-B569NLLM-TR-PRODUCT",
+      "uri": "https://www.lg.com/tr/buzdolabi/uzun-buzdolabi-donduruculari1/gc-b569nllm/",
+      "kind": "OFFICIAL",
+      "version": "parent-reviewed-2026-09-03",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "REVIEWED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "LG-GC-B569NLLM-TR-FICHE",
+      "uri": "https://www.lg.com/tr/lgecs.downloadFile.ldwf?DOC_ID=20250520248484&FILE_NAME=T%C3%BCrkiye+PIS+GC-B569NLLM.pdf&GSRI_DOC=GSRI&ORIGINAL_NAME_b1_a1=T%C3%BCrkiye+PIS+GC-B569NLLM%5B20250520115146887%5D.pdf&SPEC_DOWNLOAD=N&TC=DwnCmd",
+      "kind": "REGULATORY",
+      "version": "parent-reviewed-2026-09-03",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "REVIEWED",
+      "language": "tr-TR"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:installation",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:installation",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.installation",
+        "value": "FREESTANDING",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:form",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:form",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.form",
+        "value": "BOTTOM_FREEZER_COMBI",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:frosttechnology",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:frosttechnology",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.frostTechnology",
+        "value": "NO_FROST",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:widthmm",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:widthmm",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.widthMm",
+        "value": 595,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:heightmm",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:heightmm",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.heightMm",
+        "value": 1853,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:depthmm",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:depthmm",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.depthMm",
+        "value": 658,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:totalnetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:totalnetlitres",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.totalNetLitres",
+        "value": 344,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:freshfoodnetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:freshfoodnetlitres",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.freshFoodNetLitres",
+        "value": 230,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:freezernetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:freezernetlitres",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.freezerNetLitres",
+        "value": 114,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:freezingcapacitykg24h",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:freezingcapacitykg24h",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.freezingCapacityKg24h",
+        "value": 8,
+        "unit": "kg/24h",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:energyclass",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:energyclass",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.energyClass",
+        "value": "E",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:annualenergykwh",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:annualenergykwh",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Comparable only within the approved TR_2019_2016_AB declaration regime; no household outcome promise."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.annualEnergyKwh",
+        "value": 254,
+        "unit": "kWh/year",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:noisedba",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:noisedba",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Comparable only within the approved TR_2019_2016_AB declaration regime; no household outcome promise."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.noiseDbA",
+        "value": 35,
+        "unit": "dB(A) re 1 pW",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:noiseclass",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:noiseclass",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.noiseClass",
+        "value": "B",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:ambientminc",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:ambientminc",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.ambientMinC",
+        "value": 10,
+        "unit": "°C",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:ambientmaxc",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:ambientmaxc",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].technicalFacts.ambientMaxC",
+        "value": 43,
+        "unit": "°C",
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:nofrost",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:nofrost",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].capabilities.noFrost",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:automaticdefrostfresh",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:automaticdefrostfresh",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].capabilities.automaticDefrostFresh",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:automaticdefrostfreezer",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:automaticdefrostfreezer",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].capabilities.automaticDefrostFreezer",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:reversibledoor",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:reversibledoor",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].capabilities.reversibleDoor",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:freezerdrawers",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:freezerdrawers",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].capabilities.freezerDrawers",
+        "value": 3,
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:fastcooling",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:fastcooling",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].capabilities.fastCooling",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:fastfreezing",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:fastfreezing",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].capabilities.fastFreezing",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:smartconnectivity",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:samsung-rb34c6b0e12-tr:smartconnectivity",
+      "offeringIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SAMSUNG_RB34C6B0E12_TR].capabilities.smartConnectivity",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+          "market": "TR",
+          "model": "RB34C6B0E12/TR",
+          "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:installation",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:installation",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.installation",
+        "value": "FREESTANDING",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:form",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:form",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.form",
+        "value": "BOTTOM_FREEZER_COMBI",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:frosttechnology",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:frosttechnology",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.frostTechnology",
+        "value": "NO_FROST",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:widthmm",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:widthmm",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.widthMm",
+        "value": 700,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:heightmm",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:heightmm",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.heightMm",
+        "value": 1860,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:depthmm",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:depthmm",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.depthMm",
+        "value": 800,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:totalnetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:totalnetlitres",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.totalNetLitres",
+        "value": 483,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:freshfoodnetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:freshfoodnetlitres",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.freshFoodNetLitres",
+        "value": 375,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:freezernetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:freezernetlitres",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.freezerNetLitres",
+        "value": 108,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:freezingcapacitykg24h",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:freezingcapacitykg24h",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.freezingCapacityKg24h",
+        "value": 10,
+        "unit": "kg/24h",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:energyclass",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:energyclass",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.energyClass",
+        "value": "E",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:annualenergykwh",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:annualenergykwh",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Comparable only within the approved TR_2019_2016_AB declaration regime; no household outcome promise."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.annualEnergyKwh",
+        "value": 261,
+        "unit": "kWh/year",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:noisedba",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:noisedba",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Comparable only within the approved TR_2019_2016_AB declaration regime; no household outcome promise."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.noiseDbA",
+        "value": 40,
+        "unit": "dB(A) re 1 pW",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:noiseclass",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:noiseclass",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.noiseClass",
+        "value": "C",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:ambientminc",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:ambientminc",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.ambientMinC",
+        "value": 10,
+        "unit": "°C",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:ambientmaxc",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:ambientmaxc",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].technicalFacts.ambientMaxC",
+        "value": 43,
+        "unit": "°C",
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:nofrost",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:nofrost",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].capabilities.noFrost",
+        "value": true,
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:automaticdefrostfresh",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:automaticdefrostfresh",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].capabilities.automaticDefrostFresh",
+        "value": true,
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:automaticdefrostfreezer",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:automaticdefrostfreezer",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].capabilities.automaticDefrostFreezer",
+        "value": true,
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:fastcooling",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:fastcooling",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].capabilities.fastCooling",
+        "value": true,
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:fastfreezing",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:fastfreezing",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].capabilities.fastFreezing",
+        "value": true,
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:bigbox",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:bigbox",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].capabilities.bigBox",
+        "value": true,
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:preservationcompartment",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:bosch-kgn55cie0n-tr:preservationcompartment",
+      "offeringIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[BOSCH_KGN55CIE0N_TR].capabilities.preservationCompartment",
+        "value": true,
+        "applicability": {
+          "offeringId": "BOSCH_KGN55CIE0N_TR",
+          "market": "TR",
+          "model": "KGN55CIE0N",
+          "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:installation",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:installation",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.installation",
+        "value": "FREESTANDING",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:form",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:form",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.form",
+        "value": "BOTTOM_FREEZER_COMBI",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:frosttechnology",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:frosttechnology",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.frostTechnology",
+        "value": "NO_FROST",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:widthmm",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:widthmm",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.widthMm",
+        "value": 695,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:heightmm",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:heightmm",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.heightMm",
+        "value": 1862,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:depthmm",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:depthmm",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.depthMm",
+        "value": 755,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:totalnetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:totalnetlitres",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.totalNetLitres",
+        "value": 500,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:freshfoodnetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:freshfoodnetlitres",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.freshFoodNetLitres",
+        "value": 223,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:chillernetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:chillernetlitres",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.chillerNetLitres",
+        "value": 119,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:freezernetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:freezernetlitres",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.freezerNetLitres",
+        "value": 158,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:freezingcapacitykg24h",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:freezingcapacitykg24h",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.freezingCapacityKg24h",
+        "value": 9,
+        "unit": "kg/24h",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:energyclass",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:energyclass",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.energyClass",
+        "value": "D",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:annualenergykwh",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:annualenergykwh",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Comparable only within the approved TR_2019_2016_AB declaration regime; no household outcome promise."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.annualEnergyKwh",
+        "value": 261,
+        "unit": "kWh/year",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:noisedba",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:noisedba",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Comparable only within the approved TR_2019_2016_AB declaration regime; no household outcome promise."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.noiseDbA",
+        "value": 35,
+        "unit": "dB(A) re 1 pW",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:noiseclass",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:noiseclass",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.noiseClass",
+        "value": "B",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:ambientminc",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:ambientminc",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.ambientMinC",
+        "value": 10,
+        "unit": "°C",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:ambientmaxc",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:ambientmaxc",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].technicalFacts.ambientMaxC",
+        "value": 43,
+        "unit": "°C",
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:nofrost",
+      "kind": "CAPABILITY",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:nofrost",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].capabilities.noFrost",
+        "value": true,
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:automaticdefrostfresh",
+      "kind": "CAPABILITY",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:automaticdefrostfresh",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].capabilities.automaticDefrostFresh",
+        "value": true,
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:automaticdefrostchiller",
+      "kind": "CAPABILITY",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:automaticdefrostchiller",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].capabilities.automaticDefrostChiller",
+        "value": true,
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:automaticdefrostfreezer",
+      "kind": "CAPABILITY",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:automaticdefrostfreezer",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].capabilities.automaticDefrostFreezer",
+        "value": true,
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:fastfreezing",
+      "kind": "CAPABILITY",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:fastfreezing",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].capabilities.fastFreezing",
+        "value": true,
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:smartconnectivity",
+      "kind": "CAPABILITY",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:smartconnectivity",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].capabilities.smartConnectivity",
+        "value": true,
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:preservationcompartment",
+      "kind": "CAPABILITY",
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:siemens-kg56nvwd0n-tr:preservationcompartment",
+      "offeringIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[SIEMENS_KG56NVWD0N_TR].capabilities.preservationCompartment",
+        "value": true,
+        "applicability": {
+          "offeringId": "SIEMENS_KG56NVWD0N_TR",
+          "market": "TR",
+          "model": "KG56NVWD0N",
+          "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:installation",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:installation",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.installation",
+        "value": "FREESTANDING",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:form",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:form",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.form",
+        "value": "BOTTOM_FREEZER_COMBI",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:frosttechnology",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:frosttechnology",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.frostTechnology",
+        "value": "NO_FROST",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:heightmm",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:heightmm",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.heightMm",
+        "value": 1850,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:totalnetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-FICHE",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:totalnetlitres",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.totalNetLitres",
+        "value": 462,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:freshfoodnetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-FICHE",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:freshfoodnetlitres",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.freshFoodNetLitres",
+        "value": 329,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:freezernetlitres",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-FICHE",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:freezernetlitres",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.freezerNetLitres",
+        "value": 133,
+        "unit": "L",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:freezingcapacitykg24h",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-FICHE",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:freezingcapacitykg24h",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.freezingCapacityKg24h",
+        "value": 7,
+        "unit": "kg/24h",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:energyclass",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-FICHE",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:energyclass",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.energyClass",
+        "value": "E",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:annualenergykwh",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-FICHE",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:annualenergykwh",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Comparable only within the approved TR_2019_2016_AB declaration regime; no household outcome promise."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.annualEnergyKwh",
+        "value": 282,
+        "unit": "kWh/year",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:noisedba",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-FICHE",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:noisedba",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Comparable only within the approved TR_2019_2016_AB declaration regime; no household outcome promise."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.noiseDbA",
+        "value": 41,
+        "unit": "dB(A) re 1 pW",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:noiseclass",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-FICHE",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:noiseclass",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.noiseClass",
+        "value": "C",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:ambientminc",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-FICHE",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:ambientminc",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.ambientMinC",
+        "value": 16,
+        "unit": "°C",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:ambientmaxc",
+      "kind": "TECHNICAL",
+      "sourceId": "LG-GC-B569NLLM-TR-FICHE",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:ambientmaxc",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].technicalFacts.ambientMaxC",
+        "value": 43,
+        "unit": "°C",
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:capability:nofrost",
+      "kind": "CAPABILITY",
+      "sourceId": "LG-GC-B569NLLM-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:nofrost",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].capabilities.noFrost",
+        "value": true,
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:capability:automaticdefrostfresh",
+      "kind": "CAPABILITY",
+      "sourceId": "LG-GC-B569NLLM-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:automaticdefrostfresh",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].capabilities.automaticDefrostFresh",
+        "value": true,
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:capability:automaticdefrostfreezer",
+      "kind": "CAPABILITY",
+      "sourceId": "LG-GC-B569NLLM-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:automaticdefrostfreezer",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].capabilities.automaticDefrostFreezer",
+        "value": true,
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:capability:fastfreezing",
+      "kind": "CAPABILITY",
+      "sourceId": "LG-GC-B569NLLM-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:fastfreezing",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].capabilities.fastFreezing",
+        "value": true,
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:capability:doorcooling",
+      "kind": "CAPABILITY",
+      "sourceId": "LG-GC-B569NLLM-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:doorcooling",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].capabilities.doorCooling",
+        "value": true,
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:capability:smartdiagnosis",
+      "kind": "CAPABILITY",
+      "sourceId": "LG-GC-B569NLLM-TR-PRODUCT",
+      "assertionId": "refrigerator-assertion:lg-gc-b569nllm-tr:smartdiagnosis",
+      "offeringIds": [
+        "LG_GC_B569NLLM_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T00:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "REVIEWED",
+      "limitations": [
+        "Capability presence does not guarantee a preservation, convenience, connectivity, or storage outcome."
+      ],
+      "assertion": {
+        "locator": "domain-pack.products[LG_GC_B569NLLM_TR].capabilities.smartDiagnosis",
+        "value": true,
+        "applicability": {
+          "offeringId": "LG_GC_B569NLLM_TR",
+          "market": "TR",
+          "model": "GC-B569NLLM",
+          "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+          "status": "EXACT"
+        }
+      }
+    }
+  ],
+  "offerings": [
+    {
+      "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-03T12:00:00.000+03:00",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Samsung",
+        "model": "RB34C6B0E12/TR",
+        "configuration": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+        "identifiers": {
+          "productId": "SAMSUNG_RB34C6B0E12_TR"
+        }
+      }
+    },
+    {
+      "offeringId": "BOSCH_KGN55CIE0N_TR",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-03T12:00:00.000+03:00",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Bosch",
+        "model": "KGN55CIE0N",
+        "configuration": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+        "identifiers": {
+          "productId": "BOSCH_KGN55CIE0N_TR"
+        }
+      }
+    },
+    {
+      "offeringId": "SIEMENS_KG56NVWD0N_TR",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-03T12:00:00.000+03:00",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Siemens",
+        "model": "KG56NVWD0N",
+        "configuration": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+        "identifiers": {
+          "productId": "SIEMENS_KG56NVWD0N_TR"
+        }
+      }
+    },
+    {
+      "offeringId": "LG_GC_B569NLLM_TR",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-03T12:00:00.000+03:00",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "LG",
+        "model": "GC-B569NLLM",
+        "configuration": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+        "identifiers": {
+          "productId": "LG_GC_B569NLLM_TR"
+        }
+      }
+    }
+  ],
+  "layers": {
+    "l1Facts": [
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:installation",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "installation",
+        "value": "FREESTANDING",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:installation"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:form",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "form",
+        "value": "BOTTOM_FREEZER_COMBI",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:form"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:frosttechnology",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "frostTechnology",
+        "value": "NO_FROST",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:frosttechnology"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:widthmm",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "widthMm",
+        "value": 595,
+        "unit": "mm",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:widthmm"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:heightmm",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "heightMm",
+        "value": 1853,
+        "unit": "mm",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:heightmm"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:depthmm",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "depthMm",
+        "value": 658,
+        "unit": "mm",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:depthmm"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:totalnetlitres",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "totalNetLitres",
+        "value": 344,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:totalnetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:freshfoodnetlitres",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "freshFoodNetLitres",
+        "value": 230,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:freshfoodnetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:freezernetlitres",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "freezerNetLitres",
+        "value": 114,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:freezernetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:freezingcapacitykg24h",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "freezingCapacityKg24h",
+        "value": 8,
+        "unit": "kg/24h",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:freezingcapacitykg24h"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:energyclass",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "energyClass",
+        "value": "E",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:energyclass"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:annualenergykwh",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "annualEnergyKwh",
+        "value": 254,
+        "unit": "kWh/year",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:annualenergykwh"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:noisedba",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "noiseDbA",
+        "value": 35,
+        "unit": "dB(A) re 1 pW",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:noisedba"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:noiseclass",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "noiseClass",
+        "value": "B",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:noiseclass"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:ambientminc",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "ambientMinC",
+        "value": 10,
+        "unit": "°C",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:ambientminc"
+      },
+      {
+        "factId": "refrigerator-fact:samsung-rb34c6b0e12-tr:ambientmaxc",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "ambientMaxC",
+        "value": 43,
+        "unit": "°C",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:ambientmaxc"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:installation",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "installation",
+        "value": "FREESTANDING",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:installation"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:form",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "form",
+        "value": "BOTTOM_FREEZER_COMBI",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:form"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:frosttechnology",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "frostTechnology",
+        "value": "NO_FROST",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:frosttechnology"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:widthmm",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "widthMm",
+        "value": 700,
+        "unit": "mm",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:widthmm"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:heightmm",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "heightMm",
+        "value": 1860,
+        "unit": "mm",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:heightmm"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:depthmm",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "depthMm",
+        "value": 800,
+        "unit": "mm",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:depthmm"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:totalnetlitres",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "totalNetLitres",
+        "value": 483,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:totalnetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:freshfoodnetlitres",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "freshFoodNetLitres",
+        "value": 375,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:freshfoodnetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:freezernetlitres",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "freezerNetLitres",
+        "value": 108,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:freezernetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:freezingcapacitykg24h",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "freezingCapacityKg24h",
+        "value": 10,
+        "unit": "kg/24h",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:freezingcapacitykg24h"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:energyclass",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "energyClass",
+        "value": "E",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:energyclass"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:annualenergykwh",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "annualEnergyKwh",
+        "value": 261,
+        "unit": "kWh/year",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:annualenergykwh"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:noisedba",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "noiseDbA",
+        "value": 40,
+        "unit": "dB(A) re 1 pW",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:noisedba"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:noiseclass",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "noiseClass",
+        "value": "C",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:noiseclass"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:ambientminc",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "ambientMinC",
+        "value": 10,
+        "unit": "°C",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:ambientminc"
+      },
+      {
+        "factId": "refrigerator-fact:bosch-kgn55cie0n-tr:ambientmaxc",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "ambientMaxC",
+        "value": 43,
+        "unit": "°C",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:ambientmaxc"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:installation",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "installation",
+        "value": "FREESTANDING",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:installation"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:form",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "form",
+        "value": "BOTTOM_FREEZER_COMBI",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:form"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:frosttechnology",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "frostTechnology",
+        "value": "NO_FROST",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:frosttechnology"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:widthmm",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "widthMm",
+        "value": 695,
+        "unit": "mm",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:widthmm"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:heightmm",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "heightMm",
+        "value": 1862,
+        "unit": "mm",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:heightmm"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:depthmm",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "depthMm",
+        "value": 755,
+        "unit": "mm",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:depthmm"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:totalnetlitres",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "totalNetLitres",
+        "value": 500,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:totalnetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:freshfoodnetlitres",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "freshFoodNetLitres",
+        "value": 223,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:freshfoodnetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:chillernetlitres",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "chillerNetLitres",
+        "value": 119,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:chillernetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:freezernetlitres",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "freezerNetLitres",
+        "value": 158,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:freezernetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:freezingcapacitykg24h",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "freezingCapacityKg24h",
+        "value": 9,
+        "unit": "kg/24h",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:freezingcapacitykg24h"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:energyclass",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "energyClass",
+        "value": "D",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:energyclass"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:annualenergykwh",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "annualEnergyKwh",
+        "value": 261,
+        "unit": "kWh/year",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:annualenergykwh"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:noisedba",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "noiseDbA",
+        "value": 35,
+        "unit": "dB(A) re 1 pW",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:noisedba"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:noiseclass",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "noiseClass",
+        "value": "B",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:noiseclass"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:ambientminc",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "ambientMinC",
+        "value": 10,
+        "unit": "°C",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:ambientminc"
+      },
+      {
+        "factId": "refrigerator-fact:siemens-kg56nvwd0n-tr:ambientmaxc",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "ambientMaxC",
+        "value": 43,
+        "unit": "°C",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:ambientmaxc"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:installation",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "installation",
+        "value": "FREESTANDING",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:installation"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:form",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "form",
+        "value": "BOTTOM_FREEZER_COMBI",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:form"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:frosttechnology",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "frostTechnology",
+        "value": "NO_FROST",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:frosttechnology"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:heightmm",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "heightMm",
+        "value": 1850,
+        "unit": "mm",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:heightmm"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:totalnetlitres",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "totalNetLitres",
+        "value": 462,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:totalnetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:freshfoodnetlitres",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "freshFoodNetLitres",
+        "value": 329,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:freshfoodnetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:freezernetlitres",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "freezerNetLitres",
+        "value": 133,
+        "unit": "L",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:freezernetlitres"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:freezingcapacitykg24h",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "freezingCapacityKg24h",
+        "value": 7,
+        "unit": "kg/24h",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:freezingcapacitykg24h"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:energyclass",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "energyClass",
+        "value": "E",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:energyclass"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:annualenergykwh",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "annualEnergyKwh",
+        "value": 282,
+        "unit": "kWh/year",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:annualenergykwh"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:noisedba",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "noiseDbA",
+        "value": 41,
+        "unit": "dB(A) re 1 pW",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:noisedba"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:noiseclass",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "noiseClass",
+        "value": "C",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:noiseclass"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:ambientminc",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "ambientMinC",
+        "value": 16,
+        "unit": "°C",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:ambientminc"
+      },
+      {
+        "factId": "refrigerator-fact:lg-gc-b569nllm-tr:ambientmaxc",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "ambientMaxC",
+        "value": 43,
+        "unit": "°C",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:fact:ambientmaxc"
+      }
+    ],
+    "l2Capabilities": [
+      {
+        "capabilityId": "refrigerator-capability:samsung-rb34c6b0e12-tr:nofrost",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "noFrost",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:nofrost",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:samsung-rb34c6b0e12-tr:automaticdefrostfresh",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "automaticDefrostFresh",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:automaticdefrostfresh",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:samsung-rb34c6b0e12-tr:automaticdefrostfreezer",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "automaticDefrostFreezer",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:automaticdefrostfreezer",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:samsung-rb34c6b0e12-tr:reversibledoor",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "reversibleDoor",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:reversibledoor",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:samsung-rb34c6b0e12-tr:freezerdrawers",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "freezerDrawers",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:freezerdrawers",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:samsung-rb34c6b0e12-tr:fastcooling",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "fastCooling",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:fastcooling",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:samsung-rb34c6b0e12-tr:fastfreezing",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "fastFreezing",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:fastfreezing",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:samsung-rb34c6b0e12-tr:smartconnectivity",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "key": "smartConnectivity",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:smartconnectivity",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:bosch-kgn55cie0n-tr:nofrost",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "noFrost",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:nofrost",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:bosch-kgn55cie0n-tr:automaticdefrostfresh",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "automaticDefrostFresh",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:automaticdefrostfresh",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:bosch-kgn55cie0n-tr:automaticdefrostfreezer",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "automaticDefrostFreezer",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:automaticdefrostfreezer",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:bosch-kgn55cie0n-tr:fastcooling",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "fastCooling",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:fastcooling",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:bosch-kgn55cie0n-tr:fastfreezing",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "fastFreezing",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:fastfreezing",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:bosch-kgn55cie0n-tr:bigbox",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "bigBox",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:bigbox",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:bosch-kgn55cie0n-tr:preservationcompartment",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "key": "preservationCompartment",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:preservationcompartment",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:siemens-kg56nvwd0n-tr:nofrost",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "noFrost",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:nofrost",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:siemens-kg56nvwd0n-tr:automaticdefrostfresh",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "automaticDefrostFresh",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:automaticdefrostfresh",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:siemens-kg56nvwd0n-tr:automaticdefrostchiller",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "automaticDefrostChiller",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:automaticdefrostchiller",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:siemens-kg56nvwd0n-tr:automaticdefrostfreezer",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "automaticDefrostFreezer",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:automaticdefrostfreezer",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:siemens-kg56nvwd0n-tr:fastfreezing",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "fastFreezing",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:fastfreezing",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:siemens-kg56nvwd0n-tr:smartconnectivity",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "smartConnectivity",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:smartconnectivity",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:siemens-kg56nvwd0n-tr:preservationcompartment",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "key": "preservationCompartment",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:preservationcompartment",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:lg-gc-b569nllm-tr:nofrost",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "noFrost",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:capability:nofrost",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:lg-gc-b569nllm-tr:automaticdefrostfresh",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "automaticDefrostFresh",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:capability:automaticdefrostfresh",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:lg-gc-b569nllm-tr:automaticdefrostfreezer",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "automaticDefrostFreezer",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:capability:automaticdefrostfreezer",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:lg-gc-b569nllm-tr:fastfreezing",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "fastFreezing",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:capability:fastfreezing",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:lg-gc-b569nllm-tr:doorcooling",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "doorCooling",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:capability:doorcooling",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      },
+      {
+        "capabilityId": "refrigerator-capability:lg-gc-b569nllm-tr:smartdiagnosis",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "key": "smartDiagnosis",
+        "state": "PRESENT",
+        "evidenceId": "refrigerator-evidence:lg-gc-b569nllm-tr:capability:smartdiagnosis",
+        "limitations": [
+          "Presence only; outcome and operating conditions are not inferred."
+        ]
+      }
+    ],
+    "l3UsageSemantics": [
+      {
+        "semanticId": "refrigerator-semantic:installation",
+        "meaning": "Body dimensions can be checked only against matching user space bounds; door-open envelope and required clearances remain unknown for every product in this release.",
+        "factIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:widthmm",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:heightmm",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:depthmm",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:widthmm",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:heightmm",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:depthmm",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:widthmm",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:heightmm",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:depthmm",
+          "refrigerator-fact:lg-gc-b569nllm-tr:heightmm"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "refrigerator-semantic:capacity",
+        "meaning": "Total net, fresh-food net, chiller net, freezer net and gross capacity are distinct; no missing compartment value may be substituted or inferred.",
+        "factIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:totalnetlitres",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:freshfoodnetlitres",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:freezernetlitres",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:totalnetlitres",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:freshfoodnetlitres",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:freezernetlitres",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:totalnetlitres",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:freshfoodnetlitres",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:chillernetlitres",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:freezernetlitres",
+          "refrigerator-fact:lg-gc-b569nllm-tr:totalnetlitres",
+          "refrigerator-fact:lg-gc-b569nllm-tr:freshfoodnetlitres",
+          "refrigerator-fact:lg-gc-b569nllm-tr:freezernetlitres"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "refrigerator-semantic:energy",
+        "meaning": "Annual energy is a standardized declaration within the approved regime, not a household bill promise.",
+        "factIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:energyclass",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:annualenergykwh",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:energyclass",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:annualenergykwh",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:energyclass",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:annualenergykwh",
+          "refrigerator-fact:lg-gc-b569nllm-tr:energyclass",
+          "refrigerator-fact:lg-gc-b569nllm-tr:annualenergykwh"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "refrigerator-semantic:noise",
+        "meaning": "Standardized acoustic airborne noise supports like-for-like evidence display; it does not guarantee perceived quietness in a home.",
+        "factIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:noisedba",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:noiseclass",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:noisedba",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:noiseclass",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:noisedba",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:noiseclass",
+          "refrigerator-fact:lg-gc-b569nllm-tr:noisedba",
+          "refrigerator-fact:lg-gc-b569nllm-tr:noiseclass"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "refrigerator-semantic:ambient",
+        "meaning": "Published ambient limits are operating-envelope evidence, not a guarantee for a particular room or installation.",
+        "factIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:ambientminc",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:ambientmaxc",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:ambientminc",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:ambientmaxc",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:ambientminc",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:ambientmaxc",
+          "refrigerator-fact:lg-gc-b569nllm-tr:ambientminc",
+          "refrigerator-fact:lg-gc-b569nllm-tr:ambientmaxc"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "refrigerator-semantic:preservation",
+        "meaning": "Named preservation and cooling capabilities establish presence only; storage duration and food outcome are not guaranteed.",
+        "factIds": [],
+        "capabilityIds": [
+          "refrigerator-capability:samsung-rb34c6b0e12-tr:fastcooling",
+          "refrigerator-capability:samsung-rb34c6b0e12-tr:fastfreezing",
+          "refrigerator-capability:bosch-kgn55cie0n-tr:fastcooling",
+          "refrigerator-capability:bosch-kgn55cie0n-tr:fastfreezing",
+          "refrigerator-capability:bosch-kgn55cie0n-tr:preservationcompartment",
+          "refrigerator-capability:siemens-kg56nvwd0n-tr:fastfreezing",
+          "refrigerator-capability:siemens-kg56nvwd0n-tr:preservationcompartment",
+          "refrigerator-capability:lg-gc-b569nllm-tr:fastfreezing",
+          "refrigerator-capability:lg-gc-b569nllm-tr:doorcooling"
+        ]
+      },
+      {
+        "semanticId": "refrigerator-semantic:connectivity",
+        "meaning": "Connectivity or diagnosis capability establishes feature presence only and does not establish service availability or an energy outcome.",
+        "factIds": [],
+        "capabilityIds": [
+          "refrigerator-capability:samsung-rb34c6b0e12-tr:smartconnectivity",
+          "refrigerator-capability:siemens-kg56nvwd0n-tr:smartconnectivity",
+          "refrigerator-capability:lg-gc-b569nllm-tr:smartdiagnosis"
+        ]
+      }
+    ],
+    "l4Needs": [
+      {
+        "needId": "INSTALLATION_ENVELOPE",
+        "meaning": "Physical installation envelope"
+      },
+      {
+        "needId": "FRESH_FOOD_STORAGE_NEED",
+        "meaning": "Fresh-food net storage need"
+      },
+      {
+        "needId": "FREEZER_STORAGE_NEED",
+        "meaning": "Freezer net storage need"
+      },
+      {
+        "needId": "TOTAL_NET_CAPACITY_PRIORITY",
+        "meaning": "Total net capacity priority"
+      },
+      {
+        "needId": "PRESERVATION_COMPARTMENT_NEED",
+        "meaning": "Named preservation compartment need"
+      },
+      {
+        "needId": "LOW_NOISE_PRIORITY",
+        "meaning": "Comparable standardized-noise priority"
+      },
+      {
+        "needId": "ENERGY_PRIORITY",
+        "meaning": "Comparable declared-energy priority"
+      },
+      {
+        "needId": "SMART_CONNECTIVITY",
+        "meaning": "Smart connectivity need"
+      },
+      {
+        "needId": "BUDGET_SENSITIVITY",
+        "meaning": "Budget evaluated only through external current-price authority"
+      }
+    ],
+    "l4NeedEvidenceMappings": [
+      {
+        "mappingId": "refrigerator-map:installation",
+        "needId": "INSTALLATION_ENVELOPE",
+        "eligibleFactIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:widthmm",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:heightmm",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:depthmm",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:widthmm",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:heightmm",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:depthmm",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:widthmm",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:heightmm",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:depthmm",
+          "refrigerator-fact:lg-gc-b569nllm-tr:heightmm"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "refrigerator-map:fresh",
+        "needId": "FRESH_FOOD_STORAGE_NEED",
+        "eligibleFactIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:freshfoodnetlitres",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:freshfoodnetlitres",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:freshfoodnetlitres",
+          "refrigerator-fact:lg-gc-b569nllm-tr:freshfoodnetlitres"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "refrigerator-map:freezer",
+        "needId": "FREEZER_STORAGE_NEED",
+        "eligibleFactIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:freezernetlitres",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:freezernetlitres",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:freezernetlitres",
+          "refrigerator-fact:lg-gc-b569nllm-tr:freezernetlitres"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "refrigerator-map:total",
+        "needId": "TOTAL_NET_CAPACITY_PRIORITY",
+        "eligibleFactIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:totalnetlitres",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:totalnetlitres",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:totalnetlitres",
+          "refrigerator-fact:lg-gc-b569nllm-tr:totalnetlitres"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "SOFT_PREFERENCE"
+      },
+      {
+        "mappingId": "refrigerator-map:preservation",
+        "needId": "PRESERVATION_COMPARTMENT_NEED",
+        "eligibleFactIds": [
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:chillernetlitres"
+        ],
+        "eligibleCapabilityIds": [
+          "refrigerator-capability:bosch-kgn55cie0n-tr:preservationcompartment",
+          "refrigerator-capability:siemens-kg56nvwd0n-tr:preservationcompartment"
+        ],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "refrigerator-map:noise",
+        "needId": "LOW_NOISE_PRIORITY",
+        "eligibleFactIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:noisedba",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:noisedba",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:noisedba",
+          "refrigerator-fact:lg-gc-b569nllm-tr:noisedba"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "SOFT_PREFERENCE"
+      },
+      {
+        "mappingId": "refrigerator-map:energy",
+        "needId": "ENERGY_PRIORITY",
+        "eligibleFactIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:energyclass",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:annualenergykwh",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:energyclass",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:annualenergykwh",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:energyclass",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:annualenergykwh",
+          "refrigerator-fact:lg-gc-b569nllm-tr:energyclass",
+          "refrigerator-fact:lg-gc-b569nllm-tr:annualenergykwh"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "SOFT_PREFERENCE"
+      },
+      {
+        "mappingId": "refrigerator-map:smart",
+        "needId": "SMART_CONNECTIVITY",
+        "eligibleFactIds": [],
+        "eligibleCapabilityIds": [
+          "refrigerator-capability:samsung-rb34c6b0e12-tr:smartconnectivity",
+          "refrigerator-capability:siemens-kg56nvwd0n-tr:smartconnectivity"
+        ],
+        "policy": "HARD_FILTER"
+      }
+    ],
+    "l5PersonaSignals": [
+      {
+        "signalId": "refrigerator-planning:space-constrained",
+        "needIds": [
+          "INSTALLATION_ENVELOPE"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "refrigerator-planning:storage-intensive",
+        "needIds": [
+          "FRESH_FOOD_STORAGE_NEED",
+          "FREEZER_STORAGE_NEED",
+          "TOTAL_NET_CAPACITY_PRIORITY"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "refrigerator-planning:open-plan-home",
+        "needIds": [
+          "LOW_NOISE_PRIORITY"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      }
+    ],
+    "l6DailyLifeInterpretations": [
+      {
+        "interpretationId": "refrigerator-interpretation:samsung-rb34c6b0e12-tr:capacity",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "text": "Published net compartment volumes can be checked against the matching stated storage need; the figures do not describe shelf usability or household fit by themselves.",
+        "factIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:totalnetlitres",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:freshfoodnetlitres",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:freezernetlitres"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Compartment types remain distinct and missing values stay unknown."
+        ],
+        "nonGuarantees": [
+          "No household-size or usable-layout guarantee."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:samsung-rb34c6b0e12-tr:installation",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "text": "Published body dimensions can support a bounded space check; door-open depth and clearances remain unknown.",
+        "factIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:widthmm",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:heightmm",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:depthmm"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Door swing, ventilation and manufacturer installation instructions remain separate."
+        ],
+        "nonGuarantees": [
+          "No installation-fit guarantee without a complete envelope."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:samsung-rb34c6b0e12-tr:performance",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "text": "Standardized energy and noise declarations permit like-for-like evidence display, while household consumption and perceived sound depend on use and environment.",
+        "factIds": [
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:energyclass",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:annualenergykwh",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:noisedba",
+          "refrigerator-fact:samsung-rb34c6b0e12-tr:noiseclass"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Only the approved common declaration regime is comparable."
+        ],
+        "nonGuarantees": [
+          "No low-bill or quiet-home guarantee."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:samsung-rb34c6b0e12-tr:capabilities",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "text": "Verified feature presence can inform a matching stated need, but named cooling, preservation, connectivity and diagnosis features do not prove an outcome.",
+        "factIds": [],
+        "capabilityIds": [
+          "refrigerator-capability:samsung-rb34c6b0e12-tr:fastcooling",
+          "refrigerator-capability:samsung-rb34c6b0e12-tr:fastfreezing",
+          "refrigerator-capability:samsung-rb34c6b0e12-tr:smartconnectivity"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Use conditions and availability may be model-specific."
+        ],
+        "nonGuarantees": [
+          "No storage-duration, food-safety, service, or energy-saving guarantee."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:bosch-kgn55cie0n-tr:capacity",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "text": "Published net compartment volumes can be checked against the matching stated storage need; the figures do not describe shelf usability or household fit by themselves.",
+        "factIds": [
+          "refrigerator-fact:bosch-kgn55cie0n-tr:totalnetlitres",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:freshfoodnetlitres",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:freezernetlitres"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Compartment types remain distinct and missing values stay unknown."
+        ],
+        "nonGuarantees": [
+          "No household-size or usable-layout guarantee."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:bosch-kgn55cie0n-tr:installation",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "text": "Published body dimensions can support a bounded space check; door-open depth and clearances remain unknown.",
+        "factIds": [
+          "refrigerator-fact:bosch-kgn55cie0n-tr:widthmm",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:heightmm",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:depthmm"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Door swing, ventilation and manufacturer installation instructions remain separate."
+        ],
+        "nonGuarantees": [
+          "No installation-fit guarantee without a complete envelope."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:bosch-kgn55cie0n-tr:performance",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "text": "Standardized energy and noise declarations permit like-for-like evidence display, while household consumption and perceived sound depend on use and environment.",
+        "factIds": [
+          "refrigerator-fact:bosch-kgn55cie0n-tr:energyclass",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:annualenergykwh",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:noisedba",
+          "refrigerator-fact:bosch-kgn55cie0n-tr:noiseclass"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Only the approved common declaration regime is comparable."
+        ],
+        "nonGuarantees": [
+          "No low-bill or quiet-home guarantee."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:bosch-kgn55cie0n-tr:capabilities",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "text": "Verified feature presence can inform a matching stated need, but named cooling, preservation, connectivity and diagnosis features do not prove an outcome.",
+        "factIds": [],
+        "capabilityIds": [
+          "refrigerator-capability:bosch-kgn55cie0n-tr:fastcooling",
+          "refrigerator-capability:bosch-kgn55cie0n-tr:fastfreezing",
+          "refrigerator-capability:bosch-kgn55cie0n-tr:preservationcompartment"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Use conditions and availability may be model-specific."
+        ],
+        "nonGuarantees": [
+          "No storage-duration, food-safety, service, or energy-saving guarantee."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:siemens-kg56nvwd0n-tr:capacity",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "text": "Published net compartment volumes can be checked against the matching stated storage need; the figures do not describe shelf usability or household fit by themselves.",
+        "factIds": [
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:totalnetlitres",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:freshfoodnetlitres",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:chillernetlitres",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:freezernetlitres"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Compartment types remain distinct and missing values stay unknown."
+        ],
+        "nonGuarantees": [
+          "No household-size or usable-layout guarantee."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:siemens-kg56nvwd0n-tr:installation",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "text": "Published body dimensions can support a bounded space check; door-open depth and clearances remain unknown.",
+        "factIds": [
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:widthmm",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:heightmm",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:depthmm"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Door swing, ventilation and manufacturer installation instructions remain separate."
+        ],
+        "nonGuarantees": [
+          "No installation-fit guarantee without a complete envelope."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:siemens-kg56nvwd0n-tr:performance",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "text": "Standardized energy and noise declarations permit like-for-like evidence display, while household consumption and perceived sound depend on use and environment.",
+        "factIds": [
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:energyclass",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:annualenergykwh",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:noisedba",
+          "refrigerator-fact:siemens-kg56nvwd0n-tr:noiseclass"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Only the approved common declaration regime is comparable."
+        ],
+        "nonGuarantees": [
+          "No low-bill or quiet-home guarantee."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:siemens-kg56nvwd0n-tr:capabilities",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "text": "Verified feature presence can inform a matching stated need, but named cooling, preservation, connectivity and diagnosis features do not prove an outcome.",
+        "factIds": [],
+        "capabilityIds": [
+          "refrigerator-capability:siemens-kg56nvwd0n-tr:fastfreezing",
+          "refrigerator-capability:siemens-kg56nvwd0n-tr:smartconnectivity",
+          "refrigerator-capability:siemens-kg56nvwd0n-tr:preservationcompartment"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Use conditions and availability may be model-specific."
+        ],
+        "nonGuarantees": [
+          "No storage-duration, food-safety, service, or energy-saving guarantee."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:lg-gc-b569nllm-tr:capacity",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "text": "Published net compartment volumes can be checked against the matching stated storage need; the figures do not describe shelf usability or household fit by themselves.",
+        "factIds": [
+          "refrigerator-fact:lg-gc-b569nllm-tr:totalnetlitres",
+          "refrigerator-fact:lg-gc-b569nllm-tr:freshfoodnetlitres",
+          "refrigerator-fact:lg-gc-b569nllm-tr:freezernetlitres"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Compartment types remain distinct and missing values stay unknown."
+        ],
+        "nonGuarantees": [
+          "No household-size or usable-layout guarantee."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:lg-gc-b569nllm-tr:installation",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "text": "The height is known, but conflicting official width and depth values remain unknown and cannot support an installation-fit conclusion.",
+        "factIds": [
+          "refrigerator-fact:lg-gc-b569nllm-tr:heightmm"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "UNKNOWN",
+        "limitations": [
+          "Door swing, ventilation and manufacturer installation instructions remain separate."
+        ],
+        "nonGuarantees": [
+          "No installation-fit guarantee without a complete envelope."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:lg-gc-b569nllm-tr:performance",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "text": "Standardized energy and noise declarations permit like-for-like evidence display, while household consumption and perceived sound depend on use and environment.",
+        "factIds": [
+          "refrigerator-fact:lg-gc-b569nllm-tr:energyclass",
+          "refrigerator-fact:lg-gc-b569nllm-tr:annualenergykwh",
+          "refrigerator-fact:lg-gc-b569nllm-tr:noisedba",
+          "refrigerator-fact:lg-gc-b569nllm-tr:noiseclass"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Only the approved common declaration regime is comparable."
+        ],
+        "nonGuarantees": [
+          "No low-bill or quiet-home guarantee."
+        ]
+      },
+      {
+        "interpretationId": "refrigerator-interpretation:lg-gc-b569nllm-tr:capabilities",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "text": "Verified feature presence can inform a matching stated need, but named cooling, preservation, connectivity and diagnosis features do not prove an outcome.",
+        "factIds": [],
+        "capabilityIds": [
+          "refrigerator-capability:lg-gc-b569nllm-tr:fastfreezing",
+          "refrigerator-capability:lg-gc-b569nllm-tr:doorcooling",
+          "refrigerator-capability:lg-gc-b569nllm-tr:smartdiagnosis"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Use conditions and availability may be model-specific."
+        ],
+        "nonGuarantees": [
+          "No storage-duration, food-safety, service, or energy-saving guarantee."
+        ]
+      }
+    ],
+    "l7ExperienceRules": [],
+    "l8DecisionProjections": [
+      {
+        "projectionId": "refrigerator-decision-projection:samsung-rb34c6b0e12-tr",
+        "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+        "eligibleEvidenceIds": [
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:installation",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:form",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:frosttechnology",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:widthmm",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:heightmm",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:depthmm",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:totalnetlitres",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:freshfoodnetlitres",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:freezernetlitres",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:freezingcapacitykg24h",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:energyclass",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:annualenergykwh",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:noisedba",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:noiseclass",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:ambientminc",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:fact:ambientmaxc",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:nofrost",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:automaticdefrostfresh",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:automaticdefrostfreezer",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:reversibledoor",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:freezerdrawers",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:fastcooling",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:fastfreezing",
+          "refrigerator-evidence:samsung-rb34c6b0e12-tr:capability:smartconnectivity"
+        ],
+        "needMappingIds": [
+          "refrigerator-map:installation",
+          "refrigerator-map:fresh",
+          "refrigerator-map:freezer",
+          "refrigerator-map:total",
+          "refrigerator-map:noise",
+          "refrigerator-map:energy",
+          "refrigerator-map:smart"
+        ],
+        "limitations": [
+          "This projection reads only approved Refrigerator evidence; unknowns are neutral and dependent boundaries fail closed.",
+          "Persona, daily-life interpretation, claims, price, media and Advisor content cannot filter, rank or authorize."
+        ],
+        "disclosures": [
+          "The frozen v0.1 Refrigerator candidate and Y authority remains unchanged.",
+          "Capacity, preservation, energy, noise and installation outcomes are not guaranteed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "refrigerator-decision-projection:bosch-kgn55cie0n-tr",
+        "offeringId": "BOSCH_KGN55CIE0N_TR",
+        "eligibleEvidenceIds": [
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:installation",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:form",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:frosttechnology",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:widthmm",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:heightmm",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:depthmm",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:totalnetlitres",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:freshfoodnetlitres",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:freezernetlitres",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:freezingcapacitykg24h",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:energyclass",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:annualenergykwh",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:noisedba",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:noiseclass",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:ambientminc",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:fact:ambientmaxc",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:nofrost",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:automaticdefrostfresh",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:automaticdefrostfreezer",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:fastcooling",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:fastfreezing",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:bigbox",
+          "refrigerator-evidence:bosch-kgn55cie0n-tr:capability:preservationcompartment"
+        ],
+        "needMappingIds": [
+          "refrigerator-map:installation",
+          "refrigerator-map:fresh",
+          "refrigerator-map:freezer",
+          "refrigerator-map:total",
+          "refrigerator-map:preservation",
+          "refrigerator-map:noise",
+          "refrigerator-map:energy"
+        ],
+        "limitations": [
+          "This projection reads only approved Refrigerator evidence; unknowns are neutral and dependent boundaries fail closed.",
+          "Persona, daily-life interpretation, claims, price, media and Advisor content cannot filter, rank or authorize."
+        ],
+        "disclosures": [
+          "The frozen v0.1 Refrigerator candidate and Y authority remains unchanged.",
+          "Capacity, preservation, energy, noise and installation outcomes are not guaranteed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "refrigerator-decision-projection:siemens-kg56nvwd0n-tr",
+        "offeringId": "SIEMENS_KG56NVWD0N_TR",
+        "eligibleEvidenceIds": [
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:installation",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:form",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:frosttechnology",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:widthmm",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:heightmm",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:depthmm",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:totalnetlitres",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:freshfoodnetlitres",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:chillernetlitres",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:freezernetlitres",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:freezingcapacitykg24h",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:energyclass",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:annualenergykwh",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:noisedba",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:noiseclass",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:ambientminc",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:fact:ambientmaxc",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:nofrost",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:automaticdefrostfresh",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:automaticdefrostchiller",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:automaticdefrostfreezer",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:fastfreezing",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:smartconnectivity",
+          "refrigerator-evidence:siemens-kg56nvwd0n-tr:capability:preservationcompartment"
+        ],
+        "needMappingIds": [
+          "refrigerator-map:installation",
+          "refrigerator-map:fresh",
+          "refrigerator-map:freezer",
+          "refrigerator-map:total",
+          "refrigerator-map:preservation",
+          "refrigerator-map:noise",
+          "refrigerator-map:energy",
+          "refrigerator-map:smart"
+        ],
+        "limitations": [
+          "This projection reads only approved Refrigerator evidence; unknowns are neutral and dependent boundaries fail closed.",
+          "Persona, daily-life interpretation, claims, price, media and Advisor content cannot filter, rank or authorize."
+        ],
+        "disclosures": [
+          "The frozen v0.1 Refrigerator candidate and Y authority remains unchanged.",
+          "Capacity, preservation, energy, noise and installation outcomes are not guaranteed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "refrigerator-decision-projection:lg-gc-b569nllm-tr",
+        "offeringId": "LG_GC_B569NLLM_TR",
+        "eligibleEvidenceIds": [
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:installation",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:form",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:frosttechnology",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:heightmm",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:totalnetlitres",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:freshfoodnetlitres",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:freezernetlitres",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:freezingcapacitykg24h",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:energyclass",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:annualenergykwh",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:noisedba",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:noiseclass",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:ambientminc",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:fact:ambientmaxc",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:capability:nofrost",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:capability:automaticdefrostfresh",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:capability:automaticdefrostfreezer",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:capability:fastfreezing",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:capability:doorcooling",
+          "refrigerator-evidence:lg-gc-b569nllm-tr:capability:smartdiagnosis"
+        ],
+        "needMappingIds": [
+          "refrigerator-map:installation",
+          "refrigerator-map:fresh",
+          "refrigerator-map:freezer",
+          "refrigerator-map:total",
+          "refrigerator-map:noise",
+          "refrigerator-map:energy"
+        ],
+        "limitations": [
+          "This projection reads only approved Refrigerator evidence; unknowns are neutral and dependent boundaries fail closed.",
+          "Persona, daily-life interpretation, claims, price, media and Advisor content cannot filter, rank or authorize."
+        ],
+        "disclosures": [
+          "The frozen v0.1 Refrigerator candidate and Y authority remains unchanged.",
+          "Capacity, preservation, energy, noise and installation outcomes are not guaranteed."
+        ],
+        "traceability": "EXACT"
+      }
+    ],
+    "l9AdvisorKnowledge": []
+  },
+  "externalBoundaries": {
+    "commerce": "EXTERNAL_VOLATILE_EXACT_IDENTITY_JOIN_ONLY",
+    "media": "EXTERNAL_VOLATILE_EXACT_IDENTITY_JOIN_ONLY",
+    "offerIdentityAuthority": "NONE",
+    "offerRankingAuthority": "NONE",
+    "affiliateRankingAuthority": "NONE"
+  },
+  "releaseDigest": "sha256:319e2c013fe6fefdf04aefdd4f2de777134aca352513b9ca07926395186eca2c"
+}

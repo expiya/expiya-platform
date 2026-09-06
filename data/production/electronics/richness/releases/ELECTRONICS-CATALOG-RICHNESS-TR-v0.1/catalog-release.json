@@ -1,0 +1,2760 @@
+{
+  "schemaVersion": "XPY_CATALOG/v0.1",
+  "releaseId": "electronics-catalog-richness-tr-v0.1",
+  "releaseVersion": "ELECTRONICS-CATALOG-RICHNESS-TR-v0.1",
+  "departmentId": "ELECTRONICS",
+  "categoryId": "MULTI_CATEGORY_24_READINESS",
+  "market": "TR",
+  "lifecycle": "FROZEN",
+  "effectiveAt": "2026-09-05T14:00:00.000Z",
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "ELECTRONICS-INACTIVE-CANDIDATE/v0.1"
+    },
+    "domainPackVersion": "ELECTRONICS-INACTIVE-CANDIDATE/v0.1",
+    "semanticAuthorityVersion": "electronics-semantic-candidate/v0.1",
+    "semanticAuthorityDigest": "sha256:37f3f6b2b1c92300af56dab82b580b0fdca9760554c3bbe0eecedb5b8e8b7c44",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "sources": [
+    {
+      "sourceId": "samsung-tr:SM-A266BZKCTUR",
+      "kind": "OFFICIAL",
+      "uri": "https://www.samsung.com/tr/smartphones/galaxy-a/galaxy-a26-5g-black-256gb-sm-a266bzkctur/",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "next-tr:YE-55GFSG8-QLED",
+      "kind": "OFFICIAL",
+      "uri": "https://www.next.com.tr/Data/EditorFiles/katalog/Next_Katalog_2026.pdf",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "sony-tr:ZVE10M2KB.CEC",
+      "kind": "OFFICIAL",
+      "uri": "https://www.sony.com.tr/electronics/degistirilebilir-lensli-fotograf-makineleri/zv-e10m2/buy/zve10m2kb.cec",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "samsung-tr:MU-PC1T0T/WW",
+      "kind": "OFFICIAL",
+      "uri": "https://www.samsung.com/tr/memory-storage/portable-ssd/portable-ssd-t7-1tb-gray-mu-pc1t0t-ww/",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "hp-tr:1F3Y4A",
+      "kind": "OFFICIAL",
+      "uri": "https://support.hp.com/tr-tr/drivers/hp-smart-tank-580-all-in-one-printer/model/2101277338?sku=1F3Y4A",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "eaton-tr:5E1600UD",
+      "kind": "OFFICIAL",
+      "uri": "https://www.eaton.com/tr/tr-tr/skuPage.5E1600UD.html",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "source:smartphone:1",
+      "kind": "OFFICIAL",
+      "uri": "https://www.samsung.com/tr/smartphones/galaxy-a/galaxy-a36-5g-awesome-black-256gb-sm-a366bzkgtur/",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "source:tablet:5",
+      "kind": "OFFICIAL",
+      "uri": "https://www.samsung.com/tr/tablets/galaxy-tab-s/galaxy-tab-s11-silver-256gb-sm-x730nzsptur/buy/",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "source:tablet:6",
+      "kind": "OFFICIAL",
+      "uri": "https://www.samsung.com/tr/tablets/galaxy-tab-s/galaxy-tab-s10-fe-silver-256gb-sm-x520nzsptur/",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "source:monitor:7",
+      "kind": "OFFICIAL",
+      "uri": "https://www.samsung.com/tr/monitors/high-resolution/viewfinity-s6-s61f-27-inch-qhd-100hz-ergonomic-ls27f612eauxuf/",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "source:monitor:8",
+      "kind": "OFFICIAL",
+      "uri": "https://www.samsung.com/tr/monitors/high-resolution/viewfinity-s9-27-inch-5k-resolution-ls27c902pauxuf/",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "source:digital_camera:19",
+      "kind": "OFFICIAL",
+      "uri": "https://www.sony.com.tr/electronics/degistirilebilir-lensli-fotograf-makineleri/zv-e10m2/buy/zve10m2b.cec",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "source:wifi_router_mesh:25",
+      "kind": "OFFICIAL",
+      "uri": "https://www.tp-link.com/tr/home-networking/deco/deco-be25/",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "source:external_storage:29",
+      "kind": "OFFICIAL",
+      "uri": "https://www.samsung.com/tr/memory-storage/portable-ssd/portable-ssd-t9-1tb-black-mu-pg1t0b-ww/",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "source:home_security_camera:41",
+      "kind": "OFFICIAL",
+      "uri": "https://www.tp-link.com/tr/home-networking/cloud-camera/tapo-c225/v1/",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    },
+    {
+      "sourceId": "source:video_doorbell:43",
+      "kind": "OFFICIAL",
+      "uri": "https://www.tp-link.com/tr/home-networking/cloud-camera/tapo-d235/",
+      "version": "observed-2026-09-05",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "ev:model-code:electronics-smartphone-samsung-sm-a266bzkctur",
+      "kind": "TECHNICAL",
+      "sourceId": "samsung-tr:SM-A266BZKCTUR",
+      "assertionId": "assert:model-code:electronics-smartphone-samsung-sm-a266bzkctur",
+      "offeringIds": [
+        "electronics:smartphone:samsung:sm-a266bzkctur"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "SM-A266BZKCTUR",
+        "applicability": {
+          "offeringId": "electronics:smartphone:samsung:sm-a266bzkctur",
+          "market": "TR",
+          "model": "Galaxy A26 5G",
+          "configuration": "Samsung|Galaxy A26 5G|SM-A266BZKCTUR|8GB|256GB|Black|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-smartphone-samsung-sm-a266bzkctur",
+      "kind": "CAPABILITY",
+      "sourceId": "samsung-tr:SM-A266BZKCTUR",
+      "assertionId": "assert:configuration:electronics-smartphone-samsung-sm-a266bzkctur",
+      "offeringIds": [
+        "electronics:smartphone:samsung:sm-a266bzkctur"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "Samsung|Galaxy A26 5G|SM-A266BZKCTUR|8GB|256GB|Black|TR",
+        "applicability": {
+          "offeringId": "electronics:smartphone:samsung:sm-a266bzkctur",
+          "market": "TR",
+          "model": "Galaxy A26 5G",
+          "configuration": "Samsung|Galaxy A26 5G|SM-A266BZKCTUR|8GB|256GB|Black|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-television-next-ye-55gfsg8-qled",
+      "kind": "TECHNICAL",
+      "sourceId": "next-tr:YE-55GFSG8-QLED",
+      "assertionId": "assert:model-code:electronics-television-next-ye-55gfsg8-qled",
+      "offeringIds": [
+        "electronics:television:next:ye-55gfsg8-qled"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "YE-55GFSG8-QLED",
+        "applicability": {
+          "offeringId": "electronics:television:next:ye-55gfsg8-qled",
+          "market": "TR",
+          "model": "YE-55GFSG8-QLED",
+          "configuration": "Next|YE-55GFSG8-QLED|55in|4K|Google TV|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-television-next-ye-55gfsg8-qled",
+      "kind": "CAPABILITY",
+      "sourceId": "next-tr:YE-55GFSG8-QLED",
+      "assertionId": "assert:configuration:electronics-television-next-ye-55gfsg8-qled",
+      "offeringIds": [
+        "electronics:television:next:ye-55gfsg8-qled"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "Next|YE-55GFSG8-QLED|55in|4K|Google TV|TR",
+        "applicability": {
+          "offeringId": "electronics:television:next:ye-55gfsg8-qled",
+          "market": "TR",
+          "model": "YE-55GFSG8-QLED",
+          "configuration": "Next|YE-55GFSG8-QLED|55in|4K|Google TV|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-digital-camera-sony-zve10m2kb-cec",
+      "kind": "TECHNICAL",
+      "sourceId": "sony-tr:ZVE10M2KB.CEC",
+      "assertionId": "assert:model-code:electronics-digital-camera-sony-zve10m2kb-cec",
+      "offeringIds": [
+        "electronics:digital-camera:sony:zve10m2kb-cec"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "ZVE10M2KB.CEC",
+        "applicability": {
+          "offeringId": "electronics:digital-camera:sony:zve10m2kb-cec",
+          "market": "TR",
+          "model": "ZV-E10 II 16-50 Kit",
+          "configuration": "Sony|ZV-E10 II|ZVE10M2KB.CEC|SELP16502|Black|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-digital-camera-sony-zve10m2kb-cec",
+      "kind": "CAPABILITY",
+      "sourceId": "sony-tr:ZVE10M2KB.CEC",
+      "assertionId": "assert:configuration:electronics-digital-camera-sony-zve10m2kb-cec",
+      "offeringIds": [
+        "electronics:digital-camera:sony:zve10m2kb-cec"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "Sony|ZV-E10 II|ZVE10M2KB.CEC|SELP16502|Black|TR",
+        "applicability": {
+          "offeringId": "electronics:digital-camera:sony:zve10m2kb-cec",
+          "market": "TR",
+          "model": "ZV-E10 II 16-50 Kit",
+          "configuration": "Sony|ZV-E10 II|ZVE10M2KB.CEC|SELP16502|Black|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-external-storage-samsung-mu-pc1t0t-ww",
+      "kind": "TECHNICAL",
+      "sourceId": "samsung-tr:MU-PC1T0T/WW",
+      "assertionId": "assert:model-code:electronics-external-storage-samsung-mu-pc1t0t-ww",
+      "offeringIds": [
+        "electronics:external-storage:samsung:mu-pc1t0t-ww"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "MU-PC1T0T/WW",
+        "applicability": {
+          "offeringId": "electronics:external-storage:samsung:mu-pc1t0t-ww",
+          "market": "TR",
+          "model": "Portable SSD T7 1TB Gray",
+          "configuration": "Samsung|T7|MU-PC1T0T/WW|1TB|USB 3.2 Gen2|Gray|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-external-storage-samsung-mu-pc1t0t-ww",
+      "kind": "CAPABILITY",
+      "sourceId": "samsung-tr:MU-PC1T0T/WW",
+      "assertionId": "assert:configuration:electronics-external-storage-samsung-mu-pc1t0t-ww",
+      "offeringIds": [
+        "electronics:external-storage:samsung:mu-pc1t0t-ww"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "Samsung|T7|MU-PC1T0T/WW|1TB|USB 3.2 Gen2|Gray|TR",
+        "applicability": {
+          "offeringId": "electronics:external-storage:samsung:mu-pc1t0t-ww",
+          "market": "TR",
+          "model": "Portable SSD T7 1TB Gray",
+          "configuration": "Samsung|T7|MU-PC1T0T/WW|1TB|USB 3.2 Gen2|Gray|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-printer-hp-1f3y4a",
+      "kind": "TECHNICAL",
+      "sourceId": "hp-tr:1F3Y4A",
+      "assertionId": "assert:model-code:electronics-printer-hp-1f3y4a",
+      "offeringIds": [
+        "electronics:printer:hp:1f3y4a"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "1F3Y4A",
+        "applicability": {
+          "offeringId": "electronics:printer:hp:1f3y4a",
+          "market": "TR",
+          "model": "Smart Tank 585 All-in-One",
+          "configuration": "HP|Smart Tank 585|1F3Y4A|Color Ink Tank|All-in-One|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-printer-hp-1f3y4a",
+      "kind": "CAPABILITY",
+      "sourceId": "hp-tr:1F3Y4A",
+      "assertionId": "assert:configuration:electronics-printer-hp-1f3y4a",
+      "offeringIds": [
+        "electronics:printer:hp:1f3y4a"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "HP|Smart Tank 585|1F3Y4A|Color Ink Tank|All-in-One|TR",
+        "applicability": {
+          "offeringId": "electronics:printer:hp:1f3y4a",
+          "market": "TR",
+          "model": "Smart Tank 585 All-in-One",
+          "configuration": "HP|Smart Tank 585|1F3Y4A|Color Ink Tank|All-in-One|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-ups-eaton-5e1600ud",
+      "kind": "TECHNICAL",
+      "sourceId": "eaton-tr:5E1600UD",
+      "assertionId": "assert:model-code:electronics-ups-eaton-5e1600ud",
+      "offeringIds": [
+        "electronics:ups:eaton:5e1600ud"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "5E1600UD",
+        "applicability": {
+          "offeringId": "electronics:ups:eaton:5e1600ud",
+          "market": "TR",
+          "model": "5E Gen2 1600 USB DIN",
+          "configuration": "Eaton|5E Gen2|5E1600UD|1600VA|900W|4 Schuko|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-ups-eaton-5e1600ud",
+      "kind": "CAPABILITY",
+      "sourceId": "eaton-tr:5E1600UD",
+      "assertionId": "assert:configuration:electronics-ups-eaton-5e1600ud",
+      "offeringIds": [
+        "electronics:ups:eaton:5e1600ud"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "Eaton|5E Gen2|5E1600UD|1600VA|900W|4 Schuko|TR",
+        "applicability": {
+          "offeringId": "electronics:ups:eaton:5e1600ud",
+          "market": "TR",
+          "model": "5E Gen2 1600 USB DIN",
+          "configuration": "Eaton|5E Gen2|5E1600UD|1600VA|900W|4 Schuko|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-smartphone-samsung-sm-a366bzkgtur",
+      "kind": "TECHNICAL",
+      "sourceId": "source:smartphone:1",
+      "assertionId": "assert:model-code:electronics-smartphone-samsung-sm-a366bzkgtur",
+      "offeringIds": [
+        "electronics:smartphone:samsung:sm-a366bzkgtur"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "SM-A366BZKGTUR",
+        "applicability": {
+          "offeringId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+          "market": "TR",
+          "model": "Samsung Galaxy A36 5G 256GB Black",
+          "configuration": "Samsung|Galaxy A36 5G|SM-A366BZKGTUR|8GB|256GB|Black|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-smartphone-samsung-sm-a366bzkgtur",
+      "kind": "CAPABILITY",
+      "sourceId": "source:smartphone:1",
+      "assertionId": "assert:configuration:electronics-smartphone-samsung-sm-a366bzkgtur",
+      "offeringIds": [
+        "electronics:smartphone:samsung:sm-a366bzkgtur"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "Samsung|Galaxy A36 5G|SM-A366BZKGTUR|8GB|256GB|Black|TR",
+        "applicability": {
+          "offeringId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+          "market": "TR",
+          "model": "Samsung Galaxy A36 5G 256GB Black",
+          "configuration": "Samsung|Galaxy A36 5G|SM-A366BZKGTUR|8GB|256GB|Black|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-tablet-samsung-sm-x730nzsptur",
+      "kind": "TECHNICAL",
+      "sourceId": "source:tablet:5",
+      "assertionId": "assert:model-code:electronics-tablet-samsung-sm-x730nzsptur",
+      "offeringIds": [
+        "electronics:tablet:samsung:sm-x730nzsptur"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "SM-X730NZSPTUR",
+        "applicability": {
+          "offeringId": "electronics:tablet:samsung:sm-x730nzsptur",
+          "market": "TR",
+          "model": "Samsung Galaxy Tab S11 Wi-Fi Silver 256GB",
+          "configuration": "Samsung|Galaxy Tab S11 Wi-Fi|SM-X730NZSPTUR|12GB|256GB|Silver|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-tablet-samsung-sm-x730nzsptur",
+      "kind": "CAPABILITY",
+      "sourceId": "source:tablet:5",
+      "assertionId": "assert:configuration:electronics-tablet-samsung-sm-x730nzsptur",
+      "offeringIds": [
+        "electronics:tablet:samsung:sm-x730nzsptur"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "Samsung|Galaxy Tab S11 Wi-Fi|SM-X730NZSPTUR|12GB|256GB|Silver|TR",
+        "applicability": {
+          "offeringId": "electronics:tablet:samsung:sm-x730nzsptur",
+          "market": "TR",
+          "model": "Samsung Galaxy Tab S11 Wi-Fi Silver 256GB",
+          "configuration": "Samsung|Galaxy Tab S11 Wi-Fi|SM-X730NZSPTUR|12GB|256GB|Silver|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-tablet-samsung-sm-x520nzsptur",
+      "kind": "TECHNICAL",
+      "sourceId": "source:tablet:6",
+      "assertionId": "assert:model-code:electronics-tablet-samsung-sm-x520nzsptur",
+      "offeringIds": [
+        "electronics:tablet:samsung:sm-x520nzsptur"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "SM-X520NZSPTUR",
+        "applicability": {
+          "offeringId": "electronics:tablet:samsung:sm-x520nzsptur",
+          "market": "TR",
+          "model": "Samsung Galaxy Tab S10 FE Wi-Fi Silver 256GB",
+          "configuration": "Samsung|Galaxy Tab S10 FE Wi-Fi|SM-X520NZSPTUR|256GB|Silver|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-tablet-samsung-sm-x520nzsptur",
+      "kind": "CAPABILITY",
+      "sourceId": "source:tablet:6",
+      "assertionId": "assert:configuration:electronics-tablet-samsung-sm-x520nzsptur",
+      "offeringIds": [
+        "electronics:tablet:samsung:sm-x520nzsptur"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "Samsung|Galaxy Tab S10 FE Wi-Fi|SM-X520NZSPTUR|256GB|Silver|TR",
+        "applicability": {
+          "offeringId": "electronics:tablet:samsung:sm-x520nzsptur",
+          "market": "TR",
+          "model": "Samsung Galaxy Tab S10 FE Wi-Fi Silver 256GB",
+          "configuration": "Samsung|Galaxy Tab S10 FE Wi-Fi|SM-X520NZSPTUR|256GB|Silver|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-monitor-samsung-ls27f612eauxuf",
+      "kind": "TECHNICAL",
+      "sourceId": "source:monitor:7",
+      "assertionId": "assert:model-code:electronics-monitor-samsung-ls27f612eauxuf",
+      "offeringIds": [
+        "electronics:monitor:samsung:ls27f612eauxuf"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "LS27F612EAUXUF",
+        "applicability": {
+          "offeringId": "electronics:monitor:samsung:ls27f612eauxuf",
+          "market": "TR",
+          "model": "Samsung ViewFinity S6 S61F 27 QHD",
+          "configuration": "Samsung|ViewFinity S6 S61F|LS27F612EAUXUF|27in|QHD|100Hz|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-monitor-samsung-ls27f612eauxuf",
+      "kind": "CAPABILITY",
+      "sourceId": "source:monitor:7",
+      "assertionId": "assert:configuration:electronics-monitor-samsung-ls27f612eauxuf",
+      "offeringIds": [
+        "electronics:monitor:samsung:ls27f612eauxuf"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "Samsung|ViewFinity S6 S61F|LS27F612EAUXUF|27in|QHD|100Hz|TR",
+        "applicability": {
+          "offeringId": "electronics:monitor:samsung:ls27f612eauxuf",
+          "market": "TR",
+          "model": "Samsung ViewFinity S6 S61F 27 QHD",
+          "configuration": "Samsung|ViewFinity S6 S61F|LS27F612EAUXUF|27in|QHD|100Hz|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-monitor-samsung-ls27c902pauxuf",
+      "kind": "TECHNICAL",
+      "sourceId": "source:monitor:8",
+      "assertionId": "assert:model-code:electronics-monitor-samsung-ls27c902pauxuf",
+      "offeringIds": [
+        "electronics:monitor:samsung:ls27c902pauxuf"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "LS27C902PAUXUF",
+        "applicability": {
+          "offeringId": "electronics:monitor:samsung:ls27c902pauxuf",
+          "market": "TR",
+          "model": "Samsung ViewFinity S9 27 5K",
+          "configuration": "Samsung|ViewFinity S9|LS27C902PAUXUF|27in|5K|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-monitor-samsung-ls27c902pauxuf",
+      "kind": "CAPABILITY",
+      "sourceId": "source:monitor:8",
+      "assertionId": "assert:configuration:electronics-monitor-samsung-ls27c902pauxuf",
+      "offeringIds": [
+        "electronics:monitor:samsung:ls27c902pauxuf"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "Samsung|ViewFinity S9|LS27C902PAUXUF|27in|5K|TR",
+        "applicability": {
+          "offeringId": "electronics:monitor:samsung:ls27c902pauxuf",
+          "market": "TR",
+          "model": "Samsung ViewFinity S9 27 5K",
+          "configuration": "Samsung|ViewFinity S9|LS27C902PAUXUF|27in|5K|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-digital-camera-sony-zve10m2b-cec",
+      "kind": "TECHNICAL",
+      "sourceId": "source:digital_camera:19",
+      "assertionId": "assert:model-code:electronics-digital-camera-sony-zve10m2b-cec",
+      "offeringIds": [
+        "electronics:digital-camera:sony:zve10m2b-cec"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "ZVE10M2B.CEC",
+        "applicability": {
+          "offeringId": "electronics:digital-camera:sony:zve10m2b-cec",
+          "market": "TR",
+          "model": "Sony ZV-E10 II Body Black",
+          "configuration": "Sony|ZV-E10 II Body|ZVE10M2B.CEC|Body Only|Black|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-digital-camera-sony-zve10m2b-cec",
+      "kind": "CAPABILITY",
+      "sourceId": "source:digital_camera:19",
+      "assertionId": "assert:configuration:electronics-digital-camera-sony-zve10m2b-cec",
+      "offeringIds": [
+        "electronics:digital-camera:sony:zve10m2b-cec"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "Sony|ZV-E10 II Body|ZVE10M2B.CEC|Body Only|Black|TR",
+        "applicability": {
+          "offeringId": "electronics:digital-camera:sony:zve10m2b-cec",
+          "market": "TR",
+          "model": "Sony ZV-E10 II Body Black",
+          "configuration": "Sony|ZV-E10 II Body|ZVE10M2B.CEC|Body Only|Black|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack",
+      "kind": "TECHNICAL",
+      "sourceId": "source:wifi_router_mesh:25",
+      "assertionId": "assert:model-code:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack",
+      "offeringIds": [
+        "electronics:wifi-router-mesh:tp-link:deco-be25-eu--v1--2-pack-"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "Deco BE25(EU) V1 (2-pack)",
+        "applicability": {
+          "offeringId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu--v1--2-pack-",
+          "market": "TR",
+          "model": "TP-Link Deco BE25 EU V1 2-pack",
+          "configuration": "TP-Link|Deco BE25|EU V1|2-pack|BE3600|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack",
+      "kind": "CAPABILITY",
+      "sourceId": "source:wifi_router_mesh:25",
+      "assertionId": "assert:configuration:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack",
+      "offeringIds": [
+        "electronics:wifi-router-mesh:tp-link:deco-be25-eu--v1--2-pack-"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "TP-Link|Deco BE25|EU V1|2-pack|BE3600|TR",
+        "applicability": {
+          "offeringId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu--v1--2-pack-",
+          "market": "TR",
+          "model": "TP-Link Deco BE25 EU V1 2-pack",
+          "configuration": "TP-Link|Deco BE25|EU V1|2-pack|BE3600|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-external-storage-samsung-mu-pg1t0b-ww",
+      "kind": "TECHNICAL",
+      "sourceId": "source:external_storage:29",
+      "assertionId": "assert:model-code:electronics-external-storage-samsung-mu-pg1t0b-ww",
+      "offeringIds": [
+        "electronics:external-storage:samsung:mu-pg1t0b-ww"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "MU-PG1T0B/WW",
+        "applicability": {
+          "offeringId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+          "market": "TR",
+          "model": "Samsung Portable SSD T9 1TB Black",
+          "configuration": "Samsung|T9|MU-PG1T0B/WW|1TB|USB 3.2 Gen2x2|Black|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-external-storage-samsung-mu-pg1t0b-ww",
+      "kind": "CAPABILITY",
+      "sourceId": "source:external_storage:29",
+      "assertionId": "assert:configuration:electronics-external-storage-samsung-mu-pg1t0b-ww",
+      "offeringIds": [
+        "electronics:external-storage:samsung:mu-pg1t0b-ww"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "Samsung|T9|MU-PG1T0B/WW|1TB|USB 3.2 Gen2x2|Black|TR",
+        "applicability": {
+          "offeringId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+          "market": "TR",
+          "model": "Samsung Portable SSD T9 1TB Black",
+          "configuration": "Samsung|T9|MU-PG1T0B/WW|1TB|USB 3.2 Gen2x2|Black|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+      "kind": "TECHNICAL",
+      "sourceId": "source:home_security_camera:41",
+      "assertionId": "assert:model-code:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+      "offeringIds": [
+        "electronics:home-security-camera:tp-link:tapo-c225-eu--v1"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "Tapo C225(EU) V1",
+        "applicability": {
+          "offeringId": "electronics:home-security-camera:tp-link:tapo-c225-eu--v1",
+          "market": "TR",
+          "model": "TP-Link Tapo C225 EU V1",
+          "configuration": "TP-Link|Tapo C225|EU V1|Indoor|12V|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+      "kind": "CAPABILITY",
+      "sourceId": "source:home_security_camera:41",
+      "assertionId": "assert:configuration:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+      "offeringIds": [
+        "electronics:home-security-camera:tp-link:tapo-c225-eu--v1"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "TP-Link|Tapo C225|EU V1|Indoor|12V|TR",
+        "applicability": {
+          "offeringId": "electronics:home-security-camera:tp-link:tapo-c225-eu--v1",
+          "market": "TR",
+          "model": "TP-Link Tapo C225 EU V1",
+          "configuration": "TP-Link|Tapo C225|EU V1|Indoor|12V|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:model-code:electronics-video-doorbell-tp-link-tapo-d235",
+      "kind": "TECHNICAL",
+      "sourceId": "source:video_doorbell:43",
+      "assertionId": "assert:model-code:electronics-video-doorbell-tp-link-tapo-d235",
+      "offeringIds": [
+        "electronics:video-doorbell:tp-link:tapo-d235"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Establishes exact identity and Türkiye applicability; it does not establish every technical specification."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye product/support page: exact model or part code",
+        "value": "Tapo D235",
+        "applicability": {
+          "offeringId": "electronics:video-doorbell:tp-link:tapo-d235",
+          "market": "TR",
+          "model": "TP-Link Tapo D235",
+          "configuration": "TP-Link|Tapo D235|Battery or 8-24V Wired|Chime Included|TR",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "ev:configuration:electronics-video-doorbell-tp-link-tapo-d235",
+      "kind": "CAPABILITY",
+      "sourceId": "source:video_doorbell:43",
+      "assertionId": "assert:configuration:electronics-video-doorbell-tp-link-tapo-d235",
+      "offeringIds": [
+        "electronics:video-doorbell:tp-link:tapo-d235"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-05T14:00:00.000Z",
+      "reviewedAt": "2026-09-05T14:00:00.000Z",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Configuration-token capability only; performance and outcome claims remain unknown."
+      ],
+      "assertion": {
+        "locator": "Official Türkiye page: saleable configuration identity",
+        "value": "TP-Link|Tapo D235|Battery or 8-24V Wired|Chime Included|TR",
+        "applicability": {
+          "offeringId": "electronics:video-doorbell:tp-link:tapo-d235",
+          "market": "TR",
+          "model": "TP-Link Tapo D235",
+          "configuration": "TP-Link|Tapo D235|Battery or 8-24V Wired|Chime Included|TR",
+          "status": "EXACT"
+        }
+      }
+    }
+  ],
+  "offerings": [
+    {
+      "offeringId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Samsung",
+        "model": "Galaxy A26 5G",
+        "configuration": "Samsung|Galaxy A26 5G|SM-A266BZKCTUR|8GB|256GB|Black|TR",
+        "identifiers": {
+          "manufacturerModelCode": "SM-A266BZKCTUR",
+          "asin": "B0F1FNX644"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:television:next:ye-55gfsg8-qled",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Next",
+        "model": "YE-55GFSG8-QLED",
+        "configuration": "Next|YE-55GFSG8-QLED|55in|4K|Google TV|TR",
+        "identifiers": {
+          "manufacturerModelCode": "YE-55GFSG8-QLED",
+          "asin": "B0G6MCRHB6"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:digital-camera:sony:zve10m2kb-cec",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Sony",
+        "model": "ZV-E10 II 16-50 Kit",
+        "configuration": "Sony|ZV-E10 II|ZVE10M2KB.CEC|SELP16502|Black|TR",
+        "identifiers": {
+          "manufacturerModelCode": "ZVE10M2KB.CEC",
+          "asin": "B0D8QRHQNL"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:external-storage:samsung:mu-pc1t0t-ww",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Samsung",
+        "model": "Portable SSD T7 1TB Gray",
+        "configuration": "Samsung|T7|MU-PC1T0T/WW|1TB|USB 3.2 Gen2|Gray|TR",
+        "identifiers": {
+          "manufacturerModelCode": "MU-PC1T0T/WW",
+          "asin": "B087DFLF9S"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:printer:hp:1f3y4a",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "HP",
+        "model": "Smart Tank 585 All-in-One",
+        "configuration": "HP|Smart Tank 585|1F3Y4A|Color Ink Tank|All-in-One|TR",
+        "identifiers": {
+          "manufacturerModelCode": "1F3Y4A",
+          "asin": "B0CF2NQL8K"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:ups:eaton:5e1600ud",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Eaton",
+        "model": "5E Gen2 1600 USB DIN",
+        "configuration": "Eaton|5E Gen2|5E1600UD|1600VA|900W|4 Schuko|TR",
+        "identifiers": {
+          "manufacturerModelCode": "5E1600UD",
+          "asin": "B0CCNX39JZ"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Samsung",
+        "model": "Samsung Galaxy A36 5G 256GB Black",
+        "configuration": "Samsung|Galaxy A36 5G|SM-A366BZKGTUR|8GB|256GB|Black|TR",
+        "identifiers": {
+          "manufacturerModelCode": "SM-A366BZKGTUR"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Samsung",
+        "model": "Samsung Galaxy Tab S11 Wi-Fi Silver 256GB",
+        "configuration": "Samsung|Galaxy Tab S11 Wi-Fi|SM-X730NZSPTUR|12GB|256GB|Silver|TR",
+        "identifiers": {
+          "manufacturerModelCode": "SM-X730NZSPTUR"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Samsung",
+        "model": "Samsung Galaxy Tab S10 FE Wi-Fi Silver 256GB",
+        "configuration": "Samsung|Galaxy Tab S10 FE Wi-Fi|SM-X520NZSPTUR|256GB|Silver|TR",
+        "identifiers": {
+          "manufacturerModelCode": "SM-X520NZSPTUR"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Samsung",
+        "model": "Samsung ViewFinity S6 S61F 27 QHD",
+        "configuration": "Samsung|ViewFinity S6 S61F|LS27F612EAUXUF|27in|QHD|100Hz|TR",
+        "identifiers": {
+          "manufacturerModelCode": "LS27F612EAUXUF"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:monitor:samsung:ls27c902pauxuf",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Samsung",
+        "model": "Samsung ViewFinity S9 27 5K",
+        "configuration": "Samsung|ViewFinity S9|LS27C902PAUXUF|27in|5K|TR",
+        "identifiers": {
+          "manufacturerModelCode": "LS27C902PAUXUF"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:digital-camera:sony:zve10m2b-cec",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Sony",
+        "model": "Sony ZV-E10 II Body Black",
+        "configuration": "Sony|ZV-E10 II Body|ZVE10M2B.CEC|Body Only|Black|TR",
+        "identifiers": {
+          "manufacturerModelCode": "ZVE10M2B.CEC"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu--v1--2-pack-",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "TP-Link",
+        "model": "TP-Link Deco BE25 EU V1 2-pack",
+        "configuration": "TP-Link|Deco BE25|EU V1|2-pack|BE3600|TR",
+        "identifiers": {
+          "manufacturerModelCode": "Deco BE25(EU) V1 (2-pack)"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Samsung",
+        "model": "Samsung Portable SSD T9 1TB Black",
+        "configuration": "Samsung|T9|MU-PG1T0B/WW|1TB|USB 3.2 Gen2x2|Black|TR",
+        "identifiers": {
+          "manufacturerModelCode": "MU-PG1T0B/WW"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:home-security-camera:tp-link:tapo-c225-eu--v1",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "TP-Link",
+        "model": "TP-Link Tapo C225 EU V1",
+        "configuration": "TP-Link|Tapo C225|EU V1|Indoor|12V|TR",
+        "identifiers": {
+          "manufacturerModelCode": "Tapo C225(EU) V1"
+        }
+      }
+    },
+    {
+      "offeringId": "electronics:video-doorbell:tp-link:tapo-d235",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-05T14:00:00.000Z",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "TP-Link",
+        "model": "TP-Link Tapo D235",
+        "configuration": "TP-Link|Tapo D235|Battery or 8-24V Wired|Chime Included|TR",
+        "identifiers": {
+          "manufacturerModelCode": "Tapo D235"
+        }
+      }
+    }
+  ],
+  "layers": {
+    "l1Facts": [
+      {
+        "factId": "fact:model-code:electronics-smartphone-samsung-sm-a266bzkctur",
+        "offeringId": "electronics:smartphone:samsung:sm-a266bzkctur",
+        "key": "manufacturer_model_code",
+        "value": "SM-A266BZKCTUR",
+        "evidenceId": "ev:model-code:electronics-smartphone-samsung-sm-a266bzkctur"
+      },
+      {
+        "factId": "fact:model-code:electronics-television-next-ye-55gfsg8-qled",
+        "offeringId": "electronics:television:next:ye-55gfsg8-qled",
+        "key": "manufacturer_model_code",
+        "value": "YE-55GFSG8-QLED",
+        "evidenceId": "ev:model-code:electronics-television-next-ye-55gfsg8-qled"
+      },
+      {
+        "factId": "fact:model-code:electronics-digital-camera-sony-zve10m2kb-cec",
+        "offeringId": "electronics:digital-camera:sony:zve10m2kb-cec",
+        "key": "manufacturer_model_code",
+        "value": "ZVE10M2KB.CEC",
+        "evidenceId": "ev:model-code:electronics-digital-camera-sony-zve10m2kb-cec"
+      },
+      {
+        "factId": "fact:model-code:electronics-external-storage-samsung-mu-pc1t0t-ww",
+        "offeringId": "electronics:external-storage:samsung:mu-pc1t0t-ww",
+        "key": "manufacturer_model_code",
+        "value": "MU-PC1T0T/WW",
+        "evidenceId": "ev:model-code:electronics-external-storage-samsung-mu-pc1t0t-ww"
+      },
+      {
+        "factId": "fact:model-code:electronics-printer-hp-1f3y4a",
+        "offeringId": "electronics:printer:hp:1f3y4a",
+        "key": "manufacturer_model_code",
+        "value": "1F3Y4A",
+        "evidenceId": "ev:model-code:electronics-printer-hp-1f3y4a"
+      },
+      {
+        "factId": "fact:model-code:electronics-ups-eaton-5e1600ud",
+        "offeringId": "electronics:ups:eaton:5e1600ud",
+        "key": "manufacturer_model_code",
+        "value": "5E1600UD",
+        "evidenceId": "ev:model-code:electronics-ups-eaton-5e1600ud"
+      },
+      {
+        "factId": "fact:model-code:electronics-smartphone-samsung-sm-a366bzkgtur",
+        "offeringId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+        "key": "manufacturer_model_code",
+        "value": "SM-A366BZKGTUR",
+        "evidenceId": "ev:model-code:electronics-smartphone-samsung-sm-a366bzkgtur"
+      },
+      {
+        "factId": "fact:model-code:electronics-tablet-samsung-sm-x730nzsptur",
+        "offeringId": "electronics:tablet:samsung:sm-x730nzsptur",
+        "key": "manufacturer_model_code",
+        "value": "SM-X730NZSPTUR",
+        "evidenceId": "ev:model-code:electronics-tablet-samsung-sm-x730nzsptur"
+      },
+      {
+        "factId": "fact:model-code:electronics-tablet-samsung-sm-x520nzsptur",
+        "offeringId": "electronics:tablet:samsung:sm-x520nzsptur",
+        "key": "manufacturer_model_code",
+        "value": "SM-X520NZSPTUR",
+        "evidenceId": "ev:model-code:electronics-tablet-samsung-sm-x520nzsptur"
+      },
+      {
+        "factId": "fact:model-code:electronics-monitor-samsung-ls27f612eauxuf",
+        "offeringId": "electronics:monitor:samsung:ls27f612eauxuf",
+        "key": "manufacturer_model_code",
+        "value": "LS27F612EAUXUF",
+        "evidenceId": "ev:model-code:electronics-monitor-samsung-ls27f612eauxuf"
+      },
+      {
+        "factId": "fact:model-code:electronics-monitor-samsung-ls27c902pauxuf",
+        "offeringId": "electronics:monitor:samsung:ls27c902pauxuf",
+        "key": "manufacturer_model_code",
+        "value": "LS27C902PAUXUF",
+        "evidenceId": "ev:model-code:electronics-monitor-samsung-ls27c902pauxuf"
+      },
+      {
+        "factId": "fact:model-code:electronics-digital-camera-sony-zve10m2b-cec",
+        "offeringId": "electronics:digital-camera:sony:zve10m2b-cec",
+        "key": "manufacturer_model_code",
+        "value": "ZVE10M2B.CEC",
+        "evidenceId": "ev:model-code:electronics-digital-camera-sony-zve10m2b-cec"
+      },
+      {
+        "factId": "fact:model-code:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack",
+        "offeringId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu--v1--2-pack-",
+        "key": "manufacturer_model_code",
+        "value": "Deco BE25(EU) V1 (2-pack)",
+        "evidenceId": "ev:model-code:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack"
+      },
+      {
+        "factId": "fact:model-code:electronics-external-storage-samsung-mu-pg1t0b-ww",
+        "offeringId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+        "key": "manufacturer_model_code",
+        "value": "MU-PG1T0B/WW",
+        "evidenceId": "ev:model-code:electronics-external-storage-samsung-mu-pg1t0b-ww"
+      },
+      {
+        "factId": "fact:model-code:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+        "offeringId": "electronics:home-security-camera:tp-link:tapo-c225-eu--v1",
+        "key": "manufacturer_model_code",
+        "value": "Tapo C225(EU) V1",
+        "evidenceId": "ev:model-code:electronics-home-security-camera-tp-link-tapo-c225-eu-v1"
+      },
+      {
+        "factId": "fact:model-code:electronics-video-doorbell-tp-link-tapo-d235",
+        "offeringId": "electronics:video-doorbell:tp-link:tapo-d235",
+        "key": "manufacturer_model_code",
+        "value": "Tapo D235",
+        "evidenceId": "ev:model-code:electronics-video-doorbell-tp-link-tapo-d235"
+      }
+    ],
+    "l2Capabilities": [
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-smartphone-samsung-sm-a266bzkctur",
+        "offeringId": "electronics:smartphone:samsung:sm-a266bzkctur",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-smartphone-samsung-sm-a266bzkctur",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-television-next-ye-55gfsg8-qled",
+        "offeringId": "electronics:television:next:ye-55gfsg8-qled",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-television-next-ye-55gfsg8-qled",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-digital-camera-sony-zve10m2kb-cec",
+        "offeringId": "electronics:digital-camera:sony:zve10m2kb-cec",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-digital-camera-sony-zve10m2kb-cec",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-external-storage-samsung-mu-pc1t0t-ww",
+        "offeringId": "electronics:external-storage:samsung:mu-pc1t0t-ww",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-external-storage-samsung-mu-pc1t0t-ww",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-printer-hp-1f3y4a",
+        "offeringId": "electronics:printer:hp:1f3y4a",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-printer-hp-1f3y4a",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-ups-eaton-5e1600ud",
+        "offeringId": "electronics:ups:eaton:5e1600ud",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-ups-eaton-5e1600ud",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-smartphone-samsung-sm-a366bzkgtur",
+        "offeringId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-smartphone-samsung-sm-a366bzkgtur",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-tablet-samsung-sm-x730nzsptur",
+        "offeringId": "electronics:tablet:samsung:sm-x730nzsptur",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-tablet-samsung-sm-x730nzsptur",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-tablet-samsung-sm-x520nzsptur",
+        "offeringId": "electronics:tablet:samsung:sm-x520nzsptur",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-tablet-samsung-sm-x520nzsptur",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-monitor-samsung-ls27f612eauxuf",
+        "offeringId": "electronics:monitor:samsung:ls27f612eauxuf",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-monitor-samsung-ls27f612eauxuf",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-monitor-samsung-ls27c902pauxuf",
+        "offeringId": "electronics:monitor:samsung:ls27c902pauxuf",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-monitor-samsung-ls27c902pauxuf",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-digital-camera-sony-zve10m2b-cec",
+        "offeringId": "electronics:digital-camera:sony:zve10m2b-cec",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-digital-camera-sony-zve10m2b-cec",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack",
+        "offeringId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu--v1--2-pack-",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-external-storage-samsung-mu-pg1t0b-ww",
+        "offeringId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-external-storage-samsung-mu-pg1t0b-ww",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+        "offeringId": "electronics:home-security-camera:tp-link:tapo-c225-eu--v1",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      },
+      {
+        "capabilityId": "cap:exact-tr-configuration:electronics-video-doorbell-tp-link-tapo-d235",
+        "offeringId": "electronics:video-doorbell:tp-link:tapo-d235",
+        "key": "exact_tr_configuration_identified",
+        "state": "PRESENT",
+        "evidenceId": "ev:configuration:electronics-video-doorbell-tp-link-tapo-d235",
+        "limitations": [
+          "Does not imply decision sufficiency or comparative superiority."
+        ]
+      }
+    ],
+    "l3UsageSemantics": [
+      {
+        "semanticId": "semantic:identity:electronics-smartphone-samsung-sm-a266bzkctur",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-smartphone-samsung-sm-a266bzkctur"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-smartphone-samsung-sm-a266bzkctur"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-television-next-ye-55gfsg8-qled",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-television-next-ye-55gfsg8-qled"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-television-next-ye-55gfsg8-qled"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-digital-camera-sony-zve10m2kb-cec",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-digital-camera-sony-zve10m2kb-cec"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-digital-camera-sony-zve10m2kb-cec"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-external-storage-samsung-mu-pc1t0t-ww",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-external-storage-samsung-mu-pc1t0t-ww"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-external-storage-samsung-mu-pc1t0t-ww"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-printer-hp-1f3y4a",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-printer-hp-1f3y4a"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-printer-hp-1f3y4a"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-ups-eaton-5e1600ud",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-ups-eaton-5e1600ud"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-ups-eaton-5e1600ud"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-smartphone-samsung-sm-a366bzkgtur",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-smartphone-samsung-sm-a366bzkgtur"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-smartphone-samsung-sm-a366bzkgtur"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-tablet-samsung-sm-x730nzsptur",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-tablet-samsung-sm-x730nzsptur"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-tablet-samsung-sm-x730nzsptur"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-tablet-samsung-sm-x520nzsptur",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-tablet-samsung-sm-x520nzsptur"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-tablet-samsung-sm-x520nzsptur"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-monitor-samsung-ls27f612eauxuf",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-monitor-samsung-ls27f612eauxuf"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-monitor-samsung-ls27f612eauxuf"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-monitor-samsung-ls27c902pauxuf",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-monitor-samsung-ls27c902pauxuf"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-monitor-samsung-ls27c902pauxuf"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-digital-camera-sony-zve10m2b-cec",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-digital-camera-sony-zve10m2b-cec"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-digital-camera-sony-zve10m2b-cec"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-external-storage-samsung-mu-pg1t0b-ww",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-external-storage-samsung-mu-pg1t0b-ww"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-external-storage-samsung-mu-pg1t0b-ww"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-home-security-camera-tp-link-tapo-c225-eu-v1"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-home-security-camera-tp-link-tapo-c225-eu-v1"
+        ]
+      },
+      {
+        "semanticId": "semantic:identity:electronics-video-doorbell-tp-link-tapo-d235",
+        "meaning": "Use only for exact-configuration confirmation; broader performance semantics are not yet governed.",
+        "factIds": [
+          "fact:model-code:electronics-video-doorbell-tp-link-tapo-d235"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-video-doorbell-tp-link-tapo-d235"
+        ]
+      }
+    ],
+    "l4Needs": [
+      {
+        "needId": "need:digital_camera:exact-compatibility",
+        "meaning": "Confirm exact digital camera configuration compatibility before comparison."
+      },
+      {
+        "needId": "need:external_storage:exact-compatibility",
+        "meaning": "Confirm exact external storage configuration compatibility before comparison."
+      },
+      {
+        "needId": "need:home_security_camera:exact-compatibility",
+        "meaning": "Confirm exact home security camera configuration compatibility before comparison."
+      },
+      {
+        "needId": "need:monitor:exact-compatibility",
+        "meaning": "Confirm exact monitor configuration compatibility before comparison."
+      },
+      {
+        "needId": "need:printer:exact-compatibility",
+        "meaning": "Confirm exact printer configuration compatibility before comparison."
+      },
+      {
+        "needId": "need:smartphone:exact-compatibility",
+        "meaning": "Confirm exact smartphone configuration compatibility before comparison."
+      },
+      {
+        "needId": "need:tablet:exact-compatibility",
+        "meaning": "Confirm exact tablet configuration compatibility before comparison."
+      },
+      {
+        "needId": "need:television:exact-compatibility",
+        "meaning": "Confirm exact television configuration compatibility before comparison."
+      },
+      {
+        "needId": "need:uninterruptible_power_supply:exact-compatibility",
+        "meaning": "Confirm exact uninterruptible power supply configuration compatibility before comparison."
+      },
+      {
+        "needId": "need:video_doorbell:exact-compatibility",
+        "meaning": "Confirm exact video doorbell configuration compatibility before comparison."
+      },
+      {
+        "needId": "need:wifi_router_mesh:exact-compatibility",
+        "meaning": "Confirm exact wifi router mesh configuration compatibility before comparison."
+      }
+    ],
+    "l4NeedEvidenceMappings": [
+      {
+        "mappingId": "mapping:exact:electronics-smartphone-samsung-sm-a266bzkctur",
+        "needId": "need:smartphone:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-smartphone-samsung-sm-a266bzkctur"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-smartphone-samsung-sm-a266bzkctur"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-television-next-ye-55gfsg8-qled",
+        "needId": "need:television:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-television-next-ye-55gfsg8-qled"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-television-next-ye-55gfsg8-qled"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-digital-camera-sony-zve10m2kb-cec",
+        "needId": "need:digital_camera:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-digital-camera-sony-zve10m2kb-cec"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-digital-camera-sony-zve10m2kb-cec"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-external-storage-samsung-mu-pc1t0t-ww",
+        "needId": "need:external_storage:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-external-storage-samsung-mu-pc1t0t-ww"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-external-storage-samsung-mu-pc1t0t-ww"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-printer-hp-1f3y4a",
+        "needId": "need:printer:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-printer-hp-1f3y4a"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-printer-hp-1f3y4a"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-ups-eaton-5e1600ud",
+        "needId": "need:uninterruptible_power_supply:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-ups-eaton-5e1600ud"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-ups-eaton-5e1600ud"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-smartphone-samsung-sm-a366bzkgtur",
+        "needId": "need:smartphone:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-smartphone-samsung-sm-a366bzkgtur"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-smartphone-samsung-sm-a366bzkgtur"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-tablet-samsung-sm-x730nzsptur",
+        "needId": "need:tablet:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-tablet-samsung-sm-x730nzsptur"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-tablet-samsung-sm-x730nzsptur"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-tablet-samsung-sm-x520nzsptur",
+        "needId": "need:tablet:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-tablet-samsung-sm-x520nzsptur"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-tablet-samsung-sm-x520nzsptur"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-monitor-samsung-ls27f612eauxuf",
+        "needId": "need:monitor:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-monitor-samsung-ls27f612eauxuf"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-monitor-samsung-ls27f612eauxuf"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-monitor-samsung-ls27c902pauxuf",
+        "needId": "need:monitor:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-monitor-samsung-ls27c902pauxuf"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-monitor-samsung-ls27c902pauxuf"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-digital-camera-sony-zve10m2b-cec",
+        "needId": "need:digital_camera:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-digital-camera-sony-zve10m2b-cec"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-digital-camera-sony-zve10m2b-cec"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack",
+        "needId": "need:wifi_router_mesh:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-external-storage-samsung-mu-pg1t0b-ww",
+        "needId": "need:external_storage:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-external-storage-samsung-mu-pg1t0b-ww"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-external-storage-samsung-mu-pg1t0b-ww"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+        "needId": "need:home_security_camera:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-home-security-camera-tp-link-tapo-c225-eu-v1"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-home-security-camera-tp-link-tapo-c225-eu-v1"
+        ],
+        "policy": "QUESTION_INPUT"
+      },
+      {
+        "mappingId": "mapping:exact:electronics-video-doorbell-tp-link-tapo-d235",
+        "needId": "need:video_doorbell:exact-compatibility",
+        "eligibleFactIds": [
+          "fact:model-code:electronics-video-doorbell-tp-link-tapo-d235"
+        ],
+        "eligibleCapabilityIds": [
+          "cap:exact-tr-configuration:electronics-video-doorbell-tp-link-tapo-d235"
+        ],
+        "policy": "QUESTION_INPUT"
+      }
+    ],
+    "l5PersonaSignals": [
+      {
+        "signalId": "persona:digital_camera:planning",
+        "needIds": [
+          "need:digital_camera:exact-compatibility"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "persona:external_storage:planning",
+        "needIds": [
+          "need:external_storage:exact-compatibility"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "persona:home_security_camera:planning",
+        "needIds": [
+          "need:home_security_camera:exact-compatibility"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "persona:monitor:planning",
+        "needIds": [
+          "need:monitor:exact-compatibility"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "persona:printer:planning",
+        "needIds": [
+          "need:printer:exact-compatibility"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "persona:smartphone:planning",
+        "needIds": [
+          "need:smartphone:exact-compatibility"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "persona:tablet:planning",
+        "needIds": [
+          "need:tablet:exact-compatibility"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "persona:television:planning",
+        "needIds": [
+          "need:television:exact-compatibility"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "persona:uninterruptible_power_supply:planning",
+        "needIds": [
+          "need:uninterruptible_power_supply:exact-compatibility"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "persona:video_doorbell:planning",
+        "needIds": [
+          "need:video_doorbell:exact-compatibility"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "persona:wifi_router_mesh:planning",
+        "needIds": [
+          "need:wifi_router_mesh:exact-compatibility"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      }
+    ],
+    "l6DailyLifeInterpretations": [
+      {
+        "interpretationId": "interpretation:identity:electronics-smartphone-samsung-sm-a266bzkctur",
+        "offeringId": "electronics:smartphone:samsung:sm-a266bzkctur",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-smartphone-samsung-sm-a266bzkctur"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-smartphone-samsung-sm-a266bzkctur"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-television-next-ye-55gfsg8-qled",
+        "offeringId": "electronics:television:next:ye-55gfsg8-qled",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-television-next-ye-55gfsg8-qled"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-television-next-ye-55gfsg8-qled"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-digital-camera-sony-zve10m2kb-cec",
+        "offeringId": "electronics:digital-camera:sony:zve10m2kb-cec",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-digital-camera-sony-zve10m2kb-cec"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-digital-camera-sony-zve10m2kb-cec"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-external-storage-samsung-mu-pc1t0t-ww",
+        "offeringId": "electronics:external-storage:samsung:mu-pc1t0t-ww",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-external-storage-samsung-mu-pc1t0t-ww"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-external-storage-samsung-mu-pc1t0t-ww"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-printer-hp-1f3y4a",
+        "offeringId": "electronics:printer:hp:1f3y4a",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-printer-hp-1f3y4a"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-printer-hp-1f3y4a"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-ups-eaton-5e1600ud",
+        "offeringId": "electronics:ups:eaton:5e1600ud",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-ups-eaton-5e1600ud"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-ups-eaton-5e1600ud"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-smartphone-samsung-sm-a366bzkgtur",
+        "offeringId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-smartphone-samsung-sm-a366bzkgtur"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-smartphone-samsung-sm-a366bzkgtur"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-tablet-samsung-sm-x730nzsptur",
+        "offeringId": "electronics:tablet:samsung:sm-x730nzsptur",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-tablet-samsung-sm-x730nzsptur"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-tablet-samsung-sm-x730nzsptur"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-tablet-samsung-sm-x520nzsptur",
+        "offeringId": "electronics:tablet:samsung:sm-x520nzsptur",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-tablet-samsung-sm-x520nzsptur"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-tablet-samsung-sm-x520nzsptur"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-monitor-samsung-ls27f612eauxuf",
+        "offeringId": "electronics:monitor:samsung:ls27f612eauxuf",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-monitor-samsung-ls27f612eauxuf"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-monitor-samsung-ls27f612eauxuf"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-monitor-samsung-ls27c902pauxuf",
+        "offeringId": "electronics:monitor:samsung:ls27c902pauxuf",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-monitor-samsung-ls27c902pauxuf"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-monitor-samsung-ls27c902pauxuf"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-digital-camera-sony-zve10m2b-cec",
+        "offeringId": "electronics:digital-camera:sony:zve10m2b-cec",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-digital-camera-sony-zve10m2b-cec"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-digital-camera-sony-zve10m2b-cec"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack",
+        "offeringId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu--v1--2-pack-",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-external-storage-samsung-mu-pg1t0b-ww",
+        "offeringId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-external-storage-samsung-mu-pg1t0b-ww"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-external-storage-samsung-mu-pg1t0b-ww"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+        "offeringId": "electronics:home-security-camera:tp-link:tapo-c225-eu--v1",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-home-security-camera-tp-link-tapo-c225-eu-v1"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-home-security-camera-tp-link-tapo-c225-eu-v1"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      },
+      {
+        "interpretationId": "interpretation:identity:electronics-video-doorbell-tp-link-tapo-d235",
+        "offeringId": "electronics:video-doorbell:tp-link:tapo-d235",
+        "text": "The exact Türkiye configuration is distinguishable for follow-up compatibility questions; no performance or suitability outcome is asserted.",
+        "factIds": [
+          "fact:model-code:electronics-video-doorbell-tp-link-tapo-d235"
+        ],
+        "capabilityIds": [
+          "cap:exact-tr-configuration:electronics-video-doorbell-tp-link-tapo-d235"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T14:00:00.000Z",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Identity-level interpretation only."
+        ],
+        "nonGuarantees": [
+          "No guarantee of performance, compatibility, availability, price, warranty coverage or user outcome."
+        ]
+      }
+    ],
+    "l7ExperienceRules": [],
+    "l8DecisionProjections": [
+      {
+        "projectionId": "projection:electronics-smartphone-samsung-sm-a266bzkctur",
+        "offeringId": "electronics:smartphone:samsung:sm-a266bzkctur",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-smartphone-samsung-sm-a266bzkctur",
+          "ev:configuration:electronics-smartphone-samsung-sm-a266bzkctur"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-smartphone-samsung-sm-a266bzkctur"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-television-next-ye-55gfsg8-qled",
+        "offeringId": "electronics:television:next:ye-55gfsg8-qled",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-television-next-ye-55gfsg8-qled",
+          "ev:configuration:electronics-television-next-ye-55gfsg8-qled"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-television-next-ye-55gfsg8-qled"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-digital-camera-sony-zve10m2kb-cec",
+        "offeringId": "electronics:digital-camera:sony:zve10m2kb-cec",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-digital-camera-sony-zve10m2kb-cec",
+          "ev:configuration:electronics-digital-camera-sony-zve10m2kb-cec"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-digital-camera-sony-zve10m2kb-cec"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-external-storage-samsung-mu-pc1t0t-ww",
+        "offeringId": "electronics:external-storage:samsung:mu-pc1t0t-ww",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-external-storage-samsung-mu-pc1t0t-ww",
+          "ev:configuration:electronics-external-storage-samsung-mu-pc1t0t-ww"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-external-storage-samsung-mu-pc1t0t-ww"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-printer-hp-1f3y4a",
+        "offeringId": "electronics:printer:hp:1f3y4a",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-printer-hp-1f3y4a",
+          "ev:configuration:electronics-printer-hp-1f3y4a"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-printer-hp-1f3y4a"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-ups-eaton-5e1600ud",
+        "offeringId": "electronics:ups:eaton:5e1600ud",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-ups-eaton-5e1600ud",
+          "ev:configuration:electronics-ups-eaton-5e1600ud"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-ups-eaton-5e1600ud"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-smartphone-samsung-sm-a366bzkgtur",
+        "offeringId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-smartphone-samsung-sm-a366bzkgtur",
+          "ev:configuration:electronics-smartphone-samsung-sm-a366bzkgtur"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-smartphone-samsung-sm-a366bzkgtur"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-tablet-samsung-sm-x730nzsptur",
+        "offeringId": "electronics:tablet:samsung:sm-x730nzsptur",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-tablet-samsung-sm-x730nzsptur",
+          "ev:configuration:electronics-tablet-samsung-sm-x730nzsptur"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-tablet-samsung-sm-x730nzsptur"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-tablet-samsung-sm-x520nzsptur",
+        "offeringId": "electronics:tablet:samsung:sm-x520nzsptur",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-tablet-samsung-sm-x520nzsptur",
+          "ev:configuration:electronics-tablet-samsung-sm-x520nzsptur"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-tablet-samsung-sm-x520nzsptur"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-monitor-samsung-ls27f612eauxuf",
+        "offeringId": "electronics:monitor:samsung:ls27f612eauxuf",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-monitor-samsung-ls27f612eauxuf",
+          "ev:configuration:electronics-monitor-samsung-ls27f612eauxuf"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-monitor-samsung-ls27f612eauxuf"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-monitor-samsung-ls27c902pauxuf",
+        "offeringId": "electronics:monitor:samsung:ls27c902pauxuf",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-monitor-samsung-ls27c902pauxuf",
+          "ev:configuration:electronics-monitor-samsung-ls27c902pauxuf"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-monitor-samsung-ls27c902pauxuf"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-digital-camera-sony-zve10m2b-cec",
+        "offeringId": "electronics:digital-camera:sony:zve10m2b-cec",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-digital-camera-sony-zve10m2b-cec",
+          "ev:configuration:electronics-digital-camera-sony-zve10m2b-cec"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-digital-camera-sony-zve10m2b-cec"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack",
+        "offeringId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu--v1--2-pack-",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack",
+          "ev:configuration:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2-pack"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-external-storage-samsung-mu-pg1t0b-ww",
+        "offeringId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-external-storage-samsung-mu-pg1t0b-ww",
+          "ev:configuration:electronics-external-storage-samsung-mu-pg1t0b-ww"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-external-storage-samsung-mu-pg1t0b-ww"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+        "offeringId": "electronics:home-security-camera:tp-link:tapo-c225-eu--v1",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+          "ev:configuration:electronics-home-security-camera-tp-link-tapo-c225-eu-v1"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-home-security-camera-tp-link-tapo-c225-eu-v1"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "projection:electronics-video-doorbell-tp-link-tapo-d235",
+        "offeringId": "electronics:video-doorbell:tp-link:tapo-d235",
+        "eligibleEvidenceIds": [
+          "ev:model-code:electronics-video-doorbell-tp-link-tapo-d235",
+          "ev:configuration:electronics-video-doorbell-tp-link-tapo-d235"
+        ],
+        "needMappingIds": [
+          "mapping:exact:electronics-video-doorbell-tp-link-tapo-d235"
+        ],
+        "limitations": [
+          "Identity-only evidence is insufficient for recommendation or comparison."
+        ],
+        "disclosures": [
+          "Unknown technical, lifecycle, warranty, safety and commerce attributes are neutral and fail closed."
+        ],
+        "traceability": "EXACT"
+      }
+    ],
+    "l9AdvisorKnowledge": []
+  },
+  "externalBoundaries": {
+    "commerce": "EXTERNAL_VOLATILE_EXACT_IDENTITY_JOIN_ONLY",
+    "media": "EXTERNAL_VOLATILE_EXACT_IDENTITY_JOIN_ONLY",
+    "offerIdentityAuthority": "NONE",
+    "offerRankingAuthority": "NONE",
+    "affiliateRankingAuthority": "NONE"
+  },
+  "releaseDigest": "sha256:091968ca447271d29ccd15d50cf398c4b896ea1de410731ec1a91ec88241dd91"
+}

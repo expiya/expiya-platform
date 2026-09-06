@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "major-appliance-decision-rollback/v1",
+  "activationId": "APPLIANCES-MAJOR-DECISION-ACT-B3CB67E1DD00-2E76D621CE55",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-DECISION-ADOPTION-01",
+  "pointers": [
+    {
+      "path": "data/production/appliances/washing-machines/active.json",
+      "beforeSha256": "d28774aee8d2a2e2738b055f4e0abe33010255933a14279b3c255977f4fec8e0",
+      "beforeRaw": "{\n  \"schemaVersion\": \"appliances-authority-active-pointer/v2\",\n  \"releaseVersion\": \"APPLIANCES-WM-TR-v0.1\",\n  \"lifecycle\": \"ACTIVE\",\n  \"richness\": {\n    \"releaseVersion\": \"APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.3-candidate\",\n    \"releaseDigest\": \"sha256:5e15dc9867acdf9bbd59368347f377aa7393ddffa4588cb2438805cdcf65ebdf\",\n    \"catalogArtifactSha256\": \"2a85eb2f5be54a97468a7ac4c66f6ab14e02cf7677702258e2243b8d54d2ee85\",\n    \"membershipDigest\": \"9823549a4200da0cf88e4460c73f9861f81d7b0959e79ca16a45beacf1b098f2\",\n    \"activationManifest\": \"data/production/appliances/catalog-adoption/governance/activation-events/APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55/activation.json\",\n    \"activationManifestSha256\": \"0c4e649281401e919c6b79b5b6b11a839764c76f93507c94af2f859cb38df0f1\",\n    \"lifecycle\": \"ACTIVE_READ_ONLY\"\n  }\n}\n"
+    },
+    {
+      "path": "data/production/appliances/dryers/active.json",
+      "beforeSha256": "0879f5c675b50b727009d2ab716f5c33e66cd861073b5dc7082fdc48af190c95",
+      "beforeRaw": "{\n  \"schemaVersion\": \"appliances-dryer-active-pointer/v2\",\n  \"releaseVersion\": \"APPLIANCES-DRYER-TR-v0.1\",\n  \"artifactSha256\": \"3ef3ce69874ced7d210c97545d35e82a9a2fae2933a7d7d715ae411224943f48\",\n  \"lifecycle\": \"ACTIVE\",\n  \"richness\": {\n    \"releaseVersion\": \"APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.3-candidate\",\n    \"releaseDigest\": \"sha256:7ee85698a3c539efec4360141d97d8e6b3ffe027280f0e0855b91595a9f2042a\",\n    \"catalogArtifactSha256\": \"063b821a16e0db387485511014183e464810da19e03237bffed3d9bd5b0adc1f\",\n    \"membershipDigest\": \"5507a1154ef157f6b04b4f46e5def35a41233c426b227e5a90689f787db4b5a7\",\n    \"activationManifest\": \"data/production/appliances/catalog-adoption/governance/activation-events/APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55/activation.json\",\n    \"activationManifestSha256\": \"0c4e649281401e919c6b79b5b6b11a839764c76f93507c94af2f859cb38df0f1\",\n    \"lifecycle\": \"ACTIVE_READ_ONLY\"\n  }\n}\n"
+    },
+    {
+      "path": "data/production/appliances/dishwashers/active.json",
+      "beforeSha256": "d239288916ae9bc4f17fdf6bf02a538e92c5eecbe1067bcc7f73629c30bc055d",
+      "beforeRaw": "{\n  \"schemaVersion\": \"appliances-bounded-active-pointer/v2\",\n  \"releaseVersion\": \"APPLIANCES-DISHWASHER-TR-v0.1\",\n  \"artifactSha256\": \"66973c59f1b752f2598b4c6b30d6dc0d2b272948a342b33a08f4cd8f68f9124e\",\n  \"lifecycle\": \"ACTIVE\",\n  \"richness\": {\n    \"releaseVersion\": \"APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.3-candidate\",\n    \"releaseDigest\": \"sha256:cecb38d0592e0bda7677df50775fe3de9a1324f710aa16cb5cf923e0eb89f08a\",\n    \"catalogArtifactSha256\": \"662964e296e3717d56a0428932d5bdbf8df986b9816b9604458d5805dec5dc3d\",\n    \"membershipDigest\": \"a8bdab0f17770acfc60abd382f9ef66193c0d48e3fc2548f51bda15731a5c7d4\",\n    \"activationManifest\": \"data/production/appliances/catalog-adoption/governance/activation-events/APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55/activation.json\",\n    \"activationManifestSha256\": \"0c4e649281401e919c6b79b5b6b11a839764c76f93507c94af2f859cb38df0f1\",\n    \"lifecycle\": \"ACTIVE_READ_ONLY\"\n  }\n}\n"
+    },
+    {
+      "path": "data/production/appliances/refrigerators/active.json",
+      "beforeSha256": "98fde7b0e98beb5d1aff9bd0a9b95c6fd6994bcf3aa7578456d9c8daf4dc8994",
+      "beforeRaw": "{\n  \"schemaVersion\": \"appliances-refrigerator-active-pointer/v2\",\n  \"releaseVersion\": \"APPLIANCES-REFRIGERATOR-TR-v0.1\",\n  \"artifactSha256\": \"4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825\",\n  \"lifecycle\": \"ACTIVE\",\n  \"richness\": {\n    \"releaseVersion\": \"APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.3-candidate\",\n    \"releaseDigest\": \"sha256:c00442d106b964955d828b239cc2ea44f375331bbb577aecb4883edb5fc5a08f\",\n    \"catalogArtifactSha256\": \"886e6a4d79e856286712a86fa78761253f89bcbab03e1ebea3561c9f06877387\",\n    \"membershipDigest\": \"2460570b7fbfe22f8a9eb558442c7c56d25cff4f10bed08b791288f17a29da02\",\n    \"activationManifest\": \"data/production/appliances/catalog-adoption/governance/activation-events/APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55/activation.json\",\n    \"activationManifestSha256\": \"0c4e649281401e919c6b79b5b6b11a839764c76f93507c94af2f859cb38df0f1\",\n    \"lifecycle\": \"ACTIVE_READ_ONLY\"\n  }\n}\n"
+    },
+    {
+      "path": "data/production/appliances/question-policy/active.json",
+      "beforeSha256": "153d56806e0642f7ee1f113dd15d56defb750e545bb94ae9851c0872fa545404",
+      "beforeRaw": "{\n  \"schemaVersion\": \"appliances-question-policy-active-pointer/v1\",\n  \"policyId\": \"WASHING_MACHINE_QUESTION_POLICY/v0.1\",\n  \"policyDigest\": \"7d119c3ab6290f20cb0a10c0db48ebe774a918d8ad6c6644b7a4ef3571932315\",\n  \"policyFile\": \"releases/WASHING_MACHINE_QUESTION_POLICY-v0.1/policy.json\",\n  \"lifecycle\": \"ACTIVE\"\n}\n"
+    },
+    {
+      "path": "data/production/appliances/sufficiency-recommendation-entry/active.json",
+      "beforeSha256": "10f4a75fc68b80f9b0d3546155365ddab903ef8bed700b1149fd1b89bb206a5a",
+      "beforeRaw": "{\n  \"schemaVersion\": \"appliances-sufficiency-recommendation-entry-active-pointer/v1\",\n  \"policyId\": \"WASHING_MACHINE_SUFFICIENCY_RECOMMENDATION_ENTRY_POLICY/v0.1\",\n  \"policyDigest\": \"f1b21bcc0465b1c02cf593eb9ec3ba3edc10de94c66e5bfa202dce686c90723b\",\n  \"policyFile\": \"releases/WASHING_MACHINE_SUFFICIENCY_RECOMMENDATION_ENTRY_POLICY-v0.1/policy.json\",\n  \"lifecycle\": \"ACTIVE\"\n}\n"
+    },
+    {
+      "path": "data/production/appliances/candidate-selection-policy/active.json",
+      "beforeSha256": "4599dbba12d115f6172873d61614006295399cb70d594784a13bbfc651a096a5",
+      "beforeRaw": "{\n  \"schemaVersion\": \"appliances-candidate-selection-policy-active-pointer/v1\",\n  \"policyId\": \"WASHING_MACHINE_CANDIDATE_SELECTION_POLICY/v0.1\",\n  \"policyDigest\": \"86f88ae227d4d59e1866f18ef5663a5432b571f07360e9942ec8706ac46dbfaf\",\n  \"policyFile\": \"releases/WASHING_MACHINE_CANDIDATE_SELECTION_POLICY-v0.1/policy.json\",\n  \"lifecycle\": \"ACTIVE\"\n}\n"
+    },
+    {
+      "path": "data/production/appliances/recommendation-construction-policy/active.json",
+      "beforeSha256": "3e055e1a33276c4f5f3e42f2e727d905366191f70fe5b53e8154c1626177c4ac",
+      "beforeRaw": "{\n  \"schemaVersion\": \"appliances-recommendation-construction-policy-active-pointer/v1\",\n  \"policyId\": \"WASHING_MACHINE_RECOMMENDATION_CONSTRUCTION_POLICY/v0.1\",\n  \"policyDigest\": \"ebb53920764b5b85f4bd8df5d4f587181b8e9795bb3890e41b839a50ab5f987f\",\n  \"policyFile\": \"releases/WASHING_MACHINE_RECOMMENDATION_CONSTRUCTION_POLICY-v0.1/policy.json\",\n  \"lifecycle\": \"ACTIVE\"\n}\n"
+    }
+  ]
+}

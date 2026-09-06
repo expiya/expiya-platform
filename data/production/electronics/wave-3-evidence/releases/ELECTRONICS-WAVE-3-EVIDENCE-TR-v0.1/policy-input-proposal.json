@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "electronics-wave-3-policy-input/v1",
+  "status": "NON_ACTIVE_CATEGORY_REVIEW_INPUT",
+  "categories": [
+    {
+      "categoryId": "WIFI_ROUTER_MESH",
+      "eligibleFields": [
+        "aggregate_class",
+        "ethernet_ports_per_unit",
+        "regional_revision",
+        "regional_variant",
+        "unit_count",
+        "wifi_generation"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "eligibleFields": [
+        "bay_count",
+        "cpu",
+        "disk_population",
+        "memory_gb",
+        "network_ports"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "EXTERNAL_STORAGE",
+      "eligibleFields": [
+        "capacity_tb",
+        "ingress_rating",
+        "interface",
+        "max_read_mbps",
+        "media_type",
+        "warranty_years"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "PRINTER",
+      "eligibleFields": [
+        "color_capability",
+        "connectivity",
+        "duplex",
+        "functions",
+        "print_technology"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "WEBCAM",
+      "eligibleFields": [
+        "connectivity",
+        "field_of_view",
+        "focus",
+        "microphones",
+        "resolution_fps"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "COMPUTER_AUDIO",
+      "eligibleFields": [
+        "channel_configuration",
+        "connectivity",
+        "device_switching",
+        "included_subwoofer",
+        "power_rms_w",
+        "subwoofer_output"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    }
+  ]
+}

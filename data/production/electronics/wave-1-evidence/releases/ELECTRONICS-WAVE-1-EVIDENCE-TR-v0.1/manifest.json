@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "electronics-wave-1-evidence-manifest/v1",
+  "workUnitId": "WU-ELECTRONICS-WAVE-1-MULTI-CANDIDATE-EVIDENCE-CLOSURE-01",
+  "releaseVersion": "ELECTRONICS-WAVE-1-EVIDENCE-TR-v0.1",
+  "verdict": "PARTIAL",
+  "parent": {
+    "releaseDigest": "sha256:091968ca447271d29ccd15d50cf398c4b896ea1de410731ec1a91ec88241dd91",
+    "relationship": "IMMUTABLE_CHILD_NO_OVERWRITE"
+  },
+  "counts": {
+    "categories": 6,
+    "products": 12,
+    "manufacturers": 5,
+    "sources": 18,
+    "comparativeFacts": 38,
+    "manuals": 2,
+    "unknowns": 44
+  },
+  "readiness": {
+    "DECISION_EVIDENCE_READY": 2,
+    "POLICY_REVIEW_REQUIRED": 4,
+    "INFORMATION_ONLY": 0,
+    "BLOCKED_EVIDENCE": 0
+  },
+  "artifacts": {
+    "evidence-release.json": "sha256:2545954078b5cddbafcb0acc7251301b6c0790b94aca6b7d4ac6bdfeb9e2997e",
+    "comparative-matrix.json": "sha256:9195c6a030052f632714ccecc9e518a09876080e48b5fcae65c5b5a4826c3826",
+    "policy-input-proposal.json": "sha256:1d7aec1829cdc91edaa88ddd59b55c7e9193dd384eca89e0fe32aaa48b0e69a3",
+    "manuals/n428-safety-en.pdf": "sha256:12b4c1937e9e41eafd38c0cb45b2c1a685cebc2475335c06d6921c6a34d47e40",
+    "manuals/n367-safety-tr.pdf": "sha256:b39fef7b06e9f5e42a84d1d24eb835cbfb66ec5258e031ef316a95681a70b8a4"
+  },
+  "activation": {
+    "performed": false,
+    "registryChanged": false,
+    "domainPackChanged": false,
+    "databaseChanged": false,
+    "runtimeChanged": false,
+    "pointerChanged": false,
+    "deploymentPerformed": false
+  }
+}

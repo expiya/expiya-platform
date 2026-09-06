@@ -1,0 +1,199 @@
+-- DESIGN ONLY. NOT A MIGRATION. DO NOT APPLY.
+-- External legal/security/KMS gates are incomplete.
+-- This file is intentionally outside database/migrations and has a .disabled suffix.
+
+begin;
+do $$ begin raise exception 'USED_CARS_STAGING_DESIGN_ONLY'; end $$;
+
+create schema if not exists used_cars;
+
+create type used_cars.dealer_status as enum ('APPLICATION','IDENTITY_REVIEW','LEGAL_ENTITY_VERIFIED','CONTRACT_PENDING','CONTRACT_ACTIVE','PAYMENT_PENDING','MEMBERSHIP_ACTIVE','OPERATIONAL_REVIEW','PUBLISHING_ELIGIBLE','SUSPENDED','CLOSED');
+create type used_cars.listing_status as enum ('DRAFT','READY_FOR_REVIEW','IN_REVIEW','CHANGES_REQUESTED','APPROVED','PUBLISHED','RESERVED','SOLD','WITHDRAWN','EXPIRED','SUSPENDED','REJECTED');
+
+create table used_cars.dealers (
+  id uuid primary key,
+  legal_name text not null,
+  lifecycle_status used_cars.dealer_status not null,
+  tenant_auth_version bigint not null default 1,
+  created_at timestamptz not null,
+  updated_at timestamptz not null
+);
+
+create table used_cars.dealer_branches (
+  tenant_id uuid not null references used_cars.dealers(id) on delete restrict,
+  id uuid not null,
+  display_name text not null,
+  active boolean not null default true,
+  primary key (tenant_id,id)
+);
+
+create table used_cars.dealer_users (
+  tenant_id uuid not null references used_cars.dealers(id) on delete restrict,
+  id uuid not null,
+  identity_subject text not null,
+  role text not null,
+  actor_auth_version bigint not null default 1,
+  active boolean not null default true,
+  primary key (tenant_id,id),
+  unique (identity_subject)
+);
+
+create table used_cars.dealer_user_branches (
+  tenant_id uuid not null,
+  user_id uuid not null,
+  branch_id uuid not null,
+  primary key (tenant_id,user_id,branch_id),
+  foreign key (tenant_id,user_id) references used_cars.dealer_users(tenant_id,id) on delete restrict,
+  foreign key (tenant_id,branch_id) references used_cars.dealer_branches(tenant_id,id) on delete restrict
+);
+
+create table used_cars.inventory_units (
+  tenant_id uuid not null,
+  id uuid not null,
+  branch_id uuid not null,
+  stock_number text not null,
+  vin_ciphertext text not null,
+  vin_fingerprint text not null,
+  vin_key_version text not null,
+  plate_ciphertext text,
+  plate_fingerprint text,
+  plate_key_version text,
+  created_at timestamptz not null,
+  primary key (tenant_id,id),
+  unique (tenant_id,stock_number),
+  unique (tenant_id,vin_fingerprint),
+  foreign key (tenant_id,branch_id) references used_cars.dealer_branches(tenant_id,id) on delete restrict
+);
+
+create table used_cars.inventory_revisions (
+  tenant_id uuid not null,
+  inventory_unit_id uuid not null,
+  id uuid not null,
+  revision_number bigint not null,
+  taxonomy_entity_id uuid not null,
+  payload jsonb not null,
+  created_by_actor_id uuid not null,
+  created_at timestamptz not null,
+  primary key (tenant_id,inventory_unit_id,id),
+  unique (tenant_id,inventory_unit_id,revision_number),
+  foreign key (tenant_id,inventory_unit_id) references used_cars.inventory_units(tenant_id,id) on delete restrict
+);
+
+create table used_cars.listings (
+  tenant_id uuid not null,
+  id uuid not null,
+  inventory_unit_id uuid not null,
+  status used_cars.listing_status not null,
+  stock_confirmed_at timestamptz,
+  freshness_valid_until timestamptz,
+  critical_conflict_count integer not null default 0 check (critical_conflict_count >= 0),
+  primary key (tenant_id,id),
+  foreign key (tenant_id,inventory_unit_id) references used_cars.inventory_units(tenant_id,id) on delete restrict
+);
+
+create table used_cars.listing_revisions (
+  tenant_id uuid not null,
+  listing_id uuid not null,
+  id uuid not null,
+  inventory_unit_id uuid not null,
+  inventory_revision_id uuid not null,
+  revision_number bigint not null,
+  asking_price_try bigint not null check (asking_price_try > 0),
+  created_at timestamptz not null,
+  primary key (tenant_id,listing_id,id),
+  unique (tenant_id,listing_id,revision_number),
+  foreign key (tenant_id,listing_id) references used_cars.listings(tenant_id,id) on delete restrict,
+  foreign key (tenant_id,inventory_unit_id,inventory_revision_id) references used_cars.inventory_revisions(tenant_id,inventory_unit_id,id) on delete restrict
+);
+
+create table used_cars.media_objects (
+  tenant_id uuid not null,
+  id uuid not null,
+  inventory_unit_id uuid not null,
+  storage_class text not null,
+  state text not null,
+  private_object_key text not null,
+  public_rendition_url text,
+  detected_mime_type text,
+  byte_size bigint not null check (byte_size > 0),
+  malware_scan text not null,
+  privacy_review text not null,
+  rights_confirmed boolean not null default false,
+  primary key (tenant_id,id),
+  foreign key (tenant_id,inventory_unit_id) references used_cars.inventory_units(tenant_id,id) on delete restrict
+);
+
+create table used_cars.leads (
+  tenant_id uuid not null,
+  id uuid not null,
+  branch_id uuid not null,
+  listing_id uuid not null,
+  consent_receipt_id uuid not null,
+  contact_ciphertext text not null,
+  purpose text not null,
+  status text not null,
+  expires_at timestamptz not null,
+  primary key (tenant_id,id),
+  foreign key (tenant_id,branch_id) references used_cars.dealer_branches(tenant_id,id) on delete restrict,
+  foreign key (tenant_id,listing_id) references used_cars.listings(tenant_id,id) on delete restrict
+);
+
+create table used_cars.import_batches (
+  tenant_id uuid not null,
+  id uuid not null,
+  idempotency_key text not null,
+  source_checksum text not null,
+  state text not null,
+  write_authorized boolean not null default false check (write_authorized = false),
+  primary key (tenant_id,id),
+  unique (tenant_id,idempotency_key)
+);
+
+create table used_cars.audit_events (
+  id uuid primary key,
+  tenant_id uuid,
+  sequence bigint not null,
+  actor_id uuid not null,
+  actor_type text not null,
+  action text not null,
+  subject_type text not null,
+  subject_id uuid not null,
+  reason_code text not null,
+  occurred_at timestamptz not null,
+  previous_event_hash text,
+  event_hash text not null,
+  unique (tenant_id,sequence)
+);
+
+create function used_cars.current_tenant_id() returns uuid language sql stable as $$
+  select nullif(current_setting('app.tenant_id',true),'')::uuid
+$$;
+
+alter table used_cars.dealer_branches enable row level security;
+alter table used_cars.dealer_branches force row level security;
+alter table used_cars.dealer_users enable row level security;
+alter table used_cars.dealer_users force row level security;
+alter table used_cars.inventory_units enable row level security;
+alter table used_cars.inventory_units force row level security;
+alter table used_cars.inventory_revisions enable row level security;
+alter table used_cars.inventory_revisions force row level security;
+alter table used_cars.listings enable row level security;
+alter table used_cars.listings force row level security;
+alter table used_cars.listing_revisions enable row level security;
+alter table used_cars.listing_revisions force row level security;
+alter table used_cars.media_objects enable row level security;
+alter table used_cars.media_objects force row level security;
+alter table used_cars.leads enable row level security;
+alter table used_cars.leads force row level security;
+alter table used_cars.import_batches enable row level security;
+alter table used_cars.import_batches force row level security;
+
+create policy inventory_tenant_select on used_cars.inventory_units for select using (tenant_id = used_cars.current_tenant_id());
+create policy inventory_tenant_insert on used_cars.inventory_units for insert with check (tenant_id = used_cars.current_tenant_id());
+create policy inventory_tenant_update on used_cars.inventory_units for update using (tenant_id = used_cars.current_tenant_id()) with check (tenant_id = used_cars.current_tenant_id());
+
+-- Public reader receives no grants on base tables. A gate-aware projection/view is created only after
+-- legal retention, KMS, runtime roles and adversarial staging tests are approved.
+
+rollback;
+

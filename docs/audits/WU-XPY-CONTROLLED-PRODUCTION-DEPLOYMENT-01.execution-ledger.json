@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "xpy-controlled-production-deployment-ledger/v1",
+  "workUnitId": "WU-XPY-CONTROLLED-PRODUCTION-DEPLOYMENT-01",
+  "completedAt": "2026-09-05T03:35:11+03:00",
+  "verdict": "DEPLOYED_WITH_GUARDED_GAPS",
+  "authorization": "User explicitly authorized a controlled production deployment for live inspection.",
+  "repository": {
+    "authoritativeCheckout": "/Users/serdarakgul/Projects/expiya-platform",
+    "branch": "codex/persona-evidence-v39",
+    "gitHead": "246e4c02278fa664093f4eed9fb218ed6a556aca",
+    "worktreeMode": "DIRTY_WORKTREE_SNAPSHOT",
+    "commitCreated": false,
+    "pushPerformed": false,
+    "existingChangesPreserved": true,
+    "trackedModifiedCountAtClosure": 49,
+    "untrackedEntryCountAtClosure": 414
+  },
+  "deployment": {
+    "provider": "VERCEL",
+    "project": "expiya/expiya-platform-qw7q",
+    "projectId": "prj_aTU4JVC9CT5mN9dk5CWogfiV3A1q",
+    "target": "production",
+    "readyState": "READY",
+    "deploymentId": "dpl_CtHZBYWWakNTXCFUV28csH1gReZA",
+    "immutableUrl": "https://expiya-platform-qw7q-6dvb99z7b-expiya.vercel.app",
+    "productionUrl": "https://www.expiya.com",
+    "aliases": [
+      "https://www.expiya.com",
+      "https://expiya.com",
+      "https://expiya-platform-qw7q.vercel.app",
+      "https://expiya-platform-qw7q-expiya.vercel.app"
+    ],
+    "previousReadyDeployment": {
+      "deploymentId": "dpl_7UVvKMqQAfFaLh4xeFDNcNqwXG9U",
+      "immutableUrl": "https://expiya-platform-qw7q-qydqsldn3-expiya.vercel.app"
+    },
+    "promotionRule": "Production alias was changed only after the deployment reached READY.",
+    "failedAttempts": "Pre-promotion packaging/build attempts remained unaliased; the prior READY deployment continued serving production until the successful build."
+  },
+  "sourceSnapshot": {
+    "fileCount": 2487,
+    "byteCount": 425975170,
+    "manifestSha256": "45a993d3d370c1bb6b6baf0779624e0334db3d1a1a88f59b17e67e4376724aaa",
+    "stagingPath": "/private/tmp/expiya-controlled-production-deploy-04",
+    "symlinkCount": 0,
+    "environmentFileCount": 0,
+    "researchAllowlist": [
+      "data/research/marketplaceCandidatePilot.ts",
+      "data/research/marketplaceSources.ts",
+      "data/research/owner-manual-evidence-v4/coverage.json",
+      "data/research/owner-manual-evidence-v4/pilot-assertions.json",
+      "data/research/owner-manual-evidence-v4/releases/v4.3.0-equipment-owner-review-01/coverage-report.json",
+      "data/research/owner-manual-evidence-v4/releases/v4.3.0-equipment-owner-review-01/exact-tr-bridge-decisions.json"
+    ],
+    "excluded": [
+      "all .env files and local provider state",
+      "temporary output and generated scratch directories",
+      "test files and evaluation artifacts",
+      "research artifacts outside the six explicit runtime/typecheck dependencies",
+      "working directories and source snapshots",
+      "rollback snapshots",
+      "private manual byte directories and PDFs",
+      "ungoverned media candidate bytes",
+      "Cars and Appliances global-evidence candidate/release trees"
+    ]
+  },
+  "verification": {
+    "toolchain": {
+      "declaredNode": "24.x",
+      "localNode": "24.20.0",
+      "vercelProjectNode": "24.x",
+      "next": "16.3.0"
+    },
+    "focusedTests": {
+      "status": "PASS",
+      "testFiles": 94,
+      "tests": 1002
+    },
+    "typescript": "PASS after excluding immutable data/**/rollback/** snapshots from compilation",
+    "scopedEslint": "PASS",
+    "gitDiffCheck": "PASS",
+    "catalogDryRuns": {
+      "cars": "PASS; release 0.55.4; 549 exact variants; no pointer mutation",
+      "appliances": "PASS; 24 categories; 97 exact products; no pointer mutation"
+    },
+    "localProductionBuild": "PASS; Node 24.20.0; webpack; 609 static pages",
+    "remoteProductionBuild": "PASS; Vercel Node 24.x; webpack; 609 static pages",
+    "http": {
+      "allRequiredGetRoutes": "200",
+      "staticAppliancesHero": "200 image/png",
+      "optimizedAppliancesHero": "200 image/png",
+      "securityHeaders": "PASS: CSP, HSTS, nosniff, DENY frame, referrer and permissions policies present"
+    },
+    "browser": {
+      "desktopViewport": "1280x720",
+      "mobileViewport": "390x844",
+      "horizontalOverflow": false,
+      "rawInternalLabelsFound": false,
+      "consoleWarningsOrErrors": 0,
+      "routes": [
+        "/cars",
+        "/analysis?pilot=v3.8",
+        "/appliances",
+        "/appliances/analysis?category=DRYER",
+        "/appliances/analysis?category=REFRIGERATOR",
+        "/appliances/stage/2",
+        "/appliances/stage/3"
+      ]
+    }
+  },
+  "database": {
+    "productionBindingVerified": true,
+    "secretValuesPrinted": false,
+    "migration0014": {
+      "status": "APPLIED",
+      "sha256": "8cf65704a41a4a6207bef9e38cb67a29a85bb7c0bcc2133adc7050c61f61673a",
+      "execution": "single transaction with 5 second lock timeout and 30 second statement timeout",
+      "tables": 2,
+      "indexes": 5,
+      "foreignKeys": 1,
+      "postApplyEntitlementRows": 0,
+      "postApplyEventRows": 0
+    },
+    "appliancesFoundation": {
+      "migrations0009Through0012": "PRESENT",
+      "migration0013": "NOT_APPLIED",
+      "supportedPersistentProductTypes": [
+        "WASHING_MACHINE",
+        "DRYER",
+        "REFRIGERATOR",
+        "DISHWASHER",
+        "VACUUM",
+        "ROBOT_VACUUM"
+      ],
+      "newer18Categories": "FAIL_CLOSED_ON_CREATE_UNTIL_0013_IS_SEPARATELY_AUTHORIZED_AND_APPLIED"
+    },
+    "syntheticSmoke": {
+      "personalData": false,
+      "createdRows": [
+        "00000000-0000-4000-8000-202609050001",
+        "00000000-0000-4000-8000-202609050002"
+      ],
+      "createdTypes": [
+        "DRYER",
+        "REFRIGERATOR"
+      ],
+      "freezerFailureLeftRow": false
+    },
+    "rollbackGuidance": "Do not drop 0014 automatically. Prefer a forward fix and retain the additive empty-compatible schema. If schema rollback is explicitly authorized, first stop entitlement writers and prove both tables are empty, then drop comparison_entitlement_events before comparison_entitlements inside one transaction."
+  },
+  "keyring": {
+    "APPLIANCES_STAGE2_HANDOFF_KEYS": "MISSING_IN_PRODUCTION",
+    "APPLIANCES_STAGE2_HANDOFF_TTL_SECONDS": "MISSING_IN_PRODUCTION",
+    "secretCreatedOrHardCoded": false,
+    "stage2ApiSmoke": "503 HANDOFF_UNAVAILABLE with AŞAMA 1 recovery message",
+    "status": "FAIL_CLOSED_AS_DESIGNED"
+  },
+  "activeAuthority": {
+    "carsCatalog": "0.55.4",
+    "carsEquipmentEvidence": "v1.5.5-catalog-v0.55.4-2026-08-20",
+    "carsGlobalEvidenceV1_6": "INACTIVE_AND_EXCLUDED_FROM_DEPLOYMENT_SOURCE",
+    "appliancesCatalog": "24 active category pointers; 97 exact products",
+    "appliancesGovernedMedia": "releases/APPLIANCES-GOVERNED-MEDIA-TR-v0.2/release.json; presentation-only",
+    "appliancesGlobalEvidence": "INACTIVE_AND_EXCLUDED_FROM_DEPLOYMENT_SOURCE",
+    "privateManualBytes": "EXCLUDED_FROM_DEPLOYMENT_SOURCE"
+  },
+  "productionSmoke": {
+    "carsStage1": "PASS",
+    "appliancesLandingAndAnalysis": "PASS",
+    "dryerStage1Bootstrap": "200 CONVERSATION_BOOTSTRAPPED",
+    "refrigeratorStage1Bootstrap": "200 CONVERSATION_BOOTSTRAPPED",
+    "guardedStage2": "PASS_FAIL_CLOSED",
+    "guardedStage3": "PASS_UNAVAILABLE_NO_CONTACT_DATA",
+    "freezerStage1Bootstrap": "503 FAILED_CLOSED; no row persisted"
+  },
+  "rollback": {
+    "providerMechanism": "Vercel instant rollback to a retained READY deployment",
+    "target": "https://expiya-platform-qw7q-qydqsldn3-expiya.vercel.app",
+    "targetDeploymentId": "dpl_7UVvKMqQAfFaLh4xeFDNcNqwXG9U",
+    "command": "vercel rollback expiya-platform-qw7q-qydqsldn3-expiya.vercel.app --scope expiya",
+    "requiredNow": false
+  },
+  "guardedGaps": [
+    "Appliances AŞAMA 2 keyring is not configured; signed handoff remains unavailable.",
+    "Migration 0013 is absent in production; the 18 newer Appliance categories render for inspection but persistent conversation CREATE fails closed.",
+    "Private governed manual bytes were intentionally excluded; manual L9 read remains unavailable in this deployment.",
+    "Appliances AŞAMA 3 seller, current offer, stock, payment, order and fulfillment actions remain unavailable.",
+    "Cars live lead delivery and durable multi-instance action state remain outside this deployment authority."
+  ]
+}

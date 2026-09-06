@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "appliances-global-manual-exclusions/v1",
+  "workUnitId": "WU-XPY-APPLIANCES-GLOBAL-EVIDENCE-ENRICHMENT-01",
+  "generatedAt": "2026-09-04T21:29:10.000Z",
+  "exclusions": [
+    {
+      "productId": "KARACA_HATIR_HUP_TR",
+      "attemptedUrl": "https://cdn.karaca.com/brands/karaca/hatir-hups-kullanim-kilavuzu.pdf",
+      "artifactSha256": "sha256:dea064da03900e88084e595f1374c1d773454707fc4492141665499a5f99f0ad",
+      "reason": "EXACT_IDENTITY_MISMATCH_HATIR_HUPS_IS_NOT_HATIR_HUP"
+    },
+    {
+      "productId": "ARCELIK_8315_TR",
+      "attemptedUrl": "https://download.arcelik.com.tr/download.usagemanuals/tr_TR_Manual_7786220101_tr_TR20170214-100609-760.pdf",
+      "artifactSha256": "sha256:51f799f9256ad1547ecb6e85a92059ea8b62b8d4caf338ea122c261271cc83e8",
+      "reason": "IDENTITY_AMBIGUOUS_MANUAL_COVER_LISTS_83_SLASH_5_AND_83_SLASH_5_S"
+    },
+    {
+      "productId": "ARCELIK_CM3940P_TR",
+      "attemptedUrl": "https://www.arcelik.com.tr/medias/tr-TR-8815471100-202007061042464-User-Manual-File-Long-tr-TR.pdf",
+      "reason": "HTTP_403_BYTES_NOT_PRESERVED"
+    }
+  ]
+}

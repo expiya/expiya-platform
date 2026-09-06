@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "xpy-appliances-final-readiness-audit/v1",
+  "workUnitId": "WU-XPY-APPL-FINAL-24-CATEGORY-READINESS-AUDIT-01",
+  "date": "2026-09-04",
+  "verdict": "IMPLEMENTED_WITH_ONE_REPAIR_REQUIRED",
+  "totals": {
+    "activeCategories": 24,
+    "exactProducts": 97,
+    "exactSplitAcPairs": 3,
+    "governedManuals": 10,
+    "l9Entries": 5,
+    "licensedMediaAssets": 0,
+    "verifiedCurrentCommerceOffers": 0,
+    "commerceAttempts": 485
+  },
+  "gates": {
+    "activePointersDigestsMembership": "PASS",
+    "allCategoryRuntimeAdmission": "PASS",
+    "stageOneXpyAndRecovery": "PASS",
+    "stageTwoBoundedProjection": "PASS",
+    "stageTwoSignedHandoff": "FAIL_IMPLEMENTATION",
+    "publicLabelsNoIds": "PASS",
+    "safetyGates": "PASS",
+    "manualMediaCommerceIsolation": "PASS",
+    "carsNonRegression": "PASS",
+    "typescript": "PASS",
+    "scopedLint": "PASS",
+    "supportedNode24ProductionBuild": "PASS_EXISTING_EVIDENCE_607_PAGES"
+  },
+  "freshVerification": {
+    "testFilesPassed": 64,
+    "testsPassed": 743,
+    "typescript": "PASS",
+    "scopedLint": "PASS",
+    "localNode": "26.6.0",
+    "buildRerun": false,
+    "buildRerunReason": "Existing successful Node 24 evidence was used; the audit host is outside the declared 24.x engine."
+  },
+  "remainingGaps": {
+    "implementation": [
+      "Signed expiring purpose-bound Stage 1 to Stage 2 handoff and server verification"
+    ],
+    "externalCredentialLicensing": [
+      "0 licensed product photos",
+      "0 verified current commerce offers",
+      "External payment entitlement issuer"
+    ],
+    "dataAcquisition": [
+      "10 of 97 governed manuals",
+      "5 L9 entries",
+      "87 remaining manual admission gaps"
+    ],
+    "deferredProductScope": [
+      "Stage 2 sales actions",
+      "Stage 3"
+    ]
+  },
+  "preview": {
+    "entryUrl": "http://localhost:3000/appliances",
+    "stageOne": "READY_WITH_DATABASE_PREREQUISITES",
+    "stageTwo": "DEVELOPMENT_INSPECTION_ONLY_UNTIL_SIGNED_HANDOFF_REPAIR",
+    "stageThree": "HONEST_UNSUPPORTED_STATE",
+    "prerequisites": [
+      "Node 24.x",
+      "Dependencies installed",
+      "Reachable DATABASE_URL",
+      "Appliance migrations 0009 through 0013 applied",
+      "Active local governed artifacts"
+    ]
+  },
+  "nextWorkUnit": "WU-XPY-APPL-SIGNED-STAGE2-HANDOFF-01",
+  "automation": "CONTINUE_ONE_REPAIR"
+}

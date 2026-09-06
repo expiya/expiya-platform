@@ -1,0 +1,86 @@
+[
+  {
+    "productId": "ARZUM_AR012_LAGUNA_TR",
+    "exactProductCode": "AR 012",
+    "sourceUrl": "https://destek.arzum.com.tr/manuals/arzum-laguna-elektrikli-sofben-ar012.pdf",
+    "officialPublisher": true,
+    "market": "TR",
+    "language": "tr-TR+en",
+    "retrievedAt": "2026-09-04T21:29:10.000Z",
+    "documentVersion": null,
+    "artifactSha256": "sha256:b87f6c2168f551857c4d0ae61973a0d8f6f4a266caca476d555f22ec1bd3539c",
+    "immutableBytesPath": "data/research/appliances-global-evidence-01/manual-bytes/AR012.pdf",
+    "applicabilityDetermination": "EXACT_TR_VERIFIED",
+    "disposition": "ADMITTED_EXACT_TR",
+    "byteLength": 951048,
+    "pageCount": 32,
+    "identityLocator": { "page": 1, "section": "LAGUNA AR 012 ELEKTRİKLİ ŞOFBEN" },
+    "knowledgeLocators": [
+      { "page": 4, "section": "Topraklı elektrik bağlantısı güvenlik uyarısı", "kind": "SAFETY" },
+      { "page": 10, "section": "MONTAJ ŞEMASI", "kind": "INSTALLATION" }
+    ]
+  },
+  {
+    "productId": "ARCELIK_P_18_YCB_TR",
+    "exactProductCode": "P 18 YCB",
+    "sourceUrl": "https://download.arcelik.com.tr/Download.UsageManuals/FACELIFT_ARCELIK/tr_TR_201801040913912_User%20Manual%20-%20Filetr_TR.PDF",
+    "officialPublisher": true,
+    "market": "TR",
+    "language": "tr-TR",
+    "retrievedAt": "2026-09-04T21:29:10.000Z",
+    "documentVersion": null,
+    "artifactSha256": "sha256:5500fa95770733498cfcfdb52d159537eb52604d1cba800ca8ffc8a112954c6e",
+    "immutableBytesPath": "data/research/appliances-global-evidence-01/manual-bytes/P18YCB.pdf",
+    "applicabilityDetermination": "EXACT_TR_VERIFIED",
+    "disposition": "ADMITTED_EXACT_TR",
+    "byteLength": 1771584,
+    "pageCount": 20,
+    "identityLocator": { "page": 7, "section": "P 18 YCB exact-model technical table" },
+    "knowledgeLocators": [
+      { "page": 8, "section": "Cihazınızın Montajı - minimum hob distance", "kind": "INSTALLATION" },
+      { "page": 16, "section": "Temizlik ve Bakım", "kind": "MAINTENANCE" }
+    ]
+  },
+  {
+    "productId": "appliances:wm:tr:vestel:cmi-108442-wifi",
+    "exactProductCode": "CMI 108442 WIFI",
+    "sourceUrl": "https://statik.vestel.com.tr/webfiles/20350192_k.pdf",
+    "officialPublisher": true,
+    "market": "TR",
+    "language": "tr-TR",
+    "retrievedAt": "2026-09-04T21:29:10.000Z",
+    "documentVersion": null,
+    "artifactSha256": "sha256:589323f52663b11fcf31f5d6fe87dc3db4c7cfcbf3f362f4380f67a30eef2417",
+    "immutableBytesPath": "data/research/appliances-global-evidence-01/manual-bytes/CMI108442WIFI.pdf",
+    "applicabilityDetermination": "EXACT_TR_VERIFIED",
+    "disposition": "ADMITTED_EXACT_TR",
+    "byteLength": 4632311,
+    "pageCount": 46,
+    "identityLocator": { "page": 1, "section": "CMI 108442 WIFI" },
+    "knowledgeLocators": [
+      { "page": 22, "section": "Uzaktan Erişim Ayarı", "kind": "PROGRAM_BEHAVIOR" },
+      { "page": 33, "section": "Makinenizin Bakım ve Temizliği", "kind": "MAINTENANCE" }
+    ]
+  },
+  {
+    "productId": "appliances:wm:tr:bosch:wgb244a0tr",
+    "exactProductCode": "WGB244A0TR",
+    "sourceUrl": "https://media3.bosch-home.com/Documents/9001708433_D.pdf",
+    "officialPublisher": true,
+    "market": "TR",
+    "language": "tr-TR",
+    "retrievedAt": "2026-09-04T21:29:10.000Z",
+    "documentVersion": null,
+    "artifactSha256": "sha256:3c6546f698fee9186601d06d76e3c3056ca7bf522d32c57effa7da7bb73aa5fd",
+    "immutableBytesPath": "data/research/appliances-global-evidence-01/manual-bytes/WGB244A0TR.pdf",
+    "applicabilityDetermination": "EXACT_TR_VERIFIED",
+    "disposition": "ADMITTED_EXACT_TR",
+    "byteLength": 3727971,
+    "pageCount": 60,
+    "identityLocator": { "page": 1, "section": "Çamaşır makinesi WGB244A0TR" },
+    "knowledgeLocators": [
+      { "page": 5, "section": "Güvenli kurulum", "kind": "SAFETY" },
+      { "page": 39, "section": "Cihazı temizleme ve bakımını yapma", "kind": "MAINTENANCE" }
+    ]
+  }
+]

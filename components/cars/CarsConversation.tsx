@@ -7,6 +7,10 @@ import { useRouter } from "next/navigation";
 import { CarCard } from "@/components/cars/CarCard";
 import { V2AuthorizedCarCard } from "@/components/cars/V2AuthorizedCarCard";
 import { clearSubmittedV2MultiSelection, selectedV2OptionLabels, toggleV2MultiSelection } from "@/components/cars/v2MultiSelectState";
+import { productEvents, recordProductEventOnce } from "@/lib/analytics/productEvents";
+import { FirstMessageVoiceInput } from "@/components/cars/FirstMessageVoiceInput";
+import { XpyComposer, XpyHeader, XpyLoading, XpyMessageBubble, XpyStageOneFrame, XpyTranscript } from "@/components/xpy/XpyPresentation";
+import { CARS_EXPERIENCE } from "@/features/xpy/visualPacks";
 import {
   createRecommendationTermsAcceptance,
   RECOMMENDATION_TERMS_VERSION,
@@ -114,6 +118,9 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
         }),
       });
       const payload = await response.json() as CarsConversationResponse | { message?: string };
+      if (response.ok) recordProductEventOnce("chat-started:legacy", productEvents.chatStarted("legacy"));
+      if (response.ok && "kind" in payload && payload.kind === "RECOMMENDATIONS" && payload.recommendations.length > 0) recordProductEventOnce("recommendations-revealed:legacy", productEvents.recommendationsRevealed("legacy_recommendations", payload.recommendations.length));
+      if (response.ok && "kind" in payload && payload.kind === "V2_DECISION" && payload.cards.length > 0) recordProductEventOnce("recommendations-revealed:v2", productEvents.recommendationsRevealed("v2_recommendations", payload.cards.length));
       const content = payload.message ?? (isTurkish
         ? "Cevabınızı işleyemedim. Lütfen yeniden deneyin."
         : "I couldn't process that answer. Please try again.");
@@ -337,29 +344,11 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
   }
 
   return (
-    <main className="min-h-screen bg-neutral-50 text-neutral-950 dark:bg-neutral-950 dark:text-neutral-50">
-      <div className="mx-auto max-w-6xl px-5 py-10 sm:px-6 sm:py-14">
-        <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-500 dark:text-neutral-400">
-            Expiya Cars
-          </p>
-          <h1 className="mt-3 text-4xl font-bold tracking-tight sm:text-5xl">
-            {isTurkish ? "Doğru arabayı birlikte bulalım." : "Let's find the right car together."}
-          </h1>
-          <p className="mt-4 text-neutral-600 dark:text-neutral-300">
-            {isTurkish
-              ? "Sizi dinleyip seçenekleri birlikte tartacağım; hazır olduğumuzda net bir karar çıkaracağız."
-              : "I will listen, weigh the tradeoffs with you, and reach a clear decision when we are ready."}
-          </p>
-          <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-neutral-500 dark:text-neutral-400">
-            <span>{pilotUsername ? `Pilot kullanıcı: ${pilotUsername}. Görüşme tamamlandığında arşivlenir.` : "Görüşme yalnızca bu sekme açıkken tarayıcınızda tutulur."}</span>
-            <button type="button" disabled={isLoading} onClick={() => void clearConversation()} className="font-semibold underline underline-offset-4 disabled:opacity-50">Görüşmeyi sil</button>
-          </div>
-          {archiveError ? <p role="alert" className="mt-3 rounded-xl bg-red-50 p-3 text-sm text-red-700">{archiveError}</p> : null}
-        </div>
-
-        <section className="mt-10 flex h-[min(70dvh,48rem)] min-h-[30rem] flex-col rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 sm:p-6" aria-label="Car decision conversation">
-          <div onScroll={(event) => { const element = event.currentTarget; shouldFollowConversationRef.current = element.scrollHeight - element.scrollTop - element.clientHeight < 80; }} className="min-h-0 flex-1 overflow-y-auto overscroll-contain pr-1" aria-live="polite">
+    <XpyStageOneFrame adapter={CARS_EXPERIENCE}>
+      <XpyHeader title="Araç danışmanın" description="Seni dinleyip seçenekleri birlikte sadeleştireceğim; hazır olduğumuzda net bir karara ilerleyeceğiz." status={<span className="mt-2 block text-xs text-stone-500">{pilotUsername ? `Pilot kullanıcı: ${pilotUsername}. Görüşme tamamlandığında arşivlenir.` : "Görüşme yalnızca bu sekme açıkken tarayıcında tutulur."}</span>} action={<button type="button" disabled={isLoading} onClick={() => void clearConversation()} className="min-h-11 shrink-0 rounded-full border border-stone-300 px-3 text-xs font-semibold disabled:opacity-40">Görüşmeyi sil</button>}/>
+      {archiveError ? <p role="alert" className="border-b border-red-200 bg-red-50 px-6 py-3 text-sm text-red-700">{archiveError}</p> : null}
+        <section className="flex min-h-0 flex-1 flex-col" aria-label="Araç karar görüşmesi">
+          <XpyTranscript onScroll={(event) => { const element = event.currentTarget; shouldFollowConversationRef.current = element.scrollHeight - element.scrollTop - element.clientHeight < 80; }}>
            <div className="flex min-h-full flex-col justify-end space-y-4">
             {messages.length === 0 && (
               <div className="rounded-2xl bg-neutral-100 p-4 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-200">
@@ -373,11 +362,7 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                 key={message.id}
                 className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}
               >
-                <div className={`${message.recommendations?.length || message.v2Cards?.length ? "w-full" : "max-w-[88%]"} rounded-2xl px-4 py-3 leading-6 ${
-                  message.role === "user"
-                    ? "bg-neutral-900 text-white dark:bg-neutral-100 dark:text-neutral-950"
-                    : "bg-neutral-100 text-neutral-800 dark:bg-neutral-800 dark:text-neutral-100"
-                }`}>
+                <XpyMessageBubble role={message.role} wide={Boolean(message.recommendations?.length || message.v2Cards?.length)}>
                   <span className="whitespace-pre-wrap">{message.content}</span>
                   {message.role === "user" && message.id === lastUserMessageId && (
                     <button type="button" onClick={() => editLastUserMessage(message)} disabled={isLoading} className="mt-2 block text-xs font-medium text-neutral-300 underline underline-offset-2 disabled:opacity-50 dark:text-neutral-600">Düzelt</button>
@@ -388,14 +373,14 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                   {message.recommendations && message.recommendations.length > 0
                     && shouldRenderRecommendationCards("RECOMMENDATIONS", conversation?.offerPurpose) && (
                     <div className="mt-4 grid gap-4 text-neutral-900 dark:text-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
-                      {message.recommendations.map((recommendation) => (
-                        <CarCard key={recommendation.car.id} recommendedCar={recommendation} locale={locale} />
+                      {message.recommendations.map((recommendation, index) => (
+                        <CarCard key={recommendation.car.id} recommendedCar={recommendation} locale={locale} position={index + 1} />
                       ))}
                     </div>
                   )}
                   {message.v2Cards && message.v2Cards.length > 0 && (
                     <div className="mt-4 grid gap-4 text-neutral-900 dark:text-neutral-100 sm:grid-cols-2 lg:grid-cols-3">
-                      {message.v2Cards.map((card) => { const action = message.equipmentExplanationActions?.find((item) => item.exactVariantId === card.exactVariantId); return <V2AuthorizedCarCard key={card.exactVariantId} card={card} equipmentAction={action} onEquipmentExplanation={action ? (actionId) => void openEquipmentExplanation(actionId, message.v2OfferToken) : undefined} equipmentExplanationPending={equipmentExplanationPendingActionId === action?.actionId} />; })}
+                      {message.v2Cards.map((card, index) => { const action = message.equipmentExplanationActions?.find((item) => item.exactVariantId === card.exactVariantId); return <V2AuthorizedCarCard key={card.exactVariantId} card={card} position={index + 1} equipmentAction={action} onEquipmentExplanation={action ? (actionId) => void openEquipmentExplanation(actionId, message.v2OfferToken) : undefined} equipmentExplanationPending={equipmentExplanationPendingActionId === action?.actionId} />; })}
                     </div>
                   )}
                   {message.role === "assistant" && message.v2Options && message.v2Options.length > 0 && (
@@ -480,7 +465,7 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                       <p className="mt-3 text-xs leading-5 text-neutral-500 dark:text-neutral-400">Kabul etmezseniz araç kartı gösterilmez. KVKK aydınlatması ve varsa diğer izinler bu kabulden ayrıdır.</p>
                     </div>
                   )}
-                </div>
+                </XpyMessageBubble>
               </div>
             ))}
             {equipmentExplanation && (
@@ -493,50 +478,13 @@ export function CarsConversation({ initialQuery, pilotUsername }: CarsConversati
                 </div>
               </div>
             )}
-            {isLoading && (
-              <div className="flex justify-start">
-                <div className="flex items-center gap-1 rounded-2xl bg-neutral-100 px-4 py-4 dark:bg-neutral-800" role="status" aria-label="Yanıt hazırlanıyor">
-                  {[0, 1, 2].map((index) => (
-                    <span
-                      key={index}
-                      className="h-2 w-2 animate-bounce rounded-full bg-neutral-500"
-                      style={{ animationDelay: `${index * 140}ms` }}
-                    />
-                  ))}
-                </div>
-              </div>
-            )}
+            {isLoading && <div className="flex justify-start"><XpyLoading/></div>}
             <div ref={conversationEndRef} aria-hidden="true" />
            </div>
-          </div>
+          </XpyTranscript>
 
-          <form onSubmit={submit} className="mt-4 shrink-0 border-t border-neutral-200 pt-4 dark:border-neutral-700">
-            {editingMessageId && <div className="mb-2 flex items-center justify-between text-xs text-neutral-600 dark:text-neutral-300"><span>Son mesajınızı düzeltiyorsunuz.</span><button type="button" className="font-semibold underline underline-offset-2" onClick={() => { setEditingMessageId(null); setDraft(""); }}>Vazgeç</button></div>}
-            <label htmlFor="cars-reply" className="sr-only">{isTurkish ? "Mesajınız" : "Your message"}</label>
-            <div className="flex flex-col gap-3 sm:flex-row">
-              <textarea
-                ref={draftRef}
-                id="cars-reply"
-                value={draft}
-                onChange={(event) => setDraft(event.target.value)}
-                onKeyDown={handleDraftKeyDown}
-                disabled={inputIsDecisionLocked}
-                placeholder={isRecommendationOfferAwaitingTerms ? "Araç kartını görmek için yukarıdaki koşulları inceleyin." : isFinalDiscriminatorRequired ? "Devam etmek için yukarıdaki seçeneklerden birini seçin." : isTurkish ? "Bir şey anlatın, sorun veya önceki bilginizi düzeltin…" : "Tell me something, ask, or correct an earlier detail…"}
-                rows={2}
-                className="min-h-14 flex-1 resize-none rounded-2xl border border-neutral-300 bg-white px-4 py-3 text-neutral-950 outline-none focus:border-neutral-900 disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:text-neutral-500 dark:border-neutral-600 dark:bg-neutral-950 dark:text-neutral-50 dark:focus:border-neutral-300 dark:disabled:bg-neutral-800 dark:disabled:text-neutral-400"
-              />
-              <button
-                type="submit"
-                disabled={isLoading || inputIsDecisionLocked || !draft.trim()}
-                className="rounded-2xl bg-neutral-950 px-6 py-3 font-semibold text-white! transition hover:bg-neutral-800 disabled:cursor-not-allowed disabled:bg-neutral-300 disabled:text-neutral-500! dark:bg-neutral-800 dark:text-white! dark:hover:bg-neutral-700 dark:disabled:bg-neutral-700 dark:disabled:text-neutral-400!"
-              >
-                {isTurkish ? "Gönder" : "Send"}
-              </button>
-            </div>
-          </form>
+          <XpyComposer id="cars-reply" value={draft} disabled={isLoading || inputIsDecisionLocked} inputRef={draftRef} placeholder={isRecommendationOfferAwaitingTerms ? "Araç kartını görmek için yukarıdaki koşulları inceleyin." : isFinalDiscriminatorRequired ? "Devam etmek için yukarıdaki seçeneklerden birini seçin." : "Bir şey anlatın, sorun veya önceki bilginizi düzeltin…"} onChange={setDraft} onKeyDown={handleDraftKeyDown} onSubmit={submit} before={<>{messages.length === 0 && isRestored && !initialQuery.trim() && <FirstMessageVoiceInput disabled={isLoading} onTranscript={setDraft}/>} {editingMessageId && <div className="mb-2 flex items-center justify-between text-xs text-neutral-600 dark:text-neutral-300"><span>Son mesajınızı düzeltiyorsunuz.</span><button type="button" className="font-semibold underline underline-offset-2" onClick={() => { setEditingMessageId(null); setDraft(""); }}>Vazgeç</button></div>}</>}/>
         </section>
-
-      </div>
-    </main>
+    </XpyStageOneFrame>
   );
 }

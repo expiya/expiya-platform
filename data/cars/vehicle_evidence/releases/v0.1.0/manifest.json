@@ -1,0 +1,42 @@
+{
+  "dataset_version": "0.1.0",
+  "schema_version": "0.1",
+  "batch_id": "MICROPILOT01",
+  "release_date": "2026-08-14",
+  "master_file": "data/cars/vehicle_evidence/releases/v0.1.0/vehicle_evidence_v0.1.0.xlsx",
+  "master_sha256": "46d662ff590052c9d731da9832769aa572674be24e5b96fc049527d21594b5da",
+  "validator_status": "PASS",
+  "validator_timestamp": "2026-08-14T18:13:02.703Z",
+  "sheet_row_counts": {
+    "models": 8,
+    "generations": 8,
+    "powertrains": 8,
+    "configurations": 8,
+    "facts": 84,
+    "equipment": 93,
+    "safety": 0,
+    "sources": 23,
+    "assertions": 177,
+    "queue": 48,
+    "dictionary": 164
+  },
+  "csv_snapshot_paths": [
+    "data/cars/vehicle_evidence/releases/v0.1.0/tables/assertions.csv",
+    "data/cars/vehicle_evidence/releases/v0.1.0/tables/collection_queue.csv",
+    "data/cars/vehicle_evidence/releases/v0.1.0/tables/configurations.csv",
+    "data/cars/vehicle_evidence/releases/v0.1.0/tables/data_dictionary.csv",
+    "data/cars/vehicle_evidence/releases/v0.1.0/tables/equipment.csv",
+    "data/cars/vehicle_evidence/releases/v0.1.0/tables/evidence_facts.csv",
+    "data/cars/vehicle_evidence/releases/v0.1.0/tables/generations.csv",
+    "data/cars/vehicle_evidence/releases/v0.1.0/tables/lists.csv",
+    "data/cars/vehicle_evidence/releases/v0.1.0/tables/models.csv",
+    "data/cars/vehicle_evidence/releases/v0.1.0/tables/powertrains.csv",
+    "data/cars/vehicle_evidence/releases/v0.1.0/tables/safety.csv",
+    "data/cars/vehicle_evidence/releases/v0.1.0/tables/sources.csv"
+  ],
+  "source_count": 23,
+  "fact_count": 84,
+  "equipment_count": 93,
+  "assertion_count": 177,
+  "configuration_count": 8
+}

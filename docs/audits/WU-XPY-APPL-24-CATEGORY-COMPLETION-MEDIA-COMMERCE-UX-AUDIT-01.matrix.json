@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "xpy-appliances-readiness-audit/v1",
+  "workUnitId": "WU-XPY-APPL-24-CATEGORY-COMPLETION-MEDIA-COMMERCE-UX-AUDIT-01",
+  "auditedAt": "2026-09-04T19:25:00+03:00",
+  "scope": { "categories": 24, "registryActive": 23, "registryNotReady": 1, "runtimeMembers": 84 },
+  "verdict": "NOT_PROGRAM_COMPLETE",
+  "sharedProfiles": {
+    "ORIGINAL_RICH": "L0 exact TR identity; L1-L8 frozen product-bound facts/capabilities/semantics/needs/neutral-unknown deterministic selection; L9 array empty and no local manual bytes; L10 external volatile exact-identity media/offer join. Y never scores, weights, price-ranks or silently breaks ties.",
+    "NEW_BOUNDED": "L0 exact TR configuration; L1-L5 category facts/capabilities/concepts/planner; L6-L8 conservative non-guaranteeing interpretation and deterministic singleton/tied-set Y; L9 disabled because checksum+locator local manual artifact is absent; L10 has no admitted category commerce/media coverage. Unknown remains neutral/non-advantaging.",
+    "INACTIVE_PAIR": "Portfolio L0-L5 semantics exist, but no runtime authority/Y: exact indoor/outdoor pair identity is unresolved; L6-L10 disabled."
+  },
+  "categories": [
+    {"id":"WASHING_MACHINE","registry":"ACTIVE","readiness":"ACTIVE","members":24,"brands":7,"trIdentity":"HIGH_EXACT","facts":"richness evidence=572","capabilities":"product-bound","levels":"ORIGINAL_RICH","manuals":{"localBytes":0,"checksums":0,"locators":0,"l9Ready":false,"knownRemoteSources":5},"media":{"approved":1,"total":24,"uiRendersApproved":true},"commerce":{"freshOffers":2,"coveredProducts":2,"independentChannels":2,"legacyPriceProjection":"STALE_2026-09-04T02:10+03","budgetUnknown":"NEUTRAL_NOT_ELIMINATED"}},
+    {"id":"DRYER","registry":"ACTIVE","readiness":"ACTIVE","members":3,"brands":2,"trIdentity":"HIGH_EXACT","facts":"19 keys; richness evidence=56","capabilities":"5 keys","levels":"ORIGINAL_RICH","manuals":{"localBytes":0,"checksums":0,"locators":0,"l9Ready":false,"knownRemoteSources":2},"media":{"approved":1,"total":3,"uiRendersApproved":true},"commerce":{"freshOffers":0,"coveredProducts":0,"independentChannels":0,"budgetUnknown":"NEUTRAL_NOT_ELIMINATED"}},
+    {"id":"REFRIGERATOR","registry":"ACTIVE","readiness":"ACTIVE","members":4,"brands":4,"trIdentity":"HIGH_EXACT","facts":"25 keys; richness evidence=91","capabilities":"13 keys","levels":"ORIGINAL_RICH","manuals":{"localBytes":0,"checksums":0,"locators":0,"l9Ready":false,"knownRemoteSources":0},"media":{"approved":1,"total":4,"uiRendersApproved":true},"commerce":{"freshOffers":0,"coveredProducts":0,"independentChannels":0,"budgetUnknown":"NEUTRAL_NOT_ELIMINATED"}},
+    {"id":"DISHWASHER","registry":"ACTIVE","readiness":"ACTIVE","members":4,"brands":4,"trIdentity":"HIGH_EXACT","facts":"8 keys; richness evidence=37","capabilities":"5 keys","levels":"ORIGINAL_RICH","manuals":{"localBytes":0,"checksums":0,"locators":0,"l9Ready":false,"knownRemoteSources":0},"media":{"approved":1,"total":4,"uiRendersApproved":true},"commerce":{"freshOffers":0,"coveredProducts":0,"independentChannels":0,"budgetUnknown":"NEUTRAL_NOT_ELIMINATED"}},
+    {"id":"VACUUM","registry":"ACTIVE","readiness":"ACTIVE","members":4,"brands":2,"trIdentity":"HIGH_EXACT","facts":"6 keys; richness evidence=39","capabilities":"6 keys","levels":"ORIGINAL_RICH","manuals":{"localBytes":0,"checksums":0,"locators":0,"l9Ready":false,"knownRemoteSources":0},"media":{"approved":1,"total":4,"uiRendersApproved":true},"commerce":{"freshOffers":3,"coveredProducts":2,"independentChannels":2,"budgetUnknown":"NEUTRAL_NOT_ELIMINATED"}},
+    {"id":"ROBOT_VACUUM","registry":"ACTIVE","readiness":"ACTIVE","members":4,"brands":3,"trIdentity":"HIGH_EXACT","facts":"10 keys; richness evidence=49","capabilities":"8 keys","levels":"ORIGINAL_RICH","manuals":{"localBytes":0,"checksums":0,"locators":0,"l9Ready":false,"knownRemoteSources":0},"media":{"approved":1,"total":4,"uiRendersApproved":true},"commerce":{"freshOffers":0,"coveredProducts":0,"independentChannels":0,"budgetUnknown":"NEUTRAL_NOT_ELIMINATED"}},
+    {"id":"FREEZER","registry":"ACTIVE","readiness":"NOT_CATALOG_COMPLETE","members":1,"brands":1,"trIdentity":"HIGH_EXACT","facts":"5 keys","capabilities":"3 keys","levels":"NEW_BOUNDED"},
+    {"id":"BUILT_IN_OVEN","registry":"ACTIVE","readiness":"NOT_CATALOG_COMPLETE","members":1,"brands":1,"trIdentity":"HIGH_EXACT","facts":"5 keys","capabilities":"3 keys","levels":"NEW_BOUNDED"},
+    {"id":"FREESTANDING_COOKER","registry":"ACTIVE","readiness":"NOT_CATALOG_COMPLETE","members":1,"brands":1,"trIdentity":"HIGH_EXACT","facts":"2 keys","capabilities":"2 keys","levels":"NEW_BOUNDED"},
+    {"id":"HOB","registry":"ACTIVE","readiness":"NOT_CATALOG_COMPLETE","members":1,"brands":1,"trIdentity":"HIGH_EXACT","facts":"3 keys","capabilities":"4 keys","levels":"NEW_BOUNDED"},
+    {"id":"RANGE_HOOD","registry":"ACTIVE","readiness":"NOT_CATALOG_COMPLETE","members":1,"brands":1,"trIdentity":"HIGH_EXACT","facts":"4 keys","capabilities":"1 key","levels":"NEW_BOUNDED"},
+    {"id":"COUNTERTOP_MICROWAVE_OVEN","registry":"ACTIVE","readiness":"ACTIVE_LIMITED","members":3,"brands":3,"trIdentity":"HIGH_EXACT","facts":"8 keys","capabilities":"4 keys","levels":"NEW_BOUNDED"},
+    {"id":"BUILT_IN_MICROWAVE_OVEN","registry":"ACTIVE","readiness":"ACTIVE_LIMITED","members":3,"brands":3,"trIdentity":"HIGH_EXACT","facts":"5 keys","capabilities":"2 keys","levels":"NEW_BOUNDED"},
+    {"id":"SPLIT_AIR_CONDITIONER","registry":"NOT_READY","readiness":"NOT_READY","members":0,"brands":0,"trIdentity":"UNRESOLVED_EXACT_INDOOR_OUTDOOR_PAIR","facts":"portfolio only","capabilities":"portfolio only","levels":"INACTIVE_PAIR"},
+    {"id":"AIR_PURIFIER","registry":"ACTIVE","readiness":"ACTIVE_LIMITED","members":3,"brands":3,"trIdentity":"HIGH_EXACT","facts":"12 keys","capabilities":"7 keys","levels":"NEW_BOUNDED"},
+    {"id":"FULLY_AUTOMATIC_ESPRESSO_MACHINE","registry":"ACTIVE","readiness":"ACTIVE_LIMITED","members":3,"brands":3,"trIdentity":"HIGH_EXACT","facts":"4 keys","capabilities":"6 keys","levels":"NEW_BOUNDED"},
+    {"id":"MANUAL_ESPRESSO_MACHINE","registry":"ACTIVE","readiness":"ACTIVE_LIMITED","members":3,"brands":3,"trIdentity":"HIGH_EXACT","facts":"3 keys","capabilities":"4 keys","levels":"NEW_BOUNDED"},
+    {"id":"FILTER_COFFEE_MACHINE","registry":"ACTIVE","readiness":"ACTIVE_LIMITED","members":3,"brands":3,"trIdentity":"HIGH_EXACT","facts":"3 keys","capabilities":"4 keys","levels":"NEW_BOUNDED"},
+    {"id":"TURKISH_COFFEE_MACHINE","registry":"ACTIVE","readiness":"ACTIVE_LIMITED","members":3,"brands":3,"trIdentity":"HIGH_EXACT","facts":"2 keys","capabilities":"4 keys","levels":"NEW_BOUNDED"},
+    {"id":"AIR_FRYER","registry":"ACTIVE","readiness":"ACTIVE_LIMITED","members":3,"brands":3,"trIdentity":"HIGH_EXACT","facts":"5 keys","capabilities":"5 keys","levels":"NEW_BOUNDED"},
+    {"id":"BLENDER","registry":"ACTIVE","readiness":"ACTIVE_LIMITED","members":3,"brands":3,"trIdentity":"HIGH_EXACT","facts":"6 keys","capabilities":"3 keys","levels":"NEW_BOUNDED"},
+    {"id":"FOOD_PROCESSOR","registry":"ACTIVE","readiness":"ACTIVE_LIMITED","members":3,"brands":3,"trIdentity":"HIGH_EXACT","facts":"5 keys","capabilities":"3 keys","levels":"NEW_BOUNDED"},
+    {"id":"ELECTRIC_STORAGE_WATER_HEATER","registry":"ACTIVE","readiness":"ACTIVE_LIMITED","members":3,"brands":3,"trIdentity":"HIGH_EXACT","facts":"12 keys","capabilities":"8 keys","levels":"NEW_BOUNDED"},
+    {"id":"INSTANTANEOUS_ELECTRIC_WATER_HEATER","registry":"ACTIVE","readiness":"ACTIVE_LIMITED","members":3,"brands":3,"trIdentity":"HIGH_EXACT","facts":"11 keys","capabilities":"8 keys","levels":"NEW_BOUNDED"}
+  ],
+  "newCategorySharedDeficits": {"appliesTo":17,"manuals":{"localBytes":0,"checksums":0,"locators":0,"l9Ready":false},"media":{"approved":0,"uiRendersApproved":false},"commerce":{"freshOffers":0,"independentMerchantChannels":0,"budgetUnknown":"NEUTRAL_NOT_ELIMINATED"}},
+  "verification": {"focusedTests":{"passed":787,"failed":2,"filesPassed":74,"filesFailed":2},"typescript":"FAIL_MISSING_TWO_WATER_HEATER_CORPUS_ENTRIES","scopedLint":"PASS","webpackBuild":"ENVIRONMENT_FAIL_WASM_HASH_NODE_26_6_0"}
+}

@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "electronics-wave-4-policy-input/v1",
+  "status": "NON_ACTIVE_CATEGORY_REVIEW_INPUT",
+  "categories": [
+    {
+      "categoryId": "SMARTWATCH",
+      "eligibleFields": [
+        "case_size_mm",
+        "connectivity",
+        "health_boundary",
+        "phone_requirement"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "riskGates": {
+        "categoryId": "SMARTWATCH",
+        "privacy": "UNKNOWN_NEUTRAL_NON_BLOCKING",
+        "health": "EVIDENCED",
+        "subscription": "EVIDENCED",
+        "installation": "NOT_APPLICABLE",
+        "electricalSafety": "EVIDENCED",
+        "notes": [
+          "No retention-sensitive ranking claim; account/app dependency and non-medical boundary recorded"
+        ]
+      },
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "FITNESS_TRACKER",
+      "eligibleFields": [
+        "battery_days_max",
+        "battery_days_typical",
+        "connectivity",
+        "display_inches",
+        "health_boundary"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "riskGates": {
+        "categoryId": "FITNESS_TRACKER",
+        "privacy": "UNKNOWN_NEUTRAL_NON_BLOCKING",
+        "health": "EVIDENCED",
+        "subscription": "EVIDENCED",
+        "installation": "NOT_APPLICABLE",
+        "electricalSafety": "EVIDENCED",
+        "notes": [
+          "No retention-sensitive ranking claim; non-medical boundary recorded"
+        ]
+      },
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "eligibleFields": [
+        "local_storage",
+        "power",
+        "privacy",
+        "resolution"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "riskGates": {
+        "categoryId": "HOME_SECURITY_CAMERA",
+        "privacy": "EVIDENCED",
+        "health": "NOT_APPLICABLE",
+        "subscription": "EVIDENCED",
+        "installation": "EVIDENCED",
+        "electricalSafety": "EVIDENCED",
+        "notes": [
+          "Local storage and physical/software privacy controls distinguished from optional cloud"
+        ]
+      },
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "VIDEO_DOORBELL",
+      "eligibleFields": [
+        "local_storage",
+        "power",
+        "resolution",
+        "subscription"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "riskGates": {
+        "categoryId": "VIDEO_DOORBELL",
+        "privacy": "EVIDENCED",
+        "health": "NOT_APPLICABLE",
+        "subscription": "EVIDENCED",
+        "installation": "EVIDENCED",
+        "electricalSafety": "EVIDENCED",
+        "notes": [
+          "Power, included components, local storage, and optional cloud topology recorded"
+        ]
+      },
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "SMART_HOME_HUB",
+      "eligibleFields": [
+        "cloud_account_boundary",
+        "device_capacity",
+        "local_storage",
+        "protocols"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "riskGates": {
+        "categoryId": "SMART_HOME_HUB",
+        "privacy": "BLOCKED_MATERIAL",
+        "health": "NOT_APPLICABLE",
+        "subscription": "UNKNOWN_NEUTRAL_NON_BLOCKING",
+        "installation": "EVIDENCED",
+        "electricalSafety": "EVIDENCED",
+        "notes": [
+          "Second-manufacturer exact Türkiye applicability absent"
+        ]
+      },
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "eligibleFields": [
+        "capacity",
+        "electrical_safety",
+        "mains_outlets",
+        "topology"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "riskGates": {
+        "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+        "privacy": "NOT_APPLICABLE",
+        "health": "NOT_APPLICABLE",
+        "subscription": "NOT_APPLICABLE",
+        "installation": "EVIDENCED",
+        "electricalSafety": "EVIDENCED",
+        "notes": [
+          "230V, topology, outlet form, battery chemistry, and safety standards recorded"
+        ]
+      },
+      "commerceEffect": "NONE"
+    }
+  ]
+}

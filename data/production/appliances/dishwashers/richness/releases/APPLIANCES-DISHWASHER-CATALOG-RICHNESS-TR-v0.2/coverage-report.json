@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "dishwasher-catalog-richness-coverage/v1",
+  "workUnitId": "WU-XPY-APPL-DISHWASHER-CATALOG-RICHNESS-01",
+  "generatedAt": "2026-09-04T21:00:00.000+03:00",
+  "verdict": "IMPLEMENTED",
+  "before": {
+    "L0": "COMPLETE",
+    "L1": "PARTIAL",
+    "L2": "PARTIAL",
+    "L3": "PARTIAL",
+    "L4": "PARTIAL",
+    "L5": "ABSENT",
+    "L6": "ABSENT",
+    "L7": "ABSENT",
+    "L8": "PARTIAL",
+    "L9": "ABSENT",
+    "L10": "PARTIAL"
+  },
+  "after": {
+    "L0": "COMPLETE",
+    "L1": "PARTIAL",
+    "L2": "COMPLETE",
+    "L3": "COMPLETE",
+    "L4": "COMPLETE",
+    "L5": "COMPLETE",
+    "L6": "COMPLETE",
+    "L7": "ABSENT",
+    "L8": "COMPLETE",
+    "L9": "ABSENT",
+    "L10": "PARTIAL"
+  },
+  "counts": {
+    "sources": 5,
+    "offerings": 4,
+    "objectiveFacts": 25,
+    "capabilities": 12,
+    "usageSemantics": 7,
+    "needs": 8,
+    "needEvidenceMappings": 7,
+    "personaSignals": 3,
+    "dailyLifeInterpretations": 15,
+    "experienceRules": 0,
+    "decisionProjections": 4,
+    "advisorKnowledge": 0,
+    "comparisonDimensions": 7,
+    "evidence": 37,
+    "assertionLevelEvidence": 37,
+    "advisorReadProjectionsGenerated": 4,
+    "comparisonEvidenceProjectionsGenerated": 1
+  },
+  "perProduct": [
+    {
+      "offeringId": "BOSCH_SMS4IKI62T_TR",
+      "label": "Bosch SMS4IKI62T",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 7,
+        "capabilities": 4,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "INSTALLATION_CLEARANCES_UNKNOWN",
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND"
+        ]
+      }
+    },
+    {
+      "offeringId": "SIEMENS_SN25EI63MT_TR",
+      "label": "Siemens SN25EI63MT",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 7,
+        "capabilities": 3,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "INSTALLATION_CLEARANCES_UNKNOWN",
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND"
+        ]
+      }
+    },
+    {
+      "offeringId": "SAMSUNG_DW60DG560FWQTR",
+      "label": "Samsung DW60DG560FWQTR",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 7,
+        "capabilities": 2,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "INSTALLATION_CLEARANCES_UNKNOWN",
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND"
+        ]
+      }
+    },
+    {
+      "offeringId": "BEKO_BM4044_TR",
+      "label": "Beko BM 4044",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 4,
+        "capabilities": 3,
+        "dailyLifeInterpretations": 3,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "DECLARATION_REGIME_UNKNOWN",
+          "ENERGY_WATER_NOISE_COMPARISON_UNKNOWN",
+          "INSTALLATION_CLEARANCES_UNKNOWN",
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND"
+        ]
+      }
+    }
+  ],
+  "unresolvedGlobal": [
+    "L7 absent: no governed experience authority.",
+    "L9 absent: no checksum-bound exact manual.",
+    "Installation service space, hoses, door swing and clearances remain unknown.",
+    "Beko declaration regime and its energy, Eco-water and noise comparability remain unknown and neutral.",
+    "L10 price, media and offers remain external volatile joins."
+  ],
+  "nonRegression": {
+    "parentAuthorityBytesChanged": false,
+    "membershipChanged": false,
+    "candidateSelectionChanged": false,
+    "yAuthorizationChanged": false,
+    "commerceOrderingChanged": false
+  },
+  "nextBoundedWorkUnit": {
+    "workUnitId": "WU-XPY-APPL-VACUUM-CATALOG-RICHNESS-01"
+  }
+}

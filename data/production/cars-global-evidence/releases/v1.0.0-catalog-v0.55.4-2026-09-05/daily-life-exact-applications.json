@@ -1,0 +1,1241 @@
+{
+  "activationPerformed": false,
+  "applications": [
+    {
+      "applicationId": "EDL-APP-738C2C98561EB08EB224",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda adaptif hız sabitleyici doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Adaptif hız sabitleyici, uzun yolda hızlanma ve yavaşlama ihtiyacını azaltarak sürüş yükünü hafifletebilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-2E875C59632E7F3894D2",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-1BE1687CAC2FC2A5ADA1",
+        "locator": {
+          "column": "Design",
+          "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+          "pageNumber": 3,
+          "row": "Adaptif hız sabitleme sistemi (ACC) & Akıllı hız sabitleme sistemi (ICC)"
+        },
+        "materializationId": "EE-MAT-A307C077482711EF3EC0",
+        "ownerApprovalEventId": "EE-OAE-FE39A4D9B5113F5C2851",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:b50e2cf4aa62c53a789d6a762c1b552485207494bced77bf3eb51b7c00ea5f38"
+      },
+      "exactVariantId": "11382bb9-bf71-52bf-9d0b-33befe86da7e",
+      "familyInheritance": false,
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "identity": {
+        "body": "SUV",
+        "brand": "BYD",
+        "market": "TR",
+        "model": "SEAL U EV",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "Design"
+      },
+      "limitations": [
+        "Trafiği ve yolu izleme sorumluluğu sürücüdedir; çalışma aralığı modele göre değişir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:6460d596bf5599d61421018cc3e612f777be81c887263a11cedaa87f937b8e95",
+        "decisionId": "OM-TR-OWNER-99CA516FD63C60027D22",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 118,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Adaptif Hız Sabitleme Sistemi (AHSS)",
+        "sourceId": "OM-ART-BYD-SEAL-U-EV-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-FAAE69B642AF1775A91C",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda kör nokta izleme doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Kör nokta izleme, şerit değiştirirken aynalarda görülmesi zor araçlar için ek uyarı sağlayabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-C76225A109DC08189213",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-B497EA1973BD9BF56327",
+        "locator": {
+          "column": "Design",
+          "featureCode": "BLIND_SPOT_MONITOR",
+          "pageNumber": 3,
+          "row": "Kör nokta uyarı sistemi (BSD) & Şerit değiştirme asistanı (LCA)"
+        },
+        "materializationId": "EE-MAT-8B7DB8E1B96D170AD3D1",
+        "ownerApprovalEventId": "EE-OAE-3540F063AFFD925D0722",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:b50e2cf4aa62c53a789d6a762c1b552485207494bced77bf3eb51b7c00ea5f38"
+      },
+      "exactVariantId": "11382bb9-bf71-52bf-9d0b-33befe86da7e",
+      "familyInheritance": false,
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "identity": {
+        "body": "SUV",
+        "brand": "BYD",
+        "market": "TR",
+        "model": "SEAL U EV",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "Design"
+      },
+      "limitations": [
+        "Ayna ve omuz kontrolünün yerini almaz; motosiklet veya hızlı yaklaşan araçları her zaman algılamayabilir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:6460d596bf5599d61421018cc3e612f777be81c887263a11cedaa87f937b8e95",
+        "decisionId": "OM-TR-OWNER-6EEAE89B6D0F883D6DE1",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 134,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Kör Nokta Destek Sistemi",
+        "sourceId": "OM-ART-BYD-SEAL-U-EV-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-D7C9780C286BD33746B9",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda ısıtmalı ön koltuklar doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Isıtmalı ön koltuklar, kabin tamamen ısınmadan sürücü ve ön yolcuya doğrudan sıcaklık sağlayabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-EB14D11A445534146AF4",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-ECA2CF57715636F6E5CC",
+        "locator": {
+          "column": "Design",
+          "featureCode": "HEATED_FRONT_SEATS",
+          "pageNumber": 2,
+          "row": "Havalandırmalı ve ısıtmalı ön koltuklar"
+        },
+        "materializationId": "EE-MAT-BEC497F983F18FBFD7EA",
+        "ownerApprovalEventId": "EE-OAE-C1A83D627381F647095B",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:b50e2cf4aa62c53a789d6a762c1b552485207494bced77bf3eb51b7c00ea5f38"
+      },
+      "exactVariantId": "11382bb9-bf71-52bf-9d0b-33befe86da7e",
+      "familyInheritance": false,
+      "featureCode": "HEATED_FRONT_SEATS",
+      "identity": {
+        "body": "SUV",
+        "brand": "BYD",
+        "market": "TR",
+        "model": "SEAL U EV",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "Design"
+      },
+      "limitations": [
+        "Uzun süre yüksek ayarda kullanım bazı kişiler için rahatsız edici olabilir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:6460d596bf5599d61421018cc3e612f777be81c887263a11cedaa87f937b8e95",
+        "decisionId": "OM-TR-OWNER-6919D2B2A4D25924EA18",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 58,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Koltuk ısıtma",
+        "sourceId": "OM-ART-BYD-SEAL-U-EV-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-7FA589BA3056E563DE1F",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda arka dış koltuklarda ısofıx doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Arka dış koltuklardaki ISOFIX bağlantıları, uyumlu bir çocuk koltuğunu araç üreticisinin talimatlarına göre sabitlemeyi kolaylaştırabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-86A5B1ECE66DECC3F939",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-0BBD28E080D63DBD0B8F",
+        "locator": {
+          "column": "Design",
+          "featureCode": "ISOFIX_REAR_OUTER",
+          "pageNumber": 3,
+          "row": "Ön yolcu koltuğunda ve arka yan koltuklarda ISOFIX bağlantıları"
+        },
+        "materializationId": "EE-MAT-DDDD9B19CF1458375525",
+        "ownerApprovalEventId": "EE-OAE-93B30B79D42748225484",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:b50e2cf4aa62c53a789d6a762c1b552485207494bced77bf3eb51b7c00ea5f38"
+      },
+      "exactVariantId": "11382bb9-bf71-52bf-9d0b-33befe86da7e",
+      "familyInheritance": false,
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "identity": {
+        "body": "SUV",
+        "brand": "BYD",
+        "market": "TR",
+        "model": "SEAL U EV",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "Design"
+      },
+      "limitations": [
+        "Çocuk koltuğu ve araç kılavuzundaki uyumluluk, ağırlık, yön ve montaj talimatları her kullanımda kontrol edilmelidir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:6460d596bf5599d61421018cc3e612f777be81c887263a11cedaa87f937b8e95",
+        "decisionId": "OM-TR-OWNER-2585752D21D35174DD74",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 25,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "ISOFIX/i-Size bağlantıları",
+        "sourceId": "OM-ART-BYD-SEAL-U-EV-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-C9F22156012EDC20EA42",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda kablosuz telefon şarjı doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Kablosuz telefon şarjı, özellikle günlük kısa yolculuklarda kablo kullanma ihtiyacını azaltabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-667566216CC4B228CC96",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-73581F2D1958FDA2BD2B",
+        "locator": {
+          "column": "Design",
+          "featureCode": "WIRELESS_PHONE_CHARGING",
+          "pageNumber": 3,
+          "row": "Orta konsolda akıllı telefonlar için kablosuz şarj istasyonu (2 x 15 W)"
+        },
+        "materializationId": "EE-MAT-AF4580B1D9B6814749C2",
+        "ownerApprovalEventId": "EE-OAE-23CB7922F3D9EF75EC25",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:b50e2cf4aa62c53a789d6a762c1b552485207494bced77bf3eb51b7c00ea5f38"
+      },
+      "exactVariantId": "11382bb9-bf71-52bf-9d0b-33befe86da7e",
+      "familyInheritance": false,
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "identity": {
+        "body": "SUV",
+        "brand": "BYD",
+        "market": "TR",
+        "model": "SEAL U EV",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "Design"
+      },
+      "limitations": [
+        "Şarj hızı genellikle kablolu şarjdan düşüktür; telefonun uyumlu ve doğru konumda olması gerekir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:6460d596bf5599d61421018cc3e612f777be81c887263a11cedaa87f937b8e95",
+        "decisionId": "OM-TR-OWNER-86F99827ABE78467EE33",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 178,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Kablosuz telefon şarjı",
+        "sourceId": "OM-ART-BYD-SEAL-U-EV-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-A4A6C2BE40C02060A3D2",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda adaptif hız sabitleyici doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Adaptif hız sabitleyici, uzun yolda hızlanma ve yavaşlama ihtiyacını azaltarak sürüş yükünü hafifletebilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-2E875C59632E7F3894D2",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-BE9858BD8B3A02B81D11",
+        "locator": {
+          "column": "Hybrid Passion X-Pack",
+          "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+          "pageNumber": 3,
+          "row": "Akıllı Adaptif Hız Sabitleme Sistemi (Tüm Hızlarda) (ACC)"
+        },
+        "materializationId": "EE-MAT-4FF42E89A0F59094324D",
+        "ownerApprovalEventId": "EE-OAE-D9D583C8EBE6EB2759FF",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:509665bfbf351683197853c78069b3b6fb3b8f32021d5ee857d111dfa750da17"
+      },
+      "exactVariantId": "4c22cb31-e980-4dc8-8525-c47363783d96",
+      "familyInheritance": false,
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "identity": {
+        "body": "Hatchback",
+        "brand": "Toyota",
+        "market": "TR",
+        "model": "Yaris",
+        "modelYear": 2026,
+        "powertrain": "HEV",
+        "trim": "Passion X-Pack Hybrid 1.5 130 HP e-CVT"
+      },
+      "limitations": [
+        "Trafiği ve yolu izleme sorumluluğu sürücüdedir; çalışma aralığı modele göre değişir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:80dce1818ee86ef707fdf2be5af4b64349ec957db1dc50a5a294f02d5a7eb8ca",
+        "decisionId": "OM-TR-OWNER-3E85CC8A84654638843C",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 276,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Toyota Türkiye kullanıcı el kitabı / ADAPTIVE_CRUISE_CONTROL",
+        "sourceId": "OM-ART-TOYOTA-YARIS-HEV-2026-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-64B9951479C4FFC8EC05",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda arka dış koltuklarda ısofıx doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Arka dış koltuklardaki ISOFIX bağlantıları, uyumlu bir çocuk koltuğunu araç üreticisinin talimatlarına göre sabitlemeyi kolaylaştırabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-86A5B1ECE66DECC3F939",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-5BF9389FFBF89193DA46",
+        "locator": {
+          "column": "Hybrid Passion X-Pack",
+          "featureCode": "ISOFIX_REAR_OUTER",
+          "pageNumber": 3,
+          "row": "Çocuk Koltuğu Sabitleme Mekanizması (ISOFIX)"
+        },
+        "materializationId": "EE-MAT-B18D40A0AD031EEB2607",
+        "ownerApprovalEventId": "EE-OAE-A68C815C82EC13CCB1E5",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:509665bfbf351683197853c78069b3b6fb3b8f32021d5ee857d111dfa750da17"
+      },
+      "exactVariantId": "4c22cb31-e980-4dc8-8525-c47363783d96",
+      "familyInheritance": false,
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "identity": {
+        "body": "Hatchback",
+        "brand": "Toyota",
+        "market": "TR",
+        "model": "Yaris",
+        "modelYear": 2026,
+        "powertrain": "HEV",
+        "trim": "Passion X-Pack Hybrid 1.5 130 HP e-CVT"
+      },
+      "limitations": [
+        "Çocuk koltuğu ve araç kılavuzundaki uyumluluk, ağırlık, yön ve montaj talimatları her kullanımda kontrol edilmelidir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:80dce1818ee86ef707fdf2be5af4b64349ec957db1dc50a5a294f02d5a7eb8ca",
+        "decisionId": "OM-TR-OWNER-02874D483BD6D4A2FD88",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 61,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Toyota Türkiye kullanıcı el kitabı / ISOFIX_REAR_OUTER",
+        "sourceId": "OM-ART-TOYOTA-YARIS-HEV-2026-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-D595ED33651544424681",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda kablosuz telefon şarjı doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Kablosuz telefon şarjı, özellikle günlük kısa yolculuklarda kablo kullanma ihtiyacını azaltabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-667566216CC4B228CC96",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-BB1BBEB5FF25E47C3C60",
+        "locator": {
+          "column": "Hybrid Passion X-Pack",
+          "featureCode": "WIRELESS_PHONE_CHARGING",
+          "pageNumber": 5,
+          "row": "Kablosuz Şarj Ünitesi"
+        },
+        "materializationId": "EE-MAT-FCFCA88482A3C1A168D6",
+        "ownerApprovalEventId": "EE-OAE-7CCF8F4BDD5FCD19999C",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:509665bfbf351683197853c78069b3b6fb3b8f32021d5ee857d111dfa750da17"
+      },
+      "exactVariantId": "4c22cb31-e980-4dc8-8525-c47363783d96",
+      "familyInheritance": false,
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "identity": {
+        "body": "Hatchback",
+        "brand": "Toyota",
+        "market": "TR",
+        "model": "Yaris",
+        "modelYear": 2026,
+        "powertrain": "HEV",
+        "trim": "Passion X-Pack Hybrid 1.5 130 HP e-CVT"
+      },
+      "limitations": [
+        "Şarj hızı genellikle kablolu şarjdan düşüktür; telefonun uyumlu ve doğru konumda olması gerekir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:80dce1818ee86ef707fdf2be5af4b64349ec957db1dc50a5a294f02d5a7eb8ca",
+        "decisionId": "OM-TR-OWNER-7782F99F237D61B8D3F2",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 348,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Toyota Türkiye kullanıcı el kitabı / WIRELESS_PHONE_CHARGING",
+        "sourceId": "OM-ART-TOYOTA-YARIS-HEV-2026-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-2662DE7D86156D093B1A",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda adaptif hız sabitleyici doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Adaptif hız sabitleyici, uzun yolda hızlanma ve yavaşlama ihtiyacını azaltarak sürüş yükünü hafifletebilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-2E875C59632E7F3894D2",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:bc7f5af057e55cac8dacbb094286cdc030b70f53433b66b35ba2daa5346ee1f3",
+        "approvalManifestId": "EE-OAM-SCALE-WAVE-001-R1-BYD-NISSAN",
+        "assertionId": "EE-AST-946BAD3F4D0E4CD45882FF60",
+        "locator": {
+          "column": "Comfort",
+          "kind": "PDF_PAGE",
+          "pageNumber": 3,
+          "row": "Adaptif hız sabitleme sistemi (ACC) & Akıllı hız sabitleme sistemi (ICC)"
+        },
+        "materializationId": "EE-MAT-380A821A51E9226559C2",
+        "ownerApprovalEventId": "EE-OAE-380A821A51E9226559C2",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686"
+      },
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "familyInheritance": false,
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "identity": {
+        "body": "Hatchback",
+        "brand": "BYD",
+        "market": "TR",
+        "model": "DOLPHIN",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "Comfort"
+      },
+      "limitations": [
+        "Trafiği ve yolu izleme sorumluluğu sürücüdedir; çalışma aralığı modele göre değişir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:b94f01aa38f0496d87d10cb93245e293089c530e76a2a065caf62a2c138bef9d",
+        "decisionId": "OM-TR-PILOT-0C403A80A9B5DA6DEAF8",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 29,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Adaptif hız sabitleme sistemi",
+        "sourceId": "OM-ART-BYD-DOLPHIN-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-C477134E15BADA488129",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda kör nokta izleme doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Kör nokta izleme, şerit değiştirirken aynalarda görülmesi zor araçlar için ek uyarı sağlayabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-C76225A109DC08189213",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:bc7f5af057e55cac8dacbb094286cdc030b70f53433b66b35ba2daa5346ee1f3",
+        "approvalManifestId": "EE-OAM-SCALE-WAVE-001-R1-BYD-NISSAN",
+        "assertionId": "EE-AST-DD5E243DBC9AE3AA2A5F1393",
+        "locator": {
+          "column": "Comfort",
+          "kind": "PDF_PAGE",
+          "pageNumber": 3,
+          "row": "Kör nokta uyarı sistemi (BSD) & Şerit değiştirme asistanı (LCA)"
+        },
+        "materializationId": "EE-MAT-CE96FE597CE74200919F",
+        "ownerApprovalEventId": "EE-OAE-CE96FE597CE74200919F",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686"
+      },
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "familyInheritance": false,
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "identity": {
+        "body": "Hatchback",
+        "brand": "BYD",
+        "market": "TR",
+        "model": "DOLPHIN",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "Comfort"
+      },
+      "limitations": [
+        "Ayna ve omuz kontrolünün yerini almaz; motosiklet veya hızlı yaklaşan araçları her zaman algılamayabilir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:b94f01aa38f0496d87d10cb93245e293089c530e76a2a065caf62a2c138bef9d",
+        "decisionId": "OM-TR-PILOT-29FCD9AFDC9F767C5D08",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 42,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Kör nokta asistanı",
+        "sourceId": "OM-ART-BYD-DOLPHIN-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-22EB8B625421DAC020B5",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda ısıtmalı ön koltuklar doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Isıtmalı ön koltuklar, kabin tamamen ısınmadan sürücü ve ön yolcuya doğrudan sıcaklık sağlayabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-EB14D11A445534146AF4",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:bc7f5af057e55cac8dacbb094286cdc030b70f53433b66b35ba2daa5346ee1f3",
+        "approvalManifestId": "EE-OAM-SCALE-WAVE-001-R1-BYD-NISSAN",
+        "assertionId": "EE-AST-A90BCF4AA614D8C779DEBB7C",
+        "locator": {
+          "column": "Comfort",
+          "kind": "PDF_PAGE",
+          "pageNumber": 2,
+          "row": "Isıtmalı ön koltuklar"
+        },
+        "materializationId": "EE-MAT-569126E695F45520DA11",
+        "ownerApprovalEventId": "EE-OAE-569126E695F45520DA11",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686"
+      },
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "familyInheritance": false,
+      "featureCode": "HEATED_FRONT_SEATS",
+      "identity": {
+        "body": "Hatchback",
+        "brand": "BYD",
+        "market": "TR",
+        "model": "DOLPHIN",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "Comfort"
+      },
+      "limitations": [
+        "Uzun süre yüksek ayarda kullanım bazı kişiler için rahatsız edici olabilir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:b94f01aa38f0496d87d10cb93245e293089c530e76a2a065caf62a2c138bef9d",
+        "decisionId": "OM-TR-PILOT-2AD7C74DAA1D866B9871",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 55,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Koltuk ısıtma",
+        "sourceId": "OM-ART-BYD-DOLPHIN-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-EED1B10C50327ED461DC",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda arka dış koltuklarda ısofıx doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Arka dış koltuklardaki ISOFIX bağlantıları, uyumlu bir çocuk koltuğunu araç üreticisinin talimatlarına göre sabitlemeyi kolaylaştırabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-86A5B1ECE66DECC3F939",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:bc7f5af057e55cac8dacbb094286cdc030b70f53433b66b35ba2daa5346ee1f3",
+        "approvalManifestId": "EE-OAM-SCALE-WAVE-001-R1-BYD-NISSAN",
+        "assertionId": "EE-AST-2A693FBC4F895E4691CF6793",
+        "locator": {
+          "column": "Comfort",
+          "kind": "PDF_PAGE",
+          "pageNumber": 3,
+          "row": "Ön yolcu koltuğunda ve arka yan koltuklarda ISOFIX bağlantıları"
+        },
+        "materializationId": "EE-MAT-8F29C2FC1FA3A9BA6DD6",
+        "ownerApprovalEventId": "EE-OAE-8F29C2FC1FA3A9BA6DD6",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686"
+      },
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "familyInheritance": false,
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "identity": {
+        "body": "Hatchback",
+        "brand": "BYD",
+        "market": "TR",
+        "model": "DOLPHIN",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "Comfort"
+      },
+      "limitations": [
+        "Çocuk koltuğu ve araç kılavuzundaki uyumluluk, ağırlık, yön ve montaj talimatları her kullanımda kontrol edilmelidir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:b94f01aa38f0496d87d10cb93245e293089c530e76a2a065caf62a2c138bef9d",
+        "decisionId": "OM-TR-PILOT-D76FE5C33C9B466559F6",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 24,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Arka yan koltuk ISOFIX/i-Size",
+        "sourceId": "OM-ART-BYD-DOLPHIN-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-9ACEDC3CFA359F306771",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda 360 derece çevre görüş kamerası doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "360 derece kamera, dar park alanlarında jant, kaldırım ve çevredeki engelleri konumlandırmayı kolaylaştırabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-58BF757BD64AA9F3A2EA",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:bc7f5af057e55cac8dacbb094286cdc030b70f53433b66b35ba2daa5346ee1f3",
+        "approvalManifestId": "EE-OAM-SCALE-WAVE-001-R1-BYD-NISSAN",
+        "assertionId": "EE-AST-96B4A3648C9BA9611AD0C424",
+        "locator": {
+          "column": "Comfort",
+          "kind": "PDF_PAGE",
+          "pageNumber": 3,
+          "row": "Panoramik görüş kamerası (360°)"
+        },
+        "materializationId": "EE-MAT-7281286ED20D7D8307D1",
+        "ownerApprovalEventId": "EE-OAE-7281286ED20D7D8307D1",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686"
+      },
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "familyInheritance": false,
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "identity": {
+        "body": "Hatchback",
+        "brand": "BYD",
+        "market": "TR",
+        "model": "DOLPHIN",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "Comfort"
+      },
+      "limitations": [
+        "Kamera kör noktaları ve görüntü birleştirme hataları olabilir; çevre fiziksel olarak kontrol edilmelidir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Bu exact özellik için uyumlu manual assertion bulunmadığından operasyonel ayrıntı eklenmedi."
+      ],
+      "manualEvidence": null,
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-7BD8D77734F2C2F56F34",
+      "capabilityState": "ABSENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda yerleşik kablosuz telefon şarjı mevcut değildir; bu durum aracı genel olarak daha kötü yapmaz ve kablolu alternatif ya da telefon desteği hakkında ek bir iddia kurmaz.",
+      "consumerStatementTr": "Bu exact konfigürasyonda kablosuz telefon şarjı doğrulanmış biçimde mevcut değildir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-667566216CC4B228CC96",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:bc7f5af057e55cac8dacbb094286cdc030b70f53433b66b35ba2daa5346ee1f3",
+        "approvalManifestId": "EE-OAM-SCALE-WAVE-001-R1-BYD-NISSAN",
+        "assertionId": "EE-AST-0A0A5644D4EFD602108DA56E",
+        "locator": {
+          "column": "Comfort",
+          "kind": "PDF_PAGE",
+          "pageNumber": 2,
+          "row": "Akıllı telefonlar için havalandırmalı kablosuz şarj istasyonu (50 W)"
+        },
+        "materializationId": "EE-MAT-7D607D5C17460470CADF",
+        "ownerApprovalEventId": "EE-OAE-7D607D5C17460470CADF",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:852cbf0ffd68601d76ed7845b13fcc20241e363234c67ba23369ce6040e17686"
+      },
+      "exactVariantId": "6cb56615-37ef-51a8-9202-a73e59d4e14b",
+      "familyInheritance": false,
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "identity": {
+        "body": "Hatchback",
+        "brand": "BYD",
+        "market": "TR",
+        "model": "DOLPHIN",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "Comfort"
+      },
+      "limitations": [
+        "Şarj hızı genellikle kablolu şarjdan düşüktür; telefonun uyumlu ve doğru konumda olması gerekir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:b94f01aa38f0496d87d10cb93245e293089c530e76a2a065caf62a2c138bef9d",
+        "decisionId": "OM-TR-PILOT-50B9DC91C77850143435",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 47,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Kablosuz telefon şarjı",
+        "sourceId": "OM-ART-BYD-DOLPHIN-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "NEGATIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-A44079316BBCAD3E6C05",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda adaptif hız sabitleyici doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Adaptif hız sabitleyici, uzun yolda hızlanma ve yavaşlama ihtiyacını azaltarak sürüş yükünü hafifletebilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-2E875C59632E7F3894D2",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-01923D560F1F181BD0C3",
+        "locator": {
+          "column": "INSTER Cross Advance",
+          "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+          "pageNumber": 24,
+          "row": "Dur ve Kalk Özellikli Akıllı Hız Sabitleme Kontrolü (SCC w/S&G)"
+        },
+        "materializationId": "EE-MAT-9BB6A3DA4B0F7940770F",
+        "ownerApprovalEventId": "EE-OAE-DAE8388FBEC690BD6BDB",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:79449479f4117f509f7a9d0144dc30d36ed1340b11fd5d2b09813313f5aa4883"
+      },
+      "exactVariantId": "8332f9df-5df5-5626-9d5f-22fbed616a56",
+      "familyInheritance": false,
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "identity": {
+        "body": "Hatchback",
+        "brand": "Hyundai",
+        "market": "TR",
+        "model": "INSTER",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "84,5 kW Cross Advance"
+      },
+      "limitations": [
+        "Trafiği ve yolu izleme sorumluluğu sürücüdedir; çalışma aralığı modele göre değişir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:a0fb8f8e4e926e3e6553aea7f98297944a28bcdd8312613296e76173859f3451",
+        "decisionId": "OM-TR-OWNER-DB60FB30771FB390CE1D",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 398,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Sürücü Destek Sistemi / Akıllı Hız Sabitleyici Kontrolü",
+        "sourceId": "OM-ART-HYUNDAI-INSTER-2025-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-222C5EB960791F5B4ABE",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda kablosuz telefon şarjı doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Kablosuz telefon şarjı, özellikle günlük kısa yolculuklarda kablo kullanma ihtiyacını azaltabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-667566216CC4B228CC96",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-A7C6F3D27D695D8B438C",
+        "locator": {
+          "column": "INSTER Cross Advance",
+          "featureCode": "WIRELESS_PHONE_CHARGING",
+          "pageNumber": 24,
+          "row": "Akıllı Telefon Kablosuz Şarj Sistemi"
+        },
+        "materializationId": "EE-MAT-7AD1EB193CE755A0072A",
+        "ownerApprovalEventId": "EE-OAE-E04CF65F58624B645125",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:79449479f4117f509f7a9d0144dc30d36ed1340b11fd5d2b09813313f5aa4883"
+      },
+      "exactVariantId": "8332f9df-5df5-5626-9d5f-22fbed616a56",
+      "familyInheritance": false,
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "identity": {
+        "body": "Hatchback",
+        "brand": "Hyundai",
+        "market": "TR",
+        "model": "INSTER",
+        "modelYear": 2025,
+        "powertrain": "BEV",
+        "trim": "84,5 kW Cross Advance"
+      },
+      "limitations": [
+        "Şarj hızı genellikle kablolu şarjdan düşüktür; telefonun uyumlu ve doğru konumda olması gerekir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "Manual referansı yalnızca operasyon bağlamı içindir; ekipman varlığını kurmaz."
+      ],
+      "manualEvidence": {
+        "artifactSha256": "sha256:a0fb8f8e4e926e3e6553aea7f98297944a28bcdd8312613296e76173859f3451",
+        "decisionId": "OM-TR-OWNER-7A19CA816EA71611F08C",
+        "payloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+        "physicalPdfPage": 255,
+        "release": "v4.3.0-equipment-owner-review-01",
+        "sectionHeading": "Konfor Özellikleri / Kablosuz Akıllı Telefon Şarj Sistemi",
+        "sourceId": "OM-ART-HYUNDAI-INSTER-2025-TR",
+        "use": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF"
+      },
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-E89920F725A265726E2D",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda adaptif hız sabitleyici doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Adaptif hız sabitleyici, uzun yolda hızlanma ve yavaşlama ihtiyacını azaltarak sürüş yükünü hafifletebilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-2E875C59632E7F3894D2",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-99001C3390123D385E58",
+        "locator": {
+          "column": "Invincible",
+          "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+          "pageNumber": 5,
+          "row": "Adaptif Hız Sabitleme Sistemi (ACC)"
+        },
+        "materializationId": "EE-MAT-F475541BAABBBE237DA4",
+        "ownerApprovalEventId": "EE-OAE-E993A849D572D193D9F0",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:720cded2a0c2afab57b426684b9b71cf17055b0b059743c8f71f2aa2d92ba282"
+      },
+      "exactVariantId": "cf63bfb6-d503-5669-9799-6593f4b3f96b",
+      "familyInheritance": false,
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "identity": {
+        "body": "Pickup",
+        "brand": "Toyota",
+        "market": "TR",
+        "model": "Hilux",
+        "modelYear": 2026,
+        "powertrain": "DIESEL",
+        "trim": "Invincible 2.8 D-4D 4x4 AT"
+      },
+      "limitations": [
+        "Trafiği ve yolu izleme sorumluluğu sürücüdedir; çalışma aralığı modele göre değişir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "MY2024 owner manual, MY2026 Hilux için operasyonel ayrıntı kaynağı olarak kullanılmadı."
+      ],
+      "manualEvidence": null,
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-C1E203FAACF514B41289",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda ısıtmalı ön koltuklar doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Isıtmalı ön koltuklar, kabin tamamen ısınmadan sürücü ve ön yolcuya doğrudan sıcaklık sağlayabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-EB14D11A445534146AF4",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-8DEFF2C63E47D0245B63",
+        "locator": {
+          "column": "Invincible",
+          "featureCode": "HEATED_FRONT_SEATS",
+          "pageNumber": 4,
+          "row": "Isıtmalı Ön Koltuklar"
+        },
+        "materializationId": "EE-MAT-0B1D20225837394ABFA1",
+        "ownerApprovalEventId": "EE-OAE-AD26467FA060F9A0F027",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:720cded2a0c2afab57b426684b9b71cf17055b0b059743c8f71f2aa2d92ba282"
+      },
+      "exactVariantId": "cf63bfb6-d503-5669-9799-6593f4b3f96b",
+      "familyInheritance": false,
+      "featureCode": "HEATED_FRONT_SEATS",
+      "identity": {
+        "body": "Pickup",
+        "brand": "Toyota",
+        "market": "TR",
+        "model": "Hilux",
+        "modelYear": 2026,
+        "powertrain": "DIESEL",
+        "trim": "Invincible 2.8 D-4D 4x4 AT"
+      },
+      "limitations": [
+        "Uzun süre yüksek ayarda kullanım bazı kişiler için rahatsız edici olabilir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "MY2024 owner manual, MY2026 Hilux için operasyonel ayrıntı kaynağı olarak kullanılmadı."
+      ],
+      "manualEvidence": null,
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-8F4C99DDC34280BF5115",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda arka dış koltuklarda ısofıx doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "Arka dış koltuklardaki ISOFIX bağlantıları, uyumlu bir çocuk koltuğunu araç üreticisinin talimatlarına göre sabitlemeyi kolaylaştırabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-86A5B1ECE66DECC3F939",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-D306C944F501F3261F28",
+        "locator": {
+          "column": "Invincible",
+          "featureCode": "ISOFIX_REAR_OUTER",
+          "pageNumber": 5,
+          "row": "Çocuk Koltuğu Sabitleme Mekanizması (Isofix)"
+        },
+        "materializationId": "EE-MAT-B24B43B6DB53A9AE9694",
+        "ownerApprovalEventId": "EE-OAE-FDE935BC0765D9561052",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:720cded2a0c2afab57b426684b9b71cf17055b0b059743c8f71f2aa2d92ba282"
+      },
+      "exactVariantId": "cf63bfb6-d503-5669-9799-6593f4b3f96b",
+      "familyInheritance": false,
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "identity": {
+        "body": "Pickup",
+        "brand": "Toyota",
+        "market": "TR",
+        "model": "Hilux",
+        "modelYear": 2026,
+        "powertrain": "DIESEL",
+        "trim": "Invincible 2.8 D-4D 4x4 AT"
+      },
+      "limitations": [
+        "Çocuk koltuğu ve araç kılavuzundaki uyumluluk, ağırlık, yön ve montaj talimatları her kullanımda kontrol edilmelidir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "MY2024 owner manual, MY2026 Hilux için operasyonel ayrıntı kaynağı olarak kullanılmadı."
+      ],
+      "manualEvidence": null,
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    },
+    {
+      "applicationId": "EDL-APP-BDF6029CDFCF0EB8226F",
+      "capabilityState": "PRESENT",
+      "comparisonSafeStatementTr": "Bu exact konfigürasyonda 360 derece çevre görüş kamerası doğrulanmıştır; tek başına kullanıcı faydası, performans, konfor veya güvenlik sonucu garanti etmez.",
+      "consumerStatementTr": "360 derece kamera, dar park alanlarında jant, kaldırım ve çevredeki engelleri konumlandırmayı kolaylaştırabilir.",
+      "crossModelYearInference": false,
+      "crossVariantInheritance": false,
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-58BF757BD64AA9F3A2EA",
+      "directCandidateEffect": "NONE",
+      "equipmentEvidence": {
+        "approvalManifestChecksum": "sha256:a745fd39f60fa1929cdf4c2cdb533b6a6eef22587aaa501cbb720fb8f8e40cb7",
+        "approvalManifestId": "EE-OAM-OWNER-MANUAL-BRIDGE-01",
+        "assertionId": "OM-EQ-PROP-9D55E5226815FFA08F7A",
+        "locator": {
+          "column": "Invincible",
+          "featureCode": "SURROUND_VIEW_CAMERA_360",
+          "pageNumber": 5,
+          "row": "360° Park Kamerası (PVM)"
+        },
+        "materializationId": "EE-MAT-23D0E3CBCF5A27CBAF26",
+        "ownerApprovalEventId": "EE-OAE-49F67D2E6DE51F46AF24",
+        "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+        "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+        "sourceArtifactSha256": "sha256:720cded2a0c2afab57b426684b9b71cf17055b0b059743c8f71f2aa2d92ba282"
+      },
+      "exactVariantId": "cf63bfb6-d503-5669-9799-6593f4b3f96b",
+      "familyInheritance": false,
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "identity": {
+        "body": "Pickup",
+        "brand": "Toyota",
+        "market": "TR",
+        "model": "Hilux",
+        "modelYear": 2026,
+        "powertrain": "DIESEL",
+        "trim": "Invincible 2.8 D-4D 4x4 AT"
+      },
+      "limitations": [
+        "Kamera kör noktaları ve görüntü birleştirme hataları olabilir; çevre fiziksel olarak kontrol edilmelidir.",
+        "Y eligibility, filtering, ranking, sufficiency, selection ve authorization üzerinde etkisi yoktur.",
+        "Varlık veya yokluk yalnızca belirtilen Türkiye pazarı, model yılı ve exact donanım için geçerlidir.",
+        "MY2024 owner manual, MY2026 Hilux için operasyonel ayrıntı kaynağı olarak kullanılmadı."
+      ],
+      "manualEvidence": null,
+      "polarity": "POSITIVE",
+      "unknownBehaviorTr": "Exact doğrulanmış uygulama yoksa özellik hakkında var veya yok iddiası kurulmaz; karşılaştırma hücresi nötr kalır ve ceza üretmez."
+    }
+  ],
+  "compatibleCatalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "compatibleCatalogRelease": "v0.55.4",
+  "compatibleEquipmentPayloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+  "compatibleEquipmentRelease": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+  "compatibleManualPayloadSha256": "sha256:128de70455ce3584bf39ce5a05d34959e2ac712814b22518d860df5c93159f2a",
+  "compatibleManualRelease": "v4.3.0-equipment-owner-review-01",
+  "definitions": [
+    {
+      "authority": "INHERITED_OWNER_EDITORIAL",
+      "dailyLifeMeaningTr": "Öndeki araçla seçilen mesafeyi korumak için hızı ayarlayabilir.",
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-2E875C59632E7F3894D2",
+      "directCandidateEffect": "NONE",
+      "featureCode": "ADAPTIVE_CRUISE_CONTROL",
+      "limitationsTr": [
+        "Trafiği ve yolu izleme sorumluluğu sürücüdedir; çalışma aralığı modele göre değişir."
+      ],
+      "semanticSource": {
+        "entrySha256": "sha256:ae5add1756990ce32ea03d8fd999337a93c0c4cdb5d49d5dd6c1c4cac4bfa33c",
+        "ownerApprovalEventId": "EPEA-OAE-AD0553D90F8B5E4DA497",
+        "payloadSha256": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+        "release": "v1.0.1-catalog-v0.55.4-2026-08-20"
+      },
+      "titleTr": "Adaptif hız sabitleyici",
+      "userFacingExplanationTr": "Adaptif hız sabitleyici, uzun yolda hızlanma ve yavaşlama ihtiyacını azaltarak sürüş yükünü hafifletebilir."
+    },
+    {
+      "authority": "INHERITED_OWNER_EDITORIAL",
+      "dailyLifeMeaningTr": "Yan kör noktadaki araçları fark etmeye yardımcı olabilir.",
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-C76225A109DC08189213",
+      "directCandidateEffect": "NONE",
+      "featureCode": "BLIND_SPOT_MONITOR",
+      "limitationsTr": [
+        "Ayna ve omuz kontrolünün yerini almaz; motosiklet veya hızlı yaklaşan araçları her zaman algılamayabilir."
+      ],
+      "semanticSource": {
+        "entrySha256": "sha256:8df4d75d0c41f49f0bb6529455b87804ced2b0a567defba71a88af52498191ef",
+        "ownerApprovalEventId": "EPEA-OAE-AD0553D90F8B5E4DA497",
+        "payloadSha256": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+        "release": "v1.0.1-catalog-v0.55.4-2026-08-20"
+      },
+      "titleTr": "Kör nokta izleme",
+      "userFacingExplanationTr": "Kör nokta izleme, şerit değiştirirken aynalarda görülmesi zor araçlar için ek uyarı sağlayabilir."
+    },
+    {
+      "authority": "INHERITED_OWNER_EDITORIAL",
+      "dailyLifeMeaningTr": "Soğuk havada ön koltukları daha hızlı ısıtabilir.",
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-EB14D11A445534146AF4",
+      "directCandidateEffect": "NONE",
+      "featureCode": "HEATED_FRONT_SEATS",
+      "limitationsTr": [
+        "Uzun süre yüksek ayarda kullanım bazı kişiler için rahatsız edici olabilir."
+      ],
+      "semanticSource": {
+        "entrySha256": "sha256:9e0ef67818a562eac97f562fe1c61a5c6374b430daa025134bd3ef000bd73c04",
+        "ownerApprovalEventId": "EPEA-OAE-AD0553D90F8B5E4DA497",
+        "payloadSha256": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+        "release": "v1.0.1-catalog-v0.55.4-2026-08-20"
+      },
+      "titleTr": "Isıtmalı ön koltuklar",
+      "userFacingExplanationTr": "Isıtmalı ön koltuklar, kabin tamamen ısınmadan sürücü ve ön yolcuya doğrudan sıcaklık sağlayabilir."
+    },
+    {
+      "authority": "INHERITED_OWNER_EDITORIAL",
+      "dailyLifeMeaningTr": "Uyumlu çocuk koltuğunu arka dış koltuklara sabitlemeyi kolaylaştırır.",
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-86A5B1ECE66DECC3F939",
+      "directCandidateEffect": "NONE",
+      "featureCode": "ISOFIX_REAR_OUTER",
+      "limitationsTr": [
+        "Çocuk koltuğu ve araç kılavuzundaki uyumluluk, ağırlık, yön ve montaj talimatları her kullanımda kontrol edilmelidir."
+      ],
+      "semanticSource": {
+        "entrySha256": "sha256:2ea2d8614eb6af32cd06ea8276cbc96a950d0dad0dd14d3cb03b9b05eba4a883",
+        "ownerApprovalEventId": "EPEA-OAE-AD0553D90F8B5E4DA497",
+        "payloadSha256": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+        "release": "v1.0.1-catalog-v0.55.4-2026-08-20"
+      },
+      "titleTr": "Arka dış koltuklarda ISOFIX",
+      "userFacingExplanationTr": "Arka dış koltuklardaki ISOFIX bağlantıları, uyumlu bir çocuk koltuğunu araç üreticisinin talimatlarına göre sabitlemeyi kolaylaştırabilir."
+    },
+    {
+      "authority": "INHERITED_OWNER_EDITORIAL",
+      "dailyLifeMeaningTr": "Aracın çevresini kuş bakışı benzeri birleşik görüntüyle gösterebilir.",
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-58BF757BD64AA9F3A2EA",
+      "directCandidateEffect": "NONE",
+      "featureCode": "SURROUND_VIEW_CAMERA_360",
+      "limitationsTr": [
+        "Kamera kör noktaları ve görüntü birleştirme hataları olabilir; çevre fiziksel olarak kontrol edilmelidir."
+      ],
+      "semanticSource": {
+        "entrySha256": "sha256:41181d0e0bd7c73c2b75251bfe93be2a51102fbbf746bedabc2e642a76fc20ec",
+        "ownerApprovalEventId": "EPEA-OAE-AD0553D90F8B5E4DA497",
+        "payloadSha256": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+        "release": "v1.0.1-catalog-v0.55.4-2026-08-20"
+      },
+      "titleTr": "360 derece çevre görüş kamerası",
+      "userFacingExplanationTr": "360 derece kamera, dar park alanlarında jant, kaldırım ve çevredeki engelleri konumlandırmayı kolaylaştırabilir."
+    },
+    {
+      "authority": "INHERITED_OWNER_EDITORIAL",
+      "dailyLifeMeaningTr": "Uyumlu telefonu kablo takmadan şarj edebilir.",
+      "decisionUse": "NONE",
+      "definitionId": "EDL-DEF-667566216CC4B228CC96",
+      "directCandidateEffect": "NONE",
+      "featureCode": "WIRELESS_PHONE_CHARGING",
+      "limitationsTr": [
+        "Şarj hızı genellikle kablolu şarjdan düşüktür; telefonun uyumlu ve doğru konumda olması gerekir."
+      ],
+      "semanticSource": {
+        "entrySha256": "sha256:f3a5f7673c3d85b7161f36328eaadc1784966aac346ee4e0cc78ba3dd924002e",
+        "ownerApprovalEventId": "EPEA-OAE-AD0553D90F8B5E4DA497",
+        "payloadSha256": "sha256:c2f60f9534d9695c36d9f7075cd288eb52a5050d5a43629081a30a38ac937233",
+        "release": "v1.0.1-catalog-v0.55.4-2026-08-20"
+      },
+      "titleTr": "Kablosuz telefon şarjı",
+      "userFacingExplanationTr": "Kablosuz telefon şarjı, özellikle günlük kısa yolculuklarda kablo kullanma ihtiyacını azaltabilir."
+    }
+  ],
+  "generatedAt": "2026-09-04T18:00:00.000Z",
+  "parentRelease": "v1.0.1-catalog-v0.55.4-2026-08-20",
+  "policyVersion": "1.0.0",
+  "projectionPolicy": {
+    "allowedConsumers": [
+      "X_EXPLANATION",
+      "ASAMA_1_CARD_RATIONALE",
+      "ADVISOR_READ_PROJECTION",
+      "COMPARISON_EVIDENCE_PROJECTION"
+    ],
+    "decisionUse": "NONE",
+    "directCandidateEffect": "NONE",
+    "manualAuthority": "OPERATION_CONTEXT_ONLY_NOT_EQUIPMENT_PROOF",
+    "negativeTreatment": "EXACT_CONFIGURATION_ONLY_NO_GLOBAL_QUALITY_JUDGMENT",
+    "unknownTreatment": "NEUTRAL_NO_CLAIM_NO_PENALTY"
+  },
+  "releaseVersion": "v1.1.0-high-materiality-exact-applications-catalog-v0.55.4-2026-09-04",
+  "schemaVersion": "EQUIPMENT_DAILY_LIFE_EXACT_APPLICATION/v1",
+  "state": "GOVERNED_IMMUTABLE_READ_PROJECTION_ONLY"
+}

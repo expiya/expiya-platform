@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "xpy-global-evidence-activation-authorization-manifest/v1",
+  "authorizationPackageId": "GLOBAL-EVIDENCE-AUTH-20260905-02",
+  "workUnitId": "WU-XPY-GLOBAL-EVIDENCE-ACTIVATION-REAUTHORIZATION-01",
+  "lifecycle": "IMMUTABLE_PENDING_EXPLICIT_USER_APPROVAL",
+  "createdAt": "2026-09-04T22:52:05Z",
+  "files": [
+    {
+      "path": "authorization.json",
+      "sha256": "sha256:226fa5843c8ea6bd97920657753e55fb99c2c34f46b4ba9cc9629c126de7f8d4"
+    },
+    {
+      "path": "preflight.json",
+      "sha256": "sha256:8df31eace56fcf8cf399477ae3ed79b098fba76462c0c0b36f22663a27a5e165"
+    }
+  ],
+  "verificationScript": {
+    "path": "scripts/verify-global-evidence-reauthorization.mjs",
+    "sha256": "sha256:308060c7f65c0a7d61059e009e536029806013276fc91cb8429238aa1550dcac"
+  },
+  "candidateBindings": {
+    "cars": "sha256:316d2238c40b0330fe1f4d722c8121ab1e429cca93bc3fd9899a929c9a9f67ed",
+    "appliances": "sha256:d10f0773b7503d7125255ccf0f53b45257ff539a235b7328da351f34ebe637df"
+  },
+  "acceptedMediaBinding": {
+    "releaseDigest": "sha256:9b4273473ed0befebcb80a596ae6a9cb09f9d51543525b3b77377c1a4fd80577",
+    "pointerSha256": "sha256:87f2c2cdcc548ff40807a273e445f12ecdd1f24780de2b0e6a6e5ddc047294d8"
+  },
+  "activationPerformed": false
+}

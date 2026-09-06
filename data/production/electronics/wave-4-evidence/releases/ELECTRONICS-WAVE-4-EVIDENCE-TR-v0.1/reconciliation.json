@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "electronics-wave-4-reconciliation/v1",
+  "parentReleaseDigest": "sha256:13fe5452cff50e1115f39b68c3a8382f249caa7a5d71c9651a44991a068ca773",
+  "parentBytesUnmodified": true,
+  "parentArtifactPath": "data/production/electronics/wave-3-evidence/releases/ELECTRONICS-WAVE-3-EVIDENCE-TR-v0.1/evidence-release.json",
+  "amazonFirstDigest": "sha256:09ef0e34db66fa00f9fb3b98f83db0370f1e0a2905da805c50282073576e3a20",
+  "wave4ExactProductIds": [
+    "electronics:fitness-tracker:huawei:nor-b19-black",
+    "electronics:fitness-tracker:xiaomi:m2435b1-black",
+    "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+    "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+    "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+    "electronics:smartwatch:huawei:vli-b19-46-black",
+    "electronics:smartwatch:samsung:sm-l330ndaatur",
+    "electronics:ups:apc:bx1200mi-gr",
+    "electronics:ups:eaton:5e1200ui",
+    "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+    "electronics:video-doorbell:tp-link:tapo-d235"
+  ],
+  "rejectedInvestigations": [
+    {
+      "categoryId": "SMART_HOME_HUB",
+      "candidate": "Aqara Hub M3 HM-G01D",
+      "reason": "Official international technical and security records found, but no independent exact Türkiye applicability authority was established.",
+      "effect": "NONE"
+    }
+  ],
+  "activationEffect": "NONE"
+}

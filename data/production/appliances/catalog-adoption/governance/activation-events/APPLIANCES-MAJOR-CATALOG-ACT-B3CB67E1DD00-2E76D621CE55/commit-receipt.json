@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "major-appliance-catalog-activation-receipt/v1",
+  "activationId": "APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55",
+  "committedAt": "2026-09-05T13:00:00.000+03:00",
+  "state": "COMMITTED",
+  "activationArtifact": "data/production/appliances/catalog-adoption/governance/activation-events/APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55/activation.json",
+  "activationArtifactSha256": "0c4e649281401e919c6b79b5b6b11a839764c76f93507c94af2f859cb38df0f1",
+  "approvalArtifact": "data/production/appliances/catalog-adoption/governance/approval-events/APPLIANCES-MAJOR-CATALOG-POA-2E76D621CE55/approval.json",
+  "approvalArtifactSha256": "74b36025be4fbeed7846c102aa367a729d58602d978ed2531323234945455784",
+  "pointers": [
+    {
+      "categoryId": "WASHING_MACHINE",
+      "path": "data/production/appliances/washing-machines/active.json",
+      "beforeSha256": "2a6c3a99ffe8df1153487cae5a46c6ef8e354ef75807f8a6f012e3180e909b3f",
+      "afterSha256": "d28774aee8d2a2e2738b055f4e0abe33010255933a14279b3c255977f4fec8e0",
+      "activeReleaseVersion": "APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "activeReleaseDigest": "sha256:5e15dc9867acdf9bbd59368347f377aa7393ddffa4588cb2438805cdcf65ebdf",
+      "memberCount": 29
+    },
+    {
+      "categoryId": "DRYER",
+      "path": "data/production/appliances/dryers/active.json",
+      "beforeSha256": "32bf083531c2a0b87a969ed610fd23087e9bec9bb80f04937b41d23bb4f57af2",
+      "afterSha256": "0879f5c675b50b727009d2ab716f5c33e66cd861073b5dc7082fdc48af190c95",
+      "activeReleaseVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "activeReleaseDigest": "sha256:7ee85698a3c539efec4360141d97d8e6b3ffe027280f0e0855b91595a9f2042a",
+      "memberCount": 7
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "path": "data/production/appliances/dishwashers/active.json",
+      "beforeSha256": "6dacfc77be2f1078e2b025ebf287009989b969e2b1b720e8343ecbb981bee5c4",
+      "afterSha256": "d239288916ae9bc4f17fdf6bf02a538e92c5eecbe1067bcc7f73629c30bc055d",
+      "activeReleaseVersion": "APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "activeReleaseDigest": "sha256:cecb38d0592e0bda7677df50775fe3de9a1324f710aa16cb5cf923e0eb89f08a",
+      "memberCount": 7
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "path": "data/production/appliances/refrigerators/active.json",
+      "beforeSha256": "6485888509cb0af285087f1d431857e9bbe5ffe0985b6bc1b9b943c3cf02daee",
+      "afterSha256": "98fde7b0e98beb5d1aff9bd0a9b95c6fd6994bcf3aa7578456d9c8daf4dc8994",
+      "activeReleaseVersion": "APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "activeReleaseDigest": "sha256:c00442d106b964955d828b239cc2ea44f375331bbb577aecb4883edb5fc5a08f",
+      "memberCount": 8
+    }
+  ],
+  "decisionNeutrality": {
+    "decisionReleaseVersions": [
+      "APPLIANCES-WM-TR-v0.1",
+      "APPLIANCES-DRYER-TR-v0.1",
+      "APPLIANCES-DISHWASHER-TR-v0.1",
+      "APPLIANCES-REFRIGERATOR-TR-v0.1"
+    ],
+    "nativeDecisionProductCounts": [
+      24,
+      3,
+      4,
+      4
+    ],
+    "activeReadOnlyCatalogCounts": [
+      29,
+      7,
+      7,
+      8
+    ],
+    "recommendationAuthorizationChanged": false
+  }
+}

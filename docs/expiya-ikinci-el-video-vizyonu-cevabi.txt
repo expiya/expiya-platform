@@ -1,0 +1,15 @@
+Evet, bu düzeltme önemli. WhatsApp burada ürünün kendisi değil, yalnız olası iletişim kanallarından biri olmalı.
+
+Expiya İkinci El mimarisini WhatsApp'a bağımlı kurmamalıyız. ElevenSight benzeri bir servisle kullanıcı, araç sayfasındaki şimdi görüntülü görüş düğmesine basarak doğrudan satıcının yetkili danışmanına bağlanabilir. Satıcı telefonu veya uygun cihazıyla aracın başına gider ve aracı canlı olarak gösterebilir. Aynı altyapı planlı randevuyu da destekleyebilir.
+
+Bu nedenle mimaride ayrı bir canlı araç oturumu katmanı bulunmalı. Expiya'nın kendi ürün modeli dış sağlayıcının oda veya çağrı nesnelerine bağlanmamalı. ElevenSight benzeri servisler değiştirilebilir adaptörler olarak kullanılmalı. İleride başka bir görüntülü görüşme sağlayıcısına geçmek mümkün olmalı.
+
+Her görüşme belirli firma, şube, satış danışmanı, stok aracı ve ilan revizyonuyla ilişkilendirilmeli. Satıcı görüşmeden hemen önce aracın hâlâ stokta olduğunu teyit etmeli. Kullanıcıya görüşmenin bağımsız ekspertiz veya araç doğrulaması anlamına gelmediği açıkça belirtilmeli.
+
+Sağlayıcıya mümkün olan en az kişisel veri aktarılmalı. Kısa ömürlü ve tek kullanımlık görüşme token'ları kullanılmalı. Webhook'lar imza, zaman damgası, tekrar oynatma ve idempotency kontrollerinden geçmeli. Kayıt, transkripsiyon veya yapay zekâ analizi varsayılan olarak kapalı olmalı. Kayıt açılacaksa iki taraftan ayrıca açık rıza alınmalı.
+
+Bu canlı görüşme, gelecekteki yapay zekâ satış asistanıyla da birleşebilir. Yapay zekâ önce kullanıcının sorularını cevaplar, uygun satıcı danışmanını bulur ve kullanıcının talebi üzerine anlık görüntülü görüşme başlatır. Görüşme sonrasında konuşmayı veya pazarlık sürecini yine açık yetki sınırları içinde sürdürebilir.
+
+Dolayısıyla hedef mimari WhatsApp entegrasyonu değil, kanal bağımsız conversational commerce ve canlı araç oturumu mimarisidir. WhatsApp, web mesajlaşma, doğrudan video ve gelecekteki diğer kanallar bu mimarinin değiştirilebilir giriş noktaları olacaktır.
+
+Bu değişikliği conversational commerce vizyon belgesine işledim. Şimdilik gerçek sağlayıcı entegrasyonu kurmadım; yalnız doğru mimari sınırı ve gelecekteki güvenlik gereksinimlerini tanımladım.

@@ -1,12 +1,14 @@
 import type { PendingConfirmation, PreferenceEvent, V3ConversationState, V3SemanticContextSignal, V3SemanticPreferenceSignal } from "./types";
 import { resolveEquipmentRequirement } from "../../vehicle-data/equipmentEvidenceResolver";
 import { detectExplicitUsagePurpose } from "./usageSemantics";
+import { classifyContextualAnswer } from "../../conversation-kernel/lifecycle";
 
 const whole = (text: string) => ({ start: 0, end: text.length, text });
 const normalizedBody = (text: string): string | readonly string[] | undefined => {
+  if (/(?:suv|hatchback|sedan|pick[-\s]*up|kamyonet|coupe|coupé).*(?:istemiyorum|olmasın|önceliğim değil|önemli değil|fark etmez)/iu.test(text)) return undefined;
   if (/panel\s*van|panelvan/iu.test(text)) return "PANEL VAN";
   const explicit = [
-    [/(?:minibüs|yolcu van)/iu, "PASSENGER VAN"], [/(?:pick\s*up|kamyonet)/iu, "PICKUP"],
+    [/(?:minibüs|yolcu van)/iu, "PASSENGER VAN"], [/(?:pick[-\s]*up|kamyonet)/iu, "PICKUP"],
     [/\bmpv\b/iu, "MPV"], [/coupe|coupé/iu, "COUPE"], [/hatchback/iu, "HATCHBACK"], [/sedan/iu, "SEDAN"], [/(?:suv|crossover)/iu, "SUV"],
   ] as const;
   const matches = explicit.filter(([pattern]) => pattern.test(text)).map(([, value]) => value);
@@ -95,11 +97,12 @@ function supersedeMatchingEquipment(ledger: readonly PreferenceEvent[], next: Pr
 
 export function applyPreferenceMessage(state: V3ConversationState, messageId: string, text: string): { ledger: readonly PreferenceEvent[]; pending?: PendingConfirmation } {
   let ledger = [...state.ledger]; let pending = state.pendingConfirmation; let resolvedValueEconomy = false;
+  const contextualAnswer = classifyContextualAnswer(text);
   const clearActiveConcept = (concept: string) => {
     const active = [...ledger].reverse().find((item) => item.concept === concept && item.status === "ACTIVE");
     if (active) ledger.push({ ...active, id: `${messageId}:clear:${concept}`, sourceMessageId: messageId, sourceTurn: state.revision + 1, sourceSpan: whole(text), status: "CLEARED", decisionUse: "NONE", supersedes: active.id });
   };
-  if (/(?:gövde|kasa|suv|hatchback|sedan).*(?:fark etmez|esnet|önemli değil)/iu.test(text)) clearActiveConcept("bodyStyle");
+  if (/(?:gövde|kasa|suv|hatchback|sedan).*(?:fark etmez|esnet|önemli değil|önceliğim değil|istemiyorum|olmasın)/iu.test(text)) clearActiveConcept("bodyStyle");
   if (/(?:yakıt|motor türü).*(?:fark etmez|esnet|önemli değil)/iu.test(text)) clearActiveConcept("fuelType");
   if (/(?:vites|şanzıman).*(?:fark etmez|esnet|önemli değil)/iu.test(text)) clearActiveConcept("transmission");
   const refusesEquipmentRelaxation = /(?:çıkarma|çıkarmayalım|çıkartma|koru|vazgeçme|şartı koru)/iu.test(text);
@@ -113,12 +116,12 @@ export function applyPreferenceMessage(state: V3ConversationState, messageId: st
     if (activeBrand) ledger.push({ ...activeBrand, id: `${messageId}:clear:brandPreference`, sourceMessageId: messageId, sourceTurn: state.revision + 1, sourceSpan: whole(text), status: "CLEARED", decisionUse: "NONE", supersedes: activeBrand.id });
     return { ledger, pending };
   }
-  if (pending && /^(?:evet|olur|olabilir|uygun|değerlendirelim|yapalım|tutalım|öne alalım|temel öncelik yapalım|tamam)\b/iu.test(text.trim())) {
+  if (pending && (contextualAnswer === "AFFIRM" || /^(?:evet|olur|olabilir|uygun|değerlendirelim|yapalım|tutalım|öne alalım|temel öncelik yapalım|tamam)\b/iu.test(text.trim()))) {
     const source = ledger.find((item) => item.id === pending!.eventId);
     if (source) ledger = [...ledger, event({ state: { ...state, ledger }, messageId, text, concept: source.concept, field: source.field, value: pending.proposedValue, use: source.field ? "HARD_FILTER" : "SOFT_RANK", authority: "USER_CONFIRMED" })];
     return { ledger, pending: nextWeakConfirmation(ledger, source?.concept) };
   }
-  if (pending && /^(?:hayır|istemem|olmasın|gerek yok)/iu.test(text.trim())) {
+  if (pending && (contextualAnswer === "DECLINE" || /^(?:hayır|istemem|olmasın|gerek yok)\b/iu.test(text.trim()))) {
     const source = ledger.find((item) => item.id === pending!.eventId);
     if (source) ledger = [...ledger, { ...source, id: `${messageId}:reject:${source.concept}`, sourceMessageId: messageId, sourceTurn: state.revision + 1, sourceSpan: whole(text), status: "REJECTED", decisionUse: "NONE", supersedes: source.id }];
     return { ledger, pending: undefined };

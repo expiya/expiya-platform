@@ -1,0 +1,1486 @@
+{
+  "schemaVersion": "electronics-wave-3-evidence/v1",
+  "releaseVersion": "ELECTRONICS-WAVE-3-EVIDENCE-TR-v0.1",
+  "parent": {
+    "releaseDigest": "sha256:824b159a07e7e6c586b687627bb29591a417454c6d475cbbcdba7dec915598f1",
+    "relationship": "IMMUTABLE_CHILD_NO_OVERWRITE"
+  },
+  "research": {
+    "amazonFirstDigest": "sha256:09ef0e34db66fa00f9fb3b98f83db0370f1e0a2905da805c50282073576e3a20",
+    "amazonRole": "DISCOVERY_ONLY_ZERO_DECISION_EFFECT",
+    "internationalRole": "TECHNICAL_GAP_FILL_ONLY_NOT_TR_APPLICABILITY"
+  },
+  "products": [
+    {
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "manufacturer": "TP-Link",
+      "modelCode": "Deco BE25(EU) V1 (2-pack)",
+      "configurationIdentity": "TP-Link|Deco BE25|EU V1|Wi-Fi 7 BE3600|2-pack|TR",
+      "trApplicabilitySourceIds": [
+        "tplink-tr:Deco-BE25-EU-V1"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "manufacturer": "ASUS",
+      "modelCode": "XD5 (W-2-PK)",
+      "configurationIdentity": "ASUS|ZenWiFi XD5|XD5 W-2-PK|Wi-Fi 6 AX3000|2-pack|White|TR|Hardware revision not separately published",
+      "trApplicabilitySourceIds": [
+        "asus-tr:XD5-W-2-PK"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:nas:synology:ds224plus-diskless-2gb",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "manufacturer": "Synology",
+      "modelCode": "DS224+",
+      "configurationIdentity": "Synology|DS224+|2-bay|Diskless|2GB DDR4|TR",
+      "trApplicabilitySourceIds": [
+        "synology-tr:DS224plus"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:nas:qnap:ts-264-8g-diskless",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "manufacturer": "QNAP",
+      "modelCode": "TS-264-8G",
+      "configurationIdentity": "QNAP|TS-264-8G|2-bay|Diskless|8GB|TR",
+      "trApplicabilitySourceIds": [
+        "qnap-tr:TS-264-8G"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "categoryId": "EXTERNAL_STORAGE",
+      "manufacturer": "Samsung",
+      "modelCode": "MU-PG1T0B/WW",
+      "configurationIdentity": "Samsung|Portable SSD T9|MU-PG1T0B/WW|SSD|1TB|USB 3.2 Gen 2x2|Black|TR",
+      "trApplicabilitySourceIds": [
+        "samsung-tr:MU-PG1T0B-WW"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+      "categoryId": "EXTERNAL_STORAGE",
+      "manufacturer": "SanDisk",
+      "modelCode": "SDSSDE61-1T00-G25",
+      "configurationIdentity": "SanDisk|Extreme Portable SSD|SDSSDE61-1T00-G25|SSD|1TB|USB 3.2 Gen 2|Black/Orange|TR",
+      "trApplicabilitySourceIds": [
+        "wd-tr:SDSSDE61-1T00-G25"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:printer:epson:c11cj67435",
+      "categoryId": "PRINTER",
+      "manufacturer": "Epson",
+      "modelCode": "C11CJ67435",
+      "configurationIdentity": "Epson|EcoTank L3276|C11CJ67435|Ink tank|Color|Print scan copy|Wi-Fi|TR",
+      "trApplicabilitySourceIds": [
+        "epson-tr:C11CJ67435"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:printer:hp:7md72a",
+      "categoryId": "PRINTER",
+      "manufacturer": "HP",
+      "modelCode": "7MD72A",
+      "configurationIdentity": "HP|LaserJet MFP M140w|7MD72A|Laser|Mono|Print scan copy|Wi-Fi|TR",
+      "trApplicabilitySourceIds": [
+        "hp-tr:7MD72A"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:webcam:logitech:960-001422",
+      "categoryId": "WEBCAM",
+      "manufacturer": "Logitech",
+      "modelCode": "960-001422",
+      "configurationIdentity": "Logitech|Brio 500|960-001422|1080p30|USB-C|Graphite|Webcam only|TR",
+      "trApplicabilitySourceIds": [
+        "logitech-tr:Brio500-960-001422"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:webcam:asus:webcam-c3",
+      "categoryId": "WEBCAM",
+      "manufacturer": "ASUS",
+      "modelCode": "ASUS Webcam C3",
+      "configurationIdentity": "ASUS|Webcam C3|1080p30|USB 2.0 wired|Fixed focus|Standard bundle|TR",
+      "trApplicabilitySourceIds": [
+        "asus-tr:Webcam-C3"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:computer-audio:logitech:980-001295",
+      "categoryId": "COMPUTER_AUDIO",
+      "manufacturer": "Logitech",
+      "modelCode": "980-001295",
+      "configurationIdentity": "Logitech|Z207|980-001295|2.0|Bluetooth and 3.5mm|No subwoofer|Black|TR",
+      "trApplicabilitySourceIds": [
+        "logitech-tr:Z207-980-001295"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:computer-audio:edifier:r1280dbs-black",
+      "categoryId": "COMPUTER_AUDIO",
+      "manufacturer": "Edifier",
+      "modelCode": "R1280DBs",
+      "configurationIdentity": "Edifier|R1280DBs|2.0|Bluetooth 5.0/optical/coaxial/dual RCA|Subwoofer output but none included|Black|TR",
+      "trApplicabilitySourceIds": [
+        "edifier-tr:R1280DBs"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "tplink-tr:Deco-BE25-EU-V1",
+      "uri": "https://www.tp-link.com/tr/home-networking/deco/deco-be25/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "tplink-global:Deco-BE25-datasheet",
+      "uri": "https://static.tp-link.com/upload/product-overview/2024/202406/20240614/Deco%20BE25%28EU%291.0_Datasheet.pdf",
+      "market": "GLOBAL",
+      "authority": "INTERNATIONAL_BOUNDED",
+      "exactProductIds": [
+        "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "asus-tr:XD5-W-2-PK",
+      "uri": "https://www.asus.com/tr/networking-iot-servers/whole-home-mesh-systems/asus-zenwifi/asus-zenwifi-xd5/techspec/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:wifi-router-mesh:asus:xd5-w-2-pk"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "synology-tr:DS224plus",
+      "uri": "https://www.synology.com/tr-tr/products/DS224%2B",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:nas:synology:ds224plus-diskless-2gb"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "synology-tr:DS224plus-manual",
+      "uri": "https://global.download.synology.com/download/Document/Hardware/HIG/DiskStation/24-year/DS224%2B/trk/DS224p_HIG_trk.pdf",
+      "market": "TR",
+      "authority": "MANUAL",
+      "exactProductIds": [
+        "electronics:nas:synology:ds224plus-diskless-2gb"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "qnap-tr:TS-264-8G",
+      "uri": "https://www.qnap.com/tr-tr/product/ts-264",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:nas:qnap:ts-264-8g-diskless"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "samsung-tr:MU-PG1T0B-WW",
+      "uri": "https://www.samsung.com/tr/memory-storage/portable-ssd/portable-ssd-t9-1tb-black-mu-pg1t0b-ww/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:external-storage:samsung:mu-pg1t0b-ww"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "wd-tr:SDSSDE61-1T00-G25",
+      "uri": "https://www.westerndigital.com/tr-tr/products/portable-drives/sandisk-extreme-usb-3-2-ssd",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:external-storage:sandisk:sdssde61-1t00-g25"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "sandisk-global:SDSSDE61-datasheet",
+      "uri": "https://documents.westerndigital.com/content/dam/doc-library/en_us/assets/public/sandisk/product/portable-drives/extreme-portable-ssd/data-sheet-extreme-portable-ssd.pdf",
+      "market": "GLOBAL",
+      "authority": "INTERNATIONAL_BOUNDED",
+      "exactProductIds": [
+        "electronics:external-storage:sandisk:sdssde61-1t00-g25"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "epson-tr:C11CJ67435",
+      "uri": "https://www.epson.com.tr/tr_TR/%C3%BCr%C3%BCnler/yaz%C4%B1c%C4%B1lar/inkjet/t%C3%BCketici/ecotank-l3276/p/C11CJ67435",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:printer:epson:c11cj67435"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "hp-tr:7MD72A",
+      "uri": "https://support.hp.com/tr-tr/product/details/null/model/30190589",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:printer:hp:7md72a"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "logitech-tr:Brio500-960-001422",
+      "uri": "https://www.logitech.com/tr-tr/shop/p/brio-500-webcam.960-001422",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:webcam:logitech:960-001422"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "asus-tr:Webcam-C3",
+      "uri": "https://www.asus.com/tr/accessories/streaming-kits/all-series/asus-webcam-c3/techspec/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:webcam:asus:webcam-c3"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "asus-tr:Webcam-C3-manual",
+      "uri": "https://dlcdnets.asus.com/pub/ASUS/Accessory/Manual/Turkish_Manual_Webcam.pdf?model=ASUS+Webcam+C3",
+      "market": "TR",
+      "authority": "MANUAL",
+      "exactProductIds": [
+        "electronics:webcam:asus:webcam-c3"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "logitech-tr:Z207-980-001295",
+      "uri": "https://www.logitech.com/tr-tr/shop/p/z207-stereo-speakers-bluetooth.980-001295",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:computer-audio:logitech:980-001295"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "logitech-global:Z207-manual",
+      "uri": "https://www.logitech.com/assets/65728/2/z207-qsg.pdf",
+      "market": "GLOBAL",
+      "authority": "MANUAL",
+      "exactProductIds": [
+        "electronics:computer-audio:logitech:980-001295"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "edifier-tr:R1280DBs",
+      "uri": "https://www.edifierturkiye.com/edifier-r1280dbs-subwoofer-cikisli-optik-girisli-4-bass-unitesi-multi-media-2.0-aktif-v.5.0-bluetooth-hoparlor-42w-rms-",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:computer-audio:edifier:r1280dbs-black"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "edifier-global:R1280DBs",
+      "uri": "https://www.edifier.com/us/p/bookshelf-speakers/r1280dbs",
+      "market": "GLOBAL",
+      "authority": "INTERNATIONAL_BOUNDED",
+      "exactProductIds": [
+        "electronics:computer-audio:edifier:r1280dbs-black"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    }
+  ],
+  "comparativeFacts": [
+    {
+      "factId": "wave3-fact:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2pack:wifi_generation:1",
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "key": "wifi_generation",
+      "value": "Wi-Fi 7",
+      "sourceId": "tplink-tr:Deco-BE25-EU-V1",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2pack:unit_count:2",
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "key": "unit_count",
+      "value": 2,
+      "sourceId": "tplink-tr:Deco-BE25-EU-V1",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2pack:regional_revision:3",
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "key": "regional_revision",
+      "value": "EU V1",
+      "sourceId": "tplink-tr:Deco-BE25-EU-V1",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2pack:aggregate_class:4",
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "key": "aggregate_class",
+      "value": "BE3600",
+      "sourceId": "tplink-tr:Deco-BE25-EU-V1",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2pack:ethernet_ports_per_unit:5",
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "key": "ethernet_ports_per_unit",
+      "value": "2 x 2.5GbE",
+      "sourceId": "tplink-tr:Deco-BE25-EU-V1",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-wifi-router-mesh-asus-xd5-w-2-pk:wifi_generation:1",
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "key": "wifi_generation",
+      "value": "Wi-Fi 6",
+      "sourceId": "asus-tr:XD5-W-2-PK",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-wifi-router-mesh-asus-xd5-w-2-pk:unit_count:2",
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "key": "unit_count",
+      "value": 2,
+      "sourceId": "asus-tr:XD5-W-2-PK",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-wifi-router-mesh-asus-xd5-w-2-pk:regional_variant:3",
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "key": "regional_variant",
+      "value": "XD5 W-2-PK",
+      "sourceId": "asus-tr:XD5-W-2-PK",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-wifi-router-mesh-asus-xd5-w-2-pk:aggregate_class:4",
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "key": "aggregate_class",
+      "value": "AX3000",
+      "sourceId": "asus-tr:XD5-W-2-PK",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-wifi-router-mesh-asus-xd5-w-2-pk:ethernet_ports_per_unit:5",
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "key": "ethernet_ports_per_unit",
+      "value": "2 x 1GbE",
+      "sourceId": "asus-tr:XD5-W-2-PK",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-nas-synology-ds224plus-diskless-2gb:bay_count:1",
+      "exactProductId": "electronics:nas:synology:ds224plus-diskless-2gb",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "key": "bay_count",
+      "value": 2,
+      "sourceId": "synology-tr:DS224plus",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-nas-synology-ds224plus-diskless-2gb:disk_population:2",
+      "exactProductId": "electronics:nas:synology:ds224plus-diskless-2gb",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "key": "disk_population",
+      "value": "diskless",
+      "sourceId": "synology-tr:DS224plus",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-nas-synology-ds224plus-diskless-2gb:memory_gb:3",
+      "exactProductId": "electronics:nas:synology:ds224plus-diskless-2gb",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "key": "memory_gb",
+      "value": 2,
+      "unit": "GB",
+      "sourceId": "synology-tr:DS224plus",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-nas-synology-ds224plus-diskless-2gb:cpu:4",
+      "exactProductId": "electronics:nas:synology:ds224plus-diskless-2gb",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "key": "cpu",
+      "value": "Intel Celeron J4125",
+      "sourceId": "synology-tr:DS224plus",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-nas-synology-ds224plus-diskless-2gb:network_ports:5",
+      "exactProductId": "electronics:nas:synology:ds224plus-diskless-2gb",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "key": "network_ports",
+      "value": "2 x 1GbE",
+      "sourceId": "synology-tr:DS224plus",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-nas-qnap-ts-264-8g-diskless:bay_count:1",
+      "exactProductId": "electronics:nas:qnap:ts-264-8g-diskless",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "key": "bay_count",
+      "value": 2,
+      "sourceId": "qnap-tr:TS-264-8G",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-nas-qnap-ts-264-8g-diskless:disk_population:2",
+      "exactProductId": "electronics:nas:qnap:ts-264-8g-diskless",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "key": "disk_population",
+      "value": "diskless",
+      "sourceId": "qnap-tr:TS-264-8G",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-nas-qnap-ts-264-8g-diskless:memory_gb:3",
+      "exactProductId": "electronics:nas:qnap:ts-264-8g-diskless",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "key": "memory_gb",
+      "value": 8,
+      "unit": "GB",
+      "sourceId": "qnap-tr:TS-264-8G",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-nas-qnap-ts-264-8g-diskless:cpu:4",
+      "exactProductId": "electronics:nas:qnap:ts-264-8g-diskless",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "key": "cpu",
+      "value": "Intel Celeron N5095",
+      "sourceId": "qnap-tr:TS-264-8G",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-nas-qnap-ts-264-8g-diskless:network_ports:5",
+      "exactProductId": "electronics:nas:qnap:ts-264-8g-diskless",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "key": "network_ports",
+      "value": "2 x 2.5GbE",
+      "sourceId": "qnap-tr:TS-264-8G",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-external-storage-samsung-mu-pg1t0b-ww:media_type:1",
+      "exactProductId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "categoryId": "EXTERNAL_STORAGE",
+      "key": "media_type",
+      "value": "NVMe portable SSD",
+      "sourceId": "samsung-tr:MU-PG1T0B-WW",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-external-storage-samsung-mu-pg1t0b-ww:capacity_tb:2",
+      "exactProductId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "categoryId": "EXTERNAL_STORAGE",
+      "key": "capacity_tb",
+      "value": 1,
+      "unit": "TB",
+      "sourceId": "samsung-tr:MU-PG1T0B-WW",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-external-storage-samsung-mu-pg1t0b-ww:interface:3",
+      "exactProductId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "categoryId": "EXTERNAL_STORAGE",
+      "key": "interface",
+      "value": "USB 3.2 Gen 2x2 20Gbps",
+      "sourceId": "samsung-tr:MU-PG1T0B-WW",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-external-storage-samsung-mu-pg1t0b-ww:max_read_mbps:4",
+      "exactProductId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "categoryId": "EXTERNAL_STORAGE",
+      "key": "max_read_mbps",
+      "value": 2000,
+      "unit": "MB/s",
+      "sourceId": "samsung-tr:MU-PG1T0B-WW",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-external-storage-samsung-mu-pg1t0b-ww:warranty_years:5",
+      "exactProductId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "categoryId": "EXTERNAL_STORAGE",
+      "key": "warranty_years",
+      "value": 5,
+      "unit": "years",
+      "sourceId": "samsung-tr:MU-PG1T0B-WW",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-external-storage-sandisk-sdssde61-1t00-g25:media_type:1",
+      "exactProductId": "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+      "categoryId": "EXTERNAL_STORAGE",
+      "key": "media_type",
+      "value": "portable SSD",
+      "sourceId": "wd-tr:SDSSDE61-1T00-G25",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-external-storage-sandisk-sdssde61-1t00-g25:capacity_tb:2",
+      "exactProductId": "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+      "categoryId": "EXTERNAL_STORAGE",
+      "key": "capacity_tb",
+      "value": 1,
+      "unit": "TB",
+      "sourceId": "wd-tr:SDSSDE61-1T00-G25",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-external-storage-sandisk-sdssde61-1t00-g25:interface:3",
+      "exactProductId": "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+      "categoryId": "EXTERNAL_STORAGE",
+      "key": "interface",
+      "value": "USB 3.2 Gen 2 10Gbps",
+      "sourceId": "wd-tr:SDSSDE61-1T00-G25",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-external-storage-sandisk-sdssde61-1t00-g25:max_read_mbps:4",
+      "exactProductId": "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+      "categoryId": "EXTERNAL_STORAGE",
+      "key": "max_read_mbps",
+      "value": 1050,
+      "unit": "MB/s",
+      "sourceId": "wd-tr:SDSSDE61-1T00-G25",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-external-storage-sandisk-sdssde61-1t00-g25:ingress_rating:5",
+      "exactProductId": "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+      "categoryId": "EXTERNAL_STORAGE",
+      "key": "ingress_rating",
+      "value": "IP65",
+      "sourceId": "wd-tr:SDSSDE61-1T00-G25",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-printer-epson-c11cj67435:print_technology:1",
+      "exactProductId": "electronics:printer:epson:c11cj67435",
+      "categoryId": "PRINTER",
+      "key": "print_technology",
+      "value": "refillable ink tank",
+      "sourceId": "epson-tr:C11CJ67435",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-printer-epson-c11cj67435:color_capability:2",
+      "exactProductId": "electronics:printer:epson:c11cj67435",
+      "categoryId": "PRINTER",
+      "key": "color_capability",
+      "value": true,
+      "sourceId": "epson-tr:C11CJ67435",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-printer-epson-c11cj67435:functions:3",
+      "exactProductId": "electronics:printer:epson:c11cj67435",
+      "categoryId": "PRINTER",
+      "key": "functions",
+      "value": "print/scan/copy",
+      "sourceId": "epson-tr:C11CJ67435",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-printer-epson-c11cj67435:duplex:4",
+      "exactProductId": "electronics:printer:epson:c11cj67435",
+      "categoryId": "PRINTER",
+      "key": "duplex",
+      "value": "manual",
+      "sourceId": "epson-tr:C11CJ67435",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-printer-epson-c11cj67435:connectivity:5",
+      "exactProductId": "electronics:printer:epson:c11cj67435",
+      "categoryId": "PRINTER",
+      "key": "connectivity",
+      "value": "Wi-Fi/Wi-Fi Direct/USB",
+      "sourceId": "epson-tr:C11CJ67435",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-printer-hp-7md72a:print_technology:1",
+      "exactProductId": "electronics:printer:hp:7md72a",
+      "categoryId": "PRINTER",
+      "key": "print_technology",
+      "value": "laser",
+      "sourceId": "hp-tr:7MD72A",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-printer-hp-7md72a:color_capability:2",
+      "exactProductId": "electronics:printer:hp:7md72a",
+      "categoryId": "PRINTER",
+      "key": "color_capability",
+      "value": false,
+      "sourceId": "hp-tr:7MD72A",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-printer-hp-7md72a:functions:3",
+      "exactProductId": "electronics:printer:hp:7md72a",
+      "categoryId": "PRINTER",
+      "key": "functions",
+      "value": "print/scan/copy",
+      "sourceId": "hp-tr:7MD72A",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-printer-hp-7md72a:duplex:4",
+      "exactProductId": "electronics:printer:hp:7md72a",
+      "categoryId": "PRINTER",
+      "key": "duplex",
+      "value": "manual",
+      "sourceId": "hp-tr:7MD72A",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-printer-hp-7md72a:connectivity:5",
+      "exactProductId": "electronics:printer:hp:7md72a",
+      "categoryId": "PRINTER",
+      "key": "connectivity",
+      "value": "Wi-Fi/USB",
+      "sourceId": "hp-tr:7MD72A",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-webcam-logitech-960-001422:resolution_fps:1",
+      "exactProductId": "electronics:webcam:logitech:960-001422",
+      "categoryId": "WEBCAM",
+      "key": "resolution_fps",
+      "value": "1080p30/720p60",
+      "sourceId": "logitech-tr:Brio500-960-001422",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-webcam-logitech-960-001422:field_of_view:2",
+      "exactProductId": "electronics:webcam:logitech:960-001422",
+      "categoryId": "WEBCAM",
+      "key": "field_of_view",
+      "value": "90/78/65 degrees",
+      "sourceId": "logitech-tr:Brio500-960-001422",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-webcam-logitech-960-001422:connectivity:3",
+      "exactProductId": "electronics:webcam:logitech:960-001422",
+      "categoryId": "WEBCAM",
+      "key": "connectivity",
+      "value": "attached USB-C",
+      "sourceId": "logitech-tr:Brio500-960-001422",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-webcam-logitech-960-001422:focus:4",
+      "exactProductId": "electronics:webcam:logitech:960-001422",
+      "categoryId": "WEBCAM",
+      "key": "focus",
+      "value": "autofocus",
+      "sourceId": "logitech-tr:Brio500-960-001422",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-webcam-logitech-960-001422:microphones:5",
+      "exactProductId": "electronics:webcam:logitech:960-001422",
+      "categoryId": "WEBCAM",
+      "key": "microphones",
+      "value": "dual noise-reducing",
+      "sourceId": "logitech-tr:Brio500-960-001422",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-webcam-asus-webcam-c3:resolution_fps:1",
+      "exactProductId": "electronics:webcam:asus:webcam-c3",
+      "categoryId": "WEBCAM",
+      "key": "resolution_fps",
+      "value": "1080p30",
+      "sourceId": "asus-tr:Webcam-C3",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-webcam-asus-webcam-c3:field_of_view:2",
+      "exactProductId": "electronics:webcam:asus:webcam-c3",
+      "categoryId": "WEBCAM",
+      "key": "field_of_view",
+      "value": "wide",
+      "sourceId": "asus-tr:Webcam-C3",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-webcam-asus-webcam-c3:connectivity:3",
+      "exactProductId": "electronics:webcam:asus:webcam-c3",
+      "categoryId": "WEBCAM",
+      "key": "connectivity",
+      "value": "USB 2.0 wired",
+      "sourceId": "asus-tr:Webcam-C3",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-webcam-asus-webcam-c3:focus:4",
+      "exactProductId": "electronics:webcam:asus:webcam-c3",
+      "categoryId": "WEBCAM",
+      "key": "focus",
+      "value": "fixed",
+      "sourceId": "asus-tr:Webcam-C3",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-webcam-asus-webcam-c3:microphones:5",
+      "exactProductId": "electronics:webcam:asus:webcam-c3",
+      "categoryId": "WEBCAM",
+      "key": "microphones",
+      "value": "dual beamforming",
+      "sourceId": "asus-tr:Webcam-C3",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-computer-audio-logitech-980-001295:channel_configuration:1",
+      "exactProductId": "electronics:computer-audio:logitech:980-001295",
+      "categoryId": "COMPUTER_AUDIO",
+      "key": "channel_configuration",
+      "value": "2.0",
+      "sourceId": "logitech-tr:Z207-980-001295",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-computer-audio-logitech-980-001295:connectivity:2",
+      "exactProductId": "electronics:computer-audio:logitech:980-001295",
+      "categoryId": "COMPUTER_AUDIO",
+      "key": "connectivity",
+      "value": "Bluetooth and 3.5mm",
+      "sourceId": "logitech-tr:Z207-980-001295",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-computer-audio-logitech-980-001295:included_subwoofer:3",
+      "exactProductId": "electronics:computer-audio:logitech:980-001295",
+      "categoryId": "COMPUTER_AUDIO",
+      "key": "included_subwoofer",
+      "value": false,
+      "sourceId": "logitech-tr:Z207-980-001295",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-computer-audio-logitech-980-001295:power_rms_w:4",
+      "exactProductId": "electronics:computer-audio:logitech:980-001295",
+      "categoryId": "COMPUTER_AUDIO",
+      "key": "power_rms_w",
+      "value": 5,
+      "unit": "W",
+      "sourceId": "logitech-tr:Z207-980-001295",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-computer-audio-logitech-980-001295:device_switching:5",
+      "exactProductId": "electronics:computer-audio:logitech:980-001295",
+      "categoryId": "COMPUTER_AUDIO",
+      "key": "device_switching",
+      "value": "two Bluetooth devices",
+      "sourceId": "logitech-tr:Z207-980-001295",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-computer-audio-edifier-r1280dbs-black:channel_configuration:1",
+      "exactProductId": "electronics:computer-audio:edifier:r1280dbs-black",
+      "categoryId": "COMPUTER_AUDIO",
+      "key": "channel_configuration",
+      "value": "2.0",
+      "sourceId": "edifier-tr:R1280DBs",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-computer-audio-edifier-r1280dbs-black:connectivity:2",
+      "exactProductId": "electronics:computer-audio:edifier:r1280dbs-black",
+      "categoryId": "COMPUTER_AUDIO",
+      "key": "connectivity",
+      "value": "Bluetooth 5.0/optical/coaxial/dual RCA",
+      "sourceId": "edifier-tr:R1280DBs",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-computer-audio-edifier-r1280dbs-black:included_subwoofer:3",
+      "exactProductId": "electronics:computer-audio:edifier:r1280dbs-black",
+      "categoryId": "COMPUTER_AUDIO",
+      "key": "included_subwoofer",
+      "value": false,
+      "sourceId": "edifier-tr:R1280DBs",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-computer-audio-edifier-r1280dbs-black:power_rms_w:4",
+      "exactProductId": "electronics:computer-audio:edifier:r1280dbs-black",
+      "categoryId": "COMPUTER_AUDIO",
+      "key": "power_rms_w",
+      "value": 42,
+      "unit": "W",
+      "sourceId": "edifier-tr:R1280DBs",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave3-fact:electronics-computer-audio-edifier-r1280dbs-black:subwoofer_output:5",
+      "exactProductId": "electronics:computer-audio:edifier:r1280dbs-black",
+      "categoryId": "COMPUTER_AUDIO",
+      "key": "subwoofer_output",
+      "value": true,
+      "sourceId": "edifier-tr:R1280DBs",
+      "locator": "Exact official product/specification field within the cited source scope",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    }
+  ],
+  "manuals": [
+    {
+      "manualId": "wave3-manual:synology-ds224plus-tr",
+      "exactProductId": "electronics:nas:synology:ds224plus-diskless-2gb",
+      "sourceUri": "https://global.download.synology.com/download/Document/Hardware/HIG/DiskStation/24-year/DS224%2B/trk/DS224p_HIG_trk.pdf",
+      "localPath": "data/production/electronics/wave-3-evidence/manuals/synology-ds224plus-tr.pdf",
+      "locators": [
+        "1.1 Package contents",
+        "1.5 Hardware specifications",
+        "2 Hardware setup"
+      ],
+      "sha256": "sha256:2fc7211559d72e22ee8ba69ff708950c273da2e39884c3d9d93772afb657bd2d",
+      "layer": "L9_ADVISOR_KNOWLEDGE"
+    },
+    {
+      "manualId": "wave3-manual:asus-webcam-c3-tr",
+      "exactProductId": "electronics:webcam:asus:webcam-c3",
+      "sourceUri": "https://dlcdnets.asus.com/pub/ASUS/Accessory/Manual/Turkish_Manual_Webcam.pdf?model=ASUS+Webcam+C3",
+      "localPath": "data/production/electronics/wave-3-evidence/manuals/asus-webcam-c3-tr.pdf",
+      "locators": [
+        "Package contents",
+        "Hardware installation",
+        "Safety notices"
+      ],
+      "sha256": "sha256:ff6cf3d99daf02241370d4b77d11f4622192037ced42c85c1860116c763eed03",
+      "layer": "L9_ADVISOR_KNOWLEDGE"
+    },
+    {
+      "manualId": "wave3-manual:logitech-z207-qsg",
+      "exactProductId": "electronics:computer-audio:logitech:980-001295",
+      "sourceUri": "https://www.logitech.com/assets/65728/2/z207-qsg.pdf",
+      "localPath": "data/production/electronics/wave-3-evidence/manuals/logitech-z207-qsg.pdf",
+      "locators": [
+        "Power and 3.5mm setup",
+        "Bluetooth pairing",
+        "Control layout"
+      ],
+      "sha256": "sha256:4cc07e95ea6b702fbc986206e06193721d5fa23d0f55f1a161d895592c37a55e",
+      "layer": "L9_ADVISOR_KNOWLEDGE"
+    }
+  ],
+  "categoryReadiness": [
+    {
+      "categoryId": "WIFI_ROUTER_MESH",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 6,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 5,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "EXTERNAL_STORAGE",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 6,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "PRINTER",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 5,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "WEBCAM",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 5,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "COMPUTER_AUDIO",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 6,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    }
+  ],
+  "decisionProjections": [
+    {
+      "projectionId": "wave3-projection:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2pack",
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+      "eligibleFactIds": [
+        "wave3-fact:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2pack:wifi_generation:1",
+        "wave3-fact:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2pack:unit_count:2",
+        "wave3-fact:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2pack:regional_revision:3",
+        "wave3-fact:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2pack:aggregate_class:4",
+        "wave3-fact:electronics-wifi-router-mesh-tp-link-deco-be25-eu-v1-2pack:ethernet_ports_per_unit:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave3-projection:electronics-wifi-router-mesh-asus-xd5-w-2-pk",
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "eligibleFactIds": [
+        "wave3-fact:electronics-wifi-router-mesh-asus-xd5-w-2-pk:wifi_generation:1",
+        "wave3-fact:electronics-wifi-router-mesh-asus-xd5-w-2-pk:unit_count:2",
+        "wave3-fact:electronics-wifi-router-mesh-asus-xd5-w-2-pk:regional_variant:3",
+        "wave3-fact:electronics-wifi-router-mesh-asus-xd5-w-2-pk:aggregate_class:4",
+        "wave3-fact:electronics-wifi-router-mesh-asus-xd5-w-2-pk:ethernet_ports_per_unit:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave3-projection:electronics-nas-synology-ds224plus-diskless-2gb",
+      "exactProductId": "electronics:nas:synology:ds224plus-diskless-2gb",
+      "eligibleFactIds": [
+        "wave3-fact:electronics-nas-synology-ds224plus-diskless-2gb:bay_count:1",
+        "wave3-fact:electronics-nas-synology-ds224plus-diskless-2gb:disk_population:2",
+        "wave3-fact:electronics-nas-synology-ds224plus-diskless-2gb:memory_gb:3",
+        "wave3-fact:electronics-nas-synology-ds224plus-diskless-2gb:cpu:4",
+        "wave3-fact:electronics-nas-synology-ds224plus-diskless-2gb:network_ports:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave3-projection:electronics-nas-qnap-ts-264-8g-diskless",
+      "exactProductId": "electronics:nas:qnap:ts-264-8g-diskless",
+      "eligibleFactIds": [
+        "wave3-fact:electronics-nas-qnap-ts-264-8g-diskless:bay_count:1",
+        "wave3-fact:electronics-nas-qnap-ts-264-8g-diskless:disk_population:2",
+        "wave3-fact:electronics-nas-qnap-ts-264-8g-diskless:memory_gb:3",
+        "wave3-fact:electronics-nas-qnap-ts-264-8g-diskless:cpu:4",
+        "wave3-fact:electronics-nas-qnap-ts-264-8g-diskless:network_ports:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave3-projection:electronics-external-storage-samsung-mu-pg1t0b-ww",
+      "exactProductId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "eligibleFactIds": [
+        "wave3-fact:electronics-external-storage-samsung-mu-pg1t0b-ww:media_type:1",
+        "wave3-fact:electronics-external-storage-samsung-mu-pg1t0b-ww:capacity_tb:2",
+        "wave3-fact:electronics-external-storage-samsung-mu-pg1t0b-ww:interface:3",
+        "wave3-fact:electronics-external-storage-samsung-mu-pg1t0b-ww:max_read_mbps:4",
+        "wave3-fact:electronics-external-storage-samsung-mu-pg1t0b-ww:warranty_years:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave3-projection:electronics-external-storage-sandisk-sdssde61-1t00-g25",
+      "exactProductId": "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+      "eligibleFactIds": [
+        "wave3-fact:electronics-external-storage-sandisk-sdssde61-1t00-g25:media_type:1",
+        "wave3-fact:electronics-external-storage-sandisk-sdssde61-1t00-g25:capacity_tb:2",
+        "wave3-fact:electronics-external-storage-sandisk-sdssde61-1t00-g25:interface:3",
+        "wave3-fact:electronics-external-storage-sandisk-sdssde61-1t00-g25:max_read_mbps:4",
+        "wave3-fact:electronics-external-storage-sandisk-sdssde61-1t00-g25:ingress_rating:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave3-projection:electronics-printer-epson-c11cj67435",
+      "exactProductId": "electronics:printer:epson:c11cj67435",
+      "eligibleFactIds": [
+        "wave3-fact:electronics-printer-epson-c11cj67435:print_technology:1",
+        "wave3-fact:electronics-printer-epson-c11cj67435:color_capability:2",
+        "wave3-fact:electronics-printer-epson-c11cj67435:functions:3",
+        "wave3-fact:electronics-printer-epson-c11cj67435:duplex:4",
+        "wave3-fact:electronics-printer-epson-c11cj67435:connectivity:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave3-projection:electronics-printer-hp-7md72a",
+      "exactProductId": "electronics:printer:hp:7md72a",
+      "eligibleFactIds": [
+        "wave3-fact:electronics-printer-hp-7md72a:print_technology:1",
+        "wave3-fact:electronics-printer-hp-7md72a:color_capability:2",
+        "wave3-fact:electronics-printer-hp-7md72a:functions:3",
+        "wave3-fact:electronics-printer-hp-7md72a:duplex:4",
+        "wave3-fact:electronics-printer-hp-7md72a:connectivity:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave3-projection:electronics-webcam-logitech-960-001422",
+      "exactProductId": "electronics:webcam:logitech:960-001422",
+      "eligibleFactIds": [
+        "wave3-fact:electronics-webcam-logitech-960-001422:resolution_fps:1",
+        "wave3-fact:electronics-webcam-logitech-960-001422:field_of_view:2",
+        "wave3-fact:electronics-webcam-logitech-960-001422:connectivity:3",
+        "wave3-fact:electronics-webcam-logitech-960-001422:focus:4",
+        "wave3-fact:electronics-webcam-logitech-960-001422:microphones:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave3-projection:electronics-webcam-asus-webcam-c3",
+      "exactProductId": "electronics:webcam:asus:webcam-c3",
+      "eligibleFactIds": [
+        "wave3-fact:electronics-webcam-asus-webcam-c3:resolution_fps:1",
+        "wave3-fact:electronics-webcam-asus-webcam-c3:field_of_view:2",
+        "wave3-fact:electronics-webcam-asus-webcam-c3:connectivity:3",
+        "wave3-fact:electronics-webcam-asus-webcam-c3:focus:4",
+        "wave3-fact:electronics-webcam-asus-webcam-c3:microphones:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave3-projection:electronics-computer-audio-logitech-980-001295",
+      "exactProductId": "electronics:computer-audio:logitech:980-001295",
+      "eligibleFactIds": [
+        "wave3-fact:electronics-computer-audio-logitech-980-001295:channel_configuration:1",
+        "wave3-fact:electronics-computer-audio-logitech-980-001295:connectivity:2",
+        "wave3-fact:electronics-computer-audio-logitech-980-001295:included_subwoofer:3",
+        "wave3-fact:electronics-computer-audio-logitech-980-001295:power_rms_w:4",
+        "wave3-fact:electronics-computer-audio-logitech-980-001295:device_switching:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave3-projection:electronics-computer-audio-edifier-r1280dbs-black",
+      "exactProductId": "electronics:computer-audio:edifier:r1280dbs-black",
+      "eligibleFactIds": [
+        "wave3-fact:electronics-computer-audio-edifier-r1280dbs-black:channel_configuration:1",
+        "wave3-fact:electronics-computer-audio-edifier-r1280dbs-black:connectivity:2",
+        "wave3-fact:electronics-computer-audio-edifier-r1280dbs-black:included_subwoofer:3",
+        "wave3-fact:electronics-computer-audio-edifier-r1280dbs-black:power_rms_w:4",
+        "wave3-fact:electronics-computer-audio-edifier-r1280dbs-black:subwoofer_output:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    }
+  ],
+  "unknownsAndConflicts": [
+    {
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "code": "HARDWARE_REVISION_NOT_SEPARATELY_PUBLISHED_REVISION_SENSITIVE_CLAIMS_BLOCKED",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:nas:synology:ds224plus-diskless-2gb",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:nas:synology:ds224plus-diskless-2gb",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:nas:qnap:ts-264-8g-diskless",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:nas:qnap:ts-264-8g-diskless",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:nas:qnap:ts-264-8g-diskless",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:printer:epson:c11cj67435",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:printer:epson:c11cj67435",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:printer:epson:c11cj67435",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:printer:hp:7md72a",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:printer:hp:7md72a",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:printer:hp:7md72a",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:webcam:logitech:960-001422",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:webcam:logitech:960-001422",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:webcam:logitech:960-001422",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:webcam:asus:webcam-c3",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:webcam:asus:webcam-c3",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:computer-audio:logitech:980-001295",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:computer-audio:logitech:980-001295",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:computer-audio:edifier:r1280dbs-black",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:computer-audio:edifier:r1280dbs-black",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:computer-audio:edifier:r1280dbs-black",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    }
+  ],
+  "carryForward": {
+    "scope": "WAVES_1_AND_2_PARENT_CHAIN",
+    "parentReleaseDigest": "sha256:824b159a07e7e6c586b687627bb29591a417454c6d475cbbcdba7dec915598f1",
+    "parentBytesUnmodified": true
+  },
+  "boundaries": {
+    "l7Experience": "ABSENT",
+    "mediaImported": false,
+    "l10YEffect": "NONE",
+    "amazonStatusEffect": "NONE",
+    "activationPerformed": false,
+    "registryChanged": false,
+    "runtimeChanged": false,
+    "databaseChanged": false,
+    "pointerChanged": false,
+    "deploymentPerformed": false
+  }
+}

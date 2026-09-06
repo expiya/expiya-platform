@@ -1,0 +1,9 @@
+powertrain_id,generation_id,marketing_name,fuel_type,electrification_type,engine_displacement_cc,power_kw,power_ps,torque_nm,transmission_type,transmission_gears,drivetrain,battery_usable_kwh,identity_status,legacy_motor_text,notes
+PWR-000001,GEN-000001,TCe EDC 115 hp,PETROL,NONE,1199,85,115,190,DCT,6,FWD,,VERIFIED,TCe EDC 115 hp,"Official Renault Türkiye technical page verifies engine, 6-speed DCT and FWD."
+PWR-000002,GEN-000002,1.6 M.Jet 130 HP Manual,DIESEL,NONE,1598,96,130,320,MANUAL,6,FWD,,VERIFIED,1.6 M.Jet 130 HP,"Pilot closure: exact Easy configuration resolved to current 2026 6-speed manual diesel, avoiding unsupported trim+automatic linkage."
+PWR-000003,GEN-000003,1.8 Hybrid e-CVT,PETROL,HEV,1798,103,140,,E_CVT,,FWD,,VERIFIED,1.8 Hybrid e-CVT,Toyota Jan 2026 brochure verifies 140 HP / 103 kW hybrid system and e-CVT.
+PWR-000004,GEN-000004,1.4L Boosterjet 48V SHVS MHEV 6AT AllGrip,PETROL,MHEV,1373,,109,235,AUTOMATIC,6,4WD,,VERIFIED,1.4 MHEV 6AT AllGrip,"Suzuki Türkiye technical page verifies 109 PS, 235 Nm, 6AT and AllGrip 4x4."
+PWR-000005,GEN-000005,1.5L DM-i Design,PETROL,PHEV,1498,160,218,300,E_CVT,,FWD,,VERIFIED,1.5L Design,"BYD Türkiye Mar 2026 brochure. 18.3 kWh is published as battery capacity, not explicitly usable."
+PWR-000006,GEN-000006,Electric 58.3 kWh,ELECTRIC,BEV,,150,204,283,SINGLE_SPEED,,FWD,,VERIFIED,Electric Prestige,Kia Türkiye EV3 technical page verifies 150 kW / 204 PS / 283 Nm. Battery capacity is not labeled gross/usable.
+PWR-000007,GEN-000007,V2 RWD Uzun Menzil,ELECTRIC,BEV,,160,218,,SINGLE_SPEED,,RWD,,VERIFIED,RWD Long Range,Current official Togg price list identifies V2 RWD Uzun Menzil; Media Center T10X V2 technical set is used for V2 evidence.
+PWR-000008,GEN-000008,Eco-G 120 auto,LPG,NONE,1199,,120,197,DCT,6,FWD,,VERIFIED,Eco-G 120 auto,"Dacia Türkiye verifies LPG+petrol, 6-speed EDC, 4x2, 1199 cc and 197 Nm."

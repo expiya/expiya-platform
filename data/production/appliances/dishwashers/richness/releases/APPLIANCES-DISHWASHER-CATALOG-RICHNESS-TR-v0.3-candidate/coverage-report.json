@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "major-appliance-category-adoption-coverage/v1",
+  "categoryId": "DISHWASHER",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+  "verdict": "ADMITTED_TO_FROZEN_CANDIDATE_RELEASE_ACTIVATION_BLOCKED_APPROVAL",
+  "counts": {
+    "priorOfferings": 4,
+    "admittedOfferings": 3,
+    "candidateOfferings": 7,
+    "newSources": 3,
+    "newEvidenceAssertions": 54,
+    "newFacts": 39,
+    "newCapabilities": 15,
+    "newDailyLifeInterpretations": 3,
+    "newDecisionProjections": 3,
+    "newAdvisorKnowledge": 0
+  },
+  "layers": {
+    "L0": "COMPLETE",
+    "L1": "COMPLETE",
+    "L2": "COMPLETE",
+    "L3": "COMPLETE",
+    "L4": "COMPLETE",
+    "L5": "COMPLETE_PLANNING_ONLY_NO_Y",
+    "L6": "COMPLETE_SEPARATE_FROM_TECHNICAL_TRUTH",
+    "L7": "ABSENT_NO_GOVERNED_EXPERIENCE",
+    "L8": "COMPLETE_NEUTRAL_UNKNOWN_LIMITED",
+    "L9": "DISABLED_NO_CHECKSUM_PINNED_EXACT_MANUAL",
+    "L10": "PARTIAL_EXTERNAL_VOLATILE_AMAZON_ONLY"
+  },
+  "perProduct": [
+    {
+      "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Base warranty duration and exact installation clearances remain unknown.",
+        "Exact manual bytes are not retained; L9 is disabled."
+      ]
+    },
+    {
+      "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Official manufacturer page reports its own store as temporarily out of stock; Amazon availability remains L10 only.",
+        "Base warranty duration and exact manual checksum remain unknown."
+      ]
+    },
+    {
+      "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Amazon title says seven programs while Samsung Türkiye support identifies the exact model as six-program; program count is excluded as conflicted.",
+        "Exact manual bytes are not retained; L9 is disabled."
+      ]
+    }
+  ],
+  "nonRegression": {
+    "existingOfferingsRetained": true,
+    "existingEvidenceRetained": true,
+    "activePointerChanged": false,
+    "currentYAuthorityChanged": false,
+    "rankingOrRemovalIntroduced": false
+  }
+}

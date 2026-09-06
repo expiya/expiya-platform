@@ -1,0 +1,464 @@
+{
+  "envelopeSchemaVersion": "washing-machine-question-policy-artifact/v1",
+  "canonicalSerialization": "CANONICAL_JSON_SORTED_KEYS_V1",
+  "policyDigest": "7d119c3ab6290f20cb0a10c0db48ebe774a918d8ad6c6644b7a4ef3571932315",
+  "payload": {
+    "schemaVersion": "washing-machine-question-policy/v1",
+    "policyId": "WASHING_MACHINE_QUESTION_POLICY/v0.1",
+    "governanceStatus": "APPROVED",
+    "lifecycle": "FROZEN",
+    "runtimeActive": true,
+    "departmentId": "APPLIANCES",
+    "productType": "WASHING_MACHINE",
+    "market": "TR",
+    "stage": "AŞAMA_1",
+    "approvedAt": "2026-09-03T15:00:00+03:00",
+    "provenance": {
+      "draftWorkUnit": "WU-APPL-QUESTION-POLICY-01",
+      "approvalWorkUnit": "WU-APPL-QUESTION-POLICY-APPROVAL-01",
+      "approvedBy": "ORGANIZATOR",
+      "reviewVerdict": "ACCEPTED_WITH_REQUIRED_AMENDMENT",
+      "amendment": "REMOTE_CONTROL_DOMAIN_WANTED_OR_NOT_IMPORTANT"
+    },
+    "bindings": {
+      "semanticRegistryVersion": "WASHING_MACHINE_SEMANTIC_REGISTRY/v0.1",
+      "semanticRegistryDigest": "44784b43d818bee505e85f66ed60ce065809a1ff2bd42852157d4e44d7d7038a",
+      "catalogRelease": "APPLIANCES-WM-TR-v0.1",
+      "catalogDigest": "1f6c6ea12b19b32d363e1889a1c8c4b8a6a621e4bb13a22384e0e4de2c586c9e",
+      "candidateEvaluationPolicy": "appliances-candidate-evaluation/v1"
+    },
+    "selectionPolicy": {
+      "clarificationPrecedence": true,
+      "maximumQuestionsPerSelection": 1,
+      "priorityModel": "TOTAL_ORDER_THEN_STABLE_KEY",
+      "stableQuestionKeyTieBreak": true,
+      "personaInfluence": "NONE",
+      "candidateArrayOrderInfluence": "NONE",
+      "noQuestionMeaning": "NO_AUTHORIZED_MATERIAL_QUESTION; NOT_SUFFICIENCY; NOT_RECOMMENDATION_READY; NOT_DECISION_READY; NOT_COMPLETE"
+    },
+    "suppressionPolicy": {
+      "acceptedTargetSuppresses": true,
+      "pendingTargetSuppresses": true,
+      "unchangedAskedStateSuppresses": true,
+      "fingerprintCannotOverrideActiveAcceptedAnswer": true,
+      "transcriptInference": "FORBIDDEN",
+      "retryOrTimeReopening": "FORBIDDEN"
+    },
+    "reopeningPolicy": {
+      "authorizedReasons": [
+        "TARGET_CLEARED",
+        "TARGET_CORRECTED",
+        "TARGET_SUPERSEDED",
+        "MATERIALLY_CHANGED_EVALUATION_AUTHORITY"
+      ]
+    },
+    "questions": [
+      {
+        "questionKey": "appliances.wm.installation.maxWidthMm",
+        "targetConcept": "INSTALLATION_FIT",
+        "kind": "DISCOVERY_ASK",
+        "priority": 10,
+        "dependencies": [],
+        "answerDomain": {
+          "type": "INTEGER",
+          "unit": "mm",
+          "minimum": 400,
+          "maximum": 1000,
+          "normalizedShape": "{maxWidthMm:number}"
+        },
+        "materiality": {
+          "requiresCandidateDifference": "BODY_WIDTH_MM",
+          "requiresContextCondition": "INSTALLATION_LOCATION_OR_SPACE_CONSTRAINT_ACCEPTED",
+          "candidateEffect": "CONCLUSIVE_OVERSIZE_MAY_ELIMINATE; POSITIVE_FIT_FORBIDDEN",
+          "softPreferenceEffect": "NON_FILTERING"
+        },
+        "suppression": [
+          "ACTIVE_CONTEXT_HAS_MAX_WIDTH_MM",
+          "PENDING_CONFIRMATION_FOR_INSTALLATION_FIT",
+          "ASKED_WITH_UNCHANGED_CONTEXT_AND_EVALUATION"
+        ],
+        "reopening": [
+          "TARGET_CLEARED",
+          "TARGET_CORRECTED_OR_SUPERSEDED",
+          "EVALUATION_FINGERPRINT_CHANGED_MATERIALLY"
+        ],
+        "realization": {
+          "model": "APPROVED_TEMPLATE",
+          "templateRef": "question-template:appliances.wm.installation.maxWidthMm:tr-v1",
+          "textTr": "Makine için kullanılabilir net genişlik en fazla kaç milimetre?"
+        },
+        "semanticAuthorityRef": "washing-machine-need-evidence-mappings/v1:INSTALLATION_FIT",
+        "candidateEffectRef": "appliances-candidate-evaluation/v1:HARD_TECHNICAL_INCOMPATIBILITY",
+        "governanceClassification": "APPROVED_PRODUCT_GOVERNANCE"
+      },
+      {
+        "questionKey": "appliances.wm.installation.maxHeightMm",
+        "targetConcept": "INSTALLATION_FIT",
+        "kind": "DISCOVERY_ASK",
+        "priority": 20,
+        "dependencies": [],
+        "answerDomain": {
+          "type": "INTEGER",
+          "unit": "mm",
+          "minimum": 600,
+          "maximum": 1200,
+          "normalizedShape": "{maxHeightMm:number}"
+        },
+        "materiality": {
+          "requiresCandidateDifference": "BODY_HEIGHT_MM",
+          "requiresContextCondition": "INSTALLATION_LOCATION_OR_SPACE_CONSTRAINT_ACCEPTED",
+          "candidateEffect": "CONCLUSIVE_OVERSIZE_MAY_ELIMINATE; POSITIVE_FIT_FORBIDDEN",
+          "softPreferenceEffect": "NON_FILTERING"
+        },
+        "suppression": [
+          "ACTIVE_CONTEXT_HAS_MAX_HEIGHT_MM",
+          "PENDING_CONFIRMATION_FOR_INSTALLATION_FIT",
+          "ASKED_WITH_UNCHANGED_CONTEXT_AND_EVALUATION"
+        ],
+        "reopening": [
+          "TARGET_CLEARED",
+          "TARGET_CORRECTED_OR_SUPERSEDED",
+          "EVALUATION_FINGERPRINT_CHANGED_MATERIALLY"
+        ],
+        "realization": {
+          "model": "APPROVED_TEMPLATE",
+          "templateRef": "question-template:appliances.wm.installation.maxHeightMm:tr-v1",
+          "textTr": "Makine için kullanılabilir net yükseklik en fazla kaç milimetre?"
+        },
+        "semanticAuthorityRef": "washing-machine-need-evidence-mappings/v1:INSTALLATION_FIT",
+        "candidateEffectRef": "appliances-candidate-evaluation/v1:HARD_TECHNICAL_INCOMPATIBILITY",
+        "governanceClassification": "APPROVED_PRODUCT_GOVERNANCE"
+      },
+      {
+        "questionKey": "appliances.wm.installation.maxBodyDepthMm",
+        "targetConcept": "INSTALLATION_FIT",
+        "kind": "DISCOVERY_ASK",
+        "priority": 30,
+        "dependencies": [],
+        "answerDomain": {
+          "type": "INTEGER",
+          "unit": "mm",
+          "minimum": 350,
+          "maximum": 1200,
+          "normalizedShape": "{maxDepthMm:number}"
+        },
+        "materiality": {
+          "requiresCandidateDifference": "BODY_DEPTH_MM",
+          "requiresContextCondition": "INSTALLATION_LOCATION_OR_SPACE_CONSTRAINT_ACCEPTED",
+          "candidateEffect": "BODY_OVERSIZE_MAY_ELIMINATE; FULL_INSTALLATION_FIT_REMAINS_UNKNOWN",
+          "softPreferenceEffect": "NON_FILTERING"
+        },
+        "suppression": [
+          "ACTIVE_CONTEXT_HAS_MAX_DEPTH_MM",
+          "PENDING_CONFIRMATION_FOR_INSTALLATION_FIT",
+          "ASKED_WITH_UNCHANGED_CONTEXT_AND_EVALUATION"
+        ],
+        "reopening": [
+          "TARGET_CLEARED",
+          "TARGET_CORRECTED_OR_SUPERSEDED",
+          "EVALUATION_FINGERPRINT_CHANGED_MATERIALLY"
+        ],
+        "realization": {
+          "model": "APPROVED_TEMPLATE",
+          "templateRef": "question-template:appliances.wm.installation.maxBodyDepthMm:tr-v1",
+          "textTr": "Gövde için kullanılabilir net derinlik en fazla kaç milimetre? Kapak, hortum ve arka boşluk ayrıca doğrulanmalıdır."
+        },
+        "semanticAuthorityRef": "washing-machine-need-evidence-mappings/v1:INSTALLATION_FIT",
+        "candidateEffectRef": "appliances-candidate-evaluation/v1:INSTALLATION_POSITIVE_FIT_FORBIDDEN",
+        "governanceClassification": "APPROVED_PRODUCT_GOVERNANCE"
+      },
+      {
+        "questionKey": "appliances.wm.budget.maximumTry",
+        "targetConcept": "BUDGET_SENSITIVITY",
+        "kind": "DISCOVERY_ASK",
+        "priority": 40,
+        "dependencies": [],
+        "answerDomain": {
+          "type": "INTEGER",
+          "unit": "TRY",
+          "minimum": 1000,
+          "maximum": 10000000,
+          "normalizedShape": "{maximumTry:number}"
+        },
+        "materiality": {
+          "requiresCandidateDifference": "FRESH_REPRESENTATIVE_PRICE_TRY",
+          "requiresContextCondition": "NO_ACCEPTED_HARD_BUDGET",
+          "candidateEffect": "PRICE_COMPATIBLE_OR_BUDGET_INCOMPATIBLE_OR_BUDGET_ELIGIBILITY_UNKNOWN",
+          "softPreferenceEffect": "NON_FILTERING"
+        },
+        "suppression": [
+          "ACTIVE_CONTEXT_HAS_MAXIMUM_TRY",
+          "PENDING_CONFIRMATION_FOR_BUDGET_SENSITIVITY",
+          "ASKED_WITH_UNCHANGED_CONTEXT_AND_EVALUATION"
+        ],
+        "reopening": [
+          "TARGET_CLEARED",
+          "TARGET_CORRECTED_OR_SUPERSEDED",
+          "PRICE_OR_EVALUATION_FINGERPRINT_CHANGED_MATERIALLY"
+        ],
+        "realization": {
+          "model": "APPROVED_TEMPLATE",
+          "templateRef": "question-template:appliances.wm.budget.maximumTry:tr-v1",
+          "textTr": "Uygulanmasını istediğin kesin üst bütçe kaç TL?"
+        },
+        "semanticAuthorityRef": "washing-machine-user-needs/v1:BUDGET_SENSITIVITY",
+        "candidateEffectRef": "appliances-candidate-evaluation/v1:BUDGET_INCOMPATIBLE",
+        "governanceClassification": "APPROVED_PRODUCT_GOVERNANCE"
+      },
+      {
+        "questionKey": "appliances.wm.remoteControl.requirement",
+        "targetConcept": "REMOTE_CONTROL",
+        "kind": "DISCOVERY_ASK",
+        "priority": 50,
+        "dependencies": [],
+        "answerDomain": {
+          "type": "ENUM",
+          "values": [
+            "WANTED",
+            "NOT_IMPORTANT"
+          ],
+          "normalizedShape": "{wanted:boolean}"
+        },
+        "materiality": {
+          "requiresCandidateDifference": "SMART_CONNECTIVITY",
+          "requiresContextCondition": "NO_ACTIVE_REMOTE_CONTROL_CONTEXT",
+          "candidateEffect": "SUPPORTED_OR_NOT_SUPPORTED_OR_UNKNOWN; NON_RANKING",
+          "softPreferenceEffect": "NON_FILTERING"
+        },
+        "suppression": [
+          "ACTIVE_CONTEXT_HAS_REMOTE_CONTROL_REQUIREMENT",
+          "PENDING_CONFIRMATION_FOR_REMOTE_CONTROL",
+          "ASKED_WITH_UNCHANGED_CONTEXT_AND_EVALUATION"
+        ],
+        "reopening": [
+          "TARGET_CLEARED",
+          "TARGET_CORRECTED_OR_SUPERSEDED",
+          "EVALUATION_FINGERPRINT_CHANGED_MATERIALLY"
+        ],
+        "realization": {
+          "model": "APPROVED_TEMPLATE",
+          "templateRef": "question-template:appliances.wm.remoteControl.requirement:tr-v1",
+          "textTr": "Uygulamadan uzaktan kontrol özelliği istiyor musun, yoksa bu özellik senin için önemli değil mi?"
+        },
+        "semanticAuthorityRef": "washing-machine-need-evidence-mappings/v1:REMOTE_CONTROL",
+        "candidateEffectRef": "appliances-candidate-evaluation/v1:SMART_CONNECTIVITY",
+        "governanceClassification": "APPROVED_PRODUCT_GOVERNANCE"
+      },
+      {
+        "questionKey": "appliances.wm.autoDosing.preference",
+        "targetConcept": "DETERGENT_CONVENIENCE",
+        "kind": "DISCOVERY_ASK",
+        "priority": 60,
+        "dependencies": [],
+        "answerDomain": {
+          "type": "ENUM",
+          "values": [
+            "WANTED",
+            "NOT_IMPORTANT"
+          ],
+          "normalizedShape": "{wanted:boolean}"
+        },
+        "materiality": {
+          "requiresCandidateDifference": "AUTO_DOSING",
+          "requiresContextCondition": "NO_ACTIVE_DETERGENT_CONVENIENCE_CONTEXT",
+          "candidateEffect": "SUPPORTED_OR_NOT_SUPPORTED_OR_UNKNOWN; NON_RANKING",
+          "softPreferenceEffect": "NON_FILTERING"
+        },
+        "suppression": [
+          "ACTIVE_CONTEXT_HAS_DETERGENT_CONVENIENCE",
+          "PENDING_CONFIRMATION_FOR_DETERGENT_CONVENIENCE",
+          "ASKED_WITH_UNCHANGED_CONTEXT_AND_EVALUATION"
+        ],
+        "reopening": [
+          "TARGET_CLEARED",
+          "TARGET_CORRECTED_OR_SUPERSEDED",
+          "EVALUATION_FINGERPRINT_CHANGED_MATERIALLY"
+        ],
+        "realization": {
+          "model": "APPROVED_TEMPLATE",
+          "templateRef": "question-template:appliances.wm.autoDosing.preference:tr-v1",
+          "textTr": "Deterjanı otomatik dozlayan bir sistem istiyor musun, yoksa bu özellik önemli değil mi?"
+        },
+        "semanticAuthorityRef": "washing-machine-need-evidence-mappings/v1:DETERGENT_CONVENIENCE",
+        "candidateEffectRef": "appliances-candidate-evaluation/v1:AUTO_DOSING",
+        "governanceClassification": "APPROVED_PRODUCT_GOVERNANCE"
+      },
+      {
+        "questionKey": "appliances.wm.noise.priority",
+        "targetConcept": "LOW_NOISE_PRIORITY",
+        "kind": "DISCOVERY_ASK",
+        "priority": 70,
+        "dependencies": [],
+        "answerDomain": {
+          "type": "ENUM",
+          "values": [
+            "IMPORTANT",
+            "NOT_IMPORTANT"
+          ],
+          "normalizedShape": "{important:boolean}"
+        },
+        "materiality": {
+          "requiresCandidateDifference": "SPIN_NOISE_DB",
+          "requiresContextCondition": "NO_ACTIVE_LOW_NOISE_PRIORITY",
+          "candidateEffect": "COMPARABLE_STANDARDIZED_VALUE_ONLY; NON_RANKING",
+          "softPreferenceEffect": "NON_FILTERING"
+        },
+        "suppression": [
+          "ACTIVE_CONTEXT_HAS_LOW_NOISE_PRIORITY",
+          "PENDING_CONFIRMATION_FOR_LOW_NOISE_PRIORITY",
+          "ASKED_WITH_UNCHANGED_CONTEXT_AND_EVALUATION"
+        ],
+        "reopening": [
+          "TARGET_CLEARED",
+          "TARGET_CORRECTED_OR_SUPERSEDED",
+          "EVALUATION_FINGERPRINT_CHANGED_MATERIALLY"
+        ],
+        "realization": {
+          "model": "APPROVED_TEMPLATE",
+          "templateRef": "question-template:appliances.wm.noise.priority:tr-v1",
+          "textTr": "Standart sıkma gürültüsünün düşük olması senin için önemli mi?"
+        },
+        "semanticAuthorityRef": "washing-machine-need-evidence-mappings/v1:LOW_NOISE_PRIORITY",
+        "candidateEffectRef": "appliances-candidate-evaluation/v1:SPIN_NOISE_DB",
+        "governanceClassification": "APPROVED_PRODUCT_GOVERNANCE"
+      }
+    ],
+    "excludedTopics": [
+      {
+        "topic": "CAPACITY_MINIMUM_KG",
+        "classification": "FROZEN_EXCLUSION",
+        "reason": "Approved exclusion: no literal capacity threshold or household-to-kg rule is authorized."
+      },
+      {
+        "topic": "HYGIENE_ALLERGY_CHILD_SAFETY",
+        "classification": "UNSUPPORTED_PENDING_PRODUCT_DECISION",
+        "reason": "Frozen need-to-evidence mapping does not authorize these discovery effects."
+      },
+      {
+        "topic": "ENERGY_WATER",
+        "classification": "NON_MATERIAL",
+        "reason": "Comparable facts exist, but controlled answers currently have no approved candidate effect beyond future ranking."
+      },
+      {
+        "topic": "SPECIAL_CARE_AND_PROGRAMS",
+        "classification": "UNSUPPORTED_PENDING_PRODUCT_DECISION",
+        "reason": "No complete governed question-to-capability answer contract."
+      },
+      {
+        "topic": "PERSONA",
+        "classification": "NON_MATERIAL",
+        "reason": "DERIVED_PLANNING has zero direct question materiality."
+      },
+      {
+        "topic": "SELLER_AFFILIATE_PAYMENT",
+        "classification": "ADVISOR_ONLY",
+        "reason": "Outside AŞAMA 1 discovery and commerce-independent authority."
+      }
+    ],
+    "decisionRegister": [
+      {
+        "decisionId": "APPL-QP-DEC-001",
+        "topic": "capacity-threshold-treatment",
+        "authorityEvidence": "HIGH_LAUNDRY_VOLUME maps to rated capacity but no threshold rule exists.",
+        "approvedDecision": "Exclude capacity ASK from material AŞAMA 1 discovery until a literal threshold policy is approved.",
+        "alternativesConsidered": [
+          "Literal minimum kg comparison",
+          "Household-to-capacity bands",
+          "Context-only question"
+        ],
+        "runtimeConsequence": "No capacity question and no capacity elimination.",
+        "riskControlled": "Planner could ask an unactionable question.",
+        "governanceClassification": "APPROVED_PRODUCT_GOVERNANCE",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "APPL-QP-DEC-002",
+        "topic": "question-priority-model",
+        "authorityEvidence": "No existing order authority.",
+        "approvedDecision": "Clarification first, then installation dimensions, budget, connectivity, auto-dose, standardized noise; stable key final tie-break.",
+        "alternativesConsidered": [
+          "Budget first",
+          "Information gain scoring",
+          "Alphabetical only"
+        ],
+        "runtimeConsequence": "Deterministic one-question selection.",
+        "riskControlled": "Ambiguous or invented ordering.",
+        "governanceClassification": "APPROVED_PRODUCT_GOVERNANCE",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "APPL-QP-DEC-003",
+        "topic": "controlled-versus-open-answers",
+        "authorityEvidence": "Context validation already supports structured numeric and bounded semantic values.",
+        "approvedDecision": "Numeric dimensions/budget and enumerated preference answers; no open prose as controlled value.",
+        "alternativesConsidered": [
+          "Free text",
+          "Boolean-only"
+        ],
+        "runtimeConsequence": "Deterministic validation and provenance.",
+        "riskControlled": "Model prose could become authority.",
+        "governanceClassification": "APPROVED_PRODUCT_GOVERNANCE",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "APPL-QP-DEC-004",
+        "topic": "question-realization-model",
+        "authorityEvidence": "No existing Appliances realization authority.",
+        "approvedDecision": "Policy-owned reviewed Turkish templates.",
+        "alternativesConsidered": [
+          "Separate template registry",
+          "Bounded model realization"
+        ],
+        "runtimeConsequence": "Planner selects keys; template layer realizes exact wording.",
+        "riskControlled": "Meaning or options could drift.",
+        "governanceClassification": "APPROVED_PRODUCT_GOVERNANCE",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "APPL-QP-DEC-005",
+        "topic": "reopening-behavior",
+        "authorityEvidence": "Append-only correction, supersession and clear lifecycle exists.",
+        "approvedDecision": "Reopen only after target clear/correction/supersession or materially changed evaluation fingerprint.",
+        "alternativesConsidered": [
+          "Never reopen",
+          "Time/retry counters"
+        ],
+        "runtimeConsequence": "No repetition under unchanged authority.",
+        "riskControlled": "Loops or permanently suppressed material questions.",
+        "governanceClassification": "APPROVED_PRODUCT_GOVERNANCE",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "APPL-QP-DEC-006",
+        "topic": "no-question-available",
+        "authorityEvidence": "Canonical runtime separates planning from sufficiency.",
+        "approvedDecision": "Neutral absence of authorized material ASK; never sufficiency, completion or authorization.",
+        "alternativesConsidered": [
+          "Treat as sufficient",
+          "Generic fallback question"
+        ],
+        "runtimeConsequence": "Downstream sufficiency remains separate.",
+        "riskControlled": "Premature recommendation authorization.",
+        "governanceClassification": "EXISTING_ARCHITECTURE_CONSTRAINT",
+        "approvalStatus": "APPROVED"
+      },
+      {
+        "decisionId": "APPL-QP-DEC-007",
+        "topic": "persona-influence",
+        "authorityEvidence": "DERIVED_PLANNING, decisionUse NONE, directCandidateEffect NONE.",
+        "approvedDecision": "Persona influence remains NONE.",
+        "alternativesConsidered": [
+          "Tie-break only"
+        ],
+        "runtimeConsequence": "No persona-created materiality or answers.",
+        "riskControlled": "Derived persona could masquerade as user fact.",
+        "governanceClassification": "EXISTING_SEMANTIC_AUTHORITY",
+        "approvalStatus": "APPROVED"
+      }
+    ],
+    "failClosedContract": {
+      "version": "appliances-question-policy-fail-closed/v1",
+      "fallback": "NONE"
+    }
+  }
+}

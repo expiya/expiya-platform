@@ -1,0 +1,198 @@
+{
+  "schemaVersion": "electronics-wave-4-comparison/v1",
+  "categories": [
+    {
+      "categoryId": "SMARTWATCH",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 4,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "MULTI_MANUFACTURER_EXACT_TR_COMPARISON_WITH_CATEGORY_RISK_BOUNDARIES"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "riskGates": {
+        "categoryId": "SMARTWATCH",
+        "privacy": "UNKNOWN_NEUTRAL_NON_BLOCKING",
+        "health": "EVIDENCED",
+        "subscription": "EVIDENCED",
+        "installation": "NOT_APPLICABLE",
+        "electricalSafety": "EVIDENCED",
+        "notes": [
+          "No retention-sensitive ranking claim; account/app dependency and non-medical boundary recorded"
+        ]
+      },
+      "exactProductIds": [
+        "electronics:smartwatch:samsung:sm-l330ndaatur",
+        "electronics:smartwatch:huawei:vli-b19-46-black"
+      ],
+      "fields": [
+        "case_size_mm",
+        "connectivity",
+        "health_boundary",
+        "phone_requirement"
+      ]
+    },
+    {
+      "categoryId": "FITNESS_TRACKER",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 5,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "MULTI_MANUFACTURER_EXACT_TR_COMPARISON_WITH_CATEGORY_RISK_BOUNDARIES"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "riskGates": {
+        "categoryId": "FITNESS_TRACKER",
+        "privacy": "UNKNOWN_NEUTRAL_NON_BLOCKING",
+        "health": "EVIDENCED",
+        "subscription": "EVIDENCED",
+        "installation": "NOT_APPLICABLE",
+        "electricalSafety": "EVIDENCED",
+        "notes": [
+          "No retention-sensitive ranking claim; non-medical boundary recorded"
+        ]
+      },
+      "exactProductIds": [
+        "electronics:fitness-tracker:xiaomi:m2435b1-black",
+        "electronics:fitness-tracker:huawei:nor-b19-black"
+      ],
+      "fields": [
+        "battery_days_max",
+        "battery_days_typical",
+        "connectivity",
+        "display_inches",
+        "health_boundary"
+      ]
+    },
+    {
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 4,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "MULTI_MANUFACTURER_EXACT_TR_COMPARISON_WITH_CATEGORY_RISK_BOUNDARIES"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "riskGates": {
+        "categoryId": "HOME_SECURITY_CAMERA",
+        "privacy": "EVIDENCED",
+        "health": "NOT_APPLICABLE",
+        "subscription": "EVIDENCED",
+        "installation": "EVIDENCED",
+        "electricalSafety": "EVIDENCED",
+        "notes": [
+          "Local storage and physical/software privacy controls distinguished from optional cloud"
+        ]
+      },
+      "exactProductIds": [
+        "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+        "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr"
+      ],
+      "fields": [
+        "local_storage",
+        "power",
+        "privacy",
+        "resolution"
+      ]
+    },
+    {
+      "categoryId": "VIDEO_DOORBELL",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 4,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "MULTI_MANUFACTURER_EXACT_TR_COMPARISON_WITH_CATEGORY_RISK_BOUNDARIES"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "riskGates": {
+        "categoryId": "VIDEO_DOORBELL",
+        "privacy": "EVIDENCED",
+        "health": "NOT_APPLICABLE",
+        "subscription": "EVIDENCED",
+        "installation": "EVIDENCED",
+        "electricalSafety": "EVIDENCED",
+        "notes": [
+          "Power, included components, local storage, and optional cloud topology recorded"
+        ]
+      },
+      "exactProductIds": [
+        "electronics:video-doorbell:tp-link:tapo-d235",
+        "electronics:video-doorbell:ezviz:cs-ep3x-pro"
+      ],
+      "fields": [
+        "local_storage",
+        "power",
+        "resolution",
+        "subscription"
+      ]
+    },
+    {
+      "categoryId": "SMART_HOME_HUB",
+      "candidateCount": 1,
+      "manufacturerCount": 1,
+      "comparableFieldCount": 4,
+      "readiness": "BLOCKED_EVIDENCE",
+      "reasons": [
+        "SECOND_MANUFACTURER_EXACT_TR_APPLICABILITY_ABSENT",
+        "MATERIAL_PRIVACY_AUTHORITY_INCOMPLETE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "riskGates": {
+        "categoryId": "SMART_HOME_HUB",
+        "privacy": "BLOCKED_MATERIAL",
+        "health": "NOT_APPLICABLE",
+        "subscription": "UNKNOWN_NEUTRAL_NON_BLOCKING",
+        "installation": "EVIDENCED",
+        "electricalSafety": "EVIDENCED",
+        "notes": [
+          "Second-manufacturer exact Türkiye applicability absent"
+        ]
+      },
+      "exactProductIds": [
+        "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1"
+      ],
+      "fields": [
+        "cloud_account_boundary",
+        "device_capacity",
+        "local_storage",
+        "protocols"
+      ]
+    },
+    {
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 4,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "MULTI_MANUFACTURER_EXACT_TR_COMPARISON_WITH_CATEGORY_RISK_BOUNDARIES"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE",
+      "riskGates": {
+        "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+        "privacy": "NOT_APPLICABLE",
+        "health": "NOT_APPLICABLE",
+        "subscription": "NOT_APPLICABLE",
+        "installation": "EVIDENCED",
+        "electricalSafety": "EVIDENCED",
+        "notes": [
+          "230V, topology, outlet form, battery chemistry, and safety standards recorded"
+        ]
+      },
+      "exactProductIds": [
+        "electronics:ups:apc:bx1200mi-gr",
+        "electronics:ups:eaton:5e1200ui"
+      ],
+      "fields": [
+        "capacity",
+        "electrical_safety",
+        "mains_outlets",
+        "topology"
+      ]
+    }
+  ]
+}

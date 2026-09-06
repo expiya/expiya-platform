@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "xpy-global-evidence-repair-execution-ledger/v1",
+  "workUnitId": "WU-XPY-GLOBAL-EVIDENCE-CANDIDATE-REPAIR-01",
+  "date": "2026-09-05",
+  "verdict": "READY_FOR_APPROVAL",
+  "activationPerformed": false,
+  "candidates": {
+    "cars": {
+      "candidateId": "v1.0.0-catalog-v0.55.4-2026-09-05",
+      "candidateFileSha256": "sha256:e3eb57753c5deb7f8a259639ea560848f8dc093a51098877c23d73cb34c007f6",
+      "releaseDigest": "sha256:316d2238c40b0330fe1f4d722c8121ab1e429cca93bc3fd9899a929c9a9f67ed",
+      "manifestFileSha256": "sha256:976b7b04e4d2040d23b4ffd492e6a90b83b462249506896ba540f08111e5868b",
+      "status": "PASS"
+    },
+    "appliances": {
+      "candidateId": "APPLIANCES-GLOBAL-EVIDENCE-TR-v0.1-rc1",
+      "candidatePayloadSha256": "sha256:24f2918b39f8955ae4cfe8101067081e0ab63353c98b647aefcecf8c6a22d9ff",
+      "releaseDigest": "sha256:d10f0773b7503d7125255ccf0f53b45257ff539a235b7328da351f34ebe637df",
+      "manifestFileSha256": "sha256:97cadbf859224e25560c4acb9834ef24d883c2abd6f76e24b638693d50581b51",
+      "status": "PASS"
+    }
+  },
+  "recomputed": {
+    "cars": {
+      "members": 549,
+      "exactTechnicalFields": { "before": 11154, "after": 11154 },
+      "equipmentAssertions": { "before": 112, "after": 126 },
+      "equipmentCoveredVariants": { "before": 6, "after": 10 },
+      "l9ReadyVariants": { "before": 0, "after": 3 },
+      "dailyLifeApplications": { "before": 0, "after": 20 }
+    },
+    "appliances": {
+      "members": 97,
+      "categories": 24,
+      "exactAssertions": { "before": 1253, "after": 1253 },
+      "familyAssertions": { "before": 0, "after": 60 },
+      "manuals": { "before": 14, "after": 17 },
+      "l9Records": { "before": 9, "after": 16 },
+      "l6Interpretations": { "before": 0, "after": 60 },
+      "absentUnits": { "before": 213, "after": 207 }
+    }
+  },
+  "verification": {
+    "focusedTests": { "status": "PASS", "files": 3, "tests": 17 },
+    "typescript": "PASS",
+    "independentVerifier": "PASS",
+    "appliancesCompositeVerifier": "PASS",
+    "manualChecksums": { "cars": 3, "appliancesReferenced": 4, "status": "PASS" },
+    "locatorPagesVisuallyAndTextuallyReviewed": 22,
+    "activePointers": { "cars": 5, "appliances": 31, "changed": false }
+  },
+  "prohibitedActions": {
+    "activation": false,
+    "deployment": false,
+    "databaseMutation": false,
+    "migration": false,
+    "newResearch": false
+  }
+}

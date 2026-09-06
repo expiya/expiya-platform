@@ -23,3 +23,4 @@ export function authorizeStrollerCard(product: StrollerProduct, preferences: Str
   const authorizationFingerprint = `sha256:${createHash("sha256").update(JSON.stringify({ authority, preferences })).digest("hex")}`;
   return { ...authority, authorizationFingerprint, manufacturer: product.manufacturer, model: product.model, facts: product.facts, included: product.included, separatelySold: product.separatelySold, limitations: ["Eksik bilgi bilinmiyor olarak korunur.", "Azami ağırlık gelişimsel uygunluk garantisi değildir.", "Kabin boyutu iddiası olsa bile son karar havayolunundur."] } as const;
 }
+

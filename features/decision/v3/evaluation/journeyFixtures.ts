@@ -68,9 +68,9 @@ export const V3_SMOKE_JOURNEYS: readonly V3JourneyFixture[] = [
   },
   {
     id: "single-recommendation-consent",
-    description: "Açık onaydan önce kart göstermez ve sonra tek araç verir",
+    description: "Açık onaydan önce kart göstermez ve eşit liderleri tek kazanan diye sunmaz",
     messages: ["Yeni araç almak istiyorum", "Şehir içinde günlük kullanacağım", "Parkı kolay kompakt bir yapı olsun", "Kesin bütçem 3 milyon TL", "Elektrikli olsun", "Geri görüş kamerası kesin olsun", "Tek araç öner", "Evet, göster"],
-    expectation: { recommendationCount: 1, offerMustBeObserved: true },
+    expectation: { maximumRecommendationCount: 3, offerMustBeObserved: true },
   },
   {
     id: "alternative-recommendations-consent",
@@ -184,7 +184,7 @@ export const V3_SMOKE_JOURNEYS: readonly V3JourneyFixture[] = [
     id: "broad-pool-differentiator",
     description: "Kullanıcı donanımın önemli olmadığını söylediyse aynı donanım alanını yeniden sormadan teklif hazırlar",
     messages: ["Şehir içinde kullanmak için SUV araç almak istiyorum.", "Özel park donanımı şart değil.", "Kesin bütçem 2 milyon TL.", "Elektrikli olsun.", "Marka fark etmez.", "Tek araç seçelim."],
-    expectation: { finalLastQuestionKey: "offerConsent", finalMessagePattern: /tek seçimi hazırladım.*Göstermemi ister misin/iu, recommendationCount: 0, offerMustBeObserved: true },
+    expectation: { finalLastQuestionKey: "offerConsent", finalMessagePattern: /(?:tek seçimi|en fazla üç seçimi) hazırladım.*Göstermemi ister misin/iu, recommendationCount: 0, offerMustBeObserved: true },
   },
   {
     id: "corporate-customer-visits",

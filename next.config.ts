@@ -3,7 +3,10 @@ import { withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  allowedDevOrigins: ["127.0.0.1"],
   outputFileTracingIncludes: {
+    "/api/appliances/conversation": ["./data/production/appliances/**/*"],
+    "/api/electronics/conversation": ["./data/production/electronics/**/*"],
     "/api/cars/conversation": [
       "./data/production/personas/safe-traits/**/*",
       "./data/production/catalog/governance/**/*",
@@ -17,11 +20,17 @@ const nextConfig: NextConfig = {
       port: "",
       pathname: "/cars/**",
       search: "",
+    }, {
+      protocol: "https",
+      hostname: "media3.bsh-group.com",
+      port: "",
+      pathname: "/Product_Shots/**",
+      search: "",
     }],
   },
   async headers() {
     const securityHeaders = [
-      { key: "Content-Security-Policy", value: `default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: blob: https://wylflrzf7gws55yp.public.blob.vercel-storage.com; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}; connect-src 'self' https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.ingest.de.sentry.io; upgrade-insecure-requests` },
+      { key: "Content-Security-Policy", value: `default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: blob: https://wylflrzf7gws55yp.public.blob.vercel-storage.com https://media3.bsh-group.com; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'${process.env.NODE_ENV === "development" ? " 'unsafe-eval'" : ""}; connect-src 'self' https://*.ingest.sentry.io https://*.ingest.us.sentry.io https://*.ingest.de.sentry.io; upgrade-insecure-requests` },
       { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
       { key: "X-Content-Type-Options", value: "nosniff" },
       { key: "X-Frame-Options", value: "DENY" },

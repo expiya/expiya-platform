@@ -1,0 +1,242 @@
+{
+  "schemaVersion": "vacuum-catalog-richness-coverage/v1",
+  "workUnitId": "WU-XPY-APPL-VACUUM-CATALOG-RICHNESS-01",
+  "generatedAt": "2026-09-04T22:00:00.000+03:00",
+  "verdict": "IMPLEMENTED",
+  "before": {
+    "L0": "COMPLETE",
+    "L1": "PARTIAL",
+    "L2": "PARTIAL",
+    "L3": "PARTIAL",
+    "L4": "PARTIAL",
+    "L5": "ABSENT",
+    "L6": "ABSENT",
+    "L7": "ABSENT",
+    "L8": "PARTIAL",
+    "L9": "ABSENT",
+    "L10": "PARTIAL"
+  },
+  "after": {
+    "L0": "COMPLETE",
+    "L1": "COMPLETE",
+    "L2": "COMPLETE",
+    "L3": "COMPLETE",
+    "L4": "COMPLETE",
+    "L5": "COMPLETE",
+    "L6": "COMPLETE",
+    "L7": "ABSENT",
+    "L8": "COMPLETE",
+    "L9": "ABSENT",
+    "L10": "PARTIAL"
+  },
+  "counts": {
+    "sources": 4,
+    "offerings": 4,
+    "objectiveFacts": 24,
+    "capabilities": 15,
+    "usageSemantics": 8,
+    "needs": 10,
+    "needEvidenceMappings": 9,
+    "personaSignals": 4,
+    "dailyLifeInterpretations": 16,
+    "experienceRules": 0,
+    "decisionProjections": 4,
+    "advisorKnowledge": 0,
+    "comparisonDimensions": 6,
+    "evidence": 39,
+    "assertionLevelEvidence": 39,
+    "advisorReadProjectionsGenerated": 4,
+    "comparisonEvidenceProjectionsGenerated": 1
+  },
+  "perProduct": [
+    {
+      "offeringId": "PHILIPS_FC9330_07_TR",
+      "label": "Philips FC9330/07",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 6,
+        "capabilities": 4,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "CLEANING_AND_SUCTION_OUTCOME_UNKNOWN",
+          "FILTRATION_HEALTH_OUTCOME_UNKNOWN",
+          "PERCEIVED_HANDLING_AND_NOISE_UNKNOWN"
+        ]
+      }
+    },
+    {
+      "offeringId": "PHILIPS_FC9750_07_TR",
+      "label": "Philips FC9750/07",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 6,
+        "capabilities": 5,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "CLEANING_AND_SUCTION_OUTCOME_UNKNOWN",
+          "FILTRATION_HEALTH_OUTCOME_UNKNOWN",
+          "PERCEIVED_HANDLING_AND_NOISE_UNKNOWN"
+        ]
+      }
+    },
+    {
+      "offeringId": "BOSCH_BGC21X300_TR",
+      "label": "Bosch BGC21X300",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 6,
+        "capabilities": 3,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "CLEANING_AND_SUCTION_OUTCOME_UNKNOWN",
+          "FILTRATION_HEALTH_OUTCOME_UNKNOWN",
+          "PERCEIVED_HANDLING_AND_NOISE_UNKNOWN"
+        ]
+      }
+    },
+    {
+      "offeringId": "BOSCH_BGC41PET_TR",
+      "label": "Bosch BGC41PET",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 6,
+        "capabilities": 3,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "CLEANING_AND_SUCTION_OUTCOME_UNKNOWN",
+          "FILTRATION_HEALTH_OUTCOME_UNKNOWN",
+          "PERCEIVED_HANDLING_AND_NOISE_UNKNOWN"
+        ]
+      }
+    }
+  ],
+  "unresolvedGlobal": [
+    "L7 absent: no governed Vacuum experience authority.",
+    "L9 absent: no checksum-bound exact Vacuum manual.",
+    "Suction and cleaning outcome, filtration health outcome, perceived handling and perceived noise remain unknown.",
+    "Input watts are explicitly excluded from performance comparison.",
+    "L10 price, photos, media, offers and affiliate data remain external volatile joins."
+  ],
+  "nonRegression": {
+    "parentAuthorityBytesChanged": false,
+    "membershipChanged": false,
+    "candidateSelectionChanged": false,
+    "yAuthorizationChanged": false,
+    "commerceOrderingChanged": false
+  },
+  "nextBoundedWorkUnit": {
+    "workUnitId": "WU-XPY-APPL-ROBOT-VACUUM-CATALOG-RICHNESS-01"
+  }
+}

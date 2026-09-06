@@ -1,0 +1,2212 @@
+{
+  "schemaVersion": "XPY_CATALOG/v0.1",
+  "releaseId": "appliances:dishwasher:catalog-richness:tr:v0.2",
+  "releaseVersion": "APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.2",
+  "departmentId": "APPLIANCES",
+  "categoryId": "DISHWASHER",
+  "market": "TR",
+  "lifecycle": "FROZEN",
+  "effectiveAt": "2026-09-04T21:00:00.000+03:00",
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "DISHWASHER_SEMANTIC_REGISTRY/v0.2",
+    "semanticAuthorityDigest": "sha256:d8f094ff8e92fedab86f3915ef450a4db4c7d5b453337eb7b4f7e9582a63301e",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "sources": [
+    {
+      "sourceId": "BOSCH-SMS4IKI62T-TR",
+      "kind": "OFFICIAL",
+      "uri": "https://www.bosch-home.com.tr/tr/product/bulasik-makineleri/solo-bulasik-makineleri/60cm-genisliginde-bulasik-makineleri/SMS4IKI62T",
+      "version": "observed-2026-09-03",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "SIEMENS-SN25EI63MT-TR",
+      "kind": "OFFICIAL",
+      "uri": "https://www.siemens-home.bsh-group.com/tr/tr/product/bulasik-makineleri/solo-bulasik-makineleri/tam-ebatli-bulasik-makineleri-60cm/SN25EI63MT",
+      "version": "observed-2026-09-03",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "SAMSUNG-DW60DG560FWQTR-TR",
+      "kind": "OFFICIAL",
+      "uri": "https://www.samsung.com/tr/dishwashers/freestanding/dw5500mm-14-place-settings-white-dw60dg560fwqtr/",
+      "version": "observed-2026-09-03",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "SAMSUNG-DW60DG560FWQTR-FICHE",
+      "kind": "REGULATORY",
+      "uri": "https://images.samsung.com/is/content/samsung/p6/common/energylabel/common-energylabel-dw60dg560fsrtr-productfiche.pdf",
+      "version": "observed-2026-09-03",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr-TR"
+    },
+    {
+      "sourceId": "BEKO-BM4044-TR",
+      "kind": "OFFICIAL",
+      "uri": "https://www.beko.com.tr/bulasik-makinesi/bm-4044-bulasik-makinesi",
+      "version": "observed-2026-09-03",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "market": "TR",
+      "applicabilityStatus": "EXACT",
+      "status": "VERIFIED",
+      "language": "tr-TR"
+    }
+  ],
+  "evidence": [
+    {
+      "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:widthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-SMS4IKI62T-TR",
+      "assertionId": "dishwasher-fact:bosch_sms4iki62t_tr:widthMm",
+      "offeringIds": [
+        "BOSCH_SMS4IKI62T_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.widthMm",
+        "value": 600,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BOSCH_SMS4IKI62T_TR",
+          "market": "TR",
+          "model": "SMS4IKI62T",
+          "configuration": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:heightMm",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-SMS4IKI62T-TR",
+      "assertionId": "dishwasher-fact:bosch_sms4iki62t_tr:heightMm",
+      "offeringIds": [
+        "BOSCH_SMS4IKI62T_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.heightMm",
+        "value": 845,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BOSCH_SMS4IKI62T_TR",
+          "market": "TR",
+          "model": "SMS4IKI62T",
+          "configuration": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:depthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-SMS4IKI62T-TR",
+      "assertionId": "dishwasher-fact:bosch_sms4iki62t_tr:depthMm",
+      "offeringIds": [
+        "BOSCH_SMS4IKI62T_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.depthMm",
+        "value": 600,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BOSCH_SMS4IKI62T_TR",
+          "market": "TR",
+          "model": "SMS4IKI62T",
+          "configuration": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:capacity",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-SMS4IKI62T-TR",
+      "assertionId": "dishwasher-fact:bosch_sms4iki62t_tr:capacity",
+      "offeringIds": [
+        "BOSCH_SMS4IKI62T_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.capacity",
+        "value": 13,
+        "unit": "place settings",
+        "applicability": {
+          "offeringId": "BOSCH_SMS4IKI62T_TR",
+          "market": "TR",
+          "model": "SMS4IKI62T",
+          "configuration": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:energyClass",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-SMS4IKI62T-TR",
+      "assertionId": "dishwasher-fact:bosch_sms4iki62t_tr:energyClass",
+      "offeringIds": [
+        "BOSCH_SMS4IKI62T_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.energyClass",
+        "value": "D",
+        "applicability": {
+          "offeringId": "BOSCH_SMS4IKI62T_TR",
+          "market": "TR",
+          "model": "SMS4IKI62T",
+          "configuration": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:ecoWaterLitres",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-SMS4IKI62T-TR",
+      "assertionId": "dishwasher-fact:bosch_sms4iki62t_tr:ecoWaterLitres",
+      "offeringIds": [
+        "BOSCH_SMS4IKI62T_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Eco-cycle declaration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.ecoWaterLitres",
+        "value": 9.5,
+        "unit": "L/eco cycle",
+        "applicability": {
+          "offeringId": "BOSCH_SMS4IKI62T_TR",
+          "market": "TR",
+          "model": "SMS4IKI62T",
+          "configuration": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:noiseDbA",
+      "kind": "TECHNICAL",
+      "sourceId": "BOSCH-SMS4IKI62T-TR",
+      "assertionId": "dishwasher-fact:bosch_sms4iki62t_tr:noiseDbA",
+      "offeringIds": [
+        "BOSCH_SMS4IKI62T_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.noiseDbA",
+        "value": 48,
+        "unit": "dB(A) re 1 pW",
+        "applicability": {
+          "offeringId": "BOSCH_SMS4IKI62T_TR",
+          "market": "TR",
+          "model": "SMS4IKI62T",
+          "configuration": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-capability:bosch_sms4iki62t_tr:autoOpenDry",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-SMS4IKI62T-TR",
+      "assertionId": "dishwasher-capability:bosch_sms4iki62t_tr:autoOpenDry",
+      "offeringIds": [
+        "BOSCH_SMS4IKI62T_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Feature presence or absence does not establish cleaning or drying outcome."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.autoOpenDry",
+        "value": false,
+        "applicability": {
+          "offeringId": "BOSCH_SMS4IKI62T_TR",
+          "market": "TR",
+          "model": "SMS4IKI62T",
+          "configuration": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-capability:bosch_sms4iki62t_tr:cutleryTray",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-SMS4IKI62T-TR",
+      "assertionId": "dishwasher-capability:bosch_sms4iki62t_tr:cutleryTray",
+      "offeringIds": [
+        "BOSCH_SMS4IKI62T_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Feature presence or absence does not establish cleaning or drying outcome."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.cutleryTray",
+        "value": false,
+        "applicability": {
+          "offeringId": "BOSCH_SMS4IKI62T_TR",
+          "market": "TR",
+          "model": "SMS4IKI62T",
+          "configuration": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-capability:bosch_sms4iki62t_tr:homeConnect",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-SMS4IKI62T-TR",
+      "assertionId": "dishwasher-capability:bosch_sms4iki62t_tr:homeConnect",
+      "offeringIds": [
+        "BOSCH_SMS4IKI62T_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Feature presence or absence does not establish cleaning or drying outcome."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.homeConnect",
+        "value": true,
+        "applicability": {
+          "offeringId": "BOSCH_SMS4IKI62T_TR",
+          "market": "TR",
+          "model": "SMS4IKI62T",
+          "configuration": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-capability:bosch_sms4iki62t_tr:aquaStop",
+      "kind": "CAPABILITY",
+      "sourceId": "BOSCH-SMS4IKI62T-TR",
+      "assertionId": "dishwasher-capability:bosch_sms4iki62t_tr:aquaStop",
+      "offeringIds": [
+        "BOSCH_SMS4IKI62T_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Feature presence or absence does not establish cleaning or drying outcome."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.aquaStop",
+        "value": false,
+        "applicability": {
+          "offeringId": "BOSCH_SMS4IKI62T_TR",
+          "market": "TR",
+          "model": "SMS4IKI62T",
+          "configuration": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:widthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-SN25EI63MT-TR",
+      "assertionId": "dishwasher-fact:siemens_sn25ei63mt_tr:widthMm",
+      "offeringIds": [
+        "SIEMENS_SN25EI63MT_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.widthMm",
+        "value": 600,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SIEMENS_SN25EI63MT_TR",
+          "market": "TR",
+          "model": "SN25EI63MT",
+          "configuration": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:heightMm",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-SN25EI63MT-TR",
+      "assertionId": "dishwasher-fact:siemens_sn25ei63mt_tr:heightMm",
+      "offeringIds": [
+        "SIEMENS_SN25EI63MT_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.heightMm",
+        "value": 845,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SIEMENS_SN25EI63MT_TR",
+          "market": "TR",
+          "model": "SN25EI63MT",
+          "configuration": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:depthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-SN25EI63MT-TR",
+      "assertionId": "dishwasher-fact:siemens_sn25ei63mt_tr:depthMm",
+      "offeringIds": [
+        "SIEMENS_SN25EI63MT_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.depthMm",
+        "value": 600,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SIEMENS_SN25EI63MT_TR",
+          "market": "TR",
+          "model": "SN25EI63MT",
+          "configuration": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:capacity",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-SN25EI63MT-TR",
+      "assertionId": "dishwasher-fact:siemens_sn25ei63mt_tr:capacity",
+      "offeringIds": [
+        "SIEMENS_SN25EI63MT_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.capacity",
+        "value": 14,
+        "unit": "place settings",
+        "applicability": {
+          "offeringId": "SIEMENS_SN25EI63MT_TR",
+          "market": "TR",
+          "model": "SN25EI63MT",
+          "configuration": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:energyClass",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-SN25EI63MT-TR",
+      "assertionId": "dishwasher-fact:siemens_sn25ei63mt_tr:energyClass",
+      "offeringIds": [
+        "SIEMENS_SN25EI63MT_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.energyClass",
+        "value": "D",
+        "applicability": {
+          "offeringId": "SIEMENS_SN25EI63MT_TR",
+          "market": "TR",
+          "model": "SN25EI63MT",
+          "configuration": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:ecoWaterLitres",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-SN25EI63MT-TR",
+      "assertionId": "dishwasher-fact:siemens_sn25ei63mt_tr:ecoWaterLitres",
+      "offeringIds": [
+        "SIEMENS_SN25EI63MT_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Eco-cycle declaration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.ecoWaterLitres",
+        "value": 6.7,
+        "unit": "L/eco cycle",
+        "applicability": {
+          "offeringId": "SIEMENS_SN25EI63MT_TR",
+          "market": "TR",
+          "model": "SN25EI63MT",
+          "configuration": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:noiseDbA",
+      "kind": "TECHNICAL",
+      "sourceId": "SIEMENS-SN25EI63MT-TR",
+      "assertionId": "dishwasher-fact:siemens_sn25ei63mt_tr:noiseDbA",
+      "offeringIds": [
+        "SIEMENS_SN25EI63MT_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.noiseDbA",
+        "value": 44,
+        "unit": "dB(A) re 1 pW",
+        "applicability": {
+          "offeringId": "SIEMENS_SN25EI63MT_TR",
+          "market": "TR",
+          "model": "SN25EI63MT",
+          "configuration": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-capability:siemens_sn25ei63mt_tr:autoOpenDry",
+      "kind": "CAPABILITY",
+      "sourceId": "SIEMENS-SN25EI63MT-TR",
+      "assertionId": "dishwasher-capability:siemens_sn25ei63mt_tr:autoOpenDry",
+      "offeringIds": [
+        "SIEMENS_SN25EI63MT_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Feature presence or absence does not establish cleaning or drying outcome."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.autoOpenDry",
+        "value": true,
+        "applicability": {
+          "offeringId": "SIEMENS_SN25EI63MT_TR",
+          "market": "TR",
+          "model": "SN25EI63MT",
+          "configuration": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-capability:siemens_sn25ei63mt_tr:cutleryTray",
+      "kind": "CAPABILITY",
+      "sourceId": "SIEMENS-SN25EI63MT-TR",
+      "assertionId": "dishwasher-capability:siemens_sn25ei63mt_tr:cutleryTray",
+      "offeringIds": [
+        "SIEMENS_SN25EI63MT_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Feature presence or absence does not establish cleaning or drying outcome."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.cutleryTray",
+        "value": true,
+        "applicability": {
+          "offeringId": "SIEMENS_SN25EI63MT_TR",
+          "market": "TR",
+          "model": "SN25EI63MT",
+          "configuration": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-capability:siemens_sn25ei63mt_tr:homeConnect",
+      "kind": "CAPABILITY",
+      "sourceId": "SIEMENS-SN25EI63MT-TR",
+      "assertionId": "dishwasher-capability:siemens_sn25ei63mt_tr:homeConnect",
+      "offeringIds": [
+        "SIEMENS_SN25EI63MT_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Feature presence or absence does not establish cleaning or drying outcome."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.homeConnect",
+        "value": true,
+        "applicability": {
+          "offeringId": "SIEMENS_SN25EI63MT_TR",
+          "market": "TR",
+          "model": "SN25EI63MT",
+          "configuration": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:widthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-DW60DG560FWQTR-TR",
+      "assertionId": "dishwasher-fact:samsung_dw60dg560fwqtr:widthMm",
+      "offeringIds": [
+        "SAMSUNG_DW60DG560FWQTR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.widthMm",
+        "value": 598,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SAMSUNG_DW60DG560FWQTR",
+          "market": "TR",
+          "model": "DW60DG560FWQTR",
+          "configuration": "Samsung DW60DG560FWQTR / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:heightMm",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-DW60DG560FWQTR-TR",
+      "assertionId": "dishwasher-fact:samsung_dw60dg560fwqtr:heightMm",
+      "offeringIds": [
+        "SAMSUNG_DW60DG560FWQTR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.heightMm",
+        "value": 845,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SAMSUNG_DW60DG560FWQTR",
+          "market": "TR",
+          "model": "DW60DG560FWQTR",
+          "configuration": "Samsung DW60DG560FWQTR / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:depthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-DW60DG560FWQTR-TR",
+      "assertionId": "dishwasher-fact:samsung_dw60dg560fwqtr:depthMm",
+      "offeringIds": [
+        "SAMSUNG_DW60DG560FWQTR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.depthMm",
+        "value": 600,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "SAMSUNG_DW60DG560FWQTR",
+          "market": "TR",
+          "model": "DW60DG560FWQTR",
+          "configuration": "Samsung DW60DG560FWQTR / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:capacity",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-DW60DG560FWQTR-TR",
+      "assertionId": "dishwasher-fact:samsung_dw60dg560fwqtr:capacity",
+      "offeringIds": [
+        "SAMSUNG_DW60DG560FWQTR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.capacity",
+        "value": 14,
+        "unit": "place settings",
+        "applicability": {
+          "offeringId": "SAMSUNG_DW60DG560FWQTR",
+          "market": "TR",
+          "model": "DW60DG560FWQTR",
+          "configuration": "Samsung DW60DG560FWQTR / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:energyClass",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-DW60DG560FWQTR-TR",
+      "assertionId": "dishwasher-fact:samsung_dw60dg560fwqtr:energyClass",
+      "offeringIds": [
+        "SAMSUNG_DW60DG560FWQTR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.energyClass",
+        "value": "D",
+        "applicability": {
+          "offeringId": "SAMSUNG_DW60DG560FWQTR",
+          "market": "TR",
+          "model": "DW60DG560FWQTR",
+          "configuration": "Samsung DW60DG560FWQTR / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:ecoWaterLitres",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-DW60DG560FWQTR-TR",
+      "assertionId": "dishwasher-fact:samsung_dw60dg560fwqtr:ecoWaterLitres",
+      "offeringIds": [
+        "SAMSUNG_DW60DG560FWQTR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Eco-cycle declaration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.ecoWaterLitres",
+        "value": 11.6,
+        "unit": "L/eco cycle",
+        "applicability": {
+          "offeringId": "SAMSUNG_DW60DG560FWQTR",
+          "market": "TR",
+          "model": "DW60DG560FWQTR",
+          "configuration": "Samsung DW60DG560FWQTR / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:noiseDbA",
+      "kind": "TECHNICAL",
+      "sourceId": "SAMSUNG-DW60DG560FWQTR-TR",
+      "assertionId": "dishwasher-fact:samsung_dw60dg560fwqtr:noiseDbA",
+      "offeringIds": [
+        "SAMSUNG_DW60DG560FWQTR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.noiseDbA",
+        "value": 46,
+        "unit": "dB(A) re 1 pW",
+        "applicability": {
+          "offeringId": "SAMSUNG_DW60DG560FWQTR",
+          "market": "TR",
+          "model": "DW60DG560FWQTR",
+          "configuration": "Samsung DW60DG560FWQTR / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-capability:samsung_dw60dg560fwqtr:autoOpenDry",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-DW60DG560FWQTR-TR",
+      "assertionId": "dishwasher-capability:samsung_dw60dg560fwqtr:autoOpenDry",
+      "offeringIds": [
+        "SAMSUNG_DW60DG560FWQTR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Feature presence or absence does not establish cleaning or drying outcome."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.autoOpenDry",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_DW60DG560FWQTR",
+          "market": "TR",
+          "model": "DW60DG560FWQTR",
+          "configuration": "Samsung DW60DG560FWQTR / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-capability:samsung_dw60dg560fwqtr:cutleryTray",
+      "kind": "CAPABILITY",
+      "sourceId": "SAMSUNG-DW60DG560FWQTR-TR",
+      "assertionId": "dishwasher-capability:samsung_dw60dg560fwqtr:cutleryTray",
+      "offeringIds": [
+        "SAMSUNG_DW60DG560FWQTR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Feature presence or absence does not establish cleaning or drying outcome."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.cutleryTray",
+        "value": true,
+        "applicability": {
+          "offeringId": "SAMSUNG_DW60DG560FWQTR",
+          "market": "TR",
+          "model": "DW60DG560FWQTR",
+          "configuration": "Samsung DW60DG560FWQTR / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:beko_bm4044_tr:widthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "BEKO-BM4044-TR",
+      "assertionId": "dishwasher-fact:beko_bm4044_tr:widthMm",
+      "offeringIds": [
+        "BEKO_BM4044_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.widthMm",
+        "value": 600,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BEKO_BM4044_TR",
+          "market": "TR",
+          "model": "BM 4044",
+          "configuration": "Beko BM 4044 / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:beko_bm4044_tr:heightMm",
+      "kind": "TECHNICAL",
+      "sourceId": "BEKO-BM4044-TR",
+      "assertionId": "dishwasher-fact:beko_bm4044_tr:heightMm",
+      "offeringIds": [
+        "BEKO_BM4044_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.heightMm",
+        "value": 850,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BEKO_BM4044_TR",
+          "market": "TR",
+          "model": "BM 4044",
+          "configuration": "Beko BM 4044 / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:beko_bm4044_tr:depthMm",
+      "kind": "TECHNICAL",
+      "sourceId": "BEKO-BM4044-TR",
+      "assertionId": "dishwasher-fact:beko_bm4044_tr:depthMm",
+      "offeringIds": [
+        "BEKO_BM4044_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.depthMm",
+        "value": 600,
+        "unit": "mm",
+        "applicability": {
+          "offeringId": "BEKO_BM4044_TR",
+          "market": "TR",
+          "model": "BM 4044",
+          "configuration": "Beko BM 4044 / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-fact:beko_bm4044_tr:capacity",
+      "kind": "TECHNICAL",
+      "sourceId": "BEKO-BM4044-TR",
+      "assertionId": "dishwasher-fact:beko_bm4044_tr:capacity",
+      "offeringIds": [
+        "BEKO_BM4044_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Exact manufacturer-listed configuration only."
+      ],
+      "assertion": {
+        "locator": "parent.technicalFacts.capacity",
+        "value": 14,
+        "unit": "place settings",
+        "applicability": {
+          "offeringId": "BEKO_BM4044_TR",
+          "market": "TR",
+          "model": "BM 4044",
+          "configuration": "Beko BM 4044 / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-capability:beko_bm4044_tr:autoOpenDry",
+      "kind": "CAPABILITY",
+      "sourceId": "BEKO-BM4044-TR",
+      "assertionId": "dishwasher-capability:beko_bm4044_tr:autoOpenDry",
+      "offeringIds": [
+        "BEKO_BM4044_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Feature presence or absence does not establish cleaning or drying outcome."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.autoOpenDry",
+        "value": false,
+        "applicability": {
+          "offeringId": "BEKO_BM4044_TR",
+          "market": "TR",
+          "model": "BM 4044",
+          "configuration": "Beko BM 4044 / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-capability:beko_bm4044_tr:cutleryTray",
+      "kind": "CAPABILITY",
+      "sourceId": "BEKO-BM4044-TR",
+      "assertionId": "dishwasher-capability:beko_bm4044_tr:cutleryTray",
+      "offeringIds": [
+        "BEKO_BM4044_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Feature presence or absence does not establish cleaning or drying outcome."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.cutleryTray",
+        "value": false,
+        "applicability": {
+          "offeringId": "BEKO_BM4044_TR",
+          "market": "TR",
+          "model": "BM 4044",
+          "configuration": "Beko BM 4044 / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    },
+    {
+      "evidenceId": "dishwasher-evidence-capability:beko_bm4044_tr:extraDry",
+      "kind": "CAPABILITY",
+      "sourceId": "BEKO-BM4044-TR",
+      "assertionId": "dishwasher-capability:beko_bm4044_tr:extraDry",
+      "offeringIds": [
+        "BEKO_BM4044_TR"
+      ],
+      "market": "TR",
+      "observedAt": "2026-09-03T12:00:00.000+03:00",
+      "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+      "confidence": "HIGH",
+      "status": "VERIFIED",
+      "limitations": [
+        "Feature presence or absence does not establish cleaning or drying outcome."
+      ],
+      "assertion": {
+        "locator": "parent.capabilities.extraDry",
+        "value": true,
+        "applicability": {
+          "offeringId": "BEKO_BM4044_TR",
+          "market": "TR",
+          "model": "BM 4044",
+          "configuration": "Beko BM 4044 / Türkiye / solo / 60 cm",
+          "status": "EXACT"
+        }
+      }
+    }
+  ],
+  "offerings": [
+    {
+      "offeringId": "BOSCH_SMS4IKI62T_TR",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-03T12:00:00.000+03:00",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Bosch",
+        "model": "SMS4IKI62T",
+        "configuration": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+        "identifiers": {
+          "productId": "BOSCH_SMS4IKI62T_TR"
+        }
+      }
+    },
+    {
+      "offeringId": "SIEMENS_SN25EI63MT_TR",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-03T12:00:00.000+03:00",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Siemens",
+        "model": "SN25EI63MT",
+        "configuration": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+        "identifiers": {
+          "productId": "SIEMENS_SN25EI63MT_TR"
+        }
+      }
+    },
+    {
+      "offeringId": "SAMSUNG_DW60DG560FWQTR",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-03T12:00:00.000+03:00",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Samsung",
+        "model": "DW60DG560FWQTR",
+        "configuration": "Samsung DW60DG560FWQTR / Türkiye / solo / 60 cm",
+        "identifiers": {
+          "productId": "SAMSUNG_DW60DG560FWQTR"
+        }
+      }
+    },
+    {
+      "offeringId": "BEKO_BM4044_TR",
+      "market": "TR",
+      "lifecycle": "FROZEN",
+      "validFrom": "2026-09-03T12:00:00.000+03:00",
+      "identity": {
+        "kind": "PRODUCT",
+        "manufacturer": "Beko",
+        "model": "BM 4044",
+        "configuration": "Beko BM 4044 / Türkiye / solo / 60 cm",
+        "identifiers": {
+          "productId": "BEKO_BM4044_TR"
+        }
+      }
+    }
+  ],
+  "layers": {
+    "l1Facts": [
+      {
+        "factId": "dishwasher-fact:bosch_sms4iki62t_tr:widthMm",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "key": "widthMm",
+        "value": 600,
+        "unit": "mm",
+        "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:widthMm"
+      },
+      {
+        "factId": "dishwasher-fact:bosch_sms4iki62t_tr:heightMm",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "key": "heightMm",
+        "value": 845,
+        "unit": "mm",
+        "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:heightMm"
+      },
+      {
+        "factId": "dishwasher-fact:bosch_sms4iki62t_tr:depthMm",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "key": "depthMm",
+        "value": 600,
+        "unit": "mm",
+        "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:depthMm"
+      },
+      {
+        "factId": "dishwasher-fact:bosch_sms4iki62t_tr:capacity",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "key": "capacity",
+        "value": 13,
+        "unit": "place settings",
+        "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:capacity"
+      },
+      {
+        "factId": "dishwasher-fact:bosch_sms4iki62t_tr:energyClass",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "key": "energyClass",
+        "value": "D",
+        "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:energyClass"
+      },
+      {
+        "factId": "dishwasher-fact:bosch_sms4iki62t_tr:ecoWaterLitres",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "key": "ecoWaterLitres",
+        "value": 9.5,
+        "unit": "L/eco cycle",
+        "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:ecoWaterLitres"
+      },
+      {
+        "factId": "dishwasher-fact:bosch_sms4iki62t_tr:noiseDbA",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "key": "noiseDbA",
+        "value": 48,
+        "unit": "dB(A) re 1 pW",
+        "evidenceId": "dishwasher-evidence-fact:bosch_sms4iki62t_tr:noiseDbA"
+      },
+      {
+        "factId": "dishwasher-fact:siemens_sn25ei63mt_tr:widthMm",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "key": "widthMm",
+        "value": 600,
+        "unit": "mm",
+        "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:widthMm"
+      },
+      {
+        "factId": "dishwasher-fact:siemens_sn25ei63mt_tr:heightMm",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "key": "heightMm",
+        "value": 845,
+        "unit": "mm",
+        "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:heightMm"
+      },
+      {
+        "factId": "dishwasher-fact:siemens_sn25ei63mt_tr:depthMm",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "key": "depthMm",
+        "value": 600,
+        "unit": "mm",
+        "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:depthMm"
+      },
+      {
+        "factId": "dishwasher-fact:siemens_sn25ei63mt_tr:capacity",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "key": "capacity",
+        "value": 14,
+        "unit": "place settings",
+        "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:capacity"
+      },
+      {
+        "factId": "dishwasher-fact:siemens_sn25ei63mt_tr:energyClass",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "key": "energyClass",
+        "value": "D",
+        "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:energyClass"
+      },
+      {
+        "factId": "dishwasher-fact:siemens_sn25ei63mt_tr:ecoWaterLitres",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "key": "ecoWaterLitres",
+        "value": 6.7,
+        "unit": "L/eco cycle",
+        "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:ecoWaterLitres"
+      },
+      {
+        "factId": "dishwasher-fact:siemens_sn25ei63mt_tr:noiseDbA",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "key": "noiseDbA",
+        "value": 44,
+        "unit": "dB(A) re 1 pW",
+        "evidenceId": "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:noiseDbA"
+      },
+      {
+        "factId": "dishwasher-fact:samsung_dw60dg560fwqtr:widthMm",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "key": "widthMm",
+        "value": 598,
+        "unit": "mm",
+        "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:widthMm"
+      },
+      {
+        "factId": "dishwasher-fact:samsung_dw60dg560fwqtr:heightMm",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "key": "heightMm",
+        "value": 845,
+        "unit": "mm",
+        "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:heightMm"
+      },
+      {
+        "factId": "dishwasher-fact:samsung_dw60dg560fwqtr:depthMm",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "key": "depthMm",
+        "value": 600,
+        "unit": "mm",
+        "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:depthMm"
+      },
+      {
+        "factId": "dishwasher-fact:samsung_dw60dg560fwqtr:capacity",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "key": "capacity",
+        "value": 14,
+        "unit": "place settings",
+        "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:capacity"
+      },
+      {
+        "factId": "dishwasher-fact:samsung_dw60dg560fwqtr:energyClass",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "key": "energyClass",
+        "value": "D",
+        "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:energyClass"
+      },
+      {
+        "factId": "dishwasher-fact:samsung_dw60dg560fwqtr:ecoWaterLitres",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "key": "ecoWaterLitres",
+        "value": 11.6,
+        "unit": "L/eco cycle",
+        "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:ecoWaterLitres"
+      },
+      {
+        "factId": "dishwasher-fact:samsung_dw60dg560fwqtr:noiseDbA",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "key": "noiseDbA",
+        "value": 46,
+        "unit": "dB(A) re 1 pW",
+        "evidenceId": "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:noiseDbA"
+      },
+      {
+        "factId": "dishwasher-fact:beko_bm4044_tr:widthMm",
+        "offeringId": "BEKO_BM4044_TR",
+        "key": "widthMm",
+        "value": 600,
+        "unit": "mm",
+        "evidenceId": "dishwasher-evidence-fact:beko_bm4044_tr:widthMm"
+      },
+      {
+        "factId": "dishwasher-fact:beko_bm4044_tr:heightMm",
+        "offeringId": "BEKO_BM4044_TR",
+        "key": "heightMm",
+        "value": 850,
+        "unit": "mm",
+        "evidenceId": "dishwasher-evidence-fact:beko_bm4044_tr:heightMm"
+      },
+      {
+        "factId": "dishwasher-fact:beko_bm4044_tr:depthMm",
+        "offeringId": "BEKO_BM4044_TR",
+        "key": "depthMm",
+        "value": 600,
+        "unit": "mm",
+        "evidenceId": "dishwasher-evidence-fact:beko_bm4044_tr:depthMm"
+      },
+      {
+        "factId": "dishwasher-fact:beko_bm4044_tr:capacity",
+        "offeringId": "BEKO_BM4044_TR",
+        "key": "capacity",
+        "value": 14,
+        "unit": "place settings",
+        "evidenceId": "dishwasher-evidence-fact:beko_bm4044_tr:capacity"
+      }
+    ],
+    "l2Capabilities": [
+      {
+        "capabilityId": "dishwasher-capability:bosch_sms4iki62t_tr:autoOpenDry",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "key": "autoOpenDry",
+        "state": "ABSENT",
+        "evidenceId": "dishwasher-evidence-capability:bosch_sms4iki62t_tr:autoOpenDry",
+        "limitations": [
+          "No cleaning, drying, reliability, or service outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "dishwasher-capability:bosch_sms4iki62t_tr:cutleryTray",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "key": "cutleryTray",
+        "state": "ABSENT",
+        "evidenceId": "dishwasher-evidence-capability:bosch_sms4iki62t_tr:cutleryTray",
+        "limitations": [
+          "No cleaning, drying, reliability, or service outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "dishwasher-capability:bosch_sms4iki62t_tr:homeConnect",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "key": "homeConnect",
+        "state": "PRESENT",
+        "evidenceId": "dishwasher-evidence-capability:bosch_sms4iki62t_tr:homeConnect",
+        "limitations": [
+          "No cleaning, drying, reliability, or service outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "dishwasher-capability:bosch_sms4iki62t_tr:aquaStop",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "key": "aquaStop",
+        "state": "ABSENT",
+        "evidenceId": "dishwasher-evidence-capability:bosch_sms4iki62t_tr:aquaStop",
+        "limitations": [
+          "No cleaning, drying, reliability, or service outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "dishwasher-capability:siemens_sn25ei63mt_tr:autoOpenDry",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "key": "autoOpenDry",
+        "state": "PRESENT",
+        "evidenceId": "dishwasher-evidence-capability:siemens_sn25ei63mt_tr:autoOpenDry",
+        "limitations": [
+          "No cleaning, drying, reliability, or service outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "dishwasher-capability:siemens_sn25ei63mt_tr:cutleryTray",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "key": "cutleryTray",
+        "state": "PRESENT",
+        "evidenceId": "dishwasher-evidence-capability:siemens_sn25ei63mt_tr:cutleryTray",
+        "limitations": [
+          "No cleaning, drying, reliability, or service outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "dishwasher-capability:siemens_sn25ei63mt_tr:homeConnect",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "key": "homeConnect",
+        "state": "PRESENT",
+        "evidenceId": "dishwasher-evidence-capability:siemens_sn25ei63mt_tr:homeConnect",
+        "limitations": [
+          "No cleaning, drying, reliability, or service outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "dishwasher-capability:samsung_dw60dg560fwqtr:autoOpenDry",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "key": "autoOpenDry",
+        "state": "PRESENT",
+        "evidenceId": "dishwasher-evidence-capability:samsung_dw60dg560fwqtr:autoOpenDry",
+        "limitations": [
+          "No cleaning, drying, reliability, or service outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "dishwasher-capability:samsung_dw60dg560fwqtr:cutleryTray",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "key": "cutleryTray",
+        "state": "PRESENT",
+        "evidenceId": "dishwasher-evidence-capability:samsung_dw60dg560fwqtr:cutleryTray",
+        "limitations": [
+          "No cleaning, drying, reliability, or service outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "dishwasher-capability:beko_bm4044_tr:autoOpenDry",
+        "offeringId": "BEKO_BM4044_TR",
+        "key": "autoOpenDry",
+        "state": "ABSENT",
+        "evidenceId": "dishwasher-evidence-capability:beko_bm4044_tr:autoOpenDry",
+        "limitations": [
+          "No cleaning, drying, reliability, or service outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "dishwasher-capability:beko_bm4044_tr:cutleryTray",
+        "offeringId": "BEKO_BM4044_TR",
+        "key": "cutleryTray",
+        "state": "ABSENT",
+        "evidenceId": "dishwasher-evidence-capability:beko_bm4044_tr:cutleryTray",
+        "limitations": [
+          "No cleaning, drying, reliability, or service outcome is guaranteed."
+        ]
+      },
+      {
+        "capabilityId": "dishwasher-capability:beko_bm4044_tr:extraDry",
+        "offeringId": "BEKO_BM4044_TR",
+        "key": "extraDry",
+        "state": "PRESENT",
+        "evidenceId": "dishwasher-evidence-capability:beko_bm4044_tr:extraDry",
+        "limitations": [
+          "No cleaning, drying, reliability, or service outcome is guaranteed."
+        ]
+      }
+    ],
+    "l3UsageSemantics": [
+      {
+        "semanticId": "dishwasher-semantic:fit",
+        "meaning": "Body dimensions support a bounded space check; nominal 60 cm class is not an exact fit guarantee.",
+        "factIds": [
+          "dishwasher-fact:bosch_sms4iki62t_tr:widthMm",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:widthMm",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:widthMm",
+          "dishwasher-fact:beko_bm4044_tr:widthMm",
+          "dishwasher-fact:bosch_sms4iki62t_tr:heightMm",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:heightMm",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:heightMm",
+          "dishwasher-fact:beko_bm4044_tr:heightMm",
+          "dishwasher-fact:bosch_sms4iki62t_tr:depthMm",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:depthMm",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:depthMm",
+          "dishwasher-fact:beko_bm4044_tr:depthMm"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "dishwasher-semantic:capacity",
+        "meaning": "Declared place-setting capacity is comparable capacity evidence, not a household-size or loading-pattern guarantee.",
+        "factIds": [
+          "dishwasher-fact:bosch_sms4iki62t_tr:capacity",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:capacity",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:capacity",
+          "dishwasher-fact:beko_bm4044_tr:capacity"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "dishwasher-semantic:resource",
+        "meaning": "Energy class and water values are comparable only under the same verified declaration regime and Eco cycle; Beko remains unknown for this comparison.",
+        "factIds": [
+          "dishwasher-fact:bosch_sms4iki62t_tr:energyClass",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:energyClass",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:energyClass",
+          "dishwasher-fact:bosch_sms4iki62t_tr:ecoWaterLitres",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:ecoWaterLitres",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:ecoWaterLitres"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "dishwasher-semantic:noise",
+        "meaning": "Declared airborne acoustic noise supports same-regime display, not perceived quietness in a particular home.",
+        "factIds": [
+          "dishwasher-fact:bosch_sms4iki62t_tr:noiseDbA",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:noiseDbA",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:noiseDbA"
+        ],
+        "capabilityIds": []
+      },
+      {
+        "semanticId": "dishwasher-semantic:drying",
+        "meaning": "Auto-open and extra-dry are feature-presence evidence only and do not guarantee a drying result, including plastics.",
+        "factIds": [],
+        "capabilityIds": [
+          "dishwasher-capability:bosch_sms4iki62t_tr:autoOpenDry",
+          "dishwasher-capability:siemens_sn25ei63mt_tr:autoOpenDry",
+          "dishwasher-capability:samsung_dw60dg560fwqtr:autoOpenDry",
+          "dishwasher-capability:beko_bm4044_tr:autoOpenDry",
+          "dishwasher-capability:beko_bm4044_tr:extraDry"
+        ]
+      },
+      {
+        "semanticId": "dishwasher-semantic:loading",
+        "meaning": "A cutlery tray is a verified loading feature; usable layout and fit for particular items remain unproven.",
+        "factIds": [],
+        "capabilityIds": [
+          "dishwasher-capability:bosch_sms4iki62t_tr:cutleryTray",
+          "dishwasher-capability:siemens_sn25ei63mt_tr:cutleryTray",
+          "dishwasher-capability:samsung_dw60dg560fwqtr:cutleryTray",
+          "dishwasher-capability:beko_bm4044_tr:cutleryTray"
+        ]
+      },
+      {
+        "semanticId": "dishwasher-semantic:connectivity",
+        "meaning": "Connectivity or water-protection feature state does not establish service availability or leak prevention outcome.",
+        "factIds": [],
+        "capabilityIds": [
+          "dishwasher-capability:bosch_sms4iki62t_tr:homeConnect",
+          "dishwasher-capability:siemens_sn25ei63mt_tr:homeConnect",
+          "dishwasher-capability:bosch_sms4iki62t_tr:aquaStop"
+        ]
+      }
+    ],
+    "l4Needs": [
+      {
+        "needId": "INSTALLATION_ENVELOPE",
+        "meaning": "Physical installation envelope"
+      },
+      {
+        "needId": "PLACE_SETTING_CAPACITY",
+        "meaning": "Declared place-setting capacity need"
+      },
+      {
+        "needId": "AUTO_OPEN_DRY_NEED",
+        "meaning": "Automatic door-opening feature need"
+      },
+      {
+        "needId": "CUTLERY_TRAY_NEED",
+        "meaning": "Separate cutlery-tray need"
+      },
+      {
+        "needId": "LOW_NOISE_PRIORITY",
+        "meaning": "Comparable standardized-noise priority"
+      },
+      {
+        "needId": "ECO_RESOURCE_PRIORITY",
+        "meaning": "Comparable Eco-cycle resource priority"
+      },
+      {
+        "needId": "CONNECTED_CONTROL_NEED",
+        "meaning": "Connected-control feature need"
+      },
+      {
+        "needId": "BUDGET_SENSITIVITY",
+        "meaning": "Budget evaluated only through external current-price authority"
+      }
+    ],
+    "l4NeedEvidenceMappings": [
+      {
+        "mappingId": "dishwasher-map:fit",
+        "needId": "INSTALLATION_ENVELOPE",
+        "eligibleFactIds": [
+          "dishwasher-fact:bosch_sms4iki62t_tr:widthMm",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:widthMm",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:widthMm",
+          "dishwasher-fact:beko_bm4044_tr:widthMm",
+          "dishwasher-fact:bosch_sms4iki62t_tr:heightMm",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:heightMm",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:heightMm",
+          "dishwasher-fact:beko_bm4044_tr:heightMm",
+          "dishwasher-fact:bosch_sms4iki62t_tr:depthMm",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:depthMm",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:depthMm",
+          "dishwasher-fact:beko_bm4044_tr:depthMm"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "dishwasher-map:capacity",
+        "needId": "PLACE_SETTING_CAPACITY",
+        "eligibleFactIds": [
+          "dishwasher-fact:bosch_sms4iki62t_tr:capacity",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:capacity",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:capacity",
+          "dishwasher-fact:beko_bm4044_tr:capacity"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "dishwasher-map:auto-open",
+        "needId": "AUTO_OPEN_DRY_NEED",
+        "eligibleFactIds": [],
+        "eligibleCapabilityIds": [
+          "dishwasher-capability:bosch_sms4iki62t_tr:autoOpenDry",
+          "dishwasher-capability:siemens_sn25ei63mt_tr:autoOpenDry",
+          "dishwasher-capability:samsung_dw60dg560fwqtr:autoOpenDry",
+          "dishwasher-capability:beko_bm4044_tr:autoOpenDry"
+        ],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "dishwasher-map:tray",
+        "needId": "CUTLERY_TRAY_NEED",
+        "eligibleFactIds": [],
+        "eligibleCapabilityIds": [
+          "dishwasher-capability:bosch_sms4iki62t_tr:cutleryTray",
+          "dishwasher-capability:siemens_sn25ei63mt_tr:cutleryTray",
+          "dishwasher-capability:samsung_dw60dg560fwqtr:cutleryTray",
+          "dishwasher-capability:beko_bm4044_tr:cutleryTray"
+        ],
+        "policy": "HARD_FILTER"
+      },
+      {
+        "mappingId": "dishwasher-map:noise",
+        "needId": "LOW_NOISE_PRIORITY",
+        "eligibleFactIds": [
+          "dishwasher-fact:bosch_sms4iki62t_tr:noiseDbA",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:noiseDbA",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:noiseDbA"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "SOFT_PREFERENCE"
+      },
+      {
+        "mappingId": "dishwasher-map:resource",
+        "needId": "ECO_RESOURCE_PRIORITY",
+        "eligibleFactIds": [
+          "dishwasher-fact:bosch_sms4iki62t_tr:energyClass",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:energyClass",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:energyClass",
+          "dishwasher-fact:bosch_sms4iki62t_tr:ecoWaterLitres",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:ecoWaterLitres",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:ecoWaterLitres"
+        ],
+        "eligibleCapabilityIds": [],
+        "policy": "SOFT_PREFERENCE"
+      },
+      {
+        "mappingId": "dishwasher-map:connected",
+        "needId": "CONNECTED_CONTROL_NEED",
+        "eligibleFactIds": [],
+        "eligibleCapabilityIds": [
+          "dishwasher-capability:bosch_sms4iki62t_tr:homeConnect",
+          "dishwasher-capability:siemens_sn25ei63mt_tr:homeConnect"
+        ],
+        "policy": "HARD_FILTER"
+      }
+    ],
+    "l5PersonaSignals": [
+      {
+        "signalId": "dishwasher-planning:space-constrained",
+        "needIds": [
+          "INSTALLATION_ENVELOPE"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "dishwasher-planning:frequent-large-loads",
+        "needIds": [
+          "PLACE_SETTING_CAPACITY",
+          "CUTLERY_TRAY_NEED"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      },
+      {
+        "signalId": "dishwasher-planning:open-plan-home",
+        "needIds": [
+          "LOW_NOISE_PRIORITY"
+        ],
+        "authority": "DOMAIN_PLANNING",
+        "classification": "DERIVED_PLANNING",
+        "decisionUse": "NONE",
+        "directCandidateEffect": "NONE"
+      }
+    ],
+    "l6DailyLifeInterpretations": [
+      {
+        "interpretationId": "dishwasher-interpretation:bosch_sms4iki62t_tr:fit",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "text": "Published body dimensions can support a bounded space check; service, hose, door-swing and clearance requirements remain unknown.",
+        "factIds": [
+          "dishwasher-fact:bosch_sms4iki62t_tr:widthMm",
+          "dishwasher-fact:bosch_sms4iki62t_tr:heightMm",
+          "dishwasher-fact:bosch_sms4iki62t_tr:depthMm"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Nominal width class is not exact fit."
+        ],
+        "nonGuarantees": [
+          "No installation-fit guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:bosch_sms4iki62t_tr:capacity",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "text": "Declared place-setting capacity can be checked against a stated minimum, but does not describe item shape or loading habits.",
+        "factIds": [
+          "dishwasher-fact:bosch_sms4iki62t_tr:capacity"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Place settings are a standardized declaration."
+        ],
+        "nonGuarantees": [
+          "No household-size or usable-layout guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:bosch_sms4iki62t_tr:features",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "text": "Verified loading, drying, connectivity and protection feature states can answer exact feature requirements only.",
+        "factIds": [],
+        "capabilityIds": [
+          "dishwasher-capability:bosch_sms4iki62t_tr:autoOpenDry",
+          "dishwasher-capability:bosch_sms4iki62t_tr:cutleryTray",
+          "dishwasher-capability:bosch_sms4iki62t_tr:homeConnect",
+          "dishwasher-capability:bosch_sms4iki62t_tr:aquaStop"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Absent and unlisted are not interchangeable outside the frozen authority."
+        ],
+        "nonGuarantees": [
+          "No cleaning, drying, leak-prevention or service guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:bosch_sms4iki62t_tr:resource",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "text": "Same-regime energy, Eco-water and noise declarations support bounded comparison; actual use and perceived sound vary.",
+        "factIds": [
+          "dishwasher-fact:bosch_sms4iki62t_tr:energyClass",
+          "dishwasher-fact:bosch_sms4iki62t_tr:ecoWaterLitres",
+          "dishwasher-fact:bosch_sms4iki62t_tr:noiseDbA"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Comparison requires the same verified regime and Eco-cycle basis."
+        ],
+        "nonGuarantees": [
+          "No bill, water-use, cleaning or quiet-home guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:siemens_sn25ei63mt_tr:fit",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "text": "Published body dimensions can support a bounded space check; service, hose, door-swing and clearance requirements remain unknown.",
+        "factIds": [
+          "dishwasher-fact:siemens_sn25ei63mt_tr:widthMm",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:heightMm",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:depthMm"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Nominal width class is not exact fit."
+        ],
+        "nonGuarantees": [
+          "No installation-fit guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:siemens_sn25ei63mt_tr:capacity",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "text": "Declared place-setting capacity can be checked against a stated minimum, but does not describe item shape or loading habits.",
+        "factIds": [
+          "dishwasher-fact:siemens_sn25ei63mt_tr:capacity"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Place settings are a standardized declaration."
+        ],
+        "nonGuarantees": [
+          "No household-size or usable-layout guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:siemens_sn25ei63mt_tr:features",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "text": "Verified loading, drying, connectivity and protection feature states can answer exact feature requirements only.",
+        "factIds": [],
+        "capabilityIds": [
+          "dishwasher-capability:siemens_sn25ei63mt_tr:autoOpenDry",
+          "dishwasher-capability:siemens_sn25ei63mt_tr:cutleryTray",
+          "dishwasher-capability:siemens_sn25ei63mt_tr:homeConnect"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Absent and unlisted are not interchangeable outside the frozen authority."
+        ],
+        "nonGuarantees": [
+          "No cleaning, drying, leak-prevention or service guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:siemens_sn25ei63mt_tr:resource",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "text": "Same-regime energy, Eco-water and noise declarations support bounded comparison; actual use and perceived sound vary.",
+        "factIds": [
+          "dishwasher-fact:siemens_sn25ei63mt_tr:energyClass",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:ecoWaterLitres",
+          "dishwasher-fact:siemens_sn25ei63mt_tr:noiseDbA"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Comparison requires the same verified regime and Eco-cycle basis."
+        ],
+        "nonGuarantees": [
+          "No bill, water-use, cleaning or quiet-home guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:samsung_dw60dg560fwqtr:fit",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "text": "Published body dimensions can support a bounded space check; service, hose, door-swing and clearance requirements remain unknown.",
+        "factIds": [
+          "dishwasher-fact:samsung_dw60dg560fwqtr:widthMm",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:heightMm",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:depthMm"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Nominal width class is not exact fit."
+        ],
+        "nonGuarantees": [
+          "No installation-fit guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:samsung_dw60dg560fwqtr:capacity",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "text": "Declared place-setting capacity can be checked against a stated minimum, but does not describe item shape or loading habits.",
+        "factIds": [
+          "dishwasher-fact:samsung_dw60dg560fwqtr:capacity"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Place settings are a standardized declaration."
+        ],
+        "nonGuarantees": [
+          "No household-size or usable-layout guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:samsung_dw60dg560fwqtr:features",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "text": "Verified loading, drying, connectivity and protection feature states can answer exact feature requirements only.",
+        "factIds": [],
+        "capabilityIds": [
+          "dishwasher-capability:samsung_dw60dg560fwqtr:autoOpenDry",
+          "dishwasher-capability:samsung_dw60dg560fwqtr:cutleryTray"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Absent and unlisted are not interchangeable outside the frozen authority."
+        ],
+        "nonGuarantees": [
+          "No cleaning, drying, leak-prevention or service guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:samsung_dw60dg560fwqtr:resource",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "text": "Same-regime energy, Eco-water and noise declarations support bounded comparison; actual use and perceived sound vary.",
+        "factIds": [
+          "dishwasher-fact:samsung_dw60dg560fwqtr:energyClass",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:ecoWaterLitres",
+          "dishwasher-fact:samsung_dw60dg560fwqtr:noiseDbA"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Comparison requires the same verified regime and Eco-cycle basis."
+        ],
+        "nonGuarantees": [
+          "No bill, water-use, cleaning or quiet-home guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:beko_bm4044_tr:fit",
+        "offeringId": "BEKO_BM4044_TR",
+        "text": "Published body dimensions can support a bounded space check; service, hose, door-swing and clearance requirements remain unknown.",
+        "factIds": [
+          "dishwasher-fact:beko_bm4044_tr:widthMm",
+          "dishwasher-fact:beko_bm4044_tr:heightMm",
+          "dishwasher-fact:beko_bm4044_tr:depthMm"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Nominal width class is not exact fit."
+        ],
+        "nonGuarantees": [
+          "No installation-fit guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:beko_bm4044_tr:capacity",
+        "offeringId": "BEKO_BM4044_TR",
+        "text": "Declared place-setting capacity can be checked against a stated minimum, but does not describe item shape or loading habits.",
+        "factIds": [
+          "dishwasher-fact:beko_bm4044_tr:capacity"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Place settings are a standardized declaration."
+        ],
+        "nonGuarantees": [
+          "No household-size or usable-layout guarantee."
+        ]
+      },
+      {
+        "interpretationId": "dishwasher-interpretation:beko_bm4044_tr:features",
+        "offeringId": "BEKO_BM4044_TR",
+        "text": "Verified loading, drying, connectivity and protection feature states can answer exact feature requirements only.",
+        "factIds": [],
+        "capabilityIds": [
+          "dishwasher-capability:beko_bm4044_tr:autoOpenDry",
+          "dishwasher-capability:beko_bm4044_tr:cutleryTray",
+          "dishwasher-capability:beko_bm4044_tr:extraDry"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T21:00:00.000+03:00",
+        "polarity": "POSITIVE",
+        "limitations": [
+          "Absent and unlisted are not interchangeable outside the frozen authority."
+        ],
+        "nonGuarantees": [
+          "No cleaning, drying, leak-prevention or service guarantee."
+        ]
+      }
+    ],
+    "l7ExperienceRules": [],
+    "l8DecisionProjections": [
+      {
+        "projectionId": "dishwasher-decision-projection:bosch_sms4iki62t_tr:exact",
+        "offeringId": "BOSCH_SMS4IKI62T_TR",
+        "eligibleEvidenceIds": [
+          "dishwasher-evidence-fact:bosch_sms4iki62t_tr:widthMm",
+          "dishwasher-evidence-fact:bosch_sms4iki62t_tr:heightMm",
+          "dishwasher-evidence-fact:bosch_sms4iki62t_tr:depthMm",
+          "dishwasher-evidence-fact:bosch_sms4iki62t_tr:capacity",
+          "dishwasher-evidence-fact:bosch_sms4iki62t_tr:energyClass",
+          "dishwasher-evidence-fact:bosch_sms4iki62t_tr:ecoWaterLitres",
+          "dishwasher-evidence-fact:bosch_sms4iki62t_tr:noiseDbA",
+          "dishwasher-evidence-capability:bosch_sms4iki62t_tr:autoOpenDry",
+          "dishwasher-evidence-capability:bosch_sms4iki62t_tr:cutleryTray",
+          "dishwasher-evidence-capability:bosch_sms4iki62t_tr:homeConnect",
+          "dishwasher-evidence-capability:bosch_sms4iki62t_tr:aquaStop"
+        ],
+        "needMappingIds": [
+          "dishwasher-map:fit",
+          "dishwasher-map:capacity",
+          "dishwasher-map:auto-open",
+          "dishwasher-map:tray",
+          "dishwasher-map:noise",
+          "dishwasher-map:resource",
+          "dishwasher-map:connected"
+        ],
+        "limitations": [
+          "Reads only exact approved Dishwasher evidence; unknowns remain neutral.",
+          "Planning, interpretation, commerce, media and Advisor content cannot filter, rank, or authorize."
+        ],
+        "disclosures": [
+          "The frozen v0.1 Dishwasher candidate and Y authority remains unchanged.",
+          "Cleaning, drying, installation, resource and noise outcomes are not guaranteed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "dishwasher-decision-projection:siemens_sn25ei63mt_tr:exact",
+        "offeringId": "SIEMENS_SN25EI63MT_TR",
+        "eligibleEvidenceIds": [
+          "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:widthMm",
+          "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:heightMm",
+          "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:depthMm",
+          "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:capacity",
+          "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:energyClass",
+          "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:ecoWaterLitres",
+          "dishwasher-evidence-fact:siemens_sn25ei63mt_tr:noiseDbA",
+          "dishwasher-evidence-capability:siemens_sn25ei63mt_tr:autoOpenDry",
+          "dishwasher-evidence-capability:siemens_sn25ei63mt_tr:cutleryTray",
+          "dishwasher-evidence-capability:siemens_sn25ei63mt_tr:homeConnect"
+        ],
+        "needMappingIds": [
+          "dishwasher-map:fit",
+          "dishwasher-map:capacity",
+          "dishwasher-map:auto-open",
+          "dishwasher-map:tray",
+          "dishwasher-map:noise",
+          "dishwasher-map:resource",
+          "dishwasher-map:connected"
+        ],
+        "limitations": [
+          "Reads only exact approved Dishwasher evidence; unknowns remain neutral.",
+          "Planning, interpretation, commerce, media and Advisor content cannot filter, rank, or authorize."
+        ],
+        "disclosures": [
+          "The frozen v0.1 Dishwasher candidate and Y authority remains unchanged.",
+          "Cleaning, drying, installation, resource and noise outcomes are not guaranteed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "dishwasher-decision-projection:samsung_dw60dg560fwqtr:exact",
+        "offeringId": "SAMSUNG_DW60DG560FWQTR",
+        "eligibleEvidenceIds": [
+          "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:widthMm",
+          "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:heightMm",
+          "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:depthMm",
+          "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:capacity",
+          "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:energyClass",
+          "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:ecoWaterLitres",
+          "dishwasher-evidence-fact:samsung_dw60dg560fwqtr:noiseDbA",
+          "dishwasher-evidence-capability:samsung_dw60dg560fwqtr:autoOpenDry",
+          "dishwasher-evidence-capability:samsung_dw60dg560fwqtr:cutleryTray"
+        ],
+        "needMappingIds": [
+          "dishwasher-map:fit",
+          "dishwasher-map:capacity",
+          "dishwasher-map:auto-open",
+          "dishwasher-map:tray",
+          "dishwasher-map:noise",
+          "dishwasher-map:resource"
+        ],
+        "limitations": [
+          "Reads only exact approved Dishwasher evidence; unknowns remain neutral.",
+          "Planning, interpretation, commerce, media and Advisor content cannot filter, rank, or authorize."
+        ],
+        "disclosures": [
+          "The frozen v0.1 Dishwasher candidate and Y authority remains unchanged.",
+          "Cleaning, drying, installation, resource and noise outcomes are not guaranteed."
+        ],
+        "traceability": "EXACT"
+      },
+      {
+        "projectionId": "dishwasher-decision-projection:beko_bm4044_tr:exact",
+        "offeringId": "BEKO_BM4044_TR",
+        "eligibleEvidenceIds": [
+          "dishwasher-evidence-fact:beko_bm4044_tr:widthMm",
+          "dishwasher-evidence-fact:beko_bm4044_tr:heightMm",
+          "dishwasher-evidence-fact:beko_bm4044_tr:depthMm",
+          "dishwasher-evidence-fact:beko_bm4044_tr:capacity",
+          "dishwasher-evidence-capability:beko_bm4044_tr:autoOpenDry",
+          "dishwasher-evidence-capability:beko_bm4044_tr:cutleryTray",
+          "dishwasher-evidence-capability:beko_bm4044_tr:extraDry"
+        ],
+        "needMappingIds": [
+          "dishwasher-map:fit",
+          "dishwasher-map:capacity",
+          "dishwasher-map:auto-open",
+          "dishwasher-map:tray"
+        ],
+        "limitations": [
+          "Reads only exact approved Dishwasher evidence; unknowns remain neutral.",
+          "Planning, interpretation, commerce, media and Advisor content cannot filter, rank, or authorize."
+        ],
+        "disclosures": [
+          "The frozen v0.1 Dishwasher candidate and Y authority remains unchanged.",
+          "Cleaning, drying, installation, resource and noise outcomes are not guaranteed."
+        ],
+        "traceability": "EXACT"
+      }
+    ],
+    "l9AdvisorKnowledge": []
+  },
+  "externalBoundaries": {
+    "commerce": "EXTERNAL_VOLATILE_EXACT_IDENTITY_JOIN_ONLY",
+    "media": "EXTERNAL_VOLATILE_EXACT_IDENTITY_JOIN_ONLY",
+    "offerIdentityAuthority": "NONE",
+    "offerRankingAuthority": "NONE",
+    "affiliateRankingAuthority": "NONE"
+  },
+  "releaseDigest": "sha256:72f7564dcd40b370b7b656a22fcc5d61127defe81d771e688cce3f9d889d9866"
+}

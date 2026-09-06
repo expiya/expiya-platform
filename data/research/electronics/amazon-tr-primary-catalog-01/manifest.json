@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "electronics-amazon-tr-primary-manifest/v1",
+  "generatedAt": "2026-09-05T10:08:35.000Z",
+  "payloadFile": "amazon-primary-research.json",
+  "payloadDigest": "sha256:09ef0e34db66fa00f9fb3b98f83db0370f1e0a2905da805c50282073576e3a20",
+  "counts": {
+    "categories": 24,
+    "queryRuns": 96,
+    "auditRows": 59,
+    "candidates": 6,
+    "rejections": 53
+  },
+  "activation": {
+    "permitted": false,
+    "productionAuthority": false
+  }
+}

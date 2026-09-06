@@ -10,3 +10,4 @@ describe("BABY_AND_CHILD / STROLLER authority", () => {
   it("uses known evidence without treating unknown as an advantage", () => { const candidates = selectStrollers({ CARRY_WEIGHT: "LIGHT", CABIN_TRAVEL: true }); expect(candidates.map(p => p.model)).toEqual(["Goody Plus"]); expect(candidates.every(p => p.facts.strollerWeightKg === "UNKNOWN" || p.facts.strollerWeightKg <= 8)).toBe(true); });
   it("creates a card only through explicit authorization", () => { const product = STROLLER_PRODUCTS[0]!; const card = authorizeStrollerCard(product, { NEWBORN: true }, 4); expect(card.exactProductId).toBe(product.exactProductId); expect(card.authorizationFingerprint).toMatch(/^sha256:/u); expect(card.limitations).toContain("Azami ağırlık gelişimsel uygunluk garantisi değildir."); });
 });
+

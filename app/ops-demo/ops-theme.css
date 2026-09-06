@@ -1,0 +1,65 @@
+.ops-surface {
+  --ops-bg: #09090b;
+  --ops-sidebar: #0f0f12;
+  --ops-panel: #151518;
+  --ops-panel-raised: #1b1b1f;
+  --ops-border: #2a2a2f;
+  --ops-text: #f4f4f5;
+  --ops-muted: #a1a1aa;
+  --ops-accent: #d4d4d8;
+  background: var(--ops-bg);
+  color: var(--ops-text);
+  color-scheme: dark;
+}
+
+.ops-sidebar { background: var(--ops-sidebar); border-color: var(--ops-border); }
+.ops-panel { background: var(--ops-panel); border-color: var(--ops-border); }
+.ops-panel-raised { background: var(--ops-panel-raised); border-color: var(--ops-border); }
+.ops-divider { border-color: var(--ops-border); }
+.ops-kicker { color: #c4b5fd; }
+.ops-muted { color: var(--ops-muted); }
+
+.ops-button-primary {
+  background: #f4f4f5 !important;
+  border: 1px solid #f4f4f5 !important;
+  color: #09090b !important;
+}
+.ops-button-primary:hover { background: #ffffff !important; }
+.ops-button-primary:focus-visible,
+.ops-button-secondary:focus-visible,
+.ops-button-danger:focus-visible { outline: 3px solid #a78bfa; outline-offset: 2px; }
+.ops-button-secondary {
+  background: #232328 !important;
+  border: 1px solid #3f3f46 !important;
+  color: #fafafa !important;
+}
+.ops-button-secondary:hover { background: #2f2f35 !important; }
+.ops-button-danger {
+  background: transparent !important;
+  border: 1px solid #7f1d1d !important;
+  color: #fecaca !important;
+}
+.ops-button-primary:disabled,
+.ops-button-secondary:disabled,
+.ops-button-danger:disabled { cursor: not-allowed; opacity: .48; }
+.ops-input {
+  background: #0f0f12 !important;
+  border-color: #3f3f46 !important;
+  color: #fafafa !important;
+}
+.ops-input::placeholder { color: #a1a1aa; }
+
+/* Legacy prototype utilities are normalized inside the isolated ops surface. */
+.ops-surface .text-cyan-300,
+.ops-surface .text-cyan-200 { color: #c4b5fd !important; }
+.ops-surface .text-slate-400,
+.ops-surface .text-slate-500 { color: #a1a1aa !important; }
+.ops-surface button.bg-cyan-300 {
+  background: #f4f4f5 !important;
+  color: #09090b !important;
+}
+.ops-surface button.border-white\/15 {
+  background: #232328 !important;
+  border-color: #3f3f46 !important;
+  color: #fafafa !important;
+}

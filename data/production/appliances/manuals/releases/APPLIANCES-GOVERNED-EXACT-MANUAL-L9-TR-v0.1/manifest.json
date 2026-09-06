@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "appliances-governed-manual-manifest/v1",
+  "releaseId": "APPLIANCES-GOVERNED-EXACT-MANUAL-L9-TR-v0.1",
+  "lifecycle": "FROZEN_READ_ONLY",
+  "releaseArtifactSha256": "sha256:b9425e82dc952ffa3f3e4d81c275f3523bcd62a5d4db85f3d02001de54fc7054",
+  "coverageArtifactSha256": "sha256:cb88f10834719a1c0e3519ae8055cbd65de6c4de4fe9a60c0ed0664360eb1124",
+  "manualArtifacts": [
+    {
+      "manualId": "APPL-MANUAL-6928129D754BECE0",
+      "artifactSha256": "sha256:6928129d754bece05ca0c1594f6650d3941d0662598d691e9d83802ac477c6df",
+      "textArtifactSha256": "sha256:47f923ba25b51e5ab7221090e233a5a582647d15cdf0236f7eac32605c84b680"
+    },
+    {
+      "manualId": "APPL-MANUAL-0788D7D66C3BD4CE",
+      "artifactSha256": "sha256:0788d7d66c3bd4ceb7bc889296de05a2e7af3b890d892adec456bd1ba8fb0f91",
+      "textArtifactSha256": "sha256:98d70c28ea71baf26a728f635c692aa9b1e574f2ef5216702756752a4b397164"
+    },
+    {
+      "manualId": "APPL-MANUAL-B87F6C2168F55185",
+      "artifactSha256": "sha256:b87f6c2168f551857c4d0ae61973a0d8f6f4a266caca476d555f22ec1bd3539c",
+      "textArtifactSha256": "sha256:48862fd25aafb29e012d9486859998641b5bef6a1f974dfaef475d8b844be3ce"
+    },
+    {
+      "manualId": "APPL-MANUAL-13DB1583DF58DFB2",
+      "artifactSha256": "sha256:13db1583df58dfb235fe8abf88ba413af030da69135391c29b846cb3385963b9",
+      "textArtifactSha256": "sha256:10097de517edd40d7d6fb39d7e4fa65ed5a3dea015a749abf6a954c393a924e6"
+    },
+    {
+      "manualId": "APPL-MANUAL-4B192FA6005159D1",
+      "artifactSha256": "sha256:4b192fa6005159d194600294c28697800e67071888b1f75def8f9526ff519937",
+      "textArtifactSha256": "sha256:8d99d5acda772068e710acce03c93b4eb7f8ec64dc66162e878e2d4f6c96d88f"
+    },
+    {
+      "manualId": "APPL-MANUAL-8902605FA2B7AA07",
+      "artifactSha256": "sha256:8902605fa2b7aa07e1f8e27cd22d649cd01b7503208f9bd0ba8db8a0593b63e4",
+      "textArtifactSha256": "sha256:6f77584601d829c86e2351b9ff06036fd42b418b8807185bdb17d6affead9c67"
+    },
+    {
+      "manualId": "APPL-MANUAL-A6275AC1AF9B9022",
+      "artifactSha256": "sha256:a6275ac1af9b90220dac4251aa9654c878399d6a1e895330ce115ad0b98834c8",
+      "textArtifactSha256": "sha256:814ab801cdbee9a6219b0bb961e2ed9a7b9115b1f4811180bab5f456a851fcaf"
+    },
+    {
+      "manualId": "APPL-MANUAL-BF82FEEDB3FA682E",
+      "artifactSha256": "sha256:bf82feedb3fa682ea775845d7841eb3801d15cc44f2d3a1352fcb393c107bab3",
+      "textArtifactSha256": "sha256:be3b3c88caa24a6cbd7d2fe576596bb1eb05f0aaf4218b7fee7911a48541f828"
+    },
+    {
+      "manualId": "APPL-MANUAL-70E8958CAF1A46FB",
+      "artifactSha256": "sha256:70e8958caf1a46fbd9ae81971bbccc8031056995140cf3d68a3d30807ce93b16",
+      "textArtifactSha256": "sha256:8b66a28af598289f569555f8a0b05ebf10db64a32c527c782b26817ffc2f6e85"
+    },
+    {
+      "manualId": "APPL-MANUAL-B4A3CF20FC74E6FE",
+      "artifactSha256": "sha256:b4a3cf20fc74e6fe5e2f69b0950a7d46d9139c487349d381b1b8cceaede19f64",
+      "textArtifactSha256": "sha256:8a48438209325f7fe518f4ab593923984b3813113551d40ca32645cc0b9be8c4"
+    }
+  ],
+  "parentPolicy": "IMMUTABLE_NO_OVERWRITE",
+  "next": "WU-XPY-APPL-GOVERNED-MEDIA-PHOTO-ACQUISITION-01"
+}

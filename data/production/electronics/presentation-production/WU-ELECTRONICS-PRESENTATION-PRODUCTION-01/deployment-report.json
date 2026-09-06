@@ -1,0 +1,37 @@
+{
+  "workUnit": "WU-ELECTRONICS-PRESENTATION-PRODUCTION-01",
+  "verdict": "DEPLOYED_AND_VERIFIED",
+  "productionDomain": "https://www.expiya.com",
+  "deploymentId": "dpl_Hysa6dNvfgvAHrQ6SbGKKEPaQFbS",
+  "deploymentUrl": "https://expiya-platform-qw7q-j1x7c2kul-expiya.vercel.app",
+  "deploymentState": "READY",
+  "rollbackDeploymentId": "dpl_8AA8LPazZMAxh1DKj6gw4QyjwoK1",
+  "migration": {
+    "file": "database/migrations/0015_electronics_runtime_foundation.sql",
+    "sha256": "sha256:c508311e0d268432f16285802079d2f458ded9a32ab75a185733ac80f34d436f",
+    "status": "APPLIED",
+    "categoryConstraintCount": 24,
+    "objectsVerified": 5
+  },
+  "runtime": {
+    "release": "ELECTRONICS-RUNTIME-CATALOG-TR-v1.0",
+    "releaseDigest": "sha256:fcee3071c8a9004551cbf38358014fbfa2dd10b2a2dad57781cf3d4bbf6a39fc",
+    "catalogArtifactSha256": "sha256:a52ab57cb92323764e4b8d7343fc38b6cd92462feb0e0b1a3f7c6a06b432a121",
+    "policyDigest": "sha256:0f4db5148d6a6971b7a9341b2c0c56c298753dd2ab592b75d09fbdd372b7c20a"
+  },
+  "verification": {
+    "focusedTests": 207,
+    "focusedTestStatus": "PASS",
+    "lint": "PASS",
+    "typescript": "PASS",
+    "isolatedBuildRoutes": 614,
+    "productionCategoryCreates": 24,
+    "productionMultiTurnFinalRevision": 4,
+    "productionPagesChecked": 7,
+    "browserAccessibilityTree": "PASS",
+    "carsPreserved": true,
+    "appliancesPreserved": true,
+    "rawPdfEvidenceExcluded": true
+  },
+  "verifiedAt": "2026-09-05T15:45:00+03:00"
+}

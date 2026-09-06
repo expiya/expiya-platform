@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "scripts/activate-global-evidence-candidates.ts",
+    "scripts/verify-active-equipment-evidence.ts",
+    "features/appliances/globalEvidence.ts",
+    "features/appliances/manuals/governedManuals.ts",
+    "features/appliances/manuals/governedManuals.test.ts"
+  ],
+  "exclude": ["node_modules"]
+}

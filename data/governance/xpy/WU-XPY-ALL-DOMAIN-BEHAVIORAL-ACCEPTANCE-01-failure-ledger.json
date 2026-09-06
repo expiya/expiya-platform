@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "xpy-behavioral-acceptance-failure-ledger/v1",
+  "workUnitId": "WU-XPY-ALL-DOMAIN-BEHAVIORAL-ACCEPTANCE-01",
+  "runtime": "node-v24.20.0",
+  "baseline": {
+    "testsPassed": 1007,
+    "testsFailed": 109,
+    "testFilesFailed": 34
+  },
+  "classification": {
+    "AUTHORITY_PROVEN_OBSOLETE_EXPECTATION": 76,
+    "APPROVED_POLICY_BOUND_STALE_FIXTURE": 20,
+    "VOLATILE_COMMERCE_EXPIRY_OR_BINDING": 13,
+    "REAL_BEHAVIOR_DEFECT": 0,
+    "GENUINE_AUTHORITY_BLOCKER": 0
+  },
+  "evidence": {
+    "authorityLedger": "data/governance/appliances-authority-reconciliation/WU-APPL-AUTHORITY-ARTIFACT-RECONCILIATION-01.json",
+    "approvedActivationEvent": "APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55",
+    "approvedProductCount": 113,
+    "majorCategoryMemberships": {
+      "WASHING_MACHINE": 29,
+      "DRYER": 7,
+      "DISHWASHER": 7,
+      "REFRIGERATOR": 8
+    },
+    "volatilePriceDisposition": "PRICE_BINDING_MISMATCH_REMAINS_NON_AUTHORITATIVE_AND_FAILS_CLOSED_WHEN_AN_EXPLICIT_HARD_BUDGET_REQUIRES_IT"
+  },
+  "repairs": [
+    {
+      "kind": "APPROVED_POLICY_BOUND_STALE_FIXTURE",
+      "scope": "four Washing Machine policy loader suites",
+      "repair": "Fixture bodies now follow the active approved v0.2 policy pointers; mutation tests still recompute and verify canonical digests."
+    },
+    {
+      "kind": "AUTHORITY_PROVEN_OBSOLETE_EXPECTATION",
+      "scope": "Washing Machine and Dishwasher membership assertions",
+      "repair": "Expected counts now use the approved 29 and 7 member releases."
+    },
+    {
+      "kind": "VOLATILE_COMMERCE_EXPIRY_OR_BINDING",
+      "scope": "candidate budget evaluation",
+      "repair": "The test now proves the unrebound price projection is unavailable and an explicit hard budget fails closed without affecting technical authority."
+    }
+  ],
+  "postRepairCheckpoint": {
+    "testsPassed": 1080,
+    "testsFailed": 36,
+    "remainingClassification": "STALE_MULTI_TURN_EXPECTATIONS_EXPANDED_MEMBERSHIP_AND_VOLATILE_PRICE_DEPENDENT_FIXTURES"
+  },
+  "final": {
+    "verdict": "PASS",
+    "relevantTestFilesPassed": 113,
+    "relevantTestsPassed": 1165,
+    "fullRepositoryTestsPassed": 5524,
+    "fullRepositoryStaleExpectationsRepaired": 2,
+    "categoryCapabilityRows": 768,
+    "matrix": "data/governance/xpy/WU-XPY-ALL-DOMAIN-BEHAVIORAL-ACCEPTANCE-01-matrix.json",
+    "runtimeBehaviorDefectsFoundAndRepaired": [
+      "BUILT_IN_MICROWAVE_OVEN public advisory leaked the internal English term exact; replaced with the public Turkish phrase kesin niş ölçüsü."
+    ],
+    "remainingAuthorityBlockers": 0
+  }
+}

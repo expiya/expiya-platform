@@ -1,0 +1,26 @@
+Candidate,Brand,Segment,Propulsion,Market Role,Existing Gap Filled,Marginal Coverage Value,TR Evidence Strength,Decision
+Polo,Volkswagen,B-hatch,PETROL,mainstream urban automatic,small automatic city,High,A1 official TR model page,SELECT
+Golf,Volkswagen,C-hatch,MHEV,mainstream family hatch,C-hatch diversity,High,A1 official TR model page,SELECT
+T-Roc,Volkswagen,B/C-SUV,MHEV,mainstream compact SUV,small mainstream SUV diversity,High,A1 official TR 2026 page,SELECT
+Corsa,Opel,B-hatch,MHEV,efficient urban automatic,city automatic propulsion choice,High,A1 official MY26 technical/price register,SELECT
+Captur,Renault,B-SUV,MHEV,urban family crossover,small mainstream SUV diversity,High,A1 official configurator,SELECT
+Duster,Dacia,C-SUV/LPG,LPG,affordable rough-road family,LPG and camping bridge,High,A1 official TR model family evidence,SELECT
+Logan,Dacia,sedan,LPG,entry practical sedan,LPG affordability and first family car,High,A1 official configurator,SELECT
+Yaris Cross,Toyota,B-SUV,HEV,fuel-efficient urban family,HEV B-SUV choice,High,A1 official Mar-2026 PDF,SELECT
+X-Trail,Nissan,D-SUV,HEV/AWD,7-seat family AWD,large family and HEV AWD,High,A1 official TR model pages,SELECT
+Sportage,Kia,C-SUV,HEV/AWD,mainstream family SUV,mainstream family alternatives,High,A1 official TR model page,SELECT
+408,Peugeot,fastback,MHEV,non-SUV family fastback,fastback and practical family,High,A1 official brochure registry,SELECT
+ë-C3,Citroën,B-hatch,BEV,affordable urban EV,urban BEV alternative,High,A1 official TR MY26 PDF,SELECT
+320i Sedan,BMW,premium sedan,PETROL,premium non-EV,premium alternative,High,A1 official current inventory,SELECT
+T03,Leapmotor,A-city hatch,BEV,discovery affordable EV,entry urban EV,High,Official TR distributor technical page,SELECT
+Torres,KGM,D-SUV,PETROL/AWD,discovery utility SUV,rough-road and towing-adjacent alternative,Medium,Official TR manual; exact current trim limited,SELECT
+XC60,Volvo,premium D-SUV,MHEV/PHEV AWD,premium electrified family,PHEV AWD and towing,High,A1 official TR live specs,SELECT
+Tiggo 7 Pro,Chery,C-SUV,PETROL,discovery family SUV,non-obvious mainstream alternative,Medium,Official TR brochure; current trim applicability limited,SELECT
+Astra,Opel,C-hatch,MHEV,mainstream hatch,C-hatch,Medium,A1 official MY26 register,REJECT_REDUNDANT
+2008,Peugeot,B-SUV,MHEV,mainstream B-SUV,small SUV,Medium,A1 official brochure registry,REJECT_REDUNDANT
+ATTO 3,BYD,C-SUV,BEV,discovery family EV,family EV,Medium,A1 official TR page,REJECT_REDUNDANT
+SpaceTourer,Citroën,passenger van,DIESEL,8+1 passenger carrying,passenger van,Medium,A1 official MY26 PDF,REJECT_REDUNDANT
+MX-5,Mazda,convertible,PETROL,niche discovery,convertible,Medium,Current exact TR sales evidence weak,REJECT_WEAK_TR_EVIDENCE
+JAECOO 7 SHS,JAECOO,C-SUV,PHEV,discovery PHEV,PHEV diversity,High,Current exact TR technical applicability unclear,REJECT_CONFIGURATION_UNCLEAR
+Kuga,Ford,C-SUV,PHEV,family PHEV,PHEV diversity,High,Current official TR evidence not deterministic,REJECT_CONFIGURATION_UNCLEAR
+

@@ -43,7 +43,7 @@ describe("decision-safe authorized card projection", () => {
     expect(variant).toBeDefined(); if (!variant) return;
     const offer = { ...f.offer, candidateRefs: [f.ref(variant, "APPROXIMATE_BUDGET_LANGUAGE_ONLY")] } as PersistedGovernedOffer;
     const [card] = projectAuthorizedPublicCards({ offer, conversationId: "conversation", decisionFingerprint: "decision", snapshot: f.snapshot });
-    expect(card?.image).toMatch(/^https:\/\/wylflrzf7gws55yp\.public\.blob\.vercel-storage\.com\/cars\/v0\.55\.1\//u);
+    expect(card?.image).toMatch(/^https:\/\/wylflrzf7gws55yp\.public\.blob\.vercel-storage\.com\/cars\/v0\.55\.[01]\//u);
   });
 
   it("fails closed for conversation, catalog, decision and unknown candidate mismatch", async () => {

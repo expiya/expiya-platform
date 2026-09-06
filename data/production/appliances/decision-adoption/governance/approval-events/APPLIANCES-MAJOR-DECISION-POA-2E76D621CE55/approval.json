@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "major-appliance-decision-owner-approval/v1",
+  "approvalId": "APPLIANCES-MAJOR-DECISION-POA-2E76D621CE55",
+  "recordedAt": "2026-09-05T16:00:00.000+03:00",
+  "approved": true,
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-DECISION-ADOPTION-01",
+  "sourceBatchDigest": "sha256:b3cb67e1dd00dc6c529ae750679e8276c13f9723d4e1d77737a7f39aee441ea2",
+  "sourcePackageSha256": "2e76d621ce5569d7005ea29ab10e70f1807199038d1d973a681baee829210732",
+  "catalogActivationId": "APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55",
+  "decision": "APPROVE_EXACTLY_16_FOR_XPY_Y_DECISION_MEMBERSHIP",
+  "userStatement": "XPY karar adaylarına dahil edelim.",
+  "scope": {
+    "categories": [
+      "WASHING_MACHINE",
+      "DRYER",
+      "DISHWASHER",
+      "REFRIGERATOR"
+    ],
+    "admittedOfferingIds": [
+      "appliances:wm:tr:samsung:ww90ta046ah-ah",
+      "appliances:wm:tr:vestel:cmi-97402-wifi",
+      "appliances:wm:tr:arcelik:10120-imp",
+      "appliances:wm:tr:altus:al-cm-101254-d",
+      "appliances:wm:tr:samsung:ww11dg6b25leah",
+      "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+      "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+      "appliances:dryer:tr:arcelik:1201-kmx",
+      "appliances:dryer:tr:samsung:dv10dg54a0abah",
+      "appliances:dishwasher:tr:arcelik:a-710-i",
+      "appliances:dishwasher:tr:arcelik:a-811-i",
+      "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+      "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+      "appliances:refrigerator:tr:arcelik:270475-mb",
+      "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "appliances:refrigerator:tr:samsung:rf57c510esr-tr"
+    ],
+    "excludedOfferingIds": [
+      "appliances:dishwasher:tr:teka:dfi-46700-ttm"
+    ],
+    "expectedDecisionCounts": [
+      29,
+      7,
+      7,
+      8
+    ]
+  },
+  "boundaries": {
+    "authority": "Y_DECISION_MEMBERSHIP",
+    "commerce": "L10_NO_DECISION_EFFECT",
+    "newResearch": false,
+    "weightsScoresTieBreaks": false
+  }
+}

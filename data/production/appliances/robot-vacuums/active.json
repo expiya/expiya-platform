@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "appliances-bounded-active-pointer/v2",
+  "releaseVersion": "APPLIANCES-ROBOT-VACUUM-TR-v0.1",
+  "artifactSha256": "86b3932c87873ffcb67bd53b91c162dd167fc3bb22bcec6a2cb9b759ffd79533",
+  "lifecycle": "ACTIVE",
+  "richness": {
+    "releaseVersion": "APPLIANCES-ROBOT-VACUUM-CATALOG-RICHNESS-TR-v0.2",
+    "releaseDigest": "sha256:e943678e25d449e29859d6b72c1225093a64dc0882065f569d78921ab7bc3539",
+    "catalogArtifactSha256": "31fad05f27c8c73a0e1e6adcd209c900bb6491810515b0ee6c1723ba00c936e7",
+    "membershipDigest": "975f6d32789c31fda5ca852a06fd04649477fbefd9a2ccd62f0cee187df6919c",
+    "activationManifest": "data/production/appliances/robot-vacuums/richness/governance/activation-events/ROBOT-VACUUM-RICHNESS-ACT-E943678E25D449E29859/activation.json",
+    "activationManifestSha256": "aa16e6e418ec95bce307b64bcfd6dffb395974e4638fa1c70bf2abcd3ad9949e",
+    "lifecycle": "ACTIVE_READ_ONLY"
+  }
+}

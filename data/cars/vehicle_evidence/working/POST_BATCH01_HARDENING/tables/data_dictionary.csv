@@ -1,0 +1,165 @@
+sheet,field_key,description,data_type,requirement,canonical_unit,scope,allowed_values_or_rule,example,migration_note
+01_VEHICLE_MODELS,model_id,Immutable Expiya model-family ID.,ID,MUST,,MODEL,,MOD-000001,Generated; preserve legacy trace separately.
+01_VEHICLE_MODELS,brand,Manufacturer / brand display name.,TEXT,MUST,,MODEL,,Suzuki,Map from v0.3 Marka.
+01_VEHICLE_MODELS,model_name,Commercial model-family name.,TEXT,MUST,,MODEL,,Vitara,Map from v0.3 Model.
+01_VEHICLE_MODELS,body_family,Canonical body family.,ENUM,MUST,,MODEL,BODY_FAMILY,SUV,v0.3 Kasa Tipi is candidate.
+01_VEHICLE_MODELS,market_relevance_tr,Turkey relevance gate.,ENUM,MUST,,MODEL,MARKET_RELEVANCE_TR,CURRENT,Resolve during pilot.
+01_VEHICLE_MODELS,source_catalog_status,Legacy discovery provenance class.,ENUM,MUST,,MODEL,SOURCE_CATALOG_STATUS,RESMI_KAYNAKTAN_DERLENDI,Not fact-level authority.
+01_VEHICLE_MODELS,legacy_source_id,Reference to v0.3 record identity.,TEXT,SHOULD,,MODEL,,legacy-row-12,
+01_VEHICLE_MODELS,notes,"Free-text notes, never authoritative evidence.",TEXT,NICE_TO_HAVE,,MODEL,,,
+02_GENERATIONS,generation_id,Immutable generation ID.,ID,MUST,,GENERATION,,GEN-000001,
+02_GENERATIONS,model_id,FK to model.,FK,MUST,,GENERATION,,MOD-000001,
+02_GENERATIONS,generation_name,Human-readable generation label.,TEXT,SHOULD,,GENERATION,,4th Gen,Do not invent.
+02_GENERATIONS,generation_code,Manufacturer/platform code.,TEXT,NICE_TO_HAVE,,GENERATION,,LY,
+02_GENERATIONS,facelift_status,Generation phase.,ENUM,SHOULD,,GENERATION,FACELIFT_STATUS,FACELIFT,
+02_GENERATIONS,production_start_year,Global production start year.,INTEGER,SHOULD,,GENERATION,,2024,Legacy year is candidate.
+02_GENERATIONS,production_end_year,Global production end year.,INTEGER,SHOULD,,GENERATION,,,
+02_GENERATIONS,market_start_year_tr,Turkey market start year.,INTEGER,SHOULD,,GENERATION,,2025,
+02_GENERATIONS,market_end_year_tr,Turkey market end year.,INTEGER,SHOULD,,GENERATION,,,
+02_GENERATIONS,identity_status,Identity resolution state.,ENUM,MUST,,GENERATION,IDENTITY_STATUS,VERIFIED,
+02_GENERATIONS,legacy_source_id,Legacy traceability.,TEXT,SHOULD,,GENERATION,,,
+02_GENERATIONS,notes,Generation notes.,TEXT,NICE_TO_HAVE,,GENERATION,,,
+03_POWERTRAINS,powertrain_id,Immutable powertrain variant ID.,ID,MUST,,POWERTRAIN,,PWR-000001,
+03_POWERTRAINS,generation_id,FK to generation.,FK,MUST,,POWERTRAIN,,GEN-000001,
+03_POWERTRAINS,marketing_name,Official/marketed powertrain name.,TEXT,SHOULD,,POWERTRAIN,,1.4 Boosterjet Hybrid,
+03_POWERTRAINS,fuel_type,Primary fuel/energy type.,ENUM,MUST,,POWERTRAIN,FUEL_TYPE,PETROL,
+03_POWERTRAINS,electrification_type,Electrification architecture.,ENUM,MUST,,POWERTRAIN,ELECTRIFICATION_TYPE,MHEV,
+03_POWERTRAINS,engine_displacement_cc,ICE displacement.,INTEGER,SHOULD,cc,POWERTRAIN,,1373,
+03_POWERTRAINS,power_kw,Canonical power.,NUMBER,MUST,kW,POWERTRAIN,,95,Source-backed before VERIFIED.
+03_POWERTRAINS,power_ps,Reference/display metric power.,NUMBER,SHOULD,PS,POWERTRAIN,,129,
+03_POWERTRAINS,torque_nm,Peak torque.,NUMBER,SHOULD,Nm,POWERTRAIN,,235,
+03_POWERTRAINS,transmission_type,Transmission architecture.,ENUM,MUST,,POWERTRAIN,TRANSMISSION_TYPE,AUTOMATIC,
+03_POWERTRAINS,transmission_gears,Forward gear count.,INTEGER,SHOULD,,POWERTRAIN,,6,
+03_POWERTRAINS,drivetrain,Driven axle/system.,ENUM,MUST,,POWERTRAIN,DRIVETRAIN,AWD,
+03_POWERTRAINS,battery_usable_kwh,Usable traction battery capacity.,NUMBER,MUST,kWh,POWERTRAIN,,,MUST for BEV when published.
+03_POWERTRAINS,identity_status,Identity resolution state.,ENUM,MUST,,POWERTRAIN,IDENTITY_STATUS,VERIFIED,
+03_POWERTRAINS,legacy_motor_text,Raw v0.3 Motor text.,TEXT,SHOULD,,POWERTRAIN,,1.4 Hybrid 129 PS,Parsing input only.
+03_POWERTRAINS,notes,Powertrain notes.,TEXT,NICE_TO_HAVE,,POWERTRAIN,,,
+04_CONFIGURATIONS,configuration_id,Immutable market configuration ID.,ID,MUST,,CONFIGURATION,,CFG-000001,
+04_CONFIGURATIONS,generation_id,FK to generation.,FK,MUST,,CONFIGURATION,,GEN-000001,
+04_CONFIGURATIONS,powertrain_id,FK to powertrain.,FK,MUST,,CONFIGURATION,,PWR-000001,
+04_CONFIGURATIONS,market,Commercial market.,ENUM,MUST,,CONFIGURATION,MARKET,TR,
+04_CONFIGURATIONS,model_year,Applicable model year.,INTEGER,MUST,,CONFIGURATION,,2026,
+04_CONFIGURATIONS,trim_name,Canonical trim/equipment grade.,TEXT,MUST,,CONFIGURATION,,GLX,Legacy Donanım is candidate.
+04_CONFIGURATIONS,official_configuration_name,Official full configuration label.,TEXT,SHOULD,,CONFIGURATION,,Vitara 1.4 Hybrid 6AT AllGrip GLX,
+04_CONFIGURATIONS,availability_status,Market availability state.,ENUM,MUST,,CONFIGURATION,AVAILABILITY_STATUS,CURRENT,
+04_CONFIGURATIONS,availability_from,Availability date if known.,DATE,SHOULD,,CONFIGURATION,,2026-01-01,
+04_CONFIGURATIONS,availability_to,End date if known.,DATE,SHOULD,,CONFIGURATION,,,
+04_CONFIGURATIONS,configuration_status,Identity verification state.,ENUM,MUST,,CONFIGURATION,CONFIGURATION_STATUS,VERIFIED,
+04_CONFIGURATIONS,legacy_trim_text,Raw v0.3 Donanım.,TEXT,SHOULD,,CONFIGURATION,,GLX,Candidate only.
+04_CONFIGURATIONS,legacy_source_id,Legacy traceability.,TEXT,SHOULD,,CONFIGURATION,,,
+04_CONFIGURATIONS,notes,Configuration notes.,TEXT,NICE_TO_HAVE,,CONFIGURATION,,,
+05_EVIDENCE_FACTS,body_type,Canonical body type,ENUM,MUST,,GENERATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,fuel_type,Fuel type,ENUM,MUST,,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,electrification_type,Electrification architecture,ENUM,MUST,,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,power_kw,Power,NUMBER,MUST,kW,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,transmission_type,Transmission,ENUM,MUST,,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,drivetrain,Drivetrain,ENUM,MUST,,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,length_mm,Overall length,NUMBER,MUST,mm,GENERATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,width_mm,Overall width,NUMBER,MUST,mm,GENERATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,seats,Seating capacity,INTEGER,MUST,count,CONFIGURATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,cargo_volume_l,"Cargo volume, seats up",NUMBER,MUST,L,GENERATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,ground_clearance_mm,Ground clearance,NUMBER,CONDITIONAL_MUST,mm,CONFIGURATION,"MUST when rough-road, camping, stabilized-road, off-road, or clearance constraint is materially relevant; otherwise UNKNOWN is non-blocking.",,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,official_fuel_consumption_combined,Official combined fuel consumption,NUMBER,MUST,L/100km,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,official_energy_consumption_combined,Official combined electric energy consumption,NUMBER,MUST,kWh/100km,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,official_electric_range,Official electric range,NUMBER,MUST,km,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,height_mm,Overall height,NUMBER,SHOULD,mm,GENERATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,wheelbase_mm,Wheelbase,NUMBER,SHOULD,mm,GENERATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,engine_displacement_cc,ICE displacement,INTEGER,SHOULD,cc,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,torque_nm,Peak torque,NUMBER,SHOULD,Nm,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,curb_weight_kg,Curb/kerb weight,NUMBER,SHOULD,kg,CONFIGURATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,doors,Door count,INTEGER,SHOULD,count,GENERATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,turning_circle_m,Turning circle,NUMBER,SHOULD,m,CONFIGURATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,cargo_volume_max_l,"Maximum cargo volume, seats folded",NUMBER,SHOULD,L,GENERATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,fuel_tank_l,Fuel tank capacity,NUMBER,SHOULD,L,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,battery_gross_kwh,Gross traction battery capacity,NUMBER,SHOULD,kWh,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,battery_usable_kwh,Usable traction battery capacity,NUMBER,SHOULD,kWh,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,max_ac_charge_kw,Maximum AC charge power,NUMBER,SHOULD,kW,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,max_dc_charge_kw,Maximum DC charge power,NUMBER,SHOULD,kW,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,towing_braked_kg,Braked towing capacity,NUMBER,SHOULD,kg,CONFIGURATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,towing_unbraked_kg,Unbraked towing capacity,NUMBER,SHOULD,kg,CONFIGURATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,acceleration_0_100,0–100 km/h acceleration,NUMBER,NICE_TO_HAVE,s,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,top_speed,Maximum speed,NUMBER,NICE_TO_HAVE,km/h,POWERTRAIN,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,approach_angle,Approach angle,NUMBER,NICE_TO_HAVE,deg,CONFIGURATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,departure_angle,Departure angle,NUMBER,NICE_TO_HAVE,deg,CONFIGURATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,wading_depth,Wading depth,NUMBER,NICE_TO_HAVE,mm,CONFIGURATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,roof_load,Maximum roof load,NUMBER,NICE_TO_HAVE,kg,CONFIGURATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+05_EVIDENCE_FACTS,payload,Payload,NUMBER,NICE_TO_HAVE,kg,CONFIGURATION,See enum lists where applicable,,One atomic fact row; provenance via assertion.
+06_EQUIPMENT,aeb,Automatic emergency braking,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,adaptive_cruise_control,Adaptive cruise control,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,lane_departure_warning,Lane departure warning,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,lane_keep_assist,Lane keeping assist,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,blind_spot_monitor,Blind-spot monitoring,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,rear_cross_traffic_alert,Rear cross-traffic alert,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,isofix_rear,Rear ISOFIX,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,isofix_front,Front ISOFIX,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,parking_sensors_rear,Rear parking sensors,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,parking_sensors_front,Front parking sensors,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,reversing_camera,Reversing camera,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,camera_360,360 camera,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,apple_carplay,Apple CarPlay,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,android_auto,Android Auto,ENUM,MUST,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,automatic_climate_control,Automatic climate control,ENUM,SHOULD,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,heated_front_seats,Heated front seats,ENUM,SHOULD,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,ventilated_front_seats,Ventilated front seats,ENUM,SHOULD,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,powered_tailgate,Powered tailgate,ENUM,SHOULD,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+06_EQUIPMENT,keyless_entry,Keyless entry,ENUM,SHOULD,,CONFIGURATION,EQUIPMENT_AVAILABILITY,,One row per configuration + equipment_key.
+07_SAFETY,safety_id,Immutable safety assessment ID.,ID,MUST,,,,,
+07_SAFETY,generation_id,FK to generation.,FK,MUST,,,,,
+07_SAFETY,assessment_body,Assessment organization.,ENUM,MUST,,,ASSESSMENT_BODY,,
+07_SAFETY,assessment_year,Assessment year.,INTEGER,MUST,,,,,
+07_SAFETY,overall_rating,Overall rating/stars where applicable.,NUMBER,SHOULD,,,,,
+07_SAFETY,adult_occupant_score,Adult occupant score.,NUMBER,SHOULD,,,,,
+07_SAFETY,child_occupant_score,Child occupant score.,NUMBER,SHOULD,,,,,
+07_SAFETY,vulnerable_road_user_score,Vulnerable road user score.,NUMBER,SHOULD,,,,,
+07_SAFETY,safety_assist_score,Safety assist score.,NUMBER,SHOULD,,,,,
+07_SAFETY,applicability_status,Assessment applicability.,ENUM,MUST,,,APPLICABILITY_STATUS,,
+07_SAFETY,notes,Notes.,TEXT,NICE_TO_HAVE,,,,,
+08_SOURCES,source_id,Immutable source ID.,ID,MUST,,,,,
+08_SOURCES,publisher,Publisher/owner.,TEXT,MUST,,,,,
+08_SOURCES,source_title,Document/page title.,TEXT,MUST,,,,,
+08_SOURCES,source_type,Source category.,ENUM,MUST,,,SOURCE_TYPE,,
+08_SOURCES,source_url,Plain-text source URL.,URL,MUST,,,,,
+08_SOURCES,market,Market scope.,ENUM,SHOULD,,,MARKET,,
+08_SOURCES,publication_date,Publication date.,DATE,SHOULD,,,,,
+08_SOURCES,retrieved_at,Retrieval date.,DATE,MUST,,,,,
+08_SOURCES,authority_class,Source authority class.,ENUM,MUST,,,AUTHORITY_CLASS,,
+08_SOURCES,source_status,Source lifecycle/status.,ENUM,MUST,,,SOURCE_STATUS,,
+08_SOURCES,notes,Notes.,TEXT,NICE_TO_HAVE,,,,,
+09_ASSERTIONS,assertion_id,Immutable assertion ID.,ID,MUST,,,,,
+09_ASSERTIONS,evidence_type,Evidence entity class.,ENUM,MUST,,,EVIDENCE_TYPE,,
+09_ASSERTIONS,evidence_id,FK to evidence row.,FK,MUST,,,,,
+09_ASSERTIONS,source_id,FK to source.,FK,MUST,,,,,
+09_ASSERTIONS,source_location,Page/table/section/anchor.,TEXT,SHOULD,,,,,
+09_ASSERTIONS,extraction_method,How value was extracted.,ENUM,MUST,,,EXTRACTION_METHOD,,
+09_ASSERTIONS,verification_status,Verification outcome.,ENUM,MUST,,,VERIFICATION_STATUS,,
+09_ASSERTIONS,applicability_status,Subject/model-year/market applicability.,ENUM,MUST,,,APPLICABILITY_STATUS,,
+09_ASSERTIONS,verified_at,Verification date.,DATE,SHOULD,,,,,
+09_ASSERTIONS,verified_by,Verifier identity/role.,TEXT,SHOULD,,,,,
+09_ASSERTIONS,notes,Notes.,TEXT,NICE_TO_HAVE,,,,,
+10_COLLECTION_QUEUE,queue_id,Immutable collection task ID.,ID,MUST,,,,,
+10_COLLECTION_QUEUE,subject_id,Target subject.,FK,MUST,,,,,
+10_COLLECTION_QUEUE,fact_key,Requested fact/equipment/safety key.,TEXT,MUST,,,,,
+10_COLLECTION_QUEUE,priority,Collection priority.,ENUM,MUST,,,PRIORITY,,
+10_COLLECTION_QUEUE,collection_status,Workflow state.,ENUM,MUST,,,COLLECTION_STATUS,,
+10_COLLECTION_QUEUE,preferred_source_type,Preferred authority tier.,ENUM,SHOULD,,,PREFERRED_SOURCE_TYPE,,
+10_COLLECTION_QUEUE,assigned_method,Collection method.,ENUM,MUST,,,ASSIGNED_METHOD,,
+10_COLLECTION_QUEUE,attempt_count,Number of attempts.,INTEGER,SHOULD,,,,,
+10_COLLECTION_QUEUE,last_attempt_at,Last attempt date.,DATE,SHOULD,,,,,
+10_COLLECTION_QUEUE,result,Collection outcome.,ENUM,SHOULD,,,COLLECTION_RESULT,,
+10_COLLECTION_QUEUE,notes,Notes.,TEXT,NICE_TO_HAVE,,,,,
+05_EVIDENCE_FACTS,dc_charge_time_min,DC fast-charge duration for explicitly stated SOC interval.,NUMBER,SHOULD,min,POWERTRAIN_OR_CONFIGURATION,measurement_context MUST contain SOC interval and charge-power context,35,PILOT ADDITION: fixed 10–80 assumption is insufficient.
+05_EVIDENCE_FACTS,battery_capacity_reported_kwh,Battery capacity exactly as published when gross vs usable is unspecified.,NUMBER,SHOULD,kWh,POWERTRAIN,Do not promote to gross/usable without explicit semantics,58.3,PILOT ADDITION.
+05_EVIDENCE_FACTS,value_min,Lower bound when a source publishes a numeric range.,NUMBER,SHOULD,,ANY,Used only when range_semantics=MIN_MAX,4.5,PILOT PROMOTED TO CONTRACT.
+05_EVIDENCE_FACTS,value_max,Upper bound when a source publishes a numeric range.,NUMBER,SHOULD,,ANY,Used only when range_semantics=MIN_MAX,4.7,PILOT PROMOTED TO CONTRACT.
+05_EVIDENCE_FACTS,range_semantics,Meaning of min/max or multiple official values.,ENUM,MUST,,ANY,NONE / MIN_MAX / MULTIPLE_OFFICIAL_VALUES,MIN_MAX,PILOT PROMOTED TO CONTRACT.
+05_EVIDENCE_FACTS,source_value_semantics,Preserves how the source itself characterizes the value.,ENUM,MUST,,ANY,EXACT_SCALAR / EXACT_RANGE / BATTERY_CAPACITY_UNQUALIFIED / CHARGE_TIME_WITH_SOC_CONTEXT / OFFICIAL_VALUES_CONFLICT,EXACT_RANGE,PILOT PROMOTED TO CONTRACT.
+05_EVIDENCE_FACTS,source_value_raw,Exact source presentation retained for audit; runtime must use typed value/range fields.,TEXT,NICE_TO_HAVE,,CONFIGURATION,,4.5–4.7,
+05_EVIDENCE_FACTS,soc_start_pct,Charging interval start state of charge.,NUMBER,SHOULD,%,POWERTRAIN,0 <= start < end <= 100,10,
+05_EVIDENCE_FACTS,soc_end_pct,Charging interval end state of charge.,NUMBER,SHOULD,%,POWERTRAIN,0 <= start < end <= 100,80,
+05_EVIDENCE_FACTS,charge_power_context_kw,Published charge-power context for the charge-time assertion.,NUMBER,SHOULD,kW,POWERTRAIN,> 0,101,
+08_SOURCES,source_url_canonical,Deterministically canonicalized document URL.,URL,SHOULD,,MODEL,,,
+08_SOURCES,source_version_label,Publisher/date version label when available.,TEXT,SHOULD,,MODEL,,,
+08_SOURCES,source_observed_at,Date content was observed for evidence extraction.,DATE,MUST,,MODEL,,,
+08_SOURCES,source_content_hash,SHA-256 of captured source content; blank when no capture exists.,TEXT,SHOULD,,MODEL,,,
+08_SOURCES,source_snapshot_ref,Repository/archive reference to immutable snapshot; blank when unavailable.,TEXT,SHOULD,,MODEL,,,

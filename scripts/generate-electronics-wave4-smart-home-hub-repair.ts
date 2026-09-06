@@ -1,0 +1,61 @@
+import { createHash } from "node:crypto";
+import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import path from "node:path";
+import { ELECTRONICS_WAVE_4_RELEASE_DIGEST, ELECTRONICS_WAVE_4_SMART_HOME_HUB_REPAIR_VERSION, validateWave4SmartHomeHubRepair, type Wave4SmartHomeHubRepairRelease } from "../features/electronics/wave4SmartHomeHubRepair";
+import type { Wave4EvidenceRelease } from "../features/electronics/wave4EvidenceClosure";
+
+const root = process.cwd();
+const pretty = (value: unknown) => `${JSON.stringify(value, null, 2)}\n`;
+const sha = (raw: string | Buffer) => `sha256:${createHash("sha256").update(raw).digest("hex")}` as `sha256:${string}`;
+const parentPath = path.join(root, "data/production/electronics/wave-4-evidence/releases/ELECTRONICS-WAVE-4-EVIDENCE-TR-v0.1/evidence-release.json");
+const parentRaw = readFileSync(parentPath);
+if (sha(parentRaw) !== ELECTRONICS_WAVE_4_RELEASE_DIGEST) throw new Error("WAVE_4_PARENT_DIGEST_MISMATCH");
+const parent = JSON.parse(parentRaw.toString("utf8")) as Wave4EvidenceRelease;
+const hueId = "electronics:smart-home-hub:signify:hue-bridge-8719514342620";
+const product = { exactProductId: hueId, categoryId: "SMART_HOME_HUB", manufacturer: "Signify / Philips Hue", modelCode: "EAN 8719514342620 / 12NC 929001180642", configurationIdentity: "Signify|Philips Hue Bridge|EAN 8719514342620|12NC 929001180642|Zigbee/Bluetooth/Matter via Bridge|Bridge only|TR", trApplicabilitySourceIds: ["philips-hue-tr:8719514342620"], unresolvedIdentityDiscriminators: [] } as const;
+const source = (sourceId: string, uri: string, authority: Wave4EvidenceRelease["sources"][number]["authority"], tr: "EXACT" | "NONE" = "NONE") => ({ sourceId, uri, market: "TR" as const, authority, exactProductIds: [hueId], trApplicabilityAuthority: tr, decisionAuthority: "NONE" as const });
+const sources = [
+  source("philips-hue-tr:8719514342620", "https://www.philips-hue.com/tr-tr/p/hue-hue-bridge-baglanti-koprusu/8719514342620", "TR_APPLICABILITY", "EXACT"),
+  source("philips-hue-tr:accounts", "https://www.philips-hue.com/tr-tr/explore-hue/accounts", "PRIVACY_HEALTH_SUBSCRIPTION_SAFETY"),
+  source("philips-hue-tr:privacy", "https://www.philips-hue.com/tr-tr/support/legal/privacy-policy", "PRIVACY_HEALTH_SUBSCRIPTION_SAFETY"),
+  source("philips-hue-tr:data-privacy-faq", "https://www.philips-hue.com/tr-tr/support/topic/data-privacy/100056", "PRIVACY_HEALTH_SUBSCRIPTION_SAFETY"),
+  source("philips-hue-tr:matter", "https://www.philips-hue.com/tr-tr/explore-hue/works-with/matter", "TECHNICAL"),
+  source("philips-hue:manual-322263907421", "https://www.assets.signify.com/is/content/Signify/8719514342620-322263907421", "MANUAL"),
+];
+const fact = (key: string, value: string | number, sourceId: string, locator: string) => ({ factId: `wave4-repair-fact:philips-hue-bridge:${key}`, exactProductId: hueId, categoryId: "SMART_HOME_HUB" as const, key, value, sourceId, locator, decisionEligibility: "DRAFT_POLICY_INPUT" as const, conflictState: "CLEAR" as const });
+const facts = [
+  fact("product_type", "Standalone smart home automation hub (Hue Bridge)", sources[0].sourceId, "Product description: smart home automation hub"),
+  fact("protocols", "Zigbee; Bluetooth; Matter via Hue Bridge", sources[4].sourceId, "Matter compatibility and Bridge connectivity"),
+  fact("device_capacity", "Up to 50 lights and 12 accessories", sources[0].sourceId, "Technical specifications: maximum accessories/bulbs"),
+  fact("account_cloud_local_dependency", "Ethernet-connected Bridge; account enables remote access; lights remain controllable when internet is unavailable", sources[1].sourceId, "Hue account benefits and offline control"),
+  fact("subscription", "No paid subscription requirement stated for Bridge operation; no subscription-dependent comparison claim", sources[0].sourceId, "Official product capabilities and included services"),
+  fact("privacy_data", "Account interactions may be associated with the account; specified automation location data remains on device and Bridge; factory reset advised before resale", sources[2].sourceId, "Account data, location processing, and resale reset disclosures"),
+  fact("power_safety", "Adapter input 100-240 V AC 50-60 Hz; output 5 V DC 600 mA; IP20; Class II double insulated", sources[0].sourceId, "Technical specifications: power and protection"),
+  fact("included_components", "1 Hue Bridge, 1 Ethernet cable, 1 power adapter", sources[0].sourceId, "What's in the box"),
+  fact("support_warranty", "2-year warranty; minimum defined support period 36 months after introduction", sources[0].sourceId, "Guarantee and support specifications"),
+];
+const manualPath = "data/production/electronics/wave-4-repair/manuals/philips-hue-bridge-8719514342620-manual.pdf";
+const manual = { manualId: "wave4-repair-manual:philips-hue-bridge-8719514342620", exactProductId: hueId, sourceUri: sources[5].uri, localPath: manualPath, sha256: sha(readFileSync(path.join(root, manualPath))), locators: ["Bridge user manual", "Document 3222 639 07421", "Last update 03/2021", "Signify manufacturer identity"], layer: "L9_ADVISOR_KNOWLEDGE" as const };
+const parentNonHub = {
+  products: parent.products.filter(row => row.categoryId !== "SMART_HOME_HUB"), sources: parent.sources.filter(row => !row.exactProductIds.some(id => parent.products.find(productRow => productRow.exactProductId === id)?.categoryId === "SMART_HOME_HUB")), comparativeFacts: parent.comparativeFacts.filter(row => row.categoryId !== "SMART_HOME_HUB"), manuals: parent.manuals.filter(row => parent.products.find(productRow => productRow.exactProductId === row.exactProductId)?.categoryId !== "SMART_HOME_HUB"), riskGates: parent.riskGates.filter(row => row.categoryId !== "SMART_HOME_HUB"), categoryReadiness: parent.categoryReadiness.filter(row => row.categoryId !== "SMART_HOME_HUB"), decisionProjections: parent.decisionProjections.filter(row => parent.products.find(productRow => productRow.exactProductId === row.exactProductId)?.categoryId !== "SMART_HOME_HUB"), unknownsAndConflicts: parent.unknownsAndConflicts.filter(row => parent.products.find(productRow => productRow.exactProductId === row.exactProductId)?.categoryId !== "SMART_HOME_HUB"),
+};
+const products = [...parent.products, product];
+const comparativeFacts = [...parent.comparativeFacts, ...facts];
+const hubReadiness = { categoryId: "SMART_HOME_HUB" as const, candidateCount: 2, manufacturerCount: 2, comparableFieldCount: new Set(comparativeFacts.filter(row => row.categoryId === "SMART_HOME_HUB").map(row => row.key)).size, readiness: "DECISION_EVIDENCE_READY" as const, reasons: ["TWO_EXACT_TR_STANDALONE_HUBS_FROM_INDEPENDENT_MANUFACTURERS", "PROTOCOL_CAPACITY_ACCOUNT_PRIVACY_POWER_AND_COMPONENT_EVIDENCE_BOUND"], policyStatus: "REVIEW_REQUIRED_NON_ACTIVE" as const };
+const hubGate = { categoryId: "SMART_HOME_HUB" as const, privacy: "EVIDENCED" as const, health: "NOT_APPLICABLE" as const, subscription: "UNKNOWN_NEUTRAL_NON_BLOCKING" as const, installation: "EVIDENCED" as const, electricalSafety: "EVIDENCED" as const, notes: ["Hue account, offline operation, privacy/data topology, included Ethernet/power components, and electrical protection are explicit", "No subscription-sensitive ranking claim is admitted"] };
+const decisionProjections = [...parent.decisionProjections, { projectionId: "wave4-repair-projection:philips-hue-bridge-8719514342620", exactProductId: hueId, eligibleFactIds: facts.map(row => row.factId), status: "DRAFT_NON_ACTIVE" as const, unknownTreatment: "NEUTRAL_FAIL_CLOSED" as const, rankingWeights: "NONE" as const }];
+const unknownsAndConflicts = [...parent.unknownsAndConflicts, { exactProductId: hueId, code: "L7_GOVERNED_EXPERIENCE_ABSENT", effect: "NEUTRAL_FAIL_CLOSED" as const }, { exactProductId: hueId, code: "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT", effect: "NEUTRAL_FAIL_CLOSED" as const }];
+const childNonHub = { ...parentNonHub, products: products.filter(row => row.categoryId !== "SMART_HOME_HUB"), comparativeFacts: comparativeFacts.filter(row => row.categoryId !== "SMART_HOME_HUB"), riskGates: parent.riskGates.filter(row => row.categoryId !== "SMART_HOME_HUB"), categoryReadiness: parent.categoryReadiness.filter(row => row.categoryId !== "SMART_HOME_HUB"), decisionProjections: decisionProjections.filter(row => products.find(productRow => productRow.exactProductId === row.exactProductId)?.categoryId !== "SMART_HOME_HUB"), unknownsAndConflicts: unknownsAndConflicts.filter(row => products.find(productRow => productRow.exactProductId === row.exactProductId)?.categoryId !== "SMART_HOME_HUB") };
+const subsetDigest = sha(pretty(parentNonHub));
+const release: Wave4SmartHomeHubRepairRelease = {
+  ...parent, schemaVersion: "electronics-wave-4-smart-home-hub-repair/v1", releaseVersion: ELECTRONICS_WAVE_4_SMART_HOME_HUB_REPAIR_VERSION, parent: { releaseDigest: ELECTRONICS_WAVE_4_RELEASE_DIGEST, relationship: "IMMUTABLE_CHILD_NO_OVERWRITE" },
+  products, sources: [...parent.sources, ...sources], comparativeFacts, manuals: [...parent.manuals, manual], riskGates: parent.riskGates.map(row => row.categoryId === "SMART_HOME_HUB" ? hubGate : row), categoryReadiness: parent.categoryReadiness.map(row => row.categoryId === "SMART_HOME_HUB" ? hubReadiness : row), decisionProjections, unknownsAndConflicts,
+  hubRepair: { disposition: "REPAIRED", repairedCategoryId: "SMART_HOME_HUB", addedExactProductId: hueId, independentManufacturer: "Signify / Philips Hue", productClassification: "STANDALONE_SMART_HOME_AUTOMATION_HUB" }, unchangedProof: { scope: "ALL_NON_SMART_HOME_HUB_WAVE_4_RECORDS", parentSubsetDigest: subsetDigest, childSubsetDigest: sha(pretty(childNonHub)), byteIdentical: true }, carryForward: { scope: "WAVES_1_TO_3_AND_WAVE_4_NON_HUB_RECORDS", parentReleaseDigest: ELECTRONICS_WAVE_4_RELEASE_DIGEST, parentBytesUnmodified: true },
+};
+const issues = validateWave4SmartHomeHubRepair(release); if (issues.length) throw new Error(`WAVE_4_HUB_REPAIR_INVALID:${issues.join(",")}`);
+const comparison = { schemaVersion: "electronics-wave-4-smart-home-hub-comparison/v1", categoryId: "SMART_HOME_HUB", readiness: hubReadiness, riskGates: hubGate, candidates: release.products.filter(row => row.categoryId === "SMART_HOME_HUB").map(row => ({ ...row, facts: release.comparativeFacts.filter(factRow => factRow.exactProductId === row.exactProductId) })) };
+const reconciliation = { schemaVersion: "electronics-wave-4-smart-home-hub-reconciliation/v1", parentReleaseDigest: ELECTRONICS_WAVE_4_RELEASE_DIGEST, parentArtifactPath: path.relative(root, parentPath), parentBytesUnmodified: true, unchangedProof: release.unchangedProof, repairedCategory: hubReadiness, activationEffect: "NONE" };
+const output = path.join(root, "data/production/electronics/wave-4-repair/releases", ELECTRONICS_WAVE_4_SMART_HOME_HUB_REPAIR_VERSION); mkdirSync(output, { recursive: true });
+const artifacts = { "repair-release.json": pretty(release), "comparative-coverage.json": pretty(comparison), "reconciliation.json": pretty(reconciliation) }; for (const [name, raw] of Object.entries(artifacts)) writeFileSync(path.join(output, name), raw);
+const manifest = { schemaVersion: "electronics-wave-4-smart-home-hub-repair-manifest/v1", workUnitId: "WU-ELECTRONICS-WAVE-4-SMART-HOME-HUB-EVIDENCE-REPAIR-01", releaseVersion: ELECTRONICS_WAVE_4_SMART_HOME_HUB_REPAIR_VERSION, verdict: "IMPLEMENTED", parentReleaseDigest: ELECTRONICS_WAVE_4_RELEASE_DIGEST, counts: { categoriesReady: release.categoryReadiness.filter(row => row.readiness === "DECISION_EVIDENCE_READY").length, products: release.products.length, hubCandidates: 2, hubManufacturers: 2, sources: release.sources.length, comparativeFacts: release.comparativeFacts.length, manuals: release.manuals.length, neutralUnknowns: release.unknownsAndConflicts.length }, artifacts: Object.fromEntries(Object.entries(artifacts).map(([name, raw]) => [name, sha(raw)])), manualDigest: manual.sha256, activation: release.boundaries };
+writeFileSync(path.join(output, "manifest.json"), pretty(manifest)); console.log(JSON.stringify({ output, ...manifest.counts, releaseDigest: manifest.artifacts["repair-release.json"], manifestDigest: sha(pretty(manifest)), manualDigest: manifest.manualDigest, unchangedSubsetDigest: subsetDigest }));

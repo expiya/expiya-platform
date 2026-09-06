@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "major-appliance-category-adoption-coverage/v1",
+  "categoryId": "DRYER",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+  "verdict": "ADMITTED_TO_FROZEN_CANDIDATE_RELEASE_ACTIVATION_BLOCKED_APPROVAL",
+  "counts": {
+    "priorOfferings": 3,
+    "admittedOfferings": 4,
+    "candidateOfferings": 7,
+    "newSources": 4,
+    "newEvidenceAssertions": 72,
+    "newFacts": 56,
+    "newCapabilities": 16,
+    "newDailyLifeInterpretations": 4,
+    "newDecisionProjections": 4,
+    "newAdvisorKnowledge": 0
+  },
+  "layers": {
+    "L0": "COMPLETE",
+    "L1": "COMPLETE",
+    "L2": "COMPLETE",
+    "L3": "COMPLETE",
+    "L4": "COMPLETE",
+    "L5": "COMPLETE_PLANNING_ONLY_NO_Y",
+    "L6": "COMPLETE_SEPARATE_FROM_TECHNICAL_TRUTH",
+    "L7": "ABSENT_NO_GOVERNED_EXPERIENCE",
+    "L8": "COMPLETE_NEUTRAL_UNKNOWN_LIMITED",
+    "L9": "DISABLED_NO_CHECKSUM_PINNED_EXACT_MANUAL",
+    "L10": "PARTIAL_EXTERNAL_VOLATILE_AMAZON_ONLY"
+  },
+  "perProduct": [
+    {
+      "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Base appliance warranty duration and installation inclusion are not stated on the exact page.",
+        "Exact manual bytes are not retained; L9 is disabled."
+      ]
+    },
+    {
+      "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Base appliance warranty duration and installation inclusion are not stated on the exact page.",
+        "Exact manual bytes are not retained; L9 is disabled."
+      ]
+    },
+    {
+      "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Door-open installation envelope is unknown.",
+        "Exact manual bytes are not retained; L9 is disabled."
+      ]
+    },
+    {
+      "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Door-open installation envelope and direct-drain inclusion are unknown.",
+        "Exact manual bytes are not retained; L9 is disabled."
+      ]
+    }
+  ],
+  "nonRegression": {
+    "existingOfferingsRetained": true,
+    "existingEvidenceRetained": true,
+    "activePointerChanged": false,
+    "currentYAuthorityChanged": false,
+    "rankingOrRemovalIntroduced": false
+  }
+}

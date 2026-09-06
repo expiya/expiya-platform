@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "refrigerator-richness-manifest/v1",
+  "workUnitId": "WU-XPY-APPL-REFRIGERATOR-CATALOG-RICHNESS-01",
+  "releaseVersion": "APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.2",
+  "parent": {
+    "releaseVersion": "APPLIANCES-REFRIGERATOR-TR-v0.1",
+    "artifactSha256": "4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825",
+    "relationship": "IMMUTABLE_CHILD_NO_OVERWRITE"
+  },
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "REFRIGERATOR_SEMANTIC_REGISTRY/v0.2",
+    "semanticAuthorityDigest": "sha256:b4f0d6e7fca7e66631d004503027aac6ec7cdac0c7ec51bacea189dcb7b3e02e",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "releaseDigest": "sha256:319e2c013fe6fefdf04aefdd4f2de777134aca352513b9ca07926395186eca2c",
+  "catalogArtifactSha256": "f077b355cca0899a81a41dab704bec1038b9f4de09aa6590aa3921f13fb3d0ab",
+  "semanticArtifactSha256": "3ccf07f8e50dd4a2cf1f67bc176ac41bb48f5e4b5b18b6b3b418b795e9c0bb92",
+  "coverageArtifactSha256": "a43dd945de5530ef4656c9c7b426c97dd5a645abb229d7405712c2d2544496f1",
+  "projectionsArtifactSha256": "231f5c6a063a59d3490bd444db479fc8656e318aec2788049b38a7656cbd565e",
+  "membershipDigest": "c96ef33e0d3905753f873da4734e645c16acf60381c5cb15298f8c4d3051ef2b",
+  "memberCount": 4,
+  "counts": {
+    "sources": 8,
+    "offerings": 4,
+    "objectiveFacts": 63,
+    "capabilities": 28,
+    "usageSemantics": 7,
+    "needs": 9,
+    "needEvidenceMappings": 8,
+    "personaSignals": 3,
+    "dailyLifeInterpretations": 16,
+    "experienceRules": 0,
+    "decisionProjections": 4,
+    "advisorKnowledge": 0,
+    "comparisonDimensions": 9,
+    "evidence": 91,
+    "assertionLevelEvidence": 91,
+    "advisorReadProjectionsGenerated": 4,
+    "comparisonEvidenceProjectionsGenerated": 1
+  },
+  "reviewerStatus": "AWAITING_PRODUCT_OWNER_ACTIVATION_APPROVAL",
+  "activation": {
+    "performed": false,
+    "activePointerRelease": "APPLIANCES-REFRIGERATOR-TR-v0.1"
+  }
+}

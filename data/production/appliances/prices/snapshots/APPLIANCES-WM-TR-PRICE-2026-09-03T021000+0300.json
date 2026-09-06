@@ -1,0 +1,582 @@
+{
+  "schemaVersion": "washing-machine-price-projection/v1",
+  "snapshotId": "APPLIANCES-WM-TR-PRICE-2026-09-03T021000+0300",
+  "catalogReleaseVersion": "APPLIANCES-WM-TR-v0.1",
+  "catalogReleaseDigest": "1f6c6ea12b19b32d363e1889a1c8c4b8a6a621e4bb13a22384e0e4de2c586c9e",
+  "membershipDigest": "ec5b339604209c4aa04263f19f4acdc52b6c1ff68d8b41495d0f768eabc88f9e",
+  "publishedAt": "2026-09-03T02:10:00+03:00",
+  "expiresAt": "2026-09-04T02:10:00+03:00",
+  "observationTimeDisclosure": "Underlying WU-APPL-PRICE-01 aggregator research exposed the collection date but not an exact clock time. observedDate is preserved; no retailer observation time was invented.",
+  "products": [
+    {
+      "productId": "appliances:wm:tr:beko:cmx-8100",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 22849.5,
+      "representativePriceBasis": "MIXED_SOURCE_MEDIAN",
+      "lowestObservedPriceTRY": 22799,
+      "observationCount": 2,
+      "observationRefs": [
+        "mvp-price:01",
+        "mvp-price:02"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:beko:cmxt-9120",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 23099,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 23099,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:03"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:beko:cmx-10120",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 26967.66,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 26967.66,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:04"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:beko:cmx-11140",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 28105.06,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 28105.06,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:05"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:vestel:cmi-87402-wifi",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 27900,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 27900,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:06"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:vestel:cmi-99422-wifi",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 33900,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 33900,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:07"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 35679.37,
+      "representativePriceBasis": "MIXED_SOURCE_MEDIAN",
+      "lowestObservedPriceTRY": 28859.74,
+      "observationCount": 2,
+      "observationRefs": [
+        "mvp-price:08",
+        "mvp-price:09"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:bosch:wgb244a0tr",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 64378.45,
+      "representativePriceBasis": "MIXED_SOURCE_MEDIAN",
+      "lowestObservedPriceTRY": 64300,
+      "observationCount": 2,
+      "observationRefs": [
+        "mvp-price:10",
+        "mvp-price:11"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:bosch:wgb254a1tr",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 72000,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 72000,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:12"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:bosch:wgb254axtr",
+      "status": "PRICE_UNKNOWN",
+      "representativePriceBasis": "NONE",
+      "observationRefs": [],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:bosch:wgk264y0tr",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 36662,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 36662,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:13"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:lg:f4t2vym1s",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 26680,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 26680,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:14"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:lg:f4r5vyw2t",
+      "status": "PRICE_UNKNOWN",
+      "representativePriceBasis": "NONE",
+      "observationRefs": [],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:lg:f4v5ryp0w",
+      "status": "PRICE_UNKNOWN",
+      "representativePriceBasis": "NONE",
+      "observationRefs": [],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:lg:f4y5eywyj",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 29439.08,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 29439.08,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:15"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:electrolux:ew6f3494t",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 25479.02,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 25479.02,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:16"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:electrolux:ew6f3411act",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 27599.08,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 27599.08,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:17"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:electrolux:ew7f4404ut",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 39555,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 39555,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:18"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:electrolux:ew7f4422ct",
+      "status": "PRICE_UNKNOWN",
+      "representativePriceBasis": "NONE",
+      "observationRefs": [],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:samsung:ww90cgc04daeah",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 23920,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 23920,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:19"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:samsung:ww90dg6u25leah",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 25616.25,
+      "representativePriceBasis": "AGGREGATOR_ONLY",
+      "lowestObservedPriceTRY": 25616.25,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:20"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:samsung:ww11db8b95gbah",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 40814.5,
+      "representativePriceBasis": "MIXED_SOURCE_MEDIAN",
+      "lowestObservedPriceTRY": 38430,
+      "observationCount": 2,
+      "observationRefs": [
+        "mvp-price:21",
+        "mvp-price:22"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:miele:wwa120-wcs-8kg-active",
+      "status": "PRICE_AVAILABLE",
+      "representativePriceTRY": 91990,
+      "representativePriceBasis": "SINGLE_DIRECT",
+      "lowestObservedPriceTRY": 91990,
+      "observationCount": 1,
+      "observationRefs": [
+        "mvp-price:23"
+      ],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    },
+    {
+      "productId": "appliances:wm:tr:lg:f4r3tyw3we",
+      "status": "PRICE_UNKNOWN",
+      "representativePriceBasis": "NONE",
+      "observationRefs": [],
+      "asOf": "2026-09-03T02:10:00+03:00",
+      "expiresAt": "2026-09-04T02:10:00+03:00"
+    }
+  ],
+  "observations": [
+    {
+      "observationId": "mvp-price:01",
+      "productId": "appliances:wm:tr:beko:cmx-8100",
+      "observedModelIdentifier": "CMX 8100",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/beko.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:02",
+      "productId": "appliances:wm:tr:beko:cmx-8100",
+      "observedModelIdentifier": "CMX 8100",
+      "sourceReference": "https://www.trendyol.com/beko/cmx-8100-camasir-makinesi-p-833670806",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:03",
+      "productId": "appliances:wm:tr:beko:cmxt-9120",
+      "observedModelIdentifier": "CMXT 9120",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/beko.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:04",
+      "productId": "appliances:wm:tr:beko:cmx-10120",
+      "observedModelIdentifier": "CMX 10120",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/beko.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:05",
+      "productId": "appliances:wm:tr:beko:cmx-11140",
+      "observedModelIdentifier": "CMX 11140",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/beko.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:06",
+      "productId": "appliances:wm:tr:vestel:cmi-87402-wifi",
+      "observedModelIdentifier": "CMI 87402 WIFI",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/vestel.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:07",
+      "productId": "appliances:wm:tr:vestel:cmi-99422-wifi",
+      "observedModelIdentifier": "CMI 99422 WIFI",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/vestel.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:08",
+      "productId": "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "observedModelIdentifier": "CMI 108442 WIFI",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/vestel.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:09",
+      "productId": "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "observedModelIdentifier": "CMI 108442 WIFI",
+      "sourceReference": "https://www.vestel.com.tr/vestel-cmi-108442-wifi-10-kg-1400-devir-camasir-makinesi-p-4376",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:10",
+      "productId": "appliances:wm:tr:bosch:wgb244a0tr",
+      "observedModelIdentifier": "WGB244A0TR",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/en-ucuz-bosch-wgb244a0tr-9-kg-1400-devir-fiyati%2C213006706.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:11",
+      "productId": "appliances:wm:tr:bosch:wgb244a0tr",
+      "observedModelIdentifier": "WGB244A0TR",
+      "sourceReference": "https://www.bosch-home.com.tr/tr/product/prboschwm/WGB244A0TR",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:12",
+      "productId": "appliances:wm:tr:bosch:wgb254a1tr",
+      "observedModelIdentifier": "WGB254A1TR",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/bosch.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:13",
+      "productId": "appliances:wm:tr:bosch:wgk264y0tr",
+      "observedModelIdentifier": "WGK264Y0TR",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/en-ucuz-bosch-wgk264y0tr-1400-devir-11-kg-fiyati%2C1465594421.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:14",
+      "productId": "appliances:wm:tr:lg:f4t2vym1s",
+      "observedModelIdentifier": "F4T2VYM1S",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/lg.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:15",
+      "productId": "appliances:wm:tr:lg:f4y5eywyj",
+      "observedModelIdentifier": "F4Y5EYWYJ",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/lg.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:16",
+      "productId": "appliances:wm:tr:electrolux:ew6f3494t",
+      "observedModelIdentifier": "EW6F3494T",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/electrolux.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:17",
+      "productId": "appliances:wm:tr:electrolux:ew6f3411act",
+      "observedModelIdentifier": "EW6F3411ACT",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/electrolux.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:18",
+      "productId": "appliances:wm:tr:electrolux:ew7f4404ut",
+      "observedModelIdentifier": "EW7F4404UT",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/electrolux.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:19",
+      "productId": "appliances:wm:tr:samsung:ww90cgc04daeah",
+      "observedModelIdentifier": "WW90CGC04DAEAH",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/samsung.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:20",
+      "productId": "appliances:wm:tr:samsung:ww90dg6u25leah",
+      "observedModelIdentifier": "WW90DG6U25LEAH",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/samsung.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:21",
+      "productId": "appliances:wm:tr:samsung:ww11db8b95gbah",
+      "observedModelIdentifier": "WW11DB8B95GBAH",
+      "sourceReference": "https://www.akakce.com/camasir-makinesi/en-ucuz-samsung-ww11db8b95gbah-1400-devir-11-kg-fiyati%2C917599205.html",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:22",
+      "productId": "appliances:wm:tr:samsung:ww11db8b95gbah",
+      "observedModelIdentifier": "WW11DB8B95GBAH",
+      "sourceReference": "https://www.amazon.com.tr/dp/B0DFCHC7FT",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    },
+    {
+      "observationId": "mvp-price:23",
+      "productId": "appliances:wm:tr:miele:wwa120-wcs-8kg-active",
+      "observedModelIdentifier": "WWA120 WCS 8kg Active",
+      "sourceReference": "https://m.miele.com.tr/domestic/camasir-makineleri-1566.htm?info=details&mat=12707770&name=WWA120_WCS_8kg_Active",
+      "condition": "NEW",
+      "pricePrecision": "EXACT_DISPLAYED_AMOUNT",
+      "observedAt": null,
+      "observedDate": "2026-09-03",
+      "observedAtPrecision": "DATE_ONLY_UPSTREAM_RESEARCH",
+      "recordedAt": "2026-09-03T02:10:00+03:00"
+    }
+  ],
+  "projectionFingerprint": "a743176cb85c7ff2abe090414c07f364778a73a1842782a1ee358009bdf0373f"
+}

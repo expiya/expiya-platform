@@ -21,3 +21,4 @@ create table if not exists baby_stroller_messages (
   primary key (conversation_id, message_id)
 );
 commit;
+

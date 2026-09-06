@@ -1,0 +1,34 @@
+{
+  "activationPerformed": false,
+  "activePointerHashesAfter": {
+    "data/production/catalog/active.json": "sha256:d0793c6d0b60e358e32d46c0bf07bde7121b7a0a09acaa978539fc9ceb2747cf",
+    "data/production/equipment-daily-life/active.json": "sha256:4c25ab5b88a7e437fa20c0d6d3827180f028f5580fc2ed7b92f7c7246f48ba23",
+    "data/production/equipment-evidence/active.json": "sha256:101803fb4195c8cfe724715ece539d5ba88fb797f6a0194657b2166043feee4b",
+    "data/production/personas/safe-traits/active.json": "sha256:09cdb644660aa1724370c15de5e090e85ca393e637e1a64fb86dd06a09b35667",
+    "data/production/technical-daily-life/active.json": "sha256:8724d1a786c099398114ad4cab75915ea7f85651968db17644937074b0dfe559"
+  },
+  "activePointerHashesBefore": {
+    "data/production/catalog/active.json": "sha256:d0793c6d0b60e358e32d46c0bf07bde7121b7a0a09acaa978539fc9ceb2747cf",
+    "data/production/equipment-daily-life/active.json": "sha256:4c25ab5b88a7e437fa20c0d6d3827180f028f5580fc2ed7b92f7c7246f48ba23",
+    "data/production/equipment-evidence/active.json": "sha256:101803fb4195c8cfe724715ece539d5ba88fb797f6a0194657b2166043feee4b",
+    "data/production/personas/safe-traits/active.json": "sha256:09cdb644660aa1724370c15de5e090e85ca393e637e1a64fb86dd06a09b35667",
+    "data/production/technical-daily-life/active.json": "sha256:8724d1a786c099398114ad4cab75915ea7f85651968db17644937074b0dfe559"
+  },
+  "checks": {
+    "allRowsHavePrimaryResearchTarget": true,
+    "catalogIdentitySetUnchanged": true,
+    "correctedBydManualLocatorsPresent": true,
+    "dailyLifeDecisionNeutral": true,
+    "equipmentCandidateDecisionNeutral": true,
+    "exactManualsHavePreservedMatchingBytes": true,
+    "exactVariantCount549": true,
+    "familyEvidenceNeverExactByConvenience": true,
+    "noActivePointerWritesPlanned": true,
+    "strictReadinessNotFabricated": true,
+    "uniqueExactVariantIds549": true
+  },
+  "generatedAt": "2026-09-05T01:10:00.000+03:00",
+  "releaseVersion": "v1.0.0-catalog-v0.55.4-2026-09-05",
+  "schemaVersion": "XPY_CARS_GLOBAL_EVIDENCE_DRY_RUN/v1",
+  "status": "PASS"
+}

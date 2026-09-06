@@ -1,63 +1,24 @@
-"use client";
+import type { Metadata } from "next";
+import Link from "next/link";
+import { UpperSecretary } from "@/components/platform/UpperSecretary";
+import { ROOT_DEPARTMENTS } from "@/features/platform/rootDepartmentRoadmap";
 
-import { useRouter } from "next/navigation";
-import { FormEvent, KeyboardEvent, useState } from "react";
+export const metadata: Metadata = {
+  title: "Expiya — Satın Alma Karar Platformu",
+  description: "Otomobil, ev ürünleri ve elektronik kararlarını ihtiyaçlarınıza göre, doğrulanmış bilgi sınırları içinde birlikte netleştirin.",
+  alternates: { canonical: "/" },
+};
+
 export default function Home() {
-  const router = useRouter();
-  const [query, setQuery] = useState("");
+  return <main data-xpy-platform-landing="v2-conversation-first" data-platform-default-department="NONE" className="overflow-x-clip bg-[#f7f7f5] text-stone-950">
+    <section className="min-h-dvh px-5 py-7 sm:px-8 sm:py-9">
+      <div className="mx-auto flex min-h-[calc(100dvh-3.5rem)] max-w-7xl flex-col sm:min-h-[calc(100dvh-4.5rem)]">
+        <header className="flex items-center justify-between gap-5"><Link href="/" aria-label="Expiya ana sayfa" className="text-lg font-black tracking-[.18em] focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700">EXPIYA</Link><p className="text-right text-[10px] font-medium uppercase tracking-[.22em] text-stone-500 sm:text-xs">Satın alma karar platformu</p></header>
+        <div className="flex flex-1 items-center py-14 sm:py-20"><UpperSecretary /></div>
+        <nav aria-label="Expiya departmanları" className="pb-4 pt-3"><ul className="mx-auto flex max-w-4xl flex-wrap items-baseline justify-center gap-x-6 gap-y-3">{ROOT_DEPARTMENTS.map((department) => <li key={department.id}>{department.state === "ACTIVE" ? <Link href={department.href} data-platform-department={department.id} data-department-state="ACTIVE" className="text-xl font-black uppercase tracking-[-.04em] text-stone-800 transition hover:text-emerald-800 focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700 sm:text-2xl">{department.label}</Link> : <span data-platform-department={department.id} data-department-state="FUTURE" className="cursor-default select-none text-lg font-bold uppercase tracking-[-.03em] text-stone-400 sm:text-xl">{department.label}</span>}</li>)}</ul></nav>
+      </div>
+    </section>
 
-  function submit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!query.trim()) return;
-    router.push(`/analysis?query=${encodeURIComponent(query.trim())}`);
-  }
-
-  function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
-    if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
-    event.preventDefault();
-    if (query.trim()) router.push(`/analysis?query=${encodeURIComponent(query.trim())}`);
-  }
-
-  return (
-    <main className="min-h-screen bg-gradient-to-b from-white to-neutral-50 text-neutral-950 dark:from-neutral-950 dark:to-black dark:text-neutral-50">
-      <section className="mx-auto flex max-w-5xl flex-col items-center px-6 py-24 text-center">
-
-        <div className="rounded-full border border-neutral-300 px-4 py-2 text-sm text-neutral-600 dark:border-neutral-700 dark:text-neutral-300">
-          Expiya Cars
-        </div>
-
-        <h1 className="mt-8 text-5xl font-bold tracking-tight sm:text-6xl">
-          Sizin için doğru arabayı
-          <br />
-          birlikte bulalım
-        </h1>
-
-        <p className="mt-6 max-w-2xl text-lg text-neutral-600 dark:text-neutral-300">
-          İhtiyaçlarınızı anlatın; seçenekleri bir arkadaş gibi konuşup sonunda
-          net ve gerekçeli bir karara ulaşalım.
-        </p>
-
-        <form onSubmit={submit} className="flex w-full flex-col items-center">
-        <label htmlFor="initial-car-message" className="sr-only">İlk mesajınız</label>
-        <textarea
-  id="initial-car-message"
-  value={query}
-  onChange={(e) => setQuery(e.target.value)}
-  onKeyDown={handleKeyDown}
-  placeholder="Hadi başlayalım… Aklınızdaki aracı veya ihtiyacınızı anlatın."
-  className="mt-10 h-40 w-full max-w-3xl rounded-2xl border border-neutral-300 bg-white p-6 text-lg text-neutral-950 outline-none focus:border-black dark:border-neutral-700 dark:bg-neutral-900 dark:text-neutral-50 dark:focus:border-neutral-400"
-/>
-
-        <button
-  type="submit"
-  disabled={!query.trim()}
-  className="mt-8 rounded-xl bg-neutral-950 px-8 py-4 font-semibold text-white! transition hover:bg-neutral-800 disabled:opacity-40 dark:bg-neutral-800 dark:text-white! dark:hover:bg-neutral-700"
->
-  Aracımı Bul
-</button>
-        </form>
-
-      </section>
-    </main>
-  );
+    <footer className="border-t border-stone-200 bg-white"><div className="mx-auto flex max-w-7xl flex-col gap-5 px-5 py-8 text-sm text-stone-600 sm:px-8 md:flex-row md:items-center md:justify-between lg:px-12"><p><strong className="text-stone-950">EXPIYA</strong><span className="ml-2">Experience. Powered by You.</span></p><nav aria-label="Site bağlantıları" className="flex flex-wrap gap-x-5 gap-y-2"><Link href="/appliances">Ev ürünleri</Link><Link href="/cars">Otomobil</Link><Link href="/electronics">Elektronik</Link><Link href="/expiya-nedir">Expiya nedir?</Link><Link href="/gizlilik">Gizlilik ve KVKK</Link></nav></div></footer>
+  </main>;
 }

@@ -1,0 +1,3480 @@
+{
+  "schemaVersion": "vacuum-read-projection-verification/v1",
+  "status": "NON_PRODUCTION_GOVERNANCE_VERIFICATION",
+  "entitlementAuthority": "SYNTHETIC_TEST_ONLY_NOT_USER_ACCESS",
+  "comparison": {
+    "schemaVersion": "XPY_COMPARISON_EVIDENCE_PROJECTION/v0.1",
+    "readOnly": true,
+    "catalogReleaseId": "appliances:vacuum:catalog-richness:tr:v0.2",
+    "catalogReleaseDigest": "sha256:634f439774b166d30e895000ca18c77360f473c62cfca01a7333afedcbcfc880",
+    "market": "TR",
+    "authorization": {
+      "purchaseStatus": "PURCHASED",
+      "entitlementId": "GOVERNANCE-VERIFICATION-NON-PRODUCTION",
+      "comparisonSetId": "VACUUM-EXACT-SET-GOVERNANCE-VERIFICATION",
+      "exactOfferingIds": [
+        "PHILIPS_FC9330_07_TR",
+        "PHILIPS_FC9750_07_TR",
+        "BOSCH_BGC21X300_TR",
+        "BOSCH_BGC41PET_TR"
+      ]
+    },
+    "offerings": [
+      {
+        "offeringId": "PHILIPS_FC9330_07_TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Philips",
+          "model": "FC9330/07",
+          "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+          "identifiers": {
+            "productId": "PHILIPS_FC9330_07_TR"
+          }
+        }
+      },
+      {
+        "offeringId": "PHILIPS_FC9750_07_TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Philips",
+          "model": "FC9750/07",
+          "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+          "identifiers": {
+            "productId": "PHILIPS_FC9750_07_TR"
+          }
+        }
+      },
+      {
+        "offeringId": "BOSCH_BGC21X300_TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Bosch",
+          "model": "BGC21X300",
+          "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+          "identifiers": {
+            "productId": "BOSCH_BGC21X300_TR"
+          }
+        }
+      },
+      {
+        "offeringId": "BOSCH_BGC41PET_TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Bosch",
+          "model": "BGC41PET",
+          "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+          "identifiers": {
+            "productId": "BOSCH_BGC41PET_TR"
+          }
+        }
+      }
+    ],
+    "evidence": [
+      {
+        "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:capacity",
+        "kind": "TECHNICAL",
+        "sourceId": "PHILIPS-FC9330-07-TR",
+        "assertionId": "vacuum-fact:philips_fc9330_07_tr:capacity",
+        "offeringIds": [
+          "PHILIPS_FC9330_07_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.capacity",
+          "value": 1.5,
+          "unit": "L",
+          "applicability": {
+            "offeringId": "PHILIPS_FC9330_07_TR",
+            "market": "TR",
+            "model": "FC9330/07",
+            "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:radiusM",
+        "kind": "TECHNICAL",
+        "sourceId": "PHILIPS-FC9330-07-TR",
+        "assertionId": "vacuum-fact:philips_fc9330_07_tr:radiusM",
+        "offeringIds": [
+          "PHILIPS_FC9330_07_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.radiusM",
+          "value": 9,
+          "unit": "m",
+          "applicability": {
+            "offeringId": "PHILIPS_FC9330_07_TR",
+            "market": "TR",
+            "model": "FC9330/07",
+            "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:massKg",
+        "kind": "TECHNICAL",
+        "sourceId": "PHILIPS-FC9330-07-TR",
+        "assertionId": "vacuum-fact:philips_fc9330_07_tr:massKg",
+        "offeringIds": [
+          "PHILIPS_FC9330_07_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.massKg",
+          "value": 4.5,
+          "unit": "kg",
+          "applicability": {
+            "offeringId": "PHILIPS_FC9330_07_TR",
+            "market": "TR",
+            "model": "FC9330/07",
+            "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:noiseDbA",
+        "kind": "TECHNICAL",
+        "sourceId": "PHILIPS-FC9330-07-TR",
+        "assertionId": "vacuum-fact:philips_fc9330_07_tr:noiseDbA",
+        "offeringIds": [
+          "PHILIPS_FC9330_07_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.noiseDbA",
+          "value": 76,
+          "unit": "dB(A)",
+          "applicability": {
+            "offeringId": "PHILIPS_FC9330_07_TR",
+            "market": "TR",
+            "model": "FC9330/07",
+            "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-capability:philips_fc9330_07_tr:petHead",
+        "kind": "CAPABILITY",
+        "sourceId": "PHILIPS-FC9330-07-TR",
+        "assertionId": "vacuum-capability:philips_fc9330_07_tr:petHead",
+        "offeringIds": [
+          "PHILIPS_FC9330_07_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+        ],
+        "assertion": {
+          "locator": "parent.capabilities.petHead",
+          "value": false,
+          "applicability": {
+            "offeringId": "PHILIPS_FC9330_07_TR",
+            "market": "TR",
+            "model": "FC9330/07",
+            "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-capability:philips_fc9330_07_tr:washableFilter",
+        "kind": "CAPABILITY",
+        "sourceId": "PHILIPS-FC9330-07-TR",
+        "assertionId": "vacuum-capability:philips_fc9330_07_tr:washableFilter",
+        "offeringIds": [
+          "PHILIPS_FC9330_07_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+        ],
+        "assertion": {
+          "locator": "parent.capabilities.washableFilter",
+          "value": true,
+          "applicability": {
+            "offeringId": "PHILIPS_FC9330_07_TR",
+            "market": "TR",
+            "model": "FC9330/07",
+            "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:capacity",
+        "kind": "TECHNICAL",
+        "sourceId": "PHILIPS-FC9750-07-TR",
+        "assertionId": "vacuum-fact:philips_fc9750_07_tr:capacity",
+        "offeringIds": [
+          "PHILIPS_FC9750_07_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.capacity",
+          "value": 2,
+          "unit": "L",
+          "applicability": {
+            "offeringId": "PHILIPS_FC9750_07_TR",
+            "market": "TR",
+            "model": "FC9750/07",
+            "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:radiusM",
+        "kind": "TECHNICAL",
+        "sourceId": "PHILIPS-FC9750-07-TR",
+        "assertionId": "vacuum-fact:philips_fc9750_07_tr:radiusM",
+        "offeringIds": [
+          "PHILIPS_FC9750_07_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.radiusM",
+          "value": 10,
+          "unit": "m",
+          "applicability": {
+            "offeringId": "PHILIPS_FC9750_07_TR",
+            "market": "TR",
+            "model": "FC9750/07",
+            "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:massKg",
+        "kind": "TECHNICAL",
+        "sourceId": "PHILIPS-FC9750-07-TR",
+        "assertionId": "vacuum-fact:philips_fc9750_07_tr:massKg",
+        "offeringIds": [
+          "PHILIPS_FC9750_07_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.massKg",
+          "value": 5.5,
+          "unit": "kg",
+          "applicability": {
+            "offeringId": "PHILIPS_FC9750_07_TR",
+            "market": "TR",
+            "model": "FC9750/07",
+            "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:noiseDbA",
+        "kind": "TECHNICAL",
+        "sourceId": "PHILIPS-FC9750-07-TR",
+        "assertionId": "vacuum-fact:philips_fc9750_07_tr:noiseDbA",
+        "offeringIds": [
+          "PHILIPS_FC9750_07_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.noiseDbA",
+          "value": 75,
+          "unit": "dB(A)",
+          "applicability": {
+            "offeringId": "PHILIPS_FC9750_07_TR",
+            "market": "TR",
+            "model": "FC9750/07",
+            "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-capability:philips_fc9750_07_tr:petHead",
+        "kind": "CAPABILITY",
+        "sourceId": "PHILIPS-FC9750-07-TR",
+        "assertionId": "vacuum-capability:philips_fc9750_07_tr:petHead",
+        "offeringIds": [
+          "PHILIPS_FC9750_07_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+        ],
+        "assertion": {
+          "locator": "parent.capabilities.petHead",
+          "value": false,
+          "applicability": {
+            "offeringId": "PHILIPS_FC9750_07_TR",
+            "market": "TR",
+            "model": "FC9750/07",
+            "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-capability:philips_fc9750_07_tr:washableFilter",
+        "kind": "CAPABILITY",
+        "sourceId": "PHILIPS-FC9750-07-TR",
+        "assertionId": "vacuum-capability:philips_fc9750_07_tr:washableFilter",
+        "offeringIds": [
+          "PHILIPS_FC9750_07_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+        ],
+        "assertion": {
+          "locator": "parent.capabilities.washableFilter",
+          "value": true,
+          "applicability": {
+            "offeringId": "PHILIPS_FC9750_07_TR",
+            "market": "TR",
+            "model": "FC9750/07",
+            "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:capacity",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-BGC21X300-TR",
+        "assertionId": "vacuum-fact:bosch_bgc21x300_tr:capacity",
+        "offeringIds": [
+          "BOSCH_BGC21X300_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.capacity",
+          "value": 2,
+          "unit": "L",
+          "applicability": {
+            "offeringId": "BOSCH_BGC21X300_TR",
+            "market": "TR",
+            "model": "BGC21X300",
+            "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:radiusM",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-BGC21X300-TR",
+        "assertionId": "vacuum-fact:bosch_bgc21x300_tr:radiusM",
+        "offeringIds": [
+          "BOSCH_BGC21X300_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.radiusM",
+          "value": 10,
+          "unit": "m",
+          "applicability": {
+            "offeringId": "BOSCH_BGC21X300_TR",
+            "market": "TR",
+            "model": "BGC21X300",
+            "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:massKg",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-BGC21X300-TR",
+        "assertionId": "vacuum-fact:bosch_bgc21x300_tr:massKg",
+        "offeringIds": [
+          "BOSCH_BGC21X300_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.massKg",
+          "value": 4.7,
+          "unit": "kg",
+          "applicability": {
+            "offeringId": "BOSCH_BGC21X300_TR",
+            "market": "TR",
+            "model": "BGC21X300",
+            "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:noiseDbA",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-BGC21X300-TR",
+        "assertionId": "vacuum-fact:bosch_bgc21x300_tr:noiseDbA",
+        "offeringIds": [
+          "BOSCH_BGC21X300_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.noiseDbA",
+          "value": 76,
+          "unit": "dB(A)",
+          "applicability": {
+            "offeringId": "BOSCH_BGC21X300_TR",
+            "market": "TR",
+            "model": "BGC21X300",
+            "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-capability:bosch_bgc21x300_tr:petHead",
+        "kind": "CAPABILITY",
+        "sourceId": "BOSCH-BGC21X300-TR",
+        "assertionId": "vacuum-capability:bosch_bgc21x300_tr:petHead",
+        "offeringIds": [
+          "BOSCH_BGC21X300_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+        ],
+        "assertion": {
+          "locator": "parent.capabilities.petHead",
+          "value": false,
+          "applicability": {
+            "offeringId": "BOSCH_BGC21X300_TR",
+            "market": "TR",
+            "model": "BGC21X300",
+            "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-capability:bosch_bgc21x300_tr:washableFilter",
+        "kind": "CAPABILITY",
+        "sourceId": "BOSCH-BGC21X300-TR",
+        "assertionId": "vacuum-capability:bosch_bgc21x300_tr:washableFilter",
+        "offeringIds": [
+          "BOSCH_BGC21X300_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+        ],
+        "assertion": {
+          "locator": "parent.capabilities.washableFilter",
+          "value": true,
+          "applicability": {
+            "offeringId": "BOSCH_BGC21X300_TR",
+            "market": "TR",
+            "model": "BGC21X300",
+            "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:capacity",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-BGC41PET-TR",
+        "assertionId": "vacuum-fact:bosch_bgc41pet_tr:capacity",
+        "offeringIds": [
+          "BOSCH_BGC41PET_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.capacity",
+          "value": 2.4,
+          "unit": "L",
+          "applicability": {
+            "offeringId": "BOSCH_BGC41PET_TR",
+            "market": "TR",
+            "model": "BGC41PET",
+            "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:radiusM",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-BGC41PET-TR",
+        "assertionId": "vacuum-fact:bosch_bgc41pet_tr:radiusM",
+        "offeringIds": [
+          "BOSCH_BGC41PET_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.radiusM",
+          "value": 10,
+          "unit": "m",
+          "applicability": {
+            "offeringId": "BOSCH_BGC41PET_TR",
+            "market": "TR",
+            "model": "BGC41PET",
+            "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:massKg",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-BGC41PET-TR",
+        "assertionId": "vacuum-fact:bosch_bgc41pet_tr:massKg",
+        "offeringIds": [
+          "BOSCH_BGC41PET_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.massKg",
+          "value": 5.6,
+          "unit": "kg",
+          "applicability": {
+            "offeringId": "BOSCH_BGC41PET_TR",
+            "market": "TR",
+            "model": "BGC41PET",
+            "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:noiseDbA",
+        "kind": "TECHNICAL",
+        "sourceId": "BOSCH-BGC41PET-TR",
+        "assertionId": "vacuum-fact:bosch_bgc41pet_tr:noiseDbA",
+        "offeringIds": [
+          "BOSCH_BGC41PET_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Exact manufacturer-listed configuration only."
+        ],
+        "assertion": {
+          "locator": "parent.technicalFacts.noiseDbA",
+          "value": 72,
+          "unit": "dB(A)",
+          "applicability": {
+            "offeringId": "BOSCH_BGC41PET_TR",
+            "market": "TR",
+            "model": "BGC41PET",
+            "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-capability:bosch_bgc41pet_tr:petHead",
+        "kind": "CAPABILITY",
+        "sourceId": "BOSCH-BGC41PET-TR",
+        "assertionId": "vacuum-capability:bosch_bgc41pet_tr:petHead",
+        "offeringIds": [
+          "BOSCH_BGC41PET_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+        ],
+        "assertion": {
+          "locator": "parent.capabilities.petHead",
+          "value": true,
+          "applicability": {
+            "offeringId": "BOSCH_BGC41PET_TR",
+            "market": "TR",
+            "model": "BGC41PET",
+            "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "vacuum-evidence-capability:bosch_bgc41pet_tr:washableFilter",
+        "kind": "CAPABILITY",
+        "sourceId": "BOSCH-BGC41PET-TR",
+        "assertionId": "vacuum-capability:bosch_bgc41pet_tr:washableFilter",
+        "offeringIds": [
+          "BOSCH_BGC41PET_TR"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "VERIFIED",
+        "limitations": [
+          "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+        ],
+        "assertion": {
+          "locator": "parent.capabilities.washableFilter",
+          "value": true,
+          "applicability": {
+            "offeringId": "BOSCH_BGC41PET_TR",
+            "market": "TR",
+            "model": "BGC41PET",
+            "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+            "status": "EXACT"
+          }
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": "PHILIPS-FC9330-07-TR",
+        "kind": "OFFICIAL",
+        "uri": "https://www.philips.com.tr/c-p/FC9330_07/powerpro-compact-torbasiz-elektrikli-suepuerge",
+        "version": "observed-2026-09-03",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "VERIFIED",
+        "language": "tr-TR"
+      },
+      {
+        "sourceId": "PHILIPS-FC9750-07-TR",
+        "kind": "OFFICIAL",
+        "uri": "https://www.philips.com.tr/c-p/FC9750_07/7000-series-torbasiz-elektrikli-suepuerge",
+        "version": "observed-2026-09-03",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "VERIFIED",
+        "language": "tr-TR"
+      },
+      {
+        "sourceId": "BOSCH-BGC21X300-TR",
+        "kind": "OFFICIAL",
+        "uri": "https://www.bosch-home.com.tr/tr/product/elektrikli-supurgeler/toz-torbasiz-elektrikli-supurgeler/BGC21X300",
+        "version": "observed-2026-09-03",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "VERIFIED",
+        "language": "tr-TR"
+      },
+      {
+        "sourceId": "BOSCH-BGC41PET-TR",
+        "kind": "OFFICIAL",
+        "uri": "https://www.bosch-home.com.tr/tr/product/elektrikli-supurgeler/toz-torbasiz-elektrikli-supurgeler/BGC41PET",
+        "version": "observed-2026-09-03",
+        "observedAt": "2026-09-03T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "VERIFIED",
+        "language": "tr-TR"
+      }
+    ],
+    "dailyLifeInterpretations": [
+      {
+        "interpretationId": "vacuum-interpretation:philips_fc9330_07_tr:handling",
+        "offeringId": "PHILIPS_FC9330_07_TR",
+        "text": "Capacity, operating radius and published mass can inform bounded emptying, reach and carrying discussions.",
+        "factIds": [
+          "vacuum-fact:philips_fc9330_07_tr:capacity",
+          "vacuum-fact:philips_fc9330_07_tr:radiusM",
+          "vacuum-fact:philips_fc9330_07_tr:massKg"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:philips_fc9330_07_tr:noise-power",
+        "offeringId": "PHILIPS_FC9330_07_TR",
+        "text": "Declared noise may be displayed on the same measurement basis; input watts cannot stand in for suction or cleaning performance.",
+        "factIds": [
+          "vacuum-fact:philips_fc9330_07_tr:inputPowerMaxW",
+          "vacuum-fact:philips_fc9330_07_tr:noiseDbA"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:philips_fc9330_07_tr:filtration-care",
+        "offeringId": "PHILIPS_FC9330_07_TR",
+        "text": "Exact filtration label, HEPA and washable-filter states can answer bounded filter and care questions only.",
+        "factIds": [
+          "vacuum-fact:philips_fc9330_07_tr:filtrationStandard"
+        ],
+        "capabilityIds": [
+          "vacuum-capability:philips_fc9330_07_tr:hepa",
+          "vacuum-capability:philips_fc9330_07_tr:washableFilter"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:philips_fc9330_07_tr:heads",
+        "offeringId": "PHILIPS_FC9330_07_TR",
+        "text": "Exact supplied-head states can answer whether the governed configuration lists a requested head.",
+        "factIds": [],
+        "capabilityIds": [
+          "vacuum-capability:philips_fc9330_07_tr:petHead",
+          "vacuum-capability:philips_fc9330_07_tr:triActiveHead"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:philips_fc9750_07_tr:handling",
+        "offeringId": "PHILIPS_FC9750_07_TR",
+        "text": "Capacity, operating radius and published mass can inform bounded emptying, reach and carrying discussions.",
+        "factIds": [
+          "vacuum-fact:philips_fc9750_07_tr:capacity",
+          "vacuum-fact:philips_fc9750_07_tr:radiusM",
+          "vacuum-fact:philips_fc9750_07_tr:massKg"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:philips_fc9750_07_tr:noise-power",
+        "offeringId": "PHILIPS_FC9750_07_TR",
+        "text": "Declared noise may be displayed on the same measurement basis; input watts cannot stand in for suction or cleaning performance.",
+        "factIds": [
+          "vacuum-fact:philips_fc9750_07_tr:inputPowerMaxW",
+          "vacuum-fact:philips_fc9750_07_tr:noiseDbA"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:philips_fc9750_07_tr:filtration-care",
+        "offeringId": "PHILIPS_FC9750_07_TR",
+        "text": "Exact filtration label, HEPA and washable-filter states can answer bounded filter and care questions only.",
+        "factIds": [
+          "vacuum-fact:philips_fc9750_07_tr:filtrationStandard"
+        ],
+        "capabilityIds": [
+          "vacuum-capability:philips_fc9750_07_tr:hepa",
+          "vacuum-capability:philips_fc9750_07_tr:washableFilter"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:philips_fc9750_07_tr:heads",
+        "offeringId": "PHILIPS_FC9750_07_TR",
+        "text": "Exact supplied-head states can answer whether the governed configuration lists a requested head.",
+        "factIds": [],
+        "capabilityIds": [
+          "vacuum-capability:philips_fc9750_07_tr:petHead",
+          "vacuum-capability:philips_fc9750_07_tr:carpetHead",
+          "vacuum-capability:philips_fc9750_07_tr:hardFloorHead"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:bosch_bgc21x300_tr:handling",
+        "offeringId": "BOSCH_BGC21X300_TR",
+        "text": "Capacity, operating radius and published mass can inform bounded emptying, reach and carrying discussions.",
+        "factIds": [
+          "vacuum-fact:bosch_bgc21x300_tr:capacity",
+          "vacuum-fact:bosch_bgc21x300_tr:radiusM",
+          "vacuum-fact:bosch_bgc21x300_tr:massKg"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:bosch_bgc21x300_tr:noise-power",
+        "offeringId": "BOSCH_BGC21X300_TR",
+        "text": "Declared noise may be displayed on the same measurement basis; input watts cannot stand in for suction or cleaning performance.",
+        "factIds": [
+          "vacuum-fact:bosch_bgc21x300_tr:inputPowerMaxW",
+          "vacuum-fact:bosch_bgc21x300_tr:noiseDbA"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:bosch_bgc21x300_tr:filtration-care",
+        "offeringId": "BOSCH_BGC21X300_TR",
+        "text": "Exact filtration label, HEPA and washable-filter states can answer bounded filter and care questions only.",
+        "factIds": [
+          "vacuum-fact:bosch_bgc21x300_tr:filtrationStandard"
+        ],
+        "capabilityIds": [
+          "vacuum-capability:bosch_bgc21x300_tr:hepa",
+          "vacuum-capability:bosch_bgc21x300_tr:washableFilter"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:bosch_bgc21x300_tr:heads",
+        "offeringId": "BOSCH_BGC21X300_TR",
+        "text": "Exact supplied-head states can answer whether the governed configuration lists a requested head.",
+        "factIds": [],
+        "capabilityIds": [
+          "vacuum-capability:bosch_bgc21x300_tr:petHead"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:bosch_bgc41pet_tr:handling",
+        "offeringId": "BOSCH_BGC41PET_TR",
+        "text": "Capacity, operating radius and published mass can inform bounded emptying, reach and carrying discussions.",
+        "factIds": [
+          "vacuum-fact:bosch_bgc41pet_tr:capacity",
+          "vacuum-fact:bosch_bgc41pet_tr:radiusM",
+          "vacuum-fact:bosch_bgc41pet_tr:massKg"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:bosch_bgc41pet_tr:noise-power",
+        "offeringId": "BOSCH_BGC41PET_TR",
+        "text": "Declared noise may be displayed on the same measurement basis; input watts cannot stand in for suction or cleaning performance.",
+        "factIds": [
+          "vacuum-fact:bosch_bgc41pet_tr:inputPowerMaxW",
+          "vacuum-fact:bosch_bgc41pet_tr:noiseDbA"
+        ],
+        "capabilityIds": [],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:bosch_bgc41pet_tr:filtration-care",
+        "offeringId": "BOSCH_BGC41PET_TR",
+        "text": "Exact filtration label, HEPA and washable-filter states can answer bounded filter and care questions only.",
+        "factIds": [
+          "vacuum-fact:bosch_bgc41pet_tr:filtrationStandard"
+        ],
+        "capabilityIds": [
+          "vacuum-capability:bosch_bgc41pet_tr:hepa",
+          "vacuum-capability:bosch_bgc41pet_tr:washableFilter"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      },
+      {
+        "interpretationId": "vacuum-interpretation:bosch_bgc41pet_tr:heads",
+        "offeringId": "BOSCH_BGC41PET_TR",
+        "text": "Exact supplied-head states can answer whether the governed configuration lists a requested head.",
+        "factIds": [],
+        "capabilityIds": [
+          "vacuum-capability:bosch_bgc41pet_tr:petHead"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "Interpretation is bounded to exact published facts and feature states."
+        ],
+        "nonGuarantees": [
+          "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+        ]
+      }
+    ],
+    "advisorKnowledge": [],
+    "rules": {
+      "unknownTreatment": "NEUTRAL_NO_PENALTY",
+      "incomparableTreatment": "FAIL_CLOSED",
+      "dimensionAndLabelAuthority": "DOMAIN_PACK_ONLY",
+      "decisionAuthority": "NONE"
+    },
+    "dimensions": [
+      {
+        "dimensionId": "vacuum.capacity",
+        "humanLabel": "Toz haznesi kapasitesi",
+        "scope": "EXACT_TR_CONFIGURATION_SAME_CONTEXT_L",
+        "cells": [
+          {
+            "offeringId": "PHILIPS_FC9330_07_TR",
+            "state": "KNOWN",
+            "value": 1.5,
+            "unit": "L",
+            "evidenceIds": [
+              "vacuum-evidence-fact:philips_fc9330_07_tr:capacity"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          },
+          {
+            "offeringId": "PHILIPS_FC9750_07_TR",
+            "state": "KNOWN",
+            "value": 2,
+            "unit": "L",
+            "evidenceIds": [
+              "vacuum-evidence-fact:philips_fc9750_07_tr:capacity"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_BGC21X300_TR",
+            "state": "KNOWN",
+            "value": 2,
+            "unit": "L",
+            "evidenceIds": [
+              "vacuum-evidence-fact:bosch_bgc21x300_tr:capacity"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_BGC41PET_TR",
+            "state": "KNOWN",
+            "value": 2.4,
+            "unit": "L",
+            "evidenceIds": [
+              "vacuum-evidence-fact:bosch_bgc41pet_tr:capacity"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          }
+        ]
+      },
+      {
+        "dimensionId": "vacuum.radius",
+        "humanLabel": "Çalışma yarıçapı",
+        "scope": "EXACT_TR_CONFIGURATION_SAME_CONTEXT_m",
+        "cells": [
+          {
+            "offeringId": "PHILIPS_FC9330_07_TR",
+            "state": "KNOWN",
+            "value": 9,
+            "unit": "m",
+            "evidenceIds": [
+              "vacuum-evidence-fact:philips_fc9330_07_tr:radiusM"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          },
+          {
+            "offeringId": "PHILIPS_FC9750_07_TR",
+            "state": "KNOWN",
+            "value": 10,
+            "unit": "m",
+            "evidenceIds": [
+              "vacuum-evidence-fact:philips_fc9750_07_tr:radiusM"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_BGC21X300_TR",
+            "state": "KNOWN",
+            "value": 10,
+            "unit": "m",
+            "evidenceIds": [
+              "vacuum-evidence-fact:bosch_bgc21x300_tr:radiusM"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_BGC41PET_TR",
+            "state": "KNOWN",
+            "value": 10,
+            "unit": "m",
+            "evidenceIds": [
+              "vacuum-evidence-fact:bosch_bgc41pet_tr:radiusM"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          }
+        ]
+      },
+      {
+        "dimensionId": "vacuum.mass",
+        "humanLabel": "Yayınlanan ağırlık",
+        "scope": "EXACT_TR_CONFIGURATION_SAME_CONTEXT_kg",
+        "cells": [
+          {
+            "offeringId": "PHILIPS_FC9330_07_TR",
+            "state": "KNOWN",
+            "value": 4.5,
+            "unit": "kg",
+            "evidenceIds": [
+              "vacuum-evidence-fact:philips_fc9330_07_tr:massKg"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          },
+          {
+            "offeringId": "PHILIPS_FC9750_07_TR",
+            "state": "KNOWN",
+            "value": 5.5,
+            "unit": "kg",
+            "evidenceIds": [
+              "vacuum-evidence-fact:philips_fc9750_07_tr:massKg"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_BGC21X300_TR",
+            "state": "KNOWN",
+            "value": 4.7,
+            "unit": "kg",
+            "evidenceIds": [
+              "vacuum-evidence-fact:bosch_bgc21x300_tr:massKg"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_BGC41PET_TR",
+            "state": "KNOWN",
+            "value": 5.6,
+            "unit": "kg",
+            "evidenceIds": [
+              "vacuum-evidence-fact:bosch_bgc41pet_tr:massKg"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          }
+        ]
+      },
+      {
+        "dimensionId": "vacuum.noise",
+        "humanLabel": "Yayınlanan gürültü",
+        "scope": "EXACT_TR_CONFIGURATION_SAME_CONTEXT_dB(A)",
+        "cells": [
+          {
+            "offeringId": "PHILIPS_FC9330_07_TR",
+            "state": "KNOWN",
+            "value": 76,
+            "unit": "dB(A)",
+            "evidenceIds": [
+              "vacuum-evidence-fact:philips_fc9330_07_tr:noiseDbA"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          },
+          {
+            "offeringId": "PHILIPS_FC9750_07_TR",
+            "state": "KNOWN",
+            "value": 75,
+            "unit": "dB(A)",
+            "evidenceIds": [
+              "vacuum-evidence-fact:philips_fc9750_07_tr:noiseDbA"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_BGC21X300_TR",
+            "state": "KNOWN",
+            "value": 76,
+            "unit": "dB(A)",
+            "evidenceIds": [
+              "vacuum-evidence-fact:bosch_bgc21x300_tr:noiseDbA"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_BGC41PET_TR",
+            "state": "KNOWN",
+            "value": 72,
+            "unit": "dB(A)",
+            "evidenceIds": [
+              "vacuum-evidence-fact:bosch_bgc41pet_tr:noiseDbA"
+            ],
+            "limitations": [
+              "Exact manufacturer-listed configuration only."
+            ]
+          }
+        ]
+      },
+      {
+        "dimensionId": "vacuum.pet-head",
+        "humanLabel": "Evcil hayvan başlığı",
+        "scope": "EXACT_TR_CONFIGURATION_FEATURE_STATE",
+        "cells": [
+          {
+            "offeringId": "PHILIPS_FC9330_07_TR",
+            "state": "KNOWN",
+            "value": "ABSENT",
+            "evidenceIds": [
+              "vacuum-evidence-capability:philips_fc9330_07_tr:petHead"
+            ],
+            "limitations": [
+              "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed.",
+              "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+            ]
+          },
+          {
+            "offeringId": "PHILIPS_FC9750_07_TR",
+            "state": "KNOWN",
+            "value": "ABSENT",
+            "evidenceIds": [
+              "vacuum-evidence-capability:philips_fc9750_07_tr:petHead"
+            ],
+            "limitations": [
+              "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed.",
+              "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_BGC21X300_TR",
+            "state": "KNOWN",
+            "value": "ABSENT",
+            "evidenceIds": [
+              "vacuum-evidence-capability:bosch_bgc21x300_tr:petHead"
+            ],
+            "limitations": [
+              "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed.",
+              "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_BGC41PET_TR",
+            "state": "KNOWN",
+            "value": "PRESENT",
+            "evidenceIds": [
+              "vacuum-evidence-capability:bosch_bgc41pet_tr:petHead"
+            ],
+            "limitations": [
+              "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed.",
+              "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+            ]
+          }
+        ]
+      },
+      {
+        "dimensionId": "vacuum.washable-filter",
+        "humanLabel": "Yıkanabilir filtre",
+        "scope": "EXACT_TR_CONFIGURATION_FEATURE_STATE",
+        "cells": [
+          {
+            "offeringId": "PHILIPS_FC9330_07_TR",
+            "state": "KNOWN",
+            "value": "PRESENT",
+            "evidenceIds": [
+              "vacuum-evidence-capability:philips_fc9330_07_tr:washableFilter"
+            ],
+            "limitations": [
+              "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed.",
+              "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+            ]
+          },
+          {
+            "offeringId": "PHILIPS_FC9750_07_TR",
+            "state": "KNOWN",
+            "value": "PRESENT",
+            "evidenceIds": [
+              "vacuum-evidence-capability:philips_fc9750_07_tr:washableFilter"
+            ],
+            "limitations": [
+              "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed.",
+              "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_BGC21X300_TR",
+            "state": "KNOWN",
+            "value": "PRESENT",
+            "evidenceIds": [
+              "vacuum-evidence-capability:bosch_bgc21x300_tr:washableFilter"
+            ],
+            "limitations": [
+              "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed.",
+              "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+            ]
+          },
+          {
+            "offeringId": "BOSCH_BGC41PET_TR",
+            "state": "KNOWN",
+            "value": "PRESENT",
+            "evidenceIds": [
+              "vacuum-evidence-capability:bosch_bgc41pet_tr:washableFilter"
+            ],
+            "limitations": [
+              "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed.",
+              "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "advisors": [
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "GOVERNANCE-VERIFICATION:PHILIPS_FC9330_07_TR",
+        "exactOfferingId": "PHILIPS_FC9330_07_TR"
+      },
+      "catalogReleaseId": "appliances:vacuum:catalog-richness:tr:v0.2",
+      "catalogReleaseDigest": "sha256:634f439774b166d30e895000ca18c77360f473c62cfca01a7333afedcbcfc880",
+      "offering": {
+        "offeringId": "PHILIPS_FC9330_07_TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Philips",
+          "model": "FC9330/07",
+          "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+          "identifiers": {
+            "productId": "PHILIPS_FC9330_07_TR"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "vacuum-fact:philips_fc9330_07_tr:capacity",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "key": "capacity",
+          "value": 1.5,
+          "unit": "L",
+          "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:capacity"
+        },
+        {
+          "factId": "vacuum-fact:philips_fc9330_07_tr:inputPowerMaxW",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "key": "inputPowerMaxW",
+          "value": 900,
+          "unit": "W input",
+          "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:inputPowerMaxW"
+        },
+        {
+          "factId": "vacuum-fact:philips_fc9330_07_tr:radiusM",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "key": "radiusM",
+          "value": 9,
+          "unit": "m",
+          "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:radiusM"
+        },
+        {
+          "factId": "vacuum-fact:philips_fc9330_07_tr:massKg",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "key": "massKg",
+          "value": 4.5,
+          "unit": "kg",
+          "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:massKg"
+        },
+        {
+          "factId": "vacuum-fact:philips_fc9330_07_tr:noiseDbA",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "key": "noiseDbA",
+          "value": 76,
+          "unit": "dB(A)",
+          "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:noiseDbA"
+        },
+        {
+          "factId": "vacuum-fact:philips_fc9330_07_tr:filtrationStandard",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "key": "filtrationStandard",
+          "value": "EN60312-1-2017_HEPA13_EQUIVALENT",
+          "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:filtrationStandard"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "vacuum-capability:philips_fc9330_07_tr:hepa",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "key": "hepa",
+          "state": "PRESENT",
+          "evidenceId": "vacuum-evidence-capability:philips_fc9330_07_tr:hepa",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        },
+        {
+          "capabilityId": "vacuum-capability:philips_fc9330_07_tr:petHead",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "key": "petHead",
+          "state": "ABSENT",
+          "evidenceId": "vacuum-evidence-capability:philips_fc9330_07_tr:petHead",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        },
+        {
+          "capabilityId": "vacuum-capability:philips_fc9330_07_tr:triActiveHead",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "key": "triActiveHead",
+          "state": "PRESENT",
+          "evidenceId": "vacuum-evidence-capability:philips_fc9330_07_tr:triActiveHead",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        },
+        {
+          "capabilityId": "vacuum-capability:philips_fc9330_07_tr:washableFilter",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "key": "washableFilter",
+          "state": "PRESENT",
+          "evidenceId": "vacuum-evidence-capability:philips_fc9330_07_tr:washableFilter",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "vacuum-interpretation:philips_fc9330_07_tr:handling",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "text": "Capacity, operating radius and published mass can inform bounded emptying, reach and carrying discussions.",
+          "factIds": [
+            "vacuum-fact:philips_fc9330_07_tr:capacity",
+            "vacuum-fact:philips_fc9330_07_tr:radiusM",
+            "vacuum-fact:philips_fc9330_07_tr:massKg"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "vacuum-interpretation:philips_fc9330_07_tr:noise-power",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "text": "Declared noise may be displayed on the same measurement basis; input watts cannot stand in for suction or cleaning performance.",
+          "factIds": [
+            "vacuum-fact:philips_fc9330_07_tr:inputPowerMaxW",
+            "vacuum-fact:philips_fc9330_07_tr:noiseDbA"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "vacuum-interpretation:philips_fc9330_07_tr:filtration-care",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "text": "Exact filtration label, HEPA and washable-filter states can answer bounded filter and care questions only.",
+          "factIds": [
+            "vacuum-fact:philips_fc9330_07_tr:filtrationStandard"
+          ],
+          "capabilityIds": [
+            "vacuum-capability:philips_fc9330_07_tr:hepa",
+            "vacuum-capability:philips_fc9330_07_tr:washableFilter"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "vacuum-interpretation:philips_fc9330_07_tr:heads",
+          "offeringId": "PHILIPS_FC9330_07_TR",
+          "text": "Exact supplied-head states can answer whether the governed configuration lists a requested head.",
+          "factIds": [],
+          "capabilityIds": [
+            "vacuum-capability:philips_fc9330_07_tr:petHead",
+            "vacuum-capability:philips_fc9330_07_tr:triActiveHead"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        }
+      ],
+      "advisorKnowledge": [],
+      "evidence": [
+        {
+          "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:capacity",
+          "kind": "TECHNICAL",
+          "sourceId": "PHILIPS-FC9330-07-TR",
+          "assertionId": "vacuum-fact:philips_fc9330_07_tr:capacity",
+          "offeringIds": [
+            "PHILIPS_FC9330_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.capacity",
+            "value": 1.5,
+            "unit": "L",
+            "applicability": {
+              "offeringId": "PHILIPS_FC9330_07_TR",
+              "market": "TR",
+              "model": "FC9330/07",
+              "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:inputPowerMaxW",
+          "kind": "TECHNICAL",
+          "sourceId": "PHILIPS-FC9330-07-TR",
+          "assertionId": "vacuum-fact:philips_fc9330_07_tr:inputPowerMaxW",
+          "offeringIds": [
+            "PHILIPS_FC9330_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Electrical input power is not suction power or cleaning performance."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.inputPowerMaxW",
+            "value": 900,
+            "unit": "W input",
+            "applicability": {
+              "offeringId": "PHILIPS_FC9330_07_TR",
+              "market": "TR",
+              "model": "FC9330/07",
+              "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:radiusM",
+          "kind": "TECHNICAL",
+          "sourceId": "PHILIPS-FC9330-07-TR",
+          "assertionId": "vacuum-fact:philips_fc9330_07_tr:radiusM",
+          "offeringIds": [
+            "PHILIPS_FC9330_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.radiusM",
+            "value": 9,
+            "unit": "m",
+            "applicability": {
+              "offeringId": "PHILIPS_FC9330_07_TR",
+              "market": "TR",
+              "model": "FC9330/07",
+              "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:massKg",
+          "kind": "TECHNICAL",
+          "sourceId": "PHILIPS-FC9330-07-TR",
+          "assertionId": "vacuum-fact:philips_fc9330_07_tr:massKg",
+          "offeringIds": [
+            "PHILIPS_FC9330_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.massKg",
+            "value": 4.5,
+            "unit": "kg",
+            "applicability": {
+              "offeringId": "PHILIPS_FC9330_07_TR",
+              "market": "TR",
+              "model": "FC9330/07",
+              "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:noiseDbA",
+          "kind": "TECHNICAL",
+          "sourceId": "PHILIPS-FC9330-07-TR",
+          "assertionId": "vacuum-fact:philips_fc9330_07_tr:noiseDbA",
+          "offeringIds": [
+            "PHILIPS_FC9330_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.noiseDbA",
+            "value": 76,
+            "unit": "dB(A)",
+            "applicability": {
+              "offeringId": "PHILIPS_FC9330_07_TR",
+              "market": "TR",
+              "model": "FC9330/07",
+              "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:philips_fc9330_07_tr:filtrationStandard",
+          "kind": "TECHNICAL",
+          "sourceId": "PHILIPS-FC9330-07-TR",
+          "assertionId": "vacuum-fact:philips_fc9330_07_tr:filtrationStandard",
+          "offeringIds": [
+            "PHILIPS_FC9330_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Comparable only for the same verified label and test standard."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.filtrationStandard",
+            "value": "EN60312-1-2017_HEPA13_EQUIVALENT",
+            "applicability": {
+              "offeringId": "PHILIPS_FC9330_07_TR",
+              "market": "TR",
+              "model": "FC9330/07",
+              "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:philips_fc9330_07_tr:hepa",
+          "kind": "CAPABILITY",
+          "sourceId": "PHILIPS-FC9330-07-TR",
+          "assertionId": "vacuum-capability:philips_fc9330_07_tr:hepa",
+          "offeringIds": [
+            "PHILIPS_FC9330_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.hepa",
+            "value": true,
+            "applicability": {
+              "offeringId": "PHILIPS_FC9330_07_TR",
+              "market": "TR",
+              "model": "FC9330/07",
+              "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:philips_fc9330_07_tr:petHead",
+          "kind": "CAPABILITY",
+          "sourceId": "PHILIPS-FC9330-07-TR",
+          "assertionId": "vacuum-capability:philips_fc9330_07_tr:petHead",
+          "offeringIds": [
+            "PHILIPS_FC9330_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.petHead",
+            "value": false,
+            "applicability": {
+              "offeringId": "PHILIPS_FC9330_07_TR",
+              "market": "TR",
+              "model": "FC9330/07",
+              "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:philips_fc9330_07_tr:triActiveHead",
+          "kind": "CAPABILITY",
+          "sourceId": "PHILIPS-FC9330-07-TR",
+          "assertionId": "vacuum-capability:philips_fc9330_07_tr:triActiveHead",
+          "offeringIds": [
+            "PHILIPS_FC9330_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.triActiveHead",
+            "value": true,
+            "applicability": {
+              "offeringId": "PHILIPS_FC9330_07_TR",
+              "market": "TR",
+              "model": "FC9330/07",
+              "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:philips_fc9330_07_tr:washableFilter",
+          "kind": "CAPABILITY",
+          "sourceId": "PHILIPS-FC9330-07-TR",
+          "assertionId": "vacuum-capability:philips_fc9330_07_tr:washableFilter",
+          "offeringIds": [
+            "PHILIPS_FC9330_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.washableFilter",
+            "value": true,
+            "applicability": {
+              "offeringId": "PHILIPS_FC9330_07_TR",
+              "market": "TR",
+              "model": "FC9330/07",
+              "configuration": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "PHILIPS-FC9330-07-TR",
+          "kind": "OFFICIAL",
+          "uri": "https://www.philips.com.tr/c-p/FC9330_07/powerpro-compact-torbasiz-elektrikli-suepuerge",
+          "version": "observed-2026-09-03",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "VERIFIED",
+          "language": "tr-TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    },
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "GOVERNANCE-VERIFICATION:PHILIPS_FC9750_07_TR",
+        "exactOfferingId": "PHILIPS_FC9750_07_TR"
+      },
+      "catalogReleaseId": "appliances:vacuum:catalog-richness:tr:v0.2",
+      "catalogReleaseDigest": "sha256:634f439774b166d30e895000ca18c77360f473c62cfca01a7333afedcbcfc880",
+      "offering": {
+        "offeringId": "PHILIPS_FC9750_07_TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Philips",
+          "model": "FC9750/07",
+          "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+          "identifiers": {
+            "productId": "PHILIPS_FC9750_07_TR"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "vacuum-fact:philips_fc9750_07_tr:capacity",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "key": "capacity",
+          "value": 2,
+          "unit": "L",
+          "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:capacity"
+        },
+        {
+          "factId": "vacuum-fact:philips_fc9750_07_tr:inputPowerMaxW",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "key": "inputPowerMaxW",
+          "value": 900,
+          "unit": "W input",
+          "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:inputPowerMaxW"
+        },
+        {
+          "factId": "vacuum-fact:philips_fc9750_07_tr:radiusM",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "key": "radiusM",
+          "value": 10,
+          "unit": "m",
+          "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:radiusM"
+        },
+        {
+          "factId": "vacuum-fact:philips_fc9750_07_tr:massKg",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "key": "massKg",
+          "value": 5.5,
+          "unit": "kg",
+          "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:massKg"
+        },
+        {
+          "factId": "vacuum-fact:philips_fc9750_07_tr:noiseDbA",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "key": "noiseDbA",
+          "value": 75,
+          "unit": "dB(A)",
+          "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:noiseDbA"
+        },
+        {
+          "factId": "vacuum-fact:philips_fc9750_07_tr:filtrationStandard",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "key": "filtrationStandard",
+          "value": "EN60312-1-2017_HEPA13_EQUIVALENT",
+          "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:filtrationStandard"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "vacuum-capability:philips_fc9750_07_tr:hepa",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "key": "hepa",
+          "state": "PRESENT",
+          "evidenceId": "vacuum-evidence-capability:philips_fc9750_07_tr:hepa",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        },
+        {
+          "capabilityId": "vacuum-capability:philips_fc9750_07_tr:petHead",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "key": "petHead",
+          "state": "ABSENT",
+          "evidenceId": "vacuum-evidence-capability:philips_fc9750_07_tr:petHead",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        },
+        {
+          "capabilityId": "vacuum-capability:philips_fc9750_07_tr:carpetHead",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "key": "carpetHead",
+          "state": "PRESENT",
+          "evidenceId": "vacuum-evidence-capability:philips_fc9750_07_tr:carpetHead",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        },
+        {
+          "capabilityId": "vacuum-capability:philips_fc9750_07_tr:hardFloorHead",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "key": "hardFloorHead",
+          "state": "PRESENT",
+          "evidenceId": "vacuum-evidence-capability:philips_fc9750_07_tr:hardFloorHead",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        },
+        {
+          "capabilityId": "vacuum-capability:philips_fc9750_07_tr:washableFilter",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "key": "washableFilter",
+          "state": "PRESENT",
+          "evidenceId": "vacuum-evidence-capability:philips_fc9750_07_tr:washableFilter",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "vacuum-interpretation:philips_fc9750_07_tr:handling",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "text": "Capacity, operating radius and published mass can inform bounded emptying, reach and carrying discussions.",
+          "factIds": [
+            "vacuum-fact:philips_fc9750_07_tr:capacity",
+            "vacuum-fact:philips_fc9750_07_tr:radiusM",
+            "vacuum-fact:philips_fc9750_07_tr:massKg"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "vacuum-interpretation:philips_fc9750_07_tr:noise-power",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "text": "Declared noise may be displayed on the same measurement basis; input watts cannot stand in for suction or cleaning performance.",
+          "factIds": [
+            "vacuum-fact:philips_fc9750_07_tr:inputPowerMaxW",
+            "vacuum-fact:philips_fc9750_07_tr:noiseDbA"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "vacuum-interpretation:philips_fc9750_07_tr:filtration-care",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "text": "Exact filtration label, HEPA and washable-filter states can answer bounded filter and care questions only.",
+          "factIds": [
+            "vacuum-fact:philips_fc9750_07_tr:filtrationStandard"
+          ],
+          "capabilityIds": [
+            "vacuum-capability:philips_fc9750_07_tr:hepa",
+            "vacuum-capability:philips_fc9750_07_tr:washableFilter"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "vacuum-interpretation:philips_fc9750_07_tr:heads",
+          "offeringId": "PHILIPS_FC9750_07_TR",
+          "text": "Exact supplied-head states can answer whether the governed configuration lists a requested head.",
+          "factIds": [],
+          "capabilityIds": [
+            "vacuum-capability:philips_fc9750_07_tr:petHead",
+            "vacuum-capability:philips_fc9750_07_tr:carpetHead",
+            "vacuum-capability:philips_fc9750_07_tr:hardFloorHead"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        }
+      ],
+      "advisorKnowledge": [],
+      "evidence": [
+        {
+          "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:capacity",
+          "kind": "TECHNICAL",
+          "sourceId": "PHILIPS-FC9750-07-TR",
+          "assertionId": "vacuum-fact:philips_fc9750_07_tr:capacity",
+          "offeringIds": [
+            "PHILIPS_FC9750_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.capacity",
+            "value": 2,
+            "unit": "L",
+            "applicability": {
+              "offeringId": "PHILIPS_FC9750_07_TR",
+              "market": "TR",
+              "model": "FC9750/07",
+              "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:inputPowerMaxW",
+          "kind": "TECHNICAL",
+          "sourceId": "PHILIPS-FC9750-07-TR",
+          "assertionId": "vacuum-fact:philips_fc9750_07_tr:inputPowerMaxW",
+          "offeringIds": [
+            "PHILIPS_FC9750_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Electrical input power is not suction power or cleaning performance."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.inputPowerMaxW",
+            "value": 900,
+            "unit": "W input",
+            "applicability": {
+              "offeringId": "PHILIPS_FC9750_07_TR",
+              "market": "TR",
+              "model": "FC9750/07",
+              "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:radiusM",
+          "kind": "TECHNICAL",
+          "sourceId": "PHILIPS-FC9750-07-TR",
+          "assertionId": "vacuum-fact:philips_fc9750_07_tr:radiusM",
+          "offeringIds": [
+            "PHILIPS_FC9750_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.radiusM",
+            "value": 10,
+            "unit": "m",
+            "applicability": {
+              "offeringId": "PHILIPS_FC9750_07_TR",
+              "market": "TR",
+              "model": "FC9750/07",
+              "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:massKg",
+          "kind": "TECHNICAL",
+          "sourceId": "PHILIPS-FC9750-07-TR",
+          "assertionId": "vacuum-fact:philips_fc9750_07_tr:massKg",
+          "offeringIds": [
+            "PHILIPS_FC9750_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.massKg",
+            "value": 5.5,
+            "unit": "kg",
+            "applicability": {
+              "offeringId": "PHILIPS_FC9750_07_TR",
+              "market": "TR",
+              "model": "FC9750/07",
+              "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:noiseDbA",
+          "kind": "TECHNICAL",
+          "sourceId": "PHILIPS-FC9750-07-TR",
+          "assertionId": "vacuum-fact:philips_fc9750_07_tr:noiseDbA",
+          "offeringIds": [
+            "PHILIPS_FC9750_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.noiseDbA",
+            "value": 75,
+            "unit": "dB(A)",
+            "applicability": {
+              "offeringId": "PHILIPS_FC9750_07_TR",
+              "market": "TR",
+              "model": "FC9750/07",
+              "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:philips_fc9750_07_tr:filtrationStandard",
+          "kind": "TECHNICAL",
+          "sourceId": "PHILIPS-FC9750-07-TR",
+          "assertionId": "vacuum-fact:philips_fc9750_07_tr:filtrationStandard",
+          "offeringIds": [
+            "PHILIPS_FC9750_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Comparable only for the same verified label and test standard."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.filtrationStandard",
+            "value": "EN60312-1-2017_HEPA13_EQUIVALENT",
+            "applicability": {
+              "offeringId": "PHILIPS_FC9750_07_TR",
+              "market": "TR",
+              "model": "FC9750/07",
+              "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:philips_fc9750_07_tr:hepa",
+          "kind": "CAPABILITY",
+          "sourceId": "PHILIPS-FC9750-07-TR",
+          "assertionId": "vacuum-capability:philips_fc9750_07_tr:hepa",
+          "offeringIds": [
+            "PHILIPS_FC9750_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.hepa",
+            "value": true,
+            "applicability": {
+              "offeringId": "PHILIPS_FC9750_07_TR",
+              "market": "TR",
+              "model": "FC9750/07",
+              "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:philips_fc9750_07_tr:petHead",
+          "kind": "CAPABILITY",
+          "sourceId": "PHILIPS-FC9750-07-TR",
+          "assertionId": "vacuum-capability:philips_fc9750_07_tr:petHead",
+          "offeringIds": [
+            "PHILIPS_FC9750_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.petHead",
+            "value": false,
+            "applicability": {
+              "offeringId": "PHILIPS_FC9750_07_TR",
+              "market": "TR",
+              "model": "FC9750/07",
+              "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:philips_fc9750_07_tr:carpetHead",
+          "kind": "CAPABILITY",
+          "sourceId": "PHILIPS-FC9750-07-TR",
+          "assertionId": "vacuum-capability:philips_fc9750_07_tr:carpetHead",
+          "offeringIds": [
+            "PHILIPS_FC9750_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.carpetHead",
+            "value": true,
+            "applicability": {
+              "offeringId": "PHILIPS_FC9750_07_TR",
+              "market": "TR",
+              "model": "FC9750/07",
+              "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:philips_fc9750_07_tr:hardFloorHead",
+          "kind": "CAPABILITY",
+          "sourceId": "PHILIPS-FC9750-07-TR",
+          "assertionId": "vacuum-capability:philips_fc9750_07_tr:hardFloorHead",
+          "offeringIds": [
+            "PHILIPS_FC9750_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.hardFloorHead",
+            "value": true,
+            "applicability": {
+              "offeringId": "PHILIPS_FC9750_07_TR",
+              "market": "TR",
+              "model": "FC9750/07",
+              "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:philips_fc9750_07_tr:washableFilter",
+          "kind": "CAPABILITY",
+          "sourceId": "PHILIPS-FC9750-07-TR",
+          "assertionId": "vacuum-capability:philips_fc9750_07_tr:washableFilter",
+          "offeringIds": [
+            "PHILIPS_FC9750_07_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.washableFilter",
+            "value": true,
+            "applicability": {
+              "offeringId": "PHILIPS_FC9750_07_TR",
+              "market": "TR",
+              "model": "FC9750/07",
+              "configuration": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "PHILIPS-FC9750-07-TR",
+          "kind": "OFFICIAL",
+          "uri": "https://www.philips.com.tr/c-p/FC9750_07/7000-series-torbasiz-elektrikli-suepuerge",
+          "version": "observed-2026-09-03",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "VERIFIED",
+          "language": "tr-TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    },
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "GOVERNANCE-VERIFICATION:BOSCH_BGC21X300_TR",
+        "exactOfferingId": "BOSCH_BGC21X300_TR"
+      },
+      "catalogReleaseId": "appliances:vacuum:catalog-richness:tr:v0.2",
+      "catalogReleaseDigest": "sha256:634f439774b166d30e895000ca18c77360f473c62cfca01a7333afedcbcfc880",
+      "offering": {
+        "offeringId": "BOSCH_BGC21X300_TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Bosch",
+          "model": "BGC21X300",
+          "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+          "identifiers": {
+            "productId": "BOSCH_BGC21X300_TR"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "vacuum-fact:bosch_bgc21x300_tr:capacity",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "key": "capacity",
+          "value": 2,
+          "unit": "L",
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:capacity"
+        },
+        {
+          "factId": "vacuum-fact:bosch_bgc21x300_tr:inputPowerMaxW",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "key": "inputPowerMaxW",
+          "value": 550,
+          "unit": "W input",
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:inputPowerMaxW"
+        },
+        {
+          "factId": "vacuum-fact:bosch_bgc21x300_tr:radiusM",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "key": "radiusM",
+          "value": 10,
+          "unit": "m",
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:radiusM"
+        },
+        {
+          "factId": "vacuum-fact:bosch_bgc21x300_tr:massKg",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "key": "massKg",
+          "value": 4.7,
+          "unit": "kg",
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:massKg"
+        },
+        {
+          "factId": "vacuum-fact:bosch_bgc21x300_tr:noiseDbA",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "key": "noiseDbA",
+          "value": 76,
+          "unit": "dB(A)",
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:noiseDbA"
+        },
+        {
+          "factId": "vacuum-fact:bosch_bgc21x300_tr:filtrationStandard",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "key": "filtrationStandard",
+          "value": "HEPA_LABEL_MANUFACTURER",
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:filtrationStandard"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "vacuum-capability:bosch_bgc21x300_tr:hepa",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "key": "hepa",
+          "state": "PRESENT",
+          "evidenceId": "vacuum-evidence-capability:bosch_bgc21x300_tr:hepa",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        },
+        {
+          "capabilityId": "vacuum-capability:bosch_bgc21x300_tr:petHead",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "key": "petHead",
+          "state": "ABSENT",
+          "evidenceId": "vacuum-evidence-capability:bosch_bgc21x300_tr:petHead",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        },
+        {
+          "capabilityId": "vacuum-capability:bosch_bgc21x300_tr:washableFilter",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "key": "washableFilter",
+          "state": "PRESENT",
+          "evidenceId": "vacuum-evidence-capability:bosch_bgc21x300_tr:washableFilter",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "vacuum-interpretation:bosch_bgc21x300_tr:handling",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "text": "Capacity, operating radius and published mass can inform bounded emptying, reach and carrying discussions.",
+          "factIds": [
+            "vacuum-fact:bosch_bgc21x300_tr:capacity",
+            "vacuum-fact:bosch_bgc21x300_tr:radiusM",
+            "vacuum-fact:bosch_bgc21x300_tr:massKg"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "vacuum-interpretation:bosch_bgc21x300_tr:noise-power",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "text": "Declared noise may be displayed on the same measurement basis; input watts cannot stand in for suction or cleaning performance.",
+          "factIds": [
+            "vacuum-fact:bosch_bgc21x300_tr:inputPowerMaxW",
+            "vacuum-fact:bosch_bgc21x300_tr:noiseDbA"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "vacuum-interpretation:bosch_bgc21x300_tr:filtration-care",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "text": "Exact filtration label, HEPA and washable-filter states can answer bounded filter and care questions only.",
+          "factIds": [
+            "vacuum-fact:bosch_bgc21x300_tr:filtrationStandard"
+          ],
+          "capabilityIds": [
+            "vacuum-capability:bosch_bgc21x300_tr:hepa",
+            "vacuum-capability:bosch_bgc21x300_tr:washableFilter"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "vacuum-interpretation:bosch_bgc21x300_tr:heads",
+          "offeringId": "BOSCH_BGC21X300_TR",
+          "text": "Exact supplied-head states can answer whether the governed configuration lists a requested head.",
+          "factIds": [],
+          "capabilityIds": [
+            "vacuum-capability:bosch_bgc21x300_tr:petHead"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        }
+      ],
+      "advisorKnowledge": [],
+      "evidence": [
+        {
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:capacity",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-BGC21X300-TR",
+          "assertionId": "vacuum-fact:bosch_bgc21x300_tr:capacity",
+          "offeringIds": [
+            "BOSCH_BGC21X300_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.capacity",
+            "value": 2,
+            "unit": "L",
+            "applicability": {
+              "offeringId": "BOSCH_BGC21X300_TR",
+              "market": "TR",
+              "model": "BGC21X300",
+              "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:inputPowerMaxW",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-BGC21X300-TR",
+          "assertionId": "vacuum-fact:bosch_bgc21x300_tr:inputPowerMaxW",
+          "offeringIds": [
+            "BOSCH_BGC21X300_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Electrical input power is not suction power or cleaning performance."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.inputPowerMaxW",
+            "value": 550,
+            "unit": "W input",
+            "applicability": {
+              "offeringId": "BOSCH_BGC21X300_TR",
+              "market": "TR",
+              "model": "BGC21X300",
+              "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:radiusM",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-BGC21X300-TR",
+          "assertionId": "vacuum-fact:bosch_bgc21x300_tr:radiusM",
+          "offeringIds": [
+            "BOSCH_BGC21X300_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.radiusM",
+            "value": 10,
+            "unit": "m",
+            "applicability": {
+              "offeringId": "BOSCH_BGC21X300_TR",
+              "market": "TR",
+              "model": "BGC21X300",
+              "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:massKg",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-BGC21X300-TR",
+          "assertionId": "vacuum-fact:bosch_bgc21x300_tr:massKg",
+          "offeringIds": [
+            "BOSCH_BGC21X300_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.massKg",
+            "value": 4.7,
+            "unit": "kg",
+            "applicability": {
+              "offeringId": "BOSCH_BGC21X300_TR",
+              "market": "TR",
+              "model": "BGC21X300",
+              "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:noiseDbA",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-BGC21X300-TR",
+          "assertionId": "vacuum-fact:bosch_bgc21x300_tr:noiseDbA",
+          "offeringIds": [
+            "BOSCH_BGC21X300_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.noiseDbA",
+            "value": 76,
+            "unit": "dB(A)",
+            "applicability": {
+              "offeringId": "BOSCH_BGC21X300_TR",
+              "market": "TR",
+              "model": "BGC21X300",
+              "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc21x300_tr:filtrationStandard",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-BGC21X300-TR",
+          "assertionId": "vacuum-fact:bosch_bgc21x300_tr:filtrationStandard",
+          "offeringIds": [
+            "BOSCH_BGC21X300_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Comparable only for the same verified label and test standard."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.filtrationStandard",
+            "value": "HEPA_LABEL_MANUFACTURER",
+            "applicability": {
+              "offeringId": "BOSCH_BGC21X300_TR",
+              "market": "TR",
+              "model": "BGC21X300",
+              "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:bosch_bgc21x300_tr:hepa",
+          "kind": "CAPABILITY",
+          "sourceId": "BOSCH-BGC21X300-TR",
+          "assertionId": "vacuum-capability:bosch_bgc21x300_tr:hepa",
+          "offeringIds": [
+            "BOSCH_BGC21X300_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.hepa",
+            "value": true,
+            "applicability": {
+              "offeringId": "BOSCH_BGC21X300_TR",
+              "market": "TR",
+              "model": "BGC21X300",
+              "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:bosch_bgc21x300_tr:petHead",
+          "kind": "CAPABILITY",
+          "sourceId": "BOSCH-BGC21X300-TR",
+          "assertionId": "vacuum-capability:bosch_bgc21x300_tr:petHead",
+          "offeringIds": [
+            "BOSCH_BGC21X300_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.petHead",
+            "value": false,
+            "applicability": {
+              "offeringId": "BOSCH_BGC21X300_TR",
+              "market": "TR",
+              "model": "BGC21X300",
+              "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:bosch_bgc21x300_tr:washableFilter",
+          "kind": "CAPABILITY",
+          "sourceId": "BOSCH-BGC21X300-TR",
+          "assertionId": "vacuum-capability:bosch_bgc21x300_tr:washableFilter",
+          "offeringIds": [
+            "BOSCH_BGC21X300_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.washableFilter",
+            "value": true,
+            "applicability": {
+              "offeringId": "BOSCH_BGC21X300_TR",
+              "market": "TR",
+              "model": "BGC21X300",
+              "configuration": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "BOSCH-BGC21X300-TR",
+          "kind": "OFFICIAL",
+          "uri": "https://www.bosch-home.com.tr/tr/product/elektrikli-supurgeler/toz-torbasiz-elektrikli-supurgeler/BGC21X300",
+          "version": "observed-2026-09-03",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "VERIFIED",
+          "language": "tr-TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    },
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "GOVERNANCE-VERIFICATION:BOSCH_BGC41PET_TR",
+        "exactOfferingId": "BOSCH_BGC41PET_TR"
+      },
+      "catalogReleaseId": "appliances:vacuum:catalog-richness:tr:v0.2",
+      "catalogReleaseDigest": "sha256:634f439774b166d30e895000ca18c77360f473c62cfca01a7333afedcbcfc880",
+      "offering": {
+        "offeringId": "BOSCH_BGC41PET_TR",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-03T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Bosch",
+          "model": "BGC41PET",
+          "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+          "identifiers": {
+            "productId": "BOSCH_BGC41PET_TR"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "vacuum-fact:bosch_bgc41pet_tr:capacity",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "key": "capacity",
+          "value": 2.4,
+          "unit": "L",
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:capacity"
+        },
+        {
+          "factId": "vacuum-fact:bosch_bgc41pet_tr:inputPowerMaxW",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "key": "inputPowerMaxW",
+          "value": 600,
+          "unit": "W input",
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:inputPowerMaxW"
+        },
+        {
+          "factId": "vacuum-fact:bosch_bgc41pet_tr:radiusM",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "key": "radiusM",
+          "value": 10,
+          "unit": "m",
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:radiusM"
+        },
+        {
+          "factId": "vacuum-fact:bosch_bgc41pet_tr:massKg",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "key": "massKg",
+          "value": 5.6,
+          "unit": "kg",
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:massKg"
+        },
+        {
+          "factId": "vacuum-fact:bosch_bgc41pet_tr:noiseDbA",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "key": "noiseDbA",
+          "value": 72,
+          "unit": "dB(A)",
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:noiseDbA"
+        },
+        {
+          "factId": "vacuum-fact:bosch_bgc41pet_tr:filtrationStandard",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "key": "filtrationStandard",
+          "value": "HEPA_LABEL_MANUFACTURER",
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:filtrationStandard"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "vacuum-capability:bosch_bgc41pet_tr:hepa",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "key": "hepa",
+          "state": "PRESENT",
+          "evidenceId": "vacuum-evidence-capability:bosch_bgc41pet_tr:hepa",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        },
+        {
+          "capabilityId": "vacuum-capability:bosch_bgc41pet_tr:petHead",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "key": "petHead",
+          "state": "PRESENT",
+          "evidenceId": "vacuum-evidence-capability:bosch_bgc41pet_tr:petHead",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        },
+        {
+          "capabilityId": "vacuum-capability:bosch_bgc41pet_tr:washableFilter",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "key": "washableFilter",
+          "state": "PRESENT",
+          "evidenceId": "vacuum-evidence-capability:bosch_bgc41pet_tr:washableFilter",
+          "limitations": [
+            "No cleaning, filtration, allergen, pet-hair, durability, or service outcome is guaranteed."
+          ]
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "vacuum-interpretation:bosch_bgc41pet_tr:handling",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "text": "Capacity, operating radius and published mass can inform bounded emptying, reach and carrying discussions.",
+          "factIds": [
+            "vacuum-fact:bosch_bgc41pet_tr:capacity",
+            "vacuum-fact:bosch_bgc41pet_tr:radiusM",
+            "vacuum-fact:bosch_bgc41pet_tr:massKg"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "vacuum-interpretation:bosch_bgc41pet_tr:noise-power",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "text": "Declared noise may be displayed on the same measurement basis; input watts cannot stand in for suction or cleaning performance.",
+          "factIds": [
+            "vacuum-fact:bosch_bgc41pet_tr:inputPowerMaxW",
+            "vacuum-fact:bosch_bgc41pet_tr:noiseDbA"
+          ],
+          "capabilityIds": [],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "vacuum-interpretation:bosch_bgc41pet_tr:filtration-care",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "text": "Exact filtration label, HEPA and washable-filter states can answer bounded filter and care questions only.",
+          "factIds": [
+            "vacuum-fact:bosch_bgc41pet_tr:filtrationStandard"
+          ],
+          "capabilityIds": [
+            "vacuum-capability:bosch_bgc41pet_tr:hepa",
+            "vacuum-capability:bosch_bgc41pet_tr:washableFilter"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        },
+        {
+          "interpretationId": "vacuum-interpretation:bosch_bgc41pet_tr:heads",
+          "offeringId": "BOSCH_BGC41PET_TR",
+          "text": "Exact supplied-head states can answer whether the governed configuration lists a requested head.",
+          "factIds": [],
+          "capabilityIds": [
+            "vacuum-capability:bosch_bgc41pet_tr:petHead"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "Interpretation is bounded to exact published facts and feature states."
+          ],
+          "nonGuarantees": [
+            "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+          ]
+        }
+      ],
+      "advisorKnowledge": [],
+      "evidence": [
+        {
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:capacity",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-BGC41PET-TR",
+          "assertionId": "vacuum-fact:bosch_bgc41pet_tr:capacity",
+          "offeringIds": [
+            "BOSCH_BGC41PET_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.capacity",
+            "value": 2.4,
+            "unit": "L",
+            "applicability": {
+              "offeringId": "BOSCH_BGC41PET_TR",
+              "market": "TR",
+              "model": "BGC41PET",
+              "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:inputPowerMaxW",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-BGC41PET-TR",
+          "assertionId": "vacuum-fact:bosch_bgc41pet_tr:inputPowerMaxW",
+          "offeringIds": [
+            "BOSCH_BGC41PET_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Electrical input power is not suction power or cleaning performance."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.inputPowerMaxW",
+            "value": 600,
+            "unit": "W input",
+            "applicability": {
+              "offeringId": "BOSCH_BGC41PET_TR",
+              "market": "TR",
+              "model": "BGC41PET",
+              "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:radiusM",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-BGC41PET-TR",
+          "assertionId": "vacuum-fact:bosch_bgc41pet_tr:radiusM",
+          "offeringIds": [
+            "BOSCH_BGC41PET_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.radiusM",
+            "value": 10,
+            "unit": "m",
+            "applicability": {
+              "offeringId": "BOSCH_BGC41PET_TR",
+              "market": "TR",
+              "model": "BGC41PET",
+              "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:massKg",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-BGC41PET-TR",
+          "assertionId": "vacuum-fact:bosch_bgc41pet_tr:massKg",
+          "offeringIds": [
+            "BOSCH_BGC41PET_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.massKg",
+            "value": 5.6,
+            "unit": "kg",
+            "applicability": {
+              "offeringId": "BOSCH_BGC41PET_TR",
+              "market": "TR",
+              "model": "BGC41PET",
+              "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:noiseDbA",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-BGC41PET-TR",
+          "assertionId": "vacuum-fact:bosch_bgc41pet_tr:noiseDbA",
+          "offeringIds": [
+            "BOSCH_BGC41PET_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Exact manufacturer-listed configuration only."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.noiseDbA",
+            "value": 72,
+            "unit": "dB(A)",
+            "applicability": {
+              "offeringId": "BOSCH_BGC41PET_TR",
+              "market": "TR",
+              "model": "BGC41PET",
+              "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-fact:bosch_bgc41pet_tr:filtrationStandard",
+          "kind": "TECHNICAL",
+          "sourceId": "BOSCH-BGC41PET-TR",
+          "assertionId": "vacuum-fact:bosch_bgc41pet_tr:filtrationStandard",
+          "offeringIds": [
+            "BOSCH_BGC41PET_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Comparable only for the same verified label and test standard."
+          ],
+          "assertion": {
+            "locator": "parent.technicalFacts.filtrationStandard",
+            "value": "HEPA_LABEL_MANUFACTURER",
+            "applicability": {
+              "offeringId": "BOSCH_BGC41PET_TR",
+              "market": "TR",
+              "model": "BGC41PET",
+              "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:bosch_bgc41pet_tr:hepa",
+          "kind": "CAPABILITY",
+          "sourceId": "BOSCH-BGC41PET-TR",
+          "assertionId": "vacuum-capability:bosch_bgc41pet_tr:hepa",
+          "offeringIds": [
+            "BOSCH_BGC41PET_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.hepa",
+            "value": true,
+            "applicability": {
+              "offeringId": "BOSCH_BGC41PET_TR",
+              "market": "TR",
+              "model": "BGC41PET",
+              "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:bosch_bgc41pet_tr:petHead",
+          "kind": "CAPABILITY",
+          "sourceId": "BOSCH-BGC41PET-TR",
+          "assertionId": "vacuum-capability:bosch_bgc41pet_tr:petHead",
+          "offeringIds": [
+            "BOSCH_BGC41PET_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.petHead",
+            "value": true,
+            "applicability": {
+              "offeringId": "BOSCH_BGC41PET_TR",
+              "market": "TR",
+              "model": "BGC41PET",
+              "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "vacuum-evidence-capability:bosch_bgc41pet_tr:washableFilter",
+          "kind": "CAPABILITY",
+          "sourceId": "BOSCH-BGC41PET-TR",
+          "assertionId": "vacuum-capability:bosch_bgc41pet_tr:washableFilter",
+          "offeringIds": [
+            "BOSCH_BGC41PET_TR"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "VERIFIED",
+          "limitations": [
+            "Equipment or filter presence does not establish a cleaning, allergen, or pet-hair outcome."
+          ],
+          "assertion": {
+            "locator": "parent.capabilities.washableFilter",
+            "value": true,
+            "applicability": {
+              "offeringId": "BOSCH_BGC41PET_TR",
+              "market": "TR",
+              "model": "BGC41PET",
+              "configuration": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "BOSCH-BGC41PET-TR",
+          "kind": "OFFICIAL",
+          "uri": "https://www.bosch-home.com.tr/tr/product/elektrikli-supurgeler/toz-torbasiz-elektrikli-supurgeler/BGC41PET",
+          "version": "observed-2026-09-03",
+          "observedAt": "2026-09-03T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "VERIFIED",
+          "language": "tr-TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    }
+  ]
+}

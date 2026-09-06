@@ -1,0 +1,139 @@
+{
+  "activationPerformed": false,
+  "compatibleCatalogFingerprint": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+  "compatibleCatalogRelease": "v0.55.4",
+  "files": {
+    "candidate.json": "sha256:e3eb57753c5deb7f8a259639ea560848f8dc093a51098877c23d73cb34c007f6",
+    "checksums.json": "sha256:f5798fc726add05cc04fc89b610785cc9628263f7cfd49543693ebe9a801dee0",
+    "completion-report.md": "sha256:a4286406f5c4958bf8ffc551a7d68f187a9f4c017702bc864f3d3d113b1c871a",
+    "conflicts-and-exclusions.json": "sha256:1d7cac855f37ce15dd8d214c96276fb39a44e6d519c101037cd902155c5a3b2b",
+    "coverage-report.json": "sha256:17370a0e1828ce5f970c2ade50ea790f43d2f166270b0183f4420793b533016c",
+    "daily-life-exact-applications.json": "sha256:c4ff154b97b871d924d46831ea586c733923a3cef210a28a9d6bea4346fbdb27",
+    "dry-run-validation.json": "sha256:6adb4dc3121b98d81d733f2c5266d85b3e960f26f447f3a623e981be63a71eab",
+    "manual-index.json": "sha256:64aa31ae03be6b5e60ce313be409d702df3d153fe38cda2aef9bc9ccd5f992a5",
+    "manuals/bytes/byd-seal-u-ev-tr.pdf": "sha256:6460d596bf5599d61421018cc3e612f777be81c887263a11cedaa87f937b8e95",
+    "manuals/bytes/hyundai-inster-2025-tr.pdf": "sha256:a0fb8f8e4e926e3e6553aea7f98297944a28bcdd8312613296e76173859f3451",
+    "manuals/bytes/toyota-yaris-hev-2026-tr.pdf": "sha256:80dce1818ee86ef707fdf2be5af4b64349ec957db1dc50a5a294f02d5a7eb8ca",
+    "research-ledger.csv": "sha256:c2dd38bea3ff60a6e1afa915fc2df85cf390fda7369ef8dcc5c4fc57f6ce2f39",
+    "research-ledger.json": "sha256:675a199478a380d5af239ebe4ba02bbddc38c4dfef1d91321963f8c6ecc1df26",
+    "source-registry.json": "sha256:055d2b2128079dff33b021efa3e2bf969508832a89d7d549999913b0a4d9a8d5"
+  },
+  "generatedAt": "2026-09-05T01:10:00.000+03:00",
+  "metrics": {
+    "equipmentCoveredVariants": {
+      "after": 10,
+      "before": 6,
+      "delta": 4
+    },
+    "exactCatalogProvenanceEntries": {
+      "after": 11156,
+      "before": 11156,
+      "delta": 0
+    },
+    "exactDailyLifeApplications": {
+      "after": 20,
+      "before": 0,
+      "delta": 20
+    },
+    "exactDailyLifeVariants": {
+      "after": 5,
+      "before": 0,
+      "delta": 5
+    },
+    "exactEquipmentAssertions": {
+      "after": 126,
+      "before": 112,
+      "delta": 14
+    },
+    "exactEquipmentVerifiedVariants": {
+      "after": 8,
+      "before": 4,
+      "delta": 4
+    },
+    "exactVerifiedCatalogFields": {
+      "after": 11154,
+      "before": 11154,
+      "delta": 0
+    },
+    "explicitConflicts": {
+      "after": 0,
+      "before": 0,
+      "delta": 0
+    },
+    "familyScopedManualAssertionAssociations": {
+      "after": 1584,
+      "before": 0,
+      "delta": 1584
+    },
+    "familyScopedManualEvidenceFamilies": {
+      "after": 234,
+      "before": 0,
+      "delta": 234
+    },
+    "familyScopedManualEvidenceVariants": {
+      "after": 352,
+      "before": 0,
+      "delta": 352
+    },
+    "improvedVariants": 5,
+    "manualL9ReadyVariants": {
+      "after": 3,
+      "before": 0,
+      "delta": 3
+    },
+    "preservedOfficialManualArtifacts": {
+      "after": 3,
+      "before": 0,
+      "delta": 3
+    },
+    "strictAdvisorReadyVariants": {
+      "after": 0,
+      "before": 0,
+      "delta": 0
+    },
+    "strictComparisonReadyVariants": {
+      "after": 0,
+      "before": 0,
+      "delta": 0
+    },
+    "unchangedVariants": 544,
+    "unknownOrAbsentTechnicalDailyLifeAssignments": {
+      "after": 8646,
+      "before": 8646,
+      "delta": 0
+    },
+    "unresolvedManualDecisions": {
+      "after": 2074,
+      "before": 2074,
+      "delta": 0
+    }
+  },
+  "productionMutationPerformed": false,
+  "recommendation": "READY_FOR_APPROVAL_PENDING_SEPARATE_HUMAN_APPROVAL; DO_NOT_ACTIVATE_IN_THIS_WORK_UNIT",
+  "releaseDigest": "sha256:316d2238c40b0330fe1f4d722c8121ab1e429cca93bc3fd9899a929c9a9f67ed",
+  "releaseVersion": "v1.0.0-catalog-v0.55.4-2026-09-05",
+  "repairedCandidateFromWorkUnitId": "WU-XPY-CARS-GLOBAL-EVIDENCE-ENRICHMENT-01",
+  "rowCount": 549,
+  "schemaVersion": "XPY_CARS_GLOBAL_EVIDENCE_MANIFEST/v1",
+  "sourceInputs": [
+    "data/production/catalog/releases/v0.55.4/catalog.json",
+    "data/production/catalog/releases/v0.55.4/manifest.json",
+    "data/production/catalog/active.json",
+    "data/production/equipment-evidence/active.json",
+    "data/production/equipment-evidence/releases/v1.5.5-catalog-v0.55.4-2026-08-20/equipment-evidence.json",
+    "data/production/equipment-evidence/releases/v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04/equipment-evidence.json",
+    "data/production/equipment-daily-life/active.json",
+    "data/production/equipment-daily-life/releases/v1.1.0-high-materiality-exact-applications-catalog-v0.55.4-2026-09-04/equipment-daily-life-exact-applications.json",
+    "data/production/equipment-daily-life/releases/v1.1.0-high-materiality-exact-applications-catalog-v0.55.4-2026-09-04/coverage-report.json",
+    "data/production/technical-daily-life/active.json",
+    "data/production/technical-daily-life/releases/v2.1.3-0.55.4-2026-08-20-compatibility-rebind/technical-daily-life.json",
+    "data/production/personas/safe-traits/active.json",
+    "data/research/owner-manual-evidence-v4/source-registry.json",
+    "data/research/owner-manual-evidence-v4/discovery-inventory.json",
+    "data/research/owner-manual-evidence-v4/pilot-assertions.json",
+    "data/research/owner-manual-evidence-v4/releases/v4.3.0-equipment-owner-review-01/exact-tr-bridge-decisions.json"
+  ],
+  "state": "IMMUTABLE_RELEASE_CANDIDATE_NOT_ACTIVE",
+  "verdict": "PASS_WITH_BOUNDED_IMPROVEMENT_AND_FAIL_CLOSED_REMAINDERS",
+  "workUnitId": "WU-XPY-GLOBAL-EVIDENCE-CANDIDATE-REPAIR-01"
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "baby-stroller-activation/v1",
+  "activationId": "BABY-STROLLER-ACT-E0F9A3BD92488849",
+  "activatedAt": "2026-09-06T09:55:14Z",
+  "workUnitId": "WU-BABY-STROLLER-END-TO-END-01",
+  "state": "ACTIVE",
+  "authorityDigest": "sha256:e0f9a3bd92488849e81b0462ada33056a450bab9f5f08759fbf01e91bbc9e4ae",
+  "release": "BABY-STROLLER-TR-v0.2-approval-candidate",
+  "approvalEvent": "data/production/baby/strollers/governance/approval-events/WU-BABY-STROLLER-END-TO-END-01/approval.json",
+  "approvalEventSha256": "sha256:bb25d562071c2dbe73bb978b489fa7a5cd709391bda13a043b6eafd2837f26a0",
+  "membership": [
+    "CHICCO_GOODY_PLUS_04079877190000_TR",
+    "CHICCO_MYSA_05087158450000_TR",
+    "CHICCO_BELLAGIO_07087183330000_TR",
+    "CYBEX_BALIOS_S_LUX_520001251_TR"
+  ],
+  "rollback": {
+    "previousState": "INACTIVE_NO_PRIOR_POINTER",
+    "previousPointer": null
+  },
+  "failClosed": true,
+  "appendOnly": true
+}

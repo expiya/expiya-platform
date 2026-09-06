@@ -1,0 +1,19 @@
+Expiya İkinci El geliştirme özet raporu.
+
+Bu çalışma kapsamında Expiya İkinci El, mevcut sıfır araç sisteminden ayrılmış bağımsız bir ürün ve ticari platform olarak tasarlandı. Motor V3, sıfır araç tercih kayıtları, katalog, araç ayrıntısı, danışman, teklif, test sürüşü, bayi iletişimi ve ücretli rapor akışları korunarak ikinci el bounded context'i oluşturuldu.
+
+Ürün ve teknik mimari belgelerinde bilgi mimarisi, kullanıcı ve satıcı yolculukları, ekran listeleri, wireframe'ler, kurumsal onboarding, stok yönetimi, Türkiye tarihsel otomotiv index'i, klasik araç modeli, kanıt sistemi, moderasyon, ticari paketler, pazara çıkış, güvenlik, KVKK, sürüm planı ve URL geçiş mimarisi tanımlandı.
+
+Kod tarafında taxonomy, tenancy, rol tabanlı erişim, firma üyeliği, stok, ilan yaşam döngüsü, kanıt, moderasyon, eşleştirme, risk, medya, dolandırıcılık kontrolleri, güvenli lead aktarımı, analitik, audit ve saklama sözleşmelerini içeren ayrı used-cars foundation'ı geliştirildi.
+
+Kullanıcı tarafında Expiya İkinci El giriş sayfası, yirmi iki alanlı mobil tercih formu, bütçe ve risk sınırlarını uygulayan eşleştirme ekranı, alan bazlı kaynak ve güven gösteren araç ayrıntısı, güvenli kontrol listesi ve açık rızalı sentetik iletişim talebi hazırlandı. Eşleştirme ekranı geçici bir arayüz puanı yerine gerçek used-cars preference ledger, candidate evaluation ve organik sıralama politikalarını kullanıyor.
+
+Kurumsal satıcı demosunda firma doğrulama kapıları, şube ve rol yönetimi, kontrollü taxonomy ile stok oluşturma, yeni araç kimliği talebi, klasik araç profili, moderasyon, talepler, toplu import dry-run, üyelik, analitik, hash zincirli audit, medya güvenliği ve hazırlık ekranları tamamlandı.
+
+Satıcı beyanı hiçbir zaman otomatik doğrulanmış bilgiye dönüştürülmedi. VIN, plaka ve kişisel bilgiler public veya analitik yüzeylere taşınmadı. Ücretli paketlerin organik sıralamaya etkisi engellendi. Sponsorlu alanlar ayrı tutuldu. Gerçek veri, ödeme, firma kaydı, ilan yayını, lead aktarımı, production veri tabanı yazımı ve deployment yapılmadı.
+
+Mevcut adres yapısı ile gelecekteki cars altında ikinci el adresi arasında kalıcı geçişi destekleyen route sözleşmesi oluşturuldu. Partner hedef domaini ayrı authentication, authorization ve veri erişim alanı olarak tanımlandı. Sentetik partner sayfaları arama motorlarına kapatıldı.
+
+Son doğrulamada ESLint ve izole TypeScript kontrolleri başarılı oldu. On dokuz test dosyasında toplam yetmiş altı test geçti. Çalışma ağacındaki ilgisiz değişiklikler ve mevcut sıfır araç sistemi korunarak bırakıldı.
+
+Özetle, Expiya İkinci El için güvenli, tarafsız ve kademeli biçimde production'a taşınabilecek sentetik MVP ürün prototipi ile teknik foundation tamamlandı. Gerçek pilot ve production açılışı; hukuk, KVKK, veri lisansları, firma doğrulama operasyonu, production RLS testleri ve yetkili iş onayları sonrasına bırakıldı.

@@ -27,3 +27,4 @@ export function validateStrollerAuthority(): readonly string[] {
   }
   return Object.freeze(issues);
 }
+

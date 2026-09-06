@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "xpy-cars-equipment-runtime-compatibility-ledger/v1",
+  "workUnitId": "WU-XPY-CARS-EQUIPMENT-V1_6-RUNTIME-COMPATIBILITY-01",
+  "recordedAt": "2026-09-04T23:29:01Z",
+  "verdict": "IMPLEMENTED",
+  "activationPerformed": false,
+  "implementation": {
+    "route": "BOUNDED_COMPACT_RUNTIME_ADAPTER",
+    "regenerationPerformed": false,
+    "acceptedCompactSchemas": [
+      "1.1.0-rc",
+      "1.2.0-rc",
+      "1.3.0"
+    ],
+    "legacyExpandedSchemaPreserved": "1.2.1",
+    "unknownFutureSchemasRejected": true,
+    "normalizationIsReadOnly": true
+  },
+  "activePredecessor": {
+    "release": "v1.5.5-catalog-v0.55.4-2026-08-20",
+    "schemaVersion": "1.2.0-rc",
+    "payloadSha256": "sha256:0135bbfee468fa955d3d00d3129e0e7e01dae7bf9a980488450d8319ddc98d2e",
+    "pointerSha256": "sha256:101803fb4195c8cfe724715ece539d5ba88fb797f6a0194657b2166043feee4b",
+    "generatedModuleSha256": "sha256:e282e22700252fd0fe9b45d36be2c2c4953beb916367e8e390dbbb1977466396",
+    "bytesUnchanged": true,
+    "metrics": {
+      "verifiedAssertions": 112,
+      "reviewedAssociations": 49,
+      "verifiedTrimLinks": 6,
+      "projections": 112,
+      "exactVerifiedVariants": 4,
+      "associationOnlyVariants": 2,
+      "coveredVariants": 6,
+      "uncoveredVariants": 543,
+      "catalogVariants": 549
+    }
+  },
+  "inactiveCandidate": {
+    "release": "v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+    "schemaVersion": "1.3.0",
+    "payloadSha256": "sha256:a251a2cdd92d4af1b62ca71bf3cb608f0ae47bce1faf7fe3503922a04ab1b533",
+    "state": "INACTIVE_CANDIDATE",
+    "metrics": {
+      "verifiedAssertions": 126,
+      "reviewedAssociations": 49,
+      "verifiedTrimLinks": 6,
+      "projections": 126,
+      "exactVerifiedVariants": 8,
+      "associationOnlyVariants": 2,
+      "coveredVariants": 10,
+      "uncoveredVariants": 539,
+      "catalogVariants": 549
+    },
+    "additiveDelta": {
+      "verifiedAssertions": 14,
+      "projections": 14,
+      "exactVerifiedVariants": 4,
+      "coveredVariants": 4,
+      "predecessorRowsPreserved": true,
+      "auxiliaryMaterializationsMatch": true,
+      "ownerDecisionBindingsMatch": true,
+      "manifestFileDigestsMatch": true
+    }
+  },
+  "rejectionCoverage": [
+    "UNKNOWN_SCHEMA",
+    "MALFORMED_ROW_OR_PROVENANCE",
+    "DUPLICATE_IDENTITIES",
+    "UNKNOWN_OR_CROSS_VARIANT_REFERENCE",
+    "PAYLOAD_OR_MANIFEST_DIGEST_MISMATCH",
+    "SCHEMA_RELEASE_OR_CATALOG_MISMATCH",
+    "COVERAGE_MISMATCH",
+    "PROJECTION_SEMANTIC_LOSS"
+  ],
+  "authorization": {
+    "priorPackageId": "GLOBAL-EVIDENCE-AUTH-20260905-02",
+    "failedActivationEventId": "GLOBAL-EVIDENCE-ACT-20260905-03",
+    "priorPackageReusable": false,
+    "preflightGuard": "AUTHORIZATION_SPENT_BY_FAILED_ACTIVATION_REQUIRES_SUPERSEDING_PACKAGE",
+    "nextRecommendation": "regenerate a superseding checksum-bound activation authorization package for explicit user approval"
+  },
+  "verification": [
+    {
+      "command": "node --import tsx scripts/verify-active-equipment-evidence.ts",
+      "result": "PASS_ACTIVE_V1_5_5_112_ASSERTIONS_4_EXACT_6_COVERED"
+    },
+    {
+      "command": "node --import tsx scripts/verify-active-equipment-evidence.ts --release v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04",
+      "result": "PASS_INACTIVE_V1_6_126_ASSERTIONS_8_EXACT_10_COVERED"
+    },
+    {
+      "command": "npx vitest run <8 affected files>",
+      "result": "PASS_8_FILES_136_TESTS"
+    },
+    {
+      "command": "npx tsc -p tsconfig.global-evidence-activation.json --noEmit --pretty false",
+      "result": "PASS"
+    },
+    {
+      "command": "npx eslint <6 compatibility files>",
+      "result": "PASS"
+    },
+    {
+      "command": "node --import tsx scripts/dry-run-xpy-catalog-revision.ts --domain cars --release 0.55.4",
+      "result": "PASS_549_MEMBERS_DIGESTS_AND_DECISION_AUTHORITY_UNCHANGED"
+    },
+    {
+      "command": "npx tsc --noEmit --pretty false",
+      "result": "BASELINE_ONLY_FAIL_TWO_MISSING_RELATIVE_IMPORTS_IN_HISTORICAL_ROLLBACK_SNAPSHOT_GLOBAL_EVIDENCE_ACT_20260905_03"
+    },
+    {
+      "command": "node --import tsx scripts/activate-global-evidence-candidates.ts",
+      "result": "SAFE_PREWRITE_REJECTION_AUTHORIZATION_SPENT_BY_FAILED_ACTIVATION_REQUIRES_SUPERSEDING_PACKAGE"
+    }
+  ],
+  "prohibitedActionsObserved": {
+    "pointerWrite": false,
+    "activation": false,
+    "deployment": false,
+    "migration": false,
+    "databaseMutation": false,
+    "newResearch": false,
+    "candidateRegeneration": false,
+    "catalogMutation": false,
+    "commerceMutation": false,
+    "pYAuthorityMutation": false,
+    "rankingMutation": false
+  }
+}

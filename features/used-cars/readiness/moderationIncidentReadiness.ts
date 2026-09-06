@@ -1,0 +1,6 @@
+export const moderationIncidentDrills=Object.freeze([
+ {id:"DRILL-CROSS-TENANT",expectedSeverity:"SEV1",passed:false},{id:"DRILL-ACCOUNT-TAKEOVER",expectedSeverity:"SEV2",passed:false},{id:"DRILL-MALWARE-DOCUMENT",expectedSeverity:"SEV1",passed:false},{id:"DRILL-FALSE-VERIFICATION",expectedSeverity:"SEV3",passed:false},{id:"DRILL-DEALER-APPEAL",expectedSeverity:"SEV4",passed:false},
+] as const);
+export const usedCarsModerationIncidentReadinessSnapshot=Object.freeze({prerequisites:Object.freeze({fraudTriageReady:true,caseControlReady:true,quarantinePlanReady:true,incidentClassificationReady:true,staffingAndOnCallApproved:false,moderatorTrainingComplete:false,drillsPassed:false,legalNotificationProcessApproved:false,securityToolingIntegrated:false,independentReviewComplete:false}),moderationProductionActionsAuthorized:false as const});
+export function assessModerationIncidentReadiness(){const missing=Object.entries(usedCarsModerationIncidentReadinessSnapshot.prerequisites).filter(([,ready])=>!ready).map(([key])=>key);return Object.freeze({ready:missing.length===0&&moderationIncidentDrills.every(drill=>drill.passed),missing:Object.freeze(missing),moderationProductionActionsAuthorized:false as const});}
+export const currentUsedCarsModerationIncidentReadiness=assessModerationIncidentReadiness();

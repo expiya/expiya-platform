@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "major-appliance-product-owner-approval/v1",
+  "approvalId": "APPLIANCES-MAJOR-CATALOG-POA-2E76D621CE55",
+  "recordedAt": "2026-09-05T13:00:00.000+03:00",
+  "approved": true,
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ACTIVATION-01",
+  "approvedCandidate": "APPLIANCES-MAJOR-CATALOG-ADOPTION-TR-v0.1-candidate",
+  "approvedBatchDigest": "sha256:b3cb67e1dd00dc6c529ae750679e8276c13f9723d4e1d77737a7f39aee441ea2",
+  "approvedPackageSha256": "2e76d621ce5569d7005ea29ab10e70f1807199038d1d973a681baee829210732",
+  "currentUserApproval": {
+    "granted": true,
+    "statement": "PRODUCT OWNER APPROVAL GRANTED.",
+    "source": "CURRENT_USER_MESSAGE_IN_CODEX_THREAD"
+  },
+  "scope": {
+    "admittedOfferingIds": [
+      "appliances:wm:tr:samsung:ww90ta046ah-ah",
+      "appliances:wm:tr:vestel:cmi-97402-wifi",
+      "appliances:wm:tr:arcelik:10120-imp",
+      "appliances:wm:tr:altus:al-cm-101254-d",
+      "appliances:wm:tr:samsung:ww11dg6b25leah",
+      "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+      "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+      "appliances:dryer:tr:arcelik:1201-kmx",
+      "appliances:dryer:tr:samsung:dv10dg54a0abah",
+      "appliances:dishwasher:tr:arcelik:a-710-i",
+      "appliances:dishwasher:tr:arcelik:a-811-i",
+      "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+      "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+      "appliances:refrigerator:tr:arcelik:270475-mb",
+      "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "appliances:refrigerator:tr:samsung:rf57c510esr-tr"
+    ],
+    "blockedOfferingIds": [
+      "appliances:dishwasher:tr:teka:dfi-46700-ttm"
+    ],
+    "categoryCount": 4,
+    "admittedCount": 16,
+    "pointerTransaction": "ALL_FOUR_OR_ROLLBACK"
+  },
+  "boundaries": {
+    "decisionAuthority": "UNCHANGED_V0_1",
+    "recommendationAuthority": "UNCHANGED",
+    "questionOrder": "UNCHANGED",
+    "sufficiency": "UNCHANGED",
+    "commerceAuthority": "NONE",
+    "credentialsOrPayments": "NOT_ENABLED"
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "electronics-wave-4-smart-home-hub-repair-manifest/v1",
+  "workUnitId": "WU-ELECTRONICS-WAVE-4-SMART-HOME-HUB-EVIDENCE-REPAIR-01",
+  "releaseVersion": "ELECTRONICS-WAVE-4-SMART-HOME-HUB-REPAIR-TR-v0.1",
+  "verdict": "IMPLEMENTED",
+  "parentReleaseDigest": "sha256:3cebc6073546f3a9dac526310f60edc131e84afe8eccf3d1bdb75ef37746ce0b",
+  "counts": {
+    "categoriesReady": 6,
+    "products": 12,
+    "hubCandidates": 2,
+    "hubManufacturers": 2,
+    "sources": 19,
+    "comparativeFacts": 53,
+    "manuals": 2,
+    "neutralUnknowns": 38
+  },
+  "artifacts": {
+    "repair-release.json": "sha256:548f7337fc9de4cbf70b04c8f4b8ff39d6059ee2b7b71a4da91733a3d44e1975",
+    "comparative-coverage.json": "sha256:1175db4909bd765db65a30694a265971528be0cb08b59b17b5f424eec0a1de80",
+    "reconciliation.json": "sha256:0a1be193b4f0468cd3d44fee3ac69606e7ae39f3e0e84cb5b196e81b2da82acf"
+  },
+  "manualDigest": "sha256:619f2ce73bdcf9b9cd22cb6c3d81bb89ac0c48444abcd4f5de7812fffbef274f",
+  "activation": {
+    "l7Experience": "ABSENT",
+    "mediaImported": false,
+    "l10YEffect": "NONE",
+    "amazonStatusEffect": "NONE",
+    "activationPerformed": false,
+    "registryChanged": false,
+    "runtimeChanged": false,
+    "databaseChanged": false,
+    "pointerChanged": false,
+    "deploymentPerformed": false
+  }
+}

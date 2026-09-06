@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "appliances-new-category-portfolio/v1",
+  "canonicalSerialization": "JSON.stringify(payload) UTF-8",
+  "payloadDigest": "sha256:719090386cd90a2959e6632c40da8c605229da83f10f69cb0b22941433cdadab",
+  "payload": {
+    "authorityId": "APPLIANCES-NEW-CATEGORY-PORTFOLIO-TR/v0.1",
+    "releaseVersion": "APPLIANCES-NEW-CATEGORY-PORTFOLIO-TR-v0.1",
+    "workUnitId": "WU-XPY-APPL-NEW-CATEGORY-PORTFOLIO-AUTHORITY-01",
+    "departmentId": "APPLIANCES",
+    "market": "TR",
+    "householdScope": "Major remaining durable and countertop household-appliance purchase journeys with exact manufacturer configuration identity; not an exhaustive list of appliances sold in Türkiye.",
+    "approvedAt": "2026-09-04T23:00:00.000+03:00",
+    "lifecycle": "FROZEN",
+    "runtimeActive": false,
+    "existingCategories": {
+      "status": "UNCHANGED_AND_OUT_OF_SCOPE",
+      "categoryIds": ["WASHING_MACHINE", "DRYER", "REFRIGERATOR", "DISHWASHER", "VACUUM", "ROBOT_VACUUM"],
+      "authorityRule": "No existing Product semantics, catalog membership, Domain Pack, Y authority, active pointer, route, UI, production data or deployment is changed by this release."
+    },
+    "platformBoundaries": {
+      "runtime": "XPY_RUNTIME/v0.1",
+      "catalog": "XPY_CATALOG/v0.1",
+      "domainPackRule": "Each selected category requires its own versioned semantic authority; existing-six meanings are not reusable domain semantics.",
+      "stages": {
+        "x": "Education and explanation only; no candidate selection authority.",
+        "p": "AŞAMA 1 category-specific need capture and exact-evidence decision only.",
+        "y": "Category-specific decision construction/authorization to be defined later; this portfolio grants none.",
+        "stage2": "Future Advisor and paid comparison may read only an authorized AŞAMA 1 exact set and may not alter Y.",
+        "stage3": "Future commerce/contact handoff remains separate and cannot become recommendation authority."
+      },
+      "evidenceTemporality": "Technical facts and manuals are frozen with checksum, market, model/configuration and locator applicability. Price, stock, offers and media are volatile exact-identity joins outside the catalog digest.",
+      "selectionPolicy": "No score, weight, ranking, question policy, sufficiency rule or recommendation policy is authorized here. Unknown evidence remains neutral and non-advantaging."
+    },
+    "categories": [
+      {"categoryId":"FREEZER","publicLabelTr":"Derin dondurucu","family":"COLD_STORAGE","decisionObject":"One exact Türkiye household freezer configuration; upright/chest, freestanding/built-in are explicit configuration attributes.","included":"Household food-freezing appliances.","excluded":"Commercial cold rooms, display freezers and refrigerator freezer compartments.","householdApplicability":"HIGH","separationRationale":"Long-term frozen storage, capacity, footprint, defrost and outage behavior differ from refrigerator decisions.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"BUILT_IN_OVEN","publicLabelTr":"Ankastre fırın","family":"COOKING_MAJOR","decisionObject":"One exact Türkiye built-in oven configuration and required cabinet envelope.","included":"Full-size and compact built-in ovens; microwave-combination capability is an attribute only when the product remains manufacturer-taxonomized as an oven.","excluded":"Freestanding cookers, countertop ovens and standalone microwaves.","householdApplicability":"HIGH","separationRationale":"Cabinet cut-out, electrical connection, cavity, cleaning and cooking modes form a distinct installed decision.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"FREESTANDING_COOKER","publicLabelTr":"Solo fırınlı ocak","family":"COOKING_MAJOR","decisionObject":"One exact freestanding household cooker combining hob and oven in one manufacturer configuration.","included":"Full-size freestanding gas/electric mixed or electric cookers.","excluded":"Built-in ovens, separate hobs, mini/midi countertop ovens and commercial ranges.","householdApplicability":"HIGH","separationRationale":"A combined fuel, connection, footprint and cavity purchase cannot inherit built-in oven or hob semantics.","evidenceAvailability":"MEDIUM_HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"MEDIUM_HIGH"}},
+      {"categoryId":"HOB","publicLabelTr":"Ankastre ocak","family":"COOKING_MAJOR","decisionObject":"One exact built-in hob configuration, including fuel/technology and cut-out envelope.","included":"Gas, radiant-electric, induction and manufacturer-defined integrated-extraction hobs.","excluded":"Freestanding cookers and portable single burners.","householdApplicability":"HIGH","separationRationale":"Fuel, electrical/gas installation, cut-out and cookware compatibility are primary decision semantics.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"RANGE_HOOD","publicLabelTr":"Davlumbaz ve aspiratör","family":"COOKING_MAJOR","decisionObject":"One exact household extraction appliance plus installation mode and duct/recirculation configuration.","included":"Wall, island, integrated and under-cabinet hoods/aspirators.","excluded":"Integrated-extraction hobs as standalone hoods and commercial ventilation.","householdApplicability":"HIGH","separationRationale":"Airflow, ducting, recirculation kit, width, noise and installation evidence are independent from the cooking appliance.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"COUNTERTOP_MICROWAVE_OVEN","publicLabelTr":"Solo mikrodalga fırın","family":"MICROWAVE","decisionObject":"One exact countertop microwave configuration.","included":"Solo countertop microwave appliances, with grill/convection recorded as exact capabilities.","excluded":"Built-in microwaves and oven products with an integrated microwave function.","householdApplicability":"HIGH","separationRationale":"No cabinet cut-out or fitted-installation dependency; placement and usable volume dominate.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"BUILT_IN_MICROWAVE_OVEN","publicLabelTr":"Ankastre mikrodalga fırın","family":"MICROWAVE","decisionObject":"One exact fitted microwave configuration and cabinet niche.","included":"Manufacturer-taxonomized built-in microwave appliances.","excluded":"Countertop microwaves and built-in ovens whose microwave is only one cooking capability.","householdApplicability":"HIGH","separationRationale":"Niche geometry, ventilation and installation compatibility make substitution with countertop models unsafe.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"SPLIT_AIR_CONDITIONER","publicLabelTr":"Ev tipi split klima","family":"INDOOR_CLIMATE","decisionObject":"One exact residential single-split indoor/outdoor unit set for a declared room and installation context.","included":"Residential wall-mounted single-split heat-pump air conditioners.","excluded":"Multi-split, salon, cassette, ducted, VRF/system and portable units; commercial sizing.","householdApplicability":"HIGH","separationRationale":"Capacity sizing, paired-unit identity, climate rating, noise and mandatory installation require a dedicated decision object.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"MEDIUM"}},
+      {"categoryId":"AIR_PURIFIER","publicLabelTr":"Hava temizleyici","family":"INDOOR_AIR","decisionObject":"One exact portable household air-cleaner configuration for a declared room/use context.","included":"Portable fan-filter household air purifiers.","excluded":"HVAC-integrated systems, humidifiers/dehumidifiers and medical outcome claims.","householdApplicability":"HIGH","separationRationale":"CADR/room-size, filter system, noise and replacement-filter lifecycle differ from air-conditioning semantics.","evidenceAvailability":"MEDIUM_HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"FULLY_AUTOMATIC_ESPRESSO_MACHINE","publicLabelTr":"Tam otomatik espresso makinesi","family":"COFFEE","decisionObject":"One exact bean-to-cup household espresso configuration.","included":"Countertop fully/super-automatic bean-to-cup machines.","excluded":"Built-in coffee systems, capsule systems, filter and Turkish coffee machines.","householdApplicability":"HIGH","separationRationale":"Integrated grinder, drink automation, milk system and maintenance workflow are defining needs.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"MANUAL_ESPRESSO_MACHINE","publicLabelTr":"Manuel / yarı otomatik espresso makinesi","family":"COFFEE","decisionObject":"One exact portafilter-based household espresso configuration.","included":"Manual and semi-automatic portafilter machines; grinder inclusion is explicit.","excluded":"Bean-to-cup, capsule, filter and Turkish coffee machines.","householdApplicability":"HIGH","separationRationale":"User skill/control, grinder, portafilter, steam and workflow create a distinct purchase journey.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"FILTER_COFFEE_MACHINE","publicLabelTr":"Filtre kahve makinesi","family":"COFFEE","decisionObject":"One exact drip/filter coffee appliance configuration.","included":"Household electric drip/filter machines.","excluded":"Espresso, capsule, pod and Turkish coffee machines; standalone grinders.","householdApplicability":"HIGH","separationRationale":"Batch volume, carafe, keep-warm and brewing workflow are not espresso semantics.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"TURKISH_COFFEE_MACHINE","publicLabelTr":"Türk kahvesi makinesi","family":"COFFEE","decisionObject":"One exact electric Turkish-coffee appliance configuration.","included":"Single/multi-pot automatic household Turkish-coffee machines.","excluded":"Stovetop pots, espresso and filter machines.","householdApplicability":"HIGH","separationRationale":"Cup/pot capacity, overflow control and Turkish-coffee workflow form a locally material distinct journey.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"AIR_FRYER","publicLabelTr":"Airfryer / sıcak hava fritözü","family":"SMALL_KITCHEN_COOKING","decisionObject":"One exact countertop hot-air cooking appliance configuration.","included":"Single/dual-basket household hot-air fryers and manufacturer-defined multicook variants where hot-air cooking is primary.","excluded":"Built-in ovens, pressure cookers, contact grills and generic small cooking appliances.","householdApplicability":"HIGH","separationRationale":"Basket topology, usable capacity, synchronization, footprint and cleaning have coherent evidence and needs.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"BLENDER","publicLabelTr":"Blender","family":"FOOD_PREPARATION","decisionObject":"One exact jug or personal blender configuration; form factor is explicit.","included":"Countertop jug and personal smoothie blenders.","excluded":"Hand blenders, food processors, stand mixers, juicers and catch-all food-preparation bundles.","householdApplicability":"HIGH","separationRationale":"Vessel, blade, usable volume and hot/ice suitability create a bounded comparable object.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"FOOD_PROCESSOR","publicLabelTr":"Mutfak robotu","family":"FOOD_PREPARATION","decisionObject":"One exact bowl-based food processor configuration with its included attachment set frozen as identity.","included":"Bowl food processors marketed as mutfak robotu.","excluded":"Blenders, hand blenders, stand mixers, choppers and changing accessory bundles not bound to an exact SKU.","householdApplicability":"HIGH","separationRationale":"Attachment-set identity, bowl capacity and preparation operations materially differ from blender decisions.","evidenceAvailability":"MEDIUM_HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"MEDIUM_HIGH"}},
+      {"categoryId":"ELECTRIC_STORAGE_WATER_HEATER","publicLabelTr":"Elektrikli termosifon","family":"DOMESTIC_HOT_WATER","decisionObject":"One exact electric storage water-heater configuration plus household installation envelope.","included":"Wall-mounted electric storage heaters/termosifons.","excluded":"Instantaneous heaters, heat-pump tanks, boilers/combis and gas appliances.","householdApplicability":"HIGH","separationRationale":"Stored volume, recovery, pressure, corrosion protection, wet-area electrical and plumbing constraints require separate safety-aware semantics.","evidenceAvailability":"HIGH","acquisitionFeasibility":{"technical":"HIGH","manual":"HIGH","media":"HIGH","price":"HIGH"}},
+      {"categoryId":"INSTANTANEOUS_ELECTRIC_WATER_HEATER","publicLabelTr":"Elektrikli şofben","family":"DOMESTIC_HOT_WATER","decisionObject":"One exact electric instantaneous household water-heater configuration plus declared electrical/plumbing installation envelope.","included":"Electric instantaneous shower/tap water heaters supported in the current TR manufacturer channel.","excluded":"Gas/hermetic heaters, storage tanks, combis and commercial systems.","householdApplicability":"MEDIUM_HIGH","separationRationale":"Flow, input power, circuit and instantaneous delivery are incompatible with storage-heater comparison.","evidenceAvailability":"MEDIUM","acquisitionFeasibility":{"technical":"MEDIUM_HIGH","manual":"HIGH","media":"MEDIUM","price":"MEDIUM"}}
+    ],
+    "familyRules": [
+      {"family":"COOKING_MAJOR","rule":"Shared navigation only; oven, cooker, hob and hood remain separate Domain Packs and decision objects."},
+      {"family":"MICROWAVE","rule":"Built-in and countertop remain separate due to non-substitutable installation identity."},
+      {"family":"COFFEE","rule":"No COFFEE_MACHINE catch-all runtime category; preparation workflow defines four separate categories."},
+      {"family":"FOOD_PREPARATION","rule":"No SMALL_KITCHEN_APPLIANCE catch-all; only air fryer, blender and food processor are frozen now."},
+      {"family":"DOMESTIC_HOT_WATER","rule":"Storage and instantaneous electric systems remain separate; gas systems are excluded."}
+    ],
+    "deferred": [
+      {"candidate":"PORTABLE_AIR_CONDITIONER","reason":"Different placement/exhaust/noise semantics and thin current exact-TR breadth; reassess after split AC."},
+      {"candidate":"MULTI_SPLIT_OR_SYSTEM_AIR_CONDITIONER","reason":"Site design and installer-led multi-zone system, not a bounded single household product decision."},
+      {"candidate":"BUILT_IN_COFFEE_MACHINE","reason":"Valid but narrow installed niche; defer until built-in cooking foundations exist."},
+      {"candidate":"CAPSULE_COFFEE_MACHINE","reason":"Machine choice is inseparable from proprietary capsule ecosystem and recurring commerce authority not yet governed."},
+      {"candidate":"HAND_BLENDER_OR_CHOPPER","reason":"Bundle/accessory identity churn is high; exact-SKU evidence model must be proven with FOOD_PROCESSOR first."},
+      {"candidate":"STAND_MIXER_OR_KITCHEN_MACHINE","reason":"Attachment ecosystems and bundle identity need separate accessory governance."},
+      {"candidate":"KETTLE_OR_TEA_MACHINE","reason":"Household-relevant but lower-complexity journey; not required for this major-category portfolio."},
+      {"candidate":"STEAM_IRON_OR_STEAM_GENERATOR","reason":"Major garment-care family, but outside the bounded kitchen/climate/storage/hot-water expansion and requires its own split analysis."},
+      {"candidate":"WATER_PURIFIER_OR_DISPENSER","reason":"Filter subscription, water-quality claims, installation and service lifecycle require separate commercial/safety authority."},
+      {"candidate":"HUMIDIFIER_OR_DEHUMIDIFIER","reason":"Distinct indoor-air and health-claim semantics; not to be folded into AIR_PURIFIER."},
+      {"candidate":"COUNTERTOP_MINI_OVEN","reason":"Separate countertop thermal-cooking identity; defer rather than merge with built-in oven or cooker."}
+    ],
+    "excluded": [
+      {"scope":"Commercial/industrial appliances, cold rooms, VRF, commercial kitchen and laundry","reason":"Outside household Appliances scope."},
+      {"scope":"Gas/hermetic water heaters, boilers and combis","reason":"Combustion, regulated installation and heating-system semantics require a separate safety and service program."},
+      {"scope":"Generic OTHER_APPLIANCES, SMALL_KITCHEN_APPLIANCE or COFFEE_MACHINE IDs","reason":"Catch-alls conflate incompatible evidence and decision semantics."},
+      {"scope":"Services, installation providers, consumables, spare parts and accessories as products","reason":"May be evidence or commerce dependencies but are not product candidates in this authority."},
+      {"scope":"Televisions, personal electronics and smart-home hubs","reason":"Not Appliances purchase objects in this bounded portfolio."}
+    ],
+    "domainPackAuthorityGaps": [
+      "A category-specific concept and terminology registry for every selected ID.",
+      "Exact configuration identity rules, including bundle/accessory and paired-unit identity where applicable.",
+      "Official-source acceptance, conflict, supersession, applicability and checksum rules specialized only where needed.",
+      "Category-specific technical fact units/regimes and same-scope comparability dimensions.",
+      "Category-specific need-to-evidence mappings and hard-constraint materiality definitions.",
+      "Question, sufficiency, candidate evaluation, Pareto/tie and Y construction/authorization policies.",
+      "Safety and installation boundary for gas/electrical/plumbing/high-heat and indoor-air claims.",
+      "Manual L9 promotion rules and read-only Advisor/paid-comparison projections.",
+      "Volatile price/media/offer freshness and exact-identity join contracts."
+    ],
+    "implementationBatches": [
+      {"order":1,"batchId":"FOUNDATION","categories":"ALL_SELECTED_IDS","objective":"Extend TypeScript/DB/route/registry constraints in one additive multi-category foundation; create inactive Domain Pack slots and fail-closed loaders only.","gate":"No category becomes runtime active and no catalog member is created."},
+      {"order":2,"batchId":"BATCH_A_MAJOR_INSTALLED","categories":["FREEZER","BUILT_IN_OVEN","FREESTANDING_COOKER","HOB","RANGE_HOOD"],"dependency":"FOUNDATION","rationale":"High official evidence availability; establishes cold-storage and installed-cooking identity/installation patterns."},
+      {"order":3,"batchId":"BATCH_B_MICROWAVE_AND_CLIMATE","categories":["COUNTERTOP_MICROWAVE_OVEN","BUILT_IN_MICROWAVE_OVEN","SPLIT_AIR_CONDITIONER","AIR_PURIFIER"],"dependency":"BATCH_A installation pattern","rationale":"Proves fitted-vs-portable separation, paired-unit identity and indoor-air claim boundaries."},
+      {"order":4,"batchId":"BATCH_C_COFFEE","categories":["FULLY_AUTOMATIC_ESPRESSO_MACHINE","MANUAL_ESPRESSO_MACHINE","FILTER_COFFEE_MACHINE","TURKISH_COFFEE_MACHINE"],"dependency":"FOUNDATION","rationale":"One evidence-acquisition family but four non-conflated preparation workflows."},
+      {"order":5,"batchId":"BATCH_D_SMALL_KITCHEN","categories":["AIR_FRYER","BLENDER","FOOD_PROCESSOR"],"dependency":"Exact bundle identity rule","rationale":"Introduces countertop and attachment-bound identity without a catch-all."},
+      {"order":6,"batchId":"BATCH_E_HOT_WATER","categories":["ELECTRIC_STORAGE_WATER_HEATER","INSTANTANEOUS_ELECTRIC_WATER_HEATER"],"dependency":"Dedicated installation/safety authority","rationale":"Last because electrical/plumbing safety and installation evidence are release blockers."}
+    ],
+    "nextWorkUnit": {
+      "workUnitId": "WU-XPY-APPL-NEW-CATEGORY-MULTI-FOUNDATION-01",
+      "objective": "Implement only the additive shared foundation for all frozen category IDs, including constraints, inactive registry capability records, schema/loader contracts and fail-closed tests; do not create catalogs, category semantics, runtime activation, UI journeys or production members."
+    }
+  }
+}

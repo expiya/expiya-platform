@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "dryer-richness-manifest/v1",
+  "workUnitId": "WU-XPY-APPL-DRYER-CATALOG-RICHNESS-01",
+  "releaseVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+  "parent": {
+    "releaseVersion": "APPLIANCES-DRYER-TR-v0.1",
+    "artifactSha256": "3ef3ce69874ced7d210c97545d35e82a9a2fae2933a7d7d715ae411224943f48",
+    "relationship": "IMMUTABLE_CHILD_NO_OVERWRITE"
+  },
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "DRYER_SEMANTIC_REGISTRY/v0.2",
+    "semanticAuthorityDigest": "sha256:e34f75e2b7942e61a0b83376542e7071076e5b23ffa484d952d5ec4e27cf4ae9",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "releaseDigest": "sha256:cb360607540a60b2d4519bf422d1c87f6d53240ce2b33b6bf0d895785e12df98",
+  "catalogArtifactSha256": "3bbb554e3e42d9051b8adf60e2bd5b17f01b5f04838a6ca722f6a8ff86a8a22c",
+  "semanticArtifactSha256": "ebe2e872c7af0dcdd7962c1ef4ea6ac709e23f2c3047dc01089d29ae30c61438",
+  "coverageArtifactSha256": "b70a0af8db51fdf42c4b5f19b644dab0e2ba46e6413ea86fcc853158cfe87c83",
+  "projectionsArtifactSha256": "f65cddd44d5014ff1b9e382698b2eb918b896a6ea69cb4ccea33e8ec328dc849",
+  "membershipDigest": "247c384b6b47d560bf004e74c48198a4646ea982419ce4a0033a7ab934a30e9e",
+  "memberCount": 3,
+  "counts": {
+    "sources": 6,
+    "offerings": 3,
+    "objectiveFacts": 27,
+    "capabilities": 21,
+    "usageSemantics": 8,
+    "needs": 13,
+    "needEvidenceMappings": 12,
+    "personaSignals": 4,
+    "dailyLifeInterpretations": 18,
+    "experienceRules": 0,
+    "decisionProjections": 3,
+    "advisorKnowledge": 8,
+    "exactManualProducts": 1,
+    "boundedModelListManualProducts": 1,
+    "unresolvedManualProducts": 1,
+    "evidence": 56,
+    "assertionLevelEvidence": 56,
+    "comparisonDimensions": 7,
+    "advisorReadProjectionsGenerated": 3,
+    "comparisonEvidenceProjectionsGenerated": 1
+  },
+  "reviewerStatus": "AWAITING_PRODUCT_OWNER_ACTIVATION_APPROVAL",
+  "activation": {
+    "performed": false,
+    "activePointerRelease": "APPLIANCES-DRYER-TR-v0.1",
+    "blocker": "The active Dryer loader/pointer authorizes only APPLIANCES-DRYER-TR-v0.1; this semantic child requires explicit Product-owner approval and a versioned composite activation workflow."
+  }
+}

@@ -94,6 +94,7 @@ describe("V3.7 Promptfoo conversation regressions", () => {
       output = await runV3Turn({ conversationId: state.conversationId, messageId: id, message, expectedRevision: state.revision, state, ...(state.pendingOffer ? { recommendationTermsAcceptance: createRecommendationTermsAcceptance() } : {}) });
       state = output.state;
     }
-    expect(output.recommendations).toHaveLength(1);
+    expect(output.recommendations?.length).toBeGreaterThan(1);
+    expect(output.recommendations?.length).toBeLessThanOrEqual(3);
   });
 });

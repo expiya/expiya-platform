@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "refrigerator-catalog-richness-coverage/v1",
+  "workUnitId": "WU-XPY-APPL-REFRIGERATOR-CATALOG-RICHNESS-01",
+  "generatedAt": "2026-09-04T19:30:00.000+03:00",
+  "verdict": "IMPLEMENTED",
+  "before": {
+    "L0": "COMPLETE",
+    "L1": "PARTIAL",
+    "L2": "PARTIAL",
+    "L3": "PARTIAL",
+    "L4": "PARTIAL",
+    "L5": "ABSENT",
+    "L6": "ABSENT",
+    "L7": "ABSENT",
+    "L8": "PARTIAL",
+    "L9": "ABSENT",
+    "L10": "PARTIAL"
+  },
+  "after": {
+    "L0": "COMPLETE",
+    "L1": "PARTIAL",
+    "L2": "COMPLETE",
+    "L3": "COMPLETE",
+    "L4": "COMPLETE",
+    "L5": "COMPLETE",
+    "L6": "COMPLETE",
+    "L7": "ABSENT",
+    "L8": "COMPLETE",
+    "L9": "ABSENT",
+    "L10": "PARTIAL"
+  },
+  "counts": {
+    "sources": 8,
+    "offerings": 4,
+    "objectiveFacts": 63,
+    "capabilities": 28,
+    "usageSemantics": 7,
+    "needs": 9,
+    "needEvidenceMappings": 8,
+    "personaSignals": 3,
+    "dailyLifeInterpretations": 16,
+    "experienceRules": 0,
+    "decisionProjections": 4,
+    "advisorKnowledge": 0,
+    "comparisonDimensions": 9,
+    "evidence": 91,
+    "assertionLevelEvidence": 91,
+    "advisorReadProjectionsGenerated": 4,
+    "comparisonEvidenceProjectionsGenerated": 1
+  },
+  "perProduct": [
+    {
+      "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+      "label": "Samsung RB34C6B0E12/TR",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 16,
+        "capabilities": 8,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "DOOR_OPEN_DEPTH_UNKNOWN",
+          "CLEARANCES_UNKNOWN",
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND"
+        ]
+      }
+    },
+    {
+      "offeringId": "BOSCH_KGN55CIE0N_TR",
+      "label": "Bosch KGN55CIE0N",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 16,
+        "capabilities": 7,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "DOOR_OPEN_DEPTH_UNKNOWN",
+          "CLEARANCES_UNKNOWN",
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND"
+        ]
+      }
+    },
+    {
+      "offeringId": "SIEMENS_KG56NVWD0N_TR",
+      "label": "Siemens KG56NVWD0N",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 17,
+        "capabilities": 7,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "DOOR_OPEN_DEPTH_UNKNOWN",
+          "CLEARANCES_UNKNOWN",
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND"
+        ]
+      }
+    },
+    {
+      "offeringId": "LG_GC_B569NLLM_TR",
+      "label": "LG GC-B569NLLM",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 14,
+        "capabilities": 6,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "WIDTH_AND_DEPTH_CONFLICT",
+          "DOOR_OPEN_DEPTH_UNKNOWN",
+          "CLEARANCES_UNKNOWN",
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND"
+        ]
+      }
+    }
+  ],
+  "unresolvedGlobal": [
+    "L7 remains absent because no governed experience authority exists.",
+    "L9 remains absent because no checksum-bound exact-applicability manual exists in the repository.",
+    "Door-open depth and installation clearances remain unknown for all products.",
+    "LG width and depth conflict remains unknown and the parent keeps LG non-selectable.",
+    "L10 price, media and offers remain external volatile joins."
+  ],
+  "nonRegression": {
+    "parentAuthorityBytesChanged": false,
+    "membershipChanged": false,
+    "candidateSelectionChanged": false,
+    "yAuthorizationChanged": false,
+    "commerceOrderingChanged": false
+  },
+  "nextBoundedWorkUnit": {
+    "workUnitId": "WU-XPY-APPL-DISHWASHER-CATALOG-RICHNESS-01"
+  }
+}

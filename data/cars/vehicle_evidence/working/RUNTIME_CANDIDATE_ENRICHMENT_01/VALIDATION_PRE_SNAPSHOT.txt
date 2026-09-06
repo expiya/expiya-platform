@@ -1,0 +1,18 @@
+VALIDATOR: PASS
+ERRORS: 0
+WARNINGS: 12
+INFO: 1
+
+INFO [SAFETY] 07_SAFETY is empty; this is permitted and remains future P1 work
+WARNING [SNAPSHOT] SRC-000028 snapshot explicitly unavailable
+WARNING [SNAPSHOT] SRC-000032 snapshot explicitly unavailable
+WARNING [SNAPSHOT] SRC-000048 snapshot explicitly unavailable
+WARNING [SNAPSHOT] SRC-000052 snapshot explicitly unavailable
+WARNING [SNAPSHOT] SRC-000055 snapshot explicitly unavailable
+WARNING [SNAPSHOT] SRC-000056 snapshot explicitly unavailable
+WARNING [SNAPSHOT] SRC-000058 snapshot explicitly unavailable
+WARNING [SNAPSHOT] SRC-000072 snapshot explicitly unavailable
+WARNING [SNAPSHOT] SRC-000077 snapshot explicitly unavailable
+WARNING [SNAPSHOT] SRC-000078 snapshot explicitly unavailable
+WARNING [SOURCE] SRC-000079 has no immutable content hash/snapshot
+WARNING [SOURCE] SRC-000080 has no immutable content hash/snapshot

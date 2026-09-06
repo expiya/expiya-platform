@@ -1,0 +1,50 @@
+{
+  "schemaVersion": "major-appliance-category-adoption-manifest/v1",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+  "categoryId": "WASHING_MACHINE",
+  "releaseVersion": "APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.3-candidate",
+  "releaseDigest": "sha256:5e15dc9867acdf9bbd59368347f377aa7393ddffa4588cb2438805cdcf65ebdf",
+  "catalogArtifactSha256": "2a85eb2f5be54a97468a7ac4c66f6ab14e02cf7677702258e2243b8d54d2ee85",
+  "semanticArtifactSha256": "8fc76b30a8eb667276148609491dc830d9ab03bb804efd6ec91a61a2c80d4c79",
+  "coverageArtifactSha256": "b0dec6c020e5ba96c1807883bafc47c1a53410d1265f4c0b61d3a6271aa66263",
+  "projectionsArtifactSha256": "1e277ddc18c0e721697074ccea9ede41ff07a6f99d5ffbc5ab2c0db41a2e893c",
+  "sourceRegisterArtifactSha256": "ddec3daaa0b4f46adda55e2c9d9e428f915672f629d74267c71c7d3b5b8a53b2",
+  "unknownRegisterArtifactSha256": "390e1b485de54908c5f8eb013a409d11be3b001a101ac34ea16e3a73ae422c55",
+  "membershipDigest": "9823549a4200da0cf88e4460c73f9861f81d7b0959e79ca16a45beacf1b098f2",
+  "memberCount": 29,
+  "priorMemberCount": 24,
+  "admittedOfferingIds": [
+    "appliances:wm:tr:samsung:ww90ta046ah-ah",
+    "appliances:wm:tr:vestel:cmi-97402-wifi",
+    "appliances:wm:tr:arcelik:10120-imp",
+    "appliances:wm:tr:altus:al-cm-101254-d",
+    "appliances:wm:tr:samsung:ww11dg6b25leah"
+  ],
+  "parent": {
+    "activePointerPath": "data/production/appliances/washing-machines/active.json",
+    "activePointerSha256": "2a6c3a99ffe8df1153487cae5a46c6ef8e354ef75807f8a6f012e3180e909b3f",
+    "decisionReleaseVersion": "APPLIANCES-WM-TR-v0.1",
+    "decisionArtifactPath": "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/catalog.json",
+    "decisionArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+    "richnessReleaseVersion": "APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.2",
+    "richnessCatalogArtifactSha256": "73cf9130bb6c21e430b34145a9c60ee99aba200fd85ed420e4a2b1404bae6a42",
+    "relationship": "IMMUTABLE_SUCCESSOR_CANDIDATE_NO_OVERWRITE"
+  },
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "WASHING_MACHINE_SEMANTIC_REGISTRY/v0.3-candidate",
+    "semanticAuthorityDigest": "sha256:cb99a3f0f799cc8dc8d3f983acac25f0c3b1c87f01c64849b801f7958832d10a",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "activation": {
+    "performed": false,
+    "status": "BLOCKED_MANDATORY_PRODUCT_OWNER_APPROVAL",
+    "blocker": "Product membership changes decision authority. Existing read-only richness approval does not authorize new members."
+  }
+}

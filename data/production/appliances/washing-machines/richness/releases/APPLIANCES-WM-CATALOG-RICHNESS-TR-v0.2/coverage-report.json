@@ -1,0 +1,1075 @@
+{
+  "schemaVersion": "washing-machine-product-bound-richness-coverage/v1",
+  "workUnitId": "WU-XPY-APPL-WASHING-MACHINE-PRODUCT-BOUND-L6-L9-COMPLETION-01",
+  "generatedAt": "2026-09-04T23:30:00.000+03:00",
+  "verdict": "IMPLEMENTED",
+  "before": {
+    "L0": "COMPLETE",
+    "L1": "COMPLETE",
+    "L2": "COMPLETE",
+    "L3": "COMPLETE",
+    "L4": "COMPLETE",
+    "L5": "COMPLETE",
+    "L6": "PARTIAL",
+    "L7": "ABSENT",
+    "L8": "COMPLETE",
+    "L9": "ABSENT",
+    "L10": "PARTIAL"
+  },
+  "after": {
+    "L0": "COMPLETE",
+    "L1": "COMPLETE",
+    "L2": "COMPLETE",
+    "L3": "COMPLETE",
+    "L4": "COMPLETE",
+    "L5": "COMPLETE",
+    "L6": "COMPLETE",
+    "L7": "ABSENT",
+    "L8": "COMPLETE",
+    "L9": "ABSENT",
+    "L10": "PARTIAL"
+  },
+  "counts": {
+    "offerings": 24,
+    "sources": 57,
+    "evidence": 572,
+    "facts": 317,
+    "capabilities": 255,
+    "dailyLifeInterpretations": 208,
+    "advisorKnowledge": 0,
+    "advisorReadProjectionsGenerated": 24,
+    "comparisonEvidenceProjectionsGenerated": 1
+  },
+  "perProduct": [
+    {
+      "offeringId": "appliances:wm:tr:beko:cmx-8100",
+      "label": "Beko CMX 8100",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 1,
+        "unresolved": [
+          "MANUAL_SECTION_OR_PAGE_LOCATOR_NOT_RETAINED_IN_PARENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:beko:cmxt-9120",
+      "label": "Beko CMXT 9120",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:beko:cmx-10120",
+      "label": "Beko CMX 10120",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 1,
+        "unresolved": [
+          "MANUAL_SECTION_OR_PAGE_LOCATOR_NOT_RETAINED_IN_PARENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:beko:cmx-11140",
+      "label": "Beko CMX 11140",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 1,
+        "unresolved": [
+          "MANUAL_SECTION_OR_PAGE_LOCATOR_NOT_RETAINED_IN_PARENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:vestel:cmi-87402-wifi",
+      "label": "Vestel CMI 87402 WIFI",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 8,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 1,
+        "unresolved": [
+          "MANUAL_SECTION_OR_PAGE_LOCATOR_NOT_RETAINED_IN_PARENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:vestel:cmi-99422-wifi",
+      "label": "Vestel CMI 99422 WIFI",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 7,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 1,
+        "unresolved": [
+          "MANUAL_SECTION_OR_PAGE_LOCATOR_NOT_RETAINED_IN_PARENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "label": "Vestel CMI 108442 WIFI",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:bosch:wgb244a0tr",
+      "label": "Bosch WGB244A0TR",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:bosch:wgb254a1tr",
+      "label": "Bosch WGB254A1TR",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:bosch:wgb254axtr",
+      "label": "Bosch WGB254AXTR",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:bosch:wgk264y0tr",
+      "label": "Bosch WGK264Y0TR",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 8,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:lg:f4t2vym1s",
+      "label": "LG F4T2VYM1S",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:lg:f4r5vyw2t",
+      "label": "LG F4R5VYW2T",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:lg:f4v5ryp0w",
+      "label": "LG F4V5RYP0W",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:lg:f4y5eywyj",
+      "label": "LG F4Y5EYWYJ",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:electrolux:ew6f3494t",
+      "label": "Electrolux EW6F3494T",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:electrolux:ew6f3411act",
+      "label": "Electrolux EW6F3411ACT",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:electrolux:ew7f4404ut",
+      "label": "Electrolux EW7F4404UT",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:electrolux:ew7f4422ct",
+      "label": "Electrolux EW7F4422CT",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:samsung:ww90cgc04daeah",
+      "label": "Samsung WW90CGC04DAEAH",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 9,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:samsung:ww90dg6u25leah",
+      "label": "Samsung WW90DG6U25LEAH",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 8,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:samsung:ww11db8b95gbah",
+      "label": "Samsung WW11DB8B95GBAH",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 8,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:miele:wwa120-wcs-8kg-active",
+      "label": "Miele WWA120 WCS 8kg Active",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 8,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    },
+    {
+      "offeringId": "appliances:wm:tr:lg:f4r3tyw3we",
+      "label": "LG F4R3TYW3WE",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "PARTIAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "dailyLifeInterpretations": 8,
+        "advisorKnowledge": 0,
+        "exactChecksumManualSources": 0,
+        "unresolved": [
+          "EXACT_CHECKSUM_BOUND_MANUAL_ABSENT",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "OUTCOME_CLAIMS_UNKNOWN",
+          "L10_EXTERNAL_VOLATILE"
+        ]
+      }
+    }
+  ],
+  "unknownLedger": {
+    "global": [
+      "L9 remains governed unknown: five exact checksum-identified manuals exist, but the frozen parent retains no manual section/page locator; no manual prose was invented.",
+      "L7 remains absent; experience is not technical truth.",
+      "Fit, savings, quietness, vibration, wash/dry, hygiene/allergy, care, safety and convenience outcomes remain unknown unless directly asserted."
+    ],
+    "manualCoveredWithoutRequiredLocator": [
+      "appliances:wm:tr:beko:cmx-8100",
+      "appliances:wm:tr:beko:cmx-10120",
+      "appliances:wm:tr:beko:cmx-11140",
+      "appliances:wm:tr:vestel:cmi-87402-wifi",
+      "appliances:wm:tr:vestel:cmi-99422-wifi"
+    ],
+    "manualAbsent": [
+      "appliances:wm:tr:beko:cmxt-9120",
+      "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "appliances:wm:tr:bosch:wgb244a0tr",
+      "appliances:wm:tr:bosch:wgb254a1tr",
+      "appliances:wm:tr:bosch:wgb254axtr",
+      "appliances:wm:tr:bosch:wgk264y0tr",
+      "appliances:wm:tr:lg:f4t2vym1s",
+      "appliances:wm:tr:lg:f4r5vyw2t",
+      "appliances:wm:tr:lg:f4v5ryp0w",
+      "appliances:wm:tr:lg:f4y5eywyj",
+      "appliances:wm:tr:electrolux:ew6f3494t",
+      "appliances:wm:tr:electrolux:ew6f3411act",
+      "appliances:wm:tr:electrolux:ew7f4404ut",
+      "appliances:wm:tr:electrolux:ew7f4422ct",
+      "appliances:wm:tr:samsung:ww90cgc04daeah",
+      "appliances:wm:tr:samsung:ww90dg6u25leah",
+      "appliances:wm:tr:samsung:ww11db8b95gbah",
+      "appliances:wm:tr:miele:wwa120-wcs-8kg-active",
+      "appliances:wm:tr:lg:f4r3tyw3we"
+    ]
+  },
+  "nonRegression": {
+    "parentCatalogArtifactChanged": false,
+    "parentCatalogDigestChanged": false,
+    "parentSemanticRegistryChanged": false,
+    "membershipChanged": false,
+    "candidateQuestionSufficiencySelectionRecommendationChanged": false,
+    "yAuthorizationChanged": false
+  },
+  "nextBoundedWorkUnit": {
+    "workUnitId": "WU-XPY-APPL-EXISTING-SIX-CATALOG-COMPLETION-AUDIT-01"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "dishwasher-richness-manifest/v1",
+  "workUnitId": "WU-XPY-APPL-DISHWASHER-CATALOG-RICHNESS-01",
+  "releaseVersion": "APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.2",
+  "parent": {
+    "releaseVersion": "APPLIANCES-DISHWASHER-TR-v0.1",
+    "artifactSha256": "66973c59f1b752f2598b4c6b30d6dc0d2b272948a342b33a08f4cd8f68f9124e",
+    "relationship": "IMMUTABLE_CHILD_NO_OVERWRITE"
+  },
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "DISHWASHER_SEMANTIC_REGISTRY/v0.2",
+    "semanticAuthorityDigest": "sha256:d8f094ff8e92fedab86f3915ef450a4db4c7d5b453337eb7b4f7e9582a63301e",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "releaseDigest": "sha256:72f7564dcd40b370b7b656a22fcc5d61127defe81d771e688cce3f9d889d9866",
+  "catalogArtifactSha256": "7237a05c25c245473fd00fab0b96dd531a92f1082e288bb7e2533373e159f5ee",
+  "semanticArtifactSha256": "2fdc69774099ecc570de13fe678f672238091a972f78b6d7e0d26ac8a0f612be",
+  "coverageArtifactSha256": "bea0348930049f2250f6e0c69a934e4d4a98d1f8373bb498995e519bfc3aa60d",
+  "projectionsArtifactSha256": "6132f0a80ab53cb353144079b926014658e5209815d702f320b7ee1896ec113e",
+  "membershipDigest": "53b8a8aaa9dfeb13fe939a553ae4a7128c39dcb46fa074f18d6eca071ee0cf11",
+  "memberCount": 4,
+  "counts": {
+    "sources": 5,
+    "offerings": 4,
+    "objectiveFacts": 25,
+    "capabilities": 12,
+    "usageSemantics": 7,
+    "needs": 8,
+    "needEvidenceMappings": 7,
+    "personaSignals": 3,
+    "dailyLifeInterpretations": 15,
+    "experienceRules": 0,
+    "decisionProjections": 4,
+    "advisorKnowledge": 0,
+    "comparisonDimensions": 7,
+    "evidence": 37,
+    "assertionLevelEvidence": 37,
+    "advisorReadProjectionsGenerated": 4,
+    "comparisonEvidenceProjectionsGenerated": 1
+  },
+  "reviewerStatus": "APPROVED_IN_WORK_UNIT",
+  "activation": {
+    "performed": false,
+    "activePointerRelease": "APPLIANCES-DISHWASHER-TR-v0.1"
+  }
+}

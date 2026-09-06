@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "baby-stroller-owner-approval/v1",
+  "workUnitId": "WU-BABY-STROLLER-END-TO-END-01",
+  "approvedAt": "2026-09-06T09:55:14Z",
+  "authorityDigest": "sha256:e0f9a3bd92488849e81b0462ada33056a450bab9f5f08759fbf01e91bbc9e4ae",
+  "release": "BABY-STROLLER-TR-v0.2-approval-candidate",
+  "scope": {
+    "departmentId": "BABY_AND_CHILD",
+    "capabilities": ["STROLLER"],
+    "memberCount": 4,
+    "infantCarSeatsAuthorized": false
+  },
+  "statement": "I approve WU-BABY-STROLLER-END-TO-END-01 authority digest sha256:e0f9a3bd92488849e81b0462ada33056a450bab9f5f08759fbf01e91bbc9e4ae for bounded STROLLER activation.",
+  "supersedesAndProhibits": "sha256:ae362103ae21a2a95122fdf308c6bfbc954d21c60d2dc44de29adc33da713ac9",
+  "appendOnly": true
+}
