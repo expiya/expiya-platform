@@ -20,8 +20,9 @@ describe("active Cars stage-one presentation", () => {
   it("keeps the Cars analysis entry on the canonical V3.8 alias without claiming the platform root", () => {
     const home = readFileSync("app/page.tsx", "utf8");
     const analysis = readFileSync("app/analysis/page.tsx", "utf8");
-    expect(home).toContain("ROOT_DEPARTMENTS");
-    expect(home).toContain("href={department.href}");
+    expect(home).toContain("<UpperSecretary suggestions={SECRETARY_SEARCH_SUGGESTIONS} />");
+    expect(home).not.toContain("ROOT_DEPARTMENTS");
+    expect(home).not.toContain("href={department.href}");
     expect(home).not.toContain("/analysis?pilot=v3.8&query=");
     expect(analysis).toContain('if (pilotValue !== "1") redirect(`/analysis?pilot=v3.8');
     expect(analysis.indexOf('pilotValue !== "1"')).toBeLessThan(analysis.indexOf("if (!isPublicCarsConversationEnabled"));

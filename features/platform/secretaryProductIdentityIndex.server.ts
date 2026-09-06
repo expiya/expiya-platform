@@ -10,6 +10,8 @@ const APPLIANCE_FOLDER_CATEGORY: Readonly<Record<string, SecretaryCategoryId>> =
   "washing-machines":"WASHING_MACHINE","refrigerators":"REFRIGERATOR","dishwashers":"DISHWASHER","dryers":"DRYER","vacuums":"VACUUM","robot-vacuums":"ROBOT_VACUUM","freezers":"FREEZER","built-in-ovens":"BUILT_IN_OVEN","freestanding-cookers":"FREESTANDING_COOKER","hobs":"HOB","range-hoods":"RANGE_HOOD","countertop-microwave-ovens":"COUNTERTOP_MICROWAVE_OVEN","built-in-microwave-ovens":"BUILT_IN_MICROWAVE_OVEN","air-purifiers":"AIR_PURIFIER","fully-automatic-espresso-machines":"FULLY_AUTOMATIC_ESPRESSO_MACHINE","manual-espresso-machines":"MANUAL_ESPRESSO_MACHINE","filter-coffee-machines":"FILTER_COFFEE_MACHINE","turkish-coffee-machines":"TURKISH_COFFEE_MACHINE","air-fryers":"AIR_FRYER","blenders":"BLENDER","food-processors":"FOOD_PROCESSOR","electric-storage-water-heaters":"ELECTRIC_STORAGE_WATER_HEATER","instantaneous-electric-water-heaters":"INSTANTANEOUS_ELECTRIC_WATER_HEATER","split-air-conditioners":"SPLIT_AIR_CONDITIONER",
 });
 
+// Governed JSON schemas differ by department; every consumed field is narrowed below.
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Json = Record<string, any>;
 const read = (root:string,file:string): {raw:string; value:Json} => { const raw=readFileSync(path.join(root,file),"utf8"); return {raw,value:JSON.parse(raw)}; };
 const sha = (raw:string) => createHash("sha256").update(raw).digest("hex");
