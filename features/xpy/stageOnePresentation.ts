@@ -35,6 +35,30 @@ export interface XpyStageOneDecisionPresentation {
   readonly continuation?: { readonly label: string; readonly href?: string };
 }
 
+export interface XpyStageOneSetPresentation {
+  readonly schemaVersion: typeof XPY_STAGE_ONE_PRESENTATION_VERSION;
+  readonly kind: "TIED_TOP_SET" | "NON_DOMINATED_SET";
+  readonly departmentLabel: string;
+  readonly categoryLabel: string;
+  readonly title: string;
+  readonly explanation: string;
+  readonly candidates: readonly { readonly id: string; readonly name: string; readonly configuration?: string; readonly differences?: readonly string[] }[];
+  readonly unresolved: readonly string[];
+  readonly nextAction?: { readonly label: string; readonly href?: string };
+}
+
+export interface XpyStageOneUnavailablePresentation {
+  readonly schemaVersion: typeof XPY_STAGE_ONE_PRESENTATION_VERSION;
+  readonly kind: "AUTHORITY_UNAVAILABLE";
+  readonly departmentLabel: string;
+  readonly categoryLabel: string;
+  readonly title: string;
+  readonly explanation: string;
+  readonly recovery?: string;
+}
+
+export type XpyStageOnePresentation = XpyStageOneDecisionPresentation | XpyStageOneSetPresentation | XpyStageOneUnavailablePresentation;
+
 export interface XpyStageOnePresentationAdapter<Input> {
   readonly adapterId: string;
   readonly version: typeof XPY_STAGE_ONE_PRESENTATION_VERSION;

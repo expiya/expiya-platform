@@ -1,0 +1,20 @@
+import { STROLLER_SOURCES } from "../catalog";
+import type { authorizeStrollerCard } from "../decision";
+import { defineXpyStageOnePresentationAdapter, XPY_STAGE_ONE_PRESENTATION_VERSION, type XpyStageOneSetPresentation } from "@/features/xpy/stageOnePresentation";
+
+type StrollerCard = ReturnType<typeof authorizeStrollerCard>;
+const known = (value: unknown) => value === "UNKNOWN" ? "Bilinmiyor" : String(value);
+const numberTr = (value: number) => value.toLocaleString("tr-TR");
+const publicLimitation = (value: string) => value.replace(/\bexact\b/giu, "belirli ürün");
+export const STROLLER_STAGE_ONE_PRESENTATION = defineXpyStageOnePresentationAdapter<StrollerCard>({
+  adapterId: "baby-stroller-stage1-presentation/v1", version: XPY_STAGE_ONE_PRESENTATION_VERSION,
+  project(card) {
+    const facts = card.facts;
+    const source = STROLLER_SOURCES.find(row => card.exactProductId.startsWith(row.id.split("-TR-")[0]!.replaceAll("-", "_"))) ?? STROLLER_SOURCES.find(row => row.id.includes(card.manufacturer.toUpperCase()));
+    return { schemaVersion: XPY_STAGE_ONE_PRESENTATION_VERSION, exactIdentity: { id: card.exactProductId, brand: card.manufacturer, model: card.model, configuration: card.configurationIdentity.replaceAll(" / ", " · ") }, media: { status: "UNAVAILABLE", alt: `${card.manufacturer} ${card.model} bebek arabası görseli` }, badge: "Bebek arabası · Doğrulanmış karar sonucu", reasons: ["Belirttiğiniz zorunlu koşulları doğrulanmış ürün bilgileriyle karşılayan tek aday."], matchedNeeds: [facts.strollerWeightKg !== "UNKNOWN" ? "Taşıma ağırlığı doğrulanmış ürün bilgisiyle değerlendirildi." : "Taşıma ağırlığı bilinmiyor olarak korundu.", facts.travelSystemCompatible === true ? "Travel sistem uyumu üretici kaydında doğrulandı; uyumlu parçalar ayrıca gerekebilir." : "Travel sistem uyumu bilinmiyor olarak korundu."], supportingContext: [], technicalFacts: [{ label: "Azami çocuk ağırlığı", value: facts.childWeightMaxKg === "UNKNOWN" ? "Bilinmiyor" : `${numberTr(facts.childWeightMaxKg)} kg`, explanation: "Bu sınır gelişimsel uygunluk garantisi değildir." }, { label: "Bebek arabası ağırlığı", value: facts.strollerWeightKg === "UNKNOWN" ? "Bilinmiyor" : `${numberTr(facts.strollerWeightKg)} kg`, explanation: "Elde taşıma ve merdiven kullanımı için karşılaştırılabilir bir teknik değerdir." }, { label: "Katlı ölçüler", value: Array.isArray(facts.foldedMm) ? `${facts.foldedMm.join(" × ")} mm` : known(facts.foldedMm), explanation: "Bagaj ve saklama alanının kullanılabilir ölçüleriyle karşılaştırılmalıdır." }], capabilities: [{ label: facts.oneHandFold === true ? "Tek elle katlama" : "Katlama bilgisi bilinmiyor" }, { label: facts.selfStanding === true ? "Katlı halde dik durma" : "Dik durma bilgisi bilinmiyor" }], limitations: [...card.limitations, ...card.separatelySold.map(item => `${item} kutuya dahil değildir veya ayrıca doğrulanmalıdır.`)].map(publicLimitation), offers: [], commerceNotice: "Güncel ve doğrulanmış fiyat bulunmuyor; ürün teknik uygunluk nedeniyle değerlendirilmiştir.", sources: source ? [{ label: "Üreticinin Türkiye ürün sayfası", href: source.url }] : [{ label: "Doğrulanmış üretici ürün kaydı" }], audit: { authorizationFingerprint: card.authorizationFingerprint, catalogDigest: card.catalogDigest, contextRevision: card.contextRevision } };
+  },
+});
+
+export function projectStrollerSet(candidates: readonly { readonly id: string; readonly label: string }[]): XpyStageOneSetPresentation {
+  return { schemaVersion: XPY_STAGE_ONE_PRESENTATION_VERSION, kind: "NON_DOMINATED_SET", departmentLabel: "Bebek ve çocuk", categoryLabel: "Bebek arabası", title: "Tek bir bebek arabası üstün değil", explanation: "Doğrulanmış bilgiler farklı kullanım önceliklerini işaret ediyor. Hiçbir model kazanan olarak sunulmadı.", candidates: candidates.map(row => ({ id: row.id, name: row.label })), unresolved: ["Taşıma ağırlığı, katlı hacim, bozuk zemin veya travel sistem gereksinimlerinden hangisinin vazgeçilmez olduğunu belirtin."] };
+}

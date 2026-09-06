@@ -2,11 +2,10 @@
 import { FormEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ELECTRONICS_CATEGORY_REGISTRY, type ElectronicsCategoryId } from "@/features/electronics/architectureBaseline";
-import type {
-  ElectronicsDecisionCard,
-  ElectronicsRuntimeOutcome,
-} from "@/features/electronics/runtimeContracts";
+import type { ElectronicsRuntimeOutcome } from "@/features/electronics/runtimeContracts";
 import { ELECTRONICS_EXPERIENCE } from "@/features/xpy/visualPacks";
+import { XpyDecisionCard } from "@/components/xpy/XpyDecisionCard";
+import { ELECTRONICS_STAGE_ONE_PRESENTATION, projectElectronicsSet } from "@/features/electronics/presentation/stageOneAdapter";
 import {
   XpyAssistantBubble,
   XpyBudgetBand,
@@ -39,69 +38,6 @@ const request = async (body: unknown) => {
     body: (await response.json()) as PublicReply & { message?: string },
   };
 };
-function DecisionCard({ card }: { readonly card: ElectronicsDecisionCard }) {
-  return (
-    <article className="w-full overflow-hidden rounded-2xl border border-slate-700 bg-slate-950 text-white shadow-xl">
-      <div className="bg-[radial-gradient(circle_at_75%_15%,rgba(34,211,238,.22),transparent_35%),linear-gradient(145deg,#0f172a,#020617)] p-6 sm:p-8">
-        <span className="rounded-full border border-emerald-700 bg-emerald-950/70 px-3 py-1 text-xs text-emerald-200">
-          Doğrulanmış karar
-        </span>
-        <h2 className="mt-5 text-3xl font-semibold tracking-tight">
-          {card.manufacturer} {card.modelCode}
-        </h2>
-        <p className="mt-2 text-sm text-slate-400">
-          Ürün ve Türkiye yapılandırması doğrulandı.
-        </p>
-      </div>
-      <div className="space-y-6 p-5 sm:p-7">
-        <section>
-          <h3 className="font-semibold text-cyan-300">Neden bu ürün?</h3>
-          <ul className="mt-2 space-y-2 text-sm leading-6 text-slate-200">
-            {card.rationale.map((row, index) => (
-              <li key={`${index}:${row.acceptedConcept}`}>
-                • {row.explanationTr}
-              </li>
-            ))}
-          </ul>
-        </section>
-        <section>
-          <h3 className="font-semibold text-cyan-300">Teknik bilgiler</h3>
-          <dl className="mt-3 grid gap-3 sm:grid-cols-2">
-            {card.technicalEvidence.map((row, index) => (
-              <div
-                key={`${index}:${row.label}`}
-                className="rounded-xl border border-slate-800 bg-slate-900 p-3"
-              >
-                <dt className="text-xs capitalize text-slate-400">
-                  {row.label}
-                </dt>
-                <dd className="mt-1 break-words text-sm font-semibold">
-                  {row.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-        {card.dailyLifeInterpretation.length > 0 && (
-          <section>
-            <h3 className="font-semibold text-cyan-300">
-              Günlük kullanımda anlamı
-            </h3>
-            <ul className="mt-2 space-y-2 text-sm text-slate-300">
-              {card.dailyLifeInterpretation.map((row) => (
-                <li key={row}>• {row}</li>
-              ))}
-            </ul>
-          </section>
-        )}
-        <aside className="rounded-xl border border-amber-800 bg-amber-950/30 p-3 text-xs leading-5 text-amber-100">
-          Fiyat, stok, satıcı, yorum ve popülerlik bu kararı etkilemedi. AŞAMA 2
-          henüz kullanıma açık değil.
-        </aside>
-      </div>
-    </article>
-  );
-}
 export default function ElectronicsConversation({
   categoryId,
   categoryLabel,
@@ -320,22 +256,8 @@ export default function ElectronicsConversation({
                     onSubmit={() => choice && void send("", choice)}
                   />
                 )}{" "}
-              {entry.reply.candidateSummaries && (
-                <section className="rounded-2xl border border-amber-300 bg-amber-50 p-4 text-amber-950">
-                  <h2 className="font-semibold">Tek kazanan yok</h2>
-                  <ul className="mt-2 grid gap-2 sm:grid-cols-2">
-                    {entry.reply.candidateSummaries.map((row) => (
-                      <li
-                        key={`${row.manufacturer}:${row.modelCode}`}
-                        className="rounded-lg bg-white p-2 text-sm"
-                      >
-                        {row.manufacturer} {row.modelCode}
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              )}
-              {entry.reply.card && <DecisionCard card={entry.reply.card} />}
+              {entry.reply.candidateSummaries && <XpyDecisionCard card={projectElectronicsSet(categoryId, entry.reply)}/>}
+              {entry.reply.card && <XpyDecisionCard card={ELECTRONICS_STAGE_ONE_PRESENTATION.project(entry.reply.card)} />}
             </div>
           </div>
         ))}

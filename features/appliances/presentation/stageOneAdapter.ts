@@ -1,5 +1,6 @@
 import type { AppliancesDecisionCard } from "../recommendation/publicCard";
-import { defineXpyStageOnePresentationAdapter, XPY_STAGE_ONE_PRESENTATION_VERSION, type XpyPresentedItem } from "@/features/xpy/stageOnePresentation";
+import type { AppliancesRuntimeOutcome } from "../contracts";
+import { defineXpyStageOnePresentationAdapter, XPY_STAGE_ONE_PRESENTATION_VERSION, type XpyPresentedItem, type XpyStageOneSetPresentation } from "@/features/xpy/stageOnePresentation";
 
 const needLabels: Readonly<Record<string, string>> = {
   PET_HEAD: "Evcil hayvan tüyleri için özel başlık istiyorsunuz.", HEPA: "HEPA düzeyinde filtreleme sizin için önemli.",
@@ -109,3 +110,8 @@ export const APPLIANCES_STAGE_ONE_PRESENTATION = defineXpyStageOnePresentationAd
     };
   },
 });
+
+export function projectAppliancesSet(selection: NonNullable<Extract<AppliancesRuntimeOutcome, { kind: "ASK" | "CLARIFY" }>["selectionState"]>): XpyStageOneSetPresentation {
+  const disclosures = [...new Set(selection.disclosures.map(item => publicText(item.message)))];
+  return { schemaVersion: XPY_STAGE_ONE_PRESENTATION_VERSION, kind: selection.kind === "TRADE_OFF_SET_EXPLANATION" ? "NON_DOMINATED_SET" : "TIED_TOP_SET", departmentLabel: "Ev ürünleri", categoryLabel: "Aşama 1 kararı", title: selection.kind === "TRADE_OFF_SET_EXPLANATION" ? "Seçenekler farklı güçlü yönler taşıyor" : "Tek bir ürün doğrulanmış olarak öne çıkmıyor", explanation: `${selection.identities.length} doğrulanmış ürün kaldı; hiçbiri fiyat, katalog sırası veya gizli puanlamayla kazanan ilan edilmedi.`, candidates: selection.identities.map(product => ({ id: product.productId, name: `${product.brand} ${product.model}`, configuration: product.configurationIdentity ? publicConfiguration(product.configurationIdentity) : undefined })), unresolved: disclosures.length ? disclosures : ["Sizin için vazgeçilmez olan kullanım farkını belirtin; seçenekleri yeniden değerlendirelim."] };
+}
