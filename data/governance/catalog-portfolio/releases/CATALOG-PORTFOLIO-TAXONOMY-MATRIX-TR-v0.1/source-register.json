@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "catalog-portfolio-source-register/v1",
+  "retrievedAt": "2026-09-06",
+  "sources": [
+    {"sourceId":"SRC-REPO-DEPARTMENT-REGISTRY","kind":"REPOSITORY_AUTHORITY","locator":"features/platform/departmentRegistry.ts @ 8173fa9","role":"ACTIVE_DEPARTMENT_AND_CAPABILITY_TRUTH"},
+    {"sourceId":"SRC-REPO-ELECTRONICS-ACTIVE","kind":"REPOSITORY_AUTHORITY","locator":"data/production/electronics/runtime/active.json @ 8173fa9","role":"ACTIVE_RUNTIME_POINTER"},
+    {"sourceId":"SRC-REPO-ELECTRONICS-ARCHITECTURE","kind":"REPOSITORY_AUTHORITY","locator":"features/electronics/architectureBaseline.ts @ 8173fa9","role":"CANONICAL_CATEGORY_IDS_AND_AMAZON_BOUNDARY"},
+    {"sourceId":"SRC-REPO-MOBILITY-ACTIVE","kind":"REPOSITORY_AUTHORITY","locator":"data/production/mobility/active/active.json @ 8173fa9","role":"ACTIVE_RUNTIME_POINTER"},
+    {"sourceId":"SRC-REPO-APPLIANCES-REGISTRY","kind":"REPOSITORY_AUTHORITY","locator":"features/appliances/categoryRegistry.ts @ 8173fa9","role":"ACTIVE_CATEGORY_OWNERSHIP"},
+    {"sourceId":"SRC-AMAZON-TR-BESTSELLERS-ROOT","kind":"EXTERNAL_DISCOVERY","url":"https://www.amazon.com.tr/gp/bestsellers/","role":"DISCOVERY_AND_RETAIL_TAXONOMY_ONLY","limitations":["Rank and assortment are volatile.","Retail placement is overlapping and is not canonical ownership.","Seller text is not technical, safety, identity, applicability or decision evidence."]},
+    {"sourceId":"SRC-AMAZON-TR-COMPUTERS","kind":"EXTERNAL_DISCOVERY","url":"https://www.amazon.com.tr/gp/bestsellers/computers","role":"DISCOVERY_AND_RETAIL_TAXONOMY_ONLY","limitations":["Subcategory names inform coverage discovery only."]},
+    {"sourceId":"SRC-AMAZON-TR-TOYS","kind":"EXTERNAL_DISCOVERY","url":"https://www.amazon.com.tr/gp/bestsellers/toys","role":"DISCOVERY_AND_RETAIL_TAXONOMY_ONLY","limitations":["Subcategory names inform coverage discovery only."]},
+    {"sourceId":"SRC-AMAZON-TR-VIDEO-GAMES","kind":"EXTERNAL_DISCOVERY","url":"https://www.amazon.com.tr/gp/bestsellers/videogames","role":"DISCOVERY_AND_RETAIL_TAXONOMY_ONLY","limitations":["Subcategory names inform coverage discovery only."]}
+  ]
+}
