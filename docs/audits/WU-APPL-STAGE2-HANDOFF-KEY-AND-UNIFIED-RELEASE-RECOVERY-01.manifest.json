@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "unified-release-manifest/v1",
+  "workUnitId": "WU-APPL-STAGE2-HANDOFF-KEY-AND-UNIFIED-RELEASE-RECOVERY-01",
+  "productionSourceBaseline": "c2ac915b3c191642446489763d65802276d28b29",
+  "strollerCandidate": "89a1233bd171808c07c5de51de31be1c37f9da0d",
+  "universalCardOriginal": "2abeb30ad65c48b241bf4259f1e00a78068092c7",
+  "universalCardRevision": "50a460c",
+  "secretaryCatalogAware": "3cb4a976ba6bda9d517b94864a267cd72b4eff23",
+  "secretaryNaturalSentenceTests": "a498c8b3e0145c1c0ec77d193d2527556b8a49a9",
+  "integrationCommit": "8f0a6ee",
+  "databaseMigration0016": "ALREADY_APPLIED_DO_NOT_RERUN_OR_REVERT",
+  "operationalConfiguration": {
+    "name": "APPLIANCES_STAGE2_HANDOFF_KEYS",
+    "scope": "Production",
+    "keyId": "stage2-2026-09-06-a",
+    "secretMaterialIncluded": false
+  },
+  "files": [
+    "app/appliances/AppliancesConversation.tsx",
+    "app/baby/BabyConversation.tsx",
+    "app/electronics/analysis/ElectronicsConversation.tsx",
+    "components/cars/CarCard.test.tsx",
+    "components/platform/UpperSecretary.test.tsx",
+    "components/platform/UpperSecretary.tsx",
+    "components/xpy/XpyDecisionCard.media.test.tsx",
+    "components/xpy/XpyDecisionCard.tsx",
+    "features/appliances/presentation/stageOneAdapter.ts",
+    "features/appliances/recommendation/completion.test.ts",
+    "features/baby/presentation/stageOneAdapter.ts",
+    "features/decision/v2/presentation/stageOneAdapter.ts",
+    "features/electronics/presentation/stageOneAdapter.ts",
+    "features/platform/secretaryRoutingPack.ts",
+    "features/platform/upperSecretary.test.ts",
+    "features/platform/upperSecretary.ts",
+    "features/xpy/carsStageOneAdapters.ts",
+    "features/xpy/stageOneAdapterRegistry.ts",
+    "features/xpy/stageOnePresentation.ts",
+    "features/xpy/stageOneUniversalAcceptance.test.tsx"
+  ]
+}

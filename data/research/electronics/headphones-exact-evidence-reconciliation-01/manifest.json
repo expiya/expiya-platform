@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "electronics-headphones-evidence-manifest/v1",
+  "workUnit": "WU-ELECTRONICS-HEADPHONES-EXACT-EVIDENCE-RECONCILIATION-01",
+  "generatedAt": "2026-09-06T00:00:00.000Z",
+  "parentLineage": {
+    "workUnit": "WU-ELECTRONICS-AMAZON-TR-CATALOG-COVERAGE-EXPANSION-01",
+    "manifestDigest": "sha256:2ade279222ab85e1502eddb076dfd166933fe4329aa352c5e421422e4f1c9f68",
+    "declaredPayloadDigests": [
+      {
+        "path": "before-state.json",
+        "digest": "sha256:eebe448472d75408c07c57a891ee1542b0902c8d11bec6ebeb3bd69c0a4655b0"
+      },
+      {
+        "path": "headphones-amazon-observations.json",
+        "digest": "sha256:4192d180d4dc6cbec5341d71c9c6f5e7e2bb6558dc908bc313ec6a689ebc9805"
+      }
+    ],
+    "integrity": [
+      {
+        "path": "before-state.json",
+        "declaredDigest": "sha256:eebe448472d75408c07c57a891ee1542b0902c8d11bec6ebeb3bd69c0a4655b0",
+        "observedDigest": "sha256:f6ed79a0f2a77ca4b321888a281a0ea5f90295fcc7a76ccf1e6456ef532f61b3",
+        "verified": false
+      },
+      {
+        "path": "headphones-amazon-observations.json",
+        "declaredDigest": "sha256:4192d180d4dc6cbec5341d71c9c6f5e7e2bb6558dc908bc313ec6a689ebc9805",
+        "observedDigest": "sha256:4192d180d4dc6cbec5341d71c9c6f5e7e2bb6558dc908bc313ec6a689ebc9805",
+        "verified": true
+      }
+    ]
+  },
+  "authorityStatus": "COVERAGE_INCOMPLETE_NOT_APPROVAL_ELIGIBLE",
+  "activationPermitted": false,
+  "files": [
+    {
+      "path": "source-register.json",
+      "digest": "sha256:b9611d1eb37fc7a4b9e07c7b55f7475ca5e2827634d069be96e12a99c1189e10"
+    },
+    {
+      "path": "asin-reconciliation-ledger.json",
+      "digest": "sha256:599d6ec46ab86508beebbed13ece172134177054be292cc7c22467dbb319e557"
+    },
+    {
+      "path": "admitted-product-catalog.json",
+      "digest": "sha256:fe95b31248965087f99ab1cf9efe2c149b2eaaf3fe2f2669e93dd24109a9f32c"
+    },
+    {
+      "path": "technical-capability-facts.json",
+      "digest": "sha256:999af930a5816ed3205c1a04a8fc53c0b605b60229a750de23eb77f143d00daa"
+    },
+    {
+      "path": "manual-support-warranty-register.json",
+      "digest": "sha256:39c660c5fa04b4cb7696e90433546ccb3dc8f0731284c2c5e0db23ef6f26530c"
+    },
+    {
+      "path": "unknown-register.json",
+      "digest": "sha256:59d3e5f979ab0d0482c024535e1ad813d4e3ee54119d75fbf3d55dee9cc19ef3"
+    },
+    {
+      "path": "coverage-report.json",
+      "digest": "sha256:4cb81c2134bd914f83af9ae4aff067d2521afc9291cee6921e6b7e7ec95d60e8"
+    },
+    {
+      "path": "semantic-policy-input-proposal.json",
+      "digest": "sha256:4e4fc9e4adbf037f5668742a2e15df86968724940303deeb5e0fa1a07f1e33ac"
+    },
+    {
+      "path": "approval-package.json",
+      "digest": "sha256:bece1467d76be3cbf1f5ed6e65e57489df429be1eff0919915e1031057429063"
+    }
+  ]
+}

@@ -1,0 +1,1896 @@
+{
+  "schemaVersion": "electronics-headphones-exact-evidence-reconciliation/v1",
+  "workUnit": "WU-ELECTRONICS-HEADPHONES-EXACT-EVIDENCE-RECONCILIATION-01",
+  "generatedAt": "2026-09-06T00:00:00.000Z",
+  "authorityStatus": "COVERAGE_INCOMPLETE_NOT_APPROVAL_ELIGIBLE",
+  "activationPermitted": false,
+  "parent": {
+    "workUnit": "WU-ELECTRONICS-AMAZON-TR-CATALOG-COVERAGE-EXPANSION-01",
+    "manifestDigest": "sha256:2ade279222ab85e1502eddb076dfd166933fe4329aa352c5e421422e4f1c9f68",
+    "declaredPayloadDigests": [
+      {
+        "path": "before-state.json",
+        "digest": "sha256:eebe448472d75408c07c57a891ee1542b0902c8d11bec6ebeb3bd69c0a4655b0"
+      },
+      {
+        "path": "headphones-amazon-observations.json",
+        "digest": "sha256:4192d180d4dc6cbec5341d71c9c6f5e7e2bb6558dc908bc313ec6a689ebc9805"
+      }
+    ],
+    "integrity": [
+      {
+        "path": "before-state.json",
+        "declaredDigest": "sha256:eebe448472d75408c07c57a891ee1542b0902c8d11bec6ebeb3bd69c0a4655b0",
+        "observedDigest": "sha256:f6ed79a0f2a77ca4b321888a281a0ea5f90295fcc7a76ccf1e6456ef532f61b3",
+        "verified": false
+      },
+      {
+        "path": "headphones-amazon-observations.json",
+        "declaredDigest": "sha256:4192d180d4dc6cbec5341d71c9c6f5e7e2bb6558dc908bc313ec6a689ebc9805",
+        "observedDigest": "sha256:4192d180d4dc6cbec5341d71c9c6f5e7e2bb6558dc908bc313ec6a689ebc9805",
+        "verified": true
+      }
+    ]
+  },
+  "amazonAuthority": {
+    "technical": "NONE",
+    "decision": "NONE",
+    "ranking": "NONE",
+    "commerceOnly": true
+  },
+  "sources": [
+    {
+      "sourceId": "HUAWEI-7I-TR",
+      "publisher": "Huawei",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://consumer.huawei.com/tr/headphones/freebuds7i/",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "HUAWEI-6I-TR",
+      "publisher": "Huawei",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://consumer.huawei.com/tr/headphones/freebuds6i/",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "HUAWEI-6-TR",
+      "publisher": "Huawei",
+      "jurisdiction": "TR",
+      "sourceType": "SUPPORT",
+      "url": "https://consumer.huawei.com/tr/support/content/tr-tr15868521/",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "HUAWEI-SE2-TR",
+      "publisher": "Huawei",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://consumer.huawei.com/tr/headphones/freebuds-se-2/",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "HUAWEI-SE4-TR",
+      "publisher": "Huawei",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://consumer.huawei.com/tr/headphones/freebuds-se-4-anc/",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "APPLE-PRO3-TR",
+      "publisher": "Apple",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://www.apple.com/tr/airpods-pro/specs/",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "APPLE-AIRPODS4-TR",
+      "publisher": "Apple",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://www.apple.com/tr/airpods-4/specs/",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "APPLE-EARPODS35-TR",
+      "publisher": "Apple",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://www.apple.com/tr/shop/product/MWU53TU/A",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "APPLE-EARPODSUSBC-TR",
+      "publisher": "Apple",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://www.apple.com/tr/shop/product/MYQY3TU/A",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "UGREEN-S3-TR",
+      "publisher": "UGREEN",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://www.ugreen.com/tr-tr/products/tr-45785",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "SAMSUNG-IC100-TR",
+      "publisher": "Samsung",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://www.samsung.com/tr/business/mobile-accessories/samsung-type-c-earphones-white-eo-ic100bwegww/",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "SAMSUNG-R420-TR",
+      "publisher": "Samsung",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://www.samsung.com/tr/audio-sound/galaxy-buds/galaxy-buds3-fe-black-sm-r420nzkatur/",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "HYPERX-C3S-TR",
+      "publisher": "HyperX",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://row.hyperx.com/tr/products/hyperx-cloud-iii-s-wireless-gaming-headset",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "MARSHALL-MAJORV-TR",
+      "publisher": "Marshall",
+      "jurisdiction": "TR",
+      "sourceType": "PRODUCT",
+      "url": "https://www.marshall.com/tr/en/product/major-v?pid=1006833",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "MARSHALL-MAJORV-MANUAL-TR",
+      "publisher": "Marshall",
+      "jurisdiction": "TR",
+      "sourceType": "MANUAL",
+      "url": "https://www.marshall.com/on/demandware.static/-/Library-Sites-SharedLibrary-Marshall/default/dwe0dadd06/images/cms-pages/user/Marshall_Major-V_OLM_R1_0_tr.pdf",
+      "establishesTurkiyeApplicability": true
+    }
+  ],
+  "records": [
+    {
+      "asin": "B0FKN8GTGS",
+      "listingTitle": "HUAWEI FreeBuds 7i Kulaklık, Siyah",
+      "discoverySegment": "TWS ANC",
+      "observedConfigurationClues": [
+        "FreeBuds 7i",
+        "Bluetooth",
+        "Black"
+      ],
+      "manufacturer": "Huawei",
+      "exactCommercialModel": "FreeBuds 7i",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "sealed in-ear TWS",
+      "connectivity": [
+        "Bluetooth"
+      ],
+      "identityRelevantVariant": "Black",
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "Huawei:FreeBuds 7i:Black",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "HUAWEI-7I-TR"
+      ]
+    },
+    {
+      "asin": "B0D35JN2JH",
+      "listingTitle": "HUAWEI FreeBuds 6i TWS Bluetooth Kulaklık, Beyaz",
+      "discoverySegment": "TWS ANC",
+      "observedConfigurationClues": [
+        "FreeBuds 6i",
+        "Bluetooth",
+        "White"
+      ],
+      "manufacturer": "Huawei",
+      "exactCommercialModel": "FreeBuds 6i",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "sealed in-ear TWS",
+      "connectivity": [
+        "Bluetooth"
+      ],
+      "identityRelevantVariant": "White",
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "Huawei:FreeBuds 6i:White",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "HUAWEI-6I-TR"
+      ]
+    },
+    {
+      "asin": "B0F68YX7TS",
+      "listingTitle": "HUAWEI FreeBuds 6 Kablosuz Kulaklık, Mor",
+      "discoverySegment": "open-fit TWS",
+      "observedConfigurationClues": [
+        "FreeBuds 6",
+        "Bluetooth",
+        "Purple"
+      ],
+      "manufacturer": "Huawei",
+      "exactCommercialModel": "FreeBuds 6",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "open-fit TWS",
+      "connectivity": [
+        "Bluetooth"
+      ],
+      "identityRelevantVariant": "Purple",
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "Huawei:FreeBuds 6:Purple",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "HUAWEI-6-TR"
+      ]
+    },
+    {
+      "asin": "B0BYWL962Q",
+      "listingTitle": "JBL Tune 720BT Wireless Kulaklık, Beyaz",
+      "discoverySegment": "wireless over-ear",
+      "observedConfigurationClues": [
+        "JBL",
+        "Tune",
+        "720BT",
+        "Wireless",
+        "Kulaklık",
+        "Beyaz"
+      ],
+      "manufacturer": "JBL",
+      "exactCommercialModel": "JBL Tune 720BT Wireless Kulaklık",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B0FQF59PPW",
+      "listingTitle": "Apple AirPods Pro 3, USB-C",
+      "discoverySegment": "premium TWS ANC",
+      "observedConfigurationClues": [
+        "AirPods Pro 3",
+        "Bluetooth 5.3"
+      ],
+      "manufacturer": "Apple",
+      "exactCommercialModel": "AirPods Pro 3",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "sealed in-ear TWS",
+      "connectivity": [
+        "Bluetooth 5.3"
+      ],
+      "identityRelevantVariant": null,
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "Apple:AirPods Pro 3:standard",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "APPLE-PRO3-TR"
+      ]
+    },
+    {
+      "asin": "B0C3BSZ56D",
+      "listingTitle": "HyperX Cloud III Oyuncu Kulaklığı, Siyah",
+      "discoverySegment": "wired gaming",
+      "observedConfigurationClues": [
+        "HyperX",
+        "Cloud",
+        "III",
+        "Oyuncu",
+        "Kulaklığı",
+        "Siyah"
+      ],
+      "manufacturer": "HyperX",
+      "exactCommercialModel": "HyperX Cloud III Oyuncu Kulaklığı",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B01DEWVZ2C",
+      "listingTitle": "JBL C100SI 3.5 mm Kulak İçi Kulaklık, Siyah",
+      "discoverySegment": "wired 3.5 mm",
+      "observedConfigurationClues": [
+        "JBL",
+        "C100SI",
+        "3.5",
+        "mm",
+        "Kulak",
+        "İçi"
+      ],
+      "manufacturer": "JBL",
+      "exactCommercialModel": "JBL C100SI 3.5 mm Kulak İçi Kulaklık",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B0D7QKV9K4",
+      "listingTitle": "Apple EarPods 3.5 mm, MWU53TU/A",
+      "discoverySegment": "wired 3.5 mm",
+      "observedConfigurationClues": [
+        "EarPods with 3.5 mm Headphone Plug",
+        "3.5 mm analog"
+      ],
+      "manufacturer": "Apple",
+      "exactCommercialModel": "EarPods with 3.5 mm Headphone Plug",
+      "modelCode": "MWU53TU/A",
+      "regionalSuffix": "TU/A",
+      "formFactor": "open-fit earbud",
+      "connectivity": [
+        "3.5 mm analog"
+      ],
+      "identityRelevantVariant": null,
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "Apple:MWU53TU/A:standard",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "APPLE-EARPODS35-TR"
+      ]
+    },
+    {
+      "asin": "B0DMZWD4JP",
+      "listingTitle": "UGREEN HiTune S3 Açık Spor Kulaklık, Siyah",
+      "discoverySegment": "open-ear sport",
+      "observedConfigurationClues": [
+        "HiTune S3",
+        "Bluetooth 5.4",
+        "Black"
+      ],
+      "manufacturer": "UGREEN",
+      "exactCommercialModel": "HiTune S3",
+      "modelCode": "45785",
+      "regionalSuffix": null,
+      "formFactor": "open-ear clip TWS",
+      "connectivity": [
+        "Bluetooth 5.4"
+      ],
+      "identityRelevantVariant": "Black",
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "UGREEN:45785:Black",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "UGREEN-S3-TR"
+      ]
+    },
+    {
+      "asin": "B0CDMB5ZQW",
+      "listingTitle": "HUAWEI FreeBuds SE 2, Beyaz",
+      "discoverySegment": "entry TWS",
+      "observedConfigurationClues": [
+        "FreeBuds SE 2",
+        "Bluetooth 5.3",
+        "White"
+      ],
+      "manufacturer": "Huawei",
+      "exactCommercialModel": "FreeBuds SE 2",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "open-fit TWS",
+      "connectivity": [
+        "Bluetooth 5.3"
+      ],
+      "identityRelevantVariant": "White",
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "Huawei:FreeBuds SE 2:White",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "HUAWEI-SE2-TR"
+      ]
+    },
+    {
+      "asin": "B0DGJDW9G4",
+      "listingTitle": "Apple AirPods 4 ANC, USB-C",
+      "discoverySegment": "open-fit TWS ANC",
+      "observedConfigurationClues": [
+        "AirPods 4 with Active Noise Cancellation",
+        "Bluetooth 5.3"
+      ],
+      "manufacturer": "Apple",
+      "exactCommercialModel": "AirPods 4 with Active Noise Cancellation",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "open-fit TWS",
+      "connectivity": [
+        "Bluetooth 5.3"
+      ],
+      "identityRelevantVariant": null,
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "Apple:AirPods 4 with Active Noise Cancellation:standard",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "APPLE-AIRPODS4-TR"
+      ]
+    },
+    {
+      "asin": "B0DBHTG7ZX",
+      "listingTitle": "Xiaomi Redmi Buds 6 Play, Mavi",
+      "discoverySegment": "entry TWS",
+      "observedConfigurationClues": [
+        "Xiaomi",
+        "Redmi",
+        "Buds",
+        "6",
+        "Play",
+        "Mavi"
+      ],
+      "manufacturer": "Xiaomi",
+      "exactCommercialModel": "Xiaomi Redmi Buds 6 Play",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B089SSFV85",
+      "listingTitle": "Razer BlackShark V2 X, Siyah",
+      "discoverySegment": "wired gaming",
+      "observedConfigurationClues": [
+        "Razer",
+        "BlackShark",
+        "V2",
+        "X",
+        "Siyah"
+      ],
+      "manufacturer": "Razer",
+      "exactCommercialModel": "Razer BlackShark V2 X",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B0C6KKQ7ND",
+      "listingTitle": "Soundcore Space One A3035, Mavi",
+      "discoverySegment": "wireless over-ear ANC",
+      "observedConfigurationClues": [
+        "Soundcore",
+        "Space",
+        "One",
+        "A3035",
+        "Mavi"
+      ],
+      "manufacturer": "Soundcore",
+      "exactCommercialModel": "Soundcore Space One A3035",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B09X5G16ZM",
+      "listingTitle": "Razer Barracuda X, Siyah",
+      "discoverySegment": "wireless gaming",
+      "observedConfigurationClues": [
+        "Razer",
+        "Barracuda",
+        "X",
+        "Siyah"
+      ],
+      "manufacturer": "Razer",
+      "exactCommercialModel": "Razer Barracuda X",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B0CRTYZG5C",
+      "listingTitle": "Soundcore R50i NC A3959, Siyah",
+      "discoverySegment": "entry TWS ANC",
+      "observedConfigurationClues": [
+        "Soundcore",
+        "R50i",
+        "NC",
+        "A3959",
+        "Siyah"
+      ],
+      "manufacturer": "Soundcore",
+      "exactCommercialModel": "Soundcore R50i NC A3959",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B084S6BCJN",
+      "listingTitle": "Philips TAUE101BK 3.5 mm Kulak İçi Kulaklık",
+      "discoverySegment": "wired 3.5 mm",
+      "observedConfigurationClues": [
+        "Philips",
+        "TAUE101BK",
+        "3.5",
+        "mm",
+        "Kulak",
+        "İçi"
+      ],
+      "manufacturer": "Philips",
+      "exactCommercialModel": "Philips TAUE101BK 3.5 mm Kulak İçi Kulaklık",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B085RN9GRX",
+      "listingTitle": "Samsung EO-IC100B USB-C Kablolu Kulaklık, Siyah",
+      "discoverySegment": "wired USB-C",
+      "observedConfigurationClues": [
+        "Type-C Earphones",
+        "USB-C digital",
+        "Black"
+      ],
+      "manufacturer": "Samsung",
+      "exactCommercialModel": "Type-C Earphones",
+      "modelCode": "EO-IC100B",
+      "regionalSuffix": null,
+      "formFactor": "sealed in-ear wired",
+      "connectivity": [
+        "USB-C digital"
+      ],
+      "identityRelevantVariant": "Black",
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "Samsung:EO-IC100B:Black",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "SAMSUNG-IC100-TR"
+      ]
+    },
+    {
+      "asin": "B0F93QP4RK",
+      "listingTitle": "Razer BlackShark V3 Kablosuz, Beyaz",
+      "discoverySegment": "wireless gaming",
+      "observedConfigurationClues": [
+        "Razer",
+        "BlackShark",
+        "V3",
+        "Kablosuz",
+        "Beyaz"
+      ],
+      "manufacturer": "Razer",
+      "exactCommercialModel": "Razer BlackShark V3 Kablosuz",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B0DCW94411",
+      "listingTitle": "Apple EarPods USB-C, MYQY3TU/A",
+      "discoverySegment": "wired USB-C",
+      "observedConfigurationClues": [
+        "EarPods (USB-C)",
+        "USB-C digital"
+      ],
+      "manufacturer": "Apple",
+      "exactCommercialModel": "EarPods (USB-C)",
+      "modelCode": "MYQY3TU/A",
+      "regionalSuffix": "TU/A",
+      "formFactor": "open-fit earbud",
+      "connectivity": [
+        "USB-C digital"
+      ],
+      "identityRelevantVariant": null,
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "Apple:MYQY3TU/A:standard",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "APPLE-EARPODSUSBC-TR"
+      ]
+    },
+    {
+      "asin": "B0FK9TJZV2",
+      "listingTitle": "HUAWEI FreeBuds SE 4 ANC, Beyaz",
+      "discoverySegment": "entry TWS ANC",
+      "observedConfigurationClues": [
+        "FreeBuds SE 4 ANC",
+        "Bluetooth 5.4",
+        "White"
+      ],
+      "manufacturer": "Huawei",
+      "exactCommercialModel": "FreeBuds SE 4 ANC",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "sealed in-ear TWS",
+      "connectivity": [
+        "Bluetooth 5.4"
+      ],
+      "identityRelevantVariant": "White",
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "HUAWEI-SE4-TR"
+      ]
+    },
+    {
+      "asin": "B0F6NZWPTC",
+      "listingTitle": "HyperX Cloud III S Wireless, Siyah",
+      "discoverySegment": "wireless gaming",
+      "observedConfigurationClues": [
+        "Cloud III S Wireless",
+        "2.4 GHz USB",
+        "Bluetooth",
+        "Black"
+      ],
+      "manufacturer": "HyperX",
+      "exactCommercialModel": "Cloud III S Wireless",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "over-ear headset",
+      "connectivity": [
+        "2.4 GHz USB",
+        "Bluetooth"
+      ],
+      "identityRelevantVariant": "Black",
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "HyperX:Cloud III S Wireless:Black",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "HYPERX-C3S-TR"
+      ]
+    },
+    {
+      "asin": "B07XC936P8",
+      "listingTitle": "Razer Kraken X Lite, Siyah",
+      "discoverySegment": "wired gaming",
+      "observedConfigurationClues": [
+        "Razer",
+        "Kraken",
+        "X",
+        "Lite",
+        "Siyah"
+      ],
+      "manufacturer": "Razer",
+      "exactCommercialModel": "Razer Kraken X Lite",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B0D5CZQ31M",
+      "listingTitle": "Marshall Major V Bluetooth On-Ear, Cream",
+      "discoverySegment": "on-ear hybrid",
+      "observedConfigurationClues": [
+        "Major V",
+        "Bluetooth 5.3",
+        "3.5 mm analog",
+        "Cream"
+      ],
+      "manufacturer": "Marshall",
+      "exactCommercialModel": "Major V",
+      "modelCode": "1006833",
+      "regionalSuffix": null,
+      "formFactor": "on-ear",
+      "connectivity": [
+        "Bluetooth 5.3",
+        "3.5 mm analog"
+      ],
+      "identityRelevantVariant": "Cream",
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "Marshall:1006833:Cream",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "MARSHALL-MAJORV-TR",
+        "MARSHALL-MAJORV-MANUAL-TR"
+      ]
+    },
+    {
+      "asin": "B0DHL93XCN",
+      "listingTitle": "JBL Wave Beam 2 TWS, Siyah",
+      "discoverySegment": "TWS ANC",
+      "observedConfigurationClues": [
+        "JBL",
+        "Wave",
+        "Beam",
+        "2",
+        "TWS",
+        "Siyah"
+      ],
+      "manufacturer": "JBL",
+      "exactCommercialModel": "JBL Wave Beam 2 TWS",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B0BTYCRJSS",
+      "listingTitle": "Soundcore P20i A3949, Siyah",
+      "discoverySegment": "entry TWS",
+      "observedConfigurationClues": [
+        "Soundcore",
+        "P20i",
+        "A3949",
+        "Siyah"
+      ],
+      "manufacturer": "Soundcore",
+      "exactCommercialModel": "Soundcore P20i A3949",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B0D6NLHV8N",
+      "listingTitle": "JBL Quantum 100M2 Kablolu Gaming, Siyah",
+      "discoverySegment": "wired gaming",
+      "observedConfigurationClues": [
+        "JBL",
+        "Quantum",
+        "100M2",
+        "Kablolu",
+        "Gaming",
+        "Siyah"
+      ],
+      "manufacturer": "JBL",
+      "exactCommercialModel": "JBL Quantum 100M2 Kablolu Gaming",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B0FR98G8PL",
+      "listingTitle": "Samsung Galaxy Buds3 FE, Siyah",
+      "discoverySegment": "ecosystem TWS ANC",
+      "observedConfigurationClues": [
+        "Galaxy Buds3 FE",
+        "Bluetooth 5.4",
+        "Black"
+      ],
+      "manufacturer": "Samsung",
+      "exactCommercialModel": "Galaxy Buds3 FE",
+      "modelCode": "SM-R420NZKATUR",
+      "regionalSuffix": "TUR",
+      "formFactor": "sealed in-ear TWS",
+      "connectivity": [
+        "Bluetooth 5.4"
+      ],
+      "identityRelevantVariant": "Black",
+      "bundleTopology": "manufacturer retail product; included accessories governed by primary source",
+      "exactConfigurationKey": "Samsung:SM-R420NZKATUR:Black",
+      "status": "ADMITTED_EXACT",
+      "reason": "Exact commercial configuration and Türkiye applicability independently established by manufacturer-controlled Türkiye evidence; Amazon remains discovery/commerce only.",
+      "sourceIds": [
+        "SAMSUNG-R420-TR"
+      ]
+    },
+    {
+      "asin": "B0D2XRXNGY",
+      "listingTitle": "Soundcore V20i Open-Ear A3876, Siyah",
+      "discoverySegment": "open-ear sport",
+      "observedConfigurationClues": [
+        "Soundcore",
+        "V20i",
+        "Open-Ear",
+        "A3876",
+        "Siyah"
+      ],
+      "manufacturer": "Soundcore",
+      "exactCommercialModel": "Soundcore V20i Open-Ear A3876",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    },
+    {
+      "asin": "B0F4884LN3",
+      "listingTitle": "Soundcore Q20i A3004 Over-Ear ANC, Pembe",
+      "discoverySegment": "wireless over-ear ANC",
+      "observedConfigurationClues": [
+        "Soundcore",
+        "Q20i",
+        "A3004",
+        "Over-Ear",
+        "ANC",
+        "Pembe"
+      ],
+      "manufacturer": "Soundcore",
+      "exactCommercialModel": "Soundcore Q20i A3004 Over-Ear ANC",
+      "modelCode": null,
+      "regionalSuffix": null,
+      "formFactor": "unknown pending primary evidence",
+      "connectivity": [],
+      "identityRelevantVariant": null,
+      "bundleTopology": "Amazon title does not establish retail bundle/accessory topology",
+      "exactConfigurationKey": null,
+      "status": "INSUFFICIENT_TURKIYE_APPLICABILITY",
+      "reason": "No sufficiently exact manufacturer-controlled Türkiye product/support bridge was captured for this ASIN configuration; global or seller material cannot establish Türkiye applicability.",
+      "sourceIds": []
+    }
+  ],
+  "facts": [
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "noiseControl",
+      "value": "active",
+      "sourceIds": [
+        "HUAWEI-7I-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "microphones",
+      "value": "three microphones plus VPU for calls",
+      "sourceIds": [
+        "HUAWEI-7I-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "battery",
+      "value": "35 h total, ANC off",
+      "sourceIds": [
+        "HUAWEI-7I-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "ingress",
+      "value": "IP54 earbuds",
+      "sourceIds": [
+        "HUAWEI-7I-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "multipoint",
+      "value": true,
+      "sourceIds": [
+        "HUAWEI-7I-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "spatialAudio",
+      "value": true,
+      "sourceIds": [
+        "HUAWEI-7I-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "app",
+      "value": "AI Life or Huawei Audio Connect",
+      "sourceIds": [
+        "HUAWEI-7I-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6i:White",
+      "factKey": "noiseControl",
+      "value": "active",
+      "sourceIds": [
+        "HUAWEI-6I-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6i:White",
+      "factKey": "weightGramsPerEarbud",
+      "value": 5.4,
+      "sourceIds": [
+        "HUAWEI-6I-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6i:White",
+      "factKey": "codecs",
+      "value": [
+        "LDAC",
+        "L2HC 2.0",
+        "AAC",
+        "SBC"
+      ],
+      "sourceIds": [
+        "HUAWEI-6I-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6i:White",
+      "factKey": "ingress",
+      "value": "IP54 earbuds",
+      "sourceIds": [
+        "HUAWEI-6I-TR"
+      ]
+    },
+    {
+      "productKey": "Apple:AirPods Pro 3:standard",
+      "factKey": "noiseControl",
+      "value": "active",
+      "sourceIds": [
+        "APPLE-PRO3-TR"
+      ]
+    },
+    {
+      "productKey": "Apple:AirPods Pro 3:standard",
+      "factKey": "microphones",
+      "value": "dual beamforming plus inward-facing",
+      "sourceIds": [
+        "APPLE-PRO3-TR"
+      ]
+    },
+    {
+      "productKey": "Apple:AirPods Pro 3:standard",
+      "factKey": "battery",
+      "value": "8 h ANC on / 24 h with case",
+      "sourceIds": [
+        "APPLE-PRO3-TR"
+      ]
+    },
+    {
+      "productKey": "Apple:AirPods Pro 3:standard",
+      "factKey": "weightGramsPerEarbud",
+      "value": 5.55,
+      "sourceIds": [
+        "APPLE-PRO3-TR"
+      ]
+    },
+    {
+      "productKey": "Apple:AirPods Pro 3:standard",
+      "factKey": "ingress",
+      "value": "IP57 earbuds and case",
+      "sourceIds": [
+        "APPLE-PRO3-TR"
+      ]
+    },
+    {
+      "productKey": "Apple:AirPods Pro 3:standard",
+      "factKey": "spatialAudio",
+      "value": true,
+      "sourceIds": [
+        "APPLE-PRO3-TR"
+      ]
+    },
+    {
+      "productKey": "UGREEN:45785:Black",
+      "factKey": "microphones",
+      "value": "AI call noise processing",
+      "sourceIds": [
+        "UGREEN-S3-TR"
+      ]
+    },
+    {
+      "productKey": "UGREEN:45785:Black",
+      "factKey": "battery",
+      "value": "7.5 h / 30 h with case",
+      "sourceIds": [
+        "UGREEN-S3-TR"
+      ]
+    },
+    {
+      "productKey": "UGREEN:45785:Black",
+      "factKey": "weightGramsPerEarbud",
+      "value": 5.3,
+      "sourceIds": [
+        "UGREEN-S3-TR"
+      ]
+    },
+    {
+      "productKey": "UGREEN:45785:Black",
+      "factKey": "ingress",
+      "value": "IPX5",
+      "sourceIds": [
+        "UGREEN-S3-TR"
+      ]
+    },
+    {
+      "productKey": "UGREEN:45785:Black",
+      "factKey": "latency",
+      "value": "0.06 s game mode",
+      "sourceIds": [
+        "UGREEN-S3-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 2:White",
+      "factKey": "battery",
+      "value": "9 h earbuds / 40 h with case; AAC, 50% volume",
+      "sourceIds": [
+        "HUAWEI-SE2-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 2:White",
+      "factKey": "weightGramsPerEarbud",
+      "value": 3.8,
+      "sourceIds": [
+        "HUAWEI-SE2-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 2:White",
+      "factKey": "ingress",
+      "value": "IP54 earbuds",
+      "sourceIds": [
+        "HUAWEI-SE2-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 2:White",
+      "factKey": "codecs",
+      "value": [
+        "AAC",
+        "SBC"
+      ],
+      "sourceIds": [
+        "HUAWEI-SE2-TR"
+      ]
+    },
+    {
+      "productKey": "Apple:AirPods 4 with Active Noise Cancellation:standard",
+      "factKey": "noiseControl",
+      "value": "active",
+      "sourceIds": [
+        "APPLE-AIRPODS4-TR"
+      ]
+    },
+    {
+      "productKey": "Apple:AirPods 4 with Active Noise Cancellation:standard",
+      "factKey": "battery",
+      "value": "4 h ANC on / 20 h with case; 5 h / 30 h noise control off",
+      "sourceIds": [
+        "APPLE-AIRPODS4-TR"
+      ]
+    },
+    {
+      "productKey": "Apple:AirPods 4 with Active Noise Cancellation:standard",
+      "factKey": "spatialAudio",
+      "value": true,
+      "sourceIds": [
+        "APPLE-AIRPODS4-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "factKey": "noiseControl",
+      "value": "active, three modes",
+      "sourceIds": [
+        "HUAWEI-SE4-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "factKey": "microphones",
+      "value": "three-direction call pickup",
+      "sourceIds": [
+        "HUAWEI-SE4-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "factKey": "battery",
+      "value": "7 h ANC on / 10 h ANC off / 50 h with case",
+      "sourceIds": [
+        "HUAWEI-SE4-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "factKey": "weightGramsPerEarbud",
+      "value": 4.3,
+      "sourceIds": [
+        "HUAWEI-SE4-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "factKey": "ingress",
+      "value": "IP54",
+      "sourceIds": [
+        "HUAWEI-SE4-TR"
+      ]
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "factKey": "app",
+      "value": "AI Life",
+      "sourceIds": [
+        "HUAWEI-SE4-TR"
+      ]
+    },
+    {
+      "productKey": "HyperX:Cloud III S Wireless:Black",
+      "factKey": "microphones",
+      "value": "detachable electret condenser boom microphone",
+      "sourceIds": [
+        "HYPERX-C3S-TR"
+      ]
+    },
+    {
+      "productKey": "HyperX:Cloud III S Wireless:Black",
+      "factKey": "battery",
+      "value": "up to 120 h at 50% volume over 2.4 GHz",
+      "sourceIds": [
+        "HYPERX-C3S-TR"
+      ]
+    },
+    {
+      "productKey": "HyperX:Cloud III S Wireless:Black",
+      "factKey": "weightGrams",
+      "value": 340,
+      "sourceIds": [
+        "HYPERX-C3S-TR"
+      ]
+    },
+    {
+      "productKey": "HyperX:Cloud III S Wireless:Black",
+      "factKey": "spatialAudio",
+      "value": "DTS Headphone:X",
+      "sourceIds": [
+        "HYPERX-C3S-TR"
+      ]
+    },
+    {
+      "productKey": "HyperX:Cloud III S Wireless:Black",
+      "factKey": "app",
+      "value": "NGENUITY",
+      "sourceIds": [
+        "HYPERX-C3S-TR"
+      ]
+    },
+    {
+      "productKey": "HyperX:Cloud III S Wireless:Black",
+      "factKey": "platforms",
+      "value": [
+        "PC",
+        "Mac",
+        "PS5",
+        "mobile",
+        "Switch"
+      ],
+      "sourceIds": [
+        "HYPERX-C3S-TR"
+      ]
+    },
+    {
+      "productKey": "Marshall:1006833:Cream",
+      "factKey": "battery",
+      "value": "100+ h",
+      "sourceIds": [
+        "MARSHALL-MAJORV-TR"
+      ]
+    },
+    {
+      "productKey": "Marshall:1006833:Cream",
+      "factKey": "weightGrams",
+      "value": 186,
+      "sourceIds": [
+        "MARSHALL-MAJORV-TR"
+      ]
+    },
+    {
+      "productKey": "Marshall:1006833:Cream",
+      "factKey": "codecs",
+      "value": [
+        "SBC",
+        "AAC",
+        "LC3"
+      ],
+      "sourceIds": [
+        "MARSHALL-MAJORV-TR"
+      ]
+    },
+    {
+      "productKey": "Marshall:1006833:Cream",
+      "factKey": "multipoint",
+      "value": true,
+      "sourceIds": [
+        "MARSHALL-MAJORV-TR"
+      ]
+    },
+    {
+      "productKey": "Marshall:1006833:Cream",
+      "factKey": "app",
+      "value": "Marshall Bluetooth optional",
+      "sourceIds": [
+        "MARSHALL-MAJORV-TR"
+      ]
+    },
+    {
+      "productKey": "Marshall:1006833:Cream",
+      "factKey": "ingress",
+      "value": "none",
+      "sourceIds": [
+        "MARSHALL-MAJORV-TR"
+      ]
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "noiseControl",
+      "value": "active",
+      "sourceIds": [
+        "SAMSUNG-R420-TR"
+      ]
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "microphones",
+      "value": 6,
+      "sourceIds": [
+        "SAMSUNG-R420-TR"
+      ]
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "battery",
+      "value": "6 h / 24 h total ANC on; 8.5 h / 30 h total ANC off",
+      "sourceIds": [
+        "SAMSUNG-R420-TR"
+      ]
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "weightGramsPerEarbud",
+      "value": 5,
+      "sourceIds": [
+        "SAMSUNG-R420-TR"
+      ]
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "ingress",
+      "value": "IP54",
+      "sourceIds": [
+        "SAMSUNG-R420-TR"
+      ]
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "codecs",
+      "value": [
+        "AAC",
+        "SBC",
+        "SSC"
+      ],
+      "sourceIds": [
+        "SAMSUNG-R420-TR"
+      ]
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "spatialAudio",
+      "value": "360 Audio",
+      "sourceIds": [
+        "SAMSUNG-R420-TR"
+      ]
+    }
+  ],
+  "manuals": [
+    {
+      "sourceId": "HUAWEI-6-TR",
+      "publisher": "Huawei",
+      "jurisdiction": "TR",
+      "sourceType": "SUPPORT",
+      "url": "https://consumer.huawei.com/tr/support/content/tr-tr15868521/",
+      "establishesTurkiyeApplicability": true
+    },
+    {
+      "sourceId": "MARSHALL-MAJORV-MANUAL-TR",
+      "publisher": "Marshall",
+      "jurisdiction": "TR",
+      "sourceType": "MANUAL",
+      "url": "https://www.marshall.com/on/demandware.static/-/Library-Sites-SharedLibrary-Marshall/default/dwe0dadd06/images/cms-pages/user/Marshall_Major-V_OLM_R1_0_tr.pdf",
+      "establishesTurkiyeApplicability": true
+    }
+  ],
+  "unknowns": [
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 7i:Black",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6i:White",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6i:White",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6i:White",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6i:White",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6i:White",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6i:White",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6:Purple",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6:Purple",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6:Purple",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6:Purple",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6:Purple",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds 6:Purple",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:AirPods Pro 3:standard",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:AirPods Pro 3:standard",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:AirPods Pro 3:standard",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:AirPods Pro 3:standard",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:AirPods Pro 3:standard",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:AirPods Pro 3:standard",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:MWU53TU/A:standard",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:MWU53TU/A:standard",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:MWU53TU/A:standard",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:MWU53TU/A:standard",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:MWU53TU/A:standard",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:MWU53TU/A:standard",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "UGREEN:45785:Black",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "UGREEN:45785:Black",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "UGREEN:45785:Black",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "UGREEN:45785:Black",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "UGREEN:45785:Black",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "UGREEN:45785:Black",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 2:White",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 2:White",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 2:White",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 2:White",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 2:White",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 2:White",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:AirPods 4 with Active Noise Cancellation:standard",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:AirPods 4 with Active Noise Cancellation:standard",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:AirPods 4 with Active Noise Cancellation:standard",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:AirPods 4 with Active Noise Cancellation:standard",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:AirPods 4 with Active Noise Cancellation:standard",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:AirPods 4 with Active Noise Cancellation:standard",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Samsung:EO-IC100B:Black",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Samsung:EO-IC100B:Black",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Samsung:EO-IC100B:Black",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Samsung:EO-IC100B:Black",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Samsung:EO-IC100B:Black",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Samsung:EO-IC100B:Black",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:MYQY3TU/A:standard",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:MYQY3TU/A:standard",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:MYQY3TU/A:standard",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:MYQY3TU/A:standard",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:MYQY3TU/A:standard",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Apple:MYQY3TU/A:standard",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Huawei:FreeBuds SE 4 ANC:White",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "HyperX:Cloud III S Wireless:Black",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "HyperX:Cloud III S Wireless:Black",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "HyperX:Cloud III S Wireless:Black",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "HyperX:Cloud III S Wireless:Black",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "HyperX:Cloud III S Wireless:Black",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "HyperX:Cloud III S Wireless:Black",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Marshall:1006833:Cream",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Marshall:1006833:Cream",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Marshall:1006833:Cream",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Marshall:1006833:Cream",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Marshall:1006833:Cream",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Marshall:1006833:Cream",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "comfort",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "soundQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "callQuality",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "sportSuitability",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "replaceableParts",
+      "status": "UNKNOWN_NOT_INFERRED"
+    },
+    {
+      "productKey": "Samsung:SM-R420NZKATUR:Black",
+      "factKey": "softwareLifecycle",
+      "status": "UNKNOWN_NOT_INFERRED"
+    }
+  ],
+  "coverage": {
+    "observed": 30,
+    "reconciled": 30,
+    "admitted": 14,
+    "rejected": 16,
+    "duplicates": 0,
+    "manufacturers": [
+      "Apple",
+      "Huawei",
+      "HyperX",
+      "Marshall",
+      "Samsung",
+      "UGREEN"
+    ],
+    "formFactors": [
+      "on-ear",
+      "open-ear clip TWS",
+      "open-fit TWS",
+      "open-fit earbud",
+      "over-ear headset",
+      "sealed in-ear TWS",
+      "sealed in-ear wired"
+    ],
+    "missingSegments": [
+      "neckband",
+      "bone-conduction",
+      "hearing-assistance-specific"
+    ],
+    "blockers": [
+      "PARENT_DIGEST_MISMATCH:before-state.json",
+      "UNRESOLVED:B0BYWL962Q",
+      "UNRESOLVED:B0C3BSZ56D",
+      "UNRESOLVED:B01DEWVZ2C",
+      "UNRESOLVED:B0DBHTG7ZX",
+      "UNRESOLVED:B089SSFV85",
+      "UNRESOLVED:B0C6KKQ7ND",
+      "UNRESOLVED:B09X5G16ZM",
+      "UNRESOLVED:B0CRTYZG5C",
+      "UNRESOLVED:B084S6BCJN",
+      "UNRESOLVED:B0F93QP4RK",
+      "UNRESOLVED:B07XC936P8",
+      "UNRESOLVED:B0DHL93XCN",
+      "UNRESOLVED:B0BTYCRJSS",
+      "UNRESOLVED:B0D6NLHV8N",
+      "UNRESOLVED:B0D2XRXNGY",
+      "UNRESOLVED:B0F4884LN3"
+    ],
+    "gate": "COVERAGE_INCOMPLETE"
+  },
+  "semantics": {
+    "authorityStatus": "CANDIDATE_INPUT_NOT_ACTIVE_POLICY",
+    "technicalFactNotDailyLifeInterpretation": true,
+    "personaNotUserFact": true,
+    "candidateQuestions": [
+      "wearing form preference: over-ear/on-ear/in-ear/open-fit/open-ear",
+      "commute/travel noise-control need",
+      "calls/meetings where microphone evidence exists",
+      "battery session duration",
+      "wired connector/source requirement",
+      "platform and codec compatibility",
+      "gaming latency requirement",
+      "water exposure",
+      "portability/weight"
+    ],
+    "suppressWithoutEvidence": [
+      "comfort",
+      "fit quality",
+      "sound quality",
+      "call quality",
+      "sport suitability"
+    ],
+    "comparison": {
+      "unknownsRemainUnknown": true,
+      "tiesAllowed": true,
+      "nonDominatedResultsAllowed": true,
+      "rankingInputs": []
+    },
+    "yRuntimeEffect": "NONE"
+  },
+  "nextBoundedStep": "Repair or attest the parent before-state digest, then capture exact manufacturer-controlled Türkiye applicability for the 16 explicitly unresolved ASIN configurations; regenerate this package without changing Amazon observations."
+}

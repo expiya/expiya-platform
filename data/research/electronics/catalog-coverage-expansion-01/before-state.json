@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "electronics-catalog-before-state/v1",
+  "workUnit": "WU-ELECTRONICS-AMAZON-TR-CATALOG-COVERAGE-EXPANSION-01",
+  "capturedAt": "2026-09-06T00:00:00.000Z",
+  "base": {
+    "gitHead": "246e4c0",
+    "activeCatalogPath": "data/production/electronics/runtime/releases/ELECTRONICS-RUNTIME-CATALOG-TR-v1.0/catalog.json"
+  },
+  "totals": {
+    "categories": 24,
+    "products": 52,
+    "facts": 240
+  },
+  "categoryCounts": [
+    {
+      "categoryId": "SMARTPHONE",
+      "productCount": 3
+    },
+    {
+      "categoryId": "LAPTOP",
+      "productCount": 3
+    },
+    {
+      "categoryId": "TABLET",
+      "productCount": 3
+    },
+    {
+      "categoryId": "MONITOR",
+      "productCount": 3
+    },
+    {
+      "categoryId": "TELEVISION",
+      "productCount": 2
+    },
+    {
+      "categoryId": "E_READER",
+      "productCount": 2
+    },
+    {
+      "categoryId": "HEADPHONES",
+      "productCount": 2
+    },
+    {
+      "categoryId": "PORTABLE_SPEAKER",
+      "productCount": 2
+    },
+    {
+      "categoryId": "SOUNDBAR",
+      "productCount": 2
+    },
+    {
+      "categoryId": "DIGITAL_CAMERA",
+      "productCount": 2
+    },
+    {
+      "categoryId": "PROJECTOR",
+      "productCount": 2
+    },
+    {
+      "categoryId": "GAME_CONSOLE",
+      "productCount": 2
+    },
+    {
+      "categoryId": "WIFI_ROUTER_MESH",
+      "productCount": 2
+    },
+    {
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "productCount": 2
+    },
+    {
+      "categoryId": "EXTERNAL_STORAGE",
+      "productCount": 2
+    },
+    {
+      "categoryId": "PRINTER",
+      "productCount": 2
+    },
+    {
+      "categoryId": "WEBCAM",
+      "productCount": 2
+    },
+    {
+      "categoryId": "COMPUTER_AUDIO",
+      "productCount": 2
+    },
+    {
+      "categoryId": "SMARTWATCH",
+      "productCount": 2
+    },
+    {
+      "categoryId": "FITNESS_TRACKER",
+      "productCount": 2
+    },
+    {
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "productCount": 2
+    },
+    {
+      "categoryId": "VIDEO_DOORBELL",
+      "productCount": 2
+    },
+    {
+      "categoryId": "SMART_HOME_HUB",
+      "productCount": 2
+    },
+    {
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "productCount": 2
+    }
+  ],
+  "priorAmazonResearch": {
+    "observedAsins": 59,
+    "admittedCandidates": 6,
+    "queryRuns": 96,
+    "retainedCaps": {
+      "genericPage1": 1,
+      "targetedPage1": 2,
+      "genericPage2": 1
+    }
+  }
+}
