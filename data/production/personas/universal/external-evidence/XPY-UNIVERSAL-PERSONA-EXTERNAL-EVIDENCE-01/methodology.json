@@ -1,0 +1,21 @@
+{
+  "version": "xpy-persona-external-method/v1",
+  "minimumIndependentCompatibleSources": 2,
+  "userThemeThreshold": {
+    "minimumReviews": 20,
+    "minimumPlatforms": 2,
+    "minimumIndependentAuthors": 20,
+    "personalData": "EXCLUDED"
+  },
+  "manufacturerRole": "POSITIONING_ONLY",
+  "foreignMarketRule": "EXACT_FAMILY_COMPATIBILITY_AND_EXPLICIT_LIMITATION_REQUIRED",
+  "forbiddenInputs": [
+    "POPULARITY",
+    "STAR_AVERAGE",
+    "SALES_RANK",
+    "PRICE",
+    "AFFILIATE_STATE",
+    "AMAZON_ORDER",
+    "BRAND_PRESTIGE"
+  ]
+}

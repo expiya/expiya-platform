@@ -1,0 +1,359 @@
+[
+  {
+    "categoryId": "LAPTOP",
+    "beforeCandidateIds": [
+      "electronics:laptop:huawei:53014qhr",
+      "electronics:laptop:lenovo:83k2001vtr",
+      "electronics:laptop:lenovo:83k20077tr"
+    ],
+    "afterCandidateIds": [
+      "electronics:laptop:huawei:53014qhr",
+      "electronics:laptop:lenovo:83k2001vtr",
+      "electronics:laptop:lenovo:83k20077tr"
+    ],
+    "membershipUnchanged": true,
+    "selectionOutcome": "NON_DOMINATED_SET",
+    "traces": [
+      {
+        "exactCandidateId": "electronics:laptop:huawei:53014qhr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:electronics:laptop:huawei:53014qhr",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "electronics:laptop:lenovo:83k2001vtr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:electronics:laptop:lenovo:83k2001vtr",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "electronics:laptop:lenovo:83k20077tr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:electronics:laptop:lenovo:83k20077tr",
+            "state": "UNKNOWN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "categoryId": "SMARTPHONE",
+    "beforeCandidateIds": [
+      "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "electronics:smartphone:samsung:sm-a266bzkctur",
+      "electronics:smartphone:samsung:sm-a366bzkgtur"
+    ],
+    "afterCandidateIds": [
+      "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "electronics:smartphone:samsung:sm-a266bzkctur",
+      "electronics:smartphone:samsung:sm-a366bzkgtur"
+    ],
+    "membershipUnchanged": true,
+    "selectionOutcome": "NON_DOMINATED_SET",
+    "traces": [
+      {
+        "exactCandidateId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:electronics:smartphone:honor:dny-nx9-8-256-black",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "electronics:smartphone:samsung:sm-a266bzkctur",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:electronics:smartphone:samsung:sm-a266bzkctur",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:electronics:smartphone:samsung:sm-a366bzkgtur",
+            "state": "UNKNOWN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "categoryId": "WASHING_MACHINE",
+    "beforeCandidateIds": [
+      "appliances:wm:tr:altus:al-cm-101254-d",
+      "appliances:wm:tr:arcelik:10120-imp",
+      "appliances:wm:tr:beko:cmx-10120"
+    ],
+    "afterCandidateIds": [
+      "appliances:wm:tr:altus:al-cm-101254-d",
+      "appliances:wm:tr:arcelik:10120-imp",
+      "appliances:wm:tr:beko:cmx-10120"
+    ],
+    "membershipUnchanged": true,
+    "selectionOutcome": "NON_DOMINATED_SET",
+    "traces": [
+      {
+        "exactCandidateId": "appliances:wm:tr:altus:al-cm-101254-d",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:appliances:wm:tr:altus:al-cm-101254-d",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:arcelik:10120-imp",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:appliances:wm:tr:arcelik:10120-imp",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "appliances:wm:tr:beko:cmx-10120",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:appliances:wm:tr:beko:cmx-10120",
+            "state": "UNKNOWN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "categoryId": "REFRIGERATOR",
+    "beforeCandidateIds": [
+      "appliances:refrigerator:tr:arcelik:270475-mb",
+      "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "appliances:refrigerator:tr:samsung:rf57c510esr-tr"
+    ],
+    "afterCandidateIds": [
+      "appliances:refrigerator:tr:arcelik:270475-mb",
+      "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "appliances:refrigerator:tr:samsung:rf57c510esr-tr"
+    ],
+    "membershipUnchanged": true,
+    "selectionOutcome": "NON_DOMINATED_SET",
+    "traces": [
+      {
+        "exactCandidateId": "appliances:refrigerator:tr:arcelik:270475-mb",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:appliances:refrigerator:tr:arcelik:270475-mb",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "appliances:refrigerator:tr:samsung:rf57c510esr-tr",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:appliances:refrigerator:tr:samsung:rf57c510esr-tr",
+            "state": "UNKNOWN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+    "beforeCandidateIds": [
+      "DELONGHI_ECAM220_22_GB_TR",
+      "PHILIPS_EP2220_10_TR",
+      "SIEMENS_TP511R09_TR"
+    ],
+    "afterCandidateIds": [
+      "DELONGHI_ECAM220_22_GB_TR",
+      "PHILIPS_EP2220_10_TR",
+      "SIEMENS_TP511R09_TR"
+    ],
+    "membershipUnchanged": true,
+    "selectionOutcome": "NON_DOMINATED_SET",
+    "traces": [
+      {
+        "exactCandidateId": "DELONGHI_ECAM220_22_GB_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:DELONGHI_ECAM220_22_GB_TR",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "PHILIPS_EP2220_10_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:PHILIPS_EP2220_10_TR",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "SIEMENS_TP511R09_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:SIEMENS_TP511R09_TR",
+            "state": "UNKNOWN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "categoryId": "HEADPHONES",
+    "beforeCandidateIds": [
+      "electronics:headphones:huawei:freebuds-6-black",
+      "electronics:headphones:sony:wh1000xm5b-ce7"
+    ],
+    "afterCandidateIds": [
+      "electronics:headphones:huawei:freebuds-6-black",
+      "electronics:headphones:sony:wh1000xm5b-ce7"
+    ],
+    "membershipUnchanged": true,
+    "selectionOutcome": "NON_DOMINATED_SET",
+    "traces": [
+      {
+        "exactCandidateId": "electronics:headphones:huawei:freebuds-6-black",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:electronics:headphones:huawei:freebuds-6-black",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "electronics:headphones:sony:wh1000xm5b-ce7",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:electronics:headphones:sony:wh1000xm5b-ce7",
+            "state": "UNKNOWN"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "categoryId": "STROLLER",
+    "beforeCandidateIds": [
+      "CHICCO_BELLAGIO_07087183330000_TR",
+      "CHICCO_GOODY_PLUS_04079877190000_TR",
+      "CHICCO_MYSA_05087158450000_TR"
+    ],
+    "afterCandidateIds": [
+      "CHICCO_BELLAGIO_07087183330000_TR",
+      "CHICCO_GOODY_PLUS_04079877190000_TR",
+      "CHICCO_MYSA_05087158450000_TR"
+    ],
+    "membershipUnchanged": true,
+    "selectionOutcome": "NON_DOMINATED_SET",
+    "traces": [
+      {
+        "exactCandidateId": "CHICCO_BELLAGIO_07087183330000_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:CHICCO_BELLAGIO_07087183330000_TR",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "CHICCO_GOODY_PLUS_04079877190000_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:CHICCO_GOODY_PLUS_04079877190000_TR",
+            "state": "UNKNOWN"
+          }
+        ]
+      },
+      {
+        "exactCandidateId": "CHICCO_MYSA_05087158450000_TR",
+        "score": 0,
+        "contributions": [],
+        "neutralEvidence": [
+          {
+            "preferenceKey": "DESIGN_LED",
+            "evidenceRef": "persona-record:CHICCO_MYSA_05087158450000_TR",
+            "state": "UNKNOWN"
+          }
+        ]
+      }
+    ]
+  }
+]

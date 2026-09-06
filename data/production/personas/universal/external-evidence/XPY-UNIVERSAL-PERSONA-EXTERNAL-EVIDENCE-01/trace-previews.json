@@ -1,0 +1,133 @@
+[
+  {
+    "categoryId": "LAPTOP",
+    "before": [
+      "electronics:laptop:huawei:53014qhr",
+      "electronics:laptop:lenovo:83k2001vtr",
+      "electronics:laptop:lenovo:83k20077tr"
+    ],
+    "productionAfter": [
+      "electronics:laptop:huawei:53014qhr",
+      "electronics:laptop:lenovo:83k2001vtr",
+      "electronics:laptop:lenovo:83k20077tr"
+    ],
+    "membershipIdentical": true,
+    "unknownNeutral": true,
+    "tiesPreserved": true,
+    "catalogOrderIndependent": true,
+    "personaSelectionAuthority": false,
+    "cap": 0.75
+  },
+  {
+    "categoryId": "SMARTPHONE",
+    "before": [
+      "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "electronics:smartphone:samsung:sm-a266bzkctur",
+      "electronics:smartphone:samsung:sm-a366bzkgtur"
+    ],
+    "productionAfter": [
+      "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "electronics:smartphone:samsung:sm-a266bzkctur",
+      "electronics:smartphone:samsung:sm-a366bzkgtur"
+    ],
+    "membershipIdentical": true,
+    "unknownNeutral": true,
+    "tiesPreserved": true,
+    "catalogOrderIndependent": true,
+    "personaSelectionAuthority": false,
+    "cap": 0.75
+  },
+  {
+    "categoryId": "WASHING_MACHINE",
+    "before": [
+      "appliances:wm:tr:altus:al-cm-101254-d",
+      "appliances:wm:tr:arcelik:10120-imp",
+      "appliances:wm:tr:beko:cmx-10120"
+    ],
+    "productionAfter": [
+      "appliances:wm:tr:altus:al-cm-101254-d",
+      "appliances:wm:tr:arcelik:10120-imp",
+      "appliances:wm:tr:beko:cmx-10120"
+    ],
+    "membershipIdentical": true,
+    "unknownNeutral": true,
+    "tiesPreserved": true,
+    "catalogOrderIndependent": true,
+    "personaSelectionAuthority": false,
+    "cap": 0.75
+  },
+  {
+    "categoryId": "REFRIGERATOR",
+    "before": [
+      "appliances:refrigerator:tr:arcelik:270475-mb",
+      "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "appliances:refrigerator:tr:samsung:rf57c510esr-tr"
+    ],
+    "productionAfter": [
+      "appliances:refrigerator:tr:arcelik:270475-mb",
+      "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "appliances:refrigerator:tr:samsung:rf57c510esr-tr"
+    ],
+    "membershipIdentical": true,
+    "unknownNeutral": true,
+    "tiesPreserved": true,
+    "catalogOrderIndependent": true,
+    "personaSelectionAuthority": false,
+    "cap": 0.75
+  },
+  {
+    "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+    "before": [
+      "DELONGHI_ECAM220_22_GB_TR",
+      "PHILIPS_EP2220_10_TR",
+      "SIEMENS_TP511R09_TR"
+    ],
+    "productionAfter": [
+      "DELONGHI_ECAM220_22_GB_TR",
+      "PHILIPS_EP2220_10_TR",
+      "SIEMENS_TP511R09_TR"
+    ],
+    "membershipIdentical": true,
+    "unknownNeutral": true,
+    "tiesPreserved": true,
+    "catalogOrderIndependent": true,
+    "personaSelectionAuthority": false,
+    "cap": 0.75
+  },
+  {
+    "categoryId": "HEADPHONES",
+    "before": [
+      "electronics:headphones:huawei:freebuds-6-black",
+      "electronics:headphones:sony:wh1000xm5b-ce7"
+    ],
+    "productionAfter": [
+      "electronics:headphones:huawei:freebuds-6-black",
+      "electronics:headphones:sony:wh1000xm5b-ce7"
+    ],
+    "membershipIdentical": true,
+    "unknownNeutral": true,
+    "tiesPreserved": true,
+    "catalogOrderIndependent": true,
+    "personaSelectionAuthority": false,
+    "cap": 0.75
+  },
+  {
+    "categoryId": "STROLLER",
+    "before": [
+      "CHICCO_BELLAGIO_07087183330000_TR",
+      "CHICCO_GOODY_PLUS_04079877190000_TR",
+      "CHICCO_MYSA_05087158450000_TR"
+    ],
+    "productionAfter": [
+      "CHICCO_BELLAGIO_07087183330000_TR",
+      "CHICCO_GOODY_PLUS_04079877190000_TR",
+      "CHICCO_MYSA_05087158450000_TR"
+    ],
+    "membershipIdentical": true,
+    "unknownNeutral": true,
+    "tiesPreserved": true,
+    "catalogOrderIndependent": true,
+    "personaSelectionAuthority": false,
+    "cap": 0.75
+  }
+]

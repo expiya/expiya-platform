@@ -1,0 +1,30 @@
+[
+  {
+    "claimId": "PROPOSED-HOLD-SONY-XM5-DESIGN-LED",
+    "exactProductId": "electronics:headphones:sony:wh1000xm5b-ce7",
+    "trait": "DESIGN_LED",
+    "sourceIds": [
+      "EXT-SONY-XM5-RTINGS-2025",
+      "EXT-SONY-XM5-SOUNDGUYS-2025"
+    ],
+    "status": "HELD_IDENTITY_LIMIT",
+    "contribution": 0,
+    "limitations": [
+      "Exact Turkish suffix compatibility is not independently proven."
+    ]
+  },
+  {
+    "claimId": "PROPOSED-HOLD-CYBEX-BALIOS-DESIGN-LED",
+    "exactProductId": "CYBEX_BALIOS_S_LUX_520001251_TR",
+    "trait": "DESIGN_LED",
+    "sourceIds": [
+      "EXT-CYBEX-BALIOS-MFM-2023",
+      "EXT-CYBEX-BALIOS-BGL-2024"
+    ],
+    "status": "HELD_IDENTITY_LIMIT",
+    "contribution": 0,
+    "limitations": [
+      "Exact Turkish SKU/color configuration compatibility is not proven."
+    ]
+  }
+]

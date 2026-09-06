@@ -12,6 +12,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "npm run catalog:active:sync && npm run technical-daily-life:active:sync && npm run persona-safe-traits:active:sync && vitest run",
+    "persona:universal:generate": "node --import tsx scripts/generate-universal-persona-authority.ts",
+    "persona:external-evidence:generate": "node --import tsx scripts/generate-universal-persona-external-evidence.ts",
     "cars:trace:replay": "npm test -- --run features/decision/v2/trace",
     "cars:trace:gate": "npm test -- --run features/decision/v2/trace/productionReplayMatrix.test.ts features/decision/v2/trace/deploymentGate.test.ts",
     "cars:interpretation:measure": "node --import tsx scripts/report-deterministic-interpretation.ts",
