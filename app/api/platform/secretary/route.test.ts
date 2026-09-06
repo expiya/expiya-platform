@@ -27,6 +27,17 @@ describe("POST /api/platform/secretary", () => {
     expect(await response.json()).toMatchObject({ kind: "PROPOSE_NAVIGATION", departmentId: "APPLIANCES", destination: "/appliances?entry=secretary&category=BUILT_IN_OVEN" });
   });
 
+  it("returns governed clarification and correction outcomes for natural sentences", async () => {
+    const coffee = await POST(request("Kahve makinesi var mı sizde?"));
+    expect(await coffee.json()).toMatchObject({ kind: "CLARIFY_DESTINATION", choices: expect.arrayContaining([expect.objectContaining({ label: "Türk kahvesi makinesi" })]) });
+    const correction = await POST(request("Kulaklık değil, hoparlör arıyorum."));
+    expect(await correction.json()).toMatchObject({ kind: "CLARIFY_DESTINATION", choices: expect.not.arrayContaining([expect.objectContaining({ label: "Kulaklık" })]) });
+    const stroller = await POST(request("Bebek arabası var mı?"));
+    expect(await stroller.json()).toMatchObject({ kind: "PROPOSE_NAVIGATION", departmentId: "BABY_AND_CHILD" });
+    const toy = await POST(request("Oyuncak araba almak istiyorum."));
+    expect(await toy.json()).toMatchObject({ kind: "UNSUPPORTED_DESTINATION" });
+  });
+
   it("honors origin rejection before rate limiting", async () => {
     mocks.verifySameOrigin.mockReturnValueOnce(new Response(null, { status: 403 }));
     expect((await POST(request("araba"))).status).toBe(403);
