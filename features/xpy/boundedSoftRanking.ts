@@ -2,9 +2,17 @@ import { createHash } from "node:crypto";
 
 export const XPY_BOUNDED_SOFT_RANKING_VERSION = "xpy-bounded-soft-ranking/v1" as const;
 
-export type XpySoftRankingAvailability =
+export type XpyCategorySoftRankingAvailability =
   | { readonly status: "ACTIVE"; readonly authority: readonly XpySoftRankingAuthorityReference[]; readonly scoreCap: number; readonly selectionAuthority: "DOMAIN_SELECTION_CONTRACT_ONLY" }
   | { readonly status: "FAILED_CLOSED"; readonly reason: "PRODUCT_AUTHORITY_REQUIRED"; readonly requiredClarification: string; readonly conflictingAuthority?: readonly string[] };
+
+export type XpySoftRankingAvailability =
+  | XpyCategorySoftRankingAvailability
+  | {
+      readonly status: "CATEGORY_SCOPED";
+      readonly authority: readonly XpySoftRankingAuthorityReference[];
+      readonly categoryBindings: Readonly<Record<string, XpyCategorySoftRankingAvailability>>;
+    };
 
 export interface XpySoftRankingAuthorityReference {
   readonly authorityId: string;

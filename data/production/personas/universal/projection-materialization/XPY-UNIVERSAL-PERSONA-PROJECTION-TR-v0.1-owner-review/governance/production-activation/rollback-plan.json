@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "xpy-universal-persona-production-rollback/v1",
+  "trigger": "PRODUCTION_SMOKE_FAILURE",
+  "predecessorCommit": "bf2e753b5f90b4c2e794c08e62ccbd1602be41c3",
+  "actions": [
+    "Restore features/xpy/domainPacks.ts to predecessorSha256.",
+    "Remove data/production/personas/universal/active.json.",
+    "Create an append-only rollback event preserving approval and activation history.",
+    "Non-force push the rollback commit and redeploy unified production."
+  ],
+  "dataDeletionAuthorized": false,
+  "immutableGovernanceArtifactsRetained": true
+}

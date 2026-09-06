@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { V39_PERSONA_SOFT_RANKING_AUTHORITY } from "@/features/decision/v3/personaSoftRanking";
 import { rankWithBoundedSoftSignals, type XpyCandidateSoftSignal } from "./boundedSoftRanking";
-import { XPY_DOMAIN_PACKS } from "./domainPacks";
+import { XPY_DOMAIN_PACKS, resolveXpyCategorySoftRanking } from "./domainPacks";
 
 const authority = V39_PERSONA_SOFT_RANKING_AUTHORITY;
 const signal = (exactCandidateId: string, evidenceState: XpyCandidateSoftSignal["evidenceState"], contribution = 0.5): XpyCandidateSoftSignal => ({ exactCandidateId, preferenceKey: "comfort", mappingRef: "cars-persona-v39:comfort", evidenceRef: `owner-approved-persona-trait:${exactCandidateId}`, evidenceState, contribution, reasonCode: "PERSONA_COMFORT_MATCH", authority });
@@ -45,14 +45,20 @@ describe("XPY bounded soft-ranking contract", () => {
     expect(authorized.selectionOutcome).toBe("SELECTED_SINGLE");
   });
 
-  it("registers all 50 active categories and fails closed where Product authority is absent", () => {
+  it("registers all 50 categories and activates only evidence-qualified Persona categories", () => {
     const registrations = Object.values(XPY_DOMAIN_PACKS).flatMap(pack => pack.categories.map(category => `${pack.departmentId}:${category}`));
     expect(registrations).toHaveLength(50);
     expect(new Set(registrations)).toHaveProperty("size", 50);
     expect(XPY_DOMAIN_PACKS.CARS.boundedSoftRanking).toMatchObject({ status: "ACTIVE", scoreCap: 0.75 });
-    expect(XPY_DOMAIN_PACKS.APPLIANCES.boundedSoftRanking.status).toBe("FAILED_CLOSED");
-    expect(XPY_DOMAIN_PACKS.ELECTRONICS.boundedSoftRanking.status).toBe("FAILED_CLOSED");
-    expect(XPY_DOMAIN_PACKS.BABY_AND_CHILD.boundedSoftRanking.status).toBe("FAILED_CLOSED");
+    expect(XPY_DOMAIN_PACKS.APPLIANCES.boundedSoftRanking.status).toBe("CATEGORY_SCOPED");
+    expect(XPY_DOMAIN_PACKS.ELECTRONICS.boundedSoftRanking.status).toBe("CATEGORY_SCOPED");
+    expect(XPY_DOMAIN_PACKS.BABY_AND_CHILD.boundedSoftRanking.status).toBe("CATEGORY_SCOPED");
+    expect(resolveXpyCategorySoftRanking("APPLIANCES", "MANUAL_ESPRESSO_MACHINE").status).toBe("ACTIVE");
+    expect(resolveXpyCategorySoftRanking("ELECTRONICS", "HEADPHONES").status).toBe("ACTIVE");
+    expect(resolveXpyCategorySoftRanking("ELECTRONICS", "PROJECTOR").status).toBe("ACTIVE");
+    expect(resolveXpyCategorySoftRanking("BABY_AND_CHILD", "STROLLER").status).toBe("ACTIVE");
+    expect(resolveXpyCategorySoftRanking("APPLIANCES", "WASHING_MACHINE").status).toBe("FAILED_CLOSED");
+    expect(resolveXpyCategorySoftRanking("ELECTRONICS", "LAPTOP").status).toBe("FAILED_CLOSED");
   });
 
   it("rejects hidden commerce influence and signals outside hard-filter membership", () => {

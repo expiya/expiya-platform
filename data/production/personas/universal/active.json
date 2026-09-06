@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "xpy-universal-persona-active-pointer/v1",
+  "state": "ACTIVE_BOUNDED_PERSONA_ORDERING",
+  "releaseId": "XPY-UNIVERSAL-PERSONA-PROJECTION-TR-v0.1-owner-review",
+  "packageDigest": "sha256:62d2d5f23cb92b337052fdb0e3eb16c8b96126e3bc156fa16ebaac11be03f4aa",
+  "projectionArtifact": "data/production/personas/universal/projection-materialization/XPY-UNIVERSAL-PERSONA-PROJECTION-TR-v0.1-owner-review/projection-candidate.json",
+  "projectionArtifactDigest": "sha256:5cdcd020825d6408893fa0724136bd7289b6be079a2e3beed808885ff01ea61d",
+  "activationEventId": "UNIVERSAL-PERSONA-PRODUCTION-ACTIVATION-20260906",
+  "authority": "BOUNDED_SOFT_RANKING_ONLY",
+  "aggregateCap": 0.75,
+  "activeGovernedProjectionCount": 4,
+  "neutralUnknownCount": 165,
+  "membershipEffect": "NONE",
+  "singleSelectionAuthorized": false,
+  "futureCatalogReadinessGate": "MANDATORY"
+}
