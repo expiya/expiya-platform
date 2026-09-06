@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "xpy-persona-inheritance-policy/v1",
+  "precedence": [
+    "VARIANT_PERSONA",
+    "MODEL_PERSONA",
+    "PRODUCT_FAMILY_PERSONA",
+    "PRODUCT_CLASS_PERSONA",
+    "BRAND_PERSONA"
+  ],
+  "combination": "MOST_SPECIFIC_PER_TRAIT_THEN_DISTINCT_TRAITS",
+  "contradiction": "MORE_SPECIFIC_CONFLICT_BLOCKS_INHERITED_TRAIT",
+  "doubleCounting": "SAME_TRAIT_COUNTS_ONCE",
+  "candidateCap": 0.75,
+  "membershipEffect": "NONE",
+  "singleSelectionAuthority": "NONE",
+  "brandHaloTechnicalInference": "FORBIDDEN",
+  "unknownEffect": 0
+}

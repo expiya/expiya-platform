@@ -1,0 +1,40 @@
+[
+  {
+    "assertionId": "FAMILY-SONY-WH1000XM5-DESIGN-LED",
+    "assertionScope": "PRODUCT_FAMILY_PERSONA",
+    "scopeKey": "SONY:WH-1000XM5",
+    "trait": "DESIGN_LED",
+    "contribution": 0.5,
+    "sourceIds": [
+      "EXT-SONY-XM5-RTINGS-2025",
+      "EXT-SONY-XM5-SOUNDGUYS-2025"
+    ],
+    "status": "QUALIFIED",
+    "identityBridge": "WH-1000XM5 named product family; the catalog variant is the black family member and no configuration-dependent observation is inherited.",
+    "market": "US/CA to TR; non-technical design theme portable with explicit suffix limit",
+    "confidence": "CORROBORATED",
+    "limitations": [
+      "Foreign-market family evidence; no technical, quality, price or exact-suffix inference.",
+      "Affiliate relationships are disclosed and contribute no authority by themselves."
+    ]
+  },
+  {
+    "assertionId": "FAMILY-CYBEX-BALIOS-S-LUX-DESIGN-LED",
+    "assertionScope": "PRODUCT_FAMILY_PERSONA",
+    "scopeKey": "CYBEX:Balios S Lux",
+    "trait": "DESIGN_LED",
+    "contribution": 0.5,
+    "sourceIds": [
+      "EXT-CYBEX-BALIOS-MFM-2023",
+      "EXT-CYBEX-BALIOS-BGL-2024"
+    ],
+    "status": "QUALIFIED",
+    "identityBridge": "Balios S Lux named product family; Turkish SKU/color inherits only the non-configuration-dependent design theme.",
+    "market": "UK/US to TR; family design theme portable with exact color/SKU limitation",
+    "confidence": "CORROBORATED",
+    "limitations": [
+      "Foreign-market named-family evidence; exact Turkish color/SKU is not claimed as directly observed.",
+      "Price, ratings and retailer placement were excluded."
+    ]
+  }
+]
