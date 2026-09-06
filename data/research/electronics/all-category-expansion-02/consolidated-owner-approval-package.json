@@ -1,0 +1,386 @@
+{
+  "schemaVersion": "electronics-owner-approval/v2",
+  "approvalPackageId": "ELECTRONICS-ALL-CATEGORY-EXPANSION-OAM-02",
+  "decision": "PENDING_ONE_CONSOLIDATED_DIGEST_SPECIFIC_OWNER_APPROVAL",
+  "baseline": {
+    "retainedProducts": 68,
+    "retainedProductIds": [
+      "electronics:computer-audio:edifier:r1280dbs-black",
+      "electronics:computer-audio:logitech:980-001295",
+      "electronics:digital-camera:canon:5811c013",
+      "electronics:digital-camera:sony:zve10m2b-cec",
+      "electronics:e-reader:kobo:n367",
+      "electronics:e-reader:kobo:n428",
+      "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+      "electronics:fitness-tracker:huawei:nor-b19-black",
+      "electronics:fitness-tracker:xiaomi:m2435b1-black",
+      "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "electronics:game-console:sony:cfi-7021",
+      "electronics:headphones:apple:airpods-4-with-active-noise-cancellation:standard",
+      "electronics:headphones:apple:airpods-pro-3:standard",
+      "electronics:headphones:apple:earpods-usb-c:myqy3tu-a",
+      "electronics:headphones:apple:earpods-with-3-5-mm-headphone-plug:mwu53tu-a",
+      "electronics:headphones:huawei:freebuds-6-black",
+      "electronics:headphones:huawei:freebuds-6:purple",
+      "electronics:headphones:huawei:freebuds-6i:white",
+      "electronics:headphones:huawei:freebuds-7i:black",
+      "electronics:headphones:huawei:freebuds-se-2:white",
+      "electronics:headphones:huawei:freebuds-se-4-anc:white",
+      "electronics:headphones:hyperx:cloud-iii-s-wireless:black",
+      "electronics:headphones:hyperx:cloud-iii:black",
+      "electronics:headphones:marshall:major-v:cream",
+      "electronics:headphones:philips:headphones-with-microphone:black",
+      "electronics:headphones:samsung:galaxy-buds3-fe:black",
+      "electronics:headphones:samsung:type-c-earphones:black",
+      "electronics:headphones:sony:wh1000xm5b-ce7",
+      "electronics:headphones:ugreen:hitune-s3:black",
+      "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+      "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+      "electronics:laptop:huawei:53014qhr",
+      "electronics:laptop:lenovo:83k2001vtr",
+      "electronics:laptop:lenovo:83k20077tr",
+      "electronics:monitor:lg:27gs50f-b",
+      "electronics:monitor:samsung:ls27c902pauxuf",
+      "electronics:monitor:samsung:ls27f612eauxuf",
+      "electronics:nas:qnap:ts-264-8g-diskless",
+      "electronics:nas:synology:ds224plus-diskless-2gb",
+      "electronics:portable-speaker:jbl:jblflip7blk",
+      "electronics:portable-speaker:sony:srsult10b-ce7",
+      "electronics:printer:epson:c11cj67435",
+      "electronics:printer:hp:7md72a",
+      "electronics:projector:epson:v11ha85040",
+      "electronics:projector:samsung:sp-lff3claxxtk",
+      "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+      "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "electronics:smartphone:samsung:sm-a266bzkctur",
+      "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "electronics:smartwatch:huawei:vli-b19-46-black",
+      "electronics:smartwatch:samsung:sm-l330ndaatur",
+      "electronics:soundbar:lg:s70ty",
+      "electronics:soundbar:samsung:hw-q800f-tk",
+      "electronics:tablet:huawei:txz-w09-8-128-gray",
+      "electronics:tablet:samsung:sm-x520nzsptur",
+      "electronics:tablet:samsung:sm-x730nzsptur",
+      "electronics:television:lg:oled55b65la",
+      "electronics:television:next:ye-55gfsg8-qled",
+      "electronics:ups:apc:bx1200mi-gr",
+      "electronics:ups:eaton:5e1200ui",
+      "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+      "electronics:video-doorbell:tp-link:tapo-d235",
+      "electronics:webcam:asus:webcam-c3",
+      "electronics:webcam:logitech:960-001422",
+      "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack"
+    ]
+  },
+  "newlyProposedAdmissions": [
+    {
+      "categoryId": "COMPUTER_AUDIO",
+      "exactProductIds": [
+        "electronics:computer-audio:logitech:980-001348"
+      ]
+    },
+    {
+      "categoryId": "DIGITAL_CAMERA",
+      "exactProductIds": [
+        "electronics:digital-camera:canon:6536c013"
+      ]
+    },
+    {
+      "categoryId": "EXTERNAL_STORAGE",
+      "exactProductIds": [
+        "electronics:external-storage:samsung:mu-pe2t0s-ww"
+      ]
+    },
+    {
+      "categoryId": "E_READER",
+      "exactProductIds": [
+        "electronics:e-reader:kobo:n365"
+      ]
+    },
+    {
+      "categoryId": "FITNESS_TRACKER",
+      "exactProductIds": [
+        "electronics:fitness-tracker:xiaomi:smart-band-10-black"
+      ]
+    },
+    {
+      "categoryId": "GAME_CONSOLE",
+      "exactProductIds": [
+        "electronics:game-console:sony:cfi-2016a01"
+      ]
+    },
+    {
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "exactProductIds": [
+        "electronics:home-security-camera:tp-link:tapo-c520ws-eu-v2"
+      ]
+    },
+    {
+      "categoryId": "LAPTOP",
+      "exactProductIds": [
+        "electronics:laptop:apple:macbook-air-13-m4-16-256-sky-blue"
+      ]
+    },
+    {
+      "categoryId": "MONITOR",
+      "exactProductIds": [
+        "electronics:monitor:samsung:ls27cg552euxuf"
+      ]
+    },
+    {
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "exactProductIds": [
+        "electronics:nas:synology:ds925plus-diskless-4gb"
+      ]
+    },
+    {
+      "categoryId": "PORTABLE_SPEAKER",
+      "exactProductIds": [
+        "electronics:portable-speaker:jbl:jblcharge6blk"
+      ]
+    },
+    {
+      "categoryId": "PRINTER",
+      "exactProductIds": [
+        "electronics:printer:epson:c11cj88403"
+      ]
+    },
+    {
+      "categoryId": "PROJECTOR",
+      "exactProductIds": [
+        "electronics:projector:epson:v11hb72242"
+      ]
+    },
+    {
+      "categoryId": "SMARTPHONE",
+      "exactProductIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:xiaomi:14t-12-256-black",
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black"
+      ]
+    },
+    {
+      "categoryId": "SMARTWATCH",
+      "exactProductIds": [
+        "electronics:smartwatch:samsung:sm-l310nzgatur"
+      ]
+    },
+    {
+      "categoryId": "SMART_HOME_HUB",
+      "exactProductIds": [
+        "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1"
+      ]
+    },
+    {
+      "categoryId": "SOUNDBAR",
+      "exactProductIds": [
+        "electronics:soundbar:samsung:hw-q990f-tk"
+      ]
+    },
+    {
+      "categoryId": "TABLET",
+      "exactProductIds": [
+        "electronics:tablet:apple:ipad-a16-wifi-128-silver"
+      ]
+    },
+    {
+      "categoryId": "TELEVISION",
+      "exactProductIds": [
+        "electronics:television:samsung:qe75qn90fatxtk"
+      ]
+    },
+    {
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "exactProductIds": [
+        "electronics:ups:apc:br1200si"
+      ]
+    },
+    {
+      "categoryId": "VIDEO_DOORBELL",
+      "exactProductIds": [
+        "electronics:video-doorbell:tp-link:tapo-d230s1-eu-v1"
+      ]
+    },
+    {
+      "categoryId": "WEBCAM",
+      "exactProductIds": [
+        "electronics:webcam:logitech:960-001088"
+      ]
+    },
+    {
+      "categoryId": "WIFI_ROUTER_MESH",
+      "exactProductIds": [
+        "electronics:wifi-router-mesh:tp-link:deco-x50-eu-v1-3pack"
+      ]
+    }
+  ],
+  "rejectedObservations": [
+    {
+      "observationId": "COMPUTER_AUDIO:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "COMPUTER_AUDIO"
+    },
+    {
+      "observationId": "DIGITAL_CAMERA:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "DIGITAL_CAMERA"
+    },
+    {
+      "observationId": "EXTERNAL_STORAGE:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "EXTERNAL_STORAGE"
+    },
+    {
+      "observationId": "E_READER:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "E_READER"
+    },
+    {
+      "observationId": "FITNESS_TRACKER:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "FITNESS_TRACKER"
+    },
+    {
+      "observationId": "GAME_CONSOLE:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "GAME_CONSOLE"
+    },
+    {
+      "observationId": "HOME_SECURITY_CAMERA:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "HOME_SECURITY_CAMERA"
+    },
+    {
+      "observationId": "LAPTOP:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "LAPTOP"
+    },
+    {
+      "observationId": "MONITOR:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "MONITOR"
+    },
+    {
+      "observationId": "NETWORK_ATTACHED_STORAGE:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "NETWORK_ATTACHED_STORAGE"
+    },
+    {
+      "observationId": "PORTABLE_SPEAKER:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "PORTABLE_SPEAKER"
+    },
+    {
+      "observationId": "PRINTER:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "PRINTER"
+    },
+    {
+      "observationId": "PROJECTOR:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "PROJECTOR"
+    },
+    {
+      "observationId": "SMARTPHONE:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "SMARTPHONE"
+    },
+    {
+      "observationId": "SMARTWATCH:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "SMARTWATCH"
+    },
+    {
+      "observationId": "SMART_HOME_HUB:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "SMART_HOME_HUB"
+    },
+    {
+      "observationId": "SOUNDBAR:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "SOUNDBAR"
+    },
+    {
+      "observationId": "TABLET:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "TABLET"
+    },
+    {
+      "observationId": "TELEVISION:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "TELEVISION"
+    },
+    {
+      "observationId": "UNINTERRUPTIBLE_POWER_SUPPLY:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY"
+    },
+    {
+      "observationId": "VIDEO_DOORBELL:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "VIDEO_DOORBELL"
+    },
+    {
+      "observationId": "WEBCAM:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "WEBCAM"
+    },
+    {
+      "observationId": "WIFI_ROUTER_MESH:family-or-region-ambiguous",
+      "terminalState": "REJECTED_NOT_EXACT_TURKIYE_CONFIGURATION",
+      "reason": "Family, bundle, revision, colour/SKU, or Türkiye applicability could not be bound exactly; no inference admitted.",
+      "categoryId": "WIFI_ROUTER_MESH"
+    }
+  ],
+  "amazonCoverageLimitation": "Approved Amazon Türkiye API remains unavailable; no Amazon/ASIN/price/rating/offer/affiliate or exhaustive coverage claim is made.",
+  "semanticRuntimeChanges": {
+    "runtimeActivation": "NONE",
+    "deployment": "NONE",
+    "semanticPolicy": "UNCHANGED",
+    "xpyPolicy": "P asks only evidence-material current-candidate questions; Y remains deterministic and supports ties/NON_DOMINATED_SET",
+    "commerce": "Amazon price/rating/offer/affiliate and catalog-order effects remain disabled"
+  },
+  "counts": {
+    "before": 68,
+    "after": 93,
+    "added": 25,
+    "nonHeadphonesBefore": 50,
+    "nonHeadphonesAfter": 75,
+    "categories": 24,
+    "matrixCells": 384
+  },
+  "artifactDigests": {
+    "candidateCatalog": "sha256:22f4dae23c6bf831b497ed2ee7d0e7cf52be7227a2cc6e18a80b58a4bf45e018",
+    "sourceRegister": "sha256:e81884a079c2db064ba320a3e538d57ae5fed44bafc2ed381be7722794afa5c6",
+    "progressLedger": "sha256:0ed408b814c58440ad62976facbe66c135479124333c48be8b2feceae3b62874",
+    "rejectedObservations": "sha256:6a01466457f9a89947e227d89b07d87f0dbbccea966d5acd7f378859ad8e4312",
+    "matrix": "sha256:f40a659513d1cefecf43c6ba5ab13515b76cb380aefde946b5e37fcb551ddcac",
+    "semanticRuntimeChanges": "sha256:7b31c3db417393d2bf741d3a6ec0312e4203189b090851d8d10f7babe756f09f"
+  },
+  "packageDigest": "sha256:89d80a38e972b34c094b737a67de32d3f6bd2a38c40c14db39b3200bc66b305d"
+}
