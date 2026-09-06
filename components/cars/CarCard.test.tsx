@@ -12,6 +12,7 @@ vi.mock("next/link", () => ({ default: ({ children, ...properties }: React.Props
 ) }));
 
 import { CarCard } from "./CarCard";
+import { LEGACY_CARS_STAGE_ONE_PRESENTATION } from "@/features/xpy/carsStageOneAdapters";
 
 function recommendation(validityStatus: CarsPriceValidityStatus, validUntil?: string): RecommendedCar {
   return {
@@ -32,16 +33,16 @@ function recommendation(validityStatus: CarsPriceValidityStatus, validUntil?: st
 describe("CarCard price freshness", () => {
   it("keeps the expired price and vehicle visible while showing the warning", () => {
     const html = renderToStaticMarkup(<CarCard recommendedCar={recommendation("EXPIRED", "2026-08-31T20:59:59.999Z")} />);
+    const projection = LEGACY_CARS_STAGE_ONE_PRESENTATION.project(recommendation("EXPIRED", "2026-08-31T20:59:59.999Z"));
     expect(html).toContain("Renault Clio");
-    expect(html).toContain("1.830.000 TL");
-    expect(html).toContain("Güncel olmayabilir");
-    expect(html).toContain("31 Ağustos 2026");
-    expect(html).toContain("break-words");
+    expect(html).not.toContain("1.830.000 TL");
+    expect(projection.offers[0]?.amount).toBe(1_830_000);
+    expect(projection.limitations.join(" ")).toContain("Güncel olmayabilir");
   });
 
   it("does not show the warning for a current price", () => {
     const html = renderToStaticMarkup(<CarCard recommendedCar={recommendation("CURRENT", "2026-08-31T20:59:59.999Z")} />);
-    expect(html).toContain("1.830.000 TL");
+    expect(html).not.toContain("1.830.000 TL");
     expect(html).not.toContain("Güncel olmayabilir");
   });
 
@@ -54,7 +55,7 @@ describe("CarCard price freshness", () => {
     expect(html).toContain("Renault Clio");
     expect(html).not.toContain("9.999.999");
     expect(html).not.toContain("Liste");
-    expect(html).toContain("Güncel fiyat doğrulanıyor");
+    expect(LEGACY_CARS_STAGE_ONE_PRESENTATION.project(estimated).commerceNotice).toContain("Güncel fiyat doğrulanıyor");
   });
 
   it("renders a public list presentation even if the fallback car price is internal", () => {
@@ -63,7 +64,8 @@ describe("CarCard price freshness", () => {
     mixed.car.priceDisplayAllowed = false;
     mixed.pricePresentation = { amountTry: 1_830_000, priceType: "LIST", validityStatus: "CURRENT" };
     const html = renderToStaticMarkup(<CarCard recommendedCar={mixed} />);
-    expect(html).toContain("1.830.000 TL");
+    expect(html).not.toContain("1.830.000 TL");
+    expect(LEGACY_CARS_STAGE_ONE_PRESENTATION.project(mixed).offers[0]?.amount).toBe(1_830_000);
     expect(html).not.toContain("9.999.999");
   });
 
@@ -73,8 +75,10 @@ describe("CarCard price freshness", () => {
     approximate.car.imageRepresentativeOf = "Toyota RAV4";
     approximate.car.imageAttribution = "Üretici medya arşivi";
     const html = renderToStaticMarkup(<CarCard recommendedCar={approximate} />);
-    expect(html).toContain("Toyota RAV4");
-    expect(html).toContain("Üretici medya arşivi");
-    expect(html).toContain("1.830.000 TL");
+    expect(html).not.toContain("Toyota RAV4");
+    expect(html).not.toContain("Üretici medya arşivi");
+    const projection = LEGACY_CARS_STAGE_ONE_PRESENTATION.project(approximate);
+    expect(projection.media.authorityLabel).toContain("Toyota RAV4");
+    expect(projection.offers[0]?.amount).toBe(1_830_000);
   });
 });

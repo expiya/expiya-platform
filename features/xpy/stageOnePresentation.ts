@@ -65,6 +65,23 @@ export interface XpyStageOnePresentationAdapter<Input> {
   project(input: Input): XpyStageOneDecisionPresentation;
 }
 
+/** Converts an internal exact identity into an optional, consumer-relevant subtitle. */
+export function naturalConsumerConfiguration(value: string, brand: string, model: string): string {
+  const normalizedBrand = brand.trim().toLocaleLowerCase("tr-TR");
+  const normalizedModel = model.trim().toLocaleLowerCase("tr-TR");
+  const parts = value.split(/\s*[|/]\s*/u).map(part => part.trim()).filter(Boolean).filter(part => {
+    const normalized = part.toLocaleLowerCase("tr-TR");
+    if (normalized === normalizedBrand || normalized === normalizedModel || normalized === `${normalizedBrand} ${normalizedModel}`) return false;
+    if (/^(?:tr|türkiye|5g)$/iu.test(part) || /^\d{8,}$/u.test(part)) return false;
+    if (/^[A-Z][A-Z0-9_]+$/u.test(part)) return false;
+    if (/^(?=.*\d)[A-Z0-9]+(?:-[A-Z0-9]+)+$/u.test(part)) return false;
+    return true;
+  }).map(part => part.replace(/(\d)\s*GB\b/giu, "$1 GB"));
+  const memory = parts.filter(part => /^\d+\s*GB$/iu.test(part));
+  const rest = parts.filter(part => !/^\d+\s*GB$/iu.test(part));
+  return [...(memory.length ? [memory.join(" / ")] : []), ...rest].join(" · ");
+}
+
 export function defineXpyStageOnePresentationAdapter<Input>(adapter: XpyStageOnePresentationAdapter<Input>): XpyStageOnePresentationAdapter<Input> {
   return Object.freeze(adapter);
 }

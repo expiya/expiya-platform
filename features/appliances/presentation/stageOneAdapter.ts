@@ -1,6 +1,6 @@
 import type { AppliancesDecisionCard } from "../recommendation/publicCard";
 import type { AppliancesRuntimeOutcome } from "../contracts";
-import { defineXpyStageOnePresentationAdapter, XPY_STAGE_ONE_PRESENTATION_VERSION, type XpyPresentedItem, type XpyStageOneSetPresentation } from "@/features/xpy/stageOnePresentation";
+import { defineXpyStageOnePresentationAdapter, naturalConsumerConfiguration, XPY_STAGE_ONE_PRESENTATION_VERSION, type XpyPresentedItem, type XpyStageOneSetPresentation } from "@/features/xpy/stageOnePresentation";
 
 const needLabels: Readonly<Record<string, string>> = {
   PET_HEAD: "Evcil hayvan tüyleri için özel başlık istiyorsunuz.", HEPA: "HEPA düzeyinde filtreleme sizin için önemli.",
@@ -55,11 +55,8 @@ function publicValue(value: string): string {
   return publicText(trimmed);
 }
 
-function publicConfiguration(value: string): string {
-  return publicText(value)
-    .replaceAll("|", " · ")
-    .replace(/\s+\/\s+/gu, " · ")
-    .replace(/\bTR\b/gu, "Türkiye")
+function publicConfiguration(value: string, brand: string, model: string): string {
+  return naturalConsumerConfiguration(publicText(value), brand, model)
     .replace(/\bheat-pump\b/giu, "ısı pompalı")
     .replace(/\bdrying-only\b/giu, "yalnız kurutma")
     .replace(/\bcanister\b/giu, "silindir gövdeli");
@@ -93,7 +90,7 @@ export const APPLIANCES_STAGE_ONE_PRESENTATION = defineXpyStageOnePresentationAd
     const offers = commerce ? commerce.offers.map(item => ({ merchant: item.marketplace && item.seller ? `${item.merchant} · Satıcı: ${item.seller}` : item.merchant, amount: item.amount, currency: item.currency, observedAt: item.observedAt, availability: item.availability === "IN_STOCK" ? "Stokta" : item.availability === "LIMITED" ? "Sınırlı stok" : "Stok durumu doğrulanamadı", href: item.canonicalListingUrl })) : card.price.status === "READY" ? card.price.observations.flatMap(item => { const value = record(item); const amount = Number(value.amountTRY ?? value.priceTRY ?? value.amount); const observedAt = String(value.observedAt ?? value.observedDate ?? ""); if (!Number.isFinite(amount) || !observedAt) return []; return [{ merchant: String(value.merchantName ?? value.merchant ?? "Doğrulanmış satıcı"), amount, currency: "TRY" as const, observedAt, availability: String(value.availabilityLabel ?? "Gözlem tarihinde listeleniyordu"), href: typeof value.url === "string" ? value.url : undefined }]; }) : [];
     return {
       schemaVersion: XPY_STAGE_ONE_PRESENTATION_VERSION,
-      exactIdentity: { id: card.identity.productId, brand: card.identity.brand, model: card.identity.model, configuration: publicConfiguration(card.identity.configurationIdentity) },
+      exactIdentity: { id: card.identity.productId, brand: card.identity.brand, model: card.identity.model, configuration: publicConfiguration(card.identity.configurationIdentity, card.identity.brand, card.identity.model) },
       media: governedMedia?.src ? {
         status: governedMedia.status === "EXACT" || governedMedia.status === "AFFILIATE" ? "EXACT" : "REPRESENTATIVE",
         src: governedMedia.src, alt: governedMedia.alt,
@@ -113,5 +110,5 @@ export const APPLIANCES_STAGE_ONE_PRESENTATION = defineXpyStageOnePresentationAd
 
 export function projectAppliancesSet(selection: NonNullable<Extract<AppliancesRuntimeOutcome, { kind: "ASK" | "CLARIFY" }>["selectionState"]>): XpyStageOneSetPresentation {
   const disclosures = [...new Set(selection.disclosures.map(item => publicText(item.message)))];
-  return { schemaVersion: XPY_STAGE_ONE_PRESENTATION_VERSION, kind: selection.kind === "TRADE_OFF_SET_EXPLANATION" ? "NON_DOMINATED_SET" : "TIED_TOP_SET", departmentLabel: "Ev ürünleri", categoryLabel: "Aşama 1 kararı", title: selection.kind === "TRADE_OFF_SET_EXPLANATION" ? "Seçenekler farklı güçlü yönler taşıyor" : "Tek bir ürün doğrulanmış olarak öne çıkmıyor", explanation: `${selection.identities.length} doğrulanmış ürün kaldı; hiçbiri fiyat, katalog sırası veya gizli puanlamayla kazanan ilan edilmedi.`, candidates: selection.identities.map(product => ({ id: product.productId, name: `${product.brand} ${product.model}`, configuration: product.configurationIdentity ? publicConfiguration(product.configurationIdentity) : undefined })), unresolved: disclosures.length ? disclosures : ["Sizin için vazgeçilmez olan kullanım farkını belirtin; seçenekleri yeniden değerlendirelim."] };
+  return { schemaVersion: XPY_STAGE_ONE_PRESENTATION_VERSION, kind: selection.kind === "TRADE_OFF_SET_EXPLANATION" ? "NON_DOMINATED_SET" : "TIED_TOP_SET", departmentLabel: "Ev ürünleri", categoryLabel: "Aşama 1 kararı", title: selection.kind === "TRADE_OFF_SET_EXPLANATION" ? "Seçenekler farklı güçlü yönler taşıyor" : "Tek bir ürün doğrulanmış olarak öne çıkmıyor", explanation: `${selection.identities.length} doğrulanmış ürün kaldı; hiçbiri fiyat, katalog sırası veya gizli puanlamayla kazanan ilan edilmedi.`, candidates: selection.identities.map(product => ({ id: product.productId, name: `${product.brand} ${product.model}`, configuration: product.configurationIdentity ? publicConfiguration(product.configurationIdentity, product.brand, product.model) : undefined })), unresolved: disclosures.length ? disclosures : ["Sizin için vazgeçilmez olan kullanım farkını belirtin; seçenekleri yeniden değerlendirelim."] };
 }

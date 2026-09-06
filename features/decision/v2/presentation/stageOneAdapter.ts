@@ -8,7 +8,7 @@ export const CARS_STAGE_ONE_PRESENTATION = defineXpyStageOnePresentationAdapter<
       schemaVersion: XPY_STAGE_ONE_PRESENTATION_VERSION,
       exactIdentity: { id: card.exactVariantId, brand: card.brand, model: card.model, configuration: [card.trim, card.modelYear, card.fuelLabel, card.transmissionLabel, card.bodyTypeLabel].filter(Boolean).join(" · ") },
       media: { status: card.imageStatus === "EXACT" ? "EXACT" : card.imageStatus === "PLACEHOLDER" ? "UNAVAILABLE" : "REPRESENTATIVE", src: card.image, alt: `${card.brand} ${card.model} ${card.trim} araç görseli`, authorityLabel: card.imageStatus === "EXACT" ? card.imageAttribution : `Temsilî görsel${card.representedModel ? `: ${card.representedModel}` : ""}${card.imageAttribution ? ` · ${card.imageAttribution}` : ""}` },
-      badge: "Doğrulanmış karar sonucu · Aşama 1", reasons: [card.decisionSummary.recommendation, ...card.decisionSummary.reasons], matchedNeeds: card.decisionSummary.reasons,
+      badge: "Doğrulanmış karar sonucu · Aşama 1", reasons: card.decisionSummary.reasons.length ? card.decisionSummary.reasons : [card.decisionSummary.recommendation], matchedNeeds: card.decisionSummary.reasons,
       supportingContext: [], technicalFacts: [], capabilities: [], limitations: card.caveats,
       offers: card.verifiedPublicPrice?.validFrom ? [{ merchant: "Resmî fiyat kaynağı", amount: card.verifiedPublicPrice.amountTry, currency: "TRY", observedAt: card.verifiedPublicPrice.validFrom, availability: card.verifiedPublicPrice.priceType === "CAMPAIGN" ? "Kampanya fiyatı" : "Liste fiyatı" }] : [],
       commerceNotice: "Bu exact araç için güncel satış teklifi gösterilemiyor; katalog kaydı stok veya satış fiyatı garantisi değildir.",

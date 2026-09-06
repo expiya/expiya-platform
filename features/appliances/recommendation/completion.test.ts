@@ -44,7 +44,9 @@ describe("Appliances recommendation, final authorization and card", () => {
     expect(authorization).toBeDefined(); expect(authorizeRecommendation(bundle, s, artifact)).toEqual(authorization);
     const card = projectAuthorizedAppliancesCard(bundle, s, artifact, authorization);
     const html = renderToStaticMarkup(createElement(AppliancesCard, { card }));
-    expect(html).toContain("CMX 8100"); expect(html).toContain("Fiyatı bilinmeyen"); expect(html).toContain("garanti");
+    expect(html).toContain("CMX 8100"); expect(html).not.toContain("Fiyatı bilinmeyen"); expect(html).not.toContain("garanti");
+    expect(card.disclosures.some(item => item.message.includes("Fiyatı bilinmeyen"))).toBe(true);
+    expect(card.warranty.some(item => item.statement.includes("garanti"))).toBe(true);
     expect(html).not.toMatch(/checkout|affiliate|satın al/iu);
   });
   it("rejects artifact tampering even with a recalculated hash", () => {
