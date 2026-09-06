@@ -18,6 +18,9 @@ export const metadata: Metadata = {
   title: "Expiya — Satın Alma Karar Platformu",
   description:
     "Expiya, otomobil ve ev ürünleri kararlarını ihtiyaçlarınıza göre birlikte netleştirmenize yardımcı olur.",
+  other: {
+    "mitgo-verification": "c85c3626-d14a-4c81-b18c-73b6d03cfb70",
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
