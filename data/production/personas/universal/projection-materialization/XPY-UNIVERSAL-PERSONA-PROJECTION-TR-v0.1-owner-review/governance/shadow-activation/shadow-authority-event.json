@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "xpy-universal-persona-inactive-shadow-authority/v1",
+  "eventId": "UNIVERSAL-PERSONA-INACTIVE-SHADOW-MATERIALIZATION-20260906",
+  "releaseId": "XPY-UNIVERSAL-PERSONA-PROJECTION-TR-v0.1-owner-review",
+  "packageDigest": "sha256:62d2d5f23cb92b337052fdb0e3eb16c8b96126e3bc156fa16ebaac11be03f4aa",
+  "ownerApprovalEventId": "UNIVERSAL-PERSONA-PROJECTION-OWNER-APPROVAL-20260906",
+  "state": "MATERIALIZED_INACTIVE_SHADOW_ONLY",
+  "sharedBoundedSoftRankingCommit": "1733879262dbd99bfcd137e60057cde308d0f05a",
+  "records": {
+    "total": 169,
+    "governed": 4,
+    "unknownNeutral": 165,
+    "conflicted": 0
+  },
+  "categoryBindings": {
+    "total": 49,
+    "usableInShadow": 4,
+    "failClosedLocally": 45
+  },
+  "runtimeConsumption": "UNCHANGED_DISABLED",
+  "rankingMutation": false,
+  "membershipMutation": false,
+  "technicalEligibilityMutation": false,
+  "sufficiencyMutation": false,
+  "standaloneSelectionAuthority": false,
+  "carsV39Mutation": false,
+  "activePointerMutation": false,
+  "deploymentPerformed": false,
+  "runtimeRegistration": {
+    "file": "features/xpy/domainPacks.ts",
+    "sha256": "sha256:f0191012880679ca74a53fe2c98ca9d1f543dea042310a5c6e9613403711d1b7",
+    "changed": false
+  }
+}

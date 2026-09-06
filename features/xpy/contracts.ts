@@ -104,6 +104,7 @@ export interface XpyDomainPackRegistration {
   readonly categories: readonly string[];
   readonly capabilities: XpyDomainPackCapabilities;
   readonly authority: readonly XpyAuthorityReference[];
+  readonly boundedSoftRanking: import("./boundedSoftRanking").XpySoftRankingAvailability;
   readonly xReentry: Readonly<Record<string, XpyDomainReentryConfig>>;
 }
 

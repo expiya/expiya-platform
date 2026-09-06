@@ -1,0 +1,10 @@
+{
+  "mode": "ATOMIC_POST_APPROVAL_ONLY",
+  "steps": [
+    "Verify approval event matches package digest.",
+    "Re-run schema, identity, coverage, lineage de-duplication and trace gates.",
+    "Bind the approved evidence-class authority to Domain Packs in one commit without changing hard/Pareto membership.",
+    "Run full tests and production build, then require a separate deployment authorization."
+  ],
+  "rollback": "Remove the Domain Pack binding and restore FAILED_CLOSED; data artifacts remain auditable."
+}

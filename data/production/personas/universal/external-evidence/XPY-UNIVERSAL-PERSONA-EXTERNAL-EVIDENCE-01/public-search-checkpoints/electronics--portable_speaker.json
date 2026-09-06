@@ -1,0 +1,360 @@
+{
+  "schemaVersion": "xpy-persona-public-search-checkpoint/v1",
+  "departmentId": "ELECTRONICS",
+  "categoryId": "PORTABLE_SPEAKER",
+  "rows": [
+    {
+      "exactProductId": "electronics:portable-speaker:jbl:jblflip7blk",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PORTABLE_SPEAKER",
+      "brand": "JBL",
+      "model": "JBLFLIP7BLK",
+      "configurationIdentity": "JBL|Flip 7|JBLFLIP7BLK|Portable|Bluetooth|Black|TR",
+      "queries": [
+        {
+          "queryKind": "PRIMARY_IDENTITY",
+          "query": "\"JBL\" \"JBLFLIP7BLK\" JBL|Flip 7|JBLFLIP7BLK|Portable|Bluetooth|Black|TR official Türkiye manual",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22JBL%22%20%22JBLFLIP7BLK%22%20JBL%7CFlip%207%7CJBLFLIP7BLK%7CPortable%7CBluetooth%7CBlack%7CTR%20official%20T%C3%BCrkiye%20manual",
+          "searchStatus": 200,
+          "searchBytes": 119373,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.jbl.com/",
+              "title": "Official JBL Store - Speakers, Headphones, and More!",
+              "snippet": "Premium speakers from JBL such as wireless bluetooth speakers, Android &amp; iOS headphones, soundbars, subwoofers, home …",
+              "host": "jbl.com"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/brand/jbl",
+              "title": "Jbl Marka &#220;r&#252;nler En Uygun Fiyatlarla! | MediaMarkt",
+              "snippet": "Jbl marka &#252;r&#252;nler en uygun fiyatlarla MediaMarkt'ta! Jbl marka &#252;r&#252;n fiyatları ve &#246;zelliklerini incelemek i&#231;in hemen tıkla, sen de …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://www.hepsiburada.com/jbl",
+              "title": "JBL T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Discover premium JBL speakers for crystal-clear sound. Shop our range of portable, wireless, and home audio options perfect for …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://www.trendyol.com/jbl-x-b102285",
+              "title": "JBL T&#252;rkiye Garantili &#220;r&#252;nler | JBL Ses 2026 - Trendyol",
+              "snippet": "Sesin g&#252;c&#252;n&#252; hissettiren teknoloji ve kalitenin markası olan JBL, şık tasarımları ve &#231;eşitli JBL modelleri indirimli fiyatlar ve …",
+              "host": "trendyol.com"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/category/jbl-hoparlorler-796008.html",
+              "title": "JBL Taşınabilir Hoparl&#246;rler Modelleri | MediaMarkt",
+              "snippet": "JBL taşınabilir bluetooth hoparl&#246;r her alanda konforlu bir kullanım imkanı verir.Bluetooth, Wi-Fi bağlantılarını desteklediği i&#231;in …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/JBL",
+              "title": "JBL - Wikipedia",
+              "snippet": "gistered trademark of the Wikimedia Foundation, Inc., a non-profit organization.",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.teknosa.com/jbl-b-2299",
+              "title": "JBL Fiyatları ve Modelleri - Teknosa",
+              "snippet": "JBL &#246;zelliklerini keşfetmek, alternatif &#252;r&#252;nleri incelemek ve Teknosa ayrıcalıkları ile satın almak i&#231;in hemen tıklayın.",
+              "host": "teknosa.com"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/jbl/hoparlor/",
+              "title": "JBL Hoparl&#246;r Modelleri ve Fiyatları - Vatan Bilgisayar",
+              "snippet": "JBL Hoparl&#246;r modelleri ve fiyatları &#231;eşitli taksit imkanları ile uygun fiyatlarla Vatan Bilgisayar'da. Hemen satın al.",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://www.cimri.com/marka/jbl",
+              "title": "JBL Fiyatları | Cimri",
+              "snippet": "JBL markalı &#252;r&#252;nler Cimri'de! JBL &#252;r&#252;nlerini inceleyerek en iyi fiyatları yakalamak i&#231;in indirim ve kampanyaları ka&#231;ırma!",
+              "host": "cimri.com"
+            }
+          ],
+          "inspected": [
+            {
+              "url": "https://www.jbl.com/",
+              "title": "Official JBL Store - Speakers, Headphones, and More!",
+              "snippet": "Premium speakers from JBL such as wireless bluetooth speakers, Android &amp; iOS headphones, soundbars, subwoofers, home …",
+              "host": "jbl.com",
+              "fetchStatus": 403,
+              "reachable": false,
+              "bytes": 770,
+              "modelTokenFound": false,
+              "accessDisposition": "ACCESS_DENIED"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/brand/jbl",
+              "title": "Jbl Marka &#220;r&#252;nler En Uygun Fiyatlarla! | MediaMarkt",
+              "snippet": "Jbl marka &#252;r&#252;nler en uygun fiyatlarla MediaMarkt'ta! Jbl marka &#252;r&#252;n fiyatları ve &#246;zelliklerini incelemek i&#231;in hemen tıkla, sen de …",
+              "host": "mediamarkt.com.tr",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 721350,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            }
+          ]
+        },
+        {
+          "queryKind": "INDEPENDENT_REVIEW",
+          "query": "\"JBL\" \"JBLFLIP7BLK\" independent review design usability materials",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22JBL%22%20%22JBLFLIP7BLK%22%20independent%20review%20design%20usability%20materials",
+          "searchStatus": 200,
+          "searchBytes": 120241,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.jbl.com/",
+              "title": "Official JBL Store - Speakers, Headphones, and More!",
+              "snippet": "Premium speakers from JBL such as wireless bluetooth speakers, Android &amp; iOS headphones, soundbars, subwoofers, home …",
+              "host": "jbl.com"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/brand/jbl",
+              "title": "Jbl Marka &#220;r&#252;nler En Uygun Fiyatlarla! | MediaMarkt",
+              "snippet": "Jbl marka &#252;r&#252;nler en uygun fiyatlarla MediaMarkt'ta! Jbl marka &#252;r&#252;n fiyatları ve &#246;zelliklerini incelemek i&#231;in hemen tıkla, sen de …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://www.hepsiburada.com/jbl",
+              "title": "JBL T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Discover premium JBL speakers for crystal-clear sound. Shop our range of portable, wireless, and home audio options perfect for …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://www.trendyol.com/jbl-x-b102285",
+              "title": "JBL T&#252;rkiye Garantili &#220;r&#252;nler | JBL Ses 2026 - Trendyol",
+              "snippet": "Sesin g&#252;c&#252;n&#252; hissettiren teknoloji ve kalitenin markası olan JBL, şık tasarımları ve &#231;eşitli JBL modelleri indirimli fiyatlar ve …",
+              "host": "trendyol.com"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/category/jbl-hoparlorler-796008.html",
+              "title": "JBL Taşınabilir Hoparl&#246;rler Modelleri | MediaMarkt",
+              "snippet": "JBL taşınabilir bluetooth hoparl&#246;r her alanda konforlu bir kullanım imkanı verir.Bluetooth, Wi-Fi bağlantılarını desteklediği i&#231;in …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/JBL",
+              "title": "JBL - Wikipedia",
+              "snippet": "gistered trademark of the Wikimedia Foundation, Inc., a non-profit organization.",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.teknosa.com/jbl-b-2299",
+              "title": "JBL Fiyatları ve Modelleri - Teknosa",
+              "snippet": "JBL &#246;zelliklerini keşfetmek, alternatif &#252;r&#252;nleri incelemek ve Teknosa ayrıcalıkları ile satın almak i&#231;in hemen tıklayın.",
+              "host": "teknosa.com"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/jbl/hoparlor/",
+              "title": "JBL Hoparl&#246;r Modelleri ve Fiyatları - Vatan Bilgisayar",
+              "snippet": "JBL Hoparl&#246;r modelleri ve fiyatları &#231;eşitli taksit imkanları ile uygun fiyatlarla Vatan Bilgisayar'da. Hemen satın al.",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://www.cimri.com/marka/jbl",
+              "title": "JBL Fiyatları | Cimri",
+              "snippet": "JBL markalı &#252;r&#252;nler Cimri'de! JBL &#252;r&#252;nlerini inceleyerek en iyi fiyatları yakalamak i&#231;in indirim ve kampanyaları ka&#231;ırma!",
+              "host": "cimri.com"
+            }
+          ],
+          "inspected": []
+        }
+      ],
+      "queryCount": 2,
+      "pagesInspected": 4,
+      "compatiblePublicPages": 0,
+      "terminalStatus": "EXTERNAL_EVIDENCE_NOT_FOUND_AFTER_SEARCH",
+      "personaStatus": "PERSONA_EVIDENCE_UNKNOWN",
+      "traitContributions": [],
+      "completedAt": "2026-09-06T00:00:00.000Z"
+    },
+    {
+      "exactProductId": "electronics:portable-speaker:sony:srsult10b-ce7",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PORTABLE_SPEAKER",
+      "brand": "Sony",
+      "model": "SRSULT10B.CE7",
+      "configurationIdentity": "Sony|ULT FIELD 1|SRSULT10B.CE7|Portable|Bluetooth|Black|TR",
+      "queries": [
+        {
+          "queryKind": "PRIMARY_IDENTITY",
+          "query": "\"Sony\" \"SRSULT10B.CE7\" Sony|ULT FIELD 1|SRSULT10B.CE7|Portable|Bluetooth|Black|TR official Türkiye manual",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Sony%22%20%22SRSULT10B.CE7%22%20Sony%7CULT%20FIELD%201%7CSRSULT10B.CE7%7CPortable%7CBluetooth%7CBlack%7CTR%20official%20T%C3%BCrkiye%20manual",
+          "searchStatus": 200,
+          "searchBytes": 121303,
+          "resultCount": 10,
+          "results": [
+            {
+              "url": "https://www.playstation.com/tr-tr/",
+              "title": "PlayStation&#174; Resmi Sitesi: Konsollar, Oyunlar, Aksesuarlar ve Dahası",
+              "snippet": "&#169; 2026 Sony Interactive Entertainment Europe Limited (SIEE) T&#252;m i&#231;erik, oyun başlıkları, ticari isimler ve/veya ticari takdim şekli, …",
+              "host": "playstation.com"
+            },
+            {
+              "url": "https://www.playstation.com/en-us/",
+              "title": "PlayStation&#174; Official Site: Consoles, Games, Accessories &amp; More",
+              "snippet": "Starting later today, Live TV on PS5 will be available to PS5 players in the U.S., offering a free ad-supported experience from Sony …",
+              "host": "playstation.com"
+            },
+            {
+              "url": "https://www.sony.com.tr/",
+              "title": "Sony T&#252;rkiye | En Yeni Teknoloji Haberleri | Elektronik | Eğlence",
+              "snippet": "Sony’nin y&#252;ksek kaliteli zengin &#252;r&#252;n yelpazesini ve bunun ardındaki teknolojiyi keşfedin, mağazamıza ve Eğlence Ağımıza anında …",
+              "host": "sony.com.tr"
+            },
+            {
+              "url": "https://electronics.sony.com/",
+              "title": "Sony Electronics - Televisions, Audio, Cameras, Mobile, Video Cameras",
+              "snippet": "Sign up for a FREE My Sony account and earn 5% back in My Sony Points towards a future purchase along with scoring other …",
+              "host": "electronics.sony.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Sony",
+              "title": "Sony - Wikipedia",
+              "snippet": "Sony - Wikipedia",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.sony.com/",
+              "title": "Home - Sony Group Portal",
+              "snippet": "Learn about Sony Group Corporation's Businesses and Products; our initiatives in Technology, Sustainability, and Design; and …",
+              "host": "sony.com"
+            },
+            {
+              "url": "https://www.sony.com.tr/all-products",
+              "title": "T&#252;m &#220;r&#252;nler | Sony T&#252;rkiye",
+              "snippet": "Sony'nin sunduğu en yeni t&#252;ketici elektronik &#252;r&#252;nleri hakkında bilgi alın, &#252;r&#252;nlerimizin &#246;zelliklerini keşfedin ve size uygun &#252;r&#252;nleri bulun.",
+              "host": "sony.com.tr"
+            },
+            {
+              "url": "https://www.sony.net/?l=en_US",
+              "title": "Sony Corporation - Home",
+              "snippet": "May 15, 2017 &nbsp;&#0183;&#32;This is Sony Corporation's official website, featuring Sony Group's Entertainment, Technology &amp; Services (ET&amp;S) …",
+              "host": "sony.net"
+            },
+            {
+              "url": "https://electronics.sony.com/imaging/interchangeable-lens-cameras/c/all-interchangeable-lens-cameras",
+              "title": "Sony Cameras | Digital Cameras &amp; Lenses | Sony Electronics",
+              "snippet": "Options depend on your purchase amount, and a down payment may be required. See affirm.com/licenses for important info on state …",
+              "host": "electronics.sony.com"
+            },
+            {
+              "url": "https://ru.wikipedia.org/wiki/Sony",
+              "title": "Sony — Википедия",
+              "snippet": "В 1960 году Sony представила свой первый транзисторный телевизор. Также в 1960 году Акио Морито основал Sony …",
+              "host": "ru.wikipedia.org"
+            }
+          ],
+          "inspected": [
+            {
+              "url": "https://www.playstation.com/tr-tr/",
+              "title": "PlayStation&#174; Resmi Sitesi: Konsollar, Oyunlar, Aksesuarlar ve Dahası",
+              "snippet": "&#169; 2026 Sony Interactive Entertainment Europe Limited (SIEE) T&#252;m i&#231;erik, oyun başlıkları, ticari isimler ve/veya ticari takdim şekli, …",
+              "host": "playstation.com",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 357970,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            },
+            {
+              "url": "https://www.playstation.com/en-us/",
+              "title": "PlayStation&#174; Official Site: Consoles, Games, Accessories &amp; More",
+              "snippet": "Starting later today, Live TV on PS5 will be available to PS5 players in the U.S., offering a free ad-supported experience from Sony …",
+              "host": "playstation.com",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 381507,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            }
+          ]
+        },
+        {
+          "queryKind": "INDEPENDENT_REVIEW",
+          "query": "\"Sony\" \"SRSULT10B.CE7\" independent review design usability materials",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Sony%22%20%22SRSULT10B.CE7%22%20independent%20review%20design%20usability%20materials",
+          "searchStatus": 200,
+          "searchBytes": 119302,
+          "resultCount": 10,
+          "results": [
+            {
+              "url": "https://www.playstation.com/tr-tr/",
+              "title": "PlayStation&#174; Resmi Sitesi: Konsollar, Oyunlar, Aksesuarlar ve Dahası",
+              "snippet": "&#169; 2026 Sony Interactive Entertainment Europe Limited (SIEE) T&#252;m i&#231;erik, oyun başlıkları, ticari isimler ve/veya ticari takdim şekli, …",
+              "host": "playstation.com"
+            },
+            {
+              "url": "https://www.playstation.com/en-us/",
+              "title": "PlayStation&#174; Official Site: Consoles, Games, Accessories &amp; More",
+              "snippet": "Starting later today, Live TV on PS5 will be available to PS5 players in the U.S., offering a free ad-supported experience from Sony …",
+              "host": "playstation.com"
+            },
+            {
+              "url": "https://www.sony.com.tr/",
+              "title": "Sony T&#252;rkiye | En Yeni Teknoloji Haberleri | Elektronik | Eğlence",
+              "snippet": "Sony’nin y&#252;ksek kaliteli zengin &#252;r&#252;n yelpazesini ve bunun ardındaki teknolojiyi keşfedin, mağazamıza ve Eğlence Ağımıza anında …",
+              "host": "sony.com.tr"
+            },
+            {
+              "url": "https://electronics.sony.com/",
+              "title": "Sony Electronics - Televisions, Audio, Cameras, Mobile, Video Cameras",
+              "snippet": "Sign up for a FREE My Sony account and earn 5% back in My Sony Points towards a future purchase along with scoring other …",
+              "host": "electronics.sony.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Sony",
+              "title": "Sony - Wikipedia",
+              "snippet": "Sony - Wikipedia",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.sony.com/",
+              "title": "Home - Sony Group Portal",
+              "snippet": "Learn about Sony Group Corporation's Businesses and Products; our initiatives in Technology, Sustainability, and Design; and …",
+              "host": "sony.com"
+            },
+            {
+              "url": "https://www.sony.com.tr/all-products",
+              "title": "T&#252;m &#220;r&#252;nler | Sony T&#252;rkiye",
+              "snippet": "Sony'nin sunduğu en yeni t&#252;ketici elektronik &#252;r&#252;nleri hakkında bilgi alın, &#252;r&#252;nlerimizin &#246;zelliklerini keşfedin ve size uygun &#252;r&#252;nleri bulun.",
+              "host": "sony.com.tr"
+            },
+            {
+              "url": "https://www.sony.net/?l=en_US",
+              "title": "Sony Corporation - Home",
+              "snippet": "May 15, 2017 &nbsp;&#0183;&#32;This is Sony Corporation's official website, featuring Sony Group's Entertainment, Technology &amp; Services (ET&amp;S) …",
+              "host": "sony.net"
+            },
+            {
+              "url": "https://electronics.sony.com/imaging/interchangeable-lens-cameras/c/all-interchangeable-lens-cameras",
+              "title": "Sony Cameras | Digital Cameras &amp; Lenses | Sony Electronics",
+              "snippet": "Options depend on your purchase amount, and a down payment may be required. See affirm.com/licenses for important info on state …",
+              "host": "electronics.sony.com"
+            },
+            {
+              "url": "https://ru.wikipedia.org/wiki/Sony",
+              "title": "Sony — Википедия",
+              "snippet": "В 1960 году Sony представила свой первый транзисторный телевизор. Также в 1960 году Акио Морито основал Sony …",
+              "host": "ru.wikipedia.org"
+            }
+          ],
+          "inspected": []
+        }
+      ],
+      "queryCount": 2,
+      "pagesInspected": 4,
+      "compatiblePublicPages": 0,
+      "terminalStatus": "EXTERNAL_EVIDENCE_NOT_FOUND_AFTER_SEARCH",
+      "personaStatus": "PERSONA_EVIDENCE_UNKNOWN",
+      "traitContributions": [],
+      "completedAt": "2026-09-06T00:00:00.000Z"
+    }
+  ],
+  "digest": "sha256:5b08715611654a53734887f129baba4353fda0b6b8760f547d0563b4619281d5"
+}

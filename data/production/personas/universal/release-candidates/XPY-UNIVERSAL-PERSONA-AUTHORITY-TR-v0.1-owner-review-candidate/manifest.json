@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "xpy-universal-persona-manifest/v1",
+  "releaseId": "XPY-UNIVERSAL-PERSONA-AUTHORITY-TR-v0.1-owner-review-candidate",
+  "generatedAt": "2026-09-06T00:00:00.000Z",
+  "lifecycle": "OWNER_REVIEW_CANDIDATE_NOT_ACTIVE",
+  "decisionAuthority": "NONE_UNTIL_OWNER_APPROVAL",
+  "artifacts": {
+    "persona-authority.json": "sha256:e9878272ea714c509334c0d56bdfd7b08c7af03471d1a18cfb80431ea4dfe961",
+    "inventory.json": "sha256:2a50959a0d6b12d271703f90e760a804ff369a173b3c5b7471f15baa06d6993a",
+    "coverage-report.json": "sha256:50d5b4c0018e6554925ca7d413d3c5dbd92fa57791b780047cffbcec012c755e",
+    "source-quality-report.json": "sha256:a17ec00950c1441d2a1b9b68bb23b51a6d42aee4116464ec24b0587e3503f59f",
+    "trace-previews.json": "sha256:ac8a49b8bc03da74c867f7ad00ef8d7412da4beaa28f6c566a12050d103226b2",
+    "completion-report.md": "sha256:185639161913879a332bf9cf89238a19a7508c52ed55555b8014a9bb20e0e46c"
+  },
+  "inventoryArtifacts": [
+    {
+      "file": "data/production/appliances/air-fryers/releases/APPLIANCES-AIR-FRYER-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:9bf4520152c9386361ded1aa8f26c34ca74c4f478edc80c2cf44b764891a5ec0"
+    },
+    {
+      "file": "data/production/appliances/air-purifiers/releases/APPLIANCES-AIR-PURIFIER-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:d21ab492fe10bced158437ea230d14984337b8194cdcdc7de1e53876a1141266"
+    },
+    {
+      "file": "data/production/appliances/blenders/releases/APPLIANCES-BLENDER-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:3cef3ca88b75f093d4bc0876a70279ff996bd8079c795a69cb56549c3c5c739a"
+    },
+    {
+      "file": "data/production/appliances/built-in-microwave-ovens/releases/APPLIANCES-BUILT-IN-MICROWAVE-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:3b2cde0c3b7c9d2a26e7905da497d41093b390106663eb2e7a9f5d259a9d3125"
+    },
+    {
+      "file": "data/production/appliances/built-in-ovens/releases/APPLIANCES-BUILT-IN-OVEN-TR-v0.2/domain-pack.json",
+      "sha256": "sha256:470870f8cf31173c425b549c9f3147379d2edc1c47c6a4b2e45faf64bc7da590"
+    },
+    {
+      "file": "data/production/appliances/countertop-microwave-ovens/releases/APPLIANCES-COUNTERTOP-MICROWAVE-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:a53ce62183f4a484caaee660fcbfe22e857b43ad9be7b3c62895d1f6ff7e33bc"
+    },
+    {
+      "file": "data/production/appliances/dishwashers/releases/APPLIANCES-DISHWASHER-TR-v0.2/domain-pack.json",
+      "sha256": "sha256:5bf0aa3dab0bb16c6db1bc7944370a20f2911caeccc0d48f60aa80cb2a399506"
+    },
+    {
+      "file": "data/production/appliances/dryers/releases/APPLIANCES-DRYER-TR-v0.2/domain-pack.json",
+      "sha256": "sha256:9e6524963f6d000d637382d377d8deeaac72cad7efeab9c746929540f2a5a5c8"
+    },
+    {
+      "file": "data/production/appliances/electric-storage-water-heaters/releases/APPLIANCES-ELECTRIC-STORAGE-WATER-HEATER-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:26cfd53a0e2841a0cb452dd8d975fe713599f03bb9b2afcd3831abf3d9f6cd55"
+    },
+    {
+      "file": "data/production/appliances/filter-coffee-machines/releases/APPLIANCES-FILTER-COFFEE-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:0a5f212425df2d3a4a1212936c02eafd5397f8fec50b6f19dd6cfbafa6feb273"
+    },
+    {
+      "file": "data/production/appliances/food-processors/releases/APPLIANCES-FOOD-PROCESSOR-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:a7a8c9fc5a10bc24c558fc4fea385d8e378939173d78a9a72d35c1d36f693013"
+    },
+    {
+      "file": "data/production/appliances/freestanding-cookers/releases/APPLIANCES-FREESTANDING-COOKER-TR-v0.2/domain-pack.json",
+      "sha256": "sha256:0d1da44f4abc5035018ac94e6594c45533764e01070aaf4cee3370e23558e457"
+    },
+    {
+      "file": "data/production/appliances/freezers/releases/APPLIANCES-FREEZER-TR-v0.2/domain-pack.json",
+      "sha256": "sha256:5f1751280849fcf49c42f081a1c6d2d1cef052a085c27ea9835a247eefe2dc31"
+    },
+    {
+      "file": "data/production/appliances/fully-automatic-espresso-machines/releases/APPLIANCES-FULLY-AUTOMATIC-ESPRESSO-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:b8a069f0271f71a28d5593669e1c07bd565801e2ed78d97058198b814478b41a"
+    },
+    {
+      "file": "data/production/appliances/hobs/releases/APPLIANCES-HOB-TR-v0.2/domain-pack.json",
+      "sha256": "sha256:ca6fe60b378642bb8179c91d2d135d9842c7d345e355a7a587c7186203866646"
+    },
+    {
+      "file": "data/production/appliances/instantaneous-electric-water-heaters/releases/APPLIANCES-INSTANTANEOUS-ELECTRIC-WATER-HEATER-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:8b5f5083203ec1e34657c86b6ebb07fb789b32b3e5c26940565bdc19341fdb3a"
+    },
+    {
+      "file": "data/production/appliances/manual-espresso-machines/releases/APPLIANCES-MANUAL-ESPRESSO-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:ea0e366f87a7e3e38cbaa9d456495c6dcc5a87d69e5c3c614e653a28c753d3d0"
+    },
+    {
+      "file": "data/production/appliances/range-hoods/releases/APPLIANCES-RANGE-HOOD-TR-v0.2/domain-pack.json",
+      "sha256": "sha256:7f21c385de1446349ce9ddfa4ce6cf2b0d0d3adb4f0504696792f10e27c586fe"
+    },
+    {
+      "file": "data/production/appliances/refrigerators/releases/APPLIANCES-REFRIGERATOR-TR-v0.2/domain-pack.json",
+      "sha256": "sha256:5b15f32f26e207fa83208a97208f189367aa98e404d4f1f709a520a06b875e0b"
+    },
+    {
+      "file": "data/production/appliances/robot-vacuums/releases/APPLIANCES-ROBOT-VACUUM-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:86b3932c87873ffcb67bd53b91c162dd167fc3bb22bcec6a2cb9b759ffd79533"
+    },
+    {
+      "file": "data/production/appliances/split-air-conditioners/releases/APPLIANCES-SPLIT-AIR-CONDITIONER-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:e31449770c198f0018a6b8204ed2274b0b523ebb3ce785545961bd437bd2bce3"
+    },
+    {
+      "file": "data/production/appliances/turkish-coffee-machines/releases/APPLIANCES-TURKISH-COFFEE-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:e2e3d2872c9ef1257ecdf341c31ea004a1598dca7f4afb17e9b566a87af20384"
+    },
+    {
+      "file": "data/production/appliances/vacuums/releases/APPLIANCES-VACUUM-TR-v0.1/domain-pack.json",
+      "sha256": "sha256:849467eb66b81d4042076da4e1023836b56974a1d6e2fbfd9fd67d34555ad343"
+    },
+    {
+      "file": "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.2/catalog.json",
+      "sha256": "sha256:ce62509117adb1858ec009ed2b607d33a6038207c0865e7364952a2e700977ac"
+    },
+    {
+      "file": "data/production/electronics/runtime/releases/ELECTRONICS-RUNTIME-CATALOG-TR-v1.0/catalog.json",
+      "sha256": "sha256:a52ab57cb92323764e4b8d7343fc38b6cd92462feb0e0b1a3f7c6a06b432a121"
+    },
+    {
+      "file": "features/baby/catalog.ts",
+      "sha256": "sha256:c5aaa431c85a6c434babe6dc9741298657fcc057842b68ff6c5b961823793c82"
+    }
+  ]
+}

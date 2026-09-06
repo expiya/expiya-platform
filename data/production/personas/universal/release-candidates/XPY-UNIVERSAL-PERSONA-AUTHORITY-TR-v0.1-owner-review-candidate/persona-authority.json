@@ -1,0 +1,4339 @@
+{
+  "schemaVersion": "xpy-universal-persona-authority/v1",
+  "releaseId": "XPY-UNIVERSAL-PERSONA-AUTHORITY-TR-v0.1-owner-review-candidate",
+  "generatedAt": "2026-09-06T00:00:00.000Z",
+  "inventoryDigest": "sha256:2a50959a0d6b12d271703f90e760a804ff369a173b3c5b7471f15baa06d6993a",
+  "vocabulary": [
+    {
+      "trait": "ADVENTURE",
+      "meaning": "Outdoor, exploratory or rugged-use character",
+      "turkishExpressions": [
+        "maceracı",
+        "outdoor ruhlu"
+      ],
+      "aliases": []
+    },
+    {
+      "trait": "CHARISMATIC",
+      "meaning": "Strong and memorable non-technical character",
+      "turkishExpressions": [
+        "karizmatik",
+        "karakterli"
+      ],
+      "aliases": []
+    },
+    {
+      "trait": "COMFORT",
+      "meaning": "Comfort-oriented character, never a comfort fact",
+      "turkishExpressions": [
+        "konfor odaklı",
+        "rahat hissettiren"
+      ],
+      "aliases": []
+    },
+    {
+      "trait": "COMPACT_FEELING",
+      "meaning": "Perceived spatial lightness or unobtrusiveness, not dimensions",
+      "turkishExpressions": [
+        "kompakt hissettiren",
+        "az yer kaplıyor hissi veren"
+      ],
+      "aliases": []
+    },
+    {
+      "trait": "DESIGN_LED",
+      "meaning": "Design is a central positioning theme",
+      "turkishExpressions": [
+        "tasarım odaklı",
+        "tasarımı ön planda"
+      ],
+      "aliases": [
+        "DESIGN"
+      ]
+    },
+    {
+      "trait": "DRIVING_ENGAGEMENT",
+      "meaning": "Cars-only engagement character retained from V3.9",
+      "turkishExpressions": [
+        "sürüşü keyifli",
+        "sürücü odaklı"
+      ],
+      "aliases": []
+    },
+    {
+      "trait": "FAMILY_ORIENTED",
+      "meaning": "Family-life positioning, not capacity or safety proof",
+      "turkishExpressions": [
+        "aile odaklı",
+        "aileye hitap eden"
+      ],
+      "aliases": [
+        "FAMILY"
+      ]
+    },
+    {
+      "trait": "PLAYFUL",
+      "meaning": "Playful, colourful or expressive character",
+      "turkishExpressions": [
+        "eğlenceli",
+        "oyuncu",
+        "renkli karakterli"
+      ],
+      "aliases": []
+    },
+    {
+      "trait": "PRACTICALITY",
+      "meaning": "Pragmatic/everyday-use character, not capability proof",
+      "turkishExpressions": [
+        "pragmatik",
+        "işlev odaklı",
+        "gösterişsiz iş gören"
+      ],
+      "aliases": [
+        "PRAGMATIC"
+      ]
+    },
+    {
+      "trait": "PREMIUM_POSITIONING",
+      "meaning": "Premium positioning only; never price or quality inference",
+      "turkishExpressions": [
+        "premium hisli",
+        "üst segment algılı"
+      ],
+      "aliases": [
+        "PRESTIGE"
+      ]
+    },
+    {
+      "trait": "PROFESSIONAL",
+      "meaning": "Professional/work-oriented character",
+      "turkishExpressions": [
+        "profesyonel",
+        "iş odaklı",
+        "kurumsal görünümlü"
+      ],
+      "aliases": []
+    },
+    {
+      "trait": "TECHNOLOGY",
+      "meaning": "Technology-led character, not technical superiority",
+      "turkishExpressions": [
+        "teknoloji odaklı",
+        "teknolojik hisli"
+      ],
+      "aliases": []
+    },
+    {
+      "trait": "UNDERSTATED",
+      "meaning": "Restrained, quiet visual character",
+      "turkishExpressions": [
+        "sade",
+        "abartısız",
+        "minimal"
+      ],
+      "aliases": []
+    },
+    {
+      "trait": "VISUALLY_DISTINCTIVE",
+      "meaning": "Visually differentiated character",
+      "turkishExpressions": [
+        "görsel olarak ayırt edici",
+        "özgün görünümlü",
+        "dikkat çekici"
+      ],
+      "aliases": []
+    }
+  ],
+  "methodology": {
+    "singleSourceAuthority": false,
+    "manufacturerRole": "POSITIONING_ONLY",
+    "technicalFactsCanInferPersona": false,
+    "userThemeMinimum": {
+      "minimumReviews": 20,
+      "minimumPlatforms": 2,
+      "minimumIndependentAuthors": 20,
+      "personalData": "EXCLUDED"
+    },
+    "foreignMarketRule": "EXACT_FAMILY_COMPATIBILITY_AND_EXPLICIT_LIMITATION_REQUIRED",
+    "sourceCountGaming": "FORBIDDEN"
+  },
+  "scoringPolicy": {
+    "status": "PROPOSED_OWNER_APPROVAL_REQUIRED",
+    "formula": "BASE_SCORE_PLUS_CAPPED_PERSONA",
+    "decisionUse": "BOUNDED_SOFT_RANKING_ONLY",
+    "eligibleContributions": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "candidateCap": 0.75,
+    "membershipEffect": "NONE",
+    "unknownEffect": 0,
+    "conflictedEffect": 0,
+    "inactiveEffect": 0,
+    "tiePolicy": "TIES_REMAIN_TIES",
+    "serializationOrderAuthority": false
+  },
+  "sources": [
+    {
+      "sourceId": "persona-source:adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+      "url": "https://www.arcelik.com.tr/prestige-serisi/a-710-i-bulasik-makinesi",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "appliances:dishwasher:tr:arcelik:a-710-i"
+      ]
+    },
+    {
+      "sourceId": "persona-source:adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+      "url": "https://www.arcelik.com.tr/diamond-serisi-solo-bulasik-makinesi/a-811-i-bulasik-makinesi",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "appliances:dishwasher:tr:arcelik:a-811-i"
+      ]
+    },
+    {
+      "sourceId": "persona-source:adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+      "url": "https://images.samsung.com/is/content/samsung/p5/common/energylabel/common-energylabel-dw60m5062fs-tr-productfiche.pdf",
+      "publisher": "images.samsung.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+      ]
+    },
+    {
+      "sourceId": "persona-source:adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+      "url": "https://www.arcelik.com.tr/12-kg-kurutma-makinesi/1201-kmx-kurutma-makinesi",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "appliances:dryer:tr:arcelik:1201-kmx"
+      ]
+    },
+    {
+      "sourceId": "persona-source:adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+      "url": "https://www.hoover-home.com/tr_TR/kurutma-makineleri/31102852/hre-h11a2tbe-17/",
+      "publisher": "www.hoover-home.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+      ]
+    },
+    {
+      "sourceId": "persona-source:adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+      "url": "https://www.hoover-home.com/tr_TR/kurutma-makineleri/31103113/nr-eh11n2tbex-17/",
+      "publisher": "www.hoover-home.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+      ]
+    },
+    {
+      "sourceId": "persona-source:adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+      "url": "https://www.samsung.com/tr/washers-and-dryers/dryers/dv5000d-dryer-space-max-hygiene-care-smartthings-ai-energy-mode-10kg-black-dv10dg54a0abah/",
+      "publisher": "www.samsung.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "appliances:dryer:tr:samsung:dv10dg54a0abah"
+      ]
+    },
+    {
+      "sourceId": "persona-source:adoption-source:appliances-refrigerator-tr-arcelik-270475-mb:official-tr",
+      "url": "https://www.arcelik.com.tr/no-frost-buzdolabi/270475-mb-buzdolabi",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "appliances:refrigerator:tr:arcelik:270475-mb"
+      ]
+    },
+    {
+      "sourceId": "persona-source:adoption-source:appliances-refrigerator-tr-samsung-rb58ds75esa-tr:official-tr",
+      "url": "https://www.samsung.com/tr/business/refrigerators/bottom-mount-freezer/rb3000rm-twin-cooling-580l-silver-rb58ds75esa-tr/",
+      "publisher": "www.samsung.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "appliances:refrigerator:tr:samsung:rb58ds75esa-tr"
+      ]
+    },
+    {
+      "sourceId": "persona-source:adoption-source:appliances-refrigerator-tr-samsung-rf57c510esr-tr:official-tr",
+      "url": "https://www.samsung.com/tr/business/refrigerators/french-door/rf5000a-550l-silver-rf57c510esr-tr/",
+      "publisher": "www.samsung.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "appliances:refrigerator:tr:samsung:rf57c510esr-tr"
+      ]
+    },
+    {
+      "sourceId": "persona-source:adoption-source:appliances-refrigerator-tr-teka-rmf-77920-ss-eu-113430009:official-tr",
+      "url": "https://www.teka.com/tr-tr/urun/rmf-77920_113430009/",
+      "publisher": "www.teka.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-2071-NFB-TR",
+      "url": "https://www.arcelik.com.tr/7-bolmeli-derin-dondurucu/2071-nfb-derin-dondurucu",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_2071_NFB_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-2682-NFB-TR",
+      "url": "https://www.arcelik.com.tr/cekmeceli-derin-dondurucu/2682-nfb-derin-dondurucu",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_2682_NFB_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-8315-TR",
+      "url": "https://www.arcelik.com.tr/ocakli-firin/8315-firin",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_8315_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-ADE-6041-B1-TR",
+      "url": "https://www.arcelik.com.tr/ankastre-duvar-tipi-davlumbaz/ade-6041-b1-ankastre-davlumbaz",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_ADE_6041_B1_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-AFC-120-S-TR",
+      "url": "https://www.arcelik.com.tr/ankastre-firin/afc-120-s-ankastre-firin",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_AFC_120_S_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-BUILTIN-MW-CATEGORY",
+      "url": "https://www.arcelik.com.tr/ankastre-mikrodalga",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_MA2030S_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-CM3940P-PRODUCT",
+      "url": "https://www.arcelik.com.tr/filtre-kahve-makinesi/cm-3940-p-kahve-makinesi",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_CM3940P_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-E7526-PRODUCT",
+      "url": "https://www.arcelik.com.tr/elektrikli-sofben/e-7526-asi-elektrikli-sofben",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_E7526_ASI_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-K3300-MANUAL",
+      "url": "https://download.arcelik.com.tr/download.usagemanuals/k-3300-siyah-turk-kahvesi-makinesi-pisirici-ve-isitici-kullanim-kilavuzu-tr_TR_201505111553108_User-20Manual-20-20Filetur-A.pdf",
+      "publisher": "download.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_K3300_TFF_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-K3300-PRODUCT",
+      "url": "https://www.arcelik.com.tr/turk-kahve-makinesi/k-3300-tff-kahve-makinesi",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_K3300_TFF_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-MD20K-MANUAL",
+      "url": "https://www.arcelik.com.tr/medias/tr-TR-8818371100-202012222316127-User-Manual-File-Long-tr-TR.pdf",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_MD20K_VINTAGE_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-MD20K-PRODUCT",
+      "url": "https://www.arcelik.com.tr/mikrodalga-firin/md-20-k-vintage-mikrodalga-firin",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_MD20K_VINTAGE_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-OI-602-1-YS-TR",
+      "url": "https://www.arcelik.com.tr/induksiyonlu-ocak/oi-602-1-ys-ankastre-ocak",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_OI_602_1_YS_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-P-18-YCB-TR",
+      "url": "https://www.arcelik.com.tr/ankastre-duvar-tipi-davlumbaz/p-18-ycb-ankastre-davlumbaz",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_P_18_YCB_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARCELIK-T7365-ECO-PRODUCT",
+      "url": "https://www.arcelik.com.tr/standart-termosifon/t-7365-eco-termosifon",
+      "publisher": "www.arcelik.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARCELIK_T7365_ECO_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARNICA-2020-CATALOG-EG54030",
+      "url": "https://www.arnica.com.tr/Data/EditorFiles/pdf/Arnica2020_Ocak_Katalog_v3.pdf",
+      "publisher": "www.arnica.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARNICA_EG54030_HAMMAM_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARZUM-AR012-MANUAL-URL",
+      "url": "https://destek.arzum.com.tr/manuals/arzum-laguna-elektrikli-sofben-ar012.pdf",
+      "publisher": "destek.arzum.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARZUM_AR012_LAGUNA_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARZUM-OK004-MANUAL",
+      "url": "https://destek.arzum.com.tr/manuals/arzum-okka-minio-turk-kahvesi-makinesi-ok004-n.pdf",
+      "publisher": "destek.arzum.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARZUM_OK004_0400_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:ARZUM-OK004-PRODUCT",
+      "url": "https://www.arzum.com.tr/ok004-okka-minio-turk-kahvesi-makinesi-bakir",
+      "publisher": "www.arzum.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "ARZUM_OK004_0400_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BAYMAK-XLS65-PRODUCT",
+      "url": "https://www.baymak.com.tr/urunler/su-isiticilari/termosifonlar/baymak-aqua-x-konfor-silindirik",
+      "publisher": "www.baymak.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BAYMAK_XLS65_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BAYMAK-XLS65-TSEN",
+      "url": "https://www.baymak.com.tr/media/7104/tsen-belgesi-baymak-termosifon.pdf",
+      "publisher": "www.baymak.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BAYMAK_XLS65_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BEKO-BFC-221-HB-TR",
+      "url": "https://www.beko.com.tr/ankastre-firin/bfc-221-hb-ankastre-firin",
+      "publisher": "www.beko.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BEKO_BFC_221_HB_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BEKO-BKT650-B-PRODUCT",
+      "url": "https://www.beko.com.tr/standart-termosifon/bkt-650-b-termosifon",
+      "publisher": "www.beko.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BEKO_BKT650_B_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BEKO-BM4044-TR",
+      "url": "https://www.beko.com.tr/bulasik-makinesi/bm-4044-bulasik-makinesi",
+      "publisher": "www.beko.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BEKO_BM4044_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BEKO-BMD200G-CATEGORY",
+      "url": "https://www.beko.com.tr/mikrodalga-firin",
+      "publisher": "www.beko.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BEKO_BMD200G_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BEKO-BOI-6021-YS-TR",
+      "url": "https://www.beko.com.tr/induksiyonlu-ocaklar/boi-6021-ys-ankastre-ocak",
+      "publisher": "www.beko.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BEKO_BOI_6021_YS_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BEKO-BUILTIN-MW-CATEGORY",
+      "url": "https://www.beko.com.tr/ankastre-mikrodalgalar",
+      "publisher": "www.beko.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BEKO_BMC2030S_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BEKO-FE-411-TR",
+      "url": "https://www.beko.com.tr/ocakli-firin/fe-411-firin",
+      "publisher": "www.beko.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BEKO_FE_411_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BEKO-KM99-PRODUCT-TR",
+      "url": "https://www.beko.com.tr/kurutma-makinesi/km-99-kurutma-makinesi",
+      "publisher": "www.beko.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BEKO_KM_99_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BEKO-KMX82-FICHE-TR",
+      "url": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/7184270260_MDM_PRODUCT_FICHE_EU_2021_tr_TR.pdf",
+      "publisher": "gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BEKO_KMX_82_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BEKO-KMX82-MANUAL-TR",
+      "url": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/7184270260_MDM2_USER_MANUAL_FILE_tr_TR.pdf",
+      "publisher": "gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BEKO_KMX_82_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BEKO-KMX82-PRODUCT-TR",
+      "url": "https://www.beko.com.tr/8-kg-kurutma-makinesi/kmx-82-kurutma-makinesi",
+      "publisher": "www.beko.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BEKO_KMX_82_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-BCRC2W-TR",
+      "url": "https://www.bosch-home.com.tr/tr/product/BCRC2W",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_BCRC2W_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-BGC21X300-TR",
+      "url": "https://www.bosch-home.com.tr/tr/product/elektrikli-supurgeler/toz-torbasiz-elektrikli-supurgeler/BGC21X300",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_BGC21X300_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-BGC41PET-TR",
+      "url": "https://www.bosch-home.com.tr/tr/product/elektrikli-supurgeler/toz-torbasiz-elektrikli-supurgeler/BGC41PET",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_BGC41PET_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-CL2000-26-PAIR",
+      "url": "https://www.bosch-homecomfort.com/tr/tr/ocs/residential/climate-2001-20896250-p/",
+      "publisher": "www.bosch-homecomfort.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_CL2000U_W_26_E__CL2000_26_E_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-CL3000I-35-PAIR",
+      "url": "https://www.bosch-homecomfort.com/tr/tr/ocs/residential/climate-3000i-18527402-p/",
+      "publisher": "www.bosch-homecomfort.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_CL3000IU_W_35_E__CL3000I_35_E_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-DWP64CC50T-TR",
+      "url": "https://www.bosch-home.com.tr/tr/product/pisirme-grubu/davlumbazlar-ve-aspiratorler/duvar-tipi-davlumbazlar/DWP64CC50T",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_DWP64CC50T_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-GSN33VWE0N-TR",
+      "url": "https://www.bosch-home.com.tr/tr/product/kampanyalar/beyaz-esya-firsati/GSN33VWE0N",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_GSN33VWE0N_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-HBF534ES3T-TR",
+      "url": "https://www.bosch-home.com.tr/tr/product/ankastre-urunler/ankastre-firinlar/HBF534ES3T",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_HBF534ES3T_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-HXR390H21T-TR",
+      "url": "https://www.bosch-home.com.tr/tr/product/pisirme-grubu/solo-ve-midi-firinlar/solo-firinlar/HXR390H21T",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_HXR390H21T_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-KGN55CIE0N-TR-FICHE",
+      "url": "https://media3.bsh-group.com/Documents/eudatasheet/tr-TR/KGN55CIE0N.pdf",
+      "publisher": "media3.bsh-group.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "url": "https://www.bosch-home.com.tr/tr/product/prboschfridge70/KGN55CIE0N",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_KGN55CIE0N_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-MCM3501M-PRODUCT",
+      "url": "https://www.bosch-home.com.tr/tr/product/kucuk-ev-aletleri/mutfak-robotlari/MCM3501M",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_MCM3501M_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-MMB6172S-PRODUCT",
+      "url": "https://www.bosch-home.com.tr/tr/product/kucuk-ev-aletleri/MMB6172S",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_MMB6172S_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-PUE611BB5E-TR",
+      "url": "https://www.bosch-home.com.tr/tr/product/pisirme-grubu/induksiyonlu-elektrikli-ocaklar/induksiyonlu-ocaklar/PUE611BB5E",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_PUE611BB5E_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-SMS4IKI62T-TR",
+      "url": "https://www.bosch-home.com.tr/tr/product/bulasik-makineleri/solo-bulasik-makineleri/60cm-genisliginde-bulasik-makineleri/SMS4IKI62T",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_SMS4IKI62T_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-SPOTLESS-COMPARE-TR",
+      "url": "https://www.bosch-home.com.tr/urunler/elektrikli-supurgeler/spotless-robot-supurgeler-ortak-ve-model-bazli-ozellikler",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_BCRC2W_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-TKA6A041-PRODUCT",
+      "url": "https://www.bosch-home.com.tr/urun-listesi/kahve-makineleri/filtre-kahve-makineleri/TKA6A041",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_TKA6A041_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-WQG24100TR-MANUAL-TR",
+      "url": "https://media3.bosch-home.com/Documents/9001745932_A.pdf",
+      "publisher": "media3.bosch-home.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_WQG24100TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:BOSCH-WQG24100TR-PRODUCT-TR",
+      "url": "https://www.bosch-home.com.tr/tr/product/WQG24100TR",
+      "publisher": "www.bosch-home.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "BOSCH_WQG24100TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:CHICCO-TR-BELLAGIO",
+      "url": "https://www.chicco.com.tr/%C3%BCr%C3%BCnler/arabada-%26-d%C4%B1%C5%9Far%C4%B1da/d%C4%B1%C5%9Far%C4%B1da/bebek-arabalar%C4%B1/bellagio-bebek-arabasi-2.0-8058664191055-07087183330000.html",
+      "publisher": "www.chicco.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "EXACT",
+      "assertionLocator": "Existing manufacturer product page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer source.",
+      "limitations": [
+        "Manufacturer positioning/identity only; contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "CHICCO_BELLAGIO_07087183330000_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:CHICCO-TR-GOODY-PLUS",
+      "url": "https://www.chicco.com.tr/%C3%BCr%C3%BCnler/arabada-%26-d%C4%B1%C5%9Far%C4%B1da/d%C4%B1%C5%9Far%C4%B1da/bebek-arabalar%C4%B1/goody-plus-bebek-arabas%C4%B1-8058664152834-04079877190000.html",
+      "publisher": "www.chicco.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "EXACT",
+      "assertionLocator": "Existing manufacturer product page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer source.",
+      "limitations": [
+        "Manufacturer positioning/identity only; contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "CHICCO_GOODY_PLUS_04079877190000_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:CHICCO-TR-MYSA",
+      "url": "https://www.chicco.com.tr/%C3%BCr%C3%BCnler/arabada-%26-d%C4%B1%C5%9Far%C4%B1da/d%C4%B1%C5%9Far%C4%B1da/bebek-arabalar%C4%B1/mysa-bebek-arabas%C4%B1-8058664181865-05087158450000.html",
+      "publisher": "www.chicco.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "EXACT",
+      "assertionLocator": "Existing manufacturer product page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer source.",
+      "limitations": [
+        "Manufacturer positioning/identity only; contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "CHICCO_MYSA_05087158450000_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:CYBEX-BALIOS-MANUAL",
+      "url": "https://www.cybex-online.com/on/demandware.static/-/Sites-cybex-master-catalog/default/dwfbcd95b9/pdfs/manuals/ST_GO_Balios_S_Lux_EN/CY_171_8888_B0424_Balios_S_Lux_Illustration_Booklet_DIGITAL_EN.pdf",
+      "publisher": "www.cybex-online.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "COMPATIBLE_FAMILY_LIMITED",
+      "assertionLocator": "Existing manufacturer product page; no persona assertion admitted without independent corroboration.",
+      "market": "GLOBAL",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer source.",
+      "limitations": [
+        "Manufacturer positioning/identity only; contributes zero persona score.",
+        "Foreign/regional family applicability remains limited."
+      ],
+      "exactProductIds": [
+        "CYBEX_BALIOS_S_LUX_520001251_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:CYBEX-BALIOS-PRODUCT",
+      "url": "https://www.cybex-online.com/en/gb/p/st-go-balios-s-lux.html",
+      "publisher": "www.cybex-online.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "COMPATIBLE_FAMILY_LIMITED",
+      "assertionLocator": "Existing manufacturer product page; no persona assertion admitted without independent corroboration.",
+      "market": "GLOBAL",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer source.",
+      "limitations": [
+        "Manufacturer positioning/identity only; contributes zero persona score.",
+        "Foreign/regional family applicability remains limited."
+      ],
+      "exactProductIds": [
+        "CYBEX_BALIOS_S_LUX_520001251_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:DELONGHI-EC685-PRODUCT",
+      "url": "https://www.delonghi.com/tr-tr/dedica-style-manuel-kahve-makinesi-ec685-m/p/EC685.M",
+      "publisher": "www.delonghi.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "DELONGHI_EC685_M_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:DELONGHI-ECAM22022-MANUAL",
+      "url": "https://www.delonghi.com/medias/ECAM220.20-ECAM220.21-ECAM220.22-Instruction-Manual-TR.pdf",
+      "publisher": "www.delonghi.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "DELONGHI_ECAM220_22_GB_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:DELONGHI-ECAM22022-PRODUCT",
+      "url": "https://www.delonghi.com/tr-tr/magnifica-start-otomatik-kahve-makinesi-ecam220-22-gb/p/ECAM220.22.GB",
+      "publisher": "www.delonghi.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "DELONGHI_ECAM220_22_GB_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:DYSON-BP02-PRODUCT",
+      "url": "https://www.dyson.com.tr/products/air-quality/purifier-big-quiet-formaldehyde",
+      "publisher": "www.dyson.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "DYSON_BP02_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:KARACA-HATIR-HUP-PRODUCT",
+      "url": "https://www.karaca.com/urun/karaca-hatir-hup-turk-kahve-makinesi",
+      "publisher": "www.karaca.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "KARACA_HATIR_HUP_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:KENWOOD-FDP65450WH-TR",
+      "url": "https://www.kenwoodworld.com/tr-tr/multipro-express-fdp65-450wh/p/FDP65.450WH",
+      "publisher": "www.kenwoodworld.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "KENWOOD_FDP65_450WH_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:LG-GC-B569NLLM-TR-FICHE",
+      "url": "https://www.lg.com/tr/lgecs.downloadFile.ldwf?DOC_ID=20250520248484&FILE_NAME=T%C3%BCrkiye+PIS+GC-B569NLLM.pdf&GSRI_DOC=GSRI&ORIGINAL_NAME_b1_a1=T%C3%BCrkiye+PIS+GC-B569NLLM%5B20250520115146887%5D.pdf&SPEC_DOWNLOAD=N&TC=DwnCmd",
+      "publisher": "www.lg.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "LG_GC_B569NLLM_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:LG-GC-B569NLLM-TR-PRODUCT",
+      "url": "https://www.lg.com/tr/buzdolabi/uzun-buzdolabi-donduruculari1/gc-b569nllm/",
+      "publisher": "www.lg.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "LG_GC_B569NLLM_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:NINJA-AF400EU-TR",
+      "url": "https://www.ninjaturkiye.com/ninja-foodi-max-dual-zone-airfryer-af400eu",
+      "publisher": "www.ninjaturkiye.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "NINJA_AF400EU_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:PHILIPS-AC1711-PRODUCT",
+      "url": "https://www.philips.com.tr/c-p/AC1711_10/1000-series-air-purifier-for-medium-rooms",
+      "publisher": "www.philips.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "PHILIPS_AC1711_10_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:PHILIPS-EP2220-PRODUCT",
+      "url": "https://www.philips.com.tr/c-p/EP2220_10/series-2200-tam-otomatik-espresso-makineleri",
+      "publisher": "www.philips.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "PHILIPS_EP2220_10_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:PHILIPS-EP2220-SUPPORT",
+      "url": "https://www.philips.com.tr/c-p/EP2220_10/series-2200-tam-otomatik-espresso-makineleri/destek",
+      "publisher": "www.philips.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "PHILIPS_EP2220_10_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:PHILIPS-FC9330-07-TR",
+      "url": "https://www.philips.com.tr/c-p/FC9330_07/powerpro-compact-torbasiz-elektrikli-suepuerge",
+      "publisher": "www.philips.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "PHILIPS_FC9330_07_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:PHILIPS-FC9750-07-TR",
+      "url": "https://www.philips.com.tr/c-p/FC9750_07/7000-series-torbasiz-elektrikli-suepuerge",
+      "publisher": "www.philips.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "PHILIPS_FC9750_07_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:PHILIPS-FY1700-FILTER",
+      "url": "https://www.philips.com.tr/c-p/FY1700_30/genuine-replacement-filter-integrated-3-in-1",
+      "publisher": "www.philips.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "PHILIPS_AC1711_10_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:PHILIPS-HD7462-PRODUCT",
+      "url": "https://www.philips.com.tr/c-p/HD7462_20/daily-collection-kahve-makinesi",
+      "publisher": "www.philips.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "PHILIPS_HD7462_20_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:PHILIPS-HR2291-PRODUCT",
+      "url": "https://www.philips.com.tr/c-p/HR2291_41/3000-serisi-blender",
+      "publisher": "www.philips.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "PHILIPS_HR2291_41_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:PHILIPS-HR7778-SUPPORT",
+      "url": "https://www.philips.com.tr/c-p/HR7778_00/7000-serisi-mutfak-robotu/destek",
+      "publisher": "www.philips.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "PHILIPS_HR7778_00_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:PHILIPS-NA350-PRODUCT",
+      "url": "https://www.philips.com.tr/c-p/NA350_00/3000-serisi-cift-hazneli-airfryer",
+      "publisher": "www.philips.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "PHILIPS_NA350_00_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:PHILIPS-NA350-SUPPORT",
+      "url": "https://www.philips.com.tr/c-p/NA350_00/3000-serisi-cift-hazneli-airfryer/destek",
+      "publisher": "www.philips.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "PHILIPS_NA350_00_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:PHILIPS-PSA3228-PRODUCT",
+      "url": "https://www.philips.com.tr/c-p/PSA3228_01/barista-brew-yari-otomatik-espresso-makinesi",
+      "publisher": "www.philips.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "PHILIPS_PSA3228_01_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:SAMSUNG-DW60DG560FWQTR-FICHE",
+      "url": "https://images.samsung.com/is/content/samsung/p6/common/energylabel/common-energylabel-dw60dg560fsrtr-productfiche.pdf",
+      "publisher": "images.samsung.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "SAMSUNG_DW60DG560FWQTR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:SAMSUNG-DW60DG560FWQTR-TR",
+      "url": "https://www.samsung.com/tr/dishwashers/freestanding/dw5500mm-14-place-settings-white-dw60dg560fwqtr/",
+      "publisher": "www.samsung.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "SAMSUNG_DW60DG560FWQTR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "url": "https://images.samsung.com/is/content/samsung/p6/common/energylabel/common-energylabel-rb34c6b0e12-tr-productfiche.pdf",
+      "publisher": "images.samsung.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "url": "https://www.samsung.com/tr/business/refrigerators/bottom-mount-freezer/bespoke-bmfreezer-with-smartthings-ai-energy-mode-344l-clean-white-rb34c6b0e12-tr/",
+      "publisher": "www.samsung.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "SAMSUNG_RB34C6B0E12_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:SAMSUNG-VR3MB77312K-TR",
+      "url": "https://www.samsung.com/tr/business/vacuum-cleaners/robot/vr7700bm-ebony-black-vr3mb77312k-tr/",
+      "publisher": "www.samsung.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "SAMSUNG_VR3MB77312K_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:SIEMENS-BE525LMB2-PRODUCT",
+      "url": "https://www.siemens-home.bsh-group.com/tr/tr/product/pisirme-grubu/mikrodalga-firinlar/ankastre-mikrodalgalar/BE525LMB2",
+      "publisher": "www.siemens-home.bsh-group.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "SIEMENS_BE525LMB2_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:SIEMENS-FF023LMS1-PRODUCT",
+      "url": "https://www.siemens-home.bsh-group.com/tr/tr/product/pisirme-grubu/mikrodalga-firinlar/solo-mikrodalgalar/FF023LMS1",
+      "publisher": "www.siemens-home.bsh-group.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "SIEMENS_FF023LMS1_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:SIEMENS-KG56NVWD0N-TR-FICHE",
+      "url": "https://media3.bsh-group.com/Documents/eudatasheet/tr-TR/KG56NVWD0N.pdf",
+      "publisher": "media3.bsh-group.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "url": "https://www.siemens-home.bsh-group.com/tr/tr/product/buzdolaplari-ve-derin-dondurucular/solo-buzdolaplari-ve-derin-dondurucular/alttan-donduruculu-solo-buzdolaplari/KG56NVWD0N",
+      "publisher": "www.siemens-home.bsh-group.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "SIEMENS_KG56NVWD0N_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:SIEMENS-SN25EI63MT-TR",
+      "url": "https://www.siemens-home.bsh-group.com/tr/tr/product/bulasik-makineleri/solo-bulasik-makineleri/tam-ebatli-bulasik-makineleri-60cm/SN25EI63MT",
+      "publisher": "www.siemens-home.bsh-group.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "SIEMENS_SN25EI63MT_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:SIEMENS-TP511R09-PRODUCT",
+      "url": "https://www.siemens-home.bsh-group.com/tr/tr/product/kahve-makineleri/tam-otomatik-kahve-makineleri/TP511R09",
+      "publisher": "www.siemens-home.bsh-group.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "SIEMENS_TP511R09_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:SMEG-ECF02-PRODUCT",
+      "url": "https://www.smeg.com.tr/urunler/ECF02CREU",
+      "publisher": "www.smeg.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "SMEG_ECF02CREU_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:TEFAL-BL811D-PRODUCT",
+      "url": "https://www.tefal.com.tr/perfectmix-bl811d-blender-7211002993/",
+      "publisher": "www.tefal.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "TEFAL_BL811D_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:TEFAL-EY855D-PRODUCT",
+      "url": "https://www.tefal.com.tr/easy-fry-mega-ey855d-airfryer-7211004961/",
+      "publisher": "www.tefal.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "TEFAL_EY855D_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:TOSHIBA-SEIYA-24-PAIR",
+      "url": "https://www.toshiba-klima.com.tr/Data/EditorFiles/dokuman/enerji-etiketi/toshiba-seiya-new-24k-urun-fisi.pdf",
+      "publisher": "www.toshiba-klima.com.tr",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "TOSHIBA_RAS_B24B2KV2G_TR__RAS_24B2AV2G_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:XIAOMI-AIR4-PRODUCT",
+      "url": "https://www.mi.com/tr/product/xiaomi-smart-air-purifier-4/",
+      "publisher": "www.mi.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "XIAOMI_AC_M16_SC_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:XIAOMI-AIR4-SPECS",
+      "url": "https://www.mi.com/tr/product/xiaomi-smart-air-purifier-4/specs/",
+      "publisher": "www.mi.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "XIAOMI_AC_M16_SC_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:XIAOMI-H40-SPECS-TR",
+      "url": "https://www.mi.com/tr/product/xiaomi-robot-vacuum-h40/specs/",
+      "publisher": "www.mi.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "XIAOMI_H40_OV51_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:XIAOMI-H40-TR",
+      "url": "https://www.mi.com/tr/product/xiaomi-robot-vacuum-h40/",
+      "publisher": "www.mi.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "XIAOMI_H40_OV51_TR"
+      ]
+    },
+    {
+      "sourceId": "persona-source:XIAOMI-X20-PRO-TR",
+      "url": "https://www.mi.com/tr/product/xiaomi-robot-vacuum-x20-pro/",
+      "publisher": "www.mi.com",
+      "sourceType": "MANUFACTURER_POSITIONING",
+      "retrievedAt": "2026-09-06",
+      "productIdentityMatch": "IDENTITY_ONLY",
+      "assertionLocator": "Existing exact-product authority page; no persona assertion admitted without independent corroboration.",
+      "market": "TR",
+      "independenceClass": "FIRST_PARTY_POSITIONING",
+      "commercialRelationship": "Manufacturer or authorized distributor source.",
+      "limitations": [
+        "Identity/technical source only; proves intended positioning at most and contributes zero persona score."
+      ],
+      "exactProductIds": [
+        "XIAOMI_X20_PRO_TR"
+      ]
+    }
+  ],
+  "claims": [],
+  "records": [
+    {
+      "exactProductId": "NINJA_AF400EU_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "AIR_FRYER",
+      "brand": "Ninja",
+      "model": "Foodi MAX Dual Zone AF400EU",
+      "configurationIdentity": "Ninja AF400EU / Türkiye-listed / two independent 4.75 L drawers / crisper plates included",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "PHILIPS_NA350_00_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "AIR_FRYER",
+      "brand": "Philips",
+      "model": "3000 Series NA350/00",
+      "configurationIdentity": "Philips NA350/00 / TR / 6 L + 3 L independently controlled dual baskets / no separately sold accessory assumed",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "TEFAL_EY855D_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "AIR_FRYER",
+      "brand": "Tefal",
+      "model": "Easy Fry Mega EY855D",
+      "configurationIdentity": "Tefal EY855D / TR / single removable basket / included grid only where exact product page lists it",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "DYSON_BP02_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "AIR_PURIFIER",
+      "brand": "Dyson",
+      "model": "BP02",
+      "configurationIdentity": "Dyson Purifier Big+Quiet BP02 / Türkiye / beyaz-parlak gümüş",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "PHILIPS_AC1711_10_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "AIR_PURIFIER",
+      "brand": "Philips",
+      "model": "AC1711/10",
+      "configurationIdentity": "Philips 1000 Series AC1711/10 / Türkiye / orta boy oda hava temizleyici",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "XIAOMI_AC_M16_SC_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "AIR_PURIFIER",
+      "brand": "Xiaomi",
+      "model": "AC-M16-SC",
+      "configurationIdentity": "Xiaomi Smart Air Purifier 4 AC-M16-SC / Türkiye / 250 x 250 x 555 mm",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_MMB6172S_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "BLENDER",
+      "brand": "Bosch",
+      "model": "VitaPower Serie 4 MMB6172S",
+      "configurationIdentity": "Bosch MMB6172S / TR / 1.5 L ThermoSafe glass jug / four-wing stainless-steel blade",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "PHILIPS_HR2291_41_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "BLENDER",
+      "brand": "Philips",
+      "model": "Series 3000 HR2291/41",
+      "configurationIdentity": "Philips HR2291/41 / TR / glass jug / exact blade assembly / no unlisted accessory assumed",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "TEFAL_BL811D_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "BLENDER",
+      "brand": "Tefal",
+      "model": "Perfectmix+ BL811D",
+      "configurationIdentity": "Tefal BL811D / TR / 2 L glass jug / six-blade assembly / exact supplied accessories only",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_MA2030S_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "brand": "Arçelik",
+      "model": "MA 2030 S",
+      "configurationIdentity": "Arçelik MA 2030 S / Türkiye / ankastre mikrodalga / siyah / 20 L",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BEKO_BMC2030S_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "brand": "Beko",
+      "model": "BMC 2030 S",
+      "configurationIdentity": "Beko BMC 2030 S / Türkiye / ankastre mikrodalga / siyah / 20 L",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "SIEMENS_BE525LMB2_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "brand": "Siemens",
+      "model": "BE525LMB2",
+      "configurationIdentity": "Siemens BE525LMB2 / Türkiye / iQ500 ankastre / siyah / ızgara",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_AFC_120_S_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "BUILT_IN_OVEN",
+      "brand": "Arçelik",
+      "model": "AFC 120 S",
+      "configurationIdentity": "Arçelik AFC 120 S / Türkiye / 60 cm sınıfı ankastre elektrikli fırın / siyah",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BEKO_BFC_221_HB_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "BUILT_IN_OVEN",
+      "brand": "Beko",
+      "model": "BFC 221 HB",
+      "configurationIdentity": "Beko BFC 221 HB / Türkiye / 60 cm sınıfı ankastre elektrikli fırın / Harmony beyaz",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_HBF534ES3T_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "BUILT_IN_OVEN",
+      "brand": "Bosch",
+      "model": "HBF534ES3T",
+      "configurationIdentity": "Bosch HBF534ES3T / Türkiye / 60 x 60 cm ankastre fırın / inox",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_MD20K_VINTAGE_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "COUNTERTOP_MICROWAVE_OVEN",
+      "brand": "Arçelik",
+      "model": "MD 20 K Vintage",
+      "configurationIdentity": "Arçelik MD 20 K Vintage / Türkiye / solo tezgâh üstü / kırmızı / 20 L / 800 W",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BEKO_BMD200G_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "COUNTERTOP_MICROWAVE_OVEN",
+      "brand": "Beko",
+      "model": "BMD 200 G",
+      "configurationIdentity": "Beko BMD 200 G / Türkiye / solo tezgâh üstü",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "SIEMENS_FF023LMS1_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "COUNTERTOP_MICROWAVE_OVEN",
+      "brand": "Siemens",
+      "model": "FF023LMS1",
+      "configurationIdentity": "Siemens FF023LMS1 / Türkiye / iQ300 solo / inox / 20 L / 800 W",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:dishwasher:tr:arcelik:a-710-i",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DISHWASHER",
+      "brand": "Arçelik",
+      "model": "A 710 I",
+      "configurationIdentity": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:dishwasher:tr:arcelik:a-811-i",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DISHWASHER",
+      "brand": "Arçelik",
+      "model": "A 811 I",
+      "configurationIdentity": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DISHWASHER",
+      "brand": "Samsung",
+      "model": "DW60M5062FS/TR",
+      "configurationIdentity": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BEKO_BM4044_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DISHWASHER",
+      "brand": "Beko",
+      "model": "BM 4044",
+      "configurationIdentity": "Beko BM 4044 / Türkiye / solo / 60 cm",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_SMS4IKI62T_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DISHWASHER",
+      "brand": "Bosch",
+      "model": "SMS4IKI62T",
+      "configurationIdentity": "Bosch SMS4IKI62T / Türkiye / solo / 60 cm",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "SAMSUNG_DW60DG560FWQTR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DISHWASHER",
+      "brand": "Samsung",
+      "model": "DW60DG560FWQTR",
+      "configurationIdentity": "Samsung DW60DG560FWQTR / Türkiye / solo / 60 cm",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "SIEMENS_SN25EI63MT_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DISHWASHER",
+      "brand": "Siemens",
+      "model": "SN25EI63MT",
+      "configurationIdentity": "Siemens SN25EI63MT / Türkiye / solo / 60 cm",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:dryer:tr:arcelik:1201-kmx",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DRYER",
+      "brand": "Arçelik",
+      "model": "1201 KMX",
+      "configurationIdentity": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DRYER",
+      "brand": "Hoover",
+      "model": "HRE H11A2TBE-17",
+      "configurationIdentity": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DRYER",
+      "brand": "Hoover",
+      "model": "NR EH11N2TBEX-17",
+      "configurationIdentity": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DRYER",
+      "brand": "Samsung",
+      "model": "DV10DG54A0ABAH",
+      "configurationIdentity": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BEKO_KM_99_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DRYER",
+      "brand": "Beko",
+      "model": "KM 99",
+      "configurationIdentity": "Beko KM 99 / TR / heat-pump / drying-only",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BEKO_KMX_82_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DRYER",
+      "brand": "Beko",
+      "model": "KMX 82",
+      "configurationIdentity": "Beko KMX 82 / TR / heat-pump / drying-only",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_WQG24100TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "DRYER",
+      "brand": "Bosch",
+      "model": "WQG24100TR",
+      "configurationIdentity": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_T7365_ECO_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "brand": "Arçelik",
+      "model": "T 7365 ECO",
+      "configurationIdentity": "Arçelik T 7365 ECO / TR / 65 L vertical electric storage water heater / exact included safety hardware and site installation remain manual-and-service governed",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BAYMAK_XLS65_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "brand": "Baymak",
+      "model": "Aqua X-Konfor X-LS 65",
+      "configurationIdentity": "Baymak Aqua X-Konfor X-LS 65 / TR / 65 L cylindrical electric storage water heater / 1/2 inch declared water connection",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BEKO_BKT650_B_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "brand": "Beko",
+      "model": "BKT 650 B",
+      "configurationIdentity": "Beko BKT 650 B / TR / 65 L standard electric storage water heater / exact installation envelope service governed",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_CM3940P_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FILTER_COFFEE_MACHINE",
+      "brand": "Arçelik",
+      "model": "CM 3940 P",
+      "configurationIdentity": "Arçelik CM 3940 P / Türkiye / filtre kahve / cam sürahi",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_TKA6A041_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FILTER_COFFEE_MACHINE",
+      "brand": "Bosch",
+      "model": "ComfortLine TKA6A041",
+      "configurationIdentity": "Bosch ComfortLine TKA6A041 / Türkiye / filtre kahve / cam sürahi",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "PHILIPS_HD7462_20_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FILTER_COFFEE_MACHINE",
+      "brand": "Philips",
+      "model": "Daily Collection HD7462/20",
+      "configurationIdentity": "Philips Daily Collection HD7462/20 / Türkiye / filtre kahve / cam sürahi",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_MCM3501M_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FOOD_PROCESSOR",
+      "brand": "Bosch",
+      "model": "MultiTalent 3 MCM3501M",
+      "configurationIdentity": "Bosch MCM3501M / TR / 2.3 L bowl / exact MultiLevel6 knife, reversible discs and supplied bundle",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "KENWOOD_FDP65_450WH_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FOOD_PROCESSOR",
+      "brand": "Kenwood",
+      "model": "MultiPro Express FDP65.450WH",
+      "configurationIdentity": "Kenwood FDP65.450WH / Türkiye-listed / 3 L bowl / exact Express Serve, discs, knife and kneading-tool bundle",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "PHILIPS_HR7778_00_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FOOD_PROCESSOR",
+      "brand": "Philips",
+      "model": "7000 Series HR7778/00",
+      "configurationIdentity": "Philips HR7778/00 / TR support-listed / 3.4 L bowl / exact discs, blade and accessories documented for this suffix",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_8315_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FREESTANDING_COOKER",
+      "brand": "Arçelik",
+      "model": "8315",
+      "configurationIdentity": "Arçelik 8315 / Türkiye / solo ocaklı fırın / 4 göz LPG gazlı ocak + elektrikli fırın / beyaz",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BEKO_FE_411_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FREESTANDING_COOKER",
+      "brand": "Beko",
+      "model": "FE 411",
+      "configurationIdentity": "Beko FE 411 / Türkiye / solo ocaklı fırın / 4 göz LPG gazlı ocak + elektrikli fırın / beyaz",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_HXR390H21T_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FREESTANDING_COOKER",
+      "brand": "Bosch",
+      "model": "HXR390H21T",
+      "configurationIdentity": "Bosch HXR390H21T / Türkiye / solo / gazlı ocak + elektrikli fırın / beyaz",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_2071_NFB_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FREEZER",
+      "brand": "Arçelik",
+      "model": "2071 NFB",
+      "configurationIdentity": "Arçelik 2071 NFB / Türkiye / solo dikey tek kapılı derin dondurucu / No Frost / beyaz",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_2682_NFB_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FREEZER",
+      "brand": "Arçelik",
+      "model": "2682 NFB",
+      "configurationIdentity": "Arçelik 2682 NFB / Türkiye / solo dikey çekmeceli derin dondurucu / No Frost / beyaz",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_GSN33VWE0N_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FREEZER",
+      "brand": "Bosch",
+      "model": "GSN33VWE0N",
+      "configurationIdentity": "Bosch GSN33VWE0N / Türkiye / solo dikey derin dondurucu / 176 x 60 cm",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "DELONGHI_ECAM220_22_GB_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "brand": "De'Longhi",
+      "model": "Magnifica Start ECAM220.22.GB",
+      "configurationIdentity": "De'Longhi Magnifica Start ECAM220.22.GB / Türkiye / dahili öğütücü / manuel süt köpürtücü",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "PHILIPS_EP2220_10_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "brand": "Philips",
+      "model": "Series 2200 EP2220/10",
+      "configurationIdentity": "Philips Series 2200 EP2220/10 / Türkiye / dahili seramik öğütücü / klasik süt köpürtücü",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "SIEMENS_TP511R09_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "brand": "Siemens",
+      "model": "EQ.500 classic TP511R09",
+      "configurationIdentity": "Siemens EQ.500 classic TP511R09 / Türkiye / tam otomatik / süt hortumlu sistem",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_OI_602_1_YS_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "HOB",
+      "brand": "Arçelik",
+      "model": "OI 602-1 YS",
+      "configurationIdentity": "Arçelik OI 602-1 YS / Türkiye / 58 cm ankastre indüksiyonlu cam ocak / 4 göz, 1 Flexi bölme",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BEKO_BOI_6021_YS_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "HOB",
+      "brand": "Beko",
+      "model": "BOI 6021 YS",
+      "configurationIdentity": "Beko BOI 6021 YS / Türkiye / 58 cm ankastre indüksiyonlu cam ocak / 4 göz, 1 Flexi bölme",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_PUE611BB5E_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "HOB",
+      "brand": "Bosch",
+      "model": "PUE611BB5E",
+      "configurationIdentity": "Bosch PUE611BB5E / Türkiye / 60 cm çerçevesiz ankastre indüksiyonlu ocak",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_E7526_ASI_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "brand": "Arçelik",
+      "model": "E 7526 ASİ",
+      "configurationIdentity": "Arçelik E 7526 ASİ / TR / instantaneous electric shower water heater / exact included shower head",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARNICA_EG54030_HAMMAM_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "brand": "Arnica",
+      "model": "EG54030 Hammam",
+      "configurationIdentity": "Arnica EG54030 Hammam / TR manufacturer catalog exact code / instantaneous electric shower water heater",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARZUM_AR012_LAGUNA_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "brand": "Arzum",
+      "model": "AR 012 Laguna",
+      "configurationIdentity": "Arzum AR 012 Laguna / TR exact manufacturer manual identity / instantaneous electric shower water heater",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "DELONGHI_EC685_M_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "MANUAL_ESPRESSO_MACHINE",
+      "brand": "De'Longhi",
+      "model": "Dedica Style EC685.M",
+      "configurationIdentity": "De'Longhi Dedica Style EC685.M / Türkiye / manuel portafiltre / süt köpürtücü / harici öğütücü dahil değil",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "PHILIPS_PSA3228_01_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "MANUAL_ESPRESSO_MACHINE",
+      "brand": "Philips",
+      "model": "Barista Brew PSA3228/01",
+      "configurationIdentity": "Philips Barista Brew PSA3228/01 / Türkiye / yarı otomatik portafiltre / entegre öğütücü exact yapılandırması",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "SMEG_ECF02CREU_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "MANUAL_ESPRESSO_MACHINE",
+      "brand": "Smeg",
+      "model": "ECF02CREU",
+      "configurationIdentity": "Smeg ECF02CREU / Türkiye / manuel espresso / krem / buhar çubuğu / harici öğütücü dahil değil",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_ADE_6041_B1_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "RANGE_HOOD",
+      "brand": "Arçelik",
+      "model": "ADE 6041 B1",
+      "configurationIdentity": "Arçelik ADE 6041 B1 / Türkiye / 60 cm duvar tipi eğimli davlumbaz / beyaz",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_P_18_YCB_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "RANGE_HOOD",
+      "brand": "Arçelik",
+      "model": "P 18 YCB",
+      "configurationIdentity": "Arçelik P 18 YCB / Türkiye / 60 cm duvar tipi eğimli davlumbaz / beyaz",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_DWP64CC50T_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "RANGE_HOOD",
+      "brand": "Bosch",
+      "model": "DWP64CC50T",
+      "configurationIdentity": "Bosch DWP64CC50T / Türkiye / 60 cm duvar tipi davlumbaz / paslanmaz çelik",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:refrigerator:tr:arcelik:270475-mb",
+      "departmentId": "APPLIANCES",
+      "categoryId": "REFRIGERATOR",
+      "brand": "Arçelik",
+      "model": "270475 MB",
+      "configurationIdentity": "Arçelik|270475 MB|TR|FREESTANDING_BOTTOM_FREEZER|WHITE",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "departmentId": "APPLIANCES",
+      "categoryId": "REFRIGERATOR",
+      "brand": "Samsung",
+      "model": "RB58DS75ESA/TR",
+      "configurationIdentity": "Samsung|RB58DS75ESA/TR|TR|FREESTANDING_BOTTOM_FREEZER|SILVER",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:refrigerator:tr:samsung:rf57c510esr-tr",
+      "departmentId": "APPLIANCES",
+      "categoryId": "REFRIGERATOR",
+      "brand": "Samsung",
+      "model": "RF57C510ESR/TR",
+      "configurationIdentity": "Samsung|RF57C510ESR/TR|TR|FREESTANDING_FRENCH_DOOR|SILVER",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+      "departmentId": "APPLIANCES",
+      "categoryId": "REFRIGERATOR",
+      "brand": "Teka",
+      "model": "RMF 77920 SS EU / 113430009",
+      "configurationIdentity": "Teka|RMF 77920 SS EU|113430009|TR|FREESTANDING_FOUR_DOOR|STAINLESS_STEEL",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_KGN55CIE0N_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "REFRIGERATOR",
+      "brand": "Bosch",
+      "model": "KGN55CIE0N",
+      "configurationIdentity": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "LG_GC_B569NLLM_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "REFRIGERATOR",
+      "brand": "LG",
+      "model": "GC-B569NLLM",
+      "configurationIdentity": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "SAMSUNG_RB34C6B0E12_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "REFRIGERATOR",
+      "brand": "Samsung",
+      "model": "RB34C6B0E12/TR",
+      "configurationIdentity": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "SIEMENS_KG56NVWD0N_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "REFRIGERATOR",
+      "brand": "Siemens",
+      "model": "KG56NVWD0N",
+      "configurationIdentity": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_BCRC2W_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "ROBOT_VACUUM",
+      "brand": "Bosch",
+      "model": "BCRC2W",
+      "configurationIdentity": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "SAMSUNG_VR3MB77312K_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "ROBOT_VACUUM",
+      "brand": "Samsung",
+      "model": "VR3MB77312K/TR",
+      "configurationIdentity": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "XIAOMI_H40_OV51_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "ROBOT_VACUUM",
+      "brand": "Xiaomi",
+      "model": "Robot Vacuum H40 / OV51",
+      "configurationIdentity": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "XIAOMI_X20_PRO_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "ROBOT_VACUUM",
+      "brand": "Xiaomi",
+      "model": "Robot Vacuum X20 Pro",
+      "configurationIdentity": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_CL2000U_W_26_E__CL2000_26_E_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "brand": "Bosch",
+      "model": "CL2000U W 26 E + CL2000 26 E",
+      "configurationIdentity": "Bosch Türkiye exact single-split pair / indoor CL2000U W 26 E order 7733701986 / outdoor CL2000 26 E order 7733701987",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_CL3000IU_W_35_E__CL3000I_35_E_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "brand": "Bosch",
+      "model": "CL3000iU W 35 E + CL3000i 35 E",
+      "configurationIdentity": "Bosch Türkiye exact single-split pair / indoor CL3000iU W 35 E order 7733701566 / outdoor CL3000i 35 E order 7733701567",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "TOSHIBA_RAS_B24B2KV2G_TR__RAS_24B2AV2G_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "brand": "Toshiba",
+      "model": "RAS-B24B2KV2G-TR + RAS-24B2AV2G-TR",
+      "configurationIdentity": "Toshiba Türkiye exact single-split pair / indoor RAS-B24B2KV2G-TR / outdoor RAS-24B2AV2G-TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARCELIK_K3300_TFF_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "brand": "Arçelik",
+      "model": "K 3300 TFF",
+      "configurationIdentity": "Arçelik K 3300 TFF / Türkiye / CookSense / tek cezve",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "ARZUM_OK004_0400_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "brand": "Arzum",
+      "model": "OKKA Minio OK004-0400",
+      "configurationIdentity": "Arzum OKKA Minio OK004-0400 / Türkiye / bakır / 4 fincan / taşma önleyici sistem",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "KARACA_HATIR_HUP_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "brand": "Karaca",
+      "model": "Hatır Hüp",
+      "configurationIdentity": "Karaca Hatır Hüp / Türkiye / Türk kahvesi makinesi / 5 fincan",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_BGC21X300_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "VACUUM",
+      "brand": "Bosch",
+      "model": "BGC21X300",
+      "configurationIdentity": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "BOSCH_BGC41PET_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "VACUUM",
+      "brand": "Bosch",
+      "model": "BGC41PET",
+      "configurationIdentity": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "PHILIPS_FC9330_07_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "VACUUM",
+      "brand": "Philips",
+      "model": "FC9330/07",
+      "configurationIdentity": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "PHILIPS_FC9750_07_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "VACUUM",
+      "brand": "Philips",
+      "model": "FC9750/07",
+      "configurationIdentity": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:altus:al-cm-101254-d",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "altus",
+      "model": "AL CM 101254 D",
+      "configurationIdentity": "Altus|AL CM 101254 D|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY|WHITE",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:arcelik:10120-imp",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "arcelik",
+      "model": "10120 IMP",
+      "configurationIdentity": "Arçelik|10120 IMP|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY|ANTHRACITE",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:beko:cmx-10120",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "beko",
+      "model": "CMX 10120",
+      "configurationIdentity": "Beko|CMX 10120|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:beko:cmx-11140",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "beko",
+      "model": "CMX 11140",
+      "configurationIdentity": "Beko|CMX 11140|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:beko:cmx-8100",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "beko",
+      "model": "CMX 8100",
+      "configurationIdentity": "Beko|CMX 8100|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:beko:cmxt-9120",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "beko",
+      "model": "CMXT 9120",
+      "configurationIdentity": "Beko|CMXT 9120|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:bosch:wgb244a0tr",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "bosch",
+      "model": "WGB244A0TR",
+      "configurationIdentity": "Bosch|WGB244A0TR|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:bosch:wgb254a1tr",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "bosch",
+      "model": "WGB254A1TR",
+      "configurationIdentity": "Bosch|WGB254A1TR|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:bosch:wgb254axtr",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "bosch",
+      "model": "WGB254AXTR",
+      "configurationIdentity": "Bosch|WGB254AXTR|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:bosch:wgk264y0tr",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "bosch",
+      "model": "WGK264Y0TR",
+      "configurationIdentity": "Bosch|WGK264Y0TR|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:electrolux:ew6f3411act",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "electrolux",
+      "model": "EW6F3411ACT",
+      "configurationIdentity": "Electrolux|EW6F3411ACT|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:electrolux:ew6f3494t",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "electrolux",
+      "model": "EW6F3494T",
+      "configurationIdentity": "Electrolux|EW6F3494T|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:electrolux:ew7f4404ut",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "electrolux",
+      "model": "EW7F4404UT",
+      "configurationIdentity": "Electrolux|EW7F4404UT|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:electrolux:ew7f4422ct",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "electrolux",
+      "model": "EW7F4422CT",
+      "configurationIdentity": "Electrolux|EW7F4422CT|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:lg:f4r3tyw3we",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "lg",
+      "model": "F4R3TYW3WE",
+      "configurationIdentity": "LG|F4R3TYW3WE|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:lg:f4r5vyw2t",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "lg",
+      "model": "F4R5VYW2T",
+      "configurationIdentity": "LG|F4R5VYW2T|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:lg:f4t2vym1s",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "lg",
+      "model": "F4T2VYM1S",
+      "configurationIdentity": "LG|F4T2VYM1S|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:lg:f4v5ryp0w",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "lg",
+      "model": "F4V5RYP0W",
+      "configurationIdentity": "LG|F4V5RYP0W|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:lg:f4y5eywyj",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "lg",
+      "model": "F4Y5EYWYJ",
+      "configurationIdentity": "LG|F4Y5EYWYJ|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:miele:wwa120-wcs-8kg-active",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "miele",
+      "model": "WWA120 WCS 8kg Active",
+      "configurationIdentity": "Miele|WWA120 WCS 8kg Active|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:samsung:ww11db8b95gbah",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "samsung",
+      "model": "WW11DB8B95GBAH",
+      "configurationIdentity": "Samsung|WW11DB8B95GBAH|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:samsung:ww11dg6b25leah",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "samsung",
+      "model": "WW11DG6B25LEAH",
+      "configurationIdentity": "Samsung|WW11DG6B25LEAH|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY|WHITE",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:samsung:ww90cgc04daeah",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "samsung",
+      "model": "WW90CGC04DAEAH",
+      "configurationIdentity": "Samsung|WW90CGC04DAEAH|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:samsung:ww90dg6u25leah",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "samsung",
+      "model": "WW90DG6U25LEAH",
+      "configurationIdentity": "Samsung|WW90DG6U25LEAH|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:samsung:ww90ta046ah-ah",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "samsung",
+      "model": "WW90TA046AH/AH",
+      "configurationIdentity": "Samsung|WW90TA046AH/AH|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY|WHITE",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:vestel:cmi-108442-wifi",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "vestel",
+      "model": "CMI 108442 WIFI",
+      "configurationIdentity": "Vestel|CMI 108442 WIFI|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:vestel:cmi-87402-wifi",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "vestel",
+      "model": "CMI 87402 WIFI",
+      "configurationIdentity": "Vestel|CMI 87402 WIFI|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:vestel:cmi-97402-wifi",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "vestel",
+      "model": "CMI 97402 WIFI",
+      "configurationIdentity": "Vestel|CMI 97402 WIFI|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY|WHITE",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "appliances:wm:tr:vestel:cmi-99422-wifi",
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "brand": "vestel",
+      "model": "CMI 99422 WIFI",
+      "configurationIdentity": "Vestel|CMI 99422 WIFI|TR|FREESTANDING_FRONT_LOAD_WASHING_ONLY",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "CHICCO_BELLAGIO_07087183330000_TR",
+      "departmentId": "BABY_AND_CHILD",
+      "categoryId": "STROLLER",
+      "brand": "Chicco",
+      "model": "Bellagio 2.0",
+      "configurationIdentity": "Chicco Bellagio 2.0 / 07087183330000 / Fir Tree / Türkiye",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "CHICCO_GOODY_PLUS_04079877190000_TR",
+      "departmentId": "BABY_AND_CHILD",
+      "categoryId": "STROLLER",
+      "brand": "Chicco",
+      "model": "Goody Plus",
+      "configurationIdentity": "Chicco Goody Plus / 04079877190000 / Dusty Green / Türkiye",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "CHICCO_MYSA_05087158450000_TR",
+      "departmentId": "BABY_AND_CHILD",
+      "categoryId": "STROLLER",
+      "brand": "Chicco",
+      "model": "Mysa",
+      "configurationIdentity": "Chicco Mysa / 05087158450000 / Black Satin / Türkiye",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "CYBEX_BALIOS_S_LUX_520001251_TR",
+      "departmentId": "BABY_AND_CHILD",
+      "categoryId": "STROLLER",
+      "brand": "CYBEX",
+      "model": "Balios S Lux",
+      "configurationIdentity": "CYBEX Balios S Lux / 520001251 / Navy Blue, Silver Frame / Türkiye",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:computer-audio:edifier:r1280dbs-black",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "COMPUTER_AUDIO",
+      "brand": "Edifier",
+      "model": "R1280DBs",
+      "configurationIdentity": "Edifier|R1280DBs|2.0|Bluetooth 5.0/optical/coaxial/dual RCA|Subwoofer output but none included|Black|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:computer-audio:logitech:980-001295",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "COMPUTER_AUDIO",
+      "brand": "Logitech",
+      "model": "980-001295",
+      "configurationIdentity": "Logitech|Z207|980-001295|2.0|Bluetooth and 3.5mm|No subwoofer|Black|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:digital-camera:canon:5811c013",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "DIGITAL_CAMERA",
+      "brand": "Canon",
+      "model": "5811C013",
+      "configurationIdentity": "Canon|EOS R50|5811C013|RF mount|Kit|RF-S 18-45mm F4.5-6.3 IS STM|Black|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:digital-camera:sony:zve10m2b-cec",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "DIGITAL_CAMERA",
+      "brand": "Sony",
+      "model": "ZVE10M2B.CEC",
+      "configurationIdentity": "Sony|ZV-E10 II|ZVE10M2B.CEC|E mount|Body only|No kit lens|Black|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:e-reader:kobo:n367",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "E_READER",
+      "brand": "Rakuten Kobo",
+      "model": "N367",
+      "configurationIdentity": "Rakuten Kobo|Clara Colour|N367|6in Colour|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "E_READER",
+      "brand": "Rakuten Kobo",
+      "model": "N428",
+      "configurationIdentity": "Rakuten Kobo|Libra Colour|N428|7in Colour|Page Buttons|Stylus Compatible|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:external-storage:samsung:mu-pg1t0b-ww",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "EXTERNAL_STORAGE",
+      "brand": "Samsung",
+      "model": "MU-PG1T0B/WW",
+      "configurationIdentity": "Samsung|Portable SSD T9|MU-PG1T0B/WW|SSD|1TB|USB 3.2 Gen 2x2|Black|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:external-storage:sandisk:sdssde61-1t00-g25",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "EXTERNAL_STORAGE",
+      "brand": "SanDisk",
+      "model": "SDSSDE61-1T00-G25",
+      "configurationIdentity": "SanDisk|Extreme Portable SSD|SDSSDE61-1T00-G25|SSD|1TB|USB 3.2 Gen 2|Black/Orange|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:fitness-tracker:huawei:nor-b19-black",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "FITNESS_TRACKER",
+      "brand": "HUAWEI",
+      "model": "NOR-B19",
+      "configurationIdentity": "HUAWEI|Band 10|NOR-B19|Black polymer case|Black strap|Bluetooth|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:fitness-tracker:xiaomi:m2435b1-black",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "FITNESS_TRACKER",
+      "brand": "Xiaomi",
+      "model": "M2435B1",
+      "configurationIdentity": "Xiaomi|Smart Band 9 Pro|M2435B1|Black|Bluetooth|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "GAME_CONSOLE",
+      "brand": "Microsoft",
+      "model": "8ZCBGTT29H9C / Model 1883",
+      "configurationIdentity": "Microsoft|Xbox Series S|Model 1883|8ZCBGTT29H9C|1TB|All-digital|Carbon Black|Standard console|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:game-console:sony:cfi-7021",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "GAME_CONSOLE",
+      "brand": "Sony Interactive Entertainment",
+      "model": "CFI-7021",
+      "configurationIdentity": "Sony Interactive Entertainment|PlayStation 5 Pro|CFI-7021|2TB|Disc drive optional excluded|Standard console|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:headphones:huawei:freebuds-6-black",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "HEADPHONES",
+      "brand": "HUAWEI",
+      "model": "FreeBuds 6",
+      "configurationIdentity": "HUAWEI|FreeBuds 6|Open-fit true wireless|Bluetooth 5.2|Black|Standard box|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:headphones:sony:wh1000xm5b-ce7",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "HEADPHONES",
+      "brand": "Sony",
+      "model": "WH1000XM5B.CE7",
+      "configurationIdentity": "Sony|WH-1000XM5|WH1000XM5B.CE7|Over-ear|Bluetooth|Black|No bundle|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "brand": "EZVIZ",
+      "model": "CS-C6N-A0-1C2WFR",
+      "configurationIdentity": "EZVIZ|C6N|CS-C6N-A0-1C2WFR|Indoor|5V DC|1-pack|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "brand": "TP-Link",
+      "model": "Tapo C225(EU) V1",
+      "configurationIdentity": "TP-Link|Tapo C225|EU V1|Indoor|12V DC|1-pack|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:laptop:huawei:53014qhr",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "LAPTOP",
+      "brand": "HUAWEI",
+      "model": "53014QHR",
+      "configurationIdentity": "HUAWEI|MateBook D 16 2024|53014QHR|Core i5-13420H|16GB|1TB NVMe SSD|16in 1920x1200 IPS|FreeDOS|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "LAPTOP",
+      "brand": "Lenovo",
+      "model": "83K2001VTR",
+      "configurationIdentity": "Lenovo|IdeaPad Slim 3 16IRH10|83K2001VTR|Core i7-13620H|16GB|1TB SSD|16in WUXGA IPS|FreeDOS|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "LAPTOP",
+      "brand": "Lenovo",
+      "model": "83K20077TR",
+      "configurationIdentity": "Lenovo|IdeaPad Slim 3 16IRH10|83K20077TR|Core i5-13420H|16GB|1TB SSD|16in WUXGA IPS|FreeDOS|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:monitor:lg:27gs50f-b",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "MONITOR",
+      "brand": "LG",
+      "model": "27GS50F-B",
+      "configurationIdentity": "LG|UltraGear 27GS50F-B|27GS50F-B|27in|1920x1080|VA|180Hz|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:monitor:samsung:ls27c902pauxuf",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "MONITOR",
+      "brand": "Samsung",
+      "model": "LS27C902PAUXUF",
+      "configurationIdentity": "Samsung|ViewFinity S9|LS27C902PAUXUF|27in|5K|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "MONITOR",
+      "brand": "Samsung",
+      "model": "LS27F612EAUXUF",
+      "configurationIdentity": "Samsung|ViewFinity S6 S61F|LS27F612EAUXUF|27in|QHD|100Hz|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:nas:qnap:ts-264-8g-diskless",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "brand": "QNAP",
+      "model": "TS-264-8G",
+      "configurationIdentity": "QNAP|TS-264-8G|2-bay|Diskless|8GB|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:nas:synology:ds224plus-diskless-2gb",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "brand": "Synology",
+      "model": "DS224+",
+      "configurationIdentity": "Synology|DS224+|2-bay|Diskless|2GB DDR4|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:portable-speaker:jbl:jblflip7blk",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PORTABLE_SPEAKER",
+      "brand": "JBL",
+      "model": "JBLFLIP7BLK",
+      "configurationIdentity": "JBL|Flip 7|JBLFLIP7BLK|Portable|Bluetooth|Black|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:portable-speaker:sony:srsult10b-ce7",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PORTABLE_SPEAKER",
+      "brand": "Sony",
+      "model": "SRSULT10B.CE7",
+      "configurationIdentity": "Sony|ULT FIELD 1|SRSULT10B.CE7|Portable|Bluetooth|Black|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:printer:epson:c11cj67435",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PRINTER",
+      "brand": "Epson",
+      "model": "C11CJ67435",
+      "configurationIdentity": "Epson|EcoTank L3276|C11CJ67435|Ink tank|Color|Print scan copy|Wi-Fi|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:printer:hp:7md72a",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PRINTER",
+      "brand": "HP",
+      "model": "7MD72A",
+      "configurationIdentity": "HP|LaserJet MFP M140w|7MD72A|Laser|Mono|Print scan copy|Wi-Fi|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:projector:epson:v11ha85040",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PROJECTOR",
+      "brand": "Epson",
+      "model": "V11HA85040",
+      "configurationIdentity": "Epson|CO-FH02|V11HA85040|1920x1080|Lamp|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:projector:samsung:sp-lff3claxxtk",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PROJECTOR",
+      "brand": "Samsung",
+      "model": "SP-LFF3CLAXXTK",
+      "configurationIdentity": "Samsung|The Freestyle 2nd Gen|SP-LFF3CLAXXTK|1920x1080|LED|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMART_HOME_HUB",
+      "brand": "Signify / Philips Hue",
+      "model": "EAN 8719514342620 / 12NC 929001180642",
+      "configurationIdentity": "Signify|Philips Hue Bridge|EAN 8719514342620|12NC 929001180642|Zigbee/Bluetooth/Matter via Bridge|Bridge only|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMART_HOME_HUB",
+      "brand": "TP-Link",
+      "model": "Tapo H200(EU) V1",
+      "configurationIdentity": "TP-Link|Tapo H200|EU V1|2.4GHz Wi-Fi/Ethernet/Sub-1G EU|Hub only|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMARTPHONE",
+      "brand": "HONOR",
+      "model": "DNY-NX9",
+      "configurationIdentity": "HONOR|HONOR 400|DNY-NX9|8GB|256GB|Gece Siyahı|5G|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMARTPHONE",
+      "brand": "Samsung",
+      "model": "SM-A266BZKCTUR",
+      "configurationIdentity": "Samsung|Galaxy A26 5G|SM-A266BZKCTUR|8GB|256GB|Black|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMARTPHONE",
+      "brand": "Samsung",
+      "model": "SM-A366BZKGTUR",
+      "configurationIdentity": "Samsung|Galaxy A36 5G|SM-A366BZKGTUR|8GB|256GB|Black|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:smartwatch:huawei:vli-b19-46-black",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMARTWATCH",
+      "brand": "HUAWEI",
+      "model": "VLI-B19",
+      "configurationIdentity": "HUAWEI|WATCH GT 5|VLI-B19|46mm|Bluetooth|Black fluoroelastomer strap|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:smartwatch:samsung:sm-l330ndaatur",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMARTWATCH",
+      "brand": "Samsung",
+      "model": "SM-L330NDAATUR",
+      "configurationIdentity": "Samsung|Galaxy Watch8|44mm|Bluetooth|Graphite|Standard strap|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:soundbar:lg:s70ty",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SOUNDBAR",
+      "brand": "LG",
+      "model": "S70TY",
+      "configurationIdentity": "LG|S70TY|3.1.1|Wireless subwoofer included|Rear speakers excluded|Black|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:soundbar:samsung:hw-q800f-tk",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SOUNDBAR",
+      "brand": "Samsung",
+      "model": "HW-Q800F/TK",
+      "configurationIdentity": "Samsung|HW-Q800F/TK|5.1.2|Wireless subwoofer included|Rear speakers excluded|Black|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:tablet:huawei:txz-w09-8-128-gray",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "TABLET",
+      "brand": "HUAWEI",
+      "model": "TXZ-W09",
+      "configurationIdentity": "HUAWEI|MatePad 11.5 2025|TXZ-W09|8GB|128GB|Wi-Fi|Space Gray|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "TABLET",
+      "brand": "Samsung",
+      "model": "SM-X520NZSPTUR",
+      "configurationIdentity": "Samsung|Galaxy Tab S10 FE Wi-Fi|SM-X520NZSPTUR|256GB|Silver|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "TABLET",
+      "brand": "Samsung",
+      "model": "SM-X730NZSPTUR",
+      "configurationIdentity": "Samsung|Galaxy Tab S11 Wi-Fi|SM-X730NZSPTUR|12GB|256GB|Silver|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:television:lg:oled55b65la",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "TELEVISION",
+      "brand": "LG",
+      "model": "OLED55B65LA",
+      "configurationIdentity": "LG|OLED B6 2026|OLED55B65LA|55in|4K|120Hz VRR|webOS26|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:television:next:ye-55gfsg8-qled",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "TELEVISION",
+      "brand": "Next",
+      "model": "YE-55GFSG8-QLED",
+      "configurationIdentity": "Next|YE-55GFSG8-QLED|55in|4K|Google TV|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:ups:apc:bx1200mi-gr",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "brand": "APC",
+      "model": "BX1200MI-GR",
+      "configurationIdentity": "APC|Back-UPS BX1200MI-GR|Line-interactive|1200VA|650W|4 Schuko|230V|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:ups:eaton:5e1200ui",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "brand": "Eaton",
+      "model": "5E1200UI",
+      "configurationIdentity": "Eaton|5E Gen2 5E1200UI|Line-interactive|1200VA|660W|6 C13|230V|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "VIDEO_DOORBELL",
+      "brand": "EZVIZ",
+      "model": "CS-EP3x Pro",
+      "configurationIdentity": "EZVIZ|EP3x Pro|CS-EP3x Pro|Battery/solar/wired option|Solar panel included|Chime excluded|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:video-doorbell:tp-link:tapo-d235",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "VIDEO_DOORBELL",
+      "brand": "TP-Link",
+      "model": "Tapo D235",
+      "configurationIdentity": "TP-Link|Tapo D235|Battery or 8-24V wired|Chime included|1-pack|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:webcam:asus:webcam-c3",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "WEBCAM",
+      "brand": "ASUS",
+      "model": "ASUS Webcam C3",
+      "configurationIdentity": "ASUS|Webcam C3|1080p30|USB 2.0 wired|Fixed focus|Standard bundle|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:webcam:logitech:960-001422",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "WEBCAM",
+      "brand": "Logitech",
+      "model": "960-001422",
+      "configurationIdentity": "Logitech|Brio 500|960-001422|1080p30|USB-C|Graphite|Webcam only|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "brand": "ASUS",
+      "model": "XD5 (W-2-PK)",
+      "configurationIdentity": "ASUS|ZenWiFi XD5|XD5 W-2-PK|Wi-Fi 6 AX3000|2-pack|White|TR|Hardware revision not separately published",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    },
+    {
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "brand": "TP-Link",
+      "model": "Deco BE25(EU) V1 (2-pack)",
+      "configurationIdentity": "TP-Link|Deco BE25|EU V1|Wi-Fi 7 BE3600|2-pack|TR",
+      "status": "PERSONA_EVIDENCE_UNKNOWN",
+      "traits": [],
+      "claimIds": [],
+      "unknownReason": "INSUFFICIENT_INDEPENDENT_CORROBORATION",
+      "conflictIds": []
+    }
+  ],
+  "conflicts": [],
+  "ownerApproval": {
+    "state": "PENDING",
+    "requiredBindings": [
+      "VOCABULARY",
+      "EVIDENCE_RULES",
+      "EXPRESSION_MAPPINGS",
+      "SCORING_POLICY",
+      "EXACT_PRODUCT_RECORDS"
+    ],
+    "approvalId": null,
+    "approvedPayloadDigest": null
+  },
+  "payloadDigest": "sha256:e9878272ea714c509334c0d56bdfd7b08c7af03471d1a18cfb80431ea4dfe961"
+}

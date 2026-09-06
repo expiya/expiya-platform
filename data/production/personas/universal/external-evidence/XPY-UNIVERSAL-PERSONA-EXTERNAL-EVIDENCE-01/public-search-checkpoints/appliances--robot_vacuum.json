@@ -1,0 +1,664 @@
+{
+  "schemaVersion": "xpy-persona-public-search-checkpoint/v1",
+  "departmentId": "APPLIANCES",
+  "categoryId": "ROBOT_VACUUM",
+  "rows": [
+    {
+      "exactProductId": "BOSCH_BCRC2W_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "ROBOT_VACUUM",
+      "brand": "Bosch",
+      "model": "BCRC2W",
+      "configurationIdentity": "Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu",
+      "queries": [
+        {
+          "queryKind": "PRIMARY_IDENTITY",
+          "query": "\"Bosch\" \"BCRC2W\" Bosch Spotless Advanced BCRC2W / Türkiye / robot + şarj istasyonu official Türkiye manual",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Bosch%22%20%22BCRC2W%22%20Bosch%20Spotless%20Advanced%20BCRC2W%20%2F%20T%C3%BCrkiye%20%2F%20robot%20%2B%20%C5%9Farj%20istasyonu%20official%20T%C3%BCrkiye%20manual",
+          "searchStatus": 200,
+          "searchBytes": 120656,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.bosch.com.tr/",
+              "title": "Ana Sayfa | Bosch T&#252;rkiye",
+              "snippet": "Neden Bosch? Genel bakış İş birliği ve liderlik Bosch k&#252;lt&#252;r&#252; ve &#231;alışanlarımıza sunduğumuz olanaklar Bosch'ta &#246;ğrenme ve kariyer …",
+              "host": "bosch.com.tr"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/tr",
+              "title": "Yaşam i&#231;in teknoloji | Bosch Ev Aletleri",
+              "snippet": "Bosch ev aletleri; ev işlerini daha da kolaylaştırmak, g&#252;nl&#252;k yaşamı g&#252;zelleştirmek i&#231;in &#252;retilir. Bosch’un faaliyetlerinin temelinde, …",
+              "host": "bosch-home.com.tr"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/online-satis",
+              "title": "Online Satış | Bosch Ev Aletleri",
+              "snippet": "Size en yakın Bosch yetkili servisini bulun. Uzman yetkili servis randevusu i&#231;in 444 6 333 no’lu Bosch &#199;ağrı merkezini arayabilir veya …",
+              "host": "bosch-home.com.tr"
+            },
+            {
+              "url": "https://www.bosch.com.tr/ueruen-ve-hizmetlerimiz/evde-kullanim/",
+              "title": "Evde | Bosch T&#252;rkiye",
+              "snippet": "Bosch g&#252;nl&#252;k yaşamı biraz daha kolaylaştırmak i&#231;in evinize y&#246;nelik &#246;zel&#231;&#246;z&#252;mler sunmaktadır.",
+              "host": "bosch.com.tr"
+            },
+            {
+              "url": "https://www.bosch-professional.com/tr/tr/",
+              "title": "Elektrikli El Aletleri – Resmi e-Mağaza | Bosch Professional",
+              "snippet": "Bosch Professional elektrikli el aletleri, &#246;l&#231;&#252;m cihazları ve aksesuarlarını doğrudan &#252;reticisinden satın alın. Resmi e-mağazada &#246;zel …",
+              "host": "bosch-professional.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Bosch_(company)",
+              "title": "Bosch (company) - Wikipedia",
+              "snippet": "This page was last edited on 31 July 2026, at 07:43 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.bosch.com/company/",
+              "title": "Company | Bosch Global",
+              "snippet": "Dec 31, 2025 &nbsp;&#0183;&#32;The Bosch Group is a leading global supplier of technology and services.",
+              "host": "bosch.com"
+            },
+            {
+              "url": "https://www.bosch-professional.com/tr/tr/el-aletleri-7788707-ocs-ac/",
+              "title": "El aletleri - Bosch Professional",
+              "snippet": "VDE Anahtarlar B&#252;ltenimize abone olun ve Bosch Professional resmi online mağazasından yapacağınız bir sonraki alışverişinizde …",
+              "host": "bosch-professional.com"
+            },
+            {
+              "url": "https://www.bosch-homecomfort.com/tr/tr/residential/ana-sayfa/",
+              "title": "Bosch I Yaşam İ&#231;in Teknoloji | Bosch Home Comfort T&#252;rkiye",
+              "snippet": "Yoğuşmalı kombinin lideri Bosch Home Comfort T&#252;rkiye'nin ısıtma ve soğutma d&#252;nyasına hoşgeldiniz.",
+              "host": "bosch-homecomfort.com"
+            }
+          ],
+          "inspected": [
+            {
+              "url": "https://www.bosch.com.tr/",
+              "title": "Ana Sayfa | Bosch T&#252;rkiye",
+              "snippet": "Neden Bosch? Genel bakış İş birliği ve liderlik Bosch k&#252;lt&#252;r&#252; ve &#231;alışanlarımıza sunduğumuz olanaklar Bosch'ta &#246;ğrenme ve kariyer …",
+              "host": "bosch.com.tr",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 63637,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/tr",
+              "title": "Yaşam i&#231;in teknoloji | Bosch Ev Aletleri",
+              "snippet": "Bosch ev aletleri; ev işlerini daha da kolaylaştırmak, g&#252;nl&#252;k yaşamı g&#252;zelleştirmek i&#231;in &#252;retilir. Bosch’un faaliyetlerinin temelinde, …",
+              "host": "bosch-home.com.tr",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 614305,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            }
+          ]
+        },
+        {
+          "queryKind": "INDEPENDENT_REVIEW",
+          "query": "\"Bosch\" \"BCRC2W\" independent review design usability materials",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Bosch%22%20%22BCRC2W%22%20independent%20review%20design%20usability%20materials",
+          "searchStatus": 200,
+          "searchBytes": 118800,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.bosch.com.tr/",
+              "title": "Ana Sayfa | Bosch T&#252;rkiye",
+              "snippet": "Neden Bosch? Genel bakış İş birliği ve liderlik Bosch k&#252;lt&#252;r&#252; ve &#231;alışanlarımıza sunduğumuz olanaklar Bosch'ta &#246;ğrenme ve kariyer …",
+              "host": "bosch.com.tr"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/tr",
+              "title": "Yaşam i&#231;in teknoloji | Bosch Ev Aletleri",
+              "snippet": "Bosch ev aletleri; ev işlerini daha da kolaylaştırmak, g&#252;nl&#252;k yaşamı g&#252;zelleştirmek i&#231;in &#252;retilir. Bosch’un faaliyetlerinin temelinde, …",
+              "host": "bosch-home.com.tr"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/online-satis",
+              "title": "Online Satış | Bosch Ev Aletleri",
+              "snippet": "Size en yakın Bosch yetkili servisini bulun. Uzman yetkili servis randevusu i&#231;in 444 6 333 no’lu Bosch &#199;ağrı merkezini arayabilir veya …",
+              "host": "bosch-home.com.tr"
+            },
+            {
+              "url": "https://www.bosch.com.tr/ueruen-ve-hizmetlerimiz/evde-kullanim/",
+              "title": "Evde | Bosch T&#252;rkiye",
+              "snippet": "Bosch g&#252;nl&#252;k yaşamı biraz daha kolaylaştırmak i&#231;in evinize y&#246;nelik &#246;zel&#231;&#246;z&#252;mler sunmaktadır.",
+              "host": "bosch.com.tr"
+            },
+            {
+              "url": "https://www.bosch-professional.com/tr/tr/",
+              "title": "Elektrikli El Aletleri – Resmi e-Mağaza | Bosch Professional",
+              "snippet": "Bosch Professional elektrikli el aletleri, &#246;l&#231;&#252;m cihazları ve aksesuarlarını doğrudan &#252;reticisinden satın alın. Resmi e-mağazada &#246;zel …",
+              "host": "bosch-professional.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Bosch_(company)",
+              "title": "Bosch (company) - Wikipedia",
+              "snippet": "This page was last edited on 31 July 2026, at 07:43 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.bosch.com/company/",
+              "title": "Company | Bosch Global",
+              "snippet": "Dec 31, 2025 &nbsp;&#0183;&#32;The Bosch Group is a leading global supplier of technology and services.",
+              "host": "bosch.com"
+            },
+            {
+              "url": "https://www.bosch-professional.com/tr/tr/el-aletleri-7788707-ocs-ac/",
+              "title": "El aletleri - Bosch Professional",
+              "snippet": "VDE Anahtarlar B&#252;ltenimize abone olun ve Bosch Professional resmi online mağazasından yapacağınız bir sonraki alışverişinizde …",
+              "host": "bosch-professional.com"
+            },
+            {
+              "url": "https://www.bosch-homecomfort.com/tr/tr/residential/ana-sayfa/",
+              "title": "Bosch I Yaşam İ&#231;in Teknoloji | Bosch Home Comfort T&#252;rkiye",
+              "snippet": "Yoğuşmalı kombinin lideri Bosch Home Comfort T&#252;rkiye'nin ısıtma ve soğutma d&#252;nyasına hoşgeldiniz.",
+              "host": "bosch-homecomfort.com"
+            }
+          ],
+          "inspected": []
+        }
+      ],
+      "queryCount": 2,
+      "pagesInspected": 4,
+      "compatiblePublicPages": 0,
+      "terminalStatus": "EXTERNAL_EVIDENCE_NOT_FOUND_AFTER_SEARCH",
+      "personaStatus": "PERSONA_EVIDENCE_UNKNOWN",
+      "traitContributions": [],
+      "completedAt": "2026-09-06T00:00:00.000Z"
+    },
+    {
+      "exactProductId": "SAMSUNG_VR3MB77312K_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "ROBOT_VACUUM",
+      "brand": "Samsung",
+      "model": "VR3MB77312K/TR",
+      "configurationIdentity": "Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu",
+      "queries": [
+        {
+          "queryKind": "PRIMARY_IDENTITY",
+          "query": "\"Samsung\" \"VR3MB77312K/TR\" Samsung VR7700BM VR3MB77312K/TR / Türkiye / robot + şarj istasyonu official Türkiye manual",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Samsung%22%20%22VR3MB77312K%2FTR%22%20Samsung%20VR7700BM%20VR3MB77312K%2FTR%20%2F%20T%C3%BCrkiye%20%2F%20robot%20%2B%20%C5%9Farj%20istasyonu%20official%20T%C3%BCrkiye%20manual",
+          "searchStatus": 200,
+          "searchBytes": 122771,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.samsung.com/tr/?msockid=1ab47c3901f667163d036bf500d566cb",
+              "title": "Samsung T&#252;rkiye | Mobil | TV | Beyaz Eşya",
+              "snippet": "Samsung T&#252;rkiye'ye hoşgeldiniz. &#220;st&#252;n teknoloji ve m&#252;kemmel tasarımlarla sunduğumuz geniş &#252;r&#252;n yelpazemiz hakkında bilgi edinin.",
+              "host": "samsung.com"
+            },
+            {
+              "url": "https://shop.samsung.com/tr/tr",
+              "title": "Samsung",
+              "snippet": "Discover the latest Samsung products including smartphones, TVs, and appliances with exclusive deals and personalized …",
+              "host": "shop.samsung.com"
+            },
+            {
+              "url": "https://www.samsung.com/tr/smartphones/all-smartphones/?msockid=1ab47c3901f667163d036bf500d566cb",
+              "title": "Cep Telefonu Modelleri ve Fiyatları | Samsung T&#252;rkiye",
+              "snippet": "Samsung’dan Kazan&#231;lı Alın Kampanyalar Yeni Galaxy Z Serisi Galaxy Watch'ları Keşfedin Samsung Shop App’i İndirin AI Living …",
+              "host": "samsung.com"
+            },
+            {
+              "url": "https://shop.samsung.com/tr/guncel-kampanyalar",
+              "title": "Samsung",
+              "snippet": "Please enable JavaScript to continue using this application.",
+              "host": "shop.samsung.com"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/samsung/cep-telefonu-modelleri/",
+              "title": "SAMSUNG Cep Telefonu Fiyatları ve Modelleri - Vatan Bilgisayar",
+              "snippet": "SAMSUNG Cep telefonu fiyatları, en ucuz akıllı telefon modelleri, aksesuarlarda efsane indirimler ve kampanyalar Vatan …",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/category/samsung-telefon-796041.html",
+              "title": "Samsung Akıllı Telefon Modelleri ve Fiyatları | MediaMarkt",
+              "snippet": "En uygun fiyatlarla satın alabileceğiniz Samsung Telefon Modelleri MediaMarkt'ta! İstediğin Samsung Cep Telelefonu bul ve …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://www.hepsiburada.com/samsung",
+              "title": "Samsung T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Samsung’dan Kazan&#231;lı Alın Kampanyalar Yeni Galaxy Z Serisi Galaxy Watch'ları Keşfedin Samsung Shop App’i İndirin AI Living …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://www.samsung.com/tr/offer/?msockid=1ab47c3901f667163d036bf500d566cb",
+              "title": "T&#252;m Kampanyalar - İndirimli &#220;r&#252;nler | Samsung T&#252;rkiye",
+              "snippet": "Samsung’dan Kazan&#231;lı Alın Kampanyalar Yeni Galaxy Z Serisi Galaxy Watch'ları Keşfedin Samsung Shop App’i İndirin AI Living …",
+              "host": "samsung.com"
+            },
+            {
+              "url": "https://www.samsung.com/tr/support/?msockid=1ab47c3901f667163d036bf500d566cb",
+              "title": "&#220;r&#252;n Yardımı ve Destek | Samsung T&#252;rkiye",
+              "snippet": "Samsung’dan Kazan&#231;lı Alın Kampanyalar Yeni Galaxy Z Serisi Galaxy Watch'ları Keşfedin Samsung Shop App’i İndirin AI Living …",
+              "host": "samsung.com"
+            }
+          ],
+          "inspected": [
+            {
+              "url": "https://www.samsung.com/tr/?msockid=1ab47c3901f667163d036bf500d566cb",
+              "title": "Samsung T&#252;rkiye | Mobil | TV | Beyaz Eşya",
+              "snippet": "Samsung T&#252;rkiye'ye hoşgeldiniz. &#220;st&#252;n teknoloji ve m&#252;kemmel tasarımlarla sunduğumuz geniş &#252;r&#252;n yelpazemiz hakkında bilgi edinin.",
+              "host": "samsung.com",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 358651,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            },
+            {
+              "url": "https://shop.samsung.com/tr/tr",
+              "title": "Samsung",
+              "snippet": "Discover the latest Samsung products including smartphones, TVs, and appliances with exclusive deals and personalized …",
+              "host": "shop.samsung.com",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 162038,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            }
+          ]
+        },
+        {
+          "queryKind": "INDEPENDENT_REVIEW",
+          "query": "\"Samsung\" \"VR3MB77312K/TR\" independent review design usability materials",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Samsung%22%20%22VR3MB77312K%2FTR%22%20independent%20review%20design%20usability%20materials",
+          "searchStatus": 200,
+          "searchBytes": 122020,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.samsung.com/tr/?msockid=096d341fdec66afe0da223d3dffc6b39",
+              "title": "Samsung T&#252;rkiye | Mobil | TV | Beyaz Eşya",
+              "snippet": "Samsung T&#252;rkiye'ye hoşgeldiniz. &#220;st&#252;n teknoloji ve m&#252;kemmel tasarımlarla sunduğumuz geniş &#252;r&#252;n yelpazemiz hakkında bilgi edinin.",
+              "host": "samsung.com"
+            },
+            {
+              "url": "https://shop.samsung.com/tr/tr",
+              "title": "Samsung",
+              "snippet": "Discover the latest Samsung products including smartphones, TVs, and appliances with exclusive deals and personalized …",
+              "host": "shop.samsung.com"
+            },
+            {
+              "url": "https://www.samsung.com/tr/smartphones/all-smartphones/?msockid=096d341fdec66afe0da223d3dffc6b39",
+              "title": "Cep Telefonu Modelleri ve Fiyatları | Samsung T&#252;rkiye",
+              "snippet": "Samsung’dan Kazan&#231;lı Alın Kampanyalar Yeni Galaxy Z Serisi Galaxy Watch'ları Keşfedin Samsung Shop App’i İndirin AI Living …",
+              "host": "samsung.com"
+            },
+            {
+              "url": "https://shop.samsung.com/tr/guncel-kampanyalar",
+              "title": "Samsung",
+              "snippet": "Please enable JavaScript to continue using this application.",
+              "host": "shop.samsung.com"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/samsung/cep-telefonu-modelleri/",
+              "title": "SAMSUNG Cep Telefonu Fiyatları ve Modelleri - Vatan Bilgisayar",
+              "snippet": "SAMSUNG Cep telefonu fiyatları, en ucuz akıllı telefon modelleri, aksesuarlarda efsane indirimler ve kampanyalar Vatan …",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/category/samsung-telefon-796041.html",
+              "title": "Samsung Akıllı Telefon Modelleri ve Fiyatları | MediaMarkt",
+              "snippet": "En uygun fiyatlarla satın alabileceğiniz Samsung Telefon Modelleri MediaMarkt'ta! İstediğin Samsung Cep Telelefonu bul ve …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://www.hepsiburada.com/samsung",
+              "title": "Samsung T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Samsung’dan Kazan&#231;lı Alın Kampanyalar Yeni Galaxy Z Serisi Galaxy Watch'ları Keşfedin Samsung Shop App’i İndirin AI Living …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://www.samsung.com/tr/offer/?msockid=096d341fdec66afe0da223d3dffc6b39",
+              "title": "T&#252;m Kampanyalar - İndirimli &#220;r&#252;nler | Samsung T&#252;rkiye",
+              "snippet": "Samsung’dan Kazan&#231;lı Alın Kampanyalar Yeni Galaxy Z Serisi Galaxy Watch'ları Keşfedin Samsung Shop App’i İndirin AI Living …",
+              "host": "samsung.com"
+            },
+            {
+              "url": "https://www.samsung.com/tr/support/?msockid=096d341fdec66afe0da223d3dffc6b39",
+              "title": "&#220;r&#252;n Yardımı ve Destek | Samsung T&#252;rkiye",
+              "snippet": "Samsung’dan Kazan&#231;lı Alın Kampanyalar Yeni Galaxy Z Serisi Galaxy Watch'ları Keşfedin Samsung Shop App’i İndirin AI Living …",
+              "host": "samsung.com"
+            }
+          ],
+          "inspected": []
+        }
+      ],
+      "queryCount": 2,
+      "pagesInspected": 4,
+      "compatiblePublicPages": 0,
+      "terminalStatus": "EXTERNAL_EVIDENCE_NOT_FOUND_AFTER_SEARCH",
+      "personaStatus": "PERSONA_EVIDENCE_UNKNOWN",
+      "traitContributions": [],
+      "completedAt": "2026-09-06T00:00:00.000Z"
+    },
+    {
+      "exactProductId": "XIAOMI_H40_OV51_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "ROBOT_VACUUM",
+      "brand": "Xiaomi",
+      "model": "Robot Vacuum H40 / OV51",
+      "configurationIdentity": "Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu",
+      "queries": [
+        {
+          "queryKind": "PRIMARY_IDENTITY",
+          "query": "\"Xiaomi\" \"Robot Vacuum H40 / OV51\" Xiaomi Robot Vacuum H40 / OV51 / Türkiye / robot + otomatik toz istasyonu official Türkiye manual",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Xiaomi%22%20%22Robot%20Vacuum%20H40%20%2F%20OV51%22%20Xiaomi%20Robot%20Vacuum%20H40%20%2F%20OV51%20%2F%20T%C3%BCrkiye%20%2F%20robot%20%2B%20otomatik%20toz%20istasyonu%20official%20T%C3%BCrkiye%20manual",
+          "searchStatus": 200,
+          "searchBytes": 121668,
+          "resultCount": 8,
+          "results": [
+            {
+              "url": "https://www.mi.com/tr/",
+              "title": "Xiaomi T&#252;rkiye | Telefonlar | Tabletler | Akıllı Ev Aletleri",
+              "snippet": "Kaliteli telefonlar, Tabletler ve akıllı cihazlar uygun fiyata Xiaomi'nin Resmi &#199;evrimi&#231;i Mağazası mi.com/tr'de sunulmaktadır.",
+              "host": "mi.com"
+            },
+            {
+              "url": "https://www.mi.com/tr/mobile/",
+              "title": "Akıllı Telefonlar ve Mobil Cihazlar | Xiaomi T&#252;rkiye Resmi",
+              "snippet": "Xiaomi T&#252;rkiye resmi sitesi. En yeni Xiaomi akıllı telefonlar, Redmi ve POCO modellerini keşfedin, tabletler ve aksesuarlar dahil.",
+              "host": "mi.com"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/category/xiaomi-telefon-796045.html",
+              "title": "Xiaomi Akıllı Telefon Modelleri ve Fiyatları | MediaMarkt",
+              "snippet": "Xiaomi telefonları, y&#252;ksek performanslı kameralar, hızlı şarj teknolojileri ve akıcı ekran deneyimi gibi &#246;zellikleriyle modern akıllı …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://market.miuiturkiye.net/",
+              "title": "MIUI T&#252;rkiye Market | Yetkili Xiaomi Satış Noktası",
+              "snippet": "MIUI T&#252;rkiye, Xiaomi firmasının T&#252;rkiye'de ki resmi fan sitesi olup xiaomi &#252;r&#252;n ve telefon modellerini en uygun fiyat ve T&#252;rkiye …",
+              "host": "market.miuiturkiye.net"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/xiaomi/cep-telefonu-modelleri/",
+              "title": "XIAOMI Cep Telefonu Fiyatları ve Modelleri - Vatan Bilgisayar",
+              "snippet": "XIAOMI Cep telefonu fiyatları, en ucuz akıllı telefon modelleri, aksesuarlarda efsane indirimler ve kampanyalar Vatan Bilgisayar'da, …",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://www.hepsiburada.com/xiaomi",
+              "title": "Xiaomi T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Xiaomi telefon modelleriy&#252;ksek performans sunarken b&#252;t&#231;e dostu se&#231;eneklerle &#246;ne &#231;ıkar. Bu telefonlar kamera kalitesi, uzun pil …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Xiaomi",
+              "title": "Xiaomi - Wikipedia",
+              "snippet": "This page was last edited on 2 September 2026, at 10:33 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/xiaomi/",
+              "title": "XIAOMI &#220;r&#252;nleri, Fiyatları ve Modelleri – Vatan Bilgisayar",
+              "snippet": "XIAOMI marka &#252;r&#252;nler, en uygun fiyatlar ve taksit se&#231;enekleri ile vatanbilgisayar.com’da! En ucuz XIAOMI marka &#252;r&#252;n modelleri ve …",
+              "host": "vatanbilgisayar.com"
+            }
+          ],
+          "inspected": [
+            {
+              "url": "https://www.mi.com/tr/",
+              "title": "Xiaomi T&#252;rkiye | Telefonlar | Tabletler | Akıllı Ev Aletleri",
+              "snippet": "Kaliteli telefonlar, Tabletler ve akıllı cihazlar uygun fiyata Xiaomi'nin Resmi &#199;evrimi&#231;i Mağazası mi.com/tr'de sunulmaktadır.",
+              "host": "mi.com",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 333745,
+              "modelTokenFound": true,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            },
+            {
+              "url": "https://www.mi.com/tr/mobile/",
+              "title": "Akıllı Telefonlar ve Mobil Cihazlar | Xiaomi T&#252;rkiye Resmi",
+              "snippet": "Xiaomi T&#252;rkiye resmi sitesi. En yeni Xiaomi akıllı telefonlar, Redmi ve POCO modellerini keşfedin, tabletler ve aksesuarlar dahil.",
+              "host": "mi.com",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 252686,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            }
+          ]
+        },
+        {
+          "queryKind": "INDEPENDENT_REVIEW",
+          "query": "\"Xiaomi\" \"Robot Vacuum H40 / OV51\" independent review design usability materials",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Xiaomi%22%20%22Robot%20Vacuum%20H40%20%2F%20OV51%22%20independent%20review%20design%20usability%20materials",
+          "searchStatus": 200,
+          "searchBytes": 121152,
+          "resultCount": 8,
+          "results": [
+            {
+              "url": "https://www.mi.com/tr/",
+              "title": "Xiaomi T&#252;rkiye | Telefonlar | Tabletler | Akıllı Ev Aletleri",
+              "snippet": "Kaliteli telefonlar, Tabletler ve akıllı cihazlar uygun fiyata Xiaomi'nin Resmi &#199;evrimi&#231;i Mağazası mi.com/tr'de sunulmaktadır.",
+              "host": "mi.com"
+            },
+            {
+              "url": "https://www.mi.com/tr/mobile/",
+              "title": "Akıllı Telefonlar ve Mobil Cihazlar | Xiaomi T&#252;rkiye Resmi",
+              "snippet": "Xiaomi T&#252;rkiye resmi sitesi. En yeni Xiaomi akıllı telefonlar, Redmi ve POCO modellerini keşfedin, tabletler ve aksesuarlar dahil.",
+              "host": "mi.com"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/category/xiaomi-telefon-796045.html",
+              "title": "Xiaomi Akıllı Telefon Modelleri ve Fiyatları | MediaMarkt",
+              "snippet": "Xiaomi telefonları, y&#252;ksek performanslı kameralar, hızlı şarj teknolojileri ve akıcı ekran deneyimi gibi &#246;zellikleriyle modern akıllı …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://market.miuiturkiye.net/",
+              "title": "MIUI T&#252;rkiye Market | Yetkili Xiaomi Satış Noktası",
+              "snippet": "MIUI T&#252;rkiye, Xiaomi firmasının T&#252;rkiye'de ki resmi fan sitesi olup xiaomi &#252;r&#252;n ve telefon modellerini en uygun fiyat ve T&#252;rkiye …",
+              "host": "market.miuiturkiye.net"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/xiaomi/cep-telefonu-modelleri/",
+              "title": "XIAOMI Cep Telefonu Fiyatları ve Modelleri - Vatan Bilgisayar",
+              "snippet": "XIAOMI Cep telefonu fiyatları, en ucuz akıllı telefon modelleri, aksesuarlarda efsane indirimler ve kampanyalar Vatan Bilgisayar'da, …",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://www.hepsiburada.com/xiaomi",
+              "title": "Xiaomi T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Xiaomi telefon modelleriy&#252;ksek performans sunarken b&#252;t&#231;e dostu se&#231;eneklerle &#246;ne &#231;ıkar. Bu telefonlar kamera kalitesi, uzun pil …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Xiaomi",
+              "title": "Xiaomi - Wikipedia",
+              "snippet": "This page was last edited on 2 September 2026, at 10:33 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/xiaomi/",
+              "title": "XIAOMI &#220;r&#252;nleri, Fiyatları ve Modelleri – Vatan Bilgisayar",
+              "snippet": "XIAOMI marka &#252;r&#252;nler, en uygun fiyatlar ve taksit se&#231;enekleri ile vatanbilgisayar.com’da! En ucuz XIAOMI marka &#252;r&#252;n modelleri ve …",
+              "host": "vatanbilgisayar.com"
+            }
+          ],
+          "inspected": []
+        }
+      ],
+      "queryCount": 2,
+      "pagesInspected": 4,
+      "compatiblePublicPages": 0,
+      "terminalStatus": "EXTERNAL_EVIDENCE_NOT_FOUND_AFTER_SEARCH",
+      "personaStatus": "PERSONA_EVIDENCE_UNKNOWN",
+      "traitContributions": [],
+      "completedAt": "2026-09-06T00:00:00.000Z"
+    },
+    {
+      "exactProductId": "XIAOMI_X20_PRO_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "ROBOT_VACUUM",
+      "brand": "Xiaomi",
+      "model": "Robot Vacuum X20 Pro",
+      "configurationIdentity": "Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved",
+      "queries": [
+        {
+          "queryKind": "PRIMARY_IDENTITY",
+          "query": "\"Xiaomi\" \"Robot Vacuum X20 Pro\" Xiaomi Robot Vacuum X20 Pro / Türkiye / exact hardware code unresolved official Türkiye manual",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Xiaomi%22%20%22Robot%20Vacuum%20X20%20Pro%22%20Xiaomi%20Robot%20Vacuum%20X20%20Pro%20%2F%20T%C3%BCrkiye%20%2F%20exact%20hardware%20code%20unresolved%20official%20T%C3%BCrkiye%20manual",
+          "searchStatus": 200,
+          "searchBytes": 122882,
+          "resultCount": 8,
+          "results": [
+            {
+              "url": "https://www.mi.com/tr/",
+              "title": "Xiaomi T&#252;rkiye | Telefonlar | Tabletler | Akıllı Ev Aletleri",
+              "snippet": "Kaliteli telefonlar, Tabletler ve akıllı cihazlar uygun fiyata Xiaomi'nin Resmi &#199;evrimi&#231;i Mağazası mi.com/tr'de sunulmaktadır.",
+              "host": "mi.com"
+            },
+            {
+              "url": "https://www.mi.com/tr/mobile/",
+              "title": "Akıllı Telefonlar ve Mobil Cihazlar | Xiaomi T&#252;rkiye Resmi",
+              "snippet": "Xiaomi T&#252;rkiye resmi sitesi. En yeni Xiaomi akıllı telefonlar, Redmi ve POCO modellerini keşfedin, tabletler ve aksesuarlar dahil.",
+              "host": "mi.com"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/category/xiaomi-telefon-796045.html",
+              "title": "Xiaomi Akıllı Telefon Modelleri ve Fiyatları | MediaMarkt",
+              "snippet": "Xiaomi telefonları, y&#252;ksek performanslı kameralar, hızlı şarj teknolojileri ve akıcı ekran deneyimi gibi &#246;zellikleriyle modern akıllı …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://market.miuiturkiye.net/",
+              "title": "MIUI T&#252;rkiye Market | Yetkili Xiaomi Satış Noktası",
+              "snippet": "MIUI T&#252;rkiye, Xiaomi firmasının T&#252;rkiye'de ki resmi fan sitesi olup xiaomi &#252;r&#252;n ve telefon modellerini en uygun fiyat ve T&#252;rkiye …",
+              "host": "market.miuiturkiye.net"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/xiaomi/cep-telefonu-modelleri/",
+              "title": "XIAOMI Cep Telefonu Fiyatları ve Modelleri - Vatan Bilgisayar",
+              "snippet": "XIAOMI Cep telefonu fiyatları, en ucuz akıllı telefon modelleri, aksesuarlarda efsane indirimler ve kampanyalar Vatan Bilgisayar'da, …",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://www.hepsiburada.com/xiaomi",
+              "title": "Xiaomi T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Xiaomi telefon modelleriy&#252;ksek performans sunarken b&#252;t&#231;e dostu se&#231;eneklerle &#246;ne &#231;ıkar. Bu telefonlar kamera kalitesi, uzun pil …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Xiaomi",
+              "title": "Xiaomi - Wikipedia",
+              "snippet": "This page was last edited on 2 September 2026, at 10:33 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/xiaomi/",
+              "title": "XIAOMI &#220;r&#252;nleri, Fiyatları ve Modelleri – Vatan Bilgisayar",
+              "snippet": "XIAOMI marka &#252;r&#252;nler, en uygun fiyatlar ve taksit se&#231;enekleri ile vatanbilgisayar.com’da! En ucuz XIAOMI marka &#252;r&#252;n modelleri ve …",
+              "host": "vatanbilgisayar.com"
+            }
+          ],
+          "inspected": [
+            {
+              "url": "https://www.mi.com/tr/",
+              "title": "Xiaomi T&#252;rkiye | Telefonlar | Tabletler | Akıllı Ev Aletleri",
+              "snippet": "Kaliteli telefonlar, Tabletler ve akıllı cihazlar uygun fiyata Xiaomi'nin Resmi &#199;evrimi&#231;i Mağazası mi.com/tr'de sunulmaktadır.",
+              "host": "mi.com",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 333745,
+              "modelTokenFound": true,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            },
+            {
+              "url": "https://www.mi.com/tr/mobile/",
+              "title": "Akıllı Telefonlar ve Mobil Cihazlar | Xiaomi T&#252;rkiye Resmi",
+              "snippet": "Xiaomi T&#252;rkiye resmi sitesi. En yeni Xiaomi akıllı telefonlar, Redmi ve POCO modellerini keşfedin, tabletler ve aksesuarlar dahil.",
+              "host": "mi.com",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 252686,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            }
+          ]
+        },
+        {
+          "queryKind": "INDEPENDENT_REVIEW",
+          "query": "\"Xiaomi\" \"Robot Vacuum X20 Pro\" independent review design usability materials",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Xiaomi%22%20%22Robot%20Vacuum%20X20%20Pro%22%20independent%20review%20design%20usability%20materials",
+          "searchStatus": 200,
+          "searchBytes": 119792,
+          "resultCount": 8,
+          "results": [
+            {
+              "url": "https://www.mi.com/tr/",
+              "title": "Xiaomi T&#252;rkiye | Telefonlar | Tabletler | Akıllı Ev Aletleri",
+              "snippet": "Kaliteli telefonlar, Tabletler ve akıllı cihazlar uygun fiyata Xiaomi'nin Resmi &#199;evrimi&#231;i Mağazası mi.com/tr'de sunulmaktadır.",
+              "host": "mi.com"
+            },
+            {
+              "url": "https://www.mi.com/tr/mobile/",
+              "title": "Akıllı Telefonlar ve Mobil Cihazlar | Xiaomi T&#252;rkiye Resmi",
+              "snippet": "Xiaomi T&#252;rkiye resmi sitesi. En yeni Xiaomi akıllı telefonlar, Redmi ve POCO modellerini keşfedin, tabletler ve aksesuarlar dahil.",
+              "host": "mi.com"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/category/xiaomi-telefon-796045.html",
+              "title": "Xiaomi Akıllı Telefon Modelleri ve Fiyatları | MediaMarkt",
+              "snippet": "Xiaomi telefonları, y&#252;ksek performanslı kameralar, hızlı şarj teknolojileri ve akıcı ekran deneyimi gibi &#246;zellikleriyle modern akıllı …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://market.miuiturkiye.net/",
+              "title": "MIUI T&#252;rkiye Market | Yetkili Xiaomi Satış Noktası",
+              "snippet": "MIUI T&#252;rkiye, Xiaomi firmasının T&#252;rkiye'de ki resmi fan sitesi olup xiaomi &#252;r&#252;n ve telefon modellerini en uygun fiyat ve T&#252;rkiye …",
+              "host": "market.miuiturkiye.net"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/xiaomi/cep-telefonu-modelleri/",
+              "title": "XIAOMI Cep Telefonu Fiyatları ve Modelleri - Vatan Bilgisayar",
+              "snippet": "XIAOMI Cep telefonu fiyatları, en ucuz akıllı telefon modelleri, aksesuarlarda efsane indirimler ve kampanyalar Vatan Bilgisayar'da, …",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://www.hepsiburada.com/xiaomi",
+              "title": "Xiaomi T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Xiaomi telefon modelleriy&#252;ksek performans sunarken b&#252;t&#231;e dostu se&#231;eneklerle &#246;ne &#231;ıkar. Bu telefonlar kamera kalitesi, uzun pil …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Xiaomi",
+              "title": "Xiaomi - Wikipedia",
+              "snippet": "This page was last edited on 2 September 2026, at 10:33 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/xiaomi/",
+              "title": "XIAOMI &#220;r&#252;nleri, Fiyatları ve Modelleri – Vatan Bilgisayar",
+              "snippet": "XIAOMI marka &#252;r&#252;nler, en uygun fiyatlar ve taksit se&#231;enekleri ile vatanbilgisayar.com’da! En ucuz XIAOMI marka &#252;r&#252;n modelleri ve …",
+              "host": "vatanbilgisayar.com"
+            }
+          ],
+          "inspected": []
+        }
+      ],
+      "queryCount": 2,
+      "pagesInspected": 4,
+      "compatiblePublicPages": 0,
+      "terminalStatus": "EXTERNAL_EVIDENCE_NOT_FOUND_AFTER_SEARCH",
+      "personaStatus": "PERSONA_EVIDENCE_UNKNOWN",
+      "traitContributions": [],
+      "completedAt": "2026-09-06T00:00:00.000Z"
+    }
+  ],
+  "digest": "sha256:11a69297359228d2fd1bc20b6e455272e282c7d8368498d16b1a2b292f30b3d6"
+}

@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "xpy-persona-projection-invariant-proofs/v1",
+  "aggregateCap": 0.75,
+  "noDoubleCounting": true,
+  "conflictPrecedence": "CONFLICTED_EVIDENCE_IS_NEUTRAL_AND_OVERRIDES_POSITIVE_CONTRIBUTION",
+  "correctionRemovesPriorEffect": true,
+  "clearRemovesEffect": true,
+  "supersessionRemovesPriorEffect": true,
+  "activePreferenceCanChangeOrderingOnly": true,
+  "tiesRemainTies": true,
+  "unknownIsNeutral": true,
+  "catalogOrderIndependent": true,
+  "missingMappingFailsClosedLocally": true,
+  "futureCatalogReadinessGateMandatory": true,
+  "carsV39Changed": false,
+  "lifecycleEvidence": {
+    "active": [
+      "electronics:headphones:sony:wh1000xm5b-ce7",
+      "electronics:headphones:huawei:freebuds-6-black"
+    ],
+    "cleared": [
+      "electronics:headphones:huawei:freebuds-6-black",
+      "electronics:headphones:sony:wh1000xm5b-ce7"
+    ],
+    "superseded": [
+      "electronics:headphones:huawei:freebuds-6-black",
+      "electronics:headphones:sony:wh1000xm5b-ce7"
+    ],
+    "corrected": [
+      "electronics:headphones:huawei:freebuds-6-black",
+      "electronics:headphones:sony:wh1000xm5b-ce7"
+    ]
+  }
+}

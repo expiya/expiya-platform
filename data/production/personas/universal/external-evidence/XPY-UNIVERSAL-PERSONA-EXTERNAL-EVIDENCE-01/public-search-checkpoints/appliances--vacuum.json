@@ -1,0 +1,688 @@
+{
+  "schemaVersion": "xpy-persona-public-search-checkpoint/v1",
+  "departmentId": "APPLIANCES",
+  "categoryId": "VACUUM",
+  "rows": [
+    {
+      "exactProductId": "BOSCH_BGC21X300_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "VACUUM",
+      "brand": "Bosch",
+      "model": "BGC21X300",
+      "configurationIdentity": "Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister",
+      "queries": [
+        {
+          "queryKind": "PRIMARY_IDENTITY",
+          "query": "\"Bosch\" \"BGC21X300\" Bosch Serie 4 BGC21X300 / Türkiye / kablolu torbasız kuru canister official Türkiye manual",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Bosch%22%20%22BGC21X300%22%20Bosch%20Serie%204%20BGC21X300%20%2F%20T%C3%BCrkiye%20%2F%20kablolu%20torbas%C4%B1z%20kuru%20canister%20official%20T%C3%BCrkiye%20manual",
+          "searchStatus": 200,
+          "searchBytes": 120928,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.bosch.com.tr/",
+              "title": "Ana Sayfa | Bosch T&#252;rkiye",
+              "snippet": "Neden Bosch? Genel bakış İş birliği ve liderlik Bosch k&#252;lt&#252;r&#252; ve &#231;alışanlarımıza sunduğumuz olanaklar Bosch'ta &#246;ğrenme ve kariyer …",
+              "host": "bosch.com.tr"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/tr",
+              "title": "Yaşam i&#231;in teknoloji | Bosch Ev Aletleri",
+              "snippet": "Bosch ev aletleri; ev işlerini daha da kolaylaştırmak, g&#252;nl&#252;k yaşamı g&#252;zelleştirmek i&#231;in &#252;retilir. Bosch’un faaliyetlerinin temelinde, …",
+              "host": "bosch-home.com.tr"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/online-satis",
+              "title": "Online Satış | Bosch Ev Aletleri",
+              "snippet": "Size en yakın Bosch yetkili servisini bulun. Uzman yetkili servis randevusu i&#231;in 444 6 333 no’lu Bosch &#199;ağrı merkezini arayabilir veya …",
+              "host": "bosch-home.com.tr"
+            },
+            {
+              "url": "https://www.bosch.com.tr/ueruen-ve-hizmetlerimiz/evde-kullanim/",
+              "title": "Evde | Bosch T&#252;rkiye",
+              "snippet": "Bosch g&#252;nl&#252;k yaşamı biraz daha kolaylaştırmak i&#231;in evinize y&#246;nelik &#246;zel&#231;&#246;z&#252;mler sunmaktadır.",
+              "host": "bosch.com.tr"
+            },
+            {
+              "url": "https://www.bosch-professional.com/tr/tr/",
+              "title": "Elektrikli El Aletleri – Resmi e-Mağaza | Bosch Professional",
+              "snippet": "Bosch Professional elektrikli el aletleri, &#246;l&#231;&#252;m cihazları ve aksesuarlarını doğrudan &#252;reticisinden satın alın. Resmi e-mağazada &#246;zel …",
+              "host": "bosch-professional.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Bosch_(company)",
+              "title": "Bosch (company) - Wikipedia",
+              "snippet": "This page was last edited on 31 July 2026, at 07:43 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.bosch.com/company/",
+              "title": "Company | Bosch Global",
+              "snippet": "Dec 31, 2025 &nbsp;&#0183;&#32;The Bosch Group is a leading global supplier of technology and services.",
+              "host": "bosch.com"
+            },
+            {
+              "url": "https://www.bosch-professional.com/tr/tr/el-aletleri-7788707-ocs-ac/",
+              "title": "El aletleri - Bosch Professional",
+              "snippet": "VDE Anahtarlar B&#252;ltenimize abone olun ve Bosch Professional resmi online mağazasından yapacağınız bir sonraki alışverişinizde …",
+              "host": "bosch-professional.com"
+            },
+            {
+              "url": "https://www.bosch-homecomfort.com/tr/tr/residential/ana-sayfa/",
+              "title": "Bosch I Yaşam İ&#231;in Teknoloji | Bosch Home Comfort T&#252;rkiye",
+              "snippet": "Yoğuşmalı kombinin lideri Bosch Home Comfort T&#252;rkiye'nin ısıtma ve soğutma d&#252;nyasına hoşgeldiniz.",
+              "host": "bosch-homecomfort.com"
+            }
+          ],
+          "inspected": [
+            {
+              "url": "https://www.bosch.com.tr/",
+              "title": "Ana Sayfa | Bosch T&#252;rkiye",
+              "snippet": "Neden Bosch? Genel bakış İş birliği ve liderlik Bosch k&#252;lt&#252;r&#252; ve &#231;alışanlarımıza sunduğumuz olanaklar Bosch'ta &#246;ğrenme ve kariyer …",
+              "host": "bosch.com.tr",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 63637,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/tr",
+              "title": "Yaşam i&#231;in teknoloji | Bosch Ev Aletleri",
+              "snippet": "Bosch ev aletleri; ev işlerini daha da kolaylaştırmak, g&#252;nl&#252;k yaşamı g&#252;zelleştirmek i&#231;in &#252;retilir. Bosch’un faaliyetlerinin temelinde, …",
+              "host": "bosch-home.com.tr",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 614305,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            }
+          ]
+        },
+        {
+          "queryKind": "INDEPENDENT_REVIEW",
+          "query": "\"Bosch\" \"BGC21X300\" independent review design usability materials",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Bosch%22%20%22BGC21X300%22%20independent%20review%20design%20usability%20materials",
+          "searchStatus": 200,
+          "searchBytes": 119555,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.bosch.com.tr/",
+              "title": "Ana Sayfa | Bosch T&#252;rkiye",
+              "snippet": "Neden Bosch? Genel bakış İş birliği ve liderlik Bosch k&#252;lt&#252;r&#252; ve &#231;alışanlarımıza sunduğumuz olanaklar Bosch'ta &#246;ğrenme ve kariyer …",
+              "host": "bosch.com.tr"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/tr",
+              "title": "Yaşam i&#231;in teknoloji | Bosch Ev Aletleri",
+              "snippet": "Bosch ev aletleri; ev işlerini daha da kolaylaştırmak, g&#252;nl&#252;k yaşamı g&#252;zelleştirmek i&#231;in &#252;retilir. Bosch’un faaliyetlerinin temelinde, …",
+              "host": "bosch-home.com.tr"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/online-satis",
+              "title": "Online Satış | Bosch Ev Aletleri",
+              "snippet": "Size en yakın Bosch yetkili servisini bulun. Uzman yetkili servis randevusu i&#231;in 444 6 333 no’lu Bosch &#199;ağrı merkezini arayabilir veya …",
+              "host": "bosch-home.com.tr"
+            },
+            {
+              "url": "https://www.bosch.com.tr/ueruen-ve-hizmetlerimiz/evde-kullanim/",
+              "title": "Evde | Bosch T&#252;rkiye",
+              "snippet": "Bosch g&#252;nl&#252;k yaşamı biraz daha kolaylaştırmak i&#231;in evinize y&#246;nelik &#246;zel&#231;&#246;z&#252;mler sunmaktadır.",
+              "host": "bosch.com.tr"
+            },
+            {
+              "url": "https://www.bosch-professional.com/tr/tr/",
+              "title": "Elektrikli El Aletleri – Resmi e-Mağaza | Bosch Professional",
+              "snippet": "Bosch Professional elektrikli el aletleri, &#246;l&#231;&#252;m cihazları ve aksesuarlarını doğrudan &#252;reticisinden satın alın. Resmi e-mağazada &#246;zel …",
+              "host": "bosch-professional.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Bosch_(company)",
+              "title": "Bosch (company) - Wikipedia",
+              "snippet": "This page was last edited on 31 July 2026, at 07:43 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.bosch.com/company/",
+              "title": "Company | Bosch Global",
+              "snippet": "Dec 31, 2025 &nbsp;&#0183;&#32;The Bosch Group is a leading global supplier of technology and services.",
+              "host": "bosch.com"
+            },
+            {
+              "url": "https://www.bosch-professional.com/tr/tr/el-aletleri-7788707-ocs-ac/",
+              "title": "El aletleri - Bosch Professional",
+              "snippet": "VDE Anahtarlar B&#252;ltenimize abone olun ve Bosch Professional resmi online mağazasından yapacağınız bir sonraki alışverişinizde …",
+              "host": "bosch-professional.com"
+            },
+            {
+              "url": "https://www.bosch-homecomfort.com/tr/tr/residential/ana-sayfa/",
+              "title": "Bosch I Yaşam İ&#231;in Teknoloji | Bosch Home Comfort T&#252;rkiye",
+              "snippet": "Yoğuşmalı kombinin lideri Bosch Home Comfort T&#252;rkiye'nin ısıtma ve soğutma d&#252;nyasına hoşgeldiniz.",
+              "host": "bosch-homecomfort.com"
+            }
+          ],
+          "inspected": []
+        }
+      ],
+      "queryCount": 2,
+      "pagesInspected": 4,
+      "compatiblePublicPages": 0,
+      "terminalStatus": "EXTERNAL_EVIDENCE_NOT_FOUND_AFTER_SEARCH",
+      "personaStatus": "PERSONA_EVIDENCE_UNKNOWN",
+      "traitContributions": [],
+      "completedAt": "2026-09-06T00:00:00.000Z"
+    },
+    {
+      "exactProductId": "BOSCH_BGC41PET_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "VACUUM",
+      "brand": "Bosch",
+      "model": "BGC41PET",
+      "configurationIdentity": "Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister",
+      "queries": [
+        {
+          "queryKind": "PRIMARY_IDENTITY",
+          "query": "\"Bosch\" \"BGC41PET\" Bosch Serie 6 ProAnimal BGC41PET / Türkiye / kablolu torbasız kuru canister official Türkiye manual",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Bosch%22%20%22BGC41PET%22%20Bosch%20Serie%206%20ProAnimal%20BGC41PET%20%2F%20T%C3%BCrkiye%20%2F%20kablolu%20torbas%C4%B1z%20kuru%20canister%20official%20T%C3%BCrkiye%20manual",
+          "searchStatus": 200,
+          "searchBytes": 120558,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.bosch.com.tr/",
+              "title": "Ana Sayfa | Bosch T&#252;rkiye",
+              "snippet": "Neden Bosch? Genel bakış İş birliği ve liderlik Bosch k&#252;lt&#252;r&#252; ve &#231;alışanlarımıza sunduğumuz olanaklar Bosch'ta &#246;ğrenme ve kariyer …",
+              "host": "bosch.com.tr"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/tr",
+              "title": "Yaşam i&#231;in teknoloji | Bosch Ev Aletleri",
+              "snippet": "Bosch ev aletleri; ev işlerini daha da kolaylaştırmak, g&#252;nl&#252;k yaşamı g&#252;zelleştirmek i&#231;in &#252;retilir. Bosch’un faaliyetlerinin temelinde, …",
+              "host": "bosch-home.com.tr"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/online-satis",
+              "title": "Online Satış | Bosch Ev Aletleri",
+              "snippet": "Size en yakın Bosch yetkili servisini bulun. Uzman yetkili servis randevusu i&#231;in 444 6 333 no’lu Bosch &#199;ağrı merkezini arayabilir veya …",
+              "host": "bosch-home.com.tr"
+            },
+            {
+              "url": "https://www.bosch.com.tr/ueruen-ve-hizmetlerimiz/evde-kullanim/",
+              "title": "Evde | Bosch T&#252;rkiye",
+              "snippet": "Bosch g&#252;nl&#252;k yaşamı biraz daha kolaylaştırmak i&#231;in evinize y&#246;nelik &#246;zel&#231;&#246;z&#252;mler sunmaktadır.",
+              "host": "bosch.com.tr"
+            },
+            {
+              "url": "https://www.bosch-professional.com/tr/tr/",
+              "title": "Elektrikli El Aletleri – Resmi e-Mağaza | Bosch Professional",
+              "snippet": "Bosch Professional elektrikli el aletleri, &#246;l&#231;&#252;m cihazları ve aksesuarlarını doğrudan &#252;reticisinden satın alın. Resmi e-mağazada &#246;zel …",
+              "host": "bosch-professional.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Bosch_(company)",
+              "title": "Bosch (company) - Wikipedia",
+              "snippet": "This page was last edited on 31 July 2026, at 07:43 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.bosch.com/company/",
+              "title": "Company | Bosch Global",
+              "snippet": "Dec 31, 2025 &nbsp;&#0183;&#32;The Bosch Group is a leading global supplier of technology and services.",
+              "host": "bosch.com"
+            },
+            {
+              "url": "https://www.bosch-professional.com/tr/tr/el-aletleri-7788707-ocs-ac/",
+              "title": "El aletleri - Bosch Professional",
+              "snippet": "VDE Anahtarlar B&#252;ltenimize abone olun ve Bosch Professional resmi online mağazasından yapacağınız bir sonraki alışverişinizde …",
+              "host": "bosch-professional.com"
+            },
+            {
+              "url": "https://www.bosch-homecomfort.com/tr/tr/residential/ana-sayfa/",
+              "title": "Bosch I Yaşam İ&#231;in Teknoloji | Bosch Home Comfort T&#252;rkiye",
+              "snippet": "Yoğuşmalı kombinin lideri Bosch Home Comfort T&#252;rkiye'nin ısıtma ve soğutma d&#252;nyasına hoşgeldiniz.",
+              "host": "bosch-homecomfort.com"
+            }
+          ],
+          "inspected": [
+            {
+              "url": "https://www.bosch.com.tr/",
+              "title": "Ana Sayfa | Bosch T&#252;rkiye",
+              "snippet": "Neden Bosch? Genel bakış İş birliği ve liderlik Bosch k&#252;lt&#252;r&#252; ve &#231;alışanlarımıza sunduğumuz olanaklar Bosch'ta &#246;ğrenme ve kariyer …",
+              "host": "bosch.com.tr",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 63637,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/tr",
+              "title": "Yaşam i&#231;in teknoloji | Bosch Ev Aletleri",
+              "snippet": "Bosch ev aletleri; ev işlerini daha da kolaylaştırmak, g&#252;nl&#252;k yaşamı g&#252;zelleştirmek i&#231;in &#252;retilir. Bosch’un faaliyetlerinin temelinde, …",
+              "host": "bosch-home.com.tr",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 614305,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            }
+          ]
+        },
+        {
+          "queryKind": "INDEPENDENT_REVIEW",
+          "query": "\"Bosch\" \"BGC41PET\" independent review design usability materials",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Bosch%22%20%22BGC41PET%22%20independent%20review%20design%20usability%20materials",
+          "searchStatus": 200,
+          "searchBytes": 117917,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.bosch.com.tr/",
+              "title": "Ana Sayfa | Bosch T&#252;rkiye",
+              "snippet": "Neden Bosch? Genel bakış İş birliği ve liderlik Bosch k&#252;lt&#252;r&#252; ve &#231;alışanlarımıza sunduğumuz olanaklar Bosch'ta &#246;ğrenme ve kariyer …",
+              "host": "bosch.com.tr"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/tr",
+              "title": "Yaşam i&#231;in teknoloji | Bosch Ev Aletleri",
+              "snippet": "Bosch ev aletleri; ev işlerini daha da kolaylaştırmak, g&#252;nl&#252;k yaşamı g&#252;zelleştirmek i&#231;in &#252;retilir. Bosch’un faaliyetlerinin temelinde, …",
+              "host": "bosch-home.com.tr"
+            },
+            {
+              "url": "https://www.bosch-home.com.tr/online-satis",
+              "title": "Online Satış | Bosch Ev Aletleri",
+              "snippet": "Size en yakın Bosch yetkili servisini bulun. Uzman yetkili servis randevusu i&#231;in 444 6 333 no’lu Bosch &#199;ağrı merkezini arayabilir veya …",
+              "host": "bosch-home.com.tr"
+            },
+            {
+              "url": "https://www.bosch.com.tr/ueruen-ve-hizmetlerimiz/evde-kullanim/",
+              "title": "Evde | Bosch T&#252;rkiye",
+              "snippet": "Bosch g&#252;nl&#252;k yaşamı biraz daha kolaylaştırmak i&#231;in evinize y&#246;nelik &#246;zel&#231;&#246;z&#252;mler sunmaktadır.",
+              "host": "bosch.com.tr"
+            },
+            {
+              "url": "https://www.bosch-professional.com/tr/tr/",
+              "title": "Elektrikli El Aletleri – Resmi e-Mağaza | Bosch Professional",
+              "snippet": "Bosch Professional elektrikli el aletleri, &#246;l&#231;&#252;m cihazları ve aksesuarlarını doğrudan &#252;reticisinden satın alın. Resmi e-mağazada &#246;zel …",
+              "host": "bosch-professional.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Bosch_(company)",
+              "title": "Bosch (company) - Wikipedia",
+              "snippet": "This page was last edited on 31 July 2026, at 07:43 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.bosch.com/company/",
+              "title": "Company | Bosch Global",
+              "snippet": "Dec 31, 2025 &nbsp;&#0183;&#32;The Bosch Group is a leading global supplier of technology and services.",
+              "host": "bosch.com"
+            },
+            {
+              "url": "https://www.bosch-professional.com/tr/tr/el-aletleri-7788707-ocs-ac/",
+              "title": "El aletleri - Bosch Professional",
+              "snippet": "VDE Anahtarlar B&#252;ltenimize abone olun ve Bosch Professional resmi online mağazasından yapacağınız bir sonraki alışverişinizde …",
+              "host": "bosch-professional.com"
+            },
+            {
+              "url": "https://www.bosch-homecomfort.com/tr/tr/residential/ana-sayfa/",
+              "title": "Bosch I Yaşam İ&#231;in Teknoloji | Bosch Home Comfort T&#252;rkiye",
+              "snippet": "Yoğuşmalı kombinin lideri Bosch Home Comfort T&#252;rkiye'nin ısıtma ve soğutma d&#252;nyasına hoşgeldiniz.",
+              "host": "bosch-homecomfort.com"
+            }
+          ],
+          "inspected": []
+        }
+      ],
+      "queryCount": 2,
+      "pagesInspected": 4,
+      "compatiblePublicPages": 0,
+      "terminalStatus": "EXTERNAL_EVIDENCE_NOT_FOUND_AFTER_SEARCH",
+      "personaStatus": "PERSONA_EVIDENCE_UNKNOWN",
+      "traitContributions": [],
+      "completedAt": "2026-09-06T00:00:00.000Z"
+    },
+    {
+      "exactProductId": "PHILIPS_FC9330_07_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "VACUUM",
+      "brand": "Philips",
+      "model": "FC9330/07",
+      "configurationIdentity": "Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister",
+      "queries": [
+        {
+          "queryKind": "PRIMARY_IDENTITY",
+          "query": "\"Philips\" \"FC9330/07\" Philips PowerPro Compact FC9330/07 / Türkiye / kablolu torbasız kuru canister official Türkiye manual",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Philips%22%20%22FC9330%2F07%22%20Philips%20PowerPro%20Compact%20FC9330%2F07%20%2F%20T%C3%BCrkiye%20%2F%20kablolu%20torbas%C4%B1z%20kuru%20canister%20official%20T%C3%BCrkiye%20manual",
+          "searchStatus": 200,
+          "searchBytes": 122701,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.philips.com.tr/",
+              "title": "Philips - T&#252;rkiye | Philips",
+              "snippet": "Philips olarak yeniliğin, uzun s&#252;re seveceğiniz kaliteli &#252;r&#252;nler &#252;retmek ve ardından bunları geri d&#246;n&#252;ş&#252;me kazandırmak ile ilgili …",
+              "host": "philips.com.tr"
+            },
+            {
+              "url": "https://www.philips.com.tr/c-e/welcome.html",
+              "title": "Philips'e Hoş Geldiniz",
+              "snippet": "Philips &#252;r&#252;nleri, hizmetleri, etkinlikleri ve promosyonları hakkında tercihlerime ve davranışlarıma g&#246;re ticari elektronik ileti almak …",
+              "host": "philips.com.tr"
+            },
+            {
+              "url": "https://www.philipsturkiye.com.tr/",
+              "title": "Philips T&#252;rkiye - Garanti Platformu",
+              "snippet": "Kampanya s&#252;resi: 01 Ocak – 31 Aralık 2026 tarihleri arasında ge&#231;erlidir. 31 Aralık 2026 tarihinden sonra satın alınan Philips Lumea …",
+              "host": "philipsturkiye.com.tr"
+            },
+            {
+              "url": "https://www.philips.com/global",
+              "title": "Global home | Philips",
+              "snippet": "By clicking on the link, you will be leaving the official Royal Philips (&quot;Philips&quot;) website. Any links to third-party websites that may …",
+              "host": "philips.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Philips",
+              "title": "Philips - Wikipedia",
+              "snippet": "This page was last edited on 1 September 2026, at 09:21 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/brand/philips",
+              "title": "Philips Marka &#220;r&#252;nler En Uygun Fiyatlarla! | MediaMarkt",
+              "snippet": "Philips marka &#252;r&#252;nler en uygun fiyatlarla MediaMarkt'ta! Philips marka &#252;r&#252;n fiyatları ve &#246;zelliklerini incelemek i&#231;in hemen tıkla, sen de …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://www.hepsiburada.com/philips",
+              "title": "Philips T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Philips, akıllı ev sistemleri ile yaşam alanlarınızı daha konforlu hale getirir. Akıllı aydınlatma, enerji tasarrufu sağlayan cihazlar ve …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://tr.wikipedia.org/wiki/Philips",
+              "title": "Philips - Vikipedi",
+              "snippet": "Koninklijke Philips Electronics N.V. veya kısaca Philips, merkezi Hollanda ’da bulunan ve 60'tan fazla &#252;lkede faaliyet g&#246;steren, …",
+              "host": "tr.wikipedia.org"
+            },
+            {
+              "url": "https://www.teknosa.com/philips-b-2438",
+              "title": "Philips Fiyatları ve Modelleri - Teknosa",
+              "snippet": "Philips &#246;zelliklerini keşfetmek, alternatif &#252;r&#252;nleri incelemek ve Teknosa ayrıcalıkları ile satın almak i&#231;in hemen tıklayın.",
+              "host": "teknosa.com"
+            }
+          ],
+          "inspected": [
+            {
+              "url": "https://www.philips.com.tr/",
+              "title": "Philips - T&#252;rkiye | Philips",
+              "snippet": "Philips olarak yeniliğin, uzun s&#252;re seveceğiniz kaliteli &#252;r&#252;nler &#252;retmek ve ardından bunları geri d&#246;n&#252;ş&#252;me kazandırmak ile ilgili …",
+              "host": "philips.com.tr",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 706860,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            },
+            {
+              "url": "https://www.philips.com.tr/c-e/welcome.html",
+              "title": "Philips'e Hoş Geldiniz",
+              "snippet": "Philips &#252;r&#252;nleri, hizmetleri, etkinlikleri ve promosyonları hakkında tercihlerime ve davranışlarıma g&#246;re ticari elektronik ileti almak …",
+              "host": "philips.com.tr",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 232267,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            }
+          ]
+        },
+        {
+          "queryKind": "INDEPENDENT_REVIEW",
+          "query": "\"Philips\" \"FC9330/07\" independent review design usability materials",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Philips%22%20%22FC9330%2F07%22%20independent%20review%20design%20usability%20materials",
+          "searchStatus": 200,
+          "searchBytes": 120202,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.philips.com.tr/",
+              "title": "Philips - T&#252;rkiye | Philips",
+              "snippet": "Philips olarak yeniliğin, uzun s&#252;re seveceğiniz kaliteli &#252;r&#252;nler &#252;retmek ve ardından bunları geri d&#246;n&#252;ş&#252;me kazandırmak ile ilgili …",
+              "host": "philips.com.tr"
+            },
+            {
+              "url": "https://www.philips.com.tr/c-e/welcome.html",
+              "title": "Philips'e Hoş Geldiniz",
+              "snippet": "Philips &#252;r&#252;nleri, hizmetleri, etkinlikleri ve promosyonları hakkında tercihlerime ve davranışlarıma g&#246;re ticari elektronik ileti almak …",
+              "host": "philips.com.tr"
+            },
+            {
+              "url": "https://www.philipsturkiye.com.tr/",
+              "title": "Philips T&#252;rkiye - Garanti Platformu",
+              "snippet": "Kampanya s&#252;resi: 01 Ocak – 31 Aralık 2026 tarihleri arasında ge&#231;erlidir. 31 Aralık 2026 tarihinden sonra satın alınan Philips Lumea …",
+              "host": "philipsturkiye.com.tr"
+            },
+            {
+              "url": "https://www.philips.com/global",
+              "title": "Global home | Philips",
+              "snippet": "By clicking on the link, you will be leaving the official Royal Philips (&quot;Philips&quot;) website. Any links to third-party websites that may …",
+              "host": "philips.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Philips",
+              "title": "Philips - Wikipedia",
+              "snippet": "This page was last edited on 1 September 2026, at 09:21 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/brand/philips",
+              "title": "Philips Marka &#220;r&#252;nler En Uygun Fiyatlarla! | MediaMarkt",
+              "snippet": "Philips marka &#252;r&#252;nler en uygun fiyatlarla MediaMarkt'ta! Philips marka &#252;r&#252;n fiyatları ve &#246;zelliklerini incelemek i&#231;in hemen tıkla, sen de …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://www.hepsiburada.com/philips",
+              "title": "Philips T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Philips, akıllı ev sistemleri ile yaşam alanlarınızı daha konforlu hale getirir. Akıllı aydınlatma, enerji tasarrufu sağlayan cihazlar ve …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://tr.wikipedia.org/wiki/Philips",
+              "title": "Philips - Vikipedi",
+              "snippet": "Koninklijke Philips Electronics N.V. veya kısaca Philips, merkezi Hollanda ’da bulunan ve 60'tan fazla &#252;lkede faaliyet g&#246;steren, …",
+              "host": "tr.wikipedia.org"
+            },
+            {
+              "url": "https://www.teknosa.com/philips-b-2438",
+              "title": "Philips Fiyatları ve Modelleri - Teknosa",
+              "snippet": "Philips &#246;zelliklerini keşfetmek, alternatif &#252;r&#252;nleri incelemek ve Teknosa ayrıcalıkları ile satın almak i&#231;in hemen tıklayın.",
+              "host": "teknosa.com"
+            }
+          ],
+          "inspected": []
+        }
+      ],
+      "queryCount": 2,
+      "pagesInspected": 4,
+      "compatiblePublicPages": 0,
+      "terminalStatus": "EXTERNAL_EVIDENCE_NOT_FOUND_AFTER_SEARCH",
+      "personaStatus": "PERSONA_EVIDENCE_UNKNOWN",
+      "traitContributions": [],
+      "completedAt": "2026-09-06T00:00:00.000Z"
+    },
+    {
+      "exactProductId": "PHILIPS_FC9750_07_TR",
+      "departmentId": "APPLIANCES",
+      "categoryId": "VACUUM",
+      "brand": "Philips",
+      "model": "FC9750/07",
+      "configurationIdentity": "Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister",
+      "queries": [
+        {
+          "queryKind": "PRIMARY_IDENTITY",
+          "query": "\"Philips\" \"FC9750/07\" Philips PowerPro Max FC9750/07 / Türkiye / kablolu torbasız kuru canister official Türkiye manual",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Philips%22%20%22FC9750%2F07%22%20Philips%20PowerPro%20Max%20FC9750%2F07%20%2F%20T%C3%BCrkiye%20%2F%20kablolu%20torbas%C4%B1z%20kuru%20canister%20official%20T%C3%BCrkiye%20manual",
+          "searchStatus": 200,
+          "searchBytes": 122062,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.philips.com.tr/",
+              "title": "Philips - T&#252;rkiye | Philips",
+              "snippet": "Philips olarak yeniliğin, uzun s&#252;re seveceğiniz kaliteli &#252;r&#252;nler &#252;retmek ve ardından bunları geri d&#246;n&#252;ş&#252;me kazandırmak ile ilgili …",
+              "host": "philips.com.tr"
+            },
+            {
+              "url": "https://www.philips.com.tr/c-e/welcome.html",
+              "title": "Philips'e Hoş Geldiniz",
+              "snippet": "Philips &#252;r&#252;nleri, hizmetleri, etkinlikleri ve promosyonları hakkında tercihlerime ve davranışlarıma g&#246;re ticari elektronik ileti almak …",
+              "host": "philips.com.tr"
+            },
+            {
+              "url": "https://www.philipsturkiye.com.tr/",
+              "title": "Philips T&#252;rkiye - Garanti Platformu",
+              "snippet": "Kampanya s&#252;resi: 01 Ocak – 31 Aralık 2026 tarihleri arasında ge&#231;erlidir. 31 Aralık 2026 tarihinden sonra satın alınan Philips Lumea …",
+              "host": "philipsturkiye.com.tr"
+            },
+            {
+              "url": "https://www.philips.com/global",
+              "title": "Global home | Philips",
+              "snippet": "By clicking on the link, you will be leaving the official Royal Philips (&quot;Philips&quot;) website. Any links to third-party websites that may …",
+              "host": "philips.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Philips",
+              "title": "Philips - Wikipedia",
+              "snippet": "This page was last edited on 1 September 2026, at 09:21 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/brand/philips",
+              "title": "Philips Marka &#220;r&#252;nler En Uygun Fiyatlarla! | MediaMarkt",
+              "snippet": "Philips marka &#252;r&#252;nler en uygun fiyatlarla MediaMarkt'ta! Philips marka &#252;r&#252;n fiyatları ve &#246;zelliklerini incelemek i&#231;in hemen tıkla, sen de …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://www.hepsiburada.com/philips",
+              "title": "Philips T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Philips, akıllı ev sistemleri ile yaşam alanlarınızı daha konforlu hale getirir. Akıllı aydınlatma, enerji tasarrufu sağlayan cihazlar ve …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://tr.wikipedia.org/wiki/Philips",
+              "title": "Philips - Vikipedi",
+              "snippet": "Koninklijke Philips Electronics N.V. veya kısaca Philips, merkezi Hollanda ’da bulunan ve 60'tan fazla &#252;lkede faaliyet g&#246;steren, …",
+              "host": "tr.wikipedia.org"
+            },
+            {
+              "url": "https://www.teknosa.com/philips-b-2438",
+              "title": "Philips Fiyatları ve Modelleri - Teknosa",
+              "snippet": "Philips &#246;zelliklerini keşfetmek, alternatif &#252;r&#252;nleri incelemek ve Teknosa ayrıcalıkları ile satın almak i&#231;in hemen tıklayın.",
+              "host": "teknosa.com"
+            }
+          ],
+          "inspected": [
+            {
+              "url": "https://www.philips.com.tr/",
+              "title": "Philips - T&#252;rkiye | Philips",
+              "snippet": "Philips olarak yeniliğin, uzun s&#252;re seveceğiniz kaliteli &#252;r&#252;nler &#252;retmek ve ardından bunları geri d&#246;n&#252;ş&#252;me kazandırmak ile ilgili …",
+              "host": "philips.com.tr",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 706860,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            },
+            {
+              "url": "https://www.philips.com.tr/c-e/welcome.html",
+              "title": "Philips'e Hoş Geldiniz",
+              "snippet": "Philips &#252;r&#252;nleri, hizmetleri, etkinlikleri ve promosyonları hakkında tercihlerime ve davranışlarıma g&#246;re ticari elektronik ileti almak …",
+              "host": "philips.com.tr",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 232267,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            }
+          ]
+        },
+        {
+          "queryKind": "INDEPENDENT_REVIEW",
+          "query": "\"Philips\" \"FC9750/07\" independent review design usability materials",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22Philips%22%20%22FC9750%2F07%22%20independent%20review%20design%20usability%20materials",
+          "searchStatus": 200,
+          "searchBytes": 118665,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.philips.com.tr/",
+              "title": "Philips - T&#252;rkiye | Philips",
+              "snippet": "Philips olarak yeniliğin, uzun s&#252;re seveceğiniz kaliteli &#252;r&#252;nler &#252;retmek ve ardından bunları geri d&#246;n&#252;ş&#252;me kazandırmak ile ilgili …",
+              "host": "philips.com.tr"
+            },
+            {
+              "url": "https://www.philips.com.tr/c-e/welcome.html",
+              "title": "Philips'e Hoş Geldiniz",
+              "snippet": "Philips &#252;r&#252;nleri, hizmetleri, etkinlikleri ve promosyonları hakkında tercihlerime ve davranışlarıma g&#246;re ticari elektronik ileti almak …",
+              "host": "philips.com.tr"
+            },
+            {
+              "url": "https://www.philipsturkiye.com.tr/",
+              "title": "Philips T&#252;rkiye - Garanti Platformu",
+              "snippet": "Kampanya s&#252;resi: 01 Ocak – 31 Aralık 2026 tarihleri arasında ge&#231;erlidir. 31 Aralık 2026 tarihinden sonra satın alınan Philips Lumea …",
+              "host": "philipsturkiye.com.tr"
+            },
+            {
+              "url": "https://www.philips.com/global",
+              "title": "Global home | Philips",
+              "snippet": "By clicking on the link, you will be leaving the official Royal Philips (&quot;Philips&quot;) website. Any links to third-party websites that may …",
+              "host": "philips.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Philips",
+              "title": "Philips - Wikipedia",
+              "snippet": "This page was last edited on 1 September 2026, at 09:21 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.mediamarkt.com.tr/tr/brand/philips",
+              "title": "Philips Marka &#220;r&#252;nler En Uygun Fiyatlarla! | MediaMarkt",
+              "snippet": "Philips marka &#252;r&#252;nler en uygun fiyatlarla MediaMarkt'ta! Philips marka &#252;r&#252;n fiyatları ve &#246;zelliklerini incelemek i&#231;in hemen tıkla, sen de …",
+              "host": "mediamarkt.com.tr"
+            },
+            {
+              "url": "https://www.hepsiburada.com/philips",
+              "title": "Philips T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Philips, akıllı ev sistemleri ile yaşam alanlarınızı daha konforlu hale getirir. Akıllı aydınlatma, enerji tasarrufu sağlayan cihazlar ve …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://tr.wikipedia.org/wiki/Philips",
+              "title": "Philips - Vikipedi",
+              "snippet": "Koninklijke Philips Electronics N.V. veya kısaca Philips, merkezi Hollanda ’da bulunan ve 60'tan fazla &#252;lkede faaliyet g&#246;steren, …",
+              "host": "tr.wikipedia.org"
+            },
+            {
+              "url": "https://www.teknosa.com/philips-b-2438",
+              "title": "Philips Fiyatları ve Modelleri - Teknosa",
+              "snippet": "Philips &#246;zelliklerini keşfetmek, alternatif &#252;r&#252;nleri incelemek ve Teknosa ayrıcalıkları ile satın almak i&#231;in hemen tıklayın.",
+              "host": "teknosa.com"
+            }
+          ],
+          "inspected": []
+        }
+      ],
+      "queryCount": 2,
+      "pagesInspected": 4,
+      "compatiblePublicPages": 0,
+      "terminalStatus": "EXTERNAL_EVIDENCE_NOT_FOUND_AFTER_SEARCH",
+      "personaStatus": "PERSONA_EVIDENCE_UNKNOWN",
+      "traitContributions": [],
+      "completedAt": "2026-09-06T00:00:00.000Z"
+    }
+  ],
+  "digest": "sha256:464e44a3310d3e7cdcfd09ff5980334ee0b9aac698c923b75b8cd85e5adaf9da"
+}

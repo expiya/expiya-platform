@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "xpy-universal-persona-production-approval/v1",
+  "eventId": "UNIVERSAL-PERSONA-PRODUCTION-OWNER-APPROVAL-20260906",
+  "actor": {
+    "role": "PRODUCT_OWNER",
+    "instanceId": "EXPIYA_PRODUCT_OWNER_001"
+  },
+  "releaseId": "XPY-UNIVERSAL-PERSONA-PROJECTION-TR-v0.1-owner-review",
+  "approvedPackageDigest": "sha256:62d2d5f23cb92b337052fdb0e3eb16c8b96126e3bc156fa16ebaac11be03f4aa",
+  "statement": "I approve production runtime activation of XPY-UNIVERSAL-PERSONA-PROJECTION-TR-v0.1-owner-review at digest sha256:62d2d5f23cb92b337052fdb0e3eb16c8b96126e3bc156fa16ebaac11be03f4aa for bounded Persona ordering of only the four evidence-qualified projections, with 165 UNKNOWN records remaining neutral, the 0.75 aggregate cap, unchanged candidate membership, preserved ties/non-dominated outcomes, no Persona-only winner authorization, and Cars V3.9 remaining unchanged. I authorize the required active-pointer mutation, non-force push, unified production deployment, and rollback if production smoke fails.",
+  "statementSha256": "sha256:fb2e51764a61eb596b516198e3e072c3e83360cb33084828b77145f5d75416de",
+  "authorizedActions": [
+    "ACTIVE_POINTER_MUTATION",
+    "NON_FORCE_PUSH",
+    "UNIFIED_PRODUCTION_DEPLOYMENT",
+    "ROLLBACK_ON_SMOKE_FAILURE"
+  ],
+  "approvedAt": "2026-09-06T14:20:57.781Z",
+  "appendOnly": true
+}

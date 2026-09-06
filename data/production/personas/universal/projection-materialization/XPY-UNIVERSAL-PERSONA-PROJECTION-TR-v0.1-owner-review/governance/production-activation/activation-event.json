@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "xpy-universal-persona-production-activation/v1",
+  "activationEventId": "UNIVERSAL-PERSONA-PRODUCTION-ACTIVATION-20260906",
+  "activatedAt": "2026-09-06T14:20:57.781Z",
+  "releaseId": "XPY-UNIVERSAL-PERSONA-PROJECTION-TR-v0.1-owner-review",
+  "packageDigest": "sha256:62d2d5f23cb92b337052fdb0e3eb16c8b96126e3bc156fa16ebaac11be03f4aa",
+  "projectionArtifactDigest": "sha256:5cdcd020825d6408893fa0724136bd7289b6be079a2e3beed808885ff01ea61d",
+  "ownerApprovalEventId": "UNIVERSAL-PERSONA-PRODUCTION-OWNER-APPROVAL-20260906",
+  "activePointerSha256": "sha256:64a44ebfb46431ad583b8c3e59964dc1762e996852fb7b3faaa7224894698d70",
+  "runtimeRegistration": {
+    "file": "features/xpy/domainPacks.ts",
+    "predecessorSha256": "sha256:f0191012880679ca74a53fe2c98ca9d1f543dea042310a5c6e9613403711d1b7",
+    "activeSha256": "sha256:c1e8c0f35a5c7dd38c072d6e7d042de6180c171a6cb98c1944b0f1b841e83868"
+  },
+  "scope": {
+    "governedProjectionCount": 4,
+    "neutralUnknownCount": 165,
+    "categoryBindingCount": 49,
+    "activeCategoryCount": 4
+  },
+  "invariants": {
+    "aggregateCap": 0.75,
+    "membershipEffect": "NONE",
+    "tiesAndNonDominatedOutcomesPreserved": true,
+    "personaOnlyWinnerAuthorized": false,
+    "carsV39Changed": false,
+    "futureCatalogReadinessGate": "MANDATORY"
+  },
+  "deploymentState": "AUTHORIZED_NOT_YET_PERFORMED"
+}

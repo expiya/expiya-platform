@@ -15,8 +15,8 @@ describe("XPY_RUNTIME/v0.1 authority binding", () => {
 
   it("binds every registered active department capability to one runtime version", () => {
     const bindings = Object.values(XPY_DOMAIN_PACKS).flatMap(pack => pack.categories.map(category => bindXpyRuntime(pack, category)));
-    // Cars, all Appliances categories, all 24 Electronics categories, and three Mobility categories share this runtime.
-    expect(bindings).toHaveLength(52);
+    // Cars, all Appliances and Electronics categories, Baby/STROLLER, and three Mobility categories share this runtime.
+    expect(bindings).toHaveLength(53);
     expect(new Set(bindings.map(binding => binding.version))).toEqual(new Set([XPY_RUNTIME_VERSION]));
     expect(new Set(bindings.map(binding => binding.digest))).toEqual(new Set([XPY_RUNTIME_DIGEST]));
     expect(bindings.map(binding => `${binding.domainPackId}:${binding.category}`).slice(0, 25)).toEqual([
