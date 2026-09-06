@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "baby-stroller-production-receipt/v1",
+  "workUnitId": "WU-BABY-STROLLER-END-TO-END-01",
+  "deployedAt": "2026-09-06T10:13:26Z",
+  "deploymentId": "dpl_3nRaLuCmcvLWGwzocYVyGJxmcVZk",
+  "immutableUrl": "https://expiya-platform-qw7q-g1cbr4kdw-expiya.vercel.app",
+  "productionUrl": "https://expiya-platform-qw7q-expiya.vercel.app",
+  "inspectorUrl": "https://vercel.com/expiya/expiya-platform-qw7q/3nRaLuCmcvLWGwzocYVyGJxmcVZk",
+  "rollback": {
+    "deploymentId": "dpl_8DvkmxbMCzHTTezrUJt3vJUBJb7u",
+    "immutableUrl": "https://expiya-platform-qw7q-3fyz9z38z-expiya.vercel.app"
+  },
+  "digests": {
+    "authority": "sha256:e0f9a3bd92488849e81b0462ada33056a450bab9f5f08759fbf01e91bbc9e4ae",
+    "approvalEvent": "sha256:bb25d562071c2dbe73bb978b489fa7a5cd709391bda13a043b6eafd2837f26a0",
+    "activationEvent": "sha256:f31de7c5c32b02024f45a0094163bc20867c37bab8281395c96623d65242a656",
+    "activePointer": "sha256:051bbcfadec4784c2bfba89222275c4207913847c86f4cf5a97f7d01e9dd1d9c",
+    "releaseManifest": "sha256:01b86396404b1e7d574247bbf349bc0a540a7c2bb4134c6a39ef6ceb63da6a1d"
+  },
+  "migration": {
+    "id": "0016_baby_stroller_runtime_foundation.sql",
+    "database": "neondb",
+    "existingTablesBefore": 27,
+    "existingRowsBefore": 3322,
+    "existingRowsAfter": 3322,
+    "changedExistingTables": []
+  },
+  "verification": {
+    "testFiles": 680,
+    "tests": 5538,
+    "typegen": "PASS",
+    "typescript": "PASS",
+    "lintErrors": 0,
+    "build": "PASS",
+    "desktopQa": "PASS",
+    "mobile390x844Qa": "PASS",
+    "productionRoutes": ["/", "/baby", "/cars", "/appliances", "/electronics", "/expiya-nedir"],
+    "productionBabyConversation": "PASS",
+    "rollbackPerformed": false
+  }
+}
