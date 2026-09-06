@@ -41,6 +41,7 @@ export interface V3ConversationState {
   readonly version: "3.8"; readonly conversationId: string; readonly revision: number; readonly processedMessages: Readonly<Record<string, string>>;
   readonly purchaseIntent: PurchaseIntentState; readonly intentObservationTurns: number; readonly ledger: readonly PreferenceEvent[];
   readonly pendingConfirmation?: PendingConfirmation; readonly askedQuestionKeys: readonly string[]; readonly ended: boolean;
+  readonly questionDeferrals?: readonly { readonly questionKey: string; readonly sourceMessageId: string; readonly kind: "UNKNOWN" | "SKIP" | "DEFER"; readonly revision: number }[];
   readonly lastQuestionKey?: string; readonly lastRoute?: V3Route; readonly finalBrandModelQuestionAsked?: boolean;
   readonly preferredRecommendationLimit?: 1 | 3;
   readonly pendingAction?: "RECOMMENDATION_DISCOVERY" | "RELAX_BRAND_FOR_POWERTRAIN" | "RELAX_UNSUPPORTED_EQUIPMENT";
@@ -50,6 +51,8 @@ export interface V3ConversationState {
 }
 export interface V3PublicResponse {
   readonly kind: "V3_CONVERSATION"; readonly message: string; readonly state: V3ConversationState;
+  readonly advisory?: import("@/features/xpy/contracts").XpyAdvisoryPresentation;
+  readonly choices?: import("@/features/xpy/contracts").XpyChoiceSet;
   readonly recommendations?: readonly { readonly id: string; readonly title: string; readonly image: string; readonly imageStatus: "EXACT" | "REPRESENTATIVE" | "APPROXIMATE" | "PLACEHOLDER"; readonly imageAttribution?: string; readonly representedModel?: string; readonly warning?: string; readonly badge?: string; readonly reason?: never }[];
   readonly offerAwaitingConsent?: boolean;
   readonly variantCounts?: { readonly total: number; readonly remaining: number };

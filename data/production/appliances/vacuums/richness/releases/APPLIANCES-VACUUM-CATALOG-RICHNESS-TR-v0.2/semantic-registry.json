@@ -1,0 +1,690 @@
+{
+  "schemaVersion": "VACUUM_SEMANTIC_REGISTRY/v0.2",
+  "releaseVersion": "APPLIANCES-VACUUM-CATALOG-RICHNESS-TR-v0.2",
+  "market": "TR",
+  "parentRelease": "APPLIANCES-VACUUM-TR-v0.1",
+  "usageSemantics": [
+    {
+      "semanticId": "vacuum-semantic:capacity",
+      "meaning": "Declared dust-container volume is comparable capacity evidence, not a cleaning interval guarantee.",
+      "factIds": [
+        "vacuum-fact:philips_fc9330_07_tr:capacity",
+        "vacuum-fact:philips_fc9750_07_tr:capacity",
+        "vacuum-fact:bosch_bgc21x300_tr:capacity",
+        "vacuum-fact:bosch_bgc41pet_tr:capacity"
+      ],
+      "capabilityIds": []
+    },
+    {
+      "semanticId": "vacuum-semantic:input-power",
+      "meaning": "Maximum electrical input power describes consumption/input only and cannot rank suction or cleaning performance.",
+      "factIds": [
+        "vacuum-fact:philips_fc9330_07_tr:inputPowerMaxW",
+        "vacuum-fact:philips_fc9750_07_tr:inputPowerMaxW",
+        "vacuum-fact:bosch_bgc21x300_tr:inputPowerMaxW",
+        "vacuum-fact:bosch_bgc41pet_tr:inputPowerMaxW"
+      ],
+      "capabilityIds": []
+    },
+    {
+      "semanticId": "vacuum-semantic:radius",
+      "meaning": "Declared operating radius supports a bounded reach check, not room coverage or cable-length equivalence.",
+      "factIds": [
+        "vacuum-fact:philips_fc9330_07_tr:radiusM",
+        "vacuum-fact:philips_fc9750_07_tr:radiusM",
+        "vacuum-fact:bosch_bgc21x300_tr:radiusM",
+        "vacuum-fact:bosch_bgc41pet_tr:radiusM"
+      ],
+      "capabilityIds": []
+    },
+    {
+      "semanticId": "vacuum-semantic:carry-mass",
+      "meaning": "Published mass supports same-context handling discussion, not perceived effort on stairs.",
+      "factIds": [
+        "vacuum-fact:philips_fc9330_07_tr:massKg",
+        "vacuum-fact:philips_fc9750_07_tr:massKg",
+        "vacuum-fact:bosch_bgc21x300_tr:massKg",
+        "vacuum-fact:bosch_bgc41pet_tr:massKg"
+      ],
+      "capabilityIds": []
+    },
+    {
+      "semanticId": "vacuum-semantic:noise",
+      "meaning": "Declared noise supports same-regime display, not perceived quietness in a particular home.",
+      "factIds": [
+        "vacuum-fact:philips_fc9330_07_tr:noiseDbA",
+        "vacuum-fact:philips_fc9750_07_tr:noiseDbA",
+        "vacuum-fact:bosch_bgc21x300_tr:noiseDbA",
+        "vacuum-fact:bosch_bgc41pet_tr:noiseDbA"
+      ],
+      "capabilityIds": []
+    },
+    {
+      "semanticId": "vacuum-semantic:filtration",
+      "meaning": "Filtration is comparable only under the same verified label and test standard; HEPA wording alone does not prove equivalent capture or health outcome.",
+      "factIds": [
+        "vacuum-fact:philips_fc9330_07_tr:filtrationStandard",
+        "vacuum-fact:philips_fc9750_07_tr:filtrationStandard",
+        "vacuum-fact:bosch_bgc21x300_tr:filtrationStandard",
+        "vacuum-fact:bosch_bgc41pet_tr:filtrationStandard"
+      ],
+      "capabilityIds": [
+        "vacuum-capability:philips_fc9330_07_tr:hepa",
+        "vacuum-capability:philips_fc9750_07_tr:hepa",
+        "vacuum-capability:bosch_bgc21x300_tr:hepa",
+        "vacuum-capability:bosch_bgc41pet_tr:hepa"
+      ]
+    },
+    {
+      "semanticId": "vacuum-semantic:heads",
+      "meaning": "Verified supplied-head states answer exact equipment requirements only and do not guarantee surface or pet-hair results.",
+      "factIds": [],
+      "capabilityIds": [
+        "vacuum-capability:philips_fc9330_07_tr:petHead",
+        "vacuum-capability:philips_fc9750_07_tr:petHead",
+        "vacuum-capability:bosch_bgc21x300_tr:petHead",
+        "vacuum-capability:bosch_bgc41pet_tr:petHead",
+        "vacuum-capability:philips_fc9330_07_tr:triActiveHead",
+        "vacuum-capability:philips_fc9750_07_tr:carpetHead",
+        "vacuum-capability:philips_fc9750_07_tr:hardFloorHead"
+      ]
+    },
+    {
+      "semanticId": "vacuum-semantic:filter-care",
+      "meaning": "Washable-filter presence is a maintenance feature, not a filter-life or hygiene guarantee.",
+      "factIds": [],
+      "capabilityIds": [
+        "vacuum-capability:philips_fc9330_07_tr:washableFilter",
+        "vacuum-capability:philips_fc9750_07_tr:washableFilter",
+        "vacuum-capability:bosch_bgc21x300_tr:washableFilter",
+        "vacuum-capability:bosch_bgc41pet_tr:washableFilter"
+      ]
+    }
+  ],
+  "needs": [
+    {
+      "needId": "DUST_CAPACITY",
+      "meaning": "DUST CAPACITY"
+    },
+    {
+      "needId": "OPERATING_RADIUS",
+      "meaning": "OPERATING RADIUS"
+    },
+    {
+      "needId": "CARRY_MASS",
+      "meaning": "CARRY MASS"
+    },
+    {
+      "needId": "LOW_NOISE_PRIORITY",
+      "meaning": "LOW NOISE PRIORITY"
+    },
+    {
+      "needId": "FILTRATION_REQUIREMENT",
+      "meaning": "FILTRATION REQUIREMENT"
+    },
+    {
+      "needId": "PET_HEAD_REQUIREMENT",
+      "meaning": "PET HEAD REQUIREMENT"
+    },
+    {
+      "needId": "CARPET_HEAD_REQUIREMENT",
+      "meaning": "CARPET HEAD REQUIREMENT"
+    },
+    {
+      "needId": "HARD_FLOOR_HEAD_REQUIREMENT",
+      "meaning": "HARD FLOOR HEAD REQUIREMENT"
+    },
+    {
+      "needId": "WASHABLE_FILTER_REQUIREMENT",
+      "meaning": "WASHABLE FILTER REQUIREMENT"
+    },
+    {
+      "needId": "BUDGET_SENSITIVITY",
+      "meaning": "BUDGET SENSITIVITY"
+    }
+  ],
+  "needEvidenceMappings": [
+    {
+      "mappingId": "vacuum-map:capacity",
+      "needId": "DUST_CAPACITY",
+      "eligibleFactIds": [
+        "vacuum-fact:philips_fc9330_07_tr:capacity",
+        "vacuum-fact:philips_fc9750_07_tr:capacity",
+        "vacuum-fact:bosch_bgc21x300_tr:capacity",
+        "vacuum-fact:bosch_bgc41pet_tr:capacity"
+      ],
+      "eligibleCapabilityIds": [],
+      "policy": "HARD_FILTER"
+    },
+    {
+      "mappingId": "vacuum-map:radius",
+      "needId": "OPERATING_RADIUS",
+      "eligibleFactIds": [
+        "vacuum-fact:philips_fc9330_07_tr:radiusM",
+        "vacuum-fact:philips_fc9750_07_tr:radiusM",
+        "vacuum-fact:bosch_bgc21x300_tr:radiusM",
+        "vacuum-fact:bosch_bgc41pet_tr:radiusM"
+      ],
+      "eligibleCapabilityIds": [],
+      "policy": "HARD_FILTER"
+    },
+    {
+      "mappingId": "vacuum-map:mass",
+      "needId": "CARRY_MASS",
+      "eligibleFactIds": [
+        "vacuum-fact:philips_fc9330_07_tr:massKg",
+        "vacuum-fact:philips_fc9750_07_tr:massKg",
+        "vacuum-fact:bosch_bgc21x300_tr:massKg",
+        "vacuum-fact:bosch_bgc41pet_tr:massKg"
+      ],
+      "eligibleCapabilityIds": [],
+      "policy": "SOFT_PREFERENCE"
+    },
+    {
+      "mappingId": "vacuum-map:noise",
+      "needId": "LOW_NOISE_PRIORITY",
+      "eligibleFactIds": [
+        "vacuum-fact:philips_fc9330_07_tr:noiseDbA",
+        "vacuum-fact:philips_fc9750_07_tr:noiseDbA",
+        "vacuum-fact:bosch_bgc21x300_tr:noiseDbA",
+        "vacuum-fact:bosch_bgc41pet_tr:noiseDbA"
+      ],
+      "eligibleCapabilityIds": [],
+      "policy": "SOFT_PREFERENCE"
+    },
+    {
+      "mappingId": "vacuum-map:filtration",
+      "needId": "FILTRATION_REQUIREMENT",
+      "eligibleFactIds": [
+        "vacuum-fact:philips_fc9330_07_tr:filtrationStandard",
+        "vacuum-fact:philips_fc9750_07_tr:filtrationStandard",
+        "vacuum-fact:bosch_bgc21x300_tr:filtrationStandard",
+        "vacuum-fact:bosch_bgc41pet_tr:filtrationStandard"
+      ],
+      "eligibleCapabilityIds": [
+        "vacuum-capability:philips_fc9330_07_tr:hepa",
+        "vacuum-capability:philips_fc9750_07_tr:hepa",
+        "vacuum-capability:bosch_bgc21x300_tr:hepa",
+        "vacuum-capability:bosch_bgc41pet_tr:hepa"
+      ],
+      "policy": "HARD_FILTER"
+    },
+    {
+      "mappingId": "vacuum-map:petHead",
+      "needId": "PET_HEAD_REQUIREMENT",
+      "eligibleFactIds": [],
+      "eligibleCapabilityIds": [
+        "vacuum-capability:philips_fc9330_07_tr:petHead",
+        "vacuum-capability:philips_fc9750_07_tr:petHead",
+        "vacuum-capability:bosch_bgc21x300_tr:petHead",
+        "vacuum-capability:bosch_bgc41pet_tr:petHead"
+      ],
+      "policy": "HARD_FILTER"
+    },
+    {
+      "mappingId": "vacuum-map:carpetHead",
+      "needId": "CARPET_HEAD_REQUIREMENT",
+      "eligibleFactIds": [],
+      "eligibleCapabilityIds": [
+        "vacuum-capability:philips_fc9750_07_tr:carpetHead"
+      ],
+      "policy": "HARD_FILTER"
+    },
+    {
+      "mappingId": "vacuum-map:hardFloorHead",
+      "needId": "HARD_FLOOR_HEAD_REQUIREMENT",
+      "eligibleFactIds": [],
+      "eligibleCapabilityIds": [
+        "vacuum-capability:philips_fc9750_07_tr:hardFloorHead"
+      ],
+      "policy": "HARD_FILTER"
+    },
+    {
+      "mappingId": "vacuum-map:washableFilter",
+      "needId": "WASHABLE_FILTER_REQUIREMENT",
+      "eligibleFactIds": [],
+      "eligibleCapabilityIds": [
+        "vacuum-capability:philips_fc9330_07_tr:washableFilter",
+        "vacuum-capability:philips_fc9750_07_tr:washableFilter",
+        "vacuum-capability:bosch_bgc21x300_tr:washableFilter",
+        "vacuum-capability:bosch_bgc41pet_tr:washableFilter"
+      ],
+      "policy": "HARD_FILTER"
+    }
+  ],
+  "personaPlanningSignals": [
+    {
+      "signalId": "vacuum-planning:multi-room-reach",
+      "needIds": [
+        "OPERATING_RADIUS"
+      ],
+      "authority": "DOMAIN_PLANNING",
+      "classification": "DERIVED_PLANNING",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "signalId": "vacuum-planning:stairs-or-carrying",
+      "needIds": [
+        "CARRY_MASS"
+      ],
+      "authority": "DOMAIN_PLANNING",
+      "classification": "DERIVED_PLANNING",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "signalId": "vacuum-planning:pet-home",
+      "needIds": [
+        "PET_HEAD_REQUIREMENT"
+      ],
+      "authority": "DOMAIN_PLANNING",
+      "classification": "DERIVED_PLANNING",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "signalId": "vacuum-planning:noise-sensitive-home",
+      "needIds": [
+        "LOW_NOISE_PRIORITY"
+      ],
+      "authority": "DOMAIN_PLANNING",
+      "classification": "DERIVED_PLANNING",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    }
+  ],
+  "dailyLifeInterpretations": [
+    {
+      "interpretationId": "vacuum-interpretation:philips_fc9330_07_tr:handling",
+      "offeringId": "PHILIPS_FC9330_07_TR",
+      "text": "Capacity, operating radius and published mass can inform bounded emptying, reach and carrying discussions.",
+      "factIds": [
+        "vacuum-fact:philips_fc9330_07_tr:capacity",
+        "vacuum-fact:philips_fc9330_07_tr:radiusM",
+        "vacuum-fact:philips_fc9330_07_tr:massKg"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:philips_fc9330_07_tr:noise-power",
+      "offeringId": "PHILIPS_FC9330_07_TR",
+      "text": "Declared noise may be displayed on the same measurement basis; input watts cannot stand in for suction or cleaning performance.",
+      "factIds": [
+        "vacuum-fact:philips_fc9330_07_tr:inputPowerMaxW",
+        "vacuum-fact:philips_fc9330_07_tr:noiseDbA"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:philips_fc9330_07_tr:filtration-care",
+      "offeringId": "PHILIPS_FC9330_07_TR",
+      "text": "Exact filtration label, HEPA and washable-filter states can answer bounded filter and care questions only.",
+      "factIds": [
+        "vacuum-fact:philips_fc9330_07_tr:filtrationStandard"
+      ],
+      "capabilityIds": [
+        "vacuum-capability:philips_fc9330_07_tr:hepa",
+        "vacuum-capability:philips_fc9330_07_tr:washableFilter"
+      ],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:philips_fc9330_07_tr:heads",
+      "offeringId": "PHILIPS_FC9330_07_TR",
+      "text": "Exact supplied-head states can answer whether the governed configuration lists a requested head.",
+      "factIds": [],
+      "capabilityIds": [
+        "vacuum-capability:philips_fc9330_07_tr:petHead",
+        "vacuum-capability:philips_fc9330_07_tr:triActiveHead"
+      ],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:philips_fc9750_07_tr:handling",
+      "offeringId": "PHILIPS_FC9750_07_TR",
+      "text": "Capacity, operating radius and published mass can inform bounded emptying, reach and carrying discussions.",
+      "factIds": [
+        "vacuum-fact:philips_fc9750_07_tr:capacity",
+        "vacuum-fact:philips_fc9750_07_tr:radiusM",
+        "vacuum-fact:philips_fc9750_07_tr:massKg"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:philips_fc9750_07_tr:noise-power",
+      "offeringId": "PHILIPS_FC9750_07_TR",
+      "text": "Declared noise may be displayed on the same measurement basis; input watts cannot stand in for suction or cleaning performance.",
+      "factIds": [
+        "vacuum-fact:philips_fc9750_07_tr:inputPowerMaxW",
+        "vacuum-fact:philips_fc9750_07_tr:noiseDbA"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:philips_fc9750_07_tr:filtration-care",
+      "offeringId": "PHILIPS_FC9750_07_TR",
+      "text": "Exact filtration label, HEPA and washable-filter states can answer bounded filter and care questions only.",
+      "factIds": [
+        "vacuum-fact:philips_fc9750_07_tr:filtrationStandard"
+      ],
+      "capabilityIds": [
+        "vacuum-capability:philips_fc9750_07_tr:hepa",
+        "vacuum-capability:philips_fc9750_07_tr:washableFilter"
+      ],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:philips_fc9750_07_tr:heads",
+      "offeringId": "PHILIPS_FC9750_07_TR",
+      "text": "Exact supplied-head states can answer whether the governed configuration lists a requested head.",
+      "factIds": [],
+      "capabilityIds": [
+        "vacuum-capability:philips_fc9750_07_tr:petHead",
+        "vacuum-capability:philips_fc9750_07_tr:carpetHead",
+        "vacuum-capability:philips_fc9750_07_tr:hardFloorHead"
+      ],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:bosch_bgc21x300_tr:handling",
+      "offeringId": "BOSCH_BGC21X300_TR",
+      "text": "Capacity, operating radius and published mass can inform bounded emptying, reach and carrying discussions.",
+      "factIds": [
+        "vacuum-fact:bosch_bgc21x300_tr:capacity",
+        "vacuum-fact:bosch_bgc21x300_tr:radiusM",
+        "vacuum-fact:bosch_bgc21x300_tr:massKg"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:bosch_bgc21x300_tr:noise-power",
+      "offeringId": "BOSCH_BGC21X300_TR",
+      "text": "Declared noise may be displayed on the same measurement basis; input watts cannot stand in for suction or cleaning performance.",
+      "factIds": [
+        "vacuum-fact:bosch_bgc21x300_tr:inputPowerMaxW",
+        "vacuum-fact:bosch_bgc21x300_tr:noiseDbA"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:bosch_bgc21x300_tr:filtration-care",
+      "offeringId": "BOSCH_BGC21X300_TR",
+      "text": "Exact filtration label, HEPA and washable-filter states can answer bounded filter and care questions only.",
+      "factIds": [
+        "vacuum-fact:bosch_bgc21x300_tr:filtrationStandard"
+      ],
+      "capabilityIds": [
+        "vacuum-capability:bosch_bgc21x300_tr:hepa",
+        "vacuum-capability:bosch_bgc21x300_tr:washableFilter"
+      ],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:bosch_bgc21x300_tr:heads",
+      "offeringId": "BOSCH_BGC21X300_TR",
+      "text": "Exact supplied-head states can answer whether the governed configuration lists a requested head.",
+      "factIds": [],
+      "capabilityIds": [
+        "vacuum-capability:bosch_bgc21x300_tr:petHead"
+      ],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:bosch_bgc41pet_tr:handling",
+      "offeringId": "BOSCH_BGC41PET_TR",
+      "text": "Capacity, operating radius and published mass can inform bounded emptying, reach and carrying discussions.",
+      "factIds": [
+        "vacuum-fact:bosch_bgc41pet_tr:capacity",
+        "vacuum-fact:bosch_bgc41pet_tr:radiusM",
+        "vacuum-fact:bosch_bgc41pet_tr:massKg"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:bosch_bgc41pet_tr:noise-power",
+      "offeringId": "BOSCH_BGC41PET_TR",
+      "text": "Declared noise may be displayed on the same measurement basis; input watts cannot stand in for suction or cleaning performance.",
+      "factIds": [
+        "vacuum-fact:bosch_bgc41pet_tr:inputPowerMaxW",
+        "vacuum-fact:bosch_bgc41pet_tr:noiseDbA"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:bosch_bgc41pet_tr:filtration-care",
+      "offeringId": "BOSCH_BGC41PET_TR",
+      "text": "Exact filtration label, HEPA and washable-filter states can answer bounded filter and care questions only.",
+      "factIds": [
+        "vacuum-fact:bosch_bgc41pet_tr:filtrationStandard"
+      ],
+      "capabilityIds": [
+        "vacuum-capability:bosch_bgc41pet_tr:hepa",
+        "vacuum-capability:bosch_bgc41pet_tr:washableFilter"
+      ],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    },
+    {
+      "interpretationId": "vacuum-interpretation:bosch_bgc41pet_tr:heads",
+      "offeringId": "BOSCH_BGC41PET_TR",
+      "text": "Exact supplied-head states can answer whether the governed configuration lists a requested head.",
+      "factIds": [],
+      "capabilityIds": [
+        "vacuum-capability:bosch_bgc41pet_tr:petHead"
+      ],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T22:00:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Interpretation is bounded to exact published facts and feature states."
+      ],
+      "nonGuarantees": [
+        "No cleaning, comfort, health, pet-hair, noise, durability, or maintenance outcome guarantee."
+      ]
+    }
+  ],
+  "comparisonDimensions": [
+    {
+      "dimensionId": "vacuum.capacity",
+      "humanLabel": "Toz haznesi kapasitesi",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_CONTEXT_L",
+      "source": {
+        "kind": "FACT",
+        "key": "capacity",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "vacuum.radius",
+      "humanLabel": "Çalışma yarıçapı",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_CONTEXT_m",
+      "source": {
+        "kind": "FACT",
+        "key": "radiusM",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "vacuum.mass",
+      "humanLabel": "Yayınlanan ağırlık",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_CONTEXT_kg",
+      "source": {
+        "kind": "FACT",
+        "key": "massKg",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "vacuum.noise",
+      "humanLabel": "Yayınlanan gürültü",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_CONTEXT_dB(A)",
+      "source": {
+        "kind": "FACT",
+        "key": "noiseDbA",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "vacuum.pet-head",
+      "humanLabel": "Evcil hayvan başlığı",
+      "scope": "EXACT_TR_CONFIGURATION_FEATURE_STATE",
+      "source": {
+        "kind": "CAPABILITY",
+        "key": "petHead",
+        "unitPolicy": "STATE_ONLY"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "vacuum.washable-filter",
+      "humanLabel": "Yıkanabilir filtre",
+      "scope": "EXACT_TR_CONFIGURATION_FEATURE_STATE",
+      "source": {
+        "kind": "CAPABILITY",
+        "key": "washableFilter",
+        "unitPolicy": "STATE_ONLY"
+      },
+      "authority": "DOMAIN_PACK"
+    }
+  ],
+  "boundaries": {
+    "experience": "ABSENT_NO_GOVERNED_AUTHORITY",
+    "manualAdvisorKnowledge": "ABSENT_NO_CHECKSUM_BOUND_EXACT_MANUAL",
+    "personaDecisionUse": "NONE",
+    "unknownTreatment": "NEUTRAL_NO_PENALTY",
+    "crossCategorySemantics": "FORBIDDEN",
+    "inputPowerPerformance": "FORBIDDEN"
+  }
+}

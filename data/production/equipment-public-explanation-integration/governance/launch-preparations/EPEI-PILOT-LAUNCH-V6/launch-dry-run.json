@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0.0",
+  "manifestId": "EPEI-PILOT-LAUNCH-V6",
+  "manifestChecksum": "sha256:be5eae981efef821a4e0848788eabea7e6dfcb3560d67492a7d5f95c96e08540",
+  "disposition": "READY_FOR_SINGLE_PILOT_LAUNCH_APPROVAL",
+  "immutableInputsVerified": true,
+  "runtimeContractCompositeChecksum": "sha256:c4922cbe9004479e82edbe5372207af35e7d60eec4c623cf56b18de83a4cdbb8",
+  "activationPolicyChecksum": "sha256:f8a79a7d7a12ebb05b7adc21a90e2e1af8e493ad1279b17a8f320e58080eb0d0",
+  "pilotScopeChecksum": "sha256:d2f72ef74065a35dc2bacc6c39df6053b4e2959ecc8b0c03717f336b08047e07",
+  "activeFilesChanged": false,
+  "publicEffect": "DISABLED_PENDING_SINGLE_LAUNCH",
+  "eventBoundTargetChecksums": "DERIVED_AT_APPLY",
+  "rollbackSimulation": {
+    "result": "PASS",
+    "integrationPublicEffect": "DISABLED_NO_ACTIVE_INTEGRATION_POINTER",
+    "foundationCutover": "SAFE_PREDECESSOR",
+    "phase1OfferCard": "PASS",
+    "appendOnlyAuditHistory": "PRESERVED",
+    "destructiveDatabaseAction": false
+  },
+  "decisionEngineEffect": "ZERO"
+}

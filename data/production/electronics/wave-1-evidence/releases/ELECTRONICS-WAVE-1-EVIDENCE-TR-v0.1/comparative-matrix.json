@@ -1,0 +1,332 @@
+{
+  "schemaVersion": "electronics-wave-1-comparative-matrix/v1",
+  "releaseVersion": "ELECTRONICS-WAVE-1-EVIDENCE-TR-v0.1",
+  "categories": [
+    {
+      "categoryId": "SMARTPHONE",
+      "fields": [
+        "memory_gb",
+        "storage_gb",
+        "cellular_generation"
+      ],
+      "rows": [
+        {
+          "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+          "manufacturer": "Samsung",
+          "values": {
+            "memory_gb": {
+              "value": 8,
+              "unit": "GB",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "storage_gb": {
+              "value": 256,
+              "unit": "GB",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "cellular_generation": {
+              "value": "5G",
+              "unit": null,
+              "eligibility": "EXPLANATION_ONLY"
+            }
+          }
+        },
+        {
+          "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+          "manufacturer": "Samsung",
+          "values": {
+            "memory_gb": {
+              "value": 8,
+              "unit": "GB",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "storage_gb": {
+              "value": 256,
+              "unit": "GB",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "cellular_generation": {
+              "value": "5G",
+              "unit": null,
+              "eligibility": "EXPLANATION_ONLY"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "categoryId": "LAPTOP",
+      "fields": [
+        "processor",
+        "memory_gb",
+        "storage_gb",
+        "display"
+      ],
+      "rows": [
+        {
+          "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+          "manufacturer": "Lenovo",
+          "values": {
+            "processor": {
+              "value": "Intel Core i7-13620H",
+              "unit": null,
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "memory_gb": {
+              "value": 16,
+              "unit": "GB",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "storage_gb": {
+              "value": 1024,
+              "unit": "GB",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "display": {
+              "value": "16in 1920x1200 IPS",
+              "unit": null,
+              "eligibility": "EXPLANATION_ONLY"
+            }
+          }
+        },
+        {
+          "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+          "manufacturer": "Lenovo",
+          "values": {
+            "processor": {
+              "value": "Intel Core i5-13420H",
+              "unit": null,
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "memory_gb": {
+              "value": 16,
+              "unit": "GB",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "storage_gb": {
+              "value": 1024,
+              "unit": "GB",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "display": {
+              "value": "16in 1920x1200 IPS",
+              "unit": null,
+              "eligibility": "EXPLANATION_ONLY"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "categoryId": "TABLET",
+      "fields": [
+        "storage_gb",
+        "display_inches",
+        "connectivity"
+      ],
+      "rows": [
+        {
+          "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+          "manufacturer": "Samsung",
+          "values": {
+            "storage_gb": {
+              "value": 256,
+              "unit": "GB",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "display_inches": {
+              "value": 10.9,
+              "unit": "in",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "connectivity": {
+              "value": "Wi-Fi",
+              "unit": null,
+              "eligibility": "EXPLANATION_ONLY"
+            }
+          }
+        },
+        {
+          "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+          "manufacturer": "Samsung",
+          "values": {
+            "storage_gb": {
+              "value": 256,
+              "unit": "GB",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "display_inches": {
+              "value": 11,
+              "unit": "in",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "connectivity": {
+              "value": "Wi-Fi",
+              "unit": null,
+              "eligibility": "EXPLANATION_ONLY"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "categoryId": "MONITOR",
+      "fields": [
+        "display_inches",
+        "resolution",
+        "refresh_hz"
+      ],
+      "rows": [
+        {
+          "exactProductId": "electronics:monitor:samsung:ls27c902pauxuf",
+          "manufacturer": "Samsung",
+          "values": {
+            "display_inches": {
+              "value": 27,
+              "unit": "in",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "resolution": {
+              "value": "5K",
+              "unit": null,
+              "eligibility": "DRAFT_POLICY_INPUT"
+            }
+          }
+        },
+        {
+          "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+          "manufacturer": "Samsung",
+          "values": {
+            "display_inches": {
+              "value": 27,
+              "unit": "in",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "resolution": {
+              "value": "QHD",
+              "unit": null,
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "refresh_hz": {
+              "value": 100,
+              "unit": "Hz",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "categoryId": "TELEVISION",
+      "fields": [
+        "display_inches",
+        "resolution",
+        "refresh_hz",
+        "panel",
+        "platform"
+      ],
+      "rows": [
+        {
+          "exactProductId": "electronics:television:lg:oled55b65la",
+          "manufacturer": "LG",
+          "values": {
+            "display_inches": {
+              "value": 55,
+              "unit": "in",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "resolution": {
+              "value": "4K",
+              "unit": null,
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "refresh_hz": {
+              "value": 120,
+              "unit": "Hz",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "panel": {
+              "value": "OLED",
+              "unit": null,
+              "eligibility": "EXPLANATION_ONLY"
+            }
+          }
+        },
+        {
+          "exactProductId": "electronics:television:next:ye-55gfsg8-qled",
+          "manufacturer": "Next",
+          "values": {
+            "display_inches": {
+              "value": 55,
+              "unit": "in",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "resolution": {
+              "value": "4K",
+              "unit": null,
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "platform": {
+              "value": "Google TV",
+              "unit": null,
+              "eligibility": "EXPLANATION_ONLY"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "categoryId": "E_READER",
+      "fields": [
+        "display_inches",
+        "display_color",
+        "page_turn_buttons",
+        "stylus_compatible"
+      ],
+      "rows": [
+        {
+          "exactProductId": "electronics:e-reader:kobo:n367",
+          "manufacturer": "Rakuten Kobo",
+          "values": {
+            "display_inches": {
+              "value": 6,
+              "unit": "in",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "display_color": {
+              "value": "COLOR",
+              "unit": null,
+              "eligibility": "DRAFT_POLICY_INPUT"
+            }
+          }
+        },
+        {
+          "exactProductId": "electronics:e-reader:kobo:n428",
+          "manufacturer": "Rakuten Kobo",
+          "values": {
+            "display_inches": {
+              "value": 7,
+              "unit": "in",
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "display_color": {
+              "value": "COLOR",
+              "unit": null,
+              "eligibility": "DRAFT_POLICY_INPUT"
+            },
+            "page_turn_buttons": {
+              "value": "PRESENT",
+              "unit": null,
+              "eligibility": "EXPLANATION_ONLY"
+            },
+            "stylus_compatible": {
+              "value": "PRESENT",
+              "unit": null,
+              "eligibility": "EXPLANATION_ONLY"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

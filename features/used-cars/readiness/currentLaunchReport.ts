@@ -1,0 +1,3 @@
+import {assessLaunchStage,getLaunchDomainStatuses,type LaunchStage} from "./launchControl";
+export function createCurrentLaunchReport(){const stages=(['SYNTHETIC_MVP','STAGING_INTEGRATION','CONTROLLED_PILOT','PRODUCTION'] as const satisfies readonly LaunchStage[]).map(stage=>assessLaunchStage(stage));return Object.freeze({version:"used-cars-launch-report/v1" as const,domains:getLaunchDomainStatuses(),stages:Object.freeze(stages),highestReadyStage:stages.filter(stage=>stage.ready).at(-1)?.stage??null,productionLaunchAuthorized:false as const});}
+export const currentUsedCarsLaunchReport=createCurrentLaunchReport();

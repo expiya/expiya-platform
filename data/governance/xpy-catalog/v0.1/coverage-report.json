@@ -1,0 +1,1538 @@
+{
+  "schemaVersion": "XPY_CATALOG_COVERAGE/v0.1",
+  "catalogContractVersion": "XPY_CATALOG/v0.1",
+  "generatedAt": "2026-09-04T14:09:03.800Z",
+  "repositoryAuthority": "ACTIVE_POINTERS_AND_PINNED_RELEASES_ONLY",
+  "machineReadableArtifacts": {
+    "carsExactVariantGapInventory": "data/governance/xpy-catalog/v0.1/cars-exact-variant-gap-inventory.json",
+    "generationScript": "scripts/generate-xpy-catalog-coverage.ts"
+  },
+  "authorityBoundaries": [
+    "Frozen technical and semantic releases are digest-bound authority.",
+    "Daily-life interpretation is a traced, non-technical layer.",
+    "Persona is bounded domain planning and has no direct eligibility or ranking authority.",
+    "Experience evidence cannot establish technical truth.",
+    "Manual and Advisor knowledge require governed promotion before L1 or L8 use.",
+    "Merchant offers, affiliate state, prices, and media are volatile external snapshots joined only by exact identity.",
+    "AŞAMA 2 Sales Advisor is separate from XPY/X and receives only an authorized read projection.",
+    "Paid comparison evidence is exposed only after purchase entitlement and an exact authorized comparison set.",
+    "Unknown comparison cells are neutral; unit or scope incompatibility fails closed; dimensions and human labels belong to Domain Packs.",
+    "Cars is an architecture/richness reference, not a content-complete gold catalog; exact-variant UNKNOWN, ABSENT, and NOT_APPLICABLE states remain distinct."
+  ],
+  "invariants": [
+    "TechnicalFact != DailyLifeInterpretation",
+    "Capability != UserNeed",
+    "Persona != user fact",
+    "Experience != technical truth",
+    "Advisor knowledge/manual != decision authority",
+    "Offer != identity",
+    "Affiliate != ranking authority"
+  ],
+  "productVsService": {
+    "commonEnvelope": "Market, lifecycle, version/digest, source/evidence provenance, layer separation, compatibility, external joins, Advisor reads, and paid-comparison authorization are shared.",
+    "productIdentity": "Manufacturer, model, exact configuration, and product identifiers.",
+    "serviceIdentity": "Provider, named service, plan, governed scope, location/date/SLA dimensions when applicable, and service version; no vehicle trim or appliance model fields.",
+    "fixtureOnlyNotice": "The service-shaped test fixture proves contract shape only and is not a production Department, catalog, or policy."
+  },
+  "audits": [
+    {
+      "departmentId": "CARS",
+      "categoryId": "NEW_CAR",
+      "offeringKind": "PRODUCT",
+      "referenceRole": "ARCHITECTURE_AND_RICHNESS_REFERENCE_NOT_CONTENT_COMPLETE",
+      "authorityStatus": "READY",
+      "failureReasons": [],
+      "activeRelease": "v0.55.4",
+      "activeDigest": "sha256:4330b3038b417b13f31a8359a9914509625b70771abbe931327901f0c37eb3b9",
+      "domainPackVersion": "cars-stage1/v3.8",
+      "runtimeVersion": "XPY_RUNTIME/v0.1",
+      "runtimeDigest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "productCount": 549,
+      "sourceCount": 57,
+      "evidenceBearingProductCount": 549,
+      "manualCoveredProductCount": 4,
+      "dailyLifeMappingCount": 137,
+      "personaCoveredProductCount": 545,
+      "advisorArtifactCount": 2,
+      "decisionProjectionCount": 549,
+      "downstreamReadiness": {
+        "advisorReadProjection": {
+          "status": "PARTIAL",
+          "blockers": [
+            "5 priority variants expose 20 governed exact equipment explanations, but exact-TR manual coverage is 4/549 and technical daily-life coverage remains partial"
+          ]
+        },
+        "comparisonEvidenceProjection": {
+          "status": "PARTIAL",
+          "blockers": [
+            "20 exact capability interpretations are comparison-readable with neutral unknowns; Domain Pack comparison dimensions/labels and Need-to-Evidence bindings remain unregistered"
+          ]
+        },
+        "exampleComparisonTable": {
+          "status": "PARTIAL",
+          "blockers": [
+            "Five decision facets exist, but no versioned example-table definition is registered"
+          ]
+        },
+        "paidComparisonReport": {
+          "status": "PARTIAL",
+          "blockers": [
+            "Evidence can be projected read-only, but no standardized paid-report entitlement/report contract is registered"
+          ]
+        }
+      },
+      "layers": [
+        {
+          "layer": "L0",
+          "name": "Offering identity",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/catalog/active.json",
+            "data/production/catalog/releases/v0.55.4/manifest.json",
+            "data/production/catalog/releases/v0.55.4/catalog.json"
+          ],
+          "measuredCount": 549,
+          "missing": [],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L1",
+          "name": "Governed objective facts",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/catalog/releases/v0.55.4/catalog.json",
+            "data/governance/xpy-catalog/v0.1/cars-exact-variant-gap-inventory.json"
+          ],
+          "measuredCount": 11154,
+          "missing": [
+            "No exact variant is content-complete across all 31 audited technical fields; blanks remain UNKNOWN, ABSENT, or NOT_APPLICABLE"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L2",
+          "name": "Capabilities and deliverables",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/equipment-evidence/active.json",
+            "data/production/equipment-evidence/releases/v1.6.0-owner-reviewed-manual-bridges-catalog-v0.55.4-2026-09-04/equipment-evidence.json"
+          ],
+          "measuredCount": 10,
+          "missing": [
+            "539 exact variants have no verified/reviewed equipment coverage",
+            "Pinned owner-reviewed evidence is read-only; the active runtime pointer remains unchanged"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L3",
+          "name": "Usage and consumption semantics",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "features/decision/v3/usageSemantics.ts",
+            "docs/xpy-cars-stage1-behavior-parity-v1.md"
+          ],
+          "measuredCount": 5,
+          "missing": [
+            "Usage semantics are runtime/domain policy rather than a release-bound populated registry"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L4",
+          "name": "User needs and Need-to-Evidence",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "docs/cars-requirement-to-evidence-policy-v0.1.md",
+            "data/production/catalog/releases/v0.55.4/decision-facets.json"
+          ],
+          "measuredCount": 5,
+          "missing": [
+            "Need-to-Evidence mappings are not a standalone digest-bound catalog artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L5",
+          "name": "Persona and context planning signals",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/personas/safe-traits/active.json",
+            "data/production/personas/safe-traits/releases/v1.1.0-persona-evidence-v3.9-catalog-v0.55.4-2026-08-24/vehicle-persona-safe-traits.json"
+          ],
+          "measuredCount": 545,
+          "missing": [
+            "4 variants intentionally have no approved safe trait"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L6",
+          "name": "Daily-life interpretation",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/technical-daily-life/active.json",
+            "data/production/technical-daily-life/releases/v2.1.3-0.55.4-2026-08-20-compatibility-rebind/technical-daily-life.json",
+            "data/production/equipment-daily-life/active.json",
+            "data/production/equipment-daily-life/releases/v1.1.0-high-materiality-exact-applications-catalog-v0.55.4-2026-09-04/equipment-daily-life-exact-applications.json"
+          ],
+          "measuredCount": 188,
+          "missing": [
+            "Technical-field population averages about 49%; exact equipment applications are governed read projections but are not active public-runtime authority"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L7",
+          "name": "Experience and review evidence",
+          "status": "ABSENT",
+          "authoritativeFiles": [],
+          "measuredCount": 0,
+          "missing": [
+            "No active, provenance-governed product experience/review aggregate is registered"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L8",
+          "name": "Decision projection",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/catalog/releases/v0.55.4/decision-facets.json",
+            "features/decision/v3/ledger.ts",
+            "features/decision/v3/evaluation/runJourney.ts"
+          ],
+          "measuredCount": 549,
+          "missing": [],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L9",
+          "name": "Advisor, knowledge, and manuals",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/research/owner-manual-evidence-v4/releases/v4.3.0-equipment-owner-review-01/coverage-report.json",
+            "features/vehicle-data/ownerManualEvidence.ts",
+            "features/decision/v3/carsAdvisory.ts"
+          ],
+          "measuredCount": 4,
+          "missing": [
+            "545 variants have no exact-TR promoted manual assertion",
+            "Owner-manual corpus remains read-only L9 authority and cannot silently enter L1/L8 or Y"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L10",
+          "name": "External commercial offer and media",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/rec-offer-audit-foundation",
+            "data/production/media/official-vehicle-media.json"
+          ],
+          "measuredCount": 549,
+          "missing": [
+            "Legacy activeNewPrice remains embedded in the Cars payload; merchant offers and media are separately governed"
+          ],
+          "impact": "RICHNESS_ONLY"
+        }
+      ]
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "offeringKind": "PRODUCT",
+      "referenceRole": "CATEGORY_AUTHORITY",
+      "authorityStatus": "READY",
+      "failureReasons": [],
+      "activeRelease": "APPLIANCES-WM-TR-v0.1",
+      "activeDigest": "1f6c6ea12b19b32d363e1889a1c8c4b8a6a621e4bb13a22384e0e4de2c586c9e",
+      "domainPackVersion": "appliances-stage1/v1",
+      "runtimeVersion": "XPY_RUNTIME/v0.1",
+      "runtimeDigest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "productCount": 24,
+      "sourceCount": 94,
+      "evidenceBearingProductCount": 24,
+      "manualCoveredProductCount": 0,
+      "dailyLifeMappingCount": 0,
+      "personaCoveredProductCount": 0,
+      "advisorArtifactCount": 1,
+      "decisionProjectionCount": 1,
+      "downstreamReadiness": {
+        "advisorReadProjection": {
+          "status": "PARTIAL",
+          "blockers": [
+            "Advisor schema exists, but product-bound manual/maintenance/installation knowledge is not populated"
+          ]
+        },
+        "comparisonEvidenceProjection": {
+          "status": "PARTIAL",
+          "blockers": [
+            "Comparable governed facts and policy exist; populated daily-life comparison interpretations and a release-level projection audit are missing"
+          ]
+        },
+        "exampleComparisonTable": {
+          "status": "PARTIAL",
+          "blockers": [
+            "Domain semantics exist, but no versioned example-table dimensions and human labels are registered"
+          ]
+        },
+        "paidComparisonReport": {
+          "status": "PARTIAL",
+          "blockers": [
+            "No standardized paid-report entitlement/report contract is registered"
+          ]
+        }
+      },
+      "layers": [
+        {
+          "layer": "L0",
+          "name": "Offering identity",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/washing-machines/active.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/catalog.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/manifest.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/semantic-registry.json"
+          ],
+          "measuredCount": 24,
+          "missing": [],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L1",
+          "name": "Governed objective facts",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/catalog.json"
+          ],
+          "measuredCount": 338,
+          "missing": [],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L2",
+          "name": "Capabilities and deliverables",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/catalog.json"
+          ],
+          "measuredCount": 384,
+          "missing": [],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L3",
+          "name": "Usage and consumption semantics",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/washing-machines/active.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/catalog.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/manifest.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/semantic-registry.json"
+          ],
+          "measuredCount": 19,
+          "missing": [],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L4",
+          "name": "User needs and Need-to-Evidence",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/washing-machines/active.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/catalog.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/manifest.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/semantic-registry.json"
+          ],
+          "measuredCount": 11,
+          "missing": [],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L5",
+          "name": "Persona and context planning signals",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/washing-machines/active.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/catalog.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/manifest.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/semantic-registry.json"
+          ],
+          "measuredCount": 9,
+          "missing": [],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L6",
+          "name": "Daily-life interpretation",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/washing-machines/active.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/catalog.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/manifest.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/semantic-registry.json"
+          ],
+          "measuredCount": 4,
+          "missing": [
+            "Interpretation modes and boundaries exist, but no populated product interpretation records"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L7",
+          "name": "Experience and review evidence",
+          "status": "ABSENT",
+          "authoritativeFiles": [],
+          "measuredCount": 0,
+          "missing": [
+            "No governed experience/review evidence with aggregation provenance"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L8",
+          "name": "Decision projection",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/washing-machines/active.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/catalog.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/manifest.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/semantic-registry.json"
+          ],
+          "measuredCount": 1,
+          "missing": [
+            "Projection policy and runtime trace exist, but no release-level per-product projection coverage audit"
+          ],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L9",
+          "name": "Advisor, knowledge, and manuals",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/washing-machines/active.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/catalog.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/manifest.json",
+            "data/production/appliances/washing-machines/releases/APPLIANCES-WM-TR-v0.1/semantic-registry.json"
+          ],
+          "measuredCount": 1,
+          "missing": [
+            "Advisor schema exists; no product-bound manual/maintenance/installation knowledge is populated"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L10",
+          "name": "External commercial offer and media",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/commerce/current.json",
+            "data/production/appliances/commerce/coverage-matrix.csv"
+          ],
+          "measuredCount": 2,
+          "missing": [
+            "External offer/media boundary is correct, but merchant/media coverage is incomplete"
+          ],
+          "impact": "RICHNESS_ONLY"
+        }
+      ]
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "DRYER",
+      "offeringKind": "PRODUCT",
+      "referenceRole": "CATEGORY_AUTHORITY",
+      "authorityStatus": "READY",
+      "failureReasons": [],
+      "activeRelease": "APPLIANCES-DRYER-TR-v0.1 decision/Y; APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2 active read-only richness",
+      "activeDigest": "3ef3ce69874ced7d210c97545d35e82a9a2fae2933a7d7d715ae411224943f48",
+      "domainPackVersion": "appliances-stage1/v1",
+      "runtimeVersion": "XPY_RUNTIME/v0.1",
+      "runtimeDigest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "productCount": 3,
+      "sourceCount": 6,
+      "evidenceBearingProductCount": 3,
+      "manualCoveredProductCount": 2,
+      "dailyLifeMappingCount": 18,
+      "personaCoveredProductCount": 3,
+      "advisorArtifactCount": 3,
+      "decisionProjectionCount": 3,
+      "downstreamReadiness": {
+        "advisorReadProjection": {
+          "status": "READY",
+          "blockers": []
+        },
+        "comparisonEvidenceProjection": {
+          "status": "READY",
+          "blockers": []
+        },
+        "exampleComparisonTable": {
+          "status": "READY",
+          "blockers": []
+        },
+        "paidComparisonReport": {
+          "status": "PARTIAL",
+          "blockers": [
+            "The evidence projection is ready; paid report/payment/Sales Advisor runtime remains outside this work unit."
+          ]
+        }
+      },
+      "layers": [
+        {
+          "layer": "L0",
+          "name": "Offering identity",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/dryers/active.json",
+            "data/production/appliances/dryers/releases/APPLIANCES-DRYER-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 3,
+          "missing": [],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L1",
+          "name": "Governed objective facts",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/manifest.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/catalog-release.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/semantic-registry.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/coverage-report.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/read-projections.json"
+          ],
+          "measuredCount": 27,
+          "missing": [
+            "Door-state dimensions and standardized energy/noise remain unknown for some exact products; no values were guessed"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L2",
+          "name": "Capabilities and deliverables",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/manifest.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/catalog-release.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/semantic-registry.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/coverage-report.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/read-projections.json"
+          ],
+          "measuredCount": 21,
+          "missing": [],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L3",
+          "name": "Usage and consumption semantics",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/manifest.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/catalog-release.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/semantic-registry.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/coverage-report.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/read-projections.json"
+          ],
+          "measuredCount": 8,
+          "missing": [],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L4",
+          "name": "User needs and Need-to-Evidence",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/manifest.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/catalog-release.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/semantic-registry.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/coverage-report.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/read-projections.json"
+          ],
+          "measuredCount": 12,
+          "missing": [],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L5",
+          "name": "Persona and context planning signals",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/manifest.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/catalog-release.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/semantic-registry.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/coverage-report.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/read-projections.json"
+          ],
+          "measuredCount": 4,
+          "missing": [],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L6",
+          "name": "Daily-life interpretation",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/manifest.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/catalog-release.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/semantic-registry.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/coverage-report.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/read-projections.json"
+          ],
+          "measuredCount": 18,
+          "missing": [],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L7",
+          "name": "Experience and review evidence",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/manifest.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/catalog-release.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/semantic-registry.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/coverage-report.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/read-projections.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No governed experience/review evidence exists; absence is explicit and is not schema-only coverage"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L8",
+          "name": "Decision projection",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/manifest.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/catalog-release.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/semantic-registry.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/coverage-report.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/read-projections.json"
+          ],
+          "measuredCount": 3,
+          "missing": [],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L9",
+          "name": "Advisor, knowledge, and manuals",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/manifest.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/catalog-release.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/semantic-registry.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/coverage-report.json",
+            "data/production/appliances/dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2/read-projections.json"
+          ],
+          "measuredCount": 8,
+          "missing": [
+            "KM 99 exact-applicability manual remains unresolved"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L10",
+          "name": "External commercial offer and media",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/commerce/current.json",
+            "data/production/appliances/commerce/coverage-matrix.csv"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "External volatile offer/media authority remains separate and incomplete"
+          ],
+          "impact": "RICHNESS_ONLY"
+        }
+      ]
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "REFRIGERATOR",
+      "offeringKind": "PRODUCT",
+      "referenceRole": "CATEGORY_AUTHORITY",
+      "authorityStatus": "READY",
+      "failureReasons": [],
+      "activeRelease": "APPLIANCES-REFRIGERATOR-TR-v0.1",
+      "activeDigest": "4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825",
+      "domainPackVersion": "appliances-stage1/v1",
+      "runtimeVersion": "XPY_RUNTIME/v0.1",
+      "runtimeDigest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "productCount": 4,
+      "sourceCount": 8,
+      "evidenceBearingProductCount": 4,
+      "manualCoveredProductCount": 0,
+      "dailyLifeMappingCount": 0,
+      "personaCoveredProductCount": 0,
+      "advisorArtifactCount": 0,
+      "decisionProjectionCount": 0,
+      "downstreamReadiness": {
+        "advisorReadProjection": {
+          "status": "BLOCKED",
+          "blockers": [
+            "No product-bound daily-life or Advisor/manual knowledge authority",
+            "Fact/capability provenance is product-level rather than assertion-level"
+          ]
+        },
+        "comparisonEvidenceProjection": {
+          "status": "PARTIAL",
+          "blockers": [
+            "Comparability policy and exact identities exist, but assertion-level evidence eligibility and Domain Pack comparison dimensions/labels are missing"
+          ]
+        },
+        "exampleComparisonTable": {
+          "status": "BLOCKED",
+          "blockers": [
+            "A universal renderer may not invent missing category-owned dimensions or human labels"
+          ]
+        },
+        "paidComparisonReport": {
+          "status": "BLOCKED",
+          "blockers": [
+            "Comparison evidence projection is not yet release-ready and no paid-report entitlement/report contract is registered"
+          ]
+        }
+      },
+      "layers": [
+        {
+          "layer": "L0",
+          "name": "Offering identity",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/refrigerators/active.json",
+            "data/production/appliances/refrigerators/releases/APPLIANCES-REFRIGERATOR-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 4,
+          "missing": [],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L1",
+          "name": "Governed objective facts",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/refrigerators/releases/APPLIANCES-REFRIGERATOR-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 75,
+          "missing": [
+            "Evidence references are product-level, not field/assertion-level",
+            "Some governed facts remain unknown/null by design"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L2",
+          "name": "Capabilities and deliverables",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/refrigerators/releases/APPLIANCES-REFRIGERATOR-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 28,
+          "missing": [
+            "Capability values lack independent assertion-level provenance and decision eligibility"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L3",
+          "name": "Usage and consumption semantics",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/refrigerators/active.json",
+            "data/production/appliances/refrigerators/releases/APPLIANCES-REFRIGERATOR-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 15,
+          "missing": [
+            "Concept vocabulary exists, but no separate populated usage-semantics registry exists"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L4",
+          "name": "User needs and Need-to-Evidence",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/refrigerators/active.json",
+            "data/production/appliances/refrigerators/releases/APPLIANCES-REFRIGERATOR-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 15,
+          "missing": [
+            "No explicit Need-to-Evidence mapping artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L5",
+          "name": "Persona and context planning signals",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/refrigerators/active.json",
+            "data/production/appliances/refrigerators/releases/APPLIANCES-REFRIGERATOR-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No category-governed persona/context planning registry"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L6",
+          "name": "Daily-life interpretation",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/refrigerators/active.json",
+            "data/production/appliances/refrigerators/releases/APPLIANCES-REFRIGERATOR-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No technical-to-daily-life interpretation artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L7",
+          "name": "Experience and review evidence",
+          "status": "ABSENT",
+          "authoritativeFiles": [],
+          "measuredCount": 0,
+          "missing": [
+            "No governed experience/review evidence with aggregation provenance"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L8",
+          "name": "Decision projection",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/refrigerators/active.json",
+            "data/production/appliances/refrigerators/releases/APPLIANCES-REFRIGERATOR-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "Runtime emits exact identities, but the Domain Pack has no separate decision-projection policy/digest"
+          ],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L9",
+          "name": "Advisor, knowledge, and manuals",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/refrigerators/active.json",
+            "data/production/appliances/refrigerators/releases/APPLIANCES-REFRIGERATOR-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No Advisor knowledge or exact-applicability manual artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L10",
+          "name": "External commercial offer and media",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/commerce/current.json",
+            "data/production/appliances/commerce/coverage-matrix.csv"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "External offer/media boundary is correct, but merchant/media coverage is incomplete"
+          ],
+          "impact": "RICHNESS_ONLY"
+        }
+      ]
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "DISHWASHER",
+      "offeringKind": "PRODUCT",
+      "referenceRole": "CATEGORY_AUTHORITY",
+      "authorityStatus": "READY",
+      "failureReasons": [],
+      "activeRelease": "APPLIANCES-DISHWASHER-TR-v0.1",
+      "activeDigest": "66973c59f1b752f2598b4c6b30d6dc0d2b272948a342b33a08f4cd8f68f9124e",
+      "domainPackVersion": "appliances-stage1/v1",
+      "runtimeVersion": "XPY_RUNTIME/v0.1",
+      "runtimeDigest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "productCount": 4,
+      "sourceCount": 5,
+      "evidenceBearingProductCount": 4,
+      "manualCoveredProductCount": 0,
+      "dailyLifeMappingCount": 0,
+      "personaCoveredProductCount": 0,
+      "advisorArtifactCount": 0,
+      "decisionProjectionCount": 0,
+      "downstreamReadiness": {
+        "advisorReadProjection": {
+          "status": "BLOCKED",
+          "blockers": [
+            "No product-bound daily-life or Advisor/manual knowledge authority",
+            "Fact/capability provenance is product-level rather than assertion-level"
+          ]
+        },
+        "comparisonEvidenceProjection": {
+          "status": "PARTIAL",
+          "blockers": [
+            "Comparability policy and exact identities exist, but assertion-level evidence eligibility and Domain Pack comparison dimensions/labels are missing"
+          ]
+        },
+        "exampleComparisonTable": {
+          "status": "BLOCKED",
+          "blockers": [
+            "A universal renderer may not invent missing category-owned dimensions or human labels"
+          ]
+        },
+        "paidComparisonReport": {
+          "status": "BLOCKED",
+          "blockers": [
+            "Comparison evidence projection is not yet release-ready and no paid-report entitlement/report contract is registered"
+          ]
+        }
+      },
+      "layers": [
+        {
+          "layer": "L0",
+          "name": "Offering identity",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/dishwashers/active.json",
+            "data/production/appliances/dishwashers/releases/APPLIANCES-DISHWASHER-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 4,
+          "missing": [],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L1",
+          "name": "Governed objective facts",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/dishwashers/releases/APPLIANCES-DISHWASHER-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 31,
+          "missing": [
+            "Evidence references are product-level, not field/assertion-level",
+            "Some governed facts remain unknown/null by design"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L2",
+          "name": "Capabilities and deliverables",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/dishwashers/releases/APPLIANCES-DISHWASHER-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 12,
+          "missing": [
+            "Capability values lack independent assertion-level provenance and decision eligibility"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L3",
+          "name": "Usage and consumption semantics",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/dishwashers/active.json",
+            "data/production/appliances/dishwashers/releases/APPLIANCES-DISHWASHER-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 7,
+          "missing": [
+            "Concept vocabulary exists, but no separate populated usage-semantics registry exists"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L4",
+          "name": "User needs and Need-to-Evidence",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/dishwashers/active.json",
+            "data/production/appliances/dishwashers/releases/APPLIANCES-DISHWASHER-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 7,
+          "missing": [
+            "No explicit Need-to-Evidence mapping artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L5",
+          "name": "Persona and context planning signals",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/dishwashers/active.json",
+            "data/production/appliances/dishwashers/releases/APPLIANCES-DISHWASHER-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No category-governed persona/context planning registry"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L6",
+          "name": "Daily-life interpretation",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/dishwashers/active.json",
+            "data/production/appliances/dishwashers/releases/APPLIANCES-DISHWASHER-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No technical-to-daily-life interpretation artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L7",
+          "name": "Experience and review evidence",
+          "status": "ABSENT",
+          "authoritativeFiles": [],
+          "measuredCount": 0,
+          "missing": [
+            "No governed experience/review evidence with aggregation provenance"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L8",
+          "name": "Decision projection",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/dishwashers/active.json",
+            "data/production/appliances/dishwashers/releases/APPLIANCES-DISHWASHER-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "Runtime emits exact identities, but the Domain Pack has no separate decision-projection policy/digest"
+          ],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L9",
+          "name": "Advisor, knowledge, and manuals",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/dishwashers/active.json",
+            "data/production/appliances/dishwashers/releases/APPLIANCES-DISHWASHER-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No Advisor knowledge or exact-applicability manual artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L10",
+          "name": "External commercial offer and media",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/commerce/current.json",
+            "data/production/appliances/commerce/coverage-matrix.csv"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "External offer/media boundary is correct, but merchant/media coverage is incomplete"
+          ],
+          "impact": "RICHNESS_ONLY"
+        }
+      ]
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "VACUUM",
+      "offeringKind": "PRODUCT",
+      "referenceRole": "CATEGORY_AUTHORITY",
+      "authorityStatus": "READY",
+      "failureReasons": [],
+      "activeRelease": "APPLIANCES-VACUUM-TR-v0.1",
+      "activeDigest": "849467eb66b81d4042076da4e1023836b56974a1d6e2fbfd9fd67d34555ad343",
+      "domainPackVersion": "appliances-stage1/v1",
+      "runtimeVersion": "XPY_RUNTIME/v0.1",
+      "runtimeDigest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "productCount": 4,
+      "sourceCount": 4,
+      "evidenceBearingProductCount": 4,
+      "manualCoveredProductCount": 0,
+      "dailyLifeMappingCount": 0,
+      "personaCoveredProductCount": 0,
+      "advisorArtifactCount": 0,
+      "decisionProjectionCount": 0,
+      "downstreamReadiness": {
+        "advisorReadProjection": {
+          "status": "BLOCKED",
+          "blockers": [
+            "No product-bound daily-life or Advisor/manual knowledge authority",
+            "Fact/capability provenance is product-level rather than assertion-level"
+          ]
+        },
+        "comparisonEvidenceProjection": {
+          "status": "PARTIAL",
+          "blockers": [
+            "Comparability policy and exact identities exist, but assertion-level evidence eligibility and Domain Pack comparison dimensions/labels are missing"
+          ]
+        },
+        "exampleComparisonTable": {
+          "status": "BLOCKED",
+          "blockers": [
+            "A universal renderer may not invent missing category-owned dimensions or human labels"
+          ]
+        },
+        "paidComparisonReport": {
+          "status": "BLOCKED",
+          "blockers": [
+            "Comparison evidence projection is not yet release-ready and no paid-report entitlement/report contract is registered"
+          ]
+        }
+      },
+      "layers": [
+        {
+          "layer": "L0",
+          "name": "Offering identity",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/vacuums/active.json",
+            "data/production/appliances/vacuums/releases/APPLIANCES-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 4,
+          "missing": [],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L1",
+          "name": "Governed objective facts",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/vacuums/releases/APPLIANCES-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 24,
+          "missing": [
+            "Evidence references are product-level, not field/assertion-level",
+            "Some governed facts remain unknown/null by design"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L2",
+          "name": "Capabilities and deliverables",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/vacuums/releases/APPLIANCES-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 15,
+          "missing": [
+            "Capability values lack independent assertion-level provenance and decision eligibility"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L3",
+          "name": "Usage and consumption semantics",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/vacuums/active.json",
+            "data/production/appliances/vacuums/releases/APPLIANCES-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 7,
+          "missing": [
+            "Concept vocabulary exists, but no separate populated usage-semantics registry exists"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L4",
+          "name": "User needs and Need-to-Evidence",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/vacuums/active.json",
+            "data/production/appliances/vacuums/releases/APPLIANCES-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 7,
+          "missing": [
+            "No explicit Need-to-Evidence mapping artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L5",
+          "name": "Persona and context planning signals",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/vacuums/active.json",
+            "data/production/appliances/vacuums/releases/APPLIANCES-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No category-governed persona/context planning registry"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L6",
+          "name": "Daily-life interpretation",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/vacuums/active.json",
+            "data/production/appliances/vacuums/releases/APPLIANCES-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No technical-to-daily-life interpretation artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L7",
+          "name": "Experience and review evidence",
+          "status": "ABSENT",
+          "authoritativeFiles": [],
+          "measuredCount": 0,
+          "missing": [
+            "No governed experience/review evidence with aggregation provenance"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L8",
+          "name": "Decision projection",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/vacuums/active.json",
+            "data/production/appliances/vacuums/releases/APPLIANCES-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "Runtime emits exact identities, but the Domain Pack has no separate decision-projection policy/digest"
+          ],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L9",
+          "name": "Advisor, knowledge, and manuals",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/vacuums/active.json",
+            "data/production/appliances/vacuums/releases/APPLIANCES-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No Advisor knowledge or exact-applicability manual artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L10",
+          "name": "External commercial offer and media",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/commerce/current.json",
+            "data/production/appliances/commerce/coverage-matrix.csv"
+          ],
+          "measuredCount": 2,
+          "missing": [
+            "External offer/media boundary is correct, but merchant/media coverage is incomplete"
+          ],
+          "impact": "RICHNESS_ONLY"
+        }
+      ]
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "ROBOT_VACUUM",
+      "offeringKind": "PRODUCT",
+      "referenceRole": "CATEGORY_AUTHORITY",
+      "authorityStatus": "READY",
+      "failureReasons": [],
+      "activeRelease": "APPLIANCES-ROBOT-VACUUM-TR-v0.1",
+      "activeDigest": "86b3932c87873ffcb67bd53b91c162dd167fc3bb22bcec6a2cb9b759ffd79533",
+      "domainPackVersion": "appliances-stage1/v1",
+      "runtimeVersion": "XPY_RUNTIME/v0.1",
+      "runtimeDigest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "productCount": 4,
+      "sourceCount": 6,
+      "evidenceBearingProductCount": 4,
+      "manualCoveredProductCount": 0,
+      "dailyLifeMappingCount": 0,
+      "personaCoveredProductCount": 0,
+      "advisorArtifactCount": 0,
+      "decisionProjectionCount": 0,
+      "downstreamReadiness": {
+        "advisorReadProjection": {
+          "status": "BLOCKED",
+          "blockers": [
+            "No product-bound daily-life or Advisor/manual knowledge authority",
+            "Fact/capability provenance is product-level rather than assertion-level"
+          ]
+        },
+        "comparisonEvidenceProjection": {
+          "status": "PARTIAL",
+          "blockers": [
+            "Comparability policy and exact identities exist, but assertion-level evidence eligibility and Domain Pack comparison dimensions/labels are missing"
+          ]
+        },
+        "exampleComparisonTable": {
+          "status": "BLOCKED",
+          "blockers": [
+            "A universal renderer may not invent missing category-owned dimensions or human labels"
+          ]
+        },
+        "paidComparisonReport": {
+          "status": "BLOCKED",
+          "blockers": [
+            "Comparison evidence projection is not yet release-ready and no paid-report entitlement/report contract is registered"
+          ]
+        }
+      },
+      "layers": [
+        {
+          "layer": "L0",
+          "name": "Offering identity",
+          "status": "COMPLETE",
+          "authoritativeFiles": [
+            "data/production/appliances/robot-vacuums/active.json",
+            "data/production/appliances/robot-vacuums/releases/APPLIANCES-ROBOT-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 4,
+          "missing": [],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L1",
+          "name": "Governed objective facts",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/robot-vacuums/releases/APPLIANCES-ROBOT-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 23,
+          "missing": [
+            "Evidence references are product-level, not field/assertion-level",
+            "Some governed facts remain unknown/null by design"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L2",
+          "name": "Capabilities and deliverables",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/robot-vacuums/releases/APPLIANCES-ROBOT-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 26,
+          "missing": [
+            "Capability values lack independent assertion-level provenance and decision eligibility"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L3",
+          "name": "Usage and consumption semantics",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/robot-vacuums/active.json",
+            "data/production/appliances/robot-vacuums/releases/APPLIANCES-ROBOT-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 9,
+          "missing": [
+            "Concept vocabulary exists, but no separate populated usage-semantics registry exists"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L4",
+          "name": "User needs and Need-to-Evidence",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/robot-vacuums/active.json",
+            "data/production/appliances/robot-vacuums/releases/APPLIANCES-ROBOT-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 9,
+          "missing": [
+            "No explicit Need-to-Evidence mapping artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L5",
+          "name": "Persona and context planning signals",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/robot-vacuums/active.json",
+            "data/production/appliances/robot-vacuums/releases/APPLIANCES-ROBOT-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No category-governed persona/context planning registry"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L6",
+          "name": "Daily-life interpretation",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/robot-vacuums/active.json",
+            "data/production/appliances/robot-vacuums/releases/APPLIANCES-ROBOT-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No technical-to-daily-life interpretation artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L7",
+          "name": "Experience and review evidence",
+          "status": "ABSENT",
+          "authoritativeFiles": [],
+          "measuredCount": 0,
+          "missing": [
+            "No governed experience/review evidence with aggregation provenance"
+          ],
+          "impact": "RICHNESS_ONLY"
+        },
+        {
+          "layer": "L8",
+          "name": "Decision projection",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/robot-vacuums/active.json",
+            "data/production/appliances/robot-vacuums/releases/APPLIANCES-ROBOT-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "Runtime emits exact identities, but the Domain Pack has no separate decision-projection policy/digest"
+          ],
+          "impact": "ASAMA_1"
+        },
+        {
+          "layer": "L9",
+          "name": "Advisor, knowledge, and manuals",
+          "status": "ABSENT",
+          "authoritativeFiles": [
+            "data/production/appliances/robot-vacuums/active.json",
+            "data/production/appliances/robot-vacuums/releases/APPLIANCES-ROBOT-VACUUM-TR-v0.1/domain-pack.json"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "No Advisor knowledge or exact-applicability manual artifact"
+          ],
+          "impact": "ASAMA_2"
+        },
+        {
+          "layer": "L10",
+          "name": "External commercial offer and media",
+          "status": "PARTIAL",
+          "authoritativeFiles": [
+            "data/production/appliances/commerce/current.json",
+            "data/production/appliances/commerce/coverage-matrix.csv"
+          ],
+          "measuredCount": 0,
+          "missing": [
+            "External offer/media boundary is correct, but merchant/media coverage is incomplete"
+          ],
+          "impact": "RICHNESS_ONLY"
+        }
+      ]
+    }
+  ],
+  "enrichmentPlan": [
+    {
+      "sequence": 1,
+      "workUnitId": "WU-XPY-CARS-OWNER-MANUAL-EXACT-TR-PILOT-01",
+      "categories": [
+        "NEW_CAR"
+      ],
+      "objective": "Resolve exact-TR owner-manual applicability for eight source-available variants and promote only reviewed exact assertions."
+    },
+    {
+      "sequence": 2,
+      "workUnitId": "WU-XPY-CARS-EQUIPMENT-EVIDENCE-BATCH-01",
+      "categories": [
+        "NEW_CAR"
+      ],
+      "objective": "Completed: seven bounded source attempts and fourteen independently reviewed, owner-pending exact association proposals."
+    },
+    {
+      "sequence": 3,
+      "workUnitId": "WU-XPY-CARS-DAILY-LIFE-HIGH-MATERIALITY-01",
+      "categories": [
+        "NEW_CAR"
+      ],
+      "objective": "Partial complete: 20 owner-evidence-bound exact applications across five priority variants; public activation and 8,646 technical-field mappings remain outside the release."
+    },
+    {
+      "sequence": 4,
+      "workUnitId": "WU-XPY-CARS-PERSONA-QUALITY-REMAINDER-01",
+      "categories": [
+        "NEW_CAR"
+      ],
+      "objective": "Resolve the remaining four empty/unresolved persona projections while preserving soft-only planning authority."
+    },
+    {
+      "sequence": 5,
+      "workUnitId": "WU-XPY-CARS-COMPARISON-ADVISOR-COMPLETENESS-01",
+      "categories": [
+        "NEW_CAR"
+      ],
+      "objective": "Recompute per-variant Advisor and comparison readiness after evidence enrichment without broadening decision authority."
+    },
+    {
+      "sequence": 6,
+      "workUnitId": "WU-XPY-APPL-DRYER-CATALOG-RICHNESS-01",
+      "categories": [
+        "DRYER"
+      ],
+      "objective": "Partial complete: immutable three-product assertion/semantic/read-projection child is generated; KM 99 manual and Product-owner activation remain open without affecting AŞAMA 1."
+    },
+    {
+      "sequence": 7,
+      "workUnitId": "WU-XPY-REFRIGERATOR-SEMANTIC-EVIDENCE-01",
+      "categories": [
+        "REFRIGERATOR"
+      ],
+      "objective": "Add assertion-level provenance and versioned L3-L6/L8-L9 authorities while preserving unknown/conflicted measurements."
+    },
+    {
+      "sequence": 8,
+      "workUnitId": "WU-XPY-DISHWASHER-SEMANTIC-EVIDENCE-01",
+      "categories": [
+        "DISHWASHER"
+      ],
+      "objective": "Add explicit Need-to-Evidence and interpretation authorities."
+    },
+    {
+      "sequence": 9,
+      "workUnitId": "WU-XPY-VACUUM-SEMANTIC-EVIDENCE-01",
+      "categories": [
+        "VACUUM"
+      ],
+      "objective": "Add explicit evidence eligibility, usage semantics, and interpretation authorities."
+    },
+    {
+      "sequence": 10,
+      "workUnitId": "WU-XPY-ROBOT-VACUUM-SEMANTIC-EVIDENCE-01",
+      "categories": [
+        "ROBOT_VACUUM"
+      ],
+      "objective": "Add explicit evidence eligibility, privacy-aware usage semantics, and interpretation authorities."
+    },
+    {
+      "sequence": 11,
+      "workUnitId": "WU-XPY-WM-INTERPRETATION-MANUAL-01",
+      "categories": [
+        "WASHING_MACHINE"
+      ],
+      "objective": "Populate reviewed product-bound L6 and exact-applicability L9 records behind the existing schemas."
+    }
+  ],
+  "nextWorkUnit": {
+    "workUnitId": "WU-XPY-APPL-REFRIGERATOR-CATALOG-RICHNESS-01",
+    "executionPrompt": "EXPIYA PLATFORM — WU-XPY-APPL-REFRIGERATOR-CATALOG-RICHNESS-01\n\nApply XPY_CATALOG/v0.1 assertion-level provenance and the Dryer-proven semantic/read-projection discipline to the exact Türkiye Refrigerator products. Preserve unknowns, category-owned meanings and external commerce/media boundaries; do not copy Dryer, Washing Machine or Cars semantics."
+  }
+}

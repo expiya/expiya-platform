@@ -1,7 +1,9 @@
+import type { GovernedProductMedia } from "@/features/media/governedProductMedia";
+
 export type VehicleMediaScope = "VARIANT" | "GENERATION_BODY" | "MODEL_BODY" | "MODEL";
 export type VehicleMediaKind = "HERO_EXTERIOR" | "EXTERIOR" | "INTERIOR" | "CARGO";
 export type VehicleMediaPublicationState = "CANDIDATE" | "RIGHTS_REVIEW" | "PUBLISHED" | "REJECTED";
-export type VehicleMediaUsagePermission = "OPEN_LICENSE" | "LICENSED" | "WRITTEN_PERMISSION" | "OWNER_ATTESTED";
+export type VehicleMediaUsagePermission = "OPEN_LICENSE" | "LICENSED" | "WRITTEN_PERMISSION" | "OWNER_ATTESTED" | "REMOTE_PREVIEW";
 
 export interface VehicleMediaIdentityVerification {
   readonly status: "VERIFIED_EXACT";
@@ -55,4 +57,6 @@ export interface VehicleMediaAsset {
   /** Required before an open-license discovery can enter runtime resolution. */
   readonly identityVerification?: VehicleMediaIdentityVerification;
   readonly applicabilityNotes: readonly string[];
+  /** New governed contract. Legacy OPEN_LICENSE records are normalized at the authority boundary. */
+  readonly governance?: GovernedProductMedia;
 }

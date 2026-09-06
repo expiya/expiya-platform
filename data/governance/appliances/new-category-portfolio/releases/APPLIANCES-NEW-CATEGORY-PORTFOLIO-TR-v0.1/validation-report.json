@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "appliances-new-category-portfolio-validation/v1",
+  "releaseVersion": "APPLIANCES-NEW-CATEGORY-PORTFOLIO-TR-v0.1",
+  "validatedAt": "2026-09-04T23:00:00.000+03:00",
+  "status": "PASS",
+  "checks": [
+    {"check":"BOUNDED_SCOPE","status":"PASS","detail":"18 selected categories; explicit non-exhaustive household scope; no OTHER catch-all."},
+    {"check":"UNIQUE_CANONICAL_IDS","status":"PASS","detail":"All selected IDs are unique uppercase snake case and do not collide with the six active IDs."},
+    {"check":"DECISION_IDENTITY","status":"PASS","detail":"Every category defines one exact manufacturer configuration decision object plus included/excluded scope."},
+    {"check":"FAMILY_NON_CONFLATION","status":"PASS","detail":"Installed/portable microwave, coffee workflows, food-preparation types and water-heating systems are separated where semantics differ."},
+    {"check":"PRIMARY_TR_TAXONOMY","status":"PASS","detail":"Official Türkiye manufacturer sources cover every selected family; source availability is not treated as readiness."},
+    {"check":"XPY_STAGE_SEPARATION","status":"PASS","detail":"X/P/Y and AŞAMA 1/2/3 boundaries are explicit; no scoring or policy is introduced."},
+    {"check":"TEMPORAL_BOUNDARY","status":"PASS","detail":"Frozen technical/manual evidence is separated from volatile price/media/offers."},
+    {"check":"EXISTING_SIX_NON_REGRESSION","status":"PASS","detail":"Existing six IDs and authorities are declaratively untouched."},
+    {"check":"IMPLEMENTATION_ORDER","status":"PASS","detail":"One foundation plus five evidence/semantic batches is dependency-ordered."},
+    {"check":"EXACTLY_ONE_NEXT_UNIT","status":"PASS","detail":"WU-XPY-APPL-NEW-CATEGORY-MULTI-FOUNDATION-01 is the sole next work unit."},
+    {"check":"CURRENT_TYPESCRIPT_CONSTRAINT","status":"PASS_WITH_REQUIRED_EXTENSION","detail":"features/appliances/contracts.ts APPLIANCES_PRODUCT_TYPES currently contains only the six active IDs."},
+    {"check":"CURRENT_ROUTE_CONSTRAINT","status":"PASS_WITH_REQUIRED_EXTENSION","detail":"features/appliances/nativeConversationRoute.server.ts CREATE z.enum currently contains only the six active IDs."},
+    {"check":"CURRENT_REGISTRY_CONSTRAINT","status":"PASS_WITH_REQUIRED_EXTENSION","detail":"features/platform/departmentRegistry.ts and features/xpy/domainPacks.ts derive/declare only the six active capabilities."},
+    {"check":"CURRENT_DATABASE_CONSTRAINT","status":"PASS_WITH_REQUIRED_EXTENSION","detail":"database/migrations/0012_appliances_remaining_product_types.sql check constraint contains only the six active IDs; next unit must add a new additive migration, never rewrite 0012."}
+    ,{"check":"PORTFOLIO_DIGEST","status":"PASS","detail":"Canonical JSON.stringify(payload) SHA-256 equals 719090386cd90a2959e6632c40da8c605229da83f10f69cb0b22941433cdadab."}
+  ],
+  "implementationGuard":"The next foundation may extend identifiers and fail-closed inactive contracts only. It may not imply ACTIVE status, catalog readiness, semantic authority, selection authority or deployability."
+}

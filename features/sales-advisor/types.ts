@@ -6,6 +6,7 @@ export type ClaimDisposition = "VERIFIED" | "FAMILY_LEVEL" | "REPRESENTATIVE" | 
 export interface Phase2HandoffPayload {
   readonly version: typeof SALES_ADVISOR_VERSION;
   readonly conversationId: string;
+  readonly decisionRevision: number;
   readonly decisionFingerprint: string;
   readonly offerId: string;
   readonly selectedExactVariantId: string;

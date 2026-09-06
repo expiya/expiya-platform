@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "appliances-bounded-active-pointer/v3",
+  "releaseVersion": "APPLIANCES-DISHWASHER-TR-v0.2",
+  "artifactSha256": "5bf0aa3dab0bb16c6db1bc7944370a20f2911caeccc0d48f60aa80cb2a399506",
+  "lifecycle": "ACTIVE",
+  "richness": {
+    "releaseVersion": "APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.3-candidate",
+    "releaseDigest": "sha256:cecb38d0592e0bda7677df50775fe3de9a1324f710aa16cb5cf923e0eb89f08a",
+    "catalogArtifactSha256": "662964e296e3717d56a0428932d5bdbf8df986b9816b9604458d5805dec5dc3d",
+    "membershipDigest": "a8bdab0f17770acfc60abd382f9ef66193c0d48e3fc2548f51bda15731a5c7d4",
+    "activationManifest": "data/production/appliances/catalog-adoption/governance/activation-events/APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55/activation.json",
+    "activationManifestSha256": "0c4e649281401e919c6b79b5b6b11a839764c76f93507c94af2f859cb38df0f1",
+    "lifecycle": "ACTIVE_READ_ONLY"
+  },
+  "decisionActivation": {
+    "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-DECISION-ADOPTION-01",
+    "approvalManifest": "data/production/appliances/decision-adoption/governance/approval-events/APPLIANCES-MAJOR-DECISION-POA-2E76D621CE55/approval.json",
+    "approvalManifestSha256": "9f8358bb289e4648f5d0d9de4fd5366b82d4650b3556a74ae2c63a2dd6eb85e9",
+    "lifecycle": "ACTIVE_DECISION_AUTHORITY"
+  }
+}

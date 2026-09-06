@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "robot-vacuum-richness-manifest/v1",
+  "workUnitId": "WU-XPY-APPL-ROBOT-VACUUM-CATALOG-RICHNESS-01",
+  "releaseVersion": "APPLIANCES-ROBOT-VACUUM-CATALOG-RICHNESS-TR-v0.2",
+  "parent": {
+    "releaseVersion": "APPLIANCES-ROBOT-VACUUM-TR-v0.1",
+    "artifactSha256": "86b3932c87873ffcb67bd53b91c162dd167fc3bb22bcec6a2cb9b759ffd79533",
+    "relationship": "IMMUTABLE_CHILD_NO_OVERWRITE"
+  },
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "ROBOT_VACUUM_SEMANTIC_REGISTRY/v0.2",
+    "semanticAuthorityDigest": "sha256:1fa4b3ddfb9fb50641c1155704b5d98718eea612fe59cbed381d40583cdae76f",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "releaseDigest": "sha256:e943678e25d449e29859d6b72c1225093a64dc0882065f569d78921ab7bc3539",
+  "catalogArtifactSha256": "31fad05f27c8c73a0e1e6adcd209c900bb6491810515b0ee6c1723ba00c936e7",
+  "semanticArtifactSha256": "fd1e012580b34994a30c6c95635321160ec57e24b4d5b90381db728b26a9531c",
+  "coverageArtifactSha256": "aa7e9af3e472abaf0b85769586baec639218a0d6669f5f33e90fdfdb2d09a24b",
+  "projectionsArtifactSha256": "2af456c20cfedfac41e814bcb8a7dbd79749e54308e4a9a87de1f1c7d7f60110",
+  "membershipDigest": "975f6d32789c31fda5ca852a06fd04649477fbefd9a2ccd62f0cee187df6919c",
+  "memberCount": 4,
+  "counts": {
+    "sources": 6,
+    "offerings": 4,
+    "objectiveFacts": 23,
+    "capabilities": 26,
+    "usageSemantics": 8,
+    "needs": 10,
+    "needEvidenceMappings": 9,
+    "personaSignals": 4,
+    "dailyLifeInterpretations": 14,
+    "experienceRules": 0,
+    "decisionProjections": 4,
+    "advisorKnowledge": 0,
+    "comparisonDimensions": 8,
+    "evidence": 49,
+    "assertionLevelEvidence": 49,
+    "advisorReadProjectionsGenerated": 4,
+    "comparisonEvidenceProjectionsGenerated": 1
+  },
+  "reviewerStatus": "APPROVED_IN_WORK_UNIT",
+  "activation": {
+    "performed": false,
+    "activePointerRelease": "APPLIANCES-ROBOT-VACUUM-TR-v0.1"
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+    "unknowns": [
+      "Base warranty duration and exact installation clearances remain unknown.",
+      "Exact manual bytes are not retained; L9 is disabled."
+    ],
+    "treatment": "NEUTRAL_NO_PENALTY_NO_INFERENCE"
+  },
+  {
+    "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+    "unknowns": [
+      "Official manufacturer page reports its own store as temporarily out of stock; Amazon availability remains L10 only.",
+      "Base warranty duration and exact manual checksum remain unknown."
+    ],
+    "treatment": "NEUTRAL_NO_PENALTY_NO_INFERENCE"
+  },
+  {
+    "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+    "unknowns": [
+      "Amazon title says seven programs while Samsung Türkiye support identifies the exact model as six-program; program count is excluded as conflicted.",
+      "Exact manual bytes are not retained; L9 is disabled."
+    ],
+    "treatment": "NEUTRAL_NO_PENALTY_NO_INFERENCE"
+  }
+]

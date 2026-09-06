@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "major-appliance-category-adoption-coverage/v1",
+  "categoryId": "WASHING_MACHINE",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+  "verdict": "ADMITTED_TO_FROZEN_CANDIDATE_RELEASE_ACTIVATION_BLOCKED_APPROVAL",
+  "counts": {
+    "priorOfferings": 24,
+    "admittedOfferings": 5,
+    "candidateOfferings": 29,
+    "newSources": 5,
+    "newEvidenceAssertions": 88,
+    "newFacts": 70,
+    "newCapabilities": 18,
+    "newDailyLifeInterpretations": 5,
+    "newDecisionProjections": 5,
+    "newAdvisorKnowledge": 0
+  },
+  "layers": {
+    "L0": "COMPLETE",
+    "L1": "COMPLETE",
+    "L2": "COMPLETE",
+    "L3": "COMPLETE",
+    "L4": "COMPLETE",
+    "L5": "COMPLETE_PLANNING_ONLY_NO_Y",
+    "L6": "COMPLETE_SEPARATE_FROM_TECHNICAL_TRUTH",
+    "L7": "ABSENT_NO_GOVERNED_EXPERIENCE",
+    "L8": "COMPLETE_NEUTRAL_UNKNOWN_LIMITED",
+    "L9": "DISABLED_NO_CHECKSUM_PINNED_EXACT_MANUAL",
+    "L10": "PARTIAL_EXTERNAL_VOLATILE_AMAZON_ONLY"
+  },
+  "perProduct": [
+    {
+      "offeringId": "appliances:wm:tr:samsung:ww90ta046ah-ah",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Exact installation clearances and hose routing remain unknown until a checksum-pinned exact manual is reviewed.",
+        "Noise perception, wash outcome, vibration and household bills are not guaranteed."
+      ]
+    },
+    {
+      "offeringId": "appliances:wm:tr:vestel:cmi-97402-wifi",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "The manual URL is exact, but L9 remains disabled because its bytes/checksum were not retained by this release.",
+        "Seller warranty terms, final installation inclusion and usage outcomes require transaction-time confirmation."
+      ]
+    },
+    {
+      "offeringId": "appliances:wm:tr:arcelik:10120-imp",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Exact manual bytes and section locators are not retained; L9 is disabled.",
+        "Programme-level load limits and claimed outcome magnitudes remain outside decision evidence."
+      ]
+    },
+    {
+      "offeringId": "appliances:wm:tr:altus:al-cm-101254-d",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Exact manual bytes and section locators are not retained; L9 is disabled.",
+        "Motor warranty eligibility and seller installation terms require purchase-date confirmation."
+      ]
+    },
+    {
+      "offeringId": "appliances:wm:tr:samsung:ww11dg6b25leah",
+      "disposition": "ADMITTED",
+      "layerCoverage": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE_NO_Y",
+        "L6": "COMPLETE_NEUTRAL",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "DISABLED",
+        "L10": "VOLATILE"
+      },
+      "unknowns": [
+        "Exact manual bytes and section locators are not retained; L9 is disabled.",
+        "AI Energy savings claims are conditional and excluded from decision evidence."
+      ]
+    }
+  ],
+  "nonRegression": {
+    "existingOfferingsRetained": true,
+    "existingEvidenceRetained": true,
+    "activePointerChanged": false,
+    "currentYAuthorityChanged": false,
+    "rankingOrRemovalIntroduced": false
+  }
+}

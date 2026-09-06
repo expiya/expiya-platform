@@ -1,0 +1,14 @@
+import type { AppliancesArtifactRepository } from "../authority/loader.server";
+import type { AppliancesRuntimeOutcome } from "../contracts";
+import type { QuestionPolicyArtifactRepository } from "../governance/questionPolicyLoader.server";
+import { deterministicPayloadHash } from "../persistence/service";
+import type { AppliancesConversationStore } from "../persistence/types";
+import { planCurrentAppliancesQuestion } from "./current.server";
+import type { AppliancesQuestionPlan } from "./types";
+import { preflightTurn, recordAskedQuestion } from "../../conversation-kernel/lifecycle";
+
+export type RunAppliancesQuestionPlanningResult={readonly status:"OK";readonly plan:AppliancesQuestionPlan;readonly replayed:boolean}|{readonly status:"STATE_UNAVAILABLE"|"REVISION_CONFLICT"|"MESSAGE_PAYLOAD_CONFLICT"|"INTEGRITY_FAILURE"};
+export async function runAppliancesQuestionPlanning(input:{readonly store:AppliancesConversationStore;readonly artifactRepository:AppliancesArtifactRepository;readonly policyRepository:QuestionPolicyArtifactRepository;readonly conversationId:string;readonly messageId:string;readonly expectedRevision:number;readonly now?:Date}):Promise<RunAppliancesQuestionPlanningResult>{
+ const payload={action:"PLAN_QUESTION",conversationId:input.conversationId,messageId:input.messageId,expectedRevision:input.expectedRevision},payloadHash=deterministicPayloadHash(payload),loaded=await input.store.load(input.conversationId);if(!loaded)return{status:"STATE_UNAVAILABLE"};const replay=loaded.messages[input.messageId];const preflight=preflightTurn({expectedRevision:input.expectedRevision,currentRevision:loaded.state.revision,priorPayloadFingerprint:replay?.payloadHash,payloadFingerprint:payloadHash});if(preflight.kind==="PAYLOAD_CONFLICT")return{status:"MESSAGE_PAYLOAD_CONFLICT"};if(preflight.kind==="REVISION_CONFLICT")return{status:"REVISION_CONFLICT"};if(preflight.kind==="REPLAY"){if(!replay?.outcome.publicOutcome)return{status:"INTEGRITY_FAILURE"};return{status:"OK",plan:replay.outcome.publicOutcome as AppliancesQuestionPlan,replayed:true};}
+ const plan=await planCurrentAppliancesQuestion({artifactRepository:input.artifactRepository,policyRepository:input.policyRepository,state:loaded.state,now:input.now??new Date()});if(plan.kind!=="ASK")return{status:"OK",plan,replayed:false};const revision=loaded.state.revision+1,updatedAt=(input.now??new Date()).toISOString(),nextState={...recordAskedQuestion(loaded.state,plan.questionKey),revision,candidateSnapshotRef:plan.materialityAuthorityFingerprint,updatedAt};const publicOutcome:AppliancesRuntimeOutcome=plan;const committed=await input.store.commit({expectedRevision:loaded.state.revision,messageId:input.messageId,payloadHash,nextState,events:[],outcomeKind:"CONTEXT_MUTATED",publicOutcome});if(committed.status!=="OK")return{status:committed.status};return{status:"OK",plan,replayed:false};
+}

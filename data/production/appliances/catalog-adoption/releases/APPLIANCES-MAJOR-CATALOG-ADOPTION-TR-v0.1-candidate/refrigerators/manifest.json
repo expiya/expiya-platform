@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "major-appliance-category-adoption-manifest/v1",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+  "categoryId": "REFRIGERATOR",
+  "releaseVersion": "APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.3-candidate",
+  "releaseDigest": "sha256:c00442d106b964955d828b239cc2ea44f375331bbb577aecb4883edb5fc5a08f",
+  "catalogArtifactSha256": "886e6a4d79e856286712a86fa78761253f89bcbab03e1ebea3561c9f06877387",
+  "semanticArtifactSha256": "5cc8e1cbc7006eb6249776b9427ffa5daee1cb80ca616305e5582f6acd9bdce4",
+  "coverageArtifactSha256": "ffaa93c013c3b13ed557c1772b27f604c0d15d4f8d7f46a1e065836f5b5ad5ab",
+  "projectionsArtifactSha256": "ae705a556db56e1d475ed6fa9cc174275321b21a9155f2efd67e4c19107ee0b1",
+  "sourceRegisterArtifactSha256": "8ec6214f2f7daa9e2bcc008b3813fe2722c1177d6730e3a1231b297545ff895f",
+  "unknownRegisterArtifactSha256": "42cd935b53a7158507780818eb34628d4f5d519c8192889aa9c3a10e7498755e",
+  "membershipDigest": "2460570b7fbfe22f8a9eb558442c7c56d25cff4f10bed08b791288f17a29da02",
+  "memberCount": 8,
+  "priorMemberCount": 4,
+  "admittedOfferingIds": [
+    "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+    "appliances:refrigerator:tr:arcelik:270475-mb",
+    "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+    "appliances:refrigerator:tr:samsung:rf57c510esr-tr"
+  ],
+  "parent": {
+    "activePointerPath": "data/production/appliances/refrigerators/active.json",
+    "activePointerSha256": "6485888509cb0af285087f1d431857e9bbe5ffe0985b6bc1b9b943c3cf02daee",
+    "decisionReleaseVersion": "APPLIANCES-REFRIGERATOR-TR-v0.1",
+    "decisionArtifactPath": "data/production/appliances/refrigerators/releases/APPLIANCES-REFRIGERATOR-TR-v0.1/domain-pack.json",
+    "decisionArtifactSha256": "4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825",
+    "richnessReleaseVersion": "APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.2",
+    "richnessCatalogArtifactSha256": "f077b355cca0899a81a41dab704bec1038b9f4de09aa6590aa3921f13fb3d0ab",
+    "relationship": "IMMUTABLE_SUCCESSOR_CANDIDATE_NO_OVERWRITE"
+  },
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "REFRIGERATOR_SEMANTIC_REGISTRY/v0.3-candidate",
+    "semanticAuthorityDigest": "sha256:7abe22686bf80423f9f3e8bac0d9784b2bf455cbf96b896fb5263e3200ff4bdd",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "activation": {
+    "performed": false,
+    "status": "BLOCKED_MANDATORY_PRODUCT_OWNER_APPROVAL",
+    "blocker": "Product membership changes decision authority. Existing read-only richness approval does not authorize new members."
+  }
+}

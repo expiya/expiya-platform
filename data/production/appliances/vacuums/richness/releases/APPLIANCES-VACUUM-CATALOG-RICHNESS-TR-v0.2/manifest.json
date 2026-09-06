@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "vacuum-richness-manifest/v1",
+  "workUnitId": "WU-XPY-APPL-VACUUM-CATALOG-RICHNESS-01",
+  "releaseVersion": "APPLIANCES-VACUUM-CATALOG-RICHNESS-TR-v0.2",
+  "parent": {
+    "releaseVersion": "APPLIANCES-VACUUM-TR-v0.1",
+    "artifactSha256": "849467eb66b81d4042076da4e1023836b56974a1d6e2fbfd9fd67d34555ad343",
+    "relationship": "IMMUTABLE_CHILD_NO_OVERWRITE"
+  },
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "VACUUM_SEMANTIC_REGISTRY/v0.2",
+    "semanticAuthorityDigest": "sha256:c545d570b66a10e6ec4903407641d76add802884e4151f0f194921f71e84e2c0",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "releaseDigest": "sha256:634f439774b166d30e895000ca18c77360f473c62cfca01a7333afedcbcfc880",
+  "catalogArtifactSha256": "f5dd1b51aa37e12cc7f71bf7fc654d2b3da2ac0739c6444e0ba355af2a2387f3",
+  "semanticArtifactSha256": "0928b23a0812f1df107b55f26ed4ffdd65071e5e8a75e64e97a4ad8d0e8a51a4",
+  "coverageArtifactSha256": "81cc376ff24147a4968188524220d14281de4bb16f61df5348a635682c60da67",
+  "projectionsArtifactSha256": "33c12076786c451f8c312527477b9c1b753dcc112fa638aeb4668b8d899d4d7e",
+  "membershipDigest": "5ad05dab0b769e8aa467356c5209a258e0cef1591ca464936c41658120707b2b",
+  "memberCount": 4,
+  "counts": {
+    "sources": 4,
+    "offerings": 4,
+    "objectiveFacts": 24,
+    "capabilities": 15,
+    "usageSemantics": 8,
+    "needs": 10,
+    "needEvidenceMappings": 9,
+    "personaSignals": 4,
+    "dailyLifeInterpretations": 16,
+    "experienceRules": 0,
+    "decisionProjections": 4,
+    "advisorKnowledge": 0,
+    "comparisonDimensions": 6,
+    "evidence": 39,
+    "assertionLevelEvidence": 39,
+    "advisorReadProjectionsGenerated": 4,
+    "comparisonEvidenceProjectionsGenerated": 1
+  },
+  "reviewerStatus": "APPROVED_IN_WORK_UNIT",
+  "activation": {
+    "performed": false,
+    "activePointerRelease": "APPLIANCES-VACUUM-TR-v0.1"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "electronics-wave-1-repair-comparison/v1",
+  "categories": [
+    {
+      "categoryId": "SMARTPHONE",
+      "candidateCount": 3,
+      "manufacturerCount": 2,
+      "exactProducts": [
+        "electronics:smartphone:samsung:sm-a266bzkctur",
+        "electronics:smartphone:samsung:sm-a366bzkgtur",
+        "electronics:smartphone:honor:dny-nx9-8-256-black"
+      ],
+      "fields": [
+        "battery_mah",
+        "cellular_generation",
+        "display_inches",
+        "memory_gb",
+        "model_code",
+        "storage_gb"
+      ]
+    },
+    {
+      "categoryId": "LAPTOP",
+      "candidateCount": 3,
+      "manufacturerCount": 2,
+      "exactProducts": [
+        "electronics:laptop:lenovo:83k2001vtr",
+        "electronics:laptop:lenovo:83k20077tr",
+        "electronics:laptop:huawei:53014qhr"
+      ],
+      "fields": [
+        "battery_wh",
+        "display",
+        "memory_gb",
+        "operating_system",
+        "processor",
+        "storage_gb"
+      ]
+    },
+    {
+      "categoryId": "TABLET",
+      "candidateCount": 3,
+      "manufacturerCount": 2,
+      "exactProducts": [
+        "electronics:tablet:samsung:sm-x520nzsptur",
+        "electronics:tablet:samsung:sm-x730nzsptur",
+        "electronics:tablet:huawei:txz-w09-8-128-gray"
+      ],
+      "fields": [
+        "battery_mah",
+        "connectivity",
+        "display_inches",
+        "memory_gb",
+        "operating_system",
+        "processor",
+        "refresh_hz",
+        "resolution",
+        "storage_gb"
+      ]
+    },
+    {
+      "categoryId": "MONITOR",
+      "candidateCount": 3,
+      "manufacturerCount": 2,
+      "exactProducts": [
+        "electronics:monitor:samsung:ls27c902pauxuf",
+        "electronics:monitor:samsung:ls27f612eauxuf",
+        "electronics:monitor:lg:27gs50f-b"
+      ],
+      "fields": [
+        "brightness_typical",
+        "display_inches",
+        "displayport_version",
+        "hdmi_ports",
+        "panel",
+        "refresh_hz",
+        "resolution"
+      ]
+    },
+    {
+      "categoryId": "TELEVISION",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "exactProducts": [
+        "electronics:television:lg:oled55b65la",
+        "electronics:television:next:ye-55gfsg8-qled"
+      ],
+      "fields": [
+        "display_inches",
+        "panel",
+        "platform",
+        "refresh_hz",
+        "resolution"
+      ]
+    },
+    {
+      "categoryId": "E_READER",
+      "candidateCount": 2,
+      "manufacturerCount": 1,
+      "exactProducts": [
+        "electronics:e-reader:kobo:n367",
+        "electronics:e-reader:kobo:n428"
+      ],
+      "fields": [
+        "display_color",
+        "display_inches",
+        "page_turn_buttons",
+        "stylus_compatible"
+      ]
+    }
+  ]
+}

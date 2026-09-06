@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "appliances-bounded-active-pointer/v2",
+  "releaseVersion": "APPLIANCES-VACUUM-TR-v0.1",
+  "artifactSha256": "849467eb66b81d4042076da4e1023836b56974a1d6e2fbfd9fd67d34555ad343",
+  "lifecycle": "ACTIVE",
+  "richness": {
+    "releaseVersion": "APPLIANCES-VACUUM-CATALOG-RICHNESS-TR-v0.2",
+    "releaseDigest": "sha256:634f439774b166d30e895000ca18c77360f473c62cfca01a7333afedcbcfc880",
+    "catalogArtifactSha256": "f5dd1b51aa37e12cc7f71bf7fc654d2b3da2ac0739c6444e0ba355af2a2387f3",
+    "membershipDigest": "5ad05dab0b769e8aa467356c5209a258e0cef1591ca464936c41658120707b2b",
+    "activationManifest": "data/production/appliances/vacuums/richness/governance/activation-events/VACUUM-RICHNESS-ACT-634F439774B166D30E89/activation.json",
+    "activationManifestSha256": "6969302809052734823117438fd3fa632aed4e3fc5d4e3ad5de0ddf30bb8576a",
+    "lifecycle": "ACTIVE_READ_ONLY"
+  }
+}

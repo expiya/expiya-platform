@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "appliances-refrigerator-active-pointer/v3",
+  "releaseVersion": "APPLIANCES-REFRIGERATOR-TR-v0.2",
+  "artifactSha256": "5b15f32f26e207fa83208a97208f189367aa98e404d4f1f709a520a06b875e0b",
+  "lifecycle": "ACTIVE",
+  "richness": {
+    "releaseVersion": "APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.3-candidate",
+    "releaseDigest": "sha256:c00442d106b964955d828b239cc2ea44f375331bbb577aecb4883edb5fc5a08f",
+    "catalogArtifactSha256": "886e6a4d79e856286712a86fa78761253f89bcbab03e1ebea3561c9f06877387",
+    "membershipDigest": "2460570b7fbfe22f8a9eb558442c7c56d25cff4f10bed08b791288f17a29da02",
+    "activationManifest": "data/production/appliances/catalog-adoption/governance/activation-events/APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55/activation.json",
+    "activationManifestSha256": "0c4e649281401e919c6b79b5b6b11a839764c76f93507c94af2f859cb38df0f1",
+    "lifecycle": "ACTIVE_READ_ONLY"
+  },
+  "decisionActivation": {
+    "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-DECISION-ADOPTION-01",
+    "approvalManifest": "data/production/appliances/decision-adoption/governance/approval-events/APPLIANCES-MAJOR-DECISION-POA-2E76D621CE55/approval.json",
+    "approvalManifestSha256": "9f8358bb289e4648f5d0d9de4fd5366b82d4650b3556a74ae2c63a2dd6eb85e9",
+    "lifecycle": "ACTIVE_DECISION_AUTHORITY"
+  }
+}

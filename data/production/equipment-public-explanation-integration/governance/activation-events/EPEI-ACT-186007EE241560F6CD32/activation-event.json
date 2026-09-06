@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0.0",
+  "activationEventId": "EPEI-ACT-186007EE241560F6CD32",
+  "status": "ACTIVATED",
+  "authorizationEventId": "EPEI-LAUNCHAUTH-B53D16FC726BDC76AF6D",
+  "authorizationEventChecksum": "sha256:fc36c85cdd8cda22e8d031d211cdad522d82602cf28590ecaf7c8eaec31bc4e9",
+  "launchManifestId": "EPEI-PILOT-LAUNCH-V9",
+  "launchManifestChecksum": "sha256:703a61c5bdef36f06f8868adf4a66019667717c58c2e46e13cf4722d1c886c10",
+  "integrationReleaseId": "v0.1.0-catalog-v0.55.4-2026-08-20",
+  "foundationCutoverEventId": "REC-CUTOVER-791EBF0541568209A953",
+  "foundationCutoverEventChecksum": "sha256:54426b509aed1b80a399f94e6f045c95bb7fc84a487b79fc81654129cc8985ee",
+  "activatedAt": "2026-08-22T17:39:34.367Z",
+  "timeSource": "SYSTEM_CLOCK_AT_APPLY",
+  "publicEffect": "ENABLED_EXACT_TWO_VARIANTS_ONLY",
+  "decisionEngineEffect": "ZERO"
+}

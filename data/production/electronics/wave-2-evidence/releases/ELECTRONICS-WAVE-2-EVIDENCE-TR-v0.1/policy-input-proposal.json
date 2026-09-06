@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "electronics-wave-2-policy-input/v1",
+  "status": "NON_ACTIVE_CATEGORY_REVIEW_INPUT",
+  "categories": [
+    {
+      "categoryId": "HEADPHONES",
+      "eligibleFields": [
+        "battery_hours_anc",
+        "battery_hours_anc_off",
+        "codec_support",
+        "connectivity",
+        "form_factor",
+        "noise_control",
+        "weight_g"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "PORTABLE_SPEAKER",
+      "eligibleFields": [
+        "battery_hours",
+        "connectivity",
+        "ingress_rating",
+        "playtime_boost_hours",
+        "replaceable_carry_accessory",
+        "shockproof",
+        "stereo_pair"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "SOUNDBAR",
+      "eligibleFields": [
+        "bluetooth_version",
+        "channel_configuration",
+        "hdmi_earc",
+        "included_subwoofer",
+        "power_w",
+        "rear_speakers_included"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "DIGITAL_CAMERA",
+      "eligibleFields": [
+        "body_or_kit",
+        "megapixels",
+        "mount",
+        "sensor",
+        "video_max"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "PROJECTOR",
+      "eligibleFields": [
+        "brightness_ansi_lumens",
+        "brightness_lumens",
+        "light_source",
+        "native_resolution",
+        "platform",
+        "throw_ratio"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "GAME_CONSOLE",
+      "eligibleFields": [
+        "disc_capability",
+        "display_output",
+        "memory_gb",
+        "platform",
+        "storage_tb",
+        "wireless"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    }
+  ]
+}

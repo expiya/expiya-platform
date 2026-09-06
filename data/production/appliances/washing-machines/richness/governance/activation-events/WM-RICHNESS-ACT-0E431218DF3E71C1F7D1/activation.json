@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "washing-machine-richness-activation/v1",
+  "activationId": "WM-RICHNESS-ACT-0E431218DF3E71C1F7D1",
+  "activatedAt": "2026-09-04T23:45:00.000+03:00",
+  "state": "ACTIVE_READ_ONLY_SEMANTIC_COMPOSITE",
+  "releaseVersion": "APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.2",
+  "releaseDigest": "sha256:0e431218df3e71c1f7d11def12da2085319bad8bb7c77711154deeaeda0d7c5e",
+  "catalogArtifactSha256": "73cf9130bb6c21e430b34145a9c60ee99aba200fd85ed420e4a2b1404bae6a42",
+  "semanticArtifactSha256": "cbe1fd73fa1f968abd93f113734a5af5bb979a0642585e84c2db712ded61feee",
+  "projectionsArtifactSha256": "0c9903e6cba9ee532cee8846fc8036f61d921135446cf8030149d4a42bd3240b",
+  "immutableManifestSha256": "33a9057903cc22c7e467129a77e6536a9555733b164f9cae51b52190411be026",
+  "membershipDigest": "ec5b339604209c4aa04263f19f4acdc52b6c1ff68d8b41495d0f768eabc88f9e",
+  "decisionAuthority": {
+    "releaseVersion": "APPLIANCES-WM-TR-v0.1",
+    "catalogDigest": "1f6c6ea12b19b32d363e1889a1c8c4b8a6a621e4bb13a22384e0e4de2c586c9e",
+    "artifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+    "semanticRegistryDigest": "44784b43d818bee505e85f66ed60ce065809a1ff2bd42852157d4e44d7d7038a",
+    "ySemantics": "UNCHANGED"
+  },
+  "productOwnerApproval": {
+    "approved": true,
+    "workUnitId": "WU-XPY-APPL-WASHING-MACHINE-PRODUCT-BOUND-L6-L9-COMPLETION-01",
+    "scope": "COMPOSITE_READ_ONLY_RICHNESS_ACTIVATION"
+  },
+  "review": [
+    {
+      "check": "PARENT_AND_MEMBERSHIP",
+      "status": "PASS",
+      "evidence": "All 24 exact identities remain pinned to the frozen v0.1 catalog bytes."
+    },
+    {
+      "check": "L6_ASSERTION_LINEAGE",
+      "status": "PASS",
+      "evidence": "208 product-bound mappings cite exact accepted parent assertions."
+    },
+    {
+      "check": "L9_NO_INVENTION",
+      "status": "PASS",
+      "evidence": "Five checksum manuals lack section/page locators; L9 remains explicit neutral unknown."
+    },
+    {
+      "check": "ADVISOR_AND_COMPARISON",
+      "status": "PASS",
+      "evidence": "24 read-only Advisor projections pass; comparison rejects unpaid access."
+    },
+    {
+      "check": "Y_NON_REGRESSION",
+      "status": "PASS",
+      "evidence": "Candidate, question, sufficiency, selection, recommendation and Y authorities remain unchanged."
+    }
+  ],
+  "remainingUnknowns": [
+    "L9 manual section/page locators absent for all 24; five have checksum-only manual authority",
+    "L7 governed experience absent",
+    "Outcome claims and L10 commerce/media remain unknown or external"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schemaVersion": "appliances-bounded-domain-pack/v1",
+  "releaseVersion": "APPLIANCES-FREEZER-TR-v0.2",
+  "departmentId": "APPLIANCES",
+  "productType": "FREEZER",
+  "market": "TR",
+  "scope": { "use": "HOUSEHOLD", "form": "FREESTANDING_UPRIGHT", "excludes": "REFRIGERATOR_FREEZER" },
+  "governanceStatus": "APPROVED",
+  "lifecycle": "FROZEN",
+  "runtimeActive": true,
+  "concepts": ["FIT", "CAPACITY", "DEFROST", "OUTAGE_RESILIENCE", "BUDGET_SENSITIVITY"],
+  "comparability": { "form": "exact form only", "capacity": "same declared net frozen volume regime only", "energy": "same label regime only", "safety": "site, ventilation and electrical suitability require exact-model professional verification", "unknownPolicy": "neutral and non-advantaging" },
+  "selectionPolicy": { "model": "HARD_COMPATIBILITY_THEN_EVIDENCE_BACKED_PARETO", "scores": false, "weights": false, "implicitTieBreak": false },
+  "products": [
+    {
+      "productId": "BOSCH_GSN33VWE0N_TR", "brand": "Bosch", "model": "GSN33VWE0N",
+      "configurationIdentity": "Bosch GSN33VWE0N / Türkiye / solo dikey derin dondurucu / 176 x 60 cm",
+      "marketStatus": "CURRENT_TR", "runtimeSelectable": true, "runtimeBlockers": [],
+      "technicalFacts": { "heightMm": 1760, "widthMm": 600, "depthMm": 690, "energyClass": "E", "form": "UPRIGHT_FREESTANDING" },
+      "capabilities": { "noFrost": true, "bigBox": true, "reversibleDoor": true },
+      "claims": [{ "statement": "NoFrost ve BigBox üretici kabiliyetidir; saklama sonucu veya elektrik kesintisi dayanımı garantisi değildir.", "authority": "MANUFACTURER_CLAIM", "outcomeGuarantee": false }],
+      "evidenceRefs": ["BOSCH-GSN33VWE0N-TR"],
+      "marketLifecycle": { "asOf": "2026-09-04", "warrantyStatus": "MANUFACTURER_TR_TERMS_NOT_EXACT_PRODUCT_BOUND" },
+      "comparisonEligibility": { "status": "ELIGIBLE", "identityCritical": ["UPRIGHT_FREESTANDING", "FREEZER_ONLY"], "budgetEligibility": "BUDGET_ELIGIBILITY_UNKNOWN" },
+      "evidenceLayers": { "L3": ["BOSCH-GSN33VWE0N-TR"], "L4": ["BOSCH-GSN33VWE0N-TR"], "L5": ["BOSCH-GSN33VWE0N-TR"], "L6": ["BOSCH-GSN33VWE0N-TR"], "L7": ["BOSCH-GSN33VWE0N-TR"], "L8": ["BOSCH-GSN33VWE0N-TR"], "L9": "INELIGIBLE_NO_FROZEN_MANUAL_BYTES" }
+    },
+    {
+      "productId": "ARCELIK_2071_NFB_TR", "brand": "Arçelik", "model": "2071 NFB",
+      "configurationIdentity": "Arçelik 2071 NFB / Türkiye / solo dikey tek kapılı derin dondurucu / No Frost / beyaz",
+      "marketStatus": "CURRENT_TR", "runtimeSelectable": true, "runtimeBlockers": [],
+      "technicalFacts": { "heightMm": 1705, "widthMm": 600, "depthMm": 754, "energyClass": "E", "annualEnergyKwh": 241.89, "netFrozenVolumeLitres": 260, "freezingCapacityKg24h": 15, "climateClass": "SN-T", "form": "UPRIGHT_FREESTANDING" },
+      "capabilities": { "noFrost": true, "reversibleDoor": true, "fastFreeze": true, "electronicControl": true },
+      "claims": [{ "statement": "Hacim, enerji ve dondurma kapasitesi nominal üretici beyanlarıdır; saklama sonucu, elektrik kesintisi dayanımı veya saha uygunluğu garantisi değildir.", "authority": "MANUFACTURER_CLAIM", "outcomeGuarantee": false }],
+      "evidenceRefs": ["ARCELIK-2071-NFB-TR"],
+      "marketLifecycle": { "asOf": "2026-09-04", "warrantyStatus": "MANUFACTURER_TR_TERMS_NOT_EXACT_PRODUCT_BOUND" },
+      "comparisonEligibility": { "status": "ELIGIBLE", "identityCritical": ["UPRIGHT_FREESTANDING", "FREEZER_ONLY", "NO_FROST"], "budgetEligibility": "BUDGET_ELIGIBILITY_UNKNOWN" },
+      "evidenceLayers": { "L3": ["ARCELIK-2071-NFB-TR"], "L4": ["ARCELIK-2071-NFB-TR"], "L5": ["ARCELIK-2071-NFB-TR"], "L6": ["ARCELIK-2071-NFB-TR"], "L7": ["ARCELIK-2071-NFB-TR"], "L8": ["ARCELIK-2071-NFB-TR"], "L9": "INELIGIBLE_NO_FROZEN_MANUAL_BYTES" }
+    },
+    {
+      "productId": "ARCELIK_2682_NFB_TR", "brand": "Arçelik", "model": "2682 NFB",
+      "configurationIdentity": "Arçelik 2682 NFB / Türkiye / solo dikey çekmeceli derin dondurucu / No Frost / beyaz",
+      "marketStatus": "CURRENT_TR", "runtimeSelectable": true, "runtimeBlockers": [],
+      "technicalFacts": { "heightMm": 1865, "widthMm": 597, "depthMm": 709, "energyClass": "E", "annualEnergyKwh": 250.23, "netFrozenVolumeLitres": 286, "freezingCapacityKg24h": 14.9, "climateClass": "SN-T", "compartmentCount": 8, "form": "UPRIGHT_FREESTANDING" },
+      "capabilities": { "noFrost": true, "reversibleDoor": true, "doorOpenAlarm": true },
+      "claims": [{ "statement": "Bölme, hacim ve No Frost bilgileri exact ürün beyanıdır; gerçek saklama sonucu veya kurulum uygunluğu çıkarılmaz.", "authority": "MANUFACTURER_CLAIM", "outcomeGuarantee": false }],
+      "evidenceRefs": ["ARCELIK-2682-NFB-TR"],
+      "marketLifecycle": { "asOf": "2026-09-04", "warrantyStatus": "MANUFACTURER_TR_TERMS_NOT_EXACT_PRODUCT_BOUND" },
+      "comparisonEligibility": { "status": "ELIGIBLE", "identityCritical": ["UPRIGHT_FREESTANDING", "FREEZER_ONLY", "NO_FROST"], "budgetEligibility": "BUDGET_ELIGIBILITY_UNKNOWN" },
+      "evidenceLayers": { "L3": ["ARCELIK-2682-NFB-TR"], "L4": ["ARCELIK-2682-NFB-TR"], "L5": ["ARCELIK-2682-NFB-TR"], "L6": ["ARCELIK-2682-NFB-TR"], "L7": ["ARCELIK-2682-NFB-TR"], "L8": ["ARCELIK-2682-NFB-TR"], "L9": "INELIGIBLE_NO_FROZEN_MANUAL_BYTES" }
+    }
+  ],
+  "sources": [
+    { "sourceId": "BOSCH-GSN33VWE0N-TR", "url": "https://www.bosch-home.com.tr/tr/product/kampanyalar/beyaz-esya-firsati/GSN33VWE0N", "accessedAt": "2026-09-04", "authority": "MANUFACTURER_TR_PRODUCT_PAGE" },
+    { "sourceId": "ARCELIK-2071-NFB-TR", "url": "https://www.arcelik.com.tr/7-bolmeli-derin-dondurucu/2071-nfb-derin-dondurucu", "accessedAt": "2026-09-04", "authority": "MANUFACTURER_TR_PRODUCT_PAGE" },
+    { "sourceId": "ARCELIK-2682-NFB-TR", "url": "https://www.arcelik.com.tr/cekmeceli-derin-dondurucu/2682-nfb-derin-dondurucu", "accessedAt": "2026-09-04", "authority": "MANUFACTURER_TR_PRODUCT_PAGE" }
+  ]
+}

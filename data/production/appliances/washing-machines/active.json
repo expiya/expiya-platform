@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "appliances-authority-active-pointer/v3",
+  "releaseVersion": "APPLIANCES-WM-TR-v0.2",
+  "lifecycle": "ACTIVE",
+  "decisionArtifactSha256": "ce62509117adb1858ec009ed2b607d33a6038207c0865e7364952a2e700977ac",
+  "membershipDigest": "9823549a4200da0cf88e4460c73f9861f81d7b0959e79ca16a45beacf1b098f2",
+  "richness": {
+    "releaseVersion": "APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.3-candidate",
+    "releaseDigest": "sha256:5e15dc9867acdf9bbd59368347f377aa7393ddffa4588cb2438805cdcf65ebdf",
+    "catalogArtifactSha256": "2a85eb2f5be54a97468a7ac4c66f6ab14e02cf7677702258e2243b8d54d2ee85",
+    "membershipDigest": "9823549a4200da0cf88e4460c73f9861f81d7b0959e79ca16a45beacf1b098f2",
+    "activationManifest": "data/production/appliances/catalog-adoption/governance/activation-events/APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55/activation.json",
+    "activationManifestSha256": "0c4e649281401e919c6b79b5b6b11a839764c76f93507c94af2f859cb38df0f1",
+    "lifecycle": "ACTIVE_READ_ONLY"
+  },
+  "decisionActivation": {
+    "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-DECISION-ADOPTION-01",
+    "approvalManifest": "data/production/appliances/decision-adoption/governance/approval-events/APPLIANCES-MAJOR-DECISION-POA-2E76D621CE55/approval.json",
+    "approvalManifestSha256": "9f8358bb289e4648f5d0d9de4fd5366b82d4650b3556a74ae2c63a2dd6eb85e9",
+    "lifecycle": "ACTIVE_DECISION_AUTHORITY"
+  }
+}

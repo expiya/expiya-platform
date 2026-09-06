@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "electronics-cross-pass-reconciliation/v1",
+  "amazonFirstDigest": "sha256:09ef0e34db66fa00f9fb3b98f83db0370f1e0a2905da805c50282073576e3a20",
+  "amazonFirstExactIds": [
+    "electronics:smartphone:samsung:sm-a266bzkctur",
+    "electronics:television:next:ye-55gfsg8-qled",
+    "electronics:digital-camera:sony:zve10m2kb-cec",
+    "electronics:external-storage:samsung:mu-pc1t0t-ww",
+    "electronics:printer:hp:1f3y4a",
+    "electronics:ups:eaton:5e1600ud"
+  ],
+  "secondPassExactIds": [
+    "electronics:smartphone:samsung:sm-a366bzkgtur",
+    "electronics:tablet:samsung:sm-x730nzsptur",
+    "electronics:tablet:samsung:sm-x520nzsptur",
+    "electronics:monitor:samsung:ls27f612eauxuf",
+    "electronics:monitor:samsung:ls27c902pauxuf",
+    "electronics:digital-camera:sony:zve10m2b-cec",
+    "electronics:wifi-router-mesh:tp-link:deco-be25-eu--v1--2-pack-",
+    "electronics:external-storage:samsung:mu-pg1t0b-ww",
+    "electronics:home-security-camera:tp-link:tapo-c225-eu--v1",
+    "electronics:video-doorbell:tp-link:tapo-d235"
+  ],
+  "combinedExactIds": [
+    "electronics:digital-camera:sony:zve10m2b-cec",
+    "electronics:digital-camera:sony:zve10m2kb-cec",
+    "electronics:external-storage:samsung:mu-pc1t0t-ww",
+    "electronics:external-storage:samsung:mu-pg1t0b-ww",
+    "electronics:home-security-camera:tp-link:tapo-c225-eu--v1",
+    "electronics:monitor:samsung:ls27c902pauxuf",
+    "electronics:monitor:samsung:ls27f612eauxuf",
+    "electronics:printer:hp:1f3y4a",
+    "electronics:smartphone:samsung:sm-a266bzkctur",
+    "electronics:smartphone:samsung:sm-a366bzkgtur",
+    "electronics:tablet:samsung:sm-x520nzsptur",
+    "electronics:tablet:samsung:sm-x730nzsptur",
+    "electronics:television:next:ye-55gfsg8-qled",
+    "electronics:ups:eaton:5e1600ud",
+    "electronics:video-doorbell:tp-link:tapo-d235",
+    "electronics:wifi-router-mesh:tp-link:deco-be25-eu--v1--2-pack-"
+  ],
+  "duplicateExactIds": [],
+  "duplicateConfigurations": [],
+  "amazonRelationHasPriorityEffect": false,
+  "digest": "sha256:4c1a4f6b626a9765d2b2873c09e6e2c5f1f8ab9f572a44c0a1ab27a34c55af36"
+}

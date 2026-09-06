@@ -1,0 +1,7 @@
+import type { AppliancesStoredMessage } from "../contracts";
+import type { AppliancesConversationStore } from "./types";
+export class MemoryAppliancesConversationStore implements AppliancesConversationStore {
+  private readonly records = new Map<string,{state:Parameters<AppliancesConversationStore["commit"]>[0]["nextState"];messages:Record<string,AppliancesStoredMessage>}>();
+  async load(id:string){return this.records.get(id)??null;}
+  async commit(input:Parameters<AppliancesConversationStore["commit"]>[0]){const current=this.records.get(input.nextState.conversationId);const replay=current?.messages[input.messageId];if(replay)return replay.payloadHash===input.payloadHash?{status:"OK" as const,outcome:replay.outcome}:{status:"MESSAGE_PAYLOAD_CONFLICT" as const};if((current?.state.revision??0)!==input.expectedRevision||input.nextState.revision!==input.expectedRevision+1)return{status:"REVISION_CONFLICT" as const};const outcome={kind:input.outcomeKind,conversationId:input.nextState.conversationId,revision:input.nextState.revision,state:input.nextState,...(input.publicOutcome?{publicOutcome:input.publicOutcome}:{})} as const;this.records.set(input.nextState.conversationId,{state:input.nextState,messages:{...(current?.messages??{}),[input.messageId]:{messageId:input.messageId,payloadHash:input.payloadHash,committedRevision:input.nextState.revision,outcome}}});return{status:"OK" as const,outcome};}
+}

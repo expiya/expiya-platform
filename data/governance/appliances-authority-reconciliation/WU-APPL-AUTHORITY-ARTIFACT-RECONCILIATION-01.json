@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "appliances-authority-reconciliation-ledger/v1",
+  "workUnitId": "WU-APPL-AUTHORITY-ARTIFACT-RECONCILIATION-01",
+  "recordedAt": "2026-09-05T23:30:00.000+03:00",
+  "mutationState": "RECONCILED",
+  "result": {
+    "verdict": "IMPLEMENTED",
+    "restoredConventionalReleaseDirectories": 4,
+    "restoredJsonArtifacts": 28,
+    "byteIdentityVerified": true,
+    "focusedTests": {"filesPassed": 9, "testsPassed": 59},
+    "broadRun": {"filesPassed": 57, "filesFailed": 17, "testsPassed": 688, "testsFailed": 107, "classification": "STALE_FIXTURES_POLICY_DIGESTS_AND_VOLATILE_COMMERCE_OUTSIDE_THIS_RECOVERY_UNIT"}
+  },
+  "authorityClassification": {
+    "approvedFrozenAuthority": [
+      "24 category decision releases selected by data/production/appliances/*/active.json",
+      "APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55",
+      "APPLIANCES-MAJOR-DECISION-ACT-B3CB67E1DD00-2E76D621CE55"
+    ],
+    "approvedReadOnlyCatalogAuthority": [
+      "APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.3-candidate"
+    ],
+    "candidateAwaitingApproval": [
+      "APPLIANCES-GLOBAL-EVIDENCE-TR-v0.1-rc1"
+    ],
+    "volatileCommerceMedia": [
+      "data/production/appliances/commerce/current.json",
+      "data/production/appliances/media/active.json"
+    ],
+    "testFixturesOrObsoleteExpectations": [
+      "features/xpy/catalog/revision.test.ts: 97-product pre-adoption count",
+      "features/xpy/platformRootLanding.test.tsx: obsolete 24-active-category landing copy",
+      "v0.2 richness pinned-loader assertions that require the active decision pointer to remain at v0.1"
+    ]
+  },
+  "activePointers": {
+    "categoryPointerCount": 24,
+    "policyAndSupportingPointerCount": 7,
+    "simpleCategoryReleases": [
+      "AIR_FRYER:v0.1", "AIR_PURIFIER:v0.1", "BLENDER:v0.1", "BUILT_IN_MICROWAVE:v0.1",
+      "BUILT_IN_OVEN:v0.2", "COUNTERTOP_MICROWAVE:v0.1", "ELECTRIC_STORAGE_WATER_HEATER:v0.1",
+      "FILTER_COFFEE:v0.1", "FOOD_PROCESSOR:v0.1", "FREESTANDING_COOKER:v0.2", "FREEZER:v0.2",
+      "FULLY_AUTOMATIC_ESPRESSO:v0.1", "HOB:v0.2", "INSTANTANEOUS_ELECTRIC_WATER_HEATER:v0.1",
+      "MANUAL_ESPRESSO:v0.1", "RANGE_HOOD:v0.2", "ROBOT_VACUUM:v0.1+richness-v0.2",
+      "SPLIT_AIR_CONDITIONER:v0.1", "TURKISH_COFFEE:v0.1", "VACUUM:v0.1+richness-v0.2"
+    ],
+    "majorAdoption": [
+      {"category":"WASHING_MACHINE","decisionRelease":"APPLIANCES-WM-TR-v0.2","decisionSha256":"ce62509117adb1858ec009ed2b607d33a6038207c0865e7364952a2e700977ac","richnessRelease":"APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.3-candidate","releaseDigest":"sha256:5e15dc9867acdf9bbd59368347f377aa7393ddffa4588cb2438805cdcf65ebdf","memberCount":29},
+      {"category":"DRYER","decisionRelease":"APPLIANCES-DRYER-TR-v0.2","decisionSha256":"9e6524963f6d000d637382d377d8deeaac72cad7efeab9c746929540f2a5a5c8","richnessRelease":"APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.3-candidate","releaseDigest":"sha256:7ee85698a3c539efec4360141d97d8e6b3ffe027280f0e0855b91595a9f2042a","memberCount":7},
+      {"category":"DISHWASHER","decisionRelease":"APPLIANCES-DISHWASHER-TR-v0.2","decisionSha256":"5bf0aa3dab0bb16c6db1bc7944370a20f2911caeccc0d48f60aa80cb2a399506","richnessRelease":"APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.3-candidate","releaseDigest":"sha256:cecb38d0592e0bda7677df50775fe3de9a1324f710aa16cb5cf923e0eb89f08a","memberCount":7},
+      {"category":"REFRIGERATOR","decisionRelease":"APPLIANCES-REFRIGERATOR-TR-v0.2","decisionSha256":"5b15f32f26e207fa83208a97208f189367aa98e404d4f1f709a520a06b875e0b","richnessRelease":"APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.3-candidate","releaseDigest":"sha256:c00442d106b964955d828b239cc2ea44f375331bbb577aecb4883edb5fc5a08f","memberCount":8}
+    ]
+  },
+  "lineage": {
+    "preAdoptionProductCount": 97,
+    "approvedAddedMembers": 16,
+    "currentProductCount": 113,
+    "authoritativeReleaseEvent": "APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55",
+    "approvalArtifactSha256": "74b36025be4fbeed7846c102aa367a729d58602d978ed2531323234945455784",
+    "activationArtifactSha256": "0c4e649281401e919c6b79b5b6b11a839764c76f93507c94af2f859cb38df0f1"
+  },
+  "missingTargets": {
+    "expectedConventionalReleaseDirectories": [
+      "washing-machines/richness/releases/APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "dryers/richness/releases/APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "dishwashers/richness/releases/APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "refrigerators/richness/releases/APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.3-candidate"
+    ],
+    "authoritativeByteSource": "data/production/appliances/catalog-adoption/releases/APPLIANCES-MAJOR-CATALOG-ADOPTION-TR-v0.1-candidate/<category>",
+    "recoveryRule": "BYTE_IDENTICAL_COPY_ONLY_WITH_MANIFEST_DIGEST_VERIFICATION"
+  }
+}

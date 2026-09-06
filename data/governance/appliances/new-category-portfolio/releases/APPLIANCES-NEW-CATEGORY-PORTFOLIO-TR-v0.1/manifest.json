@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "appliances-new-category-portfolio-manifest/v1",
+  "releaseVersion": "APPLIANCES-NEW-CATEGORY-PORTFOLIO-TR-v0.1",
+  "authorityId": "APPLIANCES-NEW-CATEGORY-PORTFOLIO-TR/v0.1",
+  "workUnitId": "WU-XPY-APPL-NEW-CATEGORY-PORTFOLIO-AUTHORITY-01",
+  "lifecycle": "FROZEN",
+  "portfolioDigest": "sha256:719090386cd90a2959e6632c40da8c605229da83f10f69cb0b22941433cdadab",
+  "selectedCategoryCount": 18,
+  "existingCategoryCount": 6,
+  "files": [
+    {"path":"portfolio.json","sha256":"sha256:1db2426659ded1b10bebdf6d3998b771a23a7ef01eb818d1b5105e623f675fd2"},
+    {"path":"source-register.json","sha256":"sha256:262efcf8d44f5a5fa80b5a60cf55b8ddd9c8bc3c80a3e3ba3c46cb66130a224a"},
+    {"path":"validation-report.json","sha256":"sha256:e6dbe53ce099f5a3629d5da70954ae96f94ef483b5acd2a620cf832ff79d01b8"},
+    {"path":"approval-activation.json","sha256":"sha256:d5115f46d62ea80f8f1cbf8c47d46a1b285f82150fd6b6a709e4fd169459a64f"}
+  ],
+  "immutability":"Files are content-addressed by this manifest. Any semantic change requires a new release version; in-place mutation invalidates the release.",
+  "activation":"Governance authority only; runtime/catalog/production remain inactive.",
+  "nextWorkUnit":"WU-XPY-APPL-NEW-CATEGORY-MULTI-FOUNDATION-01"
+}

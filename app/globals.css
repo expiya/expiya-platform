@@ -6,6 +6,47 @@
   color-scheme: light;
 }
 
+/* Shared XPY decision surface stays light regardless of the operating-system
+   theme. Every current and future department inherits it from the shared shell. */
+.xpy-light {
+  color-scheme: light;
+  background-color: #f7f7f5 !important;
+  color: #1c1917 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .xpy-light header,
+  .xpy-light nav,
+  .xpy-light form,
+  .xpy-light fieldset,
+  .xpy-light section[class*="dark:bg-"],
+  .xpy-light [role="group"] {
+    background-color: rgba(255, 255, 255, .96) !important;
+    border-color: #e7e5e4 !important;
+    color: #1c1917 !important;
+  }
+
+  .xpy-light [role="log"] {
+    background: radial-gradient(circle at top, #f5f3ef 0, transparent 44%) !important;
+    color: #1c1917 !important;
+  }
+
+  .xpy-light textarea,
+  .xpy-light input,
+  .xpy-light [class*="dark:bg-stone-8"],
+  .xpy-light [class*="dark:bg-stone-9"],
+  .xpy-light [class*="dark:bg-neutral-9"] {
+    background-color: #fff !important;
+    border-color: #d6d3d1 !important;
+    color: #1c1917 !important;
+  }
+
+  .xpy-light [class*="dark:text-stone"],
+  .xpy-light [class*="dark:text-white"] {
+    color: #44403c !important;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -52,6 +93,19 @@ select {
 ::placeholder {
   color: #737373;
   opacity: 1;
+}
+
+@keyframes secretary-cursor-blink {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.secretary-type-cursor {
+  animation: secretary-cursor-blink 0.9s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .secretary-type-cursor { animation: none; }
 }
 
 @media (prefers-color-scheme: dark) {

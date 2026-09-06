@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "major-appliance-catalog-activation/v1",
+  "activationId": "APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ACTIVATION-01",
+  "state": "ACTIVE_READ_ONLY_CATALOG_MEMBERSHIP",
+  "approvedCandidate": "APPLIANCES-MAJOR-CATALOG-ADOPTION-TR-v0.1-candidate",
+  "approvedBatchDigest": "sha256:b3cb67e1dd00dc6c529ae750679e8276c13f9723d4e1d77737a7f39aee441ea2",
+  "approvedPackageSha256": "2e76d621ce5569d7005ea29ab10e70f1807199038d1d973a681baee829210732",
+  "approvalArtifact": {
+    "path": "data/production/appliances/catalog-adoption/governance/approval-events/APPLIANCES-MAJOR-CATALOG-POA-2E76D621CE55/approval.json",
+    "sha256": "74b36025be4fbeed7846c102aa367a729d58602d978ed2531323234945455784"
+  },
+  "rollbackArtifact": {
+    "path": "data/production/appliances/catalog-adoption/governance/activation-events/APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55/rollback.json",
+    "sha256": "23bdde3e5905e34358ffdb006348044d2c804913a89dfb190055b66d45333e0d"
+  },
+  "categories": [
+    {
+      "categoryId": "WASHING_MACHINE",
+      "activePointerPath": "data/production/appliances/washing-machines/active.json",
+      "beforePointerSha256": "2a6c3a99ffe8df1153487cae5a46c6ef8e354ef75807f8a6f012e3180e909b3f",
+      "decisionReleaseVersion": "APPLIANCES-WM-TR-v0.1",
+      "decisionArtifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+      "releaseVersion": "APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "releaseDigest": "sha256:5e15dc9867acdf9bbd59368347f377aa7393ddffa4588cb2438805cdcf65ebdf",
+      "catalogArtifactSha256": "2a85eb2f5be54a97468a7ac4c66f6ab14e02cf7677702258e2243b8d54d2ee85",
+      "membershipDigest": "9823549a4200da0cf88e4460c73f9861f81d7b0959e79ca16a45beacf1b098f2",
+      "memberCount": 29,
+      "admittedOfferingIds": [
+        "appliances:wm:tr:samsung:ww90ta046ah-ah",
+        "appliances:wm:tr:vestel:cmi-97402-wifi",
+        "appliances:wm:tr:arcelik:10120-imp",
+        "appliances:wm:tr:altus:al-cm-101254-d",
+        "appliances:wm:tr:samsung:ww11dg6b25leah"
+      ]
+    },
+    {
+      "categoryId": "DRYER",
+      "activePointerPath": "data/production/appliances/dryers/active.json",
+      "beforePointerSha256": "32bf083531c2a0b87a969ed610fd23087e9bec9bb80f04937b41d23bb4f57af2",
+      "decisionReleaseVersion": "APPLIANCES-DRYER-TR-v0.1",
+      "decisionArtifactSha256": "3ef3ce69874ced7d210c97545d35e82a9a2fae2933a7d7d715ae411224943f48",
+      "releaseVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "releaseDigest": "sha256:7ee85698a3c539efec4360141d97d8e6b3ffe027280f0e0855b91595a9f2042a",
+      "catalogArtifactSha256": "063b821a16e0db387485511014183e464810da19e03237bffed3d9bd5b0adc1f",
+      "membershipDigest": "5507a1154ef157f6b04b4f46e5def35a41233c426b227e5a90689f787db4b5a7",
+      "memberCount": 7,
+      "admittedOfferingIds": [
+        "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+        "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+        "appliances:dryer:tr:arcelik:1201-kmx",
+        "appliances:dryer:tr:samsung:dv10dg54a0abah"
+      ]
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "activePointerPath": "data/production/appliances/dishwashers/active.json",
+      "beforePointerSha256": "6dacfc77be2f1078e2b025ebf287009989b969e2b1b720e8343ecbb981bee5c4",
+      "decisionReleaseVersion": "APPLIANCES-DISHWASHER-TR-v0.1",
+      "decisionArtifactSha256": "66973c59f1b752f2598b4c6b30d6dc0d2b272948a342b33a08f4cd8f68f9124e",
+      "releaseVersion": "APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "releaseDigest": "sha256:cecb38d0592e0bda7677df50775fe3de9a1324f710aa16cb5cf923e0eb89f08a",
+      "catalogArtifactSha256": "662964e296e3717d56a0428932d5bdbf8df986b9816b9604458d5805dec5dc3d",
+      "membershipDigest": "a8bdab0f17770acfc60abd382f9ef66193c0d48e3fc2548f51bda15731a5c7d4",
+      "memberCount": 7,
+      "admittedOfferingIds": [
+        "appliances:dishwasher:tr:arcelik:a-710-i",
+        "appliances:dishwasher:tr:arcelik:a-811-i",
+        "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+      ]
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "activePointerPath": "data/production/appliances/refrigerators/active.json",
+      "beforePointerSha256": "6485888509cb0af285087f1d431857e9bbe5ffe0985b6bc1b9b943c3cf02daee",
+      "decisionReleaseVersion": "APPLIANCES-REFRIGERATOR-TR-v0.1",
+      "decisionArtifactSha256": "4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825",
+      "releaseVersion": "APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.3-candidate",
+      "releaseDigest": "sha256:c00442d106b964955d828b239cc2ea44f375331bbb577aecb4883edb5fc5a08f",
+      "catalogArtifactSha256": "886e6a4d79e856286712a86fa78761253f89bcbab03e1ebea3561c9f06877387",
+      "membershipDigest": "2460570b7fbfe22f8a9eb558442c7c56d25cff4f10bed08b791288f17a29da02",
+      "memberCount": 8,
+      "admittedOfferingIds": [
+        "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+        "appliances:refrigerator:tr:arcelik:270475-mb",
+        "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+        "appliances:refrigerator:tr:samsung:rf57c510esr-tr"
+      ]
+    }
+  ],
+  "review": [
+    {
+      "check": "APPROVED_DIGESTS",
+      "status": "PASS",
+      "evidence": "sha256:b3cb67e1dd00dc6c529ae750679e8276c13f9723d4e1d77737a7f39aee441ea2; package sha256:2e76d621ce5569d7005ea29ab10e70f1807199038d1d973a681baee829210732."
+    },
+    {
+      "check": "EXACT_MEMBERSHIP",
+      "status": "PASS",
+      "evidence": "Exactly 16 admitted identities across four categories; Teka DFI 46700 TTM remains excluded."
+    },
+    {
+      "check": "EXISTING_RECORD_RETENTION",
+      "status": "PASS",
+      "evidence": "Candidate preflight proves byte-equivalent retention of all prior L0-L9 records."
+    },
+    {
+      "check": "DECISION_NEUTRALITY",
+      "status": "PASS",
+      "evidence": "v0.1 decision artifacts and policy bindings remain unchanged; additions activate as read-only catalog membership."
+    },
+    {
+      "check": "COMMERCE_BOUNDARY",
+      "status": "PASS",
+      "evidence": "Amazon ASIN, price and availability remain external L10 with no ranking, sufficiency, question, recommendation or authorization authority."
+    },
+    {
+      "check": "TRANSACTION",
+      "status": "PASS",
+      "evidence": "All four pointers are staged and committed together with compensating byte-exact rollback."
+    }
+  ]
+}

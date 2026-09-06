@@ -1,0 +1,77 @@
+description: Expiya Cars Motor V3 deterministic multi-turn smoke evaluation
+
+providers:
+  - id: file://providers/v3-direct-provider.ts
+    label: Motor V3 direct stored-turn provider
+
+prompts:
+  - "{{journeyId}}"
+
+defaultTest:
+  assert:
+    - type: javascript
+      value: file://assertions/deterministic.ts
+
+tests:
+  - description: Satın alma niyeti ve şehir içi keşif
+    vars: { journeyId: purchase-city-discovery }
+  - description: Sosyal ve konu dışı konuşma tarafsızlığı
+    vars: { journeyId: neutral-conversation }
+  - description: Otomotiv bilgi sorusunun tercih yaratmaması
+    vars: { journeyId: automotive-information }
+  - description: Elektrikli araç tercihi
+    vars: { journeyId: electric-preference }
+  - description: Gövde tipi düzeltmesi
+    vars: { journeyId: body-style-correction }
+  - description: Bütçe ekleme düzeltme ve kaldırma
+    vars: { journeyId: budget-correction-clear }
+  - description: Zayıf sinyalin kullanıcı onayıyla güçlenmesi
+    vars: { journeyId: weak-signal-confirmation }
+  - description: Tek araç offer ve reveal yaşam döngüsü
+    vars: { journeyId: single-recommendation-consent }
+  - description: Alternatif araç offer ve reveal yaşam döngüsü
+    vars: { journeyId: alternative-recommendations-consent }
+  - description: Satın alma niyeti olmadan doğal kapanış
+    vars: { journeyId: non-intent-termination }
+  - description: Yaklaşık ve kesin bütçe ayrımı
+    vars: { journeyId: approximate-budget-soft-rank }
+  - description: Belirsiz bütçenin soft-rank kalması
+    vars: { journeyId: uncertain-budget-soft-rank }
+  - description: Bütçe önemsizken değer alternatifleri
+    vars: { journeyId: budget-irrelevant-value-options }
+  - description: Şehir içi kullanım soru sırası
+    vars: { journeyId: urban-question-order }
+  - description: Ticari yük kullanımı soru sırası
+    vars: { journeyId: commercial-question-order }
+  - description: Geri görüş kamerası hard-filter
+    vars: { journeyId: rear-camera-hard-filter }
+  - description: Dizel emisyon bilgi yanıtı
+    vars: { journeyId: diesel-emissions-information }
+  - description: Hibrit yakıt tasarrufu bilgi yanıtı
+    vars: { journeyId: hybrid-saving-information }
+  - description: Bilgi yanıtından satış ilgisi sorusuna geçiş
+    vars: { journeyId: sales-reflex-interest-question }
+  - description: Satın alma ilgisinin keşfe dönüşmesi
+    vars: { journeyId: sales-reflex-conversion }
+  - description: Yalnız merak eden kullanıcının tarafsız kalması
+    vars: { journeyId: sales-reflex-decline }
+  - description: Birleşik Toyota ve elektrikli hedefi
+    vars: { journeyId: composite-toyota-bev }
+  - description: Katalog yokluğunda marka esnetme
+    vars: { journeyId: composite-brand-relaxation }
+  - description: Model adıyla satın alma niyeti
+    vars: { journeyId: named-model-purchase }
+  - description: İlk sürücü bağlamı
+    vars: { journeyId: first-time-driver-context }
+  - description: Elektrikli araç ilgisi eki
+    vars: { journeyId: electric-interest-suffix }
+  - description: Geniş aday havuzunda ayırt edici soru
+    vars: { journeyId: broad-pool-differentiator }
+  - description: Kurumsal müşteri ziyaretleri
+    vars: { journeyId: corporate-customer-visits }
+  - description: Kurumsal toplam maliyet tercihi
+    vars: { journeyId: corporate-total-cost }
+  - description: Doğrulanmamış donanım uyarısı
+    vars: { journeyId: unverified-equipment-warning }
+
+sharing: false

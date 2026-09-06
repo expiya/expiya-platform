@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "refrigerator-richness-activation/v1",
+  "activationId": "REFRIGERATOR-RICHNESS-ACT-319E2C013FE6FEFDF04A",
+  "activatedAt": "2026-09-04T20:00:00.000+03:00",
+  "state": "ACTIVE_READ_ONLY_SEMANTIC_COMPOSITE",
+  "releaseVersion": "APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.2",
+  "releaseDigest": "sha256:319e2c013fe6fefdf04aefdd4f2de777134aca352513b9ca07926395186eca2c",
+  "catalogArtifactSha256": "f077b355cca0899a81a41dab704bec1038b9f4de09aa6590aa3921f13fb3d0ab",
+  "semanticArtifactSha256": "3ccf07f8e50dd4a2cf1f67bc176ac41bb48f5e4b5b18b6b3b418b795e9c0bb92",
+  "projectionsArtifactSha256": "231f5c6a063a59d3490bd444db479fc8656e318aec2788049b38a7656cbd565e",
+  "immutableManifestSha256": "fbdb82b4e6c918784d86543c4d5fa6366a0d8995813405b092a2cd30f8c0d877",
+  "membershipDigest": "c96ef33e0d3905753f873da4734e645c16acf60381c5cb15298f8c4d3051ef2b",
+  "decisionAuthority": {
+    "releaseVersion": "APPLIANCES-REFRIGERATOR-TR-v0.1",
+    "artifactSha256": "4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825",
+    "ySemantics": "UNCHANGED"
+  },
+  "productOwnerApproval": {
+    "approved": true,
+    "workUnitId": "WU-XPY-APPL-REFRIGERATOR-CATALOG-RICHNESS-01",
+    "scope": "COMPOSITE_READ_ONLY_RICHNESS_ACTIVATION"
+  },
+  "review": [
+    {
+      "check": "PARENT_AND_MEMBERSHIP",
+      "status": "PASS",
+      "evidence": "All four exact identities match the byte-pinned v0.1 parent."
+    },
+    {
+      "check": "ASSERTION_LEVEL_AUTHORITY",
+      "status": "PASS",
+      "evidence": "91 assertions bind exact TR identities to registered manufacturer or fiche sources."
+    },
+    {
+      "check": "NEUTRAL_UNKNOWNS",
+      "status": "PASS",
+      "evidence": "LG conflicting dimensions and all missing door/clearance values remain unknown and neutral."
+    },
+    {
+      "check": "SEMANTIC_BOUNDARIES",
+      "status": "PASS",
+      "evidence": "No manual, experience, persona decision influence, cross-category meaning, or commerce authority is present."
+    },
+    {
+      "check": "ADVISOR_AND_COMPARISON",
+      "status": "PASS",
+      "evidence": "Four bounded read-only Advisor projections pass; comparison rejects unpaid access."
+    },
+    {
+      "check": "Y_NON_REGRESSION",
+      "status": "PASS",
+      "evidence": "Decision/Y authority remains the original v0.1 digest and selection policy."
+    }
+  ],
+  "remainingUnknowns": [
+    "All products: door-open depth and required clearances unknown",
+    "LG: width/depth conflict; remains parent-non-selectable",
+    "L7 governed experience absent",
+    "L9 checksum-bound exact manual knowledge absent",
+    "L10 commerce/media external"
+  ]
+}

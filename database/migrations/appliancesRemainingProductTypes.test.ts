@@ -1,0 +1,3 @@
+import {readFile} from "node:fs/promises";
+import {describe,expect,it} from "vitest";
+describe("remaining Appliances product-type migration",()=>{it("only widens the existing constraint",async()=>{const sql=await readFile("database/migrations/0012_appliances_remaining_product_types.sql","utf8");for(const type of ["WASHING_MACHINE","DRYER","REFRIGERATOR","DISHWASHER","VACUUM","ROBOT_VACUUM"])expect(sql).toContain(`'${type}'`);expect(sql).toContain("drop constraint if exists appliances_conversations_product_type_check");expect(sql).not.toMatch(/create\s+table|drop\s+table|truncate|delete\s+from|update\s+/iu);});});

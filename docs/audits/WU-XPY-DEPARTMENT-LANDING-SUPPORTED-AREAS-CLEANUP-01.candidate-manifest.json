@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "isolated-production-candidate-manifest/v1",
+  "workUnit": "WU-XPY-DEPARTMENT-LANDING-SUPPORTED-AREAS-CLEANUP-01",
+  "status": "DEPLOYMENT_ROLLED_BACK",
+  "candidateDigest": "sha256:5956fb7b3c4a1a69bcbb409fb8406e552ae3065b67fbcb132e99a5e776a53640",
+  "digestMethod": "sha256 of the lexically sorted sha256sum lines for candidateFiles",
+  "candidateFiles": [
+    { "path": "app/appliances/AppliancesConversation.tsx", "sha256": "846a37b94eabf1f4e6b1f348e17c11dc63568a0265d3710d91ee0f3e966a069e" },
+    { "path": "app/electronics/analysis/ElectronicsConversation.tsx", "sha256": "ac88f8c35995ead1a5f424a112b68f563c5afde98a872e8c27f7a1a917bad0fd" },
+    { "path": "components/xpy/DepartmentLanding.tsx", "sha256": "d42bf6e2a929f794f0efa1e7fc69a6a9427bb92105dddafbc39ae534e72bb648" },
+    { "path": "features/appliances/publicRuntimeCharacterization.test.tsx", "sha256": "ef1f01174d6917d2208bdba41b246b969ea9d1a2a7e70821a428539a533c6a91" },
+    { "path": "features/electronics/presentation.test.tsx", "sha256": "f904e172a46127c31299e1f0799f31d66e2168b363aa274a878e90f3900060e6" },
+    { "path": "features/xpy/departmentLanding.test.tsx", "sha256": "3bfee8ba5f66225309ce4ffd272616a19c0ffcc5ff440d44b78422d1259c0c6f" },
+    { "path": "features/xpy/departmentLandingPacks.ts", "sha256": "6e20d2a4df75c930e47756d96f6dd87d52ade0c87ec91c2eb65da2af359ee692" }
+  ],
+  "verification": {
+    "focusedTests": "PASS: 44 tests across 3 files",
+    "typescript": "PASS",
+    "scopedEslint": "PASS",
+    "diffCheck": "PASS",
+    "browserDesktop": "PASS: /cars, /appliances, /electronics at 1280x720",
+    "browserMobile": "PASS: /cars, /appliances, /electronics at 390x844",
+    "stageOneCategoryInteraction": "PASS: Electronics navigated to SMARTPHONE; Appliances selected DRYER",
+    "node24Build": "PASS: clean isolated snapshot; Node v24.20.0; Next.js webpack; TypeScript; 614 pages",
+    "cleanBuildSnapshot": "/private/tmp/expiya-supported-areas-release.5A385u",
+    "cacheQuarantine": "/private/tmp/expiya-supported-areas-cache-backup.ze9aqW"
+  },
+  "rollbackBaseline": {
+    "checkedAt": "2026-09-06T00:32:50+03:00",
+    "productionAlias": "https://www.expiya.com",
+    "deploymentId": "dpl_HaWPMfPkwSrQGCuFBik2Ajm4Pt8H",
+    "immutableUrl": "https://expiya-platform-qw7q-b1bv2cdri-expiya.vercel.app",
+    "status": "READY",
+    "carsHtmlSha256": "ce82ed541eccd1083899f7619e5638356d97cb59960fb784a078ce1f49431faa"
+  },
+  "deployment": {
+    "performed": true,
+    "candidateDeploymentId": "dpl_YwKZMRmnxJNmcnGJhGs5t3NaV1J2",
+    "candidateImmutableUrl": "https://expiya-platform-qw7q-q0j94p9ax-expiya.vercel.app",
+    "candidateReadyState": "READY",
+    "productionSmoke": "FAILED: /cars rendered the legacy non-embedded landing and omitted the Stage 1 conversation box because the trusted baseline snapshot predated app/cars/page.tsx.",
+    "rolledBack": true,
+    "rollbackDeploymentId": "dpl_HaWPMfPkwSrQGCuFBik2Ajm4Pt8H",
+    "rollbackImmutableUrl": "https://expiya-platform-qw7q-b1bv2cdri-expiya.vercel.app",
+    "rollbackVerification": "PASS: production alias READY; /cars HTTP 200 with Araç danışmanın restored.",
+    "reason": "Candidate delta was correct, but its baseline snapshot was stale for the Cars entry page; production was restored immediately."
+  }
+}

@@ -1,0 +1,727 @@
+{
+  "schemaVersion": "REFRIGERATOR_SEMANTIC_REGISTRY/v0.2",
+  "releaseVersion": "APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.2",
+  "market": "TR",
+  "parentRelease": "APPLIANCES-REFRIGERATOR-TR-v0.1",
+  "usageSemantics": [
+    {
+      "semanticId": "refrigerator-semantic:installation",
+      "meaning": "Body dimensions can be checked only against matching user space bounds; door-open envelope and required clearances remain unknown for every product in this release.",
+      "factIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:widthmm",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:heightmm",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:depthmm",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:widthmm",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:heightmm",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:depthmm",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:widthmm",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:heightmm",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:depthmm",
+        "refrigerator-fact:lg-gc-b569nllm-tr:heightmm"
+      ],
+      "capabilityIds": []
+    },
+    {
+      "semanticId": "refrigerator-semantic:capacity",
+      "meaning": "Total net, fresh-food net, chiller net, freezer net and gross capacity are distinct; no missing compartment value may be substituted or inferred.",
+      "factIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:totalnetlitres",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:freshfoodnetlitres",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:freezernetlitres",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:totalnetlitres",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:freshfoodnetlitres",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:freezernetlitres",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:totalnetlitres",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:freshfoodnetlitres",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:chillernetlitres",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:freezernetlitres",
+        "refrigerator-fact:lg-gc-b569nllm-tr:totalnetlitres",
+        "refrigerator-fact:lg-gc-b569nllm-tr:freshfoodnetlitres",
+        "refrigerator-fact:lg-gc-b569nllm-tr:freezernetlitres"
+      ],
+      "capabilityIds": []
+    },
+    {
+      "semanticId": "refrigerator-semantic:energy",
+      "meaning": "Annual energy is a standardized declaration within the approved regime, not a household bill promise.",
+      "factIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:energyclass",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:annualenergykwh",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:energyclass",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:annualenergykwh",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:energyclass",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:annualenergykwh",
+        "refrigerator-fact:lg-gc-b569nllm-tr:energyclass",
+        "refrigerator-fact:lg-gc-b569nllm-tr:annualenergykwh"
+      ],
+      "capabilityIds": []
+    },
+    {
+      "semanticId": "refrigerator-semantic:noise",
+      "meaning": "Standardized acoustic airborne noise supports like-for-like evidence display; it does not guarantee perceived quietness in a home.",
+      "factIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:noisedba",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:noiseclass",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:noisedba",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:noiseclass",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:noisedba",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:noiseclass",
+        "refrigerator-fact:lg-gc-b569nllm-tr:noisedba",
+        "refrigerator-fact:lg-gc-b569nllm-tr:noiseclass"
+      ],
+      "capabilityIds": []
+    },
+    {
+      "semanticId": "refrigerator-semantic:ambient",
+      "meaning": "Published ambient limits are operating-envelope evidence, not a guarantee for a particular room or installation.",
+      "factIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:ambientminc",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:ambientmaxc",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:ambientminc",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:ambientmaxc",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:ambientminc",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:ambientmaxc",
+        "refrigerator-fact:lg-gc-b569nllm-tr:ambientminc",
+        "refrigerator-fact:lg-gc-b569nllm-tr:ambientmaxc"
+      ],
+      "capabilityIds": []
+    },
+    {
+      "semanticId": "refrigerator-semantic:preservation",
+      "meaning": "Named preservation and cooling capabilities establish presence only; storage duration and food outcome are not guaranteed.",
+      "factIds": [],
+      "capabilityIds": [
+        "refrigerator-capability:samsung-rb34c6b0e12-tr:fastcooling",
+        "refrigerator-capability:samsung-rb34c6b0e12-tr:fastfreezing",
+        "refrigerator-capability:bosch-kgn55cie0n-tr:fastcooling",
+        "refrigerator-capability:bosch-kgn55cie0n-tr:fastfreezing",
+        "refrigerator-capability:bosch-kgn55cie0n-tr:preservationcompartment",
+        "refrigerator-capability:siemens-kg56nvwd0n-tr:fastfreezing",
+        "refrigerator-capability:siemens-kg56nvwd0n-tr:preservationcompartment",
+        "refrigerator-capability:lg-gc-b569nllm-tr:fastfreezing",
+        "refrigerator-capability:lg-gc-b569nllm-tr:doorcooling"
+      ]
+    },
+    {
+      "semanticId": "refrigerator-semantic:connectivity",
+      "meaning": "Connectivity or diagnosis capability establishes feature presence only and does not establish service availability or an energy outcome.",
+      "factIds": [],
+      "capabilityIds": [
+        "refrigerator-capability:samsung-rb34c6b0e12-tr:smartconnectivity",
+        "refrigerator-capability:siemens-kg56nvwd0n-tr:smartconnectivity",
+        "refrigerator-capability:lg-gc-b569nllm-tr:smartdiagnosis"
+      ]
+    }
+  ],
+  "needs": [
+    {
+      "needId": "INSTALLATION_ENVELOPE",
+      "meaning": "Physical installation envelope"
+    },
+    {
+      "needId": "FRESH_FOOD_STORAGE_NEED",
+      "meaning": "Fresh-food net storage need"
+    },
+    {
+      "needId": "FREEZER_STORAGE_NEED",
+      "meaning": "Freezer net storage need"
+    },
+    {
+      "needId": "TOTAL_NET_CAPACITY_PRIORITY",
+      "meaning": "Total net capacity priority"
+    },
+    {
+      "needId": "PRESERVATION_COMPARTMENT_NEED",
+      "meaning": "Named preservation compartment need"
+    },
+    {
+      "needId": "LOW_NOISE_PRIORITY",
+      "meaning": "Comparable standardized-noise priority"
+    },
+    {
+      "needId": "ENERGY_PRIORITY",
+      "meaning": "Comparable declared-energy priority"
+    },
+    {
+      "needId": "SMART_CONNECTIVITY",
+      "meaning": "Smart connectivity need"
+    },
+    {
+      "needId": "BUDGET_SENSITIVITY",
+      "meaning": "Budget evaluated only through external current-price authority"
+    }
+  ],
+  "needEvidenceMappings": [
+    {
+      "mappingId": "refrigerator-map:installation",
+      "needId": "INSTALLATION_ENVELOPE",
+      "eligibleFactIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:widthmm",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:heightmm",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:depthmm",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:widthmm",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:heightmm",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:depthmm",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:widthmm",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:heightmm",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:depthmm",
+        "refrigerator-fact:lg-gc-b569nllm-tr:heightmm"
+      ],
+      "eligibleCapabilityIds": [],
+      "policy": "HARD_FILTER"
+    },
+    {
+      "mappingId": "refrigerator-map:fresh",
+      "needId": "FRESH_FOOD_STORAGE_NEED",
+      "eligibleFactIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:freshfoodnetlitres",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:freshfoodnetlitres",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:freshfoodnetlitres",
+        "refrigerator-fact:lg-gc-b569nllm-tr:freshfoodnetlitres"
+      ],
+      "eligibleCapabilityIds": [],
+      "policy": "HARD_FILTER"
+    },
+    {
+      "mappingId": "refrigerator-map:freezer",
+      "needId": "FREEZER_STORAGE_NEED",
+      "eligibleFactIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:freezernetlitres",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:freezernetlitres",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:freezernetlitres",
+        "refrigerator-fact:lg-gc-b569nllm-tr:freezernetlitres"
+      ],
+      "eligibleCapabilityIds": [],
+      "policy": "HARD_FILTER"
+    },
+    {
+      "mappingId": "refrigerator-map:total",
+      "needId": "TOTAL_NET_CAPACITY_PRIORITY",
+      "eligibleFactIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:totalnetlitres",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:totalnetlitres",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:totalnetlitres",
+        "refrigerator-fact:lg-gc-b569nllm-tr:totalnetlitres"
+      ],
+      "eligibleCapabilityIds": [],
+      "policy": "SOFT_PREFERENCE"
+    },
+    {
+      "mappingId": "refrigerator-map:preservation",
+      "needId": "PRESERVATION_COMPARTMENT_NEED",
+      "eligibleFactIds": [
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:chillernetlitres"
+      ],
+      "eligibleCapabilityIds": [
+        "refrigerator-capability:bosch-kgn55cie0n-tr:preservationcompartment",
+        "refrigerator-capability:siemens-kg56nvwd0n-tr:preservationcompartment"
+      ],
+      "policy": "HARD_FILTER"
+    },
+    {
+      "mappingId": "refrigerator-map:noise",
+      "needId": "LOW_NOISE_PRIORITY",
+      "eligibleFactIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:noisedba",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:noisedba",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:noisedba",
+        "refrigerator-fact:lg-gc-b569nllm-tr:noisedba"
+      ],
+      "eligibleCapabilityIds": [],
+      "policy": "SOFT_PREFERENCE"
+    },
+    {
+      "mappingId": "refrigerator-map:energy",
+      "needId": "ENERGY_PRIORITY",
+      "eligibleFactIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:energyclass",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:annualenergykwh",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:energyclass",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:annualenergykwh",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:energyclass",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:annualenergykwh",
+        "refrigerator-fact:lg-gc-b569nllm-tr:energyclass",
+        "refrigerator-fact:lg-gc-b569nllm-tr:annualenergykwh"
+      ],
+      "eligibleCapabilityIds": [],
+      "policy": "SOFT_PREFERENCE"
+    },
+    {
+      "mappingId": "refrigerator-map:smart",
+      "needId": "SMART_CONNECTIVITY",
+      "eligibleFactIds": [],
+      "eligibleCapabilityIds": [
+        "refrigerator-capability:samsung-rb34c6b0e12-tr:smartconnectivity",
+        "refrigerator-capability:siemens-kg56nvwd0n-tr:smartconnectivity"
+      ],
+      "policy": "HARD_FILTER"
+    }
+  ],
+  "personaPlanningSignals": [
+    {
+      "signalId": "refrigerator-planning:space-constrained",
+      "needIds": [
+        "INSTALLATION_ENVELOPE"
+      ],
+      "authority": "DOMAIN_PLANNING",
+      "classification": "DERIVED_PLANNING",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "signalId": "refrigerator-planning:storage-intensive",
+      "needIds": [
+        "FRESH_FOOD_STORAGE_NEED",
+        "FREEZER_STORAGE_NEED",
+        "TOTAL_NET_CAPACITY_PRIORITY"
+      ],
+      "authority": "DOMAIN_PLANNING",
+      "classification": "DERIVED_PLANNING",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "signalId": "refrigerator-planning:open-plan-home",
+      "needIds": [
+        "LOW_NOISE_PRIORITY"
+      ],
+      "authority": "DOMAIN_PLANNING",
+      "classification": "DERIVED_PLANNING",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    }
+  ],
+  "dailyLifeInterpretations": [
+    {
+      "interpretationId": "refrigerator-interpretation:samsung-rb34c6b0e12-tr:capacity",
+      "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+      "text": "Published net compartment volumes can be checked against the matching stated storage need; the figures do not describe shelf usability or household fit by themselves.",
+      "factIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:totalnetlitres",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:freshfoodnetlitres",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:freezernetlitres"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Compartment types remain distinct and missing values stay unknown."
+      ],
+      "nonGuarantees": [
+        "No household-size or usable-layout guarantee."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:samsung-rb34c6b0e12-tr:installation",
+      "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+      "text": "Published body dimensions can support a bounded space check; door-open depth and clearances remain unknown.",
+      "factIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:widthmm",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:heightmm",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:depthmm"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Door swing, ventilation and manufacturer installation instructions remain separate."
+      ],
+      "nonGuarantees": [
+        "No installation-fit guarantee without a complete envelope."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:samsung-rb34c6b0e12-tr:performance",
+      "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+      "text": "Standardized energy and noise declarations permit like-for-like evidence display, while household consumption and perceived sound depend on use and environment.",
+      "factIds": [
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:energyclass",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:annualenergykwh",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:noisedba",
+        "refrigerator-fact:samsung-rb34c6b0e12-tr:noiseclass"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Only the approved common declaration regime is comparable."
+      ],
+      "nonGuarantees": [
+        "No low-bill or quiet-home guarantee."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:samsung-rb34c6b0e12-tr:capabilities",
+      "offeringId": "SAMSUNG_RB34C6B0E12_TR",
+      "text": "Verified feature presence can inform a matching stated need, but named cooling, preservation, connectivity and diagnosis features do not prove an outcome.",
+      "factIds": [],
+      "capabilityIds": [
+        "refrigerator-capability:samsung-rb34c6b0e12-tr:fastcooling",
+        "refrigerator-capability:samsung-rb34c6b0e12-tr:fastfreezing",
+        "refrigerator-capability:samsung-rb34c6b0e12-tr:smartconnectivity"
+      ],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "POSITIVE",
+      "limitations": [
+        "Use conditions and availability may be model-specific."
+      ],
+      "nonGuarantees": [
+        "No storage-duration, food-safety, service, or energy-saving guarantee."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:bosch-kgn55cie0n-tr:capacity",
+      "offeringId": "BOSCH_KGN55CIE0N_TR",
+      "text": "Published net compartment volumes can be checked against the matching stated storage need; the figures do not describe shelf usability or household fit by themselves.",
+      "factIds": [
+        "refrigerator-fact:bosch-kgn55cie0n-tr:totalnetlitres",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:freshfoodnetlitres",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:freezernetlitres"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Compartment types remain distinct and missing values stay unknown."
+      ],
+      "nonGuarantees": [
+        "No household-size or usable-layout guarantee."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:bosch-kgn55cie0n-tr:installation",
+      "offeringId": "BOSCH_KGN55CIE0N_TR",
+      "text": "Published body dimensions can support a bounded space check; door-open depth and clearances remain unknown.",
+      "factIds": [
+        "refrigerator-fact:bosch-kgn55cie0n-tr:widthmm",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:heightmm",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:depthmm"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Door swing, ventilation and manufacturer installation instructions remain separate."
+      ],
+      "nonGuarantees": [
+        "No installation-fit guarantee without a complete envelope."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:bosch-kgn55cie0n-tr:performance",
+      "offeringId": "BOSCH_KGN55CIE0N_TR",
+      "text": "Standardized energy and noise declarations permit like-for-like evidence display, while household consumption and perceived sound depend on use and environment.",
+      "factIds": [
+        "refrigerator-fact:bosch-kgn55cie0n-tr:energyclass",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:annualenergykwh",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:noisedba",
+        "refrigerator-fact:bosch-kgn55cie0n-tr:noiseclass"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Only the approved common declaration regime is comparable."
+      ],
+      "nonGuarantees": [
+        "No low-bill or quiet-home guarantee."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:bosch-kgn55cie0n-tr:capabilities",
+      "offeringId": "BOSCH_KGN55CIE0N_TR",
+      "text": "Verified feature presence can inform a matching stated need, but named cooling, preservation, connectivity and diagnosis features do not prove an outcome.",
+      "factIds": [],
+      "capabilityIds": [
+        "refrigerator-capability:bosch-kgn55cie0n-tr:fastcooling",
+        "refrigerator-capability:bosch-kgn55cie0n-tr:fastfreezing",
+        "refrigerator-capability:bosch-kgn55cie0n-tr:preservationcompartment"
+      ],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "POSITIVE",
+      "limitations": [
+        "Use conditions and availability may be model-specific."
+      ],
+      "nonGuarantees": [
+        "No storage-duration, food-safety, service, or energy-saving guarantee."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:siemens-kg56nvwd0n-tr:capacity",
+      "offeringId": "SIEMENS_KG56NVWD0N_TR",
+      "text": "Published net compartment volumes can be checked against the matching stated storage need; the figures do not describe shelf usability or household fit by themselves.",
+      "factIds": [
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:totalnetlitres",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:freshfoodnetlitres",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:chillernetlitres",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:freezernetlitres"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Compartment types remain distinct and missing values stay unknown."
+      ],
+      "nonGuarantees": [
+        "No household-size or usable-layout guarantee."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:siemens-kg56nvwd0n-tr:installation",
+      "offeringId": "SIEMENS_KG56NVWD0N_TR",
+      "text": "Published body dimensions can support a bounded space check; door-open depth and clearances remain unknown.",
+      "factIds": [
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:widthmm",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:heightmm",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:depthmm"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Door swing, ventilation and manufacturer installation instructions remain separate."
+      ],
+      "nonGuarantees": [
+        "No installation-fit guarantee without a complete envelope."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:siemens-kg56nvwd0n-tr:performance",
+      "offeringId": "SIEMENS_KG56NVWD0N_TR",
+      "text": "Standardized energy and noise declarations permit like-for-like evidence display, while household consumption and perceived sound depend on use and environment.",
+      "factIds": [
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:energyclass",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:annualenergykwh",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:noisedba",
+        "refrigerator-fact:siemens-kg56nvwd0n-tr:noiseclass"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Only the approved common declaration regime is comparable."
+      ],
+      "nonGuarantees": [
+        "No low-bill or quiet-home guarantee."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:siemens-kg56nvwd0n-tr:capabilities",
+      "offeringId": "SIEMENS_KG56NVWD0N_TR",
+      "text": "Verified feature presence can inform a matching stated need, but named cooling, preservation, connectivity and diagnosis features do not prove an outcome.",
+      "factIds": [],
+      "capabilityIds": [
+        "refrigerator-capability:siemens-kg56nvwd0n-tr:fastfreezing",
+        "refrigerator-capability:siemens-kg56nvwd0n-tr:smartconnectivity",
+        "refrigerator-capability:siemens-kg56nvwd0n-tr:preservationcompartment"
+      ],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "POSITIVE",
+      "limitations": [
+        "Use conditions and availability may be model-specific."
+      ],
+      "nonGuarantees": [
+        "No storage-duration, food-safety, service, or energy-saving guarantee."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:lg-gc-b569nllm-tr:capacity",
+      "offeringId": "LG_GC_B569NLLM_TR",
+      "text": "Published net compartment volumes can be checked against the matching stated storage need; the figures do not describe shelf usability or household fit by themselves.",
+      "factIds": [
+        "refrigerator-fact:lg-gc-b569nllm-tr:totalnetlitres",
+        "refrigerator-fact:lg-gc-b569nllm-tr:freshfoodnetlitres",
+        "refrigerator-fact:lg-gc-b569nllm-tr:freezernetlitres"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Compartment types remain distinct and missing values stay unknown."
+      ],
+      "nonGuarantees": [
+        "No household-size or usable-layout guarantee."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:lg-gc-b569nllm-tr:installation",
+      "offeringId": "LG_GC_B569NLLM_TR",
+      "text": "The height is known, but conflicting official width and depth values remain unknown and cannot support an installation-fit conclusion.",
+      "factIds": [
+        "refrigerator-fact:lg-gc-b569nllm-tr:heightmm"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "UNKNOWN",
+      "limitations": [
+        "Door swing, ventilation and manufacturer installation instructions remain separate."
+      ],
+      "nonGuarantees": [
+        "No installation-fit guarantee without a complete envelope."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:lg-gc-b569nllm-tr:performance",
+      "offeringId": "LG_GC_B569NLLM_TR",
+      "text": "Standardized energy and noise declarations permit like-for-like evidence display, while household consumption and perceived sound depend on use and environment.",
+      "factIds": [
+        "refrigerator-fact:lg-gc-b569nllm-tr:energyclass",
+        "refrigerator-fact:lg-gc-b569nllm-tr:annualenergykwh",
+        "refrigerator-fact:lg-gc-b569nllm-tr:noisedba",
+        "refrigerator-fact:lg-gc-b569nllm-tr:noiseclass"
+      ],
+      "capabilityIds": [],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "NEUTRAL",
+      "limitations": [
+        "Only the approved common declaration regime is comparable."
+      ],
+      "nonGuarantees": [
+        "No low-bill or quiet-home guarantee."
+      ]
+    },
+    {
+      "interpretationId": "refrigerator-interpretation:lg-gc-b569nllm-tr:capabilities",
+      "offeringId": "LG_GC_B569NLLM_TR",
+      "text": "Verified feature presence can inform a matching stated need, but named cooling, preservation, connectivity and diagnosis features do not prove an outcome.",
+      "factIds": [],
+      "capabilityIds": [
+        "refrigerator-capability:lg-gc-b569nllm-tr:fastfreezing",
+        "refrigerator-capability:lg-gc-b569nllm-tr:doorcooling",
+        "refrigerator-capability:lg-gc-b569nllm-tr:smartdiagnosis"
+      ],
+      "method": "DETERMINISTIC_REVIEWED_MAPPING",
+      "reviewedAt": "2026-09-04T19:30:00.000+03:00",
+      "polarity": "POSITIVE",
+      "limitations": [
+        "Use conditions and availability may be model-specific."
+      ],
+      "nonGuarantees": [
+        "No storage-duration, food-safety, service, or energy-saving guarantee."
+      ]
+    }
+  ],
+  "comparisonDimensions": [
+    {
+      "dimensionId": "refrigerator.total-net",
+      "humanLabel": "Toplam net hacim",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_REGIME_L",
+      "source": {
+        "kind": "FACT",
+        "key": "totalNetLitres",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "refrigerator.fresh-food-net",
+      "humanLabel": "Taze gıda net hacmi",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_REGIME_L",
+      "source": {
+        "kind": "FACT",
+        "key": "freshFoodNetLitres",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "refrigerator.chiller-net",
+      "humanLabel": "Soğutucu bölme net hacmi",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_REGIME_L",
+      "source": {
+        "kind": "FACT",
+        "key": "chillerNetLitres",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "refrigerator.freezer-net",
+      "humanLabel": "Dondurucu net hacmi",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_REGIME_L",
+      "source": {
+        "kind": "FACT",
+        "key": "freezerNetLitres",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "refrigerator.body-width",
+      "humanLabel": "Gövde genişliği",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_REGIME_mm",
+      "source": {
+        "kind": "FACT",
+        "key": "widthMm",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "refrigerator.body-height",
+      "humanLabel": "Gövde yüksekliği",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_REGIME_mm",
+      "source": {
+        "kind": "FACT",
+        "key": "heightMm",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "refrigerator.body-depth",
+      "humanLabel": "Gövde derinliği",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_REGIME_mm",
+      "source": {
+        "kind": "FACT",
+        "key": "depthMm",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "refrigerator.annual-energy",
+      "humanLabel": "Yıllık enerji tüketimi",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_REGIME_kWh/year",
+      "source": {
+        "kind": "FACT",
+        "key": "annualEnergyKwh",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    },
+    {
+      "dimensionId": "refrigerator.noise",
+      "humanLabel": "Akustik hava kaynaklı gürültü",
+      "scope": "EXACT_TR_CONFIGURATION_SAME_REGIME_dB(A) re 1 pW",
+      "source": {
+        "kind": "FACT",
+        "key": "noiseDbA",
+        "unitPolicy": "SAME_UNIT_REQUIRED"
+      },
+      "authority": "DOMAIN_PACK"
+    }
+  ],
+  "boundaries": {
+    "experience": "ABSENT_NO_GOVERNED_AUTHORITY",
+    "manualAdvisorKnowledge": "ABSENT_NO_CHECKSUM_BOUND_EXACT_MANUAL",
+    "personaDecisionUse": "NONE",
+    "unknownTreatment": "NEUTRAL_NO_PENALTY",
+    "crossCategorySemantics": "FORBIDDEN"
+  }
+}

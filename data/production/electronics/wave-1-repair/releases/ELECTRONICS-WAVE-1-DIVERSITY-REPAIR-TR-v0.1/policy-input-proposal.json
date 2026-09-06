@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "electronics-wave-1-repair-policy-input/v1",
+  "status": "NON_ACTIVE_CATEGORY_REVIEW_INPUT",
+  "categories": [
+    {
+      "categoryId": "SMARTPHONE",
+      "eligibleFields": [
+        "battery_mah",
+        "cellular_generation",
+        "display_inches",
+        "memory_gb",
+        "model_code",
+        "storage_gb"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "LAPTOP",
+      "eligibleFields": [
+        "battery_wh",
+        "display",
+        "memory_gb",
+        "operating_system",
+        "processor",
+        "storage_gb"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "TABLET",
+      "eligibleFields": [
+        "battery_mah",
+        "connectivity",
+        "display_inches",
+        "memory_gb",
+        "operating_system",
+        "processor",
+        "refresh_hz",
+        "resolution",
+        "storage_gb"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "MONITOR",
+      "eligibleFields": [
+        "brightness_typical",
+        "display_inches",
+        "displayport_version",
+        "hdmi_ports",
+        "panel",
+        "refresh_hz",
+        "resolution"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "TELEVISION",
+      "eligibleFields": [
+        "display_inches",
+        "panel",
+        "platform",
+        "refresh_hz",
+        "resolution"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    },
+    {
+      "categoryId": "E_READER",
+      "eligibleFields": [
+        "display_color",
+        "display_inches",
+        "page_turn_buttons",
+        "stylus_compatible"
+      ],
+      "rankingWeights": "NONE",
+      "sufficiencyThresholds": "UNDEFINED_PENDING_PRODUCT_REVIEW",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "commerceEffect": "NONE"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "electronics-production-deployment/v1",
+  "deploymentId": "dpl_2iKzH2xL1Yp8U1Za73EfADGMRkjY",
+  "deploymentUrl": "https://expiya-platform-qw7q-2diey2vqv-expiya.vercel.app",
+  "productionDomain": "https://www.expiya.com",
+  "catalogReleaseDigest": "sha256:fcee3071c8a9004551cbf38358014fbfa2dd10b2a2dad57781cf3d4bbf6a39fc",
+  "policyDigest": "sha256:0f4db5148d6a6971b7a9341b2c0c56c298753dd2ab592b75d09fbdd372b7c20a",
+  "migration": "database/migrations/0015_electronics_runtime_foundation.sql",
+  "migrationSha256": "sha256:c508311e0d268432f16285802079d2f458ded9a32ab75a185733ac80f34d436f",
+  "migrationApplied": true,
+  "deploymentReady": true,
+  "recordedAt": "2026-09-05T15:30:00+03:00"
+}

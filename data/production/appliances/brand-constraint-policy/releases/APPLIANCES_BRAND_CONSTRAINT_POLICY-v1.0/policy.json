@@ -1,0 +1,24 @@
+{
+  "envelopeSchemaVersion": "appliances-brand-constraint-policy-artifact/v1",
+  "canonicalSerialization": "CANONICAL_JSON_SORTED_KEYS_V1",
+  "policyDigest": "373849eaef9064cf9be54d2d3562c458f5ac6c3426d1006271d5dc82973d6f24",
+  "payload": {
+    "schemaVersion": "appliances-brand-constraint-policy/v1",
+    "policyId": "APPLIANCES_BRAND_CONSTRAINT_POLICY/v1.0",
+    "governanceStatus": "APPROVED",
+    "lifecycle": "FROZEN",
+    "runtimeActive": true,
+    "department": "APPLIANCES",
+    "productTypes": ["WASHING_MACHINE", "REFRIGERATOR", "DISHWASHER", "DRYER", "VACUUM", "ROBOT_VACUUM"],
+    "market": "TR",
+    "semantics": {
+      "identity": "EXACT_MANUFACTURER_BRAND",
+      "decisionEffect": "HARD_FILTER",
+      "scoringEffect": "NONE",
+      "unknownBrand": "CLARIFY_WITHOUT_MUTATION",
+      "noMatch": "EXPLICIT_RELAXATION_REQUIRED",
+      "correction": "APPEND_ONLY_SUPERSESSION",
+      "clear": "USER_EXPLICIT"
+    }
+  }
+}

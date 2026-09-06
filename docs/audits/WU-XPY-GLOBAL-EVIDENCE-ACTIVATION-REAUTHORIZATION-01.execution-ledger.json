@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "xpy-global-evidence-activation-reauthorization-ledger/v1",
+  "workUnitId": "WU-XPY-GLOBAL-EVIDENCE-ACTIVATION-REAUTHORIZATION-01",
+  "recordedAt": "2026-09-04T22:52:05Z",
+  "verdict": "READY_FOR_APPROVAL",
+  "activationPerformed": false,
+  "authorizationPackage": {
+    "authorizationPackageId": "GLOBAL-EVIDENCE-AUTH-20260905-02",
+    "path": "data/governance/global-evidence/activation-authorizations/GLOBAL-EVIDENCE-AUTH-20260905-02",
+    "manifestSha256": "sha256:b415cc3cd7eadc728cd9587b18723a91295dc0d3c640081ba6700e97632c817e",
+    "detachedApprovalEnvelope": {
+      "path": "data/governance/global-evidence/activation-authorizations/GLOBAL-EVIDENCE-AUTH-20260905-02/approval-envelope.txt",
+      "sha256": "sha256:329e6b5dbbc10db0e7660eb95408b0660dea5d168c9dd7088c9eba86fd691896"
+    },
+    "status": "IMMUTABLE_PENDING_EXPLICIT_USER_APPROVAL"
+  },
+  "candidates": {
+    "cars": {
+      "candidateId": "v1.0.0-catalog-v0.55.4-2026-09-05",
+      "releaseDigest": "sha256:316d2238c40b0330fe1f4d722c8121ab1e429cca93bc3fd9899a929c9a9f67ed",
+      "bytesUnchangedFromRepairedApproval": true,
+      "status": "PASS"
+    },
+    "appliances": {
+      "candidateId": "APPLIANCES-GLOBAL-EVIDENCE-TR-v0.1-rc1",
+      "releaseDigest": "sha256:d10f0773b7503d7125255ccf0f53b45257ff539a235b7328da351f34ebe637df",
+      "bytesUnchangedFromRepairedApproval": true,
+      "status": "PASS"
+    }
+  },
+  "mediaReconciliation": {
+    "releaseId": "APPLIANCES-GOVERNED-MEDIA-TR-v0.2",
+    "releaseDigest": "sha256:9b4273473ed0befebcb80a596ae6a9cb09f9d51543525b3b77377c1a4fd80577",
+    "predecessorPointerSha256": "sha256:7deb51cfc4eb72703666b80d28ac9dd5907752b9e081718a00296cf48cf544f6",
+    "currentPointerSha256": "sha256:87f2c2cdcc548ff40807a273e445f12ecdd1f24780de2b0e6a6e5ddc047294d8",
+    "presentationOnly": true,
+    "exactMembershipPreserved": true,
+    "technicalFactsPreserved": true,
+    "pYAuthorityPreserved": true,
+    "rankingPreserved": true,
+    "candidateBytesPreserved": true,
+    "allProductFailClosedFallbackCoverage": "97_OF_97",
+    "status": "PASS_ACCEPTED_CONCURRENT_CHANGE"
+  },
+  "preflight": {
+    "currentPointerCount": 36,
+    "historicalMismatchCount": 1,
+    "reconciledMismatchCount": 1,
+    "unreconciledMismatchCount": 0,
+    "dependentPointerWriteCount": 7,
+    "targetPreimagesMatch": true,
+    "activationTargetsStillInactive": true,
+    "status": "PASS_RECONCILED"
+  },
+  "focusedVerification": [
+    {
+      "command": "node scripts/verify-global-evidence-reauthorization.mjs",
+      "result": "PASS_READY_FOR_APPROVAL"
+    },
+    {
+      "command": "node scripts/verify-global-evidence-candidate-repair.mjs",
+      "result": "CARS_PASS; APPLIANCES_LEGACY_BASELINE_FAIL_ONLY_AT_DATA_PRODUCTION_APPLIANCES_MEDIA_ACTIVE_JSON"
+    },
+    {
+      "command": "node --import tsx scripts/verify-appliances-global-evidence-candidate.ts",
+      "result": "ALL_CANDIDATE_AND_MANUAL_CHECKS_PASS; LEGACY_ACTIVE_POINTER_CHECK_REPORTS_ONLY_THE_RECONCILED_MEDIA_POINTER"
+    },
+    {
+      "command": "npx vitest run features/appliances/globalEvidence.test.ts features/appliances/globalEvidenceArtifacts.test.ts features/appliances/media/artifacts.test.ts features/appliances/media/authority.test.ts features/media/governedProductMedia.test.ts features/vehicle-data/carsGlobalEvidenceEnrichmentArtifacts.test.ts",
+      "result": "PASS_6_FILES_28_TESTS"
+    }
+  ],
+  "invariants": {
+    "carsMembers": 549,
+    "carsExactFacts": 11154,
+    "appliancesMembers": 97,
+    "appliancesCategories": 24,
+    "appliancesExactFacts": 1253
+  },
+  "writeBoundary": {
+    "authorizedNow": "NONE_PENDING_EXPLICIT_USER_APPROVAL",
+    "futureApprovedWriteSet": "EXACTLY_SEVEN_POINTER_OR_GENERATED_POINTER_TARGETS_LISTED_IN_AUTHORIZATION_JSON",
+    "mediaPointerWriteAuthorized": false,
+    "rollbackMediaAuthorized": false
+  },
+  "prohibitedActionsObserved": {
+    "pointerWrite": false,
+    "activation": false,
+    "deployment": false,
+    "migration": false,
+    "databaseMutation": false,
+    "newResearch": false,
+    "candidateRegeneration": false,
+    "mediaRollback": false
+  }
+}

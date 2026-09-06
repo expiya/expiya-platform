@@ -44,8 +44,20 @@ export function verifySameOrigin(request: Request): Response | undefined {
   if (contentType !== "application/json") return Response.json({ message: "Yalnızca JSON istekleri kabul ediliyor." }, { status: 415 });
   const origin = request.headers.get("origin");
   if (!origin) return undefined;
-  const expectedOrigin = new URL(request.url).origin;
-  if (origin !== expectedOrigin) return Response.json({ message: "Bu kaynaktan gelen isteğe izin verilmiyor." }, { status: 403 });
+  const expected = new URL(request.url);
+  if (origin === expected.origin) return undefined;
+  try {
+    const supplied = new URL(origin);
+    const loopbackHosts = new Set(["localhost", "127.0.0.1", "[::1]"]);
+    const sameLoopbackPreview = loopbackHosts.has(supplied.hostname)
+      && loopbackHosts.has(expected.hostname)
+      && supplied.protocol === expected.protocol
+      && supplied.port === expected.port;
+    if (sameLoopbackPreview) return undefined;
+  } catch {
+    // A malformed Origin is never treated as an absent Origin.
+  }
+  return Response.json({ message: "Bu kaynaktan gelen isteğe izin verilmiyor." }, { status: 403 });
 }
 
 function enforceMemoryRateLimit(request: Request, policy: RateLimitPolicy): Response | undefined {

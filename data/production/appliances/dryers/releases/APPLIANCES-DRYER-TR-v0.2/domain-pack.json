@@ -1,0 +1,409 @@
+{
+  "approvedAt": "2026-09-03T12:00:00+03:00",
+  "comparability": {
+    "capacity": {
+      "requiredContext": "RATED_DRY_LOAD",
+      "unit": "kg"
+    },
+    "energy": {
+      "required": [
+        "unit",
+        "measurementRegime",
+        "program",
+        "load"
+      ],
+      "unknownRegimePolicy": "NON_COMPARABLE"
+    },
+    "noise": {
+      "requiredContext": "ACOUSTIC_AIRBORNE_NOISE",
+      "unit": "dB(A)",
+      "unknownRegimePolicy": "NON_COMPARABLE"
+    },
+    "unknownPolicy": "PRESERVE_NO_INFERRED_ABSENCE"
+  },
+  "concepts": [
+    "DRYING_CAPACITY",
+    "DRYING_FREQUENCY",
+    "BULKY_TEXTILES",
+    "LOW_NOISE_PRIORITY",
+    "INSTALLATION_FIT",
+    "DIRECT_DRAIN_NEED",
+    "LOW_MAINTENANCE_PREFERENCE",
+    "DELICATE_CARE",
+    "WOOL_CARE",
+    "DUVET_DRYING",
+    "OUTDOOR_CARE",
+    "HYGIENIC_DRYING",
+    "BUDGET_SENSITIVITY"
+  ],
+  "departmentId": "APPLIANCES",
+  "governanceStatus": "APPROVED",
+  "lifecycle": "FROZEN",
+  "market": "TR",
+  "productType": "DRYER",
+  "products": [
+    {
+      "brand": "Beko",
+      "capabilities": {
+        "directDrain": true,
+        "maintenance": [
+          "LINT_FILTER",
+          "CONDENSER_PERIODIC"
+        ],
+        "programs": [
+          "DELICATE_CARE",
+          "DUVET_DRYING",
+          "HYGIENIC_DRYING",
+          "EXPRESS_30"
+        ],
+        "sensorDrying": true
+      },
+      "configurationIdentity": "Beko KMX 82 / TR / heat-pump / drying-only",
+      "evidenceRefs": [
+        "BEKO-KMX82-PRODUCT-TR",
+        "BEKO-KMX82-FICHE-TR",
+        "BEKO-KMX82-MANUAL-TR"
+      ],
+      "marketStatus": "CURRENT_TR",
+      "model": "KMX 82",
+      "productId": "BEKO_KMX_82_TR",
+      "technicalFacts": {
+        "annualEnergyKwh": 265,
+        "capacityContext": "RATED_DRY_LOAD",
+        "capacityKg": 8,
+        "depthMm": 545,
+        "doorOpenDepthMm": null,
+        "energyRegime": null,
+        "function": "DRYING_ONLY",
+        "heightMm": 846,
+        "installation": "FREESTANDING",
+        "noiseContext": "ACOUSTIC_AIRBORNE_NOISE",
+        "noiseDbA": 64,
+        "noiseRegime": null,
+        "technology": "HEAT_PUMP",
+        "widthMm": 598
+      }
+    },
+    {
+      "brand": "Beko",
+      "capabilities": {
+        "directDrain": true,
+        "maintenance": null,
+        "programs": [
+          "WOOL_CARE",
+          "QUIET",
+          "DUVET_DRYING",
+          "OUTDOOR_CARE",
+          "HYGIENIC_DRYING",
+          "EXPRESS_30"
+        ],
+        "quietProgram": true,
+        "sensorDrying": true
+      },
+      "configurationIdentity": "Beko KM 99 / TR / heat-pump / drying-only",
+      "evidenceRefs": [
+        "BEKO-KM99-PRODUCT-TR"
+      ],
+      "marketStatus": "CURRENT_TR",
+      "model": "KM 99",
+      "productId": "BEKO_KM_99_TR",
+      "technicalFacts": {
+        "annualEnergyKwh": 194.4,
+        "capacityContext": "RATED_DRY_LOAD",
+        "capacityKg": 9,
+        "depthMm": 654,
+        "doorOpenDepthMm": null,
+        "energyRegime": null,
+        "function": "DRYING_ONLY",
+        "heightMm": 846,
+        "installation": "FREESTANDING",
+        "noiseContext": "ACOUSTIC_AIRBORNE_NOISE",
+        "noiseDbA": 64,
+        "noiseRegime": null,
+        "technology": "HEAT_PUMP",
+        "widthMm": 597
+      }
+    },
+    {
+      "brand": "Bosch",
+      "capabilities": {
+        "directDrain": true,
+        "maintenance": [
+          "LINT_FILTER",
+          "BASE_UNIT_FILTER",
+          "CONDENSATE_CONTAINER"
+        ],
+        "programs": [],
+        "sensorDrying": true
+      },
+      "configurationIdentity": "Bosch WQG24100TR / TR / heat-pump / drying-only",
+      "evidenceRefs": [
+        "BOSCH-WQG24100TR-PRODUCT-TR",
+        "BOSCH-WQG24100TR-MANUAL-TR"
+      ],
+      "marketStatus": "CURRENT_TR",
+      "model": "WQG24100TR",
+      "productId": "BOSCH_WQG24100TR",
+      "technicalFacts": {
+        "capacityContext": "MANUFACTURER_MANUAL_MAX_LOAD",
+        "capacityKg": 9,
+        "depthMm": 613,
+        "doorClosedDepthMm": 648,
+        "doorOpenDepthMm": 1096,
+        "ecoCottonFullLoadEnergyKwh": 1.82,
+        "energyInitialMoisturePercent": 50,
+        "energyLoadKg": 9,
+        "energyProgram": "COTTON_ECO",
+        "energyRegime": "MANUFACTURER_MANUAL_CONSUMPTION_TABLE",
+        "function": "DRYING_ONLY",
+        "heightMm": 842,
+        "installation": "FREESTANDING",
+        "noiseContext": null,
+        "noiseDbA": null,
+        "noiseRegime": null,
+        "technology": "HEAT_PUMP",
+        "widthMm": 598
+      }
+    },
+    {
+      "productId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+      "brand": "Hoover",
+      "model": "HRE H11A2TBE-17",
+      "configurationIdentity": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+      "marketStatus": "CURRENT_TR",
+      "technicalFacts": {
+        "technology": "HEAT_PUMP",
+        "function": "DRYING_ONLY",
+        "installation": "FREESTANDING",
+        "capacityKg": 11,
+        "capacityContext": "RATED_DRY_LOAD",
+        "widthMm": 596,
+        "heightMm": 850,
+        "depthMm": 604,
+        "doorOpenDepthMm": null,
+        "noiseDbA": 66,
+        "noiseContext": "ACOUSTIC_AIRBORNE_NOISE",
+        "noiseRegime": null,
+        "energyClass": "E",
+        "energyPer100CyclesKwh": 159
+      },
+      "capabilities": {
+        "programs": [
+          "WOOL_CARE"
+        ],
+        "directDrain": true,
+        "smartConnectivity": true
+      },
+      "evidenceRefs": [
+        "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr"
+      ]
+    },
+    {
+      "productId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+      "brand": "Hoover",
+      "model": "NR EH11N2TBEX-17",
+      "configurationIdentity": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+      "marketStatus": "CURRENT_TR",
+      "technicalFacts": {
+        "technology": "HEAT_PUMP",
+        "function": "DRYING_ONLY",
+        "installation": "FREESTANDING",
+        "capacityKg": 11,
+        "capacityContext": "RATED_DRY_LOAD",
+        "widthMm": 596,
+        "heightMm": 850,
+        "depthMm": 604,
+        "doorOpenDepthMm": null,
+        "noiseDbA": 64,
+        "noiseContext": "ACOUSTIC_AIRBORNE_NOISE",
+        "noiseRegime": null,
+        "energyClass": "D",
+        "energyPer100CyclesKwh": 145
+      },
+      "capabilities": {
+        "programs": [
+          "WOOL_CARE"
+        ],
+        "directDrain": true,
+        "sensorDrying": true,
+        "smartConnectivity": true
+      },
+      "evidenceRefs": [
+        "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr"
+      ]
+    },
+    {
+      "productId": "appliances:dryer:tr:arcelik:1201-kmx",
+      "brand": "Arçelik",
+      "model": "1201 KMX",
+      "configurationIdentity": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+      "marketStatus": "CURRENT_TR",
+      "technicalFacts": {
+        "technology": "HEAT_PUMP",
+        "function": "DRYING_ONLY",
+        "installation": "FREESTANDING",
+        "capacityKg": 12,
+        "capacityContext": "RATED_DRY_LOAD",
+        "widthMm": 600,
+        "heightMm": 850,
+        "depthMm": 670,
+        "doorOpenDepthMm": null,
+        "noiseDbA": 64,
+        "noiseContext": "ACOUSTIC_AIRBORNE_NOISE",
+        "noiseRegime": null,
+        "energyClass": "E",
+        "energyPer100CyclesKwh": 187
+      },
+      "capabilities": {
+        "programs": [],
+        "directDrain": true,
+        "sensorDrying": true,
+        "smartConnectivity": true
+      },
+      "evidenceRefs": [
+        "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr"
+      ]
+    },
+    {
+      "productId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+      "brand": "Samsung",
+      "model": "DV10DG54A0ABAH",
+      "configurationIdentity": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+      "marketStatus": "CURRENT_TR",
+      "technicalFacts": {
+        "technology": "HEAT_PUMP",
+        "function": "DRYING_ONLY",
+        "installation": "FREESTANDING",
+        "capacityKg": 10,
+        "capacityContext": "RATED_DRY_LOAD",
+        "widthMm": 600,
+        "heightMm": 850,
+        "depthMm": 600,
+        "doorOpenDepthMm": null,
+        "noiseDbA": 64,
+        "noiseContext": "ACOUSTIC_AIRBORNE_NOISE",
+        "noiseRegime": null,
+        "energyClass": "C",
+        "energyPer100CyclesKwh": 114
+      },
+      "capabilities": {
+        "programs": [],
+        "sensorDrying": true,
+        "smartConnectivity": true
+      },
+      "evidenceRefs": [
+        "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr"
+      ]
+    }
+  ],
+  "questionOrder": [
+    "INSTALLATION_FIT",
+    "DRYING_CAPACITY",
+    "DRYING_FREQUENCY",
+    "BULKY_TEXTILES",
+    "DIRECT_DRAIN_NEED",
+    "LOW_MAINTENANCE_PREFERENCE",
+    "LOW_NOISE_PRIORITY",
+    "DRYING_PROGRAM_NEED",
+    "BUDGET_SENSITIVITY"
+  ],
+  "releaseVersion": "APPLIANCES-DRYER-TR-v0.2",
+  "runtimeActive": true,
+  "schemaVersion": "appliances-dryer-domain-pack/v1",
+  "scope": {
+    "function": "DRYING_ONLY",
+    "installation": "FREESTANDING",
+    "technology": "HEAT_PUMP",
+    "use": "HOUSEHOLD"
+  },
+  "selectionPolicy": {
+    "implicitTieBreak": false,
+    "model": "HARD_COMPATIBILITY_THEN_EVIDENCE_BACKED_PARETO",
+    "scores": false,
+    "unknownHardFact": "UNRESOLVED_HARD_UNCERTAINTY",
+    "unknownSoftFact": "NO_ADVANTAGE_NO_ELIMINATION",
+    "weights": false
+  },
+  "sources": [
+    {
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_TR",
+      "sourceId": "BEKO-KMX82-PRODUCT-TR",
+      "url": "https://www.beko.com.tr/8-kg-kurutma-makinesi/kmx-82-kurutma-makinesi"
+    },
+    {
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_DOCUMENT",
+      "sourceId": "BEKO-KMX82-FICHE-TR",
+      "url": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/7184270260_MDM_PRODUCT_FICHE_EU_2021_tr_TR.pdf"
+    },
+    {
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_DOCUMENT",
+      "sourceId": "BEKO-KMX82-MANUAL-TR",
+      "url": "https://gsim2hwnpbvwtwmb1dg11z6.blob.core.windows.net/media/documents/7184270260_MDM2_USER_MANUAL_FILE_tr_TR.pdf"
+    },
+    {
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_TR",
+      "sourceId": "BEKO-KM99-PRODUCT-TR",
+      "url": "https://www.beko.com.tr/kurutma-makinesi/km-99-kurutma-makinesi"
+    },
+    {
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_TR",
+      "sourceId": "BOSCH-WQG24100TR-PRODUCT-TR",
+      "url": "https://www.bosch-home.com.tr/tr/product/WQG24100TR"
+    },
+    {
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_DOCUMENT",
+      "documentCode": "9001745932",
+      "sourceId": "BOSCH-WQG24100TR-MANUAL-TR",
+      "url": "https://media3.bosch-home.com/Documents/9001745932_A.pdf"
+    },
+    {
+      "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+      "url": "https://www.hoover-home.com/tr_TR/kurutma-makineleri/31102852/hre-h11a2tbe-17/",
+      "accessedAt": "2026-09-05",
+      "authority": "MANUFACTURER_TR_EXACT_MODEL"
+    },
+    {
+      "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+      "url": "https://www.hoover-home.com/tr_TR/kurutma-makineleri/31103113/nr-eh11n2tbex-17/",
+      "accessedAt": "2026-09-05",
+      "authority": "MANUFACTURER_TR_EXACT_MODEL"
+    },
+    {
+      "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+      "url": "https://www.arcelik.com.tr/12-kg-kurutma-makinesi/1201-kmx-kurutma-makinesi",
+      "accessedAt": "2026-09-05",
+      "authority": "MANUFACTURER_TR_EXACT_MODEL"
+    },
+    {
+      "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+      "url": "https://www.samsung.com/tr/washers-and-dryers/dryers/dv5000d-dryer-space-max-hygiene-care-smartthings-ai-energy-mode-10kg-black-dv10dg54a0abah/",
+      "accessedAt": "2026-09-05",
+      "authority": "MANUFACTURER_TR_EXACT_MODEL"
+    }
+  ],
+  "decisionAdoption": {
+    "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-DECISION-ADOPTION-01",
+    "sourceBatchDigest": "sha256:b3cb67e1dd00dc6c529ae750679e8276c13f9723d4e1d77737a7f39aee441ea2",
+    "sourcePackageSha256": "2e76d621ce5569d7005ea29ab10e70f1807199038d1d973a681baee829210732",
+    "catalogActivationId": "APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55",
+    "parentReleaseVersion": "APPLIANCES-DRYER-TR-v0.1",
+    "parentArtifactSha256": "3ef3ce69874ced7d210c97545d35e82a9a2fae2933a7d7d715ae411224943f48",
+    "decisionAuthorityApproval": "EXPLICIT_PRODUCT_OWNER_APPROVAL",
+    "commerceBoundary": "L10_NO_DECISION_EFFECT",
+    "admittedOfferingIds": [
+      "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+      "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+      "appliances:dryer:tr:arcelik:1201-kmx",
+      "appliances:dryer:tr:samsung:dv10dg54a0abah"
+    ],
+    "excludedOfferingIds": [
+      "appliances:dishwasher:tr:teka:dfi-46700-ttm"
+    ]
+  }
+}

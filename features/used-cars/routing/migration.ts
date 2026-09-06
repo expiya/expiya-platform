@@ -1,0 +1,7 @@
+export interface UsedCarsRedirectRule {readonly source:string;readonly destination:string;readonly permanent:true;readonly enabled:false}
+export const futureUsedCarsRedirectRules:readonly UsedCarsRedirectRule[]=Object.freeze([
+ {source:"/ikinciel",destination:"/cars/ikinciel",permanent:true,enabled:false},
+ {source:"/ikinciel/:path*",destination:"/cars/ikinciel/:path*",permanent:true,enabled:false},
+]);
+export function validateUsedCarsRedirectRules(rules:readonly UsedCarsRedirectRule[]):readonly string[]{const codes:string[]=[];if(rules.length!==2)codes.push("ROOT_AND_WILDCARD_REQUIRED");if(!rules.some(r=>r.source==="/ikinciel"&&r.destination==="/cars/ikinciel"))codes.push("ROOT_MAPPING_MISSING");if(!rules.some(r=>r.source==="/ikinciel/:path*"&&r.destination==="/cars/ikinciel/:path*"))codes.push("SUBPATH_MAPPING_MISSING");if(rules.some(r=>!r.permanent))codes.push("PERMANENT_REDIRECT_REQUIRED");if(rules.some(r=>r.enabled))codes.push("PREMATURE_REDIRECT_ENABLEMENT");return Object.freeze(codes);}
+export function canonicalUsedCarsUrl(pathname:string):string {if(pathname==="/ikinciel")return "https://www.expiya.com/cars/ikinciel";if(pathname.startsWith("/ikinciel/"))return `https://www.expiya.com${pathname.replace(/^\/ikinciel/u,"/cars/ikinciel")}`;if(pathname==="/cars/ikinciel"||pathname.startsWith("/cars/ikinciel/"))return `https://www.expiya.com${pathname}`;throw new Error("OUTSIDE_USED_CARS_ROUTE");}

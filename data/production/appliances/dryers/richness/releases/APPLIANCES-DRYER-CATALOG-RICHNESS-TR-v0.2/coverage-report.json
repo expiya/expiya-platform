@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "dryer-catalog-richness-coverage/v1",
+  "workUnitId": "WU-XPY-APPL-DRYER-CATALOG-RICHNESS-01",
+  "generatedAt": "2026-09-04T17:30:00.000+03:00",
+  "verdict": "PARTIAL",
+  "before": {
+    "L0": "COMPLETE",
+    "L1": "PARTIAL",
+    "L2": "PARTIAL",
+    "L3": "PARTIAL",
+    "L4": "PARTIAL",
+    "L5": "ABSENT",
+    "L6": "ABSENT",
+    "L7": "ABSENT",
+    "L8": "PARTIAL",
+    "L9": "ABSENT",
+    "L10": "PARTIAL"
+  },
+  "after": {
+    "L0": "COMPLETE",
+    "L1": "PARTIAL",
+    "L2": "COMPLETE",
+    "L3": "COMPLETE",
+    "L4": "COMPLETE",
+    "L5": "COMPLETE",
+    "L6": "COMPLETE",
+    "L7": "ABSENT",
+    "L8": "COMPLETE",
+    "L9": "PARTIAL",
+    "L10": "PARTIAL"
+  },
+  "counts": {
+    "sources": 6,
+    "offerings": 3,
+    "objectiveFacts": 27,
+    "capabilities": 21,
+    "usageSemantics": 8,
+    "needs": 13,
+    "needEvidenceMappings": 12,
+    "personaSignals": 4,
+    "dailyLifeInterpretations": 18,
+    "experienceRules": 0,
+    "decisionProjections": 3,
+    "advisorKnowledge": 8,
+    "exactManualProducts": 1,
+    "boundedModelListManualProducts": 1,
+    "unresolvedManualProducts": 1,
+    "evidence": 56,
+    "assertionLevelEvidence": 56,
+    "comparisonDimensions": 7,
+    "advisorReadProjectionsGenerated": 3,
+    "comparisonEvidenceProjectionsGenerated": 1
+  },
+  "perProduct": [
+    {
+      "offeringId": "BEKO_KMX_82_TR",
+      "label": "Beko KMX 82",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "PARTIAL",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 9,
+        "capabilities": 8,
+        "dailyLifeInterpretations": 7,
+        "advisorKnowledge": 4,
+        "unresolved": [
+          "DOOR_STATE_DIMENSIONS_UNKNOWN"
+        ]
+      }
+    },
+    {
+      "offeringId": "BEKO_KM_99_TR",
+      "label": "Beko KM 99",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 9,
+        "capabilities": 8,
+        "dailyLifeInterpretations": 6,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "EXACT_MANUAL_NOT_PROVEN",
+          "ENERGY_REGIME_UNKNOWN",
+          "NOISE_REGIME_UNKNOWN",
+          "MAINTENANCE_TASK_SET_UNKNOWN"
+        ]
+      }
+    },
+    {
+      "offeringId": "BOSCH_WQG24100TR",
+      "label": "Bosch WQG24100TR",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "PARTIAL",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 9,
+        "capabilities": 5,
+        "dailyLifeInterpretations": 5,
+        "advisorKnowledge": 4,
+        "unresolved": [
+          "ENERGY_FACT_REMAINS_L9_NOT_PROMOTED",
+          "STANDARDIZED_NOISE_UNKNOWN"
+        ]
+      }
+    }
+  ],
+  "unresolvedGlobal": [
+    "L7 remains absent because no governed experience authority exists.",
+    "L9 is partial because KM 99 has no checksum-bound exact-applicability manual.",
+    "L1 is partial because unresolved door-state, energy-regime and noise-regime fields remain unknown rather than guessed.",
+    "L10 remains governed external volatile authority and is outside the frozen release."
+  ],
+  "nonRegression": {
+    "dryerAsama1AuthorityPointerChanged": false,
+    "candidateSelectionChanged": false,
+    "yAuthorizationChanged": false,
+    "commerceOrderingChanged": false
+  },
+  "nextBoundedWorkUnit": {
+    "workUnitId": "WU-XPY-APPL-REFRIGERATOR-CATALOG-RICHNESS-01",
+    "objective": "Apply XPY_CATALOG/v0.1 assertion-level provenance and Dryer-proven semantic/read-projection discipline to the exact Türkiye Refrigerator products without copying Dryer or Cars meanings."
+  }
+}

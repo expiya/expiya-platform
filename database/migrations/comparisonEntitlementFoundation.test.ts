@@ -1,0 +1,2 @@
+import {readFileSync} from "node:fs";import {describe,expect,it} from "vitest";
+describe("comparison entitlement migration",()=>{it("persists authority, lifecycle, idempotency and append-only issuer audit",()=>{const sql=readFileSync("database/migrations/0014_comparison_entitlement_foundation.sql","utf8");for(const term of ["subject_type","purchase_reference_id","decision_fingerprint","evidence_set_fingerprint","issuer_event_sequence","idempotency_key","comparison_entitlement_events"])expect(sql).toContain(term);expect(sql).toContain("unique(issuer,idempotency_key)");});});

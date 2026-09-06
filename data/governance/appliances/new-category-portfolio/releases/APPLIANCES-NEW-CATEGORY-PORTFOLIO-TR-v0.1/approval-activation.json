@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "appliances-new-category-portfolio-approval/v1",
+  "releaseVersion": "APPLIANCES-NEW-CATEGORY-PORTFOLIO-TR-v0.1",
+  "authorityId": "APPLIANCES-NEW-CATEGORY-PORTFOLIO-TR/v0.1",
+  "portfolioDigest": "sha256:719090386cd90a2959e6632c40da8c605229da83f10f69cb0b22941433cdadab",
+  "decision": "APPROVED_AND_FROZEN",
+  "approvedAt": "2026-09-04T23:00:00.000+03:00",
+  "approvedBy": "USER_DELEGATED_PILOT_AUTHORITY",
+  "delegatedScope":"Define and freeze a bounded next Appliances portfolio without changing existing Product semantics, architecture, production data or deployment.",
+  "activation": {
+    "state": "GOVERNANCE_AUTHORITY_ACTIVE_IMPLEMENTATION_INACTIVE",
+    "runtimeActive": false,
+    "catalogActive": false,
+    "productionMutation": false,
+    "deploymentPerformed": false,
+    "existingAuthoritiesChanged": false
+  },
+  "nextWorkUnit": "WU-XPY-APPL-NEW-CATEGORY-MULTI-FOUNDATION-01"
+}

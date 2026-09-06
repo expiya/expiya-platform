@@ -1,0 +1,2955 @@
+{
+  "schemaVersion": "major-appliance-adoption-read-projections/v1",
+  "status": "NON_PRODUCTION_GOVERNANCE_VERIFICATION",
+  "candidateReleaseDigest": "sha256:cecb38d0592e0bda7677df50775fe3de9a1324f710aa16cb5cf923e0eb89f08a",
+  "comparison": {
+    "schemaVersion": "XPY_COMPARISON_EVIDENCE_PROJECTION/v0.1",
+    "readOnly": true,
+    "catalogReleaseId": "appliances:d-shwasher:catalog-adoption:tr:v0.3-candidate",
+    "catalogReleaseDigest": "sha256:cecb38d0592e0bda7677df50775fe3de9a1324f710aa16cb5cf923e0eb89f08a",
+    "market": "TR",
+    "authorization": {
+      "purchaseStatus": "PURCHASED",
+      "entitlementId": "GOVERNANCE-VERIFICATION-NON-PRODUCTION",
+      "comparisonSetId": "DISHWASHER-ADOPTION-VERIFICATION",
+      "exactOfferingIds": [
+        "appliances:dishwasher:tr:arcelik:a-710-i",
+        "appliances:dishwasher:tr:arcelik:a-811-i",
+        "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+      ]
+    },
+    "offerings": [
+      {
+        "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Arçelik",
+          "model": "A 710 I",
+          "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+          "identifiers": {
+            "asin": "B0GR5WR3F8",
+            "manufacturerModelCode": "A 710 I"
+          }
+        }
+      },
+      {
+        "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Arçelik",
+          "model": "A 811 I",
+          "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+          "identifiers": {
+            "asin": "B0H8K13BL6",
+            "manufacturerModelCode": "A 811 I"
+          }
+        }
+      },
+      {
+        "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Samsung",
+          "model": "DW60M5062FS/TR",
+          "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+          "identifiers": {
+            "asin": "B07P9FNJHC",
+            "manufacturerModelCode": "DW60M5062FS/TR"
+          }
+        }
+      }
+    ],
+    "evidence": [
+      {
+        "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:placesettings",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+        "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:placesettings",
+        "offeringIds": [
+          "appliances:dishwasher:tr:arcelik:a-710-i"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "general specifications",
+          "value": 14,
+          "unit": "place_settings",
+          "applicability": {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+            "market": "TR",
+            "model": "A 710 I",
+            "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:energypercyclekwh",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+        "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:energypercyclekwh",
+        "offeringIds": [
+          "appliances:dishwasher:tr:arcelik:a-710-i"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "consumption information",
+          "value": 0.645,
+          "unit": "kWh/cycle",
+          "applicability": {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+            "market": "TR",
+            "model": "A 710 I",
+            "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:waterpercyclel",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+        "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:waterpercyclel",
+        "offeringIds": [
+          "appliances:dishwasher:tr:arcelik:a-710-i"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "consumption information",
+          "value": 10.9,
+          "unit": "L/cycle",
+          "applicability": {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+            "market": "TR",
+            "model": "A 710 I",
+            "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:noisedba",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+        "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:noisedba",
+        "offeringIds": [
+          "appliances:dishwasher:tr:arcelik:a-710-i"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "consumption information",
+          "value": 46,
+          "unit": "dB(A)",
+          "applicability": {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+            "market": "TR",
+            "model": "A 710 I",
+            "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:placesettings",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+        "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:placesettings",
+        "offeringIds": [
+          "appliances:dishwasher:tr:arcelik:a-811-i"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "general specifications",
+          "value": 15,
+          "unit": "place_settings",
+          "applicability": {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+            "market": "TR",
+            "model": "A 811 I",
+            "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:energypercyclekwh",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+        "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:energypercyclekwh",
+        "offeringIds": [
+          "appliances:dishwasher:tr:arcelik:a-811-i"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "consumption information",
+          "value": 0.551,
+          "unit": "kWh/cycle",
+          "applicability": {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+            "market": "TR",
+            "model": "A 811 I",
+            "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:waterpercyclel",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+        "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:waterpercyclel",
+        "offeringIds": [
+          "appliances:dishwasher:tr:arcelik:a-811-i"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "consumption information",
+          "value": 8.9,
+          "unit": "L/cycle",
+          "applicability": {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+            "market": "TR",
+            "model": "A 811 I",
+            "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:noisedba",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+        "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:noisedba",
+        "offeringIds": [
+          "appliances:dishwasher:tr:arcelik:a-811-i"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "consumption information",
+          "value": 41,
+          "unit": "dB(A)",
+          "applicability": {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+            "market": "TR",
+            "model": "A 811 I",
+            "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:placesettings",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+        "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:placesettings",
+        "offeringIds": [
+          "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "product fiche",
+          "value": 14,
+          "unit": "place_settings",
+          "applicability": {
+            "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+            "market": "TR",
+            "model": "DW60M5062FS/TR",
+            "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energypercyclekwh",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+        "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energypercyclekwh",
+        "offeringIds": [
+          "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "product fiche",
+          "value": 1.052,
+          "unit": "kWh/cycle",
+          "applicability": {
+            "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+            "market": "TR",
+            "model": "DW60M5062FS/TR",
+            "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:waterpercyclel",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+        "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:waterpercyclel",
+        "offeringIds": [
+          "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "product fiche",
+          "value": 12,
+          "unit": "L/cycle",
+          "applicability": {
+            "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+            "market": "TR",
+            "model": "DW60M5062FS/TR",
+            "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:noisedba",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+        "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:noisedba",
+        "offeringIds": [
+          "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "product fiche",
+          "value": 46,
+          "unit": "dB(A)",
+          "applicability": {
+            "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+            "market": "TR",
+            "model": "DW60M5062FS/TR",
+            "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+            "status": "EXACT"
+          }
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+        "kind": "OFFICIAL",
+        "uri": "https://www.arcelik.com.tr/prestige-serisi/a-710-i-bulasik-makinesi",
+        "version": "observed-2026-09-05",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "REVIEWED",
+        "language": "tr-TR"
+      },
+      {
+        "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+        "kind": "OFFICIAL",
+        "uri": "https://www.arcelik.com.tr/diamond-serisi-solo-bulasik-makinesi/a-811-i-bulasik-makinesi",
+        "version": "observed-2026-09-05",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "REVIEWED",
+        "language": "tr-TR"
+      },
+      {
+        "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+        "kind": "OFFICIAL",
+        "uri": "https://images.samsung.com/is/content/samsung/p5/common/energylabel/common-energylabel-dw60m5062fs-tr-productfiche.pdf",
+        "version": "observed-2026-09-05",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "REVIEWED",
+        "language": "tr-TR"
+      }
+    ],
+    "dailyLifeInterpretations": [
+      {
+        "interpretationId": "adoption-interpretation:appliances-dishwasher-tr-arcelik-a-710-i:published-fit",
+        "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+        "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+        "factIds": [
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:lifecyclestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:warrantyservicestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:installationguidancestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:safetyguidancestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:installationtype",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:placesettings",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:energyclass",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:energypercyclekwh",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:waterpercyclel",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:noisedba",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:widthmm",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:heightmm",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:depthmm"
+        ],
+        "capabilityIds": [
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:wifibluetooth",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:automaticdooropen",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:halfload",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:overflowprotection",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:childlock"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "No result, savings, quietness, freshness, care or longevity guarantee."
+        ],
+        "nonGuarantees": [
+          "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+        ]
+      },
+      {
+        "interpretationId": "adoption-interpretation:appliances-dishwasher-tr-arcelik-a-811-i:published-fit",
+        "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+        "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+        "factIds": [
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:lifecyclestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:warrantyservicestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:installationguidancestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:safetyguidancestatus",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:installationtype",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:placesettings",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:energyclass",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:energypercyclekwh",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:waterpercyclel",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:noisedba",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:widthmm",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:heightmm",
+          "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:depthmm"
+        ],
+        "capabilityIds": [
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:wifibluetooth",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:automaticdooropen",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:halfload",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:soilsensor",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:overflowprotection",
+          "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:childlock"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "No result, savings, quietness, freshness, care or longevity guarantee."
+        ],
+        "nonGuarantees": [
+          "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+        ]
+      },
+      {
+        "interpretationId": "adoption-interpretation:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:published-fit",
+        "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+        "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+        "factIds": [
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:lifecyclestatus",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:warrantyservicestatus",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationguidancestatus",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:safetyguidancestatus",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationtype",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:placesettings",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energyclass",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energypercyclekwh",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:waterpercyclel",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:noisedba",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:widthmm",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:heightmm",
+          "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:depthmm"
+        ],
+        "capabilityIds": [
+          "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:childlock",
+          "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:thirdrack",
+          "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:delaystart",
+          "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:voltageprotection"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "No result, savings, quietness, freshness, care or longevity guarantee."
+        ],
+        "nonGuarantees": [
+          "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+        ]
+      }
+    ],
+    "advisorKnowledge": [],
+    "rules": {
+      "unknownTreatment": "NEUTRAL_NO_PENALTY",
+      "incomparableTreatment": "FAIL_CLOSED",
+      "dimensionAndLabelAuthority": "DOMAIN_PACK_ONLY",
+      "decisionAuthority": "NONE"
+    },
+    "dimensions": [
+      {
+        "dimensionId": "dishwasher.capacity",
+        "humanLabel": "Kişilik kapasite",
+        "scope": "EXACT_TR_CONFIGURATION",
+        "cells": [
+          {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+            "state": "KNOWN",
+            "value": 14,
+            "unit": "place_settings",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:placesettings"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+            "state": "KNOWN",
+            "value": 15,
+            "unit": "place_settings",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:placesettings"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+            "state": "KNOWN",
+            "value": 14,
+            "unit": "place_settings",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:placesettings"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          }
+        ]
+      },
+      {
+        "dimensionId": "dishwasher.energy",
+        "humanLabel": "Eko çevrim enerji",
+        "scope": "CURRENT_REGIME_ECO",
+        "cells": [
+          {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+            "state": "KNOWN",
+            "value": 0.645,
+            "unit": "kWh/cycle",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:energypercyclekwh"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+            "state": "KNOWN",
+            "value": 0.551,
+            "unit": "kWh/cycle",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:energypercyclekwh"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+            "state": "KNOWN",
+            "value": 1.052,
+            "unit": "kWh/cycle",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energypercyclekwh"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          }
+        ]
+      },
+      {
+        "dimensionId": "dishwasher.water",
+        "humanLabel": "Eko çevrim su",
+        "scope": "CURRENT_REGIME_ECO",
+        "cells": [
+          {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+            "state": "KNOWN",
+            "value": 10.9,
+            "unit": "L/cycle",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:waterpercyclel"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+            "state": "KNOWN",
+            "value": 8.9,
+            "unit": "L/cycle",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:waterpercyclel"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+            "state": "KNOWN",
+            "value": 12,
+            "unit": "L/cycle",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:waterpercyclel"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          }
+        ]
+      },
+      {
+        "dimensionId": "dishwasher.noise",
+        "humanLabel": "Ses seviyesi",
+        "scope": "REGULATORY_LABEL",
+        "cells": [
+          {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+            "state": "KNOWN",
+            "value": 46,
+            "unit": "dB(A)",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:noisedba"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+            "state": "KNOWN",
+            "value": 41,
+            "unit": "dB(A)",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:noisedba"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+            "state": "KNOWN",
+            "value": 46,
+            "unit": "dB(A)",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:noisedba"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "advisors": [
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "ADOPTION-VERIFICATION:appliances:dishwasher:tr:arcelik:a-710-i",
+        "exactOfferingId": "appliances:dishwasher:tr:arcelik:a-710-i"
+      },
+      "catalogReleaseId": "appliances:d-shwasher:catalog-adoption:tr:v0.3-candidate",
+      "catalogReleaseDigest": "sha256:cecb38d0592e0bda7677df50775fe3de9a1324f710aa16cb5cf923e0eb89f08a",
+      "offering": {
+        "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Arçelik",
+          "model": "A 710 I",
+          "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+          "identifiers": {
+            "asin": "B0GR5WR3F8",
+            "manufacturerModelCode": "A 710 I"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:lifecyclestatus",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "lifecycleStatus",
+          "value": "CURRENT_OFFICIAL_TR_PRODUCT_PAGE_AND_ACTIVE_AMAZON_TR_OFFER",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:lifecyclestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:warrantyservicestatus",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "warrantyServiceStatus",
+          "value": "TR_SUPPORT_APPLICABILITY_PROVEN_DURATION_RECHECK_AT_PURCHASE",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:warrantyservicestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:installationguidancestatus",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "installationGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:installationguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:safetyguidancestatus",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "safetyGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:safetyguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:installationtype",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "installationType",
+          "value": "FREESTANDING",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:installationtype"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:placesettings",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "placeSettings",
+          "value": 14,
+          "unit": "place_settings",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:placesettings"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:energyclass",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "energyClass",
+          "value": "B",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:energyclass"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:energypercyclekwh",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "energyPerCycleKwh",
+          "value": 0.645,
+          "unit": "kWh/cycle",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:energypercyclekwh"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:waterpercyclel",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "waterPerCycleL",
+          "value": 10.9,
+          "unit": "L/cycle",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:waterpercyclel"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:noisedba",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "noiseDbA",
+          "value": 46,
+          "unit": "dB(A)",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:noisedba"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:widthmm",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "widthMm",
+          "value": 598,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:widthmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:heightmm",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "heightMm",
+          "value": 850,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:heightmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:depthmm",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "depthMm",
+          "value": 600,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:depthmm"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:wifibluetooth",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "wifiBluetooth",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:wifibluetooth",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:automaticdooropen",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "automaticDoorOpen",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:automaticdooropen",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:halfload",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "halfLoad",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:halfload",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:overflowprotection",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "overflowProtection",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:overflowprotection",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:childlock",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "key": "childLock",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:childlock",
+          "limitations": []
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "adoption-interpretation:appliances-dishwasher-tr-arcelik-a-710-i:published-fit",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+          "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+          "factIds": [
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:lifecyclestatus",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:warrantyservicestatus",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:installationguidancestatus",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:safetyguidancestatus",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:installationtype",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:placesettings",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:energyclass",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:energypercyclekwh",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:waterpercyclel",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:noisedba",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:widthmm",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:heightmm",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-710-i:depthmm"
+          ],
+          "capabilityIds": [
+            "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:wifibluetooth",
+            "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:automaticdooropen",
+            "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:halfload",
+            "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:overflowprotection",
+            "adoption-capability:appliances-dishwasher-tr-arcelik-a-710-i:childlock"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "No result, savings, quietness, freshness, care or longevity guarantee."
+          ],
+          "nonGuarantees": [
+            "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+          ]
+        }
+      ],
+      "advisorKnowledge": [],
+      "evidence": [
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:lifecyclestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:lifecyclestatus",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: exact model and category identity",
+            "value": "CURRENT_OFFICIAL_TR_PRODUCT_PAGE_AND_ACTIVE_AMAZON_TR_OFFER",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:warrantyservicestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:warrantyservicestatus",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: warranty/support applicability",
+            "value": "TR_SUPPORT_APPLICABILITY_PROVEN_DURATION_RECHECK_AT_PURCHASE",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:installationguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:installationguidancestatus",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:safetyguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:safetyguidancestatus",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:installationtype",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:installationtype",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "general specifications",
+            "value": "FREESTANDING",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:placesettings",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:placesettings",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "general specifications",
+            "value": 14,
+            "unit": "place_settings",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:energyclass",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:energyclass",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "general specifications",
+            "value": "B",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:energypercyclekwh",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:energypercyclekwh",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "consumption information",
+            "value": 0.645,
+            "unit": "kWh/cycle",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:waterpercyclel",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:waterpercyclel",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "consumption information",
+            "value": 10.9,
+            "unit": "L/cycle",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:noisedba",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:noisedba",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "consumption information",
+            "value": 46,
+            "unit": "dB(A)",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:widthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:widthmm",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "dimensions",
+            "value": 598,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:heightmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:heightmm",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "dimensions",
+            "value": 850,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:depthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:depthmm",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "dimensions",
+            "value": 600,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:wifibluetooth",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:wifibluetooth",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "connectivity",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:automaticdooropen",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:automaticdooropen",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "functions",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:halfload",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:halfload",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "functions",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:overflowprotection",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:overflowprotection",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "water safety system",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-710-i:childlock",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-710-i:childlock",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-710-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "other",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+              "market": "TR",
+              "model": "A 710 I",
+              "configuration": "Arçelik|A 710 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-710-i:official-tr",
+          "kind": "OFFICIAL",
+          "uri": "https://www.arcelik.com.tr/prestige-serisi/a-710-i-bulasik-makinesi",
+          "version": "observed-2026-09-05",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "REVIEWED",
+          "language": "tr-TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    },
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "ADOPTION-VERIFICATION:appliances:dishwasher:tr:arcelik:a-811-i",
+        "exactOfferingId": "appliances:dishwasher:tr:arcelik:a-811-i"
+      },
+      "catalogReleaseId": "appliances:d-shwasher:catalog-adoption:tr:v0.3-candidate",
+      "catalogReleaseDigest": "sha256:cecb38d0592e0bda7677df50775fe3de9a1324f710aa16cb5cf923e0eb89f08a",
+      "offering": {
+        "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Arçelik",
+          "model": "A 811 I",
+          "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+          "identifiers": {
+            "asin": "B0H8K13BL6",
+            "manufacturerModelCode": "A 811 I"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:lifecyclestatus",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "lifecycleStatus",
+          "value": "CURRENT_OFFICIAL_TR_PRODUCT_PAGE_AMAZON_TR_OFFER_VOLATILE",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:lifecyclestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:warrantyservicestatus",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "warrantyServiceStatus",
+          "value": "TR_SUPPORT_APPLICABILITY_PROVEN_DURATION_RECHECK_AT_PURCHASE",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:warrantyservicestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:installationguidancestatus",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "installationGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:installationguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:safetyguidancestatus",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "safetyGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:safetyguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:installationtype",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "installationType",
+          "value": "FREESTANDING",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:installationtype"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:placesettings",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "placeSettings",
+          "value": 15,
+          "unit": "place_settings",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:placesettings"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:energyclass",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "energyClass",
+          "value": "A",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:energyclass"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:energypercyclekwh",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "energyPerCycleKwh",
+          "value": 0.551,
+          "unit": "kWh/cycle",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:energypercyclekwh"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:waterpercyclel",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "waterPerCycleL",
+          "value": 8.9,
+          "unit": "L/cycle",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:waterpercyclel"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:noisedba",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "noiseDbA",
+          "value": 41,
+          "unit": "dB(A)",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:noisedba"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:widthmm",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "widthMm",
+          "value": 598,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:widthmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:heightmm",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "heightMm",
+          "value": 850,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:heightmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:depthmm",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "depthMm",
+          "value": 600,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:depthmm"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:wifibluetooth",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "wifiBluetooth",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:wifibluetooth",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:automaticdooropen",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "automaticDoorOpen",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:automaticdooropen",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:halfload",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "halfLoad",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:halfload",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:soilsensor",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "soilSensor",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:soilsensor",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:overflowprotection",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "overflowProtection",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:overflowprotection",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:childlock",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "key": "childLock",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:childlock",
+          "limitations": []
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "adoption-interpretation:appliances-dishwasher-tr-arcelik-a-811-i:published-fit",
+          "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+          "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+          "factIds": [
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:lifecyclestatus",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:warrantyservicestatus",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:installationguidancestatus",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:safetyguidancestatus",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:installationtype",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:placesettings",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:energyclass",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:energypercyclekwh",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:waterpercyclel",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:noisedba",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:widthmm",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:heightmm",
+            "adoption-fact:appliances-dishwasher-tr-arcelik-a-811-i:depthmm"
+          ],
+          "capabilityIds": [
+            "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:wifibluetooth",
+            "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:automaticdooropen",
+            "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:halfload",
+            "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:soilsensor",
+            "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:overflowprotection",
+            "adoption-capability:appliances-dishwasher-tr-arcelik-a-811-i:childlock"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "No result, savings, quietness, freshness, care or longevity guarantee."
+          ],
+          "nonGuarantees": [
+            "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+          ]
+        }
+      ],
+      "advisorKnowledge": [],
+      "evidence": [
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:lifecyclestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:lifecyclestatus",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: exact model and category identity",
+            "value": "CURRENT_OFFICIAL_TR_PRODUCT_PAGE_AMAZON_TR_OFFER_VOLATILE",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:warrantyservicestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:warrantyservicestatus",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: warranty/support applicability",
+            "value": "TR_SUPPORT_APPLICABILITY_PROVEN_DURATION_RECHECK_AT_PURCHASE",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:installationguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:installationguidancestatus",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:safetyguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:safetyguidancestatus",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:installationtype",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:installationtype",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "general specifications",
+            "value": "FREESTANDING",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:placesettings",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:placesettings",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "general specifications",
+            "value": 15,
+            "unit": "place_settings",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:energyclass",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:energyclass",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "general specifications",
+            "value": "A",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:energypercyclekwh",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:energypercyclekwh",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "consumption information",
+            "value": 0.551,
+            "unit": "kWh/cycle",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:waterpercyclel",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:waterpercyclel",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "consumption information",
+            "value": 8.9,
+            "unit": "L/cycle",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:noisedba",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:noisedba",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "consumption information",
+            "value": 41,
+            "unit": "dB(A)",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:widthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:widthmm",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "dimensions",
+            "value": 598,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:heightmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:heightmm",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "dimensions",
+            "value": 850,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:depthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:depthmm",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "dimensions",
+            "value": 600,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:wifibluetooth",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:wifibluetooth",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "connectivity",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:automaticdooropen",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:automaticdooropen",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "functions",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:halfload",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:halfload",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "functions",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:soilsensor",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:soilsensor",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "functions",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:overflowprotection",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:overflowprotection",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "water safety system",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-arcelik-a-811-i:childlock",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-arcelik-a-811-i:childlock",
+          "offeringIds": [
+            "appliances:dishwasher:tr:arcelik:a-811-i"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "other",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+              "market": "TR",
+              "model": "A 811 I",
+              "configuration": "Arçelik|A 811 I|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "adoption-source:appliances-dishwasher-tr-arcelik-a-811-i:official-tr",
+          "kind": "OFFICIAL",
+          "uri": "https://www.arcelik.com.tr/diamond-serisi-solo-bulasik-makinesi/a-811-i-bulasik-makinesi",
+          "version": "observed-2026-09-05",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "REVIEWED",
+          "language": "tr-TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    },
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "ADOPTION-VERIFICATION:appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+        "exactOfferingId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+      },
+      "catalogReleaseId": "appliances:d-shwasher:catalog-adoption:tr:v0.3-candidate",
+      "catalogReleaseDigest": "sha256:cecb38d0592e0bda7677df50775fe3de9a1324f710aa16cb5cf923e0eb89f08a",
+      "offering": {
+        "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Samsung",
+          "model": "DW60M5062FS/TR",
+          "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+          "identifiers": {
+            "asin": "B07P9FNJHC",
+            "manufacturerModelCode": "DW60M5062FS/TR"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:lifecyclestatus",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "lifecycleStatus",
+          "value": "CURRENT_EXACT_TR_SUPPORT_AND_ACTIVE_AMAZON_TR_OFFER",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:lifecyclestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:warrantyservicestatus",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "warrantyServiceStatus",
+          "value": "THIRTY_SIX_MONTH_MINIMUM_SUPPLIER_WARRANTY",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:warrantyservicestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationguidancestatus",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "installationGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:safetyguidancestatus",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "safetyGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:safetyguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationtype",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "installationType",
+          "value": "FREESTANDING",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationtype"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:placesettings",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "placeSettings",
+          "value": 14,
+          "unit": "place_settings",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:placesettings"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energyclass",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "energyClass",
+          "value": "F",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energyclass"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energypercyclekwh",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "energyPerCycleKwh",
+          "value": 1.052,
+          "unit": "kWh/cycle",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energypercyclekwh"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:waterpercyclel",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "waterPerCycleL",
+          "value": 12,
+          "unit": "L/cycle",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:waterpercyclel"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:noisedba",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "noiseDbA",
+          "value": 46,
+          "unit": "dB(A)",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:noisedba"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:widthmm",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "widthMm",
+          "value": 600,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:widthmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:heightmm",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "heightMm",
+          "value": 850,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:heightmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:depthmm",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "depthMm",
+          "value": 600,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:depthmm"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:childlock",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "childLock",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:childlock",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:thirdrack",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "thirdRack",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:thirdrack",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:delaystart",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "delayStart",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:delaystart",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:voltageprotection",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "key": "voltageProtection",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:voltageprotection",
+          "limitations": []
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "adoption-interpretation:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:published-fit",
+          "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+          "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+          "factIds": [
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:lifecyclestatus",
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:warrantyservicestatus",
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationguidancestatus",
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:safetyguidancestatus",
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationtype",
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:placesettings",
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energyclass",
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energypercyclekwh",
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:waterpercyclel",
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:noisedba",
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:widthmm",
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:heightmm",
+            "adoption-fact:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:depthmm"
+          ],
+          "capabilityIds": [
+            "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:childlock",
+            "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:thirdrack",
+            "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:delaystart",
+            "adoption-capability:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:voltageprotection"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "No result, savings, quietness, freshness, care or longevity guarantee."
+          ],
+          "nonGuarantees": [
+            "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+          ]
+        }
+      ],
+      "advisorKnowledge": [],
+      "evidence": [
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:lifecyclestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:lifecyclestatus",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: exact model and category identity",
+            "value": "CURRENT_EXACT_TR_SUPPORT_AND_ACTIVE_AMAZON_TR_OFFER",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:warrantyservicestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:warrantyservicestatus",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: warranty/support applicability",
+            "value": "THIRTY_SIX_MONTH_MINIMUM_SUPPLIER_WARRANTY",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationguidancestatus",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:safetyguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:safetyguidancestatus",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationtype",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:installationtype",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": "FREESTANDING",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:placesettings",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:placesettings",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": 14,
+            "unit": "place_settings",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energyclass",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energyclass",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": "F",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energypercyclekwh",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:energypercyclekwh",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": 1.052,
+            "unit": "kWh/cycle",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:waterpercyclel",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:waterpercyclel",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": 12,
+            "unit": "L/cycle",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:noisedba",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:noisedba",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": 46,
+            "unit": "dB(A)",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:widthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:widthmm",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": 600,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:heightmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:heightmm",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": 850,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:depthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:depthmm",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": 600,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:childlock",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:childlock",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "official Türkiye product catalog",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:thirdrack",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:thirdrack",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "official Türkiye product catalog",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:delaystart",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:delaystart",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "official Türkiye product catalog",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:voltageprotection",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "assertionId": "adoption-assertion:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:voltageprotection",
+          "offeringIds": [
+            "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "official Türkiye product catalog",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+              "market": "TR",
+              "model": "DW60M5062FS/TR",
+              "configuration": "Samsung|DW60M5062FS/TR|TR|FREESTANDING_DISHWASHER|INOX",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "adoption-source:appliances-dishwasher-tr-samsung-dw60m5062fs-tr:official-tr",
+          "kind": "OFFICIAL",
+          "uri": "https://images.samsung.com/is/content/samsung/p5/common/energylabel/common-energylabel-dw60m5062fs-tr-productfiche.pdf",
+          "version": "observed-2026-09-05",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "REVIEWED",
+          "language": "tr-TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    }
+  ]
+}

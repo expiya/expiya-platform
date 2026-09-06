@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "appliances-manual-coverage/v3",
+  "releaseId": "APPLIANCES-GOVERNED-EXACT-MANUAL-L9-TR-v0.3",
+  "before": {
+    "releaseId": "APPLIANCES-GOVERNED-EXACT-MANUAL-L9-TR-v0.2",
+    "manualCount": 14,
+    "l9EntryCount": 9,
+    "absentUnits": 213
+  },
+  "after": {
+    "members": 97,
+    "categories": 24,
+    "manualCount": 17,
+    "l9EntryCount": 16,
+    "absentUnits": 207
+  },
+  "authority": "L9_ADVISOR_ONLY_NO_P_Y_EFFECT",
+  "sourceCandidateId": "APPLIANCES-GLOBAL-EVIDENCE-TR-v0.1-rc1",
+  "sourceCandidateDigest": "sha256:d10f0773b7503d7125255ccf0f53b45257ff539a235b7328da351f34ebe637df"
+}

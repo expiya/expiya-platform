@@ -1,0 +1,86 @@
+{
+  "registryVersion": "WASHING_MACHINE_SEMANTIC_REGISTRY/v0.1",
+  "effectiveDate": "2026-09-03",
+  "status": "IMMUTABLE_CANDIDATE",
+  "catalogMembershipVersion": "REBALANCED-24-CANDIDATE-2026-09-03",
+  "artifacts": {
+    "washing-machine-user-needs/v1": {
+      "records": [
+        ["INSTALLATION_FIT","HARD_CONSTRAINT_CAPABLE"],["LOW_LAUNDRY_VOLUME","CONTEXT_ONLY"],["HIGH_LAUNDRY_VOLUME","MATERIAL_NEED"],["FREQUENT_WASHING","MATERIAL_NEED"],["LOAD_CONSOLIDATION","CONTEXT_ONLY"],["BULKY_TEXTILES","MATERIAL_NEED"],["LOW_NOISE_PRIORITY","MATERIAL_NEED"],["NIGHT_USE","MATERIAL_NEED"],["LOW_ENERGY_PRIORITY","MATERIAL_NEED"],["LOW_WATER_PRIORITY","MATERIAL_NEED"],["FAST_SMALL_LOADS","MATERIAL_NEED"],["BETTER_SPIN_DRYING","MATERIAL_NEED"],["SPECIAL_CARE","MATERIAL_NEED"],["HYGIENE_PROGRAM_NEED","HARD_CONSTRAINT_CAPABLE"],["ANTI_ALLERGY_PROGRAM_NEED","HARD_CONSTRAINT_CAPABLE"],["EXTRA_RINSE_NEED","HARD_CONSTRAINT_CAPABLE"],["DETERGENT_CONVENIENCE","SOFT_PREFERENCE"],["REMOTE_CONTROL","SOFT_PREFERENCE"],["FORGOTTEN_ITEM_FLEXIBILITY","SOFT_PREFERENCE"],["CHILD_SAFETY","HARD_CONSTRAINT_CAPABLE"],["LEAK_RISK_SENSITIVITY","MATERIAL_NEED"],["LOW_COMPLEXITY_PREFERENCE","SOFT_PREFERENCE"],["BUDGET_SENSITIVITY","HARD_CONSTRAINT_CAPABLE"],["WARRANTY_RISK_SENSITIVITY","MATERIAL_NEED"],["LIMITED_EXPERIENCE_TOLERANCE","INFORMATIONAL_ONLY"]
+      ],
+      "roleTransition": "Explicit user bound/required/prohibited plus decision-safe exact evidence may promote eligible needs to HARD_CONSTRAINT; persona never promotes a role."
+    },
+    "washing-machine-need-evidence-mappings/v1": {
+      "records": {
+        "INSTALLATION_FIT":{"primaryFacts":["BODY_WIDTH","BODY_HEIGHT","BODY_DEPTH","DEPTH_WITH_DOOR","DOOR_OPEN_DEPTH","REQUIRED_REAR_CLEARANCE","HOSE_CONNECTION_CLEARANCE"],"minimum":"Only dimensions needed by the user bound may hard-screen; safe-fit requires full applicable envelope."},
+        "BULKY_TEXTILES":{"primaryFacts":["RATED_CAPACITY"],"requiredCapabilities":["BULKY_BEDDING"],"minimum":"Exact program plus published item/load limit for specific duvet claim."},
+        "LOW_NOISE_PRIORITY":{"primaryFacts":["SPIN_NOISE_DB","NOISE_CLASS"],"experience":["REAL_WORLD_NOISE","VIBRATION"],"minimum":"Same regime standardized facts."},
+        "LOW_ENERGY_PRIORITY":{"primaryFacts":["ENERGY_CONSUMPTION_100_CYCLES","ENERGY_CLASS"],"minimum":"Same regulatory regime."},
+        "LOW_WATER_PRIORITY":{"primaryFacts":["WATER_CONSUMPTION_CYCLE"],"minimum":"Same regulatory regime."},
+        "FAST_SMALL_LOADS":{"requiredCapabilities":["QUICK_WASH"],"minimum":"Presence supports generic need; duration+load+temperature/soil limits required for specific claim."},
+        "BETTER_SPIN_DRYING":{"primaryFacts":["REMAINING_MOISTURE","SPIN_EFFICIENCY_CLASS"],"secondaryFacts":["ECO_MAX_SPIN"],"minimum":"Remaining moisture plus spin class preferred; marketed RPM never primary."},
+        "DETERGENT_CONVENIENCE":{"requiredCapabilities":["AUTO_DOSING"],"minimum":"Exact PRESENT."},
+        "REMOTE_CONTROL":{"requiredCapabilities":["SMART_CONNECTIVITY"],"minimum":"Exact PRESENT with supported action parameters."},
+        "LOW_COMPLEXITY_PREFERENCE":{"requiredCapabilities":["SMART_CONNECTIVITY"],"minimum":"Only exact NOT_AVAILABLE positively satisfies non-smart; PRESENT does not prove difficult operation."},
+        "WARRANTY_RISK_SENSITIVITY":{"primaryFacts":["STANDARD_FULL_PRODUCT_WARRANTY"],"secondaryFacts":["COMPONENT_ONLY_WARRANTY","CONDITIONAL_WARRANTY"],"minimum":"Scope-separated TR authority."}
+      }
+    },
+    "washing-machine-usage-semantics/v1": {
+      "records": [
+        ["CAPACITY_USAGE",["RATED_CAPACITY"],[],"GUIDED_APPROXIMATION","Rated load ceiling; suitability also depends on frequency, volume, consolidation and bulky items.",["people-to-kg formula"]],
+        ["ENERGY_STANDARD",["ENERGY_CONSUMPTION_100_CYCLES","ENERGY_CLASS"],[],"DECISION_SAFE","Comparable standardized energy use.",["annual TRY saving without tariff and use artifact"]],
+        ["WATER_STANDARD",["WATER_CONSUMPTION_CYCLE"],[],"DECISION_SAFE","Comparable standardized water use.",["actual household water bill guarantee"]],
+        ["SPIN_NOISE_STANDARD",["SPIN_NOISE_DB","NOISE_CLASS"],[],"DECISION_SAFE","Standardized spin-noise comparison.",["silent at night","no vibration"]],
+        ["SPIN_DRYING_STANDARD",["REMAINING_MOISTURE","SPIN_EFFICIENCY_CLASS","ECO_MAX_SPIN"],[],"DECISION_SAFE","Retained-water performance under the standardized test.",["better washing","always drier"]],
+        ["INSTALLATION_GEOMETRY",["BODY_WIDTH","BODY_HEIGHT","BODY_DEPTH","DEPTH_WITH_DOOR","DOOR_OPEN_DEPTH","REQUIRED_REAR_CLEARANCE","HOSE_CONNECTION_CLEARANCE"],[],"GUIDED_APPROXIMATION","Supports bounded dimensional screening.",["guaranteed fit from body depth"]],
+        ["AUTO_DOSING_CONVENIENCE",[],["AUTO_DOSING"],"DECISION_SAFE","May reduce repeated manual detergent measurement.",["guaranteed savings"]],
+        ["QUICK_SMALL_LOAD",[],["QUICK_WASH"],"DECISION_SAFE","A manufacturer-defined quick cycle exists within published limits.",["full load in headline duration"]],
+        ["BEDDING_PROGRAM",["RATED_CAPACITY"],["BULKY_BEDDING"],"DECISION_SAFE","A manufacturer-recognized bulky/bedding program exists.",["any duvet fits"]],
+        ["STEAM_FUNCTION",[],["STEAM"],"DECISION_SAFE","Manufacturer-defined steam function exists.",["hygiene equivalence","medical efficacy"]],
+        ["HYGIENE_PROGRAM",[],["HYGIENE"],"DECISION_SAFE","Manufacturer identifies a hygiene-directed program.",["sterilization","medical outcome"]],
+        ["ANTI_ALLERGY_PROGRAM",[],["ANTI_ALLERGY"],"DECISION_SAFE","Manufacturer identifies an anti-allergy-directed program.",["treatment","guaranteed allergen removal"]],
+        ["EXTRA_RINSE_FUNCTION",[],["EXTRA_RINSE"],"DECISION_SAFE","An additional rinse option exists.",["medical benefit"]],
+        ["REMOTE_FUNCTION",[],["SMART_CONNECTIVITY"],"DECISION_SAFE","Published network/app actions are available.",["all functions remotely controllable"]],
+        ["SCHEDULE_FUNCTION",[],["DELAY_START_OR_END"],"DECISION_SAFE","Cycle timing can be scheduled within stated limits.",["quiet night operation"]],
+        ["ADD_ITEM_FUNCTION",[],["ADD_LAUNDRY"],"DECISION_SAFE","Items may be added under manufacturer conditions.",["door opens at every stage"]],
+        ["CHILD_CONTROL",[],["CHILD_LOCK"],"DECISION_SAFE","Specified controls can be locked.",["complete child safety"]],
+        ["LEAK_CONTROL",[],["LEAK_PROTECTION"],"DECISION_SAFE","Specified leak-control scope exists.",["zero leak risk"]],
+        ["WARRANTY_SCOPE",["STANDARD_FULL_PRODUCT_WARRANTY","COMPONENT_ONLY_WARRANTY"],[],"DECISION_SAFE","Duration is meaningful only with covered scope and conditions.",["motor warranty equals product warranty"]]
+      ]
+    },
+    "washing-machine-persona-signals/v1": {
+      "directCandidateEffect": "NONE",
+      "authority": "DERIVED_PLANNING",
+      "records": {
+        "LOW_VOLUME_HOUSEHOLD":["LOW_LAUNDRY_VOLUME","FAST_SMALL_LOADS"],"FAMILY_STANDARD_LOAD":["HIGH_LAUNDRY_VOLUME","CHILD_SAFETY"],"HIGH_VOLUME_OR_BULKY_LOAD":["HIGH_LAUNDRY_VOLUME","BULKY_TEXTILES","LOAD_CONSOLIDATION"],"SPACE_CONSTRAINED":["INSTALLATION_FIT"],"NOISE_SENSITIVE":["LOW_NOISE_PRIORITY"],"FREQUENT_WASHING_CONTEXT":["FREQUENT_WASHING","LOW_ENERGY_PRIORITY","LOW_WATER_PRIORITY"],"SPECIAL_CARE_CONTEXT":["SPECIAL_CARE","HYGIENE_PROGRAM_NEED","ANTI_ALLERGY_PROGRAM_NEED","EXTRA_RINSE_NEED"],"NIGHT_WASHING_CONTEXT":["NIGHT_USE","LOW_NOISE_PRIORITY"],"LOW_COMPLEXITY_CONTEXT":["LOW_COMPLEXITY_PREFERENCE"]
+      }
+    },
+    "washing-machine-daily-life-interpretations/v1": {
+      "modes":["ABSOLUTE_FACT_EXPLANATION","CATALOG_RELATIVE","COHORT_RELATIVE","LIMITATION_ONLY"],
+      "relativeRule":"Snapshot-bound, same product type, compatible measurement context/regime, and current candidate set or declared capacity cohort.",
+      "forbiddenTerms":["piyasadaki en sessiz","en ekonomik","kesin sığar","gece kimseyi uyandırmaz","sterilize eder","yılda tasarruf ettirir"]
+    },
+    "washing-machine-decision-projection-policy/v1": {
+      "allowed":["exact TR identity","authorized P0/P1 facts","16 canonical capabilities with parameters","accepted user needs","hard constraints","soft preferences","approved experience signals","usage semantic refs","evidence completeness","disclosures","fresh eligible offer only in explicit budget mode"],
+      "forbidden":["manual procedure","maintenance","troubleshooting","marketing slogan","affiliate data","merchant payout","retailer priority","unstructured review","advisor-generated claim"],
+      "personaUse":"QUESTION_PRIORITY_AND_EXPLANATION_FOCUS_ONLY"
+    },
+    "washing-machine-advisor-knowledge-schema/v1": {
+      "decisionAuthority":"NONE","stage":"AŞAMA_2_ONLY","entities":["AdvisorKnowledgeArtifact","ManualKnowledge","MaintenanceKnowledge","TroubleshootingKnowledge","WarrantyKnowledge","UsageKnowledge","LimitationKnowledge","ComparableFact"],"binding":["productId","catalogSnapshotId","artifactVersion","sourceChecksum","artifactChecksum","exactApplicability","manualSectionOrPage"]
+    },
+    "washing-machine-comparison-policy/v1": {
+      "comparable":["capacity","energy","water","noise","spin efficiency","remaining moisture","geometry","warranty","capabilities","program parameters"],
+      "requirements":["same canonical key","compatible unit","compatible context/regime","exact authorized evidence","non-conflicted current fact"],
+      "unknownRule":"UNKNOWN is neither false nor worse."
+    }
+  },
+  "reconciledMembership": ["Beko CMX 8100","Beko CMXT 9120","Beko CMX 10120","Beko CMX 11140","Vestel CMI 87402 WIFI","Vestel CMI 99422 WIFI","Vestel CMI 108442 WIFI","Bosch WGB244A0TR","Bosch WGB254A1TR","Bosch WGB254AXTR","Bosch WGK264Y0TR","LG F4T2VYM1S","LG F4R5VYW2T","LG F4V5RYP0W","LG F4Y5EYWYJ","LG F4R3TYW3WE","Electrolux EW6F3494T","Electrolux EW6F3411ACT","Electrolux EW7F4404UT","Electrolux EW7F4422CT","Samsung WW90CGC04DAEAH","Samsung WW90DG6U25LEAH","Samsung WW11DB8B95GBAH","Miele WWA120 WCS 8kg Active"],
+  "coverage": {
+    "technical":{"capacity":24,"bodyDepth":24,"energy":24,"water":24,"noise":24,"spinClass":24,"remainingMoisture":16,"doorInclusiveDepth":7,"doorOpenDepth":2,"fullSafeInstallationEnvelope":0,"standardWarranty":24},
+    "capabilities":{"STEAM":[18,3,3],"HYGIENE":[9,0,15],"ANTI_ALLERGY":[4,0,20],"EXTRA_RINSE":[14,0,10],"QUICK_WASH":[21,0,3],"BULKY_BEDDING":[21,0,3],"AUTO_DOSING":[6,3,15],"LOAD_SENSING":[17,0,7],"LEAK_PROTECTION":[7,2,15],"CHILD_LOCK":[19,0,5],"SMART_CONNECTIVITY":[14,4,6],"DELAY_START_OR_END":[20,0,4],"DELICATE":[22,0,2],"WOOL":[22,0,2],"COLD_LOW_TEMP":[14,0,10],"ADD_LAUNDRY":[14,0,10]},
+    "capabilityTupleOrder":["PRESENT","NOT_AVAILABLE","UNKNOWN"],
+    "capacityBands":{"8_TO_LT9":4,"9_TO_LT10":8,"10_TO_LT11":6,"11_TO_12":6},
+    "quickWash":{"genericPresence":21,"durationKnown":16,"specificLoadDurationComplete":1}
+  },
+  "validation": {"status":"PASS_WITH_DISCLOSURE","blockingErrors":[],"disclosures":["installation full envelope 0/24","budget offer projection unavailable 0/24","quick-wash full parameter closure 1/24","experience evidence limited","some capability UNKNOWN states prevent positive or negative matching"]}
+}

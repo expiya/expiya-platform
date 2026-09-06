@@ -1,0 +1,61 @@
+{
+  "schemaVersion": "vacuum-richness-activation/v1",
+  "activationId": "VACUUM-RICHNESS-ACT-634F439774B166D30E89",
+  "activatedAt": "2026-09-04T22:30:00.000+03:00",
+  "state": "ACTIVE_READ_ONLY_SEMANTIC_COMPOSITE",
+  "releaseVersion": "APPLIANCES-VACUUM-CATALOG-RICHNESS-TR-v0.2",
+  "releaseDigest": "sha256:634f439774b166d30e895000ca18c77360f473c62cfca01a7333afedcbcfc880",
+  "catalogArtifactSha256": "f5dd1b51aa37e12cc7f71bf7fc654d2b3da2ac0739c6444e0ba355af2a2387f3",
+  "semanticArtifactSha256": "0928b23a0812f1df107b55f26ed4ffdd65071e5e8a75e64e97a4ad8d0e8a51a4",
+  "projectionsArtifactSha256": "33c12076786c451f8c312527477b9c1b753dcc112fa638aeb4668b8d899d4d7e",
+  "immutableManifestSha256": "24f19c5585709fb2ed7d3697a7723480584a5b50f13a0a39d506092af17bd5d0",
+  "membershipDigest": "5ad05dab0b769e8aa467356c5209a258e0cef1591ca464936c41658120707b2b",
+  "decisionAuthority": {
+    "releaseVersion": "APPLIANCES-VACUUM-TR-v0.1",
+    "artifactSha256": "849467eb66b81d4042076da4e1023836b56974a1d6e2fbfd9fd67d34555ad343",
+    "ySemantics": "UNCHANGED"
+  },
+  "productOwnerApproval": {
+    "approved": true,
+    "workUnitId": "WU-XPY-APPL-VACUUM-CATALOG-RICHNESS-01",
+    "scope": "COMPOSITE_READ_ONLY_RICHNESS_ACTIVATION"
+  },
+  "review": [
+    {
+      "check": "PARENT_AND_MEMBERSHIP",
+      "status": "PASS",
+      "evidence": "All four exact identities match the byte-pinned v0.1 parent."
+    },
+    {
+      "check": "ASSERTION_LEVEL_AUTHORITY",
+      "status": "PASS",
+      "evidence": "39 assertions bind exact TR identities to registered sources."
+    },
+    {
+      "check": "NEUTRAL_UNKNOWNS",
+      "status": "PASS",
+      "evidence": "Unsupported outcomes and absent exact capability keys remain unknown and neutral."
+    },
+    {
+      "check": "SEMANTIC_BOUNDARIES",
+      "status": "PASS",
+      "evidence": "No manual, experience, persona decision influence, cross-category meaning, watt-performance inference, or commerce authority."
+    },
+    {
+      "check": "ADVISOR_AND_COMPARISON",
+      "status": "PASS",
+      "evidence": "Four bounded read-only Advisor projections pass; comparison rejects unpaid access."
+    },
+    {
+      "check": "Y_NON_REGRESSION",
+      "status": "PASS",
+      "evidence": "Decision/Y authority remains the original v0.1 digest and selection policy."
+    }
+  ],
+  "remainingUnknowns": [
+    "All products: exact checksum-bound manual and governed experience absent",
+    "Suction, cleaning, filtration-health, handling and perceived-noise outcomes unknown",
+    "Input watts excluded from performance comparison",
+    "L10 commerce/media external"
+  ]
+}

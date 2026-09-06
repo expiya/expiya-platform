@@ -1,0 +1,12 @@
+import { describe, expect, it } from "vitest";
+import { createFileSystemAppliancesArtifactRepository } from "../authority/loader.server";
+import { enterAppliancesDepartment } from "../entry.server";
+import { createFileSystemQuestionPolicyRepository } from "../governance/questionPolicyLoader.server";
+import { createFileSystemSufficiencyRecommendationPolicyRepository, type SufficiencyRecommendationPolicyRepository } from "../governance/sufficiencyRecommendationPolicyLoader.server";
+import { evaluateCurrentAppliancesSufficiency } from "./current.server";
+
+const root = process.cwd(), artifactRepository = createFileSystemAppliancesArtifactRepository(root), questionPolicyRepository = createFileSystemQuestionPolicyRepository(root);
+describe("current Appliances sufficiency server composition", () => {
+  it("loads every active authority and preserves the governed planner ASK", async () => { const entry = await enterAppliancesDepartment({ repository: artifactRepository, productType: "WASHING_MACHINE", conversationId: "88888888-8888-4888-8888-888888888888", now: new Date("2026-09-03T06:00:00Z") }); if (entry.status !== "READY") throw new Error(entry.status); const result = await evaluateCurrentAppliancesSufficiency({ artifactRepository, questionPolicyRepository, sufficiencyPolicyRepository: createFileSystemSufficiencyRecommendationPolicyRepository(root), state: entry.state, now: new Date("2026-09-03T06:00:00Z") }); expect(result).toMatchObject({ kind: "MORE_INFORMATION_REQUIRED", question: { questionKey: "appliances.wm.remoteControl.requirement" }, provenance: { policyDigest: "1ea9819b5e686a6d631bff2d4e27303dd4a1769469e4259a4e215689e0408828" } }); });
+  it("does not consume a historical draft when the active sufficiency pointer is unavailable", async () => { const entry = await enterAppliancesDepartment({ repository: artifactRepository, productType: "WASHING_MACHINE" }); if (entry.status !== "READY") throw new Error(entry.status); const historicalOnly: SufficiencyRecommendationPolicyRepository = { readActive: async () => { throw new Error("missing"); }, readPolicy: async () => "{}" }; await expect(evaluateCurrentAppliancesSufficiency({ artifactRepository, questionPolicyRepository, sufficiencyPolicyRepository: historicalOnly, state: entry.state, now: new Date("2026-09-03T06:00:00Z") })).resolves.toEqual({ kind: "FAILED_CLOSED", reason: "SUFFICIENCY_POLICY_AUTHORITY_FAILURE" }); });
+});

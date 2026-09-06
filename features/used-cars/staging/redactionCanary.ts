@@ -1,0 +1,10 @@
+import { redactTelemetryAttributes } from "../analytics/redaction";
+export interface RedactionCanaryCase { readonly caseId: string; readonly attributes: Readonly<Record<string, unknown>>; readonly forbiddenOutputFragments: readonly string[]; readonly requiredOutput: Readonly<Record<string, string | number | boolean | null>> }
+const canary = (value: RedactionCanaryCase): RedactionCanaryCase => value;
+export const usedCarsRedactionCanaryCases: readonly RedactionCanaryCase[] = Object.freeze([
+  canary({ caseId: "CANARY-VIN-PLATE", attributes: { vin: "WVWZZZ1JZXW000001", plate: "34ABC123", operation: "listing.read" }, forbiddenOutputFragments: ["WVWZZZ1JZXW000001", "34ABC123"], requiredOutput: { operation: "listing.read" } }),
+  canary({ caseId: "CANARY-CONTACT", attributes: { phone: "5550000000", email: "synthetic@example.invalid", routeTemplate: "/ikinciel/arac/:id" }, forbiddenOutputFragments: ["5550000000", "synthetic@example.invalid"], requiredOutput: { routeTemplate: "/ikinciel/arac/:id" } }),
+  canary({ caseId: "CANARY-TOKEN", attributes: { authorizationToken: "synthetic-secret", service: "USED_CARS_PARTNER" }, forbiddenOutputFragments: ["synthetic-secret"], requiredOutput: { service: "USED_CARS_PARTNER" } }),
+  canary({ caseId: "CANARY-EMBEDDED-PII", attributes: { operation: "contact synthetic@example.invalid" }, forbiddenOutputFragments: ["synthetic@example.invalid"], requiredOutput: { operation: "[REDACTED]" } }),
+]);
+export function runRedactionCanary(cases: readonly RedactionCanaryCase[]) { const failed: string[] = []; for (const testCase of cases) { const output = redactTelemetryAttributes(testCase.attributes); const serialized = JSON.stringify(output); if (testCase.forbiddenOutputFragments.some((fragment) => serialized.includes(fragment)) || Object.entries(testCase.requiredOutput).some(([key, value]) => output[key] !== value)) failed.push(testCase.caseId); } return Object.freeze({ passed: failed.length === 0, failed: Object.freeze(failed), externalExportPerformed: false as const }); }

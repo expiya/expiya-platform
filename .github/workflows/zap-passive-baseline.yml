@@ -1,0 +1,49 @@
+name: ZAP Passive Baseline
+
+on:
+  schedule:
+    - cron: "41 4 * * 3"
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "Authorized public synthetic-demo URL"
+        required: true
+        default: "https://www.expiya.com/ikinciel"
+
+permissions:
+  contents: read
+
+jobs:
+  passive-scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Select authorized target
+        id: target
+        shell: bash
+        env:
+          REQUESTED_TARGET: ${{ inputs.target }}
+        run: |
+          target="${REQUESTED_TARGET:-https://www.expiya.com/ikinciel}"
+          case "$target" in
+            https://www.expiya.com/ikinciel|https://www.expiya.com/ikinciel/)
+              echo "url=$target" >> "$GITHUB_OUTPUT"
+              ;;
+            *)
+              echo "Target is outside the authorized synthetic-demo allowlist."
+              exit 1
+              ;;
+          esac
+
+      - name: Run passive-only ZAP baseline
+        uses: zaproxy/action-baseline@v0.15.0
+        with:
+          target: ${{ steps.target.outputs.url }}
+          allow_issue_writing: false
+          fail_action: false
+          artifact_name: used-cars-zap-passive
+          cmd_options: "-m 1 -I -s"
+

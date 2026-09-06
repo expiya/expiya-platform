@@ -1,0 +1,3743 @@
+{
+  "schemaVersion": "major-appliance-adoption-read-projections/v1",
+  "status": "NON_PRODUCTION_GOVERNANCE_VERIFICATION",
+  "candidateReleaseDigest": "sha256:7ee85698a3c539efec4360141d97d8e6b3ffe027280f0e0855b91595a9f2042a",
+  "comparison": {
+    "schemaVersion": "XPY_COMPARISON_EVIDENCE_PROJECTION/v0.1",
+    "readOnly": true,
+    "catalogReleaseId": "appliances:dryer:catalog-adoption:tr:v0.3-candidate",
+    "catalogReleaseDigest": "sha256:7ee85698a3c539efec4360141d97d8e6b3ffe027280f0e0855b91595a9f2042a",
+    "market": "TR",
+    "authorization": {
+      "purchaseStatus": "PURCHASED",
+      "entitlementId": "GOVERNANCE-VERIFICATION-NON-PRODUCTION",
+      "comparisonSetId": "DRYER-ADOPTION-VERIFICATION",
+      "exactOfferingIds": [
+        "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+        "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+        "appliances:dryer:tr:arcelik:1201-kmx",
+        "appliances:dryer:tr:samsung:dv10dg54a0abah"
+      ]
+    },
+    "offerings": [
+      {
+        "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Hoover",
+          "model": "HRE H11A2TBE-17",
+          "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+          "identifiers": {
+            "asin": "B0FWV9819Q",
+            "manufacturerModelCode": "HRE H11A2TBE-17"
+          }
+        }
+      },
+      {
+        "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Hoover",
+          "model": "NR EH11N2TBEX-17",
+          "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+          "identifiers": {
+            "asin": "B0HC45HBGP",
+            "manufacturerModelCode": "NR EH11N2TBEX-17"
+          }
+        }
+      },
+      {
+        "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Arçelik",
+          "model": "1201 KMX",
+          "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+          "identifiers": {
+            "asin": "B0GDTP7XLW",
+            "manufacturerModelCode": "1201 KMX"
+          }
+        }
+      },
+      {
+        "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Samsung",
+          "model": "DV10DG54A0ABAH",
+          "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+          "identifiers": {
+            "asin": "B0FWKLV2BJ",
+            "manufacturerModelCode": "DV10DG54A0ABAH"
+          }
+        }
+      }
+    ],
+    "evidence": [
+      {
+        "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:ratedcapacitykg",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+        "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:ratedcapacitykg",
+        "offeringIds": [
+          "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "main features",
+          "value": 11,
+          "unit": "kg",
+          "applicability": {
+            "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+            "market": "TR",
+            "model": "HRE H11A2TBE-17",
+            "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyper100cycleskwh",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+        "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyper100cycleskwh",
+        "offeringIds": [
+          "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "weighted energy 1.59 kWh/cycle",
+          "value": 159,
+          "unit": "kWh/100_cycles",
+          "applicability": {
+            "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+            "market": "TR",
+            "model": "HRE H11A2TBE-17",
+            "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:noisedba",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+        "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:noisedba",
+        "offeringIds": [
+          "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "performance and consumption",
+          "value": 66,
+          "unit": "dB(A)",
+          "applicability": {
+            "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+            "market": "TR",
+            "model": "HRE H11A2TBE-17",
+            "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:ratedcapacitykg",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+        "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:ratedcapacitykg",
+        "offeringIds": [
+          "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "main features",
+          "value": 11,
+          "unit": "kg",
+          "applicability": {
+            "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+            "market": "TR",
+            "model": "NR EH11N2TBEX-17",
+            "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyper100cycleskwh",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+        "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyper100cycleskwh",
+        "offeringIds": [
+          "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "weighted energy 1.45 kWh/cycle",
+          "value": 145,
+          "unit": "kWh/100_cycles",
+          "applicability": {
+            "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+            "market": "TR",
+            "model": "NR EH11N2TBEX-17",
+            "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:noisedba",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+        "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:noisedba",
+        "offeringIds": [
+          "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "performance and consumption",
+          "value": 64,
+          "unit": "dB(A)",
+          "applicability": {
+            "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+            "market": "TR",
+            "model": "NR EH11N2TBEX-17",
+            "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:ratedcapacitykg",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+        "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:ratedcapacitykg",
+        "offeringIds": [
+          "appliances:dryer:tr:arcelik:1201-kmx"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "product fiche",
+          "value": 12,
+          "unit": "kg",
+          "applicability": {
+            "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+            "market": "TR",
+            "model": "1201 KMX",
+            "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:energyper100cycleskwh",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+        "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:energyper100cycleskwh",
+        "offeringIds": [
+          "appliances:dryer:tr:arcelik:1201-kmx"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "product fiche: weighted 1.87 kWh/cycle",
+          "value": 187,
+          "unit": "kWh/100_cycles",
+          "applicability": {
+            "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+            "market": "TR",
+            "model": "1201 KMX",
+            "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:noisedba",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+        "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:noisedba",
+        "offeringIds": [
+          "appliances:dryer:tr:arcelik:1201-kmx"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "product fiche",
+          "value": 64,
+          "unit": "dB(A)",
+          "applicability": {
+            "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+            "market": "TR",
+            "model": "1201 KMX",
+            "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:ratedcapacitykg",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+        "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:ratedcapacitykg",
+        "offeringIds": [
+          "appliances:dryer:tr:samsung:dv10dg54a0abah"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "technical specifications",
+          "value": 10,
+          "unit": "kg",
+          "applicability": {
+            "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+            "market": "TR",
+            "model": "DV10DG54A0ABAH",
+            "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:energyper100cycleskwh",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+        "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:energyper100cycleskwh",
+        "offeringIds": [
+          "appliances:dryer:tr:samsung:dv10dg54a0abah"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "performance",
+          "value": 114,
+          "unit": "kWh/100_cycles",
+          "applicability": {
+            "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+            "market": "TR",
+            "model": "DV10DG54A0ABAH",
+            "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+            "status": "EXACT"
+          }
+        }
+      },
+      {
+        "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:noisedba",
+        "kind": "TECHNICAL",
+        "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+        "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:noisedba",
+        "offeringIds": [
+          "appliances:dryer:tr:samsung:dv10dg54a0abah"
+        ],
+        "market": "TR",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "confidence": "HIGH",
+        "status": "REVIEWED",
+        "limitations": [
+          "Exact Türkiye configuration only; published measurement context applies."
+        ],
+        "assertion": {
+          "locator": "performance",
+          "value": 64,
+          "unit": "dB(A)",
+          "applicability": {
+            "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+            "market": "TR",
+            "model": "DV10DG54A0ABAH",
+            "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+            "status": "EXACT"
+          }
+        }
+      }
+    ],
+    "sources": [
+      {
+        "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+        "kind": "OFFICIAL",
+        "uri": "https://www.hoover-home.com/tr_TR/kurutma-makineleri/31102852/hre-h11a2tbe-17/",
+        "version": "observed-2026-09-05",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "REVIEWED",
+        "language": "tr-TR"
+      },
+      {
+        "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+        "kind": "OFFICIAL",
+        "uri": "https://www.hoover-home.com/tr_TR/kurutma-makineleri/31103113/nr-eh11n2tbex-17/",
+        "version": "observed-2026-09-05",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "REVIEWED",
+        "language": "tr-TR"
+      },
+      {
+        "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+        "kind": "OFFICIAL",
+        "uri": "https://www.arcelik.com.tr/12-kg-kurutma-makinesi/1201-kmx-kurutma-makinesi",
+        "version": "observed-2026-09-05",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "REVIEWED",
+        "language": "tr-TR"
+      },
+      {
+        "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+        "kind": "OFFICIAL",
+        "uri": "https://www.samsung.com/tr/washers-and-dryers/dryers/dv5000d-dryer-space-max-hygiene-care-smartthings-ai-energy-mode-10kg-black-dv10dg54a0abah/",
+        "version": "observed-2026-09-05",
+        "observedAt": "2026-09-05T12:00:00.000+03:00",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "market": "TR",
+        "applicabilityStatus": "EXACT",
+        "status": "REVIEWED",
+        "language": "tr-TR"
+      }
+    ],
+    "dailyLifeInterpretations": [
+      {
+        "interpretationId": "adoption-interpretation:appliances-dryer-tr-hoover-hre-h11a2tbe-17:published-fit",
+        "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+        "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+        "factIds": [
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:lifecyclestatus",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:warrantyservicestatus",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:installationguidancestatus",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:safetyguidancestatus",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:installationtype",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:technology",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:ratedcapacitykg",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyclass",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyper100cycleskwh",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:wateruseapplicability",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:noisedba",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:widthmm",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:heightmm",
+          "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:depthmm"
+        ],
+        "capabilityIds": [
+          "adoption-capability:appliances-dryer-tr-hoover-hre-h11a2tbe-17:wifibluetooth",
+          "adoption-capability:appliances-dryer-tr-hoover-hre-h11a2tbe-17:woolmark",
+          "adoption-capability:appliances-dryer-tr-hoover-hre-h11a2tbe-17:filter-ndicator",
+          "adoption-capability:appliances-dryer-tr-hoover-hre-h11a2tbe-17:drainhose-ncluded"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "No result, savings, quietness, freshness, care or longevity guarantee."
+        ],
+        "nonGuarantees": [
+          "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+        ]
+      },
+      {
+        "interpretationId": "adoption-interpretation:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:published-fit",
+        "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+        "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+        "factIds": [
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:lifecyclestatus",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:warrantyservicestatus",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:installationguidancestatus",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:safetyguidancestatus",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:installationtype",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:technology",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:ratedcapacitykg",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyclass",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyper100cycleskwh",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:wateruseapplicability",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:noisedba",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:widthmm",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:heightmm",
+          "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:depthmm"
+        ],
+        "capabilityIds": [
+          "adoption-capability:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:wifibluetooth",
+          "adoption-capability:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:sensordrying",
+          "adoption-capability:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:woolmark",
+          "adoption-capability:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:directdrain"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "No result, savings, quietness, freshness, care or longevity guarantee."
+        ],
+        "nonGuarantees": [
+          "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+        ]
+      },
+      {
+        "interpretationId": "adoption-interpretation:appliances-dryer-tr-arcelik-1201-kmx:published-fit",
+        "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+        "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+        "factIds": [
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:lifecyclestatus",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:warrantyservicestatus",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:installationguidancestatus",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:safetyguidancestatus",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:installationtype",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:technology",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:ratedcapacitykg",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:energyclass",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:energyper100cycleskwh",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:wateruseapplicability",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:noisedba",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:widthmm",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:heightmm",
+          "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:depthmm"
+        ],
+        "capabilityIds": [
+          "adoption-capability:appliances-dryer-tr-arcelik-1201-kmx:sensordrying",
+          "adoption-capability:appliances-dryer-tr-arcelik-1201-kmx:wifi",
+          "adoption-capability:appliances-dryer-tr-arcelik-1201-kmx:directdrain",
+          "adoption-capability:appliances-dryer-tr-arcelik-1201-kmx:childlock"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "No result, savings, quietness, freshness, care or longevity guarantee."
+        ],
+        "nonGuarantees": [
+          "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+        ]
+      },
+      {
+        "interpretationId": "adoption-interpretation:appliances-dryer-tr-samsung-dv10dg54a0abah:published-fit",
+        "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+        "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+        "factIds": [
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:lifecyclestatus",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:warrantyservicestatus",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:installationguidancestatus",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:safetyguidancestatus",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:installationtype",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:technology",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:ratedcapacitykg",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:energyclass",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:energyper100cycleskwh",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:wateruseapplicability",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:noisedba",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:widthmm",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:heightmm",
+          "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:depthmm"
+        ],
+        "capabilityIds": [
+          "adoption-capability:appliances-dryer-tr-samsung-dv10dg54a0abah:wifi",
+          "adoption-capability:appliances-dryer-tr-samsung-dv10dg54a0abah:sensordrying",
+          "adoption-capability:appliances-dryer-tr-samsung-dv10dg54a0abah:dryingrack",
+          "adoption-capability:appliances-dryer-tr-samsung-dv10dg54a0abah:childlock"
+        ],
+        "method": "DETERMINISTIC_REVIEWED_MAPPING",
+        "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+        "polarity": "NEUTRAL",
+        "limitations": [
+          "No result, savings, quietness, freshness, care or longevity guarantee."
+        ],
+        "nonGuarantees": [
+          "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+        ]
+      }
+    ],
+    "advisorKnowledge": [],
+    "rules": {
+      "unknownTreatment": "NEUTRAL_NO_PENALTY",
+      "incomparableTreatment": "FAIL_CLOSED",
+      "dimensionAndLabelAuthority": "DOMAIN_PACK_ONLY",
+      "decisionAuthority": "NONE"
+    },
+    "dimensions": [
+      {
+        "dimensionId": "dryer.capacity",
+        "humanLabel": "Anma kuru yük kapasitesi",
+        "scope": "EXACT_TR_CONFIGURATION",
+        "cells": [
+          {
+            "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+            "state": "KNOWN",
+            "value": 11,
+            "unit": "kg",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:ratedcapacitykg"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+            "state": "KNOWN",
+            "value": 11,
+            "unit": "kg",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:ratedcapacitykg"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+            "state": "KNOWN",
+            "value": 12,
+            "unit": "kg",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:ratedcapacitykg"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+            "state": "KNOWN",
+            "value": 10,
+            "unit": "kg",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:ratedcapacitykg"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          }
+        ]
+      },
+      {
+        "dimensionId": "dryer.energy-100",
+        "humanLabel": "100 çevrim enerji",
+        "scope": "CURRENT_REGIME_ONLY",
+        "cells": [
+          {
+            "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+            "state": "KNOWN",
+            "value": 159,
+            "unit": "kWh/100_cycles",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyper100cycleskwh"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+            "state": "KNOWN",
+            "value": 145,
+            "unit": "kWh/100_cycles",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyper100cycleskwh"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+            "state": "KNOWN",
+            "value": 187,
+            "unit": "kWh/100_cycles",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:energyper100cycleskwh"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+            "state": "KNOWN",
+            "value": 114,
+            "unit": "kWh/100_cycles",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:energyper100cycleskwh"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          }
+        ]
+      },
+      {
+        "dimensionId": "dryer.noise",
+        "humanLabel": "Kurutma sesi",
+        "scope": "REGULATORY_LABEL",
+        "cells": [
+          {
+            "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+            "state": "KNOWN",
+            "value": 66,
+            "unit": "dB(A)",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:noisedba"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+            "state": "KNOWN",
+            "value": 64,
+            "unit": "dB(A)",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:noisedba"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+            "state": "KNOWN",
+            "value": 64,
+            "unit": "dB(A)",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:noisedba"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          },
+          {
+            "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+            "state": "KNOWN",
+            "value": 64,
+            "unit": "dB(A)",
+            "evidenceIds": [
+              "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:noisedba"
+            ],
+            "limitations": [
+              "Exact Türkiye configuration only; published measurement context applies."
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "advisors": [
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "ADOPTION-VERIFICATION:appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+        "exactOfferingId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+      },
+      "catalogReleaseId": "appliances:dryer:catalog-adoption:tr:v0.3-candidate",
+      "catalogReleaseDigest": "sha256:7ee85698a3c539efec4360141d97d8e6b3ffe027280f0e0855b91595a9f2042a",
+      "offering": {
+        "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Hoover",
+          "model": "HRE H11A2TBE-17",
+          "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+          "identifiers": {
+            "asin": "B0FWV9819Q",
+            "manufacturerModelCode": "HRE H11A2TBE-17"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:lifecyclestatus",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "lifecycleStatus",
+          "value": "CURRENT_OFFICIAL_TR_PRODUCT_PAGE_AND_ACTIVE_AMAZON_TR_OFFER",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:lifecyclestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:warrantyservicestatus",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "warrantyServiceStatus",
+          "value": "TR_SUPPORT_APPLICABILITY_PROVEN_DURATION_UNKNOWN",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:warrantyservicestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:installationguidancestatus",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "installationGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:installationguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:safetyguidancestatus",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "safetyGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:safetyguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:installationtype",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "installationType",
+          "value": "FREESTANDING",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:installationtype"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:technology",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "technology",
+          "value": "HEAT_PUMP",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:technology"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:ratedcapacitykg",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "ratedCapacityKg",
+          "value": 11,
+          "unit": "kg",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:ratedcapacitykg"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyclass",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "energyClass",
+          "value": "E",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyclass"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyper100cycleskwh",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "energyPer100CyclesKwh",
+          "value": 159,
+          "unit": "kWh/100_cycles",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyper100cycleskwh"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:wateruseapplicability",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "waterUseApplicability",
+          "value": "NOT_APPLICABLE_CONDENSATE_APPLIANCE",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:wateruseapplicability"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:noisedba",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "noiseDbA",
+          "value": 66,
+          "unit": "dB(A)",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:noisedba"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:widthmm",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "widthMm",
+          "value": 596,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:widthmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:heightmm",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "heightMm",
+          "value": 850,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:heightmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:depthmm",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "depthMm",
+          "value": 604,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:depthmm"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-hoover-hre-h11a2tbe-17:wifibluetooth",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "wifiBluetooth",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:wifibluetooth",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-hoover-hre-h11a2tbe-17:woolmark",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "woolmark",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:woolmark",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-hoover-hre-h11a2tbe-17:filter-ndicator",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "filterIndicator",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:filter-ndicator",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-hoover-hre-h11a2tbe-17:drainhose-ncluded",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "key": "drainHoseIncluded",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:drainhose-ncluded",
+          "limitations": []
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "adoption-interpretation:appliances-dryer-tr-hoover-hre-h11a2tbe-17:published-fit",
+          "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+          "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+          "factIds": [
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:lifecyclestatus",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:warrantyservicestatus",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:installationguidancestatus",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:safetyguidancestatus",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:installationtype",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:technology",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:ratedcapacitykg",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyclass",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyper100cycleskwh",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:wateruseapplicability",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:noisedba",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:widthmm",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:heightmm",
+            "adoption-fact:appliances-dryer-tr-hoover-hre-h11a2tbe-17:depthmm"
+          ],
+          "capabilityIds": [
+            "adoption-capability:appliances-dryer-tr-hoover-hre-h11a2tbe-17:wifibluetooth",
+            "adoption-capability:appliances-dryer-tr-hoover-hre-h11a2tbe-17:woolmark",
+            "adoption-capability:appliances-dryer-tr-hoover-hre-h11a2tbe-17:filter-ndicator",
+            "adoption-capability:appliances-dryer-tr-hoover-hre-h11a2tbe-17:drainhose-ncluded"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "No result, savings, quietness, freshness, care or longevity guarantee."
+          ],
+          "nonGuarantees": [
+            "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+          ]
+        }
+      ],
+      "advisorKnowledge": [],
+      "evidence": [
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:lifecyclestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:lifecyclestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: exact model and category identity",
+            "value": "CURRENT_OFFICIAL_TR_PRODUCT_PAGE_AND_ACTIVE_AMAZON_TR_OFFER",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:warrantyservicestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:warrantyservicestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: warranty/support applicability",
+            "value": "TR_SUPPORT_APPLICABILITY_PROVEN_DURATION_UNKNOWN",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:installationguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:installationguidancestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:safetyguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:safetyguidancestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:installationtype",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:installationtype",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "main features",
+            "value": "FREESTANDING",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:technology",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:technology",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "main features",
+            "value": "HEAT_PUMP",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:ratedcapacitykg",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:ratedcapacitykg",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "main features",
+            "value": 11,
+            "unit": "kg",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyclass",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyclass",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "performance and consumption",
+            "value": "E",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyper100cycleskwh",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:energyper100cycleskwh",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "weighted energy 1.59 kWh/cycle",
+            "value": 159,
+            "unit": "kWh/100_cycles",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:wateruseapplicability",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:wateruseapplicability",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "heat-pump drying-only configuration",
+            "value": "NOT_APPLICABLE_CONDENSATE_APPLIANCE",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:noisedba",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:noisedba",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "performance and consumption",
+            "value": 66,
+            "unit": "dB(A)",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:widthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:widthmm",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "dimensions",
+            "value": 596,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:heightmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:heightmm",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "dimensions",
+            "value": 850,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:depthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:depthmm",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "dimensions",
+            "value": 604,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:wifibluetooth",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:wifibluetooth",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "technical features",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:woolmark",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:woolmark",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "programs and functions",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:filter-ndicator",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:filter-ndicator",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "programs and functions",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-hre-h11a2tbe-17:drainhose-ncluded",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-hre-h11a2tbe-17:drainhose-ncluded",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:hre-h11a2tbe-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "accessories",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+              "market": "TR",
+              "model": "HRE H11A2TBE-17",
+              "configuration": "Hoover|HRE H11A2TBE-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-hre-h11a2tbe-17:official-tr",
+          "kind": "OFFICIAL",
+          "uri": "https://www.hoover-home.com/tr_TR/kurutma-makineleri/31102852/hre-h11a2tbe-17/",
+          "version": "observed-2026-09-05",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "REVIEWED",
+          "language": "tr-TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    },
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "ADOPTION-VERIFICATION:appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+        "exactOfferingId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+      },
+      "catalogReleaseId": "appliances:dryer:catalog-adoption:tr:v0.3-candidate",
+      "catalogReleaseDigest": "sha256:7ee85698a3c539efec4360141d97d8e6b3ffe027280f0e0855b91595a9f2042a",
+      "offering": {
+        "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Hoover",
+          "model": "NR EH11N2TBEX-17",
+          "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+          "identifiers": {
+            "asin": "B0HC45HBGP",
+            "manufacturerModelCode": "NR EH11N2TBEX-17"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:lifecyclestatus",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "lifecycleStatus",
+          "value": "CURRENT_OFFICIAL_TR_PRODUCT_PAGE_AND_ACTIVE_AMAZON_TR_OFFER",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:lifecyclestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:warrantyservicestatus",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "warrantyServiceStatus",
+          "value": "TR_SUPPORT_APPLICABILITY_PROVEN_DURATION_UNKNOWN",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:warrantyservicestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:installationguidancestatus",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "installationGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:installationguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:safetyguidancestatus",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "safetyGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:safetyguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:installationtype",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "installationType",
+          "value": "FREESTANDING",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:installationtype"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:technology",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "technology",
+          "value": "HEAT_PUMP",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:technology"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:ratedcapacitykg",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "ratedCapacityKg",
+          "value": 11,
+          "unit": "kg",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:ratedcapacitykg"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyclass",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "energyClass",
+          "value": "D",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyclass"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyper100cycleskwh",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "energyPer100CyclesKwh",
+          "value": 145,
+          "unit": "kWh/100_cycles",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyper100cycleskwh"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:wateruseapplicability",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "waterUseApplicability",
+          "value": "NOT_APPLICABLE_CONDENSATE_APPLIANCE",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:wateruseapplicability"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:noisedba",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "noiseDbA",
+          "value": 64,
+          "unit": "dB(A)",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:noisedba"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:widthmm",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "widthMm",
+          "value": 596,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:widthmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:heightmm",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "heightMm",
+          "value": 850,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:heightmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:depthmm",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "depthMm",
+          "value": 604,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:depthmm"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:wifibluetooth",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "wifiBluetooth",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:wifibluetooth",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:sensordrying",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "sensorDrying",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:sensordrying",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:woolmark",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "woolmark",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:woolmark",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:directdrain",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "key": "directDrain",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:directdrain",
+          "limitations": []
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "adoption-interpretation:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:published-fit",
+          "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+          "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+          "factIds": [
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:lifecyclestatus",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:warrantyservicestatus",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:installationguidancestatus",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:safetyguidancestatus",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:installationtype",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:technology",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:ratedcapacitykg",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyclass",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyper100cycleskwh",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:wateruseapplicability",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:noisedba",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:widthmm",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:heightmm",
+            "adoption-fact:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:depthmm"
+          ],
+          "capabilityIds": [
+            "adoption-capability:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:wifibluetooth",
+            "adoption-capability:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:sensordrying",
+            "adoption-capability:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:woolmark",
+            "adoption-capability:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:directdrain"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "No result, savings, quietness, freshness, care or longevity guarantee."
+          ],
+          "nonGuarantees": [
+            "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+          ]
+        }
+      ],
+      "advisorKnowledge": [],
+      "evidence": [
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:lifecyclestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:lifecyclestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: exact model and category identity",
+            "value": "CURRENT_OFFICIAL_TR_PRODUCT_PAGE_AND_ACTIVE_AMAZON_TR_OFFER",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:warrantyservicestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:warrantyservicestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: warranty/support applicability",
+            "value": "TR_SUPPORT_APPLICABILITY_PROVEN_DURATION_UNKNOWN",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:installationguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:installationguidancestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:safetyguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:safetyguidancestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:installationtype",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:installationtype",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "main features",
+            "value": "FREESTANDING",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:technology",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:technology",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product family and performance",
+            "value": "HEAT_PUMP",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:ratedcapacitykg",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:ratedcapacitykg",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "main features",
+            "value": 11,
+            "unit": "kg",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyclass",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyclass",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "performance and consumption",
+            "value": "D",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyper100cycleskwh",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:energyper100cycleskwh",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "weighted energy 1.45 kWh/cycle",
+            "value": 145,
+            "unit": "kWh/100_cycles",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:wateruseapplicability",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:wateruseapplicability",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "drying-only configuration",
+            "value": "NOT_APPLICABLE_CONDENSATE_APPLIANCE",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:noisedba",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:noisedba",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "performance and consumption",
+            "value": 64,
+            "unit": "dB(A)",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:widthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:widthmm",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "dimensions",
+            "value": 596,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:heightmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:heightmm",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "dimensions",
+            "value": 850,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:depthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:depthmm",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "dimensions",
+            "value": 604,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:wifibluetooth",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:wifibluetooth",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "technical features",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:sensordrying",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:sensordrying",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "Auto Care function",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:woolmark",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:woolmark",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "programs and functions",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:directdrain",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:directdrain",
+          "offeringIds": [
+            "appliances:dryer:tr:hoover:nr-eh11n2tbex-17"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "drain hose accessory",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+              "market": "TR",
+              "model": "NR EH11N2TBEX-17",
+              "configuration": "Hoover|NR EH11N2TBEX-17|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "adoption-source:appliances-dryer-tr-hoover-nr-eh11n2tbex-17:official-tr",
+          "kind": "OFFICIAL",
+          "uri": "https://www.hoover-home.com/tr_TR/kurutma-makineleri/31103113/nr-eh11n2tbex-17/",
+          "version": "observed-2026-09-05",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "REVIEWED",
+          "language": "tr-TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    },
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "ADOPTION-VERIFICATION:appliances:dryer:tr:arcelik:1201-kmx",
+        "exactOfferingId": "appliances:dryer:tr:arcelik:1201-kmx"
+      },
+      "catalogReleaseId": "appliances:dryer:catalog-adoption:tr:v0.3-candidate",
+      "catalogReleaseDigest": "sha256:7ee85698a3c539efec4360141d97d8e6b3ffe027280f0e0855b91595a9f2042a",
+      "offering": {
+        "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Arçelik",
+          "model": "1201 KMX",
+          "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+          "identifiers": {
+            "asin": "B0GDTP7XLW",
+            "manufacturerModelCode": "1201 KMX"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:lifecyclestatus",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "lifecycleStatus",
+          "value": "CURRENT_OFFICIAL_TR_PRODUCT_PAGE_AND_ACTIVE_AMAZON_TR_OFFER",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:lifecyclestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:warrantyservicestatus",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "warrantyServiceStatus",
+          "value": "THIRTY_SIX_MONTH_BASE_PLUS_TEN_YEAR_PROSMART_INVERTER_MOTOR_PART",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:warrantyservicestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:installationguidancestatus",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "installationGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:installationguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:safetyguidancestatus",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "safetyGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:safetyguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:installationtype",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "installationType",
+          "value": "FREESTANDING",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:installationtype"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:technology",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "technology",
+          "value": "HEAT_PUMP",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:technology"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:ratedcapacitykg",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "ratedCapacityKg",
+          "value": 12,
+          "unit": "kg",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:ratedcapacitykg"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:energyclass",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "energyClass",
+          "value": "E",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:energyclass"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:energyper100cycleskwh",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "energyPer100CyclesKwh",
+          "value": 187,
+          "unit": "kWh/100_cycles",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:energyper100cycleskwh"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:wateruseapplicability",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "waterUseApplicability",
+          "value": "NOT_APPLICABLE_CONDENSATE_APPLIANCE",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:wateruseapplicability"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:noisedba",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "noiseDbA",
+          "value": 64,
+          "unit": "dB(A)",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:noisedba"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:widthmm",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "widthMm",
+          "value": 600,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:widthmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:heightmm",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "heightMm",
+          "value": 850,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:heightmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:depthmm",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "depthMm",
+          "value": 670,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:depthmm"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-arcelik-1201-kmx:sensordrying",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "sensorDrying",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:sensordrying",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-arcelik-1201-kmx:wifi",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "wifi",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:wifi",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-arcelik-1201-kmx:directdrain",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "directDrain",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:directdrain",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-arcelik-1201-kmx:childlock",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "key": "childLock",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:childlock",
+          "limitations": []
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "adoption-interpretation:appliances-dryer-tr-arcelik-1201-kmx:published-fit",
+          "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+          "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+          "factIds": [
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:lifecyclestatus",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:warrantyservicestatus",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:installationguidancestatus",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:safetyguidancestatus",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:installationtype",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:technology",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:ratedcapacitykg",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:energyclass",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:energyper100cycleskwh",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:wateruseapplicability",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:noisedba",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:widthmm",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:heightmm",
+            "adoption-fact:appliances-dryer-tr-arcelik-1201-kmx:depthmm"
+          ],
+          "capabilityIds": [
+            "adoption-capability:appliances-dryer-tr-arcelik-1201-kmx:sensordrying",
+            "adoption-capability:appliances-dryer-tr-arcelik-1201-kmx:wifi",
+            "adoption-capability:appliances-dryer-tr-arcelik-1201-kmx:directdrain",
+            "adoption-capability:appliances-dryer-tr-arcelik-1201-kmx:childlock"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "No result, savings, quietness, freshness, care or longevity guarantee."
+          ],
+          "nonGuarantees": [
+            "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+          ]
+        }
+      ],
+      "advisorKnowledge": [],
+      "evidence": [
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:lifecyclestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:lifecyclestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: exact model and category identity",
+            "value": "CURRENT_OFFICIAL_TR_PRODUCT_PAGE_AND_ACTIVE_AMAZON_TR_OFFER",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:warrantyservicestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:warrantyservicestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: warranty/support applicability",
+            "value": "THIRTY_SIX_MONTH_BASE_PLUS_TEN_YEAR_PROSMART_INVERTER_MOTOR_PART",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:installationguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:installationguidancestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:safetyguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:safetyguidancestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:installationtype",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:installationtype",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": "FREESTANDING",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:technology",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:technology",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "technical specifications",
+            "value": "HEAT_PUMP",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:ratedcapacitykg",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:ratedcapacitykg",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": 12,
+            "unit": "kg",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:energyclass",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:energyclass",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": "E",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:energyper100cycleskwh",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:energyper100cycleskwh",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche: weighted 1.87 kWh/cycle",
+            "value": 187,
+            "unit": "kWh/100_cycles",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:wateruseapplicability",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:wateruseapplicability",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "drying-only configuration",
+            "value": "NOT_APPLICABLE_CONDENSATE_APPLIANCE",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:noisedba",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:noisedba",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": 64,
+            "unit": "dB(A)",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:widthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:widthmm",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": 600,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:heightmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:heightmm",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": 850,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:depthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:depthmm",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": 670,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:sensordrying",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:sensordrying",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "Smart moisture sensor",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:wifi",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:wifi",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "technical specifications",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:directdrain",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:directdrain",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "comfort and safety",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-arcelik-1201-kmx:childlock",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-arcelik-1201-kmx:childlock",
+          "offeringIds": [
+            "appliances:dryer:tr:arcelik:1201-kmx"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "comfort and safety",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+              "market": "TR",
+              "model": "1201 KMX",
+              "configuration": "Arçelik|1201 KMX|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|WHITE",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "adoption-source:appliances-dryer-tr-arcelik-1201-kmx:official-tr",
+          "kind": "OFFICIAL",
+          "uri": "https://www.arcelik.com.tr/12-kg-kurutma-makinesi/1201-kmx-kurutma-makinesi",
+          "version": "observed-2026-09-05",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "REVIEWED",
+          "language": "tr-TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    },
+    {
+      "schemaVersion": "XPY_ADVISOR_READ_PROJECTION/v0.1",
+      "readOnly": true,
+      "authority": "EXPLAIN_AND_BOUNDED_ADVICE_ONLY",
+      "authorizedDecision": {
+        "decisionId": "ADOPTION-VERIFICATION:appliances:dryer:tr:samsung:dv10dg54a0abah",
+        "exactOfferingId": "appliances:dryer:tr:samsung:dv10dg54a0abah"
+      },
+      "catalogReleaseId": "appliances:dryer:catalog-adoption:tr:v0.3-candidate",
+      "catalogReleaseDigest": "sha256:7ee85698a3c539efec4360141d97d8e6b3ffe027280f0e0855b91595a9f2042a",
+      "offering": {
+        "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+        "market": "TR",
+        "lifecycle": "FROZEN",
+        "validFrom": "2026-09-05T12:00:00.000+03:00",
+        "identity": {
+          "kind": "PRODUCT",
+          "manufacturer": "Samsung",
+          "model": "DV10DG54A0ABAH",
+          "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+          "identifiers": {
+            "asin": "B0FWKLV2BJ",
+            "manufacturerModelCode": "DV10DG54A0ABAH"
+          }
+        }
+      },
+      "facts": [
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:lifecyclestatus",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "lifecycleStatus",
+          "value": "CURRENT_OFFICIAL_TR_PRODUCT_PAGE_AND_ACTIVE_AMAZON_TR_OFFER",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:lifecyclestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:warrantyservicestatus",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "warrantyServiceStatus",
+          "value": "TEN_YEAR_DIGITAL_INVERTER_MOTOR_PART_ONLY_FOR_QUALIFYING_PURCHASES",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:warrantyservicestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:installationguidancestatus",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "installationGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:installationguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:safetyguidancestatus",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "safetyGuidanceStatus",
+          "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:safetyguidancestatus"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:installationtype",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "installationType",
+          "value": "FREESTANDING",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:installationtype"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:technology",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "technology",
+          "value": "HEAT_PUMP",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:technology"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:ratedcapacitykg",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "ratedCapacityKg",
+          "value": 10,
+          "unit": "kg",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:ratedcapacitykg"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:energyclass",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "energyClass",
+          "value": "C",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:energyclass"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:energyper100cycleskwh",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "energyPer100CyclesKwh",
+          "value": 114,
+          "unit": "kWh/100_cycles",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:energyper100cycleskwh"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:wateruseapplicability",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "waterUseApplicability",
+          "value": "NOT_APPLICABLE_CONDENSATE_APPLIANCE",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:wateruseapplicability"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:noisedba",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "noiseDbA",
+          "value": 64,
+          "unit": "dB(A)",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:noisedba"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:widthmm",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "widthMm",
+          "value": 600,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:widthmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:heightmm",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "heightMm",
+          "value": 850,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:heightmm"
+        },
+        {
+          "factId": "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:depthmm",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "depthMm",
+          "value": 600,
+          "unit": "mm",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:depthmm"
+        }
+      ],
+      "capabilities": [
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-samsung-dv10dg54a0abah:wifi",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "wifi",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:wifi",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-samsung-dv10dg54a0abah:sensordrying",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "sensorDrying",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:sensordrying",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-samsung-dv10dg54a0abah:dryingrack",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "dryingRack",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:dryingrack",
+          "limitations": []
+        },
+        {
+          "capabilityId": "adoption-capability:appliances-dryer-tr-samsung-dv10dg54a0abah:childlock",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "key": "childLock",
+          "state": "PRESENT",
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:childlock",
+          "limitations": []
+        }
+      ],
+      "dailyLifeInterpretations": [
+        {
+          "interpretationId": "adoption-interpretation:appliances-dryer-tr-samsung-dv10dg54a0abah:published-fit",
+          "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+          "text": "Published capacity and body dimensions can support an explicit fit check. Consumption and noise remain label/regime-bound; actual use, room acoustics, load mix, installation and tariffs can change lived outcomes.",
+          "factIds": [
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:lifecyclestatus",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:warrantyservicestatus",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:installationguidancestatus",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:safetyguidancestatus",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:installationtype",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:technology",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:ratedcapacitykg",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:energyclass",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:energyper100cycleskwh",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:wateruseapplicability",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:noisedba",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:widthmm",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:heightmm",
+            "adoption-fact:appliances-dryer-tr-samsung-dv10dg54a0abah:depthmm"
+          ],
+          "capabilityIds": [
+            "adoption-capability:appliances-dryer-tr-samsung-dv10dg54a0abah:wifi",
+            "adoption-capability:appliances-dryer-tr-samsung-dv10dg54a0abah:sensordrying",
+            "adoption-capability:appliances-dryer-tr-samsung-dv10dg54a0abah:dryingrack",
+            "adoption-capability:appliances-dryer-tr-samsung-dv10dg54a0abah:childlock"
+          ],
+          "method": "DETERMINISTIC_REVIEWED_MAPPING",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "polarity": "NEUTRAL",
+          "limitations": [
+            "No result, savings, quietness, freshness, care or longevity guarantee."
+          ],
+          "nonGuarantees": [
+            "No direct candidate rank, score, Y authorization or purchase recommendation effect."
+          ]
+        }
+      ],
+      "advisorKnowledge": [],
+      "evidence": [
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:lifecyclestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:lifecyclestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: exact model and category identity",
+            "value": "CURRENT_OFFICIAL_TR_PRODUCT_PAGE_AND_ACTIVE_AMAZON_TR_OFFER",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:warrantyservicestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:warrantyservicestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: warranty/support applicability",
+            "value": "TEN_YEAR_DIGITAL_INVERTER_MOTOR_PART_ONLY_FOR_QUALIFYING_PURCHASES",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:installationguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:installationguidancestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:safetyguidancestatus",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:safetyguidancestatus",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "official Türkiye surface: product documents/support entrypoint",
+            "value": "EXACT_TR_MANUAL_ENTRYPOINT_PRESENT_NOT_PINNED",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:installationtype",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:installationtype",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "product fiche",
+            "value": "FREESTANDING",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:technology",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:technology",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "performance",
+            "value": "HEAT_PUMP",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:ratedcapacitykg",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:ratedcapacitykg",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "technical specifications",
+            "value": 10,
+            "unit": "kg",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:energyclass",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:energyclass",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "performance",
+            "value": "C",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:energyper100cycleskwh",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:energyper100cycleskwh",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "performance",
+            "value": 114,
+            "unit": "kWh/100_cycles",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:wateruseapplicability",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:wateruseapplicability",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "drying-only configuration",
+            "value": "NOT_APPLICABLE_CONDENSATE_APPLIANCE",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:noisedba",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:noisedba",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "performance",
+            "value": 64,
+            "unit": "dB(A)",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:widthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:widthmm",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "physical specifications",
+            "value": 600,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:heightmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:heightmm",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "physical specifications",
+            "value": 850,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:depthmm",
+          "kind": "TECHNICAL",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:depthmm",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [
+            "Exact Türkiye configuration only; published measurement context applies."
+          ],
+          "assertion": {
+            "locator": "physical specifications",
+            "value": 600,
+            "unit": "mm",
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:wifi",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:wifi",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "SmartThings support",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:sensordrying",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:sensordrying",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "Optimum Drying System",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:dryingrack",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:dryingrack",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "feature list",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        },
+        {
+          "evidenceId": "adoption-evidence:appliances-dryer-tr-samsung-dv10dg54a0abah:childlock",
+          "kind": "CAPABILITY",
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "assertionId": "adoption-assertion:appliances-dryer-tr-samsung-dv10dg54a0abah:childlock",
+          "offeringIds": [
+            "appliances:dryer:tr:samsung:dv10dg54a0abah"
+          ],
+          "market": "TR",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "confidence": "HIGH",
+          "status": "REVIEWED",
+          "limitations": [],
+          "assertion": {
+            "locator": "feature list",
+            "value": true,
+            "applicability": {
+              "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+              "market": "TR",
+              "model": "DV10DG54A0ABAH",
+              "configuration": "Samsung|DV10DG54A0ABAH|TR|FREESTANDING_HEAT_PUMP_DRYING_ONLY|BLACK",
+              "status": "EXACT"
+            }
+          }
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "adoption-source:appliances-dryer-tr-samsung-dv10dg54a0abah:official-tr",
+          "kind": "OFFICIAL",
+          "uri": "https://www.samsung.com/tr/washers-and-dryers/dryers/dv5000d-dryer-space-max-hygiene-care-smartthings-ai-energy-mode-10kg-black-dv10dg54a0abah/",
+          "version": "observed-2026-09-05",
+          "observedAt": "2026-09-05T12:00:00.000+03:00",
+          "reviewedAt": "2026-09-05T12:00:00.000+03:00",
+          "market": "TR",
+          "applicabilityStatus": "EXACT",
+          "status": "REVIEWED",
+          "language": "tr-TR"
+        }
+      ],
+      "forbidden": [
+        "SELECT_NEW_CANDIDATES",
+        "MUTATE_ASAMA_1_CONTEXT",
+        "CHANGE_Y_AUTHORIZATION",
+        "INTRODUCE_UNAUTHORIZED_OFFERINGS",
+        "READ_UNRELATED_CATALOG_ENTITIES",
+        "INVENT_CLAIMS",
+        "USE_COMMERCE_OR_AFFILIATE_AS_RECOMMENDATION_AUTHORITY"
+      ]
+    }
+  ]
+}

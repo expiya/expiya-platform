@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import { PrivacyAnalytics } from "@/components/analytics/PrivacyAnalytics";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -14,9 +15,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Expiya Cars - Doğru Arabayı Birlikte Bulalım",
+  title: "Expiya — Satın Alma Karar Platformu",
   description:
-    "Expiya Cars ihtiyaçlarınızı dinler, seçenekleri tartar ve net bir araç kararına ulaşmanıza yardımcı olur.",
+    "Expiya, otomobil ve ev ürünleri kararlarını ihtiyaçlarınıza göre birlikte netleştirmenize yardımcı olur.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             Gizlilik ve KVKK Aydınlatma Metni
           </Link>
         </footer>
+        <PrivacyAnalytics />
       </body>
     </html>
   );

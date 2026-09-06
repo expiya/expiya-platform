@@ -1,0 +1,94 @@
+equipment_id,configuration_id,equipment_key,availability,evidence_state,notes
+EQP-000001,CFG-000001,aeb,STANDARD,VERIFIED,
+EQP-000002,CFG-000001,adaptive_cruise_control,STANDARD,VERIFIED,
+EQP-000003,CFG-000001,lane_keep_assist,STANDARD,VERIFIED,
+EQP-000004,CFG-000001,isofix_rear,STANDARD,VERIFIED,
+EQP-000005,CFG-000001,parking_sensors_rear,STANDARD,VERIFIED,
+EQP-000006,CFG-000001,reversing_camera,STANDARD,VERIFIED,
+EQP-000007,CFG-000001,keyless_entry,STANDARD,VERIFIED,
+EQP-000008,CFG-000001,apple_carplay,UNKNOWN,UNKNOWN,Not explicitly resolved in this pass.
+EQP-000009,CFG-000001,android_auto,UNKNOWN,UNKNOWN,Not explicitly resolved in this pass.
+EQP-000010,CFG-000001,blind_spot_monitor,UNKNOWN,UNKNOWN,Not explicitly resolved in this pass.
+EQP-000011,CFG-000001,camera_360,UNKNOWN,UNKNOWN,Not explicitly resolved in this pass.
+EQP-000012,CFG-000001,parking_sensors_front,UNKNOWN,UNKNOWN,Not explicitly resolved in this pass.
+EQP-000013,CFG-000002,aeb,STANDARD,VERIFIED,
+EQP-000014,CFG-000002,lane_keep_assist,STANDARD,VERIFIED,
+EQP-000015,CFG-000002,parking_sensors_rear,STANDARD,VERIFIED,
+EQP-000016,CFG-000002,reversing_camera,STANDARD,VERIFIED,
+EQP-000017,CFG-000002,adaptive_cruise_control,UNKNOWN,UNKNOWN,Unlisted on Easy is not proof of NOT_AVAILABLE.
+EQP-000018,CFG-000002,blind_spot_monitor,UNKNOWN,UNKNOWN,Unlisted on Easy is not proof of NOT_AVAILABLE.
+EQP-000019,CFG-000002,camera_360,UNKNOWN,UNKNOWN,Unlisted on Easy is not proof of NOT_AVAILABLE.
+EQP-000020,CFG-000002,apple_carplay,UNKNOWN,UNKNOWN,Unlisted on Easy is not proof of NOT_AVAILABLE.
+EQP-000021,CFG-000002,android_auto,UNKNOWN,UNKNOWN,Unlisted on Easy is not proof of NOT_AVAILABLE.
+EQP-000022,CFG-000003,aeb,STANDARD,VERIFIED,
+EQP-000023,CFG-000003,adaptive_cruise_control,STANDARD,VERIFIED,
+EQP-000024,CFG-000003,lane_keep_assist,STANDARD,VERIFIED,
+EQP-000025,CFG-000003,blind_spot_monitor,UNKNOWN,UNKNOWN,Not resolved in this pass.
+EQP-000026,CFG-000003,rear_cross_traffic_alert,UNKNOWN,UNKNOWN,Not resolved in this pass.
+EQP-000027,CFG-000003,isofix_rear,UNKNOWN,UNKNOWN,Not resolved in this pass.
+EQP-000028,CFG-000003,parking_sensors_rear,UNKNOWN,UNKNOWN,Not resolved in this pass.
+EQP-000029,CFG-000003,reversing_camera,UNKNOWN,UNKNOWN,Not resolved in this pass.
+EQP-000030,CFG-000003,camera_360,UNKNOWN,UNKNOWN,Not resolved in this pass.
+EQP-000031,CFG-000004,aeb,STANDARD,VERIFIED,
+EQP-000032,CFG-000004,lane_departure_warning,STANDARD,VERIFIED,
+EQP-000033,CFG-000004,blind_spot_monitor,STANDARD,VERIFIED,
+EQP-000034,CFG-000004,rear_cross_traffic_alert,STANDARD,VERIFIED,
+EQP-000035,CFG-000004,parking_sensors_rear,STANDARD,VERIFIED,
+EQP-000036,CFG-000004,reversing_camera,STANDARD,VERIFIED,
+EQP-000037,CFG-000004,automatic_climate_control,STANDARD,VERIFIED,
+EQP-000038,CFG-000004,parking_sensors_front,NOT_AVAILABLE,VERIFIED,Official table shows rear-only sensors.
+EQP-000039,CFG-000004,heated_front_seats,NOT_AVAILABLE,VERIFIED,Official table marks heated seats absent.
+EQP-000040,CFG-000004,adaptive_cruise_control,UNKNOWN,UNKNOWN,Terminology/applicability unresolved.
+EQP-000041,CFG-000004,lane_keep_assist,UNKNOWN,UNKNOWN,Terminology/applicability unresolved.
+EQP-000042,CFG-000004,camera_360,UNKNOWN,UNKNOWN,Terminology/applicability unresolved.
+EQP-000043,CFG-000004,apple_carplay,UNKNOWN,UNKNOWN,Terminology/applicability unresolved.
+EQP-000044,CFG-000004,android_auto,UNKNOWN,UNKNOWN,Terminology/applicability unresolved.
+EQP-000045,CFG-000005,aeb,STANDARD,VERIFIED,
+EQP-000046,CFG-000005,adaptive_cruise_control,STANDARD,VERIFIED,
+EQP-000047,CFG-000005,lane_keep_assist,STANDARD,VERIFIED,
+EQP-000048,CFG-000005,blind_spot_monitor,STANDARD,VERIFIED,
+EQP-000049,CFG-000005,rear_cross_traffic_alert,STANDARD,VERIFIED,
+EQP-000050,CFG-000005,isofix_rear,STANDARD,VERIFIED,
+EQP-000051,CFG-000005,isofix_front,STANDARD,VERIFIED,
+EQP-000052,CFG-000005,parking_sensors_rear,STANDARD,VERIFIED,
+EQP-000053,CFG-000005,parking_sensors_front,STANDARD,VERIFIED,
+EQP-000054,CFG-000005,camera_360,STANDARD,VERIFIED,
+EQP-000055,CFG-000005,apple_carplay,STANDARD,VERIFIED,
+EQP-000056,CFG-000005,android_auto,STANDARD,VERIFIED,
+EQP-000057,CFG-000005,automatic_climate_control,STANDARD,VERIFIED,
+EQP-000058,CFG-000005,heated_front_seats,STANDARD,VERIFIED,
+EQP-000059,CFG-000005,ventilated_front_seats,STANDARD,VERIFIED,
+EQP-000060,CFG-000005,powered_tailgate,STANDARD,VERIFIED,
+EQP-000061,CFG-000006,aeb,STANDARD,VERIFIED,
+EQP-000062,CFG-000006,adaptive_cruise_control,STANDARD,VERIFIED,
+EQP-000063,CFG-000006,lane_keep_assist,STANDARD,VERIFIED,
+EQP-000064,CFG-000006,blind_spot_monitor,STANDARD,VERIFIED,
+EQP-000065,CFG-000006,parking_sensors_rear,STANDARD,VERIFIED,
+EQP-000066,CFG-000006,parking_sensors_front,STANDARD,VERIFIED,
+EQP-000067,CFG-000006,reversing_camera,STANDARD,VERIFIED,
+EQP-000068,CFG-000006,camera_360,STANDARD,VERIFIED,
+EQP-000069,CFG-000006,heated_front_seats,STANDARD,VERIFIED,
+EQP-000070,CFG-000006,powered_tailgate,STANDARD,VERIFIED,
+EQP-000071,CFG-000006,apple_carplay,UNKNOWN,UNKNOWN,Not explicitly resolved in this pass.
+EQP-000072,CFG-000006,android_auto,UNKNOWN,UNKNOWN,Not explicitly resolved in this pass.
+EQP-000073,CFG-000006,isofix_rear,UNKNOWN,UNKNOWN,Not explicitly resolved in this pass.
+EQP-000074,CFG-000006,rear_cross_traffic_alert,UNKNOWN,UNKNOWN,Not explicitly resolved in this pass.
+EQP-000075,CFG-000007,aeb,UNKNOWN,UNKNOWN,Configuration identity unresolved.
+EQP-000076,CFG-000007,adaptive_cruise_control,STANDARD,VERIFIED,ACC is standard on all T10X produced April 2025 onward per official ADAS notice.
+EQP-000077,CFG-000007,lane_keep_assist,UNKNOWN,UNKNOWN,Configuration identity unresolved.
+EQP-000078,CFG-000007,blind_spot_monitor,UNKNOWN,UNKNOWN,Configuration identity unresolved.
+EQP-000079,CFG-000007,parking_sensors_rear,UNKNOWN,UNKNOWN,Configuration identity unresolved.
+EQP-000080,CFG-000007,reversing_camera,UNKNOWN,UNKNOWN,Configuration identity unresolved.
+EQP-000081,CFG-000007,camera_360,UNKNOWN,UNKNOWN,Configuration identity unresolved.
+EQP-000082,CFG-000008,aeb,STANDARD,VERIFIED,
+EQP-000083,CFG-000008,lane_keep_assist,STANDARD,VERIFIED,
+EQP-000084,CFG-000008,isofix_rear,STANDARD,VERIFIED,
+EQP-000085,CFG-000008,reversing_camera,STANDARD,VERIFIED,
+EQP-000086,CFG-000008,apple_carplay,STANDARD,VERIFIED,
+EQP-000087,CFG-000008,android_auto,STANDARD,VERIFIED,
+EQP-000088,CFG-000008,keyless_entry,STANDARD,VERIFIED,
+EQP-000089,CFG-000008,adaptive_cruise_control,UNKNOWN,UNKNOWN,Basic cruise is not mapped to adaptive; remaining items unresolved.
+EQP-000090,CFG-000008,blind_spot_monitor,UNKNOWN,UNKNOWN,Basic cruise is not mapped to adaptive; remaining items unresolved.
+EQP-000091,CFG-000008,camera_360,UNKNOWN,UNKNOWN,Basic cruise is not mapped to adaptive; remaining items unresolved.
+EQP-000092,CFG-000008,parking_sensors_front,UNKNOWN,UNKNOWN,Basic cruise is not mapped to adaptive; remaining items unresolved.
+EQP-000093,CFG-000008,parking_sensors_rear,UNKNOWN,UNKNOWN,Basic cruise is not mapped to adaptive; remaining items unresolved.

@@ -1,0 +1,11 @@
+description: Expiya Cars Motor V3 - regrade 225 saved conversations without regeneration
+
+providers:
+  - id: file://providers/transcript-replay-provider.ts
+    label: Saved transcript replay
+
+prompts:
+  - "{{transcript}}"
+
+tests: file://regrade-tests.cjs
+sharing: false

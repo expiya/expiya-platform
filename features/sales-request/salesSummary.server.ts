@@ -5,7 +5,7 @@ import { getSalesAdvisorHistory, salesAdvisorHistoryKey } from "@/features/sales
 export type ShareableSalesSummary = { readonly version: "sales-conversation-summary/v1"; readonly text: string; readonly mainText: string; readonly budgetText: string | null; readonly checksum: string; readonly sourceStages: readonly ("PHASE1" | "PHASE2")[] };
 const sensitive = /(\b\d{11}\b|tc kimlik|sağlık|hastalık|kredi kart|iban|açık adres)/iu;
 const clean = (value: string) => value.replace(/https?:\/\/\S+/giu, "").replace(/\s+/gu, " ").trim();
-export function buildShareableSalesSummary(phase3: Phase3IntentPayload): ShareableSalesSummary {
+export function buildShareableSalesSummary(phase3: Pick<Phase3IntentPayload, "approvedNeeds" | "conversationId" | "offerId" | "selectedExactVariantId">): ShareableSalesSummary {
   const budgetItems = phase3.approvedNeeds.filter((item) => ["budgetMax", "budgetTarget"].includes(item.concept)).map((item) => clean(item.summary)).filter(Boolean);
   const phase1 = phase3.approvedNeeds.filter((item) => !["budgetMax", "budgetTarget"].includes(item.concept)).map((item) => clean(item.summary)).filter((item) => item && !sensitive.test(item)).slice(0, 6);
   const history = getSalesAdvisorHistory(salesAdvisorHistoryKey(phase3.conversationId, phase3.offerId, phase3.selectedExactVariantId));

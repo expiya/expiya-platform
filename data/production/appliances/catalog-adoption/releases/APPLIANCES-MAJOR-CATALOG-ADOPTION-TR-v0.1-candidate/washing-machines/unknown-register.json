@@ -1,0 +1,42 @@
+[
+  {
+    "offeringId": "appliances:wm:tr:samsung:ww90ta046ah-ah",
+    "unknowns": [
+      "Exact installation clearances and hose routing remain unknown until a checksum-pinned exact manual is reviewed.",
+      "Noise perception, wash outcome, vibration and household bills are not guaranteed."
+    ],
+    "treatment": "NEUTRAL_NO_PENALTY_NO_INFERENCE"
+  },
+  {
+    "offeringId": "appliances:wm:tr:vestel:cmi-97402-wifi",
+    "unknowns": [
+      "The manual URL is exact, but L9 remains disabled because its bytes/checksum were not retained by this release.",
+      "Seller warranty terms, final installation inclusion and usage outcomes require transaction-time confirmation."
+    ],
+    "treatment": "NEUTRAL_NO_PENALTY_NO_INFERENCE"
+  },
+  {
+    "offeringId": "appliances:wm:tr:arcelik:10120-imp",
+    "unknowns": [
+      "Exact manual bytes and section locators are not retained; L9 is disabled.",
+      "Programme-level load limits and claimed outcome magnitudes remain outside decision evidence."
+    ],
+    "treatment": "NEUTRAL_NO_PENALTY_NO_INFERENCE"
+  },
+  {
+    "offeringId": "appliances:wm:tr:altus:al-cm-101254-d",
+    "unknowns": [
+      "Exact manual bytes and section locators are not retained; L9 is disabled.",
+      "Motor warranty eligibility and seller installation terms require purchase-date confirmation."
+    ],
+    "treatment": "NEUTRAL_NO_PENALTY_NO_INFERENCE"
+  },
+  {
+    "offeringId": "appliances:wm:tr:samsung:ww11dg6b25leah",
+    "unknowns": [
+      "Exact manual bytes and section locators are not retained; L9 is disabled.",
+      "AI Energy savings claims are conditional and excluded from decision evidence."
+    ],
+    "treatment": "NEUTRAL_NO_PENALTY_NO_INFERENCE"
+  }
+]

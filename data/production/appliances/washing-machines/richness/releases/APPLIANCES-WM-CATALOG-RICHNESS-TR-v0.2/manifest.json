@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "washing-machine-richness-manifest/v1",
+  "workUnitId": "WU-XPY-APPL-WASHING-MACHINE-PRODUCT-BOUND-L6-L9-COMPLETION-01",
+  "releaseVersion": "APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.2",
+  "parent": {
+    "releaseVersion": "APPLIANCES-WM-TR-v0.1",
+    "artifactSha256": "35a8132910a7b565dea94ec14b43625b0a46e0d8153723e25fcd39a063090c2b",
+    "catalogDigest": "1f6c6ea12b19b32d363e1889a1c8c4b8a6a621e4bb13a22384e0e4de2c586c9e",
+    "semanticRegistryDigest": "44784b43d818bee505e85f66ed60ce065809a1ff2bd42852157d4e44d7d7038a",
+    "relationship": "IMMUTABLE_CHILD_NO_OVERWRITE"
+  },
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "WASHING_MACHINE_SEMANTIC_REGISTRY/v0.1",
+    "semanticAuthorityDigest": "sha256:44784b43d818bee505e85f66ed60ce065809a1ff2bd42852157d4e44d7d7038a",
+    "revisionClass": "EVIDENCE_OR_AVAILABILITY_REFRESH",
+    "semanticAuthorityChange": "UNCHANGED"
+  },
+  "releaseDigest": "sha256:0e431218df3e71c1f7d11def12da2085319bad8bb7c77711154deeaeda0d7c5e",
+  "catalogArtifactSha256": "73cf9130bb6c21e430b34145a9c60ee99aba200fd85ed420e4a2b1404bae6a42",
+  "semanticArtifactSha256": "cbe1fd73fa1f968abd93f113734a5af5bb979a0642585e84c2db712ded61feee",
+  "coverageArtifactSha256": "be264071a64fe2ab588deecd4fbef3268c5eb235166e7901cefecabcdbb2f23a",
+  "projectionsArtifactSha256": "0c9903e6cba9ee532cee8846fc8036f61d921135446cf8030149d4a42bd3240b",
+  "membershipDigest": "ec5b339604209c4aa04263f19f4acdc52b6c1ff68d8b41495d0f768eabc88f9e",
+  "memberCount": 24,
+  "counts": {
+    "offerings": 24,
+    "sources": 57,
+    "evidence": 572,
+    "facts": 317,
+    "capabilities": 255,
+    "dailyLifeInterpretations": 208,
+    "advisorKnowledge": 0,
+    "advisorReadProjectionsGenerated": 24,
+    "comparisonEvidenceProjectionsGenerated": 1
+  },
+  "reviewerStatus": "APPROVED_IN_WORK_UNIT",
+  "activation": {
+    "performed": false,
+    "activePointerRelease": "APPLIANCES-WM-TR-v0.1"
+  }
+}

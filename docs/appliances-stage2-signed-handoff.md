@@ -1,0 +1,9 @@
+# Appliances AŞAMA 2 signed handoff
+
+The server issues an `appliances-stage2-handoff/v2` capability only after re-reading a persisted `DECISION_READY` state. Its HMAC-SHA-256 claims bind key ID, `ASAMA2_VIEW` purpose, APPLIANCES department, category, conversation UUID, persisted revision, catalog release/digest, semantic authority version/digest, exact product ID, configuration identity, decision authorization fingerprint, issued/expiry seconds, random nonce, and `REVISION_BOUND_REUSABLE_UNTIL_EXPIRY` replay policy. A capability may be reused for navigation/reload during its short lifetime, but any conversation revision or authority change invalidates it.
+
+`POST /api/appliances/stage-two-handoff` supports only `ISSUE` (conversation locator plus expected revision) and `READ` (signed handoff). `READ` verifies the signature and claims, reloads persisted authority, reconstructs the authorized card through the existing recovery path, and compares every authority-bound claim. Token claims never supply technical facts. Comparison entitlement is returned separately as `NOT_PURCHASED`; the handoff cannot grant it.
+
+Set server-only `APPLIANCES_STAGE2_HANDOFF_KEYS` to a JSON keyring with exactly one `ACTIVE` key and optional `VERIFY_ONLY` or `REVOKED` keys. Every key ID must be unique and every secret must be at least 32 UTF-8 bytes. `APPLIANCES_STAGE2_HANDOFF_TTL_SECONDS` accepts 60–3600 seconds (default 900). Never use a `NEXT_PUBLIC_` variable. Missing, short, invalid or ambiguous key configuration fails closed in local/dev and production; no fallback or repository secret exists. Rotation and entitlement operations are detailed in `docs/appliances-stage2-key-and-entitlement-runbook.md`.
+
+Legacy `/appliances/stage/2?conversation=<uuid>` links no longer enter AŞAMA 2. The page explains that a fresh AŞAMA 1 secure link is required.

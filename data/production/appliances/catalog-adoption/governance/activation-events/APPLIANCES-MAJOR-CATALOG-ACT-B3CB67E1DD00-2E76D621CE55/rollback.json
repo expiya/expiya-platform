@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "major-appliance-catalog-rollback/v1",
+  "activationId": "APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ACTIVATION-01",
+  "pointers": [
+    {
+      "categoryId": "WASHING_MACHINE",
+      "path": "data/production/appliances/washing-machines/active.json",
+      "beforeSha256": "2a6c3a99ffe8df1153487cae5a46c6ef8e354ef75807f8a6f012e3180e909b3f",
+      "beforeRaw": "{\n  \"schemaVersion\": \"appliances-authority-active-pointer/v2\",\n  \"releaseVersion\": \"APPLIANCES-WM-TR-v0.1\",\n  \"lifecycle\": \"ACTIVE\",\n  \"richness\": {\n    \"releaseVersion\": \"APPLIANCES-WM-CATALOG-RICHNESS-TR-v0.2\",\n    \"releaseDigest\": \"sha256:0e431218df3e71c1f7d11def12da2085319bad8bb7c77711154deeaeda0d7c5e\",\n    \"catalogArtifactSha256\": \"73cf9130bb6c21e430b34145a9c60ee99aba200fd85ed420e4a2b1404bae6a42\",\n    \"membershipDigest\": \"ec5b339604209c4aa04263f19f4acdc52b6c1ff68d8b41495d0f768eabc88f9e\",\n    \"activationManifest\": \"data/production/appliances/washing-machines/richness/governance/activation-events/WM-RICHNESS-ACT-0E431218DF3E71C1F7D1/activation.json\",\n    \"activationManifestSha256\": \"fc9c1a34bcee8b7740b0baf7acce346137c319755c4d9e282cf412b331222147\",\n    \"lifecycle\": \"ACTIVE_READ_ONLY\"\n  }\n}\n"
+    },
+    {
+      "categoryId": "DRYER",
+      "path": "data/production/appliances/dryers/active.json",
+      "beforeSha256": "32bf083531c2a0b87a969ed610fd23087e9bec9bb80f04937b41d23bb4f57af2",
+      "beforeRaw": "{\n  \"schemaVersion\": \"appliances-dryer-active-pointer/v2\",\n  \"releaseVersion\": \"APPLIANCES-DRYER-TR-v0.1\",\n  \"artifactSha256\": \"3ef3ce69874ced7d210c97545d35e82a9a2fae2933a7d7d715ae411224943f48\",\n  \"lifecycle\": \"ACTIVE\",\n  \"richness\": {\n    \"releaseVersion\": \"APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2\",\n    \"releaseDigest\": \"sha256:cb360607540a60b2d4519bf422d1c87f6d53240ce2b33b6bf0d895785e12df98\",\n    \"catalogArtifactSha256\": \"3bbb554e3e42d9051b8adf60e2bd5b17f01b5f04838a6ca722f6a8ff86a8a22c\",\n    \"membershipDigest\": \"247c384b6b47d560bf004e74c48198a4646ea982419ce4a0033a7ab934a30e9e\",\n    \"activationManifest\": \"data/production/appliances/dryers/richness/governance/activation-events/DRYER-RICHNESS-ACT-CB360607540A60B2D451/activation.json\",\n    \"activationManifestSha256\": \"94cabe34d3f72593ab37a99d7adbdd77eb1828bb817e9668ca3ccf0b30c07553\",\n    \"lifecycle\": \"ACTIVE_READ_ONLY\"\n  }\n}\n"
+    },
+    {
+      "categoryId": "DISHWASHER",
+      "path": "data/production/appliances/dishwashers/active.json",
+      "beforeSha256": "6dacfc77be2f1078e2b025ebf287009989b969e2b1b720e8343ecbb981bee5c4",
+      "beforeRaw": "{\n  \"schemaVersion\": \"appliances-bounded-active-pointer/v2\",\n  \"releaseVersion\": \"APPLIANCES-DISHWASHER-TR-v0.1\",\n  \"artifactSha256\": \"66973c59f1b752f2598b4c6b30d6dc0d2b272948a342b33a08f4cd8f68f9124e\",\n  \"lifecycle\": \"ACTIVE\",\n  \"richness\": {\n    \"releaseVersion\": \"APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.2\",\n    \"releaseDigest\": \"sha256:72f7564dcd40b370b7b656a22fcc5d61127defe81d771e688cce3f9d889d9866\",\n    \"catalogArtifactSha256\": \"7237a05c25c245473fd00fab0b96dd531a92f1082e288bb7e2533373e159f5ee\",\n    \"membershipDigest\": \"53b8a8aaa9dfeb13fe939a553ae4a7128c39dcb46fa074f18d6eca071ee0cf11\",\n    \"activationManifest\": \"data/production/appliances/dishwashers/richness/governance/activation-events/DISHWASHER-RICHNESS-ACT-72F7564DCD40B370B7B6/activation.json\",\n    \"activationManifestSha256\": \"eeabddb3b39833bdcc6077d947096ffd6f148c54886871f61037b62c199b26cc\",\n    \"lifecycle\": \"ACTIVE_READ_ONLY\"\n  }\n}\n"
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "path": "data/production/appliances/refrigerators/active.json",
+      "beforeSha256": "6485888509cb0af285087f1d431857e9bbe5ffe0985b6bc1b9b943c3cf02daee",
+      "beforeRaw": "{\n  \"schemaVersion\": \"appliances-refrigerator-active-pointer/v2\",\n  \"releaseVersion\": \"APPLIANCES-REFRIGERATOR-TR-v0.1\",\n  \"artifactSha256\": \"4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825\",\n  \"lifecycle\": \"ACTIVE\",\n  \"richness\": {\n    \"releaseVersion\": \"APPLIANCES-REFRIGERATOR-CATALOG-RICHNESS-TR-v0.2\",\n    \"releaseDigest\": \"sha256:319e2c013fe6fefdf04aefdd4f2de777134aca352513b9ca07926395186eca2c\",\n    \"catalogArtifactSha256\": \"f077b355cca0899a81a41dab704bec1038b9f4de09aa6590aa3921f13fb3d0ab\",\n    \"membershipDigest\": \"c96ef33e0d3905753f873da4734e645c16acf60381c5cb15298f8c4d3051ef2b\",\n    \"activationManifest\": \"data/production/appliances/refrigerators/richness/governance/activation-events/REFRIGERATOR-RICHNESS-ACT-319E2C013FE6FEFDF04A/activation.json\",\n    \"activationManifestSha256\": \"804470a9f87079f035e0509334e2c1e5e52c60d2407aa085a04209f9713ef4f1\",\n    \"lifecycle\": \"ACTIVE_READ_ONLY\"\n  }\n}\n"
+    }
+  ]
+}

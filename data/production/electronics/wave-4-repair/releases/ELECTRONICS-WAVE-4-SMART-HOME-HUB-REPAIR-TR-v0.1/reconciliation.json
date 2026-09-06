@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "electronics-wave-4-smart-home-hub-reconciliation/v1",
+  "parentReleaseDigest": "sha256:3cebc6073546f3a9dac526310f60edc131e84afe8eccf3d1bdb75ef37746ce0b",
+  "parentArtifactPath": "data/production/electronics/wave-4-evidence/releases/ELECTRONICS-WAVE-4-EVIDENCE-TR-v0.1/evidence-release.json",
+  "parentBytesUnmodified": true,
+  "unchangedProof": {
+    "scope": "ALL_NON_SMART_HOME_HUB_WAVE_4_RECORDS",
+    "parentSubsetDigest": "sha256:0bc6e2fe14968914bcd38f56da68524cc68bf03c701a0f8c2446856a1c7f442c",
+    "childSubsetDigest": "sha256:0bc6e2fe14968914bcd38f56da68524cc68bf03c701a0f8c2446856a1c7f442c",
+    "byteIdentical": true
+  },
+  "repairedCategory": {
+    "categoryId": "SMART_HOME_HUB",
+    "candidateCount": 2,
+    "manufacturerCount": 2,
+    "comparableFieldCount": 11,
+    "readiness": "DECISION_EVIDENCE_READY",
+    "reasons": [
+      "TWO_EXACT_TR_STANDALONE_HUBS_FROM_INDEPENDENT_MANUFACTURERS",
+      "PROTOCOL_CAPACITY_ACCOUNT_PRIVACY_POWER_AND_COMPONENT_EVIDENCE_BOUND"
+    ],
+    "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+  },
+  "activationEffect": "NONE"
+}

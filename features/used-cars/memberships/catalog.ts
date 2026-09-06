@@ -1,0 +1,8 @@
+export type MembershipAddon="ADVANCED_ANALYTICS"|"FEED_API"|"CORPORATE_SHOWCASE";
+export interface MembershipPackage {readonly code:"STARTER"|"GROWTH"|"ENTERPRISE";readonly period:"MONTHLY"|"YEARLY";readonly branchLimit:number;readonly activeStockLimit:number;readonly userLimit:number;readonly monthlyLeadActionLimit:number|null;readonly addons:readonly MembershipAddon[];readonly completedActionBillingAllowed:false;readonly organicRankingBenefit:false}
+export const membershipCatalog:readonly MembershipPackage[]=Object.freeze([
+ {code:"STARTER",period:"MONTHLY",branchLimit:1,activeStockLimit:30,userLimit:5,monthlyLeadActionLimit:50,addons:[],completedActionBillingAllowed:false,organicRankingBenefit:false},
+ {code:"GROWTH",period:"MONTHLY",branchLimit:5,activeStockLimit:150,userLimit:25,monthlyLeadActionLimit:250,addons:["ADVANCED_ANALYTICS","FEED_API"],completedActionBillingAllowed:false,organicRankingBenefit:false},
+ {code:"ENTERPRISE",period:"YEARLY",branchLimit:50,activeStockLimit:2000,userLimit:250,monthlyLeadActionLimit:null,addons:["ADVANCED_ANALYTICS","FEED_API","CORPORATE_SHOWCASE"],completedActionBillingAllowed:false,organicRankingBenefit:false},
+]);
+export function validateMembershipCatalog(catalog:readonly MembershipPackage[]):readonly string[]{const codes:string[]=[];if(new Set(catalog.map(plan=>plan.code)).size!==catalog.length)codes.push("DUPLICATE_PLAN");for(const plan of catalog){if(plan.branchLimit<1||plan.activeStockLimit<1||plan.userLimit<1)codes.push("INVALID_LIMIT");if(plan.completedActionBillingAllowed!==false)codes.push("COMPLETED_ACTION_BILLING_FORBIDDEN");if(plan.organicRankingBenefit!==false)codes.push("ORGANIC_RANKING_BENEFIT_FORBIDDEN");}return Object.freeze([...new Set(codes)]);}

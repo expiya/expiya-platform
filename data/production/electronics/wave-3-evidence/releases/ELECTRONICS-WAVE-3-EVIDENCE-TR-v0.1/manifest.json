@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "electronics-wave-3-manifest/v1",
+  "workUnitId": "WU-ELECTRONICS-WAVE-3-MULTI-CANDIDATE-EVIDENCE-CLOSURE-01",
+  "releaseVersion": "ELECTRONICS-WAVE-3-EVIDENCE-TR-v0.1",
+  "verdict": "IMPLEMENTED",
+  "parentReleaseDigest": "sha256:824b159a07e7e6c586b687627bb29591a417454c6d475cbbcdba7dec915598f1",
+  "counts": {
+    "categories": 6,
+    "products": 12,
+    "manufacturers": 10,
+    "sources": 18,
+    "comparativeFacts": 60,
+    "manuals": 3,
+    "unknowns": 34
+  },
+  "readiness": {
+    "DECISION_EVIDENCE_READY": 6,
+    "POLICY_REVIEW_REQUIRED": 0,
+    "INFORMATION_ONLY": 0,
+    "BLOCKED_EVIDENCE": 0
+  },
+  "artifacts": {
+    "evidence-release.json": "sha256:13fe5452cff50e1115f39b68c3a8382f249caa7a5d71c9651a44991a068ca773",
+    "comparative-matrix.json": "sha256:f9761a36d37dc0f10aa09cfda2a104ca913519f3aa0a4a0ad5ed802c845e52d3",
+    "policy-input-proposal.json": "sha256:89624f52fb989e914a9a942f354aea9b73a060ed12ba871e477ed80249ba1307",
+    "reconciliation.json": "sha256:6bc590c3198a6b451a711642314f925be640ccf9e75e4a1be9cd31dd2b73d92f"
+  },
+  "activation": {
+    "l7Experience": "ABSENT",
+    "mediaImported": false,
+    "l10YEffect": "NONE",
+    "amazonStatusEffect": "NONE",
+    "activationPerformed": false,
+    "registryChanged": false,
+    "runtimeChanged": false,
+    "databaseChanged": false,
+    "pointerChanged": false,
+    "deploymentPerformed": false
+  }
+}

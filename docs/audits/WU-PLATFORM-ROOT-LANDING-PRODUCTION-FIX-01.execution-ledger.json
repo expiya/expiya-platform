@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "xpy-platform-root-production-fix-ledger/v1",
+  "workUnitId": "WU-PLATFORM-ROOT-LANDING-PRODUCTION-FIX-01",
+  "completedAt": "2026-09-05T04:12:10+03:00",
+  "verdict": "DEPLOYED_AND_VERIFIED",
+  "rootCause": "app/page.tsx directly rendered a Cars-specific client landing and pushed first messages to the Cars analysis route; no Next.js redirect, rewrite, middleware, or proxy caused the behavior. The root layout also carried Cars-specific default metadata.",
+  "scope": {
+    "implemented": [
+      "Neutral Expiya platform landing at /",
+      "Explicit user choice between /appliances and /cars",
+      "Prominent Appliances presentation with 24 active categories stated",
+      "Neutral platform metadata",
+      "Focused route/render/no-forwarding tests"
+    ],
+    "authorityChanges": false,
+    "catalogChanges": false,
+    "evidenceChanges": false,
+    "mediaAuthorityChanges": false,
+    "rankingChanges": false,
+    "commerceChanges": false,
+    "stageTwoOrThreeExpansion": false
+  },
+  "repository": {
+    "authoritativeCheckout": "/Users/serdarakgul/Projects/expiya-platform",
+    "branch": "codex/persona-evidence-v39",
+    "gitHead": "246e4c02278fa664093f4eed9fb218ed6a556aca",
+    "worktreeMode": "DIRTY_WORKTREE_SNAPSHOT",
+    "commitCreated": false,
+    "pushPerformed": false,
+    "existingChangesPreserved": true,
+    "trackedModifiedCountAtClosure": 49,
+    "untrackedEntryCountAtClosure": 417
+  },
+  "files": {
+    "changed": [
+      "app/page.tsx",
+      "app/layout.tsx",
+      "features/xpy/carsStageOneAdapters.test.ts"
+    ],
+    "added": [
+      "features/xpy/platformRootLanding.test.tsx",
+      "docs/audits/WU-PLATFORM-ROOT-LANDING-PRODUCTION-FIX-01.execution-ledger.json"
+    ],
+    "sha256": {
+      "app/page.tsx": "994f927bcb15c36fbb13b0928113c1c972de78c0b53d1e337f71f3a8a3cf7f10",
+      "app/layout.tsx": "21e62af75e5571527368dda30be70fa58480ed5e0b4f7561517fbc6c8cc5fd3d",
+      "features/xpy/platformRootLanding.test.tsx": "50636e7e81fd6c6a3629e31fa98d59358f19f9c0840272fe18f8df730d764977",
+      "features/xpy/carsStageOneAdapters.test.ts": "6aa78d02191568678c9a17b34bcc12ea92cc14b62b3552101a18006f17f02613"
+    }
+  },
+  "verification": {
+    "focusedTests": "PASS; 3 files; 13 tests",
+    "scopedEslint": "PASS",
+    "typescript": "PASS on the isolated release snapshot after fresh Next route type generation",
+    "gitDiffCheck": "PASS",
+    "localProductionBuild": "PASS; Node 24.20.0; webpack; all original catalog/persona/evidence gates; 609 static pages",
+    "remoteProductionBuild": "PASS; Vercel Node 24.x; all original catalog/persona/evidence gates; TypeScript; 609 static pages",
+    "repositoryWideTestObservation": "5322 of 5324 tests passed; two pre-existing/concurrent Cars conversation expectation failures were outside this root-routing scope",
+    "concurrentCheckoutObservation": "The live checkout later contained two untracked appliance-commerce literal-type errors; neither file was included in the isolated release snapshot",
+    "http": {
+      "/": 200,
+      "/cars": 200,
+      "/appliances": 200,
+      "securityHeaders": "PASS"
+    },
+    "browser": {
+      "desktopViewport": "1280x720",
+      "mobileViewport": "390x844",
+      "routes": [
+        "/",
+        "/cars",
+        "/appliances"
+      ],
+      "rootDefaultDepartment": "NONE",
+      "rootDepartmentLinks": [
+        "/appliances",
+        "/cars"
+      ],
+      "horizontalOverflow": false,
+      "consoleWarningsOrErrors": 0
+    }
+  },
+  "deployment": {
+    "provider": "VERCEL",
+    "project": "expiya/expiya-platform-qw7q",
+    "projectId": "prj_aTU4JVC9CT5mN9dk5CWogfiV3A1q",
+    "target": "production",
+    "readyState": "READY",
+    "deploymentId": "dpl_99BL7WX7J3CA7fvk3May1vtCniSC",
+    "immutableUrl": "https://expiya-platform-qw7q-len4psfyz-expiya.vercel.app",
+    "productionUrl": "https://www.expiya.com",
+    "sourceSnapshot": {
+      "path": "/private/tmp/expiya-root-fix-remote-source-02",
+      "fileCount": 1420,
+      "byteCount": 58863616,
+      "manifestSha256": "c5f27a7b8273df3b77ca39d6c9a24a253beb864c610b499c2ab604fbbde4c2cb",
+      "authorizedGovernanceRuntimeFiles": 78,
+      "governanceNamedSourceModules": 11,
+      "rollbackSupportSourceModules": 2,
+      "rollbackDataFiles": 0,
+      "researchMetadataFiles": 4,
+      "environmentOrKeyFiles": 0,
+      "pdfOrRawManualFiles": 0,
+      "symlinks": 0
+    },
+    "supersededDeployment": {
+      "deploymentId": "dpl_bPJzcxM2q7BcPs7PU5N3bdzqW3w5",
+      "reason": "Local Vercel prebuild embedded the [SENSITIVE] placeholder as the public Sentry DSN; replaced immediately after browser-console detection and not retained as a rollback target."
+    }
+  },
+  "rollback": {
+    "providerMechanism": "Vercel instant rollback to the retained last healthy deployment",
+    "targetDeploymentId": "dpl_CtHZBYWWakNTXCFUV28csH1gReZA",
+    "target": "https://expiya-platform-qw7q-6dvb99z7b-expiya.vercel.app",
+    "command": "vercel rollback expiya-platform-qw7q-6dvb99z7b-expiya.vercel.app --scope expiya",
+    "requiredNow": false,
+    "tradeoff": "Rollback restores the prior operational build but also restores the Cars-specific root defect."
+  },
+  "remainingGaps": [
+    "Appliances AŞAMA 2 remains fail-closed because its production handoff keyring is not configured.",
+    "Migration 0013 remains absent; persistent conversation creation for the 18 newer Appliance categories stays fail-closed.",
+    "The immutable Vercel URL is protected by Vercel SSO; the public production alias is reachable and returns 200.",
+    "The dirty authoritative checkout contains concurrent work not included in this isolated release."
+  ]
+}

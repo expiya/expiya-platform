@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "electronics-wave-2-game-console-reconciliation/v1",
+  "parentReleaseDigest": "sha256:a92d56041f9150a87a5d4e01ae230217465b53507d247f8d134f28be2050892d",
+  "changedExactProductIds": [
+    "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black"
+  ],
+  "preservedExactProductIds": [
+    "electronics:headphones:sony:wh1000xm5b-ce7",
+    "electronics:headphones:huawei:freebuds-6-black",
+    "electronics:portable-speaker:jbl:jblflip7blk",
+    "electronics:portable-speaker:sony:srsult10b-ce7",
+    "electronics:soundbar:samsung:hw-q800f-tk",
+    "electronics:soundbar:lg:s70ty",
+    "electronics:digital-camera:sony:zve10m2b-cec",
+    "electronics:digital-camera:canon:5811c013",
+    "electronics:projector:epson:v11ha85040",
+    "electronics:projector:samsung:sp-lff3claxxtk",
+    "electronics:game-console:sony:cfi-7021"
+  ],
+  "unchangedProof": {
+    "scope": "ALL_NON_XBOX_WAVE_2_ENTITIES",
+    "parentSubsetDigest": "sha256:22254c005346d058b860a6601c1bb668b85aace1e0e9ea9265172156de3f82ae",
+    "childSubsetDigest": "sha256:22254c005346d058b860a6601c1bb668b85aace1e0e9ea9265172156de3f82ae",
+    "byteEquivalent": true
+  },
+  "sourceAuthority": {
+    "trApplicability": "xbox-tr:Series-S",
+    "hardwareRevisionAndProductId": "microsoft-uk:8ZCBGTT29H9C",
+    "internationalTrApplicabilityEffect": "NONE"
+  }
+}

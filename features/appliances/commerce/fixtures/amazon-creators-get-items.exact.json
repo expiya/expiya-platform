@@ -1,0 +1,37 @@
+{
+  "itemsResult": {
+    "items": [
+      {
+        "asin": "B0CQMPH7BJ",
+        "detailPageURL": "https://www.amazon.com.tr/dp/B0CQMPH7BJ?tag=expiya-21&linkCode=ogi",
+        "itemInfo": {
+          "title": { "displayValue": "Philips 3000 Serisi Airfryer NA350/00" },
+          "byLineInfo": { "brand": { "displayValue": "Philips" } },
+          "manufactureInfo": {
+            "model": { "displayValue": "NA350/00" },
+            "itemPartNumber": { "displayValue": "NA350/00" }
+          }
+        },
+        "offersV2": {
+          "listings": [
+            {
+              "availability": { "type": "IN_STOCK" },
+              "condition": { "value": "New" },
+              "merchantInfo": { "name": "Example Seller" },
+              "price": { "money": { "amount": 8837.01, "currency": "TRY" } }
+            }
+          ]
+        },
+        "images": {
+          "primary": {
+            "large": {
+              "url": "https://m.media-amazon.com/images/I/example.jpg",
+              "width": 500,
+              "height": 500
+            }
+          }
+        }
+      }
+    ]
+  }
+}

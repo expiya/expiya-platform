@@ -1,0 +1,39 @@
+description: Expiya Cars Motor V3 HTTP contract smoke evaluation
+
+providers:
+  - id: file://providers/v3-http-provider.ts
+    label: Motor V3 localhost HTTP provider
+    config:
+      baseUrl: http://localhost:3000
+
+prompts:
+  - "{{fixtureId}}"
+
+defaultTest:
+  assert:
+    - type: javascript
+      value: file://assertions/httpContract.ts
+
+tests:
+  - description: İmzalı token ile iki turlu konuşma
+    vars: { fixtureId: signed-multi-turn }
+  - description: Aynı mesajın idempotent replay edilmesi
+    vars: { fixtureId: exact-message-replay }
+  - description: Aynı messageId farklı payload çatışması
+    vars: { fixtureId: message-payload-conflict }
+  - description: Eski revision çatışması
+    vars: { fixtureId: stale-revision-conflict }
+  - description: Bozuk token state restore edemez
+    vars: { fixtureId: tampered-token-no-restore }
+  - description: Token başka konuşmaya taşınamaz
+    vars: { fixtureId: cross-conversation-token-no-restore }
+  - description: Raw state güvenilir kabul edilmez
+    vars: { fixtureId: raw-state-is-ignored }
+  - description: Content-Type ve Origin güvenliği
+    vars: { fixtureId: request-security-contract }
+  - description: Geçersiz request şeması
+    vars: { fixtureId: invalid-schema-contract }
+  - description: Offer ve açık onay lifecycle
+    vars: { fixtureId: offer-consent-lifecycle }
+
+sharing: false

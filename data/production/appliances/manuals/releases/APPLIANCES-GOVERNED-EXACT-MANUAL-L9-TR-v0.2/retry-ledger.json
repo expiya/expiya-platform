@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "appliances-manual-retry-ledger/v1",
+  "releaseId": "APPLIANCES-GOVERNED-EXACT-MANUAL-L9-TR-v0.2",
+  "batchPolicy": {
+    "knownIdenticalFailedUrlRetried": false,
+    "maxConcurrency": 3,
+    "timeoutMs": 30000,
+    "officialSourcesOnly": true
+  },
+  "attempts": [
+    {
+      "productId": "ARCELIK_T7365_ECO_TR",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "DOCUMENT_LINK_NOT_RESOLVED",
+      "detail": "Official product page advertises a manual but did not expose a deterministic immutable URL in bounded markup extraction.",
+      "retryable": true
+    },
+    {
+      "productId": "BAYMAK_XLS65_TR",
+      "sourceUrl": "https://www.baymak.com.tr/media/7498/baymak-aqua-x-termosifon-montaj-ve-kullanim-kilavuzu.pdf",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "ADMITTED",
+      "detail": "Official PDF and in-document identity admitted as APPL-MANUAL-16781E5559F44C15.",
+      "retryable": false
+    },
+    {
+      "productId": "BOSCH_CL2000U_W_26_E__CL2000_26_E_TR",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "NO_EXACT_MANUAL_DOCUMENT",
+      "detail": "Official exact-pair page exposed brochure, guarantee and product-data documents only.",
+      "retryable": true
+    },
+    {
+      "productId": "BOSCH_CL3000IU_W_35_E__CL3000I_35_E_TR",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "NO_EXACT_MANUAL_DOCUMENT",
+      "detail": "Official exact-pair page exposed brochure, guarantee and energy-label documents only.",
+      "retryable": true
+    },
+    {
+      "productId": "BOSCH_DWP64CC50T_TR",
+      "sourceUrl": "https://media3.bsh-group.com/Documents/9001269413_H.pdf",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "DOWNLOAD_OR_EXTRACTION_FAILED",
+      "detail": "HTTP_404",
+      "retryable": true
+    },
+    {
+      "productId": "BOSCH_DWP64CC50T_TR",
+      "sourceUrl": "https://media3.bsh-group.com/Documents/9001269416_F.pdf",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "IDENTITY_MISMATCH",
+      "detail": "Official PDF bytes did not contain an admitted exact code: DWP64CC50T.",
+      "retryable": false
+    },
+    {
+      "productId": "BOSCH_HBF534ES3T_TR",
+      "sourceUrl": "https://media3.bsh-group.com/Documents/9001856380_F.pdf",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "IDENTITY_MISMATCH",
+      "detail": "Official PDF bytes did not contain an admitted exact code: HBF534ES3T.",
+      "retryable": false
+    },
+    {
+      "productId": "BOSCH_HXR390H21T_TR",
+      "sourceUrl": "https://media3.bsh-group.com/Documents/9001946020_F.pdf",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "ADMITTED",
+      "detail": "Official PDF and in-document identity admitted as APPL-MANUAL-0A9E3ED06A1236A3.",
+      "retryable": false
+    },
+    {
+      "productId": "PHILIPS_EP2220_10_TR",
+      "sourceUrl": "https://dam.versuni.com/m/43f5d99f5574a42e/original/CO_2025_800-Series_1200-Series_2200-Series_3200-Series_Manual-Philips_EU9.pdf",
+      "method": "SUPPORT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "ADMITTED",
+      "detail": "Official PDF and in-document identity admitted as APPL-MANUAL-F8765B6C1374F16F.",
+      "retryable": false
+    },
+    {
+      "productId": "PHILIPS_HR7778_00_TR",
+      "sourceUrl": "https://dam.versuni.com/m/5e5ac195308416da/original/User-Manual-Philips-7000-Series-Food-processor-HR7778_00.pdf",
+      "method": "SUPPORT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "ADMITTED",
+      "detail": "Official PDF and in-document identity admitted as APPL-MANUAL-78E8D6C5C0D5016B.",
+      "retryable": false
+    },
+    {
+      "productId": "PHILIPS_NA350_00_TR",
+      "method": "SUPPORT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "NO_IMMUTABLE_MANUAL_URL",
+      "detail": "Official support page exposed no immutable user-manual PDF in the bounded document extraction.",
+      "retryable": true
+    }
+  ],
+  "unresolvedExternalBlockers": [
+    {
+      "productId": "ARCELIK_T7365_ECO_TR",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "DOCUMENT_LINK_NOT_RESOLVED",
+      "detail": "Official product page advertises a manual but did not expose a deterministic immutable URL in bounded markup extraction.",
+      "retryable": true
+    },
+    {
+      "productId": "BOSCH_CL2000U_W_26_E__CL2000_26_E_TR",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "NO_EXACT_MANUAL_DOCUMENT",
+      "detail": "Official exact-pair page exposed brochure, guarantee and product-data documents only.",
+      "retryable": true
+    },
+    {
+      "productId": "BOSCH_CL3000IU_W_35_E__CL3000I_35_E_TR",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "NO_EXACT_MANUAL_DOCUMENT",
+      "detail": "Official exact-pair page exposed brochure, guarantee and energy-label documents only.",
+      "retryable": true
+    },
+    {
+      "productId": "BOSCH_DWP64CC50T_TR",
+      "sourceUrl": "https://media3.bsh-group.com/Documents/9001269413_H.pdf",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "DOWNLOAD_OR_EXTRACTION_FAILED",
+      "detail": "HTTP_404",
+      "retryable": true
+    },
+    {
+      "productId": "BOSCH_DWP64CC50T_TR",
+      "sourceUrl": "https://media3.bsh-group.com/Documents/9001269416_F.pdf",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "IDENTITY_MISMATCH",
+      "detail": "Official PDF bytes did not contain an admitted exact code: DWP64CC50T.",
+      "retryable": false
+    },
+    {
+      "productId": "BOSCH_HBF534ES3T_TR",
+      "sourceUrl": "https://media3.bsh-group.com/Documents/9001856380_F.pdf",
+      "method": "PRODUCT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "IDENTITY_MISMATCH",
+      "detail": "Official PDF bytes did not contain an admitted exact code: HBF534ES3T.",
+      "retryable": false
+    },
+    {
+      "productId": "PHILIPS_NA350_00_TR",
+      "method": "SUPPORT_PAGE_DOCUMENT_EXTRACTION",
+      "outcome": "NO_IMMUTABLE_MANUAL_URL",
+      "detail": "Official support page exposed no immutable user-manual PDF in the bounded document extraction.",
+      "retryable": true
+    }
+  ],
+  "next": "WU-XPY-APPL-AŞAMA2-SALES-ACTION-STANDARDIZATION-01"
+}

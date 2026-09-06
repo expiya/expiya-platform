@@ -1,0 +1,241 @@
+{
+  "schemaVersion": "robot-vacuum-catalog-richness-coverage/v1",
+  "workUnitId": "WU-XPY-APPL-ROBOT-VACUUM-CATALOG-RICHNESS-01",
+  "generatedAt": "2026-09-04T23:00:00.000+03:00",
+  "verdict": "IMPLEMENTED",
+  "before": {
+    "L0": "COMPLETE",
+    "L1": "PARTIAL",
+    "L2": "PARTIAL",
+    "L3": "PARTIAL",
+    "L4": "PARTIAL",
+    "L5": "ABSENT",
+    "L6": "ABSENT",
+    "L7": "ABSENT",
+    "L8": "PARTIAL",
+    "L9": "ABSENT",
+    "L10": "PARTIAL"
+  },
+  "after": {
+    "L0": "COMPLETE",
+    "L1": "COMPLETE",
+    "L2": "COMPLETE",
+    "L3": "COMPLETE",
+    "L4": "COMPLETE",
+    "L5": "COMPLETE",
+    "L6": "COMPLETE",
+    "L7": "ABSENT",
+    "L8": "COMPLETE",
+    "L9": "ABSENT",
+    "L10": "PARTIAL"
+  },
+  "counts": {
+    "sources": 6,
+    "offerings": 4,
+    "objectiveFacts": 23,
+    "capabilities": 26,
+    "usageSemantics": 8,
+    "needs": 10,
+    "needEvidenceMappings": 9,
+    "personaSignals": 4,
+    "dailyLifeInterpretations": 14,
+    "experienceRules": 0,
+    "decisionProjections": 4,
+    "advisorKnowledge": 0,
+    "comparisonDimensions": 8,
+    "evidence": 49,
+    "assertionLevelEvidence": 49,
+    "advisorReadProjectionsGenerated": 4,
+    "comparisonEvidenceProjectionsGenerated": 1
+  },
+  "perProduct": [
+    {
+      "offeringId": "BOSCH_BCRC2W_TR",
+      "label": "Bosch BCRC2W",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 7,
+        "capabilities": 6,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "CLEANING_NAVIGATION_OBSTACLE_OUTCOMES_UNKNOWN",
+          "AUTONOMY_PRIVACY_APP_BEHAVIOR_UNKNOWN"
+        ]
+      }
+    },
+    {
+      "offeringId": "XIAOMI_H40_OV51_TR",
+      "label": "Xiaomi Robot Vacuum H40 / OV51",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 8,
+        "capabilities": 6,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "CLEANING_NAVIGATION_OBSTACLE_OUTCOMES_UNKNOWN",
+          "AUTONOMY_PRIVACY_APP_BEHAVIOR_UNKNOWN"
+        ]
+      }
+    },
+    {
+      "offeringId": "XIAOMI_X20_PRO_TR",
+      "label": "Xiaomi Robot Vacuum X20 Pro",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 1,
+        "capabilities": 8,
+        "dailyLifeInterpretations": 2,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "CLEANING_NAVIGATION_OBSTACLE_OUTCOMES_UNKNOWN",
+          "AUTONOMY_PRIVACY_APP_BEHAVIOR_UNKNOWN",
+          "EXACT_HARDWARE_CONFIGURATION_CODE_UNRESOLVED",
+          "OFFICIAL_SPECIFICATION_ARTIFACT_INCOMPLETE"
+        ]
+      }
+    },
+    {
+      "offeringId": "SAMSUNG_VR3MB77312K_TR",
+      "label": "Samsung VR3MB77312K/TR",
+      "before": {
+        "L0": "COMPLETE",
+        "L1": "PARTIAL",
+        "L2": "PARTIAL",
+        "L3": "PARTIAL",
+        "L4": "PARTIAL",
+        "L5": "ABSENT",
+        "L6": "ABSENT",
+        "L7": "ABSENT",
+        "L8": "PARTIAL",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "after": {
+        "L0": "COMPLETE",
+        "L1": "COMPLETE",
+        "L2": "COMPLETE",
+        "L3": "COMPLETE",
+        "L4": "COMPLETE",
+        "L5": "COMPLETE",
+        "L6": "COMPLETE",
+        "L7": "ABSENT",
+        "L8": "COMPLETE",
+        "L9": "ABSENT",
+        "L10": "PARTIAL"
+      },
+      "dispositions": {
+        "objectiveFacts": 7,
+        "capabilities": 6,
+        "dailyLifeInterpretations": 4,
+        "advisorKnowledge": 0,
+        "unresolved": [
+          "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+          "GOVERNED_EXPERIENCE_ABSENT",
+          "CLEANING_NAVIGATION_OBSTACLE_OUTCOMES_UNKNOWN",
+          "AUTONOMY_PRIVACY_APP_BEHAVIOR_UNKNOWN"
+        ]
+      }
+    }
+  ],
+  "unresolvedGlobal": [
+    "L7 absent: no governed Robot Vacuum experience authority.",
+    "L9 absent: no checksum-bound exact Robot Vacuum manual.",
+    "Cleaning, navigation, obstacle avoidance, autonomy, privacy and app behavior remain unknown.",
+    "Manufacturer Pa is excluded from performance comparison.",
+    "Xiaomi X20 Pro remains non-selectable under unchanged v0.1 blockers.",
+    "L10 price, photos, media, offers and affiliate data remain external volatile joins."
+  ],
+  "nonRegression": {
+    "parentAuthorityBytesChanged": false,
+    "membershipChanged": false,
+    "candidateSelectionChanged": false,
+    "yAuthorizationChanged": false,
+    "commerceOrderingChanged": false
+  },
+  "nextBoundedWorkUnit": {
+    "workUnitId": "WU-XPY-APPL-WASHING-MACHINE-PRODUCT-BOUND-L6-L9-COMPLETION-01"
+  }
+}

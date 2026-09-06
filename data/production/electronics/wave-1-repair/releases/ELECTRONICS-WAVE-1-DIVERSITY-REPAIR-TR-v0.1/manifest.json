@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "electronics-wave-1-repair-manifest/v1",
+  "workUnitId": "WU-ELECTRONICS-WAVE-1-DIVERSITY-AND-EVIDENCE-REPAIR-01",
+  "releaseVersion": "ELECTRONICS-WAVE-1-DIVERSITY-REPAIR-TR-v0.1",
+  "verdict": "IMPLEMENTED",
+  "parent": {
+    "artifactDigest": "sha256:2545954078b5cddbafcb0acc7251301b6c0790b94aca6b7d4ac6bdfeb9e2997e",
+    "relationship": "IMMUTABLE_CHILD_NO_OVERWRITE"
+  },
+  "counts": {
+    "categories": 6,
+    "products": 16,
+    "manufacturers": 7,
+    "addedProducts": 4,
+    "sources": 29,
+    "comparativeFacts": 65,
+    "manualsCarriedForward": 2,
+    "unknowns": 54
+  },
+  "readiness": {
+    "DECISION_EVIDENCE_READY": 6
+  },
+  "carryForward": {
+    "categories": [
+      "TELEVISION",
+      "E_READER"
+    ],
+    "parentSubsetDigest": "sha256:645501fd78633afb812b75e6bcc0a5dea7423bada32e8af557638caaba00a13a",
+    "childSubsetDigest": "sha256:645501fd78633afb812b75e6bcc0a5dea7423bada32e8af557638caaba00a13a",
+    "byteEquivalent": true
+  },
+  "artifacts": {
+    "repair-release.json": "sha256:4f66ab249373ae03580733249472a3ddebc3fe0369707afd7abec14d2e6b5ab2",
+    "comparative-coverage.json": "sha256:9fdc9a5694a02992fee1591636e73885305187e7df4822d02fb41c38795868b0",
+    "policy-input-proposal.json": "sha256:520744e3624e35145fc2766898002645d918bd9cb2c640eb01f8d216884dc0e7"
+  },
+  "activation": {
+    "performed": false,
+    "registryChanged": false,
+    "runtimeChanged": false,
+    "databaseChanged": false,
+    "pointerChanged": false,
+    "deploymentPerformed": false
+  }
+}

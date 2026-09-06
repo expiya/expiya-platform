@@ -1,0 +1,63 @@
+name: Used Cars Security Baseline
+
+on:
+  pull_request:
+    paths:
+      - "app/ikinciel/**"
+      - "components/used-cars/**"
+      - "features/used-cars/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/used-cars-security-baseline.yml"
+  push:
+    branches: [main]
+    paths:
+      - "app/ikinciel/**"
+      - "components/used-cars/**"
+      - "features/used-cars/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/used-cars-security-baseline.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: used-cars-security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Use Node.js 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install locked dependencies without lifecycle scripts
+        run: npm ci --ignore-scripts
+
+      - name: Audit production dependencies
+        run: npm audit --omit=dev --audit-level=high
+
+      - name: Run used-cars adversarial and contract tests
+        run: npx vitest run features/used-cars
+
+      - name: Lint the synthetic used-cars surface
+        run: npx eslint features/used-cars app/ikinciel components/used-cars
+
+      - name: Reject unresolved conflict markers in scope
+        shell: bash
+        run: |
+          if git grep -nE '^(<<<<<<<|=======|>>>>>>>)' -- app/ikinciel components/used-cars features/used-cars; then
+            echo "Unresolved merge conflict marker found in used-cars scope."
+            exit 1
+          fi
+

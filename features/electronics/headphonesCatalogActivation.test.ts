@@ -27,15 +27,18 @@ describe("approved HEADPHONES atomic activation", () => {
     expect(facts.filter((fact: {key:string}) => fact.key === "exact_identity_binding")).toHaveLength(4);
     expect(additions.flatMap((row: {unknownCodes:string[]}) => row.unknownCodes)).toHaveLength(96);
   });
-  it("binds the production-ready pointer while preserving the immutable activation record", async () => {
+  it("preserves the deployed headphones authority as the exact rollback pointer", async () => {
     const pointer = JSON.parse(await readFile(path.join(root, "data/production/electronics/runtime/active.json"), "utf8"));
-    const catalogRaw = await readFile(path.join(root, pointer.catalogFile));
-    const manifestRaw = await readFile(path.join(root, pointer.manifestFile));
-    const eventRaw = await readFile(path.join(root, pointer.activationEventFile));
-    expect(sha256Bytes(catalogRaw)).toBe(pointer.catalogArtifactSha256);
-    expect(sha256Bytes(manifestRaw)).toBe(pointer.manifestSha256);
-    expect(sha256Bytes(eventRaw)).toBe(pointer.activationEventSha256);
-    expect(pointer.productionDeployed).toBe(true);
+    const rollbackRaw = await readFile(path.join(root, pointer.rollbackPointerFile));
+    const rollback = JSON.parse(rollbackRaw.toString("utf8"));
+    const catalogRaw = await readFile(path.join(root, rollback.catalogFile));
+    const manifestRaw = await readFile(path.join(root, rollback.manifestFile));
+    const eventRaw = await readFile(path.join(root, rollback.activationEventFile));
+    expect(sha256Bytes(rollbackRaw)).toBe(pointer.rollbackPointerSha256);
+    expect(sha256Bytes(catalogRaw)).toBe(rollback.catalogArtifactSha256);
+    expect(sha256Bytes(manifestRaw)).toBe(rollback.manifestSha256);
+    expect(sha256Bytes(eventRaw)).toBe(rollback.activationEventSha256);
+    expect(rollback.productionDeployed).toBe(true);
     expect(JSON.parse(eventRaw.toString("utf8"))).toMatchObject({ productionMigrationApplied: false, deployed: false, focusedGates: "PASS" });
     expect(sha256Canonical(JSON.parse(catalogRaw.toString("utf8")).products.filter((row: {categoryId:string}) => row.categoryId !== "HEADPHONES"))).toMatch(/^sha256:/);
   });

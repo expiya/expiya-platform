@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "electronics-turkey-second-pass-manifest/v1",
+  "generatedAt": "2026-09-05T10:30:00.000Z",
+  "payloadFile": "turkey-second-pass.json",
+  "payloadDigest": "sha256:159fd871ec94071cfb87fb1def85302baeba5710d4de708da9aa87fafc4c500f",
+  "reconciliationFile": "cross-pass-reconciliation.json",
+  "reconciliationDigest": "sha256:a487ad809306da0bbd6947a34ce01f549fc8bcc424ca11af8dfa32c4bd4a46ab",
+  "counts": {
+    "categories": 24,
+    "queryRuns": 48,
+    "investigations": 48,
+    "candidates": 10,
+    "rejections": 38,
+    "combinedCandidates": 16
+  },
+  "activation": {
+    "permitted": false,
+    "productionAuthority": false
+  }
+}

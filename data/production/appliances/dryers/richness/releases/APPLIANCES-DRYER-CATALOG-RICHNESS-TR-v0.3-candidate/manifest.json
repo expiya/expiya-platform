@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "major-appliance-category-adoption-manifest/v1",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+  "categoryId": "DRYER",
+  "releaseVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.3-candidate",
+  "releaseDigest": "sha256:7ee85698a3c539efec4360141d97d8e6b3ffe027280f0e0855b91595a9f2042a",
+  "catalogArtifactSha256": "063b821a16e0db387485511014183e464810da19e03237bffed3d9bd5b0adc1f",
+  "semanticArtifactSha256": "24115f934299b105f4c890de8003cae0f9f541148d22727393129325c17d0fd8",
+  "coverageArtifactSha256": "6926fe2c2b79c387cc738bfe5098feb2c75516d94b771870e66833d1c6c7e0ad",
+  "projectionsArtifactSha256": "fafaa0b47e79fe81e33609164eafe5e0e5f025d486fcc9e5d908dd23a116f9df",
+  "sourceRegisterArtifactSha256": "0f40129f5235ce522f9e1599aa94ce65fad3a9600d9e95f963d8473c99a225aa",
+  "unknownRegisterArtifactSha256": "e89c35df33fcd6ccfd4770e976cce8ea607d39d852850e65c09450de743873a2",
+  "membershipDigest": "5507a1154ef157f6b04b4f46e5def35a41233c426b227e5a90689f787db4b5a7",
+  "memberCount": 7,
+  "priorMemberCount": 3,
+  "admittedOfferingIds": [
+    "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+    "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+    "appliances:dryer:tr:arcelik:1201-kmx",
+    "appliances:dryer:tr:samsung:dv10dg54a0abah"
+  ],
+  "parent": {
+    "activePointerPath": "data/production/appliances/dryers/active.json",
+    "activePointerSha256": "32bf083531c2a0b87a969ed610fd23087e9bec9bb80f04937b41d23bb4f57af2",
+    "decisionReleaseVersion": "APPLIANCES-DRYER-TR-v0.1",
+    "decisionArtifactPath": "data/production/appliances/dryers/releases/APPLIANCES-DRYER-TR-v0.1/domain-pack.json",
+    "decisionArtifactSha256": "3ef3ce69874ced7d210c97545d35e82a9a2fae2933a7d7d715ae411224943f48",
+    "richnessReleaseVersion": "APPLIANCES-DRYER-CATALOG-RICHNESS-TR-v0.2",
+    "richnessCatalogArtifactSha256": "3bbb554e3e42d9051b8adf60e2bd5b17f01b5f04838a6ca722f6a8ff86a8a22c",
+    "relationship": "IMMUTABLE_SUCCESSOR_CANDIDATE_NO_OVERWRITE"
+  },
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "DRYER_SEMANTIC_REGISTRY/v0.3-candidate",
+    "semanticAuthorityDigest": "sha256:c4cdf8e442a492d578203cf5d1c3cd20fdbbcaa8d2c99636ffafa694f5fdaa3d",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "activation": {
+    "performed": false,
+    "status": "BLOCKED_MANDATORY_PRODUCT_OWNER_APPROVAL",
+    "blocker": "Product membership changes decision authority. Existing read-only richness approval does not authorize new members."
+  }
+}

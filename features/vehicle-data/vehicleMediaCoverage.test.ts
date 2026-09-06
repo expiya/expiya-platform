@@ -13,12 +13,13 @@ describe("v0.55.0 vehicle media coverage", () => {
       generation: variant.generation?.value, bodyStyle: variant.bodyStyle.value, modelYear: variant.modelYear.value,
     }));
     const governedAssets = new Map(productionVehicleMediaAssets.map((asset) => [asset.id, asset]));
-    const directlyResolved = resolutions.filter((resolution) => resolution.status === "EXACT" || resolution.status === "REPRESENTATIVE");
+    const directlyResolved = resolutions.filter((resolution) => resolution.assetId !== "owned-representative:vehicle");
     expect(directlyResolved.length).toBeGreaterThan(0);
     expect(directlyResolved.every(({ assetId, path }) => assetId !== undefined && governedAssets.get(assetId)?.storagePath === path)).toBe(true);
     expect(resolutions.filter((resolution) => resolution.status === "APPROXIMATE")).toHaveLength(0);
     expect(resolutions).toHaveLength(payload.records.length);
-    expect(resolutions.filter((resolution) => resolution.status === "PLACEHOLDER")
-      .every(({ path, assetId }) => path === "/cars/production-placeholder.svg" && assetId === undefined)).toBe(true);
+    expect(resolutions.filter((resolution) => resolution.status === "PLACEHOLDER")).toHaveLength(0);
+    expect(resolutions.filter((resolution) => resolution.assetId === "owned-representative:vehicle")
+      .every(({ path, disposition }) => path === "/cars/owned-representative.svg" && disposition === "OWNED_REPRESENTATIVE")).toBe(true);
   });
 });

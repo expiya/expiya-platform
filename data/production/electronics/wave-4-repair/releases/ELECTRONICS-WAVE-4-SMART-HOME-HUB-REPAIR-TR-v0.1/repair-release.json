@@ -1,0 +1,1508 @@
+{
+  "schemaVersion": "electronics-wave-4-smart-home-hub-repair/v1",
+  "releaseVersion": "ELECTRONICS-WAVE-4-SMART-HOME-HUB-REPAIR-TR-v0.1",
+  "parent": {
+    "releaseDigest": "sha256:3cebc6073546f3a9dac526310f60edc131e84afe8eccf3d1bdb75ef37746ce0b",
+    "relationship": "IMMUTABLE_CHILD_NO_OVERWRITE"
+  },
+  "research": {
+    "amazonFirstDigest": "sha256:09ef0e34db66fa00f9fb3b98f83db0370f1e0a2905da805c50282073576e3a20",
+    "amazonRole": "DISCOVERY_ONLY_ZERO_DECISION_EFFECT",
+    "internationalRole": "TECHNICAL_GAP_FILL_ONLY_NOT_TR_APPLICABILITY"
+  },
+  "products": [
+    {
+      "exactProductId": "electronics:smartwatch:samsung:sm-l330ndaatur",
+      "categoryId": "SMARTWATCH",
+      "manufacturer": "Samsung",
+      "modelCode": "SM-L330NDAATUR",
+      "configurationIdentity": "Samsung|Galaxy Watch8|44mm|Bluetooth|Graphite|Standard strap|TR",
+      "trApplicabilitySourceIds": [
+        "samsung-tr:SM-L330NDAATUR"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:smartwatch:huawei:vli-b19-46-black",
+      "categoryId": "SMARTWATCH",
+      "manufacturer": "HUAWEI",
+      "modelCode": "VLI-B19",
+      "configurationIdentity": "HUAWEI|WATCH GT 5|VLI-B19|46mm|Bluetooth|Black fluoroelastomer strap|TR",
+      "trApplicabilitySourceIds": [
+        "huawei-tr:WATCH-GT5"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:fitness-tracker:xiaomi:m2435b1-black",
+      "categoryId": "FITNESS_TRACKER",
+      "manufacturer": "Xiaomi",
+      "modelCode": "M2435B1",
+      "configurationIdentity": "Xiaomi|Smart Band 9 Pro|M2435B1|Black|Bluetooth|TR",
+      "trApplicabilitySourceIds": [
+        "xiaomi-tr:Smart-Band-9-Pro"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:fitness-tracker:huawei:nor-b19-black",
+      "categoryId": "FITNESS_TRACKER",
+      "manufacturer": "HUAWEI",
+      "modelCode": "NOR-B19",
+      "configurationIdentity": "HUAWEI|Band 10|NOR-B19|Black polymer case|Black strap|Bluetooth|TR",
+      "trApplicabilitySourceIds": [
+        "huawei-tr:Band10"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "manufacturer": "TP-Link",
+      "modelCode": "Tapo C225(EU) V1",
+      "configurationIdentity": "TP-Link|Tapo C225|EU V1|Indoor|12V DC|1-pack|TR",
+      "trApplicabilitySourceIds": [
+        "tplink-tr:C225-EU-V1"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "manufacturer": "EZVIZ",
+      "modelCode": "CS-C6N-A0-1C2WFR",
+      "configurationIdentity": "EZVIZ|C6N|CS-C6N-A0-1C2WFR|Indoor|5V DC|1-pack|TR",
+      "trApplicabilitySourceIds": [
+        "ezviz-tr:C6N"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:video-doorbell:tp-link:tapo-d235",
+      "categoryId": "VIDEO_DOORBELL",
+      "manufacturer": "TP-Link",
+      "modelCode": "Tapo D235",
+      "configurationIdentity": "TP-Link|Tapo D235|Battery or 8-24V wired|Chime included|1-pack|TR",
+      "trApplicabilitySourceIds": [
+        "tplink-tr:D235"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+      "categoryId": "VIDEO_DOORBELL",
+      "manufacturer": "EZVIZ",
+      "modelCode": "CS-EP3x Pro",
+      "configurationIdentity": "EZVIZ|EP3x Pro|CS-EP3x Pro|Battery/solar/wired option|Solar panel included|Chime excluded|TR",
+      "trApplicabilitySourceIds": [
+        "ezviz-tr:EP3x-Pro"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+      "categoryId": "SMART_HOME_HUB",
+      "manufacturer": "TP-Link",
+      "modelCode": "Tapo H200(EU) V1",
+      "configurationIdentity": "TP-Link|Tapo H200|EU V1|2.4GHz Wi-Fi/Ethernet/Sub-1G EU|Hub only|TR",
+      "trApplicabilitySourceIds": [
+        "tplink-tr:H200-EU-V1"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:ups:apc:bx1200mi-gr",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "manufacturer": "APC",
+      "modelCode": "BX1200MI-GR",
+      "configurationIdentity": "APC|Back-UPS BX1200MI-GR|Line-interactive|1200VA|650W|4 Schuko|230V|TR",
+      "trApplicabilitySourceIds": [
+        "schneider-tr:BX1200MI-GR"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:ups:eaton:5e1200ui",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "manufacturer": "Eaton",
+      "modelCode": "5E1200UI",
+      "configurationIdentity": "Eaton|5E Gen2 5E1200UI|Line-interactive|1200VA|660W|6 C13|230V|TR",
+      "trApplicabilitySourceIds": [
+        "eaton-tr:5E1200UI"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "categoryId": "SMART_HOME_HUB",
+      "manufacturer": "Signify / Philips Hue",
+      "modelCode": "EAN 8719514342620 / 12NC 929001180642",
+      "configurationIdentity": "Signify|Philips Hue Bridge|EAN 8719514342620|12NC 929001180642|Zigbee/Bluetooth/Matter via Bridge|Bridge only|TR",
+      "trApplicabilitySourceIds": [
+        "philips-hue-tr:8719514342620"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "samsung-tr:SM-L330NDAATUR",
+      "uri": "https://www.samsung.com/tr/business/watches/galaxy-watch/galaxy-watch8-44mm-graphite-bluetooth-sm-l330ndaatur/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:smartwatch:samsung:sm-l330ndaatur"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "huawei-tr:WATCH-GT5",
+      "uri": "https://consumer.huawei.com/tr/wearables/watch-gt5/specs/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:smartwatch:huawei:vli-b19-46-black"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "xiaomi-tr:Smart-Band-9-Pro",
+      "uri": "https://www.mi.com/tr/product/xiaomi-smart-band-9-pro/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:fitness-tracker:xiaomi:m2435b1-black"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "huawei-tr:Band10",
+      "uri": "https://consumer.huawei.com/tr/wearables/band10/specs/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:fitness-tracker:huawei:nor-b19-black"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "tplink-tr:C225-EU-V1",
+      "uri": "https://www.tp-link.com/tr/home-networking/cloud-camera/tapo-c225/v1/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:home-security-camera:tp-link:tapo-c225-eu-v1"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "tplink-global:C225-EU-V1-datasheet",
+      "uri": "https://static.tp-link.com/upload/product-overview/2023/202302/20230215/Tapo%20C225%28EU%291.0_Datasheet.pdf",
+      "market": "GLOBAL",
+      "authority": "MANUAL",
+      "exactProductIds": [
+        "electronics:home-security-camera:tp-link:tapo-c225-eu-v1"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "ezviz-tr:C6N",
+      "uri": "https://www.ezviz.com/tr/product/C6N/47289",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "tplink-tr:D235",
+      "uri": "https://www.tp-link.com/tr/home-networking/cloud-camera/tapo-d235/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:video-doorbell:tp-link:tapo-d235"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "ezviz-tr:EP3x-Pro",
+      "uri": "https://www.ezviz.com/tr/product/ep3x-pro/63195",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:video-doorbell:ezviz:cs-ep3x-pro"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "tplink-tr:H200-EU-V1",
+      "uri": "https://www.tp-link.com/tr/home-networking/smart-hub/tapo-h200/v1/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "aqara-global:Hub-M3",
+      "uri": "https://www.aqara.com/eu/product/hub-m3/",
+      "market": "GLOBAL",
+      "authority": "INTERNATIONAL_BOUNDED",
+      "exactProductIds": [],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "schneider-tr:BX1200MI-GR",
+      "uri": "https://www.se.com/tr/tr/product/BX1200MI-GR/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:ups:apc:bx1200mi-gr"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "eaton-tr:5E1200UI",
+      "uri": "https://www.eaton.com/tr/tr-tr/skuPage.5E1200UI.html",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:ups:eaton:5e1200ui"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "philips-hue-tr:8719514342620",
+      "uri": "https://www.philips-hue.com/tr-tr/p/hue-hue-bridge-baglanti-koprusu/8719514342620",
+      "market": "TR",
+      "authority": "TR_APPLICABILITY",
+      "exactProductIds": [
+        "electronics:smart-home-hub:signify:hue-bridge-8719514342620"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "philips-hue-tr:accounts",
+      "uri": "https://www.philips-hue.com/tr-tr/explore-hue/accounts",
+      "market": "TR",
+      "authority": "PRIVACY_HEALTH_SUBSCRIPTION_SAFETY",
+      "exactProductIds": [
+        "electronics:smart-home-hub:signify:hue-bridge-8719514342620"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "philips-hue-tr:privacy",
+      "uri": "https://www.philips-hue.com/tr-tr/support/legal/privacy-policy",
+      "market": "TR",
+      "authority": "PRIVACY_HEALTH_SUBSCRIPTION_SAFETY",
+      "exactProductIds": [
+        "electronics:smart-home-hub:signify:hue-bridge-8719514342620"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "philips-hue-tr:data-privacy-faq",
+      "uri": "https://www.philips-hue.com/tr-tr/support/topic/data-privacy/100056",
+      "market": "TR",
+      "authority": "PRIVACY_HEALTH_SUBSCRIPTION_SAFETY",
+      "exactProductIds": [
+        "electronics:smart-home-hub:signify:hue-bridge-8719514342620"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "philips-hue-tr:matter",
+      "uri": "https://www.philips-hue.com/tr-tr/explore-hue/works-with/matter",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:smart-home-hub:signify:hue-bridge-8719514342620"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "philips-hue:manual-322263907421",
+      "uri": "https://www.assets.signify.com/is/content/Signify/8719514342620-322263907421",
+      "market": "TR",
+      "authority": "MANUAL",
+      "exactProductIds": [
+        "electronics:smart-home-hub:signify:hue-bridge-8719514342620"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    }
+  ],
+  "comparativeFacts": [
+    {
+      "factId": "wave4-fact:electronics-smartwatch-samsung-sm-l330ndaatur:case_size_mm:1",
+      "exactProductId": "electronics:smartwatch:samsung:sm-l330ndaatur",
+      "categoryId": "SMARTWATCH",
+      "key": "case_size_mm",
+      "value": 44,
+      "unit": "mm",
+      "sourceId": "samsung-tr:SM-L330NDAATUR",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-smartwatch-samsung-sm-l330ndaatur:connectivity:2",
+      "exactProductId": "electronics:smartwatch:samsung:sm-l330ndaatur",
+      "categoryId": "SMARTWATCH",
+      "key": "connectivity",
+      "value": "Bluetooth",
+      "sourceId": "samsung-tr:SM-L330NDAATUR",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-smartwatch-samsung-sm-l330ndaatur:phone_requirement:3",
+      "exactProductId": "electronics:smartwatch:samsung:sm-l330ndaatur",
+      "categoryId": "SMARTWATCH",
+      "key": "phone_requirement",
+      "value": "Android 12+",
+      "sourceId": "samsung-tr:SM-L330NDAATUR",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-smartwatch-samsung-sm-l330ndaatur:health_boundary:4",
+      "exactProductId": "electronics:smartwatch:samsung:sm-l330ndaatur",
+      "categoryId": "SMARTWATCH",
+      "key": "health_boundary",
+      "value": "general wellness; not medical advice",
+      "sourceId": "samsung-tr:SM-L330NDAATUR",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-smartwatch-huawei-vli-b19-46-black:case_size_mm:1",
+      "exactProductId": "electronics:smartwatch:huawei:vli-b19-46-black",
+      "categoryId": "SMARTWATCH",
+      "key": "case_size_mm",
+      "value": 46,
+      "unit": "mm",
+      "sourceId": "huawei-tr:WATCH-GT5",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-smartwatch-huawei-vli-b19-46-black:connectivity:2",
+      "exactProductId": "electronics:smartwatch:huawei:vli-b19-46-black",
+      "categoryId": "SMARTWATCH",
+      "key": "connectivity",
+      "value": "Bluetooth",
+      "sourceId": "huawei-tr:WATCH-GT5",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-smartwatch-huawei-vli-b19-46-black:phone_requirement:3",
+      "exactProductId": "electronics:smartwatch:huawei:vli-b19-46-black",
+      "categoryId": "SMARTWATCH",
+      "key": "phone_requirement",
+      "value": "Android/iOS with HUAWEI Health",
+      "sourceId": "huawei-tr:WATCH-GT5",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-smartwatch-huawei-vli-b19-46-black:health_boundary:4",
+      "exactProductId": "electronics:smartwatch:huawei:vli-b19-46-black",
+      "categoryId": "SMARTWATCH",
+      "key": "health_boundary",
+      "value": "not a medical device",
+      "sourceId": "huawei-tr:WATCH-GT5",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-fitness-tracker-xiaomi-m2435b1-black:display_inches:1",
+      "exactProductId": "electronics:fitness-tracker:xiaomi:m2435b1-black",
+      "categoryId": "FITNESS_TRACKER",
+      "key": "display_inches",
+      "value": 1.74,
+      "unit": "in",
+      "sourceId": "xiaomi-tr:Smart-Band-9-Pro",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-fitness-tracker-xiaomi-m2435b1-black:connectivity:2",
+      "exactProductId": "electronics:fitness-tracker:xiaomi:m2435b1-black",
+      "categoryId": "FITNESS_TRACKER",
+      "key": "connectivity",
+      "value": "Bluetooth",
+      "sourceId": "xiaomi-tr:Smart-Band-9-Pro",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-fitness-tracker-xiaomi-m2435b1-black:battery_days_max:3",
+      "exactProductId": "electronics:fitness-tracker:xiaomi:m2435b1-black",
+      "categoryId": "FITNESS_TRACKER",
+      "key": "battery_days_max",
+      "value": 21,
+      "unit": "days",
+      "sourceId": "xiaomi-tr:Smart-Band-9-Pro",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-fitness-tracker-xiaomi-m2435b1-black:health_boundary:4",
+      "exactProductId": "electronics:fitness-tracker:xiaomi:m2435b1-black",
+      "categoryId": "FITNESS_TRACKER",
+      "key": "health_boundary",
+      "value": "product and Mi Fitness are not medical devices",
+      "sourceId": "xiaomi-tr:Smart-Band-9-Pro",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-fitness-tracker-huawei-nor-b19-black:display_inches:1",
+      "exactProductId": "electronics:fitness-tracker:huawei:nor-b19-black",
+      "categoryId": "FITNESS_TRACKER",
+      "key": "display_inches",
+      "value": 1.47,
+      "unit": "in",
+      "sourceId": "huawei-tr:Band10",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-fitness-tracker-huawei-nor-b19-black:connectivity:2",
+      "exactProductId": "electronics:fitness-tracker:huawei:nor-b19-black",
+      "categoryId": "FITNESS_TRACKER",
+      "key": "connectivity",
+      "value": "Bluetooth 5.0/BLE",
+      "sourceId": "huawei-tr:Band10",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-fitness-tracker-huawei-nor-b19-black:battery_days_typical:3",
+      "exactProductId": "electronics:fitness-tracker:huawei:nor-b19-black",
+      "categoryId": "FITNESS_TRACKER",
+      "key": "battery_days_typical",
+      "value": 8,
+      "unit": "days",
+      "sourceId": "huawei-tr:Band10",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-fitness-tracker-huawei-nor-b19-black:health_boundary:4",
+      "exactProductId": "electronics:fitness-tracker:huawei:nor-b19-black",
+      "categoryId": "FITNESS_TRACKER",
+      "key": "health_boundary",
+      "value": "not for diagnosis or treatment",
+      "sourceId": "huawei-tr:Band10",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-home-security-camera-tp-link-tapo-c225-eu-v1:resolution:1",
+      "exactProductId": "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "key": "resolution",
+      "value": "2K QHD",
+      "sourceId": "tplink-tr:C225-EU-V1",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-home-security-camera-tp-link-tapo-c225-eu-v1:power:2",
+      "exactProductId": "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "key": "power",
+      "value": "12V DC mains adapter",
+      "sourceId": "tplink-tr:C225-EU-V1",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-home-security-camera-tp-link-tapo-c225-eu-v1:local_storage:3",
+      "exactProductId": "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "key": "local_storage",
+      "value": "microSD up to 512GB",
+      "sourceId": "tplink-tr:C225-EU-V1",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-home-security-camera-tp-link-tapo-c225-eu-v1:privacy:4",
+      "exactProductId": "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "key": "privacy",
+      "value": "physical lens shutter; optional Tapo Care cloud subscription",
+      "sourceId": "tplink-tr:C225-EU-V1",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-home-security-camera-ezviz-cs-c6n-a0-1c2wfr:resolution:1",
+      "exactProductId": "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "key": "resolution",
+      "value": "1920x1080 up to 15fps",
+      "sourceId": "ezviz-tr:C6N",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-home-security-camera-ezviz-cs-c6n-a0-1c2wfr:power:2",
+      "exactProductId": "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "key": "power",
+      "value": "5V/1A Micro USB",
+      "sourceId": "ezviz-tr:C6N",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-home-security-camera-ezviz-cs-c6n-a0-1c2wfr:local_storage:3",
+      "exactProductId": "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "key": "local_storage",
+      "value": "microSD up to 256GB",
+      "sourceId": "ezviz-tr:C6N",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-home-security-camera-ezviz-cs-c6n-a0-1c2wfr:privacy:4",
+      "exactProductId": "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "key": "privacy",
+      "value": "sleep mode; optional market-dependent encrypted cloud",
+      "sourceId": "ezviz-tr:C6N",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-video-doorbell-tp-link-tapo-d235:resolution:1",
+      "exactProductId": "electronics:video-doorbell:tp-link:tapo-d235",
+      "categoryId": "VIDEO_DOORBELL",
+      "key": "resolution",
+      "value": "2K 5MP",
+      "sourceId": "tplink-tr:D235",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-video-doorbell-tp-link-tapo-d235:power:2",
+      "exactProductId": "electronics:video-doorbell:tp-link:tapo-d235",
+      "categoryId": "VIDEO_DOORBELL",
+      "key": "power",
+      "value": "10000mAh battery or wired",
+      "sourceId": "tplink-tr:D235",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-video-doorbell-tp-link-tapo-d235:local_storage:3",
+      "exactProductId": "electronics:video-doorbell:tp-link:tapo-d235",
+      "categoryId": "VIDEO_DOORBELL",
+      "key": "local_storage",
+      "value": "microSD up to 512GB",
+      "sourceId": "tplink-tr:D235",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-video-doorbell-tp-link-tapo-d235:subscription:4",
+      "exactProductId": "electronics:video-doorbell:tp-link:tapo-d235",
+      "categoryId": "VIDEO_DOORBELL",
+      "key": "subscription",
+      "value": "local recording available; Tapo Care cloud optional",
+      "sourceId": "tplink-tr:D235",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-video-doorbell-ezviz-cs-ep3x-pro:resolution:1",
+      "exactProductId": "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+      "categoryId": "VIDEO_DOORBELL",
+      "key": "resolution",
+      "value": "2K plus 1080p dual lens",
+      "sourceId": "ezviz-tr:EP3x-Pro",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-video-doorbell-ezviz-cs-ep3x-pro:power:2",
+      "exactProductId": "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+      "categoryId": "VIDEO_DOORBELL",
+      "key": "power",
+      "value": "battery; solar panel included; wired option",
+      "sourceId": "ezviz-tr:EP3x-Pro",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-video-doorbell-ezviz-cs-ep3x-pro:local_storage:3",
+      "exactProductId": "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+      "categoryId": "VIDEO_DOORBELL",
+      "key": "local_storage",
+      "value": "built-in 32GB eMMC",
+      "sourceId": "ezviz-tr:EP3x-Pro",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-video-doorbell-ezviz-cs-ep3x-pro:subscription:4",
+      "exactProductId": "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+      "categoryId": "VIDEO_DOORBELL",
+      "key": "subscription",
+      "value": "local clips without subscription; CloudPlay optional",
+      "sourceId": "ezviz-tr:EP3x-Pro",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-smart-home-hub-tp-link-tapo-h200-eu-v1:protocols:1",
+      "exactProductId": "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "protocols",
+      "value": "2.4GHz Wi-Fi/Ethernet/Sub-1G EU",
+      "sourceId": "tplink-tr:H200-EU-V1",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-smart-home-hub-tp-link-tapo-h200-eu-v1:device_capacity:2",
+      "exactProductId": "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "device_capacity",
+      "value": "64 sensors plus 4 cameras/doorbells",
+      "sourceId": "tplink-tr:H200-EU-V1",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-smart-home-hub-tp-link-tapo-h200-eu-v1:local_storage:3",
+      "exactProductId": "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "local_storage",
+      "value": "microSD up to 512GB",
+      "sourceId": "tplink-tr:H200-EU-V1",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-smart-home-hub-tp-link-tapo-h200-eu-v1:cloud_account_boundary:4",
+      "exactProductId": "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "cloud_account_boundary",
+      "value": "Tapo app required for setup and remote control",
+      "sourceId": "tplink-tr:H200-EU-V1",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-ups-apc-bx1200mi-gr:topology:1",
+      "exactProductId": "electronics:ups:apc:bx1200mi-gr",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "key": "topology",
+      "value": "line-interactive AVR",
+      "sourceId": "schneider-tr:BX1200MI-GR",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-ups-apc-bx1200mi-gr:capacity:2",
+      "exactProductId": "electronics:ups:apc:bx1200mi-gr",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "key": "capacity",
+      "value": "1200VA/650W",
+      "sourceId": "schneider-tr:BX1200MI-GR",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-ups-apc-bx1200mi-gr:mains_outlets:3",
+      "exactProductId": "electronics:ups:apc:bx1200mi-gr",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "key": "mains_outlets",
+      "value": "230V; 4 Schuko",
+      "sourceId": "schneider-tr:BX1200MI-GR",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-ups-apc-bx1200mi-gr:electrical_safety:4",
+      "exactProductId": "electronics:ups:apc:bx1200mi-gr",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "key": "electrical_safety",
+      "value": "sealed lead-acid; installation and battery safety documentation required",
+      "sourceId": "schneider-tr:BX1200MI-GR",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-ups-eaton-5e1200ui:topology:1",
+      "exactProductId": "electronics:ups:eaton:5e1200ui",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "key": "topology",
+      "value": "line-interactive AVR",
+      "sourceId": "eaton-tr:5E1200UI",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-ups-eaton-5e1200ui:capacity:2",
+      "exactProductId": "electronics:ups:eaton:5e1200ui",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "key": "capacity",
+      "value": "1200VA/660W",
+      "sourceId": "eaton-tr:5E1200UI",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-ups-eaton-5e1200ui:mains_outlets:3",
+      "exactProductId": "electronics:ups:eaton:5e1200ui",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "key": "mains_outlets",
+      "value": "230V; C14 input; 6 C13 outputs",
+      "sourceId": "eaton-tr:5E1200UI",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-fact:electronics-ups-eaton-5e1200ui:electrical_safety:4",
+      "exactProductId": "electronics:ups:eaton:5e1200ui",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "key": "electrical_safety",
+      "value": "IEC/EN 62040-1/-2/-3; sealed lead-acid",
+      "sourceId": "eaton-tr:5E1200UI",
+      "locator": "Exact official Türkiye product/specification or limitation field",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-repair-fact:philips-hue-bridge:product_type",
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "product_type",
+      "value": "Standalone smart home automation hub (Hue Bridge)",
+      "sourceId": "philips-hue-tr:8719514342620",
+      "locator": "Product description: smart home automation hub",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-repair-fact:philips-hue-bridge:protocols",
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "protocols",
+      "value": "Zigbee; Bluetooth; Matter via Hue Bridge",
+      "sourceId": "philips-hue-tr:matter",
+      "locator": "Matter compatibility and Bridge connectivity",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-repair-fact:philips-hue-bridge:device_capacity",
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "device_capacity",
+      "value": "Up to 50 lights and 12 accessories",
+      "sourceId": "philips-hue-tr:8719514342620",
+      "locator": "Technical specifications: maximum accessories/bulbs",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-repair-fact:philips-hue-bridge:account_cloud_local_dependency",
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "account_cloud_local_dependency",
+      "value": "Ethernet-connected Bridge; account enables remote access; lights remain controllable when internet is unavailable",
+      "sourceId": "philips-hue-tr:accounts",
+      "locator": "Hue account benefits and offline control",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-repair-fact:philips-hue-bridge:subscription",
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "subscription",
+      "value": "No paid subscription requirement stated for Bridge operation; no subscription-dependent comparison claim",
+      "sourceId": "philips-hue-tr:8719514342620",
+      "locator": "Official product capabilities and included services",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-repair-fact:philips-hue-bridge:privacy_data",
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "privacy_data",
+      "value": "Account interactions may be associated with the account; specified automation location data remains on device and Bridge; factory reset advised before resale",
+      "sourceId": "philips-hue-tr:privacy",
+      "locator": "Account data, location processing, and resale reset disclosures",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-repair-fact:philips-hue-bridge:power_safety",
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "power_safety",
+      "value": "Adapter input 100-240 V AC 50-60 Hz; output 5 V DC 600 mA; IP20; Class II double insulated",
+      "sourceId": "philips-hue-tr:8719514342620",
+      "locator": "Technical specifications: power and protection",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-repair-fact:philips-hue-bridge:included_components",
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "included_components",
+      "value": "1 Hue Bridge, 1 Ethernet cable, 1 power adapter",
+      "sourceId": "philips-hue-tr:8719514342620",
+      "locator": "What's in the box",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave4-repair-fact:philips-hue-bridge:support_warranty",
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "categoryId": "SMART_HOME_HUB",
+      "key": "support_warranty",
+      "value": "2-year warranty; minimum defined support period 36 months after introduction",
+      "sourceId": "philips-hue-tr:8719514342620",
+      "locator": "Guarantee and support specifications",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    }
+  ],
+  "manuals": [
+    {
+      "manualId": "wave4-manual:tapo-c225-eu-v1",
+      "exactProductId": "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+      "sourceUri": "https://static.tp-link.com/upload/product-overview/2023/202302/20230215/Tapo%20C225%28EU%291.0_Datasheet.pdf",
+      "localPath": "data/production/electronics/wave-4-evidence/manuals/tapo-c225-eu-v1-datasheet.pdf",
+      "sha256": "sha256:516aa767f8a86360e7fd66157a6578b8f2679cb04ca9af674ad013d9d3708703",
+      "locators": [
+        "Model and region",
+        "Power",
+        "Local/cloud storage",
+        "Package contents"
+      ],
+      "layer": "L9_ADVISOR_KNOWLEDGE"
+    },
+    {
+      "manualId": "wave4-repair-manual:philips-hue-bridge-8719514342620",
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "sourceUri": "https://www.assets.signify.com/is/content/Signify/8719514342620-322263907421",
+      "localPath": "data/production/electronics/wave-4-repair/manuals/philips-hue-bridge-8719514342620-manual.pdf",
+      "sha256": "sha256:619f2ce73bdcf9b9cd22cb6c3d81bb89ac0c48444abcd4f5de7812fffbef274f",
+      "locators": [
+        "Bridge user manual",
+        "Document 3222 639 07421",
+        "Last update 03/2021",
+        "Signify manufacturer identity"
+      ],
+      "layer": "L9_ADVISOR_KNOWLEDGE"
+    }
+  ],
+  "riskGates": [
+    {
+      "categoryId": "SMARTWATCH",
+      "privacy": "UNKNOWN_NEUTRAL_NON_BLOCKING",
+      "health": "EVIDENCED",
+      "subscription": "EVIDENCED",
+      "installation": "NOT_APPLICABLE",
+      "electricalSafety": "EVIDENCED",
+      "notes": [
+        "No retention-sensitive ranking claim; account/app dependency and non-medical boundary recorded"
+      ]
+    },
+    {
+      "categoryId": "FITNESS_TRACKER",
+      "privacy": "UNKNOWN_NEUTRAL_NON_BLOCKING",
+      "health": "EVIDENCED",
+      "subscription": "EVIDENCED",
+      "installation": "NOT_APPLICABLE",
+      "electricalSafety": "EVIDENCED",
+      "notes": [
+        "No retention-sensitive ranking claim; non-medical boundary recorded"
+      ]
+    },
+    {
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "privacy": "EVIDENCED",
+      "health": "NOT_APPLICABLE",
+      "subscription": "EVIDENCED",
+      "installation": "EVIDENCED",
+      "electricalSafety": "EVIDENCED",
+      "notes": [
+        "Local storage and physical/software privacy controls distinguished from optional cloud"
+      ]
+    },
+    {
+      "categoryId": "VIDEO_DOORBELL",
+      "privacy": "EVIDENCED",
+      "health": "NOT_APPLICABLE",
+      "subscription": "EVIDENCED",
+      "installation": "EVIDENCED",
+      "electricalSafety": "EVIDENCED",
+      "notes": [
+        "Power, included components, local storage, and optional cloud topology recorded"
+      ]
+    },
+    {
+      "categoryId": "SMART_HOME_HUB",
+      "privacy": "EVIDENCED",
+      "health": "NOT_APPLICABLE",
+      "subscription": "UNKNOWN_NEUTRAL_NON_BLOCKING",
+      "installation": "EVIDENCED",
+      "electricalSafety": "EVIDENCED",
+      "notes": [
+        "Hue account, offline operation, privacy/data topology, included Ethernet/power components, and electrical protection are explicit",
+        "No subscription-sensitive ranking claim is admitted"
+      ]
+    },
+    {
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "privacy": "NOT_APPLICABLE",
+      "health": "NOT_APPLICABLE",
+      "subscription": "NOT_APPLICABLE",
+      "installation": "EVIDENCED",
+      "electricalSafety": "EVIDENCED",
+      "notes": [
+        "230V, topology, outlet form, battery chemistry, and safety standards recorded"
+      ]
+    }
+  ],
+  "categoryReadiness": [
+    {
+      "categoryId": "SMARTWATCH",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 4,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "MULTI_MANUFACTURER_EXACT_TR_COMPARISON_WITH_CATEGORY_RISK_BOUNDARIES"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "FITNESS_TRACKER",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 5,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "MULTI_MANUFACTURER_EXACT_TR_COMPARISON_WITH_CATEGORY_RISK_BOUNDARIES"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 4,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "MULTI_MANUFACTURER_EXACT_TR_COMPARISON_WITH_CATEGORY_RISK_BOUNDARIES"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "VIDEO_DOORBELL",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 4,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "MULTI_MANUFACTURER_EXACT_TR_COMPARISON_WITH_CATEGORY_RISK_BOUNDARIES"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "SMART_HOME_HUB",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 11,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "TWO_EXACT_TR_STANDALONE_HUBS_FROM_INDEPENDENT_MANUFACTURERS",
+        "PROTOCOL_CAPACITY_ACCOUNT_PRIVACY_POWER_AND_COMPONENT_EVIDENCE_BOUND"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 4,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "MULTI_MANUFACTURER_EXACT_TR_COMPARISON_WITH_CATEGORY_RISK_BOUNDARIES"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    }
+  ],
+  "decisionProjections": [
+    {
+      "projectionId": "wave4-projection:electronics-smartwatch-samsung-sm-l330ndaatur",
+      "exactProductId": "electronics:smartwatch:samsung:sm-l330ndaatur",
+      "eligibleFactIds": [
+        "wave4-fact:electronics-smartwatch-samsung-sm-l330ndaatur:case_size_mm:1",
+        "wave4-fact:electronics-smartwatch-samsung-sm-l330ndaatur:connectivity:2",
+        "wave4-fact:electronics-smartwatch-samsung-sm-l330ndaatur:phone_requirement:3",
+        "wave4-fact:electronics-smartwatch-samsung-sm-l330ndaatur:health_boundary:4"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave4-projection:electronics-smartwatch-huawei-vli-b19-46-black",
+      "exactProductId": "electronics:smartwatch:huawei:vli-b19-46-black",
+      "eligibleFactIds": [
+        "wave4-fact:electronics-smartwatch-huawei-vli-b19-46-black:case_size_mm:1",
+        "wave4-fact:electronics-smartwatch-huawei-vli-b19-46-black:connectivity:2",
+        "wave4-fact:electronics-smartwatch-huawei-vli-b19-46-black:phone_requirement:3",
+        "wave4-fact:electronics-smartwatch-huawei-vli-b19-46-black:health_boundary:4"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave4-projection:electronics-fitness-tracker-xiaomi-m2435b1-black",
+      "exactProductId": "electronics:fitness-tracker:xiaomi:m2435b1-black",
+      "eligibleFactIds": [
+        "wave4-fact:electronics-fitness-tracker-xiaomi-m2435b1-black:display_inches:1",
+        "wave4-fact:electronics-fitness-tracker-xiaomi-m2435b1-black:connectivity:2",
+        "wave4-fact:electronics-fitness-tracker-xiaomi-m2435b1-black:battery_days_max:3",
+        "wave4-fact:electronics-fitness-tracker-xiaomi-m2435b1-black:health_boundary:4"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave4-projection:electronics-fitness-tracker-huawei-nor-b19-black",
+      "exactProductId": "electronics:fitness-tracker:huawei:nor-b19-black",
+      "eligibleFactIds": [
+        "wave4-fact:electronics-fitness-tracker-huawei-nor-b19-black:display_inches:1",
+        "wave4-fact:electronics-fitness-tracker-huawei-nor-b19-black:connectivity:2",
+        "wave4-fact:electronics-fitness-tracker-huawei-nor-b19-black:battery_days_typical:3",
+        "wave4-fact:electronics-fitness-tracker-huawei-nor-b19-black:health_boundary:4"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave4-projection:electronics-home-security-camera-tp-link-tapo-c225-eu-v1",
+      "exactProductId": "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+      "eligibleFactIds": [
+        "wave4-fact:electronics-home-security-camera-tp-link-tapo-c225-eu-v1:resolution:1",
+        "wave4-fact:electronics-home-security-camera-tp-link-tapo-c225-eu-v1:power:2",
+        "wave4-fact:electronics-home-security-camera-tp-link-tapo-c225-eu-v1:local_storage:3",
+        "wave4-fact:electronics-home-security-camera-tp-link-tapo-c225-eu-v1:privacy:4"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave4-projection:electronics-home-security-camera-ezviz-cs-c6n-a0-1c2wfr",
+      "exactProductId": "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+      "eligibleFactIds": [
+        "wave4-fact:electronics-home-security-camera-ezviz-cs-c6n-a0-1c2wfr:resolution:1",
+        "wave4-fact:electronics-home-security-camera-ezviz-cs-c6n-a0-1c2wfr:power:2",
+        "wave4-fact:electronics-home-security-camera-ezviz-cs-c6n-a0-1c2wfr:local_storage:3",
+        "wave4-fact:electronics-home-security-camera-ezviz-cs-c6n-a0-1c2wfr:privacy:4"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave4-projection:electronics-video-doorbell-tp-link-tapo-d235",
+      "exactProductId": "electronics:video-doorbell:tp-link:tapo-d235",
+      "eligibleFactIds": [
+        "wave4-fact:electronics-video-doorbell-tp-link-tapo-d235:resolution:1",
+        "wave4-fact:electronics-video-doorbell-tp-link-tapo-d235:power:2",
+        "wave4-fact:electronics-video-doorbell-tp-link-tapo-d235:local_storage:3",
+        "wave4-fact:electronics-video-doorbell-tp-link-tapo-d235:subscription:4"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave4-projection:electronics-video-doorbell-ezviz-cs-ep3x-pro",
+      "exactProductId": "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+      "eligibleFactIds": [
+        "wave4-fact:electronics-video-doorbell-ezviz-cs-ep3x-pro:resolution:1",
+        "wave4-fact:electronics-video-doorbell-ezviz-cs-ep3x-pro:power:2",
+        "wave4-fact:electronics-video-doorbell-ezviz-cs-ep3x-pro:local_storage:3",
+        "wave4-fact:electronics-video-doorbell-ezviz-cs-ep3x-pro:subscription:4"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave4-projection:electronics-smart-home-hub-tp-link-tapo-h200-eu-v1",
+      "exactProductId": "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+      "eligibleFactIds": [
+        "wave4-fact:electronics-smart-home-hub-tp-link-tapo-h200-eu-v1:protocols:1",
+        "wave4-fact:electronics-smart-home-hub-tp-link-tapo-h200-eu-v1:device_capacity:2",
+        "wave4-fact:electronics-smart-home-hub-tp-link-tapo-h200-eu-v1:local_storage:3",
+        "wave4-fact:electronics-smart-home-hub-tp-link-tapo-h200-eu-v1:cloud_account_boundary:4"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave4-projection:electronics-ups-apc-bx1200mi-gr",
+      "exactProductId": "electronics:ups:apc:bx1200mi-gr",
+      "eligibleFactIds": [
+        "wave4-fact:electronics-ups-apc-bx1200mi-gr:topology:1",
+        "wave4-fact:electronics-ups-apc-bx1200mi-gr:capacity:2",
+        "wave4-fact:electronics-ups-apc-bx1200mi-gr:mains_outlets:3",
+        "wave4-fact:electronics-ups-apc-bx1200mi-gr:electrical_safety:4"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave4-projection:electronics-ups-eaton-5e1200ui",
+      "exactProductId": "electronics:ups:eaton:5e1200ui",
+      "eligibleFactIds": [
+        "wave4-fact:electronics-ups-eaton-5e1200ui:topology:1",
+        "wave4-fact:electronics-ups-eaton-5e1200ui:capacity:2",
+        "wave4-fact:electronics-ups-eaton-5e1200ui:mains_outlets:3",
+        "wave4-fact:electronics-ups-eaton-5e1200ui:electrical_safety:4"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave4-repair-projection:philips-hue-bridge-8719514342620",
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "eligibleFactIds": [
+        "wave4-repair-fact:philips-hue-bridge:product_type",
+        "wave4-repair-fact:philips-hue-bridge:protocols",
+        "wave4-repair-fact:philips-hue-bridge:device_capacity",
+        "wave4-repair-fact:philips-hue-bridge:account_cloud_local_dependency",
+        "wave4-repair-fact:philips-hue-bridge:subscription",
+        "wave4-repair-fact:philips-hue-bridge:privacy_data",
+        "wave4-repair-fact:philips-hue-bridge:power_safety",
+        "wave4-repair-fact:philips-hue-bridge:included_components",
+        "wave4-repair-fact:philips-hue-bridge:support_warranty"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    }
+  ],
+  "rejectedInvestigations": [
+    {
+      "categoryId": "SMART_HOME_HUB",
+      "candidate": "Aqara Hub M3 HM-G01D",
+      "reason": "Official international technical and security records found, but no independent exact Türkiye applicability authority was established.",
+      "effect": "NONE"
+    }
+  ],
+  "unknownsAndConflicts": [
+    {
+      "exactProductId": "electronics:smartwatch:samsung:sm-l330ndaatur",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartwatch:samsung:sm-l330ndaatur",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartwatch:samsung:sm-l330ndaatur",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartwatch:samsung:sm-l330ndaatur",
+      "code": "PRODUCT_SPECIFIC_DATA_RETENTION_AND_DELETION_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartwatch:huawei:vli-b19-46-black",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartwatch:huawei:vli-b19-46-black",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartwatch:huawei:vli-b19-46-black",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartwatch:huawei:vli-b19-46-black",
+      "code": "PRODUCT_SPECIFIC_DATA_RETENTION_AND_DELETION_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:fitness-tracker:xiaomi:m2435b1-black",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:fitness-tracker:xiaomi:m2435b1-black",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:fitness-tracker:xiaomi:m2435b1-black",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:fitness-tracker:xiaomi:m2435b1-black",
+      "code": "PRODUCT_SPECIFIC_DATA_RETENTION_AND_DELETION_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:fitness-tracker:huawei:nor-b19-black",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:fitness-tracker:huawei:nor-b19-black",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:fitness-tracker:huawei:nor-b19-black",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:fitness-tracker:huawei:nor-b19-black",
+      "code": "PRODUCT_SPECIFIC_DATA_RETENTION_AND_DELETION_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:home-security-camera:tp-link:tapo-c225-eu-v1",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:home-security-camera:ezviz:cs-c6n-a0-1c2wfr",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:video-doorbell:tp-link:tapo-d235",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:video-doorbell:tp-link:tapo-d235",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:video-doorbell:tp-link:tapo-d235",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:video-doorbell:ezviz:cs-ep3x-pro",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:ups:apc:bx1200mi-gr",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:ups:apc:bx1200mi-gr",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:ups:apc:bx1200mi-gr",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:ups:eaton:5e1200ui",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:ups:eaton:5e1200ui",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:ups:eaton:5e1200ui",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    }
+  ],
+  "carryForward": {
+    "scope": "WAVES_1_TO_3_AND_WAVE_4_NON_HUB_RECORDS",
+    "parentReleaseDigest": "sha256:3cebc6073546f3a9dac526310f60edc131e84afe8eccf3d1bdb75ef37746ce0b",
+    "parentBytesUnmodified": true
+  },
+  "boundaries": {
+    "l7Experience": "ABSENT",
+    "mediaImported": false,
+    "l10YEffect": "NONE",
+    "amazonStatusEffect": "NONE",
+    "activationPerformed": false,
+    "registryChanged": false,
+    "runtimeChanged": false,
+    "databaseChanged": false,
+    "pointerChanged": false,
+    "deploymentPerformed": false
+  },
+  "hubRepair": {
+    "disposition": "REPAIRED",
+    "repairedCategoryId": "SMART_HOME_HUB",
+    "addedExactProductId": "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+    "independentManufacturer": "Signify / Philips Hue",
+    "productClassification": "STANDALONE_SMART_HOME_AUTOMATION_HUB"
+  },
+  "unchangedProof": {
+    "scope": "ALL_NON_SMART_HOME_HUB_WAVE_4_RECORDS",
+    "parentSubsetDigest": "sha256:0bc6e2fe14968914bcd38f56da68524cc68bf03c701a0f8c2446856a1c7f442c",
+    "childSubsetDigest": "sha256:0bc6e2fe14968914bcd38f56da68524cc68bf03c701a0f8c2446856a1c7f442c",
+    "byteIdentical": true
+  }
+}

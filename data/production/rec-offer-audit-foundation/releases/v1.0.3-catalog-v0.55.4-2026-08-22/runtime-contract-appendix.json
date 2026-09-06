@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "1.0.0",
+  "contractPolicy": "DETERMINISTIC_SOURCE_FINGERPRINT_APPENDIX_V1",
+  "sourceEmbedding": false,
+  "contracts": [
+    {
+      "sourcePath": "app/api/cars/conversation/route.ts",
+      "sourceChecksum": "sha256:30899c0f95670808b6dd8373b57e8eee536df4d452303fd81a23705ee829180c"
+    },
+    {
+      "sourcePath": "features/decision/v2/integration/publicRoute.server.ts",
+      "sourceChecksum": "sha256:04530b258c0feda7e666e55bae2d3091ae74c34f534e76c8c00295ca0ac25dee"
+    },
+    {
+      "sourcePath": "features/decision/v2/orchestrator/types.ts",
+      "sourceChecksum": "sha256:2201b2d0dfa735df5248ff2d9327e34eaecab1094f1a427ad723182f2b0eeba6"
+    },
+    {
+      "sourcePath": "features/decision/v2/orchestrator/runCarsDecisionTurnV2.ts",
+      "sourceChecksum": "sha256:ec8c85a0ec00b6fdabae5676cf824666f9f95c1087895baf3dd0a9d93d5202f5"
+    },
+    {
+      "sourcePath": "features/decision/v2/persistence/postgresStore.server.ts",
+      "sourceChecksum": "sha256:1fbae2fc1dcd9f044bb84dd410676956e8249731a8ebbb93575568e47e231809"
+    },
+    {
+      "sourcePath": "features/decision/v2/orchestrator/store.ts",
+      "sourceChecksum": "sha256:8a821c94056cc8b9b11c8130b1c6e7598324ddd7c0394fe3002217a4d71f93fc"
+    },
+    {
+      "sourcePath": "features/decision/v2/domain/conversationEvent.ts",
+      "sourceChecksum": "sha256:7fc5be081465dffad43dcd7069ba4e84ad0cb4a8f185f12ff23aeadc64a1b5f1"
+    },
+    {
+      "sourcePath": "features/decision/v2/domain/eventDecisionImpact.ts",
+      "sourceChecksum": "sha256:7d0d90e5e1a4e51e2caa1bb7920c9d18688ab7338dcb5c80e0f62a748085aad7"
+    },
+    {
+      "sourcePath": "features/decision/v2/schema/conversationEventSchema.ts",
+      "sourceChecksum": "sha256:51785a9eabb41f08f957cb907fdf01d8f9914e51b0cfbb5d86f79fd374be5283"
+    },
+    {
+      "sourcePath": "features/decision/v2/offer/recOfferAuditFoundation.server.ts",
+      "sourceChecksum": "sha256:78f700a68b93617c618bd259aefb76a5e0b533422ce7cbf3ead4462756da6c1c"
+    },
+    {
+      "sourcePath": "features/vehicle-data/equipmentRecommendationOfferAuditAdapter.server.ts",
+      "sourceChecksum": "sha256:7d27e18f9d145f5c8f5a1ded598c71aabdba5b4252828941e4700b81d7f4f5a5"
+    },
+    {
+      "sourcePath": "features/vehicle-data/equipmentAuditAuthorizationResolver.server.ts",
+      "sourceChecksum": "sha256:93cb48804557ac98032c60875974dba01864fb8a533f1a03901ca1a8cc68b880"
+    },
+    {
+      "sourcePath": "features/decision/v2/offer/recOfferAuditFoundationRuntime.server.ts",
+      "sourceChecksum": "sha256:0594e3550d8f741c51e938f0911ad025a93281fe987a266d56f597da6e166234"
+    },
+    {
+      "sourcePath": "features/vehicle-data/equipmentPublicExplanationIntegrationRuntime.server.ts",
+      "sourceChecksum": "sha256:4bd9d2a5d7d502a3efcdb163be53254c64a9fd74228fb084b97bbdda3a6667d6"
+    },
+    {
+      "sourcePath": "features/vehicle-data/equipmentPublicExplanationIntegrationLifecycle.server.ts",
+      "sourceChecksum": "sha256:78750bb578be5b60122e1488764a9a9f6ab7ae0d938a778bc12b5353cfc2036d"
+    },
+    {
+      "sourcePath": "features/vehicle-data/equipmentPublicExplanationIntegrationActivation.server.ts",
+      "sourceChecksum": "sha256:4654242fc8e2ad516834d8d9b05efb7749a0a1d011e0139b44fef287314f5f55"
+    },
+    {
+      "sourcePath": "features/vehicle-data/equipmentPublicExplanationFacade.server.ts",
+      "sourceChecksum": "sha256:5112542af96f25b139f4b5e01b19d62887ea83ec72344d65b916b475f5b79859"
+    },
+    {
+      "sourcePath": "app/api/cars/equipment-explanation/route.ts",
+      "sourceChecksum": "sha256:0fe386c642fc437b48aedabcb1253cdfb35413db7425c62c64bff1178a542b37"
+    },
+    {
+      "sourcePath": "features/vehicle-data/equipmentPublicExplanationRenderer.ts",
+      "sourceChecksum": "sha256:770534c4949f28ebc9b3cf9ccfcfe33dc033eec17c6bac0e4332017e9c297d8d"
+    },
+    {
+      "sourcePath": "components/cars/CarsConversation.tsx",
+      "sourceChecksum": "sha256:68631df319357fed1e5611af9d97d44afa1ae8677425cb7fbcc4f5e3e3875698"
+    },
+    {
+      "sourcePath": "components/cars/V2AuthorizedCarCard.tsx",
+      "sourceChecksum": "sha256:30dbe013e5c5140b40077fd49a60a635a090ca023c06c3bf01ccac38862d7c1f"
+    }
+  ],
+  "invariants": {
+    "routeAuthoritativeRecIntent": true,
+    "atomicPostgresAcceptanceRevealCommit": true,
+    "inMemoryParity": true,
+    "eventSchemaAndClassifier": true,
+    "readOnlyVerifiedResolver": true,
+    "verifiedOnlyEquipmentAdapter": true,
+    "pointerControlledFoundationCutover": true,
+    "eventBoundIntegrationLoaderAndModule": true,
+    "activePolicyFacadeConsumption": true,
+    "equipmentEndpointConsumesActiveFacade": true,
+    "equipmentEndpointFailClosedUntilLaunch": true,
+    "vehicleSessionIntegrity": "CONVERSATION_EXACT_VARIANT_OFFER",
+    "publicTelemetryAllowlist": [
+      "eventType",
+      "outcome",
+      "scope"
+    ],
+    "publicResponseInternalAuditFields": false,
+    "publicImportBoundary": "SERVER_ONLY",
+    "decisionEngineEffect": "ZERO"
+  }
+}

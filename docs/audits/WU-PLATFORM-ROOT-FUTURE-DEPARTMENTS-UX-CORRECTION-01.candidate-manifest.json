@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "isolated-production-candidate-manifest/v1",
+  "candidateId": "ROOT-FUTURE-DEPARTMENTS-UX-CORRECTION-01",
+  "baseline": {
+    "deploymentId": "dpl_9SrsoMgZEs2E97fYUrbxRNyuNsfG",
+    "immutableUrl": "https://expiya-platform-qw7q-hnmtr0rwi-expiya.vercel.app",
+    "verifiedReadyAtAudit": true
+  },
+  "includedDelta": [
+    {
+      "path": "app/page.tsx",
+      "sha256": "da2232b7855f4c12d16708043479eb77198981e3d2b8169806245a21eeabb3d1",
+      "purpose": "Render active and future departments in one untitled field."
+    },
+    {
+      "path": "features/platform/rootDepartmentRoadmap.ts",
+      "sha256": "d5153d8d1e4f1e26978eb5731d91b1cabba33cfc1a18d696e56d40c12a6e0036",
+      "purpose": "Typed ACTIVE/FUTURE root model with only Hotels and Events as future top-level departments."
+    },
+    {
+      "path": "features/xpy/platformRootLanding.test.tsx",
+      "sha256": "350ad3b19a5eb9ef0b871f13085910a23fcec2b9fa859ab9e7d9cb315c5da0d4",
+      "purpose": "Focused active-link, future-inertness and prohibited-copy regression coverage."
+    },
+    {
+      "path": "docs/audits/WU-PLATFORM-ROOT-FUTURE-DEPARTMENTS-UX-CORRECTION-01.md",
+      "sha256": "20f77ec6278e86006bf483f99f7a3d54690c80d84e24ec40cbe2a61fc8597d24",
+      "purpose": "Narrow presentation authority and explicit non-route boundary."
+    }
+  ],
+  "excludedDirtyChanges": {
+    "policy": "Every checkout change outside includedDelta is excluded from this candidate.",
+    "postBaselineDeployableChangesObserved": [
+      "features/appliances/advisory.ts",
+      "features/xpy/domainPacks.ts",
+      "regenerated data/production artifacts"
+    ],
+    "carsAppliancesElectronicsRuntimeChangesIncluded": false,
+    "catalogEvidenceMediaChangesIncluded": false,
+    "databaseOrMigrationChangesIncluded": false
+  },
+  "deploymentReady": false,
+  "blocker": "The provider confirms the baseline deployment but does not expose its source through the safe CLI surface. The checkout acquired unrelated deployable changes after baseline creation, so a byte-faithful isolated build cannot be materialized without a trusted baseline source export."
+}

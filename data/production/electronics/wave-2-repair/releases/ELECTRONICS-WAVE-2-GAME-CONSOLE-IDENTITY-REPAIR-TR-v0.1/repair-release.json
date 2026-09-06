@@ -1,0 +1,1527 @@
+{
+  "schemaVersion": "electronics-wave-2-game-console-identity-repair/v1",
+  "releaseVersion": "ELECTRONICS-WAVE-2-GAME-CONSOLE-IDENTITY-REPAIR-TR-v0.1",
+  "parent": {
+    "releaseDigest": "sha256:a92d56041f9150a87a5d4e01ae230217465b53507d247f8d134f28be2050892d",
+    "relationship": "IMMUTABLE_CHILD_NO_OVERWRITE"
+  },
+  "research": {
+    "amazonFirstDigest": "sha256:09ef0e34db66fa00f9fb3b98f83db0370f1e0a2905da805c50282073576e3a20",
+    "amazonRole": "DISCOVERY_ONLY_ZERO_DECISION_EFFECT",
+    "internationalRole": "TECHNICAL_GAP_FILL_ONLY_NOT_TR_APPLICABILITY"
+  },
+  "products": [
+    {
+      "exactProductId": "electronics:headphones:sony:wh1000xm5b-ce7",
+      "categoryId": "HEADPHONES",
+      "manufacturer": "Sony",
+      "modelCode": "WH1000XM5B.CE7",
+      "configurationIdentity": "Sony|WH-1000XM5|WH1000XM5B.CE7|Over-ear|Bluetooth|Black|No bundle|TR",
+      "trApplicabilitySourceIds": [
+        "sony-tr:WH1000XM5B-CE7"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:headphones:huawei:freebuds-6-black",
+      "categoryId": "HEADPHONES",
+      "manufacturer": "HUAWEI",
+      "modelCode": "FreeBuds 6",
+      "configurationIdentity": "HUAWEI|FreeBuds 6|Open-fit true wireless|Bluetooth 5.2|Black|Standard box|TR",
+      "trApplicabilitySourceIds": [
+        "huawei-tr:FreeBuds6"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:portable-speaker:jbl:jblflip7blk",
+      "categoryId": "PORTABLE_SPEAKER",
+      "manufacturer": "JBL",
+      "modelCode": "JBLFLIP7BLK",
+      "configurationIdentity": "JBL|Flip 7|JBLFLIP7BLK|Portable|Bluetooth|Black|TR",
+      "trApplicabilitySourceIds": [
+        "jbl-tr:Flip7",
+        "vatan-tr:JBLFLIP7BLK"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:portable-speaker:sony:srsult10b-ce7",
+      "categoryId": "PORTABLE_SPEAKER",
+      "manufacturer": "Sony",
+      "modelCode": "SRSULT10B.CE7",
+      "configurationIdentity": "Sony|ULT FIELD 1|SRSULT10B.CE7|Portable|Bluetooth|Black|TR",
+      "trApplicabilitySourceIds": [
+        "sony-tr:SRSULT10"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:soundbar:samsung:hw-q800f-tk",
+      "categoryId": "SOUNDBAR",
+      "manufacturer": "Samsung",
+      "modelCode": "HW-Q800F/TK",
+      "configurationIdentity": "Samsung|HW-Q800F/TK|5.1.2|Wireless subwoofer included|Rear speakers excluded|Black|TR",
+      "trApplicabilitySourceIds": [
+        "samsung-tr:HW-Q800F-TK"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:soundbar:lg:s70ty",
+      "categoryId": "SOUNDBAR",
+      "manufacturer": "LG",
+      "modelCode": "S70TY",
+      "configurationIdentity": "LG|S70TY|3.1.1|Wireless subwoofer included|Rear speakers excluded|Black|TR",
+      "trApplicabilitySourceIds": [
+        "lg-tr:S70TY"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:digital-camera:sony:zve10m2b-cec",
+      "categoryId": "DIGITAL_CAMERA",
+      "manufacturer": "Sony",
+      "modelCode": "ZVE10M2B.CEC",
+      "configurationIdentity": "Sony|ZV-E10 II|ZVE10M2B.CEC|E mount|Body only|No kit lens|Black|TR",
+      "trApplicabilitySourceIds": [
+        "sony-tr:ZVE10M2B-CEC"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:digital-camera:canon:5811c013",
+      "categoryId": "DIGITAL_CAMERA",
+      "manufacturer": "Canon",
+      "modelCode": "5811C013",
+      "configurationIdentity": "Canon|EOS R50|5811C013|RF mount|Kit|RF-S 18-45mm F4.5-6.3 IS STM|Black|TR",
+      "trApplicabilitySourceIds": [
+        "canon-tr:EOS-R50",
+        "fotografium-tr:5811C013"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:projector:epson:v11ha85040",
+      "categoryId": "PROJECTOR",
+      "manufacturer": "Epson",
+      "modelCode": "V11HA85040",
+      "configurationIdentity": "Epson|CO-FH02|V11HA85040|1920x1080|Lamp|TR",
+      "trApplicabilitySourceIds": [
+        "epson-tr:V11HA85040"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:projector:samsung:sp-lff3claxxtk",
+      "categoryId": "PROJECTOR",
+      "manufacturer": "Samsung",
+      "modelCode": "SP-LFF3CLAXXTK",
+      "configurationIdentity": "Samsung|The Freestyle 2nd Gen|SP-LFF3CLAXXTK|1920x1080|LED|TR",
+      "trApplicabilitySourceIds": [
+        "samsung-tr:SP-LFF3CLAXXTK"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:game-console:sony:cfi-7021",
+      "categoryId": "GAME_CONSOLE",
+      "manufacturer": "Sony Interactive Entertainment",
+      "modelCode": "CFI-7021",
+      "configurationIdentity": "Sony Interactive Entertainment|PlayStation 5 Pro|CFI-7021|2TB|Disc drive optional excluded|Standard console|TR",
+      "trApplicabilitySourceIds": [
+        "playstation-tr:PS5-Pro",
+        "playstation-tr:CFI-7021-manual"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    },
+    {
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "categoryId": "GAME_CONSOLE",
+      "manufacturer": "Microsoft",
+      "modelCode": "8ZCBGTT29H9C / Model 1883",
+      "configurationIdentity": "Microsoft|Xbox Series S|Model 1883|8ZCBGTT29H9C|1TB|All-digital|Carbon Black|Standard console|TR",
+      "trApplicabilitySourceIds": [
+        "xbox-tr:Series-S"
+      ],
+      "unresolvedIdentityDiscriminators": []
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "sony-tr:WH1000XM5B-CE7",
+      "uri": "https://www.sony.com.tr/electronics/kafa-bantli-kulakliklar/wh-1000xm5",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:headphones:sony:wh1000xm5b-ce7"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "sony-tr:WH1000XM5-manual",
+      "uri": "https://helpguide.sony.net/mdr/wh1000xm5/v1/tr/print.pdf",
+      "market": "TR",
+      "authority": "MANUAL",
+      "exactProductIds": [
+        "electronics:headphones:sony:wh1000xm5b-ce7"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "huawei-tr:FreeBuds6",
+      "uri": "https://consumer.huawei.com/tr/headphones/freebuds6/specs/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:headphones:huawei:freebuds-6-black"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "jbl-tr:Flip7",
+      "uri": "https://tr.jbl.com/bluetooth-hoparlorler/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:portable-speaker:jbl:jblflip7blk"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "vatan-tr:JBLFLIP7BLK",
+      "uri": "https://www.vatanbilgisayar.com/jbl-flip7-bluetooth-hoparlor.html",
+      "market": "TR",
+      "authority": "COMMERCE_DISCOVERY",
+      "exactProductIds": [
+        "electronics:portable-speaker:jbl:jblflip7blk"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "sony-tr:SRSULT10",
+      "uri": "https://www.sony.com.tr/wireless-speakers/products/ult-field-1",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:portable-speaker:sony:srsult10b-ce7"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "samsung-tr:HW-Q800F-TK",
+      "uri": "https://www.samsung.com/tr/audio-devices/soundbar/q800f-black-hw-q800f-tk/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:soundbar:samsung:hw-q800f-tk"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "samsung-tr:HW-Q800F-manual",
+      "uri": "https://www.samsung.com/tr/support/model/HW-Q800F/TK/",
+      "market": "TR",
+      "authority": "MANUAL",
+      "exactProductIds": [
+        "electronics:soundbar:samsung:hw-q800f-tk"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "lg-tr:S70TY",
+      "uri": "https://www.lg.com/tr/sound-bar/s70ty/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:soundbar:lg:s70ty"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "sony-tr:ZVE10M2B-CEC",
+      "uri": "https://www.sony.com.tr/electronics/degistirilebilir-lensli-fotograf-makineleri/zv-e10m2/buy/zve10m2b.cec",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:digital-camera:sony:zve10m2b-cec"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "canon-tr:EOS-R50",
+      "uri": "https://www.canon.com.tr/cameras/eos-r50/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:digital-camera:canon:5811c013"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "fotografium-tr:5811C013",
+      "uri": "https://fotografium.com/canon-eos-r50-rf-s-18-45mm-lens-kit",
+      "market": "TR",
+      "authority": "COMMERCE_DISCOVERY",
+      "exactProductIds": [
+        "electronics:digital-camera:canon:5811c013"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "epson-tr:V11HA85040",
+      "uri": "https://www.epson.com.tr/projektor/is-egitimi/co-fh02-v11ha85040",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:projector:epson:v11ha85040"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "samsung-tr:SP-LFF3CLAXXTK",
+      "uri": "https://www.samsung.com/tr/projectors/the-freestyle/lff3c-the-freestyle-2nd-gen-sp-lff3claxxtk/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:projector:samsung:sp-lff3claxxtk"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "playstation-tr:PS5-Pro",
+      "uri": "https://www.playstation.com/tr-tr/ps5/ps5-pro/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:game-console:sony:cfi-7021"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "playstation-tr:CFI-7021-manual",
+      "uri": "https://www.playstation.com/content/dam/global_pdc/tr/corporate/support/manuals/ps5-docs/7000/CFI-70XX_PS5_Quick_Start_Guide_Web%24tr.pdf",
+      "market": "TR",
+      "authority": "MANUAL",
+      "exactProductIds": [
+        "electronics:game-console:sony:cfi-7021"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "xbox-tr:Series-S",
+      "uri": "https://www.xbox.com/tr-TR/consoles/xbox-series-s",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "microsoft-uk:8ZCBGTT29H9C",
+      "uri": "https://www.microsoft.com/en-gb/d/xbox-series-s-1tb-black/8zcbgtt29h9c",
+      "market": "GLOBAL",
+      "authority": "INTERNATIONAL_BOUNDED",
+      "exactProductIds": [
+        "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    }
+  ],
+  "comparativeFacts": [
+    {
+      "factId": "wave2-fact:electronics-headphones-sony-wh1000xm5b-ce7:form_factor:1",
+      "exactProductId": "electronics:headphones:sony:wh1000xm5b-ce7",
+      "categoryId": "HEADPHONES",
+      "key": "form_factor",
+      "value": "over-ear",
+      "sourceId": "sony-tr:WH1000XM5B-CE7",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-headphones-sony-wh1000xm5b-ce7:connectivity:2",
+      "exactProductId": "electronics:headphones:sony:wh1000xm5b-ce7",
+      "categoryId": "HEADPHONES",
+      "key": "connectivity",
+      "value": "Bluetooth 5.2 and 3.5mm",
+      "sourceId": "sony-tr:WH1000XM5B-CE7",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-headphones-sony-wh1000xm5b-ce7:noise_control:3",
+      "exactProductId": "electronics:headphones:sony:wh1000xm5b-ce7",
+      "categoryId": "HEADPHONES",
+      "key": "noise_control",
+      "value": "active noise cancellation",
+      "sourceId": "sony-tr:WH1000XM5B-CE7",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-headphones-sony-wh1000xm5b-ce7:battery_hours_anc:4",
+      "exactProductId": "electronics:headphones:sony:wh1000xm5b-ce7",
+      "categoryId": "HEADPHONES",
+      "key": "battery_hours_anc",
+      "value": 30,
+      "unit": "h",
+      "sourceId": "sony-tr:WH1000XM5B-CE7",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-headphones-sony-wh1000xm5b-ce7:weight_g:5",
+      "exactProductId": "electronics:headphones:sony:wh1000xm5b-ce7",
+      "categoryId": "HEADPHONES",
+      "key": "weight_g",
+      "value": 250,
+      "unit": "g",
+      "sourceId": "sony-tr:WH1000XM5B-CE7",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-headphones-huawei-freebuds-6-black:form_factor:1",
+      "exactProductId": "electronics:headphones:huawei:freebuds-6-black",
+      "categoryId": "HEADPHONES",
+      "key": "form_factor",
+      "value": "open-fit true wireless",
+      "sourceId": "huawei-tr:FreeBuds6",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-headphones-huawei-freebuds-6-black:connectivity:2",
+      "exactProductId": "electronics:headphones:huawei:freebuds-6-black",
+      "categoryId": "HEADPHONES",
+      "key": "connectivity",
+      "value": "Bluetooth 5.2",
+      "sourceId": "huawei-tr:FreeBuds6",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-headphones-huawei-freebuds-6-black:noise_control:3",
+      "exactProductId": "electronics:headphones:huawei:freebuds-6-black",
+      "categoryId": "HEADPHONES",
+      "key": "noise_control",
+      "value": "open-fit active noise cancellation",
+      "sourceId": "huawei-tr:FreeBuds6",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-headphones-huawei-freebuds-6-black:battery_hours_anc_off:4",
+      "exactProductId": "electronics:headphones:huawei:freebuds-6-black",
+      "categoryId": "HEADPHONES",
+      "key": "battery_hours_anc_off",
+      "value": 6,
+      "unit": "h",
+      "sourceId": "huawei-tr:FreeBuds6",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-headphones-huawei-freebuds-6-black:codec_support:5",
+      "exactProductId": "electronics:headphones:huawei:freebuds-6-black",
+      "categoryId": "HEADPHONES",
+      "key": "codec_support",
+      "value": "SBC/AAC/L2HC 4.0/LDAC",
+      "sourceId": "huawei-tr:FreeBuds6",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-portable-speaker-jbl-jblflip7blk:connectivity:1",
+      "exactProductId": "electronics:portable-speaker:jbl:jblflip7blk",
+      "categoryId": "PORTABLE_SPEAKER",
+      "key": "connectivity",
+      "value": "Bluetooth",
+      "sourceId": "jbl-tr:Flip7",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-portable-speaker-jbl-jblflip7blk:ingress_rating:2",
+      "exactProductId": "electronics:portable-speaker:jbl:jblflip7blk",
+      "categoryId": "PORTABLE_SPEAKER",
+      "key": "ingress_rating",
+      "value": "IP68",
+      "sourceId": "jbl-tr:Flip7",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-portable-speaker-jbl-jblflip7blk:battery_hours:3",
+      "exactProductId": "electronics:portable-speaker:jbl:jblflip7blk",
+      "categoryId": "PORTABLE_SPEAKER",
+      "key": "battery_hours",
+      "value": 14,
+      "unit": "h",
+      "sourceId": "jbl-tr:Flip7",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-portable-speaker-jbl-jblflip7blk:playtime_boost_hours:4",
+      "exactProductId": "electronics:portable-speaker:jbl:jblflip7blk",
+      "categoryId": "PORTABLE_SPEAKER",
+      "key": "playtime_boost_hours",
+      "value": 2,
+      "unit": "h",
+      "sourceId": "jbl-tr:Flip7",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-portable-speaker-jbl-jblflip7blk:replaceable_carry_accessory:5",
+      "exactProductId": "electronics:portable-speaker:jbl:jblflip7blk",
+      "categoryId": "PORTABLE_SPEAKER",
+      "key": "replaceable_carry_accessory",
+      "value": true,
+      "sourceId": "jbl-tr:Flip7",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-portable-speaker-sony-srsult10b-ce7:connectivity:1",
+      "exactProductId": "electronics:portable-speaker:sony:srsult10b-ce7",
+      "categoryId": "PORTABLE_SPEAKER",
+      "key": "connectivity",
+      "value": "Bluetooth",
+      "sourceId": "sony-tr:SRSULT10",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-portable-speaker-sony-srsult10b-ce7:ingress_rating:2",
+      "exactProductId": "electronics:portable-speaker:sony:srsult10b-ce7",
+      "categoryId": "PORTABLE_SPEAKER",
+      "key": "ingress_rating",
+      "value": "IP67",
+      "sourceId": "sony-tr:SRSULT10",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-portable-speaker-sony-srsult10b-ce7:battery_hours:3",
+      "exactProductId": "electronics:portable-speaker:sony:srsult10b-ce7",
+      "categoryId": "PORTABLE_SPEAKER",
+      "key": "battery_hours",
+      "value": 12,
+      "unit": "h",
+      "sourceId": "sony-tr:SRSULT10",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-portable-speaker-sony-srsult10b-ce7:shockproof:4",
+      "exactProductId": "electronics:portable-speaker:sony:srsult10b-ce7",
+      "categoryId": "PORTABLE_SPEAKER",
+      "key": "shockproof",
+      "value": true,
+      "sourceId": "sony-tr:SRSULT10",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-portable-speaker-sony-srsult10b-ce7:stereo_pair:5",
+      "exactProductId": "electronics:portable-speaker:sony:srsult10b-ce7",
+      "categoryId": "PORTABLE_SPEAKER",
+      "key": "stereo_pair",
+      "value": true,
+      "sourceId": "sony-tr:SRSULT10",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-soundbar-samsung-hw-q800f-tk:channel_configuration:1",
+      "exactProductId": "electronics:soundbar:samsung:hw-q800f-tk",
+      "categoryId": "SOUNDBAR",
+      "key": "channel_configuration",
+      "value": "5.1.2",
+      "sourceId": "samsung-tr:HW-Q800F-TK",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-soundbar-samsung-hw-q800f-tk:included_subwoofer:2",
+      "exactProductId": "electronics:soundbar:samsung:hw-q800f-tk",
+      "categoryId": "SOUNDBAR",
+      "key": "included_subwoofer",
+      "value": true,
+      "sourceId": "samsung-tr:HW-Q800F-TK",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-soundbar-samsung-hw-q800f-tk:rear_speakers_included:3",
+      "exactProductId": "electronics:soundbar:samsung:hw-q800f-tk",
+      "categoryId": "SOUNDBAR",
+      "key": "rear_speakers_included",
+      "value": false,
+      "sourceId": "samsung-tr:HW-Q800F-TK",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-soundbar-samsung-hw-q800f-tk:hdmi_earc:4",
+      "exactProductId": "electronics:soundbar:samsung:hw-q800f-tk",
+      "categoryId": "SOUNDBAR",
+      "key": "hdmi_earc",
+      "value": true,
+      "sourceId": "samsung-tr:HW-Q800F-TK",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-soundbar-samsung-hw-q800f-tk:bluetooth_version:5",
+      "exactProductId": "electronics:soundbar:samsung:hw-q800f-tk",
+      "categoryId": "SOUNDBAR",
+      "key": "bluetooth_version",
+      "value": "5.3",
+      "sourceId": "samsung-tr:HW-Q800F-TK",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-soundbar-lg-s70ty:channel_configuration:1",
+      "exactProductId": "electronics:soundbar:lg:s70ty",
+      "categoryId": "SOUNDBAR",
+      "key": "channel_configuration",
+      "value": "3.1.1",
+      "sourceId": "lg-tr:S70TY",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-soundbar-lg-s70ty:power_w:2",
+      "exactProductId": "electronics:soundbar:lg:s70ty",
+      "categoryId": "SOUNDBAR",
+      "key": "power_w",
+      "value": 400,
+      "unit": "W",
+      "sourceId": "lg-tr:S70TY",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-soundbar-lg-s70ty:included_subwoofer:3",
+      "exactProductId": "electronics:soundbar:lg:s70ty",
+      "categoryId": "SOUNDBAR",
+      "key": "included_subwoofer",
+      "value": true,
+      "sourceId": "lg-tr:S70TY",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-soundbar-lg-s70ty:rear_speakers_included:4",
+      "exactProductId": "electronics:soundbar:lg:s70ty",
+      "categoryId": "SOUNDBAR",
+      "key": "rear_speakers_included",
+      "value": false,
+      "sourceId": "lg-tr:S70TY",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-soundbar-lg-s70ty:hdmi_earc:5",
+      "exactProductId": "electronics:soundbar:lg:s70ty",
+      "categoryId": "SOUNDBAR",
+      "key": "hdmi_earc",
+      "value": true,
+      "sourceId": "lg-tr:S70TY",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-digital-camera-sony-zve10m2b-cec:sensor:1",
+      "exactProductId": "electronics:digital-camera:sony:zve10m2b-cec",
+      "categoryId": "DIGITAL_CAMERA",
+      "key": "sensor",
+      "value": "APS-C Exmor R CMOS",
+      "sourceId": "sony-tr:ZVE10M2B-CEC",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-digital-camera-sony-zve10m2b-cec:megapixels:2",
+      "exactProductId": "electronics:digital-camera:sony:zve10m2b-cec",
+      "categoryId": "DIGITAL_CAMERA",
+      "key": "megapixels",
+      "value": 26,
+      "unit": "MP",
+      "sourceId": "sony-tr:ZVE10M2B-CEC",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-digital-camera-sony-zve10m2b-cec:mount:3",
+      "exactProductId": "electronics:digital-camera:sony:zve10m2b-cec",
+      "categoryId": "DIGITAL_CAMERA",
+      "key": "mount",
+      "value": "Sony E",
+      "sourceId": "sony-tr:ZVE10M2B-CEC",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-digital-camera-sony-zve10m2b-cec:body_or_kit:4",
+      "exactProductId": "electronics:digital-camera:sony:zve10m2b-cec",
+      "categoryId": "DIGITAL_CAMERA",
+      "key": "body_or_kit",
+      "value": "body only",
+      "sourceId": "sony-tr:ZVE10M2B-CEC",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-digital-camera-sony-zve10m2b-cec:video_max:5",
+      "exactProductId": "electronics:digital-camera:sony:zve10m2b-cec",
+      "categoryId": "DIGITAL_CAMERA",
+      "key": "video_max",
+      "value": "4K 60p",
+      "sourceId": "sony-tr:ZVE10M2B-CEC",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-digital-camera-canon-5811c013:sensor:1",
+      "exactProductId": "electronics:digital-camera:canon:5811c013",
+      "categoryId": "DIGITAL_CAMERA",
+      "key": "sensor",
+      "value": "APS-C CMOS",
+      "sourceId": "canon-tr:EOS-R50",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-digital-camera-canon-5811c013:megapixels:2",
+      "exactProductId": "electronics:digital-camera:canon:5811c013",
+      "categoryId": "DIGITAL_CAMERA",
+      "key": "megapixels",
+      "value": 24.2,
+      "unit": "MP",
+      "sourceId": "canon-tr:EOS-R50",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-digital-camera-canon-5811c013:mount:3",
+      "exactProductId": "electronics:digital-camera:canon:5811c013",
+      "categoryId": "DIGITAL_CAMERA",
+      "key": "mount",
+      "value": "Canon RF",
+      "sourceId": "canon-tr:EOS-R50",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-digital-camera-canon-5811c013:body_or_kit:4",
+      "exactProductId": "electronics:digital-camera:canon:5811c013",
+      "categoryId": "DIGITAL_CAMERA",
+      "key": "body_or_kit",
+      "value": "RF-S 18-45mm kit",
+      "sourceId": "canon-tr:EOS-R50",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-digital-camera-canon-5811c013:video_max:5",
+      "exactProductId": "electronics:digital-camera:canon:5811c013",
+      "categoryId": "DIGITAL_CAMERA",
+      "key": "video_max",
+      "value": "4K 30p",
+      "sourceId": "canon-tr:EOS-R50",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-projector-epson-v11ha85040:native_resolution:1",
+      "exactProductId": "electronics:projector:epson:v11ha85040",
+      "categoryId": "PROJECTOR",
+      "key": "native_resolution",
+      "value": "1920x1080",
+      "sourceId": "epson-tr:V11HA85040",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-projector-epson-v11ha85040:light_source:2",
+      "exactProductId": "electronics:projector:epson:v11ha85040",
+      "categoryId": "PROJECTOR",
+      "key": "light_source",
+      "value": "lamp",
+      "sourceId": "epson-tr:V11HA85040",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-projector-epson-v11ha85040:brightness_lumens:3",
+      "exactProductId": "electronics:projector:epson:v11ha85040",
+      "categoryId": "PROJECTOR",
+      "key": "brightness_lumens",
+      "value": 3000,
+      "unit": "lm",
+      "sourceId": "epson-tr:V11HA85040",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-projector-epson-v11ha85040:throw_ratio:4",
+      "exactProductId": "electronics:projector:epson:v11ha85040",
+      "categoryId": "PROJECTOR",
+      "key": "throw_ratio",
+      "value": "1.19-1.61",
+      "sourceId": "epson-tr:V11HA85040",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-projector-epson-v11ha85040:platform:5",
+      "exactProductId": "electronics:projector:epson:v11ha85040",
+      "categoryId": "PROJECTOR",
+      "key": "platform",
+      "value": "Android TV",
+      "sourceId": "epson-tr:V11HA85040",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-projector-samsung-sp-lff3claxxtk:native_resolution:1",
+      "exactProductId": "electronics:projector:samsung:sp-lff3claxxtk",
+      "categoryId": "PROJECTOR",
+      "key": "native_resolution",
+      "value": "1920x1080",
+      "sourceId": "samsung-tr:SP-LFF3CLAXXTK",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-projector-samsung-sp-lff3claxxtk:light_source:2",
+      "exactProductId": "electronics:projector:samsung:sp-lff3claxxtk",
+      "categoryId": "PROJECTOR",
+      "key": "light_source",
+      "value": "LED",
+      "sourceId": "samsung-tr:SP-LFF3CLAXXTK",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-projector-samsung-sp-lff3claxxtk:brightness_ansi_lumens:3",
+      "exactProductId": "electronics:projector:samsung:sp-lff3claxxtk",
+      "categoryId": "PROJECTOR",
+      "key": "brightness_ansi_lumens",
+      "value": 230,
+      "unit": "ANSI lm",
+      "sourceId": "samsung-tr:SP-LFF3CLAXXTK",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-projector-samsung-sp-lff3claxxtk:throw_ratio:4",
+      "exactProductId": "electronics:projector:samsung:sp-lff3claxxtk",
+      "categoryId": "PROJECTOR",
+      "key": "throw_ratio",
+      "value": "1.2",
+      "sourceId": "samsung-tr:SP-LFF3CLAXXTK",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-projector-samsung-sp-lff3claxxtk:platform:5",
+      "exactProductId": "electronics:projector:samsung:sp-lff3claxxtk",
+      "categoryId": "PROJECTOR",
+      "key": "platform",
+      "value": "Tizen",
+      "sourceId": "samsung-tr:SP-LFF3CLAXXTK",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-game-console-sony-cfi-7021:platform:1",
+      "exactProductId": "electronics:game-console:sony:cfi-7021",
+      "categoryId": "GAME_CONSOLE",
+      "key": "platform",
+      "value": "PlayStation 5 Pro",
+      "sourceId": "playstation-tr:PS5-Pro",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-game-console-sony-cfi-7021:storage_tb:2",
+      "exactProductId": "electronics:game-console:sony:cfi-7021",
+      "categoryId": "GAME_CONSOLE",
+      "key": "storage_tb",
+      "value": 2,
+      "unit": "TB",
+      "sourceId": "playstation-tr:PS5-Pro",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-game-console-sony-cfi-7021:disc_capability:3",
+      "exactProductId": "electronics:game-console:sony:cfi-7021",
+      "categoryId": "GAME_CONSOLE",
+      "key": "disc_capability",
+      "value": "optional external drive; excluded",
+      "sourceId": "playstation-tr:PS5-Pro",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-game-console-sony-cfi-7021:display_output:4",
+      "exactProductId": "electronics:game-console:sony:cfi-7021",
+      "categoryId": "GAME_CONSOLE",
+      "key": "display_output",
+      "value": "4K up to 120Hz; 8K compatible",
+      "sourceId": "playstation-tr:PS5-Pro",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-game-console-sony-cfi-7021:wireless:5",
+      "exactProductId": "electronics:game-console:sony:cfi-7021",
+      "categoryId": "GAME_CONSOLE",
+      "key": "wireless",
+      "value": "Wi-Fi 7",
+      "sourceId": "playstation-tr:PS5-Pro",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-game-console-microsoft-xbox-series-s-1tb-carbon-black:platform:1",
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "categoryId": "GAME_CONSOLE",
+      "key": "platform",
+      "value": "Xbox Series S",
+      "sourceId": "xbox-tr:Series-S",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-game-console-microsoft-xbox-series-s-1tb-carbon-black:storage_tb:2",
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "categoryId": "GAME_CONSOLE",
+      "key": "storage_tb",
+      "value": 1,
+      "unit": "TB",
+      "sourceId": "xbox-tr:Series-S",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-game-console-microsoft-xbox-series-s-1tb-carbon-black:disc_capability:3",
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "categoryId": "GAME_CONSOLE",
+      "key": "disc_capability",
+      "value": "all-digital",
+      "sourceId": "xbox-tr:Series-S",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-game-console-microsoft-xbox-series-s-1tb-carbon-black:display_output:4",
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "categoryId": "GAME_CONSOLE",
+      "key": "display_output",
+      "value": "1440p up to 120fps",
+      "sourceId": "xbox-tr:Series-S",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-fact:electronics-game-console-microsoft-xbox-series-s-1tb-carbon-black:memory_gb:5",
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "categoryId": "GAME_CONSOLE",
+      "key": "memory_gb",
+      "value": 10,
+      "unit": "GB",
+      "sourceId": "xbox-tr:Series-S",
+      "locator": "Exact official Türkiye product/specification field; exact configuration identity is separately recorded",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-repair-fact:xbox-series-s:model-1883",
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "categoryId": "GAME_CONSOLE",
+      "key": "hardware_revision",
+      "value": "Model 1883",
+      "sourceId": "microsoft-uk:8ZCBGTT29H9C",
+      "locator": "Official Microsoft product record: defined support period identifies Xbox Series S Model Number 1883",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "wave2-repair-fact:xbox-series-s:product-id",
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "categoryId": "GAME_CONSOLE",
+      "key": "manufacturer_product_id",
+      "value": "8ZCBGTT29H9C",
+      "sourceId": "microsoft-uk:8ZCBGTT29H9C",
+      "locator": "Official Microsoft Store product URL and product record for Xbox Series S 1 TB Carbon Black",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    }
+  ],
+  "manuals": [
+    {
+      "manualId": "wave2-manual:sony-wh1000xm5-tr",
+      "exactProductId": "electronics:headphones:sony:wh1000xm5b-ce7",
+      "sourceUri": "https://helpguide.sony.net/mdr/wh1000xm5/v1/tr/print.pdf",
+      "localPath": "data/production/electronics/wave-2-evidence/manuals/sony-wh-1000xm5-help-tr.pdf",
+      "locators": [
+        "Pairing and connection",
+        "Noise canceling function",
+        "Precautions"
+      ],
+      "sha256": "sha256:917399954af3716b65e10240c7c6a8c1fbbb3c5a7f98575cb2a69f2251ffdb8a",
+      "layer": "L9_ADVISOR_KNOWLEDGE"
+    },
+    {
+      "manualId": "wave2-manual:ps5-pro-cfi-7021-tr",
+      "exactProductId": "electronics:game-console:sony:cfi-7021",
+      "sourceUri": "https://www.playstation.com/content/dam/global_pdc/tr/corporate/support/manuals/ps5-docs/7000/CFI-70XX_PS5_Quick_Start_Guide_Web%24tr.pdf",
+      "localPath": "data/production/electronics/wave-2-evidence/manuals/ps5-pro-cfi-7021-quick-start-tr.pdf",
+      "locators": [
+        "CFI-7021 model cover",
+        "Getting started / HDMI and power",
+        "Parental controls",
+        "Disc drive sold separately"
+      ],
+      "sha256": "sha256:d1a088ddd90e2e71c747f49a54d7556b19a018639c1f2f2bebff5a305c99a022",
+      "layer": "L9_ADVISOR_KNOWLEDGE"
+    }
+  ],
+  "categoryReadiness": [
+    {
+      "categoryId": "HEADPHONES",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 7,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "PORTABLE_SPEAKER",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 7,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "SOUNDBAR",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 6,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "DIGITAL_CAMERA",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 5,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "PROJECTOR",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 6,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "EXACT_TR_IDENTITIES_WITH_MULTI_MANUFACTURER_COMPARATIVE_EVIDENCE"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    },
+    {
+      "categoryId": "GAME_CONSOLE",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "comparableFieldCount": 8,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "reasons": [
+        "TR_CONFIGURATION_EXACT; MODEL_1883_AND_PRODUCT_ID_8ZCBGTT29H9C_TECHNICALLY_RECONCILED"
+      ],
+      "policyStatus": "REVIEW_REQUIRED_NON_ACTIVE"
+    }
+  ],
+  "decisionProjections": [
+    {
+      "projectionId": "wave2-projection:electronics-headphones-sony-wh1000xm5b-ce7",
+      "exactProductId": "electronics:headphones:sony:wh1000xm5b-ce7",
+      "eligibleFactIds": [
+        "wave2-fact:electronics-headphones-sony-wh1000xm5b-ce7:form_factor:1",
+        "wave2-fact:electronics-headphones-sony-wh1000xm5b-ce7:connectivity:2",
+        "wave2-fact:electronics-headphones-sony-wh1000xm5b-ce7:noise_control:3",
+        "wave2-fact:electronics-headphones-sony-wh1000xm5b-ce7:battery_hours_anc:4",
+        "wave2-fact:electronics-headphones-sony-wh1000xm5b-ce7:weight_g:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave2-projection:electronics-headphones-huawei-freebuds-6-black",
+      "exactProductId": "electronics:headphones:huawei:freebuds-6-black",
+      "eligibleFactIds": [
+        "wave2-fact:electronics-headphones-huawei-freebuds-6-black:form_factor:1",
+        "wave2-fact:electronics-headphones-huawei-freebuds-6-black:connectivity:2",
+        "wave2-fact:electronics-headphones-huawei-freebuds-6-black:noise_control:3",
+        "wave2-fact:electronics-headphones-huawei-freebuds-6-black:battery_hours_anc_off:4",
+        "wave2-fact:electronics-headphones-huawei-freebuds-6-black:codec_support:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave2-projection:electronics-portable-speaker-jbl-jblflip7blk",
+      "exactProductId": "electronics:portable-speaker:jbl:jblflip7blk",
+      "eligibleFactIds": [
+        "wave2-fact:electronics-portable-speaker-jbl-jblflip7blk:connectivity:1",
+        "wave2-fact:electronics-portable-speaker-jbl-jblflip7blk:ingress_rating:2",
+        "wave2-fact:electronics-portable-speaker-jbl-jblflip7blk:battery_hours:3",
+        "wave2-fact:electronics-portable-speaker-jbl-jblflip7blk:playtime_boost_hours:4",
+        "wave2-fact:electronics-portable-speaker-jbl-jblflip7blk:replaceable_carry_accessory:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave2-projection:electronics-portable-speaker-sony-srsult10b-ce7",
+      "exactProductId": "electronics:portable-speaker:sony:srsult10b-ce7",
+      "eligibleFactIds": [
+        "wave2-fact:electronics-portable-speaker-sony-srsult10b-ce7:connectivity:1",
+        "wave2-fact:electronics-portable-speaker-sony-srsult10b-ce7:ingress_rating:2",
+        "wave2-fact:electronics-portable-speaker-sony-srsult10b-ce7:battery_hours:3",
+        "wave2-fact:electronics-portable-speaker-sony-srsult10b-ce7:shockproof:4",
+        "wave2-fact:electronics-portable-speaker-sony-srsult10b-ce7:stereo_pair:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave2-projection:electronics-soundbar-samsung-hw-q800f-tk",
+      "exactProductId": "electronics:soundbar:samsung:hw-q800f-tk",
+      "eligibleFactIds": [
+        "wave2-fact:electronics-soundbar-samsung-hw-q800f-tk:channel_configuration:1",
+        "wave2-fact:electronics-soundbar-samsung-hw-q800f-tk:included_subwoofer:2",
+        "wave2-fact:electronics-soundbar-samsung-hw-q800f-tk:rear_speakers_included:3",
+        "wave2-fact:electronics-soundbar-samsung-hw-q800f-tk:hdmi_earc:4",
+        "wave2-fact:electronics-soundbar-samsung-hw-q800f-tk:bluetooth_version:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave2-projection:electronics-soundbar-lg-s70ty",
+      "exactProductId": "electronics:soundbar:lg:s70ty",
+      "eligibleFactIds": [
+        "wave2-fact:electronics-soundbar-lg-s70ty:channel_configuration:1",
+        "wave2-fact:electronics-soundbar-lg-s70ty:power_w:2",
+        "wave2-fact:electronics-soundbar-lg-s70ty:included_subwoofer:3",
+        "wave2-fact:electronics-soundbar-lg-s70ty:rear_speakers_included:4",
+        "wave2-fact:electronics-soundbar-lg-s70ty:hdmi_earc:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave2-projection:electronics-digital-camera-sony-zve10m2b-cec",
+      "exactProductId": "electronics:digital-camera:sony:zve10m2b-cec",
+      "eligibleFactIds": [
+        "wave2-fact:electronics-digital-camera-sony-zve10m2b-cec:sensor:1",
+        "wave2-fact:electronics-digital-camera-sony-zve10m2b-cec:megapixels:2",
+        "wave2-fact:electronics-digital-camera-sony-zve10m2b-cec:mount:3",
+        "wave2-fact:electronics-digital-camera-sony-zve10m2b-cec:body_or_kit:4",
+        "wave2-fact:electronics-digital-camera-sony-zve10m2b-cec:video_max:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave2-projection:electronics-digital-camera-canon-5811c013",
+      "exactProductId": "electronics:digital-camera:canon:5811c013",
+      "eligibleFactIds": [
+        "wave2-fact:electronics-digital-camera-canon-5811c013:sensor:1",
+        "wave2-fact:electronics-digital-camera-canon-5811c013:megapixels:2",
+        "wave2-fact:electronics-digital-camera-canon-5811c013:mount:3",
+        "wave2-fact:electronics-digital-camera-canon-5811c013:body_or_kit:4",
+        "wave2-fact:electronics-digital-camera-canon-5811c013:video_max:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave2-projection:electronics-projector-epson-v11ha85040",
+      "exactProductId": "electronics:projector:epson:v11ha85040",
+      "eligibleFactIds": [
+        "wave2-fact:electronics-projector-epson-v11ha85040:native_resolution:1",
+        "wave2-fact:electronics-projector-epson-v11ha85040:light_source:2",
+        "wave2-fact:electronics-projector-epson-v11ha85040:brightness_lumens:3",
+        "wave2-fact:electronics-projector-epson-v11ha85040:throw_ratio:4",
+        "wave2-fact:electronics-projector-epson-v11ha85040:platform:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave2-projection:electronics-projector-samsung-sp-lff3claxxtk",
+      "exactProductId": "electronics:projector:samsung:sp-lff3claxxtk",
+      "eligibleFactIds": [
+        "wave2-fact:electronics-projector-samsung-sp-lff3claxxtk:native_resolution:1",
+        "wave2-fact:electronics-projector-samsung-sp-lff3claxxtk:light_source:2",
+        "wave2-fact:electronics-projector-samsung-sp-lff3claxxtk:brightness_ansi_lumens:3",
+        "wave2-fact:electronics-projector-samsung-sp-lff3claxxtk:throw_ratio:4",
+        "wave2-fact:electronics-projector-samsung-sp-lff3claxxtk:platform:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave2-projection:electronics-game-console-sony-cfi-7021",
+      "exactProductId": "electronics:game-console:sony:cfi-7021",
+      "eligibleFactIds": [
+        "wave2-fact:electronics-game-console-sony-cfi-7021:platform:1",
+        "wave2-fact:electronics-game-console-sony-cfi-7021:storage_tb:2",
+        "wave2-fact:electronics-game-console-sony-cfi-7021:disc_capability:3",
+        "wave2-fact:electronics-game-console-sony-cfi-7021:display_output:4",
+        "wave2-fact:electronics-game-console-sony-cfi-7021:wireless:5"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    },
+    {
+      "projectionId": "wave2-projection:electronics-game-console-microsoft-xbox-series-s-1tb-carbon-black",
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "eligibleFactIds": [
+        "wave2-fact:electronics-game-console-microsoft-xbox-series-s-1tb-carbon-black:platform:1",
+        "wave2-fact:electronics-game-console-microsoft-xbox-series-s-1tb-carbon-black:storage_tb:2",
+        "wave2-fact:electronics-game-console-microsoft-xbox-series-s-1tb-carbon-black:disc_capability:3",
+        "wave2-fact:electronics-game-console-microsoft-xbox-series-s-1tb-carbon-black:display_output:4",
+        "wave2-fact:electronics-game-console-microsoft-xbox-series-s-1tb-carbon-black:memory_gb:5",
+        "wave2-repair-fact:xbox-series-s:model-1883",
+        "wave2-repair-fact:xbox-series-s:product-id"
+      ],
+      "status": "DRAFT_NON_ACTIVE",
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "rankingWeights": "NONE"
+    }
+  ],
+  "unknownsAndConflicts": [
+    {
+      "exactProductId": "electronics:headphones:sony:wh1000xm5b-ce7",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:headphones:sony:wh1000xm5b-ce7",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:headphones:huawei:freebuds-6-black",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:headphones:huawei:freebuds-6-black",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:headphones:huawei:freebuds-6-black",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:portable-speaker:jbl:jblflip7blk",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:portable-speaker:jbl:jblflip7blk",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:portable-speaker:jbl:jblflip7blk",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:portable-speaker:sony:srsult10b-ce7",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:portable-speaker:sony:srsult10b-ce7",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:portable-speaker:sony:srsult10b-ce7",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:soundbar:samsung:hw-q800f-tk",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:soundbar:samsung:hw-q800f-tk",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:soundbar:samsung:hw-q800f-tk",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:soundbar:lg:s70ty",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:soundbar:lg:s70ty",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:soundbar:lg:s70ty",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:digital-camera:sony:zve10m2b-cec",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:digital-camera:sony:zve10m2b-cec",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:digital-camera:sony:zve10m2b-cec",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:digital-camera:canon:5811c013",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:digital-camera:canon:5811c013",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:digital-camera:canon:5811c013",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:projector:epson:v11ha85040",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:projector:epson:v11ha85040",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:projector:epson:v11ha85040",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:projector:samsung:sp-lff3claxxtk",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:projector:samsung:sp-lff3claxxtk",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:projector:samsung:sp-lff3claxxtk",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:game-console:sony:cfi-7021",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:game-console:sony:cfi-7021",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:game-console:sony:cfi-7021",
+      "code": "SUBSCRIPTION_AND_SERVICE_LIFECYCLE_VOLATILE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "code": "EXACT_MANUAL_NOT_CHECKSUM_BOUND",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+      "code": "SUBSCRIPTION_AND_SERVICE_LIFECYCLE_VOLATILE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    }
+  ],
+  "boundaries": {
+    "l7Experience": "ABSENT",
+    "mediaImported": false,
+    "l10YEffect": "NONE",
+    "amazonStatusEffect": "NONE",
+    "activationPerformed": false,
+    "registryChanged": false,
+    "runtimeChanged": false,
+    "databaseChanged": false,
+    "pointerChanged": false,
+    "deploymentPerformed": false
+  },
+  "identityRepair": {
+    "exactProductId": "electronics:game-console:microsoft:xbox-series-s-1tb-carbon-black",
+    "disposition": "RESOLVED_BY_INDEPENDENT_TR_APPLICABILITY_AND_OFFICIAL_TECHNICAL_IDENTITY",
+    "hardwareRevision": "MODEL_1883",
+    "manufacturerProductId": "8ZCBGTT29H9C",
+    "trApplicabilitySourceId": "xbox-tr:Series-S",
+    "technicalIdentitySourceId": "microsoft-uk:8ZCBGTT29H9C",
+    "revisionSensitiveClaims": "LIMITED_TO_MODEL_1883_SOURCE_SCOPE",
+    "distinctConfigurationKey": "SERIES_S|1TB|ALL_DIGITAL|CARBON_BLACK|MODEL_1883|NO_BUNDLE"
+  },
+  "unchangedProof": {
+    "scope": "ALL_NON_XBOX_WAVE_2_ENTITIES",
+    "parentSubsetDigest": "sha256:22254c005346d058b860a6601c1bb668b85aace1e0e9ea9265172156de3f82ae",
+    "childSubsetDigest": "sha256:22254c005346d058b860a6601c1bb668b85aace1e0e9ea9265172156de3f82ae",
+    "byteEquivalent": true
+  }
+}

@@ -1,7 +1,7 @@
 import activePointer from "@/data/production/equipment-evidence/active.json";
 import { activeEquipmentEvidenceManifest, activeEquipmentEvidencePayload, activeEquipmentEvidenceRelease } from "@/data/production/equipment-evidence/activeEquipmentEvidence.generated";
-import type { EquipmentEvidenceLayer, EquipmentEvidenceManifest, EquipmentFeatureCode, EquipmentIntentMatch, EquipmentVerificationMaterialization, EquipmentVerifiedTrimLinkMaterialization, ExactVariantEquipmentProjection, ReviewedEquipmentAssociationMaterialization, ReviewedEquipmentTrimLinkMaterialization } from "@/types/equipmentEvidence";
-import { parseEquipmentReviewedAssociationCandidate } from "./equipmentReviewedAssociationAdapter";
+import type { EquipmentEvidenceLayer, EquipmentEvidenceManifest, EquipmentFeatureCode, EquipmentIntentMatch, ExactVariantEquipmentProjection } from "@/types/equipmentEvidence";
+import { parseEquipmentReviewedAssociationCandidate, parseEquipmentReviewedAssociationManifest, type EquipmentReviewedAssociationManifest } from "./equipmentReviewedAssociationAdapter";
 import { parseEquipmentEvidenceLayer, parseEquipmentEvidenceManifest } from "./equipmentEvidenceSchema";
 
 type PilotVerifiedCandidate = {
@@ -34,19 +34,19 @@ const layer = candidate ? {
   featureDefinitions: candidate.featureDefinitions, intentAliases: candidate.intentAliases, assertions: [], packageVariantLinks: [], trimVariantLinks: [],
   researchLedger: [], reviewEvents: [], projections: [],
 } as EquipmentEvidenceLayer : parseEquipmentEvidenceLayer(activeEquipmentEvidencePayload);
-const manifest = reviewedCandidate ? activeEquipmentEvidenceManifest as unknown as EquipmentEvidenceManifest : parseEquipmentEvidenceManifest(activeEquipmentEvidenceManifest);
+const manifest = reviewedCandidate ? parseEquipmentReviewedAssociationManifest(activeEquipmentEvidenceManifest) : parseEquipmentEvidenceManifest(activeEquipmentEvidenceManifest);
 
-export function loadActiveEquipmentEvidenceLayer(): Readonly<{ layer: EquipmentEvidenceLayer; manifest: EquipmentEvidenceManifest; release: string }> {
+export function loadActiveEquipmentEvidenceLayer(): Readonly<{ layer: EquipmentEvidenceLayer; manifest: EquipmentEvidenceManifest | EquipmentReviewedAssociationManifest; release: string }> {
   return Object.freeze({ layer, manifest, release: activeEquipmentEvidenceRelease });
 }
 export const getEquipmentFeatureDefinition = (featureCode: EquipmentFeatureCode) => layer.featureDefinitions.find((item) => item.featureCode === featureCode);
 export const getVariantEquipmentProjection = (exactVariantId: string, featureCode: EquipmentFeatureCode): ExactVariantEquipmentProjection | undefined => layer.projections.find((item) => item.exactVariantId === exactVariantId && item.featureCode === featureCode);
 export const getVariantEquipmentFeatures = (exactVariantId: string): readonly ExactVariantEquipmentProjection[] => layer.projections.filter((item) => item.exactVariantId === exactVariantId);
-export const getVerifiedEquipmentAssertions = (exactVariantId?: string): readonly EquipmentVerificationMaterialization[] => reviewedCandidate
+export const getVerifiedEquipmentAssertions = (exactVariantId?: string) => reviewedCandidate
   ? reviewedCandidate.verifiedAssertions.filter((item) => !exactVariantId || item.exactVariantId === exactVariantId) : [];
-export const getReviewedEquipmentAssociations = (input?: { exactVariantId?: string; featureCode?: EquipmentFeatureCode }): readonly ReviewedEquipmentAssociationMaterialization[] => reviewedCandidate
+export const getReviewedEquipmentAssociations = (input?: { exactVariantId?: string; featureCode?: EquipmentFeatureCode }) => reviewedCandidate
   ? reviewedCandidate.reviewedAssociations.filter((item) => (!input?.exactVariantId || item.exactVariantId === input.exactVariantId) && (!input?.featureCode || item.featureCode === input.featureCode)) : [];
-export const getVerifiedEquipmentTrimLinks = (exactVariantId?: string): readonly (EquipmentVerifiedTrimLinkMaterialization | ReviewedEquipmentTrimLinkMaterialization)[] => reviewedCandidate
+export const getVerifiedEquipmentTrimLinks = (exactVariantId?: string) => reviewedCandidate
   ? reviewedCandidate.verifiedTrimLinks.filter((item) => !exactVariantId || item.exactVariantId === exactVariantId) : [];
 export function loadActiveEquipmentEvidenceStatus() {
   if (reviewedCandidate) return Object.freeze({
@@ -98,6 +98,7 @@ export function assertActiveEquipmentEvidenceCompatibility(): void {
   if (activePointer.state !== "ACTIVE" || activePointer.activeEquipmentEvidenceRelease !== activeEquipmentEvidenceRelease
     || activePointer.compatibleCatalogRelease !== layer.compatibleCatalogRelease
     || activePointer.compatibleCatalogFingerprint !== layer.compatibleCatalogFingerprint
+    || activePointer.schemaVersion !== manifest.schemaVersion
     || manifest.releaseVersion !== activeEquipmentEvidenceRelease || manifest.payloadSha256 !== activePointer.payloadSha256) {
     throw new Error("ACTIVE_EQUIPMENT_EVIDENCE_POINTER_MISMATCH");
   }

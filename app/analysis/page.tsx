@@ -19,6 +19,7 @@ export default async function AnalysisPage({
   const queryValue = params.query;
   const query = Array.isArray(queryValue) ? queryValue[0] ?? "" : queryValue ?? "";
   if (pilotValue === "v3" || pilotValue === "v3.1" || pilotValue === "v3.2" || pilotValue === "v3.3" || pilotValue === "v3.4" || pilotValue === "v3.5" || pilotValue === "v3.6" || pilotValue === "v3.7" || pilotValue === "v3.8") return <CarsConversationV3 initialQuery={query} minimumBudgetTry={await getV3MinimumCatalogPriceTry()} />;
+  if (pilotValue !== "1") redirect(`/analysis?pilot=v3.8${query ? `&query=${encodeURIComponent(query)}` : ""}`);
   const pilotRequested = pilotValue === "1";
   const pilotSession = verifyPilotSessionToken((await cookies()).get(PILOT_SESSION_COOKIE)?.value);
   if (pilotRequested && !pilotSession) redirect("/pilot");

@@ -1,0 +1,570 @@
+{
+  "schemaVersion": "appliances-refrigerator-domain-pack/v1",
+  "releaseVersion": "APPLIANCES-REFRIGERATOR-TR-v0.2",
+  "departmentId": "APPLIANCES",
+  "productType": "REFRIGERATOR",
+  "market": "TR",
+  "scope": {
+    "use": "HOUSEHOLD",
+    "installation": "FREESTANDING",
+    "form": "MULTI_FORM_REFRIGERATOR",
+    "frostTechnology": "NO_FROST"
+  },
+  "governanceStatus": "APPROVED",
+  "lifecycle": "FROZEN",
+  "runtimeActive": true,
+  "concepts": [
+    "INSTALLATION_ENVELOPE",
+    "DOOR_OPENING_AND_HANDING",
+    "VENTILATION_AND_AMBIENT_FIT",
+    "FRESH_FOOD_STORAGE_NEED",
+    "FREEZER_STORAGE_NEED",
+    "TOTAL_NET_CAPACITY_PRIORITY",
+    "FREEZER_NET_CAPACITY_PRIORITY",
+    "FREEZER_ARRANGEMENT",
+    "BULKY_ITEM_STORAGE",
+    "PRESERVATION_COMPARTMENT_NEED",
+    "NO_FROST_REQUIREMENT",
+    "LOW_NOISE_PRIORITY",
+    "ENERGY_PRIORITY",
+    "SMART_CONNECTIVITY",
+    "BUDGET_SENSITIVITY"
+  ],
+  "comparability": {
+    "capacity": "TOTAL_NET_FRESH_FOOD_NET_CHILLER_NET_FREEZER_NET_ARE_DISTINCT",
+    "energyRegime": "TR_2019_2016_AB",
+    "noiseRegime": "TR_2019_2016_AB",
+    "grossNetSubstitution": false,
+    "unknownPolicy": "PRESERVE_AND_BLOCK_ONLY_DEPENDENT_DECISION_BOUNDARY"
+  },
+  "selectionPolicy": {
+    "model": "HARD_COMPATIBILITY_THEN_EVIDENCE_BACKED_PARETO",
+    "scores": false,
+    "weights": false,
+    "implicitTieBreak": false
+  },
+  "products": [
+    {
+      "productId": "SAMSUNG_RB34C6B0E12_TR",
+      "brand": "Samsung",
+      "model": "RB34C6B0E12/TR",
+      "configurationIdentity": "Samsung RB34C6B0E12/TR / Türkiye / solo / alttan donduruculu kombi / No Frost",
+      "marketStatus": "CURRENT_TR",
+      "runtimeSelectable": true,
+      "runtimeBlockers": [],
+      "technicalFacts": {
+        "installation": "FREESTANDING",
+        "form": "BOTTOM_FREEZER_COMBI",
+        "frostTechnology": "NO_FROST",
+        "widthMm": 595,
+        "heightMm": 1853,
+        "depthMm": 658,
+        "doorOpenDepthMm": null,
+        "requiredSideClearanceMm": null,
+        "requiredRearClearanceMm": null,
+        "requiredTopClearanceMm": null,
+        "totalNetLitres": 344,
+        "freshFoodNetLitres": 230,
+        "chillerNetLitres": null,
+        "freezerNetLitres": 114,
+        "grossLitres": null,
+        "freezingCapacityKg24h": 8,
+        "energyClass": "E",
+        "annualEnergyKwh": 254,
+        "energyRegime": "TR_2019_2016_AB",
+        "noiseDbA": 35,
+        "noiseClass": "B",
+        "noiseRegime": "TR_2019_2016_AB",
+        "ambientMinC": 10,
+        "ambientMaxC": 43,
+        "dimensionConflict": false
+      },
+      "capabilities": {
+        "noFrost": true,
+        "automaticDefrostFresh": true,
+        "automaticDefrostFreezer": true,
+        "reversibleDoor": true,
+        "freezerDrawers": 3,
+        "fastCooling": true,
+        "fastFreezing": true,
+        "smartConnectivity": true
+      },
+      "claims": [
+        {
+          "statement": "SpaceMax ve All Around Cooling üretici tarafından ürün kabiliyeti olarak adlandırılır; saklama süresi sonucu garanti edilmez.",
+          "authority": "MANUFACTURER_CLAIM",
+          "outcomeGuarantee": false
+        }
+      ],
+      "evidenceRefs": [
+        "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+        "SAMSUNG-RB34C6B0E12-TR-FICHE"
+      ]
+    },
+    {
+      "productId": "BOSCH_KGN55CIE0N_TR",
+      "brand": "Bosch",
+      "model": "KGN55CIE0N",
+      "configurationIdentity": "Bosch KGN55CIE0N / Türkiye / solo / alttan donduruculu kombi / No Frost",
+      "marketStatus": "CURRENT_TR",
+      "runtimeSelectable": true,
+      "runtimeBlockers": [],
+      "technicalFacts": {
+        "installation": "FREESTANDING",
+        "form": "BOTTOM_FREEZER_COMBI",
+        "frostTechnology": "NO_FROST",
+        "widthMm": 700,
+        "heightMm": 1860,
+        "depthMm": 800,
+        "doorOpenDepthMm": null,
+        "requiredSideClearanceMm": null,
+        "requiredRearClearanceMm": null,
+        "requiredTopClearanceMm": null,
+        "totalNetLitres": 483,
+        "freshFoodNetLitres": 375,
+        "chillerNetLitres": null,
+        "freezerNetLitres": 108,
+        "grossLitres": null,
+        "freezingCapacityKg24h": 10,
+        "energyClass": "E",
+        "annualEnergyKwh": 261,
+        "energyRegime": "TR_2019_2016_AB",
+        "noiseDbA": 40,
+        "noiseClass": "C",
+        "noiseRegime": "TR_2019_2016_AB",
+        "ambientMinC": 10,
+        "ambientMaxC": 43,
+        "dimensionConflict": false
+      },
+      "capabilities": {
+        "noFrost": true,
+        "automaticDefrostFresh": true,
+        "automaticDefrostFreezer": true,
+        "fastCooling": true,
+        "fastFreezing": true,
+        "bigBox": true,
+        "preservationCompartment": "VITAFRESH_MANUFACTURER_CAPABILITY"
+      },
+      "claims": [
+        {
+          "statement": "VitaFresh tazelik ifadesi üretici beyanıdır; belirli bir kullanıcı saklama süresi garanti edilmez.",
+          "authority": "MANUFACTURER_CLAIM",
+          "outcomeGuarantee": false
+        }
+      ],
+      "evidenceRefs": [
+        "BOSCH-KGN55CIE0N-TR-PRODUCT",
+        "BOSCH-KGN55CIE0N-TR-FICHE"
+      ]
+    },
+    {
+      "productId": "SIEMENS_KG56NVWD0N_TR",
+      "brand": "Siemens",
+      "model": "KG56NVWD0N",
+      "configurationIdentity": "Siemens KG56NVWD0N / Türkiye / solo / alttan donduruculu kombi / Total noFrost",
+      "marketStatus": "CURRENT_TR",
+      "runtimeSelectable": true,
+      "runtimeBlockers": [],
+      "technicalFacts": {
+        "installation": "FREESTANDING",
+        "form": "BOTTOM_FREEZER_COMBI",
+        "frostTechnology": "NO_FROST",
+        "widthMm": 695,
+        "heightMm": 1862,
+        "depthMm": 755,
+        "doorOpenDepthMm": null,
+        "requiredSideClearanceMm": null,
+        "requiredRearClearanceMm": null,
+        "requiredTopClearanceMm": null,
+        "totalNetLitres": 500,
+        "freshFoodNetLitres": 223,
+        "chillerNetLitres": 119,
+        "freezerNetLitres": 158,
+        "grossLitres": null,
+        "freezingCapacityKg24h": 9,
+        "energyClass": "D",
+        "annualEnergyKwh": 261,
+        "energyRegime": "TR_2019_2016_AB",
+        "noiseDbA": 35,
+        "noiseClass": "B",
+        "noiseRegime": "TR_2019_2016_AB",
+        "ambientMinC": 10,
+        "ambientMaxC": 43,
+        "dimensionConflict": false
+      },
+      "capabilities": {
+        "noFrost": true,
+        "automaticDefrostFresh": true,
+        "automaticDefrostChiller": true,
+        "automaticDefrostFreezer": true,
+        "fastFreezing": true,
+        "smartConnectivity": true,
+        "preservationCompartment": "HYPERFRESH_MANUFACTURER_CAPABILITY"
+      },
+      "claims": [
+        {
+          "statement": "hyperFresh tazelik ifadesi üretici beyanıdır; belirli bir kullanıcı saklama süresi garanti edilmez.",
+          "authority": "MANUFACTURER_CLAIM",
+          "outcomeGuarantee": false
+        }
+      ],
+      "evidenceRefs": [
+        "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+        "SIEMENS-KG56NVWD0N-TR-FICHE"
+      ]
+    },
+    {
+      "productId": "LG_GC_B569NLLM_TR",
+      "brand": "LG",
+      "model": "GC-B569NLLM",
+      "configurationIdentity": "LG GC-B569NLLM / Türkiye / bağımsız / alttan donduruculu kombi / No Frost",
+      "marketStatus": "TR_LISTED_AVAILABILITY_UNKNOWN",
+      "runtimeSelectable": false,
+      "runtimeBlockers": [
+        "DIMENSION_CONFLICT_PRODUCT_PAGE_705x1850x740_VS_FICHE_700x1850x700"
+      ],
+      "technicalFacts": {
+        "installation": "FREESTANDING",
+        "form": "BOTTOM_FREEZER_COMBI",
+        "frostTechnology": "NO_FROST",
+        "widthMm": null,
+        "heightMm": 1850,
+        "depthMm": null,
+        "doorOpenDepthMm": null,
+        "requiredSideClearanceMm": null,
+        "requiredRearClearanceMm": null,
+        "requiredTopClearanceMm": null,
+        "totalNetLitres": 462,
+        "freshFoodNetLitres": 329,
+        "chillerNetLitres": null,
+        "freezerNetLitres": 133,
+        "grossLitres": null,
+        "freezingCapacityKg24h": 7,
+        "energyClass": "E",
+        "annualEnergyKwh": 282,
+        "energyRegime": "TR_2019_2016_AB",
+        "noiseDbA": 41,
+        "noiseClass": "C",
+        "noiseRegime": "TR_2019_2016_AB",
+        "ambientMinC": 16,
+        "ambientMaxC": 43,
+        "dimensionConflict": true
+      },
+      "capabilities": {
+        "noFrost": true,
+        "automaticDefrostFresh": true,
+        "automaticDefrostFreezer": true,
+        "fastFreezing": true,
+        "doorCooling": true,
+        "smartDiagnosis": true
+      },
+      "claims": [
+        {
+          "statement": "NatureFRESH ve DoorCooling üretici kabiliyet beyanlarıdır; belirli bir saklama sonucu garanti edilmez.",
+          "authority": "MANUFACTURER_CLAIM",
+          "outcomeGuarantee": false
+        }
+      ],
+      "evidenceRefs": [
+        "LG-GC-B569NLLM-TR-PRODUCT",
+        "LG-GC-B569NLLM-TR-FICHE"
+      ]
+    },
+    {
+      "productId": "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+      "brand": "Teka",
+      "model": "RMF 77920 SS EU / 113430009",
+      "configurationIdentity": "Teka|RMF 77920 SS EU|113430009|TR|FREESTANDING_FOUR_DOOR|STAINLESS_STEEL",
+      "marketStatus": "CURRENT_TR",
+      "runtimeSelectable": true,
+      "runtimeBlockers": [],
+      "technicalFacts": {
+        "installation": "FREESTANDING",
+        "form": "FOUR_DOOR",
+        "frostTechnology": "NO_FROST",
+        "widthMm": 908,
+        "heightMm": 1935,
+        "depthMm": 775,
+        "doorOpenDepthMm": null,
+        "requiredSideClearanceMm": null,
+        "requiredRearClearanceMm": null,
+        "requiredTopClearanceMm": null,
+        "totalNetLitres": null,
+        "freshFoodNetLitres": 455,
+        "chillerNetLitres": null,
+        "freezerNetLitres": 182,
+        "grossLitres": 648,
+        "freezingCapacityKg24h": null,
+        "energyClass": "A_PLUS_PLUS_LEGACY_UNCOMPARABLE",
+        "annualEnergyKwh": 339,
+        "energyRegime": null,
+        "noiseDbA": 43,
+        "noiseClass": null,
+        "noiseRegime": null,
+        "ambientMinC": null,
+        "ambientMaxC": null,
+        "dimensionConflict": false
+      },
+      "capabilities": {
+        "noFrost": true,
+        "fastCooling": true,
+        "preservationCompartment": "CONVERTIBLE_COMPARTMENT"
+      },
+      "claims": [
+        {
+          "statement": "Buzdolabı özellikleri kesin kullanıcı sonucu garantisi değildir; yalnız doğrulanmış ürün ve ölçüm bağlamında kullanılır.",
+          "authority": "MANUFACTURER_CLAIM",
+          "outcomeGuarantee": false
+        }
+      ],
+      "evidenceRefs": [
+        "adoption-source:appliances-refrigerator-tr-teka-rmf-77920-ss-eu-113430009:official-tr"
+      ]
+    },
+    {
+      "productId": "appliances:refrigerator:tr:arcelik:270475-mb",
+      "brand": "Arçelik",
+      "model": "270475 MB",
+      "configurationIdentity": "Arçelik|270475 MB|TR|FREESTANDING_BOTTOM_FREEZER|WHITE",
+      "marketStatus": "CURRENT_TR",
+      "runtimeSelectable": true,
+      "runtimeBlockers": [],
+      "technicalFacts": {
+        "installation": "FREESTANDING",
+        "form": "BOTTOM_FREEZER_COMBI",
+        "frostTechnology": "NO_FROST",
+        "widthMm": 700,
+        "heightMm": 1870,
+        "depthMm": 745,
+        "doorOpenDepthMm": null,
+        "requiredSideClearanceMm": null,
+        "requiredRearClearanceMm": null,
+        "requiredTopClearanceMm": null,
+        "totalNetLitres": 475,
+        "freshFoodNetLitres": 340,
+        "chillerNetLitres": null,
+        "freezerNetLitres": 135,
+        "grossLitres": null,
+        "freezingCapacityKg24h": null,
+        "energyClass": "E",
+        "annualEnergyKwh": 284.7,
+        "energyRegime": "TR_2019_2016_AB",
+        "noiseDbA": 36,
+        "noiseClass": null,
+        "noiseRegime": "TR_2019_2016_AB",
+        "ambientMinC": null,
+        "ambientMaxC": null,
+        "dimensionConflict": false
+      },
+      "capabilities": {
+        "noFrost": true,
+        "reversibleDoor": true
+      },
+      "claims": [
+        {
+          "statement": "Buzdolabı özellikleri kesin kullanıcı sonucu garantisi değildir; yalnız doğrulanmış ürün ve ölçüm bağlamında kullanılır.",
+          "authority": "MANUFACTURER_CLAIM",
+          "outcomeGuarantee": false
+        }
+      ],
+      "evidenceRefs": [
+        "adoption-source:appliances-refrigerator-tr-arcelik-270475-mb:official-tr"
+      ]
+    },
+    {
+      "productId": "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "brand": "Samsung",
+      "model": "RB58DS75ESA/TR",
+      "configurationIdentity": "Samsung|RB58DS75ESA/TR|TR|FREESTANDING_BOTTOM_FREEZER|SILVER",
+      "marketStatus": "CURRENT_TR",
+      "runtimeSelectable": true,
+      "runtimeBlockers": [],
+      "technicalFacts": {
+        "installation": "FREESTANDING",
+        "form": "BOTTOM_FREEZER_COMBI",
+        "frostTechnology": "NO_FROST",
+        "widthMm": 840,
+        "heightMm": 1860,
+        "depthMm": 750,
+        "doorOpenDepthMm": null,
+        "requiredSideClearanceMm": null,
+        "requiredRearClearanceMm": null,
+        "requiredTopClearanceMm": null,
+        "totalNetLitres": 580,
+        "freshFoodNetLitres": 403,
+        "chillerNetLitres": null,
+        "freezerNetLitres": 177,
+        "grossLitres": null,
+        "freezingCapacityKg24h": null,
+        "energyClass": "E",
+        "annualEnergyKwh": 323,
+        "energyRegime": "TR_2019_2016_AB",
+        "noiseDbA": 43,
+        "noiseClass": null,
+        "noiseRegime": "TR_2019_2016_AB",
+        "ambientMinC": null,
+        "ambientMaxC": null,
+        "dimensionConflict": false
+      },
+      "capabilities": {
+        "noFrost": true,
+        "reversibleDoor": true,
+        "fastFreezing": true
+      },
+      "claims": [
+        {
+          "statement": "Buzdolabı özellikleri kesin kullanıcı sonucu garantisi değildir; yalnız doğrulanmış ürün ve ölçüm bağlamında kullanılır.",
+          "authority": "MANUFACTURER_CLAIM",
+          "outcomeGuarantee": false
+        }
+      ],
+      "evidenceRefs": [
+        "adoption-source:appliances-refrigerator-tr-samsung-rb58ds75esa-tr:official-tr"
+      ]
+    },
+    {
+      "productId": "appliances:refrigerator:tr:samsung:rf57c510esr-tr",
+      "brand": "Samsung",
+      "model": "RF57C510ESR/TR",
+      "configurationIdentity": "Samsung|RF57C510ESR/TR|TR|FREESTANDING_FRENCH_DOOR|SILVER",
+      "marketStatus": "CURRENT_TR",
+      "runtimeSelectable": true,
+      "runtimeBlockers": [],
+      "technicalFacts": {
+        "installation": "FREESTANDING",
+        "form": "FRENCH_DOOR",
+        "frostTechnology": "NO_FROST",
+        "widthMm": 817,
+        "heightMm": 1776,
+        "depthMm": 765,
+        "doorOpenDepthMm": null,
+        "requiredSideClearanceMm": null,
+        "requiredRearClearanceMm": null,
+        "requiredTopClearanceMm": null,
+        "totalNetLitres": 550,
+        "freshFoodNetLitres": 364,
+        "chillerNetLitres": null,
+        "freezerNetLitres": 186,
+        "grossLitres": null,
+        "freezingCapacityKg24h": null,
+        "energyClass": "E",
+        "annualEnergyKwh": 318,
+        "energyRegime": "TR_2019_2016_AB",
+        "noiseDbA": 40,
+        "noiseClass": null,
+        "noiseRegime": "TR_2019_2016_AB",
+        "ambientMinC": null,
+        "ambientMaxC": null,
+        "dimensionConflict": false
+      },
+      "capabilities": {
+        "noFrost": true,
+        "smartConnectivity": true,
+        "fastFreezing": true
+      },
+      "claims": [
+        {
+          "statement": "Buzdolabı özellikleri kesin kullanıcı sonucu garantisi değildir; yalnız doğrulanmış ürün ve ölçüm bağlamında kullanılır.",
+          "authority": "MANUFACTURER_CLAIM",
+          "outcomeGuarantee": false
+        }
+      ],
+      "evidenceRefs": [
+        "adoption-source:appliances-refrigerator-tr-samsung-rf57c510esr-tr:official-tr"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-PRODUCT",
+      "url": "https://www.samsung.com/tr/business/refrigerators/bottom-mount-freezer/bespoke-bmfreezer-with-smartthings-ai-energy-mode-344l-clean-white-rb34c6b0e12-tr/",
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_TR"
+    },
+    {
+      "sourceId": "SAMSUNG-RB34C6B0E12-TR-FICHE",
+      "url": "https://images.samsung.com/is/content/samsung/p6/common/energylabel/common-energylabel-rb34c6b0e12-tr-productfiche.pdf",
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_TR_REGULATORY_FICHE"
+    },
+    {
+      "sourceId": "BOSCH-KGN55CIE0N-TR-PRODUCT",
+      "url": "https://www.bosch-home.com.tr/tr/product/prboschfridge70/KGN55CIE0N",
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_TR"
+    },
+    {
+      "sourceId": "BOSCH-KGN55CIE0N-TR-FICHE",
+      "url": "https://media3.bsh-group.com/Documents/eudatasheet/tr-TR/KGN55CIE0N.pdf",
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_TR_REGULATORY_FICHE"
+    },
+    {
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-PRODUCT",
+      "url": "https://www.siemens-home.bsh-group.com/tr/tr/product/buzdolaplari-ve-derin-dondurucular/solo-buzdolaplari-ve-derin-dondurucular/alttan-donduruculu-solo-buzdolaplari/KG56NVWD0N",
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_TR"
+    },
+    {
+      "sourceId": "SIEMENS-KG56NVWD0N-TR-FICHE",
+      "url": "https://media3.bsh-group.com/Documents/eudatasheet/tr-TR/KG56NVWD0N.pdf",
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_TR_REGULATORY_FICHE"
+    },
+    {
+      "sourceId": "LG-GC-B569NLLM-TR-PRODUCT",
+      "url": "https://www.lg.com/tr/buzdolabi/uzun-buzdolabi-donduruculari1/gc-b569nllm/",
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_TR"
+    },
+    {
+      "sourceId": "LG-GC-B569NLLM-TR-FICHE",
+      "url": "https://www.lg.com/tr/lgecs.downloadFile.ldwf?DOC_ID=20250520248484&FILE_NAME=T%C3%BCrkiye+PIS+GC-B569NLLM.pdf&GSRI_DOC=GSRI&ORIGINAL_NAME_b1_a1=T%C3%BCrkiye+PIS+GC-B569NLLM%5B20250520115146887%5D.pdf&SPEC_DOWNLOAD=N&TC=DwnCmd",
+      "accessedAt": "2026-09-03",
+      "authority": "MANUFACTURER_TR_REGULATORY_FICHE"
+    },
+    {
+      "sourceId": "adoption-source:appliances-refrigerator-tr-teka-rmf-77920-ss-eu-113430009:official-tr",
+      "url": "https://www.teka.com/tr-tr/urun/rmf-77920_113430009/",
+      "accessedAt": "2026-09-05",
+      "authority": "MANUFACTURER_TR_EXACT_MODEL"
+    },
+    {
+      "sourceId": "adoption-source:appliances-refrigerator-tr-arcelik-270475-mb:official-tr",
+      "url": "https://www.arcelik.com.tr/no-frost-buzdolabi/270475-mb-buzdolabi",
+      "accessedAt": "2026-09-05",
+      "authority": "MANUFACTURER_TR_EXACT_MODEL"
+    },
+    {
+      "sourceId": "adoption-source:appliances-refrigerator-tr-samsung-rb58ds75esa-tr:official-tr",
+      "url": "https://www.samsung.com/tr/business/refrigerators/bottom-mount-freezer/rb3000rm-twin-cooling-580l-silver-rb58ds75esa-tr/",
+      "accessedAt": "2026-09-05",
+      "authority": "MANUFACTURER_TR_EXACT_MODEL"
+    },
+    {
+      "sourceId": "adoption-source:appliances-refrigerator-tr-samsung-rf57c510esr-tr:official-tr",
+      "url": "https://www.samsung.com/tr/business/refrigerators/french-door/rf5000a-550l-silver-rf57c510esr-tr/",
+      "accessedAt": "2026-09-05",
+      "authority": "MANUFACTURER_TR_EXACT_MODEL"
+    }
+  ],
+  "decisionAdoption": {
+    "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-DECISION-ADOPTION-01",
+    "sourceBatchDigest": "sha256:b3cb67e1dd00dc6c529ae750679e8276c13f9723d4e1d77737a7f39aee441ea2",
+    "sourcePackageSha256": "2e76d621ce5569d7005ea29ab10e70f1807199038d1d973a681baee829210732",
+    "catalogActivationId": "APPLIANCES-MAJOR-CATALOG-ACT-B3CB67E1DD00-2E76D621CE55",
+    "parentReleaseVersion": "APPLIANCES-REFRIGERATOR-TR-v0.1",
+    "parentArtifactSha256": "4b9c4aef891c46c023c67a1564d87652e1d63fe25ef9482c7ff830548cf9e825",
+    "decisionAuthorityApproval": "EXPLICIT_PRODUCT_OWNER_APPROVAL",
+    "commerceBoundary": "L10_NO_DECISION_EFFECT",
+    "admittedOfferingIds": [
+      "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+      "appliances:refrigerator:tr:arcelik:270475-mb",
+      "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+      "appliances:refrigerator:tr:samsung:rf57c510esr-tr"
+    ],
+    "excludedOfferingIds": [
+      "appliances:dishwasher:tr:teka:dfi-46700-ttm"
+    ]
+  }
+}

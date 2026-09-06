@@ -1,0 +1,498 @@
+[
+  {
+    "schemaVersion": "major-appliance-category-adoption-coverage/v1",
+    "categoryId": "WASHING_MACHINE",
+    "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+    "verdict": "ADMITTED_TO_FROZEN_CANDIDATE_RELEASE_ACTIVATION_BLOCKED_APPROVAL",
+    "counts": {
+      "priorOfferings": 24,
+      "admittedOfferings": 5,
+      "candidateOfferings": 29,
+      "newSources": 5,
+      "newEvidenceAssertions": 88,
+      "newFacts": 70,
+      "newCapabilities": 18,
+      "newDailyLifeInterpretations": 5,
+      "newDecisionProjections": 5,
+      "newAdvisorKnowledge": 0
+    },
+    "layers": {
+      "L0": "COMPLETE",
+      "L1": "COMPLETE",
+      "L2": "COMPLETE",
+      "L3": "COMPLETE",
+      "L4": "COMPLETE",
+      "L5": "COMPLETE_PLANNING_ONLY_NO_Y",
+      "L6": "COMPLETE_SEPARATE_FROM_TECHNICAL_TRUTH",
+      "L7": "ABSENT_NO_GOVERNED_EXPERIENCE",
+      "L8": "COMPLETE_NEUTRAL_UNKNOWN_LIMITED",
+      "L9": "DISABLED_NO_CHECKSUM_PINNED_EXACT_MANUAL",
+      "L10": "PARTIAL_EXTERNAL_VOLATILE_AMAZON_ONLY"
+    },
+    "perProduct": [
+      {
+        "offeringId": "appliances:wm:tr:samsung:ww90ta046ah-ah",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Exact installation clearances and hose routing remain unknown until a checksum-pinned exact manual is reviewed.",
+          "Noise perception, wash outcome, vibration and household bills are not guaranteed."
+        ]
+      },
+      {
+        "offeringId": "appliances:wm:tr:vestel:cmi-97402-wifi",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "The manual URL is exact, but L9 remains disabled because its bytes/checksum were not retained by this release.",
+          "Seller warranty terms, final installation inclusion and usage outcomes require transaction-time confirmation."
+        ]
+      },
+      {
+        "offeringId": "appliances:wm:tr:arcelik:10120-imp",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Exact manual bytes and section locators are not retained; L9 is disabled.",
+          "Programme-level load limits and claimed outcome magnitudes remain outside decision evidence."
+        ]
+      },
+      {
+        "offeringId": "appliances:wm:tr:altus:al-cm-101254-d",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Exact manual bytes and section locators are not retained; L9 is disabled.",
+          "Motor warranty eligibility and seller installation terms require purchase-date confirmation."
+        ]
+      },
+      {
+        "offeringId": "appliances:wm:tr:samsung:ww11dg6b25leah",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Exact manual bytes and section locators are not retained; L9 is disabled.",
+          "AI Energy savings claims are conditional and excluded from decision evidence."
+        ]
+      }
+    ],
+    "nonRegression": {
+      "existingOfferingsRetained": true,
+      "existingEvidenceRetained": true,
+      "activePointerChanged": false,
+      "currentYAuthorityChanged": false,
+      "rankingOrRemovalIntroduced": false
+    }
+  },
+  {
+    "schemaVersion": "major-appliance-category-adoption-coverage/v1",
+    "categoryId": "DRYER",
+    "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+    "verdict": "ADMITTED_TO_FROZEN_CANDIDATE_RELEASE_ACTIVATION_BLOCKED_APPROVAL",
+    "counts": {
+      "priorOfferings": 3,
+      "admittedOfferings": 4,
+      "candidateOfferings": 7,
+      "newSources": 4,
+      "newEvidenceAssertions": 72,
+      "newFacts": 56,
+      "newCapabilities": 16,
+      "newDailyLifeInterpretations": 4,
+      "newDecisionProjections": 4,
+      "newAdvisorKnowledge": 0
+    },
+    "layers": {
+      "L0": "COMPLETE",
+      "L1": "COMPLETE",
+      "L2": "COMPLETE",
+      "L3": "COMPLETE",
+      "L4": "COMPLETE",
+      "L5": "COMPLETE_PLANNING_ONLY_NO_Y",
+      "L6": "COMPLETE_SEPARATE_FROM_TECHNICAL_TRUTH",
+      "L7": "ABSENT_NO_GOVERNED_EXPERIENCE",
+      "L8": "COMPLETE_NEUTRAL_UNKNOWN_LIMITED",
+      "L9": "DISABLED_NO_CHECKSUM_PINNED_EXACT_MANUAL",
+      "L10": "PARTIAL_EXTERNAL_VOLATILE_AMAZON_ONLY"
+    },
+    "perProduct": [
+      {
+        "offeringId": "appliances:dryer:tr:hoover:hre-h11a2tbe-17",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Base appliance warranty duration and installation inclusion are not stated on the exact page.",
+          "Exact manual bytes are not retained; L9 is disabled."
+        ]
+      },
+      {
+        "offeringId": "appliances:dryer:tr:hoover:nr-eh11n2tbex-17",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Base appliance warranty duration and installation inclusion are not stated on the exact page.",
+          "Exact manual bytes are not retained; L9 is disabled."
+        ]
+      },
+      {
+        "offeringId": "appliances:dryer:tr:arcelik:1201-kmx",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Door-open installation envelope is unknown.",
+          "Exact manual bytes are not retained; L9 is disabled."
+        ]
+      },
+      {
+        "offeringId": "appliances:dryer:tr:samsung:dv10dg54a0abah",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Door-open installation envelope and direct-drain inclusion are unknown.",
+          "Exact manual bytes are not retained; L9 is disabled."
+        ]
+      }
+    ],
+    "nonRegression": {
+      "existingOfferingsRetained": true,
+      "existingEvidenceRetained": true,
+      "activePointerChanged": false,
+      "currentYAuthorityChanged": false,
+      "rankingOrRemovalIntroduced": false
+    }
+  },
+  {
+    "schemaVersion": "major-appliance-category-adoption-coverage/v1",
+    "categoryId": "DISHWASHER",
+    "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+    "verdict": "ADMITTED_TO_FROZEN_CANDIDATE_RELEASE_ACTIVATION_BLOCKED_APPROVAL",
+    "counts": {
+      "priorOfferings": 4,
+      "admittedOfferings": 3,
+      "candidateOfferings": 7,
+      "newSources": 3,
+      "newEvidenceAssertions": 54,
+      "newFacts": 39,
+      "newCapabilities": 15,
+      "newDailyLifeInterpretations": 3,
+      "newDecisionProjections": 3,
+      "newAdvisorKnowledge": 0
+    },
+    "layers": {
+      "L0": "COMPLETE",
+      "L1": "COMPLETE",
+      "L2": "COMPLETE",
+      "L3": "COMPLETE",
+      "L4": "COMPLETE",
+      "L5": "COMPLETE_PLANNING_ONLY_NO_Y",
+      "L6": "COMPLETE_SEPARATE_FROM_TECHNICAL_TRUTH",
+      "L7": "ABSENT_NO_GOVERNED_EXPERIENCE",
+      "L8": "COMPLETE_NEUTRAL_UNKNOWN_LIMITED",
+      "L9": "DISABLED_NO_CHECKSUM_PINNED_EXACT_MANUAL",
+      "L10": "PARTIAL_EXTERNAL_VOLATILE_AMAZON_ONLY"
+    },
+    "perProduct": [
+      {
+        "offeringId": "appliances:dishwasher:tr:arcelik:a-710-i",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Base warranty duration and exact installation clearances remain unknown.",
+          "Exact manual bytes are not retained; L9 is disabled."
+        ]
+      },
+      {
+        "offeringId": "appliances:dishwasher:tr:arcelik:a-811-i",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Official manufacturer page reports its own store as temporarily out of stock; Amazon availability remains L10 only.",
+          "Base warranty duration and exact manual checksum remain unknown."
+        ]
+      },
+      {
+        "offeringId": "appliances:dishwasher:tr:samsung:dw60m5062fs-tr",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Amazon title says seven programs while Samsung Türkiye support identifies the exact model as six-program; program count is excluded as conflicted.",
+          "Exact manual bytes are not retained; L9 is disabled."
+        ]
+      }
+    ],
+    "nonRegression": {
+      "existingOfferingsRetained": true,
+      "existingEvidenceRetained": true,
+      "activePointerChanged": false,
+      "currentYAuthorityChanged": false,
+      "rankingOrRemovalIntroduced": false
+    }
+  },
+  {
+    "schemaVersion": "major-appliance-category-adoption-coverage/v1",
+    "categoryId": "REFRIGERATOR",
+    "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+    "verdict": "ADMITTED_TO_FROZEN_CANDIDATE_RELEASE_ACTIVATION_BLOCKED_APPROVAL",
+    "counts": {
+      "priorOfferings": 4,
+      "admittedOfferings": 4,
+      "candidateOfferings": 8,
+      "newSources": 4,
+      "newEvidenceAssertions": 77,
+      "newFacts": 60,
+      "newCapabilities": 17,
+      "newDailyLifeInterpretations": 4,
+      "newDecisionProjections": 4,
+      "newAdvisorKnowledge": 0
+    },
+    "layers": {
+      "L0": "COMPLETE",
+      "L1": "COMPLETE",
+      "L2": "COMPLETE",
+      "L3": "COMPLETE",
+      "L4": "COMPLETE",
+      "L5": "COMPLETE_PLANNING_ONLY_NO_Y",
+      "L6": "COMPLETE_SEPARATE_FROM_TECHNICAL_TRUTH",
+      "L7": "ABSENT_NO_GOVERNED_EXPERIENCE",
+      "L8": "COMPLETE_NEUTRAL_UNKNOWN_LIMITED",
+      "L9": "DISABLED_NO_CHECKSUM_PINNED_EXACT_MANUAL",
+      "L10": "PARTIAL_EXTERNAL_VOLATILE_AMAZON_ONLY"
+    },
+    "perProduct": [
+      {
+        "offeringId": "appliances:refrigerator:tr:teka:rmf-77920-ss-eu-113430009",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "A++ is a legacy energy regime and must not be compared to current A-G classes.",
+          "Current base warranty duration and installation ventilation/door-clearance envelope are unknown; L9 is disabled."
+        ]
+      },
+      {
+        "offeringId": "appliances:refrigerator:tr:arcelik:270475-mb",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Base warranty duration and ventilation/door-clearance envelope remain unknown.",
+          "Exact manual bytes are not retained; L9 is disabled."
+        ]
+      },
+      {
+        "offeringId": "appliances:refrigerator:tr:samsung:rb58ds75esa-tr",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Installation ventilation and door-open clearance envelope remain unknown.",
+          "Exact manual bytes are not retained; L9 is disabled."
+        ]
+      },
+      {
+        "offeringId": "appliances:refrigerator:tr:samsung:rf57c510esr-tr",
+        "disposition": "ADMITTED",
+        "layerCoverage": {
+          "L0": "COMPLETE",
+          "L1": "COMPLETE",
+          "L2": "COMPLETE",
+          "L3": "COMPLETE",
+          "L4": "COMPLETE",
+          "L5": "COMPLETE_NO_Y",
+          "L6": "COMPLETE_NEUTRAL",
+          "L7": "ABSENT",
+          "L8": "COMPLETE",
+          "L9": "DISABLED",
+          "L10": "VOLATILE"
+        },
+        "unknowns": [
+          "Installation ventilation and door-open clearance envelope remain unknown.",
+          "Exact manual bytes are not retained; L9 is disabled."
+        ]
+      }
+    ],
+    "nonRegression": {
+      "existingOfferingsRetained": true,
+      "existingEvidenceRetained": true,
+      "activePointerChanged": false,
+      "currentYAuthorityChanged": false,
+      "rankingOrRemovalIntroduced": false
+    }
+  }
+]

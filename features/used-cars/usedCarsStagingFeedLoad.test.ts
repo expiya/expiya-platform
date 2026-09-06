@@ -1,0 +1,6 @@
+import { describe, expect, it } from "vitest";
+import { assessFeedLoadReconciliationGate } from "./staging/feedLoadReconciliationGate";
+describe("used-cars staging feed load and reconciliation", () => {
+  it("accepts a ten-thousand-row synthetic drill without enabling writes", () => expect(assessFeedLoadReconciliationGate({ batchRows: 10_000, completedWithinSeconds: 420, retryProducedSameOutcome: true, payloadConflictRejected: true, creates: 4000, updates: 2000, unchanged: 3500, explicitClosures: 100, omittedButUntouched: 400, omissionDeletionCount: 0, crossTenantMutationCount: 0, errorReportRedacted: true, evidenceChecksum: `sha256:${"8".repeat(64)}`, supportOwnerId: "feed-support", syntheticOnly: true })).toMatchObject({ passed: true, realFeedConnectionAuthorized: false, inventoryWriteAuthorized: false }));
+  it("blocks deletion by omission", () => expect(assessFeedLoadReconciliationGate({ batchRows: 10_000, completedWithinSeconds: 420, retryProducedSameOutcome: true, payloadConflictRejected: true, creates: 0, updates: 0, unchanged: 0, explicitClosures: 0, omittedButUntouched: 0, omissionDeletionCount: 1, crossTenantMutationCount: 0, errorReportRedacted: true, evidenceChecksum: `sha256:${"8".repeat(64)}`, supportOwnerId: "feed-support", syntheticOnly: true }).codes).toContain("MUTATION_BOUNDARY_VIOLATION"));
+});

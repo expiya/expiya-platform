@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "major-appliance-category-adoption-manifest/v1",
+  "workUnitId": "WU-APPL-AMAZON-P1-MAJOR-APPLIANCE-CATALOG-ADOPTION-01",
+  "categoryId": "DISHWASHER",
+  "releaseVersion": "APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.3-candidate",
+  "releaseDigest": "sha256:cecb38d0592e0bda7677df50775fe3de9a1324f710aa16cb5cf923e0eb89f08a",
+  "catalogArtifactSha256": "662964e296e3717d56a0428932d5bdbf8df986b9816b9604458d5805dec5dc3d",
+  "semanticArtifactSha256": "bf5d9316a093ee6d826ea29f85cad29869223c734dbd06a49a16c12375b16527",
+  "coverageArtifactSha256": "31dc7384c6bcc55bfcfdf52cc35e1d02fd9777d167f46594253e42f8455db36a",
+  "projectionsArtifactSha256": "f83cc04e4896d6a68b9974bc6643c3dab0ffe565502fd8a2c43560546eb2e335",
+  "sourceRegisterArtifactSha256": "f97ad962594455511ec0cb2293ecbd35b3907b1e2f6748701b2c27d61dcbad62",
+  "unknownRegisterArtifactSha256": "95acb01901615364a2b02a0544c432d9fc36d31b9ec9bde44add9a7d5e885d7d",
+  "membershipDigest": "a8bdab0f17770acfc60abd382f9ef66193c0d48e3fc2548f51bda15731a5c7d4",
+  "memberCount": 7,
+  "priorMemberCount": 4,
+  "admittedOfferingIds": [
+    "appliances:dishwasher:tr:arcelik:a-710-i",
+    "appliances:dishwasher:tr:arcelik:a-811-i",
+    "appliances:dishwasher:tr:samsung:dw60m5062fs-tr"
+  ],
+  "parent": {
+    "activePointerPath": "data/production/appliances/dishwashers/active.json",
+    "activePointerSha256": "6dacfc77be2f1078e2b025ebf287009989b969e2b1b720e8343ecbb981bee5c4",
+    "decisionReleaseVersion": "APPLIANCES-DISHWASHER-TR-v0.1",
+    "decisionArtifactPath": "data/production/appliances/dishwashers/releases/APPLIANCES-DISHWASHER-TR-v0.1/domain-pack.json",
+    "decisionArtifactSha256": "66973c59f1b752f2598b4c6b30d6dc0d2b272948a342b33a08f4cd8f68f9124e",
+    "richnessReleaseVersion": "APPLIANCES-DISHWASHER-CATALOG-RICHNESS-TR-v0.2",
+    "richnessCatalogArtifactSha256": "7237a05c25c245473fd00fab0b96dd531a92f1082e288bb7e2533373e159f5ee",
+    "relationship": "IMMUTABLE_SUCCESSOR_CANDIDATE_NO_OVERWRITE"
+  },
+  "compatibility": {
+    "runtime": {
+      "version": "XPY_RUNTIME/v0.1",
+      "digest": "96a533872b3b47c594e982cf5a71e3eb50c226aef65b3f4214b71a29b87ed6ee",
+      "domainPackId": "appliances-stage1/v1"
+    },
+    "domainPackVersion": "appliances-stage1/v1",
+    "semanticAuthorityVersion": "DISHWASHER_SEMANTIC_REGISTRY/v0.3-candidate",
+    "semanticAuthorityDigest": "sha256:d31126100c71521506b7f4eacf3bd6a8b89615fdf11347efce526aa13e41e3c3",
+    "revisionClass": "SEMANTIC_POLICY_CHANGE",
+    "semanticAuthorityChange": "VERSIONED_CHANGE"
+  },
+  "activation": {
+    "performed": false,
+    "status": "BLOCKED_MANDATORY_PRODUCT_OWNER_APPROVAL",
+    "blocker": "Product membership changes decision authority. Existing read-only richness approval does not authorize new members."
+  }
+}

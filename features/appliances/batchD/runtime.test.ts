@@ -1,0 +1,4 @@
+import { describe,expect,it } from "vitest";
+import { loadActiveBoundedAuthority,type BoundedProductType } from "../bounded/authority.server";
+const categories:readonly BoundedProductType[]=["AIR_FRYER","BLENDER","FOOD_PROCESSOR"];
+describe("Batch D public runtime authority",()=>{it.each(categories)("loads an exact multi-brand frozen set for %s",async categoryId=>{const loaded=await loadActiveBoundedAuthority(process.cwd(),categoryId);expect(loaded.status).toBe("READY");if(loaded.status!=="READY")return;expect(loaded.snapshot.pack.products).toHaveLength(3);expect(new Set(loaded.snapshot.pack.products.map(x=>x.brand)).size).toBeGreaterThanOrEqual(2);expect(loaded.snapshot.pack.selectionPolicy).toEqual({model:"HARD_COMPATIBILITY_THEN_EVIDENCE_BACKED_PARETO",scores:false,weights:false,implicitTieBreak:false});expect(loaded.snapshot.pack.products.every(x=>x.claims.every(c=>c.outcomeGuarantee===false))).toBe(true);});});

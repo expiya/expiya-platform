@@ -1,0 +1,21 @@
+Model,Brand,Segment,Propulsion,Mainstream / Discovery,Coverage Gap Filled,Turkey Availability Evidence,Selection Decision
+Ranger,Ford,pickup,NONE/4WD,MAINSTREAM,pickup; towing; diesel long-distance; rough-road,SRC-000054,SELECTED
+Land Cruiser Prado,Toyota,real 4x4,MHEV/4WD,MAINSTREAM,real 4x4; towing; large family; diesel long-distance,SRC-000053,SELECTED
+Bayon,Hyundai,small B-SUV,NONE/FWD,MAINSTREAM,small B-SUV; urban; mainstream price/size bridge,SRC-000046,SELECTED
+INSTER,Hyundai,city hatch,BEV/FWD + BEV/FWD,MAINSTREAM,city hatch; affordable EV; urban EV,SRC-000047,SELECTED
+IONIQ 6,Hyundai,long-range EV,BEV/RWD,DISCOVERY,long-range EV; efficient fastback; premium alternative,SRC-000048,SELECTED
+IONIQ 5 N,Hyundai,performance EV,BEV/AWD,DISCOVERY,performance EV; AWD; premium alternative,SRC-000049,SELECTED
+IONIQ 9,Hyundai,large 7-seat SUV,BEV/RWD + BEV/AWD,DISCOVERY,large 7-seat SUV; family EV; long-range EV; towing,SRC-000050,SELECTED
+STARIA HEV,Hyundai,MPV,HEV/FWD,DISCOVERY,MPV; passenger van; 9-seat; large family,SRC-000051,SELECTED
+SANTA FE,Hyundai,large 7-seat SUV,HEV/AWD,MAINSTREAM,large 7-seat SUV; HEV + AWD; family; towing,SRC-000052,SELECTED
+Berlingo,Citroën,passenger van,NONE/FWD + NONE/FWD,MAINSTREAM,passenger van; cargo-oriented family; diesel long-distance,SRC-000055,SELECTED
+Berlingo Van,Citroën,commercial/practical van,NONE/FWD + NONE/FWD,MAINSTREAM,commercial/practical van; cargo,SRC-000056,SELECTED
+SEALION 7,BYD,family EV,BEV/RWD + BEV/AWD,DISCOVERY,family EV; long-range EV; performance EV; BEV AWD,SRC-000057,SELECTED
+Countryman Electric,MINI,premium alternative,BEV/FWD + BEV/AWD,DISCOVERY,premium alternative; family EV; BEV AWD,SRC-000058,SELECTED
+3008,Peugeot,family EV,BEV/FWD,MAINSTREAM,family EV; fastback; mainstream premium bridge,SRC-000059,SELECTED
+Jimny,Suzuki,real 4x4,NONE/4WD,DISCOVERY,real 4x4; compact off-road; rough-road; camping,SRC-000060,SELECTED
+RAV4 Hybrid,Toyota,D-SUV,HEV/AWD,MAINSTREAM,HEV + AWD,SRC-000053,REJECTED: REDUNDANT_ROLE
+Kona EV,Hyundai,B-SUV,BEV/FWD,MAINSTREAM,urban EV,SRC-000045,REJECTED: LOW_MARGINAL_COVERAGE
+i30,Hyundai,C-hatch,MHEV/FWD,MAINSTREAM,C-hatch,SRC-000045,REJECTED: BATCH_BALANCE
+Rafale E-Tech 4x4,Renault,D-SUV fastback,PHEV/AWD,MAINSTREAM,PHEV AWD,SRC-000054,REJECTED: EXACT_CONFIGURATION_UNRESOLVED
+Mazda CX-80,Mazda,large 7-seat SUV,PHEV/AWD,DISCOVERY,PHEV AWD; 7-seat,SRC-000054,REJECTED: WEAK_TR_AVAILABILITY

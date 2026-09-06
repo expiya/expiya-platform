@@ -1,0 +1,1660 @@
+{
+  "schemaVersion": "electronics-wave-1-evidence-closure/v1",
+  "releaseVersion": "ELECTRONICS-WAVE-1-EVIDENCE-TR-v0.1",
+  "parentRichnessDigest": "sha256:091968ca447271d29ccd15d50cf398c4b896ea1de410731ec1a91ec88241dd91",
+  "products": [
+    {
+      "exactProductId": "electronics:e-reader:kobo:n367",
+      "categoryId": "E_READER",
+      "manufacturer": "Rakuten Kobo",
+      "manufacturerModelCode": "N367",
+      "configurationIdentity": "Rakuten Kobo|Clara Colour|N367|6in Colour|TR",
+      "trApplicabilitySourceIds": [
+        "kobo-tr:N367"
+      ],
+      "lifecycle": "FROZEN_CANDIDATE"
+    },
+    {
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "categoryId": "E_READER",
+      "manufacturer": "Rakuten Kobo",
+      "manufacturerModelCode": "N428",
+      "configurationIdentity": "Rakuten Kobo|Libra Colour|N428|7in Colour|Page Buttons|Stylus Compatible|TR",
+      "trApplicabilitySourceIds": [
+        "kobo-tr:N428"
+      ],
+      "lifecycle": "FROZEN_CANDIDATE"
+    },
+    {
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "categoryId": "LAPTOP",
+      "manufacturer": "Lenovo",
+      "manufacturerModelCode": "83K2001VTR",
+      "configurationIdentity": "Lenovo|IdeaPad Slim 3 16IRH10|83K2001VTR|Core i7-13620H|16GB|1TB SSD|16in WUXGA IPS|FreeDOS|TR",
+      "trApplicabilitySourceIds": [
+        "lenovo-tr-support:83K2001VTR",
+        "mediamarkt-tr:83K2001VTR"
+      ],
+      "lifecycle": "FROZEN_CANDIDATE"
+    },
+    {
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "categoryId": "LAPTOP",
+      "manufacturer": "Lenovo",
+      "manufacturerModelCode": "83K20077TR",
+      "configurationIdentity": "Lenovo|IdeaPad Slim 3 16IRH10|83K20077TR|Core i5-13420H|16GB|1TB SSD|16in WUXGA IPS|FreeDOS|TR",
+      "trApplicabilitySourceIds": [
+        "lenovo-tr-support:83K20077TR",
+        "amazon-tr:B0-83K20077TR"
+      ],
+      "lifecycle": "FROZEN_CANDIDATE"
+    },
+    {
+      "exactProductId": "electronics:monitor:samsung:ls27c902pauxuf",
+      "categoryId": "MONITOR",
+      "manufacturer": "Samsung",
+      "manufacturerModelCode": "LS27C902PAUXUF",
+      "configurationIdentity": "Samsung|ViewFinity S9|LS27C902PAUXUF|27in|5K|TR",
+      "trApplicabilitySourceIds": [
+        "source:monitor:8"
+      ],
+      "lifecycle": "FROZEN_CANDIDATE"
+    },
+    {
+      "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "categoryId": "MONITOR",
+      "manufacturer": "Samsung",
+      "manufacturerModelCode": "LS27F612EAUXUF",
+      "configurationIdentity": "Samsung|ViewFinity S6 S61F|LS27F612EAUXUF|27in|QHD|100Hz|TR",
+      "trApplicabilitySourceIds": [
+        "source:monitor:7"
+      ],
+      "lifecycle": "FROZEN_CANDIDATE"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "categoryId": "SMARTPHONE",
+      "manufacturer": "Samsung",
+      "manufacturerModelCode": "SM-A266BZKCTUR",
+      "configurationIdentity": "Samsung|Galaxy A26 5G|SM-A266BZKCTUR|8GB|256GB|Black|TR",
+      "trApplicabilitySourceIds": [
+        "samsung-tr:SM-A266BZKCTUR"
+      ],
+      "lifecycle": "FROZEN_CANDIDATE"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "categoryId": "SMARTPHONE",
+      "manufacturer": "Samsung",
+      "manufacturerModelCode": "SM-A366BZKGTUR",
+      "configurationIdentity": "Samsung|Galaxy A36 5G|SM-A366BZKGTUR|8GB|256GB|Black|TR",
+      "trApplicabilitySourceIds": [
+        "source:smartphone:1"
+      ],
+      "lifecycle": "FROZEN_CANDIDATE"
+    },
+    {
+      "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "categoryId": "TABLET",
+      "manufacturer": "Samsung",
+      "manufacturerModelCode": "SM-X520NZSPTUR",
+      "configurationIdentity": "Samsung|Galaxy Tab S10 FE Wi-Fi|SM-X520NZSPTUR|256GB|Silver|TR",
+      "trApplicabilitySourceIds": [
+        "source:tablet:6"
+      ],
+      "lifecycle": "FROZEN_CANDIDATE"
+    },
+    {
+      "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "categoryId": "TABLET",
+      "manufacturer": "Samsung",
+      "manufacturerModelCode": "SM-X730NZSPTUR",
+      "configurationIdentity": "Samsung|Galaxy Tab S11 Wi-Fi|SM-X730NZSPTUR|12GB|256GB|Silver|TR",
+      "trApplicabilitySourceIds": [
+        "source:tablet:5"
+      ],
+      "lifecycle": "FROZEN_CANDIDATE"
+    },
+    {
+      "exactProductId": "electronics:television:lg:oled55b65la",
+      "categoryId": "TELEVISION",
+      "manufacturer": "LG",
+      "manufacturerModelCode": "OLED55B65LA",
+      "configurationIdentity": "LG|OLED B6 2026|OLED55B65LA|55in|4K|120Hz VRR|webOS26|TR",
+      "trApplicabilitySourceIds": [
+        "lg-tr:OLED55B65LA"
+      ],
+      "lifecycle": "FROZEN_CANDIDATE"
+    },
+    {
+      "exactProductId": "electronics:television:next:ye-55gfsg8-qled",
+      "categoryId": "TELEVISION",
+      "manufacturer": "Next",
+      "manufacturerModelCode": "YE-55GFSG8-QLED",
+      "configurationIdentity": "Next|YE-55GFSG8-QLED|55in|4K|Google TV|TR",
+      "trApplicabilitySourceIds": [
+        "next-tr:YE-55GFSG8-QLED"
+      ],
+      "lifecycle": "FROZEN_CANDIDATE"
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "samsung-tr:SM-A266BZKCTUR",
+      "uri": "https://www.samsung.com/tr/smartphones/galaxy-a/galaxy-a26-5g-black-256gb-sm-a266bzkctur/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:smartphone:samsung:sm-a266bzkctur"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "next-tr:YE-55GFSG8-QLED",
+      "uri": "https://www.next.com.tr/Data/EditorFiles/katalog/Next_Katalog_2026.pdf",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:television:next:ye-55gfsg8-qled"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "source:smartphone:1",
+      "uri": "https://www.samsung.com/tr/smartphones/galaxy-a/galaxy-a36-5g-awesome-black-256gb-sm-a366bzkgtur/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:smartphone:samsung:sm-a366bzkgtur"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "source:tablet:5",
+      "uri": "https://www.samsung.com/tr/tablets/galaxy-tab-s/galaxy-tab-s11-silver-256gb-sm-x730nzsptur/buy/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:tablet:samsung:sm-x730nzsptur"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "source:tablet:6",
+      "uri": "https://www.samsung.com/tr/tablets/galaxy-tab-s/galaxy-tab-s10-fe-silver-256gb-sm-x520nzsptur/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:tablet:samsung:sm-x520nzsptur"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "source:monitor:7",
+      "uri": "https://www.samsung.com/tr/monitors/high-resolution/viewfinity-s6-s61f-27-inch-qhd-100hz-ergonomic-ls27f612eauxuf/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:monitor:samsung:ls27f612eauxuf"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "source:monitor:8",
+      "uri": "https://www.samsung.com/tr/monitors/high-resolution/viewfinity-s9-27-inch-5k-resolution-ls27c902pauxuf/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:monitor:samsung:ls27c902pauxuf"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "lenovo-tr-support:83K20077TR",
+      "uri": "https://pcsupport.lenovo.com/tr/tr/products/LAPTOPS-AND-NETBOOKS/IDEAPAD-S-SERIES-NETBOOKS/IDEAPAD-SLIM-3-16IRH10/83K2/83K20077TR",
+      "market": "TR",
+      "authority": "TR_APPLICABILITY",
+      "exactProductIds": [
+        "electronics:laptop:lenovo:83k20077tr"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "lenovo-tr-support:83K2001VTR",
+      "uri": "https://pcsupport.lenovo.com/tr/tr/products/laptops-and-netbooks/ideapad-s-series-netbooks/ideapad-slim-3-16irh10/83k2/83k2001vtr",
+      "market": "TR",
+      "authority": "TR_APPLICABILITY",
+      "exactProductIds": [
+        "electronics:laptop:lenovo:83k2001vtr"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "lenovo-psref:83K20077TR",
+      "uri": "https://psref.lenovo.com/Detail/IdeaPad_Slim_3_16IRH10?M=83K20077TR",
+      "market": "GLOBAL",
+      "authority": "INTERNATIONAL_BOUNDED",
+      "exactProductIds": [
+        "electronics:laptop:lenovo:83k20077tr"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "lenovo-psref:83K2001VTR",
+      "uri": "https://psref.lenovo.com/Detail/IdeaPad_Slim_3_16IRH10?M=83K2001VTR",
+      "market": "GLOBAL",
+      "authority": "INTERNATIONAL_BOUNDED",
+      "exactProductIds": [
+        "electronics:laptop:lenovo:83k2001vtr"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "amazon-tr:B0-83K20077TR",
+      "uri": "https://www.amazon.com.tr/s?k=83K20077TR",
+      "market": "TR",
+      "authority": "COMMERCE_DISCOVERY",
+      "exactProductIds": [
+        "electronics:laptop:lenovo:83k20077tr"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "mediamarkt-tr:83K2001VTR",
+      "uri": "https://www.mediamarkt.com.tr/tr/product/_lenovo-ideapad-slim-3-16irh10-83k2001vtr-intel-core-i7-13620h-16-gb-ram-1-tb-ssd-uhd-graphics-16-inc-freedos-laptop-gri-161583986.html",
+      "market": "TR",
+      "authority": "COMMERCE_DISCOVERY",
+      "exactProductIds": [
+        "electronics:laptop:lenovo:83k2001vtr"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "lg-tr:OLED55B65LA",
+      "uri": "https://www.lg.com/tr/tv-soundbar/oled/oled55b65la/",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:television:lg:oled55b65la"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "kobo-tr:N428",
+      "uri": "https://help.kobo.com/hc/tr/articles/360019676973-Kobo-eOkuyucunuzu-veya-Kobo-tabletinizi-tan%C4%B1mlay%C4%B1n",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:e-reader:kobo:n428"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "kobo-tr:N367",
+      "uri": "https://help.kobo.com/hc/tr/articles/18001606982679-Kobo-Clara-Colour",
+      "market": "TR",
+      "authority": "TECHNICAL",
+      "exactProductIds": [
+        "electronics:e-reader:kobo:n367"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "kobo-manual:N428",
+      "uri": "https://cdn.kobo.com/downloads/magento/userguides/N428-Legal-and-Safety/n428regandsafetyinfo-english20240430.pdf",
+      "market": "GLOBAL",
+      "authority": "MANUAL_L9",
+      "exactProductIds": [
+        "electronics:e-reader:kobo:n428"
+      ],
+      "trApplicabilityAuthority": "NONE",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "sourceId": "kobo-manual:N367",
+      "uri": "https://cdn.kobo.com/downloads/magento/userguides/legalAndSafety/N367-Legal-and-Safety/n367regandsafetyinfo-turkish2024430.pdf",
+      "market": "TR",
+      "authority": "MANUAL_L9",
+      "exactProductIds": [
+        "electronics:e-reader:kobo:n367"
+      ],
+      "trApplicabilityAuthority": "EXACT",
+      "decisionAuthority": "NONE"
+    }
+  ],
+  "comparativeFacts": [
+    {
+      "factId": "w1-fact:electronics-e-reader-kobo-n367:display_inches:1",
+      "exactProductId": "electronics:e-reader:kobo:n367",
+      "categoryId": "E_READER",
+      "key": "display_inches",
+      "value": 6,
+      "unit": "in",
+      "sourceId": "kobo-tr:N367",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-e-reader-kobo-n367:display_color:2",
+      "exactProductId": "electronics:e-reader:kobo:n367",
+      "categoryId": "E_READER",
+      "key": "display_color",
+      "value": "COLOR",
+      "sourceId": "kobo-tr:N367",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-e-reader-kobo-n428:display_inches:1",
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "categoryId": "E_READER",
+      "key": "display_inches",
+      "value": 7,
+      "unit": "in",
+      "sourceId": "kobo-tr:N428",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-e-reader-kobo-n428:display_color:2",
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "categoryId": "E_READER",
+      "key": "display_color",
+      "value": "COLOR",
+      "sourceId": "kobo-tr:N428",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-e-reader-kobo-n428:page_turn_buttons:3",
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "categoryId": "E_READER",
+      "key": "page_turn_buttons",
+      "value": "PRESENT",
+      "sourceId": "kobo-tr:N428",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "EXPLANATION_ONLY",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-e-reader-kobo-n428:stylus_compatible:4",
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "categoryId": "E_READER",
+      "key": "stylus_compatible",
+      "value": "PRESENT",
+      "sourceId": "kobo-tr:N428",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "EXPLANATION_ONLY",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-laptop-lenovo-83k2001vtr:processor:1",
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "categoryId": "LAPTOP",
+      "key": "processor",
+      "value": "Intel Core i7-13620H",
+      "sourceId": "lenovo-psref:83K2001VTR",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-laptop-lenovo-83k2001vtr:memory_gb:2",
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "categoryId": "LAPTOP",
+      "key": "memory_gb",
+      "value": 16,
+      "unit": "GB",
+      "sourceId": "lenovo-psref:83K2001VTR",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-laptop-lenovo-83k2001vtr:storage_gb:3",
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "categoryId": "LAPTOP",
+      "key": "storage_gb",
+      "value": 1024,
+      "unit": "GB",
+      "sourceId": "lenovo-psref:83K2001VTR",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-laptop-lenovo-83k2001vtr:display:4",
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "categoryId": "LAPTOP",
+      "key": "display",
+      "value": "16in 1920x1200 IPS",
+      "sourceId": "lenovo-psref:83K2001VTR",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "EXPLANATION_ONLY",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-laptop-lenovo-83k20077tr:processor:1",
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "categoryId": "LAPTOP",
+      "key": "processor",
+      "value": "Intel Core i5-13420H",
+      "sourceId": "lenovo-psref:83K20077TR",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-laptop-lenovo-83k20077tr:memory_gb:2",
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "categoryId": "LAPTOP",
+      "key": "memory_gb",
+      "value": 16,
+      "unit": "GB",
+      "sourceId": "lenovo-psref:83K20077TR",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-laptop-lenovo-83k20077tr:storage_gb:3",
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "categoryId": "LAPTOP",
+      "key": "storage_gb",
+      "value": 1024,
+      "unit": "GB",
+      "sourceId": "lenovo-psref:83K20077TR",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-laptop-lenovo-83k20077tr:display:4",
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "categoryId": "LAPTOP",
+      "key": "display",
+      "value": "16in 1920x1200 IPS",
+      "sourceId": "lenovo-psref:83K20077TR",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "EXPLANATION_ONLY",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-monitor-samsung-ls27c902pauxuf:display_inches:1",
+      "exactProductId": "electronics:monitor:samsung:ls27c902pauxuf",
+      "categoryId": "MONITOR",
+      "key": "display_inches",
+      "value": 27,
+      "unit": "in",
+      "sourceId": "source:monitor:8",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-monitor-samsung-ls27c902pauxuf:resolution:2",
+      "exactProductId": "electronics:monitor:samsung:ls27c902pauxuf",
+      "categoryId": "MONITOR",
+      "key": "resolution",
+      "value": "5K",
+      "sourceId": "source:monitor:8",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-monitor-samsung-ls27f612eauxuf:display_inches:1",
+      "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "categoryId": "MONITOR",
+      "key": "display_inches",
+      "value": 27,
+      "unit": "in",
+      "sourceId": "source:monitor:7",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-monitor-samsung-ls27f612eauxuf:resolution:2",
+      "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "categoryId": "MONITOR",
+      "key": "resolution",
+      "value": "QHD",
+      "sourceId": "source:monitor:7",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-monitor-samsung-ls27f612eauxuf:refresh_hz:3",
+      "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "categoryId": "MONITOR",
+      "key": "refresh_hz",
+      "value": 100,
+      "unit": "Hz",
+      "sourceId": "source:monitor:7",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-smartphone-samsung-sm-a266bzkctur:memory_gb:1",
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "categoryId": "SMARTPHONE",
+      "key": "memory_gb",
+      "value": 8,
+      "unit": "GB",
+      "sourceId": "samsung-tr:SM-A266BZKCTUR",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-smartphone-samsung-sm-a266bzkctur:storage_gb:2",
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "categoryId": "SMARTPHONE",
+      "key": "storage_gb",
+      "value": 256,
+      "unit": "GB",
+      "sourceId": "samsung-tr:SM-A266BZKCTUR",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-smartphone-samsung-sm-a266bzkctur:cellular_generation:3",
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "categoryId": "SMARTPHONE",
+      "key": "cellular_generation",
+      "value": "5G",
+      "sourceId": "samsung-tr:SM-A266BZKCTUR",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "EXPLANATION_ONLY",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-smartphone-samsung-sm-a366bzkgtur:memory_gb:1",
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "categoryId": "SMARTPHONE",
+      "key": "memory_gb",
+      "value": 8,
+      "unit": "GB",
+      "sourceId": "source:smartphone:1",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-smartphone-samsung-sm-a366bzkgtur:storage_gb:2",
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "categoryId": "SMARTPHONE",
+      "key": "storage_gb",
+      "value": 256,
+      "unit": "GB",
+      "sourceId": "source:smartphone:1",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-smartphone-samsung-sm-a366bzkgtur:cellular_generation:3",
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "categoryId": "SMARTPHONE",
+      "key": "cellular_generation",
+      "value": "5G",
+      "sourceId": "source:smartphone:1",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "EXPLANATION_ONLY",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-tablet-samsung-sm-x520nzsptur:storage_gb:1",
+      "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "categoryId": "TABLET",
+      "key": "storage_gb",
+      "value": 256,
+      "unit": "GB",
+      "sourceId": "source:tablet:6",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-tablet-samsung-sm-x520nzsptur:display_inches:2",
+      "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "categoryId": "TABLET",
+      "key": "display_inches",
+      "value": 10.9,
+      "unit": "in",
+      "sourceId": "source:tablet:6",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-tablet-samsung-sm-x520nzsptur:connectivity:3",
+      "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "categoryId": "TABLET",
+      "key": "connectivity",
+      "value": "Wi-Fi",
+      "sourceId": "source:tablet:6",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "EXPLANATION_ONLY",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-tablet-samsung-sm-x730nzsptur:storage_gb:1",
+      "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "categoryId": "TABLET",
+      "key": "storage_gb",
+      "value": 256,
+      "unit": "GB",
+      "sourceId": "source:tablet:5",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-tablet-samsung-sm-x730nzsptur:display_inches:2",
+      "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "categoryId": "TABLET",
+      "key": "display_inches",
+      "value": 11,
+      "unit": "in",
+      "sourceId": "source:tablet:5",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-tablet-samsung-sm-x730nzsptur:connectivity:3",
+      "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "categoryId": "TABLET",
+      "key": "connectivity",
+      "value": "Wi-Fi",
+      "sourceId": "source:tablet:5",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "EXPLANATION_ONLY",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-television-lg-oled55b65la:display_inches:1",
+      "exactProductId": "electronics:television:lg:oled55b65la",
+      "categoryId": "TELEVISION",
+      "key": "display_inches",
+      "value": 55,
+      "unit": "in",
+      "sourceId": "lg-tr:OLED55B65LA",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-television-lg-oled55b65la:resolution:2",
+      "exactProductId": "electronics:television:lg:oled55b65la",
+      "categoryId": "TELEVISION",
+      "key": "resolution",
+      "value": "4K",
+      "sourceId": "lg-tr:OLED55B65LA",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-television-lg-oled55b65la:refresh_hz:3",
+      "exactProductId": "electronics:television:lg:oled55b65la",
+      "categoryId": "TELEVISION",
+      "key": "refresh_hz",
+      "value": 120,
+      "unit": "Hz",
+      "sourceId": "lg-tr:OLED55B65LA",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-television-lg-oled55b65la:panel:4",
+      "exactProductId": "electronics:television:lg:oled55b65la",
+      "categoryId": "TELEVISION",
+      "key": "panel",
+      "value": "OLED",
+      "sourceId": "lg-tr:OLED55B65LA",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "EXPLANATION_ONLY",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-television-next-ye-55gfsg8-qled:display_inches:1",
+      "exactProductId": "electronics:television:next:ye-55gfsg8-qled",
+      "categoryId": "TELEVISION",
+      "key": "display_inches",
+      "value": 55,
+      "unit": "in",
+      "sourceId": "next-tr:YE-55GFSG8-QLED",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-television-next-ye-55gfsg8-qled:resolution:2",
+      "exactProductId": "electronics:television:next:ye-55gfsg8-qled",
+      "categoryId": "TELEVISION",
+      "key": "resolution",
+      "value": "4K",
+      "sourceId": "next-tr:YE-55GFSG8-QLED",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "DRAFT_POLICY_INPUT",
+      "conflictState": "CLEAR"
+    },
+    {
+      "factId": "w1-fact:electronics-television-next-ye-55gfsg8-qled:platform:3",
+      "exactProductId": "electronics:television:next:ye-55gfsg8-qled",
+      "categoryId": "TELEVISION",
+      "key": "platform",
+      "value": "Google TV",
+      "sourceId": "next-tr:YE-55GFSG8-QLED",
+      "locator": "Exact product page/support/PSREF field matching the recorded model code",
+      "decisionEligibility": "EXPLANATION_ONLY",
+      "conflictState": "CLEAR"
+    }
+  ],
+  "capabilities": [
+    {
+      "capabilityId": "w1-cap:electronics-e-reader-kobo-n367",
+      "exactProductId": "electronics:e-reader:kobo:n367",
+      "factIds": [
+        "w1-fact:electronics-e-reader-kobo-n367:display_inches:1",
+        "w1-fact:electronics-e-reader-kobo-n367:display_color:2"
+      ],
+      "state": "PRESENT",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "capabilityId": "w1-cap:electronics-e-reader-kobo-n428",
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "factIds": [
+        "w1-fact:electronics-e-reader-kobo-n428:display_inches:1",
+        "w1-fact:electronics-e-reader-kobo-n428:display_color:2",
+        "w1-fact:electronics-e-reader-kobo-n428:page_turn_buttons:3",
+        "w1-fact:electronics-e-reader-kobo-n428:stylus_compatible:4"
+      ],
+      "state": "PRESENT",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "capabilityId": "w1-cap:electronics-laptop-lenovo-83k2001vtr",
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "factIds": [
+        "w1-fact:electronics-laptop-lenovo-83k2001vtr:processor:1",
+        "w1-fact:electronics-laptop-lenovo-83k2001vtr:memory_gb:2",
+        "w1-fact:electronics-laptop-lenovo-83k2001vtr:storage_gb:3",
+        "w1-fact:electronics-laptop-lenovo-83k2001vtr:display:4"
+      ],
+      "state": "PRESENT",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "capabilityId": "w1-cap:electronics-laptop-lenovo-83k20077tr",
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "factIds": [
+        "w1-fact:electronics-laptop-lenovo-83k20077tr:processor:1",
+        "w1-fact:electronics-laptop-lenovo-83k20077tr:memory_gb:2",
+        "w1-fact:electronics-laptop-lenovo-83k20077tr:storage_gb:3",
+        "w1-fact:electronics-laptop-lenovo-83k20077tr:display:4"
+      ],
+      "state": "PRESENT",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "capabilityId": "w1-cap:electronics-monitor-samsung-ls27c902pauxuf",
+      "exactProductId": "electronics:monitor:samsung:ls27c902pauxuf",
+      "factIds": [
+        "w1-fact:electronics-monitor-samsung-ls27c902pauxuf:display_inches:1",
+        "w1-fact:electronics-monitor-samsung-ls27c902pauxuf:resolution:2"
+      ],
+      "state": "PRESENT",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "capabilityId": "w1-cap:electronics-monitor-samsung-ls27f612eauxuf",
+      "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "factIds": [
+        "w1-fact:electronics-monitor-samsung-ls27f612eauxuf:display_inches:1",
+        "w1-fact:electronics-monitor-samsung-ls27f612eauxuf:resolution:2",
+        "w1-fact:electronics-monitor-samsung-ls27f612eauxuf:refresh_hz:3"
+      ],
+      "state": "PRESENT",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "capabilityId": "w1-cap:electronics-smartphone-samsung-sm-a266bzkctur",
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factIds": [
+        "w1-fact:electronics-smartphone-samsung-sm-a266bzkctur:memory_gb:1",
+        "w1-fact:electronics-smartphone-samsung-sm-a266bzkctur:storage_gb:2",
+        "w1-fact:electronics-smartphone-samsung-sm-a266bzkctur:cellular_generation:3"
+      ],
+      "state": "PRESENT",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "capabilityId": "w1-cap:electronics-smartphone-samsung-sm-a366bzkgtur",
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factIds": [
+        "w1-fact:electronics-smartphone-samsung-sm-a366bzkgtur:memory_gb:1",
+        "w1-fact:electronics-smartphone-samsung-sm-a366bzkgtur:storage_gb:2",
+        "w1-fact:electronics-smartphone-samsung-sm-a366bzkgtur:cellular_generation:3"
+      ],
+      "state": "PRESENT",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "capabilityId": "w1-cap:electronics-tablet-samsung-sm-x520nzsptur",
+      "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "factIds": [
+        "w1-fact:electronics-tablet-samsung-sm-x520nzsptur:storage_gb:1",
+        "w1-fact:electronics-tablet-samsung-sm-x520nzsptur:display_inches:2",
+        "w1-fact:electronics-tablet-samsung-sm-x520nzsptur:connectivity:3"
+      ],
+      "state": "PRESENT",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "capabilityId": "w1-cap:electronics-tablet-samsung-sm-x730nzsptur",
+      "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "factIds": [
+        "w1-fact:electronics-tablet-samsung-sm-x730nzsptur:storage_gb:1",
+        "w1-fact:electronics-tablet-samsung-sm-x730nzsptur:display_inches:2",
+        "w1-fact:electronics-tablet-samsung-sm-x730nzsptur:connectivity:3"
+      ],
+      "state": "PRESENT",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "capabilityId": "w1-cap:electronics-television-lg-oled55b65la",
+      "exactProductId": "electronics:television:lg:oled55b65la",
+      "factIds": [
+        "w1-fact:electronics-television-lg-oled55b65la:display_inches:1",
+        "w1-fact:electronics-television-lg-oled55b65la:resolution:2",
+        "w1-fact:electronics-television-lg-oled55b65la:refresh_hz:3",
+        "w1-fact:electronics-television-lg-oled55b65la:panel:4"
+      ],
+      "state": "PRESENT",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "capabilityId": "w1-cap:electronics-television-next-ye-55gfsg8-qled",
+      "exactProductId": "electronics:television:next:ye-55gfsg8-qled",
+      "factIds": [
+        "w1-fact:electronics-television-next-ye-55gfsg8-qled:display_inches:1",
+        "w1-fact:electronics-television-next-ye-55gfsg8-qled:resolution:2",
+        "w1-fact:electronics-television-next-ye-55gfsg8-qled:platform:3"
+      ],
+      "state": "PRESENT",
+      "directCandidateEffect": "NONE"
+    }
+  ],
+  "usageSemantics": [
+    {
+      "semanticId": "w1-semantic:smartphone",
+      "categoryId": "SMARTPHONE",
+      "factKeys": [
+        "memory_gb",
+        "storage_gb",
+        "cellular_generation"
+      ],
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "semanticId": "w1-semantic:laptop",
+      "categoryId": "LAPTOP",
+      "factKeys": [
+        "processor",
+        "memory_gb",
+        "storage_gb",
+        "display"
+      ],
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "semanticId": "w1-semantic:tablet",
+      "categoryId": "TABLET",
+      "factKeys": [
+        "storage_gb",
+        "display_inches",
+        "connectivity"
+      ],
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "semanticId": "w1-semantic:monitor",
+      "categoryId": "MONITOR",
+      "factKeys": [
+        "display_inches",
+        "resolution",
+        "refresh_hz"
+      ],
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "semanticId": "w1-semantic:television",
+      "categoryId": "TELEVISION",
+      "factKeys": [
+        "display_inches",
+        "resolution",
+        "refresh_hz",
+        "panel",
+        "platform"
+      ],
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "semanticId": "w1-semantic:e_reader",
+      "categoryId": "E_READER",
+      "factKeys": [
+        "display_inches",
+        "display_color",
+        "page_turn_buttons",
+        "stylus_compatible"
+      ],
+      "status": "DRAFT_NON_ACTIVE"
+    }
+  ],
+  "needs": [
+    {
+      "needId": "w1-need:smartphone:comparison",
+      "categoryId": "SMARTPHONE",
+      "evidenceKeys": [
+        "memory_gb",
+        "storage_gb",
+        "cellular_generation"
+      ],
+      "decisionUse": "NONE_DRAFT_INPUT"
+    },
+    {
+      "needId": "w1-need:laptop:comparison",
+      "categoryId": "LAPTOP",
+      "evidenceKeys": [
+        "processor",
+        "memory_gb",
+        "storage_gb",
+        "display"
+      ],
+      "decisionUse": "NONE_DRAFT_INPUT"
+    },
+    {
+      "needId": "w1-need:tablet:comparison",
+      "categoryId": "TABLET",
+      "evidenceKeys": [
+        "storage_gb",
+        "display_inches",
+        "connectivity"
+      ],
+      "decisionUse": "NONE_DRAFT_INPUT"
+    },
+    {
+      "needId": "w1-need:monitor:comparison",
+      "categoryId": "MONITOR",
+      "evidenceKeys": [
+        "display_inches",
+        "resolution",
+        "refresh_hz"
+      ],
+      "decisionUse": "NONE_DRAFT_INPUT"
+    },
+    {
+      "needId": "w1-need:television:comparison",
+      "categoryId": "TELEVISION",
+      "evidenceKeys": [
+        "display_inches",
+        "resolution",
+        "refresh_hz",
+        "panel",
+        "platform"
+      ],
+      "decisionUse": "NONE_DRAFT_INPUT"
+    },
+    {
+      "needId": "w1-need:e_reader:comparison",
+      "categoryId": "E_READER",
+      "evidenceKeys": [
+        "display_inches",
+        "display_color",
+        "page_turn_buttons",
+        "stylus_compatible"
+      ],
+      "decisionUse": "NONE_DRAFT_INPUT"
+    }
+  ],
+  "personaSignals": [
+    {
+      "signalId": "w1-persona:smartphone",
+      "categoryId": "SMARTPHONE",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "signalId": "w1-persona:laptop",
+      "categoryId": "LAPTOP",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "signalId": "w1-persona:tablet",
+      "categoryId": "TABLET",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "signalId": "w1-persona:monitor",
+      "categoryId": "MONITOR",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "signalId": "w1-persona:television",
+      "categoryId": "TELEVISION",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "signalId": "w1-persona:e_reader",
+      "categoryId": "E_READER",
+      "decisionUse": "NONE",
+      "directCandidateEffect": "NONE"
+    }
+  ],
+  "dailyLifeInterpretations": [
+    {
+      "interpretationId": "w1-interpretation:electronics-e-reader-kobo-n367",
+      "exactProductId": "electronics:e-reader:kobo:n367",
+      "factIds": [
+        "w1-fact:electronics-e-reader-kobo-n367:display_inches:1",
+        "w1-fact:electronics-e-reader-kobo-n367:display_color:2"
+      ],
+      "text": "Recorded dimensions can support transparent follow-up questions; they do not establish suitability or superiority without an approved category policy.",
+      "technicalTruthAuthority": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "interpretationId": "w1-interpretation:electronics-e-reader-kobo-n428",
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "factIds": [
+        "w1-fact:electronics-e-reader-kobo-n428:display_inches:1",
+        "w1-fact:electronics-e-reader-kobo-n428:display_color:2"
+      ],
+      "text": "Recorded dimensions can support transparent follow-up questions; they do not establish suitability or superiority without an approved category policy.",
+      "technicalTruthAuthority": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "interpretationId": "w1-interpretation:electronics-laptop-lenovo-83k2001vtr",
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "factIds": [
+        "w1-fact:electronics-laptop-lenovo-83k2001vtr:processor:1",
+        "w1-fact:electronics-laptop-lenovo-83k2001vtr:memory_gb:2"
+      ],
+      "text": "Recorded dimensions can support transparent follow-up questions; they do not establish suitability or superiority without an approved category policy.",
+      "technicalTruthAuthority": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "interpretationId": "w1-interpretation:electronics-laptop-lenovo-83k20077tr",
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "factIds": [
+        "w1-fact:electronics-laptop-lenovo-83k20077tr:processor:1",
+        "w1-fact:electronics-laptop-lenovo-83k20077tr:memory_gb:2"
+      ],
+      "text": "Recorded dimensions can support transparent follow-up questions; they do not establish suitability or superiority without an approved category policy.",
+      "technicalTruthAuthority": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "interpretationId": "w1-interpretation:electronics-monitor-samsung-ls27c902pauxuf",
+      "exactProductId": "electronics:monitor:samsung:ls27c902pauxuf",
+      "factIds": [
+        "w1-fact:electronics-monitor-samsung-ls27c902pauxuf:display_inches:1",
+        "w1-fact:electronics-monitor-samsung-ls27c902pauxuf:resolution:2"
+      ],
+      "text": "Recorded dimensions can support transparent follow-up questions; they do not establish suitability or superiority without an approved category policy.",
+      "technicalTruthAuthority": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "interpretationId": "w1-interpretation:electronics-monitor-samsung-ls27f612eauxuf",
+      "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "factIds": [
+        "w1-fact:electronics-monitor-samsung-ls27f612eauxuf:display_inches:1",
+        "w1-fact:electronics-monitor-samsung-ls27f612eauxuf:resolution:2"
+      ],
+      "text": "Recorded dimensions can support transparent follow-up questions; they do not establish suitability or superiority without an approved category policy.",
+      "technicalTruthAuthority": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "interpretationId": "w1-interpretation:electronics-smartphone-samsung-sm-a266bzkctur",
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "factIds": [
+        "w1-fact:electronics-smartphone-samsung-sm-a266bzkctur:memory_gb:1",
+        "w1-fact:electronics-smartphone-samsung-sm-a266bzkctur:storage_gb:2"
+      ],
+      "text": "Recorded dimensions can support transparent follow-up questions; they do not establish suitability or superiority without an approved category policy.",
+      "technicalTruthAuthority": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "interpretationId": "w1-interpretation:electronics-smartphone-samsung-sm-a366bzkgtur",
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "factIds": [
+        "w1-fact:electronics-smartphone-samsung-sm-a366bzkgtur:memory_gb:1",
+        "w1-fact:electronics-smartphone-samsung-sm-a366bzkgtur:storage_gb:2"
+      ],
+      "text": "Recorded dimensions can support transparent follow-up questions; they do not establish suitability or superiority without an approved category policy.",
+      "technicalTruthAuthority": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "interpretationId": "w1-interpretation:electronics-tablet-samsung-sm-x520nzsptur",
+      "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "factIds": [
+        "w1-fact:electronics-tablet-samsung-sm-x520nzsptur:storage_gb:1",
+        "w1-fact:electronics-tablet-samsung-sm-x520nzsptur:display_inches:2"
+      ],
+      "text": "Recorded dimensions can support transparent follow-up questions; they do not establish suitability or superiority without an approved category policy.",
+      "technicalTruthAuthority": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "interpretationId": "w1-interpretation:electronics-tablet-samsung-sm-x730nzsptur",
+      "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "factIds": [
+        "w1-fact:electronics-tablet-samsung-sm-x730nzsptur:storage_gb:1",
+        "w1-fact:electronics-tablet-samsung-sm-x730nzsptur:display_inches:2"
+      ],
+      "text": "Recorded dimensions can support transparent follow-up questions; they do not establish suitability or superiority without an approved category policy.",
+      "technicalTruthAuthority": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "interpretationId": "w1-interpretation:electronics-television-lg-oled55b65la",
+      "exactProductId": "electronics:television:lg:oled55b65la",
+      "factIds": [
+        "w1-fact:electronics-television-lg-oled55b65la:display_inches:1",
+        "w1-fact:electronics-television-lg-oled55b65la:resolution:2"
+      ],
+      "text": "Recorded dimensions can support transparent follow-up questions; they do not establish suitability or superiority without an approved category policy.",
+      "technicalTruthAuthority": "NONE",
+      "directCandidateEffect": "NONE"
+    },
+    {
+      "interpretationId": "w1-interpretation:electronics-television-next-ye-55gfsg8-qled",
+      "exactProductId": "electronics:television:next:ye-55gfsg8-qled",
+      "factIds": [
+        "w1-fact:electronics-television-next-ye-55gfsg8-qled:display_inches:1",
+        "w1-fact:electronics-television-next-ye-55gfsg8-qled:resolution:2"
+      ],
+      "text": "Recorded dimensions can support transparent follow-up questions; they do not establish suitability or superiority without an approved category policy.",
+      "technicalTruthAuthority": "NONE",
+      "directCandidateEffect": "NONE"
+    }
+  ],
+  "decisionProjections": [
+    {
+      "projectionId": "w1-projection:electronics-e-reader-kobo-n367",
+      "exactProductId": "electronics:e-reader:kobo:n367",
+      "eligibleFactIds": [
+        "w1-fact:electronics-e-reader-kobo-n367:display_inches:1",
+        "w1-fact:electronics-e-reader-kobo-n367:display_color:2"
+      ],
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "projectionId": "w1-projection:electronics-e-reader-kobo-n428",
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "eligibleFactIds": [
+        "w1-fact:electronics-e-reader-kobo-n428:display_inches:1",
+        "w1-fact:electronics-e-reader-kobo-n428:display_color:2"
+      ],
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "projectionId": "w1-projection:electronics-laptop-lenovo-83k2001vtr",
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "eligibleFactIds": [
+        "w1-fact:electronics-laptop-lenovo-83k2001vtr:processor:1",
+        "w1-fact:electronics-laptop-lenovo-83k2001vtr:memory_gb:2",
+        "w1-fact:electronics-laptop-lenovo-83k2001vtr:storage_gb:3"
+      ],
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "projectionId": "w1-projection:electronics-laptop-lenovo-83k20077tr",
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "eligibleFactIds": [
+        "w1-fact:electronics-laptop-lenovo-83k20077tr:processor:1",
+        "w1-fact:electronics-laptop-lenovo-83k20077tr:memory_gb:2",
+        "w1-fact:electronics-laptop-lenovo-83k20077tr:storage_gb:3"
+      ],
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "projectionId": "w1-projection:electronics-monitor-samsung-ls27c902pauxuf",
+      "exactProductId": "electronics:monitor:samsung:ls27c902pauxuf",
+      "eligibleFactIds": [
+        "w1-fact:electronics-monitor-samsung-ls27c902pauxuf:display_inches:1",
+        "w1-fact:electronics-monitor-samsung-ls27c902pauxuf:resolution:2"
+      ],
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "projectionId": "w1-projection:electronics-monitor-samsung-ls27f612eauxuf",
+      "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "eligibleFactIds": [
+        "w1-fact:electronics-monitor-samsung-ls27f612eauxuf:display_inches:1",
+        "w1-fact:electronics-monitor-samsung-ls27f612eauxuf:resolution:2",
+        "w1-fact:electronics-monitor-samsung-ls27f612eauxuf:refresh_hz:3"
+      ],
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "projectionId": "w1-projection:electronics-smartphone-samsung-sm-a266bzkctur",
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "eligibleFactIds": [
+        "w1-fact:electronics-smartphone-samsung-sm-a266bzkctur:memory_gb:1",
+        "w1-fact:electronics-smartphone-samsung-sm-a266bzkctur:storage_gb:2"
+      ],
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "projectionId": "w1-projection:electronics-smartphone-samsung-sm-a366bzkgtur",
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "eligibleFactIds": [
+        "w1-fact:electronics-smartphone-samsung-sm-a366bzkgtur:memory_gb:1",
+        "w1-fact:electronics-smartphone-samsung-sm-a366bzkgtur:storage_gb:2"
+      ],
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "projectionId": "w1-projection:electronics-tablet-samsung-sm-x520nzsptur",
+      "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "eligibleFactIds": [
+        "w1-fact:electronics-tablet-samsung-sm-x520nzsptur:storage_gb:1",
+        "w1-fact:electronics-tablet-samsung-sm-x520nzsptur:display_inches:2"
+      ],
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "projectionId": "w1-projection:electronics-tablet-samsung-sm-x730nzsptur",
+      "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "eligibleFactIds": [
+        "w1-fact:electronics-tablet-samsung-sm-x730nzsptur:storage_gb:1",
+        "w1-fact:electronics-tablet-samsung-sm-x730nzsptur:display_inches:2"
+      ],
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "projectionId": "w1-projection:electronics-television-lg-oled55b65la",
+      "exactProductId": "electronics:television:lg:oled55b65la",
+      "eligibleFactIds": [
+        "w1-fact:electronics-television-lg-oled55b65la:display_inches:1",
+        "w1-fact:electronics-television-lg-oled55b65la:resolution:2",
+        "w1-fact:electronics-television-lg-oled55b65la:refresh_hz:3"
+      ],
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "status": "DRAFT_NON_ACTIVE"
+    },
+    {
+      "projectionId": "w1-projection:electronics-television-next-ye-55gfsg8-qled",
+      "exactProductId": "electronics:television:next:ye-55gfsg8-qled",
+      "eligibleFactIds": [
+        "w1-fact:electronics-television-next-ye-55gfsg8-qled:display_inches:1",
+        "w1-fact:electronics-television-next-ye-55gfsg8-qled:resolution:2"
+      ],
+      "unknownTreatment": "NEUTRAL_FAIL_CLOSED",
+      "status": "DRAFT_NON_ACTIVE"
+    }
+  ],
+  "manuals": [
+    {
+      "manualId": "manual:kobo:n428:safety",
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "path": "manuals/n428-safety-en.pdf",
+      "sourceUri": "https://cdn.kobo.com/downloads/magento/userguides/N428-Legal-and-Safety/n428regandsafetyinfo-english20240430.pdf",
+      "sha256": "sha256:12b4c1937e9e41eafd38c0cb45b2c1a685cebc2475335c06d6921c6a34d47e40",
+      "pages": 10,
+      "locator": "Pages 1-10; model N428 legal and safety scope",
+      "language": "en",
+      "decisionAuthority": "NONE"
+    },
+    {
+      "manualId": "manual:kobo:n367:safety",
+      "exactProductId": "electronics:e-reader:kobo:n367",
+      "path": "manuals/n367-safety-tr.pdf",
+      "sourceUri": "https://cdn.kobo.com/downloads/magento/userguides/legalAndSafety/N367-Legal-and-Safety/n367regandsafetyinfo-turkish2024430.pdf",
+      "sha256": "sha256:b39fef7b06e9f5e42a84d1d24eb835cbfb66ec5258e031ef316a95681a70b8a4",
+      "pages": 9,
+      "locator": "Pages 1-9; model N367 Turkish legal and safety scope",
+      "language": "tr",
+      "decisionAuthority": "NONE"
+    }
+  ],
+  "categoryReadiness": [
+    {
+      "categoryId": "SMARTPHONE",
+      "candidateCount": 2,
+      "manufacturerCount": 1,
+      "readiness": "POLICY_REVIEW_REQUIRED",
+      "blockers": [
+        "Single-manufacturer set",
+        "Display, camera, battery, support-lifecycle and privacy facts incomplete"
+      ]
+    },
+    {
+      "categoryId": "LAPTOP",
+      "candidateCount": 2,
+      "manufacturerCount": 1,
+      "readiness": "POLICY_REVIEW_REQUIRED",
+      "blockers": [
+        "Single-family/single-manufacturer set",
+        "Build-to-order and OS mutation risk requires strict exact-MTM policy"
+      ]
+    },
+    {
+      "categoryId": "TABLET",
+      "candidateCount": 2,
+      "manufacturerCount": 1,
+      "readiness": "POLICY_REVIEW_REQUIRED",
+      "blockers": [
+        "Single-manufacturer set",
+        "Memory, display, battery and accessory-bundle evidence incomplete"
+      ]
+    },
+    {
+      "categoryId": "MONITOR",
+      "candidateCount": 2,
+      "manufacturerCount": 1,
+      "readiness": "POLICY_REVIEW_REQUIRED",
+      "blockers": [
+        "Single-manufacturer set",
+        "S9 refresh, ports, panel behavior and ergonomics incomplete"
+      ]
+    },
+    {
+      "categoryId": "TELEVISION",
+      "candidateCount": 2,
+      "manufacturerCount": 2,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "blockers": [
+        "Draft category policy review still required before runtime use"
+      ]
+    },
+    {
+      "categoryId": "E_READER",
+      "candidateCount": 2,
+      "manufacturerCount": 1,
+      "readiness": "DECISION_EVIDENCE_READY",
+      "blockers": [
+        "Draft category policy review still required before runtime use"
+      ]
+    }
+  ],
+  "unknownsAndConflicts": [
+    {
+      "exactProductId": "electronics:e-reader:kobo:n367",
+      "code": "EXACT_WARRANTY_SCOPE_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:e-reader:kobo:n367",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:e-reader:kobo:n367",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "code": "EXACT_WARRANTY_SCOPE_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:e-reader:kobo:n428",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "code": "EXACT_WARRANTY_SCOPE_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:laptop:lenovo:83k2001vtr",
+      "code": "CATEGORY_COMPARATIVE_EVIDENCE_OR_DIVERSITY_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "code": "EXACT_WARRANTY_SCOPE_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:laptop:lenovo:83k20077tr",
+      "code": "CATEGORY_COMPARATIVE_EVIDENCE_OR_DIVERSITY_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:monitor:samsung:ls27c902pauxuf",
+      "code": "EXACT_WARRANTY_SCOPE_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:monitor:samsung:ls27c902pauxuf",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:monitor:samsung:ls27c902pauxuf",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:monitor:samsung:ls27c902pauxuf",
+      "code": "CATEGORY_COMPARATIVE_EVIDENCE_OR_DIVERSITY_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "code": "EXACT_WARRANTY_SCOPE_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:monitor:samsung:ls27f612eauxuf",
+      "code": "CATEGORY_COMPARATIVE_EVIDENCE_OR_DIVERSITY_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "code": "EXACT_WARRANTY_SCOPE_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "code": "CATEGORY_COMPARATIVE_EVIDENCE_OR_DIVERSITY_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "code": "EXACT_WARRANTY_SCOPE_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "code": "CATEGORY_COMPARATIVE_EVIDENCE_OR_DIVERSITY_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "code": "EXACT_WARRANTY_SCOPE_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:tablet:samsung:sm-x520nzsptur",
+      "code": "CATEGORY_COMPARATIVE_EVIDENCE_OR_DIVERSITY_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "code": "EXACT_WARRANTY_SCOPE_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:tablet:samsung:sm-x730nzsptur",
+      "code": "CATEGORY_COMPARATIVE_EVIDENCE_OR_DIVERSITY_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:television:lg:oled55b65la",
+      "code": "EXACT_WARRANTY_SCOPE_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:television:lg:oled55b65la",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:television:lg:oled55b65la",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:television:next:ye-55gfsg8-qled",
+      "code": "EXACT_WARRANTY_SCOPE_INCOMPLETE",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:television:next:ye-55gfsg8-qled",
+      "code": "GOVERNED_MEDIA_REUSE_PROVENANCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    },
+    {
+      "exactProductId": "electronics:television:next:ye-55gfsg8-qled",
+      "code": "L7_GOVERNED_EXPERIENCE_ABSENT",
+      "effect": "NEUTRAL_FAIL_CLOSED"
+    }
+  ],
+  "boundaries": {
+    "l7Experience": "ABSENT",
+    "l10YEffect": "NONE",
+    "amazonStatusEffect": "NONE",
+    "mediaDecisionAuthority": "NONE",
+    "activationPerformed": false
+  }
+}

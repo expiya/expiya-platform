@@ -1,0 +1,15 @@
+description: Expiya Cars Motor V3 - 225 realistic simulated-user conversations
+
+providers:
+  - id: file://providers/v3-simulated-provider.ts
+    label: Motor V3 stored multi-turn provider
+
+prompts:
+  - "Expiya Cars karar danışmanısın. Kullanıcıyla doğal Türkçe konuş ve ihtiyaçlarını netleştir."
+
+tests: file://simulated-tests.cjs
+
+evaluateOptions:
+  maxConcurrency: 1
+
+sharing: false

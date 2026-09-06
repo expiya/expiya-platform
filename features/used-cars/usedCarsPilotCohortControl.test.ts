@@ -1,0 +1,11 @@
+import { describe, expect, it } from "vitest";
+import { validatePilotCohortManifest } from "./pilot/cohortManifest";
+import { assessPilotWavePromotion } from "./pilot/wavePromotion";
+import { assessPilotEmergencyStop, requiredPilotStopActions } from "./pilot/emergencyStop";
+const manifest = { cohortId: "cohort-1", cityCodes: ["34", "06"], dealerTenantIds: ["d1", "d2", "d3", "d4", "d5"], branchIds: ["b1", "b2", "b3", "b4", "b5"], maximumActiveStock: 250, classicVehiclesIncluded: false as const, individualSellersIncluded: false as const, nationwideVisibilityAllowed: false as const, approvedByProductId: "product", approvedByOperationsId: "ops", approvedBySecurityId: "security", approvedByLegalPrivacyId: "legal", evidenceChecksum: `sha256:${"a".repeat(64)}`, productionEnabled: false as const };
+describe("used-cars pilot cohort control", () => {
+  it("accepts a bounded, four-party reviewed manifest without authorizing writes", () => expect(validatePilotCohortManifest(manifest)).toEqual({ valid: true, codes: [], pilotDataWriteAuthorized: false, publicVisibilityAuthorized: false }));
+  it("rejects nationwide or oversized cohorts", () => expect(validatePilotCohortManifest({ ...manifest, cityCodes: ["34", "06", "35"], nationwideVisibilityAllowed: true as never }).valid).toBe(false));
+  it("requires fourteen observed days and rollback before wave promotion", () => expect(assessPilotWavePromotion({ from: "SANDBOX", to: "INTERNAL_SHADOW", observationDays: 13, minimumEligibleStockObserved: 250, stopCodeCount: 0, openCriticalOrHighFindings: 0, dataQualityHealthy: true, moderationSlaMet: true, supportSlaMet: true, rollbackRehearsalPassed: false, approverIds: ["p", "o", "s", "l"], evidenceChecksum: `sha256:${"b".repeat(64)}` }).codes).toEqual(expect.arrayContaining(["OBSERVATION_WINDOW_INSUFFICIENT", "ROLLBACK_REHEARSAL_REQUIRED"])));
+  it("requires every fail-closed emergency action and never auto-restarts", () => expect(assessPilotEmergencyStop({ incidentId: "i1", stopCode: "CROSS_TENANT_INCIDENT", executedActions: requiredPilotStopActions, executedAt: "2026-09-01", incidentCommanderId: "commander", evidenceChecksum: `sha256:${"c".repeat(64)}`, syntheticOnly: true })).toMatchObject({ complete: true, restartAuthorized: false, productionMutationAuthorized: false }));
+});
