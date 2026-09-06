@@ -1,0 +1,19 @@
+/* eslint-disable @next/next/no-img-element -- Domain adapters own governed external media and its optimization policy. */
+import type { XpyStageTwoProjection } from "@/features/xpy/stageTwo/contracts";
+
+export function XpyStageTwoRenderer({ projection }: { readonly projection: XpyStageTwoProjection }) {
+  const product = projection.selected;
+  return <section aria-labelledby="xpy-stage-two-title" className="mx-auto max-w-6xl px-4 py-8 sm:px-8">
+    <header className="grid gap-6 rounded-[2rem] border border-stone-200 bg-white p-5 shadow-sm md:grid-cols-[minmax(0,1fr)_minmax(18rem,32rem)] md:p-8">
+      <div><p className="text-xs font-semibold uppercase tracking-[.18em] text-emerald-700">AŞAMA 2 · Yetkili ürün incelemesi</p><h1 id="xpy-stage-two-title" className="mt-2 text-3xl font-semibold text-stone-950 sm:text-5xl">{product.title}</h1><p className="mt-4 text-sm leading-6 text-stone-600">Kimlik ve karar sürümü imzalı AŞAMA 1 handoff’una sabitlenmiştir. Bu ekran seçimi yeniden çalıştırmaz.</p></div>
+      <div className="rounded-3xl bg-stone-100 p-4"><p className="sr-only">Ürün medyası durumu: {product.media.state}</p>{product.media.state === "VERIFIED" && product.media.src ? /* Domain adapters supply governed external URLs; optimization policy remains domain-owned. */ <img src={product.media.src} alt={product.media.alt} className="aspect-[4/3] w-full rounded-2xl object-contain"/> : <div role="status" className="flex aspect-[4/3] items-center justify-center rounded-2xl border border-dashed border-stone-300 p-6 text-center text-sm text-stone-600">{product.media.disclosure}</div>}</div>
+    </header>
+    <div className="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_20rem]">
+      <div className="space-y-6"><section aria-labelledby="specifications" className="rounded-3xl border border-stone-200 bg-white p-5 sm:p-7"><h2 id="specifications" className="text-xl font-semibold">Özellikler ve günlük karşılıkları</h2><dl className="mt-4 divide-y divide-stone-200">{product.facts.map(fact => <div key={fact.key} className="grid gap-1 py-4 sm:grid-cols-[12rem_1fr]"><dt className="font-medium">{fact.label}</dt><dd><span>{fact.value}</span>{fact.dailyMeaning && <p className="mt-1 text-sm text-stone-600">{fact.dailyMeaning}</p>}{fact.limitation && <p className="mt-1 text-sm text-amber-800">{fact.limitation}</p>}</dd></div>)}</dl></section>
+      <section aria-labelledby="limits" className="rounded-3xl border border-stone-200 bg-white p-5 sm:p-7"><h2 id="limits" className="text-xl font-semibold">Sınırlar</h2><ul className="mt-3 list-disc space-y-2 pl-5 text-stone-700">{product.limitations.map(item => <li key={item}>{item}</li>)}</ul></section></div>
+      <aside className="space-y-4"><section aria-labelledby="price" className="rounded-3xl border border-stone-200 bg-white p-5"><h2 id="price" className="text-lg font-semibold">Fiyat durumu</h2><p className="mt-2 text-2xl font-semibold">{product.price.display}</p><p className="mt-1 text-sm text-stone-600">{product.price.note}</p></section>
+      <section data-xpy-comparison-offer={projection.comparison.offerPlacement} aria-labelledby="comparison" className="rounded-3xl border border-emerald-200 bg-emerald-50 p-5"><h2 id="comparison" className="text-lg font-semibold">Karşılaştırma raporu</h2><p className="mt-2 text-sm leading-6">{projection.comparison.access === "ENTITLED" ? "Satın alınmış karşılaştırma erişimin bu karar ve ürün kümesi için doğrulandı." : "Karşılaştırma yalnız satın alınmış, karar-sürümüne bağlı yetkiyle açılır."}</p></section>
+      <section aria-labelledby="advisor" className="rounded-3xl border border-stone-200 bg-white p-5"><h2 id="advisor" className="text-lg font-semibold">Satış Danışmanı</h2><p className="mt-2 text-sm leading-6 text-stone-600">XPY’den ayrıdır; yalnız bu ürün ve yetkili karşılaştırma kümesi hakkında açıklama yapabilir. Yeni seçim veya ürün kanıtı üretemez.</p></section></aside>
+    </div>
+  </section>;
+}
