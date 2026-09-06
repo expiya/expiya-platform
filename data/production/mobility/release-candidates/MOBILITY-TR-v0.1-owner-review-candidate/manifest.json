@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "mobility-authority-manifest/v1",
+  "release": "MOBILITY-TR-v0.1-owner-review-candidate",
+  "authorityDigest": "sha256:886a2bac6180b1766f921d4cb8700e764263a130ba2fdab3d59c292ea66e75ee",
+  "personaBoundaryDigest": "sha256:85bb241c57b995c95b7118b022c2272cf541a189c7c6f451839e7d7a7ba67610",
+  "categoryCounts": { "ELECTRIC_SCOOTER": 3, "ELECTRIC_BICYCLE": 3, "BICYCLE": 4 },
+  "exactProductIds": [
+    "XIAOMI_4_LITE_2ND_GEN_TR",
+    "XIAOMI_4_PRO_2ND_GEN_TR",
+    "SEGWAY_NINEBOT_F2_PRO_E_TR",
+    "ROCKRIDER_E_ACTV_100_GREY_TR",
+    "BTWIN_E_FOLD_500_GREEN_TR",
+    "ROCKRIDER_E_EXPL_700_GREEN_TR",
+    "ELOPS_520_PURPLE_28_TR",
+    "ELOPS_LD500_GREY_28_TR",
+    "BTWIN_TILT_500_NAVY_TR",
+    "ROCKRIDER_RACE_500_BLUE_29_TR"
+  ],
+  "reconciliation": { "observed": 24, "admitted": 10, "duplicate": 3, "ambiguous": 5, "insufficientTrApplicability": 4, "retiredUnsupported": 2, "silentDrops": 0 },
+  "personaState": "INTENDED_POSITIONING_SHADOW_ONLY"
+}

@@ -14,4 +14,8 @@
 
 ## Approval gate
 
-This candidate is not self-approved. Product-owner approval must name the release above and its generated SHA-256 authority digest before production activation or deployment.
+Product-owner approval was recorded on 2026-09-06 (Europe/Istanbul) with the following exact authorization:
+
+> MOBILITY-TR-v0.1-owner-review-candidate sürümünü ve sha256:886a2bac6180b1766f921d4cb8700e764263a130ba2fdab3d59c292ea66e75ee digest’ini onaylıyor; codex/mobility-end-to-end-01 dalının mevcut origin GitHub deposuna non-force push edilmesine ve ardından gerçek PostgreSQL, mobil QA ve production deployment kapılarının yürütülmesine izin veriyorum.
+
+Activation is valid only for this exact release, digest, 10-product identity set and three-category boundary. It does not authorize the superseded nine-product package or any Persona ranking expansion.

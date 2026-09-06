@@ -26,7 +26,7 @@ export function classifySecretaryMessage(rawMessage: string, context: SecretaryS
   if (/^(merhaba|selam|günaydın|iyi günler|iyi akşamlar|hey)$/u.test(message) || (/^(merhaba|selam|günaydın|iyi günler|iyi akşamlar|hey)\b/u.test(message) && !hasRoutingIntent(message.split(" ")))) return { kind: "GREETING", message: "Merhaba, hoş geldiniz. Ne satın almak istediğinizi anlatabilirsiniz." };
   if (containsPhrase(message, "expiya nedir") || containsPhrase(message, "nasıl çalışıyor")) return { kind: "FAQ_RESPONSE", message: "Expiya, ihtiyaçlarınızı netleştirip doğru karar bölümüne yönlendiren bir karar platformudur.", link: "/expiya-nedir" };
   if (/\b(kargo|sipariş|siparis|teslimat)\b/u.test(message)) return { kind: "FAQ_RESPONSE", message: "Expiya sipariş almaz veya kargo göndermez; ürün seçimini kolaylaştıran bir karar platformudur." };
-  if (containsPhrase(message, "hangi bölümler") || containsPhrase(message, "aktif bölümler")) return { kind: "FAQ_RESPONSE", message: "Şu anda Otomobil, Ev Ürünleri, Elektronik ve Bebek & Çocuk bölümleri aktiftir." };
+  if (containsPhrase(message, "hangi bölümler") || containsPhrase(message, "aktif bölümler")) return { kind: "FAQ_RESPONSE", message: "Şu anda Otomobil, Ev Ürünleri, Elektronik, Bebek & Çocuk ve Mobilite bölümleri aktiftir." };
   if (containsPhrase(message, "sekreter ne yapar") || containsPhrase(message, "sekreterin görevi")) return { kind: "FAQ_RESPONSE", message: "Sekreter, isteğinizi anlayıp sizi yalnızca aktif ve uygun bölüme yönlendirir; ürün önerisi veya sıralaması yapmaz." };
   if (containsPhrase(message, "hediye")) return { kind: "CLARIFY_DESTINATION", message: "Elbette. Hangi tür ürün için hediye arıyorsunuz?" };
   const mentions = governedMentions(message);

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "mobility-owner-approval/v1",
+  "eventId": "MOBILITY-ACT-20260906",
+  "approvedAt": "2026-09-06T17:20:00+03:00",
+  "approvedBy": "PRODUCT_OWNER_RELAY",
+  "release": "MOBILITY-TR-v0.1-owner-review-candidate",
+  "authorityDigest": "sha256:886a2bac6180b1766f921d4cb8700e764263a130ba2fdab3d59c292ea66e75ee",
+  "authorizedActions": [
+    "NON_FORCE_PUSH_EXISTING_ORIGIN",
+    "REAL_POSTGRESQL_MIGRATION_AND_QA",
+    "MOBILE_BROWSER_QA_390X844",
+    "IMMUTABLE_THEN_PRODUCTION_DEPLOYMENT",
+    "ROLLBACK_ON_REGRESSION"
+  ],
+  "statement": "MOBILITY-TR-v0.1-owner-review-candidate sürümünü ve sha256:886a2bac6180b1766f921d4cb8700e764263a130ba2fdab3d59c292ea66e75ee digest’ini onaylıyor; codex/mobility-end-to-end-01 dalının mevcut origin GitHub deposuna non-force push edilmesine ve ardından gerçek PostgreSQL, mobil QA ve production deployment kapılarının yürütülmesine izin veriyorum."
+}
