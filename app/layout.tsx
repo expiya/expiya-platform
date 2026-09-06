@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     "Expiya Cars ihtiyaçlarınızı dinler, seçenekleri tartar ve net bir araç kararına ulaşmanıza yardımcı olur.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="tr"

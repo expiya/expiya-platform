@@ -13,6 +13,8 @@ export function selectStrollers(preferences: StrollerPreferences) {
   if (preferences.CABIN_TRAVEL === true) retainUnknown(p => p.facts.cabinSizeClaim, knownTrue);
   if (preferences.SEAT_DIRECTION === "PARENT_FACING") retainUnknown(p => p.facts.reversibleSeat, knownTrue);
   if (preferences.TRAVEL_SYSTEM === true) retainUnknown(p => p.facts.travelSystemCompatible, knownTrue);
+  if (preferences.FOLDED_SIZE === "SMALL") retainUnknown(p => p.facts.foldedMm, v => Array.isArray(v) && v[0] * v[1] * v[2] <= 80_000_000);
+  if (preferences.SURFACE === "ROUGH") retainUnknown(p => p.facts.suspension, v => v === "ALL_WHEEL");
   if (typeof preferences.USE_STAGE === "number") retainUnknown(p => p.facts.childWeightMaxKg, v => Number(v) >= Number(preferences.USE_STAGE));
   return Object.freeze(candidates.sort((a, b) => a.exactProductId.localeCompare(b.exactProductId)));
 }

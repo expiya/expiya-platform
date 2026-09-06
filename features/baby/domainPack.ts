@@ -23,6 +23,7 @@ export function validateStrollerAuthority(): readonly string[] {
     if (ids.has(product.exactProductId)) issues.push(`DUPLICATE:${product.exactProductId}`); ids.add(product.exactProductId);
     if (product.trApplicability.status !== "VERIFIED" || !product.trApplicability.evidenceIds.length) issues.push(`TR_APPLICABILITY:${product.exactProductId}`);
     if (!product.configurationIdentity.includes("Türkiye")) issues.push(`IDENTITY:${product.exactProductId}`);
+    if (!product.evidenceIds.length) issues.push(`EVIDENCE:${product.exactProductId}`);
   }
   return Object.freeze(issues);
 }
