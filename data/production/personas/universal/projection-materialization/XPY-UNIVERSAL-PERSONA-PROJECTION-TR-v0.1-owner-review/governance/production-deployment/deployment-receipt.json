@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "xpy-universal-persona-production-deployment-receipt/v1",
+  "deploymentEventId": "UNIVERSAL-PERSONA-PRODUCTION-DEPLOYMENT-20260906",
+  "recordedAt": "2026-09-06T17:06:22Z",
+  "releaseId": "XPY-UNIVERSAL-PERSONA-PROJECTION-TR-v0.1-owner-review",
+  "packageDigest": "sha256:62d2d5f23cb92b337052fdb0e3eb16c8b96126e3bc156fa16ebaac11be03f4aa",
+  "source": {
+    "commit": "796ccdd4ac45ee5684a4b0be6336c549a9c56f3b",
+    "branch": "codex/xpy-universal-persona-authority-01-20260906",
+    "remote": "origin",
+    "nonForcePush": true,
+    "remoteMatchedSourceCommitBeforeDeployment": true
+  },
+  "provider": {
+    "name": "VERCEL",
+    "scope": "expiya",
+    "project": "expiya-platform-qw7q",
+    "projectId": "prj_aTU4JVC9CT5mN9dk5CWogfiV3A1q"
+  },
+  "deployment": {
+    "id": "dpl_9GgaAxrjbyKhDpQwVdsYPpVnkVqT",
+    "immutableUrl": "https://expiya-platform-qw7q-ofe0eelu0-expiya.vercel.app",
+    "inspectorUrl": "https://vercel.com/expiya/expiya-platform-qw7q/9GgaAxrjbyKhDpQwVdsYPpVnkVqT",
+    "productionUrl": "https://www.expiya.com",
+    "createdAt": "2026-09-06T17:01:45Z",
+    "status": "READY"
+  },
+  "preservedRollbackTarget": {
+    "deploymentId": "dpl_J7E84sqiTvwNFZs1QzSd3bKeUjfz",
+    "immutableUrl": "https://expiya-platform-qw7q-og1xamzqm-expiya.vercel.app",
+    "statusAtCapture": "READY"
+  },
+  "buildVerification": {
+    "passed": true,
+    "nodeRuntime": "24.x",
+    "staticPagesGenerated": 620,
+    "checks": [
+      "catalog verification 0.55.4",
+      "technical daily-life verification",
+      "Cars Persona V3.9 verification",
+      "vehicle evidence verification",
+      "Next.js production build",
+      "TypeScript validation"
+    ]
+  },
+  "productionSmoke": {
+    "passed": true,
+    "baseUrl": "https://www.expiya.com",
+    "requiredHeadersPassed": true,
+    "routes": [
+      { "path": "/", "status": 200, "contentType": "text/html" },
+      { "path": "/cars", "status": 200, "contentType": "text/html" },
+      { "path": "/analysis?pilot=v3.8", "status": 200, "contentType": "text/html" },
+      { "path": "/appliances", "status": 200, "contentType": "text/html" },
+      { "path": "/appliances/analysis?category=MANUAL_ESPRESSO_MACHINE", "status": 200, "contentType": "text/html" },
+      { "path": "/electronics", "status": 200, "contentType": "text/html" },
+      { "path": "/electronics/analysis?category=HEADPHONES", "status": 200, "contentType": "text/html" },
+      { "path": "/electronics/analysis?category=PROJECTOR", "status": 200, "contentType": "text/html" },
+      { "path": "/baby", "status": 200, "contentType": "text/html" }
+    ],
+    "securityHeaders": [
+      "content-security-policy",
+      "permissions-policy",
+      "referrer-policy",
+      "strict-transport-security",
+      "x-content-type-options",
+      "x-frame-options"
+    ]
+  },
+  "rollback": {
+    "required": false,
+    "performed": false,
+    "reason": "Production deployment, build verification, and all required smoke checks passed."
+  },
+  "secretHandling": {
+    "secretValuesPrinted": false,
+    "secretValuesStoredInReceipt": false,
+    "temporaryLocalCredentialFileRemovedWithoutInspection": true
+  }
+}
