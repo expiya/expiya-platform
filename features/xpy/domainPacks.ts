@@ -9,6 +9,7 @@ import { MOBILITY_CATEGORY_IDS } from "@/features/mobility/contracts";
 import { MOBILITY_AUTHORITY_DIGEST } from "@/features/mobility/domainPack";
 import { V39_PERSONA_SOFT_RANKING_AUTHORITY, V39_PERSONA_SOFT_SCORE_CAP } from "@/features/decision/v3/personaSoftRanking";
 import { STROLLER_AUTHORITY_DIGEST } from "@/features/baby/domainPack";
+import { CORDLESS_DRILL_AUTHORITY_DIGEST } from "@/features/cordless-drill/domainPack";
 import {
   UNIVERSAL_PERSONA_PROJECTION_AUTHORITY,
   universalPersonaCategorySoftRanking,
@@ -24,6 +25,7 @@ const categoryScopedPersona = (categories: readonly string[]) => Object.freeze({
 });
 
 export const XPY_DOMAIN_PACKS = Object.freeze({
+  TOOLS: Object.freeze({ protocolVersion: XPY_PROTOCOL_VERSION, runtimeVersion: XPY_RUNTIME_VERSION, runtimeDigest: XPY_RUNTIME_DIGEST, domainPackId: "cordless-drill/v1", departmentId: "TOOLS", categories: ["CORDLESS_DRILL"], capabilities: common, authority: [{ authorityId: "cordless-drill-domain-pack", version: "CORDLESS-DRILL-TR-v1.0-2026-09-07", digest: CORDLESS_DRILL_AUTHORITY_DIGEST }], boundedSoftRanking: productAuthorityRequired("Cordless Drill Persona is shadow-only; hard filters and Pareto evidence retain selection authority."), xReentry: { CORDLESS_DRILL: { publicName: "akülü matkap", decisionJourneyPurpose: "akülü matkap karar desteği", reentryPrompt: "Akülü matkap kullanımınıza dönelim.", informationalTerms: ["batarya platformu", "bare", "kit", "tork", "darbe", "mandren", "devir", "ağırlık"] } } }),
   CARS: Object.freeze({ protocolVersion: XPY_PROTOCOL_VERSION, runtimeVersion: XPY_RUNTIME_VERSION, runtimeDigest: XPY_RUNTIME_DIGEST, domainPackId: "cars-stage1/v3.8", departmentId: "CARS", categories: ["NEW_CAR"], capabilities: { ...common, behavioralAcceptance: XPY_BEHAVIORAL_CAPABILITIES }, authority: [], boundedSoftRanking: { status: "ACTIVE" as const, authority: [V39_PERSONA_SOFT_RANKING_AUTHORITY], scoreCap: V39_PERSONA_SOFT_SCORE_CAP, selectionAuthority: "DOMAIN_SELECTION_CONTRACT_ONLY" as const }, xReentry: { NEW_CAR: { publicName: "otomobil", decisionJourneyPurpose: "otomobil satın alma karar desteği", reentryPrompt: "Araç seçimine dönmek istersen ihtiyacını anlatman yeterli.", informationalTerms: ["araç", "otomobil", "yakıt", "motor", "şanzıman", "bagaj", "batarya"], governedReferences: [{ aliases: ["bumblebee"], clarification: "Bumblebee derken Transformers'taki sarı, sportif coupe/Camaro tarzı görünümü mü kastediyorsun, yoksa başka bir araç özelliğini mi? Bunu netleştirmeden belirli bir model veya varyant varsaymayacağım." }] } } }),
   APPLIANCES: Object.freeze({ protocolVersion: XPY_PROTOCOL_VERSION, runtimeVersion: XPY_RUNTIME_VERSION, runtimeDigest: XPY_RUNTIME_DIGEST, domainPackId: "appliances-stage1/v1", departmentId: "APPLIANCES", categories: APPLIANCES_PRODUCT_TYPES, capabilities: common, authority: [], boundedSoftRanking: categoryScopedPersona(APPLIANCES_PRODUCT_TYPES), xReentry: {
     WASHING_MACHINE: { publicName: "çamaşır makinesi", decisionJourneyPurpose: "çamaşır makinesi karar desteği", reentryPrompt: "Çamaşır makinesi ihtiyaçlarınla devam edebiliriz.", informationalTerms: ["devir", "enerji sınıfı", "buhar", "dozaj"] },
@@ -78,6 +80,7 @@ export function requireXpyReentry(departmentId: keyof typeof XPY_DOMAIN_PACKS, c
 
 export type XpyDomainPackResolution = { readonly status: "ACTIVE"; readonly pack: XpyDomainPackRegistration } | { readonly status: "NOT_READY"; readonly categoryId: AppliancesCategoryId; readonly pack: null; readonly authority: readonly [] } | { readonly status: "UNSUPPORTED" };
 export function resolveXpyDomainPack(departmentId: string, categoryId: string): XpyDomainPackResolution {
+  if (departmentId === "TOOLS") return categoryId === "CORDLESS_DRILL" ? { status: "ACTIVE", pack: requireXpyDomainPack("TOOLS") } : { status: "UNSUPPORTED" };
   if (departmentId === "MOBILITY") return MOBILITY_CATEGORY_IDS.includes(categoryId as typeof MOBILITY_CATEGORY_IDS[number]) ? { status: "ACTIVE", pack: requireXpyDomainPack("MOBILITY") } : { status: "UNSUPPORTED" };
   if (departmentId === "BABY_AND_CHILD") return categoryId === "STROLLER" ? { status: "ACTIVE", pack: requireXpyDomainPack("BABY_AND_CHILD") } : { status: "UNSUPPORTED" };
   if (departmentId === "ELECTRONICS") return ELECTRONICS_CATEGORY_IDS.includes(categoryId as typeof ELECTRONICS_CATEGORY_IDS[number]) ? { status: "ACTIVE", pack: requireXpyDomainPack("ELECTRONICS") } : { status: "UNSUPPORTED" };

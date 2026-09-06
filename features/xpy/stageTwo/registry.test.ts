@@ -6,9 +6,10 @@ import { clearXpyStageTwoAdaptersForTests, registerXpyStageTwoAdapter, requireXp
 afterEach(clearXpyStageTwoAdaptersForTests);
 describe("AŞAMA 2 adapter admission and inventory", () => {
   it("inventories every current Stage 1 category without activating unsupported Stage 2", () => {
-    expect(XPY_STAGE_TWO_READINESS_INVENTORY).toHaveLength(1 + APPLIANCES_PRODUCT_TYPES.length + ELECTRONICS_CATEGORY_IDS.length + 1 + 3);
+    expect(XPY_STAGE_TWO_READINESS_INVENTORY).toHaveLength(1 + APPLIANCES_PRODUCT_TYPES.length + ELECTRONICS_CATEGORY_IDS.length + 1 + 3 + 1);
     expect(XPY_STAGE_TWO_READINESS_INVENTORY.filter(item => item.readiness === "AUTHORIZED_EXISTING_RUNTIME")).toHaveLength(1 + APPLIANCES_PRODUCT_TYPES.length);
     expect(XPY_STAGE_TWO_READINESS_INVENTORY.find(item => item.departmentId === "MOBILITY")?.readiness).toBe("MISSING_STAGE_TWO_AUTHORITY");
+    expect(XPY_STAGE_TWO_READINESS_INVENTORY.find(item => item.departmentId === "TOOLS")?.readiness).toBe("MISSING_STAGE_TWO_AUTHORITY");
   });
   it("fails closed when an authorized surface has no registered adapter", () => {
     expect(() => requireXpyStageTwoAdapter("CARS", "NEW_CAR")).toThrow("XPY_STAGE_TWO_ADAPTER_MISSING");

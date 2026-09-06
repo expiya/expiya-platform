@@ -12,6 +12,7 @@ export type XpyStageTwoReadiness = "AUTHORIZED_EXISTING_RUNTIME" | "MISSING_STAG
 export interface XpyStageTwoReadinessRecord { readonly departmentId: string; readonly categoryId: string; readonly readiness: XpyStageTwoReadiness; readonly missing: readonly string[] }
 
 const declaredCategories = Object.freeze({
+  TOOLS: ["CORDLESS_DRILL"] as const,
   CARS: ["NEW_CAR"] as const,
   APPLIANCES: APPLIANCES_PRODUCT_TYPES,
   ELECTRONICS: ELECTRONICS_CATEGORY_IDS,

@@ -15,11 +15,12 @@ describe("XPY_RUNTIME/v0.1 authority binding", () => {
 
   it("binds every registered active department capability to one runtime version", () => {
     const bindings = Object.values(XPY_DOMAIN_PACKS).flatMap(pack => pack.categories.map(category => bindXpyRuntime(pack, category)));
-    // Cars, all Appliances and Electronics categories, Baby/STROLLER, and three Mobility categories share this runtime.
-    expect(bindings).toHaveLength(53);
+    // Cars, Appliances, Electronics, Baby, Mobility, and Tools/Cordless Drill share this runtime.
+    expect(bindings).toHaveLength(54);
     expect(new Set(bindings.map(binding => binding.version))).toEqual(new Set([XPY_RUNTIME_VERSION]));
     expect(new Set(bindings.map(binding => binding.digest))).toEqual(new Set([XPY_RUNTIME_DIGEST]));
-    expect(bindings.map(binding => `${binding.domainPackId}:${binding.category}`).slice(0, 25)).toEqual([
+    expect(bindings.map(binding => `${binding.domainPackId}:${binding.category}`)).toContain("cordless-drill/v1:CORDLESS_DRILL");
+    expect(bindings.filter(binding=>binding.domainPackId!=="cordless-drill/v1").map(binding => `${binding.domainPackId}:${binding.category}`).slice(0, 25)).toEqual([
       "cars-stage1/v3.8:NEW_CAR",
       "appliances-stage1/v1:WASHING_MACHINE",
       "appliances-stage1/v1:REFRIGERATOR",

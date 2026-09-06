@@ -45,15 +45,16 @@ describe("XPY bounded soft-ranking contract", () => {
     expect(authorized.selectionOutcome).toBe("SELECTED_SINGLE");
   });
 
-  it("registers all 53 categories and activates only evidence-qualified Persona categories", () => {
+  it("registers all 54 categories and activates only evidence-qualified Persona categories", () => {
     const registrations = Object.values(XPY_DOMAIN_PACKS).flatMap(pack => pack.categories.map(category => `${pack.departmentId}:${category}`));
-    expect(registrations).toHaveLength(53);
-    expect(new Set(registrations)).toHaveProperty("size", 53);
+    expect(registrations).toHaveLength(54);
+    expect(new Set(registrations)).toHaveProperty("size", 54);
     expect(XPY_DOMAIN_PACKS.CARS.boundedSoftRanking).toMatchObject({ status: "ACTIVE", scoreCap: 0.75 });
     expect(XPY_DOMAIN_PACKS.APPLIANCES.boundedSoftRanking.status).toBe("CATEGORY_SCOPED");
     expect(XPY_DOMAIN_PACKS.ELECTRONICS.boundedSoftRanking.status).toBe("CATEGORY_SCOPED");
     expect(XPY_DOMAIN_PACKS.BABY_AND_CHILD.boundedSoftRanking.status).toBe("CATEGORY_SCOPED");
     expect(XPY_DOMAIN_PACKS.MOBILITY.boundedSoftRanking.status).toBe("FAILED_CLOSED");
+    expect(XPY_DOMAIN_PACKS.TOOLS.boundedSoftRanking.status).toBe("FAILED_CLOSED");
     expect(resolveXpyCategorySoftRanking("APPLIANCES", "MANUAL_ESPRESSO_MACHINE").status).toBe("ACTIVE");
     expect(resolveXpyCategorySoftRanking("ELECTRONICS", "HEADPHONES").status).toBe("ACTIVE");
     expect(resolveXpyCategorySoftRanking("ELECTRONICS", "PROJECTOR").status).toBe("ACTIVE");
