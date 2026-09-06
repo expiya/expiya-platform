@@ -2,8 +2,8 @@ import { APPLIANCES_CATEGORY_REGISTRY, type ActiveAppliancesCategoryId } from "@
 import { ELECTRONICS_CATEGORY_REGISTRY, type ElectronicsCategoryId } from "@/features/electronics/architectureBaseline";
 import { resolveDepartment, resolveDepartmentCapability } from "./departmentRegistry";
 
-export type ActiveSecretaryDepartmentId = "CARS" | "APPLIANCES" | "ELECTRONICS" | "BABY_AND_CHILD";
-export type SecretaryCategoryId = ActiveAppliancesCategoryId | ElectronicsCategoryId | "STROLLER";
+export type ActiveSecretaryDepartmentId = "CARS" | "APPLIANCES" | "ELECTRONICS" | "BABY_AND_CHILD" | "MOBILITY";
+export type SecretaryCategoryId = ActiveAppliancesCategoryId | ElectronicsCategoryId | "STROLLER" | "ELECTRIC_SCOOTER" | "ELECTRIC_BICYCLE" | "BICYCLE";
 export interface SecretaryRouteDescriptor { readonly departmentId: ActiveSecretaryDepartmentId; readonly localizedLabel: string; readonly categoryId?: SecretaryCategoryId; readonly aliases: readonly string[]; readonly destination: string }
 export interface SecretaryRouteChoice { readonly label: string; readonly departmentId: ActiveSecretaryDepartmentId; readonly destination: string }
 export interface SecretaryUmbrella { readonly aliases: readonly string[]; readonly question: string; readonly categoryIds: readonly SecretaryCategoryId[] }
@@ -23,6 +23,9 @@ const route = (departmentId: ActiveSecretaryDepartmentId, localizedLabel: string
 export const SECRETARY_ROUTE_DESCRIPTORS: readonly SecretaryRouteDescriptor[] = Object.freeze([
   route("CARS", "Otomobil", ["otomobil", "araba", "araç", "suv", "sedan", "hatchback", "pick up", "pickup", "panelvan", "minibüs"], "/cars?entry=secretary"),
   route("BABY_AND_CHILD", "Bebek arabası", ["bebek arabası", "çocuk arabası", "puset", "travel sistem", "travel system"], "/baby?entry=secretary", "STROLLER"),
+  route("MOBILITY", "Elektrikli scooter", ["elektrikli scooter", "e scooter", "e-scooter", "scooter"], "/mobility?entry=secretary&category=ELECTRIC_SCOOTER", "ELECTRIC_SCOOTER"),
+  route("MOBILITY", "Elektrikli bisiklet", ["elektrikli bisiklet", "e bike", "e-bike"], "/mobility?entry=secretary&category=ELECTRIC_BICYCLE", "ELECTRIC_BICYCLE"),
+  route("MOBILITY", "Bisiklet", ["şehir bisikleti", "dağ bisikleti", "katlanır bisiklet", "bisiklet"], "/mobility?entry=secretary&category=BICYCLE", "BICYCLE"),
   ...APPLIANCES_CATEGORY_REGISTRY.filter(item => item.status === "ACTIVE").map(item => route("APPLIANCES", item.publicLabelTr, APPLIANCE_ALIASES[item.categoryId] ?? [item.publicLabelTr], `/appliances?entry=secretary&category=${item.categoryId}`, item.categoryId)),
   ...ELECTRONICS_CATEGORY_REGISTRY.map(item => route("ELECTRONICS", item.publicLabelTr, ELECTRONICS_ALIASES[item.categoryId] ?? [item.publicLabelTr], `/electronics/analysis?category=${item.categoryId}&entry=secretary`, item.categoryId)),
 ]);
@@ -33,7 +36,7 @@ export const SECRETARY_UMBRELLAS: readonly SecretaryUmbrella[] = Object.freeze([
   { aliases: ["saat"], question: "Akıllı saat mi, aktivite bilekliği mi arıyorsunuz?", categoryIds: ["SMARTWATCH", "FITNESS_TRACKER"] },
   { aliases: ["bilgisayar", "masaüstü bilgisayar"], question: "Dizüstü bilgisayar mı, masaüstü bilgisayar için bir ürün mü arıyorsunuz?", categoryIds: ["LAPTOP", "MONITOR", "COMPUTER_AUDIO"] },
 ]);
-export const SECRETARY_NEGATIVE_COMPOUNDS = Object.freeze(["oyuncak araba", "araba koltuğu", "oto koltuğu", "çocuk koltuğu", "arabalı yatak", "kulaklık aksesuarı", "telefon tamiri", "bilgisayar tamiri", "kapsül kahve makinesi", "kapsüllü kahve makinesi", "pod kahve makinesi"] as const);
+export const SECRETARY_NEGATIVE_COMPOUNDS = Object.freeze(["oyuncak scooter", "çocuk scooterı", "scooter kaskı", "scooter bataryası", "scooter şarj cihazı", "bisiklet kaskı", "bisiklet kilidi", "bisiklet aksesuarı", "bisiklet parçası", "motosiklet", "moped", "hoverboard", "oyuncak araba", "araba koltuğu", "oto koltuğu", "çocuk koltuğu", "arabalı yatak", "kulaklık aksesuarı", "telefon tamiri", "bilgisayar tamiri", "kapsül kahve makinesi", "kapsüllü kahve makinesi", "pod kahve makinesi"] as const);
 
 const SPELLING_EQUIVALENTS: Readonly<Record<string, string>> = Object.freeze({ makinası: "makinesi", makinasina: "makinesine", turk: "türk", koltugu: "koltuğu", arabasi: "arabası", dizustu: "dizüstü", tasinabilir: "taşınabilir", bulasik: "bulaşık", camasir: "çamaşır", supurge: "süpürge", buzdolabi: "buzdolabı", sofben: "şofben" });
 export function normalizeSecretaryPhrase(value: string): string { return value.toLocaleLowerCase("tr-TR").normalize("NFKC").replace(/[^\p{L}\p{N}]+/gu, " ").trim().replace(/\s+/g, " ").split(" ").map(token => SPELLING_EQUIVALENTS[token] ?? token).join(" "); }

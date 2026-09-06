@@ -5,7 +5,7 @@ import { ROOT_DEPARTMENTS } from "@/features/platform/rootDepartmentRoadmap";
 
 export const metadata: Metadata = {
   title: "Expiya — Satın Alma Karar Platformu",
-  description: "Otomobil, ev ürünleri ve elektronik kararlarını ihtiyaçlarınıza göre, doğrulanmış bilgi sınırları içinde birlikte netleştirin.",
+  description: "Otomobil, ev ürünleri, elektronik ve mobilite kararlarını ihtiyaçlarınıza göre, doğrulanmış bilgi sınırları içinde birlikte netleştirin.",
   alternates: { canonical: "/" },
 };
 

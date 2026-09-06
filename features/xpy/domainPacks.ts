@@ -5,6 +5,8 @@ import { XPY_RUNTIME_DIGEST, XPY_RUNTIME_VERSION } from "./runtimeContract";
 import { isActiveAppliancesCategoryId, resolveAppliancesCategory, type AppliancesCategoryId } from "@/features/appliances/categoryRegistry";
 import { ELECTRONICS_CATEGORY_IDS, ELECTRONICS_CATEGORY_REGISTRY } from "@/features/electronics/architectureBaseline";
 import { ELECTRONICS_CATEGORY_POLICY_VERSION } from "@/features/electronics/categoryPolicy";
+import { MOBILITY_CATEGORY_IDS } from "@/features/mobility/contracts";
+import { MOBILITY_AUTHORITY_DIGEST } from "@/features/mobility/domainPack";
 
 const common = Object.freeze({ contextualAnswers: true, questionDeferral: true, hardBrandConstraint: true, budgetDecisionFilter: true, authorizedDecisionCards: true, behavioralAcceptance: XPY_BEHAVIORAL_CAPABILITIES });
 
@@ -37,6 +39,7 @@ export const XPY_DOMAIN_PACKS = Object.freeze({
     SPLIT_AIR_CONDITIONER: { publicName: "ev tipi split klima", decisionJourneyPurpose: "birbiriyle uyumlu iç ve dış ünite çiftiyle split klima karar desteği", reentryPrompt: "Split klima için uyumlu ünite çifti ve profesyonel saha doğrulamasıyla devam edebiliriz.", informationalTerms: ["iç ünite", "dış ünite", "BTU", "oda yükü", "borulama", "drenaj", "montaj"] },
   } }),
   ELECTRONICS: Object.freeze({ protocolVersion: XPY_PROTOCOL_VERSION, runtimeVersion: XPY_RUNTIME_VERSION, runtimeDigest: XPY_RUNTIME_DIGEST, domainPackId: "electronics-stage1/v1", departmentId: "ELECTRONICS", categories: ELECTRONICS_CATEGORY_IDS, capabilities: common, authority: [{ authorityId: "electronics-category-policy", version: ELECTRONICS_CATEGORY_POLICY_VERSION, digest: "sha256:0f4db5148d6a6971b7a9341b2c0c56c298753dd2ab592b75d09fbdd372b7c20a" }], xReentry: Object.fromEntries(ELECTRONICS_CATEGORY_REGISTRY.map(category => [category.categoryId, { publicName: category.publicLabelTr.toLocaleLowerCase("tr-TR"), decisionJourneyPurpose: `${category.publicLabelTr.toLocaleLowerCase("tr-TR")} satın alma karar desteği`, reentryPrompt: `${category.publicLabelTr} seçimine dönmek istersen ihtiyaçlarını birlikte netleştirebiliriz.`, informationalTerms: category.categoryPolicyRequired.map(term => term.toLocaleLowerCase("tr-TR")) }])) }),
+  MOBILITY: Object.freeze({ protocolVersion: XPY_PROTOCOL_VERSION, runtimeVersion: XPY_RUNTIME_VERSION, runtimeDigest: XPY_RUNTIME_DIGEST, domainPackId: "mobility/v1", departmentId: "MOBILITY", categories: MOBILITY_CATEGORY_IDS, capabilities: common, authority: [{ authorityId: "mobility-domain-pack", version: "MOBILITY-TR-v0.1-owner-review-candidate", digest: MOBILITY_AUTHORITY_DIGEST }], xReentry: { ELECTRIC_SCOOTER: { publicName: "elektrikli scooter", decisionJourneyPurpose: "elektrikli scooter karar desteği", reentryPrompt: "Elektrikli scooter kullanımınıza dönelim.", informationalTerms: ["menzil", "motor", "batarya", "fren", "taşıma"] }, ELECTRIC_BICYCLE: { publicName: "elektrikli bisiklet", decisionJourneyPurpose: "elektrikli bisiklet karar desteği", reentryPrompt: "Elektrikli bisiklet kullanımınıza dönelim.", informationalTerms: ["motor", "tork", "batarya", "beden", "menzil"] }, BICYCLE: { publicName: "bisiklet", decisionJourneyPurpose: "bisiklet karar desteği", reentryPrompt: "Bisiklet kullanımınıza dönelim.", informationalTerms: ["kadro", "beden", "jant", "fren", "vites"] } } }),
 } satisfies Record<string, XpyDomainPackRegistration>);
 
 export function requireXpyDomainPack(departmentId: keyof typeof XPY_DOMAIN_PACKS): XpyDomainPackRegistration {
@@ -52,6 +55,7 @@ export function requireXpyReentry(departmentId: keyof typeof XPY_DOMAIN_PACKS, c
 
 export type XpyDomainPackResolution = { readonly status: "ACTIVE"; readonly pack: XpyDomainPackRegistration } | { readonly status: "NOT_READY"; readonly categoryId: AppliancesCategoryId; readonly pack: null; readonly authority: readonly [] } | { readonly status: "UNSUPPORTED" };
 export function resolveXpyDomainPack(departmentId: string, categoryId: string): XpyDomainPackResolution {
+  if (departmentId === "MOBILITY") return MOBILITY_CATEGORY_IDS.includes(categoryId as typeof MOBILITY_CATEGORY_IDS[number]) ? { status: "ACTIVE", pack: requireXpyDomainPack("MOBILITY") } : { status: "UNSUPPORTED" };
   if (departmentId === "ELECTRONICS") return ELECTRONICS_CATEGORY_IDS.includes(categoryId as typeof ELECTRONICS_CATEGORY_IDS[number]) ? { status: "ACTIVE", pack: requireXpyDomainPack("ELECTRONICS") } : { status: "UNSUPPORTED" };
   if (departmentId !== "APPLIANCES") return { status: "UNSUPPORTED" };
   const category = resolveAppliancesCategory(categoryId);

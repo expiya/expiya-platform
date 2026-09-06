@@ -6,6 +6,7 @@ export const XPY_STAGE_ONE_ADAPTER_REGISTRY = Object.freeze({
   APPLIANCES: Object.freeze(Object.fromEntries(APPLIANCES_PRODUCT_TYPES.map(category => [category, "appliances-stage1-presentation/v1"])) as Record<typeof APPLIANCES_PRODUCT_TYPES[number], string>),
   ELECTRONICS: Object.freeze(Object.fromEntries(ELECTRONICS_CATEGORY_IDS.map(category => [category, "electronics-stage1-presentation/v1"])) as Record<typeof ELECTRONICS_CATEGORY_IDS[number], string>),
   BABY_AND_CHILD: Object.freeze({ STROLLER: "baby-stroller-stage1-presentation/v1" }),
+  MOBILITY: Object.freeze({ ELECTRIC_SCOOTER: "mobility-stage1-presentation/v1", ELECTRIC_BICYCLE: "mobility-stage1-presentation/v1", BICYCLE: "mobility-stage1-presentation/v1" }),
 });
 
 export function requireXpyStageOneAdapter(departmentId: keyof typeof XPY_STAGE_ONE_ADAPTER_REGISTRY, categoryId: string): string {

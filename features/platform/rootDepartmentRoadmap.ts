@@ -3,6 +3,7 @@ import {
   BABY_LANDING_PACK,
   CARS_LANDING_PACK,
   ELECTRONICS_LANDING_PACK,
+  MOBILITY_LANDING_PACK,
 } from "@/features/xpy/departmentLandingPacks";
 
 interface ActiveRootDepartment {
@@ -29,6 +30,7 @@ export const ROOT_DEPARTMENTS = [
   { id: CARS_LANDING_PACK.departmentId, label: "Otomobil", state: "ACTIVE", href: CARS_LANDING_PACK.canonicalPath },
   { id: ELECTRONICS_LANDING_PACK.departmentId, label: "Elektronik", state: "ACTIVE", href: ELECTRONICS_LANDING_PACK.canonicalPath },
   { id: BABY_LANDING_PACK.departmentId, label: "Bebek & Çocuk", state: "ACTIVE", href: BABY_LANDING_PACK.canonicalPath },
+  { id: MOBILITY_LANDING_PACK.departmentId, label: "Mobilite", state: "ACTIVE", href: MOBILITY_LANDING_PACK.canonicalPath },
   {
     id: "HOTELS", label: "Oteller", state: "FUTURE",
     authority: {
