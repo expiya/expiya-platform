@@ -1,0 +1,64 @@
+{
+  "runId": "FIXTURE-CROSS-DEPARTMENT-001",
+  "createdAt": "2026-09-06T09:00:00.000Z",
+  "snapshots": [
+    {
+      "snapshotId": "AMAZON-DISCOVERY-001",
+      "schemaVersion": "discovery-snapshot/v1",
+      "sourceClass": "AMAZON_BESTSELLER",
+      "sourceUrl": "https://www.amazon.com.tr/gp/bestsellers/example",
+      "retrievedAt": "2026-09-06T08:00:00.000Z",
+      "market": "TR",
+      "locator": "bestseller list item 1",
+      "contentDigest": "sha256:45ed1b85fe2f375946076acdf742f72a052d8c31f617bf04ef70bb2248d9d0c0",
+      "content": "ExampleCo Model X"
+    },
+    {
+      "snapshotId": "MANUFACTURER-PAGE-001",
+      "schemaVersion": "discovery-snapshot/v1",
+      "sourceClass": "MANUFACTURER_PRODUCT_PAGE",
+      "sourceUrl": "https://example.com.tr/products/model-x",
+      "retrievedAt": "2026-09-06T08:05:00.000Z",
+      "market": "TR",
+      "locator": "product title and specifications",
+      "contentDigest": "sha256:21f847b8e70c4490a54ac75538ea2bb27f3cde07764491442293b88c51fd459e",
+      "content": "ExampleCo Model X MPN AB-123 capacity 10"
+    }
+  ],
+  "candidates": [
+    {
+      "candidateId": "DISCOVERY-001",
+      "identity": {
+        "department": " Electronics ",
+        "category": "Headphones",
+        "manufacturer": "ExampleCo",
+        "model": "Model X",
+        "manufacturerPartNumber": "AB-123"
+      },
+      "discoverySnapshotIds": ["AMAZON-DISCOVERY-001"],
+      "identityEvidenceSnapshotIds": [],
+      "claims": []
+    },
+    {
+      "candidateId": "VERIFIED-001",
+      "identity": {
+        "department": "electronics",
+        "category": "headphones",
+        "manufacturer": " exampleco ",
+        "model": "model x",
+        "manufacturerPartNumber": "AB123"
+      },
+      "discoverySnapshotIds": ["MANUFACTURER-PAGE-001"],
+      "identityEvidenceSnapshotIds": ["MANUFACTURER-PAGE-001"],
+      "claims": [
+        {
+          "claimId": "capacity",
+          "field": "capacity",
+          "value": 10,
+          "evidenceSnapshotIds": ["MANUFACTURER-PAGE-001"],
+          "decisionMaterial": true
+        }
+      ]
+    }
+  ]
+}

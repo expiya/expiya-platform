@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "noEmit": true },
+  "include": ["features/catalog-factory/**/*.ts", "scripts/run-catalog-factory-pilot.ts", "scripts/run-cordless-drill-wave.ts", "scripts/generate-cordless-drill-activation-package.ts"]
+}
