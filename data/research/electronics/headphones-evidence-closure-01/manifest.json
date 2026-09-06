@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "electronics-headphones-evidence-manifest/v1",
+  "workUnit": "WU-ELECTRONICS-HEADPHONES-EVIDENCE-CLOSURE-01",
+  "generatedAt": "2026-09-06T00:00:00.000Z",
+  "parentLineage": {
+    "workUnit": "WU-ELECTRONICS-AMAZON-TR-CATALOG-COVERAGE-EXPANSION-01",
+    "manifestDigest": "sha256:83e7627cabdd8a979d45ec7ca8dfd1324f3291d56635556371ec8264f5dfe182",
+    "declaredPayloadDigests": [
+      {
+        "path": "before-state.json",
+        "digest": "sha256:f6ed79a0f2a77ca4b321888a281a0ea5f90295fcc7a76ccf1e6456ef532f61b3"
+      },
+      {
+        "path": "headphones-amazon-observations.json",
+        "digest": "sha256:4192d180d4dc6cbec5341d71c9c6f5e7e2bb6558dc908bc313ec6a689ebc9805"
+      }
+    ],
+    "integrity": [
+      {
+        "path": "before-state.json",
+        "declaredDigest": "sha256:f6ed79a0f2a77ca4b321888a281a0ea5f90295fcc7a76ccf1e6456ef532f61b3",
+        "observedDigest": "sha256:f6ed79a0f2a77ca4b321888a281a0ea5f90295fcc7a76ccf1e6456ef532f61b3",
+        "verified": true
+      },
+      {
+        "path": "headphones-amazon-observations.json",
+        "declaredDigest": "sha256:4192d180d4dc6cbec5341d71c9c6f5e7e2bb6558dc908bc313ec6a689ebc9805",
+        "observedDigest": "sha256:4192d180d4dc6cbec5341d71c9c6f5e7e2bb6558dc908bc313ec6a689ebc9805",
+        "verified": true
+      }
+    ],
+    "lineageReconciliation": {
+      "schemaVersion": "electronics-parent-lineage-reconciliation/v1",
+      "parentWorkUnit": "WU-ELECTRONICS-AMAZON-TR-CATALOG-COVERAGE-EXPANSION-01",
+      "disposition": "MECHANICAL_CANONICALIZATION_ERROR_REPAIRED",
+      "materialPayloadChange": false,
+      "path": "before-state.json",
+      "originalDeclaredDigest": "sha256:eebe448472d75408c07c57a891ee1542b0902c8d11bec6ebeb3bd69c0a4655b0",
+      "repairedPersistedPayloadDigest": "sha256:f6ed79a0f2a77ca4b321888a281a0ea5f90295fcc7a76ccf1e6456ef532f61b3",
+      "proof": {
+        "omittedPropertyPath": "base.activeCatalogDigest",
+        "inMemoryValue": "undefined",
+        "persistedJsonBehavior": "JSON.stringify omitted the undefined-valued property",
+        "legacyCanonicalBehavior": "custom canonicalizer emitted the non-JSON token undefined",
+        "reproducedLegacyDigest": true
+      },
+      "repair": "Parent manifest now binds the actual persisted canonical JSON payload; both historical and repaired digests are preserved here.",
+      "prevention": "Canonicalizers reject undefined and other non-JSON values."
+    }
+  },
+  "authorityStatus": "IMMUTABLE_RELEASE_CANDIDATE_COVERAGE_INCOMPLETE_NOT_APPROVAL_ELIGIBLE",
+  "activationPermitted": false,
+  "files": [
+    {
+      "path": "parent-lineage-reconciliation.json",
+      "digest": "sha256:017c5e2acf3a4cd45b4980b891276d8b77f59d596023cf7d8d397dcb60ec96df"
+    },
+    {
+      "path": "source-register.json",
+      "digest": "sha256:7839057aeef1d89a1f92c1829363fc83a6d3f7044f3aa3866160f563f8bc2d2d"
+    },
+    {
+      "path": "asin-reconciliation-ledger.json",
+      "digest": "sha256:4acc3590ccf56d6db5ebc88db0995a3271fe09e9f1f8f717aa1d127893b304c6"
+    },
+    {
+      "path": "admitted-product-catalog.json",
+      "digest": "sha256:afc4ddd958f595405922bfcfb2cebfa1960b9469dcfc5f0a72971f8cba67945e"
+    },
+    {
+      "path": "technical-capability-facts.json",
+      "digest": "sha256:fc4508511263a53818848e663e70e17cc80d9c10fd78406db23436fb0de66f81"
+    },
+    {
+      "path": "manual-support-warranty-register.json",
+      "digest": "sha256:7038872e6ca30cde6343ce0dae8660e232535948f2db640535ee013d638dd1f7"
+    },
+    {
+      "path": "unknown-register.json",
+      "digest": "sha256:3e82fbd871fd96205874f23e869276d962460c01bd6ad55a897b57d079b0ce9d"
+    },
+    {
+      "path": "coverage-report.json",
+      "digest": "sha256:dc058d7453dd547e5e18beeeab605b91cc8dcf50db9f698ebca53c4305ff9ec2"
+    },
+    {
+      "path": "semantic-policy-input-proposal.json",
+      "digest": "sha256:4e4fc9e4adbf037f5668742a2e15df86968724940303deeb5e0fa1a07f1e33ac"
+    },
+    {
+      "path": "release-candidate.json",
+      "digest": "sha256:0de355c7249c0f3ca6ce5ea62f78253a42a09bd265456915c4950cffa64971c0"
+    }
+  ]
+}
