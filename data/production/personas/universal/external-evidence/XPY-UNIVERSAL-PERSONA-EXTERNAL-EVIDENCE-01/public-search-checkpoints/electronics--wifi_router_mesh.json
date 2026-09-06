@@ -1,0 +1,348 @@
+{
+  "schemaVersion": "xpy-persona-public-search-checkpoint/v1",
+  "departmentId": "ELECTRONICS",
+  "categoryId": "WIFI_ROUTER_MESH",
+  "rows": [
+    {
+      "exactProductId": "electronics:wifi-router-mesh:asus:xd5-w-2-pk",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "brand": "ASUS",
+      "model": "XD5 (W-2-PK)",
+      "configurationIdentity": "ASUS|ZenWiFi XD5|XD5 W-2-PK|Wi-Fi 6 AX3000|2-pack|White|TR|Hardware revision not separately published",
+      "queries": [
+        {
+          "queryKind": "PRIMARY_IDENTITY",
+          "query": "\"ASUS\" \"XD5 (W-2-PK)\" ASUS|ZenWiFi XD5|XD5 W-2-PK|Wi-Fi 6 AX3000|2-pack|White|TR|Hardware revision not official Türkiye manual",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22ASUS%22%20%22XD5%20(W-2-PK)%22%20ASUS%7CZenWiFi%20XD5%7CXD5%20W-2-PK%7CWi-Fi%206%20AX3000%7C2-pack%7CWhite%7CTR%7CHardware%20revision%20not%20official%20T%C3%BCrkiye%20manual",
+          "searchStatus": 200,
+          "searchBytes": 123538,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.asus.com/tr/",
+              "title": "ASUS T&#252;rkiye",
+              "snippet": "ASUS, yenlilik&#231;i fikirlerle hareket eden ve i&#231;lerinde diz&#252;st&#252; bilgisayarlar, anakartlar, ekran kartları, monit&#246;rler, masa&#252;st&#252; bilgisayarlar, …",
+              "host": "asus.com"
+            },
+            {
+              "url": "https://www.asus.com/",
+              "title": "ASUS Global",
+              "snippet": "Driven by innovation &amp; committed to quality, ASUS has a wide selection of best in class products. Find &amp; buy a laptop, phone, router, …",
+              "host": "asus.com"
+            },
+            {
+              "url": "https://rog.asus.com/",
+              "title": "ROG - Republic of Gamers｜Global | For Those Who Dare",
+              "snippet": "COMMUNITY WHAT'S HOT SUPPORT ASUS home logo ROG - Republic of Gamers Log in to the ROG Elite Rewards program …",
+              "host": "rog.asus.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Asus",
+              "title": "Asus - Wikipedia",
+              "snippet": "This page was last edited on 4 September 2026, at 04:49 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/asus/bilgisayar/",
+              "title": "ASUS Bilgisayar Fiyatları ve Modelleri - Vatan Bilgisayar",
+              "snippet": "ASUS Bilgisayar &#252;r&#252;nleri, fiyatları ve bilgisayar modelleri uygun taksit se&#231;enekler ile Vatan Bilgisayar'da! Şimdi Vatan garantisi ile …",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/marka/asus/",
+              "title": "Asus T&#252;rkiye Garantili Asus Cihazlar ve Aksesuarlar - Vatan Bilgisayar",
+              "snippet": "Asus markası, t&#252;ketici elektroniği bazında &#252;rettiği diğer &#252;r&#252;nlere, ekran kartı&#252;r&#252;n&#252;n&#252; de ekleyerek &#252;r&#252;n gamını olduk&#231;a genişletmiştir. …",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://www.hepsiburada.com/asus",
+              "title": "Asus T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "ASUS DriverHub offers personalized support and easy updates for ASUS devices, ensuring system stability with automatic …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://rog.asus.com/tr/",
+              "title": "ASUS ROG - Republic of Gamers",
+              "snippet": "ASUS, yenlilik&#231;i fikirlerle hareket eden ve i&#231;lerinde diz&#252;st&#252; bilgisayarlar, anakartlar, ekran kartları, monit&#246;rler, masa&#252;st&#252; bilgisayarlar, …",
+              "host": "rog.asus.com"
+            },
+            {
+              "url": "https://tr.wikipedia.org/wiki/Asus",
+              "title": "Asus - Vikipedi",
+              "snippet": "Metin Creative Commons Atıf-AynıLisanslaPaylaş Lisansıaltındadır ve ek koşullar uygulanabilir. Bu siteyi kullanarak Kullanım …",
+              "host": "tr.wikipedia.org"
+            }
+          ],
+          "inspected": [
+            {
+              "url": "https://www.asus.com/tr/",
+              "title": "ASUS T&#252;rkiye",
+              "snippet": "ASUS, yenlilik&#231;i fikirlerle hareket eden ve i&#231;lerinde diz&#252;st&#252; bilgisayarlar, anakartlar, ekran kartları, monit&#246;rler, masa&#252;st&#252; bilgisayarlar, …",
+              "host": "asus.com",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 543603,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            },
+            {
+              "url": "https://www.asus.com/",
+              "title": "ASUS Global",
+              "snippet": "Driven by innovation &amp; committed to quality, ASUS has a wide selection of best in class products. Find &amp; buy a laptop, phone, router, …",
+              "host": "asus.com",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 455736,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            }
+          ]
+        },
+        {
+          "queryKind": "INDEPENDENT_REVIEW",
+          "query": "\"ASUS\" \"XD5 (W-2-PK)\" independent review design usability materials",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22ASUS%22%20%22XD5%20(W-2-PK)%22%20independent%20review%20design%20usability%20materials",
+          "searchStatus": 200,
+          "searchBytes": 120460,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.asus.com/tr/",
+              "title": "ASUS T&#252;rkiye",
+              "snippet": "ASUS, yenlilik&#231;i fikirlerle hareket eden ve i&#231;lerinde diz&#252;st&#252; bilgisayarlar, anakartlar, ekran kartları, monit&#246;rler, masa&#252;st&#252; bilgisayarlar, …",
+              "host": "asus.com"
+            },
+            {
+              "url": "https://www.asus.com/",
+              "title": "ASUS Global",
+              "snippet": "Driven by innovation &amp; committed to quality, ASUS has a wide selection of best in class products. Find &amp; buy a laptop, phone, router, …",
+              "host": "asus.com"
+            },
+            {
+              "url": "https://rog.asus.com/",
+              "title": "ROG - Republic of Gamers｜Global | For Those Who Dare",
+              "snippet": "COMMUNITY WHAT'S HOT SUPPORT ASUS home logo ROG - Republic of Gamers Log in to the ROG Elite Rewards program …",
+              "host": "rog.asus.com"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Asus",
+              "title": "Asus - Wikipedia",
+              "snippet": "This page was last edited on 4 September 2026, at 04:49 (UTC).",
+              "host": "en.wikipedia.org"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/asus/bilgisayar/",
+              "title": "ASUS Bilgisayar Fiyatları ve Modelleri - Vatan Bilgisayar",
+              "snippet": "ASUS Bilgisayar &#252;r&#252;nleri, fiyatları ve bilgisayar modelleri uygun taksit se&#231;enekler ile Vatan Bilgisayar'da! Şimdi Vatan garantisi ile …",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/marka/asus/",
+              "title": "Asus T&#252;rkiye Garantili Asus Cihazlar ve Aksesuarlar - Vatan Bilgisayar",
+              "snippet": "Asus markası, t&#252;ketici elektroniği bazında &#252;rettiği diğer &#252;r&#252;nlere, ekran kartı&#252;r&#252;n&#252;n&#252; de ekleyerek &#252;r&#252;n gamını olduk&#231;a genişletmiştir. …",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://www.hepsiburada.com/asus",
+              "title": "Asus T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "ASUS DriverHub offers personalized support and easy updates for ASUS devices, ensuring system stability with automatic …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://rog.asus.com/tr/",
+              "title": "ASUS ROG - Republic of Gamers",
+              "snippet": "ASUS, yenlilik&#231;i fikirlerle hareket eden ve i&#231;lerinde diz&#252;st&#252; bilgisayarlar, anakartlar, ekran kartları, monit&#246;rler, masa&#252;st&#252; bilgisayarlar, …",
+              "host": "rog.asus.com"
+            },
+            {
+              "url": "https://tr.wikipedia.org/wiki/Asus",
+              "title": "Asus - Vikipedi",
+              "snippet": "Metin Creative Commons Atıf-AynıLisanslaPaylaş Lisansıaltındadır ve ek koşullar uygulanabilir. Bu siteyi kullanarak Kullanım …",
+              "host": "tr.wikipedia.org"
+            }
+          ],
+          "inspected": []
+        }
+      ],
+      "queryCount": 2,
+      "pagesInspected": 4,
+      "compatiblePublicPages": 0,
+      "terminalStatus": "EXTERNAL_EVIDENCE_NOT_FOUND_AFTER_SEARCH",
+      "personaStatus": "PERSONA_EVIDENCE_UNKNOWN",
+      "traitContributions": [],
+      "completedAt": "2026-09-06T00:00:00.000Z"
+    },
+    {
+      "exactProductId": "electronics:wifi-router-mesh:tp-link:deco-be25-eu-v1-2pack",
+      "departmentId": "ELECTRONICS",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "brand": "TP-Link",
+      "model": "Deco BE25(EU) V1 (2-pack)",
+      "configurationIdentity": "TP-Link|Deco BE25|EU V1|Wi-Fi 7 BE3600|2-pack|TR",
+      "queries": [
+        {
+          "queryKind": "PRIMARY_IDENTITY",
+          "query": "\"TP-Link\" \"Deco BE25(EU) V1 (2-pack)\" TP-Link|Deco BE25|EU V1|Wi-Fi 7 BE3600|2-pack|TR official Türkiye manual",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22TP-Link%22%20%22Deco%20BE25(EU)%20V1%20(2-pack)%22%20TP-Link%7CDeco%20BE25%7CEU%20V1%7CWi-Fi%207%20BE3600%7C2-pack%7CTR%20official%20T%C3%BCrkiye%20manual",
+          "searchStatus": 200,
+          "searchBytes": 121828,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.tppd.com.tr/",
+              "title": "TP Petrol Dağıtım A.Ş.",
+              "snippet": "T&#252;rkiye’nin en k&#246;kl&#252; markalarından biri olarak sağlığa, emniyete ve &#231;evreye duyarlı olan, değerlerinden g&#252;&#231; alarak kaliteli &#252;r&#252;n ve …",
+              "host": "tppd.com.tr"
+            },
+            {
+              "url": "https://www.tp-link.com/tr/",
+              "title": "TP-Link T&#252;rkiye – Ev &amp; Ofis Kablosuz Ağ Ekipmanları",
+              "snippet": "TP-Link is the world's #1 provider of consumer WiFi networking devices, shipping products to over 170 countries and hundreds of …",
+              "host": "tp-link.com"
+            },
+            {
+              "url": "https://www.tp-link.com/us/",
+              "title": "TP-Link: Your Smart Home, Simplified",
+              "snippet": "We are a US-based leader in Wi-Fi and smart home technology. See why families trust TP-Link to make their home smart, secure, …",
+              "host": "tp-link.com"
+            },
+            {
+              "url": "https://tport.tppd.com.tr/storefront/",
+              "title": "TP PETROL",
+              "snippet": "T&#252;rkiye Petrolleri, kaliteli &#252;r&#252;n ve hizmet sunan, sekt&#246;re y&#246;n veren bir marka olarak m&#252;şterilerine değer sağlamayı hedefliyor.",
+              "host": "tport.tppd.com.tr"
+            },
+            {
+              "url": "https://myjobteleperformance.com/",
+              "title": "TP T&#252;rkiye Kariyer (Teleperformance) | Great Place To Work 2026",
+              "snippet": "TP (Teleperformance) T&#252;rkiye ile kariyerinizi bir adım &#246;teye taşıyın. Teleperformance hakkında daha detaylı bilgi i&#231;in tıkla! İş ilanları …",
+              "host": "myjobteleperformance.com"
+            },
+            {
+              "url": "http://tplinkwifi.net/",
+              "title": "Trying to configure the Router? | TP-Link",
+              "snippet": "Trying to configure the Router? It looks like you aren't connected to your TP-Link network.",
+              "host": "tplinkwifi.net"
+            },
+            {
+              "url": "https://www.hepsiburada.com/tplink2",
+              "title": "TP-Link T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Tp-link &#252;r&#252;nlerini arıyorsanız doğru yerdesiniz! T&#252;m Tp-link modellerine uygun fiyata ve kargo avantajı ile Trendyol'dan hemen sahip …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/tp-link/",
+              "title": "TP-Link &#220;r&#252;nleri, Fiyatları ve Modelleri – Vatan Bilgisayar",
+              "snippet": "TP-Link marka &#252;r&#252;nler, en uygun fiyatlar ve taksit se&#231;enekleri ile vatanbilgisayar.com’da! En ucuz TP-Link marka &#252;r&#252;n modelleri ve …",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://tpelectric.com.tr/",
+              "title": "TP Elektrik Malzemeleri",
+              "snippet": "TP Electric b&#252;nyesinde ger&#231;ekleştirilen, Elektrikli Ara&#231; Şarj &#220;nitesi (EV Charging Unit) i&#231;in Ar-Ge &#231;alışmalarında sona gelindi. Yakın …",
+              "host": "tpelectric.com.tr"
+            }
+          ],
+          "inspected": [
+            {
+              "url": "https://www.tppd.com.tr/",
+              "title": "TP Petrol Dağıtım A.Ş.",
+              "snippet": "T&#252;rkiye’nin en k&#246;kl&#252; markalarından biri olarak sağlığa, emniyete ve &#231;evreye duyarlı olan, değerlerinden g&#252;&#231; alarak kaliteli &#252;r&#252;n ve …",
+              "host": "tppd.com.tr",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 31991,
+              "modelTokenFound": false,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            },
+            {
+              "url": "https://www.tp-link.com/tr/",
+              "title": "TP-Link T&#252;rkiye – Ev &amp; Ofis Kablosuz Ağ Ekipmanları",
+              "snippet": "TP-Link is the world's #1 provider of consumer WiFi networking devices, shipping products to over 170 countries and hundreds of …",
+              "host": "tp-link.com",
+              "fetchStatus": 200,
+              "reachable": true,
+              "bytes": 243921,
+              "modelTokenFound": true,
+              "accessDisposition": "PUBLICLY_INSPECTED"
+            }
+          ]
+        },
+        {
+          "queryKind": "INDEPENDENT_REVIEW",
+          "query": "\"TP-Link\" \"Deco BE25(EU) V1 (2-pack)\" independent review design usability materials",
+          "searchUrl": "https://www.bing.com/search?setlang=en-US&q=%22TP-Link%22%20%22Deco%20BE25(EU)%20V1%20(2-pack)%22%20independent%20review%20design%20usability%20materials",
+          "searchStatus": 200,
+          "searchBytes": 120085,
+          "resultCount": 9,
+          "results": [
+            {
+              "url": "https://www.tppd.com.tr/",
+              "title": "TP Petrol Dağıtım A.Ş.",
+              "snippet": "T&#252;rkiye’nin en k&#246;kl&#252; markalarından biri olarak sağlığa, emniyete ve &#231;evreye duyarlı olan, değerlerinden g&#252;&#231; alarak kaliteli &#252;r&#252;n ve …",
+              "host": "tppd.com.tr"
+            },
+            {
+              "url": "https://www.tp-link.com/tr/",
+              "title": "TP-Link T&#252;rkiye – Ev &amp; Ofis Kablosuz Ağ Ekipmanları",
+              "snippet": "TP-Link is the world's #1 provider of consumer WiFi networking devices, shipping products to over 170 countries and hundreds of …",
+              "host": "tp-link.com"
+            },
+            {
+              "url": "https://www.tp-link.com/us/",
+              "title": "TP-Link: Your Smart Home, Simplified",
+              "snippet": "We are a US-based leader in Wi-Fi and smart home technology. See why families trust TP-Link to make their home smart, secure, …",
+              "host": "tp-link.com"
+            },
+            {
+              "url": "https://tport.tppd.com.tr/storefront/",
+              "title": "TP PETROL",
+              "snippet": "T&#252;rkiye Petrolleri, kaliteli &#252;r&#252;n ve hizmet sunan, sekt&#246;re y&#246;n veren bir marka olarak m&#252;şterilerine değer sağlamayı hedefliyor.",
+              "host": "tport.tppd.com.tr"
+            },
+            {
+              "url": "https://myjobteleperformance.com/",
+              "title": "TP T&#252;rkiye Kariyer (Teleperformance) | Great Place To Work 2026",
+              "snippet": "TP (Teleperformance) T&#252;rkiye ile kariyerinizi bir adım &#246;teye taşıyın. Teleperformance hakkında daha detaylı bilgi i&#231;in tıkla! İş ilanları …",
+              "host": "myjobteleperformance.com"
+            },
+            {
+              "url": "http://tplinkwifi.net/",
+              "title": "Trying to configure the Router? | TP-Link",
+              "snippet": "Trying to configure the Router? It looks like you aren't connected to your TP-Link network.",
+              "host": "tplinkwifi.net"
+            },
+            {
+              "url": "https://www.hepsiburada.com/tplink2",
+              "title": "TP-Link T&#252;rkiye Mağazası | &#220;r&#252;nleri ve Kampanyaları 2026",
+              "snippet": "Tp-link &#252;r&#252;nlerini arıyorsanız doğru yerdesiniz! T&#252;m Tp-link modellerine uygun fiyata ve kargo avantajı ile Trendyol'dan hemen sahip …",
+              "host": "hepsiburada.com"
+            },
+            {
+              "url": "https://www.vatanbilgisayar.com/tp-link/",
+              "title": "TP-Link &#220;r&#252;nleri, Fiyatları ve Modelleri – Vatan Bilgisayar",
+              "snippet": "TP-Link marka &#252;r&#252;nler, en uygun fiyatlar ve taksit se&#231;enekleri ile vatanbilgisayar.com’da! En ucuz TP-Link marka &#252;r&#252;n modelleri ve …",
+              "host": "vatanbilgisayar.com"
+            },
+            {
+              "url": "https://tpelectric.com.tr/",
+              "title": "TP Elektrik Malzemeleri",
+              "snippet": "TP Electric b&#252;nyesinde ger&#231;ekleştirilen, Elektrikli Ara&#231; Şarj &#220;nitesi (EV Charging Unit) i&#231;in Ar-Ge &#231;alışmalarında sona gelindi. Yakın …",
+              "host": "tpelectric.com.tr"
+            }
+          ],
+          "inspected": []
+        }
+      ],
+      "queryCount": 2,
+      "pagesInspected": 4,
+      "compatiblePublicPages": 0,
+      "terminalStatus": "EXTERNAL_EVIDENCE_NOT_FOUND_AFTER_SEARCH",
+      "personaStatus": "PERSONA_EVIDENCE_UNKNOWN",
+      "traitContributions": [],
+      "completedAt": "2026-09-06T00:00:00.000Z"
+    }
+  ],
+  "digest": "sha256:28114c5fd5c7b74dd2b2818e4262b2d28184990f1e64c5634a52b66364f7a666"
+}
