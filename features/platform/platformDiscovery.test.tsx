@@ -14,9 +14,11 @@ describe("registry-driven platform discovery",()=>{
   });
   it("gives every active category a unique stable natural Turkish example",()=>{
     const categories=ACTIVE_PLATFORM_DISCOVERY.flatMap(item=>item.categories);
-    expect(SECRETARY_SEARCH_SUGGESTIONS).toHaveLength(categories.length+1);
+    expect(SECRETARY_SEARCH_SUGGESTIONS).toHaveLength(categories.length+ACTIVE_PLATFORM_DISCOVERY.filter(item=>item.categories.length===0).length);
     expect(new Set(SECRETARY_SEARCH_SUGGESTIONS.map(item=>item.id)).size).toBe(SECRETARY_SEARCH_SUGGESTIONS.length);
+    expect(new Set(SECRETARY_SEARCH_SUGGESTIONS.map(item=>item.label)).size).toBe(SECRETARY_SEARCH_SUGGESTIONS.length);
     expect(categories.every(category=>category.example.endsWith(" arıyorum")&&!/[A-Z]{3,}_/u.test(category.example))).toBe(true);
+    expect(SECRETARY_SEARCH_SUGGESTIONS.every(item=>item.label.endsWith(" arıyorum")&&!/[A-Z]{3,}_/u.test(item.label))).toBe(true);
   });
   it("automatically follows registry activation and removal",()=>{
     const capability={status:"ACTIVE",publicLabelTr:"Deneme ürünü",destination:"/demo?category=DEMO"} as const;

@@ -11,4 +11,6 @@ export function buildActivePlatformDiscovery(registry: readonly DepartmentRegist
   })));
 }
 export const ACTIVE_PLATFORM_DISCOVERY = buildActivePlatformDiscovery(ACTIVE_DEPARTMENT_REGISTRY);
-export const SECRETARY_SEARCH_SUGGESTIONS = Object.freeze(ACTIVE_PLATFORM_DISCOVERY.flatMap(department=>department.categories.map(category=>({id:`${department.id}:${category.id}`,label:category.example}))).concat([{id:"CARS:DEPARTMENT",label:"Ailem için bir otomobil arıyorum"}]));
+export const SECRETARY_SEARCH_SUGGESTIONS = Object.freeze(ACTIVE_PLATFORM_DISCOVERY.flatMap(department=>department.categories.length
+  ? department.categories.map(category=>({id:`${department.id}:${category.id}`,label:category.example}))
+  : [{id:`${department.id}:DEPARTMENT`,label:exampleFor(department.label)}]));

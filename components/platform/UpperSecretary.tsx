@@ -27,15 +27,15 @@ export function UpperSecretary({ suggestions }: { readonly suggestions: readonly
   const [remainingSeconds, setRemainingSeconds] = useState(3);
   const [progressStarted, setProgressStarted] = useState(false);
   const [suggestionIndex, setSuggestionIndex] = useState(0);
+  const [messageFocused, setMessageFocused] = useState(false);
   const navigationCommitted = useRef(false);
 
   useEffect(() => { const timer = window.setTimeout(() => setReply(greetingForHour(new Date().getHours())), 0); return () => window.clearTimeout(timer); }, []);
   useEffect(() => {
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reducedMotion) return;
-    const timer = window.setInterval(() => setSuggestionIndex(current => (current + 3) % suggestions.length), 6_000);
+    if (messageFocused || draft || frozen || suggestions.length < 2 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const timer = window.setInterval(() => setSuggestionIndex(current => (current + 1) % suggestions.length), 6_000);
     return () => window.clearInterval(timer);
-  }, [suggestions.length]);
+  }, [draft, frozen, messageFocused, suggestions.length]);
 
   useEffect(() => {
     if (!pendingRoute) return;
@@ -88,10 +88,8 @@ export function UpperSecretary({ suggestions }: { readonly suggestions: readonly
     </div>
     <form onSubmit={submit} className="relative mt-4 flex items-end gap-2 overflow-hidden rounded-[1.75rem] border border-stone-200 bg-white p-2.5 shadow-[0_12px_45px_rgba(0,0,0,.09)] transition focus-within:border-stone-400">
       <label className="sr-only" htmlFor="secretary-message">Ne seçmek istediğinizi anlatın</label>
-      {!draft && !frozen && <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-6 right-16 flex items-center truncate text-left text-base text-stone-400">Ne aradığınızı yazın</span>}
-      <textarea id="secretary-message" rows={1} maxLength={1000} value={draft} disabled={loading || frozen} onChange={event => { if (pendingRoute) cancelNavigation("Önceki yönlendirme durduruldu; yeni isteğinizi yazabilirsiniz."); if (choices.length) setChoices([]); setDraft(event.target.value); }} onKeyDown={event => { if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); event.currentTarget.form?.requestSubmit(); } }} className="relative z-10 min-h-14 min-w-0 flex-1 resize-none bg-transparent px-4 py-4 text-left text-base leading-6 outline-none disabled:opacity-60" />
+      <textarea id="secretary-message" rows={1} maxLength={1000} value={draft} disabled={loading || frozen} placeholder={frozen ? "" : suggestions[suggestionIndex]?.label ?? "Ne aradığınızı yazın"} onFocus={() => setMessageFocused(true)} onBlur={() => setMessageFocused(false)} onChange={event => { if (pendingRoute) cancelNavigation("Önceki yönlendirme durduruldu; yeni isteğinizi yazabilirsiniz."); if (choices.length) setChoices([]); setDraft(event.target.value); }} onKeyDown={event => { if (event.key === "Enter" && !event.shiftKey && !event.nativeEvent.isComposing) { event.preventDefault(); event.currentTarget.form?.requestSubmit(); } }} className="relative z-10 min-h-14 min-w-0 flex-1 resize-none bg-transparent px-4 py-4 text-left text-base leading-6 outline-none placeholder:text-stone-400 disabled:opacity-60" />
       <button type="submit" disabled={loading || frozen || !draft.trim()} className="relative z-10 flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-emerald-700 text-lg text-white hover:bg-emerald-800 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700 disabled:bg-stone-300" aria-label="Mesajı gönder">↑</button>
     </form>
-    {!frozen&&<div className="mx-auto mt-5 max-w-3xl" aria-label="Örnek aramalar"><div className="flex flex-wrap justify-center gap-2">{[0,1,2].map(offset=>suggestions[(suggestionIndex+offset)%suggestions.length]).map(suggestion=><button key={suggestion.id} type="button" onClick={()=>setDraft(suggestion.label)} className="min-h-11 max-w-full rounded-full border border-stone-300 bg-white px-4 py-2 text-sm text-stone-700 hover:border-emerald-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">{suggestion.label}</button>)}</div><div className="mt-3 flex items-center justify-center gap-3 text-sm"><button type="button" aria-label="Önceki örnek aramalar" onClick={()=>setSuggestionIndex(current=>(current-3+suggestions.length)%suggestions.length)} className="min-h-11 px-3 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">Önceki</button><button type="button" aria-label="Sonraki örnek aramalar" onClick={()=>setSuggestionIndex(current=>(current+3)%suggestions.length)} className="min-h-11 px-3 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">Sonraki</button><Link href="/expiya-nedir#active-areas-title" className="min-h-11 px-3 py-3 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-700">Tüm alanlar</Link></div></div>}
   </section>;
 }

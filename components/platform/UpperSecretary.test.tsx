@@ -23,4 +23,13 @@ describe("UpperSecretary cancellable navigation", () => {
     expect(source).toContain("selectChoice(choice)");
     expect(source).toContain("if (choices.length) setChoices([])");
   });
+  it("shows one passive registry example only as a placeholder and pauses it during input", () => {
+    expect(source).toContain('placeholder={frozen ? "" : suggestions[suggestionIndex]?.label');
+    expect(source).toContain("messageFocused || draft || frozen");
+    expect(source).toContain("onFocus={() => setMessageFocused(true)}");
+    expect(source).not.toContain('aria-label="Örnek aramalar"');
+    expect(source).not.toContain("Önceki örnek aramalar");
+    expect(source).not.toContain("Sonraki örnek aramalar");
+    expect(source).not.toContain(">Tüm alanlar</Link>");
+  });
 });
