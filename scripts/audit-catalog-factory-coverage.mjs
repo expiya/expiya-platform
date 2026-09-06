@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import path from "node:path";
 
-const lineageRef = process.env.CATALOG_FACTORY_LINEAGE_REF ?? "codex/catalog-factory-awin-admitad-readiness";
+const lineageRef = process.env.CATALOG_FACTORY_LINEAGE_REF ?? "f1ce8e61f76345aa10a1422bb511d2d9998dd954";
 const outDir = process.argv[2] ?? "outputs/catalog-factory-coverage-audit-2026-09-07";
 const showJson = (file, ref = lineageRef) => JSON.parse(execFileSync("git", ["show", `${ref}:${file}`], { encoding: "utf8", maxBuffer: 32 * 1024 * 1024 }));
 const localJson = (file) => JSON.parse(readFileSync(file, "utf8"));
@@ -56,6 +56,10 @@ const carRow = summarize("PASSENGER_CAR", carRecords, "data/production/catalog/a
 
 const electronicsPath = "data/production/electronics/runtime/releases/ELECTRONICS-RUNTIME-CATALOG-TR-v1.2-ALL-CATEGORY-93/catalog.json";
 const electronics = showJson(electronicsPath);
+const authorityAncestor = "39f0ba1d38bec866466c9ab47466d37c61fad11b";
+const ancestorElectronics = showJson(electronicsPath, authorityAncestor);
+const smartphoneIds = catalog => catalog.products.filter(p => p.categoryId === "SMARTPHONE").map(p => p.exactProductId).sort();
+const smartphoneMembershipIdentical = JSON.stringify(smartphoneIds(electronics)) === JSON.stringify(smartphoneIds(ancestorElectronics)) && electronics.releaseDigest === ancestorElectronics.releaseDigest;
 const electronicsRows = [...new Set(electronics.products.map(p => p.categoryId))].sort().map(categoryId =>
   summarize(categoryId, electronics.products.filter(p => p.categoryId === categoryId), electronicsPath, {
     persona: "DECLARED_PER_RECORD_EFFECT; MOSTLY_NONE",
@@ -112,23 +116,40 @@ const departmentSummary = Object.entries(byDepartment).map(([departmentId, depar
   categories: departmentRows.map(r => r.categoryId)
 }));
 const expansionWave = [
-  ["CHILD_CAR_SEAT","BABY_AND_CHILD",12,4,4,"NO_AFFILIATE_REQUIRED"],
-  ["BABY_MONITOR","BABY_AND_CHILD",12,4,3,"NO_AFFILIATE_REQUIRED_FOR_EVIDENCE; AFFILIATE_OPTIONAL_FOR_COMMERCE"],
-  ["DOCUMENT_SCANNER","ELECTRONICS",15,5,4,"NO_AFFILIATE_REQUIRED"],
-  ["TYRE","CARS",20,5,5,"AFFILIATE_OR_SPECIALIST_RETAILER_NEEDED_FOR_COMMERCE_DISCOVERY"],
-  ["OFFICE_CHAIR","HOME_AND_PROJECTS",15,5,4,"RETAILER_NEEDED; AWIN_ADMITAD_OPTIONAL_ACCELERATOR"],
-  ["LAWN_MOWER","HOME_AND_PROJECTS",15,5,4,"NO_AFFILIATE_REQUIRED_FOR_PRIMARY_EVIDENCE; AFFILIATE_USEFUL_FOR_COMMERCE"]
+  ["SMARTPHONE","ELECTRONICS",18,5,4,"NO_AFFILIATE_REQUIRED_FOR_PRIMARY_EVIDENCE; AFFILIATE_OPTIONAL_FOR_COMMERCE"],
+  ["TELEVISION","ELECTRONICS",15,5,4,"NO_AFFILIATE_REQUIRED_FOR_PRIMARY_EVIDENCE; AFFILIATE_USEFUL_FOR_COMMERCE"],
+  ["LAPTOP","ELECTRONICS",16,6,5,"NO_AFFILIATE_REQUIRED_FOR_PRIMARY_EVIDENCE; AFFILIATE_USEFUL_FOR_COMMERCE"],
+  ["ROBOT_VACUUM","APPLIANCES",12,4,4,"NO_AFFILIATE_REQUIRED_FOR_PRIMARY_EVIDENCE; RETAILER_COMMERCE_OPTIONAL"],
+  ["SPLIT_AIR_CONDITIONER","APPLIANCES",12,4,4,"NO_AFFILIATE_REQUIRED; INSTALLATION_COMMERCE_REQUIRES_SPECIALIST_DISCOVERY"],
+  ["STROLLER","BABY_AND_CHILD",12,4,4,"NO_AFFILIATE_REQUIRED_FOR_PRIMARY_EVIDENCE; AFFILIATE_OPTIONAL_FOR_COMMERCE"]
 ].map(([categoryId,departmentId,targetExactVariants,targetBrands,targetSegments,sourceBoundary], i) => ({priority:i+1,categoryId,departmentId,targetExactVariants,targetBrands,targetSegments,sourceBoundary}));
+
+const newCategoryBacklog = ["CHILD_CAR_SEAT", "BABY_MONITOR", "DOCUMENT_SCANNER", "TYRE", "OFFICE_CHAIR", "LAWN_MOWER"].map(categoryId => ({
+  categoryId, lifecycle: "PROPOSED_NOT_ACTIVE", excludedFromActiveExpansionWave: true
+}));
 
 const ledger = {
   schemaVersion: "catalog-factory-coverage-ledger/v1", generatedFromRepositoryOnly: true,
   generatedAtPolicy: "FIXED_AUDIT_DATE_NO_WALL_CLOCK_INPUT", auditDate: "2026-09-07",
-  lineage: { auditSourceRef: lineageRef, carsSource: "CURRENT_CHECKOUT_PRODUCTION_POINTER", smartphonePending },
+  lineage: {
+    auditSourceRef: lineageRef,
+    authorityAncestor,
+    authorityAncestorOfAuditSource: true,
+    electronicsV12MembershipProof: {
+      catalogFile: electronicsPath,
+      releaseDigest: electronics.releaseDigest,
+      totalExactProducts: electronics.products.length,
+      activeSmartphoneCount: electronics.products.filter(p => p.categoryId === "SMARTPHONE").length,
+      activeSmartphoneExactProductIds: smartphoneIds(electronics),
+      identicalAtAuditSourceAndAuthorityAncestor: smartphoneMembershipIdentical
+    },
+    carsSource: "CURRENT_CHECKOUT_PRODUCTION_POINTER", smartphonePending
+  },
   invariants: { externalResearchPerformed:false, admissionPerformed:false, activationPerformed:false, pointerMutationPerformed:false, deploymentPerformed:false, databaseMutationPerformed:false, xpyRootMigrationTouched:false },
-  departmentSummary, rows, expansionWave,
+  departmentSummary, rows, expansionWave, newCategoryBacklog,
   admitadAwinBoundary: {
-    canProceedWithoutAffiliate: ["CHILD_CAR_SEAT","BABY_MONITOR","DOCUMENT_SCANNER","LAWN_MOWER_PRIMARY_EVIDENCE"],
-    discoveryOrCommerceGap: ["TYRE_CURRENT_TR_OFFER_BREADTH","OFFICE_CHAIR_MULTI_RETAILER_DISCOVERY","LAWN_MOWER_VOLATILE_OFFERS","ALL_CATEGORY_PRICE_STOCK_DELIVERY_REFRESH"],
+    canProceedWithoutAffiliate: ["SMARTPHONE","TELEVISION","LAPTOP","ROBOT_VACUUM","SPLIT_AIR_CONDITIONER","STROLLER"],
+    discoveryOrCommerceGap: ["ALL_CATEGORY_PRICE_STOCK_DELIVERY_REFRESH","SPLIT_AIR_CONDITIONER_INSTALLATION_AVAILABILITY"],
     rule: "AFFILIATE_FEEDS_ARE_DISCOVERY_AND_VOLATILE_COMMERCE_INPUTS_ONLY; NEVER_PRIMARY_TECHNICAL_OR_IDENTITY_AUTHORITY"
   }
 };

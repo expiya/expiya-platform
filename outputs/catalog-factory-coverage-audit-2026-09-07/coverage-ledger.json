@@ -4,7 +4,24 @@
   "generatedAtPolicy": "FIXED_AUDIT_DATE_NO_WALL_CLOCK_INPUT",
   "auditDate": "2026-09-07",
   "lineage": {
-    "auditSourceRef": "codex/catalog-factory-awin-admitad-readiness",
+    "auditSourceRef": "f1ce8e61f76345aa10a1422bb511d2d9998dd954",
+    "authorityAncestor": "39f0ba1d38bec866466c9ab47466d37c61fad11b",
+    "authorityAncestorOfAuditSource": true,
+    "electronicsV12MembershipProof": {
+      "catalogFile": "data/production/electronics/runtime/releases/ELECTRONICS-RUNTIME-CATALOG-TR-v1.2-ALL-CATEGORY-93/catalog.json",
+      "releaseDigest": "sha256:7fae9bf18ccfb019d1718d237cda66d8c535353a8e2f44314a4411b43be00d39",
+      "totalExactProducts": 93,
+      "activeSmartphoneCount": 6,
+      "activeSmartphoneExactProductIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:honor:dny-nx9-8-256-black",
+        "electronics:smartphone:samsung:sm-a266bzkctur",
+        "electronics:smartphone:samsung:sm-a366bzkgtur",
+        "electronics:smartphone:xiaomi:14t-12-256-black",
+        "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black"
+      ],
+      "identicalAtAuditSourceAndAuthorityAncestor": true
+    },
     "carsSource": "CURRENT_CHECKOUT_PRODUCTION_POINTER",
     "smartphonePending": {
       "categoryId": "SMARTPHONE",
@@ -1316,71 +1333,103 @@
   "expansionWave": [
     {
       "priority": 1,
-      "categoryId": "CHILD_CAR_SEAT",
-      "departmentId": "BABY_AND_CHILD",
-      "targetExactVariants": 12,
-      "targetBrands": 4,
+      "categoryId": "SMARTPHONE",
+      "departmentId": "ELECTRONICS",
+      "targetExactVariants": 18,
+      "targetBrands": 5,
       "targetSegments": 4,
-      "sourceBoundary": "NO_AFFILIATE_REQUIRED"
+      "sourceBoundary": "NO_AFFILIATE_REQUIRED_FOR_PRIMARY_EVIDENCE; AFFILIATE_OPTIONAL_FOR_COMMERCE"
     },
     {
       "priority": 2,
-      "categoryId": "BABY_MONITOR",
-      "departmentId": "BABY_AND_CHILD",
-      "targetExactVariants": 12,
-      "targetBrands": 4,
-      "targetSegments": 3,
-      "sourceBoundary": "NO_AFFILIATE_REQUIRED_FOR_EVIDENCE; AFFILIATE_OPTIONAL_FOR_COMMERCE"
-    },
-    {
-      "priority": 3,
-      "categoryId": "DOCUMENT_SCANNER",
+      "categoryId": "TELEVISION",
       "departmentId": "ELECTRONICS",
       "targetExactVariants": 15,
       "targetBrands": 5,
       "targetSegments": 4,
-      "sourceBoundary": "NO_AFFILIATE_REQUIRED"
+      "sourceBoundary": "NO_AFFILIATE_REQUIRED_FOR_PRIMARY_EVIDENCE; AFFILIATE_USEFUL_FOR_COMMERCE"
+    },
+    {
+      "priority": 3,
+      "categoryId": "LAPTOP",
+      "departmentId": "ELECTRONICS",
+      "targetExactVariants": 16,
+      "targetBrands": 6,
+      "targetSegments": 5,
+      "sourceBoundary": "NO_AFFILIATE_REQUIRED_FOR_PRIMARY_EVIDENCE; AFFILIATE_USEFUL_FOR_COMMERCE"
     },
     {
       "priority": 4,
-      "categoryId": "TYRE",
-      "departmentId": "CARS",
-      "targetExactVariants": 20,
-      "targetBrands": 5,
-      "targetSegments": 5,
-      "sourceBoundary": "AFFILIATE_OR_SPECIALIST_RETAILER_NEEDED_FOR_COMMERCE_DISCOVERY"
+      "categoryId": "ROBOT_VACUUM",
+      "departmentId": "APPLIANCES",
+      "targetExactVariants": 12,
+      "targetBrands": 4,
+      "targetSegments": 4,
+      "sourceBoundary": "NO_AFFILIATE_REQUIRED_FOR_PRIMARY_EVIDENCE; RETAILER_COMMERCE_OPTIONAL"
     },
     {
       "priority": 5,
-      "categoryId": "OFFICE_CHAIR",
-      "departmentId": "HOME_AND_PROJECTS",
-      "targetExactVariants": 15,
-      "targetBrands": 5,
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "departmentId": "APPLIANCES",
+      "targetExactVariants": 12,
+      "targetBrands": 4,
       "targetSegments": 4,
-      "sourceBoundary": "RETAILER_NEEDED; AWIN_ADMITAD_OPTIONAL_ACCELERATOR"
+      "sourceBoundary": "NO_AFFILIATE_REQUIRED; INSTALLATION_COMMERCE_REQUIRES_SPECIALIST_DISCOVERY"
     },
     {
       "priority": 6,
-      "categoryId": "LAWN_MOWER",
-      "departmentId": "HOME_AND_PROJECTS",
-      "targetExactVariants": 15,
-      "targetBrands": 5,
+      "categoryId": "STROLLER",
+      "departmentId": "BABY_AND_CHILD",
+      "targetExactVariants": 12,
+      "targetBrands": 4,
       "targetSegments": 4,
-      "sourceBoundary": "NO_AFFILIATE_REQUIRED_FOR_PRIMARY_EVIDENCE; AFFILIATE_USEFUL_FOR_COMMERCE"
+      "sourceBoundary": "NO_AFFILIATE_REQUIRED_FOR_PRIMARY_EVIDENCE; AFFILIATE_OPTIONAL_FOR_COMMERCE"
+    }
+  ],
+  "newCategoryBacklog": [
+    {
+      "categoryId": "CHILD_CAR_SEAT",
+      "lifecycle": "PROPOSED_NOT_ACTIVE",
+      "excludedFromActiveExpansionWave": true
+    },
+    {
+      "categoryId": "BABY_MONITOR",
+      "lifecycle": "PROPOSED_NOT_ACTIVE",
+      "excludedFromActiveExpansionWave": true
+    },
+    {
+      "categoryId": "DOCUMENT_SCANNER",
+      "lifecycle": "PROPOSED_NOT_ACTIVE",
+      "excludedFromActiveExpansionWave": true
+    },
+    {
+      "categoryId": "TYRE",
+      "lifecycle": "PROPOSED_NOT_ACTIVE",
+      "excludedFromActiveExpansionWave": true
+    },
+    {
+      "categoryId": "OFFICE_CHAIR",
+      "lifecycle": "PROPOSED_NOT_ACTIVE",
+      "excludedFromActiveExpansionWave": true
+    },
+    {
+      "categoryId": "LAWN_MOWER",
+      "lifecycle": "PROPOSED_NOT_ACTIVE",
+      "excludedFromActiveExpansionWave": true
     }
   ],
   "admitadAwinBoundary": {
     "canProceedWithoutAffiliate": [
-      "CHILD_CAR_SEAT",
-      "BABY_MONITOR",
-      "DOCUMENT_SCANNER",
-      "LAWN_MOWER_PRIMARY_EVIDENCE"
+      "SMARTPHONE",
+      "TELEVISION",
+      "LAPTOP",
+      "ROBOT_VACUUM",
+      "SPLIT_AIR_CONDITIONER",
+      "STROLLER"
     ],
     "discoveryOrCommerceGap": [
-      "TYRE_CURRENT_TR_OFFER_BREADTH",
-      "OFFICE_CHAIR_MULTI_RETAILER_DISCOVERY",
-      "LAWN_MOWER_VOLATILE_OFFERS",
-      "ALL_CATEGORY_PRICE_STOCK_DELIVERY_REFRESH"
+      "ALL_CATEGORY_PRICE_STOCK_DELIVERY_REFRESH",
+      "SPLIT_AIR_CONDITIONER_INSTALLATION_AVAILABILITY"
     ],
     "rule": "AFFILIATE_FEEDS_ARE_DISCOVERY_AND_VOLATILE_COMMERCE_INPUTS_ONLY; NEVER_PRIMARY_TECHNICAL_OR_IDENTITY_AUTHORITY"
   }

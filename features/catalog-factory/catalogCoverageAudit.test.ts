@@ -6,6 +6,7 @@ describe("catalog factory coverage audit", () => {
     const counts = Object.fromEntries(ledger.departmentSummary.map(x => [x.departmentId, x.activeExactVariantCount]));
     expect(counts).toMatchObject({ CARS: 549, ELECTRONICS: 93, BABY_AND_CHILD: 4, MOBILITY: 10, TOOLS: 16 });
     expect(ledger.lineage.smartphonePending).toMatchObject({ lifecycle: "PENDING_NOT_ACTIVE", exactVariantCount: 33, activeCountImpact: 0 });
+    expect(ledger.lineage.electronicsV12MembershipProof).toMatchObject({ totalExactProducts: 93, activeSmartphoneCount: 6, identicalAtAuditSourceAndAuthorityAncestor: true });
   });
 
   it("covers every declared active category exactly once", () => {
@@ -26,5 +27,8 @@ describe("catalog factory coverage audit", () => {
     expect(Object.values(ledger.invariants).every(value => value === false)).toBe(true);
     expect(ledger.expansionWave).toHaveLength(6);
     expect(ledger.expansionWave.every(x => x.targetExactVariants > 0 && x.targetBrands > 0 && x.targetSegments > 0)).toBe(true);
+    const active = new Set(ledger.rows.map(x => x.categoryId));
+    expect(ledger.expansionWave.every(x => active.has(x.categoryId))).toBe(true);
+    expect(ledger.newCategoryBacklog.every(x => !ledger.expansionWave.some(w => w.categoryId === x.categoryId))).toBe(true);
   });
 });
