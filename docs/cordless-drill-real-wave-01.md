@@ -10,4 +10,6 @@ The candidate discriminators are bare-versus-kit, exact battery platform, impact
 
 Persona is hierarchical and shadow-only (`DIY_AND_TRADE / CORDLESS_TOOL / drill type / acquisition context`), evidence-bound, aggregate score `0.60`, and has no membership or standalone-winner authority. Factory manifests declare Department Registry, Expiya Nedir, Secretary identity routing/examples, universal Stage 1 cards, persistence, and Stage 2 as pending consumers only. Owner approval remains pending; no active pointer, database, runtime, or production deployment is changed.
 
+The user subsequently authorized this exact candidate and commit to enter owner-review activation preparation. `owner-review-activation-preparation.json` records that bounded authorization. It grants review-package and atomic-plan review only; activation authority remains false and all production writes remain forbidden.
+
 Run `node --import tsx scripts/run-cordless-drill-wave.ts` and compare two generated `candidate.json` files byte-for-byte. The checkpoint binds the complete input and category digest.
