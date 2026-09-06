@@ -1,6 +1,6 @@
 import { readFile, readdir, stat, mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
-import { reconcileCandidateManualEvidence, sha256, stableJson, validateGlobalEvidenceCandidate, verifySha256, type CandidateManual, type GlobalEvidenceAssertion, type GlobalEvidenceSource } from "../features/appliances/globalEvidence";
+import { reconcileCandidateManualEvidence, sha256, stableJson, validateGlobalEvidenceCandidate, verifySha256, type ActiveL9Reference, type CandidateManual, type GlobalEvidenceAssertion, type GlobalEvidenceSource } from "../features/appliances/globalEvidence";
 
 const root = process.cwd();
 const workUnitId = "WU-XPY-GLOBAL-EVIDENCE-CANDIDATE-REPAIR-01";
@@ -25,6 +25,13 @@ function officialDomain(brand: string): string {
 }
 
 type ProductRow = { category: string; categoryId: string; productId: string; brand: string; model: string; configurationIdentity: string; parentRelease: string; parentArtifactSha256: string; sources: unknown[]; exactVerifiedAssertions: number; nullFields: string[] };
+type ManualMember = { productId: string; categoryId: string; parentArtifactSha256: string };
+type ManualRelease = { members: ManualMember[]; manuals: CandidateManual[]; l9AdvisorKnowledge: ActiveL9Reference[] };
+type ActivePointer = { releaseVersion?: string };
+type CatalogProduct = { productId: string; brand?: string; brandId?: string; model?: string; manufacturerModelIdentifier?: string; configurationIdentity: string; technicalFacts?: Record<string, unknown>; capabilities?: Record<string, unknown>; evidenceRefs?: string[] };
+type ProductFact = { productId: string; factStatus?: string; status?: string; sourceId?: string };
+type CatalogSource = GlobalEvidenceSource & { sourceId: string };
+type ApplianceCatalog = { products: CatalogProduct[]; technicalFacts: ProductFact[]; capabilityFacts: ProductFact[]; evidenceAssertions: ProductFact[]; sources: CatalogSource[] };
 
 const discovered: readonly (GlobalEvidenceSource & { productId: string; assertions: readonly [string, unknown][] })[] = [
   { productId:"PHILIPS_NA350_00_TR",sourceId:"GLOBAL-PHILIPS-NA350-00-LEAFLET",url:"https://www.documents.philips.com/assets/20231219/8c19f96a9fad46849f4fb0dd01156904.pdf",publisher:"Philips",sourceType:"MANUFACTURER_DOCUMENT",market:"GB",retrievedAt:generatedAt,applicability:"FAMILY_SCOPED",exactModelCodeObserved:"NA350/00",disposition:"EXPLANATION_ONLY",assertions:[["basketCapacityL",9],["temperatureRangeC","40-200"],["presetCount",8]] },
@@ -56,24 +63,25 @@ const discovered: readonly (GlobalEvidenceSource & { productId: string; assertio
 ];
 
 async function inventory(): Promise<ProductRow[]> {
-  const manualRelease = JSON.parse(await readFile(manualReleasePath, "utf8"));
-  const memberByProduct = new Map(manualRelease.members.map((x: any) => [x.productId, x]));
+  const manualRelease: ManualRelease = JSON.parse(await readFile(manualReleasePath, "utf8"));
+  const memberByProduct = new Map(manualRelease.members.map((x) => [x.productId, x]));
   const rows: ProductRow[] = [];
   for (const category of (await readdir(path.join(root, "data/production/appliances"))).sort()) {
     const pointerPath = path.join(root, "data/production/appliances", category, "active.json");
-    let pointer: any; try { pointer = JSON.parse(await readFile(pointerPath, "utf8")); } catch { continue; }
+    let pointer: ActivePointer; try { pointer = JSON.parse(await readFile(pointerPath, "utf8")); } catch { continue; }
     if (!pointer.releaseVersion?.startsWith("APPLIANCES-")) continue;
     const releaseDir = path.join(root, "data/production/appliances", category, "releases", pointer.releaseVersion);
     let file: string; try { await stat(path.join(releaseDir, "domain-pack.json")); file = path.join(releaseDir, "domain-pack.json"); } catch { file = path.join(releaseDir, "catalog.json"); }
-    const catalog = JSON.parse(await readFile(file, "utf8"));
+    const catalog: ApplianceCatalog = JSON.parse(await readFile(file, "utf8"));
     for (const product of catalog.products) {
-      const member: any = memberByProduct.get(product.productId);
+      const member = memberByProduct.get(product.productId);
+      if (!member) throw new Error(`MANUAL_MEMBER_MISSING:${product.productId}`);
       const isWm = category === "washing-machines";
-      const facts = isWm ? catalog.technicalFacts.filter((x: any) => x.productId === product.productId && x.factStatus === "VERIFIED") : Object.entries(product.technicalFacts ?? {}).filter(([, value]) => value !== null);
-      const capabilities = isWm ? catalog.capabilityFacts.filter((x: any) => x.productId === product.productId && ["PRESENT", "ABSENT"].includes(x.status)) : Object.entries(product.capabilities ?? {}).filter(([, value]) => value !== null);
+      const facts = isWm ? catalog.technicalFacts.filter((x) => x.productId === product.productId && x.factStatus === "VERIFIED") : Object.entries(product.technicalFacts ?? {}).filter(([, value]) => value !== null);
+      const capabilities = isWm ? catalog.capabilityFacts.filter((x) => x.productId === product.productId && x.status !== undefined && ["PRESENT", "ABSENT"].includes(x.status)) : Object.entries(product.capabilities ?? {}).filter(([, value]) => value !== null);
       const nullFields = isWm ? [] : [...Object.entries(product.technicalFacts ?? {}), ...Object.entries(product.capabilities ?? {})].filter(([, value]) => value === null).map(([key]) => key);
-      const sourceIds = isWm ? new Set(catalog.evidenceAssertions.filter((x: any) => x.productId === product.productId).map((x: any) => x.sourceId)) : new Set(product.evidenceRefs ?? []);
-      rows.push({ category, categoryId: member.categoryId, productId: product.productId, brand: product.brand ?? product.brandId, model: product.model ?? product.manufacturerModelIdentifier, configurationIdentity: product.configurationIdentity, parentRelease: pointer.releaseVersion, parentArtifactSha256: member.parentArtifactSha256, sources: catalog.sources.filter((x: any) => sourceIds.has(x.sourceId)), exactVerifiedAssertions: facts.length + capabilities.length, nullFields });
+      const sourceIds = isWm ? new Set(catalog.evidenceAssertions.filter((x) => x.productId === product.productId).map((x) => x.sourceId).filter((sourceId): sourceId is string => sourceId !== undefined)) : new Set(product.evidenceRefs ?? []);
+      rows.push({ category, categoryId: member.categoryId, productId: product.productId, brand: product.brand ?? product.brandId ?? "", model: product.model ?? product.manufacturerModelIdentifier ?? "", configurationIdentity: product.configurationIdentity, parentRelease: pointer.releaseVersion, parentArtifactSha256: member.parentArtifactSha256, sources: catalog.sources.filter((x) => sourceIds.has(x.sourceId)), exactVerifiedAssertions: facts.length + capabilities.length, nullFields });
     }
   }
   return rows;
@@ -103,8 +111,8 @@ async function main() {
   const pointerHashesBefore = await activePointerHashes();
   const rows = await inventory();
   if (rows.length !== 97 || new Set(rows.map((x) => x.categoryId)).size !== 24) throw new Error(`INVENTORY_MISMATCH:${rows.length}`);
-  const manualRelease = JSON.parse(await readFile(manualReleasePath, "utf8"));
-  const manualByProduct = new Map(manualRelease.manuals.map((x: any) => [x.productId, x]));
+  const manualRelease: ManualRelease = JSON.parse(await readFile(manualReleasePath, "utf8"));
+  const manualByProduct = new Map(manualRelease.manuals.map((x) => [x.productId, x]));
   const l9ByProduct = new Map<string, number>(); for (const x of manualRelease.l9AdvisorKnowledge) l9ByProduct.set(x.productId, (l9ByProduct.get(x.productId) ?? 0) + 1);
   let admittedManuals: CandidateManual[] = []; try { admittedManuals = JSON.parse(await readFile(path.join(researchOutput, "admitted-manuals.json"), "utf8")); } catch {}
   const reconciliation = reconcileCandidateManualEvidence({ activeManuals: manualRelease.manuals, activeL9: manualRelease.l9AdvisorKnowledge, candidateManuals: admittedManuals });

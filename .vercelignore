@@ -45,6 +45,8 @@ data/**/source_snapshots/
 data/**/bytes/
 **/*.test.ts
 **/*.test.tsx
+scripts/generate-appliances-global-evidence-candidate.ts
+scripts/verify-appliances-global-evidence-candidate.ts
 **/*.bak
 **/*.save
 *.pdf
