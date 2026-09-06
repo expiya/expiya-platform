@@ -1,0 +1,7 @@
+# Next work unit: Child car seat bounded evidence wave 01
+
+Continue Catalog Factory with `CHILD_CAR_SEAT` as the first expansion category. Preserve all user changes and keep XPY root migration entirely out of scope until explicit user notes arrive.
+
+Using repository authority plus manufacturer Türkiye product pages, exact manuals, applicable regulatory material, and reliable Turkish retailers, build a **candidate-only** bounded pack with at least 12 current-TR exact variants, at least 4 manufacturers, and at least 4 materially distinct segments (infant carrier, convertible/rear-facing, high-back booster, multi-stage). Define exact identity and deduplication rules; a category-specific hard-filter registry with required fields and valid UNKNOWN reasons; source/evidence registers; technical and daily-life semantics; soft/persona coverage; governed media candidates; TR commerce observations kept separate from technical authority; and deterministic coverage/UNKNOWN reports.
+
+Do not use Admitad/Awin as primary identity or technical evidence. If no affiliate connection exists, proceed with manufacturer/manual/reliable-TR-retailer sources and record only the remaining volatile discovery/price/stock/delivery gaps. Do not research unrelated categories. Do not admit, approve, activate, mutate pointers, deploy, or write to a database. Produce a candidate ledger, validation tests, owner-review packet, and an explicit activation boundary. Report start and result to Organizatör task `01a0669e-5b67-7383-a138-687a3db20003`.
