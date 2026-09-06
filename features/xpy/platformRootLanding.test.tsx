@@ -32,7 +32,7 @@ describe("platform root routing", () => {
     const html = renderToStaticMarkup(<RootPage />);
 
     expect(ROOT_DEPARTMENTS.map(({ id, state }) => [id, state])).toEqual([
-      ["APPLIANCES", "ACTIVE"], ["CARS", "ACTIVE"], ["ELECTRONICS", "ACTIVE"], ["BABY_AND_CHILD", "ACTIVE"], ["HOTELS", "FUTURE"], ["EVENTS", "FUTURE"],
+      ["APPLIANCES", "ACTIVE"], ["CARS", "ACTIVE"], ["ELECTRONICS", "ACTIVE"], ["BABY_AND_CHILD", "ACTIVE"], ["MOBILITY", "ACTIVE"], ["HOTELS", "FUTURE"], ["EVENTS", "FUTURE"],
     ]);
     for (const department of ROOT_DEPARTMENTS) {
       expect(html).toContain(`data-platform-department="${department.id}"`);
