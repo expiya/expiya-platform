@@ -112,4 +112,37 @@ describe("Persona evidence-class policy", () => {
       });
     }
   });
+
+  it("binds owner approval to the exact package without granting activation", () => {
+    const approvalDirectory = path.join(
+      process.cwd(),
+      "data/production/personas/universal/evidence-class-admission/XPY-PERSONA-EVIDENCE-CLASS-ADMISSION-01/owner-approval",
+    );
+    const event = JSON.parse(
+      readFileSync(path.join(approvalDirectory, "owner-approval-event.json"), "utf8"),
+    );
+    const status = JSON.parse(
+      readFileSync(path.join(approvalDirectory, "owner-approved-status.json"), "utf8"),
+    );
+
+    expect(event).toMatchObject({
+      approvedPayloadDigest: "sha256:85bb241c57b995c95b7118b022c2272cf541a189c7c6f451839e7d7a7ba67610",
+      authority: "POLICY_AND_SHADOW_PROJECTION_ONLY",
+      rankingActivationAuthorized: false,
+      catalogMembershipMutationAuthorized: false,
+      domainPackBindingAuthorized: false,
+      deploymentAuthorized: false,
+    });
+    expect(status).toMatchObject({
+      approvalState: "APPROVED_SHADOW_AUTHORITY_NOT_ACTIVE",
+      activationState: "NOT_ACTIVE",
+      governedProducts: 4,
+      unknownProducts: 165,
+      conflictedProducts: 0,
+      rankingChanged: false,
+      catalogMembershipChanged: false,
+      activePointerChanged: false,
+      deploymentPerformed: false,
+    });
+  });
 });

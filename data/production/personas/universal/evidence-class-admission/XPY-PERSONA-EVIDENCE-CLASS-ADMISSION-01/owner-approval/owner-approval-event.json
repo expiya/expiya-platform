@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "xpy-persona-evidence-class-owner-approval-event/v1",
+  "eventId": "PERSONA-EVIDENCE-CLASS-OWNER-APPROVAL-20260906",
+  "eventType": "PERSONA_EVIDENCE_CLASS_POLICY_AND_SHADOW_AUTHORITY_APPROVED",
+  "actor": {
+    "role": "PRODUCT_OWNER",
+    "instanceId": "EXPIYA_PRODUCT_OWNER_001"
+  },
+  "releaseId": "XPY-PERSONA-EVIDENCE-CLASS-ADMISSION-TR-v0.1-owner-review",
+  "approvedPayloadDigest": "sha256:85bb241c57b995c95b7118b022c2272cf541a189c7c6f451839e7d7a7ba67610",
+  "approvalStatement": "I approve XPY-PERSONA-EVIDENCE-CLASS-ADMISSION-TR-v0.1-owner-review at payload digest sha256:85bb241c57b995c95b7118b022c2272cf541a189c7c6f451839e7d7a7ba67610 as the proposed Persona evidence-class policy and shadow projection authority only; this approval does not activate ranking or alter catalog membership.",
+  "approvalStatementSha256": "sha256:09df3a4d2de7a1e1452bbcb3b8cf6f6a073bc606a7d66ec73466a2b776143f8b",
+  "approvedAt": "2026-09-06T14:03:09.046Z",
+  "authority": "POLICY_AND_SHADOW_PROJECTION_ONLY",
+  "rankingActivationAuthorized": false,
+  "catalogMembershipMutationAuthorized": false,
+  "domainPackBindingAuthorized": false,
+  "deploymentAuthorized": false,
+  "appendOnly": true
+}
