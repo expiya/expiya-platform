@@ -20,12 +20,12 @@ describe("Expiya Secretary routing governor", () => {
     for (const message of ["kamera", "saat", "hoparlör", "hediye arıyorum", "araba ve buzdolabı almak istiyorum"]) expect(classifySecretaryMessage(message).kind).toBe("CLARIFY_DESTINATION");
   });
   it("disambiguates coffee families and resolves qualified or inflected coffee requests", () => {
-    for (const message of ["kahve makinesi", "kahve makinası", "kahve makinesine bakıyorum"]) expect(classifySecretaryMessage(message)).toMatchObject({ kind: "CLARIFY_DESTINATION", choices: expect.arrayContaining([expect.objectContaining({ label: "Türk kahvesi makinesi" })]) });
+    for (const message of ["kahve makinesi", "kahve makinası", "kahve makinesine bakıyorum", "Kahve makinesi var mı sizde?"]) expect(classifySecretaryMessage(message)).toMatchObject({ kind: "CLARIFY_DESTINATION", choices: expect.arrayContaining([expect.objectContaining({ label: "Türk kahvesi makinesi" })]) });
     const cases = [["filtre kahve makinesi", "FILTER_COFFEE_MACHINE"], ["Türk kahvesi makinesi", "TURKISH_COFFEE_MACHINE"], ["tam otomatik kahve makinesi", "FULLY_AUTOMATIC_ESPRESSO_MACHINE"], ["espresso makinesi", "MANUAL_ESPRESSO_MACHINE"]] as const;
     for (const [message, category] of cases) expect(classifySecretaryMessage(message)).toMatchObject({ kind: "PROPOSE_NAVIGATION", destination: `/appliances?entry=secretary&category=${category}` });
   });
   it("disambiguates audio without confusing headphones", () => {
-    expect(classifySecretaryMessage("hoparlör")).toMatchObject({ kind: "CLARIFY_DESTINATION", choices: expect.arrayContaining([expect.objectContaining({ label: "Masaüstü bilgisayar hoparlörü" })]) });
+    for (const message of ["hoparlör", "Hoparlör var mı sizde?"]) expect(classifySecretaryMessage(message)).toMatchObject({ kind: "CLARIFY_DESTINATION", choices: expect.arrayContaining([expect.objectContaining({ label: "Masaüstü bilgisayar hoparlörü" })]) });
     for (const message of ["bluetooth hoparlör", "taşınabilir hoparlöre bakıyorum"]) expect(classifySecretaryMessage(message)).toMatchObject({ destination: "/electronics/analysis?category=PORTABLE_SPEAKER&entry=secretary" });
     expect(classifySecretaryMessage("televizyon için hoparlör")).toMatchObject({ destination: "/electronics/analysis?category=SOUNDBAR&entry=secretary" });
     expect(classifySecretaryMessage("bilgisayar hoparlörü")).toMatchObject({ destination: "/electronics/analysis?category=COMPUTER_AUDIO&entry=secretary" });
