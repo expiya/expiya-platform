@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "smartphone-support-closure-sources/v1",
+  "sources": [
+    {
+      "sourceId": "oppo-tr:official-support-index",
+      "url": "https://support.oppo.com/tr/",
+      "capturedAt": "2026-09-07",
+      "authority": "MANUFACTURER_TR_SUPPORT",
+      "claim": "The official Türkiye support index offers software-update help but exposes no Reno13 F 5G/CPH2699 lifecycle duration, cadence, eligibility, or end date.",
+      "snapshotSha256": "sha256:67517dc8874fbdbe44fc4a6a4a4b0cfcba2d054e55d3480c6463334c9298d4f6"
+    },
+    {
+      "sourceId": "oppo-tr:reno13-f-product-fluency",
+      "url": "https://www.oppo.com/tr/smartphones/series-reno/reno13-f-5g/",
+      "capturedAt": "2026-09-07",
+      "authority": "MANUFACTURER_TR_PRODUCT",
+      "claim": "The 60-month fluency laboratory claim is performance testing, not OS upgrades, security support duration, cadence, eligibility, or an end date.",
+      "snapshotSha256": "sha256:5098387a13563ac4215a11630705a658c646156d9e75c4aa677b3a0016a36b41"
+    },
+    {
+      "sourceId": "general-mobile-tr:gms-certification",
+      "url": "https://www.generalmobile.com/tr/destek/google-mobil-hizmetleri",
+      "capturedAt": "2026-09-07",
+      "authority": "MANUFACTURER_TR_SUPPORT",
+      "claim": "The GMS certification page mentions OTA updates and Google security approval but provides no GM Phoenix 5G model-coded lifecycle commitment.",
+      "snapshotSha256": "sha256:c511ea9b993347a31f4c0d56eb35000ce268512a28e979b8abc1671b5178c988"
+    }
+  ],
+  "exhaustedAuthorityLines": [
+    "OPPO_RENO13_F_5G_CPH2699_TR",
+    "TECNO_CAMON_30_5G_TR",
+    "GENERAL_MOBILE_GM_PHOENIX_5G_TR"
+  ],
+  "repeatedUrlFetches": 0
+}
