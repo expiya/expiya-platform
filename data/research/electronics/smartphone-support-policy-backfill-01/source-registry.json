@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "smartphone-support-source-registry/v1",
+  "sources": [
+    {
+      "sourceId": "apple-tr:security-releases",
+      "url": "https://support.apple.com/tr-tr/100100",
+      "authority": "MANUFACTURER_TR_SUPPORT",
+      "capturedAt": "2026-09-07",
+      "claim": "Apple security release eligibility lists iPhone 16e and iPhone 11 or later; it does not promise a future duration or end date.",
+      "snapshotSha256": "sha256:bd636c29063b7b642c205f32f273db9ec3c7ad71ae8dd890d7fa40ca988fca94"
+    },
+    {
+      "sourceId": "samsung-tr:z-flip7-fe-business",
+      "url": "https://www.samsung.com/tr/business/smartphones/galaxy-z/galaxy-z-flip7-fe-black-128gb-sm-f761bzkgtur/",
+      "authority": "MANUFACTURER_TR_PRODUCT",
+      "capturedAt": "2026-09-07",
+      "claim": "The exact SM-F761B TUR product page states security updates are valid through 31 July 2032.",
+      "snapshotSha256": "sha256:04ac4ee6c08d97b8d6e63143af42cca5bf6a6efeba55d964eef04bcf9746154b"
+    },
+    {
+      "sourceId": "xiaomi-tr:support-policy",
+      "url": "https://www.mi.com/tr/support/faq/details/KA-472328/",
+      "authority": "MANUFACTURER_TR_SUPPORT",
+      "capturedAt": "2026-09-07",
+      "claim": "Xiaomi, Redmi and POCO smartphones typically receive security maintenance for at least two years after first shipment; some models may receive three years or longer.",
+      "snapshotSha256": "sha256:78ff3ef42e29cfa90c1c48a8764e2d5079b6f8dc0fb4ac13222acecd05b1b386"
+    },
+    {
+      "sourceId": "honor-tr:security-bulletin",
+      "url": "https://www.honor.com/tr/support/bulletin/",
+      "authority": "MANUFACTURER_TR_SUPPORT",
+      "capturedAt": "2026-09-07",
+      "claim": "HONOR 400 is currently listed for quarterly security updates; eligibility may change and carrier timing may differ.",
+      "snapshotSha256": "sha256:3d2c4ebb852d9af618fdf7b5d2ac422174b53db6c6bbd249e652b8be72dad48e"
+    },
+    {
+      "sourceId": "huawei-tr:security-bulletin",
+      "url": "https://consumer.huawei.com/tr/support/bulletin/",
+      "authority": "MANUFACTURER_TR_SUPPORT",
+      "capturedAt": "2026-09-07",
+      "claim": "Mate X6 and Pura 80 Pro are currently listed for monthly security patch updates; timing may vary by region and model.",
+      "snapshotSha256": "sha256:f67cbefd637881cb142fb9f33ab264749eaa7b67c3eddf48bd9a0f9dc7294ca7"
+    },
+    {
+      "sourceId": "nothing-global:phone-3a",
+      "url": "https://nothing.tech/products/phone-3a",
+      "authority": "MANUFACTURER_PRODUCT",
+      "capturedAt": "2026-09-07",
+      "claim": "Phone (3a) Series receives three Android updates and six years of security, corrective and functionality updates from first market availability.",
+      "snapshotSha256": "sha256:825ba8f9368a0d5390ac0194789bfdfc5bc2fb2ea0e0f68d2ca881eccd3728c6"
+    },
+    {
+      "sourceId": "tecno-global:camon30-update-announcement",
+      "url": "https://www.tecno-mobile.com/pak/news/tecno-camon-30-series-3-years-android-updates-android-16/",
+      "authority": "MANUFACTURER_ANNOUNCEMENT",
+      "capturedAt": "2026-09-07",
+      "claim": "The global CAMON 30 Series announcement promises Android upgrades through Android 16 and three years of security patches, but no Türkiye applicability bridge was found.",
+      "snapshotSha256": "sha256:3a22f556ef99a00aa4d8843090b0a6aa53318d6ea8cd5e7761cbd94406991ada"
+    },
+    {
+      "sourceId": "general-mobile-tr:phoenix-support",
+      "url": "https://www.generalmobile.com/tr/destek/yardim/kullanim-kilavuzlari",
+      "authority": "MANUFACTURER_TR_SUPPORT",
+      "capturedAt": "2026-09-07",
+      "claim": "The support page identifies GM Phoenix 5G but provides no update duration, end date or frequency.",
+      "snapshotSha256": "sha256:27d379f7f2de52b2fe7844216acd5b66aad21499646df15183f8bff91410b8d1"
+    }
+  ]
+}

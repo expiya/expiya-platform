@@ -1,0 +1,375 @@
+{
+  "schemaVersion": "smartphone-support-applicability/v1",
+  "entries": [
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "terminal": "KNOWN",
+      "bridge": "TR_SECURITY_ELIGIBILITY_MODEL_FAMILY_TO_EXACT_CONFIGURATION",
+      "sourceIds": [
+        "apple-tr:security-releases"
+      ],
+      "limitations": [
+        "No promised duration, cadence, or end date; configuration does not change OS eligibility."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+      "terminal": "KNOWN",
+      "bridge": "TR_SECURITY_ELIGIBILITY_MODEL_FAMILY_TO_EXACT_CONFIGURATION",
+      "sourceIds": [
+        "apple-tr:security-releases"
+      ],
+      "limitations": [
+        "No promised duration, cadence, or end date; configuration does not change OS eligibility."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+      "terminal": "KNOWN",
+      "bridge": "TR_SECURITY_ELIGIBILITY_MODEL_FAMILY_TO_EXACT_CONFIGURATION",
+      "sourceIds": [
+        "apple-tr:security-releases"
+      ],
+      "limitations": [
+        "No promised duration, cadence, or end date; configuration does not change OS eligibility."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+      "terminal": "KNOWN",
+      "bridge": "TR_SECURITY_ELIGIBILITY_MODEL_FAMILY_TO_EXACT_CONFIGURATION",
+      "sourceIds": [
+        "apple-tr:security-releases"
+      ],
+      "limitations": [
+        "No promised duration, cadence, or end date; configuration does not change OS eligibility."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+      "terminal": "KNOWN",
+      "bridge": "TR_SECURITY_ELIGIBILITY_MODEL_FAMILY_TO_EXACT_CONFIGURATION",
+      "sourceIds": [
+        "apple-tr:security-releases"
+      ],
+      "limitations": [
+        "No promised duration, cadence, or end date; configuration does not change OS eligibility."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+      "terminal": "KNOWN",
+      "bridge": "TR_SECURITY_ELIGIBILITY_MODEL_FAMILY_TO_EXACT_CONFIGURATION",
+      "sourceIds": [
+        "apple-tr:security-releases"
+      ],
+      "limitations": [
+        "No promised duration, cadence, or end date; configuration does not change OS eligibility."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+      "terminal": "KNOWN",
+      "bridge": "EXISTING_EXACT_CATALOG_FACT",
+      "sourceIds": [
+        "samsung-tr:galaxy-a26"
+      ],
+      "limitations": [
+        "Literal retained without converting upgrade count, security years, or start/end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+      "terminal": "KNOWN",
+      "bridge": "EXISTING_EXACT_CATALOG_FACT",
+      "sourceIds": [
+        "samsung-tr:galaxy-a36"
+      ],
+      "limitations": [
+        "Literal retained without converting upgrade count, security years, or start/end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+      "terminal": "KNOWN",
+      "bridge": "EXISTING_EXACT_CATALOG_FACT",
+      "sourceIds": [
+        "samsung-tr:galaxy-s25"
+      ],
+      "limitations": [
+        "Literal retained without converting upgrade count, security years, or start/end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+      "terminal": "KNOWN",
+      "bridge": "EXISTING_EXACT_CATALOG_FACT",
+      "sourceIds": [
+        "samsung-tr:galaxy-s25"
+      ],
+      "limitations": [
+        "Literal retained without converting upgrade count, security years, or start/end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+      "terminal": "KNOWN",
+      "bridge": "EXISTING_EXACT_CATALOG_FACT",
+      "sourceIds": [
+        "samsung-tr:galaxy-s25"
+      ],
+      "limitations": [
+        "Literal retained without converting upgrade count, security years, or start/end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+      "terminal": "KNOWN",
+      "bridge": "EXISTING_EXACT_CATALOG_FACT",
+      "sourceIds": [
+        "samsung-tr:galaxy-s25-ultra"
+      ],
+      "limitations": [
+        "Literal retained without converting upgrade count, security years, or start/end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+      "terminal": "KNOWN",
+      "bridge": "EXISTING_EXACT_CATALOG_FACT",
+      "sourceIds": [
+        "samsung-tr:galaxy-s25-ultra"
+      ],
+      "limitations": [
+        "Literal retained without converting upgrade count, security years, or start/end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+      "terminal": "KNOWN",
+      "bridge": "EXISTING_EXACT_CATALOG_FACT",
+      "sourceIds": [
+        "samsung-tr:galaxy-s25-ultra"
+      ],
+      "limitations": [
+        "Literal retained without converting upgrade count, security years, or start/end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+      "terminal": "KNOWN",
+      "bridge": "TUR_MODEL_CODE_SM_F761B_TO_EXACT_CONFIGURATION",
+      "sourceIds": [
+        "samsung-tr:z-flip7-fe-business"
+      ],
+      "limitations": [
+        "Exact cited page is 128 GB; model-code bridge applies support lifecycle, not storage-specific commerce claims."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+      "terminal": "KNOWN",
+      "bridge": "TR_BRAND_WIDE_POLICY_EXPLICITLY_COVERS_XIAOMI_REDMI_POCO",
+      "sourceIds": [
+        "xiaomi-tr:support-policy"
+      ],
+      "limitations": [
+        "Not a model guarantee; first-shipment date and exact end date remain unknown."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+      "terminal": "KNOWN",
+      "bridge": "TR_BRAND_WIDE_POLICY_EXPLICITLY_COVERS_XIAOMI_REDMI_POCO",
+      "sourceIds": [
+        "xiaomi-tr:support-policy"
+      ],
+      "limitations": [
+        "Not a model guarantee; first-shipment date and exact end date remain unknown."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+      "terminal": "KNOWN",
+      "bridge": "TR_BRAND_WIDE_POLICY_EXPLICITLY_COVERS_XIAOMI_REDMI_POCO",
+      "sourceIds": [
+        "xiaomi-tr:support-policy"
+      ],
+      "limitations": [
+        "Not a model guarantee; first-shipment date and exact end date remain unknown."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+      "terminal": "KNOWN",
+      "bridge": "TR_BRAND_WIDE_POLICY_EXPLICITLY_COVERS_XIAOMI_REDMI_POCO",
+      "sourceIds": [
+        "xiaomi-tr:support-policy"
+      ],
+      "limitations": [
+        "Not a model guarantee; first-shipment date and exact end date remain unknown."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+      "terminal": "KNOWN",
+      "bridge": "TR_BRAND_WIDE_POLICY_EXPLICITLY_COVERS_XIAOMI_REDMI_POCO",
+      "sourceIds": [
+        "xiaomi-tr:support-policy"
+      ],
+      "limitations": [
+        "Not a model guarantee; first-shipment date and exact end date remain unknown."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+      "terminal": "KNOWN",
+      "bridge": "TR_BRAND_WIDE_POLICY_EXPLICITLY_COVERS_XIAOMI_REDMI_POCO",
+      "sourceIds": [
+        "xiaomi-tr:support-policy"
+      ],
+      "limitations": [
+        "Not a model guarantee; first-shipment date and exact end date remain unknown."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+      "terminal": "KNOWN",
+      "bridge": "TR_BULLETIN_NAMES_HONOR_400_TO_DNY_NX9_CONFIGURATIONS",
+      "sourceIds": [
+        "honor-tr:security-bulletin"
+      ],
+      "limitations": [
+        "Current list may change; carrier rollout can differ; no duration or end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+      "terminal": "KNOWN",
+      "bridge": "TR_BULLETIN_NAMES_HONOR_400_TO_DNY_NX9_CONFIGURATIONS",
+      "sourceIds": [
+        "honor-tr:security-bulletin"
+      ],
+      "limitations": [
+        "Current list may change; carrier rollout can differ; no duration or end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+      "terminal": "KNOWN",
+      "bridge": "TR_BULLETIN_NAMES_MATE_X6_TO_12_512_COLOR_CONFIGURATIONS",
+      "sourceIds": [
+        "huawei-tr:security-bulletin"
+      ],
+      "limitations": [
+        "Current schedule only; no duration or end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+      "terminal": "KNOWN",
+      "bridge": "TR_BULLETIN_NAMES_MATE_X6_TO_12_512_COLOR_CONFIGURATIONS",
+      "sourceIds": [
+        "huawei-tr:security-bulletin"
+      ],
+      "limitations": [
+        "Current schedule only; no duration or end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+      "terminal": "KNOWN",
+      "bridge": "TR_BULLETIN_NAMES_PURA_80_PRO_TO_12_512_CONFIGURATION",
+      "sourceIds": [
+        "huawei-tr:security-bulletin"
+      ],
+      "limitations": [
+        "Current schedule only; no duration or end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+      "terminal": "KNOWN",
+      "bridge": "EXISTING_EXACT_CATALOG_FACT",
+      "sourceIds": [
+        "nothing-tr:phone-3a"
+      ],
+      "limitations": [
+        "Literal retained without converting upgrade count, security years, or start/end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+      "terminal": "KNOWN",
+      "bridge": "EXISTING_EXACT_CATALOG_FACT",
+      "sourceIds": [
+        "nothing-tr:phone-3a"
+      ],
+      "limitations": [
+        "Literal retained without converting upgrade count, security years, or start/end date."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+      "terminal": "UNKNOWN",
+      "bridge": "NO_ACCEPTABLE_PRIMARY_AUTHORITY",
+      "sourceIds": [],
+      "limitations": [
+        "No exact applicable manufacturer policy evidence found."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+      "terminal": "UNKNOWN",
+      "bridge": "NO_ACCEPTABLE_PRIMARY_AUTHORITY",
+      "sourceIds": [],
+      "limitations": [
+        "No exact applicable manufacturer policy evidence found."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+      "terminal": "UNKNOWN",
+      "bridge": "REJECTED_GLOBAL_SERIES_WITHOUT_TURKIYE_APPLICABILITY",
+      "sourceIds": [
+        "tecno-global:camon30-update-announcement"
+      ],
+      "limitations": [
+        "Marketing announcement is not treated as a current Türkiye support fact."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+      "terminal": "UNKNOWN",
+      "bridge": "REJECTED_GLOBAL_SERIES_WITHOUT_TURKIYE_APPLICABILITY",
+      "sourceIds": [
+        "tecno-global:camon30-update-announcement"
+      ],
+      "limitations": [
+        "Marketing announcement is not treated as a current Türkiye support fact."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+      "terminal": "UNKNOWN",
+      "bridge": "REJECTED_GLOBAL_SERIES_WITHOUT_TURKIYE_APPLICABILITY",
+      "sourceIds": [
+        "tecno-global:camon30-update-announcement"
+      ],
+      "limitations": [
+        "Marketing announcement is not treated as a current Türkiye support fact."
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+      "terminal": "UNKNOWN",
+      "bridge": "TR_EXACT_MODEL_PAGE_HAS_NO_POLICY_FACT",
+      "sourceIds": [
+        "general-mobile-tr:phoenix-support"
+      ],
+      "limitations": [
+        "No duration, cadence, end date, or upgrade count found."
+      ]
+    }
+  ]
+}

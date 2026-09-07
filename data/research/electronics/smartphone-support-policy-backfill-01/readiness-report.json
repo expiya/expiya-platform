@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "smartphone-support-backfill-readiness/v1",
+  "INFORMATION_READY": "PARTIAL",
+  "P_READY": true,
+  "Y_READY": false,
+  "coverage": "34/34",
+  "before": {
+    "KNOWN": 10,
+    "UNKNOWN": 24,
+    "CONFLICTED": 0,
+    "NOT_APPLICABLE": 0
+  },
+  "after": {
+    "KNOWN": 28,
+    "UNKNOWN": 6,
+    "CONFLICTED": 0,
+    "NOT_APPLICABLE": 0
+  },
+  "commerceEffect": "NONE",
+  "runtimeEffect": "NONE",
+  "rootGaps": [
+    "OPPO Reno13 F 5G için resmi süre/frekans/end-date authority bulunamadı",
+    "TECNO global duyurusu için Türkiye applicability köprüsü yok",
+    "GM Phoenix 5G resmi destek sayfasında lifecycle policy yok"
+  ],
+  "nextBoundedRecommendation": "Yalnız OPPO, TECNO Türkiye ve General Mobile resmi destek kanallarından model-kodlu lifecycle belgeleri edin"
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "smartphone-support-policy-backfill-manifest/v1",
+  "workUnit": "WU-XPY-SMARTPHONE-SUPPORT-POLICY-EVIDENCE-BACKFILL-01",
+  "generatedAt": "2026-09-07T00:00:00.000Z",
+  "mode": "EVIDENCE_ONLY",
+  "pinnedShadowDigest": "sha256:489339776731d2498b2ba115822ab9da95fb13d8b696dfc8d92b1512ffe81f16",
+  "inputs": {
+    "runtimePointer": "sha256:4f9683fd039bee5fa7b0874c16c789adaa7e90baebaace912bf317feae7ad3b4",
+    "catalog": "sha256:94eef41f4dba77753a2c9d213edd385f546a318b029d1f4a8f58e9b323bbf00b"
+  },
+  "artifactDigests": {
+    "support-coverage-matrix.json": "sha256:45b2bacaa8f7aba54cfcedd14c80944839e1ac1567f7747339400abca7fd385e",
+    "source-registry.json": "sha256:f3ba6916f3dbcaea54a40f475139e42146265928294de8edd16e535c21ad196b",
+    "exact-applicability-ledger.json": "sha256:0e764d56695a5b0a28f604b9102731287ef15e929eb931f74d6e0db90fbf7b56",
+    "before-after-report.json": "sha256:b08130b557b5d4a0a7999f8541cccff35c24c2c31e9e3f4fac0383df9fb3f4e9",
+    "materiality-preview.json": "sha256:b91a4710c2763f7738dcde48c41f726d2e2cfcae5adf0cf65b31ad0cb7431234",
+    "readiness-report.json": "sha256:fe449b3361359e63d984fd4bfce5e8c4a342287a6f56acce0436082cf1e08f85",
+    "no-effect-proof.json": "sha256:5029cd8ee7820b60a1e87f41685528ef7ab87f415874be36ad51a3fbacafc3f4"
+  },
+  "releaseDigest": "sha256:b099e17d1a674b2d8d3eb927033330960c81ad220fc524c5d1d3f2a46822e680"
+}

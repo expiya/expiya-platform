@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "smartphone-support-before-after/v1",
+  "before": {
+    "KNOWN": 10,
+    "UNKNOWN": 24,
+    "CONFLICTED": 0,
+    "NOT_APPLICABLE": 0
+  },
+  "after": {
+    "KNOWN": 28,
+    "UNKNOWN": 6,
+    "CONFLICTED": 0,
+    "NOT_APPLICABLE": 0
+  },
+  "typedFactDiscipline": [
+    "NO_UP_TO_TO_GUARANTEE_CONVERSION",
+    "NO_UPGRADE_COUNT_TO_YEARS_CONVERSION",
+    "NO_FREQUENCY_TO_DURATION_CONVERSION",
+    "NO_ANNOUNCEMENT_TO_CURRENT_FACT_CONVERSION"
+  ]
+}
