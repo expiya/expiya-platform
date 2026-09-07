@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "smartphone-p-materiality-owner-approval/v1",
+  "lifecycle": "APPROVED_OWNER_REVIEW_CANDIDATE",
+  "approvedAt": "2026-09-07T00:00:00.000Z",
+  "approvalScope": "IMMUTABLE_CANDIDATE_ACCEPTANCE_ONLY",
+  "approvalTextTr": "Semantic Decision Projection v2 sözleşmesine bağlı SMARTPHONE P-materiality owner-review paketinde yalnız Türkiye/5G, telefoto ve en az 80 W şarj eksenlerinin immutable candidate olarak kabul edilmesini; support-duration sorusunun 16 KNOWN/18 UNKNOWN nedeniyle bastırılmış, feature flag'in default-off ve Y_READY'nin false kalmasını onaylıyorum. Bu onay aktivasyon, push veya deployment yetkisi vermez.",
+  "bindings": {
+    "ownerReviewCommit": "ced6e66d58bd8c2455b8e79f82eaf88bba12e364",
+    "packageDigest": "sha256:3163b47d52ebabc7a451c11ed48caf8e8363cc5bdc7887e72f5ca7ba5110dd72",
+    "packageManifestSha256": "sha256:151e4331dadf46f755e98be809453b7a1471458d0396fbeda856517be687e7d4",
+    "semanticContractCommit": "c29c356e2b15c37bd679f30a8ebd3018f744e4f0"
+  },
+  "includedAxes": [
+    "TURKIYE_NETWORK_APPLICABILITY",
+    "CAMERA_USE_CASE_TELEPHOTO",
+    "BATTERY_CHARGING_ROUTINE_GTE_80W"
+  ],
+  "exclusions": {
+    "supportDuration": {
+      "status": "SUPPRESSED_PREDOMINANTLY_DURATION_UNKNOWN",
+      "known": 16,
+      "unknown": 18
+    },
+    "activation": false,
+    "push": false,
+    "deployment": false,
+    "pointerMutation": false,
+    "runtimeMutation": false,
+    "databaseMutation": false
+  },
+  "readiness": {
+    "INFORMATION_READY": true,
+    "P_READY": true,
+    "Y_READY": false
+  },
+  "featureFlag": {
+    "name": "SMARTPHONE_P_MATERIALITY_V1",
+    "defaultEnabled": false
+  },
+  "approvalDigest": "sha256:7b6dd3697c905a7e54ca0e53ed4485d0770b644bada6479402e9e4f52f550b84"
+}

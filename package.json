@@ -14,6 +14,7 @@
     "electronics:smartphone:support-policy:closure": "node --import tsx scripts/generate-smartphone-support-policy-closure.ts",
     "electronics:smartphone:p-materiality:owner-review": "node --import tsx scripts/generate-smartphone-p-materiality-owner-review.ts",
     "electronics:smartphone:p-materiality:owner-review-v2": "node --import tsx scripts/generate-smartphone-p-materiality-owner-review-v2.ts",
+    "electronics:smartphone:p-materiality:owner-approval": "node --import tsx scripts/generate-smartphone-p-materiality-owner-approval.ts",
     "dev": "npm run catalog:active:sync && npm run technical-daily-life:active:sync && npm run persona-safe-traits:active:sync && next dev",
     "cars:dev:validation": "node --env-file=.env.local scripts/run-cars-validation-dev.mjs",
     "build": "npm run catalog:active:sync && npm run technical-daily-life:active:sync && npm run persona-safe-traits:active:sync && npm run verify:active-production-catalog && npm run verify:technical-daily-life && npm run verify:persona-safe-traits && npm run verify:vehicle-evidence-runtime-artifact && npm run typecheck:release && next build --webpack",
