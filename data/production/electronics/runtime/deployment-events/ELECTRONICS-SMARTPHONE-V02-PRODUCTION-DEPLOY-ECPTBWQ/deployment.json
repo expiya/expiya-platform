@@ -1,0 +1,49 @@
+{
+  "schemaVersion": "electronics-production-deployment/v2",
+  "deploymentEventId": "ELECTRONICS-SMARTPHONE-V02-PRODUCTION-DEPLOY-ECPTBWQ",
+  "recordedAt": "2026-09-07T00:30:09Z",
+  "source": {
+    "commit": "1cba69dceab519259faa3e28a2aa7e64235ff09f",
+    "branch": "codex/smartphone-v02-production-lineage",
+    "remote": "origin",
+    "nonForcePush": true,
+    "remoteMatchedSourceCommitBeforeDeployment": true
+  },
+  "provider": {
+    "name": "VERCEL",
+    "scope": "expiya",
+    "project": "expiya-platform-qw7q",
+    "projectId": "prj_aTU4JVC9CT5mN9dk5CWogfiV3A1q"
+  },
+  "deploymentId": "dpl_EcPTbWQPYtmMUaJWMDBPGP56GYvp",
+  "deploymentUrl": "https://expiya-platform-qw7q-529nbvut8-expiya.vercel.app",
+  "productionDomain": "https://www.expiya.com",
+  "catalogReleaseDigest": "sha256:ca3bafe8f2f78234cbbb8c155d5e60d9877f95da4e8fdb866eccada63ef95163",
+  "policyDigest": "sha256:0f4db5148d6a6971b7a9341b2c0c56c298753dd2ab592b75d09fbdd372b7c20a",
+  "migration": "database/migrations/0015_electronics_runtime_foundation.sql",
+  "migrationSha256": "sha256:c508311e0d268432f16285802079d2f458ded9a32ab75a185733ac80f34d436f",
+  "migrationApplied": true,
+  "deploymentReady": true,
+  "releaseCounts": {
+    "total": 121,
+    "smartphone": 34,
+    "nonSmartphone": 87,
+    "headphones": 18,
+    "duplicates": 0,
+    "silentDrops": 0
+  },
+  "preservedRollbackTarget": {
+    "deploymentId": "dpl_Dp97JUmddbagEj3V8ttEEB6SEAT6",
+    "immutableUrl": "https://expiya-platform-qw7q-dcwofl611-expiya.vercel.app",
+    "statusAtCapture": "READY"
+  },
+  "verification": {
+    "releaseTests": "PASS_164_OF_164",
+    "productionBuild": "PASS_625_STATIC_PAGES",
+    "productionSmoke": "PASS",
+    "securityHeaders": "PASS",
+    "mitgoVerification": "PASS_PRESERVED"
+  },
+  "rollbackRequired": false,
+  "rollbackPerformed": false
+}

@@ -2,7 +2,7 @@
   "schemaVersion": "electronics-runtime-active-pointer/v1",
   "lifecycle": "ACTIVE",
   "runtimeActive": true,
-  "productionDeployed": false,
+  "productionDeployed": true,
   "catalogFile": "data/production/electronics/runtime/releases/ELECTRONICS-RUNTIME-CATALOG-TR-v1.3-SMARTPHONE-V02-RECONCILED-R2/catalog.json",
   "catalogArtifactSha256": "sha256:94eef41f4dba77753a2c9d213edd385f546a318b029d1f4a8f58e9b323bbf00b",
   "catalogReleaseDigest": "sha256:ca3bafe8f2f78234cbbb8c155d5e60d9877f95da4e8fdb866eccada63ef95163",
@@ -13,7 +13,7 @@
   "activationEventSha256": "sha256:d1d50c0cbb595b9ffe8c895085ecba236fe0692551505e3d4a354c5590d4938c",
   "rollbackPointerFile": "data/production/electronics/runtime/releases/ELECTRONICS-RUNTIME-CATALOG-TR-v1.3-SMARTPHONE-V02-RECONCILED-R2/rollback/rollback.json",
   "rollbackPointerSha256": "sha256:ca559c25bdf4c3cc76cba72da313a4cb595c2703e4c65de66f77e93de97ef8c5",
-  "deploymentContinuity": "PRIOR_DEPLOYMENT_REFERENCE_ONLY_NEW_RELEASE_NOT_DEPLOYED",
-  "deploymentEventFile": "data/production/electronics/runtime/deployment-events/ELECTRONICS-HEADPHONES-UNIFIED-PRODUCTION-RELEASE-01/deployment.json",
-  "deploymentEventSha256": "sha256:9fc7b07902d26f7996c3570da143405f3265c37a50eb453a6d922574c1067bdd"
+  "deploymentContinuity": "SMARTPHONE_V02_PRODUCTION_DEPLOYED_PRIOR_PRODUCTION_PRESERVED_AS_ROLLBACK",
+  "deploymentEventFile": "data/production/electronics/runtime/deployment-events/ELECTRONICS-SMARTPHONE-V02-PRODUCTION-DEPLOY-ECPTBWQ/deployment.json",
+  "deploymentEventSha256": "sha256:9665f00a3d3829a322385a078074d02c8192cfefa7776c62135a719317775e98"
 }
