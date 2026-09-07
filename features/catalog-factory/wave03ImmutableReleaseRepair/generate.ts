@@ -34,7 +34,7 @@ export async function generateWave03ImmutableReleaseRepair(root = process.cwd())
   const receipt = JSON.parse(await readFile(path.join(root, RECEIPT), "utf8"));
   if (receipt.receiptDigest !== EXPECTED.receipt || receipt.status !== "SUCCESS" || receipt.newPointerSha256 !== EXPECTED.pointer) throw new Error("NEXT_BATCH8_RECEIPT_MISMATCH");
   const view = loadEffectiveCatalogFactoryView(root);
-  if (view.totals.active !== 102 || view.products.length !== 22 || view.authority.receiptDigest !== EXPECTED.receipt) throw new Error("UNIFIED_LOADER_102_NOT_CLOSED");
+  if (Number(view.totals.active) !== 102 || view.products.length !== 22 || view.authority.receiptDigest !== EXPECTED.receipt) throw new Error("UNIFIED_LOADER_102_NOT_CLOSED");
   const packet = JSON.parse(await readFile(path.join(root, PACKET), "utf8")), approval = JSON.parse(await readFile(path.join(root, APPROVAL), "utf8"));
   if (packet.candidateDigest !== EXPECTED.candidate || approval.eventDigest !== EXPECTED.approval || approval.candidateDigest !== EXPECTED.candidate || packet.candidates.length !== 3) throw new Error("WAVE03_OWNER_AUTHORITY_MISMATCH");
   const activeIds = new Set(view.products.map(row => row.exactProductId)), activeSemantic = new Set(view.products.map(semantic));

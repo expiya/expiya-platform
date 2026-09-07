@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "catalog-factory-unified-runtime-loader-closure/v1",
+  "workUnitId": "WU-CATALOG-FACTORY-WAVE03-105-UNIFIED-RUNTIME-LOADER-CLOSURE-01",
+  "status": "PASS_RUNTIME_INFORMATION_READY_EXTERNAL_MUTATIONS_NOT_AUTHORIZED",
+  "authority": {
+    "activationCommit": "3503c5a1900eeff44d44b7fc59ff0ddb30564ec4",
+    "receiptDigest": "494d542d8add55703a097fa03fcf3d19536e6dc600e54f5736d4c75658bd3851",
+    "pointerSha256": "ceade2bb6a0f4e8cec2f6c8a7b70a981a80f938dabd4d790ffedca45596aa6ad",
+    "releasePayloadDigest": "2b5d399da628930da66c0a6e7c78c8c62f2c52003f3b2198606fb928cff7bc0f",
+    "releaseFileDigest": "ba94cb38b62c344aa9d4d356755c7169895e0b1182fa884b857841bd08bb9b1b",
+    "overlayDigest": "a7481dd9c014f5dff4c513dfe9b3cdf3e1c332f84a46f58488d48fff846dd4a5"
+  },
+  "membership": {
+    "priorActive": 102,
+    "wave03Exact": 3,
+    "active": 105,
+    "overlayProducts": 25,
+    "priorRecordsPreserved": 22,
+    "duplicates": 0,
+    "silentDrops": 0
+  },
+  "consumers": {
+    "domainRuntimeInformationView": { "authorityMembership": 105, "overlayProducts": 25 },
+    "catalogDirectory": { "authorityMembership": 105, "appliances": 123, "electronics": 133 },
+    "secretaryIdentityIndex": { "authorityMembership": 105, "status": "ACTIVE" },
+    "xpyProjection": { "authorityMembership": 105, "mode": "SHADOW_ONLY" },
+    "sharedDigestAndMembership": true
+  },
+  "decisionBoundary": {
+    "INFORMATION_READY": true,
+    "P_READY": false,
+    "Y_READY": false,
+    "activeQuestionEffect": 0,
+    "rankingEffect": 0,
+    "selectionEffect": 0,
+    "authorizationEffect": 0
+  },
+  "digestLoopPrevention": {
+    "canonicalSerializerFixture": "PASS",
+    "releasePayloadDigestInvariant": "PASS",
+    "releaseFileDigestInvariant": "PASS",
+    "preflightPayloadDigestInvariant": "PASS",
+    "preflightFileDigestInvariant": "PASS",
+    "materializedReleaseReread": "PASS"
+  },
+  "verification": {
+    "focusedTests": 26,
+    "focusedTestsPassed": 26,
+    "typescript": "PASS",
+    "lint": "PASS_WITH_12_PREEXISTING_WARNINGS",
+    "diffCheck": "PASS",
+    "productionBuild": "PASS"
+  },
+  "mutationBoundary": { "pointer": false, "database": false, "push": false, "preview": false, "deployment": false, "production": false }
+}
