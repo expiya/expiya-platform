@@ -11,6 +11,7 @@ import { loadActiveCatalogSnapshot } from "@/features/decision/v2/catalog/snapsh
 import { loadActiveElectronicsRuntimeAuthority } from "@/features/electronics/runtimeAuthority.server";
 import { MOBILITY_PRODUCTS } from "@/features/mobility/catalog";
 import { MOBILITY_AUTHORITY_DIGEST } from "@/features/mobility/domainPack";
+import { loadEffectiveCatalogFactoryView } from "@/features/catalog-factory/runtime/effectiveCatalog.server";
 import { ACTIVE_DEPARTMENT_REGISTRY, type DepartmentRegistryEntry } from "./departmentRegistry";
 
 export interface CatalogDirectoryVariant { readonly label: string }
@@ -58,9 +59,11 @@ export async function loadActiveCatalogDirectory(root = process.cwd()): Promise<
   if (babyPointer.release !== STROLLER_CATALOG_RELEASE || !babyPointer.activeCapabilities.includes("STROLLER")) throw new Error("BABY_ACTIVE_POINTER_MISMATCH");
   if (mobilityPointer.authorityDigest !== MOBILITY_AUTHORITY_DIGEST || mobilityPointer.productCount !== MOBILITY_PRODUCTS.length || new Set(mobilityPointer.categories).size !== 3) throw new Error("MOBILITY_ACTIVE_POINTER_MISMATCH");
   if (toolsPointer.release !== CORDLESS_DRILL_RELEASE || toolsPointer.packageDigest !== CORDLESS_DRILL_PACKAGE_DIGEST) throw new Error("TOOLS_ACTIVE_POINTER_MISMATCH");
+  const overlay = loadEffectiveCatalogFactoryView(root);
+  const overlayRows = (departmentId: "APPLIANCES" | "ELECTRONICS") => overlay.products.filter(product => product.departmentId === departmentId).map(product => ({ categoryId: product.categoryId, identity: product.exactProductId, label: `${product.identity.brand} ${product.identity.model}` }));
   const rows = new Map<string, readonly ProductRow[]>([
     ["CARS", assertUnique("CARS", cars.snapshot.variants.map(product => ({ categoryId: "NEW_CAR", identity: product.id, label: `${product.brand} ${product.model} ${product.trim}` })))],
-    ["APPLIANCES", appliances], ["ELECTRONICS", assertUnique("ELECTRONICS", electronics)],
+    ["APPLIANCES", assertUnique("APPLIANCES", [...appliances, ...overlayRows("APPLIANCES")])], ["ELECTRONICS", assertUnique("ELECTRONICS", [...electronics, ...overlayRows("ELECTRONICS")])],
     ["BABY_AND_CHILD", assertUnique("BABY_AND_CHILD", STROLLER_PRODUCTS.map(product => ({ categoryId: "STROLLER", identity: product.exactProductId, label: `${product.manufacturer} ${product.model}` })))],
     ["MOBILITY", assertUnique("MOBILITY", MOBILITY_PRODUCTS.map(product => ({ categoryId: product.categoryId, identity: product.exactProductId, label: `${product.brand} ${product.model}` })))],
     ["TOOLS", assertUnique("TOOLS", CORDLESS_DRILL_PRODUCTS.map(product => ({ categoryId: "CORDLESS_DRILL", identity: product.exactProductId, label: `${product.brand} ${product.model}` })))],

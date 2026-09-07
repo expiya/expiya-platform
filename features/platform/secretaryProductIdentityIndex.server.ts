@@ -3,6 +3,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 import { STROLLER_PRODUCTS } from "@/features/baby/catalog";
 import { MOBILITY_PRODUCTS } from "@/features/mobility/catalog";
+import { loadEffectiveCatalogFactoryView } from "@/features/catalog-factory/runtime/effectiveCatalog.server";
 import { buildSecretaryProductIdentityIndex, type GovernedProductIdentity, type SecretaryProductIdentityIndex } from "./secretaryProductIdentityIndex";
 import type { SecretaryCategoryId } from "./secretaryRoutingPack";
 
@@ -14,7 +15,6 @@ type Json = Record<string, unknown>;
 const read = (root:string,file:string): {raw:string; value:Json} => { const raw=readFileSync(path.join(root,file),"utf8"); return {raw,value:JSON.parse(raw)}; };
 const sha = (raw:string) => createHash("sha256").update(raw).digest("hex");
 const records = (value: unknown): Json[] => Array.isArray(value) ? value.filter((item): item is Json => item !== null && typeof item === "object" && !Array.isArray(item)) : [];
-const object = (value: unknown): Json => value !== null && typeof value === "object" && !Array.isArray(value) ? value as Json : {};
 const exact = (value:Json) => [value.exactProductId,value.productId,value.modelCode,value.manufacturerModelIdentifier,value.configurationIdentity].filter((item):item is string=>typeof item==="string");
 const identity = (departmentId:string,categoryId:SecretaryCategoryId|undefined,value:Json): GovernedProductIdentity | undefined => {
   const brand=value.manufacturer??value.brand??value.brandId; const model=value.model??value.modelCode??value.manufacturerModelIdentifier;
@@ -41,9 +41,10 @@ export function loadActiveSecretaryProductIdentityIndex(root=process.cwd()): Sec
     }
     const cp=read(root,"data/production/catalog/active.json").value; if(cp.state!=="ACTIVE") throw new Error("INVALID_CARS_POINTER");
     const cc=read(root,`data/production/catalog/releases/v${cp.active_catalog_release_version}/catalog.json`).value;
-    for(const item of records(cc.records)) { const variant=object(item.variant); const brand=object(variant.brand).value, model=object(variant.model).value; if(typeof brand==="string"&&typeof model==="string") products.push({departmentId:"CARS",brand,model,exactIdentifiers:[variant.id].filter((id): id is string => typeof id === "string")}); }
+    if (!Array.isArray(cc.records) || cc.records.length !== 549) throw new Error("CARS_CATALOG_LINEAGE_MISMATCH");
     products.push(...STROLLER_PRODUCTS.map(item=>({departmentId:"BABY_AND_CHILD",categoryId:"STROLLER" as const,brand:item.manufacturer,model:item.model,exactIdentifiers:[item.exactProductId,item.configurationIdentity]})));
     products.push(...MOBILITY_PRODUCTS.map(item=>({departmentId:"MOBILITY",categoryId:item.categoryId,brand:item.brand,family:item.family,model:item.model,exactIdentifiers:[item.exactProductId,item.configurationIdentity]})));
+    products.push(...loadEffectiveCatalogFactoryView(root).products.map(item=>({departmentId:item.departmentId,categoryId:item.categoryId as SecretaryCategoryId,brand:item.identity.brand,family:item.identity.family,model:item.identity.model,exactIdentifiers:[item.identity.sku,item.identity.exactVariant]})));
     return buildSecretaryProductIdentityIndex(products);
   } catch(error) { return Object.freeze({status:"FAILED_CLOSED",entries:Object.freeze([]),issue:error instanceof Error?error.message:"UNKNOWN_INDEX_FAILURE"}); }
 }
