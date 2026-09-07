@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "catalog-factory-source-access-audit/v0.2",
+  "workUnitId": "WU-CATALOG-FACTORY-ACTIVE-COVERAGE-WAVE-02",
+  "observedAt": "2026-09-07T02:00:00.000Z",
+  "scope": "BOUNDED_SPOT_CHECK_NOT_FULL_EVIDENCE_CLOSURE",
+  "results": [
+    {
+      "candidateId": "REFRIGERATOR/arcelik-270561-eb",
+      "outcome": "OFFICIAL_TR_PRODUCT_PAGE_DISCOVERED",
+      "url": "https://www.arcelik.com.tr/no-frost-buzdolabi/270561-eb-buzdolabi",
+      "verifiedFields": ["model", "dimensions", "layout", "cooling", "noise", "volume"],
+      "snapshotBound": false
+    },
+    {
+      "candidateId": "TABLET/apple-ipad-air-m3-11-128",
+      "outcome": "OFFICIAL_TR_SUPPORT_SPEC_DISCOVERED",
+      "url": "https://support.apple.com/tr-tr/122241",
+      "verifiedFields": ["family", "generation", "display", "storage-options", "weight", "battery", "connectors"],
+      "snapshotBound": false
+    }
+  ],
+  "unverifiedCandidateSourceCount": 56,
+  "terminalDisposition": "PENDING_IMMUTABLE_EXACT_CONFIGURATION_SNAPSHOT",
+  "amazon": {
+    "outcome": "NOT_REQUIRED_NOT_USED",
+    "technicalAuthority": false,
+    "waveBlocked": false
+  }
+}
