@@ -1,0 +1,25 @@
+{
+  "bindings": {
+    "contractCommit": "c29c356e2b15c37bd679f30a8ebd3018f744e4f0",
+    "runtimePointerSha256": "sha256:4f9683fd039bee5fa7b0874c16c789adaa7e90baebaace912bf317feae7ad3b4",
+    "catalogSha256": "sha256:94eef41f4dba77753a2c9d213edd385f546a318b029d1f4a8f58e9b323bbf00b",
+    "policyPointerSha256": "sha256:3c795ca9c10a7c6cffaf8ba775940efc6a4794160dab7b36c14cc228d028a6f4",
+    "policySha256": "sha256:b174414791e300f4e850e90eb3a567e2eb209f73c9126d82531757613be39a28",
+    "ownerReviewDigest": "sha256:e67788378c14e0638ce9aec4224ca0f97864d3ac6528b0a9712bf8141b7c61d7"
+  },
+  "exactCounts": {
+    "electronics": 121,
+    "smartphone": 34
+  },
+  "membershipOrderSha256": "sha256:12e70fe123b0da111523389222b779d6cff210f27252b372ecfd5d1fd1d830a1",
+  "fingerprintSha256": "sha256:ab9c27e63aee9eaae67483718a7ec89dbdfbf6ab96b23576b4a0a821829de905",
+  "authorizationSha256": "sha256:fa6a7b69cd125bf837bb40d1da7e1b4ae9390c910644dfc26f53c4b5e8022909",
+  "mutations": {
+    "pointer": false,
+    "runtime": false,
+    "database": false,
+    "ui": false,
+    "deployment": false,
+    "push": false
+  }
+}

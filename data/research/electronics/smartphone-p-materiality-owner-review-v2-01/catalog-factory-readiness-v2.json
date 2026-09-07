@@ -1,0 +1,260 @@
+{
+  "schemaVersion": "CatalogFactoryReadiness/v2",
+  "subjectId": "ELECTRONICS_SMARTPHONE_P_MATERIALITY_OWNER_REVIEW_V2",
+  "evaluationScope": "PRODUCTION_EXACT_CATALOG",
+  "evaluatedGates": [
+    {
+      "gateId": "identity-exact",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "INFORMATION_READY",
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "primary-evidence-applicability",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "INFORMATION_READY",
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "decision-field-coverage",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "INFORMATION_READY",
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "semantic-causal-lineage",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "exact-projection-materialization",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "candidate-effect-completeness",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "P-zero-effect-suppression",
+      "status": "PASS",
+      "evidenceKind": "EXECUTABLE_TEST",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "unknown-conflict-neutrality",
+      "status": "PASS",
+      "evidenceKind": "EXECUTABLE_TEST",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "no-false-single-winner",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "price-commerce-isolation",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "persona-or-neutral",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "public-language",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "INFORMATION_READY",
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "runtime-fixtures",
+      "status": "PASS",
+      "evidenceKind": "EXECUTABLE_TEST",
+      "evidenceRefs": [
+        "owner-review-candidate.json",
+        "semantic-projections-v2.json",
+        "no-effect-proof-v2.json"
+      ],
+      "reason": "Bound exact Smartphone v02 owner-review evidence",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "pointer-manifest-approval-consistency",
+      "status": "PENDING",
+      "evidenceKind": "DECLARATIVE_RECORD",
+      "evidenceRefs": [],
+      "reason": "NO_POINTER_OR_RUNTIME_ACTIVATION_AUTHORIZED",
+      "effectiveStatus": "PENDING",
+      "requiredFor": [
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "owner-approval",
+      "status": "PASS",
+      "evidenceKind": "SIGNED_APPROVAL",
+      "evidenceRefs": [
+        "USER_APPROVAL_2026-09-07_OWNER_REVIEW_SCOPE_ONLY"
+      ],
+      "reason": "Owner approved candidate preparation without activation authority",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "Y_READY"
+      ]
+    }
+  ],
+  "levels": {
+    "INFORMATION_READY": {
+      "ready": true,
+      "blockingGateIds": []
+    },
+    "P_READY": {
+      "ready": true,
+      "blockingGateIds": []
+    },
+    "Y_READY": {
+      "ready": false,
+      "blockingGateIds": [
+        "pointer-manifest-approval-consistency"
+      ]
+    }
+  },
+  "declarativeCapabilityRecordsObserved": 0,
+  "declarativeCapabilityRecordsAcceptedAsExecutableEvidence": false
+}
