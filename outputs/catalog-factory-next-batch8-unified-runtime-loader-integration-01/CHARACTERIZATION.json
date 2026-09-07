@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "catalog-factory-unified-runtime-loader-integration/v1",
+  "workUnitId": "WU-CATALOG-FACTORY-NEXT-BATCH8-UNIFIED-RUNTIME-LOADER-INTEGRATION-01",
+  "status": "PASS_INFORMATION_ONLY_PY_CLOSED",
+  "authority": {
+    "activationCommit": "b6af298c2563e583dae656d908bd1a469d6bb61c",
+    "receiptDigest": "2ef6ad38bef474ad3e90538bf6c0330576ef7e8852cc9ca6f096533f893e3688",
+    "receiptStatus": "SUCCESS",
+    "pointerSha256": "494f01bd0221f9323a450b6105a10086f127e625aed52c96f07e30e6e6967108",
+    "releaseDigest": "ad3235e5aef250af4fb97aefcfd339eaee47cc5506121e9dd0975e0a6d796cf4"
+  },
+  "membership": {
+    "baseline": 80,
+    "priorExact14Preserved": 14,
+    "approvedNextBatch8": 8,
+    "active": 102,
+    "overlayProducts": 22,
+    "duplicate": 0,
+    "silentDrop": 0
+  },
+  "consumers": {
+    "domainRuntimeInformationView": { "active": 102, "appliancesOverlay": 13, "electronicsOverlay": 9 },
+    "catalogDirectory": { "active": 102, "appliances": 123, "electronics": 130 },
+    "secretaryIdentityIndex": { "active": 102, "status": "ACTIVE" },
+    "sharedDigestChain": true
+  },
+  "decisionBoundary": {
+    "INFORMATION_READY": true,
+    "P_READY": false,
+    "Y_READY": false,
+    "questionEffect": 0,
+    "rankingEffect": 0,
+    "selectionEffect": 0,
+    "authorizationEffect": 0,
+    "splitBrain": "FAIL_CLOSED",
+    "digestMismatch": "FAIL_CLOSED"
+  },
+  "verification": { "focusedTests": 22, "focusedTestsPassed": 22, "typescript": "PASS", "lint": "PASS_WITH_12_PREEXISTING_WARNINGS", "build": "PASS" },
+  "mutationBoundary": { "activePointer": false, "database": false, "preview": false, "production": false, "deployment": false, "push": false }
+}

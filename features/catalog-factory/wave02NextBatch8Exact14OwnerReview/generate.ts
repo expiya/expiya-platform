@@ -18,7 +18,7 @@ const semantic = (identity: { brand?: string; model?: string; market?: string })
 
 export async function generateNextBatch8Exact14OwnerReview(root = process.cwd()) {
   const active = loadEffectiveCatalogFactoryView(root);
-  if (active.totals.active !== 94 || active.semanticDecisionReadiness.levels.P_READY.ready || active.semanticDecisionReadiness.levels.Y_READY.ready) throw new Error("EXACT14_RUNTIME_CLOSURE_NOT_BOUND");
+  if (Number(active.totals.active) !== 94 || active.semanticDecisionReadiness.levels.P_READY.ready || active.semanticDecisionReadiness.levels.Y_READY.ready) throw new Error("EXACT14_RUNTIME_CLOSURE_NOT_BOUND");
   const closure = JSON.parse(await readFile(path.join(root, CLOSURE), "utf8"));
   if (closure.closureDigest !== CLOSURE_DIGEST || closure.G_supersession?.exact15Membership95 !== "PROHIBITED") throw new Error("UNIFIED_CONSUMER_CLOSURE_MISMATCH");
   const alt = JSON.parse(await readFile(path.join(root, ALT, "ALTERNATIVE_EVIDENCE_PACKAGE.json"), "utf8"));

@@ -14,7 +14,7 @@ const immutable = async (file: string, value: unknown) => { const content = type
 
 export async function generateNext8AndWave03ActivationReadiness(root = process.cwd()) {
   const view = loadEffectiveCatalogFactoryView(root), pointerBytes = await readFile(path.join(root, POINTER)), pointer = JSON.parse(pointerBytes.toString());
-  if (view.totals.active !== 94 || sha(pointerBytes) !== "bb2808bee4bc40743e97fb0966d8c6aa5a4462cdc235945398e5f726facf9236") throw new Error("ACTIVE_94_CAS_BASE_MISMATCH");
+  if (Number(view.totals.active) !== 94 || sha(pointerBytes) !== "bb2808bee4bc40743e97fb0966d8c6aa5a4462cdc235945398e5f726facf9236") throw new Error("ACTIVE_94_CAS_BASE_MISMATCH");
   const aReview = JSON.parse(await readFile(path.join(root, "outputs/catalog-factory-wave-02-next-batch-8-exact14-owner-review-01/OWNER_REVIEW_PACKAGE.json"), "utf8")), aApproval = JSON.parse(await readFile(path.join(root, "outputs/catalog-factory-wave-02-next-batch-8-exact14-owner-review-01/governance/approval-events/CATALOG-FACTORY-NEXT-BATCH8-EXACT14-OWNER-APPROVAL-01/owner-approval-event.json"), "utf8"));
   const bCandidate = JSON.parse(await readFile(path.join(root, "outputs/catalog-factory-active-coverage-wave-03-evidence-01/CANDIDATE_PACKET.json"), "utf8")), bApproval = JSON.parse(await readFile(path.join(root, "outputs/catalog-factory-active-coverage-wave-03-evidence-01/governance/approval-events/CATALOG-FACTORY-WAVE03-OWNER-APPROVAL-01/owner-approval-event.json"), "utf8"));
   if (aApproval.eventDigest !== "cb3c7aa6c5b82f26065611caccf1d51bd404d56f0cf8e13fc1bc2c7e9ca90a2e" || bApproval.eventDigest !== "efa82879dc869ff03e1f4718d7f471d36488b91d1731986a8be34b97a925e140") throw new Error("APPROVAL_RECEIPT_BOUNDARY_MISMATCH");
