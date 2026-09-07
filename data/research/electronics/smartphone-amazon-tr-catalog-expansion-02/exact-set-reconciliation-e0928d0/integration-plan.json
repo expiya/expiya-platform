@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "electronics-smartphone-v02-reconciled-integration-plan/v1",
+  "status": "READ_ONLY_NOT_AUTHORIZED_NOT_ACTIVE",
+  "supersedes": [
+    "123_TOTAL_ASSUMPTION",
+    "120_TOTAL_NUMERIC_AUTHORIZATION",
+    "candidate-catalog-120.json"
+  ],
+  "reason": "One of six active smartphone identities, Apple iPhone 16e 128GB White TR, is not covered by the pending 33 and must be retained to prevent silent drop.",
+  "source": {
+    "commit": "f1ce8e61f76345aa10a1422bb511d2d9998dd954",
+    "catalogSha256": "sha256:8df690e1d85292f466d4d7397cd86d6558e96e947403fcc9f4826ef36eab64f1",
+    "pointerSha256": "sha256:c688c7d81ca191c7b1d41e5ec6434276b839cbe004e7e96c7db6c1209e233e4a"
+  },
+  "package": {
+    "path": "data/research/electronics/smartphone-amazon-tr-catalog-expansion-02/owner-approval-package.json",
+    "sha256": "sha256:f26713a71712a8b9b008269feb0c1ba00f66312176776d81a1894367207bc323",
+    "regenerated": false
+  },
+  "expected": {
+    "total": 121,
+    "nonSmartphone": 87,
+    "smartphone": 34,
+    "headphones": 18,
+    "categories": 24,
+    "duplicates": 0,
+    "silentDrops": 0
+  },
+  "preconditions": [
+    "Explicitly authorize reconciled 121/34/87/18 counts",
+    "Recheck source pointer and catalog byte digests",
+    "Recheck all 87 non-smartphone product objects and 23 non-smartphone category memberships",
+    "Recheck exact six-row reconciliation table and retained iPhone 16e",
+    "Run full targeted lineage tests and production build",
+    "Prepare immutable rollback then execute one CAS pointer update"
+  ],
+  "lineagePreservation": [
+    "Electronics v1.2 non-smartphone authority",
+    "Tools",
+    "Mobility",
+    "Universal Persona",
+    "Secretary",
+    "root catalog directory",
+    "Mitgo verification metadata"
+  ],
+  "invariants": {
+    "push": false,
+    "activePointerMutation": false,
+    "runtimeMutation": false,
+    "activation": false,
+    "deployment": false
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "electronics-smartphone-v02-exact-reconciliation-manifest/v1",
+  "status": "READ_ONLY_NOT_AUTHORIZED_NOT_ACTIVE",
+  "files": [
+    {
+      "name": "active-six-reconciliation.json",
+      "sha256": "sha256:f221b78ec04655e5da4ee074ffbc0f2bdb544acfe09ed7a1251b3294edd5a679"
+    },
+    {
+      "name": "candidate-catalog-121.json",
+      "sha256": "sha256:d3baa15cc0948250f5191b0fb475202bb675ff8454d262459def396314563c5c"
+    },
+    {
+      "name": "membership-proof.json",
+      "sha256": "sha256:e87144abaec6936312a0dc80a98b192b24983626265fa2fc17ec28fc93bcf1fd"
+    },
+    {
+      "name": "integration-plan.json",
+      "sha256": "sha256:b347128947db3fe135b7a56bbf727020dabbc4a76ee98a5cd2e168d30734d832"
+    },
+    {
+      "name": "authorization-supersession.json",
+      "sha256": "sha256:78db80cbf044cb8f08e884b66ae16105ad40df55c622dd7f4366b303b965e164"
+    }
+  ],
+  "packageSha256": "sha256:f26713a71712a8b9b008269feb0c1ba00f66312176776d81a1894367207bc323",
+  "pointerMutation": false,
+  "activation": false,
+  "deployment": false,
+  "push": false
+}

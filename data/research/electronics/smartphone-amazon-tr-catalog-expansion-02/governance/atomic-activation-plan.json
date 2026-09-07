@@ -1,0 +1,37 @@
+{
+  "schemaVersion": "electronics-smartphone-atomic-activation-plan/v1",
+  "status": "PLAN_ONLY_NOT_AUTHORIZED_NOT_EXECUTED",
+  "subject": {
+    "ownerReviewEventId": "SMARTPHONE-OAE-F26713A7-20260906",
+    "packagePath": "data/research/electronics/smartphone-amazon-tr-catalog-expansion-02/owner-approval-package.json",
+    "packageSha256": "sha256:f26713a71712a8b9b008269feb0c1ba00f66312176776d81a1894367207bc323",
+    "exactProductCount": 33
+  },
+  "requiredPreconditions": [
+    "A separate owner authorization exactly binds the package SHA-256 and the 33-product membership.",
+    "The package byte SHA-256 still equals f26713a71712a8b9b008269feb0c1ba00f66312176776d81a1894367207bc323.",
+    "The exact membership still contains 33 unique product IDs and matches the immutable handoff in order.",
+    "All smartphone expansion and governance tests pass from a clean worktree.",
+    "Current active pointer, runtime catalog and category policy byte digests are captured as rollback inputs.",
+    "A dry-run proves every prospective target, checksum and referential-integrity check before any write."
+  ],
+  "atomicProcedure": [
+    "Prepare a new immutable production release directory; never rewrite this research package or an existing release.",
+    "Materialize the exact 33-product membership and the approved Domain Pack into the new release directory.",
+    "Generate manifest and checksums, then validate exact Türkiye applicability, UNKNOWN-neutral behavior, commerce fail-closed behavior and P/Y material-question gates.",
+    "Write a rollback bundle containing the pre-activation pointer/runtime/category-policy bytes and digests.",
+    "Perform one compare-and-swap transaction that updates only the explicitly authorized smartphone release bindings and active pointers when all expected pre-state digests match.",
+    "Run post-activation validation; on any failure, atomically restore the captured bindings and record a failed activation event.",
+    "Deployment remains a separate gate and is not implied by a successful activation."
+  ],
+  "forbiddenWithoutSeparateAuthorization": [
+    "package regeneration",
+    "membership or scope change",
+    "active pointer mutation",
+    "runtime mutation",
+    "activation",
+    "deployment"
+  ],
+  "requiredActivationAuthorizationPath": "data/research/electronics/smartphone-amazon-tr-catalog-expansion-02/governance/required-atomic-activation-authorization.txt",
+  "executed": false
+}

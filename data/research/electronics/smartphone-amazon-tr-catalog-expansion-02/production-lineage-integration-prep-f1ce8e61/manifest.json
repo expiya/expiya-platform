@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "electronics-smartphone-production-lineage-prep-manifest/v1",
+  "status": "READ_ONLY_PREPARATION_BLOCKED_NOT_AUTHORIZED_NOT_ACTIVE",
+  "files": [
+    {
+      "name": "candidate-catalog-120.json",
+      "sha256": "sha256:e3928c57f33642d0cb2588d96aa07333dd8ac35ff5384b348264bb4200e428b8"
+    },
+    {
+      "name": "membership-proof-24-categories.json",
+      "sha256": "sha256:c018f98d0c63118ec152c32d6ec3516ae162832f284aa24b4c1ddeae95f5f32e"
+    },
+    {
+      "name": "lineage-proof.json",
+      "sha256": "sha256:4468c7ac89f1b923bd1ca6b4e0620bc038427c95951292d11ef02763c20e8c9d"
+    },
+    {
+      "name": "integration-plan.json",
+      "sha256": "sha256:69c4afd525f9ef44f90b2db82aee282215b7cef938617a5a52031a5650559902"
+    },
+    {
+      "name": "blocking-discrepancy.json",
+      "sha256": "sha256:3713db0d0e37ee09c5d8438c0f669a3e7b0ece9c9bea5964221c2640982b6e18"
+    }
+  ],
+  "authorizationSha256": "sha256:4879888f592b634b6d7c60c1864ec338c8b69cf279bfc1641a3a68def81bb20c",
+  "activePointerMutation": false,
+  "deployment": false
+}

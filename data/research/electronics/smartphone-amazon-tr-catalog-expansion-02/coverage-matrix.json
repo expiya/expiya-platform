@@ -1,0 +1,153 @@
+{
+  "exactVariantCount": 33,
+  "brandCount": 11,
+  "brands": [
+    "Apple",
+    "Samsung",
+    "Xiaomi",
+    "Redmi",
+    "POCO",
+    "HONOR",
+    "HUAWEI",
+    "Nothing",
+    "OPPO",
+    "TECNO",
+    "General Mobile"
+  ],
+  "segments": {
+    "5g": 1,
+    "budget": 4,
+    "camera-led": 23,
+    "compact": 6,
+    "design": 2,
+    "durable": 5,
+    "foldable": 3,
+    "local-brand": 1,
+    "long-battery": 13,
+    "mainstream": 5,
+    "performance": 13,
+    "premium": 11,
+    "stylus": 3,
+    "value": 7
+  },
+  "factCoverage": {
+    "ram_gb": {
+      "known": 28,
+      "unknown": 5
+    },
+    "storage_gb": {
+      "known": 33,
+      "unknown": 0
+    },
+    "soc": {
+      "known": 30,
+      "unknown": 3
+    },
+    "performance_class": {
+      "known": 33,
+      "unknown": 0
+    },
+    "display_inches": {
+      "known": 33,
+      "unknown": 0
+    },
+    "display_type": {
+      "known": 33,
+      "unknown": 0
+    },
+    "refresh_hz": {
+      "known": 33,
+      "unknown": 0
+    },
+    "os": {
+      "known": 33,
+      "unknown": 0
+    },
+    "support_policy": {
+      "known": 10,
+      "unknown": 23
+    },
+    "battery_mah": {
+      "known": 28,
+      "unknown": 5
+    },
+    "wired_charging_w": {
+      "known": 28,
+      "unknown": 5
+    },
+    "wireless_charging_w": {
+      "known": 28,
+      "unknown": 5
+    },
+    "rear_camera_system": {
+      "known": 33,
+      "unknown": 0
+    },
+    "ois": {
+      "known": 32,
+      "unknown": 1
+    },
+    "telephoto": {
+      "known": 33,
+      "unknown": 0
+    },
+    "ultrawide": {
+      "known": 32,
+      "unknown": 1
+    },
+    "front_camera": {
+      "known": 32,
+      "unknown": 1
+    },
+    "ip_rating": {
+      "known": 29,
+      "unknown": 4
+    },
+    "sim": {
+      "known": 33,
+      "unknown": 0
+    },
+    "esim": {
+      "known": 33,
+      "unknown": 0
+    },
+    "cellular": {
+      "known": 33,
+      "unknown": 0
+    },
+    "connector": {
+      "known": 33,
+      "unknown": 0
+    },
+    "weight_g": {
+      "known": 25,
+      "unknown": 8
+    },
+    "biometrics": {
+      "known": 33,
+      "unknown": 0
+    },
+    "video_capability": {
+      "known": 29,
+      "unknown": 4
+    },
+    "stylus": {
+      "known": 33,
+      "unknown": 0
+    }
+  },
+  "activeAuthorityAudit": {
+    "activeExactVariantCount": 3,
+    "activeBrands": [
+      "HONOR",
+      "Samsung"
+    ],
+    "domainPackStatus": "CANDIDATE_REVALIDATION_REQUIRED",
+    "domainPackRetainedObservationCount": 3
+  },
+  "target": {
+    "minimum": 30,
+    "preferredMaximum": 50,
+    "met": true
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "counts": {
+    "active": 6,
+    "exactOverlap": 0,
+    "replaced": 5,
+    "preserved": 1
+  },
+  "rows": [
+    {
+      "activeExactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "manufacturer": "Apple",
+      "modelCode": "iPhone 16e",
+      "activeConfigurationIdentity": "storage_gb=128|chipset=A18|display_inches=6.1|display_panel=OLED|wireless_charging=true|camera_configuration=48MP Fusion + 12MP front|ip_rating=IP68|cellular_generation=5G|esim=true",
+      "exactIdOverlap": false,
+      "successorExactProductId": null,
+      "disposition": "PRESERVED_ACTIVE_NOT_COVERED_BY_PACKAGE",
+      "reason": "No equivalent exact configuration exists in the pending 33; silent drop prohibited"
+    },
+    {
+      "activeExactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "manufacturer": "HONOR",
+      "modelCode": "DNY-NX9",
+      "activeConfigurationIdentity": "HONOR|HONOR 400|DNY-NX9|8GB|256GB|Gece Siyahı|5G|TR",
+      "exactIdOverlap": false,
+      "successorExactProductId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+      "disposition": "REPLACED_BY_EXPLICIT_EXACT_CONFIGURATION_SUCCESSOR",
+      "reason": "Same brand/model and exact RAM/storage/color or manufacturer SKU configuration is explicitly mapped"
+    },
+    {
+      "activeExactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "manufacturer": "Samsung",
+      "modelCode": "SM-A266BZKCTUR",
+      "activeConfigurationIdentity": "Samsung|Galaxy A26 5G|SM-A266BZKCTUR|8GB|256GB|Black|TR",
+      "exactIdOverlap": false,
+      "successorExactProductId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+      "disposition": "REPLACED_BY_EXPLICIT_EXACT_CONFIGURATION_SUCCESSOR",
+      "reason": "Same brand/model and exact RAM/storage/color or manufacturer SKU configuration is explicitly mapped"
+    },
+    {
+      "activeExactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "manufacturer": "Samsung",
+      "modelCode": "SM-A366BZKGTUR",
+      "activeConfigurationIdentity": "Samsung|Galaxy A36 5G|SM-A366BZKGTUR|8GB|256GB|Black|TR",
+      "exactIdOverlap": false,
+      "successorExactProductId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+      "disposition": "REPLACED_BY_EXPLICIT_EXACT_CONFIGURATION_SUCCESSOR",
+      "reason": "Same brand/model and exact RAM/storage/color or manufacturer SKU configuration is explicitly mapped"
+    },
+    {
+      "activeExactProductId": "electronics:smartphone:xiaomi:14t-12-256-black",
+      "manufacturer": "Xiaomi",
+      "modelCode": "14T",
+      "activeConfigurationIdentity": "storage_gb=256|memory_gb=12|chipset=Dimensity 8300-Ultra|display_inches=6.67|display_panel=AMOLED|refresh_hz=144|battery_mah=5000|charging_watts=67|wireless_charging=false|camera_configuration=50MP main OIS + 50MP telephoto + 12MP ultrawide; 32MP front|optical_image_stabilization=true|ip_rating=IP68|cellular_generation=5G|esim=true|os_version=Xiaomi HyperOS",
+      "exactIdOverlap": false,
+      "successorExactProductId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+      "disposition": "REPLACED_BY_EXPLICIT_EXACT_CONFIGURATION_SUCCESSOR",
+      "reason": "Same brand/model and exact RAM/storage/color or manufacturer SKU configuration is explicitly mapped"
+    },
+    {
+      "activeExactProductId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black",
+      "manufacturer": "Xiaomi",
+      "modelCode": "Redmi Note 14 Pro",
+      "activeConfigurationIdentity": "storage_gb=256|memory_gb=8|chipset=Helio G100-Ultra|display_inches=6.67|display_panel=AMOLED|refresh_hz=120|battery_mah=5500|charging_watts=45|camera_configuration=200MP OIS + 8MP ultrawide + 2MP macro; 32MP front|optical_image_stabilization=true|ip_rating=IP64|cellular_generation=4G|esim=false|os_version=Xiaomi HyperOS",
+      "exactIdOverlap": false,
+      "successorExactProductId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+      "disposition": "REPLACED_BY_EXPLICIT_EXACT_CONFIGURATION_SUCCESSOR",
+      "reason": "Same brand/model and exact RAM/storage/color or manufacturer SKU configuration is explicitly mapped"
+    }
+  ]
+}

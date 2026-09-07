@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "electronics-smartphone-production-lineage-integration-plan/v1",
+  "status": "READ_ONLY_PREPARATION_BLOCKED_NOT_AUTHORIZED_NOT_ACTIVE",
+  "source": {
+    "sourceCommit": "f1ce8e61f76345aa10a1422bb511d2d9998dd954",
+    "authorityAncestor": "39f0ba1d38bec866466c9ab47466d37c61fad11b",
+    "catalogPath": "data/production/electronics/runtime/releases/ELECTRONICS-RUNTIME-CATALOG-TR-v1.2-ALL-CATEGORY-93/catalog.json",
+    "catalogByteSha256": "sha256:8df690e1d85292f466d4d7397cd86d6558e96e947403fcc9f4826ef36eab64f1",
+    "pointerPath": "data/production/electronics/runtime/active.json",
+    "pointerByteSha256": "sha256:c688c7d81ca191c7b1d41e5ec6434276b839cbe004e7e96c7db6c1209e233e4a",
+    "catalogReleaseDigest": "sha256:7fae9bf18ccfb019d1718d237cda66d8c535353a8e2f44314a4411b43be00d39"
+  },
+  "package": {
+    "path": "data/research/electronics/smartphone-amazon-tr-catalog-expansion-02/owner-approval-package.json",
+    "sha256": "sha256:f26713a71712a8b9b008269feb0c1ba00f66312176776d81a1894367207bc323",
+    "regenerated": false,
+    "scopeChanged": false
+  },
+  "discrepancy": {
+    "status": "BLOCKED_SOURCE_AUTHORITY_COUNT_MISMATCH",
+    "explanation": "Verified Electronics v1.2 contains 93 total = 87 non-smartphone + 6 smartphone, not 90 + 3. Replacing all six smartphone records with the digest-bound 33 yields 120, not 123. Keeping three v1.2 smartphone records would yield 123 total but 36 smartphone and violate exact membership.",
+    "baselineCounts": {
+      "total": 93,
+      "smartphone": 6,
+      "nonSmartphone": 87,
+      "headphones": 18,
+      "categories": 24
+    },
+    "requested": {
+      "total": 123,
+      "smartphone": 33,
+      "nonSmartphone": 90,
+      "headphones": 18,
+      "categories": 24
+    },
+    "feasibleIdentityPreservingCandidate": {
+      "total": 120,
+      "smartphone": 33,
+      "nonSmartphone": 87,
+      "headphones": 18,
+      "categories": 24,
+      "unique": 120
+    }
+  },
+  "candidatePath": "data/research/electronics/smartphone-amazon-tr-catalog-expansion-02/production-lineage-integration-prep-f1ce8e61/candidate-catalog-120.json",
+  "membershipProofPath": "data/research/electronics/smartphone-amazon-tr-catalog-expansion-02/production-lineage-integration-prep-f1ce8e61/membership-proof-24-categories.json",
+  "pointerPreconditions": [
+    "source commit must equal f1ce8e61f76345aa10a1422bb511d2d9998dd954 or be proven byte-equivalent for all preserved paths",
+    "active catalog bytes must equal sha256:8df690e1d85292f466d4d7397cd86d6558e96e947403fcc9f4826ef36eab64f1",
+    "active pointer bytes must equal sha256:c688c7d81ca191c7b1d41e5ec6434276b839cbe004e7e96c7db6c1209e233e4a",
+    "package bytes must equal sha256:f26713a71712a8b9b008269feb0c1ba00f66312176776d81a1894367207bc323",
+    "all 87 non-smartphone product objects and their category order must remain byte/identity equivalent",
+    "HEADPHONES membership must remain exactly 18",
+    "SMARTPHONE membership must be exactly the approved 33 only",
+    "all 24 category membership hashes must match candidate proof",
+    "Tools, Mobility, Universal Persona, Secretary, catalog directory and Mitgo lineage tree/blob IDs must match source",
+    "full test and production build must pass before a separate CAS authorization"
+  ],
+  "rollback": {
+    "capture": [
+      "data/production/electronics/runtime/active.json",
+      "data/production/electronics/runtime/releases/ELECTRONICS-RUNTIME-CATALOG-TR-v1.2-ALL-CATEGORY-93/catalog.json"
+    ],
+    "expectedPointerSha256": "sha256:c688c7d81ca191c7b1d41e5ec6434276b839cbe004e7e96c7db6c1209e233e4a",
+    "expectedCatalogSha256": "sha256:8df690e1d85292f466d4d7397cd86d6558e96e947403fcc9f4826ef36eab64f1",
+    "mode": "SINGLE_COMPARE_AND_SWAP_RESTORE",
+    "preparedOnly": true
+  },
+  "testBuildPlan": [
+    "Verify package/event/checksum tests",
+    "Verify 24-category membership proof and 120/33/18 actual counts",
+    "Run all Electronics runtime/category/decision tests from the source-lineage integration worktree",
+    "Run Tools, Mobility, Universal Persona, Secretary and catalog-directory regression suites",
+    "Run npm lint and Next production build using repository-documented Next.js guidance",
+    "Create immutable release/rollback and dry-run CAS; request one new authorization only after the 123-vs-120 discrepancy is resolved"
+  ],
+  "lineage": {
+    "sourceCommit": "f1ce8e61f76345aa10a1422bb511d2d9998dd954",
+    "authorityAncestor": "39f0ba1d38bec866466c9ab47466d37c61fad11b",
+    "sourceTree": "990b831344afa7d81d974cdd616a29c8e7f7d06d",
+    "mitgoVerification": {
+      "path": "app/layout.tsx",
+      "present": true,
+      "blob": "5c6e70e78b4654c09c317823c2617ea1d579c9a8"
+    },
+    "preservedTrees": {
+      "app/tools": "02aa3821ffd4d8963d450031dbce70419ebed86b",
+      "features/mobility": "e120e21a03fd01a009aac5c8f2ac637423100bd6",
+      "data/production/mobility": "75509c892e948a9fc34b9ec6e79e9c943b62415a",
+      "data/production/personas/universal": "2185c4e38893a3a55d6015b06fc91ef9fa8617e4",
+      "app/api/platform/secretary": "332d17cdbf10ca99f2801bff23ca277ed62ed33f",
+      "features/platform": "97f4fcd7b9708a41d2a5587cb51e3b30f9fb8a37",
+      "app": "3f96c3d23204ad5449059456fd4ebe45d28efcf1",
+      "data/production/catalog": "05d06621992b11c556fa55892aad1daa81f49aac"
+    }
+  },
+  "invariants": {
+    "activePointerMutation": false,
+    "runtimeMutation": false,
+    "deployment": false,
+    "push": false
+  }
+}
