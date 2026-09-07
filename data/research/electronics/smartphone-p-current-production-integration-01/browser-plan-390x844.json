@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "smartphone-p-browser-plan/v1",
+  "status": "PLAN_ONLY_NOT_EXECUTED",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "flag": "SMARTPHONE_P_MATERIALITY_V1=true",
+  "cases": [
+    "Fresh Smartphone entry asks only one material question",
+    "5G answer advances to telephoto without support question",
+    "Telephoto answer advances to >=80 W question",
+    "UNKNOWN retains candidates",
+    "Correction supersedes prior answer",
+    "Clear reopens eligible question",
+    "No horizontal overflow",
+    "Root privacy/idle/typewriter behavior unchanged"
+  ]
+}

@@ -1,0 +1,4065 @@
+{
+  "schemaVersion": "smartphone-p-flag-on-shadow-acceptance/v1",
+  "mode": "PREVIEW_ONLY",
+  "projectionValidationIssues": [],
+  "previews": [
+    {
+      "outcome": "ASK_ONE_QUESTION",
+      "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+      "sufficiency": "NOT_EVALUATED",
+      "selectedQuestion": {
+        "questionId": "shadow.smartphone.turkiye_5g",
+        "publicTurkishQuestion": "Telefonu Türkiye’de 5G ile kullanabilmek sizin için zorunlu mu?",
+        "answerDomain": [
+          {
+            "answerId": "YES",
+            "labelTr": "Evet, gerekli",
+            "establishesExplicitRequirement": true
+          },
+          {
+            "answerId": "NO",
+            "labelTr": "Hayır, zorunlu değil",
+            "establishesExplicitRequirement": false
+          },
+          {
+            "answerId": "UNKNOWN",
+            "labelTr": "Henüz emin değilim",
+            "establishesExplicitRequirement": false
+          }
+        ],
+        "prerequisites": [
+          {
+            "prerequisiteId": "TWO_KNOWN_PARTITIONS",
+            "description": "Current pool has at least two known partitions",
+            "required": true
+          },
+          {
+            "prerequisiteId": "NON_ZERO_EFFECT",
+            "description": "At least one answer changes known candidate eligibility",
+            "required": true
+          }
+        ],
+        "candidateEffectByAnswer": {
+          "YES": [
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-16e-128-white",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "electronics:smartphone:apple:iphone-16e-128-white:product"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a26"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a36"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:z-flip7-fe"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "huawei-tr:pura-80-pro"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "gm-tr:phoenix-5g"
+              ],
+              "exactKnownMismatch": false
+            }
+          ],
+          "NO": [
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-16e-128-white",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "electronics:smartphone:apple:iphone-16e-128-white:product"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a26"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a36"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:z-flip7-fe"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "huawei-tr:pura-80-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "gm-tr:phoenix-5g"
+              ],
+              "exactKnownMismatch": false
+            }
+          ],
+          "UNKNOWN": [
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-16e-128-white",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "electronics:smartphone:apple:iphone-16e-128-white:product"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_ESIM_ONLY",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a26"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a36"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "samsung-tr:z-flip7-fe"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "4G_ONLY",
+              "evidenceRefs": [
+                "huawei-tr:pura-80-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "5G_SIM_FLEXIBLE",
+              "evidenceRefs": [
+                "gm-tr:phoenix-5g"
+              ],
+              "exactKnownMismatch": false
+            }
+          ]
+        },
+        "decisionUseOnExplicitAnswer": "HARD_FILTER"
+      },
+      "selectedProjectionId": "electronics.smartphone.turkiye_network_applicability.owner-review-v2.current-production-integration-01",
+      "candidatePoolUnchanged": true,
+      "productionMutation": false,
+      "trace": {
+        "schemaVersion": "p-materiality-shadow-trace/v2",
+        "mode": "SHADOW_ONLY",
+        "candidatePool": [
+          "electronics:smartphone:apple:iphone-16e-128-white",
+          "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+          "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+          "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+          "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+          "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+          "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+          "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+          "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+          "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+          "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+          "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+          "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+          "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+          "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+          "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+          "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+          "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+          "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+          "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+          "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+          "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+          "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+          "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+          "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+          "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+          "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+          "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+          "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+          "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+          "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+          "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+          "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+          "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+        ],
+        "activeAnswers": [],
+        "answerHistoryDisposition": [],
+        "evaluations": [
+          {
+            "projectionId": "electronics.smartphone.turkiye_network_applicability.owner-review-v2.current-production-integration-01",
+            "questionId": "shadow.smartphone.turkiye_5g",
+            "eligible": true,
+            "suppressionReasons": [],
+            "knownPartitions": {
+              "4G_ONLY": [
+                "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+                "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+                "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+                "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+                "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi"
+              ],
+              "5G_ESIM_ONLY": [
+                "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+                "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+                "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+                "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+                "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta"
+              ],
+              "5G_SIM_FLEXIBLE": [
+                "electronics:smartphone:apple:iphone-16e-128-white",
+                "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+                "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+                "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+                "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+                "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+                "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+                "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+                "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+                "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+                "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+                "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+                "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+                "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+                "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+                "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+                "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+                "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+                "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+                "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+                "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+                "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+                "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+                "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+              ]
+            },
+            "knownCandidateCount": 34,
+            "unknownCandidateCount": 0,
+            "expectedKnownReduction": 0.147059,
+            "decisionChangeProbability": 0.147059,
+            "evidenceReliability": 1,
+            "answerability": 1,
+            "contextualRelevance": 1,
+            "novelty": 1,
+            "unknownPenalty": 0,
+            "fatiguePenalty": 0,
+            "score": 5.882353,
+            "participatingEvidenceRefs": [
+              "apple-tr:iphone-17-pro-spec",
+              "apple-tr:iphone-17-spec",
+              "electronics:smartphone:apple:iphone-16e-128-white:product",
+              "gm-tr:phoenix-5g",
+              "honor-tr:honor-400",
+              "huawei-tr:mate-x6",
+              "huawei-tr:pura-80-pro",
+              "nothing-tr:phone-3a",
+              "oppo-tr:reno13-f-5g",
+              "samsung-tr:galaxy-a26",
+              "samsung-tr:galaxy-a36",
+              "samsung-tr:galaxy-s25",
+              "samsung-tr:galaxy-s25-ultra",
+              "samsung-tr:z-flip7-fe",
+              "tecno-tr:camon-30-5g",
+              "xiaomi-tr:14t-spec",
+              "xiaomi-tr:poco-x7-pro",
+              "xiaomi-tr:redmi-note-14-pro"
+            ]
+          }
+        ],
+        "selectedQuestionId": "shadow.smartphone.turkiye_5g",
+        "maxQuestions": 1
+      },
+      "traceFingerprint": "sha256:5221ed97d3dfe526172aaf1e09fb64467b802fcbec1244ae53aacba012186643"
+    },
+    {
+      "outcome": "ASK_ONE_QUESTION",
+      "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+      "sufficiency": "NOT_EVALUATED",
+      "selectedQuestion": {
+        "questionId": "shadow.smartphone.telephoto",
+        "publicTurkishQuestion": "Uzaktaki kişileri veya sahneleri dijital kırpma yerine telefoto kamerayla yakınlaştırmanız gerekiyor mu?",
+        "answerDomain": [
+          {
+            "answerId": "YES",
+            "labelTr": "Evet, gerekli",
+            "establishesExplicitRequirement": true
+          },
+          {
+            "answerId": "NO",
+            "labelTr": "Hayır, zorunlu değil",
+            "establishesExplicitRequirement": false
+          },
+          {
+            "answerId": "UNKNOWN",
+            "labelTr": "Henüz emin değilim",
+            "establishesExplicitRequirement": false
+          }
+        ],
+        "prerequisites": [
+          {
+            "prerequisiteId": "TWO_KNOWN_PARTITIONS",
+            "description": "Current pool has at least two known partitions",
+            "required": true
+          },
+          {
+            "prerequisiteId": "NON_ZERO_EFFECT",
+            "description": "At least one answer changes known candidate eligibility",
+            "required": true
+          }
+        ],
+        "candidateEffectByAnswer": {
+          "YES": [
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-16e-128-white",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-spec"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-spec"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a26"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a36"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:z-flip7-fe"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "huawei-tr:pura-80-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "gm-tr:phoenix-5g"
+              ],
+              "exactKnownMismatch": true
+            }
+          ],
+          "NO": [
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-16e-128-white",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a26"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a36"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:z-flip7-fe"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "huawei-tr:pura-80-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "gm-tr:phoenix-5g"
+              ],
+              "exactKnownMismatch": false
+            }
+          ],
+          "UNKNOWN": [
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-16e-128-white",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "apple-tr:iphone-17-pro-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a26"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a36"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "samsung-tr:z-flip7-fe"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "huawei-tr:pura-80-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "TELEPHOTO",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "NO_TELEPHOTO",
+              "evidenceRefs": [
+                "gm-tr:phoenix-5g"
+              ],
+              "exactKnownMismatch": false
+            }
+          ]
+        },
+        "decisionUseOnExplicitAnswer": "HARD_FILTER"
+      },
+      "selectedProjectionId": "electronics.smartphone.camera_use_case.owner-review-v2.current-production-integration-01",
+      "candidatePoolUnchanged": true,
+      "productionMutation": false,
+      "trace": {
+        "schemaVersion": "p-materiality-shadow-trace/v2",
+        "mode": "SHADOW_ONLY",
+        "candidatePool": [
+          "electronics:smartphone:apple:iphone-16e-128-white",
+          "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+          "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+          "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+          "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+          "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+          "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+          "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+          "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+          "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+          "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+          "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+          "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+          "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+          "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+          "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+          "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+          "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+          "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+          "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+          "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+          "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+          "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+          "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+          "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+          "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+          "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+          "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+          "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+          "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+          "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+          "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+          "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+          "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+        ],
+        "activeAnswers": [],
+        "answerHistoryDisposition": [],
+        "evaluations": [
+          {
+            "projectionId": "electronics.smartphone.camera_use_case.owner-review-v2.current-production-integration-01",
+            "questionId": "shadow.smartphone.telephoto",
+            "eligible": true,
+            "suppressionReasons": [],
+            "knownPartitions": {
+              "NO_TELEPHOTO": [
+                "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+                "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+                "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+                "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+                "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+                "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+                "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+                "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+                "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+                "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+                "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+                "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+                "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+                "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+                "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+                "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+                "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz"
+              ],
+              "TELEPHOTO": [
+                "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+                "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+                "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+                "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+                "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+                "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+                "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+                "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+                "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+                "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+                "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+                "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+                "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+                "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+                "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+                "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+              ]
+            },
+            "knownCandidateCount": 33,
+            "unknownCandidateCount": 1,
+            "expectedKnownReduction": 0.515152,
+            "decisionChangeProbability": 0.5,
+            "evidenceReliability": 1,
+            "answerability": 1,
+            "contextualRelevance": 1,
+            "novelty": 1,
+            "unknownPenalty": 0.029412,
+            "fatiguePenalty": 0,
+            "score": 7.986631,
+            "participatingEvidenceRefs": [
+              "apple-tr:iphone-17-pro-spec",
+              "apple-tr:iphone-17-spec",
+              "gm-tr:phoenix-5g",
+              "honor-tr:honor-400",
+              "huawei-tr:mate-x6",
+              "huawei-tr:pura-80-pro",
+              "nothing-tr:phone-3a",
+              "oppo-tr:reno13-f-5g",
+              "samsung-tr:galaxy-a26",
+              "samsung-tr:galaxy-a36",
+              "samsung-tr:galaxy-s25",
+              "samsung-tr:galaxy-s25-ultra",
+              "samsung-tr:z-flip7-fe",
+              "tecno-tr:camon-30-5g",
+              "xiaomi-tr:14t-spec",
+              "xiaomi-tr:poco-x7-pro",
+              "xiaomi-tr:redmi-note-14-pro"
+            ]
+          }
+        ],
+        "selectedQuestionId": "shadow.smartphone.telephoto",
+        "maxQuestions": 1
+      },
+      "traceFingerprint": "sha256:b85747725fb6315d9436b96765d3cdee0c23019422b2279e0232787d2fe77c81"
+    },
+    {
+      "outcome": "ASK_ONE_QUESTION",
+      "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+      "sufficiency": "NOT_EVALUATED",
+      "selectedQuestion": {
+        "questionId": "shadow.smartphone.fast_charge_80w",
+        "publicTurkishQuestion": "Gün içinde kısa bir şarj molasında toparlamak için en az 80 W kablolu şarj gerekli mi?",
+        "answerDomain": [
+          {
+            "answerId": "YES",
+            "labelTr": "Evet, gerekli",
+            "establishesExplicitRequirement": true
+          },
+          {
+            "answerId": "NO",
+            "labelTr": "Hayır, zorunlu değil",
+            "establishesExplicitRequirement": false
+          },
+          {
+            "answerId": "UNKNOWN",
+            "labelTr": "Henüz emin değilim",
+            "establishesExplicitRequirement": false
+          }
+        ],
+        "prerequisites": [
+          {
+            "prerequisiteId": "TWO_KNOWN_PARTITIONS",
+            "description": "Current pool has at least two known partitions",
+            "required": true
+          },
+          {
+            "prerequisiteId": "NON_ZERO_EFFECT",
+            "description": "At least one answer changes known candidate eligibility",
+            "required": true
+          }
+        ],
+        "candidateEffectByAnswer": {
+          "YES": [
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-16e-128-white",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a26"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a36"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:z-flip7-fe"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+              "effect": "knownRetain",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "huawei-tr:pura-80-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": true
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+              "effect": "knownExclude",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "gm-tr:phoenix-5g"
+              ],
+              "exactKnownMismatch": true
+            }
+          ],
+          "NO": [
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-16e-128-white",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a26"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a36"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:z-flip7-fe"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "huawei-tr:pura-80-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "gm-tr:phoenix-5g"
+              ],
+              "exactKnownMismatch": false
+            }
+          ],
+          "UNKNOWN": [
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-16e-128-white",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a26"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-a36"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:galaxy-s25-ultra"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "samsung-tr:z-flip7-fe"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "xiaomi-tr:14t-spec"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "xiaomi-tr:redmi-note-14-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "xiaomi-tr:poco-x7-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "honor-tr:honor-400"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "huawei-tr:mate-x6"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_80W_PLUS",
+              "evidenceRefs": [
+                "huawei-tr:pura-80-pro"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "nothing-tr:phone-3a"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "oppo-tr:reno13-f-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "tecno-tr:camon-30-5g"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "WIRED_UNDER_80W",
+              "evidenceRefs": [
+                "gm-tr:phoenix-5g"
+              ],
+              "exactKnownMismatch": false
+            }
+          ]
+        },
+        "decisionUseOnExplicitAnswer": "HARD_FILTER"
+      },
+      "selectedProjectionId": "electronics.smartphone.battery_charging_routine.owner-review-v2.current-production-integration-01",
+      "candidatePoolUnchanged": true,
+      "productionMutation": false,
+      "trace": {
+        "schemaVersion": "p-materiality-shadow-trace/v2",
+        "mode": "SHADOW_ONLY",
+        "candidatePool": [
+          "electronics:smartphone:apple:iphone-16e-128-white",
+          "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+          "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+          "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+          "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+          "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+          "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+          "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+          "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+          "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+          "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+          "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+          "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+          "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+          "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+          "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+          "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+          "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+          "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+          "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+          "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+          "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+          "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+          "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+          "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+          "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+          "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+          "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+          "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+          "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+          "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+          "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+          "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+          "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+        ],
+        "activeAnswers": [],
+        "answerHistoryDisposition": [],
+        "evaluations": [
+          {
+            "projectionId": "electronics.smartphone.battery_charging_routine.owner-review-v2.current-production-integration-01",
+            "questionId": "shadow.smartphone.fast_charge_80w",
+            "eligible": true,
+            "suppressionReasons": [],
+            "knownPartitions": {
+              "WIRED_80W_PLUS": [
+                "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+                "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+                "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+                "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+                "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah"
+              ],
+              "WIRED_UNDER_80W": [
+                "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+                "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+                "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+                "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+                "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+                "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+                "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+                "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+                "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+                "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+                "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+                "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+                "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+                "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+                "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+                "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+                "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+                "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+                "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+                "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+                "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+                "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+                "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+              ]
+            },
+            "knownCandidateCount": 28,
+            "unknownCandidateCount": 6,
+            "expectedKnownReduction": 0.821429,
+            "decisionChangeProbability": 0.676471,
+            "evidenceReliability": 1,
+            "answerability": 1,
+            "contextualRelevance": 1,
+            "novelty": 1,
+            "unknownPenalty": 0.176471,
+            "fatiguePenalty": 0,
+            "score": 9.140756,
+            "participatingEvidenceRefs": [
+              "gm-tr:phoenix-5g",
+              "honor-tr:honor-400",
+              "huawei-tr:mate-x6",
+              "huawei-tr:pura-80-pro",
+              "nothing-tr:phone-3a",
+              "oppo-tr:reno13-f-5g",
+              "samsung-tr:galaxy-a26",
+              "samsung-tr:galaxy-a36",
+              "samsung-tr:galaxy-s25",
+              "samsung-tr:galaxy-s25-ultra",
+              "samsung-tr:z-flip7-fe",
+              "tecno-tr:camon-30-5g",
+              "xiaomi-tr:14t-spec",
+              "xiaomi-tr:poco-x7-pro",
+              "xiaomi-tr:redmi-note-14-pro"
+            ]
+          }
+        ],
+        "selectedQuestionId": "shadow.smartphone.fast_charge_80w",
+        "maxQuestions": 1
+      },
+      "traceFingerprint": "sha256:b98d99c03829d1fcd2a26b815a4627418c45b640bd4e7f61d552bc375d28a1b4"
+    }
+  ],
+  "answerAcceptance": [
+    {
+      "projectionId": "electronics.smartphone.turkiye_network_applicability.owner-review-v2.current-production-integration-01",
+      "answerId": "YES",
+      "retainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+        "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+        "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+        "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+        "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+        "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+        "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+        "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+      ],
+      "excludedCandidateIds": [
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+        "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi"
+      ],
+      "uncertaintyRetainedCandidateIds": [],
+      "winner": null,
+      "participatingEvidenceSourceIds": [
+        "apple-tr:iphone-17-pro-spec",
+        "apple-tr:iphone-17-spec",
+        "electronics:smartphone:apple:iphone-16e-128-white:product",
+        "gm-tr:phoenix-5g",
+        "honor-tr:honor-400",
+        "huawei-tr:mate-x6",
+        "huawei-tr:pura-80-pro",
+        "nothing-tr:phone-3a",
+        "oppo-tr:reno13-f-5g",
+        "samsung-tr:galaxy-a26",
+        "samsung-tr:galaxy-a36",
+        "samsung-tr:galaxy-s25",
+        "samsung-tr:galaxy-s25-ultra",
+        "samsung-tr:z-flip7-fe",
+        "tecno-tr:camon-30-5g",
+        "xiaomi-tr:14t-spec",
+        "xiaomi-tr:poco-x7-pro",
+        "xiaomi-tr:redmi-note-14-pro"
+      ],
+      "reasonCodes": [
+        "NO_SINGLE_WINNER_AUTHORITY"
+      ]
+    },
+    {
+      "projectionId": "electronics.smartphone.turkiye_network_applicability.owner-review-v2.current-production-integration-01",
+      "answerId": "NO",
+      "retainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+        "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+        "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+        "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+        "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+        "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+        "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+        "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+        "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+      ],
+      "excludedCandidateIds": [],
+      "uncertaintyRetainedCandidateIds": [],
+      "winner": null,
+      "participatingEvidenceSourceIds": [],
+      "reasonCodes": [
+        "HARD_FILTER_NOT_AUTHORIZED_WITHOUT_EXPLICIT_REQUIREMENT",
+        "NO_SINGLE_WINNER_AUTHORITY"
+      ]
+    },
+    {
+      "projectionId": "electronics.smartphone.turkiye_network_applicability.owner-review-v2.current-production-integration-01",
+      "answerId": "UNKNOWN",
+      "retainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+        "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+        "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+        "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+        "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+        "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+        "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+        "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+        "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+      ],
+      "excludedCandidateIds": [],
+      "uncertaintyRetainedCandidateIds": [],
+      "winner": null,
+      "participatingEvidenceSourceIds": [],
+      "reasonCodes": [
+        "HARD_FILTER_NOT_AUTHORIZED_WITHOUT_EXPLICIT_REQUIREMENT",
+        "NO_SINGLE_WINNER_AUTHORITY"
+      ]
+    },
+    {
+      "projectionId": "electronics.smartphone.camera_use_case.owner-review-v2.current-production-integration-01",
+      "answerId": "YES",
+      "retainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+        "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+        "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+        "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+      ],
+      "excludedCandidateIds": [
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+        "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+        "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+        "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+        "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz"
+      ],
+      "uncertaintyRetainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white"
+      ],
+      "winner": null,
+      "participatingEvidenceSourceIds": [
+        "apple-tr:iphone-17-pro-spec",
+        "apple-tr:iphone-17-spec",
+        "gm-tr:phoenix-5g",
+        "honor-tr:honor-400",
+        "huawei-tr:mate-x6",
+        "huawei-tr:pura-80-pro",
+        "nothing-tr:phone-3a",
+        "oppo-tr:reno13-f-5g",
+        "samsung-tr:galaxy-a26",
+        "samsung-tr:galaxy-a36",
+        "samsung-tr:galaxy-s25",
+        "samsung-tr:galaxy-s25-ultra",
+        "samsung-tr:z-flip7-fe",
+        "tecno-tr:camon-30-5g",
+        "xiaomi-tr:14t-spec",
+        "xiaomi-tr:poco-x7-pro",
+        "xiaomi-tr:redmi-note-14-pro"
+      ],
+      "reasonCodes": [
+        "UNKNOWN_CONFLICTED_STALE_OR_NOT_APPLICABLE_RETAINED",
+        "NO_SINGLE_WINNER_AUTHORITY"
+      ]
+    },
+    {
+      "projectionId": "electronics.smartphone.camera_use_case.owner-review-v2.current-production-integration-01",
+      "answerId": "NO",
+      "retainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+        "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+        "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+        "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+        "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+        "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+        "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+        "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+        "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+      ],
+      "excludedCandidateIds": [],
+      "uncertaintyRetainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white"
+      ],
+      "winner": null,
+      "participatingEvidenceSourceIds": [],
+      "reasonCodes": [
+        "HARD_FILTER_NOT_AUTHORIZED_WITHOUT_EXPLICIT_REQUIREMENT",
+        "UNKNOWN_CONFLICTED_STALE_OR_NOT_APPLICABLE_RETAINED",
+        "NO_SINGLE_WINNER_AUTHORITY"
+      ]
+    },
+    {
+      "projectionId": "electronics.smartphone.camera_use_case.owner-review-v2.current-production-integration-01",
+      "answerId": "UNKNOWN",
+      "retainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+        "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+        "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+        "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+        "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+        "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+        "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+        "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+        "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+      ],
+      "excludedCandidateIds": [],
+      "uncertaintyRetainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white"
+      ],
+      "winner": null,
+      "participatingEvidenceSourceIds": [],
+      "reasonCodes": [
+        "HARD_FILTER_NOT_AUTHORIZED_WITHOUT_EXPLICIT_REQUIREMENT",
+        "UNKNOWN_CONFLICTED_STALE_OR_NOT_APPLICABLE_RETAINED",
+        "NO_SINGLE_WINNER_AUTHORITY"
+      ]
+    },
+    {
+      "projectionId": "electronics.smartphone.battery_charging_routine.owner-review-v2.current-production-integration-01",
+      "answerId": "YES",
+      "retainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+        "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+        "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+        "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah"
+      ],
+      "excludedCandidateIds": [
+        "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+        "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+        "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+        "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+        "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+      ],
+      "uncertaintyRetainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta"
+      ],
+      "winner": null,
+      "participatingEvidenceSourceIds": [
+        "gm-tr:phoenix-5g",
+        "honor-tr:honor-400",
+        "huawei-tr:mate-x6",
+        "huawei-tr:pura-80-pro",
+        "nothing-tr:phone-3a",
+        "oppo-tr:reno13-f-5g",
+        "samsung-tr:galaxy-a26",
+        "samsung-tr:galaxy-a36",
+        "samsung-tr:galaxy-s25",
+        "samsung-tr:galaxy-s25-ultra",
+        "samsung-tr:z-flip7-fe",
+        "tecno-tr:camon-30-5g",
+        "xiaomi-tr:14t-spec",
+        "xiaomi-tr:poco-x7-pro",
+        "xiaomi-tr:redmi-note-14-pro"
+      ],
+      "reasonCodes": [
+        "UNKNOWN_CONFLICTED_STALE_OR_NOT_APPLICABLE_RETAINED",
+        "NO_SINGLE_WINNER_AUTHORITY"
+      ]
+    },
+    {
+      "projectionId": "electronics.smartphone.battery_charging_routine.owner-review-v2.current-production-integration-01",
+      "answerId": "NO",
+      "retainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+        "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+        "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+        "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+        "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+        "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+        "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+        "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+        "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+      ],
+      "excludedCandidateIds": [],
+      "uncertaintyRetainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta"
+      ],
+      "winner": null,
+      "participatingEvidenceSourceIds": [],
+      "reasonCodes": [
+        "HARD_FILTER_NOT_AUTHORIZED_WITHOUT_EXPLICIT_REQUIREMENT",
+        "UNKNOWN_CONFLICTED_STALE_OR_NOT_APPLICABLE_RETAINED",
+        "NO_SINGLE_WINNER_AUTHORITY"
+      ]
+    },
+    {
+      "projectionId": "electronics.smartphone.battery_charging_routine.owner-review-v2.current-production-integration-01",
+      "answerId": "UNKNOWN",
+      "retainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+        "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+        "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+        "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+        "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+        "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+        "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+        "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+        "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+        "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+        "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+        "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+        "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+        "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+        "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+        "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+        "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi"
+      ],
+      "excludedCandidateIds": [],
+      "uncertaintyRetainedCandidateIds": [
+        "electronics:smartphone:apple:iphone-16e-128-white",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+        "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+        "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta"
+      ],
+      "winner": null,
+      "participatingEvidenceSourceIds": [],
+      "reasonCodes": [
+        "HARD_FILTER_NOT_AUTHORIZED_WITHOUT_EXPLICIT_REQUIREMENT",
+        "UNKNOWN_CONFLICTED_STALE_OR_NOT_APPLICABLE_RETAINED",
+        "NO_SINGLE_WINNER_AUTHORITY"
+      ]
+    }
+  ],
+  "assertions": {
+    "everyQuestionMaterial": true,
+    "candidatePoolUnchanged": true,
+    "unknownNeutral": true,
+    "noFalseWinner": true,
+    "productionMutation": false
+  }
+}

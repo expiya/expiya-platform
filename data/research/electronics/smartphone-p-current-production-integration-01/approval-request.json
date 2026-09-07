@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "smartphone-p-current-production-approval-request/v1",
+  "packageAcceptanceSentenceTr": "WU-SMARTPHONE-P-MATERIALITY-V1-CURRENT-PRODUCTION-INTEGRATION-01 paketinin exact digest'i korunarak default-off integration candidate olarak kabul edilmesini onaylıyorum; bu onay aktivasyon, push veya deployment yetkisi vermez.",
+  "activationApprovalSentenceTr": "Exact digest'i belirtilen WU-SMARTPHONE-P-MATERIALITY-V1-CURRENT-PRODUCTION-INTEGRATION-01 paketinde yalnız SMARTPHONE_P_MATERIALITY_V1 feature flag'inin, Node 24 build ve 390x844 browser kapıları PASS olduktan sonra atomik olarak etkinleştirilmesini onaylıyorum; deployment ve push yetkisi vermez.",
+  "deploymentApprovalSentenceTr": "Atomik aktivasyon receipt'i ve exact deployment source SHA doğrulandıktan sonra SMARTPHONE_P_MATERIALITY_V1 değişikliğinin yeni deployment olarak yayınlanmasını onaylıyorum; mevcut production deployment rollback hedefi olarak korunmalıdır."
+}

@@ -1,0 +1,8 @@
+{
+  "schemaVersion": "smartphone-p-node24-build-plan/v1",
+  "runtime": "Node 24.19.0",
+  "command": "npm run build",
+  "status": "PASS",
+  "requiredBeforeActivation": true,
+  "cleanCacheRetry": true
+}

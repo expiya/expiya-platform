@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "smartphone-p-current-production-integration-manifest/v1",
+  "generatedAt": "2026-09-08T00:00:00.000Z",
+  "bindings": {
+    "productionBaseCommit": "8db93b6ff0333a2cb54d703221fed9608d97a7ec",
+    "ownerReviewReceiptCommit": "72948dc4dd47a8ab8b5effcae243c4075dfc1bf6",
+    "ownerReviewPackageDigest": "sha256:3163b47d52ebabc7a451c11ed48caf8e8363cc5bdc7887e72f5ca7ba5110dd72",
+    "ownerReviewManifestSha256": "sha256:151e4331dadf46f755e98be809453b7a1471458d0396fbeda856517be687e7d4",
+    "parentProjectionsSha256": "sha256:ef6f67f5681a8a5a52a10005c97ee300cd158bdc0d731e39dcc764037a51da3b",
+    "defaultOffCandidateCommit": "beb304d27a90be2789d77e313b94e38cca78dbe3",
+    "runtimePointerSha256": "sha256:4f9683fd039bee5fa7b0874c16c789adaa7e90baebaace912bf317feae7ad3b4",
+    "catalogSha256": "sha256:94eef41f4dba77753a2c9d213edd385f546a318b029d1f4a8f58e9b323bbf00b",
+    "catalogFactoryPointerSha256": "sha256:ceade2bb6a0f4e8cec2f6c8a7b70a981a80f938dabd4d790ffedca45596aa6ad"
+  },
+  "artifactDigests": {
+    "integration-candidate.json": "sha256:9f6a95a55f8c1efb42da666f57cfe5f28604a0c8ca7786e69314f1e92031bcb8",
+    "executable-projections.json": "sha256:3429df3fa1f169c38f4166118ec57ae3f43c3b1163e12d2d369d3f9d18f5387a",
+    "flag-on-shadow-acceptance.json": "sha256:0621421617567f4efcdfb7b2561ae9bce10457b46b9d7caf923820ae74ba8208",
+    "lineage-preservation.json": "sha256:3e01b12e916e7f324293e2eb5b901206fb304bb1ed2dcbbe9baa5029d7ed8fc7",
+    "readiness.json": "sha256:8f326364523cdc7410fb132971afa71efbca9e5430bae348a81a5ebb2f058f29",
+    "browser-plan-390x844.json": "sha256:6393977f634d9980e8d5d9a1ffb2497d0a3b3be3200e7bf65b5bcc3901dba43c",
+    "build-plan.json": "sha256:9ce4fd22352444a19eb7cc81b9c6d87677b1d4da1d0b6d3f8634ad7aa50758ac",
+    "no-effect-proof.json": "sha256:e9223b0af97258ea506966fda6679feca516ea6d229aba25e60dcff9486d9c6e",
+    "approval-request.json": "sha256:7e710308cc5e36ac41bed3547e81815c312d9b3fd1f3fe77063b96ec4bcf5f9a"
+  },
+  "packageDigest": "sha256:1f607521a6b27df021f7cd02abc66594d9c756a5c381cc221786a66584b1f825"
+}

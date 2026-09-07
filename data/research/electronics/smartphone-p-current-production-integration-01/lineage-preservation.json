@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "smartphone-p-lineage-preservation/v1",
+  "productionBaseCommit": "8db93b6ff0333a2cb54d703221fed9608d97a7ec",
+  "lineages": {
+    "rootPrivacyUx": "PRESERVED",
+    "mitgo": "PRESERVED",
+    "persona": "PRESERVED",
+    "mobility": "PRESERVED",
+    "tools": "PRESERVED",
+    "catalogFactory105": true,
+    "secretaryPrompts162": true
+  },
+  "lineageDigests": {
+    "app/layout.tsx": "sha256:8623263240e43e9bbbd763d80cad9e77106a62c0a27beac64ee622500732daa2",
+    "data/production/mobility/active/active.json": "sha256:e0d1317feda88a42439af7256211db7ab5931605d55116254707b797b794f703",
+    "data/production/personas/universal/active.json": "sha256:64a44ebfb46431ad583b8c3e59964dc1762e996852fb7b3faaa7224894698d70",
+    "outputs/xpy-root-stage1-release-integration-01/candidate-manifest.json": "sha256:9db9c0ea37c80545a5dceba125e3e0ccf1a96ff4a294ccdc6d6e07a3637bf066",
+    "components/platform/RootStageOneExperience.tsx": "sha256:9a972b6fe762be679a284a17aefc1c2666512c5c5493d5c3fb03292b6ac33ccc",
+    "features/platform/platformDiscovery.ts": "sha256:8ece46a2c2219c3f8532fca0a45d1d1352d209bf24baad05a79582aeca517e3d",
+    "features/platform/secretaryDailyLifeExamples.ts": "sha256:65585eb2f2bab37bb5c43f09b7201b1a168cb013f51679caec75a0c34dbe719b"
+  }
+}

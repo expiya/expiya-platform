@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "smartphone-p-current-production-readiness/v1",
+  "INFORMATION_READY": true,
+  "P_READY": true,
+  "Y_READY": false,
+  "activationAuthorized": false,
+  "deploymentAuthorized": false,
+  "blockersForY": [
+    "SEPARATE_ATOMIC_ACTIVATION_APPROVAL_REQUIRED",
+    "SEPARATE_DEPLOYMENT_APPROVAL_REQUIRED"
+  ]
+}

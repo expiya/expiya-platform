@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "smartphone-p-current-production-integration/v1",
+  "workUnit": "WU-SMARTPHONE-P-MATERIALITY-V1-CURRENT-PRODUCTION-INTEGRATION-01",
+  "status": "DEFAULT_OFF_INTEGRATION_CANDIDATE",
+  "featureFlag": {
+    "name": "SMARTPHONE_P_MATERIALITY_V1",
+    "defaultEnabled": false
+  },
+  "bindings": {
+    "productionBaseCommit": "8db93b6ff0333a2cb54d703221fed9608d97a7ec",
+    "ownerReviewReceiptCommit": "72948dc4dd47a8ab8b5effcae243c4075dfc1bf6",
+    "ownerReviewPackageDigest": "sha256:3163b47d52ebabc7a451c11ed48caf8e8363cc5bdc7887e72f5ca7ba5110dd72",
+    "ownerReviewManifestSha256": "sha256:151e4331dadf46f755e98be809453b7a1471458d0396fbeda856517be687e7d4",
+    "parentProjectionsSha256": "sha256:ef6f67f5681a8a5a52a10005c97ee300cd158bdc0d731e39dcc764037a51da3b",
+    "defaultOffCandidateCommit": "beb304d27a90be2789d77e313b94e38cca78dbe3",
+    "runtimePointerSha256": "sha256:4f9683fd039bee5fa7b0874c16c789adaa7e90baebaace912bf317feae7ad3b4",
+    "catalogSha256": "sha256:94eef41f4dba77753a2c9d213edd385f546a318b029d1f4a8f58e9b323bbf00b",
+    "catalogFactoryPointerSha256": "sha256:ceade2bb6a0f4e8cec2f6c8a7b70a981a80f938dabd4d790ffedca45596aa6ad"
+  },
+  "axes": [
+    "TR_5G_REQUIRED",
+    "TELEPHOTO_REQUIRED",
+    "FAST_CHARGE_80W_REQUIRED"
+  ],
+  "supportLongevity": {
+    "status": "SUPPRESSED_PREDOMINANTLY_DURATION_UNKNOWN",
+    "known": 16,
+    "unknown": 18
+  },
+  "counts": {
+    "electronics": 121,
+    "smartphone": 34,
+    "catalogFactory": 105,
+    "secretaryPrompts": 162
+  }
+}
