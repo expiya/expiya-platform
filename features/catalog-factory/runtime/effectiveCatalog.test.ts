@@ -18,16 +18,15 @@ describe("exact-14 unified runtime catalog", () => {
     expect(view.products).toHaveLength(14);
     expect(loadEffectiveCatalogFactoryDepartment("APPLIANCES")).toHaveLength(7);
     expect(loadEffectiveCatalogFactoryDepartment("ELECTRONICS")).toHaveLength(7);
-    expect(view.products.every(row => row.decisionProjection.unknownPolicy === "NEUTRAL" && row.decisionProjection.hiddenRankingSignals.length === 0)).toBe(true);
+    expect(view.products.every(row => row.readiness.INFORMATION_READY && !row.readiness.P_READY && !row.readiness.Y_READY && row.decisionProjection.mode === "SHADOW_ONLY" && row.decisionProjection.unknownPolicy === "NEUTRAL" && row.decisionProjection.hiddenRankingSignals.length === 0)).toBe(true);
     expect(view.products.every(row => row.technicalFacts.length > 0 && row.dailyLife.questions.length > 0 && row.hardFilters.materialDiscriminators.length > 0)).toBe(true);
   });
 
-  it("keeps UNKNOWN neutral and never invents a winner", () => {
-    const tied = projectExact14CategoryDecision("MONITOR", {});
-    expect(tied).toMatchObject({ status: "NON_DOMINATED_SET", winner: null, unknownEffect: "NEUTRAL", rankingSignals: [] });
-    expect(tied.candidates).toHaveLength(3);
-    expect(projectExact14CategoryDecision("MONITOR", { impossibleFact: "required" }).candidates).toHaveLength(3);
-    expect(projectExact14CategoryDecision("MONITOR", { sizeInches: -1 })).toMatchObject({ status: "NO_VERIFIED_MATCH", winner: null });
+  it("keeps P/Y shadow-only, suppresses unmaterialized questions, and never invents a winner", () => {
+    const result = projectExact14CategoryDecision("MONITOR", { sizeInches: 27 });
+    expect(result).toMatchObject({ status: "DECISION_NOT_READY", winner: null, unknownEffect: "NEUTRAL", rankingSignals: [], activeQuestionEffects: [], candidates: [] });
+    expect(result.shadowCandidates).toHaveLength(3);
+    expect(result.shadowCandidates.every(row => row.decisionProjection.P.knownPartitions === 0 && row.decisionProjection.P.candidateEffectByAnswer.length === 0)).toBe(true);
   });
 
   it.each([

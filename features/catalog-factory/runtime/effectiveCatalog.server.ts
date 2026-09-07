@@ -22,7 +22,8 @@ export interface EffectiveCatalogProduct {
   readonly identity: { readonly brand: string; readonly family: string; readonly model: string; readonly sku: string; readonly market: "TR"; readonly exactVariant: string };
   readonly technicalFacts: readonly Json[]; readonly explicitUnknown: readonly string[]; readonly hardFilters: Json; readonly dailyLife: Json;
   readonly personaOrNeutral: Json; readonly commerce: Json; readonly secretary: Json; readonly presentation: Json;
-  readonly decisionProjection: { readonly X: "CATEGORY_LOCAL_CANDIDATE"; readonly P: Json; readonly Y: "EXACT_L8_NON_DOMINATED"; readonly unknownPolicy: "NEUTRAL"; readonly hiddenRankingSignals: readonly [] };
+  readonly readiness: { readonly INFORMATION_READY: true; readonly P_READY: false; readonly Y_READY: false; readonly reason: string };
+  readonly decisionProjection: { readonly mode: "SHADOW_ONLY"; readonly X: "CATEGORY_LOCAL_CANDIDATE"; readonly P: Json; readonly Y: "NOT_PARTICIPATING"; readonly unknownPolicy: "NEUTRAL"; readonly hiddenRankingSignals: readonly [] };
 }
 export interface EffectiveCatalogFactoryView { readonly releaseId: string; readonly totals: { readonly before: 80; readonly additions: 14; readonly active: 94 }; readonly products: readonly EffectiveCatalogProduct[]; readonly byCategory: ReadonlyMap<string, readonly EffectiveCatalogProduct[]>; readonly authority: Json; }
 
@@ -53,7 +54,7 @@ export function loadEffectiveCatalogFactoryView(root = process.cwd()): Effective
   const products: EffectiveCatalogProduct[] = overlay.categories.flatMap((category: Json) => (category.additions as Json[]).map(addition => {
     const binding = bindings.get(addition.exactProductId); if (!binding || binding.categoryId !== category.categoryId || binding.candidateProductDigest !== sha(addition)) throw new Error("CATALOG_FACTORY_PRODUCT_BINDING_INVALID");
     const departmentId = String(addition.exactProductId).startsWith("appliances:") ? "APPLIANCES" : "ELECTRONICS";
-    return Object.freeze({ ...addition, departmentId, categoryId: category.categoryId, decisionProjection: Object.freeze({ X: "CATEGORY_LOCAL_CANDIDATE", P: Object.freeze({ questions: addition.dailyLife.questions, hardFilters: addition.hardFilters.required, materialDiscriminators: addition.hardFilters.materialDiscriminators }), Y: "EXACT_L8_NON_DOMINATED", unknownPolicy: "NEUTRAL", hiddenRankingSignals: Object.freeze([]) }) }) as unknown as EffectiveCatalogProduct;
+    return Object.freeze({ ...addition, departmentId, categoryId: category.categoryId, readiness: Object.freeze({ INFORMATION_READY: true, P_READY: false, Y_READY: false, reason: "NO_QUESTION_HAS_CANDIDATE_EFFECT_BY_ANSWER_WITH_TWO_KNOWN_PARTITIONS" }), decisionProjection: Object.freeze({ mode: "SHADOW_ONLY", X: "CATEGORY_LOCAL_CANDIDATE", P: Object.freeze({ questions: addition.dailyLife.questions, candidateEffectByAnswer: Object.freeze([]), knownPartitions: 0, suppression: "ALL_UNMATERIALIZED_QUESTIONS_SUPPRESSED", dailyLifeEffect: "EXPLANATION_ONLY_NOT_HARD_OR_SOFT" }), Y: "NOT_PARTICIPATING", unknownPolicy: "NEUTRAL", hiddenRankingSignals: Object.freeze([]) }) }) as unknown as EffectiveCatalogProduct;
   }));
   if (products.length !== 14 || new Set(products.map(row => row.exactProductId)).size !== 14 || new Set(products.map(semanticKey)).size !== 14) throw new Error("CATALOG_FACTORY_DUPLICATE_OR_COUNT_INVALID");
   if (products.some(row => row.identity.market !== "TR" || row.technicalFacts.length === 0 || row.hardFilters.unknownPolicy !== "UNKNOWN_NEVER_FALSE_AND_NEVER_RANKING_SIGNAL" || row.personaOrNeutral.rankingEffect !== "NONE" || row.commerce.rankingAuthority !== "NONE")) throw new Error("CATALOG_FACTORY_DECISION_BOUNDARY_INVALID");
@@ -64,10 +65,6 @@ export function loadEffectiveCatalogFactoryView(root = process.cwd()): Effective
 export const loadEffectiveCatalogFactoryDepartment = (departmentId: "APPLIANCES" | "ELECTRONICS", root = process.cwd()) => Object.freeze(loadEffectiveCatalogFactoryView(root).products.filter(product => product.departmentId === departmentId));
 
 export function projectExact14CategoryDecision(categoryId: string, hardRequirements: Readonly<Record<string, unknown>>, root = process.cwd()) {
-  const candidates = loadEffectiveCatalogFactoryView(root).byCategory.get(categoryId) ?? [];
-  const eligible = candidates.filter(product => Object.entries(hardRequirements).every(([key, expected]) => {
-    const fact = product.technicalFacts.find(row => row.key === key);
-    return !fact || fact.value === "UNKNOWN" || fact.value === expected;
-  }));
-  return Object.freeze({ categoryId, status: eligible.length ? "NON_DOMINATED_SET" as const : "NO_VERIFIED_MATCH" as const, candidates: Object.freeze(eligible), winner: null, rankingSignals: Object.freeze([]), unknownEffect: "NEUTRAL" as const });
+  const shadowCandidates = loadEffectiveCatalogFactoryView(root).byCategory.get(categoryId) ?? [];
+  return Object.freeze({ categoryId, status: "DECISION_NOT_READY" as const, reason: "P_AND_Y_MATERIALITY_NOT_PROVEN", hardRequirementsIgnoredForExact14: Object.freeze({ ...hardRequirements }), candidates: Object.freeze([]), shadowCandidates: Object.freeze(shadowCandidates), winner: null, rankingSignals: Object.freeze([]), unknownEffect: "NEUTRAL" as const, activeQuestionEffects: Object.freeze([]) });
 }
