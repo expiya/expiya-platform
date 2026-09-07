@@ -20,6 +20,8 @@ describe("exact-14 unified runtime catalog", () => {
     expect(loadEffectiveCatalogFactoryDepartment("ELECTRONICS")).toHaveLength(7);
     expect(view.products.every(row => row.readiness.INFORMATION_READY && !row.readiness.P_READY && !row.readiness.Y_READY && row.decisionProjection.mode === "SHADOW_ONLY" && row.decisionProjection.unknownPolicy === "NEUTRAL" && row.decisionProjection.hiddenRankingSignals.length === 0)).toBe(true);
     expect(view.products.every(row => row.technicalFacts.length > 0 && row.dailyLife.questions.length > 0 && row.hardFilters.materialDiscriminators.length > 0)).toBe(true);
+    expect(view.semanticDecisionReadiness.levels).toMatchObject({ INFORMATION_READY: { ready: true }, P_READY: { ready: false }, Y_READY: { ready: false } });
+    expect(view.semanticDecisionReadiness.declarativeCapabilityRecordsAcceptedAsExecutableEvidence).toBe(false);
   });
 
   it("keeps P/Y shadow-only, suppresses unmaterialized questions, and never invents a winner", () => {

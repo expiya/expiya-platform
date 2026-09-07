@@ -1,6 +1,8 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import path from "node:path";
+import { immutableDigest } from "@/features/semantic-decision-projection/v2/canonical";
+import type { CatalogFactoryReadinessV2Report } from "@/features/semantic-decision-projection/v2/catalogFactoryReadiness";
 
 const EXPECTED = Object.freeze({
   releaseId: "CATALOG-FACTORY-WAVE-02-EXACT-14-SUPERSESSION-01",
@@ -13,6 +15,9 @@ const EXPECTED = Object.freeze({
 const POINTER = "data/production/catalog-factory/active.json";
 const PACKAGE = "outputs/catalog-factory-wave-02-14-exact-identity-supersession-owner-review-01/OWNER_REVIEW_PACKAGE.json";
 const APPROVAL = "outputs/catalog-factory-wave-02-14-exact-identity-supersession-owner-review-01/governance/approval-events/CATALOG-FACTORY-EXACT14-SUPERSESSION-OWNER-APPROVAL-01/owner-approval-event.json";
+const SDP_ROOT = "data/research/xpy-semantic-decision-projection-v2-foundation-01";
+const SDP_COMMIT = "c29c356e2b15c37bd679f30a8ebd3018f744e4f0";
+const SDP_RELEASE_DIGEST = "sha256:d3836e0ec7cfdd58cc3294d723feb36308ffde8626e10016902d9917cfbf6433";
 
 // Governed JSON is validated field-by-field at the trust boundary below.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -25,7 +30,7 @@ export interface EffectiveCatalogProduct {
   readonly readiness: { readonly INFORMATION_READY: true; readonly P_READY: false; readonly Y_READY: false; readonly reason: string };
   readonly decisionProjection: { readonly mode: "SHADOW_ONLY"; readonly X: "CATEGORY_LOCAL_CANDIDATE"; readonly P: Json; readonly Y: "NOT_PARTICIPATING"; readonly unknownPolicy: "NEUTRAL"; readonly hiddenRankingSignals: readonly [] };
 }
-export interface EffectiveCatalogFactoryView { readonly releaseId: string; readonly totals: { readonly before: 80; readonly additions: 14; readonly active: 94 }; readonly products: readonly EffectiveCatalogProduct[]; readonly byCategory: ReadonlyMap<string, readonly EffectiveCatalogProduct[]>; readonly authority: Json; }
+export interface EffectiveCatalogFactoryView { readonly releaseId: string; readonly totals: { readonly before: 80; readonly additions: 14; readonly active: 94 }; readonly products: readonly EffectiveCatalogProduct[]; readonly byCategory: ReadonlyMap<string, readonly EffectiveCatalogProduct[]>; readonly authority: Json; readonly semanticDecisionReadiness: CatalogFactoryReadinessV2Report; }
 
 const canonical = (value: unknown): unknown => Array.isArray(value) ? value.map(canonical) : value && typeof value === "object" ? Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([key, child]) => [key, canonical(child)])) : value;
 const stable = (value: unknown) => JSON.stringify(canonical(value));
@@ -58,8 +63,11 @@ export function loadEffectiveCatalogFactoryView(root = process.cwd()): Effective
   }));
   if (products.length !== 14 || new Set(products.map(row => row.exactProductId)).size !== 14 || new Set(products.map(semanticKey)).size !== 14) throw new Error("CATALOG_FACTORY_DUPLICATE_OR_COUNT_INVALID");
   if (products.some(row => row.identity.market !== "TR" || row.technicalFacts.length === 0 || row.hardFilters.unknownPolicy !== "UNKNOWN_NEVER_FALSE_AND_NEVER_RANKING_SIGNAL" || row.personaOrNeutral.rankingEffect !== "NONE" || row.commerce.rankingAuthority !== "NONE")) throw new Error("CATALOG_FACTORY_DECISION_BOUNDARY_INVALID");
+  const sdpManifest = read(root, `${SDP_ROOT}/manifest.json`).value, readiness = read(root, `${SDP_ROOT}/catalog-factory-readiness-v2.json`).value as CatalogFactoryReadinessV2Report;
+  if (sdpManifest.releaseDigest !== SDP_RELEASE_DIGEST || sdpManifest.mode !== "SHADOW_ONLY" || sdpManifest.artifactDigests?.["catalog-factory-readiness-v2.json"] !== immutableDigest(readiness)) throw new Error("SEMANTIC_DECISION_PROJECTION_V2_AUTHORITY_MISMATCH");
+  if (!readiness.levels.INFORMATION_READY.ready || readiness.levels.P_READY.ready || readiness.levels.Y_READY.ready || readiness.declarativeCapabilityRecordsObserved !== 16 || readiness.declarativeCapabilityRecordsAcceptedAsExecutableEvidence !== false) throw new Error("SEMANTIC_DECISION_READINESS_BOUNDARY_INVALID");
   const byCategory = new Map<string, readonly EffectiveCatalogProduct[]>(); for (const product of products) byCategory.set(product.categoryId, Object.freeze([...(byCategory.get(product.categoryId) ?? []), product]));
-  return Object.freeze({ releaseId: EXPECTED.releaseId, totals: Object.freeze({ before: 80, additions: 14, active: 94 }), products: Object.freeze(products), byCategory, authority: Object.freeze({ releaseDigest: EXPECTED.releaseDigest, overlayDigest: pointer.overlayDigest, activationDigest: pointer.activationDigest, supersessionDigest: pointer.supersessionDigest, approvalDigest: EXPECTED.approvalDigest, packageDigest: EXPECTED.packageDigest, candidateDigest: EXPECTED.candidateDigest }) });
+  return Object.freeze({ releaseId: EXPECTED.releaseId, totals: Object.freeze({ before: 80, additions: 14, active: 94 }), products: Object.freeze(products), byCategory, semanticDecisionReadiness: readiness, authority: Object.freeze({ releaseDigest: EXPECTED.releaseDigest, overlayDigest: pointer.overlayDigest, activationDigest: pointer.activationDigest, supersessionDigest: pointer.supersessionDigest, approvalDigest: EXPECTED.approvalDigest, packageDigest: EXPECTED.packageDigest, candidateDigest: EXPECTED.candidateDigest, semanticDecisionProjectionCommit: SDP_COMMIT, semanticDecisionProjectionReleaseDigest: SDP_RELEASE_DIGEST }) });
 }
 
 export const loadEffectiveCatalogFactoryDepartment = (departmentId: "APPLIANCES" | "ELECTRONICS", root = process.cwd()) => Object.freeze(loadEffectiveCatalogFactoryView(root).products.filter(product => product.departmentId === departmentId));
