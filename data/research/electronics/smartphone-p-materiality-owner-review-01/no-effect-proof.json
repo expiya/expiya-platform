@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "smartphone-p-owner-review-no-effect/v1",
+  "bindings": {
+    "runtimePointerSha256": "sha256:4f9683fd039bee5fa7b0874c16c789adaa7e90baebaace912bf317feae7ad3b4",
+    "catalogSha256": "sha256:94eef41f4dba77753a2c9d213edd385f546a318b029d1f4a8f58e9b323bbf00b",
+    "catalogArtifactSha256": "sha256:94eef41f4dba77753a2c9d213edd385f546a318b029d1f4a8f58e9b323bbf00b",
+    "policyPointerSha256": "sha256:3c795ca9c10a7c6cffaf8ba775940efc6a4794160dab7b36c14cc228d028a6f4",
+    "policySha256": "sha256:b174414791e300f4e850e90eb3a567e2eb209f73c9126d82531757613be39a28",
+    "policyDigest": "sha256:0f4db5148d6a6971b7a9341b2c0c56c298753dd2ab592b75d09fbdd372b7c20a",
+    "shadow": {
+      "commit": "8b5ee38c5837815ef4ef3e04ba8c435a77579048",
+      "digest": "sha256:489339776731d2498b2ba115822ab9da95fb13d8b696dfc8d92b1512ffe81f16"
+    },
+    "supportBackfill": {
+      "commit": "4bb450921b189537a2c89fde8f44febb7f96fe29",
+      "digest": "sha256:b099e17d1a674b2d8d3eb927033330960c81ad220fc524c5d1d3f2a46822e680"
+    },
+    "supportClosure": {
+      "commit": "62ea022d528e7c062fecf10c0065e6039ed4efbf",
+      "digest": "sha256:1f112aba506258f45d01b7fd88ac811a98012834f1a95955dd2308314ce15868"
+    }
+  },
+  "currentCatalogOrderSha256": "sha256:19b4597687ed78b460dd35b8d50e5619908cae219e9d995d16b13f701628d87d",
+  "currentProductFingerprintsSha256": "sha256:6797f14d28b9295fc19c25edf42cfc8ab827d8b8e191bfdf92ecc4d059f2ee82",
+  "activePointerMutation": false,
+  "runtimeMutation": false,
+  "uiCardDbDeploymentPushEffect": "NONE",
+  "closurePreviewDigest": "sha256:1f112aba506258f45d01b7fd88ac811a98012834f1a95955dd2308314ce15868"
+}

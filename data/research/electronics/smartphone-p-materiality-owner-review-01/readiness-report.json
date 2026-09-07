@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "smartphone-p-owner-review-readiness/v1",
+  "INFORMATION_READY": true,
+  "P_READY": true,
+  "Y_READY": false,
+  "ownerReviewEligibility": "PASS",
+  "supportQuestionExcluded": true,
+  "exactCounts": {
+    "electronics": 121,
+    "smartphone": 34
+  },
+  "approvalSentenceTr": "SMARTPHONE P-materiality owner-review paketindeki yalnız Türkiye/5G applicability, telefoto kullanım senaryosu ve en az 80 W şarj rutini sorularının, bağlı digest'ler değişmeden ve support longevity sorusu hariç tutularak, default-off feature flag ve fail-closed rollback planıyla production integration candidate olarak hazırlanmasını onaylıyorum; bu onay aktivasyon, push veya deployment yetkisi vermez."
+}

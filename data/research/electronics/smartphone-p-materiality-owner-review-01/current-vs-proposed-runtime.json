@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "smartphone-p-runtime-diff/v1",
+  "current": {
+    "runtimeUnchanged": true,
+    "questions": [
+      {
+        "questionKey": "electronics.smartphone.os_support",
+        "targetConcept": "OS_SUPPORT",
+        "priority": 1,
+        "textTr": "Akıllı telefon seçiminizde os_support ne kadar önemli?",
+        "choicesTr": [
+          "Önemli",
+          "Önemli değil",
+          "Henüz bilmiyorum"
+        ],
+        "askOnlyWhenMaterial": true,
+        "alreadyAnsweredSuppresses": true,
+        "noRepeatUnless": [
+          "CORRECTED",
+          "CLEARED",
+          "AUTHORITY_MATERIALLY_CHANGED"
+        ]
+      },
+      {
+        "questionKey": "electronics.smartphone.cellular_bands",
+        "targetConcept": "CELLULAR_BANDS",
+        "priority": 2,
+        "textTr": "Akıllı telefon seçiminizde cellular_bands ne kadar önemli?",
+        "choicesTr": [
+          "Önemli",
+          "Önemli değil",
+          "Henüz bilmiyorum"
+        ],
+        "askOnlyWhenMaterial": true,
+        "alreadyAnsweredSuppresses": true,
+        "noRepeatUnless": [
+          "CORRECTED",
+          "CLEARED",
+          "AUTHORITY_MATERIALLY_CHANGED"
+        ]
+      },
+      {
+        "questionKey": "electronics.smartphone.camera",
+        "targetConcept": "CAMERA",
+        "priority": 3,
+        "textTr": "Akıllı telefon seçiminizde camera ne kadar önemli?",
+        "choicesTr": [
+          "Önemli",
+          "Önemli değil",
+          "Henüz bilmiyorum"
+        ],
+        "askOnlyWhenMaterial": true,
+        "alreadyAnsweredSuppresses": true,
+        "noRepeatUnless": [
+          "CORRECTED",
+          "CLEARED",
+          "AUTHORITY_MATERIALLY_CHANGED"
+        ]
+      },
+      {
+        "questionKey": "electronics.smartphone.battery",
+        "targetConcept": "BATTERY",
+        "priority": 4,
+        "textTr": "Akıllı telefon seçiminizde battery ne kadar önemli?",
+        "choicesTr": [
+          "Önemli",
+          "Önemli değil",
+          "Henüz bilmiyorum"
+        ],
+        "askOnlyWhenMaterial": true,
+        "alreadyAnsweredSuppresses": true,
+        "noRepeatUnless": [
+          "CORRECTED",
+          "CLEARED",
+          "AUTHORITY_MATERIALLY_CHANGED"
+        ]
+      }
+    ]
+  },
+  "proposed": {
+    "planOnly": true,
+    "questions": [
+      {
+        "questionKey": "shadow.smartphone.turkiye_5g",
+        "axis": "TURKIYE_NETWORK_APPLICABILITY",
+        "priority": 1,
+        "textTr": "Telefonu Türkiye’de 5G ile kullanabilmek sizin için zorunlu mu?",
+        "answersTr": [
+          {
+            "value": "YES",
+            "label": "Evet, gerekli"
+          },
+          {
+            "value": "NO",
+            "label": "Hayır, zorunlu değil"
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "Henüz emin değilim"
+          }
+        ]
+      },
+      {
+        "questionKey": "shadow.smartphone.telephoto",
+        "axis": "CAMERA_USE_CASE",
+        "priority": 2,
+        "textTr": "Uzaktaki kişileri veya sahneleri dijital kırpma yerine telefoto kamerayla yakınlaştırmanız gerekiyor mu?",
+        "answersTr": [
+          {
+            "value": "YES",
+            "label": "Evet, gerekli"
+          },
+          {
+            "value": "NO",
+            "label": "Hayır, zorunlu değil"
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "Henüz emin değilim"
+          }
+        ]
+      },
+      {
+        "questionKey": "shadow.smartphone.fast_charge_80w",
+        "axis": "BATTERY_CHARGING_ROUTINE",
+        "priority": 3,
+        "textTr": "Gün içinde kısa bir şarj molasında toparlamak için en az 80 W kablolu şarj gerekli mi?",
+        "answersTr": [
+          {
+            "value": "YES",
+            "label": "Evet, gerekli"
+          },
+          {
+            "value": "NO",
+            "label": "Hayır, zorunlu değil"
+          },
+          {
+            "value": "UNKNOWN",
+            "label": "Henüz emin değilim"
+          }
+        ]
+      }
+    ]
+  },
+  "removals": [
+    "GENERIC_OS_SUPPORT",
+    "GENERIC_CELLULAR_BANDS",
+    "GENERIC_CAMERA",
+    "GENERIC_BATTERY"
+  ],
+  "additions": [
+    "shadow.smartphone.turkiye_5g",
+    "shadow.smartphone.telephoto",
+    "shadow.smartphone.fast_charge_80w"
+  ],
+  "candidateMembershipOrderEffect": "NONE"
+}

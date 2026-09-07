@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "smartphone-p-activation-plan/v1",
+  "status": "PLAN_ONLY_NOT_AUTHORIZED",
+  "steps": [
+    "VERIFY_PINNED_DIGESTS",
+    "ADD_DEFAULT_OFF_FEATURE_FLAG",
+    "IMPLEMENT_SHADOW_PARITY_CHECK",
+    "RUN_FOCUSED_AND_FULL_GATES",
+    "OBTAIN_EXACT_OWNER_APPROVAL",
+    "ATOMIC_POINTER_OR_FLAG_ACTIVATION"
+  ],
+  "failClosed": [
+    "DIGEST_MISMATCH",
+    "UNKNOWN_EFFECT_NOT_NEUTRAL",
+    "CANDIDATE_ORDER_OR_FINGERPRINT_CHANGE",
+    "ZERO_EFFECT_QUESTION",
+    "MISSING_ROLLBACK_RECEIPT"
+  ],
+  "rollback": {
+    "mechanism": "DISABLE_FEATURE_FLAG",
+    "restoresCurrentPolicy": true,
+    "catalogPointerUnchanged": true
+  },
+  "buildGate": {
+    "requiredRuntime": "Node 24",
+    "currentHostRuntime": "Node 26.6.0",
+    "executed": false,
+    "reason": "NODE_24_NOT_AVAILABLE; known Node 26 Webpack WasmHash failure is environmental and not retried",
+    "futureCommand": "npm run build"
+  }
+}
