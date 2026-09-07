@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "electronics-smartphone-runtime-activation-event/v2",
+  "eventId": "ELECTRONICS-SMARTPHONE-V02-RECONCILED-ACT-03",
+  "activatedAt": "2026-09-07T00:00:00Z",
+  "authorityEventId": "SMARTPHONE-V02-121-20260907",
+  "scope": "SMARTPHONE_AUTHORITY_RUNTIME_BINDING_ONLY_NO_PUSH_NO_DEPLOYMENT",
+  "sourceCommit": "f1ce8e61f76345aa10a1422bb511d2d9998dd954",
+  "packageSha256": "sha256:f26713a71712a8b9b008269feb0c1ba00f66312176776d81a1894367207bc323",
+  "releaseId": "ELECTRONICS-RUNTIME-CATALOG-TR-v1.3-SMARTPHONE-V02-RECONCILED-R2",
+  "releaseDigest": "sha256:ca3bafe8f2f78234cbbb8c155d5e60d9877f95da4e8fdb866eccada63ef95163",
+  "catalogReleaseDigest": "sha256:ca3bafe8f2f78234cbbb8c155d5e60d9877f95da4e8fdb866eccada63ef95163",
+  "policyDigest": "sha256:0f4db5148d6a6971b7a9341b2c0c56c298753dd2ab592b75d09fbdd372b7c20a",
+  "catalogArtifactSha256": "sha256:94eef41f4dba77753a2c9d213edd385f546a318b029d1f4a8f58e9b323bbf00b",
+  "productionMigrationApplied": false,
+  "before": {
+    "total": 93,
+    "smartphone": 6,
+    "nonSmartphone": 87,
+    "headphones": 18
+  },
+  "after": {
+    "total": 121,
+    "unique": 121,
+    "smartphone": 34,
+    "nonSmartphone": 87,
+    "headphones": 18,
+    "duplicates": 0,
+    "silentDrops": 0
+  },
+  "checks": {
+    "preStateDigests": "PASS",
+    "authorization": "PASS",
+    "exactReconciliation": "PASS_6_OF_6",
+    "nonSmartphoneIdentity": "PASS_87_OF_87",
+    "headphones": "PASS_18_OF_18",
+    "categories": "PASS_24_OF_24",
+    "domainPackPYUnknown": "PASS",
+    "rollback": "PASS",
+    "lineage": "PASS",
+    "targetedTests": "PASS_147_OF_147",
+    "productionBuild": "PASS"
+  },
+  "pushed": false,
+  "deployed": false,
+  "deploymentAuthorized": false
+}

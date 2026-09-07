@@ -36,7 +36,7 @@ const families:Family[] = [
 const products = families.flatMap(family => family.configs.map(config => {
  const identity = `${family.brand}|${family.family}|${family.modelCode ?? "NO_PUBLIC_SKU"}|${config.ram ?? "UNKNOWN"}GB|${config.storage}GB|${config.color}|TR`;
  const exactProductId = `electronics:smartphone:${slug(family.brand)}:${slug(family.family)}:${slug(`${config.sku ?? family.modelCode ?? "no-public-sku"}-${config.ram ?? "unknown"}-${config.storage}-${config.color}`)}`;
- const facts = {...family.facts,ram_gb:config.ram,storage_gb:config.storage};
+ const facts:Facts = {...family.facts,ram_gb:config.ram,storage_gb:config.storage};
  return {exactProductId,brand:family.brand,family:family.family,model:family.model,sku:config.sku ?? null,modelCode:family.modelCode,configurationIdentity:identity,market:"TR",segments:family.segments,facts,sourceIds:[family.sourceId],trApplicability:"EXACT_TR_CONFIGURATION",terminalState:"CANDIDATE_NOT_ACTIVE",commerce:{price:null,stock:null,rating:null,deals:null,seller:null,greyImportState:null,state:"UNKNOWN_FAIL_CLOSED"}};
 }));
 if (new Set(products.map(p=>p.exactProductId)).size !== products.length) throw new Error("DUPLICATE_EXACT_PRODUCT_ID");
