@@ -1,0 +1,40 @@
+import { createHash } from "node:crypto";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import path from "node:path";
+
+const OUT = "outputs/catalog-factory-active-coverage-wave-03-evidence-01";
+const OLD = "outputs/catalog-factory-active-coverage-wave-02";
+const NOW = "2026-09-07T23:00:00.000Z";
+const stable = (value: unknown): string => JSON.stringify(value, (_key, item) => item && typeof item === "object" && !Array.isArray(item) ? Object.fromEntries(Object.entries(item).sort(([a], [b]) => a.localeCompare(b))) : item);
+const sha = (value: string | Buffer | unknown) => createHash("sha256").update(typeof value === "string" || Buffer.isBuffer(value) ? value : stable(value)).digest("hex");
+const sources = [
+  { categoryId: "COMPUTER_AUDIO", exactProductId: "electronics:computer-audio:logitech:z407-980-001348", brand: "Logitech", family: "Z Series", model: "Z407", configuration: "Z407 / 980-001348 / graphite / TR", url: "https://www.logitech.com/tr-tr/shop/p/z407-bluetooth-computer-speakers.980-001348", facts: [{ key: "peakPowerWatts", value: 80 }, { key: "simultaneousInputs", value: 3 }], consequence: "80 W tepe gücü ve üç bağlantı seçeneği masaüstü yerleşiminde kaynak değiştirme ihtiyacını azaltabilir; oda akustiği ve sürekli güç ayrıca değerlendirilmelidir." },
+  { categoryId: "GAME_CONSOLE", exactProductId: "electronics:game-console:sony:ps5-disc-1tb-cfi-2000", brand: "Sony", family: "PlayStation 5", model: "PS5 CFI-2000 Disc", configuration: "PS5 disc console / 1 TB / CFI-2000 group / TR", url: "https://www.playstation.com/tr-tr/ps5/", facts: [{ key: "storageGb", value: 1000 }, { key: "discDrive", value: true }], consequence: "1 TB depolama ve disk sürücüsü fiziksel oyun kullanımına alan açar; kullanılabilir kapasite ve oyun boyutları değişebilir." },
+  { categoryId: "HOME_SECURITY_CAMERA", exactProductId: "electronics:home-security-camera:tp-link:tapo-c225-v1", brand: "TP-Link", family: "Tapo", model: "C225 V1", configuration: "Tapo C225 / hardware V1 / TR", url: "https://www.tp-link.com/tr/home-networking/cloud-camera/tapo-c225/v1/", facts: [{ key: "resolution", value: "2560x1440" }, { key: "panCoverageDegrees", value: 360 }], consequence: "2K QHD ve 360° yatay kapsama tek odada daha geniş görüş sağlayabilir; kör nokta, ağ ve mahremiyet koşulları ayrıca doğrulanmalıdır." },
+] as const;
+
+async function assertUrlsDistinct(root: string) { const files = await import("node:fs/promises").then(fs => fs.readdir(path.join(root, OLD, "categories"), { recursive: true })); for (const file of files.filter(name => String(name).endsWith(".json"))) { const content = await readFile(path.join(root, OLD, "categories", String(file)), "utf8"); if (sources.some(source => content.includes(source.url))) throw new Error(`WAVE02_URL_REUSE:${file}`); } }
+
+export async function acquireWave03Evidence(root = process.cwd(), acquire = false) {
+  await assertUrlsDistinct(root); const checkpoints = [];
+  for (const source of sources) {
+    const file = path.join(root, OUT, "snapshots", `${source.categoryId.toLowerCase()}--${source.model.toLowerCase().replace(/[^a-z0-9]+/gu, "-")}.html`);
+    let bytes: Buffer;
+    if (acquire) { const response = await fetch(source.url, { redirect: "follow", headers: { "user-agent": "ExpiyaCatalogEvidence/1.0" } }); if (!response.ok) throw new Error(`PRIMARY_SOURCE_HTTP_${response.status}:${source.url}`); bytes = Buffer.from(await response.arrayBuffer()); await mkdir(path.dirname(file), { recursive: true }); await writeFile(file, bytes, { flag: "wx" }); }
+    else bytes = await readFile(file);
+    const text = bytes.toString("utf8").toLocaleLowerCase("tr-TR"); if (!text.includes(source.model.split(" ")[0]!.toLocaleLowerCase("tr-TR"))) throw new Error(`EXACT_MODEL_TOKEN_MISSING:${source.model}`);
+    checkpoints.push({ categoryId: source.categoryId, exactProductId: source.exactProductId, url: source.url, snapshotFile: path.relative(root, file), snapshotSha256: sha(bytes), bytes: bytes.length, status: "PRIMARY_TR_EXACT_TOKEN_BOUND" });
+  }
+  const core = { schemaVersion: "catalog-factory-wave03-evidence-checkpoint/v1", workUnitId: "WU-CATALOG-FACTORY-ACTIVE-COVERAGE-WAVE-03", acquiredAt: NOW, wave02UrlReuse: 0, checkpoints, complete: checkpoints.length === sources.length };
+  const result = { ...core, checkpointDigest: sha(core) }; await mkdir(path.join(root, OUT), { recursive: true }); await writeFile(path.join(root, OUT, "EVIDENCE_CHECKPOINT.json"), `${stable(result)}\n`); return result;
+}
+
+export async function materializeWave03Candidate(root = process.cwd()) {
+  const checkpoint = await acquireWave03Evidence(root, false);
+  const candidates = sources.map(source => { const evidence = checkpoint.checkpoints.find(row => row.exactProductId === source.exactProductId)!; return { categoryId: source.categoryId, exactProductId: source.exactProductId, identity: { brand: source.brand, family: source.family, model: source.model, exactVariant: source.configuration, market: "TR" }, primaryEvidence: evidence, technicalFacts: source.facts.map(fact => ({ ...fact, authority: "PRIMARY_TR_SNAPSHOT", snapshotSha256: evidence.snapshotSha256 })), dailyLifeProjection: { consequenceTr: source.consequence, lineage: "FACT_TO_CONSEQUENCE", decisionEffect: "NONE_UNTIL_USER_NEED_AND_CANDIDATE_EFFECT_EXIST" }, readiness: { INFORMATION_READY: true, P_READY: false, Y_READY: false }, pMateriality: { candidateEffectByAnswer: [], knownPartitions: 0, suppression: "SINGLE_ADDITION_CANNOT_PARTITION_CANDIDATE_SET" }, persona: { state: "UNKNOWN", rankingEffect: "NONE" }, ranking: { price: false, brand: false, seller: false, catalogOrder: false }, lifecycle: "OWNER_REVIEW_CANDIDATE_NOT_ACTIVE" }; });
+  const core = { schemaVersion: "catalog-factory-active-coverage-wave03-candidate/v1", workUnitId: "WU-CATALOG-FACTORY-ACTIVE-COVERAGE-WAVE-03", status: "OWNER_REVIEW_CANDIDATE_NOT_APPROVED", generatedAt: NOW, supersedesDiscoveryCandidateDigest: "e2b51ed8df11738bebca02e406efe311e0db6083a6b224d7ea078cf0707fecf0", authority: { activeExact14Membership: 94, inactiveApprovedNextBatch8Proposal: 102, nextBatch8CountedAsActive: false, oldExact15: "PROHIBITED", unifiedConsumerClosureDigest: "9e7ef21780eda62d97a5d29ceac03ba116b78fd87e08d16f2f2ffa1dc3381384", sdpV2ReleaseDigest: "sha256:d3836e0ec7cfdd58cc3294d723feb36308ffde8626e10016902d9917cfbf6433" }, selection: { rule: "ACTIVE_COUNT_ASC_THEN_CATEGORY_ID_WITH_PRIMARY_TR_EVIDENCE_FEASIBILITY", activeCountPerCategory: 3, categories: sources.map(source => source.categoryId) }, evidenceCheckpointDigest: checkpoint.checkpointDigest, candidates, reconciliation: { observations: 3, candidates: 3, duplicates: 0, unknownTerminal: 0, conflictedTerminal: 0, silentDrop: 0 }, readiness: { INFORMATION_READY: true, P_READY: false, Y_READY: false }, boundaries: { pointer: false, runtime: false, database: false, production: false, deployment: false, push: false } };
+  const result = { ...core, candidateDigest: sha(core) }; const sentence = `${result.candidateDigest} SHA-256 özetli WU-CATALOG-FACTORY-ACTIVE-COVERAGE-WAVE-03 owner-review adayında, exact-14/94 aktif tabanı ve inactive next-batch8/102 önerisi ayrı tutularak COMPUTER_AUDIO, GAME_CONSOLE ve HOME_SECURITY_CAMERA kategorilerindeki 3 exact ürünün candidate olarak incelenmesini onaylıyorum; P/Y readiness, aktivasyon, pointer/runtime/DB/production/deployment/push yetkisi vermiyorum.`;
+  await Promise.all([writeFile(path.join(root, OUT, "CANDIDATE_PACKET.json"), `${stable(result)}\n`), writeFile(path.join(root, OUT, "CANDIDATE_PACKET.sha256"), `sha256:${result.candidateDigest}\n`), writeFile(path.join(root, OUT, "OWNER_APPROVAL_SENTENCE.txt"), `${sentence}\n`)]); return { result, sentence };
+}
+
+if (process.argv[1]?.endsWith("acquireEvidence.ts")) { const acquire = process.argv.includes("--acquire"); (acquire ? acquireWave03Evidence(process.cwd(), true).then(() => materializeWave03Candidate()) : materializeWave03Candidate()).then(({ result }) => console.log(JSON.stringify({ status: result.status, candidateDigest: result.candidateDigest, selection: result.selection, readiness: result.readiness }, null, 2))); }
