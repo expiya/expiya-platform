@@ -4,10 +4,10 @@ import { resolveRootStageOneAdapter, rootStageOneCoverage } from "./rootStageOne
 describe("root Stage 1 registry", () => {
   it("automatically covers active categories in supported domain families", () => {
     const coverage = rootStageOneCoverage();
-    expect(coverage.filter(row => ["APPLIANCES", "ELECTRONICS", "BABY_AND_CHILD", "MOBILITY"].includes(row.departmentId)).every(row => row.supported)).toBe(true);
+    expect(coverage.every(row => row.supported)).toBe(true);
   });
-  it("fails closed when an active category has no root runtime adapter", () => {
-    expect(resolveRootStageOneAdapter("TOOLS", "CORDLESS_DRILL")).toBeUndefined();
-    expect(resolveRootStageOneAdapter("CARS", "NEW_CAR")).toBeUndefined();
+  it("binds Cars and Tools to explicit thin adapters", () => {
+    expect(resolveRootStageOneAdapter("TOOLS", "CORDLESS_DRILL")?.endpoint).toBe("/api/tools/conversation");
+    expect(resolveRootStageOneAdapter("CARS", "NEW_CAR")?.mode).toBe("CARS_V3");
   });
 });

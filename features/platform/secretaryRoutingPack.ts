@@ -3,7 +3,7 @@ import { ELECTRONICS_CATEGORY_REGISTRY, type ElectronicsCategoryId } from "@/fea
 import { resolveDepartment, resolveDepartmentCapability } from "./departmentRegistry";
 
 export type ActiveSecretaryDepartmentId = "CARS" | "APPLIANCES" | "ELECTRONICS" | "BABY_AND_CHILD" | "MOBILITY" | "TOOLS";
-export type SecretaryCategoryId = ActiveAppliancesCategoryId | ElectronicsCategoryId | "STROLLER" | "ELECTRIC_SCOOTER" | "ELECTRIC_BICYCLE" | "BICYCLE" | "CORDLESS_DRILL";
+export type SecretaryCategoryId = ActiveAppliancesCategoryId | ElectronicsCategoryId | "NEW_CAR" | "STROLLER" | "ELECTRIC_SCOOTER" | "ELECTRIC_BICYCLE" | "BICYCLE" | "CORDLESS_DRILL";
 export interface SecretaryRouteDescriptor { readonly departmentId: ActiveSecretaryDepartmentId; readonly localizedLabel: string; readonly categoryId?: SecretaryCategoryId; readonly aliases: readonly string[]; readonly destination: string }
 export interface SecretaryRouteChoice { readonly label: string; readonly departmentId: ActiveSecretaryDepartmentId; readonly categoryId?: SecretaryCategoryId; readonly destination: string }
 export interface SecretaryUmbrella { readonly aliases: readonly string[]; readonly question: string; readonly categoryIds: readonly SecretaryCategoryId[] }
@@ -21,7 +21,7 @@ const ELECTRONICS_ALIASES: Partial<Record<ElectronicsCategoryId, readonly string
 };
 const route = (departmentId: ActiveSecretaryDepartmentId, localizedLabel: string, aliases: readonly string[], destination: string, categoryId?: SecretaryCategoryId): SecretaryRouteDescriptor => Object.freeze({ departmentId, localizedLabel, aliases: Object.freeze(aliases), destination, ...(categoryId ? { categoryId } : {}) });
 export const SECRETARY_ROUTE_DESCRIPTORS: readonly SecretaryRouteDescriptor[] = Object.freeze([
-  route("CARS", "Otomobil", ["otomobil", "araba", "araç", "suv", "sedan", "hatchback", "pick up", "pickup", "panelvan", "minibüs"], "/cars?entry=secretary"),
+  route("CARS", "Otomobil", ["otomobil", "araba", "araç", "suv", "sedan", "hatchback", "pick up", "pickup", "panelvan", "minibüs"], "/cars?entry=secretary", "NEW_CAR"),
   route("BABY_AND_CHILD", "Bebek arabası", ["bebek arabası", "çocuk arabası", "puset", "travel sistem", "travel system"], "/baby?entry=secretary", "STROLLER"),
   route("MOBILITY", "Elektrikli scooter", ["elektrikli scooter", "e scooter", "e-scooter", "scooter"], "/mobility?entry=secretary&category=ELECTRIC_SCOOTER", "ELECTRIC_SCOOTER"),
   route("MOBILITY", "Elektrikli bisiklet", ["elektrikli bisiklet", "e bike", "e-bike"], "/mobility?entry=secretary&category=ELECTRIC_BICYCLE", "ELECTRIC_BICYCLE"),
