@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "electronics-smartphone-reconciled-activation-authorization/v1",
+  "eventId": "SMARTPHONE-V02-121-20260907",
+  "appendOnly": true,
+  "authority": "USER_DIRECT",
+  "scope": "SMARTPHONE_AUTHORITY_ATOMIC_ACTIVATION_ONLY",
+  "packageSha256": "sha256:f26713a71712a8b9b008269feb0c1ba00f66312176776d81a1894367207bc323",
+  "sourceCommit": "f1ce8e61f76345aa10a1422bb511d2d9998dd954",
+  "reconciliationAuditCommit": "e0928d0",
+  "approvedCounts": {
+    "total": 121,
+    "nonSmartphone": 87,
+    "smartphone": 34,
+    "headphones": 18,
+    "categories": 24,
+    "duplicates": 0,
+    "silentDrops": 0
+  },
+  "pushAuthorized": false,
+  "deploymentAuthorized": false
+}

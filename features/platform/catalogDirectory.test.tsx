@@ -8,7 +8,7 @@ describe("authoritative catalog directory", () => {
   it("projects the exact active pointer membership without stale or future records", async () => {
     const directory = await loadActiveCatalogDirectory();
     expect(Object.fromEntries(directory.map(department => [department.id, department.categories.reduce((sum, category) => sum + category.variants.length, 0)]))).toEqual({
-      TOOLS: 16, CARS: 549, APPLIANCES: 110, ELECTRONICS: 93, BABY_AND_CHILD: 4, MOBILITY: 10,
+      TOOLS: 16, CARS: 549, APPLIANCES: 110, ELECTRONICS: 121, BABY_AND_CHILD: 4, MOBILITY: 10,
     });
     expect(directory.find(department => department.id === "TOOLS")?.categories.find(category => category.id === "CORDLESS_DRILL")?.variants).toHaveLength(16);
     expect(directory.flatMap(department => department.categories).flatMap(category => category.variants).every(product => product.label.length > 2)).toBe(true);
