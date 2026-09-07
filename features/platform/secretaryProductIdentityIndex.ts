@@ -33,7 +33,7 @@ export function buildSecretaryProductIdentityIndex(products: readonly GovernedPr
     const descriptor = product.categoryId ? descriptorForCategory(product.categoryId) : SECRETARY_ROUTE_DESCRIPTORS.find(item => item.departmentId === product.departmentId && !item.categoryId);
     const brand = safe(product.brand); const model = safe(product.model);
     if (!descriptor || descriptor.departmentId !== product.departmentId || brand.length < 2 || model.length < 2) { issues.push(`MALFORMED_OR_INACTIVE:${product.categoryId ?? product.departmentId}`); continue; }
-    const choice = { label: descriptor.localizedLabel, departmentId: descriptor.departmentId, destination: descriptor.destination } as const;
+    const choice = { label: descriptor.localizedLabel, departmentId: descriptor.departmentId, categoryId: descriptor.categoryId, destination: descriptor.destination } as const;
     const exact = [product.model, ...(product.exactIdentifiers ?? [])].map(safe).filter(value => value.length >= 2);
     for (const phrase of exact) {
       const owner = exactOwners.get(phrase);

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { UpperSecretary } from "@/components/platform/UpperSecretary";
+import { RootStageOneExperience } from "@/components/platform/RootStageOneExperience";
 import { SECRETARY_SEARCH_SUGGESTIONS } from "@/features/platform/platformDiscovery";
+import { rootStageOneClientAdapters } from "@/features/platform/rootStageOneRegistry";
 
 export const metadata: Metadata = {
   title: "Expiya — Satın Alma Karar Platformu",
@@ -14,7 +15,7 @@ export default function Home() {
     <section className="min-h-dvh px-5 py-7 sm:px-8 sm:py-9">
       <div className="mx-auto flex min-h-[calc(100dvh-3.5rem)] max-w-7xl flex-col sm:min-h-[calc(100dvh-4.5rem)]">
         <header className="flex items-center justify-between gap-5"><Link href="/" aria-label="Expiya ana sayfa" className="text-lg font-black tracking-[.18em] focus-visible:rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-emerald-700">EXPIYA</Link><p className="text-right text-[10px] font-medium uppercase tracking-[.22em] text-stone-500 sm:text-xs">Satın alma karar platformu</p></header>
-        <div className="flex flex-1 items-center py-14 sm:py-20"><UpperSecretary suggestions={SECRETARY_SEARCH_SUGGESTIONS} /></div>
+        <div className="flex flex-1 items-center py-14 sm:py-20"><RootStageOneExperience suggestions={SECRETARY_SEARCH_SUGGESTIONS} adapters={rootStageOneClientAdapters()} /></div>
       </div>
     </section>
 
