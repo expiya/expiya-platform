@@ -3,7 +3,7 @@
   "branch": "codex/xpy-root-stage1-ux-revision-01",
   "baseProductionDeployment": "dpl_EanVCYfArZXLMHnuXysFyvePRKBk",
   "baseCommit": "3d8003149f40da244daf0f9aeb53c3d1f90b0aae",
-  "candidateSourceCommit": "6288d1a01157e6378f021b495d49a07ecd562255",
+  "candidateSourceCommit": "23fe2843a895f0909104c67f49b02e093ed23205",
   "scope": "PREVIEW_CANDIDATE_ONLY",
   "productionPromotionAuthorized": false,
   "authorityOrLineageChanged": false,
@@ -19,7 +19,12 @@
     "productionBuildNode24": "PASS",
     "mobile390x844NoHorizontalOverflow": "PASS",
     "desktop1280NoHorizontalOverflow": "PASS",
-    "persistedRootXpyObserved": "PASS_APPLIANCES_QUICK_REPLIES_AND_EMPTY_BOUND_PLACEHOLDER"
+    "persistedRootXpyObserved": "PASS_APPLIANCES_QUICK_REPLIES_AND_EMPTY_BOUND_PLACEHOLDER",
+    "candidateDeltaLint": "PASS_ZERO_WARNINGS",
+    "fullRepositoryLint": "PASS_WITH_12_BASELINE_WARNINGS",
+    "countdownCancellation": "PASS_REAL_BROWSER",
+    "publicOpeningRecovery": "PASS_CREATE_THEN_READ",
+    "browserEvidence": "PASS_INLINE_CAPTURES_WITH_FILESYSTEM_EXPORT_LIMITATION"
   },
   "previewPlan": [
     "Non-force push this branch only after organizer approval.",
