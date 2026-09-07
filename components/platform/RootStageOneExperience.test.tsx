@@ -1,6 +1,21 @@
+import { readFileSync } from "node:fs";
+import path from "node:path";
 import { renderToStaticMarkup } from "react-dom/server";
 import { describe, expect, it } from "vitest";
-import { formatRootBudget, rootQuickReplies, ROOT_ROUTE_DELAY_MS, RootStageOneExperience } from "./RootStageOneExperience";
+import {
+  formatRootBudget,
+  nextRootPlaceholderState,
+  rootPlaceholderValue,
+  rootQuickReplies,
+  ROOT_INPUT_MAX_HEIGHT_PX,
+  ROOT_PLACEHOLDER_DELETE_MS,
+  ROOT_PLACEHOLDER_HOLD_MS,
+  ROOT_PLACEHOLDER_MAX_HEIGHT_PX,
+  ROOT_PLACEHOLDER_TYPE_MS,
+  ROOT_ROUTE_DELAY_MS,
+  RootStageOneExperience,
+  shouldPauseRootPlaceholder,
+} from "./RootStageOneExperience";
 
 describe("RootStageOneExperience", () => {
   it("keeps the root entry minimal, keyboard-ready and free of a chat panel", () => {
@@ -32,5 +47,37 @@ describe("RootStageOneExperience", () => {
     expect(html).toContain('type="submit"');
     expect(html).toContain('rows="1"');
     expect(html).toContain('maxLength="1000"');
+  });
+
+  it("rotates one placeholder deterministically through type, hold and delete phases", () => {
+    expect([ROOT_PLACEHOLDER_TYPE_MS,ROOT_PLACEHOLDER_HOLD_MS,ROOT_PLACEHOLDER_DELETE_MS]).toEqual([55,1200,30]);
+    expect([ROOT_INPUT_MAX_HEIGHT_PX,ROOT_PLACEHOLDER_MAX_HEIGHT_PX]).toEqual([144,224]);
+    const typed=nextRootPlaceholderState({suggestionIndex:0,text:"",phase:"TYPING"},"AB",2);
+    expect(typed).toEqual({suggestionIndex:0,text:"A",phase:"TYPING"});
+    const complete=nextRootPlaceholderState({...typed,text:"AB"},"AB",2);
+    expect(complete.phase).toBe("HOLDING");
+    const deleting=nextRootPlaceholderState(complete,"AB",2);
+    expect(deleting.phase).toBe("DELETING");
+    expect(nextRootPlaceholderState({...deleting,text:""},"AB",2)).toEqual({suggestionIndex:1,text:"",phase:"TYPING"});
+  });
+
+  it("pauses for focus and input, resumes after blur, and hides connected Root XPY placeholders", () => {
+    expect(shouldPauseRootPlaceholder({focused:true,draft:"",connected:false})).toBe(true);
+    expect(shouldPauseRootPlaceholder({focused:false,draft:"Kendi metnim",connected:false})).toBe(true);
+    expect(shouldPauseRootPlaceholder({focused:false,draft:"",connected:false})).toBe(false);
+    expect(shouldPauseRootPlaceholder({focused:false,draft:"",connected:true})).toBe(true);
+    const state={suggestionIndex:0,text:"Kullanıcı metnini değiştirme",phase:"HOLDING"} as const;
+    expect(rootPlaceholderValue(state,false)).toBe(state.text);
+    expect(rootPlaceholderValue(state,true)).toBe("");
+  });
+
+  it("keeps focus, blur, reduced-motion and placeholder auto-grow wired to the controlled textarea", () => {
+    const source=readFileSync(path.join(process.cwd(),"components/platform/RootStageOneExperience.tsx"),"utf8");
+    expect(source).toContain("prefers-reduced-motion: reduce");
+    expect(source).toContain("setMessageFocused(true)");
+    expect(source).toContain("setMessageFocused(false)");
+    expect(source).toContain("rootPlaceholderValue(placeholderState");
+    expect(source).toContain("placeholderState.text");
+    expect(source).toContain("value={draft}");
   });
 });

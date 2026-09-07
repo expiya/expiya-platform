@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { classifySecretaryMessage } from "./upperSecretary";
 import { SECRETARY_ROUTE_DESCRIPTORS, validateSecretaryRouteDescriptors } from "./secretaryRoutingPack";
+import { SECRETARY_DAILY_LIFE_EXAMPLES } from "./secretaryDailyLifeExamples";
 
 describe("Expiya Secretary routing governor", () => {
   it("routes stroller compounds while preserving Cars false-positive suppression", () => {
@@ -15,6 +16,17 @@ describe("Expiya Secretary routing governor", () => {
     expect(classifySecretaryMessage("telefon")).toMatchObject({ kind: "PROPOSE_NAVIGATION", destination: "/electronics/analysis?category=SMARTPHONE&entry=secretary" });
     expect(classifySecretaryMessage("çamaşır makinesi")).toMatchObject({ kind: "PROPOSE_NAVIGATION", destination: "/appliances?entry=secretary&category=WASHING_MACHINE" });
     expect(classifySecretaryMessage("solo fırın")).toMatchObject({ kind: "PROPOSE_NAVIGATION", destination: "/appliances?entry=secretary&category=FREESTANDING_COOKER" });
+    for (const message of ["matkap", "akülü matkap", "Evde raf asmak için matkap arıyorum."]) expect(classifySecretaryMessage(message)).toMatchObject({ kind: "PROPOSE_NAVIGATION", departmentId: "TOOLS", categoryId: "CORDLESS_DRILL" });
+  });
+
+  it("routes every daily-life placeholder sentence to its governed category", () => {
+    for (const [key, examples] of Object.entries(SECRETARY_DAILY_LIFE_EXAMPLES)) {
+      const [departmentId, categoryId] = key.split(":");
+      for (const { text } of examples) {
+        const result=classifySecretaryMessage(text);
+        expect(result, `${key}: ${text}`).toMatchObject({kind:"PROPOSE_NAVIGATION",departmentId,categoryId});
+      }
+    }
   });
   it("clarifies ambiguity and multiple departments without inventing routes", () => {
     for (const message of ["kamera", "saat", "hoparlör", "hediye arıyorum", "araba ve buzdolabı almak istiyorum"]) expect(classifySecretaryMessage(message).kind).toBe("CLARIFY_DESTINATION");

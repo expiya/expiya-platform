@@ -26,7 +26,7 @@ export const SECRETARY_ROUTE_DESCRIPTORS: readonly SecretaryRouteDescriptor[] = 
   route("MOBILITY", "Elektrikli scooter", ["elektrikli scooter", "e scooter", "e-scooter", "scooter"], "/mobility?entry=secretary&category=ELECTRIC_SCOOTER", "ELECTRIC_SCOOTER"),
   route("MOBILITY", "Elektrikli bisiklet", ["elektrikli bisiklet", "e bike", "e-bike"], "/mobility?entry=secretary&category=ELECTRIC_BICYCLE", "ELECTRIC_BICYCLE"),
   route("MOBILITY", "Bisiklet", ["şehir bisikleti", "dağ bisikleti", "katlanır bisiklet", "bisiklet"], "/mobility?entry=secretary&category=BICYCLE", "BICYCLE"),
-  route("TOOLS", "Akülü matkap", ["akülü matkap", "akülü darbeli matkap", "şarjlı matkap", "şarjlı darbeli matkap"], "/tools?entry=secretary&category=CORDLESS_DRILL", "CORDLESS_DRILL"),
+  route("TOOLS", "Akülü matkap", ["akülü matkap", "akülü darbeli matkap", "şarjlı matkap", "şarjlı darbeli matkap", "matkap"], "/tools?entry=secretary&category=CORDLESS_DRILL", "CORDLESS_DRILL"),
   ...APPLIANCES_CATEGORY_REGISTRY.filter(item => item.status === "ACTIVE").map(item => route("APPLIANCES", item.publicLabelTr, APPLIANCE_ALIASES[item.categoryId] ?? [item.publicLabelTr], `/appliances?entry=secretary&category=${item.categoryId}`, item.categoryId)),
   ...ELECTRONICS_CATEGORY_REGISTRY.map(item => route("ELECTRONICS", item.publicLabelTr, ELECTRONICS_ALIASES[item.categoryId] ?? [item.publicLabelTr], `/electronics/analysis?category=${item.categoryId}&entry=secretary`, item.categoryId)),
 ]);
