@@ -1,0 +1,169 @@
+{
+  "activationBoundary": {
+    "activePointerWrite": false,
+    "databaseMutation": false,
+    "deployment": false,
+    "ownerApprovalRequired": true,
+    "runtimeMutation": false
+  },
+  "authorityBoundary": {
+    "affiliateRole": "OPTIONAL_COMMERCE_DISCOVERY_ONLY_NOT_TECHNICAL_AUTHORITY",
+    "noSilentDrops": true,
+    "personaWithoutEvidence": "NEUTRAL_UNKNOWN",
+    "primaryTechnicalEvidence": "MANUFACTURER_TR_OFFICIAL_SUPPORT_MANUAL_WITH_GLOBAL_APPLICABILITY_BRIDGE",
+    "retailerRole": "TR_DISCOVERY_AND_VOLATILE_COMMERCE_ONLY"
+  },
+  "categories": [
+    {
+      "actual": {
+        "brands": 9,
+        "exact": 20,
+        "segments": 9
+      },
+      "categoryDigest": "sha256:b907f29893432c25e17063d45c59e4338466e140ac04f6d1b723979b146e7ef8",
+      "categoryId": "TELEVISION",
+      "departmentId": "ELECTRONICS",
+      "gates": {
+        "brands": true,
+        "exact": true,
+        "ownerApproval": "PENDING",
+        "segments": true
+      },
+      "lifecycle": "OWNER_REVIEW_CANDIDATE_NOT_ACTIVE",
+      "membershipHash": "sha256:f25542c168a2a3b3e9fbf7ff0fa6d0d12bae61d0502cc3422535968b4d151dce",
+      "sourcePacket": "outputs/catalog-factory-active-coverage-wave-01/categories/television/owner-review.json",
+      "target": {
+        "brands": 6,
+        "exact": 20,
+        "segments": 5
+      }
+    },
+    {
+      "actual": {
+        "brands": 10,
+        "exact": 25,
+        "segments": 8
+      },
+      "categoryDigest": "sha256:6b463144241765a9daa161af1d92c9cff094e57d1da3ee587598c0fc1be7badf",
+      "categoryId": "LAPTOP",
+      "departmentId": "ELECTRONICS",
+      "gates": {
+        "brands": true,
+        "exact": true,
+        "ownerApproval": "PENDING",
+        "segments": true
+      },
+      "lifecycle": "OWNER_REVIEW_CANDIDATE_NOT_ACTIVE",
+      "membershipHash": "sha256:2cabcd14a45044809fdd0b2b0ef4781d43ed87872e0ae46a6bfdf830191a2679",
+      "sourcePacket": "outputs/catalog-factory-active-coverage-wave-01/categories/laptop/owner-review.json",
+      "target": {
+        "brands": 7,
+        "exact": 25,
+        "segments": 6
+      }
+    },
+    {
+      "actual": {
+        "brands": 7,
+        "exact": 18,
+        "segments": 5
+      },
+      "categoryDigest": "128d37f7e1f1475a9afbb9787b48c33acb22cac1b43333ce0f906d67b0f07ad7",
+      "categoryId": "ROBOT_VACUUM",
+      "departmentId": "APPLIANCES",
+      "gates": {
+        "brands": true,
+        "exact": true,
+        "ownerApproval": "PENDING",
+        "segments": true
+      },
+      "lifecycle": "OWNER_REVIEW_CANDIDATE_NOT_ACTIVE",
+      "membershipHash": "bd55d28122f527c4730ef8e1a08d1d420581cec413d0761718a03aea9eb27cfc",
+      "sourcePacket": "outputs/catalog-factory-active-coverage-wave-01/categories/robot-vacuum/owner-review.json",
+      "target": {
+        "brands": 6,
+        "exact": 18,
+        "segments": 5
+      }
+    },
+    {
+      "actual": {
+        "brands": 7,
+        "exact": 19,
+        "segments": 5
+      },
+      "categoryDigest": "2e3a2a63c0899bdff0de602daf3d6d037c3c683f709224e336eef46febb16b3e",
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "departmentId": "APPLIANCES",
+      "gates": {
+        "brands": true,
+        "exact": true,
+        "ownerApproval": "PENDING",
+        "segments": true
+      },
+      "lifecycle": "OWNER_REVIEW_CANDIDATE_NOT_ACTIVE",
+      "membershipHash": "d2662435c8a21ce50f57ab8769f201e42b70be9a9c531c38c2bdd4d69e86d4ac",
+      "sourcePacket": "outputs/catalog-factory-active-coverage-wave-01/categories/split-air-conditioner/owner-review.json",
+      "target": {
+        "brands": 6,
+        "exact": 18,
+        "segments": 5
+      }
+    },
+    {
+      "actual": {
+        "brands": 5,
+        "exact": 15,
+        "segments": 8
+      },
+      "categoryDigest": "dcb34bd9534c9bd7d9c8029e5605d13eac4183c9ccdc251a6bf7ae3d8e0c3b95",
+      "categoryId": "STROLLER",
+      "departmentId": "BABY_AND_CHILD",
+      "gates": {
+        "brands": true,
+        "exact": true,
+        "ownerApproval": "PENDING",
+        "segments": true
+      },
+      "lifecycle": "OWNER_REVIEW_CANDIDATE_NOT_ACTIVE",
+      "membershipHash": "bf3a999f79b7cbfc545f3b155d73f24011493e6f48856b05efc193c9034816c3",
+      "sourcePacket": "outputs/catalog-factory-stroller-wave-01/owner-review-packet.json",
+      "target": {
+        "brands": 5,
+        "exact": 15,
+        "segments": 5
+      }
+    }
+  ],
+  "generatedAt": "2026-09-07T00:00:00.000Z",
+  "lineage": {
+    "authorityAncestor": "39f0ba1d38bec866466c9ab47466d37c61fad11b",
+    "correctedAuditCommit": "e0928d0b04fc168a1edb96612980677355c20f1d",
+    "correctedLedgerDigest": "4fc7ccce5b7837b59b719c1e1b364b3458503b59978ec99399c5d6b21a380df8",
+    "preservedActiveCounts": {
+      "appliances": 113,
+      "babyAndChild": 4,
+      "electronics": 93,
+      "mobility": 10,
+      "tools": 16
+    },
+    "productionSource": "f1ce8e61f76345aa10a1422bb511d2d9998dd954"
+  },
+  "rollup": {
+    "candidateExactCount": 97,
+    "categoryCount": 5,
+    "membershipLash": "d51736db835aef5a7f1ea1c0473b04641a6f1cfafb42e22531a7f5c5462e57cd",
+    "targetPassingCategoryCount": 5
+  },
+  "schemaVersion": "catalog-factory-active-coverage-wave-report/v0.1",
+  "smartphoneDependency": {
+    "activeCountImpactFromThisWave": 0,
+    "activeV12ExactCount": 6,
+    "lifecycle": "SEPARATE_WORK_UNIT_IN_PROGRESS",
+    "pendingDigestBoundPackageExactCount": 33,
+    "treatment": "STATUS_ONLY_DO_NOT_RESEARCH_MODIFY_OR_ACTIVATE"
+  },
+  "status": "OWNER_REVIEW_CANDIDATES_READY_NOT_ACTIVE",
+  "waveDigest": "dd314324f16b589911b2f035ab3616fea54bc7e4a9bb78e18c551159493e3d5b",
+  "workUnitId": "WU-CATALOG-FACTORY-ACTIVE-COVERAGE-WAVE-01"
+}
