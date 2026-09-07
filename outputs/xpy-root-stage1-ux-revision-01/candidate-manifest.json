@@ -1,0 +1,31 @@
+{
+  "workUnit": "WU-XPY-ROOT-STAGE1-UX-REVISION-01",
+  "branch": "codex/xpy-root-stage1-ux-revision-01",
+  "baseProductionDeployment": "dpl_EanVCYfArZXLMHnuXysFyvePRKBk",
+  "baseCommit": "3d8003149f40da244daf0f9aeb53c3d1f90b0aae",
+  "candidateSourceCommit": "6288d1a01157e6378f021b495d49a07ecd562255",
+  "scope": "PREVIEW_CANDIDATE_ONLY",
+  "productionPromotionAuthorized": false,
+  "authorityOrLineageChanged": false,
+  "databaseMigrationRequired": false,
+  "changedRuntimeFiles": [
+    "components/platform/RootStageOneExperience.tsx",
+    "app/api/tools/conversation/route.ts"
+  ],
+  "gates": {
+    "releaseTypecheck": "PASS",
+    "focusedLint": "PASS",
+    "focusedTests": "PASS_33_OF_33",
+    "productionBuildNode24": "PASS",
+    "mobile390x844NoHorizontalOverflow": "PASS",
+    "desktop1280NoHorizontalOverflow": "PASS",
+    "persistedRootXpyObserved": "PASS_APPLIANCES_QUICK_REPLIES_AND_EMPTY_BOUND_PLACEHOLDER"
+  },
+  "previewPlan": [
+    "Non-force push this branch only after organizer approval.",
+    "Create exactly one Vercel Preview deployment from candidateSourceCommit plus this evidence commit.",
+    "Bind DATABASE_URL only to this branch-scoped Preview environment without reading or recording its value.",
+    "Run persisted Root XPY category, consent/card, Stage 2 boundary, correction/countdown, budget removal, keyboard, refresh and 390x844 smoke gates.",
+    "Do not promote to production from this work unit."
+  ]
+}
