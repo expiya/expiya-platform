@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "xpy-root-stage1-candidate/v1",
+  "workUnitId": "WU-XPY-ROOT-STAGE1-EXPERIENCE-01",
+  "status": "PREVIEW_CANDIDATE_NOT_DEPLOYED",
+  "sourceLineage": "f1ce8e61f76345aa10a1422bb511d2d9998dd954",
+  "branch": "codex/xpy-root-stage1-experience-02",
+  "rootPath": "/",
+  "preservedLegacyRoutes": ["/cars", "/appliances", "/electronics/analysis", "/baby", "/mobility", "/tools"],
+  "rootRuntimeAdapters": ["APPLIANCES", "ELECTRONICS", "BABY_AND_CHILD", "MOBILITY"],
+  "failClosedWithoutRootAdapter": ["CARS/NEW_CAR", "TOOLS/CORDLESS_DRILL"],
+  "invariants": {
+    "categoryImmutableWithinConversation": true,
+    "onlyLatestAssistantMessageInDom": true,
+    "persistedServerContext": true,
+    "idempotentMessageIdRetry": true,
+    "decisionCardRequiresUiConsent": true,
+    "signedStageTwoHandoff": "APPLIANCES_ONLY_WHEN_ISSUED_BY_EXISTING_AUTHORITY",
+    "unknownAndTies": "PRESERVED_BY_DOMAIN_PACKS",
+    "personaAggregateCap": 0.75,
+    "productionDeployment": false
+  },
+  "verification": {
+    "targetedTests": "29 focused tests passed; broader platform run 41 passed",
+    "typescript": "PASS",
+    "eslint": "PASS",
+    "productionBuild": "PASS; 625 pages",
+    "desktopQa": "PASS_NO_OVERFLOW",
+    "mobile390x844Qa": "PASS_NO_OVERFLOW",
+    "browserFlow": ["same-root routing", "multi-turn context", "negative correction", "refresh recovery", "latest-message-only", "budget 50.000 TL", "Shift+Enter newline", "missing-adapter fail-closed", "no raw key observed"]
+  }
+}

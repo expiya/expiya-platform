@@ -5,7 +5,7 @@ import { resolveDepartment, resolveDepartmentCapability } from "./departmentRegi
 export type ActiveSecretaryDepartmentId = "CARS" | "APPLIANCES" | "ELECTRONICS" | "BABY_AND_CHILD" | "MOBILITY" | "TOOLS";
 export type SecretaryCategoryId = ActiveAppliancesCategoryId | ElectronicsCategoryId | "STROLLER" | "ELECTRIC_SCOOTER" | "ELECTRIC_BICYCLE" | "BICYCLE" | "CORDLESS_DRILL";
 export interface SecretaryRouteDescriptor { readonly departmentId: ActiveSecretaryDepartmentId; readonly localizedLabel: string; readonly categoryId?: SecretaryCategoryId; readonly aliases: readonly string[]; readonly destination: string }
-export interface SecretaryRouteChoice { readonly label: string; readonly departmentId: ActiveSecretaryDepartmentId; readonly destination: string }
+export interface SecretaryRouteChoice { readonly label: string; readonly departmentId: ActiveSecretaryDepartmentId; readonly categoryId?: SecretaryCategoryId; readonly destination: string }
 export interface SecretaryUmbrella { readonly aliases: readonly string[]; readonly question: string; readonly categoryIds: readonly SecretaryCategoryId[] }
 export interface SecretaryPhraseSpan { readonly start: number; readonly end: number; readonly tokenCount: number }
 
@@ -53,7 +53,7 @@ export function findSecretaryPhraseSpans(message: string, phrase: string): reado
 }
 export function containsPhrase(message: string, phrase: string): boolean { return findSecretaryPhraseSpans(message, phrase).length > 0; }
 export function descriptorForCategory(categoryId: SecretaryCategoryId): SecretaryRouteDescriptor | undefined { return SECRETARY_ROUTE_DESCRIPTORS.find(item => item.categoryId === categoryId); }
-export function choicesFor(umbrella: SecretaryUmbrella): readonly SecretaryRouteChoice[] { return Object.freeze(umbrella.categoryIds.flatMap(id => { const item = descriptorForCategory(id); return item ? [{ label: item.localizedLabel, departmentId: item.departmentId, destination: item.destination }] : []; })); }
+export function choicesFor(umbrella: SecretaryUmbrella): readonly SecretaryRouteChoice[] { return Object.freeze(umbrella.categoryIds.flatMap(id => { const item = descriptorForCategory(id); return item ? [{ label: item.localizedLabel, departmentId: item.departmentId, categoryId: item.categoryId, destination: item.destination }] : []; })); }
 export function validateSecretaryRouteDescriptors(): readonly string[] {
   const issues: string[] = []; const aliases = new Map<string, string>(); const categoryIds = new Set<string>();
   for (const descriptor of SECRETARY_ROUTE_DESCRIPTORS) {
