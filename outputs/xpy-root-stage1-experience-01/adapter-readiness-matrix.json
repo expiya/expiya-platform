@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "xpy-root-adapter-readiness/v1",
+  "gate": "PASS",
+  "buildInvariant": "Every ACTIVE department/category registry row must resolve an explicit root adapter or module initialization fails.",
+  "families": [
+    { "departmentId": "CARS", "mode": "CARS_V3", "endpoint": "/api/cars/conversation/v3", "categories": ["NEW_CAR"], "persistence": "signed V3 state token + session recovery", "stage2": "existing signed sales-advisor handoff" },
+    { "departmentId": "APPLIANCES", "mode": "DURABLE_CRUD", "endpoint": "/api/appliances/conversation", "categories": "all ACTIVE registry categories", "persistence": "Postgres conversation store", "stage2": "existing signed appliances handoff" },
+    { "departmentId": "ELECTRONICS", "mode": "DURABLE_CRUD", "endpoint": "/api/electronics/conversation", "categories": "all ACTIVE registry categories", "persistence": "Postgres conversation store", "stage2": "no unsigned root transition" },
+    { "departmentId": "BABY_AND_CHILD", "mode": "DURABLE_CRUD", "endpoint": "/api/baby/conversation", "categories": ["STROLLER"], "persistence": "Postgres conversation store", "stage2": "no unsigned root transition" },
+    { "departmentId": "MOBILITY", "mode": "DURABLE_CRUD", "endpoint": "/api/mobility/conversation", "categories": ["ELECTRIC_SCOOTER", "ELECTRIC_BICYCLE", "BICYCLE"], "persistence": "Postgres conversation store", "stage2": "no unsigned root transition" },
+    { "departmentId": "TOOLS", "mode": "SIGNED_CRUD", "endpoint": "/api/tools/conversation", "categories": ["CORDLESS_DRILL"], "persistence": "signed stateless state token + local recovery pointer", "stage2": "fail closed: no approved Stage 2 authority" }
+  ],
+  "missing": []
+}

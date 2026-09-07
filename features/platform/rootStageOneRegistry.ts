@@ -1,14 +1,16 @@
 import { ACTIVE_DEPARTMENT_REGISTRY, resolveDepartmentCapability } from "./departmentRegistry";
 
-export type RootStageOneDepartment = "APPLIANCES" | "ELECTRONICS" | "BABY_AND_CHILD" | "MOBILITY";
-export interface RootStageOneAdapter { readonly departmentId: RootStageOneDepartment; readonly endpoint: string; readonly categoryField: "productType" | "categoryId" }
+export type RootStageOneDepartment = "CARS" | "APPLIANCES" | "ELECTRONICS" | "BABY_AND_CHILD" | "MOBILITY" | "TOOLS";
+export interface RootStageOneAdapter { readonly departmentId: RootStageOneDepartment; readonly endpoint: string; readonly categoryField: "productType" | "categoryId"; readonly mode: "DURABLE_CRUD" | "SIGNED_CRUD" | "CARS_V3" }
 export interface RootStageOneClientAdapter extends RootStageOneAdapter { readonly categoryId: string; readonly categoryLabel: string; readonly legacyDestination: string }
 
 const adapters: Readonly<Record<RootStageOneDepartment, RootStageOneAdapter>> = Object.freeze({
-  APPLIANCES: Object.freeze({ departmentId: "APPLIANCES", endpoint: "/api/appliances/conversation", categoryField: "productType" }),
-  ELECTRONICS: Object.freeze({ departmentId: "ELECTRONICS", endpoint: "/api/electronics/conversation", categoryField: "categoryId" }),
-  BABY_AND_CHILD: Object.freeze({ departmentId: "BABY_AND_CHILD", endpoint: "/api/baby/conversation", categoryField: "categoryId" }),
-  MOBILITY: Object.freeze({ departmentId: "MOBILITY", endpoint: "/api/mobility/conversation", categoryField: "categoryId" }),
+  CARS: Object.freeze({ departmentId: "CARS", endpoint: "/api/cars/conversation/v3", categoryField: "categoryId", mode: "CARS_V3" }),
+  APPLIANCES: Object.freeze({ departmentId: "APPLIANCES", endpoint: "/api/appliances/conversation", categoryField: "productType", mode: "DURABLE_CRUD" }),
+  ELECTRONICS: Object.freeze({ departmentId: "ELECTRONICS", endpoint: "/api/electronics/conversation", categoryField: "categoryId", mode: "DURABLE_CRUD" }),
+  BABY_AND_CHILD: Object.freeze({ departmentId: "BABY_AND_CHILD", endpoint: "/api/baby/conversation", categoryField: "categoryId", mode: "DURABLE_CRUD" }),
+  MOBILITY: Object.freeze({ departmentId: "MOBILITY", endpoint: "/api/mobility/conversation", categoryField: "categoryId", mode: "DURABLE_CRUD" }),
+  TOOLS: Object.freeze({ departmentId: "TOOLS", endpoint: "/api/tools/conversation", categoryField: "categoryId", mode: "SIGNED_CRUD" }),
 });
 
 export function resolveRootStageOneAdapter(departmentId: string, categoryId: string): RootStageOneAdapter | undefined {
@@ -27,3 +29,6 @@ export function rootStageOneClientAdapters(): readonly RootStageOneClientAdapter
     return adapter ? [{ ...adapter, categoryId, categoryLabel: capability.publicLabelTr, legacyDestination: capability.destination }] : [];
   }));
 }
+
+const missingRootAdapters = rootStageOneCoverage().filter(row => !row.supported);
+if (missingRootAdapters.length) throw new TypeError(`ROOT_STAGE_ONE_ADAPTER_MISSING:${missingRootAdapters.map(row => `${row.departmentId}/${row.categoryId}`).join(",")}`);
