@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "semantic-decision-projection-foundation-manifest/v2",
+  "workUnit": "WU-XPY-SEMANTIC-DECISION-PROJECTION-V2-FOUNDATION-01",
+  "generatedAt": "2026-09-07T00:00:00.000Z",
+  "mode": "SHADOW_ONLY",
+  "artifactDigests": {
+    "catalog-factory-readiness-v2.json": "sha256:d9484563ee7e0af0c723fdfdf955971e5c5e79baf0678cea56716005bbbb3a93",
+    "contract-fixtures.json": "sha256:fef06fd2447dd00dfd91d70fda8df1f6952ee514f048b2590d478f784a9d4ba1",
+    "current-vs-shadow.json": "sha256:e5d679f1c816c275ecca5e437c7be6bd2420cae2471f909076464fd79b4c07cb",
+    "integration-plan.json": "sha256:33a84c16a6ef53b3f3b6c3f9dbe15309248438d61bdf4b90bcaced52d7b3cfff",
+    "lineage.json": "sha256:839ad9362517398646abf32377c637893fb9dcea3fe1aa48504b6e968b1e754d",
+    "p-materiality-trace.json": "sha256:854c7f6c3b546a47af948a38e8139d1102b3cc1dbe9b041755db5e70f1fb5d3a",
+    "shadow-no-effect-proof.json": "sha256:45342dd4a9f97a5510aff6e2b7364cb748cbf36dafe979fb4b7d2e1efc0044a3"
+  },
+  "lineageBindings": {
+    "smartphoneShadowPilot": {
+      "commit": "8b5ee38c5837815ef4ef3e04ba8c435a77579048",
+      "digest": "sha256:489339776731d2498b2ba115822ab9da95fb13d8b696dfc8d92b1512ffe81f16",
+      "checkoutArtifactPresence": "ABSENT_CONTRACT_FIXTURE_ONLY"
+    },
+    "smartphoneSupportClosure": {
+      "commit": "62ea022d528e7c062fecf10c0065e6039ed4efbf",
+      "digest": "sha256:1f112aba506258f45d01b7fd88ac811a98012834f1a95955dd2308314ce15868",
+      "checkoutArtifactPresence": "ABSENT_CONTRACT_FIXTURE_ONLY"
+    }
+  },
+  "forbiddenMutations": [
+    "ACTIVE_POINTER",
+    "PRODUCTION_RUNTIME",
+    "CATALOG_MEMBERSHIP",
+    "CATALOG_ORDER",
+    "DATABASE",
+    "UI_OR_CARD",
+    "AUTHORIZATION",
+    "DEPLOYMENT",
+    "PUSH"
+  ],
+  "releaseDigest": "sha256:d3836e0ec7cfdd58cc3294d723feb36308ffde8626e10016902d9917cfbf6433"
+}

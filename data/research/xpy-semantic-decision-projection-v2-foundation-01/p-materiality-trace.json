@@ -1,0 +1,2763 @@
+{
+  "schemaVersion": "p-materiality-shadow-acceptance/v2",
+  "smartphone": {
+    "outcome": "ASK_ONE_QUESTION",
+    "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+    "sufficiency": "NOT_EVALUATED",
+    "selectedQuestion": {
+      "questionId": "shadow.smartphone.charging-80w",
+      "publicTurkishQuestion": "Gün içinde kısa bir şarj molası için en az 80 W kablolu şarj sizin için zorunlu mu?",
+      "answerDomain": [
+        {
+          "answerId": "YES",
+          "labelTr": "Evet, zorunlu",
+          "establishesExplicitRequirement": true
+        },
+        {
+          "answerId": "NO",
+          "labelTr": "Hayır, zorunlu değil",
+          "establishesExplicitRequirement": false
+        },
+        {
+          "answerId": "UNKNOWN",
+          "labelTr": "Henüz bilmiyorum",
+          "establishesExplicitRequirement": false
+        }
+      ],
+      "prerequisites": [
+        {
+          "prerequisiteId": "smartphone.charging.short-break:context-confirmed",
+          "description": "Uyumlu adaptör, kablo, sıcaklık ve şarj eğrisi gerçek süreyi değiştirir.",
+          "required": true
+        }
+      ],
+      "candidateEffectByAnswer": {
+        "YES": [
+          {
+            "exactOfferingId": "fixture:smartphone:01",
+            "effect": "knownRetain",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:02",
+            "effect": "knownRetain",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:03",
+            "effect": "knownRetain",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:04",
+            "effect": "knownRetain",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:05",
+            "effect": "knownRetain",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:06",
+            "effect": "knownRetain",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:07",
+            "effect": "knownRetain",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:08",
+            "effect": "knownRetain",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:09",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:10",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:11",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:12",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:13",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:14",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:15",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:16",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:17",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:18",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:19",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:20",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:21",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:22",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:23",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:24",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:25",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:26",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:27",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:28",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:29",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:30",
+            "effect": "knownExclude",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [
+              "fixture-source:smartphone.charging-80w"
+            ],
+            "exactKnownMismatch": true
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:31",
+            "effect": "unknownRetain",
+            "uncertainty": "UNKNOWN",
+            "partition": null,
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:32",
+            "effect": "unknownRetain",
+            "uncertainty": "UNKNOWN",
+            "partition": null,
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:33",
+            "effect": "unknownRetain",
+            "uncertainty": "UNKNOWN",
+            "partition": null,
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:34",
+            "effect": "unknownRetain",
+            "uncertainty": "UNKNOWN",
+            "partition": null,
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          }
+        ],
+        "NO": [
+          {
+            "exactOfferingId": "fixture:smartphone:01",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:02",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:03",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:04",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:05",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:06",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:07",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:08",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:09",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:10",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:11",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:12",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:13",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:14",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:15",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:16",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:17",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:18",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:19",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:20",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:21",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:22",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:23",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:24",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:25",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:26",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:27",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:28",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:29",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:30",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:31",
+            "effect": "unknownRetain",
+            "uncertainty": "UNKNOWN",
+            "partition": null,
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:32",
+            "effect": "unknownRetain",
+            "uncertainty": "UNKNOWN",
+            "partition": null,
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:33",
+            "effect": "unknownRetain",
+            "uncertainty": "UNKNOWN",
+            "partition": null,
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:34",
+            "effect": "unknownRetain",
+            "uncertainty": "UNKNOWN",
+            "partition": null,
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          }
+        ],
+        "UNKNOWN": [
+          {
+            "exactOfferingId": "fixture:smartphone:01",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:02",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:03",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:04",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:05",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:06",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:07",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:08",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_80W_PLUS",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:09",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:10",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:11",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:12",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:13",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:14",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:15",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:16",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:17",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:18",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:19",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:20",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:21",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:22",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:23",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:24",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:25",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:26",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:27",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:28",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:29",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:30",
+            "effect": "none",
+            "uncertainty": "KNOWN",
+            "partition": "WIRED_UNDER_80W",
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:31",
+            "effect": "unknownRetain",
+            "uncertainty": "UNKNOWN",
+            "partition": null,
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:32",
+            "effect": "unknownRetain",
+            "uncertainty": "UNKNOWN",
+            "partition": null,
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:33",
+            "effect": "unknownRetain",
+            "uncertainty": "UNKNOWN",
+            "partition": null,
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          },
+          {
+            "exactOfferingId": "fixture:smartphone:34",
+            "effect": "unknownRetain",
+            "uncertainty": "UNKNOWN",
+            "partition": null,
+            "evidenceRefs": [],
+            "exactKnownMismatch": false
+          }
+        ]
+      },
+      "decisionUseOnExplicitAnswer": "HARD_FILTER"
+    },
+    "selectedProjectionId": "smartphone.charging-80w",
+    "candidatePoolUnchanged": true,
+    "productionMutation": false,
+    "trace": {
+      "schemaVersion": "p-materiality-shadow-trace/v2",
+      "mode": "SHADOW_ONLY",
+      "candidatePool": [
+        "fixture:smartphone:01",
+        "fixture:smartphone:02",
+        "fixture:smartphone:03",
+        "fixture:smartphone:04",
+        "fixture:smartphone:05",
+        "fixture:smartphone:06",
+        "fixture:smartphone:07",
+        "fixture:smartphone:08",
+        "fixture:smartphone:09",
+        "fixture:smartphone:10",
+        "fixture:smartphone:11",
+        "fixture:smartphone:12",
+        "fixture:smartphone:13",
+        "fixture:smartphone:14",
+        "fixture:smartphone:15",
+        "fixture:smartphone:16",
+        "fixture:smartphone:17",
+        "fixture:smartphone:18",
+        "fixture:smartphone:19",
+        "fixture:smartphone:20",
+        "fixture:smartphone:21",
+        "fixture:smartphone:22",
+        "fixture:smartphone:23",
+        "fixture:smartphone:24",
+        "fixture:smartphone:25",
+        "fixture:smartphone:26",
+        "fixture:smartphone:27",
+        "fixture:smartphone:28",
+        "fixture:smartphone:29",
+        "fixture:smartphone:30",
+        "fixture:smartphone:31",
+        "fixture:smartphone:32",
+        "fixture:smartphone:33",
+        "fixture:smartphone:34"
+      ],
+      "activeAnswers": [],
+      "answerHistoryDisposition": [],
+      "evaluations": [
+        {
+          "projectionId": "smartphone.charging-80w",
+          "questionId": "shadow.smartphone.charging-80w",
+          "eligible": true,
+          "suppressionReasons": [],
+          "knownPartitions": {
+            "WIRED_80W_PLUS": [
+              "fixture:smartphone:01",
+              "fixture:smartphone:02",
+              "fixture:smartphone:03",
+              "fixture:smartphone:04",
+              "fixture:smartphone:05",
+              "fixture:smartphone:06",
+              "fixture:smartphone:07",
+              "fixture:smartphone:08"
+            ],
+            "WIRED_UNDER_80W": [
+              "fixture:smartphone:09",
+              "fixture:smartphone:10",
+              "fixture:smartphone:11",
+              "fixture:smartphone:12",
+              "fixture:smartphone:13",
+              "fixture:smartphone:14",
+              "fixture:smartphone:15",
+              "fixture:smartphone:16",
+              "fixture:smartphone:17",
+              "fixture:smartphone:18",
+              "fixture:smartphone:19",
+              "fixture:smartphone:20",
+              "fixture:smartphone:21",
+              "fixture:smartphone:22",
+              "fixture:smartphone:23",
+              "fixture:smartphone:24",
+              "fixture:smartphone:25",
+              "fixture:smartphone:26",
+              "fixture:smartphone:27",
+              "fixture:smartphone:28",
+              "fixture:smartphone:29",
+              "fixture:smartphone:30"
+            ]
+          },
+          "knownCandidateCount": 30,
+          "unknownCandidateCount": 4,
+          "expectedKnownReduction": 0.733333,
+          "decisionChangeProbability": 0.647059,
+          "evidenceReliability": 0.9,
+          "answerability": 1,
+          "contextualRelevance": 1,
+          "novelty": 1,
+          "unknownPenalty": 0.117647,
+          "fatiguePenalty": 0,
+          "score": 8.705882,
+          "participatingEvidenceRefs": [
+            "fixture-source:smartphone.charging-80w"
+          ]
+        },
+        {
+          "projectionId": "smartphone.support-duration",
+          "questionId": "shadow.smartphone.support-duration",
+          "eligible": false,
+          "suppressionReasons": [
+            "SUPPRESSED_PREDOMINANTLY_DURATION_UNKNOWN"
+          ],
+          "knownPartitions": {
+            "BELOW_SEVEN_YEARS": [
+              "fixture:smartphone:09",
+              "fixture:smartphone:10",
+              "fixture:smartphone:11",
+              "fixture:smartphone:12",
+              "fixture:smartphone:13",
+              "fixture:smartphone:14",
+              "fixture:smartphone:15",
+              "fixture:smartphone:16"
+            ],
+            "SEVEN_YEARS": [
+              "fixture:smartphone:01",
+              "fixture:smartphone:02",
+              "fixture:smartphone:03",
+              "fixture:smartphone:04",
+              "fixture:smartphone:05",
+              "fixture:smartphone:06",
+              "fixture:smartphone:07",
+              "fixture:smartphone:08"
+            ]
+          },
+          "knownCandidateCount": 16,
+          "unknownCandidateCount": 18,
+          "expectedKnownReduction": 0.5,
+          "decisionChangeProbability": 0.235294,
+          "evidenceReliability": 0.9,
+          "answerability": 1,
+          "contextualRelevance": 1,
+          "novelty": 1,
+          "unknownPenalty": 0.529412,
+          "fatiguePenalty": 0,
+          "score": 5.947059,
+          "participatingEvidenceRefs": [
+            "fixture-source:smartphone.support-duration"
+          ]
+        },
+        {
+          "projectionId": "smartphone.telephoto",
+          "questionId": "shadow.smartphone.telephoto",
+          "eligible": true,
+          "suppressionReasons": [],
+          "knownPartitions": {
+            "NO_TELEPHOTO": [
+              "fixture:smartphone:11",
+              "fixture:smartphone:12",
+              "fixture:smartphone:13",
+              "fixture:smartphone:14",
+              "fixture:smartphone:15",
+              "fixture:smartphone:16",
+              "fixture:smartphone:17",
+              "fixture:smartphone:18",
+              "fixture:smartphone:19",
+              "fixture:smartphone:20",
+              "fixture:smartphone:21",
+              "fixture:smartphone:22",
+              "fixture:smartphone:23",
+              "fixture:smartphone:24",
+              "fixture:smartphone:25",
+              "fixture:smartphone:26",
+              "fixture:smartphone:27",
+              "fixture:smartphone:28"
+            ],
+            "TELEPHOTO": [
+              "fixture:smartphone:01",
+              "fixture:smartphone:02",
+              "fixture:smartphone:03",
+              "fixture:smartphone:04",
+              "fixture:smartphone:05",
+              "fixture:smartphone:06",
+              "fixture:smartphone:07",
+              "fixture:smartphone:08",
+              "fixture:smartphone:09",
+              "fixture:smartphone:10"
+            ]
+          },
+          "knownCandidateCount": 28,
+          "unknownCandidateCount": 6,
+          "expectedKnownReduction": 0.642857,
+          "decisionChangeProbability": 0.529412,
+          "evidenceReliability": 0.9,
+          "answerability": 1,
+          "contextualRelevance": 1,
+          "novelty": 1,
+          "unknownPenalty": 0.176471,
+          "fatiguePenalty": 0,
+          "score": 7.963866,
+          "participatingEvidenceRefs": [
+            "fixture-source:smartphone.telephoto"
+          ]
+        },
+        {
+          "projectionId": "smartphone.tr-5g",
+          "questionId": "shadow.smartphone.tr-5g",
+          "eligible": true,
+          "suppressionReasons": [],
+          "knownPartitions": {
+            "4G_ONLY": [
+              "fixture:smartphone:23",
+              "fixture:smartphone:24",
+              "fixture:smartphone:25",
+              "fixture:smartphone:26"
+            ],
+            "5G": [
+              "fixture:smartphone:01",
+              "fixture:smartphone:02",
+              "fixture:smartphone:03",
+              "fixture:smartphone:04",
+              "fixture:smartphone:05",
+              "fixture:smartphone:06",
+              "fixture:smartphone:07",
+              "fixture:smartphone:08",
+              "fixture:smartphone:09",
+              "fixture:smartphone:10",
+              "fixture:smartphone:11",
+              "fixture:smartphone:12",
+              "fixture:smartphone:13",
+              "fixture:smartphone:14",
+              "fixture:smartphone:15",
+              "fixture:smartphone:16",
+              "fixture:smartphone:17",
+              "fixture:smartphone:18",
+              "fixture:smartphone:19",
+              "fixture:smartphone:20",
+              "fixture:smartphone:21",
+              "fixture:smartphone:22"
+            ]
+          },
+          "knownCandidateCount": 26,
+          "unknownCandidateCount": 8,
+          "expectedKnownReduction": 0.153846,
+          "decisionChangeProbability": 0.117647,
+          "evidenceReliability": 0.9,
+          "answerability": 1,
+          "contextualRelevance": 1,
+          "novelty": 1,
+          "unknownPenalty": 0.235294,
+          "fatiguePenalty": 0,
+          "score": 5.143891,
+          "participatingEvidenceRefs": [
+            "fixture-source:smartphone.tr-5g"
+          ]
+        }
+      ],
+      "selectedQuestionId": "shadow.smartphone.charging-80w",
+      "maxQuestions": 1
+    },
+    "traceFingerprint": "sha256:4edd8e3a6308ab92cf4d3cead82f556399a5323260b97f1a946e1b44f63d0f5d"
+  },
+  "representative": [
+    {
+      "categoryId": "LAPTOP",
+      "classification": "SYNTHETIC_CONTRACT_FIXTURE",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "fixture.LAPTOP.material",
+          "publicTurkishQuestion": "Her gün çantada taşıyacağınız için ağırlığın en fazla 1,5 kg olması zorunlu mu?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, zorunlu",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, zorunlu değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "fixture.LAPTOP.need:context-confirmed",
+              "description": "Her gün çantada taşıma",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "fixture:laptop:a",
+                "effect": "knownRetain",
+                "uncertainty": "KNOWN",
+                "partition": "LTE_1_5_KG",
+                "evidenceRefs": [
+                  "fixture-source:representative.LAPTOP.good"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:laptop:b",
+                "effect": "knownExclude",
+                "uncertainty": "KNOWN",
+                "partition": "GT_1_5_KG",
+                "evidenceRefs": [
+                  "fixture-source:representative.LAPTOP.good"
+                ],
+                "exactKnownMismatch": true
+              },
+              {
+                "exactOfferingId": "fixture:laptop:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "fixture:laptop:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "LTE_1_5_KG",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:laptop:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GT_1_5_KG",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:laptop:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "fixture:laptop:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "LTE_1_5_KG",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:laptop:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GT_1_5_KG",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:laptop:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "HARD_FILTER"
+        },
+        "selectedProjectionId": "representative.LAPTOP.good",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "fixture:laptop:a",
+            "fixture:laptop:b",
+            "fixture:laptop:c"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "representative.LAPTOP.bad",
+              "questionId": "fixture.LAPTOP.generic",
+              "eligible": false,
+              "suppressionReasons": [
+                "UNSUPPORTED_QUESTION",
+                "ZERO_CANDIDATE_EFFECT"
+              ],
+              "knownPartitions": {
+                "GT_1_5_KG": [
+                  "fixture:laptop:b"
+                ],
+                "LTE_1_5_KG": [
+                  "fixture:laptop:a"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0,
+              "decisionChangeProbability": 0,
+              "evidenceReliability": 0,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 2.333333,
+              "participatingEvidenceRefs": []
+            },
+            {
+              "projectionId": "representative.LAPTOP.good",
+              "questionId": "fixture.LAPTOP.material",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "GT_1_5_KG": [
+                  "fixture:laptop:b"
+                ],
+                "LTE_1_5_KG": [
+                  "fixture:laptop:a"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0.5,
+              "decisionChangeProbability": 0.333333,
+              "evidenceReliability": 0.9,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 6.633333,
+              "participatingEvidenceRefs": [
+                "fixture-source:representative.LAPTOP.good"
+              ]
+            }
+          ],
+          "selectedQuestionId": "fixture.LAPTOP.material",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:4d6558b8c11cddeb20000f5aee53b3ebfd6ba22b4c7dcb22cdea1e2ab40f4a31"
+      }
+    },
+    {
+      "categoryId": "HEADPHONES",
+      "classification": "SYNTHETIC_CONTRACT_FIXTURE",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "fixture.HEADPHONES.material",
+          "publicTurkishQuestion": "Düzenli uçuşlarda aktif gürültü engelleme sizin için zorunlu mu?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, zorunlu",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, zorunlu değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "fixture.HEADPHONES.need:context-confirmed",
+              "description": "Düzenli uçuşta motor gürültüsü",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "fixture:headphones:a",
+                "effect": "knownRetain",
+                "uncertainty": "KNOWN",
+                "partition": "ANC_PRESENT",
+                "evidenceRefs": [
+                  "fixture-source:representative.HEADPHONES.good"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:headphones:b",
+                "effect": "knownExclude",
+                "uncertainty": "KNOWN",
+                "partition": "ANC_ABSENT",
+                "evidenceRefs": [
+                  "fixture-source:representative.HEADPHONES.good"
+                ],
+                "exactKnownMismatch": true
+              },
+              {
+                "exactOfferingId": "fixture:headphones:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "fixture:headphones:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "ANC_PRESENT",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:headphones:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "ANC_ABSENT",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:headphones:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "fixture:headphones:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "ANC_PRESENT",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:headphones:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "ANC_ABSENT",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:headphones:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "HARD_FILTER"
+        },
+        "selectedProjectionId": "representative.HEADPHONES.good",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "fixture:headphones:a",
+            "fixture:headphones:b",
+            "fixture:headphones:c"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "representative.HEADPHONES.bad",
+              "questionId": "fixture.HEADPHONES.generic",
+              "eligible": false,
+              "suppressionReasons": [
+                "UNSUPPORTED_QUESTION",
+                "ZERO_CANDIDATE_EFFECT"
+              ],
+              "knownPartitions": {
+                "ANC_ABSENT": [
+                  "fixture:headphones:b"
+                ],
+                "ANC_PRESENT": [
+                  "fixture:headphones:a"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0,
+              "decisionChangeProbability": 0,
+              "evidenceReliability": 0,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 2.333333,
+              "participatingEvidenceRefs": []
+            },
+            {
+              "projectionId": "representative.HEADPHONES.good",
+              "questionId": "fixture.HEADPHONES.material",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "ANC_ABSENT": [
+                  "fixture:headphones:b"
+                ],
+                "ANC_PRESENT": [
+                  "fixture:headphones:a"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0.5,
+              "decisionChangeProbability": 0.333333,
+              "evidenceReliability": 0.9,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 6.633333,
+              "participatingEvidenceRefs": [
+                "fixture-source:representative.HEADPHONES.good"
+              ]
+            }
+          ],
+          "selectedQuestionId": "fixture.HEADPHONES.material",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:c8320a973d3a1d9258b36604f06edc0659c02c092266b097b264cc1e9991b403"
+      }
+    },
+    {
+      "categoryId": "REFRIGERATOR",
+      "classification": "SYNTHETIC_CONTRACT_FIXTURE",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "fixture.REFRIGERATOR.material",
+          "publicTurkishQuestion": "Kurulum boşluğu 70 cm’den dar olduğu için gövde genişliği en fazla 70 cm olmalı mı?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, zorunlu",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, zorunlu değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "fixture.REFRIGERATOR.need:context-confirmed",
+              "description": "Doğrulanmış kurulum boşluğu",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "fixture:refrigerator:a",
+                "effect": "knownRetain",
+                "uncertainty": "KNOWN",
+                "partition": "LTE_70_CM",
+                "evidenceRefs": [
+                  "fixture-source:representative.REFRIGERATOR.good"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:refrigerator:b",
+                "effect": "knownExclude",
+                "uncertainty": "KNOWN",
+                "partition": "GT_70_CM",
+                "evidenceRefs": [
+                  "fixture-source:representative.REFRIGERATOR.good"
+                ],
+                "exactKnownMismatch": true
+              },
+              {
+                "exactOfferingId": "fixture:refrigerator:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "fixture:refrigerator:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "LTE_70_CM",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:refrigerator:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GT_70_CM",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:refrigerator:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "fixture:refrigerator:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "LTE_70_CM",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:refrigerator:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GT_70_CM",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:refrigerator:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "HARD_FILTER"
+        },
+        "selectedProjectionId": "representative.REFRIGERATOR.good",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "fixture:refrigerator:a",
+            "fixture:refrigerator:b",
+            "fixture:refrigerator:c"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "representative.REFRIGERATOR.bad",
+              "questionId": "fixture.REFRIGERATOR.generic",
+              "eligible": false,
+              "suppressionReasons": [
+                "UNSUPPORTED_QUESTION",
+                "ZERO_CANDIDATE_EFFECT"
+              ],
+              "knownPartitions": {
+                "GT_70_CM": [
+                  "fixture:refrigerator:b"
+                ],
+                "LTE_70_CM": [
+                  "fixture:refrigerator:a"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0,
+              "decisionChangeProbability": 0,
+              "evidenceReliability": 0,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 2.333333,
+              "participatingEvidenceRefs": []
+            },
+            {
+              "projectionId": "representative.REFRIGERATOR.good",
+              "questionId": "fixture.REFRIGERATOR.material",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "GT_70_CM": [
+                  "fixture:refrigerator:b"
+                ],
+                "LTE_70_CM": [
+                  "fixture:refrigerator:a"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0.5,
+              "decisionChangeProbability": 0.333333,
+              "evidenceReliability": 0.9,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 6.633333,
+              "participatingEvidenceRefs": [
+                "fixture-source:representative.REFRIGERATOR.good"
+              ]
+            }
+          ],
+          "selectedQuestionId": "fixture.REFRIGERATOR.material",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:77580c123eddce18bf60029756b2235f827f7d6da41d9732767f875e572cc4db"
+      }
+    },
+    {
+      "categoryId": "ESPRESSO_MACHINE",
+      "classification": "SYNTHETIC_CONTRACT_FIXTURE",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "fixture.ESPRESSO_MACHINE.material",
+          "publicTurkishQuestion": "Ayrı öğütücü kullanmak istemediğiniz için dahili öğütücü zorunlu mu?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, zorunlu",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, zorunlu değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "fixture.ESPRESSO_MACHINE.need:context-confirmed",
+              "description": "Ayrı öğütücü kullanmama",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "fixture:espresso_machine:a",
+                "effect": "knownRetain",
+                "uncertainty": "KNOWN",
+                "partition": "GRINDER_PRESENT",
+                "evidenceRefs": [
+                  "fixture-source:representative.ESPRESSO_MACHINE.good"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:espresso_machine:b",
+                "effect": "knownExclude",
+                "uncertainty": "KNOWN",
+                "partition": "GRINDER_ABSENT",
+                "evidenceRefs": [
+                  "fixture-source:representative.ESPRESSO_MACHINE.good"
+                ],
+                "exactKnownMismatch": true
+              },
+              {
+                "exactOfferingId": "fixture:espresso_machine:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "fixture:espresso_machine:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GRINDER_PRESENT",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:espresso_machine:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GRINDER_ABSENT",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:espresso_machine:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "fixture:espresso_machine:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GRINDER_PRESENT",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:espresso_machine:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GRINDER_ABSENT",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:espresso_machine:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "HARD_FILTER"
+        },
+        "selectedProjectionId": "representative.ESPRESSO_MACHINE.good",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "fixture:espresso_machine:a",
+            "fixture:espresso_machine:b",
+            "fixture:espresso_machine:c"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "representative.ESPRESSO_MACHINE.bad",
+              "questionId": "fixture.ESPRESSO_MACHINE.generic",
+              "eligible": false,
+              "suppressionReasons": [
+                "UNSUPPORTED_QUESTION",
+                "ZERO_CANDIDATE_EFFECT"
+              ],
+              "knownPartitions": {
+                "GRINDER_ABSENT": [
+                  "fixture:espresso_machine:b"
+                ],
+                "GRINDER_PRESENT": [
+                  "fixture:espresso_machine:a"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0,
+              "decisionChangeProbability": 0,
+              "evidenceReliability": 0,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 2.333333,
+              "participatingEvidenceRefs": []
+            },
+            {
+              "projectionId": "representative.ESPRESSO_MACHINE.good",
+              "questionId": "fixture.ESPRESSO_MACHINE.material",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "GRINDER_ABSENT": [
+                  "fixture:espresso_machine:b"
+                ],
+                "GRINDER_PRESENT": [
+                  "fixture:espresso_machine:a"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0.5,
+              "decisionChangeProbability": 0.333333,
+              "evidenceReliability": 0.9,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 6.633333,
+              "participatingEvidenceRefs": [
+                "fixture-source:representative.ESPRESSO_MACHINE.good"
+              ]
+            }
+          ],
+          "selectedQuestionId": "fixture.ESPRESSO_MACHINE.material",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:1371aa95709e20b2f92c609382d9c941d18e2702a24355a5885cc07042563790"
+      }
+    },
+    {
+      "categoryId": "STROLLER",
+      "classification": "SYNTHETIC_CONTRACT_FIXTURE",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "fixture.STROLLER.material",
+          "publicTurkishQuestion": "Puseti merdivende taşıyacağınız için 8 kg veya daha hafif olması zorunlu mu?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, zorunlu",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, zorunlu değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "fixture.STROLLER.need:context-confirmed",
+              "description": "Merdivende elle taşıma",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "fixture:stroller:a",
+                "effect": "knownRetain",
+                "uncertainty": "KNOWN",
+                "partition": "LTE_8_KG",
+                "evidenceRefs": [
+                  "fixture-source:representative.STROLLER.good"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:stroller:b",
+                "effect": "knownExclude",
+                "uncertainty": "KNOWN",
+                "partition": "GT_8_KG",
+                "evidenceRefs": [
+                  "fixture-source:representative.STROLLER.good"
+                ],
+                "exactKnownMismatch": true
+              },
+              {
+                "exactOfferingId": "fixture:stroller:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "fixture:stroller:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "LTE_8_KG",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:stroller:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GT_8_KG",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:stroller:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "fixture:stroller:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "LTE_8_KG",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:stroller:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GT_8_KG",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:stroller:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "HARD_FILTER"
+        },
+        "selectedProjectionId": "representative.STROLLER.good",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "fixture:stroller:a",
+            "fixture:stroller:b",
+            "fixture:stroller:c"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "representative.STROLLER.bad",
+              "questionId": "fixture.STROLLER.generic",
+              "eligible": false,
+              "suppressionReasons": [
+                "UNSUPPORTED_QUESTION",
+                "ZERO_CANDIDATE_EFFECT"
+              ],
+              "knownPartitions": {
+                "GT_8_KG": [
+                  "fixture:stroller:b"
+                ],
+                "LTE_8_KG": [
+                  "fixture:stroller:a"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0,
+              "decisionChangeProbability": 0,
+              "evidenceReliability": 0,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 2.333333,
+              "participatingEvidenceRefs": []
+            },
+            {
+              "projectionId": "representative.STROLLER.good",
+              "questionId": "fixture.STROLLER.material",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "GT_8_KG": [
+                  "fixture:stroller:b"
+                ],
+                "LTE_8_KG": [
+                  "fixture:stroller:a"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0.5,
+              "decisionChangeProbability": 0.333333,
+              "evidenceReliability": 0.9,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 6.633333,
+              "participatingEvidenceRefs": [
+                "fixture-source:representative.STROLLER.good"
+              ]
+            }
+          ],
+          "selectedQuestionId": "fixture.STROLLER.material",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:af847a919f9c9b7345af7fb4ea01c517d2112f19c498cf7a5fff356574deab76"
+      }
+    },
+    {
+      "categoryId": "ELECTRIC_SCOOTER",
+      "classification": "SYNTHETIC_CONTRACT_FIXTURE",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "fixture.ELECTRIC_SCOOTER.material",
+          "publicTurkishQuestion": "Günlük rotanız 25 km olduğu için kanıtlı menzilin en az 30 km olması zorunlu mu?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, zorunlu",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, zorunlu değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "fixture.ELECTRIC_SCOOTER.need:context-confirmed",
+              "description": "25 km günlük rota ve güvenlik payı",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "fixture:electric_scooter:a",
+                "effect": "knownRetain",
+                "uncertainty": "KNOWN",
+                "partition": "GTE_30_KM",
+                "evidenceRefs": [
+                  "fixture-source:representative.ELECTRIC_SCOOTER.good"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:electric_scooter:b",
+                "effect": "knownExclude",
+                "uncertainty": "KNOWN",
+                "partition": "LT_30_KM",
+                "evidenceRefs": [
+                  "fixture-source:representative.ELECTRIC_SCOOTER.good"
+                ],
+                "exactKnownMismatch": true
+              },
+              {
+                "exactOfferingId": "fixture:electric_scooter:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "fixture:electric_scooter:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GTE_30_KM",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:electric_scooter:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "LT_30_KM",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:electric_scooter:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "fixture:electric_scooter:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GTE_30_KM",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:electric_scooter:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "LT_30_KM",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:electric_scooter:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "HARD_FILTER"
+        },
+        "selectedProjectionId": "representative.ELECTRIC_SCOOTER.good",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "fixture:electric_scooter:a",
+            "fixture:electric_scooter:b",
+            "fixture:electric_scooter:c"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "representative.ELECTRIC_SCOOTER.bad",
+              "questionId": "fixture.ELECTRIC_SCOOTER.generic",
+              "eligible": false,
+              "suppressionReasons": [
+                "UNSUPPORTED_QUESTION",
+                "ZERO_CANDIDATE_EFFECT"
+              ],
+              "knownPartitions": {
+                "GTE_30_KM": [
+                  "fixture:electric_scooter:a"
+                ],
+                "LT_30_KM": [
+                  "fixture:electric_scooter:b"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0,
+              "decisionChangeProbability": 0,
+              "evidenceReliability": 0,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 2.333333,
+              "participatingEvidenceRefs": []
+            },
+            {
+              "projectionId": "representative.ELECTRIC_SCOOTER.good",
+              "questionId": "fixture.ELECTRIC_SCOOTER.material",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "GTE_30_KM": [
+                  "fixture:electric_scooter:a"
+                ],
+                "LT_30_KM": [
+                  "fixture:electric_scooter:b"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0.5,
+              "decisionChangeProbability": 0.333333,
+              "evidenceReliability": 0.9,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 6.633333,
+              "participatingEvidenceRefs": [
+                "fixture-source:representative.ELECTRIC_SCOOTER.good"
+              ]
+            }
+          ],
+          "selectedQuestionId": "fixture.ELECTRIC_SCOOTER.material",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:0a6d9fe74946637016530a6d2f318a4f1cac93064a53daf885c4b81629be0a2d"
+      }
+    },
+    {
+      "categoryId": "CORDLESS_DRILL",
+      "classification": "SYNTHETIC_CONTRACT_FIXTURE",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "fixture.CORDLESS_DRILL.material",
+          "publicTurkishQuestion": "Beton delmek için darbeli delme modu zorunlu mu?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, zorunlu",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, zorunlu değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "fixture.CORDLESS_DRILL.need:context-confirmed",
+              "description": "Beton duvar delme",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "fixture:cordless_drill:a",
+                "effect": "knownRetain",
+                "uncertainty": "KNOWN",
+                "partition": "HAMMER_PRESENT",
+                "evidenceRefs": [
+                  "fixture-source:representative.CORDLESS_DRILL.good"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:cordless_drill:b",
+                "effect": "knownExclude",
+                "uncertainty": "KNOWN",
+                "partition": "HAMMER_ABSENT",
+                "evidenceRefs": [
+                  "fixture-source:representative.CORDLESS_DRILL.good"
+                ],
+                "exactKnownMismatch": true
+              },
+              {
+                "exactOfferingId": "fixture:cordless_drill:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "fixture:cordless_drill:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "HAMMER_PRESENT",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:cordless_drill:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "HAMMER_ABSENT",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:cordless_drill:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "fixture:cordless_drill:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "HAMMER_PRESENT",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:cordless_drill:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "HAMMER_ABSENT",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:cordless_drill:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "HARD_FILTER"
+        },
+        "selectedProjectionId": "representative.CORDLESS_DRILL.good",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "fixture:cordless_drill:a",
+            "fixture:cordless_drill:b",
+            "fixture:cordless_drill:c"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "representative.CORDLESS_DRILL.bad",
+              "questionId": "fixture.CORDLESS_DRILL.generic",
+              "eligible": false,
+              "suppressionReasons": [
+                "UNSUPPORTED_QUESTION",
+                "ZERO_CANDIDATE_EFFECT"
+              ],
+              "knownPartitions": {
+                "HAMMER_ABSENT": [
+                  "fixture:cordless_drill:b"
+                ],
+                "HAMMER_PRESENT": [
+                  "fixture:cordless_drill:a"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0,
+              "decisionChangeProbability": 0,
+              "evidenceReliability": 0,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 2.333333,
+              "participatingEvidenceRefs": []
+            },
+            {
+              "projectionId": "representative.CORDLESS_DRILL.good",
+              "questionId": "fixture.CORDLESS_DRILL.material",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "HAMMER_ABSENT": [
+                  "fixture:cordless_drill:b"
+                ],
+                "HAMMER_PRESENT": [
+                  "fixture:cordless_drill:a"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0.5,
+              "decisionChangeProbability": 0.333333,
+              "evidenceReliability": 0.9,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 6.633333,
+              "participatingEvidenceRefs": [
+                "fixture-source:representative.CORDLESS_DRILL.good"
+              ]
+            }
+          ],
+          "selectedQuestionId": "fixture.CORDLESS_DRILL.material",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:2fb10eac8aa194eea0ec34b58affc31569108e21bba773219dcf1680d96609b5"
+      }
+    },
+    {
+      "categoryId": "CARS",
+      "classification": "SYNTHETIC_CONTRACT_FIXTURE",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "fixture.CARS.material",
+          "publicTurkishQuestion": "Düzenli altı yolcu taşıyacağınız için sürücü dahil en az 7 koltuk zorunlu mu?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, zorunlu",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, zorunlu değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "fixture.CARS.need:context-confirmed",
+              "description": "Düzenli altı yolcu ve sürücü taşıma",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "fixture:cars:a",
+                "effect": "knownRetain",
+                "uncertainty": "KNOWN",
+                "partition": "GTE_7_SEATS",
+                "evidenceRefs": [
+                  "fixture-source:representative.CARS.good"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:cars:b",
+                "effect": "knownExclude",
+                "uncertainty": "KNOWN",
+                "partition": "LT_7_SEATS",
+                "evidenceRefs": [
+                  "fixture-source:representative.CARS.good"
+                ],
+                "exactKnownMismatch": true
+              },
+              {
+                "exactOfferingId": "fixture:cars:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "fixture:cars:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GTE_7_SEATS",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:cars:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "LT_7_SEATS",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:cars:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "fixture:cars:a",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "GTE_7_SEATS",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:cars:b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "LT_7_SEATS",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "fixture:cars:c",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "HARD_FILTER"
+        },
+        "selectedProjectionId": "representative.CARS.good",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "fixture:cars:a",
+            "fixture:cars:b",
+            "fixture:cars:c"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "representative.CARS.bad",
+              "questionId": "fixture.CARS.generic",
+              "eligible": false,
+              "suppressionReasons": [
+                "UNSUPPORTED_QUESTION",
+                "ZERO_CANDIDATE_EFFECT"
+              ],
+              "knownPartitions": {
+                "GTE_7_SEATS": [
+                  "fixture:cars:a"
+                ],
+                "LT_7_SEATS": [
+                  "fixture:cars:b"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0,
+              "decisionChangeProbability": 0,
+              "evidenceReliability": 0,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 2.333333,
+              "participatingEvidenceRefs": []
+            },
+            {
+              "projectionId": "representative.CARS.good",
+              "questionId": "fixture.CARS.material",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "GTE_7_SEATS": [
+                  "fixture:cars:a"
+                ],
+                "LT_7_SEATS": [
+                  "fixture:cars:b"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0.5,
+              "decisionChangeProbability": 0.333333,
+              "evidenceReliability": 0.9,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 6.633333,
+              "participatingEvidenceRefs": [
+                "fixture-source:representative.CARS.good"
+              ]
+            }
+          ],
+          "selectedQuestionId": "fixture.CARS.material",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:35e44053787acf2577647b301ff9250c9914710c547ec791b132d771fed0de38"
+      }
+    }
+  ]
+}

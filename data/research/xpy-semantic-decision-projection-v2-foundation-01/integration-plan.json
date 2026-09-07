@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "semantic-decision-projection-integration-plan/v2",
+  "mode": "NO_INTEGRATION_EXECUTED",
+  "boundaries": [
+    {
+      "consumer": "Cars",
+      "seam": "post-candidate-evaluation/pre-question-selection trace adapter",
+      "behaviorChange": "NONE"
+    },
+    {
+      "consumer": "Washing Machine",
+      "seam": "post-evaluation/planner observation before sufficiency",
+      "behaviorChange": "NONE"
+    },
+    {
+      "consumer": "Electronics",
+      "seam": "policy questionPlan plus exact facts mirrored into shadow",
+      "behaviorChange": "NONE"
+    },
+    {
+      "consumer": "Catalog Factory exact-14",
+      "seam": "map EffectiveCatalogProduct exact identities into projections only after executable P evidence exists",
+      "behaviorChange": "NONE"
+    }
+  ],
+  "concurrentBranches": [
+    {
+      "ref": "origin/codex/exact14-unified-runtime-preview",
+      "commit": "bc812eea26780b8c559d3209a5dc8055a932ea55",
+      "action": "DO_NOT_CHERRY_PICK_OR_OVERWRITE"
+    },
+    {
+      "ref": "codex/xpy-root-stage1-ux-revision-01",
+      "commit": "bc86ee5d37540e94236303bb8a0704f46509fd52",
+      "action": "DO_NOT_CHERRY_PICK_OR_OVERWRITE"
+    }
+  ],
+  "expectedFileOverlap": [],
+  "nextBoundedPilot": "Materialize SemanticDecisionProjection/v2 for one exact-14 category with at least two exact known partitions, keep UNKNOWN neutral, run the shadow adapter for a bounded replay corpus, and seek owner approval only after INFORMATION_READY and P_READY pass independently."
+}

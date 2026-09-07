@@ -1,0 +1,237 @@
+{
+  "schemaVersion": "CatalogFactoryReadiness/v2",
+  "subjectId": "CATALOG-FACTORY-WAVE-02-EXACT-14-SUPERSESSION-01",
+  "evaluationScope": "PRODUCTION_EXACT_CATALOG",
+  "evaluatedGates": [
+    {
+      "gateId": "identity-exact",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "origin/codex/exact14-unified-runtime-preview:features/catalog-factory/runtime/effectiveCatalog.server.ts"
+      ],
+      "reason": "Exact-14 identity supersession is bound by the source branch release chain.",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "INFORMATION_READY",
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "primary-evidence-applicability",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "origin/codex/exact14-unified-runtime-preview@bc812eea26780b8c559d3209a5dc8055a932ea55"
+      ],
+      "reason": "Exact-14 information view requires exact TR facts and rejects superseded identity authority.",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "INFORMATION_READY",
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "decision-field-coverage",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "CATALOG-FACTORY-WAVE-02-EXACT-14-SUPERSESSION-01"
+      ],
+      "reason": "Information fields are materialized; this does not establish P or Y readiness.",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "INFORMATION_READY",
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "semantic-causal-lineage",
+      "status": "FAIL",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [],
+      "reason": "No exact-14 Technical Fact → Daily-Life Consequence → User Need → Material Question → Candidate Effect → Honest Outcome chain is materialized in this checkout.",
+      "effectiveStatus": "FAIL",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "exact-projection-materialization",
+      "status": "FAIL",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [],
+      "reason": "The exact-14 source consumer explicitly reports P_READY false and an empty candidateEffectByAnswer.",
+      "effectiveStatus": "FAIL",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "candidate-effect-completeness",
+      "status": "FAIL",
+      "evidenceKind": "EXECUTABLE_TEST",
+      "evidenceRefs": [
+        "origin/codex/exact14-unified-runtime-preview:features/catalog-factory/runtime/effectiveCatalog.test.ts"
+      ],
+      "reason": "No two-known-partition candidate effect matrix exists for exact-14.",
+      "effectiveStatus": "FAIL",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "P-zero-effect-suppression",
+      "status": "PASS",
+      "evidenceKind": "EXECUTABLE_TEST",
+      "evidenceRefs": [
+        "features/semantic-decision-projection/v2/materialityExecutor.test.ts"
+      ],
+      "reason": "Foundation executor suppresses questions with no candidate membership effect.",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "unknown-conflict-neutrality",
+      "status": "PASS",
+      "evidenceKind": "EXECUTABLE_TEST",
+      "evidenceRefs": [
+        "features/semantic-decision-projection/v2/foundation.test.ts"
+      ],
+      "reason": "UNKNOWN and CONFLICTED never become false, exclusion, advantage, or winner.",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "no-false-single-winner",
+      "status": "PASS",
+      "evidenceKind": "EXECUTABLE_TEST",
+      "evidenceRefs": [
+        "features/semantic-decision-projection/v2/foundation.test.ts"
+      ],
+      "reason": "Simulation and no-effect adapter expose winner only as null.",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "price-commerce-isolation",
+      "status": "PASS",
+      "evidenceKind": "EXECUTABLE_TEST",
+      "evidenceRefs": [
+        "features/semantic-decision-projection/v2/foundation.test.ts"
+      ],
+      "reason": "Price is disabled without explicit fresh exact budget authority and stays outside technical semantics.",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "persona-or-neutral",
+      "status": "PASS",
+      "evidenceKind": "EXECUTABLE_TEST",
+      "evidenceRefs": [
+        "features/semantic-decision-projection/v2/foundation.test.ts"
+      ],
+      "reason": "Persona is capped at 0.75 with no membership, sufficiency, or single-winner effect.",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "public-language",
+      "status": "PASS",
+      "evidenceKind": "EXECUTABLE_TEST",
+      "evidenceRefs": [
+        "features/semantic-decision-projection/v2/fixtures.test.ts"
+      ],
+      "reason": "Representative material questions are public Turkish and contextual.",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "INFORMATION_READY",
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "runtime-fixtures",
+      "status": "PASS",
+      "evidenceKind": "EXECUTABLE_TEST",
+      "evidenceRefs": [
+        "features/semantic-decision-projection/v2/fixtures.test.ts"
+      ],
+      "reason": "Synthetic fixtures cover eight categories plus Smartphone lineage-bound fixtures.",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "P_READY",
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "pointer-manifest-approval-consistency",
+      "status": "PASS",
+      "evidenceKind": "IMMUTABLE_ARTIFACT",
+      "evidenceRefs": [
+        "origin/codex/exact14-unified-runtime-preview@bc812eea26780b8c559d3209a5dc8055a932ea55"
+      ],
+      "reason": "Existing exact-14 catalog pointer chain is read-only and unchanged; no SDP-v2 pointer is proposed.",
+      "effectiveStatus": "PASS",
+      "requiredFor": [
+        "Y_READY"
+      ]
+    },
+    {
+      "gateId": "owner-approval",
+      "status": "PENDING",
+      "evidenceKind": "SIGNED_APPROVAL",
+      "evidenceRefs": [],
+      "reason": "No owner approval exists for exact-14 SemanticDecisionProjection/v2 P or Y participation.",
+      "effectiveStatus": "PENDING",
+      "requiredFor": [
+        "Y_READY"
+      ]
+    }
+  ],
+  "levels": {
+    "INFORMATION_READY": {
+      "ready": true,
+      "blockingGateIds": []
+    },
+    "P_READY": {
+      "ready": false,
+      "blockingGateIds": [
+        "semantic-causal-lineage",
+        "exact-projection-materialization",
+        "candidate-effect-completeness"
+      ]
+    },
+    "Y_READY": {
+      "ready": false,
+      "blockingGateIds": [
+        "semantic-causal-lineage",
+        "exact-projection-materialization",
+        "candidate-effect-completeness",
+        "owner-approval"
+      ]
+    }
+  },
+  "declarativeCapabilityRecordsObserved": 16,
+  "declarativeCapabilityRecordsAcceptedAsExecutableEvidence": false
+}

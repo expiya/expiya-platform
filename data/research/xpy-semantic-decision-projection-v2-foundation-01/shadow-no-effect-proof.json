@@ -1,0 +1,27 @@
+{
+  "mode": "SHADOW_ONLY_NO_EFFECT_ADAPTER",
+  "before": {
+    "membership": "sha256:836346214e4999b47cb7b6a1ea2ecef87cbf995eac95f83b405664e81b7b359b",
+    "order": "sha256:836346214e4999b47cb7b6a1ea2ecef87cbf995eac95f83b405664e81b7b359b",
+    "card": "sha256:9e4851034bdaf0bde1c4717f55d124c67562e562dcda3059a77c10d5efb92040",
+    "authorization": "sha256:f12c6a194d03e18b84d21fec75fa8173add4270001f9fe32a152cfcb762bf425",
+    "activePointer": "sha256:b722e961ec1952f09b555c302231e269db1ced68d286dcff0e1a2520bae4e3cd"
+  },
+  "after": {
+    "membership": "sha256:836346214e4999b47cb7b6a1ea2ecef87cbf995eac95f83b405664e81b7b359b",
+    "order": "sha256:836346214e4999b47cb7b6a1ea2ecef87cbf995eac95f83b405664e81b7b359b",
+    "card": "sha256:9e4851034bdaf0bde1c4717f55d124c67562e562dcda3059a77c10d5efb92040",
+    "authorization": "sha256:f12c6a194d03e18b84d21fec75fa8173add4270001f9fe32a152cfcb762bf425",
+    "activePointer": "sha256:b722e961ec1952f09b555c302231e269db1ced68d286dcff0e1a2520bae4e3cd"
+  },
+  "assertions": {
+    "productionReferencePreserved": true,
+    "membershipUnchanged": true,
+    "orderUnchanged": true,
+    "cardUnchanged": true,
+    "authorizationUnchanged": true,
+    "activePointerUnchanged": true,
+    "databaseUnchanged": true,
+    "uiOrRuntimeBehaviorUnchanged": true
+  }
+}

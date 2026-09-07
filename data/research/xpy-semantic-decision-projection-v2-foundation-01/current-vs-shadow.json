@@ -1,0 +1,78 @@
+{
+  "schemaVersion": "current-vs-shadow/v2",
+  "current": {
+    "execution": "NOT_EXECUTED_EXTERNAL_LINEAGE_GAP",
+    "behaviorCharacterization": [
+      {
+        "runtime": "CARS",
+        "sourceRef": "features/decision/v2/action/questionGeneration.ts",
+        "behavior": "Candidate facts form known value groups; a question is emitted only when at least two groups remain. Unknown values are omitted from groups without becoming false, current candidate IDs remain compatible, and selection uses deterministic utility and semantic-key tie breaking.",
+        "adapterSeam": "Translate generated QuestionCandidate partitions into SemanticDecisionProjection/v2 in shadow after candidate evaluation and before selectMaterialQuestion."
+      },
+      {
+        "runtime": "WASHING_MACHINE",
+        "sourceRef": "codex/appliances-stage2-unified-release-20260906:features/appliances/sufficiency/evaluate.ts",
+        "behavior": "Hard UNKNOWN or NOT_EVALUATED yields UNRESOLVED_HARD_UNCERTAINTY. NO_AUTHORIZED_MATERIAL_QUESTION is neutral planning absence and does not imply sufficiency; multiple candidates remain a non-ranked pool.",
+        "adapterSeam": "Observe candidate partitions and planner output after evaluation; never replace sufficiency precedence."
+      },
+      {
+        "runtime": "ELECTRONICS",
+        "sourceRef": "codex/smartphone-v02-production-lineage:features/electronics/conversation.server.ts",
+        "behavior": "The generic category policy asks questionPlan entries by order and repeat state. IMPORTANT is stored as QUESTION_INPUT; current generic questions do not themselves contain executable candidateEffectByAnswer partitions.",
+        "adapterSeam": "Mirror category questionPlan plus exact catalog facts into the shadow executor; do not activate smartphone candidate flags or rewrite conversation state."
+      }
+    ],
+    "productionMutation": false
+  },
+  "shadow": {
+    "execution": "CONTRACT_FIXTURE_ONLY",
+    "traceFingerprint": "sha256:4edd8e3a6308ab92cf4d3cead82f556399a5323260b97f1a946e1b44f63d0f5d",
+    "selectedQuestionId": "shadow.smartphone.charging-80w",
+    "supportDuration": {
+      "projectionId": "smartphone.support-duration",
+      "questionId": "shadow.smartphone.support-duration",
+      "eligible": false,
+      "suppressionReasons": [
+        "SUPPRESSED_PREDOMINANTLY_DURATION_UNKNOWN"
+      ],
+      "knownPartitions": {
+        "BELOW_SEVEN_YEARS": [
+          "fixture:smartphone:09",
+          "fixture:smartphone:10",
+          "fixture:smartphone:11",
+          "fixture:smartphone:12",
+          "fixture:smartphone:13",
+          "fixture:smartphone:14",
+          "fixture:smartphone:15",
+          "fixture:smartphone:16"
+        ],
+        "SEVEN_YEARS": [
+          "fixture:smartphone:01",
+          "fixture:smartphone:02",
+          "fixture:smartphone:03",
+          "fixture:smartphone:04",
+          "fixture:smartphone:05",
+          "fixture:smartphone:06",
+          "fixture:smartphone:07",
+          "fixture:smartphone:08"
+        ]
+      },
+      "knownCandidateCount": 16,
+      "unknownCandidateCount": 18,
+      "expectedKnownReduction": 0.5,
+      "decisionChangeProbability": 0.235294,
+      "evidenceReliability": 0.9,
+      "answerability": 1,
+      "contextualRelevance": 1,
+      "novelty": 1,
+      "unknownPenalty": 0.529412,
+      "fatiguePenalty": 0,
+      "score": 5.947059,
+      "participatingEvidenceRefs": [
+        "fixture-source:smartphone.support-duration"
+      ]
+    },
+    "outcome": "ASK_ONE_QUESTION"
+  },
+  "comparisonLimit": "No equivalence or rollout claim is made because the current Electronics runtime artifacts are absent from this checkout."
+}

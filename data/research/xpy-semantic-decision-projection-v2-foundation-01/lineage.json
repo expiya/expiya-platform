@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "semantic-decision-projection-lineage/v2",
+  "workUnit": "WU-XPY-SEMANTIC-DECISION-PROJECTION-V2-FOUNDATION-01",
+  "verifiedAt": "2026-09-07T00:00:00.000Z",
+  "sourceCheckout": {
+    "commit": "f460c9f0e9833d278788289a3b00c62d4ddbb3c4",
+    "branchAtStart": "DETACHED_ORIGIN_MAIN",
+    "catalogPointer": "data/production/catalog/active.json",
+    "carsExactRecords": 549,
+    "carsCatalogRelease": "0.55.4"
+  },
+  "rootXpyProduction": {
+    "ref": "codex/xpy-root-stage1-release-integration-01",
+    "commit": "3d8003149f40da244daf0f9aeb53c3d1f90b0aae",
+    "preservation": "READ_ONLY_NO_CHERRY_PICK"
+  },
+  "smartphoneV02": {
+    "ref": "origin/codex/smartphone-v02-production-lineage",
+    "commit": "2ce640b7c6049cd2e8f69a7a7f933e48c4221d7a",
+    "totalElectronics": 121,
+    "smartphones": 34,
+    "runtimeRelease": "ELECTRONICS-RUNTIME-CATALOG-TR-v1.3-SMARTPHONE-V02-RECONCILED-R2",
+    "preservation": "READ_ONLY_NO_CHERRY_PICK"
+  },
+  "appliances": {
+    "ref": "codex/appliances-stage2-unified-release-20260906",
+    "commit": "0b55b023abc9ab03c1cae1e95e09fcc9ecbaccaf",
+    "preservation": "READ_ONLY"
+  },
+  "babyStroller": {
+    "ref": "codex/production-source-baseline-20260906",
+    "commit": "c2ac9150c43ef503f4a7b736f240454115447e4e",
+    "activeRelease": "BABY-STROLLER-TR-v0.2-approval-candidate",
+    "preservation": "READ_ONLY"
+  },
+  "mobility": {
+    "ref": "codex/mobility-stage1-activation-20260906",
+    "commit": "381c4e7e6db109feceb515214bc6bdba26b657df",
+    "preservation": "READ_ONLY"
+  },
+  "tools": {
+    "ref": "origin/codex/cordless-drill-production-integration-01",
+    "commit": "60af35d9521df161ea39cc14d7301893f7886a40",
+    "preservation": "READ_ONLY"
+  },
+  "universalPersona": {
+    "ref": "codex/xpy-universal-persona-authority-01-20260906",
+    "commit": "d03b79d04c5f71108721d63ab5574b5461da47b0",
+    "cap": 0.75,
+    "preservation": "READ_ONLY"
+  },
+  "mitgoMetadata": {
+    "ref": "codex/mitgo-adspace-meta-verification-01",
+    "commit": "f1ce8e61f76345aa10a1422bb511d2d9998dd954",
+    "preservation": "READ_ONLY"
+  },
+  "externalFixtureLineage": {
+    "smartphoneShadowPilot": {
+      "commit": "8b5ee38c5837815ef4ef3e04ba8c435a77579048",
+      "digest": "sha256:489339776731d2498b2ba115822ab9da95fb13d8b696dfc8d92b1512ffe81f16",
+      "checkoutArtifactPresence": "ABSENT_CONTRACT_FIXTURE_ONLY"
+    },
+    "smartphoneSupportClosure": {
+      "commit": "62ea022d528e7c062fecf10c0065e6039ed4efbf",
+      "digest": "sha256:1f112aba506258f45d01b7fd88ac811a98012834f1a95955dd2308314ce15868",
+      "checkoutArtifactPresence": "ABSENT_CONTRACT_FIXTURE_ONLY"
+    }
+  },
+  "lineageGaps": [
+    "Smartphone P-materiality and support-closure artifact directories are absent from the source checkout; only pinned commit/digest contract fixtures are used.",
+    "The preceding daily-life-semantics analysis has no repository artifact or immutable digest in the supplied checkout; its approved causal chain is represented as a contract requirement, not claimed as imported evidence.",
+    "Root XPY, Appliances, Electronics, Baby, Mobility, Tools and Catalog Factory live on separate source refs and are not copied or activated here."
+  ]
+}
