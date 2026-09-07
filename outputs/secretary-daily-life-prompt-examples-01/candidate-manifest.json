@@ -1,0 +1,39 @@
+{
+  "workUnit": "WU-SECRETARY-DAILY-LIFE-PROMPT-EXAMPLES-01",
+  "branch": "codex/secretary-daily-life-prompt-examples-01",
+  "baseCommit": "bc86ee5d37540e94236303bb8a0704f46509fd52",
+  "productionSourceAncestor": "f1ce8e61f76345aa10a1422bb511d2d9998dd954",
+  "candidateSourceCommit": "8e86bb6ba42fcd3d64e4ba10adab34601e22dbe9",
+  "candidateDigest": "sha256:7ecb693938644c36333c514756b47362e5454e8fbdfe1616edb564fd824d706a",
+  "scope": "LOCAL_CANDIDATE_ONLY",
+  "productionPromotionAuthorized": false,
+  "authorityOrLineageChanged": false,
+  "databaseMigrationRequired": false,
+  "activeDepartments": 6,
+  "activeCategories": 54,
+  "examplesPerCategory": 3,
+  "publicExamples": 162,
+  "changedRuntimeFiles": [
+    "components/platform/RootStageOneExperience.tsx",
+    "features/platform/platformDiscovery.ts",
+    "features/platform/secretaryDailyLifeExamples.ts",
+    "features/platform/secretaryRoutingPack.ts"
+  ],
+  "gates": {
+    "releaseTypecheck": "PASS",
+    "focusedTests": "PASS_30_OF_30",
+    "fullTests": "PASS_5710_OF_5710",
+    "candidateLint": "PASS_ZERO_WARNINGS",
+    "fullRepositoryLint": "PASS_ZERO_ERRORS_12_BASELINE_WARNINGS",
+    "diffCheck": "PASS",
+    "productionBuildNode24": "PASS_626_PAGES",
+    "desktop1280NoHorizontalOverflow": "PASS",
+    "mobile390x844NoHorizontalOverflow": "PASS",
+    "focusInputBlur": "PASS_REAL_BROWSER",
+    "connectedPlaceholderHidden": "PASS_REAL_BROWSER",
+    "naturalSentenceRouting": "PASS_162_OF_162"
+  },
+  "pushPerformed": false,
+  "previewPerformed": false,
+  "productionDeploymentPerformed": false
+}
