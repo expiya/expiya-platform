@@ -17,10 +17,10 @@ describe("active Cars stage-one presentation", () => {
     expect(legacy).not.toContain('<main className="min-h-screen');
     expect(legacy).not.toContain('<textarea');
   });
-  it("keeps the Cars analysis entry on the canonical V3.8 alias without claiming the platform root", () => {
+  it("keeps the Cars analysis alias while the platform root uses the unified Stage 1 experience", () => {
     const home = readFileSync("app/page.tsx", "utf8");
     const analysis = readFileSync("app/analysis/page.tsx", "utf8");
-    expect(home).toContain("<UpperSecretary suggestions={SECRETARY_SEARCH_SUGGESTIONS} />");
+    expect(home).toContain("<RootStageOneExperience suggestions={SECRETARY_SEARCH_SUGGESTIONS}");
     expect(home).not.toContain("ROOT_DEPARTMENTS");
     expect(home).not.toContain("href={department.href}");
     expect(home).not.toContain("/analysis?pilot=v3.8&query=");
