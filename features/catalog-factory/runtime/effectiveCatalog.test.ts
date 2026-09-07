@@ -5,7 +5,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { loadEffectiveCatalogFactoryDepartment, loadEffectiveCatalogFactoryView, projectExact14CategoryDecision } from "./effectiveCatalog.server";
 
 const temporary: string[] = [];
-async function fixture() { const root = await mkdtemp(path.join(os.tmpdir(), "exact105-runtime-")); temporary.push(root); for (const folder of ["data/production/catalog-factory", "data/research/xpy-semantic-decision-projection-v2-foundation-01", "outputs/catalog-factory-wave03-immutable-release-repair-01"]) await cp(folder, path.join(root, folder), { recursive: true }); return root; }
+async function fixture() { const root = await mkdtemp(path.join(os.tmpdir(), "exact105-runtime-")); temporary.push(root); for (const folder of ["data/production/catalog-factory", "data/research/xpy-semantic-decision-projection-v2-foundation-01"]) await cp(folder, path.join(root, folder), { recursive: true }); return root; }
 // Test-only corruption helper intentionally accepts arbitrary parsed JSON.
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 async function mutate(root: string, file: string, change: (value: any) => void) { const target = path.join(root, file), value = JSON.parse(await readFile(target, "utf8")); change(value); await writeFile(target, `${JSON.stringify(value)}\n`); }

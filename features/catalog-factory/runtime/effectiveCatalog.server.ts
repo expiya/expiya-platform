@@ -19,8 +19,6 @@ const EXPECTED = Object.freeze({
 });
 const POINTER = "data/production/catalog-factory/active.json";
 const PRIOR_OVERLAY = "data/production/catalog-factory/releases/CATALOG-FACTORY-NEXT-BATCH8-EXACT14-102-ACTIVE-01/catalog-overlay.json";
-const REPAIR_RELEASE = "outputs/catalog-factory-wave03-immutable-release-repair-01/IMMUTABLE_RELEASE.json";
-const REPAIR_PREFLIGHT = "outputs/catalog-factory-wave03-immutable-release-repair-01/PREFLIGHT.json";
 const RECEIPT = "data/production/catalog-factory/governance/activation-events/WU-CATALOG-FACTORY-WAVE03-EXACT3-REPAIRED-ATOMIC-ACTIVATION-01/receipt.json";
 const SDP_ROOT = "data/research/xpy-semantic-decision-projection-v2-foundation-01";
 const SDP_COMMIT = "c29c356e2b15c37bd679f30a8ebd3018f744e4f0";
@@ -55,8 +53,7 @@ export function loadEffectiveCatalogFactoryView(root = process.cwd()): Effective
   if (sha(releaseFile.raw) !== EXPECTED.releaseFileDigest || verifyDigest(release, "payloadDigest", EXPECTED.releasePayloadDigest) !== pointer.releaseCandidatePayloadDigest || manifest.releaseCandidatePayloadDigest !== EXPECTED.releasePayloadDigest || manifest.releaseCandidateFileDigest !== EXPECTED.releaseFileDigest || activation.releasePayloadDigest !== EXPECTED.releasePayloadDigest || activation.releaseFileDigest !== EXPECTED.releaseFileDigest) throw new Error("CATALOG_FACTORY_RELEASE_CHAIN_INVALID");
   const receipt = read(root, RECEIPT).value;
   if (verifyDigest(receipt, "receiptDigest", EXPECTED.receiptDigest) !== EXPECTED.receiptDigest || receipt.status !== "SUCCESS" || receipt.oldPointerSha256 !== EXPECTED.previousPointerSha256 || receipt.newPointerSha256 !== EXPECTED.pointerSha256 || receipt.priorReceiptDigest !== EXPECTED.priorReceiptDigest || receipt.releasePayloadDigest !== EXPECTED.releasePayloadDigest || receipt.activationDigest !== EXPECTED.activationDigest) throw new Error("CATALOG_FACTORY_CAS_RECEIPT_INVALID");
-  const repaired = read(root, REPAIR_RELEASE), preflight = read(root, REPAIR_PREFLIGHT).value;
-  if (sha(repaired.raw) !== EXPECTED.releaseFileDigest || verifyDigest(repaired.value, "payloadDigest", EXPECTED.releasePayloadDigest) !== EXPECTED.releasePayloadDigest || sha(repaired.value) !== sha(release) || preflight.release?.payloadDigest !== EXPECTED.releasePayloadDigest || preflight.release?.fileDigest !== EXPECTED.releaseFileDigest || preflight.authority?.candidateDigest !== EXPECTED.candidateDigest || preflight.authority?.ownerApprovalDigest !== EXPECTED.approvalDigest) throw new Error("CATALOG_FACTORY_REPAIR_PREFLIGHT_CHAIN_INVALID");
+  if (activation.preflightPayloadDigest !== "7baa2ee735a987f7dad934b67101cb3576f245926c0faa2f60942a880e01e582" || activation.preflightFileDigest !== "75e08ae6e2a89f09ede588fac532ee5bfaa98273b141e06510b133c53d13d4d6" || overlay.authority?.ownerApprovalDigest !== EXPECTED.approvalDigest || overlay.authority?.releasePayloadDigest !== EXPECTED.releasePayloadDigest || overlay.authority?.releaseFileDigest !== EXPECTED.releaseFileDigest) throw new Error("CATALOG_FACTORY_REPAIR_PREFLIGHT_CHAIN_INVALID");
   if (overlay.totals?.baseline !== 80 || overlay.totals?.priorActive !== 102 || overlay.totals?.additions !== 3 || overlay.totals?.active !== 105 || pointer.totals?.before !== 102 || pointer.totals?.additions !== 3 || pointer.totals?.active !== 105 || overlay.exclusions?.duplicate !== 0 || overlay.exclusions?.supersession !== 0 || overlay.exclusions?.silentDrop !== 0) throw new Error("CATALOG_FACTORY_MEMBERSHIP_PROOF_INVALID");
   const priorOverlay = read(root, PRIOR_OVERLAY).value;
   if (verifyDigest(priorOverlay, "overlayDigest", EXPECTED.priorOverlayDigest) !== overlay.authority?.priorOverlayDigest) throw new Error("CATALOG_FACTORY_PRIOR_AUTHORITY_INVALID");
