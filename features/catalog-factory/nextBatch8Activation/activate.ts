@@ -1,0 +1,40 @@
+/* eslint-disable @typescript-eslint/no-explicit-any -- governed JSON is validated before activation */
+import { createHash } from "node:crypto";
+import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
+import path from "node:path";
+
+const READY = "outputs/catalog-factory-wave-02-next-batch8-exact14-activation-readiness-01";
+const REVIEW = "outputs/catalog-factory-wave-02-next-batch-8-exact14-owner-review-01";
+const ROOT = "data/production/catalog-factory";
+const RELEASE_ID = "CATALOG-FACTORY-NEXT-BATCH8-EXACT14-102-ACTIVE-01";
+const ACTIVATION_ID = "WU-CATALOG-FACTORY-NEXT-BATCH8-EXACT14-ATOMIC-ACTIVATION-01";
+const EXPECTED = { readiness: "631159ca01a3fcad8dc2066e2ced65b4018811710b44213ad14d877e6c29d54c", release: "ad3235e5aef250af4fb97aefcfd339eaee47cc5506121e9dd0975e0a6d796cf4", pointer: "bb2808bee4bc40743e97fb0966d8c6aa5a4462cdc235945398e5f726facf9236" };
+const stable = (value: unknown): string => JSON.stringify(value, (_key, item) => item && typeof item === "object" && !Array.isArray(item) ? Object.fromEntries(Object.entries(item).sort(([a], [b]) => a.localeCompare(b))) : item);
+const sha = (value: string | Buffer | unknown) => createHash("sha256").update(typeof value === "string" || Buffer.isBuffer(value) ? value : stable(value)).digest("hex");
+async function immutable(file: string, value: unknown) { const bytes = Buffer.from(typeof value === "string" ? value : `${stable(value)}\n`); try { if (!(await readFile(file)).equals(bytes)) throw new Error(`IMMUTABLE_CONFLICT:${file}`); } catch (error) { if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error; await mkdir(path.dirname(file), { recursive: true }); await writeFile(file, bytes, { flag: "wx" }); } }
+
+export async function activateNextBatch8(root = process.cwd(), dryRun = false) {
+  const readiness = JSON.parse(await readFile(path.join(root, READY, "READINESS.json"), "utf8")), authorization = (await readFile(path.join(root, READY, "ACTIVATION_AUTHORIZATION_SENTENCE.txt"), "utf8")).trimEnd();
+  if (readiness.readinessDigest !== EXPECTED.readiness || readiness.release.releaseDigest !== EXPECTED.release || !authorization.startsWith(EXPECTED.readiness) || readiness.status !== "PASS_NOT_AUTHORIZED_NOT_EXECUTED") throw new Error("ACTIVATION_AUTHORIZATION_OR_READINESS_MISMATCH");
+  const pointerPath = path.join(root, ROOT, "active.json"), oldPointerBytes = await readFile(pointerPath); if (sha(oldPointerBytes) !== EXPECTED.pointer) throw new Error("CAS_ACTIVE_POINTER_MISMATCH");
+  const oldPointer = JSON.parse(oldPointerBytes.toString()), oldOverlay = JSON.parse(await readFile(path.join(root, oldPointer.overlayFile), "utf8")), review = JSON.parse(await readFile(path.join(root, REVIEW, "OWNER_REVIEW_PACKAGE.json"), "utf8"));
+  const nextByCategory = new Map(review.categories.map((row: any) => [row.categoryId, row]));
+  const categories = oldOverlay.categories.map((category: any) => { const next = nextByCategory.get(category.categoryId) as any; if (!next?.products?.length) return category; return { ...category, additions: [...category.additions, ...next.products], exactProductIds: [...category.exactProductIds, ...next.products.map((row: any) => row.exactProductId)], after: next.membership.proposedAfter, activeMembershipDigest: sha([...category.exactProductIds, ...next.products.map((row: any) => row.exactProductId)]) }; });
+  const overlayCore = { schemaVersion: "catalog-factory-active-membership-overlay/v0.3", releaseId: RELEASE_ID, lifecycle: "ACTIVE_WHEN_SELECTED_BY_POINTER", authority: { priorOverlayDigest: oldPointer.overlayDigest, readinessDigest: EXPECTED.readiness, releaseCandidateDigest: EXPECTED.release, ownerApprovalDigest: readiness.release.authority.ownerApprovalDigest }, totals: { baseline: 80, priorActive: 94, additions: 8, active: 102 }, categories, exclusions: { conflicted: 8, unknown: 27, silentDrop: 0 }, readiness: { INFORMATION_READY: true, P_READY: false, Y_READY: false }, boundaries: { independentRuntimeIntegration: false, databaseMigration: "NONE", productionDeployment: false, preview: false, push: false } };
+  const overlay = { ...overlayCore, overlayDigest: sha(overlayCore) };
+  const manifestCore = { schemaVersion: "catalog-factory-active-release-manifest/v0.3", releaseId: RELEASE_ID, activatedAt: "2026-09-08T00:00:00.000Z", releaseCandidateDigest: EXPECTED.release, overlayDigest: overlay.overlayDigest, readinessDigest: EXPECTED.readiness, totals: overlay.totals, runtimeConsumption: "BLOCKED_PENDING_SEPARATE_LOADER_INTEGRATION", pReady: false, yReady: false, databaseMigration: "NONE", deployment: false, push: false };
+  const manifest = { ...manifestCore, manifestDigest: sha(manifestCore) };
+  const activationCore = { schemaVersion: "catalog-factory-atomic-activation-event/v0.3", activationId: ACTIVATION_ID, status: "ACTIVATED_LOCAL_ATOMIC_POINTER", activatedAt: manifest.activatedAt, authorizationSentence: authorization, readinessDigest: EXPECTED.readiness, releaseDigest: EXPECTED.release, expectedOldPointerSha256: EXPECTED.pointer, overlayDigest: overlay.overlayDigest, manifestDigest: manifest.manifestDigest, totals: { before: 94, additions: 8, active: 102 }, pReady: false, yReady: false, independentRuntimeIntegration: false, databaseMigration: "NONE", productionDeployment: false, preview: false, push: false };
+  const activation = { ...activationCore, activationDigest: sha(activationCore) };
+  const pointer = { schemaVersion: "catalog-factory-overlay-active-pointer/v0.3", state: "ACTIVE", activeReleaseId: RELEASE_ID, releaseCandidateDigest: EXPECTED.release, manifestFile: `${ROOT}/releases/${RELEASE_ID}/manifest.json`, manifestDigest: manifest.manifestDigest, overlayFile: `${ROOT}/releases/${RELEASE_ID}/catalog-overlay.json`, overlayDigest: overlay.overlayDigest, activationEventFile: `${ROOT}/governance/activation-events/${ACTIVATION_ID}/activation.json`, activationDigest: activation.activationDigest, previousPointerSha256: EXPECTED.pointer, totals: { active: 102, additions: 8, before: 94 }, runtimeConsumption: "BLOCKED_PENDING_SEPARATE_LOADER_INTEGRATION", pReady: false, yReady: false };
+  const receiptCore = { schemaVersion: "catalog-factory-atomic-cas-receipt/v1", activationId: ACTIVATION_ID, status: "SUCCESS", committedAt: manifest.activatedAt, oldPointerSha256: EXPECTED.pointer, newPointerSha256: sha(`${stable(pointer)}\n`), releaseDigest: EXPECTED.release, activationDigest: activation.activationDigest, totals: pointer.totals };
+  const receipt = { ...receiptCore, receiptDigest: sha(receiptCore) };
+  const result = { pointer, overlay, manifest, activation, receipt, dryRun }; if (dryRun) return result;
+  const releaseDir = path.join(root, ROOT, "releases", RELEASE_ID), eventDir = path.join(root, ROOT, "governance", "activation-events", ACTIVATION_ID);
+  await Promise.all([immutable(path.join(releaseDir, "release-candidate.json"), readiness.release), immutable(path.join(releaseDir, "catalog-overlay.json"), overlay), immutable(path.join(releaseDir, "manifest.json"), manifest), immutable(path.join(eventDir, "activation.json"), activation), immutable(path.join(eventDir, "authorization-sentence.txt"), `${authorization}\n`)]);
+  if (sha(await readFile(pointerPath)) !== EXPECTED.pointer) throw new Error("CAS_POINTER_CHANGED_BEFORE_COMMIT"); const pointerBytes = Buffer.from(`${stable(pointer)}\n`), temp = `${pointerPath}.tmp-${process.pid}`;
+  try { await writeFile(temp, pointerBytes, { flag: "wx" }); await rename(temp, pointerPath); } finally { await rm(temp, { force: true }); }
+  if (sha(await readFile(pointerPath)) !== receipt.newPointerSha256) throw new Error("POST_CAS_POINTER_MISMATCH"); await immutable(path.join(eventDir, "receipt.json"), receipt); return result;
+}
+
+if (process.argv[1]?.endsWith("activate.ts")) activateNextBatch8().then(result => console.log(JSON.stringify({ status: result.receipt.status, receiptDigest: result.receipt.receiptDigest, pointerSha256: result.receipt.newPointerSha256, totals: result.pointer.totals, runtimeConsumption: result.pointer.runtimeConsumption }, null, 2)));
