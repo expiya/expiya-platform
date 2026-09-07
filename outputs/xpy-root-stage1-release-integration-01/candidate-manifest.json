@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "xpy-root-stage1-release-candidate/v1",
+  "workUnitId": "WU-XPY-ROOT-STAGE1-RELEASE-INTEGRATION-01",
+  "status": "IMMUTABLE_PREVIEW_CANDIDATE_NOT_PUSHED_NOT_DEPLOYED",
+  "branch": "codex/xpy-root-stage1-release-integration-01",
+  "productionBase": "2ce640b7c6049cd2e8f69a7a7f933e48c4221d7a",
+  "implementationCommit": "d4d0822d0acff65c3c4acf1be3f9d6690c229e4a",
+  "productionReceipt": {
+    "activationCommit": "1cba69dceab519259faa3e28a2aa7e64235ff09f",
+    "receiptCommit": "2ce640b7c6049cd2e8f69a7a7f933e48c4221d7a",
+    "deploymentId": "dpl_EcPTbWQPYtmMUaJWMDBPGP56GYvp",
+    "electronics": 121,
+    "smartphone": 34,
+    "headphones": 18,
+    "categoryProof": "24/24",
+    "activeManifestSha256": "sha256:c904f56c17d5f1010922b52e1fe83f7f4f9948d64b7689fc1832fb83158e33e1"
+  },
+  "preservedLineages": ["Mitgo metadata f1ce8e6", "Tools CORDLESS_DRILL", "Mobility v0.1", "Universal Persona 0.75 cap", "Catalog directory", "Secretary routing and safety", "legacy category routes", "signed Stage 2 boundaries"],
+  "testShards": [
+    {"id":"platform-authorities","files":74,"tests":550,"exitCode":0},
+    {"id":"appliances","files":67,"tests":754,"exitCode":0},
+    {"id":"decision-core","files":62,"tests":635,"exitCode":0},
+    {"id":"decision-v2-nonheavy","files":72,"tests":756,"exitCode":0},
+    {"id":"cars-v2-composition-file-shards","files":10,"tests":759,"exitCode":0},
+    {"id":"decision-v2-replay-trace","files":7,"tests":17,"exitCode":0},
+    {"id":"cars-v3","files":29,"tests":254,"exitCode":0},
+    {"id":"cars-v3-evaluation","files":1,"tests":30,"exitCode":0},
+    {"id":"remaining-features","files":332,"tests":1753,"exitCode":0},
+    {"id":"app-components-lib-scripts","files":122,"tests":947,"exitCode":0}
+  ],
+  "heavyCarsReplay": {"runtime":"Node v24.19.0","file":"features/decision/v2/composition/productionComposition.test.ts","files":1,"tests":99,"exitCode":0,"durationSeconds":64.51},
+  "verification": {"typescript":"PASS","lint":"PASS_0_ERRORS_12_EXISTING_WARNINGS","diffCheck":"PASS","node24Build":"PASS_626_PAGES","desktopRoot":"PASS","mobile390x844":"PASS","smartphoneV13Root":"PASS","toolsConsentAndTieCard":"PASS","legacyRoutes":"PRESERVED"},
+  "preview": {"deployment":"NOT_CREATED","plan":"Push this exact manifest commit once, wait for the branch preview, verify Vercel source SHA equals the remote branch SHA, then run the same root/deep-link/authority gates. Production promotion is outside scope."}
+}
