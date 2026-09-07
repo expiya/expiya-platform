@@ -1,0 +1,3025 @@
+{
+  "schemaVersion": "electronics-smartphone-domain-pack/v2",
+  "workUnit": "WU-CATALOG-FACTORY-SMARTPHONE-AMAZON-TR-COVERAGE-EXPANSION-02",
+  "generatedAt": "2026-09-07T00:00:00.000Z",
+  "status": "OWNER_REVIEW_CANDIDATE_NOT_ACTIVE",
+  "authorityAudit": {
+    "activeExactVariantCount": 3,
+    "activeBrands": [
+      "HONOR",
+      "Samsung"
+    ],
+    "domainPackStatus": "CANDIDATE_REVALIDATION_REQUIRED",
+    "domainPackRetainedObservationCount": 3
+  },
+  "products": [
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+      "brand": "Apple",
+      "family": "iPhone 17",
+      "model": "iPhone 17",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "Apple|iPhone 17|NO_PUBLIC_SKU|UNKNOWNGB|256GB|Siyah|TR",
+      "market": "TR",
+      "segments": [
+        "compact",
+        "camera-led",
+        "premium"
+      ],
+      "facts": {
+        "soc": "A19",
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.3,
+        "display_type": "OLED",
+        "refresh_hz": 120,
+        "os": "iOS",
+        "support_policy": null,
+        "battery_mah": null,
+        "wired_charging_w": null,
+        "wireless_charging_w": null,
+        "rear_camera_system": "48 MP Fusion main OIS + 48 MP ultrawide; 2x optical-quality crop",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "18 MP Center Stage",
+        "ip_rating": "IP68",
+        "sim": "eSIM only",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 177,
+        "biometrics": "Face ID",
+        "video_capability": "4K Dolby Vision",
+        "stylus": false,
+        "ram_gb": null,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "apple-tr:iphone-17-spec"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+      "brand": "Apple",
+      "family": "iPhone 17",
+      "model": "iPhone 17",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "Apple|iPhone 17|NO_PUBLIC_SKU|UNKNOWNGB|512GB|Lavanta|TR",
+      "market": "TR",
+      "segments": [
+        "compact",
+        "camera-led",
+        "premium"
+      ],
+      "facts": {
+        "soc": "A19",
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.3,
+        "display_type": "OLED",
+        "refresh_hz": 120,
+        "os": "iOS",
+        "support_policy": null,
+        "battery_mah": null,
+        "wired_charging_w": null,
+        "wireless_charging_w": null,
+        "rear_camera_system": "48 MP Fusion main OIS + 48 MP ultrawide; 2x optical-quality crop",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "18 MP Center Stage",
+        "ip_rating": "IP68",
+        "sim": "eSIM only",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 177,
+        "biometrics": "Face ID",
+        "video_capability": "4K Dolby Vision",
+        "stylus": false,
+        "ram_gb": null,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "apple-tr:iphone-17-spec"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+      "brand": "Apple",
+      "family": "iPhone 17 Pro",
+      "model": "iPhone 17 Pro",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "Apple|iPhone 17 Pro|NO_PUBLIC_SKU|UNKNOWNGB|256GB|Kozmik Turuncu|TR",
+      "market": "TR",
+      "segments": [
+        "camera-led",
+        "performance",
+        "premium"
+      ],
+      "facts": {
+        "soc": "A19 Pro",
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.3,
+        "display_type": "OLED",
+        "refresh_hz": 120,
+        "os": "iOS",
+        "support_policy": null,
+        "battery_mah": null,
+        "wired_charging_w": null,
+        "wireless_charging_w": null,
+        "rear_camera_system": "48 MP Pro Fusion triple camera with telephoto and ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "18 MP Center Stage",
+        "ip_rating": "IP68",
+        "sim": "eSIM only",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C (USB 3)",
+        "weight_g": null,
+        "biometrics": "Face ID",
+        "video_capability": "4K Dolby Vision / ProRes",
+        "stylus": false,
+        "ram_gb": null,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "apple-tr:iphone-17-pro-spec"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+      "brand": "Apple",
+      "family": "iPhone 17 Pro",
+      "model": "iPhone 17 Pro",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "Apple|iPhone 17 Pro|NO_PUBLIC_SKU|UNKNOWNGB|512GB|Derin Mavi|TR",
+      "market": "TR",
+      "segments": [
+        "camera-led",
+        "performance",
+        "premium"
+      ],
+      "facts": {
+        "soc": "A19 Pro",
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.3,
+        "display_type": "OLED",
+        "refresh_hz": 120,
+        "os": "iOS",
+        "support_policy": null,
+        "battery_mah": null,
+        "wired_charging_w": null,
+        "wireless_charging_w": null,
+        "rear_camera_system": "48 MP Pro Fusion triple camera with telephoto and ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "18 MP Center Stage",
+        "ip_rating": "IP68",
+        "sim": "eSIM only",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C (USB 3)",
+        "weight_g": null,
+        "biometrics": "Face ID",
+        "video_capability": "4K Dolby Vision / ProRes",
+        "stylus": false,
+        "ram_gb": null,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "apple-tr:iphone-17-pro-spec"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+      "brand": "Apple",
+      "family": "iPhone 17 Pro",
+      "model": "iPhone 17 Pro",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "Apple|iPhone 17 Pro|NO_PUBLIC_SKU|UNKNOWNGB|1024GB|Gümüş|TR",
+      "market": "TR",
+      "segments": [
+        "camera-led",
+        "performance",
+        "premium"
+      ],
+      "facts": {
+        "soc": "A19 Pro",
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.3,
+        "display_type": "OLED",
+        "refresh_hz": 120,
+        "os": "iOS",
+        "support_policy": null,
+        "battery_mah": null,
+        "wired_charging_w": null,
+        "wireless_charging_w": null,
+        "rear_camera_system": "48 MP Pro Fusion triple camera with telephoto and ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "18 MP Center Stage",
+        "ip_rating": "IP68",
+        "sim": "eSIM only",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C (USB 3)",
+        "weight_g": null,
+        "biometrics": "Face ID",
+        "video_capability": "4K Dolby Vision / ProRes",
+        "stylus": false,
+        "ram_gb": null,
+        "storage_gb": 1024
+      },
+      "sourceIds": [
+        "apple-tr:iphone-17-pro-spec"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+      "brand": "Samsung",
+      "family": "Galaxy A26 5G",
+      "model": "Galaxy A26 5G",
+      "sku": "SM-A266BZKCTUR",
+      "modelCode": "SM-A266B",
+      "configurationIdentity": "Samsung|Galaxy A26 5G|SM-A266B|8GB|256GB|Black|TR",
+      "market": "TR",
+      "segments": [
+        "budget",
+        "durable"
+      ],
+      "facts": {
+        "soc": "Exynos 1380",
+        "performance_class": "MAINSTREAM",
+        "display_inches": 6.7,
+        "display_type": "Super AMOLED",
+        "refresh_hz": 120,
+        "os": "Android / One UI",
+        "support_policy": "6 OS generations and 6 years security",
+        "battery_mah": 5000,
+        "wired_charging_w": 25,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 8 MP ultrawide + 2 MP macro",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "13 MP",
+        "ip_rating": "IP67",
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 200,
+        "biometrics": "side fingerprint",
+        "video_capability": "4K30",
+        "stylus": false,
+        "ram_gb": 8,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "samsung-tr:galaxy-a26"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+      "brand": "Samsung",
+      "family": "Galaxy A36 5G",
+      "model": "Galaxy A36 5G",
+      "sku": "SM-A366BZKGTUR",
+      "modelCode": "SM-A366B",
+      "configurationIdentity": "Samsung|Galaxy A36 5G|SM-A366B|8GB|256GB|Black|TR",
+      "market": "TR",
+      "segments": [
+        "mainstream",
+        "durable"
+      ],
+      "facts": {
+        "soc": "Snapdragon 6 Gen 3",
+        "performance_class": "MAINSTREAM",
+        "display_inches": 6.7,
+        "display_type": "Super AMOLED",
+        "refresh_hz": 120,
+        "os": "Android / One UI",
+        "support_policy": "6 OS generations and 6 years security",
+        "battery_mah": 5000,
+        "wired_charging_w": 45,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 8 MP ultrawide + 5 MP macro",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "12 MP",
+        "ip_rating": "IP67",
+        "sim": "dual nano-SIM",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 195,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "4K30",
+        "stylus": false,
+        "ram_gb": 8,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "samsung-tr:galaxy-a36"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+      "brand": "Samsung",
+      "family": "Galaxy S25",
+      "model": "Galaxy S25",
+      "sku": null,
+      "modelCode": "SM-S931B",
+      "configurationIdentity": "Samsung|Galaxy S25|SM-S931B|12GB|128GB|Lacivert|TR",
+      "market": "TR",
+      "segments": [
+        "compact",
+        "performance",
+        "camera-led"
+      ],
+      "facts": {
+        "soc": "Snapdragon 8 Elite for Galaxy",
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.2,
+        "display_type": "Dynamic AMOLED 2X",
+        "refresh_hz": 120,
+        "os": "Android / One UI",
+        "support_policy": "7 OS generations and 7 years security",
+        "battery_mah": 4000,
+        "wired_charging_w": 25,
+        "wireless_charging_w": 15,
+        "rear_camera_system": "50 MP main OIS + 10 MP 3x telephoto OIS + 12 MP ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "12 MP",
+        "ip_rating": "IP68",
+        "sim": "dual SIM",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 162,
+        "biometrics": "ultrasonic in-display fingerprint",
+        "video_capability": "8K30 / 4K120",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 128
+      },
+      "sourceIds": [
+        "samsung-tr:galaxy-s25"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+      "brand": "Samsung",
+      "family": "Galaxy S25",
+      "model": "Galaxy S25",
+      "sku": null,
+      "modelCode": "SM-S931B",
+      "configurationIdentity": "Samsung|Galaxy S25|SM-S931B|12GB|256GB|Gümüş|TR",
+      "market": "TR",
+      "segments": [
+        "compact",
+        "performance",
+        "camera-led"
+      ],
+      "facts": {
+        "soc": "Snapdragon 8 Elite for Galaxy",
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.2,
+        "display_type": "Dynamic AMOLED 2X",
+        "refresh_hz": 120,
+        "os": "Android / One UI",
+        "support_policy": "7 OS generations and 7 years security",
+        "battery_mah": 4000,
+        "wired_charging_w": 25,
+        "wireless_charging_w": 15,
+        "rear_camera_system": "50 MP main OIS + 10 MP 3x telephoto OIS + 12 MP ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "12 MP",
+        "ip_rating": "IP68",
+        "sim": "dual SIM",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 162,
+        "biometrics": "ultrasonic in-display fingerprint",
+        "video_capability": "8K30 / 4K120",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "samsung-tr:galaxy-s25"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+      "brand": "Samsung",
+      "family": "Galaxy S25",
+      "model": "Galaxy S25",
+      "sku": null,
+      "modelCode": "SM-S931B",
+      "configurationIdentity": "Samsung|Galaxy S25|SM-S931B|12GB|512GB|Mavi|TR",
+      "market": "TR",
+      "segments": [
+        "compact",
+        "performance",
+        "camera-led"
+      ],
+      "facts": {
+        "soc": "Snapdragon 8 Elite for Galaxy",
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.2,
+        "display_type": "Dynamic AMOLED 2X",
+        "refresh_hz": 120,
+        "os": "Android / One UI",
+        "support_policy": "7 OS generations and 7 years security",
+        "battery_mah": 4000,
+        "wired_charging_w": 25,
+        "wireless_charging_w": 15,
+        "rear_camera_system": "50 MP main OIS + 10 MP 3x telephoto OIS + 12 MP ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "12 MP",
+        "ip_rating": "IP68",
+        "sim": "dual SIM",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 162,
+        "biometrics": "ultrasonic in-display fingerprint",
+        "video_capability": "8K30 / 4K120",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "samsung-tr:galaxy-s25"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+      "brand": "Samsung",
+      "family": "Galaxy S25 Ultra",
+      "model": "Galaxy S25 Ultra",
+      "sku": null,
+      "modelCode": "SM-S938B",
+      "configurationIdentity": "Samsung|Galaxy S25 Ultra|SM-S938B|12GB|256GB|Titanyum Siyah|TR",
+      "market": "TR",
+      "segments": [
+        "camera-led",
+        "performance",
+        "stylus",
+        "premium"
+      ],
+      "facts": {
+        "soc": "Snapdragon 8 Elite for Galaxy",
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.9,
+        "display_type": "Dynamic AMOLED 2X",
+        "refresh_hz": 120,
+        "os": "Android / One UI",
+        "support_policy": "7 OS generations and 7 years security",
+        "battery_mah": 5000,
+        "wired_charging_w": 45,
+        "wireless_charging_w": 15,
+        "rear_camera_system": "200 MP main OIS + 50 MP 5x telephoto OIS + 10 MP 3x telephoto OIS + 50 MP ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "12 MP",
+        "ip_rating": "IP68",
+        "sim": "dual SIM",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 218,
+        "biometrics": "ultrasonic in-display fingerprint",
+        "video_capability": "8K30 / 4K120",
+        "stylus": true,
+        "ram_gb": 12,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "samsung-tr:galaxy-s25-ultra"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+      "brand": "Samsung",
+      "family": "Galaxy S25 Ultra",
+      "model": "Galaxy S25 Ultra",
+      "sku": null,
+      "modelCode": "SM-S938B",
+      "configurationIdentity": "Samsung|Galaxy S25 Ultra|SM-S938B|12GB|512GB|Titanyum Gri|TR",
+      "market": "TR",
+      "segments": [
+        "camera-led",
+        "performance",
+        "stylus",
+        "premium"
+      ],
+      "facts": {
+        "soc": "Snapdragon 8 Elite for Galaxy",
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.9,
+        "display_type": "Dynamic AMOLED 2X",
+        "refresh_hz": 120,
+        "os": "Android / One UI",
+        "support_policy": "7 OS generations and 7 years security",
+        "battery_mah": 5000,
+        "wired_charging_w": 45,
+        "wireless_charging_w": 15,
+        "rear_camera_system": "200 MP main OIS + 50 MP 5x telephoto OIS + 10 MP 3x telephoto OIS + 50 MP ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "12 MP",
+        "ip_rating": "IP68",
+        "sim": "dual SIM",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 218,
+        "biometrics": "ultrasonic in-display fingerprint",
+        "video_capability": "8K30 / 4K120",
+        "stylus": true,
+        "ram_gb": 12,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "samsung-tr:galaxy-s25-ultra"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+      "brand": "Samsung",
+      "family": "Galaxy S25 Ultra",
+      "model": "Galaxy S25 Ultra",
+      "sku": null,
+      "modelCode": "SM-S938B",
+      "configurationIdentity": "Samsung|Galaxy S25 Ultra|SM-S938B|12GB|1024GB|Titanyum Gümüş|TR",
+      "market": "TR",
+      "segments": [
+        "camera-led",
+        "performance",
+        "stylus",
+        "premium"
+      ],
+      "facts": {
+        "soc": "Snapdragon 8 Elite for Galaxy",
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.9,
+        "display_type": "Dynamic AMOLED 2X",
+        "refresh_hz": 120,
+        "os": "Android / One UI",
+        "support_policy": "7 OS generations and 7 years security",
+        "battery_mah": 5000,
+        "wired_charging_w": 45,
+        "wireless_charging_w": 15,
+        "rear_camera_system": "200 MP main OIS + 50 MP 5x telephoto OIS + 10 MP 3x telephoto OIS + 50 MP ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "12 MP",
+        "ip_rating": "IP68",
+        "sim": "dual SIM",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 218,
+        "biometrics": "ultrasonic in-display fingerprint",
+        "video_capability": "8K30 / 4K120",
+        "stylus": true,
+        "ram_gb": 12,
+        "storage_gb": 1024
+      },
+      "sourceIds": [
+        "samsung-tr:galaxy-s25-ultra"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+      "brand": "Samsung",
+      "family": "Galaxy Z Flip7 FE",
+      "model": "Galaxy Z Flip7 FE",
+      "sku": "SM-F761BZKHTUR",
+      "modelCode": "SM-F761B",
+      "configurationIdentity": "Samsung|Galaxy Z Flip7 FE|SM-F761B|8GB|256GB|Siyah|TR",
+      "market": "TR",
+      "segments": [
+        "foldable",
+        "compact"
+      ],
+      "facts": {
+        "soc": "Exynos 2400",
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.7,
+        "display_type": "Dynamic AMOLED 2X foldable",
+        "refresh_hz": 120,
+        "os": "Android / One UI",
+        "support_policy": null,
+        "battery_mah": 4000,
+        "wired_charging_w": 25,
+        "wireless_charging_w": 15,
+        "rear_camera_system": "50 MP main OIS + 12 MP ultrawide",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "10 MP",
+        "ip_rating": "IP48",
+        "sim": "nano-SIM",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": null,
+        "biometrics": "side fingerprint",
+        "video_capability": "4K",
+        "stylus": false,
+        "ram_gb": 8,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "samsung-tr:z-flip7-fe"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+      "brand": "Xiaomi",
+      "family": "Xiaomi 14T",
+      "model": "Xiaomi 14T",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "Xiaomi|Xiaomi 14T|NO_PUBLIC_SKU|12GB|256GB|Titan Siyah|TR",
+      "market": "TR",
+      "segments": [
+        "camera-led",
+        "performance"
+      ],
+      "facts": {
+        "soc": "Dimensity 8300-Ultra",
+        "performance_class": "UPPER_MAINSTREAM",
+        "display_inches": 6.67,
+        "display_type": "AMOLED",
+        "refresh_hz": 144,
+        "os": "Xiaomi HyperOS",
+        "support_policy": null,
+        "battery_mah": 5000,
+        "wired_charging_w": 67,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 50 MP telephoto + 12 MP ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "32 MP",
+        "ip_rating": "IP68",
+        "sim": "dual nano-SIM",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 195,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "4K60",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "xiaomi-tr:14t-spec"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+      "brand": "Xiaomi",
+      "family": "Xiaomi 14T",
+      "model": "Xiaomi 14T",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "Xiaomi|Xiaomi 14T|NO_PUBLIC_SKU|12GB|512GB|Titan Mavi|TR",
+      "market": "TR",
+      "segments": [
+        "camera-led",
+        "performance"
+      ],
+      "facts": {
+        "soc": "Dimensity 8300-Ultra",
+        "performance_class": "UPPER_MAINSTREAM",
+        "display_inches": 6.67,
+        "display_type": "AMOLED",
+        "refresh_hz": 144,
+        "os": "Xiaomi HyperOS",
+        "support_policy": null,
+        "battery_mah": 5000,
+        "wired_charging_w": 67,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 50 MP telephoto + 12 MP ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "32 MP",
+        "ip_rating": "IP68",
+        "sim": "dual nano-SIM",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 195,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "4K60",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "xiaomi-tr:14t-spec"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+      "brand": "Redmi",
+      "family": "Redmi Note 14 Pro",
+      "model": "Redmi Note 14 Pro",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "Redmi|Redmi Note 14 Pro|NO_PUBLIC_SKU|8GB|256GB|Gece Siyahı|TR",
+      "market": "TR",
+      "segments": [
+        "budget",
+        "camera-led",
+        "long-battery"
+      ],
+      "facts": {
+        "soc": "Helio G100-Ultra",
+        "performance_class": "MAINSTREAM",
+        "display_inches": 6.67,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "Xiaomi HyperOS",
+        "support_policy": null,
+        "battery_mah": 5500,
+        "wired_charging_w": 45,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "200 MP main OIS + 8 MP ultrawide + 2 MP macro",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "32 MP",
+        "ip_rating": "IP64",
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "4G",
+        "connector": "USB-C",
+        "weight_g": 180,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "1080p60",
+        "stylus": false,
+        "ram_gb": 8,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "xiaomi-tr:redmi-note-14-pro"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+      "brand": "Redmi",
+      "family": "Redmi Note 14 Pro",
+      "model": "Redmi Note 14 Pro",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "Redmi|Redmi Note 14 Pro|NO_PUBLIC_SKU|12GB|512GB|Okyanus Mavisi|TR",
+      "market": "TR",
+      "segments": [
+        "budget",
+        "camera-led",
+        "long-battery"
+      ],
+      "facts": {
+        "soc": "Helio G100-Ultra",
+        "performance_class": "MAINSTREAM",
+        "display_inches": 6.67,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "Xiaomi HyperOS",
+        "support_policy": null,
+        "battery_mah": 5500,
+        "wired_charging_w": 45,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "200 MP main OIS + 8 MP ultrawide + 2 MP macro",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "32 MP",
+        "ip_rating": "IP64",
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "4G",
+        "connector": "USB-C",
+        "weight_g": 180,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "1080p60",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "xiaomi-tr:redmi-note-14-pro"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+      "brand": "POCO",
+      "family": "POCO X7 Pro",
+      "model": "POCO X7 Pro",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "POCO|POCO X7 Pro|NO_PUBLIC_SKU|8GB|256GB|Siyah|TR",
+      "market": "TR",
+      "segments": [
+        "performance",
+        "long-battery",
+        "value"
+      ],
+      "facts": {
+        "soc": "Dimensity 8400-Ultra",
+        "performance_class": "FLAGSHIP_VALUE",
+        "display_inches": 6.67,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "Xiaomi HyperOS",
+        "support_policy": null,
+        "battery_mah": 6000,
+        "wired_charging_w": 90,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 8 MP ultrawide",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "20 MP",
+        "ip_rating": "IP68",
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 195,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "4K60",
+        "stylus": false,
+        "ram_gb": 8,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "xiaomi-tr:poco-x7-pro"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+      "brand": "POCO",
+      "family": "POCO X7 Pro",
+      "model": "POCO X7 Pro",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "POCO|POCO X7 Pro|NO_PUBLIC_SKU|12GB|512GB|Sarı|TR",
+      "market": "TR",
+      "segments": [
+        "performance",
+        "long-battery",
+        "value"
+      ],
+      "facts": {
+        "soc": "Dimensity 8400-Ultra",
+        "performance_class": "FLAGSHIP_VALUE",
+        "display_inches": 6.67,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "Xiaomi HyperOS",
+        "support_policy": null,
+        "battery_mah": 6000,
+        "wired_charging_w": 90,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 8 MP ultrawide",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "20 MP",
+        "ip_rating": "IP68",
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 195,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "4K60",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "xiaomi-tr:poco-x7-pro"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+      "brand": "HONOR",
+      "family": "HONOR 400",
+      "model": "HONOR 400",
+      "sku": "DNY-NX9",
+      "modelCode": "DNY-NX9",
+      "configurationIdentity": "HONOR|HONOR 400|DNY-NX9|8GB|256GB|Gece Siyahı|TR",
+      "market": "TR",
+      "segments": [
+        "mainstream",
+        "long-battery",
+        "camera-led"
+      ],
+      "facts": {
+        "soc": "Snapdragon 7 Gen 3",
+        "performance_class": "UPPER_MAINSTREAM",
+        "display_inches": 6.55,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "MagicOS",
+        "support_policy": null,
+        "battery_mah": 6000,
+        "wired_charging_w": 80,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "200 MP main OIS + 12 MP ultrawide",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "50 MP",
+        "ip_rating": "IP65",
+        "sim": "dual nano-SIM",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 184,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "4K",
+        "stylus": false,
+        "ram_gb": 8,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "honor-tr:honor-400"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+      "brand": "HONOR",
+      "family": "HONOR 400",
+      "model": "HONOR 400",
+      "sku": "DNY-NX9",
+      "modelCode": "DNY-NX9",
+      "configurationIdentity": "HONOR|HONOR 400|DNY-NX9|12GB|512GB|Çöl Altını|TR",
+      "market": "TR",
+      "segments": [
+        "mainstream",
+        "long-battery",
+        "camera-led"
+      ],
+      "facts": {
+        "soc": "Snapdragon 7 Gen 3",
+        "performance_class": "UPPER_MAINSTREAM",
+        "display_inches": 6.55,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "MagicOS",
+        "support_policy": null,
+        "battery_mah": 6000,
+        "wired_charging_w": 80,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "200 MP main OIS + 12 MP ultrawide",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "50 MP",
+        "ip_rating": "IP65",
+        "sim": "dual nano-SIM",
+        "esim": true,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 184,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "4K",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "honor-tr:honor-400"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+      "brand": "HUAWEI",
+      "family": "Mate X6",
+      "model": "Mate X6",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "HUAWEI|Mate X6|NO_PUBLIC_SKU|12GB|512GB|Siyah|TR",
+      "market": "TR",
+      "segments": [
+        "foldable",
+        "camera-led",
+        "premium"
+      ],
+      "facts": {
+        "soc": null,
+        "performance_class": "FLAGSHIP",
+        "display_inches": 7.93,
+        "display_type": "foldable OLED",
+        "refresh_hz": 120,
+        "os": "EMUI",
+        "support_policy": null,
+        "battery_mah": 5110,
+        "wired_charging_w": 66,
+        "wireless_charging_w": 50,
+        "rear_camera_system": "50 MP variable-aperture main OIS + 48 MP telephoto macro OIS + 40 MP ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "8 MP inner + 8 MP outer",
+        "ip_rating": "IPX8",
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "4G",
+        "connector": "USB-C",
+        "weight_g": 239,
+        "biometrics": "side fingerprint",
+        "video_capability": "4K",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "huawei-tr:mate-x6"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+      "brand": "HUAWEI",
+      "family": "Mate X6",
+      "model": "Mate X6",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "HUAWEI|Mate X6|NO_PUBLIC_SKU|12GB|512GB|Nebula Kırmızı|TR",
+      "market": "TR",
+      "segments": [
+        "foldable",
+        "camera-led",
+        "premium"
+      ],
+      "facts": {
+        "soc": null,
+        "performance_class": "FLAGSHIP",
+        "display_inches": 7.93,
+        "display_type": "foldable OLED",
+        "refresh_hz": 120,
+        "os": "EMUI",
+        "support_policy": null,
+        "battery_mah": 5110,
+        "wired_charging_w": 66,
+        "wireless_charging_w": 50,
+        "rear_camera_system": "50 MP variable-aperture main OIS + 48 MP telephoto macro OIS + 40 MP ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "8 MP inner + 8 MP outer",
+        "ip_rating": "IPX8",
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "4G",
+        "connector": "USB-C",
+        "weight_g": 239,
+        "biometrics": "side fingerprint",
+        "video_capability": "4K",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "huawei-tr:mate-x6"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+      "brand": "HUAWEI",
+      "family": "Pura 80 Pro",
+      "model": "Pura 80 Pro",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "HUAWEI|Pura 80 Pro|NO_PUBLIC_SKU|12GB|512GB|Siyah|TR",
+      "market": "TR",
+      "segments": [
+        "camera-led",
+        "premium",
+        "durable"
+      ],
+      "facts": {
+        "soc": null,
+        "performance_class": "FLAGSHIP",
+        "display_inches": 6.8,
+        "display_type": "LTPO OLED",
+        "refresh_hz": 120,
+        "os": "EMUI",
+        "support_policy": null,
+        "battery_mah": 5170,
+        "wired_charging_w": 100,
+        "wireless_charging_w": 80,
+        "rear_camera_system": "50 MP 1-inch variable-aperture main OIS + macro telephoto OIS + ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "13 MP",
+        "ip_rating": "IP68/IP69",
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "4G",
+        "connector": "USB-C",
+        "weight_g": null,
+        "biometrics": "side fingerprint",
+        "video_capability": "4K",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "huawei-tr:pura-80-pro"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+      "brand": "Nothing",
+      "family": "Phone (3a)",
+      "model": "Phone (3a)",
+      "sku": null,
+      "modelCode": "A059",
+      "configurationIdentity": "Nothing|Phone (3a)|A059|8GB|128GB|Siyah|TR",
+      "market": "TR",
+      "segments": [
+        "value",
+        "design",
+        "long-battery"
+      ],
+      "facts": {
+        "soc": "Snapdragon 7s Gen 3",
+        "performance_class": "UPPER_MAINSTREAM",
+        "display_inches": 6.77,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "Nothing OS",
+        "support_policy": "3 Android upgrades and 6 years security/functionality updates",
+        "battery_mah": 5000,
+        "wired_charging_w": 50,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 50 MP 2x telephoto + 8 MP ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "32 MP",
+        "ip_rating": "IP64",
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 201,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "4K30",
+        "stylus": false,
+        "ram_gb": 8,
+        "storage_gb": 128
+      },
+      "sourceIds": [
+        "nothing-tr:phone-3a"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+      "brand": "Nothing",
+      "family": "Phone (3a)",
+      "model": "Phone (3a)",
+      "sku": null,
+      "modelCode": "A059",
+      "configurationIdentity": "Nothing|Phone (3a)|A059|12GB|256GB|Beyaz|TR",
+      "market": "TR",
+      "segments": [
+        "value",
+        "design",
+        "long-battery"
+      ],
+      "facts": {
+        "soc": "Snapdragon 7s Gen 3",
+        "performance_class": "UPPER_MAINSTREAM",
+        "display_inches": 6.77,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "Nothing OS",
+        "support_policy": "3 Android upgrades and 6 years security/functionality updates",
+        "battery_mah": 5000,
+        "wired_charging_w": 50,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 50 MP 2x telephoto + 8 MP ultrawide",
+        "ois": true,
+        "telephoto": true,
+        "ultrawide": true,
+        "front_camera": "32 MP",
+        "ip_rating": "IP64",
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 201,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "4K30",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "nothing-tr:phone-3a"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+      "brand": "OPPO",
+      "family": "Reno13 F 5G",
+      "model": "Reno13 F 5G",
+      "sku": null,
+      "modelCode": "CPH2699",
+      "configurationIdentity": "OPPO|Reno13 F 5G|CPH2699|12GB|256GB|Grafit Gri|TR",
+      "market": "TR",
+      "segments": [
+        "mainstream",
+        "durable",
+        "long-battery"
+      ],
+      "facts": {
+        "soc": "Snapdragon 6 Gen 1",
+        "performance_class": "MAINSTREAM",
+        "display_inches": 6.67,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "ColorOS",
+        "support_policy": null,
+        "battery_mah": 5800,
+        "wired_charging_w": 45,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 8 MP ultrawide + 2 MP macro",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "32 MP",
+        "ip_rating": "IP66/IP68/IP69",
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 192,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "4K30",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "oppo-tr:reno13-f-5g"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+      "brand": "OPPO",
+      "family": "Reno13 F 5G",
+      "model": "Reno13 F 5G",
+      "sku": null,
+      "modelCode": "CPH2699",
+      "configurationIdentity": "OPPO|Reno13 F 5G|CPH2699|12GB|512GB|Tüy Beyazı|TR",
+      "market": "TR",
+      "segments": [
+        "mainstream",
+        "durable",
+        "long-battery"
+      ],
+      "facts": {
+        "soc": "Snapdragon 6 Gen 1",
+        "performance_class": "MAINSTREAM",
+        "display_inches": 6.67,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "ColorOS",
+        "support_policy": null,
+        "battery_mah": 5800,
+        "wired_charging_w": 45,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 8 MP ultrawide + 2 MP macro",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": true,
+        "front_camera": "32 MP",
+        "ip_rating": "IP66/IP68/IP69",
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 192,
+        "biometrics": "in-display fingerprint",
+        "video_capability": "4K30",
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "oppo-tr:reno13-f-5g"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+      "brand": "TECNO",
+      "family": "CAMON 30 5G",
+      "model": "CAMON 30 5G",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "TECNO|CAMON 30 5G|NO_PUBLIC_SKU|8GB|256GB|İzlanda Bazalt Siyah|TR",
+      "market": "TR",
+      "segments": [
+        "camera-led",
+        "value",
+        "long-battery"
+      ],
+      "facts": {
+        "soc": "Dimensity 7020",
+        "performance_class": "MAINSTREAM",
+        "display_inches": 6.78,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "Android 14 / HiOS",
+        "support_policy": null,
+        "battery_mah": 5000,
+        "wired_charging_w": 70,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 2 MP depth + light sensor",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": false,
+        "front_camera": "50 MP AF",
+        "ip_rating": null,
+        "sim": "dual SIM",
+        "esim": false,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": null,
+        "biometrics": "fingerprint",
+        "video_capability": null,
+        "stylus": false,
+        "ram_gb": 8,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "tecno-tr:camon-30-5g"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+      "brand": "TECNO",
+      "family": "CAMON 30 5G",
+      "model": "CAMON 30 5G",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "TECNO|CAMON 30 5G|NO_PUBLIC_SKU|8GB|512GB|Uyuni Tuz Beyaz|TR",
+      "market": "TR",
+      "segments": [
+        "camera-led",
+        "value",
+        "long-battery"
+      ],
+      "facts": {
+        "soc": "Dimensity 7020",
+        "performance_class": "MAINSTREAM",
+        "display_inches": 6.78,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "Android 14 / HiOS",
+        "support_policy": null,
+        "battery_mah": 5000,
+        "wired_charging_w": 70,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 2 MP depth + light sensor",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": false,
+        "front_camera": "50 MP AF",
+        "ip_rating": null,
+        "sim": "dual SIM",
+        "esim": false,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": null,
+        "biometrics": "fingerprint",
+        "video_capability": null,
+        "stylus": false,
+        "ram_gb": 8,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "tecno-tr:camon-30-5g"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+      "brand": "TECNO",
+      "family": "CAMON 30 5G",
+      "model": "CAMON 30 5G",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "TECNO|CAMON 30 5G|NO_PUBLIC_SKU|12GB|512GB|Zümrüt Göl Yeşil|TR",
+      "market": "TR",
+      "segments": [
+        "camera-led",
+        "value",
+        "long-battery"
+      ],
+      "facts": {
+        "soc": "Dimensity 7020",
+        "performance_class": "MAINSTREAM",
+        "display_inches": 6.78,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "Android 14 / HiOS",
+        "support_policy": null,
+        "battery_mah": 5000,
+        "wired_charging_w": 70,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "50 MP main OIS + 2 MP depth + light sensor",
+        "ois": true,
+        "telephoto": false,
+        "ultrawide": false,
+        "front_camera": "50 MP AF",
+        "ip_rating": null,
+        "sim": "dual SIM",
+        "esim": false,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": null,
+        "biometrics": "fingerprint",
+        "video_capability": null,
+        "stylus": false,
+        "ram_gb": 12,
+        "storage_gb": 512
+      },
+      "sourceIds": [
+        "tecno-tr:camon-30-5g"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    },
+    {
+      "exactProductId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+      "brand": "General Mobile",
+      "family": "GM Phoenix 5G",
+      "model": "GM Phoenix 5G",
+      "sku": null,
+      "modelCode": null,
+      "configurationIdentity": "General Mobile|GM Phoenix 5G|NO_PUBLIC_SKU|8GB|256GB|Karbon Siyahı|TR",
+      "market": "TR",
+      "segments": [
+        "budget",
+        "local-brand",
+        "5g"
+      ],
+      "facts": {
+        "soc": "Dimensity 7050",
+        "performance_class": "MAINSTREAM",
+        "display_inches": 6.78,
+        "display_type": "AMOLED",
+        "refresh_hz": 120,
+        "os": "Android",
+        "support_policy": null,
+        "battery_mah": 4700,
+        "wired_charging_w": 66,
+        "wireless_charging_w": 0,
+        "rear_camera_system": "200 MP main; auxiliary cameras not sufficiently specified",
+        "ois": null,
+        "telephoto": false,
+        "ultrawide": null,
+        "front_camera": null,
+        "ip_rating": null,
+        "sim": "dual nano-SIM",
+        "esim": false,
+        "cellular": "5G",
+        "connector": "USB-C",
+        "weight_g": 210,
+        "biometrics": "fingerprint",
+        "video_capability": null,
+        "stylus": false,
+        "ram_gb": 8,
+        "storage_gb": 256
+      },
+      "sourceIds": [
+        "gm-tr:phoenix-5g"
+      ],
+      "trApplicability": "EXACT_TR_CONFIGURATION",
+      "terminalState": "CANDIDATE_NOT_ACTIVE",
+      "commerce": {
+        "price": null,
+        "stock": null,
+        "rating": null,
+        "deals": null,
+        "seller": null,
+        "greyImportState": null,
+        "state": "UNKNOWN_FAIL_CLOSED"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "sourceId": "apple-tr:iphone-17-spec",
+      "url": "https://www.apple.com/tr/iphone-17/specs/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "Apple",
+      "family": "iPhone 17",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "apple-tr:iphone-17-pro-spec",
+      "url": "https://www.apple.com/tr/iphone-17-pro/specs/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "Apple",
+      "family": "iPhone 17 Pro",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "samsung-tr:galaxy-a26",
+      "url": "https://www.samsung.com/tr/smartphones/galaxy-a/galaxy-a26-5g-black-256gb-sm-a266bzkctur/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "Samsung",
+      "family": "Galaxy A26 5G",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "samsung-tr:galaxy-a36",
+      "url": "https://www.samsung.com/tr/smartphones/galaxy-a/galaxy-a36-5g-black-256gb-sm-a366bzkgtur/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "Samsung",
+      "family": "Galaxy A36 5G",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "samsung-tr:galaxy-s25",
+      "url": "https://www.samsung.com/tr/smartphones/galaxy-s25/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "Samsung",
+      "family": "Galaxy S25",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "samsung-tr:galaxy-s25-ultra",
+      "url": "https://www.samsung.com/tr/smartphones/galaxy-s25-ultra/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "Samsung",
+      "family": "Galaxy S25 Ultra",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "samsung-tr:z-flip7-fe",
+      "url": "https://www.samsung.com/tr/smartphones/galaxy-z/galaxy-z-flip7-fe-black-256gb-sm-f761bzkhtur/buy/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "Samsung",
+      "family": "Galaxy Z Flip7 FE",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "xiaomi-tr:14t-spec",
+      "url": "https://www.mi.com/tr/product/xiaomi-14t/specs/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "Xiaomi",
+      "family": "Xiaomi 14T",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "xiaomi-tr:redmi-note-14-pro",
+      "url": "https://www.mi.com/tr/product/redmi-note-14-pro/specs/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "Redmi",
+      "family": "Redmi Note 14 Pro",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "xiaomi-tr:poco-x7-pro",
+      "url": "https://www.mi.com/tr/product/poco-x7-pro/specs/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "POCO",
+      "family": "POCO X7 Pro",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "honor-tr:honor-400",
+      "url": "https://www.honor.com/tr/phones/honor-400/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "HONOR",
+      "family": "HONOR 400",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "huawei-tr:mate-x6",
+      "url": "https://consumer.huawei.com/tr/phones/mate-x6/specs/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "HUAWEI",
+      "family": "Mate X6",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "huawei-tr:pura-80-pro",
+      "url": "https://consumer.huawei.com/tr/phones/pura80-pro/specs/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "HUAWEI",
+      "family": "Pura 80 Pro",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "nothing-tr:phone-3a",
+      "url": "https://tr.nothing.tech/pages/phone-3a",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "Nothing",
+      "family": "Phone (3a)",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "oppo-tr:reno13-f-5g",
+      "url": "https://www.oppo.com/tr/smartphones/series-reno/reno13-f-5g/specs/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "OPPO",
+      "family": "Reno13 F 5G",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "tecno-tr:camon-30-5g",
+      "url": "https://turkiye.tecno-mobile.com/phones/tech-specs/tecspecs/camon-30-5g/",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "TECNO",
+      "family": "CAMON 30 5G",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    },
+    {
+      "sourceId": "gm-tr:phoenix-5g",
+      "url": "https://www.generalmobile.com/tr/urunler/gmphoenix5g",
+      "sourceAuthority": "MANUFACTURER_TR",
+      "brand": "General Mobile",
+      "family": "GM Phoenix 5G",
+      "market": "TR",
+      "observedAt": "2026-09-07T00:00:00.000Z",
+      "technicalAuthority": true,
+      "exactConfigurationScope": true
+    }
+  ],
+  "facetClassification": [
+    {
+      "field": "market/exact configuration/SKU",
+      "classification": "HARD_CONSTRAINT",
+      "rule": "Türkiye applicability and exact configuration must be source-bound; otherwise quarantine."
+    },
+    {
+      "field": "SIM/eSIM, cellular generation, connector, OS compatibility",
+      "classification": "HARD_CONSTRAINT",
+      "rule": "Hard only when the user explicitly requires the value."
+    },
+    {
+      "field": "RAM/storage",
+      "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+    },
+    {
+      "field": "SoC/performance class",
+      "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+    },
+    {
+      "field": "display size/type/refresh",
+      "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+    },
+    {
+      "field": "verified support policy",
+      "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+    },
+    {
+      "field": "battery/charging",
+      "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+    },
+    {
+      "field": "rear camera system with OIS/telephoto/ultrawide",
+      "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+    },
+    {
+      "field": "front camera",
+      "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+    },
+    {
+      "field": "IP rating",
+      "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+    },
+    {
+      "field": "weight",
+      "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+    },
+    {
+      "field": "biometrics",
+      "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+    },
+    {
+      "field": "video capability",
+      "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+    },
+    {
+      "field": "stylus",
+      "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+    },
+    {
+      "field": "brand/color/design",
+      "classification": "SOFT_PREFERENCE",
+      "rule": "Brand only after explicit user preference; no hidden prestige ranking."
+    },
+    {
+      "field": "price/stock/rating/deals/seller/international or grey import",
+      "classification": "VOLATILE_COMMERCE",
+      "rule": "Unknown and fail-closed without a fresh approved offer binding; never technical authority."
+    },
+    {
+      "field": "touchscreen/camera/phone calling/app installation",
+      "classification": "NON_MATERIAL_BASELINE",
+      "rule": "Suppress when common across the candidate set."
+    },
+    {
+      "field": "Amazon bestseller badge/facet labels/title adjectives",
+      "classification": "UNRELIABLE_FACET",
+      "rule": "Discovery hint only; never copied into facts or ranking."
+    }
+  ],
+  "dailyLifeSemantics": [
+    {
+      "concept": "POCKETABILITY",
+      "inputs": [
+        "display_inches",
+        "weight_g",
+        "segments"
+      ],
+      "meaning": "Tek elle kullanım ve cepte taşıma kolaylığı; ölçüler yoksa iddia kurulmaz."
+    },
+    {
+      "concept": "PHOTO_FLEXIBILITY",
+      "inputs": [
+        "ois",
+        "telephoto",
+        "ultrawide"
+      ],
+      "meaning": "Farklı çekim koşullarındaki donanım esnekliği; megapiksel kalite puanı değildir."
+    },
+    {
+      "concept": "SHORT_CHARGE_RECOVERY",
+      "inputs": [
+        "wired_charging_w",
+        "wireless_charging_w",
+        "battery_mah"
+      ],
+      "meaning": "Kısa şarj fırsatlarında pratik toparlanma; gerçek süre iddiası kurulmaz."
+    },
+    {
+      "concept": "LONG_TERM_USE",
+      "inputs": [
+        "support_policy",
+        "ip_rating"
+      ],
+      "meaning": "Doğrulanmış destek taahhüdü ve belgeli dayanım; UNKNOWN nötr kalır."
+    }
+  ],
+  "personaHierarchy": {
+    "order": [
+      "HARD_CONSTRAINT",
+      "EXPLICIT_USER_PREFERENCE",
+      "MATERIAL_TECHNICAL_DISCRIMINATOR",
+      "SOFT_PREFERENCE",
+      "NON_MATERIAL_BASELINE"
+    ],
+    "brandPolicy": "EXPLICIT_ONLY_NO_PRESTIGE_PRIOR",
+    "unknownPolicy": "NEUTRAL_NO_SILENT_DROP",
+    "commercePolicy": "SEPARATE_FAIL_CLOSED"
+  },
+  "questions": [
+    {
+      "id": "form",
+      "concept": "FORM_FACTOR",
+      "prompt": "Katlanınca cebe daha rahat sığan bir model mi, yoksa klasik düz gövde mi istersin?",
+      "values": [
+        "katlanabilir",
+        "klasik düz"
+      ],
+      "facts": [
+        "segments"
+      ]
+    },
+    {
+      "id": "size",
+      "concept": "DISPLAY_SIZE",
+      "prompt": "Ekran boyutunda 6,2–6,3 inç daha kompakt mı, 6,5–6,8 inç dengeli mi, yoksa 6,9 inç ve üzeri geniş alan mı istersin?",
+      "values": [
+        "6,2–6,3 inç",
+        "6,5–6,8 inç",
+        "6,9+ inç"
+      ],
+      "facts": [
+        "display_inches"
+      ]
+    },
+    {
+      "id": "storage",
+      "concept": "STORAGE",
+      "prompt": "Depolama için 128 GB yeterli mi, 256 GB mı, yoksa 512 GB ve üzeri mi istersin?",
+      "values": [
+        "128 GB",
+        "256 GB",
+        "512 GB+"
+      ],
+      "facts": [
+        "storage_gb"
+      ]
+    },
+    {
+      "id": "camera",
+      "concept": "CAMERA_SYSTEM",
+      "prompt": "Kamerada hangisi daha önemli: optik sabitleme, gerçek telefoto yakınlaştırma, yoksa ultra geniş açı?",
+      "values": [
+        "OIS",
+        "telefoto",
+        "ultra geniş"
+      ],
+      "facts": [
+        "ois",
+        "telephoto",
+        "ultrawide"
+      ]
+    },
+    {
+      "id": "durability",
+      "concept": "INGRESS",
+      "prompt": "Su ve toz dayanımında IP64, IP67 veya IP68/IP69 seviyelerinden biri senin için şart mı?",
+      "values": [
+        "IP64",
+        "IP67",
+        "IP68/IP69",
+        "şart değil"
+      ],
+      "facts": [
+        "ip_rating"
+      ]
+    },
+    {
+      "id": "charging",
+      "concept": "CHARGING",
+      "prompt": "Şarjda 25–45 W, 50–80 W, 90 W ve üzeri kablolu hız mı; yoksa kablosuz şarj mı daha önemli?",
+      "values": [
+        "25–45 W",
+        "50–80 W",
+        "90 W+",
+        "kablosuz"
+      ],
+      "facts": [
+        "wired_charging_w",
+        "wireless_charging_w"
+      ]
+    },
+    {
+      "id": "support",
+      "concept": "SUPPORT",
+      "prompt": "Üreticinin açıkça doğruladığı 6–7 yıllık güncelleme taahhüdü senin için seçim kriteri mi?",
+      "values": [
+        "evet",
+        "hayır",
+        "emin değilim"
+      ],
+      "facts": [
+        "support_policy"
+      ]
+    }
+  ],
+  "traces": [
+    {
+      "turn": 1,
+      "P": {
+        "questionId": "form",
+        "text": "Katlanınca cebe daha rahat sığan bir model mi, yoksa klasik düz gövde mi istersin?",
+        "oneQuestionOnly": true,
+        "offeredValues": [
+          "katlanabilir",
+          "klasik düz"
+        ]
+      },
+      "Y": {
+        "answer": "katlanabilir",
+        "effect": "MATERIAL_FILTER_OR_RANK_ONLY",
+        "unknownBehavior": "NEUTRAL_NO_SILENT_DROP",
+        "provenanceRequired": true
+      }
+    },
+    {
+      "turn": 2,
+      "P": {
+        "questionId": "size",
+        "text": "Ekran boyutunda 6,2–6,3 inç daha kompakt mı, 6,5–6,8 inç dengeli mi, yoksa 6,9 inç ve üzeri geniş alan mı istersin?",
+        "oneQuestionOnly": true,
+        "offeredValues": [
+          "6,2–6,3 inç",
+          "6,5–6,8 inç",
+          "6,9+ inç"
+        ]
+      },
+      "Y": {
+        "answer": "6,2–6,3 inç",
+        "effect": "MATERIAL_FILTER_OR_RANK_ONLY",
+        "unknownBehavior": "NEUTRAL_NO_SILENT_DROP",
+        "provenanceRequired": true
+      }
+    },
+    {
+      "turn": 3,
+      "P": {
+        "questionId": "storage",
+        "text": "Depolama için 128 GB yeterli mi, 256 GB mı, yoksa 512 GB ve üzeri mi istersin?",
+        "oneQuestionOnly": true,
+        "offeredValues": [
+          "128 GB",
+          "256 GB",
+          "512 GB+"
+        ]
+      },
+      "Y": {
+        "answer": "128 GB",
+        "effect": "MATERIAL_FILTER_OR_RANK_ONLY",
+        "unknownBehavior": "NEUTRAL_NO_SILENT_DROP",
+        "provenanceRequired": true
+      }
+    },
+    {
+      "turn": 4,
+      "P": {
+        "questionId": "camera",
+        "text": "Kamerada hangisi daha önemli: optik sabitleme, gerçek telefoto yakınlaştırma, yoksa ultra geniş açı?",
+        "oneQuestionOnly": true,
+        "offeredValues": [
+          "OIS",
+          "telefoto",
+          "ultra geniş"
+        ]
+      },
+      "Y": {
+        "answer": "OIS",
+        "effect": "MATERIAL_FILTER_OR_RANK_ONLY",
+        "unknownBehavior": "NEUTRAL_NO_SILENT_DROP",
+        "provenanceRequired": true
+      }
+    }
+  ],
+  "coverage": {
+    "exactVariantCount": 33,
+    "brandCount": 11,
+    "brands": [
+      "Apple",
+      "Samsung",
+      "Xiaomi",
+      "Redmi",
+      "POCO",
+      "HONOR",
+      "HUAWEI",
+      "Nothing",
+      "OPPO",
+      "TECNO",
+      "General Mobile"
+    ],
+    "segments": {
+      "5g": 1,
+      "budget": 4,
+      "camera-led": 23,
+      "compact": 6,
+      "design": 2,
+      "durable": 5,
+      "foldable": 3,
+      "local-brand": 1,
+      "long-battery": 13,
+      "mainstream": 5,
+      "performance": 13,
+      "premium": 11,
+      "stylus": 3,
+      "value": 7
+    },
+    "factCoverage": {
+      "ram_gb": {
+        "known": 28,
+        "unknown": 5
+      },
+      "storage_gb": {
+        "known": 33,
+        "unknown": 0
+      },
+      "soc": {
+        "known": 30,
+        "unknown": 3
+      },
+      "performance_class": {
+        "known": 33,
+        "unknown": 0
+      },
+      "display_inches": {
+        "known": 33,
+        "unknown": 0
+      },
+      "display_type": {
+        "known": 33,
+        "unknown": 0
+      },
+      "refresh_hz": {
+        "known": 33,
+        "unknown": 0
+      },
+      "os": {
+        "known": 33,
+        "unknown": 0
+      },
+      "support_policy": {
+        "known": 10,
+        "unknown": 23
+      },
+      "battery_mah": {
+        "known": 28,
+        "unknown": 5
+      },
+      "wired_charging_w": {
+        "known": 28,
+        "unknown": 5
+      },
+      "wireless_charging_w": {
+        "known": 28,
+        "unknown": 5
+      },
+      "rear_camera_system": {
+        "known": 33,
+        "unknown": 0
+      },
+      "ois": {
+        "known": 32,
+        "unknown": 1
+      },
+      "telephoto": {
+        "known": 33,
+        "unknown": 0
+      },
+      "ultrawide": {
+        "known": 32,
+        "unknown": 1
+      },
+      "front_camera": {
+        "known": 32,
+        "unknown": 1
+      },
+      "ip_rating": {
+        "known": 29,
+        "unknown": 4
+      },
+      "sim": {
+        "known": 33,
+        "unknown": 0
+      },
+      "esim": {
+        "known": 33,
+        "unknown": 0
+      },
+      "cellular": {
+        "known": 33,
+        "unknown": 0
+      },
+      "connector": {
+        "known": 33,
+        "unknown": 0
+      },
+      "weight_g": {
+        "known": 25,
+        "unknown": 8
+      },
+      "biometrics": {
+        "known": 33,
+        "unknown": 0
+      },
+      "video_capability": {
+        "known": 29,
+        "unknown": 4
+      },
+      "stylus": {
+        "known": 33,
+        "unknown": 0
+      }
+    },
+    "activeAuthorityAudit": {
+      "activeExactVariantCount": 3,
+      "activeBrands": [
+        "HONOR",
+        "Samsung"
+      ],
+      "domainPackStatus": "CANDIDATE_REVALIDATION_REQUIRED",
+      "domainPackRetainedObservationCount": 3
+    },
+    "target": {
+      "minimum": 30,
+      "preferredMaximum": 50,
+      "met": true
+    }
+  },
+  "unknownLedger": [
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+      "factKey": "ram_gb",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+      "factKey": "battery_mah",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+      "factKey": "wired_charging_w",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+      "factKey": "wireless_charging_w",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+      "factKey": "ram_gb",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+      "factKey": "battery_mah",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+      "factKey": "wired_charging_w",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+      "factKey": "wireless_charging_w",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+      "factKey": "ram_gb",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+      "factKey": "battery_mah",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+      "factKey": "wired_charging_w",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+      "factKey": "wireless_charging_w",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+      "factKey": "weight_g",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+      "factKey": "ram_gb",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+      "factKey": "battery_mah",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+      "factKey": "wired_charging_w",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+      "factKey": "wireless_charging_w",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+      "factKey": "weight_g",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+      "factKey": "ram_gb",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+      "factKey": "battery_mah",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+      "factKey": "wired_charging_w",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+      "factKey": "wireless_charging_w",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+      "factKey": "weight_g",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+      "factKey": "weight_g",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+      "factKey": "soc",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+      "factKey": "soc",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+      "factKey": "soc",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+      "factKey": "weight_g",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+      "factKey": "ip_rating",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+      "factKey": "weight_g",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+      "factKey": "video_capability",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+      "factKey": "ip_rating",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+      "factKey": "weight_g",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+      "factKey": "video_capability",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+      "factKey": "ip_rating",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+      "factKey": "weight_g",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+      "factKey": "video_capability",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+      "factKey": "support_policy",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+      "factKey": "ois",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+      "factKey": "ultrawide",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+      "factKey": "front_camera",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+      "factKey": "ip_rating",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    },
+    {
+      "exactProductId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+      "factKey": "video_capability",
+      "value": "UNKNOWN",
+      "decisionEffect": "NEUTRAL",
+      "reason": "No exact Türkiye source-bound value admitted; candidate retained."
+    }
+  ],
+  "amazonDiscovery": {
+    "status": "BLOCKED_NO_DISCOVERY_OR_API_ACCESS",
+    "technicalAuthority": "NONE",
+    "continuation": "Official Türkiye and support sources used; Amazon facets not copied."
+  },
+  "invariants": {
+    "activePointerMutation": false,
+    "activationPerformed": false,
+    "deploymentPerformed": false,
+    "packageApprovalRequired": true
+  },
+  "approval": {
+    "status": "PENDING_SEPARATE_PACKAGE_APPROVAL",
+    "activationAllowed": false
+  }
+}

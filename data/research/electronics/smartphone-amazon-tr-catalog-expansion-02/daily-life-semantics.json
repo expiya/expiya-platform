@@ -1,0 +1,37 @@
+[
+  {
+    "concept": "POCKETABILITY",
+    "inputs": [
+      "display_inches",
+      "weight_g",
+      "segments"
+    ],
+    "meaning": "Tek elle kullanım ve cepte taşıma kolaylığı; ölçüler yoksa iddia kurulmaz."
+  },
+  {
+    "concept": "PHOTO_FLEXIBILITY",
+    "inputs": [
+      "ois",
+      "telephoto",
+      "ultrawide"
+    ],
+    "meaning": "Farklı çekim koşullarındaki donanım esnekliği; megapiksel kalite puanı değildir."
+  },
+  {
+    "concept": "SHORT_CHARGE_RECOVERY",
+    "inputs": [
+      "wired_charging_w",
+      "wireless_charging_w",
+      "battery_mah"
+    ],
+    "meaning": "Kısa şarj fırsatlarında pratik toparlanma; gerçek süre iddiası kurulmaz."
+  },
+  {
+    "concept": "LONG_TERM_USE",
+    "inputs": [
+      "support_policy",
+      "ip_rating"
+    ],
+    "meaning": "Doğrulanmış destek taahhüdü ve belgeli dayanım; UNKNOWN nötr kalır."
+  }
+]

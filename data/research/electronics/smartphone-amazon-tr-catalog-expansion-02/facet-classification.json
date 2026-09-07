@@ -1,0 +1,92 @@
+[
+  {
+    "field": "market/exact configuration/SKU",
+    "classification": "HARD_CONSTRAINT",
+    "rule": "Türkiye applicability and exact configuration must be source-bound; otherwise quarantine."
+  },
+  {
+    "field": "SIM/eSIM, cellular generation, connector, OS compatibility",
+    "classification": "HARD_CONSTRAINT",
+    "rule": "Hard only when the user explicitly requires the value."
+  },
+  {
+    "field": "RAM/storage",
+    "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+    "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+  },
+  {
+    "field": "SoC/performance class",
+    "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+    "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+  },
+  {
+    "field": "display size/type/refresh",
+    "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+    "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+  },
+  {
+    "field": "verified support policy",
+    "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+    "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+  },
+  {
+    "field": "battery/charging",
+    "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+    "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+  },
+  {
+    "field": "rear camera system with OIS/telephoto/ultrawide",
+    "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+    "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+  },
+  {
+    "field": "front camera",
+    "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+    "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+  },
+  {
+    "field": "IP rating",
+    "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+    "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+  },
+  {
+    "field": "weight",
+    "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+    "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+  },
+  {
+    "field": "biometrics",
+    "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+    "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+  },
+  {
+    "field": "video capability",
+    "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+    "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+  },
+  {
+    "field": "stylus",
+    "classification": "MATERIAL_TECHNICAL_DISCRIMINATOR",
+    "rule": "Ask/rank only when known candidate values materially differ; MP alone never represents camera quality."
+  },
+  {
+    "field": "brand/color/design",
+    "classification": "SOFT_PREFERENCE",
+    "rule": "Brand only after explicit user preference; no hidden prestige ranking."
+  },
+  {
+    "field": "price/stock/rating/deals/seller/international or grey import",
+    "classification": "VOLATILE_COMMERCE",
+    "rule": "Unknown and fail-closed without a fresh approved offer binding; never technical authority."
+  },
+  {
+    "field": "touchscreen/camera/phone calling/app installation",
+    "classification": "NON_MATERIAL_BASELINE",
+    "rule": "Suppress when common across the candidate set."
+  },
+  {
+    "field": "Amazon bestseller badge/facet labels/title adjectives",
+    "classification": "UNRELIABLE_FACET",
+    "rule": "Discovery hint only; never copied into facts or ranking."
+  }
+]

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "electronics-smartphone-expansion-manifest/v2",
+  "workUnit": "WU-CATALOG-FACTORY-SMARTPHONE-AMAZON-TR-COVERAGE-EXPANSION-02",
+  "generatedAt": "2026-09-07T00:00:00.000Z",
+  "status": "CANDIDATE_NOT_ACTIVE",
+  "files": [
+    {
+      "name": "candidate-catalog.json",
+      "sha256": "sha256:dfb58b05c1817aad4c43f760b7d3f524e06835315452eb82e1b9d227d3915b03"
+    },
+    {
+      "name": "source-register.json",
+      "sha256": "sha256:918e7452537048f9622fee391f9044e09654d3568c49e383aa9aaab3bc2042f8"
+    },
+    {
+      "name": "facet-classification.json",
+      "sha256": "sha256:06227279db6ead8bd92446617f03124c20b4c18aa7f75f04d32340829c218ab0"
+    },
+    {
+      "name": "daily-life-semantics.json",
+      "sha256": "sha256:d26a18ae7a35ef8d90c94f2a2639e8cd9ac7dc7ee58ba743dc6a84023f55fd57"
+    },
+    {
+      "name": "persona-hierarchy.json",
+      "sha256": "sha256:187300506966a6a64f56bcb75335046dd582aa2aea9a7a88e95549714662bd16"
+    },
+    {
+      "name": "domain-pack.json",
+      "sha256": "sha256:8d7e3b48d25e1ad294ff5749963a37d57ec263b2d0776f69b19382cc49e42a22"
+    },
+    {
+      "name": "p-y-trace-previews.json",
+      "sha256": "sha256:8662a697007c63a3336546da0d186d1360c854f4cc4a677b46c66ef6ee4c03ff"
+    },
+    {
+      "name": "coverage-matrix.json",
+      "sha256": "sha256:32c5d4a4f00d5b77a5948ff699758f33eb7d79b4ad0b72108ee57615f8b05818"
+    },
+    {
+      "name": "unknown-ledger.json",
+      "sha256": "sha256:040b48bbf9fdd505e762b71992864fcb53d7adc24d4a01573a5a7a81c4e80964"
+    },
+    {
+      "name": "amazon-access-ledger.json",
+      "sha256": "sha256:1d0183eb99b2ea429e93793410ff90180e01f3a97f0e77d6c1c084eb95e53a8c"
+    },
+    {
+      "name": "owner-approval-package.json",
+      "sha256": "sha256:eb51848306c2f0093a665a791b07a73d2e7824854d1ecc6c02c5ad9386ac258c"
+    }
+  ],
+  "packageSha256": "sha256:8d7e3b48d25e1ad294ff5749963a37d57ec263b2d0776f69b19382cc49e42a22",
+  "activePointerMutation": false,
+  "activationPerformed": false,
+  "deploymentPerformed": false
+}

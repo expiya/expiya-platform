@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "electronics-smartphone-owner-review-handoff/v1",
+  "workUnit": "WU-CATALOG-FACTORY-SMARTPHONE-AMAZON-TR-COVERAGE-EXPANSION-02",
+  "status": "IMMUTABLE_DIGEST_BOUND_REFERENCE_NOT_ACTIVE",
+  "package": {
+    "path": "data/research/electronics/smartphone-amazon-tr-catalog-expansion-02/owner-approval-package.json",
+    "sha256": "sha256:f26713a71712a8b9b008269feb0c1ba00f66312176776d81a1894367207bc323"
+  },
+  "membership": {
+    "exactProductCount": 33,
+    "brandCount": 11,
+    "byBrand": {
+      "Apple": 5,
+      "General Mobile": 1,
+      "HONOR": 2,
+      "HUAWEI": 3,
+      "Nothing": 2,
+      "OPPO": 2,
+      "POCO": 2,
+      "Redmi": 2,
+      "Samsung": 9,
+      "TECNO": 3,
+      "Xiaomi": 2
+    },
+    "exactProductIds": [
+      "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+      "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+      "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+      "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+      "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+      "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+      "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+      "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+      "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+      "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+      "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+      "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+      "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+      "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+      "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+      "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+      "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+      "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+      "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+      "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+      "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+      "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+      "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+      "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+      "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+      "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+      "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+      "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+      "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+      "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+      "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+      "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+      "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi"
+    ]
+  },
+  "terminalTotals": {
+    "discoveryObservations": 0,
+    "admittedCandidateProducts": 33,
+    "rejectedObservations": 0,
+    "duplicateObservations": 0,
+    "unresolvedOrSilentlyDroppedObservations": 0,
+    "unknownFactCells": 65,
+    "sourceRecords": 17,
+    "amazonAccessState": "BLOCKED_NO_DISCOVERY_OR_API_ACCESS"
+  },
+  "gitStateAtHandoffCreation": {
+    "branch": "codex/smartphone-amazon-tr-coverage-expansion-02",
+    "candidatePackageCommit": "d858cd68bf1c5c1bc6f85ab1219e8acd95c9c89f",
+    "candidatePackageCommitShort": "d858cd6",
+    "remote": "origin",
+    "upstream": null,
+    "pushState": "NOT_PUSHED_NO_UPSTREAM"
+  },
+  "authorityBoundary": {
+    "ownerApprovalRequired": true,
+    "activePointerMutationAuthorized": false,
+    "runtimeMutationAuthorized": false,
+    "activationAuthorized": false,
+    "deploymentAuthorized": false
+  },
+  "approvalStatementPath": "data/research/electronics/smartphone-amazon-tr-catalog-expansion-02/owner-review-packages/SMARTPHONE-TR-V02-F26713A7/owner-approval-statement.txt"
+}

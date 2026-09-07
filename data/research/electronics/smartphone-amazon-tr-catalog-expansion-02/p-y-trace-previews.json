@@ -1,0 +1,77 @@
+[
+  {
+    "turn": 1,
+    "P": {
+      "questionId": "form",
+      "text": "Katlanınca cebe daha rahat sığan bir model mi, yoksa klasik düz gövde mi istersin?",
+      "oneQuestionOnly": true,
+      "offeredValues": [
+        "katlanabilir",
+        "klasik düz"
+      ]
+    },
+    "Y": {
+      "answer": "katlanabilir",
+      "effect": "MATERIAL_FILTER_OR_RANK_ONLY",
+      "unknownBehavior": "NEUTRAL_NO_SILENT_DROP",
+      "provenanceRequired": true
+    }
+  },
+  {
+    "turn": 2,
+    "P": {
+      "questionId": "size",
+      "text": "Ekran boyutunda 6,2–6,3 inç daha kompakt mı, 6,5–6,8 inç dengeli mi, yoksa 6,9 inç ve üzeri geniş alan mı istersin?",
+      "oneQuestionOnly": true,
+      "offeredValues": [
+        "6,2–6,3 inç",
+        "6,5–6,8 inç",
+        "6,9+ inç"
+      ]
+    },
+    "Y": {
+      "answer": "6,2–6,3 inç",
+      "effect": "MATERIAL_FILTER_OR_RANK_ONLY",
+      "unknownBehavior": "NEUTRAL_NO_SILENT_DROP",
+      "provenanceRequired": true
+    }
+  },
+  {
+    "turn": 3,
+    "P": {
+      "questionId": "storage",
+      "text": "Depolama için 128 GB yeterli mi, 256 GB mı, yoksa 512 GB ve üzeri mi istersin?",
+      "oneQuestionOnly": true,
+      "offeredValues": [
+        "128 GB",
+        "256 GB",
+        "512 GB+"
+      ]
+    },
+    "Y": {
+      "answer": "128 GB",
+      "effect": "MATERIAL_FILTER_OR_RANK_ONLY",
+      "unknownBehavior": "NEUTRAL_NO_SILENT_DROP",
+      "provenanceRequired": true
+    }
+  },
+  {
+    "turn": 4,
+    "P": {
+      "questionId": "camera",
+      "text": "Kamerada hangisi daha önemli: optik sabitleme, gerçek telefoto yakınlaştırma, yoksa ultra geniş açı?",
+      "oneQuestionOnly": true,
+      "offeredValues": [
+        "OIS",
+        "telefoto",
+        "ultra geniş"
+      ]
+    },
+    "Y": {
+      "answer": "OIS",
+      "effect": "MATERIAL_FILTER_OR_RANK_ONLY",
+      "unknownBehavior": "NEUTRAL_NO_SILENT_DROP",
+      "provenanceRequired": true
+    }
+  }
+]

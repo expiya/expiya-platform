@@ -1,0 +1,26 @@
+{
+  "status": "BLOCKED_SOURCE_AUTHORITY_COUNT_MISMATCH",
+  "explanation": "Verified Electronics v1.2 contains 93 total = 87 non-smartphone + 6 smartphone, not 90 + 3. Replacing all six smartphone records with the digest-bound 33 yields 120, not 123. Keeping three v1.2 smartphone records would yield 123 total but 36 smartphone and violate exact membership.",
+  "baselineCounts": {
+    "total": 93,
+    "smartphone": 6,
+    "nonSmartphone": 87,
+    "headphones": 18,
+    "categories": 24
+  },
+  "requested": {
+    "total": 123,
+    "smartphone": 33,
+    "nonSmartphone": 90,
+    "headphones": 18,
+    "categories": 24
+  },
+  "feasibleIdentityPreservingCandidate": {
+    "total": 120,
+    "smartphone": 33,
+    "nonSmartphone": 87,
+    "headphones": 18,
+    "categories": 24,
+    "unique": 120
+  }
+}

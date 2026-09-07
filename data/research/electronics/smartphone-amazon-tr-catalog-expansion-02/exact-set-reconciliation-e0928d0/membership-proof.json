@@ -1,0 +1,285 @@
+{
+  "schemaVersion": "electronics-smartphone-v02-reconciled-membership-proof/v1",
+  "sourceCommit": "f1ce8e61f76345aa10a1422bb511d2d9998dd954",
+  "auditCommit": "e0928d0",
+  "counts": {
+    "baselineTotal": 93,
+    "baselineSmartphone": 6,
+    "preservedNonSmartphone": 87,
+    "replacedActiveSmartphone": 5,
+    "preservedActiveSmartphone": 1,
+    "pendingAdmitted": 33,
+    "finalTotal": 121,
+    "finalSmartphone": 34,
+    "headphones": 18,
+    "categories": 24,
+    "exactIdOverlap": 0,
+    "duplicates": 0,
+    "silentDrops": 0
+  },
+  "activeReconciliation": [
+    {
+      "activeExactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "manufacturer": "Apple",
+      "modelCode": "iPhone 16e",
+      "activeConfigurationIdentity": "storage_gb=128|chipset=A18|display_inches=6.1|display_panel=OLED|wireless_charging=true|camera_configuration=48MP Fusion + 12MP front|ip_rating=IP68|cellular_generation=5G|esim=true",
+      "exactIdOverlap": false,
+      "successorExactProductId": null,
+      "disposition": "PRESERVED_ACTIVE_NOT_COVERED_BY_PACKAGE",
+      "reason": "No equivalent exact configuration exists in the pending 33; silent drop prohibited"
+    },
+    {
+      "activeExactProductId": "electronics:smartphone:honor:dny-nx9-8-256-black",
+      "manufacturer": "HONOR",
+      "modelCode": "DNY-NX9",
+      "activeConfigurationIdentity": "HONOR|HONOR 400|DNY-NX9|8GB|256GB|Gece Siyahı|5G|TR",
+      "exactIdOverlap": false,
+      "successorExactProductId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+      "disposition": "REPLACED_BY_EXPLICIT_EXACT_CONFIGURATION_SUCCESSOR",
+      "reason": "Same brand/model and exact RAM/storage/color or manufacturer SKU configuration is explicitly mapped"
+    },
+    {
+      "activeExactProductId": "electronics:smartphone:samsung:sm-a266bzkctur",
+      "manufacturer": "Samsung",
+      "modelCode": "SM-A266BZKCTUR",
+      "activeConfigurationIdentity": "Samsung|Galaxy A26 5G|SM-A266BZKCTUR|8GB|256GB|Black|TR",
+      "exactIdOverlap": false,
+      "successorExactProductId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+      "disposition": "REPLACED_BY_EXPLICIT_EXACT_CONFIGURATION_SUCCESSOR",
+      "reason": "Same brand/model and exact RAM/storage/color or manufacturer SKU configuration is explicitly mapped"
+    },
+    {
+      "activeExactProductId": "electronics:smartphone:samsung:sm-a366bzkgtur",
+      "manufacturer": "Samsung",
+      "modelCode": "SM-A366BZKGTUR",
+      "activeConfigurationIdentity": "Samsung|Galaxy A36 5G|SM-A366BZKGTUR|8GB|256GB|Black|TR",
+      "exactIdOverlap": false,
+      "successorExactProductId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+      "disposition": "REPLACED_BY_EXPLICIT_EXACT_CONFIGURATION_SUCCESSOR",
+      "reason": "Same brand/model and exact RAM/storage/color or manufacturer SKU configuration is explicitly mapped"
+    },
+    {
+      "activeExactProductId": "electronics:smartphone:xiaomi:14t-12-256-black",
+      "manufacturer": "Xiaomi",
+      "modelCode": "14T",
+      "activeConfigurationIdentity": "storage_gb=256|memory_gb=12|chipset=Dimensity 8300-Ultra|display_inches=6.67|display_panel=AMOLED|refresh_hz=144|battery_mah=5000|charging_watts=67|wireless_charging=false|camera_configuration=50MP main OIS + 50MP telephoto + 12MP ultrawide; 32MP front|optical_image_stabilization=true|ip_rating=IP68|cellular_generation=5G|esim=true|os_version=Xiaomi HyperOS",
+      "exactIdOverlap": false,
+      "successorExactProductId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+      "disposition": "REPLACED_BY_EXPLICIT_EXACT_CONFIGURATION_SUCCESSOR",
+      "reason": "Same brand/model and exact RAM/storage/color or manufacturer SKU configuration is explicitly mapped"
+    },
+    {
+      "activeExactProductId": "electronics:smartphone:xiaomi:redmi-note-14-pro-8-256-black",
+      "manufacturer": "Xiaomi",
+      "modelCode": "Redmi Note 14 Pro",
+      "activeConfigurationIdentity": "storage_gb=256|memory_gb=8|chipset=Helio G100-Ultra|display_inches=6.67|display_panel=AMOLED|refresh_hz=120|battery_mah=5500|charging_watts=45|camera_configuration=200MP OIS + 8MP ultrawide + 2MP macro; 32MP front|optical_image_stabilization=true|ip_rating=IP64|cellular_generation=4G|esim=false|os_version=Xiaomi HyperOS",
+      "exactIdOverlap": false,
+      "successorExactProductId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+      "disposition": "REPLACED_BY_EXPLICIT_EXACT_CONFIGURATION_SUCCESSOR",
+      "reason": "Same brand/model and exact RAM/storage/color or manufacturer SKU configuration is explicitly mapped"
+    }
+  ],
+  "finalSmartphoneExactProductIds": [
+    "electronics:smartphone:apple:iphone-16e-128-white",
+    "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+    "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+    "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+    "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+    "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+    "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+    "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+    "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+    "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+    "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+    "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+    "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+    "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+    "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+    "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+    "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+    "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+    "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+    "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+    "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+    "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+    "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+    "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+    "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+    "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+    "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+    "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+    "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+    "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+    "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+    "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+    "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+    "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi"
+  ],
+  "categories": [
+    {
+      "categoryId": "SMARTPHONE",
+      "count": 34,
+      "membershipSha256": "sha256:ecb28df7ab00b7eec2cfd42de438622d47994a4520f39c875d21d3532d5d5e92",
+      "preservation": "RECONCILED_34"
+    },
+    {
+      "categoryId": "LAPTOP",
+      "count": 4,
+      "membershipSha256": "sha256:05b6c2da8b6cc732a072d8a7ff33fa660d9bad0c11c4b64524b4f905b9eac012",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "TABLET",
+      "count": 4,
+      "membershipSha256": "sha256:c7cf4ec48bc75fe78d76b4864ddff6ecba4a5ea2bea2ee2fd4d864d526c5a8b5",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "MONITOR",
+      "count": 4,
+      "membershipSha256": "sha256:caa30a4c8c2ed430e6e89e553ed52d253d013b1b84ade20a58e8c8f6236f06d4",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "TELEVISION",
+      "count": 3,
+      "membershipSha256": "sha256:867325276ec28c4f9138540a7c380bcdb5971dc6056aecc0972e4459f6b84395",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "E_READER",
+      "count": 3,
+      "membershipSha256": "sha256:f6c4402b8b702cbbdf93531ec7ce45728a91d1581c5a15fafb654ec4c2ce65fb",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "HEADPHONES",
+      "count": 18,
+      "membershipSha256": "sha256:cbb3047a5413fcb01a9b49a9fddc21a246a0eefc9dbf2f6df0d10b3cb35c3f9f",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "PORTABLE_SPEAKER",
+      "count": 3,
+      "membershipSha256": "sha256:fe40ebb30cc47959ce6e84bc960364feca6fa3185831f09bde9bf7329a307ad8",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "SOUNDBAR",
+      "count": 3,
+      "membershipSha256": "sha256:46109f96519fac850553ae656e02cea0716088329fc11b8d1e11f80eb777e007",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "DIGITAL_CAMERA",
+      "count": 3,
+      "membershipSha256": "sha256:66a50774a37732d754ea58b5c2e37d9e7347eef32f369c8d76e0da530c14eae3",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "PROJECTOR",
+      "count": 3,
+      "membershipSha256": "sha256:661672c75e18229792fcce4ab41ce93caa4fc55f25bd7e457f2594d6522ea77c",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "GAME_CONSOLE",
+      "count": 3,
+      "membershipSha256": "sha256:ceb4604d23ce2023245acfe3de092acd406af882c08d7aacd4428ad2013966b6",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "WIFI_ROUTER_MESH",
+      "count": 3,
+      "membershipSha256": "sha256:adcc794143a7ae9ce440a76d5facf396c74f1b459937966edd60c7391e7e4951",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "count": 3,
+      "membershipSha256": "sha256:80abc5e5f57bc11f115231028e822276c45eb4d4aacef09d0219c020ce321d1c",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "EXTERNAL_STORAGE",
+      "count": 3,
+      "membershipSha256": "sha256:dbcca2f4aab9f7057e96d2cf2e821a729c042d804c696138877dff21b1ebfe0b",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "PRINTER",
+      "count": 3,
+      "membershipSha256": "sha256:4f7850bdf7b3569b940bfc0b4d17306330d2a028ffa16979681eec17d90cda78",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "WEBCAM",
+      "count": 3,
+      "membershipSha256": "sha256:378da5afc1209dce854a3e9db7cb57ad27cd160499f8672cfdc93e1f20fde7c1",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "COMPUTER_AUDIO",
+      "count": 3,
+      "membershipSha256": "sha256:7f71cf5561b0395c0cbecc5b80c7c3fdb765ec7b389995306ef4d39706d2fc96",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "SMARTWATCH",
+      "count": 3,
+      "membershipSha256": "sha256:c60eb929367ff6c9246688942f02536febcee4a228ff0a0cbedf2a68cc60d6cc",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "FITNESS_TRACKER",
+      "count": 3,
+      "membershipSha256": "sha256:3301d80b149da290df3642d06062ea2beef2dee1a63200d574c2d06ebe4f4396",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "count": 3,
+      "membershipSha256": "sha256:c708a3f21474adefae25e728f012dba752c9361e6f11df3cd5a156863219c7ae",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "VIDEO_DOORBELL",
+      "count": 3,
+      "membershipSha256": "sha256:ccc1aa83bfe0fded26a4b1715fc6600988a635efcf4467ad41faaaf60786432f",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "SMART_HOME_HUB",
+      "count": 3,
+      "membershipSha256": "sha256:bf71d5a1ff02a63696f8d4d58c2f08ef2993fdbf9ef326a0f60d0327af947eaa",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    },
+    {
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "count": 3,
+      "membershipSha256": "sha256:43137b89476f0e4660919b2611d09a29ee71bd08a321de82d33785c89f44d7fd",
+      "preservation": "IDENTICAL_TO_ELECTRONICS_V1_2"
+    }
+  ],
+  "nonSmartphoneObjectSequenceSha256": "sha256:0ad1146cd36e9f80009698d478655e1981fe57227187cb06cdd5500f3d93c482",
+  "headphonesExactProductIds": [
+    "electronics:headphones:apple:airpods-4-with-active-noise-cancellation:standard",
+    "electronics:headphones:apple:airpods-pro-3:standard",
+    "electronics:headphones:apple:earpods-usb-c:myqy3tu-a",
+    "electronics:headphones:apple:earpods-with-3-5-mm-headphone-plug:mwu53tu-a",
+    "electronics:headphones:huawei:freebuds-6-black",
+    "electronics:headphones:huawei:freebuds-6:purple",
+    "electronics:headphones:huawei:freebuds-6i:white",
+    "electronics:headphones:huawei:freebuds-7i:black",
+    "electronics:headphones:huawei:freebuds-se-2:white",
+    "electronics:headphones:huawei:freebuds-se-4-anc:white",
+    "electronics:headphones:hyperx:cloud-iii-s-wireless:black",
+    "electronics:headphones:hyperx:cloud-iii:black",
+    "electronics:headphones:marshall:major-v:cream",
+    "electronics:headphones:philips:headphones-with-microphone:black",
+    "electronics:headphones:samsung:galaxy-buds3-fe:black",
+    "electronics:headphones:samsung:type-c-earphones:black",
+    "electronics:headphones:sony:wh1000xm5b-ce7",
+    "electronics:headphones:ugreen:hitune-s3:black"
+  ]
+}

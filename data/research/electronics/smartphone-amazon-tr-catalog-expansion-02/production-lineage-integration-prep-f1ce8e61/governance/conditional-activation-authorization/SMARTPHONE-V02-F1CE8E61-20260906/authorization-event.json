@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "electronics-smartphone-conditional-activation-authorization/v1",
+  "eventId": "SMARTPHONE-V02-F1CE8E61-20260906",
+  "recordedAt": "2026-09-06T23:43:37Z",
+  "appendOnly": true,
+  "authority": "USER_DIRECT",
+  "packageSha256": "sha256:f26713a71712a8b9b008269feb0c1ba00f66312176776d81a1894367207bc323",
+  "sourceCommit": "f1ce8e61f76345aa10a1422bb511d2d9998dd954",
+  "scope": "SMARTPHONE_AUTHORITY_ATOMIC_ACTIVATION_ONLY",
+  "conditions": {
+    "sourceCountDiscrepancyResolved": true,
+    "verifiedSourceCounts": {
+      "total": 93,
+      "smartphone": 6,
+      "nonSmartphone": 87,
+      "headphones": 18,
+      "categories": 24
+    },
+    "identityPreservingCandidateCounts": {
+      "total": 120,
+      "smartphone": 33,
+      "nonSmartphone": 87,
+      "headphones": 18,
+      "categories": 24
+    },
+    "expectedTotalNumericallyReapproved": false,
+    "membershipProofPassed": true,
+    "testsPassed": true,
+    "buildPassed": true,
+    "casDryRunPassed": false
+  },
+  "effective": false,
+  "blockingCondition": "EXPLICIT_NUMERIC_REAPPROVAL_OF_120_TOTAL_REQUIRED",
+  "packageRegenerationAuthorized": false,
+  "otherLineageChangeAuthorized": false,
+  "pushAuthorized": false,
+  "deploymentAuthorized": false
+}

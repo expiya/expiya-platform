@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "electronics-smartphone-owner-review-event/v1",
+  "eventId": "SMARTPHONE-OAE-F26713A7-20260906",
+  "recordedAt": "2026-09-06T23:29:57Z",
+  "appendOnly": true,
+  "decision": "OWNER_REVIEW_PACKAGE_APPROVED",
+  "scope": "OWNER_REVIEW_ONLY",
+  "subject": {
+    "workUnit": "WU-CATALOG-FACTORY-SMARTPHONE-AMAZON-TR-COVERAGE-EXPANSION-02",
+    "packagePath": "data/research/electronics/smartphone-amazon-tr-catalog-expansion-02/owner-approval-package.json",
+    "packageSha256": "sha256:f26713a71712a8b9b008269feb0c1ba00f66312176776d81a1894367207bc323",
+    "exactProductCount": 33,
+    "membershipReference": "data/research/electronics/smartphone-amazon-tr-catalog-expansion-02/owner-review-packages/SMARTPHONE-TR-V02-F26713A7/owner-review-handoff.json"
+  },
+  "approvalTextPath": "data/research/electronics/smartphone-amazon-tr-catalog-expansion-02/governance/owner-review-events/SMARTPHONE-OAE-F26713A7-20260906/owner-approval-text.txt",
+  "authority": {
+    "ownerReviewApproved": true,
+    "packageRegenerationAuthorized": false,
+    "scopeChangeAuthorized": false,
+    "activePointerMutationAuthorized": false,
+    "runtimeMutationAuthorized": false,
+    "activationAuthorized": false,
+    "deploymentAuthorized": false
+  },
+  "nextGate": "SEPARATE_DIGEST_BOUND_ATOMIC_ACTIVATION_AUTHORIZATION_REQUIRED"
+}

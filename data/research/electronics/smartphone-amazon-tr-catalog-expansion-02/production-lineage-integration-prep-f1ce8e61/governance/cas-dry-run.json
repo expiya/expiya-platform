@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "electronics-smartphone-production-lineage-cas-dry-run/v1",
+  "runAt": "2026-09-06T23:43:37Z",
+  "status": "BLOCKED_NO_WRITE_PERFORMED",
+  "source": {
+    "commit": "f1ce8e61f76345aa10a1422bb511d2d9998dd954",
+    "activePointerSha256": "sha256:c688c7d81ca191c7b1d41e5ec6434276b839cbe004e7e96c7db6c1209e233e4a",
+    "catalogSha256": "sha256:8df690e1d85292f466d4d7397cd86d6558e96e947403fcc9f4826ef36eab64f1",
+    "catalogReleaseDigest": "sha256:7fae9bf18ccfb019d1718d237cda66d8c535353a8e2f44314a4411b43be00d39"
+  },
+  "candidate": {
+    "total": 120,
+    "unique": 120,
+    "smartphone": 33,
+    "nonSmartphone": 87,
+    "headphones": 18,
+    "categories": 24,
+    "packageSha256": "sha256:f26713a71712a8b9b008269feb0c1ba00f66312176776d81a1894367207bc323"
+  },
+  "checks": {
+    "packageDigest": "PASS",
+    "sourcePointerDigest": "PASS",
+    "sourceCatalogDigest": "PASS",
+    "exact33Membership": "PASS",
+    "nonSmartphoneIdentityPreservation": "PASS_87_OF_87",
+    "headphonesMembership": "PASS_18_OF_18",
+    "categoryMembershipProof": "PASS_24_OF_24",
+    "toolsMobilityUniversalPersonaSecretaryCatalogMitgoLineage": "PASS",
+    "targetedRegressionTests": "PASS_147_OF_147",
+    "productionBuild": "PASS",
+    "expectedTotalNumericReapproval": "BLOCKED_EXPECTED_120_NOT_EXPLICITLY_REAPPROVED"
+  },
+  "wouldCompareAndSwap": false,
+  "activePointerMutation": false,
+  "runtimeMutation": false,
+  "deployment": false,
+  "push": false
+}
