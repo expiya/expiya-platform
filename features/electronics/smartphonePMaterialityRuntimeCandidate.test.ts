@@ -35,4 +35,24 @@ describe("Smartphone P materiality runtime candidate", () => {
     expect(battery.status === "OK" && battery.outcome).toMatchObject({ questionKey: "electronics.smartphone.battery", message: "Gün içinde kısa bir şarj molasında toparlamak için en az 80 W kablolu şarj gerekli mi?" });
     expect(battery.status === "OK" && battery.state.askedQuestionKeys).not.toContain("electronics.smartphone.os_support");
   });
+  it("keeps UNKNOWN neutral and supports correction plus clear without inventing a winner", async () => {
+    vi.stubEnv("SMARTPHONE_P_MATERIALITY_V1", "true");
+    const store = new MemoryElectronicsConversationStore();
+    const authority = { policy, catalog };
+    const conversationId = "smartphone-p-correction-clear";
+    await bootstrapElectronicsConversation({ store, authority, conversationId, categoryId: "SMARTPHONE", messageId: "start" });
+    const unknown = await runElectronicsTurn({ store, authority, conversationId, messageId: "unknown", expectedRevision: 1, message: "Henüz emin değilim" });
+    expect(unknown.status === "OK" && unknown.outcome).toMatchObject({ kind: "ASK", questionKey: "electronics.smartphone.camera" });
+    if (unknown.status !== "OK") return;
+    expect(unknown.state.ledger.at(-1)).toMatchObject({ conceptId: "CELLULAR_BANDS", normalizedValue: "UNKNOWN", status: "ACCEPTED_EXPLICIT" });
+    const corrected = await runElectronicsTurn({ store, authority, conversationId, messageId: "correct", expectedRevision: 2, message: "İlk tercihimi düzelt: evet, gerekli" });
+    expect(corrected.status).toBe("OK");
+    if (corrected.status !== "OK") return;
+    expect(corrected.state.ledger.map((row) => row.status)).toEqual(expect.arrayContaining(["SUPERSEDED", "ACCEPTED_EXPLICIT"]));
+    const cleared = await runElectronicsTurn({ store, authority, conversationId, messageId: "clear", expectedRevision: 3, message: "İlk tercihimi unut" });
+    expect(cleared.status).toBe("OK");
+    if (cleared.status !== "OK") return;
+    expect(cleared.state.ledger.some((row) => row.status === "CLEARED")).toBe(true);
+    expect(cleared.outcome).toMatchObject({ kind: "ASK", questionKey: "electronics.smartphone.cellular_bands" });
+  });
 });

@@ -11,6 +11,7 @@ const WORK_UNIT = "WU-CATALOG-FACTORY-WAVE-02-15-EXACT-IDENTITY-SUPERSESSION-01"
 const DUPLICATE_ID = "appliances:refrigerator:lg:lg-gc-b569nllm";
 const CANONICAL_ID = "LG_GC_B569NLLM_TR";
 const NOW = "2026-09-07T11:00:00.000Z";
+const EXPECTED_EXACT15_POINTER_SHA256 = "f8d7aad75c5eb0610e6a782ffa0a70b67a55e2ec08d12fe71972bb3d738a799a";
 const stable = (value: unknown): string => JSON.stringify(value, (_key, item) => item && typeof item === "object" && !Array.isArray(item) ? Object.fromEntries(Object.entries(item).sort(([a], [b]) => a.localeCompare(b))) : item);
 const sha = (value: unknown) => createHash("sha256").update(Buffer.isBuffer(value) || typeof value === "string" ? value : stable(value)).digest("hex");
 const readJson = async (root: string, file: string) => JSON.parse(await readFile(path.join(root, file), "utf8"));
@@ -20,6 +21,7 @@ const slug = (value: string) => value.toLowerCase().replaceAll("_", "-");
 export async function generateWave02Exact14IdentitySupersession(root = process.cwd()) {
   const oldPackage = await readJson(root, `${OLD_REVIEW}/OWNER_REVIEW_PACKAGE.json`), oldOverlay = await readJson(root, OLD_OVERLAY), refrigerator = await readJson(root, EXISTING_REFRIGERATOR);
   const pointerBytes = await readFile(path.join(root, ACTIVE_POINTER)), exclusionBytes = await readFile(path.join(root, OLD_REVIEW, "EXCLUSION_LEDGER.json"));
+  if (sha(pointerBytes) !== EXPECTED_EXACT15_POINTER_SHA256) throw new Error("HISTORICAL_EXACT15_POINTER_NOT_CURRENT");
   const duplicate = oldOverlay.categories.find((item: { categoryId: string }) => item.categoryId === "REFRIGERATOR").additions.find((item: { exactProductId: string }) => item.exactProductId === DUPLICATE_ID);
   const existing = refrigerator.offerings.find((item: { offeringId: string }) => item.offeringId === CANONICAL_ID);
   if (!duplicate || !existing) throw new Error("DUPLICATE_IDENTITY_INPUT_MISSING");
