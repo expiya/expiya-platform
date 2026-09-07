@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "smartphone-p-materiality-comparison/v1",
+  "current": [
+    {
+      "questionKey": "electronics.smartphone.os_support",
+      "targetConcept": "OS_SUPPORT",
+      "priority": 1,
+      "textTr": "Akıllı telefon seçiminizde os_support ne kadar önemli?",
+      "choicesTr": [
+        "Önemli",
+        "Önemli değil",
+        "Henüz bilmiyorum"
+      ],
+      "askOnlyWhenMaterial": true,
+      "alreadyAnsweredSuppresses": true,
+      "noRepeatUnless": [
+        "CORRECTED",
+        "CLEARED",
+        "AUTHORITY_MATERIALLY_CHANGED"
+      ]
+    },
+    {
+      "questionKey": "electronics.smartphone.cellular_bands",
+      "targetConcept": "CELLULAR_BANDS",
+      "priority": 2,
+      "textTr": "Akıllı telefon seçiminizde cellular_bands ne kadar önemli?",
+      "choicesTr": [
+        "Önemli",
+        "Önemli değil",
+        "Henüz bilmiyorum"
+      ],
+      "askOnlyWhenMaterial": true,
+      "alreadyAnsweredSuppresses": true,
+      "noRepeatUnless": [
+        "CORRECTED",
+        "CLEARED",
+        "AUTHORITY_MATERIALLY_CHANGED"
+      ]
+    },
+    {
+      "questionKey": "electronics.smartphone.camera",
+      "targetConcept": "CAMERA",
+      "priority": 3,
+      "textTr": "Akıllı telefon seçiminizde camera ne kadar önemli?",
+      "choicesTr": [
+        "Önemli",
+        "Önemli değil",
+        "Henüz bilmiyorum"
+      ],
+      "askOnlyWhenMaterial": true,
+      "alreadyAnsweredSuppresses": true,
+      "noRepeatUnless": [
+        "CORRECTED",
+        "CLEARED",
+        "AUTHORITY_MATERIALLY_CHANGED"
+      ]
+    },
+    {
+      "questionKey": "electronics.smartphone.battery",
+      "targetConcept": "BATTERY",
+      "priority": 4,
+      "textTr": "Akıllı telefon seçiminizde battery ne kadar önemli?",
+      "choicesTr": [
+        "Önemli",
+        "Önemli değil",
+        "Henüz bilmiyorum"
+      ],
+      "askOnlyWhenMaterial": true,
+      "alreadyAnsweredSuppresses": true,
+      "noRepeatUnless": [
+        "CORRECTED",
+        "CLEARED",
+        "AUTHORITY_MATERIALLY_CHANGED"
+      ]
+    }
+  ],
+  "shadow": [
+    {
+      "questionKey": "shadow.smartphone.support_7y",
+      "axis": "SUPPORT_LONGEVITY",
+      "textTr": "Telefonu yedi yıl boyunca güvenlik güncellemeleriyle kullanabilmek şart mı?",
+      "status": "SUPPRESSED",
+      "suppressReasons": [
+        "PREDOMINANTLY_UNKNOWN"
+      ],
+      "knownPartitionCounts": {
+        "SEVEN_YEARS": 6,
+        "UP_TO_SIX_YEARS": 4
+      },
+      "unknownCount": 24
+    },
+    {
+      "questionKey": "shadow.smartphone.turkiye_5g",
+      "axis": "TURKIYE_NETWORK_APPLICABILITY",
+      "textTr": "Telefonu Türkiye’de 5G ile kullanabilmek sizin için zorunlu mu?",
+      "status": "ASK",
+      "suppressReasons": [],
+      "knownPartitionCounts": {
+        "4G_ONLY": 5,
+        "5G_ESIM_ONLY": 5,
+        "5G_SIM_FLEXIBLE": 24
+      },
+      "unknownCount": 0
+    },
+    {
+      "questionKey": "shadow.smartphone.telephoto",
+      "axis": "CAMERA_USE_CASE",
+      "textTr": "Uzaktaki kişileri veya sahneleri dijital kırpma yerine telefoto kamerayla yakınlaştırmanız gerekiyor mu?",
+      "status": "ASK",
+      "suppressReasons": [],
+      "knownPartitionCounts": {
+        "NO_TELEPHOTO": 17,
+        "TELEPHOTO": 16
+      },
+      "unknownCount": 1
+    },
+    {
+      "questionKey": "shadow.smartphone.fast_charge_80w",
+      "axis": "BATTERY_CHARGING_ROUTINE",
+      "textTr": "Gün içinde kısa bir şarj molasında toparlamak için en az 80 W kablolu şarj gerekli mi?",
+      "status": "ASK",
+      "suppressReasons": [],
+      "knownPartitionCounts": {
+        "WIRED_80W_PLUS": 5,
+        "WIRED_UNDER_80W": 23
+      },
+      "unknownCount": 6
+    }
+  ],
+  "expectedReduction": {
+    "currentQuestions": 4,
+    "shadowAskedQuestions": 3
+  },
+  "fixtures": {
+    "correction": [
+      "YES",
+      "CORRECTED:NO"
+    ],
+    "clear": [
+      "YES",
+      "CLEARED"
+    ],
+    "supersession": [
+      "YES@v1",
+      "NO@v2_SUPERSEDES_v1"
+    ],
+    "alreadyAnswered": "SUPPRESS_UNLESS_CORRECTED_CLEARED_OR_AUTHORITY_CHANGED"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "smartphone-p-materiality-shadow-manifest/v1",
+  "workUnit": "WU-XPY-ELECTRONICS-SMARTPHONE-P-MATERIALITY-SHADOW-01",
+  "generatedAt": "2026-09-07T00:00:00.000Z",
+  "mode": "SHADOW_READ_ONLY",
+  "inputs": {
+    "runtimePointer": "sha256:4f9683fd039bee5fa7b0874c16c789adaa7e90baebaace912bf317feae7ad3b4",
+    "catalog": "sha256:94eef41f4dba77753a2c9d213edd385f546a318b029d1f4a8f58e9b323bbf00b",
+    "policyPointer": "sha256:3c795ca9c10a7c6cffaf8ba775940efc6a4794160dab7b36c14cc228d028a6f4",
+    "policy": "sha256:b174414791e300f4e850e90eb3a567e2eb209f73c9126d82531757613be39a28"
+  },
+  "artifactDigests": {
+    "coverage-matrix.json": "sha256:df69af3e721a0dea81f028403544712c993c3f2693005e0d710cb85f89df5673",
+    "shadow-projection.json": "sha256:8b63853ddf86e8e5214afbbda19ec33bc404a833b977e9eda2a71bcf095d4f18",
+    "current-vs-shadow-transcript.json": "sha256:e79ad48f6e3b9a14b09d61a762efab302c556da74aec770dae6469864a4f7cd7",
+    "candidate-effect-traces.json": "sha256:ae01520b2a92d8f2d574ea51c828abcb2f8326140cd4e0bd9834f1d4bb5e99a3",
+    "readiness-report.json": "sha256:e219e52c70c575c3f152396f3688447758e4b1575e0308cccdd1ba4dc4779546",
+    "no-effect-proof.json": "sha256:ced9b7289a861ac070e45aacb1f778c8052c5f86f6c6146752644d93f0563c1a"
+  },
+  "releaseDigest": "sha256:489339776731d2498b2ba115822ab9da95fb13d8b696dfc8d92b1512ffe81f16"
+}

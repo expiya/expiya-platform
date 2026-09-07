@@ -1,0 +1,2337 @@
+{
+  "schemaVersion": "smartphone-p-materiality-coverage/v1",
+  "rows": [
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-16e-128-white",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "EXACT_WARRANTY_START_DATE_UNKNOWN",
+            "SOFTWARE_SUPPORT_END_DATE_NOT_BOUND"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "exp02:electronics:smartphone:apple:iphone-16e-128-white:cellular_generation:8",
+              "sourceId": "electronics:smartphone:apple:iphone-16e-128-white:product",
+              "locator": "Exact named configuration field on manufacturer-controlled source"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "EXACT_WARRANTY_START_DATE_UNKNOWN",
+            "SOFTWARE_SUPPORT_END_DATE_NOT_BOUND"
+          ]
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "EXACT_WARRANTY_START_DATE_UNKNOWN",
+            "SOFTWARE_SUPPORT_END_DATE_NOT_BOUND"
+          ]
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-256-siyah",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_BATTERY_MAH",
+            "UNKNOWN_WIRED_CHARGING_W",
+            "UNKNOWN_WIRELESS_CHARGING_W",
+            "UNKNOWN_RAM_GB"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_ESIM_ONLY",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:apple-iphone-17-no-public-sku-unknown-256-siyah:sim:13",
+              "sourceId": "apple-tr:iphone-17-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:apple-iphone-17-no-public-sku-unknown-256-siyah:cellular:15",
+              "sourceId": "apple-tr:iphone-17-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:apple-iphone-17-no-public-sku-unknown-256-siyah:telephoto:9",
+              "sourceId": "apple-tr:iphone-17-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_BATTERY_MAH",
+            "UNKNOWN_WIRED_CHARGING_W",
+            "UNKNOWN_WIRELESS_CHARGING_W",
+            "UNKNOWN_RAM_GB"
+          ]
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17:no-public-sku-unknown-512-lavanta",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_BATTERY_MAH",
+            "UNKNOWN_WIRED_CHARGING_W",
+            "UNKNOWN_WIRELESS_CHARGING_W",
+            "UNKNOWN_RAM_GB"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_ESIM_ONLY",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:apple-iphone-17-no-public-sku-unknown-512-lavanta:sim:13",
+              "sourceId": "apple-tr:iphone-17-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:apple-iphone-17-no-public-sku-unknown-512-lavanta:cellular:15",
+              "sourceId": "apple-tr:iphone-17-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:apple-iphone-17-no-public-sku-unknown-512-lavanta:telephoto:9",
+              "sourceId": "apple-tr:iphone-17-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_BATTERY_MAH",
+            "UNKNOWN_WIRED_CHARGING_W",
+            "UNKNOWN_WIRELESS_CHARGING_W",
+            "UNKNOWN_RAM_GB"
+          ]
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-256-kozmik-turuncu",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_BATTERY_MAH",
+            "UNKNOWN_WIRED_CHARGING_W",
+            "UNKNOWN_WIRELESS_CHARGING_W",
+            "UNKNOWN_WEIGHT_G",
+            "UNKNOWN_RAM_GB"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_ESIM_ONLY",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:apple-iphone-17-pro-no-public-sku-unknown-256-kozmik-turuncu:sim:13",
+              "sourceId": "apple-tr:iphone-17-pro-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:apple-iphone-17-pro-no-public-sku-unknown-256-kozmik-turuncu:cellular:15",
+              "sourceId": "apple-tr:iphone-17-pro-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:apple-iphone-17-pro-no-public-sku-unknown-256-kozmik-turuncu:telephoto:9",
+              "sourceId": "apple-tr:iphone-17-pro-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_BATTERY_MAH",
+            "UNKNOWN_WIRED_CHARGING_W",
+            "UNKNOWN_WIRELESS_CHARGING_W",
+            "UNKNOWN_WEIGHT_G",
+            "UNKNOWN_RAM_GB"
+          ]
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-512-derin-mavi",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_BATTERY_MAH",
+            "UNKNOWN_WIRED_CHARGING_W",
+            "UNKNOWN_WIRELESS_CHARGING_W",
+            "UNKNOWN_WEIGHT_G",
+            "UNKNOWN_RAM_GB"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_ESIM_ONLY",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:apple-iphone-17-pro-no-public-sku-unknown-512-derin-mavi:sim:13",
+              "sourceId": "apple-tr:iphone-17-pro-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:apple-iphone-17-pro-no-public-sku-unknown-512-derin-mavi:cellular:15",
+              "sourceId": "apple-tr:iphone-17-pro-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:apple-iphone-17-pro-no-public-sku-unknown-512-derin-mavi:telephoto:9",
+              "sourceId": "apple-tr:iphone-17-pro-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_BATTERY_MAH",
+            "UNKNOWN_WIRED_CHARGING_W",
+            "UNKNOWN_WIRELESS_CHARGING_W",
+            "UNKNOWN_WEIGHT_G",
+            "UNKNOWN_RAM_GB"
+          ]
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:apple:iphone-17-pro:no-public-sku-unknown-1024-gu-mu-s",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_BATTERY_MAH",
+            "UNKNOWN_WIRED_CHARGING_W",
+            "UNKNOWN_WIRELESS_CHARGING_W",
+            "UNKNOWN_WEIGHT_G",
+            "UNKNOWN_RAM_GB"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_ESIM_ONLY",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:apple-iphone-17-pro-no-public-sku-unknown-1024-gu-mu-s:sim:13",
+              "sourceId": "apple-tr:iphone-17-pro-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:apple-iphone-17-pro-no-public-sku-unknown-1024-gu-mu-s:cellular:15",
+              "sourceId": "apple-tr:iphone-17-pro-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:apple-iphone-17-pro-no-public-sku-unknown-1024-gu-mu-s:telephoto:9",
+              "sourceId": "apple-tr:iphone-17-pro-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_BATTERY_MAH",
+            "UNKNOWN_WIRED_CHARGING_W",
+            "UNKNOWN_WIRELESS_CHARGING_W",
+            "UNKNOWN_WEIGHT_G",
+            "UNKNOWN_RAM_GB"
+          ]
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-a26-5g:sm-a266bzkctur-8-256-black",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "KNOWN",
+          "partition": "UP_TO_SIX_YEARS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a26-5g-sm-a266bzkctur-8-256-black:support_policy:7",
+              "sourceId": "samsung-tr:galaxy-a26",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a26-5g-sm-a266bzkctur-8-256-black:sim:17",
+              "sourceId": "samsung-tr:galaxy-a26",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a26-5g-sm-a266bzkctur-8-256-black:cellular:19",
+              "sourceId": "samsung-tr:galaxy-a26",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a26-5g-sm-a266bzkctur-8-256-black:telephoto:13",
+              "sourceId": "samsung-tr:galaxy-a26",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a26-5g-sm-a266bzkctur-8-256-black:battery_mah:8",
+              "sourceId": "samsung-tr:galaxy-a26",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a26-5g-sm-a266bzkctur-8-256-black:wired_charging_w:9",
+              "sourceId": "samsung-tr:galaxy-a26",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a26-5g-sm-a266bzkctur-8-256-black:wireless_charging_w:10",
+              "sourceId": "samsung-tr:galaxy-a26",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-a36-5g:sm-a366bzkgtur-8-256-black",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "KNOWN",
+          "partition": "UP_TO_SIX_YEARS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a36-5g-sm-a366bzkgtur-8-256-black:support_policy:7",
+              "sourceId": "samsung-tr:galaxy-a36",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a36-5g-sm-a366bzkgtur-8-256-black:sim:17",
+              "sourceId": "samsung-tr:galaxy-a36",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a36-5g-sm-a366bzkgtur-8-256-black:cellular:19",
+              "sourceId": "samsung-tr:galaxy-a36",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a36-5g-sm-a366bzkgtur-8-256-black:telephoto:13",
+              "sourceId": "samsung-tr:galaxy-a36",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a36-5g-sm-a366bzkgtur-8-256-black:battery_mah:8",
+              "sourceId": "samsung-tr:galaxy-a36",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a36-5g-sm-a366bzkgtur-8-256-black:wired_charging_w:9",
+              "sourceId": "samsung-tr:galaxy-a36",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-a36-5g-sm-a366bzkgtur-8-256-black:wireless_charging_w:10",
+              "sourceId": "samsung-tr:galaxy-a36",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-128-lacivert",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "KNOWN",
+          "partition": "SEVEN_YEARS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-128-lacivert:support_policy:7",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-128-lacivert:sim:17",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-128-lacivert:cellular:19",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-128-lacivert:telephoto:13",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-128-lacivert:battery_mah:8",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-128-lacivert:wired_charging_w:9",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-128-lacivert:wireless_charging_w:10",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-256-gu-mu-s",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "KNOWN",
+          "partition": "SEVEN_YEARS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-256-gu-mu-s:support_policy:7",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-256-gu-mu-s:sim:17",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-256-gu-mu-s:cellular:19",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-256-gu-mu-s:telephoto:13",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-256-gu-mu-s:battery_mah:8",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-256-gu-mu-s:wired_charging_w:9",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-256-gu-mu-s:wireless_charging_w:10",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25:sm-s931b-12-512-mavi",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "KNOWN",
+          "partition": "SEVEN_YEARS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-512-mavi:support_policy:7",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-512-mavi:sim:17",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-512-mavi:cellular:19",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-512-mavi:telephoto:13",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-512-mavi:battery_mah:8",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-512-mavi:wired_charging_w:9",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-sm-s931b-12-512-mavi:wireless_charging_w:10",
+              "sourceId": "samsung-tr:galaxy-s25",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-256-titanyum-siyah",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "KNOWN",
+          "partition": "SEVEN_YEARS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-256-titanyum-siyah:support_policy:7",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-256-titanyum-siyah:sim:17",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-256-titanyum-siyah:cellular:19",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-256-titanyum-siyah:telephoto:13",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-256-titanyum-siyah:battery_mah:8",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-256-titanyum-siyah:wired_charging_w:9",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-256-titanyum-siyah:wireless_charging_w:10",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-512-titanyum-gri",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "KNOWN",
+          "partition": "SEVEN_YEARS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-512-titanyum-gri:support_policy:7",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-512-titanyum-gri:sim:17",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-512-titanyum-gri:cellular:19",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-512-titanyum-gri:telephoto:13",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-512-titanyum-gri:battery_mah:8",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-512-titanyum-gri:wired_charging_w:9",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-512-titanyum-gri:wireless_charging_w:10",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-s25-ultra:sm-s938b-12-1024-titanyum-gu-mu-s",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "KNOWN",
+          "partition": "SEVEN_YEARS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-1024-titanyum-gu-mu-s:support_policy:7",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-1024-titanyum-gu-mu-s:sim:17",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-1024-titanyum-gu-mu-s:cellular:19",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-1024-titanyum-gu-mu-s:telephoto:13",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-1024-titanyum-gu-mu-s:battery_mah:8",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-1024-titanyum-gu-mu-s:wired_charging_w:9",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-s25-ultra-sm-s938b-12-1024-titanyum-gu-mu-s:wireless_charging_w:10",
+              "sourceId": "samsung-tr:galaxy-s25-ultra",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:samsung:galaxy-z-flip7-fe:sm-f761bzkhtur-8-256-siyah",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_WEIGHT_G"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-z-flip7-fe-sm-f761bzkhtur-8-256-siyah:sim:16",
+              "sourceId": "samsung-tr:z-flip7-fe",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-z-flip7-fe-sm-f761bzkhtur-8-256-siyah:cellular:18",
+              "sourceId": "samsung-tr:z-flip7-fe",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-z-flip7-fe-sm-f761bzkhtur-8-256-siyah:telephoto:12",
+              "sourceId": "samsung-tr:z-flip7-fe",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:samsung-galaxy-z-flip7-fe-sm-f761bzkhtur-8-256-siyah:battery_mah:7",
+              "sourceId": "samsung-tr:z-flip7-fe",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-z-flip7-fe-sm-f761bzkhtur-8-256-siyah:wired_charging_w:8",
+              "sourceId": "samsung-tr:z-flip7-fe",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:samsung-galaxy-z-flip7-fe-sm-f761bzkhtur-8-256-siyah:wireless_charging_w:9",
+              "sourceId": "samsung-tr:z-flip7-fe",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-256-titan-siyah",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:xiaomi-xiaomi-14t-no-public-sku-12-256-titan-siyah:sim:16",
+              "sourceId": "xiaomi-tr:14t-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:xiaomi-xiaomi-14t-no-public-sku-12-256-titan-siyah:cellular:18",
+              "sourceId": "xiaomi-tr:14t-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:xiaomi-xiaomi-14t-no-public-sku-12-256-titan-siyah:telephoto:12",
+              "sourceId": "xiaomi-tr:14t-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:xiaomi-xiaomi-14t-no-public-sku-12-256-titan-siyah:battery_mah:7",
+              "sourceId": "xiaomi-tr:14t-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:xiaomi-xiaomi-14t-no-public-sku-12-256-titan-siyah:wired_charging_w:8",
+              "sourceId": "xiaomi-tr:14t-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:xiaomi-xiaomi-14t-no-public-sku-12-256-titan-siyah:wireless_charging_w:9",
+              "sourceId": "xiaomi-tr:14t-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:xiaomi:xiaomi-14t:no-public-sku-12-512-titan-mavi",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:xiaomi-xiaomi-14t-no-public-sku-12-512-titan-mavi:sim:16",
+              "sourceId": "xiaomi-tr:14t-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:xiaomi-xiaomi-14t-no-public-sku-12-512-titan-mavi:cellular:18",
+              "sourceId": "xiaomi-tr:14t-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:xiaomi-xiaomi-14t-no-public-sku-12-512-titan-mavi:telephoto:12",
+              "sourceId": "xiaomi-tr:14t-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:xiaomi-xiaomi-14t-no-public-sku-12-512-titan-mavi:battery_mah:7",
+              "sourceId": "xiaomi-tr:14t-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:xiaomi-xiaomi-14t-no-public-sku-12-512-titan-mavi:wired_charging_w:8",
+              "sourceId": "xiaomi-tr:14t-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:xiaomi-xiaomi-14t-no-public-sku-12-512-titan-mavi:wireless_charging_w:9",
+              "sourceId": "xiaomi-tr:14t-spec",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-8-256-gece-siyahi",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "4G_ONLY",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:redmi-redmi-note-14-pro-no-public-sku-8-256-gece-siyahi:sim:16",
+              "sourceId": "xiaomi-tr:redmi-note-14-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:redmi-redmi-note-14-pro-no-public-sku-8-256-gece-siyahi:cellular:18",
+              "sourceId": "xiaomi-tr:redmi-note-14-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:redmi-redmi-note-14-pro-no-public-sku-8-256-gece-siyahi:telephoto:12",
+              "sourceId": "xiaomi-tr:redmi-note-14-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:redmi-redmi-note-14-pro-no-public-sku-8-256-gece-siyahi:battery_mah:7",
+              "sourceId": "xiaomi-tr:redmi-note-14-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:redmi-redmi-note-14-pro-no-public-sku-8-256-gece-siyahi:wired_charging_w:8",
+              "sourceId": "xiaomi-tr:redmi-note-14-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:redmi-redmi-note-14-pro-no-public-sku-8-256-gece-siyahi:wireless_charging_w:9",
+              "sourceId": "xiaomi-tr:redmi-note-14-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:redmi:redmi-note-14-pro:no-public-sku-12-512-okyanus-mavisi",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "4G_ONLY",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:redmi-redmi-note-14-pro-no-public-sku-12-512-okyanus-mavisi:sim:16",
+              "sourceId": "xiaomi-tr:redmi-note-14-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:redmi-redmi-note-14-pro-no-public-sku-12-512-okyanus-mavisi:cellular:18",
+              "sourceId": "xiaomi-tr:redmi-note-14-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:redmi-redmi-note-14-pro-no-public-sku-12-512-okyanus-mavisi:telephoto:12",
+              "sourceId": "xiaomi-tr:redmi-note-14-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:redmi-redmi-note-14-pro-no-public-sku-12-512-okyanus-mavisi:battery_mah:7",
+              "sourceId": "xiaomi-tr:redmi-note-14-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:redmi-redmi-note-14-pro-no-public-sku-12-512-okyanus-mavisi:wired_charging_w:8",
+              "sourceId": "xiaomi-tr:redmi-note-14-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:redmi-redmi-note-14-pro-no-public-sku-12-512-okyanus-mavisi:wireless_charging_w:9",
+              "sourceId": "xiaomi-tr:redmi-note-14-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-8-256-siyah",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:poco-poco-x7-pro-no-public-sku-8-256-siyah:sim:16",
+              "sourceId": "xiaomi-tr:poco-x7-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:poco-poco-x7-pro-no-public-sku-8-256-siyah:cellular:18",
+              "sourceId": "xiaomi-tr:poco-x7-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:poco-poco-x7-pro-no-public-sku-8-256-siyah:telephoto:12",
+              "sourceId": "xiaomi-tr:poco-x7-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_80W_PLUS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:poco-poco-x7-pro-no-public-sku-8-256-siyah:battery_mah:7",
+              "sourceId": "xiaomi-tr:poco-x7-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:poco-poco-x7-pro-no-public-sku-8-256-siyah:wired_charging_w:8",
+              "sourceId": "xiaomi-tr:poco-x7-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:poco-poco-x7-pro-no-public-sku-8-256-siyah:wireless_charging_w:9",
+              "sourceId": "xiaomi-tr:poco-x7-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:poco:poco-x7-pro:no-public-sku-12-512-sari",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:poco-poco-x7-pro-no-public-sku-12-512-sari:sim:16",
+              "sourceId": "xiaomi-tr:poco-x7-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:poco-poco-x7-pro-no-public-sku-12-512-sari:cellular:18",
+              "sourceId": "xiaomi-tr:poco-x7-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:poco-poco-x7-pro-no-public-sku-12-512-sari:telephoto:12",
+              "sourceId": "xiaomi-tr:poco-x7-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_80W_PLUS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:poco-poco-x7-pro-no-public-sku-12-512-sari:battery_mah:7",
+              "sourceId": "xiaomi-tr:poco-x7-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:poco-poco-x7-pro-no-public-sku-12-512-sari:wired_charging_w:8",
+              "sourceId": "xiaomi-tr:poco-x7-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:poco-poco-x7-pro-no-public-sku-12-512-sari:wireless_charging_w:9",
+              "sourceId": "xiaomi-tr:poco-x7-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:honor-400:dny-nx9-8-256-gece-siyahi",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:honor-honor-400-dny-nx9-8-256-gece-siyahi:sim:16",
+              "sourceId": "honor-tr:honor-400",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:honor-honor-400-dny-nx9-8-256-gece-siyahi:cellular:18",
+              "sourceId": "honor-tr:honor-400",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:honor-honor-400-dny-nx9-8-256-gece-siyahi:telephoto:12",
+              "sourceId": "honor-tr:honor-400",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_80W_PLUS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:honor-honor-400-dny-nx9-8-256-gece-siyahi:battery_mah:7",
+              "sourceId": "honor-tr:honor-400",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:honor-honor-400-dny-nx9-8-256-gece-siyahi:wired_charging_w:8",
+              "sourceId": "honor-tr:honor-400",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:honor-honor-400-dny-nx9-8-256-gece-siyahi:wireless_charging_w:9",
+              "sourceId": "honor-tr:honor-400",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:honor:honor-400:dny-nx9-12-512-c-o-l-altini",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:honor-honor-400-dny-nx9-12-512-c-o-l-altini:sim:16",
+              "sourceId": "honor-tr:honor-400",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:honor-honor-400-dny-nx9-12-512-c-o-l-altini:cellular:18",
+              "sourceId": "honor-tr:honor-400",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:honor-honor-400-dny-nx9-12-512-c-o-l-altini:telephoto:12",
+              "sourceId": "honor-tr:honor-400",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_80W_PLUS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:honor-honor-400-dny-nx9-12-512-c-o-l-altini:battery_mah:7",
+              "sourceId": "honor-tr:honor-400",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:honor-honor-400-dny-nx9-12-512-c-o-l-altini:wired_charging_w:8",
+              "sourceId": "honor-tr:honor-400",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:honor-honor-400-dny-nx9-12-512-c-o-l-altini:wireless_charging_w:9",
+              "sourceId": "honor-tr:honor-400",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-siyah",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SOC",
+            "UNKNOWN_SUPPORT_POLICY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "4G_ONLY",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:huawei-mate-x6-no-public-sku-12-512-siyah:sim:15",
+              "sourceId": "huawei-tr:mate-x6",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:huawei-mate-x6-no-public-sku-12-512-siyah:cellular:17",
+              "sourceId": "huawei-tr:mate-x6",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:huawei-mate-x6-no-public-sku-12-512-siyah:telephoto:11",
+              "sourceId": "huawei-tr:mate-x6",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:huawei-mate-x6-no-public-sku-12-512-siyah:battery_mah:6",
+              "sourceId": "huawei-tr:mate-x6",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:huawei-mate-x6-no-public-sku-12-512-siyah:wired_charging_w:7",
+              "sourceId": "huawei-tr:mate-x6",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:huawei-mate-x6-no-public-sku-12-512-siyah:wireless_charging_w:8",
+              "sourceId": "huawei-tr:mate-x6",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:mate-x6:no-public-sku-12-512-nebula-kirmizi",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SOC",
+            "UNKNOWN_SUPPORT_POLICY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "4G_ONLY",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:huawei-mate-x6-no-public-sku-12-512-nebula-kirmizi:sim:15",
+              "sourceId": "huawei-tr:mate-x6",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:huawei-mate-x6-no-public-sku-12-512-nebula-kirmizi:cellular:17",
+              "sourceId": "huawei-tr:mate-x6",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:huawei-mate-x6-no-public-sku-12-512-nebula-kirmizi:telephoto:11",
+              "sourceId": "huawei-tr:mate-x6",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:huawei-mate-x6-no-public-sku-12-512-nebula-kirmizi:battery_mah:6",
+              "sourceId": "huawei-tr:mate-x6",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:huawei-mate-x6-no-public-sku-12-512-nebula-kirmizi:wired_charging_w:7",
+              "sourceId": "huawei-tr:mate-x6",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:huawei-mate-x6-no-public-sku-12-512-nebula-kirmizi:wireless_charging_w:8",
+              "sourceId": "huawei-tr:mate-x6",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:huawei:pura-80-pro:no-public-sku-12-512-siyah",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SOC",
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_WEIGHT_G"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "4G_ONLY",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:huawei-pura-80-pro-no-public-sku-12-512-siyah:sim:15",
+              "sourceId": "huawei-tr:pura-80-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:huawei-pura-80-pro-no-public-sku-12-512-siyah:cellular:17",
+              "sourceId": "huawei-tr:pura-80-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:huawei-pura-80-pro-no-public-sku-12-512-siyah:telephoto:11",
+              "sourceId": "huawei-tr:pura-80-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_80W_PLUS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:huawei-pura-80-pro-no-public-sku-12-512-siyah:battery_mah:6",
+              "sourceId": "huawei-tr:pura-80-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:huawei-pura-80-pro-no-public-sku-12-512-siyah:wired_charging_w:7",
+              "sourceId": "huawei-tr:pura-80-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:huawei-pura-80-pro-no-public-sku-12-512-siyah:wireless_charging_w:8",
+              "sourceId": "huawei-tr:pura-80-pro",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:nothing:phone-3a:a059-8-128-siyah",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "KNOWN",
+          "partition": "UP_TO_SIX_YEARS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-8-128-siyah:support_policy:7",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-8-128-siyah:sim:17",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-8-128-siyah:cellular:19",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-8-128-siyah:telephoto:13",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-8-128-siyah:battery_mah:8",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-8-128-siyah:wired_charging_w:9",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-8-128-siyah:wireless_charging_w:10",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:nothing:phone-3a:a059-12-256-beyaz",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "KNOWN",
+          "partition": "UP_TO_SIX_YEARS",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-12-256-beyaz:support_policy:7",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-12-256-beyaz:sim:17",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-12-256-beyaz:cellular:19",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-12-256-beyaz:telephoto:13",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-12-256-beyaz:battery_mah:8",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-12-256-beyaz:wired_charging_w:9",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:nothing-phone-3a-a059-12-256-beyaz:wireless_charging_w:10",
+              "sourceId": "nothing-tr:phone-3a",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-256-grafit-gri",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:oppo-reno13-f-5g-cph2699-12-256-grafit-gri:sim:16",
+              "sourceId": "oppo-tr:reno13-f-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:oppo-reno13-f-5g-cph2699-12-256-grafit-gri:cellular:18",
+              "sourceId": "oppo-tr:reno13-f-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:oppo-reno13-f-5g-cph2699-12-256-grafit-gri:telephoto:12",
+              "sourceId": "oppo-tr:reno13-f-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:oppo-reno13-f-5g-cph2699-12-256-grafit-gri:battery_mah:7",
+              "sourceId": "oppo-tr:reno13-f-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:oppo-reno13-f-5g-cph2699-12-256-grafit-gri:wired_charging_w:8",
+              "sourceId": "oppo-tr:reno13-f-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:oppo-reno13-f-5g-cph2699-12-256-grafit-gri:wireless_charging_w:9",
+              "sourceId": "oppo-tr:reno13-f-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:oppo:reno13-f-5g:cph2699-12-512-tu-y-beyazi",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:oppo-reno13-f-5g-cph2699-12-512-tu-y-beyazi:sim:16",
+              "sourceId": "oppo-tr:reno13-f-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:oppo-reno13-f-5g-cph2699-12-512-tu-y-beyazi:cellular:18",
+              "sourceId": "oppo-tr:reno13-f-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:oppo-reno13-f-5g-cph2699-12-512-tu-y-beyazi:telephoto:12",
+              "sourceId": "oppo-tr:reno13-f-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:oppo-reno13-f-5g-cph2699-12-512-tu-y-beyazi:battery_mah:7",
+              "sourceId": "oppo-tr:reno13-f-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:oppo-reno13-f-5g-cph2699-12-512-tu-y-beyazi:wired_charging_w:8",
+              "sourceId": "oppo-tr:reno13-f-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:oppo-reno13-f-5g-cph2699-12-512-tu-y-beyazi:wireless_charging_w:9",
+              "sourceId": "oppo-tr:reno13-f-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-256-izlanda-bazalt-siyah",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_IP_RATING",
+            "UNKNOWN_WEIGHT_G",
+            "UNKNOWN_VIDEO_CAPABILITY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-8-256-izlanda-bazalt-siyah:sim:15",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-8-256-izlanda-bazalt-siyah:cellular:17",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-8-256-izlanda-bazalt-siyah:telephoto:12",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-8-256-izlanda-bazalt-siyah:battery_mah:7",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-8-256-izlanda-bazalt-siyah:wired_charging_w:8",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-8-256-izlanda-bazalt-siyah:wireless_charging_w:9",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-8-512-uyuni-tuz-beyaz",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_IP_RATING",
+            "UNKNOWN_WEIGHT_G",
+            "UNKNOWN_VIDEO_CAPABILITY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-8-512-uyuni-tuz-beyaz:sim:15",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-8-512-uyuni-tuz-beyaz:cellular:17",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-8-512-uyuni-tuz-beyaz:telephoto:12",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-8-512-uyuni-tuz-beyaz:battery_mah:7",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-8-512-uyuni-tuz-beyaz:wired_charging_w:8",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-8-512-uyuni-tuz-beyaz:wireless_charging_w:9",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:tecno:camon-30-5g:no-public-sku-12-512-zu-mru-t-go-l-yes-il",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_IP_RATING",
+            "UNKNOWN_WEIGHT_G",
+            "UNKNOWN_VIDEO_CAPABILITY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-12-512-zu-mru-t-go-l-yes-il:sim:15",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-12-512-zu-mru-t-go-l-yes-il:cellular:17",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-12-512-zu-mru-t-go-l-yes-il:telephoto:12",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-12-512-zu-mru-t-go-l-yes-il:battery_mah:7",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-12-512-zu-mru-t-go-l-yes-il:wired_charging_w:8",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:tecno-camon-30-5g-no-public-sku-12-512-zu-mru-t-go-l-yes-il:wireless_charging_w:9",
+              "sourceId": "tecno-tr:camon-30-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    },
+    {
+      "exactProductId": "electronics:smartphone:general-mobile:gm-phoenix-5g:no-public-sku-8-256-karbon-siyahi",
+      "axes": [
+        {
+          "axis": "SUPPORT_LONGEVITY",
+          "terminal": "UNKNOWN",
+          "partition": null,
+          "evidenceRefs": [],
+          "unknownCodes": [
+            "UNKNOWN_SUPPORT_POLICY",
+            "UNKNOWN_OIS",
+            "UNKNOWN_ULTRAWIDE",
+            "UNKNOWN_FRONT_CAMERA",
+            "UNKNOWN_IP_RATING",
+            "UNKNOWN_VIDEO_CAPABILITY"
+          ]
+        },
+        {
+          "axis": "TURKIYE_NETWORK_APPLICABILITY",
+          "terminal": "KNOWN",
+          "partition": "5G_SIM_FLEXIBLE",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:general-mobile-gm-phoenix-5g-no-public-sku-8-256-karbon-siyahi:sim:12",
+              "sourceId": "gm-tr:phoenix-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:general-mobile-gm-phoenix-5g-no-public-sku-8-256-karbon-siyahi:cellular:14",
+              "sourceId": "gm-tr:phoenix-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "CAMERA_USE_CASE",
+          "terminal": "KNOWN",
+          "partition": "NO_TELEPHOTO",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:general-mobile-gm-phoenix-5g-no-public-sku-8-256-karbon-siyahi:telephoto:11",
+              "sourceId": "gm-tr:phoenix-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        },
+        {
+          "axis": "BATTERY_CHARGING_ROUTINE",
+          "terminal": "KNOWN",
+          "partition": "WIRED_UNDER_80W",
+          "evidenceRefs": [
+            {
+              "factId": "smartphone-v02:general-mobile-gm-phoenix-5g-no-public-sku-8-256-karbon-siyahi:battery_mah:7",
+              "sourceId": "gm-tr:phoenix-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:general-mobile-gm-phoenix-5g-no-public-sku-8-256-karbon-siyahi:wired_charging_w:8",
+              "sourceId": "gm-tr:phoenix-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            },
+            {
+              "factId": "smartphone-v02:general-mobile-gm-phoenix-5g-no-public-sku-8-256-karbon-siyahi:wireless_charging_w:9",
+              "sourceId": "gm-tr:phoenix-5g",
+              "locator": "Digest-bound exact Türkiye configuration owner-review package v02"
+            }
+          ],
+          "unknownCodes": []
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "products": 34,
+    "axesPerProduct": 4,
+    "identityTerminalCells": 136
+  }
+}

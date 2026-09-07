@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "smartphone-p-materiality-readiness/v1",
+  "INFORMATION_READY": "PARTIAL_SUPPORT_AXIS_PREDOMINANTLY_UNKNOWN",
+  "P_READY": true,
+  "Y_READY": false,
+  "identityTerminalCoverage": "34/34_PRODUCTS_X_4_AXES",
+  "askedQuestionsHaveTwoKnownPartitions": true,
+  "zeroEffectQuestionsAsked": 0,
+  "unknownNeutral": true,
+  "falseWinnerAllowed": false,
+  "rootGaps": [
+    "Çoğu modelde üreticiye bağlı destek süresi kanıtı yok",
+    "UNKNOWN kayıtlar karar eşiğinde tutuluyor"
+  ],
+  "nextBoundedRecommendation": "Yalnız eksik support_policy alanları için üretici kontrollü kaynaklardan evidence-only backfill pilotu"
+}
