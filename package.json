@@ -10,6 +10,7 @@
     "catalog-factory:cordless-drill": "node --import tsx scripts/run-cordless-drill-wave.ts",
     "catalog-factory:cordless-drill:activation-package": "node --import tsx scripts/generate-cordless-drill-activation-package.ts",
     "electronics:smartphone:p-materiality:shadow": "node --import tsx scripts/generate-smartphone-p-materiality-shadow.ts",
+    "electronics:stage2:e2e": "node --conditions react-server --import tsx scripts/run-electronics-stage2-isolated-e2e.ts",
     "electronics:smartphone:support-policy:backfill": "node --import tsx scripts/generate-smartphone-support-policy-backfill.ts",
     "electronics:smartphone:support-policy:closure": "node --import tsx scripts/generate-smartphone-support-policy-closure.ts",
     "electronics:smartphone:p-materiality:owner-review": "node --import tsx scripts/generate-smartphone-p-materiality-owner-review.ts",

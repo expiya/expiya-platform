@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "electronics-stage2-e2e-fix-diff-ledger/v1",
+  "baseCommit": "bf9170227344a37e6c5074945e06e17eaf7bf6f0",
+  "fixes": [
+    {
+      "id": "AUTHORITY_TIMESTAMP_SECOND_PRECISION",
+      "file": "features/electronics/stageTwo/consentToHandoff.server.ts",
+      "beforeFailure": "ELECTRONICS_STAGE_TWO_ISSUANCE_NOT_AUTHORIZED:TIME_AUTHORITY_INVALID",
+      "change": "Normalize one authority timestamp to whole-second precision and bind both consent occurredAt and token issuedAt to it.",
+      "scope": "STAGE_TWO_CONSENT_AND_ISSUANCE_ONLY"
+    },
+    {
+      "id": "POSTGRES_AGGREGATE_LOCK_SEPARATION",
+      "file": "features/electronics/stageTwo/persistence.server.ts",
+      "beforeFailure": "FOR UPDATE is not allowed with aggregate functions",
+      "change": "Lock the issuance row separately before aggregate snapshot and lifecycle-sequence queries.",
+      "scope": "STAGE_TWO_AUTHORIZED_READ_AND_LIFECYCLE_ONLY"
+    }
+  ],
+  "releaseGate": {
+    "command": "npm run electronics:stage2:e2e",
+    "script": "scripts/run-electronics-stage2-isolated-e2e.ts",
+    "artifact": "artifacts/electronics-stage2/isolated-e2e-trace.json",
+    "disposableDatabaseOnly": true,
+    "realNextHttp": true,
+    "deterministicRunsRequired": 2
+  },
+  "excluded": [
+    "STAGE_ONE_MEMBERSHIP_OR_RANKING",
+    "P_Y",
+    "STAGE_THREE",
+    "SALES",
+    "PAYMENT",
+    "PRODUCTION_DATABASE_MUTATION",
+    "ENVIRONMENT_MUTATION",
+    "DEPLOYMENT"
+  ]
+}

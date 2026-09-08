@@ -1,0 +1,98 @@
+{
+  "status": "PASS",
+  "scope": "DISPOSABLE_LOCAL_POSTGRES_AND_SYNTHETIC_AUTHORITY_ONLY",
+  "steps": [
+    {
+      "name": "MIGRATION_0018_CLEAN_SCHEMA",
+      "status": "PASS"
+    },
+    {
+      "name": "MIGRATION_0018_CURRENT_COMPATIBLE_AND_IDEMPOTENT",
+      "status": "PASS"
+    },
+    {
+      "name": "SIGNING_KEY_FAIL_CLOSED_MATRIX",
+      "status": "PASS",
+      "cases": 5
+    },
+    {
+      "name": "REAL_NEXT_HTTP_READY",
+      "status": "PASS"
+    },
+    {
+      "name": "STAGE1_CREATE",
+      "status": "PASS",
+      "revision": 1
+    },
+    {
+      "name": "CANONICAL_DECISION_READY",
+      "status": "PASS",
+      "revision": 14,
+      "fingerprintFormat": "LEGACY_CANONICAL_HEX"
+    },
+    {
+      "name": "SERVICE_TRANSACTION_DRY_RUN_ROLLED_BACK",
+      "status": "PASS"
+    },
+    {
+      "name": "CONSENT_AND_ISSUANCE",
+      "status": "PASS",
+      "replayed": false,
+      "tokenRecorded": false
+    },
+    {
+      "name": "IDENTICAL_ISSUANCE_REPLAY",
+      "status": "PASS"
+    },
+    {
+      "name": "SERVICE_VERIFY_DIAGNOSTIC",
+      "status": "PASS"
+    },
+    {
+      "name": "VERIFY_AND_REPLAY_EVENT",
+      "status": "PASS"
+    },
+    {
+      "name": "CHANGED_PAYLOAD_CONFLICT",
+      "status": "PASS"
+    },
+    {
+      "name": "WRONG_REVISION_FINGERPRINT_PRODUCT_CONFIGURATION_REJECTED",
+      "status": "PASS",
+      "cases": 4
+    },
+    {
+      "name": "REVOKE_AND_REVOKED_TOKEN_REJECTION",
+      "status": "PASS"
+    },
+    {
+      "name": "TRANSACTION_ROLLBACK_ATOMIC",
+      "status": "PASS"
+    },
+    {
+      "name": "CANONICAL_ROW_COUNTS",
+      "status": "PASS",
+      "consent": 1,
+      "issuance": 1,
+      "lifecycle": 4
+    },
+    {
+      "name": "LEGACY_AND_NATIVE_FINGERPRINT_PATHS_COVERED",
+      "status": "PASS"
+    },
+    {
+      "name": "LOG_RESPONSE_REDACTION",
+      "status": "PASS"
+    },
+    {
+      "name": "DB_UNAVAILABLE_FAIL_CLOSED",
+      "status": "PASS"
+    }
+  ],
+  "rowCounts": {
+    "consent": 1,
+    "issuance": 1,
+    "lifecycle": 4
+  },
+  "rootCauseVerdict": "Two deterministic application defects reproduced and fixed: sub-second consent timestamps were later than second-precision issuedAt claims, and aggregate lifecycle queries illegally used FOR UPDATE. The corrected DB/key/route seam passes on real PostgreSQL and real Next HTTP; any remaining candidate failure must now be re-gated for environment DB/key binding before one deployment."
+}

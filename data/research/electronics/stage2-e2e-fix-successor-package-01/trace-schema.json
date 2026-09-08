@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "electronics-stage2-isolated-e2e-trace/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["status", "scope", "steps", "rowCounts", "rootCauseVerdict"],
+  "properties": {
+    "status": { "const": "PASS" },
+    "scope": { "const": "DISPOSABLE_LOCAL_POSTGRES_AND_SYNTHETIC_AUTHORITY_ONLY" },
+    "steps": { "type": "array", "minItems": 19, "items": { "type": "object", "required": ["name", "status"], "properties": { "status": { "const": "PASS" } } },
+    "rowCounts": { "type": "object", "required": ["consent", "issuance", "lifecycle"], "properties": { "consent": { "const": 1 }, "issuance": { "const": 1 }, "lifecycle": { "const": 4 } } },
+    "rootCauseVerdict": { "type": "string", "minLength": 1 }
+  }
+}
