@@ -15,6 +15,25 @@ const contextFor = (projections: readonly ReturnType<typeof buildSmartphoneProje
 const poolFor = (projection: ReturnType<typeof buildSmartphoneProjectionFixtures>[number]) => projection.offerings.map((offering) => offering.exactOfferingId);
 
 describe("P materiality shadow executor", () => {
+  it("admits evidenced soft direction without membership or winner authority", () => {
+    const hard = buildRepresentativeQuestionFixtures()[0]!.good;
+    const soft = {
+      ...hard,
+      userNeed: { ...hard.userNeed, decisionUse: "SOFT_PREFERENCE" as const },
+      governedComparison: true,
+      materialQuestion: {
+        ...hard.materialQuestion,
+        decisionUseOnExplicitAnswer: "SOFT_PREFERENCE" as const,
+        candidateEffectByAnswer: Object.fromEntries(Object.entries(hard.materialQuestion.candidateEffectByAnswer).map(([answer, effects]) => [answer, effects.map((effect) => answer === "YES" && effect.effect === "knownRetain" ? { ...effect, effect: "softOnly" as const } : answer === "YES" && effect.effect === "knownExclude" ? { ...effect, effect: "none" as const, exactKnownMismatch: false } : effect)])),
+      },
+    };
+    const candidatePool = poolFor(soft);
+    expect(executePMaterialityShadow({ candidatePool, currentContext: contextFor([soft]), projections: [soft] }).outcome).toBe("ASK_ONE_QUESTION");
+    const simulation = simulateAcceptedAnswer({ projection: soft, answerId: "YES", candidatePool, context: { explicitRequirementQuestionIds: [], evaluatedAt: "2026-09-07T12:00:00.000Z" } });
+    expect(simulation.excludedCandidateIds).toEqual([]);
+    expect(simulation.softCandidateIds.length).toBeGreaterThan(0);
+    expect(simulation.winner).toBeNull();
+  });
   it("suppresses zero-effect questions and never equates no material question with sufficiency", () => {
     const bad = buildRepresentativeQuestionFixtures()[0]!.bad;
     const result = executePMaterialityShadow({ candidatePool: poolFor(bad), currentContext: contextFor([bad]), projections: [bad] });

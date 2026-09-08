@@ -1,0 +1,4664 @@
+{
+  "schemaVersion": "active-p-materiality-wave/v1",
+  "releaseId": "SDP-V2-P-WAVE1-CORE-DOMAINS-TR-v1.0",
+  "waveId": "P-MATERIALITY-WAVE1A-20260908",
+  "sourceProductionCommit": "fcf916b9be578265379d1278df0678c8d1f8a517",
+  "categories": [
+    "BICYCLE",
+    "CORDLESS_DRILL",
+    "ELECTRIC_BICYCLE",
+    "ELECTRIC_SCOOTER",
+    "STROLLER"
+  ],
+  "projections": [
+    {
+      "schemaVersion": "SemanticDecisionProjection/v2",
+      "identity": {
+        "projectionId": "wave1.stroller.carry-weight",
+        "categoryId": "STROLLER",
+        "scope": "EXACT_OFFERING"
+      },
+      "offerings": [
+        {
+          "exactOfferingId": "CHICCO_GOODY_PLUS_04079877190000_TR",
+          "categoryId": "STROLLER",
+          "market": "TR",
+          "configurationId": "Chicco Goody Plus / 04079877190000 / Dusty Green / Türkiye",
+          "variantId": "CHICCO_GOODY_PLUS_04079877190000_TR"
+        },
+        {
+          "exactOfferingId": "CHICCO_MYSA_05087158450000_TR",
+          "categoryId": "STROLLER",
+          "market": "TR",
+          "configurationId": "Chicco Mysa / 05087158450000 / Black Satin / Türkiye",
+          "variantId": "CHICCO_MYSA_05087158450000_TR"
+        },
+        {
+          "exactOfferingId": "CHICCO_BELLAGIO_07087183330000_TR",
+          "categoryId": "STROLLER",
+          "market": "TR",
+          "configurationId": "Chicco Bellagio 2.0 / 07087183330000 / Fir Tree / Türkiye",
+          "variantId": "CHICCO_BELLAGIO_07087183330000_TR"
+        },
+        {
+          "exactOfferingId": "CYBEX_BALIOS_S_LUX_520001251_TR",
+          "categoryId": "STROLLER",
+          "market": "TR",
+          "configurationId": "CYBEX Balios S Lux / 520001251 / Navy Blue, Silver Frame / Türkiye",
+          "variantId": "CYBEX_BALIOS_S_LUX_520001251_TR"
+        }
+      ],
+      "semanticAuthority": {
+        "authorityId": "BABY_AND_CHILD:STROLLER:active-domain-pack",
+        "version": "BABY-STROLLER-TR-v0.2-approval-candidate",
+        "digest": "sha256:e0f9a3bd92488849e81b0462ada33056a450bab9f5f08759fbf01e91bbc9e4ae"
+      },
+      "applicability": {
+        "market": "TR",
+        "configurationIds": [
+          "Chicco Goody Plus / 04079877190000 / Dusty Green / Türkiye",
+          "Chicco Mysa / 05087158450000 / Black Satin / Türkiye",
+          "Chicco Bellagio 2.0 / 07087183330000 / Fir Tree / Türkiye",
+          "CYBEX Balios S Lux / 520001251 / Navy Blue, Silver Frame / Türkiye"
+        ],
+        "effectiveFrom": "2026-09-08T00:00:00.000+03:00",
+        "explicitlyApplies": true,
+        "limitations": [
+          "Yalnız exact aktif Türkiye katalog üyeleri ve kaynakta açıkça bulunan fact kullanılır."
+        ]
+      },
+      "factCapabilityRefs": [
+        {
+          "factId": "wave1.stroller.carry-weight:CHICCO_GOODY_PLUS_04079877190000_TR",
+          "capabilityId": "facts.strollerWeightKg",
+          "sourceRefs": [
+            "CHICCO-TR-GOODY-PLUS"
+          ]
+        },
+        {
+          "factId": "wave1.stroller.carry-weight:CHICCO_MYSA_05087158450000_TR",
+          "capabilityId": "facts.strollerWeightKg",
+          "sourceRefs": [
+            "CHICCO-TR-MYSA"
+          ]
+        },
+        {
+          "factId": "wave1.stroller.carry-weight:CHICCO_BELLAGIO_07087183330000_TR",
+          "capabilityId": "facts.strollerWeightKg",
+          "sourceRefs": [
+            "CHICCO-TR-BELLAGIO"
+          ]
+        },
+        {
+          "factId": "wave1.stroller.carry-weight:CYBEX_BALIOS_S_LUX_520001251_TR",
+          "capabilityId": "facts.strollerWeightKg",
+          "sourceRefs": [
+            "CYBEX-BALIOS-PRODUCT",
+            "CYBEX-BALIOS-MANUAL"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "CYBEX-TR-BALIOS",
+          "authority": "PRIMARY",
+          "digest": "sha256:e9aa8cb48c0acdeb6a84f162a08b8dbd0f28f374dd9d0ce85b8af6e79b6e699c",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://www.cybex-online.com/en/row/strollers/"
+        },
+        {
+          "sourceId": "CYBEX-BALIOS-PRODUCT",
+          "authority": "PRIMARY",
+          "digest": "sha256:355c55cdf904c59be462b6c9f4702049a0e0655df92562be22c272792baf8a71",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://www.cybex-online.com/en/gb/p/st-go-balios-s-lux.html"
+        },
+        {
+          "sourceId": "CYBEX-BALIOS-MANUAL",
+          "authority": "PRIMARY",
+          "digest": "sha256:e681501c545b78ede957b717024f06f459785afa25697d9ae4fc419223a1f203",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.cybex-online.com/on/demandware.static/-/Sites-cybex-master-catalog/default/dwfbcd95b9/pdfs/manuals/ST_GO_Balios_S_Lux_EN/CY_171_8888_B0424_Balios_S_Lux_Illustration_Booklet_DIGITAL_EN.pdf"
+        },
+        {
+          "sourceId": "CHICCO-TR-GOODY-PLUS",
+          "authority": "PRIMARY",
+          "digest": "sha256:93ee94087fe958a8703e403cb067ae2634dd5649b61f358dba9a0346250ef383",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://www.chicco.com.tr/%C3%BCr%C3%BCnler/arabada-%26-d%C4%B1%C5%9Far%C4%B1da/d%C4%B1%C5%9Far%C4%B1da/bebek-arabalar%C4%B1/goody-plus-bebek-arabas%C4%B1-8058664152834-04079877190000.html"
+        },
+        {
+          "sourceId": "CHICCO-TR-MYSA",
+          "authority": "PRIMARY",
+          "digest": "sha256:9ee5f80c0d25ccdc9730b679c3cf720e79a1c7c5a3271e6b2f337fda2acd4968",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://www.chicco.com.tr/%C3%BCr%C3%BCnler/arabada-%26-d%C4%B1%C5%9Far%C4%B1da/d%C4%B1%C5%9Far%C4%B1da/bebek-arabalar%C4%B1/mysa-bebek-arabas%C4%B1-8058664181865-05087158450000.html"
+        },
+        {
+          "sourceId": "CHICCO-TR-BELLAGIO",
+          "authority": "PRIMARY",
+          "digest": "sha256:fabc19d5a21a39cee81936f2a918606a718aa0ffd5414c6693ea4c220e0aa37a",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://www.chicco.com.tr/%C3%BCr%C3%BCnler/arabada-%26-d%C4%B1%C5%9Far%C4%B1da/d%C4%B1%C5%9Far%C4%B1da/bebek-arabalar%C4%B1/bellagio-bebek-arabasi-2.0-8058664191055-07087183330000.html"
+        }
+      ],
+      "technicalPredicate": {
+        "field": "facts.strollerWeightKg",
+        "operator": "LTE",
+        "value": 8,
+        "unit": "kg",
+        "context": "Puseti merdivende sık elde taşıma",
+        "regime": "MANUFACTURER_EXACT_STROLLER_WEIGHT"
+      },
+      "dailyLifeConsequence": {
+        "statementTr": "Merdivende ve bagaja kaldırırken daha düşük taşıma yükü",
+        "conditions": [
+          "Puseti merdivende sık elde taşıma"
+        ],
+        "limitations": [
+          "Gerçek sonuç kullanım, çevre ve kurulum koşullarına bağlıdır."
+        ],
+        "nonGuarantees": [
+          "Bu yön tek ürün kazananı, kalite, güvenlik veya sonuç garantisi değildir."
+        ]
+      },
+      "userNeed": {
+        "needId": "stroller.daily-carry",
+        "statementTr": "Merdivende ve bagaja kaldırırken daha düşük taşıma yükü",
+        "decisionUse": "SOFT_PREFERENCE"
+      },
+      "materialQuestion": {
+        "questionId": "p.stroller.carry-weight",
+        "publicTurkishQuestion": "Puseti merdivende sık taşıyacağınız için 8 kg veya daha hafif olması sizin için önemli mi?",
+        "answerDomain": [
+          {
+            "answerId": "YES",
+            "labelTr": "Evet, önemli",
+            "establishesExplicitRequirement": true
+          },
+          {
+            "answerId": "NO",
+            "labelTr": "Hayır, önemli değil",
+            "establishesExplicitRequirement": false
+          },
+          {
+            "answerId": "UNKNOWN",
+            "labelTr": "Henüz bilmiyorum",
+            "establishesExplicitRequirement": false
+          }
+        ],
+        "prerequisites": [
+          {
+            "prerequisiteId": "stroller.daily-carry:context",
+            "description": "Puseti merdivende sık elde taşıma",
+            "required": true
+          }
+        ],
+        "candidateEffectByAnswer": {
+          "YES": [
+            {
+              "exactOfferingId": "CHICCO_GOODY_PLUS_04079877190000_TR",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "CHICCO-TR-GOODY-PLUS"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "CHICCO_MYSA_05087158450000_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [
+                "CHICCO-TR-MYSA"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "CHICCO_BELLAGIO_07087183330000_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [
+                "CHICCO-TR-BELLAGIO"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "CYBEX_BALIOS_S_LUX_520001251_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [
+                "CYBEX-BALIOS-PRODUCT",
+                "CYBEX-BALIOS-MANUAL"
+              ],
+              "exactKnownMismatch": false
+            }
+          ],
+          "NO": [
+            {
+              "exactOfferingId": "CHICCO_GOODY_PLUS_04079877190000_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "CHICCO_MYSA_05087158450000_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "CHICCO_BELLAGIO_07087183330000_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "CYBEX_BALIOS_S_LUX_520001251_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            }
+          ],
+          "UNKNOWN": [
+            {
+              "exactOfferingId": "CHICCO_GOODY_PLUS_04079877190000_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "CHICCO_MYSA_05087158450000_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "CHICCO_BELLAGIO_07087183330000_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "CYBEX_BALIOS_S_LUX_520001251_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            }
+          ]
+        },
+        "decisionUseOnExplicitAnswer": "SOFT_PREFERENCE",
+        "predominantlyUnknownSuppressionCode": "SUPPRESSED_PREDOMINANTLY_UNKNOWN"
+      },
+      "uncertainty": "KNOWN",
+      "inheritance": {
+        "sourceScope": "EXACT_OFFERING",
+        "targetScope": "EXACT_OFFERING",
+        "allowedPurpose": "TECHNICAL_DECISION",
+        "explicitApplicabilityRequired": true,
+        "identityBridgeRequired": false,
+        "blockedByConflict": false,
+        "blockedByConflictRefs": [],
+        "foreignMarketDecisionAuthority": "NONE"
+      },
+      "personaDecisionPolicy": {
+        "maximumAggregateScore": 0.75,
+        "membershipEffect": "NONE",
+        "sufficiencyEffect": "NONE",
+        "singleWinnerEffect": "NONE"
+      },
+      "honestAllowedOutcomes": [
+        "ASK_ONE_QUESTION",
+        "NO_MATERIAL_QUESTION",
+        "KNOWN_CANDIDATE_PARTITION",
+        "UNKNOWN_CANDIDATES_RETAINED",
+        "SOFT_COMPARISON_ONLY",
+        "NON_RANKED_CANDIDATE_POOL",
+        "NO_SINGLE_WINNER"
+      ],
+      "governedComparison": true
+    },
+    {
+      "schemaVersion": "SemanticDecisionProjection/v2",
+      "identity": {
+        "projectionId": "wave1.scooter.route-range",
+        "categoryId": "ELECTRIC_SCOOTER",
+        "scope": "EXACT_OFFERING"
+      },
+      "offerings": [
+        {
+          "exactOfferingId": "XIAOMI_4_LITE_2ND_GEN_TR",
+          "categoryId": "ELECTRIC_SCOOTER",
+          "market": "TR",
+          "configurationId": "Xiaomi Electric Scooter 4 Lite (2nd Gen) / Türkiye",
+          "variantId": "XIAOMI_4_LITE_2ND_GEN_TR"
+        },
+        {
+          "exactOfferingId": "XIAOMI_4_PRO_2ND_GEN_TR",
+          "categoryId": "ELECTRIC_SCOOTER",
+          "market": "TR",
+          "configurationId": "Xiaomi Electric Scooter 4 Pro (2nd Gen) / Türkiye",
+          "variantId": "XIAOMI_4_PRO_2ND_GEN_TR"
+        },
+        {
+          "exactOfferingId": "SEGWAY_NINEBOT_F2_PRO_E_TR",
+          "categoryId": "ELECTRIC_SCOOTER",
+          "market": "TR",
+          "configurationId": "Segway Ninebot F2 Pro E / EU-Türkiye",
+          "variantId": "SEGWAY_NINEBOT_F2_PRO_E_TR"
+        }
+      ],
+      "semanticAuthority": {
+        "authorityId": "MOBILITY:ELECTRIC_SCOOTER:active-domain-pack",
+        "version": "MOBILITY-TR-v0.1-owner-review-candidate",
+        "digest": "sha256:886a2bac6180b1766f921d4cb8700e764263a130ba2fdab3d59c292ea66e75ee"
+      },
+      "applicability": {
+        "market": "TR",
+        "configurationIds": [
+          "Xiaomi Electric Scooter 4 Lite (2nd Gen) / Türkiye",
+          "Xiaomi Electric Scooter 4 Pro (2nd Gen) / Türkiye",
+          "Segway Ninebot F2 Pro E / EU-Türkiye"
+        ],
+        "effectiveFrom": "2026-09-08T00:00:00.000+03:00",
+        "explicitlyApplies": true,
+        "limitations": [
+          "Yalnız exact aktif Türkiye katalog üyeleri ve kaynakta açıkça bulunan fact kullanılır."
+        ]
+      },
+      "factCapabilityRefs": [
+        {
+          "factId": "wave1.scooter.route-range:XIAOMI_4_LITE_2ND_GEN_TR",
+          "capabilityId": "facts.manufacturerRangeKm",
+          "sourceRefs": [
+            "XIAOMI-TR-4-LITE-2"
+          ]
+        },
+        {
+          "factId": "wave1.scooter.route-range:XIAOMI_4_PRO_2ND_GEN_TR",
+          "capabilityId": "facts.manufacturerRangeKm",
+          "sourceRefs": [
+            "XIAOMI-TR-4-PRO-2"
+          ]
+        },
+        {
+          "factId": "wave1.scooter.route-range:SEGWAY_NINEBOT_F2_PRO_E_TR",
+          "capabilityId": "facts.manufacturerRangeKm",
+          "sourceRefs": [
+            "SEGWAY-TR-F2-PRO-E"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "XIAOMI-TR-4-LITE-2",
+          "authority": "PRIMARY",
+          "digest": "sha256:2cc3cf1033a2c475c14213d75ce6c6b92319663f1c4fe8ec7e608fe8048da724",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.mi.com/tr/product/xiaomi-electric-scooter-4-lite-2nd-gen/"
+        },
+        {
+          "sourceId": "XIAOMI-TR-4-PRO-2",
+          "authority": "PRIMARY",
+          "digest": "sha256:cadea0600552c06f7b59b6d2792b9772cb0c8eaa506ae81c844cec62b985ac31",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.mi.com/tr/product/xiaomi-electric-scooter-4-pro-2nd-gen/"
+        },
+        {
+          "sourceId": "SEGWAY-TR-F2-PRO-E",
+          "authority": "PRIMARY",
+          "digest": "sha256:a72e76672b58aad59c2854cd74aae9a623ea6f95aa1b3681932289dc6f12b2fe",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://tr-tr.segway.com/products/f2-pro-e"
+        },
+        {
+          "sourceId": "DECATHLON-TR-ELECTRIC",
+          "authority": "PRIMARY",
+          "digest": "sha256:f151c6972332c8decae56ea52433c966462bec9fd248a4e26a775152eca3806e",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.decathlon.com.tr/tum-sporlar/bisiklet/elektrikli-bisikletler"
+        },
+        {
+          "sourceId": "DECATHLON-TR-BICYCLES",
+          "authority": "PRIMARY",
+          "digest": "sha256:f01b5cee9f4e98142af1adb7d8eb7d89d3f0534d8e748aa610e9987b69123d2d",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.decathlon.com.tr/tum-sporlar/bisiklet/bisikletler"
+        },
+        {
+          "sourceId": "DECATHLON-SUPPORT-EBIKE",
+          "authority": "PRIMARY",
+          "digest": "sha256:7f1e398548261fc47d19b3e4654e8b5a4711fb59c07cfcf70099421815f49bc7",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://support.decathlon.com.tr/elektrikli-bisiklet-vae-decathlon-ssh"
+        }
+      ],
+      "technicalPredicate": {
+        "field": "facts.manufacturerRangeKm",
+        "operator": "GTE",
+        "value": 30,
+        "unit": "km",
+        "context": "Yaklaşık 25 km günlük rota; gerçek menzil garanti değildir",
+        "regime": "MANUFACTURER_RATED_RANGE"
+      },
+      "dailyLifeConsequence": {
+        "statementTr": "Günlük rotada üretici menzil beyanı içinde ek mesafe payı",
+        "conditions": [
+          "Yaklaşık 25 km günlük rota; gerçek menzil garanti değildir"
+        ],
+        "limitations": [
+          "Gerçek sonuç kullanım, çevre ve kurulum koşullarına bağlıdır."
+        ],
+        "nonGuarantees": [
+          "Bu yön tek ürün kazananı, kalite, güvenlik veya sonuç garantisi değildir."
+        ]
+      },
+      "userNeed": {
+        "needId": "scooter.route-buffer",
+        "statementTr": "Günlük rotada üretici menzil beyanı içinde ek mesafe payı",
+        "decisionUse": "SOFT_PREFERENCE"
+      },
+      "materialQuestion": {
+        "questionId": "p.scooter.route-range",
+        "publicTurkishQuestion": "Günlük yaklaşık 25 km rotanız için üreticinin açıkladığı menzilin en az 30 km olması önemli mi?",
+        "answerDomain": [
+          {
+            "answerId": "YES",
+            "labelTr": "Evet, önemli",
+            "establishesExplicitRequirement": true
+          },
+          {
+            "answerId": "NO",
+            "labelTr": "Hayır, önemli değil",
+            "establishesExplicitRequirement": false
+          },
+          {
+            "answerId": "UNKNOWN",
+            "labelTr": "Henüz bilmiyorum",
+            "establishesExplicitRequirement": false
+          }
+        ],
+        "prerequisites": [
+          {
+            "prerequisiteId": "scooter.route-buffer:context",
+            "description": "Yaklaşık 25 km günlük rota; gerçek menzil garanti değildir",
+            "required": true
+          }
+        ],
+        "candidateEffectByAnswer": {
+          "YES": [
+            {
+              "exactOfferingId": "XIAOMI_4_LITE_2ND_GEN_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [
+                "XIAOMI-TR-4-LITE-2"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "XIAOMI_4_PRO_2ND_GEN_TR",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "XIAOMI-TR-4-PRO-2"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "SEGWAY_NINEBOT_F2_PRO_E_TR",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            }
+          ],
+          "NO": [
+            {
+              "exactOfferingId": "XIAOMI_4_LITE_2ND_GEN_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "XIAOMI_4_PRO_2ND_GEN_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "SEGWAY_NINEBOT_F2_PRO_E_TR",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            }
+          ],
+          "UNKNOWN": [
+            {
+              "exactOfferingId": "XIAOMI_4_LITE_2ND_GEN_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "XIAOMI_4_PRO_2ND_GEN_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "SEGWAY_NINEBOT_F2_PRO_E_TR",
+              "effect": "unknownRetain",
+              "uncertainty": "UNKNOWN",
+              "partition": null,
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            }
+          ]
+        },
+        "decisionUseOnExplicitAnswer": "SOFT_PREFERENCE",
+        "predominantlyUnknownSuppressionCode": "SUPPRESSED_PREDOMINANTLY_UNKNOWN"
+      },
+      "uncertainty": "UNKNOWN",
+      "inheritance": {
+        "sourceScope": "EXACT_OFFERING",
+        "targetScope": "EXACT_OFFERING",
+        "allowedPurpose": "TECHNICAL_DECISION",
+        "explicitApplicabilityRequired": true,
+        "identityBridgeRequired": false,
+        "blockedByConflict": false,
+        "blockedByConflictRefs": [],
+        "foreignMarketDecisionAuthority": "NONE"
+      },
+      "personaDecisionPolicy": {
+        "maximumAggregateScore": 0.75,
+        "membershipEffect": "NONE",
+        "sufficiencyEffect": "NONE",
+        "singleWinnerEffect": "NONE"
+      },
+      "honestAllowedOutcomes": [
+        "ASK_ONE_QUESTION",
+        "NO_MATERIAL_QUESTION",
+        "KNOWN_CANDIDATE_PARTITION",
+        "UNKNOWN_CANDIDATES_RETAINED",
+        "SOFT_COMPARISON_ONLY",
+        "NON_RANKED_CANDIDATE_POOL",
+        "NO_SINGLE_WINNER"
+      ],
+      "governedComparison": true
+    },
+    {
+      "schemaVersion": "SemanticDecisionProjection/v2",
+      "identity": {
+        "projectionId": "wave1.ebike.hill-torque",
+        "categoryId": "ELECTRIC_BICYCLE",
+        "scope": "EXACT_OFFERING"
+      },
+      "offerings": [
+        {
+          "exactOfferingId": "ROCKRIDER_E_ACTV_100_GREY_TR",
+          "categoryId": "ELECTRIC_BICYCLE",
+          "market": "TR",
+          "configurationId": "Rockrider E-ACTV 100 elektrikli hibrit / gri / Türkiye / beden seçilir",
+          "variantId": "ROCKRIDER_E_ACTV_100_GREY_TR"
+        },
+        {
+          "exactOfferingId": "BTWIN_E_FOLD_500_GREEN_TR",
+          "categoryId": "ELECTRIC_BICYCLE",
+          "market": "TR",
+          "configurationId": "Btwin E Fold 500 katlanır elektrikli bisiklet / yeşil / Türkiye",
+          "variantId": "BTWIN_E_FOLD_500_GREEN_TR"
+        },
+        {
+          "exactOfferingId": "ROCKRIDER_E_EXPL_700_GREEN_TR",
+          "categoryId": "ELECTRIC_BICYCLE",
+          "market": "TR",
+          "configurationId": "Rockrider E-EXPL 700 elektrikli dağ bisikleti / yeşil / 29 inç / Türkiye",
+          "variantId": "ROCKRIDER_E_EXPL_700_GREEN_TR"
+        }
+      ],
+      "semanticAuthority": {
+        "authorityId": "MOBILITY:ELECTRIC_BICYCLE:active-domain-pack",
+        "version": "MOBILITY-TR-v0.1-owner-review-candidate",
+        "digest": "sha256:886a2bac6180b1766f921d4cb8700e764263a130ba2fdab3d59c292ea66e75ee"
+      },
+      "applicability": {
+        "market": "TR",
+        "configurationIds": [
+          "Rockrider E-ACTV 100 elektrikli hibrit / gri / Türkiye / beden seçilir",
+          "Btwin E Fold 500 katlanır elektrikli bisiklet / yeşil / Türkiye",
+          "Rockrider E-EXPL 700 elektrikli dağ bisikleti / yeşil / 29 inç / Türkiye"
+        ],
+        "effectiveFrom": "2026-09-08T00:00:00.000+03:00",
+        "explicitlyApplies": true,
+        "limitations": [
+          "Yalnız exact aktif Türkiye katalog üyeleri ve kaynakta açıkça bulunan fact kullanılır."
+        ]
+      },
+      "factCapabilityRefs": [
+        {
+          "factId": "wave1.ebike.hill-torque:ROCKRIDER_E_ACTV_100_GREY_TR",
+          "capabilityId": "facts.torqueNm",
+          "sourceRefs": [
+            "DECATHLON-TR-ELECTRIC",
+            "DECATHLON-SUPPORT-EBIKE"
+          ]
+        },
+        {
+          "factId": "wave1.ebike.hill-torque:BTWIN_E_FOLD_500_GREEN_TR",
+          "capabilityId": "facts.torqueNm",
+          "sourceRefs": [
+            "DECATHLON-TR-ELECTRIC"
+          ]
+        },
+        {
+          "factId": "wave1.ebike.hill-torque:ROCKRIDER_E_EXPL_700_GREEN_TR",
+          "capabilityId": "facts.torqueNm",
+          "sourceRefs": [
+            "DECATHLON-TR-ELECTRIC"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "XIAOMI-TR-4-LITE-2",
+          "authority": "PRIMARY",
+          "digest": "sha256:2cc3cf1033a2c475c14213d75ce6c6b92319663f1c4fe8ec7e608fe8048da724",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.mi.com/tr/product/xiaomi-electric-scooter-4-lite-2nd-gen/"
+        },
+        {
+          "sourceId": "XIAOMI-TR-4-PRO-2",
+          "authority": "PRIMARY",
+          "digest": "sha256:cadea0600552c06f7b59b6d2792b9772cb0c8eaa506ae81c844cec62b985ac31",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.mi.com/tr/product/xiaomi-electric-scooter-4-pro-2nd-gen/"
+        },
+        {
+          "sourceId": "SEGWAY-TR-F2-PRO-E",
+          "authority": "PRIMARY",
+          "digest": "sha256:a72e76672b58aad59c2854cd74aae9a623ea6f95aa1b3681932289dc6f12b2fe",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://tr-tr.segway.com/products/f2-pro-e"
+        },
+        {
+          "sourceId": "DECATHLON-TR-ELECTRIC",
+          "authority": "PRIMARY",
+          "digest": "sha256:f151c6972332c8decae56ea52433c966462bec9fd248a4e26a775152eca3806e",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.decathlon.com.tr/tum-sporlar/bisiklet/elektrikli-bisikletler"
+        },
+        {
+          "sourceId": "DECATHLON-TR-BICYCLES",
+          "authority": "PRIMARY",
+          "digest": "sha256:f01b5cee9f4e98142af1adb7d8eb7d89d3f0534d8e748aa610e9987b69123d2d",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.decathlon.com.tr/tum-sporlar/bisiklet/bisikletler"
+        },
+        {
+          "sourceId": "DECATHLON-SUPPORT-EBIKE",
+          "authority": "PRIMARY",
+          "digest": "sha256:7f1e398548261fc47d19b3e4654e8b5a4711fb59c07cfcf70099421815f49bc7",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://support.decathlon.com.tr/elektrikli-bisiklet-vae-decathlon-ssh"
+        }
+      ],
+      "technicalPredicate": {
+        "field": "facts.torqueNm",
+        "operator": "GTE",
+        "value": 50,
+        "unit": "Nm",
+        "context": "Düzenli dik yokuş; tork tırmanma sonucu veya güvenlik garantisi değildir",
+        "regime": "MANUFACTURER_RATED_TORQUE"
+      },
+      "dailyLifeConsequence": {
+        "statementTr": "Dik yokuşta daha yüksek kanıtlı motor torku yönü",
+        "conditions": [
+          "Düzenli dik yokuş; tork tırmanma sonucu veya güvenlik garantisi değildir"
+        ],
+        "limitations": [
+          "Gerçek sonuç kullanım, çevre ve kurulum koşullarına bağlıdır."
+        ],
+        "nonGuarantees": [
+          "Bu yön tek ürün kazananı, kalite, güvenlik veya sonuç garantisi değildir."
+        ]
+      },
+      "userNeed": {
+        "needId": "ebike.hill-assistance",
+        "statementTr": "Dik yokuşta daha yüksek kanıtlı motor torku yönü",
+        "decisionUse": "SOFT_PREFERENCE"
+      },
+      "materialQuestion": {
+        "questionId": "p.ebike.hill-torque",
+        "publicTurkishQuestion": "Rotanız düzenli dik yokuş içerdiği için kanıtlı motor torkunun en az 50 Nm olması önemli mi?",
+        "answerDomain": [
+          {
+            "answerId": "YES",
+            "labelTr": "Evet, önemli",
+            "establishesExplicitRequirement": true
+          },
+          {
+            "answerId": "NO",
+            "labelTr": "Hayır, önemli değil",
+            "establishesExplicitRequirement": false
+          },
+          {
+            "answerId": "UNKNOWN",
+            "labelTr": "Henüz bilmiyorum",
+            "establishesExplicitRequirement": false
+          }
+        ],
+        "prerequisites": [
+          {
+            "prerequisiteId": "ebike.hill-assistance:context",
+            "description": "Düzenli dik yokuş; tork tırmanma sonucu veya güvenlik garantisi değildir",
+            "required": true
+          }
+        ],
+        "candidateEffectByAnswer": {
+          "YES": [
+            {
+              "exactOfferingId": "ROCKRIDER_E_ACTV_100_GREY_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [
+                "DECATHLON-TR-ELECTRIC",
+                "DECATHLON-SUPPORT-EBIKE"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "BTWIN_E_FOLD_500_GREEN_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [
+                "DECATHLON-TR-ELECTRIC"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "ROCKRIDER_E_EXPL_700_GREEN_TR",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DECATHLON-TR-ELECTRIC"
+              ],
+              "exactKnownMismatch": false
+            }
+          ],
+          "NO": [
+            {
+              "exactOfferingId": "ROCKRIDER_E_ACTV_100_GREY_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "BTWIN_E_FOLD_500_GREEN_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "ROCKRIDER_E_EXPL_700_GREEN_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            }
+          ],
+          "UNKNOWN": [
+            {
+              "exactOfferingId": "ROCKRIDER_E_ACTV_100_GREY_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "BTWIN_E_FOLD_500_GREEN_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "ROCKRIDER_E_EXPL_700_GREEN_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            }
+          ]
+        },
+        "decisionUseOnExplicitAnswer": "SOFT_PREFERENCE",
+        "predominantlyUnknownSuppressionCode": "SUPPRESSED_PREDOMINANTLY_UNKNOWN"
+      },
+      "uncertainty": "KNOWN",
+      "inheritance": {
+        "sourceScope": "EXACT_OFFERING",
+        "targetScope": "EXACT_OFFERING",
+        "allowedPurpose": "TECHNICAL_DECISION",
+        "explicitApplicabilityRequired": true,
+        "identityBridgeRequired": false,
+        "blockedByConflict": false,
+        "blockedByConflictRefs": [],
+        "foreignMarketDecisionAuthority": "NONE"
+      },
+      "personaDecisionPolicy": {
+        "maximumAggregateScore": 0.75,
+        "membershipEffect": "NONE",
+        "sufficiencyEffect": "NONE",
+        "singleWinnerEffect": "NONE"
+      },
+      "honestAllowedOutcomes": [
+        "ASK_ONE_QUESTION",
+        "NO_MATERIAL_QUESTION",
+        "KNOWN_CANDIDATE_PARTITION",
+        "UNKNOWN_CANDIDATES_RETAINED",
+        "SOFT_COMPARISON_ONLY",
+        "NON_RANKED_CANDIDATE_POOL",
+        "NO_SINGLE_WINNER"
+      ],
+      "governedComparison": true
+    },
+    {
+      "schemaVersion": "SemanticDecisionProjection/v2",
+      "identity": {
+        "projectionId": "wave1.bicycle.fold-storage",
+        "categoryId": "BICYCLE",
+        "scope": "EXACT_OFFERING"
+      },
+      "offerings": [
+        {
+          "exactOfferingId": "ELOPS_520_PURPLE_28_TR",
+          "categoryId": "BICYCLE",
+          "market": "TR",
+          "configurationId": "Elops 520 şehir bisikleti / mor / 28 inç / Türkiye",
+          "variantId": "ELOPS_520_PURPLE_28_TR"
+        },
+        {
+          "exactOfferingId": "ELOPS_LD500_GREY_28_TR",
+          "categoryId": "BICYCLE",
+          "market": "TR",
+          "configurationId": "Elops LD 500 tur-şehir bisikleti / gri / 28 inç / Türkiye",
+          "variantId": "ELOPS_LD500_GREY_28_TR"
+        },
+        {
+          "exactOfferingId": "BTWIN_TILT_500_NAVY_TR",
+          "categoryId": "BICYCLE",
+          "market": "TR",
+          "configurationId": "Btwin Tilt 500 katlanır bisiklet / koyu mavi / 20 inç / Türkiye",
+          "variantId": "BTWIN_TILT_500_NAVY_TR"
+        },
+        {
+          "exactOfferingId": "ROCKRIDER_RACE_500_BLUE_29_TR",
+          "categoryId": "BICYCLE",
+          "market": "TR",
+          "configurationId": "Rockrider Race 500 dağ bisikleti / mavi / 29 inç / Türkiye",
+          "variantId": "ROCKRIDER_RACE_500_BLUE_29_TR"
+        }
+      ],
+      "semanticAuthority": {
+        "authorityId": "MOBILITY:BICYCLE:active-domain-pack",
+        "version": "MOBILITY-TR-v0.1-owner-review-candidate",
+        "digest": "sha256:886a2bac6180b1766f921d4cb8700e764263a130ba2fdab3d59c292ea66e75ee"
+      },
+      "applicability": {
+        "market": "TR",
+        "configurationIds": [
+          "Elops 520 şehir bisikleti / mor / 28 inç / Türkiye",
+          "Elops LD 500 tur-şehir bisikleti / gri / 28 inç / Türkiye",
+          "Btwin Tilt 500 katlanır bisiklet / koyu mavi / 20 inç / Türkiye",
+          "Rockrider Race 500 dağ bisikleti / mavi / 29 inç / Türkiye"
+        ],
+        "effectiveFrom": "2026-09-08T00:00:00.000+03:00",
+        "explicitlyApplies": true,
+        "limitations": [
+          "Yalnız exact aktif Türkiye katalog üyeleri ve kaynakta açıkça bulunan fact kullanılır."
+        ]
+      },
+      "factCapabilityRefs": [
+        {
+          "factId": "wave1.bicycle.fold-storage:ELOPS_520_PURPLE_28_TR",
+          "capabilityId": "facts.intendedClass",
+          "sourceRefs": [
+            "DECATHLON-TR-BICYCLES"
+          ]
+        },
+        {
+          "factId": "wave1.bicycle.fold-storage:ELOPS_LD500_GREY_28_TR",
+          "capabilityId": "facts.intendedClass",
+          "sourceRefs": [
+            "DECATHLON-TR-BICYCLES"
+          ]
+        },
+        {
+          "factId": "wave1.bicycle.fold-storage:BTWIN_TILT_500_NAVY_TR",
+          "capabilityId": "facts.intendedClass",
+          "sourceRefs": [
+            "DECATHLON-TR-BICYCLES"
+          ]
+        },
+        {
+          "factId": "wave1.bicycle.fold-storage:ROCKRIDER_RACE_500_BLUE_29_TR",
+          "capabilityId": "facts.intendedClass",
+          "sourceRefs": [
+            "DECATHLON-TR-BICYCLES"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "XIAOMI-TR-4-LITE-2",
+          "authority": "PRIMARY",
+          "digest": "sha256:2cc3cf1033a2c475c14213d75ce6c6b92319663f1c4fe8ec7e608fe8048da724",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.mi.com/tr/product/xiaomi-electric-scooter-4-lite-2nd-gen/"
+        },
+        {
+          "sourceId": "XIAOMI-TR-4-PRO-2",
+          "authority": "PRIMARY",
+          "digest": "sha256:cadea0600552c06f7b59b6d2792b9772cb0c8eaa506ae81c844cec62b985ac31",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.mi.com/tr/product/xiaomi-electric-scooter-4-pro-2nd-gen/"
+        },
+        {
+          "sourceId": "SEGWAY-TR-F2-PRO-E",
+          "authority": "PRIMARY",
+          "digest": "sha256:a72e76672b58aad59c2854cd74aae9a623ea6f95aa1b3681932289dc6f12b2fe",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://tr-tr.segway.com/products/f2-pro-e"
+        },
+        {
+          "sourceId": "DECATHLON-TR-ELECTRIC",
+          "authority": "PRIMARY",
+          "digest": "sha256:f151c6972332c8decae56ea52433c966462bec9fd248a4e26a775152eca3806e",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.decathlon.com.tr/tum-sporlar/bisiklet/elektrikli-bisikletler"
+        },
+        {
+          "sourceId": "DECATHLON-TR-BICYCLES",
+          "authority": "PRIMARY",
+          "digest": "sha256:f01b5cee9f4e98142af1adb7d8eb7d89d3f0534d8e748aa610e9987b69123d2d",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.decathlon.com.tr/tum-sporlar/bisiklet/bisikletler"
+        },
+        {
+          "sourceId": "DECATHLON-SUPPORT-EBIKE",
+          "authority": "PRIMARY",
+          "digest": "sha256:7f1e398548261fc47d19b3e4654e8b5a4711fb59c07cfcf70099421815f49bc7",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://support.decathlon.com.tr/elektrikli-bisiklet-vae-decathlon-ssh"
+        }
+      ],
+      "technicalPredicate": {
+        "field": "facts.intendedClass",
+        "operator": "EQ",
+        "value": "Katlanır şehir",
+        "context": "Küçük evde saklama; exact katlı ölçüler ayrıca doğrulanır",
+        "regime": "EXACT_INTENDED_CLASS"
+      },
+      "dailyLifeConsequence": {
+        "statementTr": "Küçük evde katlanır ürün sınıfıyla saklama alanını yönetme",
+        "conditions": [
+          "Küçük evde saklama; exact katlı ölçüler ayrıca doğrulanır"
+        ],
+        "limitations": [
+          "Gerçek sonuç kullanım, çevre ve kurulum koşullarına bağlıdır."
+        ],
+        "nonGuarantees": [
+          "Bu yön tek ürün kazananı, kalite, güvenlik veya sonuç garantisi değildir."
+        ]
+      },
+      "userNeed": {
+        "needId": "bicycle.small-home-storage",
+        "statementTr": "Küçük evde katlanır ürün sınıfıyla saklama alanını yönetme",
+        "decisionUse": "SOFT_PREFERENCE"
+      },
+      "materialQuestion": {
+        "questionId": "p.bicycle.fold-storage",
+        "publicTurkishQuestion": "Bisikleti küçük evde saklamak için exact ürünün katlanır sınıfta olması önemli mi?",
+        "answerDomain": [
+          {
+            "answerId": "YES",
+            "labelTr": "Evet, önemli",
+            "establishesExplicitRequirement": true
+          },
+          {
+            "answerId": "NO",
+            "labelTr": "Hayır, önemli değil",
+            "establishesExplicitRequirement": false
+          },
+          {
+            "answerId": "UNKNOWN",
+            "labelTr": "Henüz bilmiyorum",
+            "establishesExplicitRequirement": false
+          }
+        ],
+        "prerequisites": [
+          {
+            "prerequisiteId": "bicycle.small-home-storage:context",
+            "description": "Küçük evde saklama; exact katlı ölçüler ayrıca doğrulanır",
+            "required": true
+          }
+        ],
+        "candidateEffectByAnswer": {
+          "YES": [
+            {
+              "exactOfferingId": "ELOPS_520_PURPLE_28_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [
+                "DECATHLON-TR-BICYCLES"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "ELOPS_LD500_GREY_28_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [
+                "DECATHLON-TR-BICYCLES"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "BTWIN_TILT_500_NAVY_TR",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DECATHLON-TR-BICYCLES"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "ROCKRIDER_RACE_500_BLUE_29_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [
+                "DECATHLON-TR-BICYCLES"
+              ],
+              "exactKnownMismatch": false
+            }
+          ],
+          "NO": [
+            {
+              "exactOfferingId": "ELOPS_520_PURPLE_28_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "ELOPS_LD500_GREY_28_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "BTWIN_TILT_500_NAVY_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "ROCKRIDER_RACE_500_BLUE_29_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            }
+          ],
+          "UNKNOWN": [
+            {
+              "exactOfferingId": "ELOPS_520_PURPLE_28_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "ELOPS_LD500_GREY_28_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "BTWIN_TILT_500_NAVY_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "ROCKRIDER_RACE_500_BLUE_29_TR",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            }
+          ]
+        },
+        "decisionUseOnExplicitAnswer": "SOFT_PREFERENCE",
+        "predominantlyUnknownSuppressionCode": "SUPPRESSED_PREDOMINANTLY_UNKNOWN"
+      },
+      "uncertainty": "KNOWN",
+      "inheritance": {
+        "sourceScope": "EXACT_OFFERING",
+        "targetScope": "EXACT_OFFERING",
+        "allowedPurpose": "TECHNICAL_DECISION",
+        "explicitApplicabilityRequired": true,
+        "identityBridgeRequired": false,
+        "blockedByConflict": false,
+        "blockedByConflictRefs": [],
+        "foreignMarketDecisionAuthority": "NONE"
+      },
+      "personaDecisionPolicy": {
+        "maximumAggregateScore": 0.75,
+        "membershipEffect": "NONE",
+        "sufficiencyEffect": "NONE",
+        "singleWinnerEffect": "NONE"
+      },
+      "honestAllowedOutcomes": [
+        "ASK_ONE_QUESTION",
+        "NO_MATERIAL_QUESTION",
+        "KNOWN_CANDIDATE_PARTITION",
+        "UNKNOWN_CANDIDATES_RETAINED",
+        "SOFT_COMPARISON_ONLY",
+        "NON_RANKED_CANDIDATE_POOL",
+        "NO_SINGLE_WINNER"
+      ],
+      "governedComparison": true
+    },
+    {
+      "schemaVersion": "SemanticDecisionProjection/v2",
+      "identity": {
+        "projectionId": "wave1.drill.impact-mode",
+        "categoryId": "CORDLESS_DRILL",
+        "scope": "EXACT_OFFERING"
+      },
+      "offerings": [
+        {
+          "exactOfferingId": "durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "BARE: no battery/charger",
+          "variantId": "durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-50-06019h5100",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "KIT: 2x2Ah, GAL18V-20, L-CASE",
+          "variantId": "durable:cordless-drill:bosch-gsb-18v-50-06019h5100"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-110c-06019g030b",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "KIT: 2x4Ah ProCORE, charger, L-BOXX",
+          "variantId": "durable:cordless-drill:bosch-gsb-18v-110c-06019g030b"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:makita-dhp484rtj",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "KIT: 2x5Ah, DC18RC, Makpac",
+          "variantId": "durable:cordless-drill:makita-dhp484rtj"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:makita-dhp482rfe",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "KIT: 2x3Ah BL1830B, DC18RC, case",
+          "variantId": "durable:cordless-drill:makita-dhp482rfe"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:dewalt-dcd796p2-qw",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "KIT: 2x5Ah, DCB115, TSTAK",
+          "variantId": "durable:cordless-drill:dewalt-dcd796p2-qw"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:dewalt-dcd805nt-xj",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "BARE with TSTAK; no battery/charger",
+          "variantId": "durable:cordless-drill:dewalt-dcd805nt-xj"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:milwaukee-m18-fpd3-502x",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "KIT: 2x5Ah M18 B5, M12-18 FC, HD box",
+          "variantId": "durable:cordless-drill:milwaukee-m18-fpd3-502x"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:milwaukee-m18-blpdrc-502c",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "KIT: 2x5Ah, M12-18C, kitbox",
+          "variantId": "durable:cordless-drill:milwaukee-m18-blpdrc-502c"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:einhell-te-cd-18-50-solo-4514345",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "BARE",
+          "variantId": "durable:cordless-drill:einhell-te-cd-18-50-solo-4514345"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "BARE",
+          "variantId": "durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "BARE",
+          "variantId": "durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "BARE",
+          "variantId": "durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:ryobi-rpd18bl1-0-5133006237",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "BARE",
+          "variantId": "durable:cordless-drill:ryobi-rpd18bl1-0-5133006237"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:ryobi-rpd18x1-0-5133006610",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "BARE",
+          "variantId": "durable:cordless-drill:ryobi-rpd18x1-0-5133006610"
+        },
+        {
+          "exactOfferingId": "durable:cordless-drill:metabo-sb-18-l-bl-602331500",
+          "categoryId": "CORDLESS_DRILL",
+          "market": "TR",
+          "configurationId": "KIT: 2x2Ah, SC30, case",
+          "variantId": "durable:cordless-drill:metabo-sb-18-l-bl-602331500"
+        }
+      ],
+      "semanticAuthority": {
+        "authorityId": "TOOLS:CORDLESS_DRILL:active-domain-pack",
+        "version": "CORDLESS-DRILL-TR-v1.0-2026-09-07",
+        "digest": "sha256:c7a74dbcc28a3dc6871531ed6c4cddafd95648a70746cb395089118a306eca6c"
+      },
+      "applicability": {
+        "market": "TR",
+        "configurationIds": [
+          "BARE: no battery/charger",
+          "KIT: 2x2Ah, GAL18V-20, L-CASE",
+          "KIT: 2x4Ah ProCORE, charger, L-BOXX",
+          "KIT: 2x5Ah, DC18RC, Makpac",
+          "KIT: 2x3Ah BL1830B, DC18RC, case",
+          "KIT: 2x5Ah, DCB115, TSTAK",
+          "BARE with TSTAK; no battery/charger",
+          "KIT: 2x5Ah M18 B5, M12-18 FC, HD box",
+          "KIT: 2x5Ah, M12-18C, kitbox",
+          "BARE",
+          "BARE",
+          "BARE",
+          "BARE",
+          "BARE",
+          "BARE",
+          "KIT: 2x2Ah, SC30, case"
+        ],
+        "effectiveFrom": "2026-09-08T00:00:00.000+03:00",
+        "explicitlyApplies": true,
+        "limitations": [
+          "Yalnız exact aktif Türkiye katalog üyeleri ve kaynakta açıkça bulunan fact kullanılır."
+        ]
+      },
+      "factCapabilityRefs": [
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:bosch-gsb-18v-50-06019h5100",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:bosch-gsb-18v-50-06019h5100"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:bosch-gsb-18v-110c-06019g030b",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:bosch-gsb-18v-110c-06019g030b"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:makita-dhp484rtj",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:makita-dhp484rtj"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:makita-dhp482rfe",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:makita-dhp482rfe"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:dewalt-dcd796p2-qw",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:dewalt-dcd796p2-qw"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:dewalt-dcd805nt-xj",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:dewalt-dcd805nt-xj"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:milwaukee-m18-fpd3-502x",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:milwaukee-m18-fpd3-502x"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:milwaukee-m18-blpdrc-502c",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:milwaukee-m18-blpdrc-502c"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:einhell-te-cd-18-50-solo-4514345",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:einhell-te-cd-18-50-solo-4514345"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:ryobi-rpd18bl1-0-5133006237",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:ryobi-rpd18bl1-0-5133006237"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:ryobi-rpd18x1-0-5133006610",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:ryobi-rpd18x1-0-5133006610"
+          ]
+        },
+        {
+          "factId": "wave1.drill.impact-mode:durable:cordless-drill:metabo-sb-18-l-bl-602331500",
+          "capabilityId": "technical.impact",
+          "sourceRefs": [
+            "DRILL:durable:cordless-drill:metabo-sb-18-l-bl-602331500"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "sourceId": "DRILL:durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100",
+          "authority": "PRIMARY",
+          "digest": "sha256:e6849ceab89391097055fe6b6ebcd8161e8ee7a02bbc0779190e15aba2f4caac",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.bosch-diy.com/tr/tr/p/easyimpact-18v-40-06039d8100"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:bosch-gsb-18v-50-06019h5100",
+          "authority": "PRIMARY",
+          "digest": "sha256:1aac60f3ba8158428304d2c4df2abc41800bd090a59fd219e352468afe7ebb1f",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.bosch-professional.com/tr/tr/products/gsb-18v-50-06019H5100"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:bosch-gsb-18v-110c-06019g030b",
+          "authority": "PRIMARY",
+          "digest": "sha256:c3598a7c15a554b31aec179f2fb3d10b59e6c0311dacfd8d9abce89f547f9bd4",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.bosch-professional.com/tr/tr/products/gsb-18v-110-c-06019G030B"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:makita-dhp484rtj",
+          "authority": "PRIMARY",
+          "digest": "sha256:69cb64a3330d5cbf4c53e7a0967f30c80f4550e98f095e6a850d29d56fd78133",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.makita.com.tr/darbeli-matkap-vidalama-18v-p-da4e9d83-a459-4748-76d0-08daa04b0b98"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:makita-dhp482rfe",
+          "authority": "PRIMARY",
+          "digest": "sha256:e6584915f46a647870789fd630cc3ee99f7076cf628b55d0e4c1575409940486",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.makita.com.tr/darbeli-matkap-vidalama-18v-p-8590ca23-711b-46cd-767c-08daa04b0b98"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:dewalt-dcd796p2-qw",
+          "authority": "PRIMARY",
+          "digest": "sha256:6ab98deb4483ff580d81a0c410795a66602bee121b2f06c2a5063769dd7a3630",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.tr.dewalt.global/tr-tr/rnler/dcd796p2-qw/18v-50ah-li-ion-cift-akulu-komursuz-profesyonel-darbeli-matkap"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:dewalt-dcd805nt-xj",
+          "authority": "PRIMARY",
+          "digest": "sha256:eb6918795dd5ffbe0cbcf97fe11a6baf5cac01432a63d183b26bca8152f654fc",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.tr.dewalt.global/tr-tr/rnler/dcd805nt-xj/18v-komursuz-darbeli-matkapakusuz-t-st"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:milwaukee-m18-fpd3-502x",
+          "authority": "PRIMARY",
+          "digest": "sha256:5c2d8b966686d1233efc2b8204d4032d31d33cd71ad68c886b277ecb5c8e81f3",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://www.milwaukeetool.eu/en-eu/m18-fuel-percussion-drill/m18-fpd3/"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:milwaukee-m18-blpdrc-502c",
+          "authority": "PRIMARY",
+          "digest": "sha256:024217a115b774a6cc6bfc1b98bad43ae6e61b8321951c4abded5f31b60258f7",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://www.milwaukeetool.eu/en-eu/m18-compact-brushless-percussion-drill/m18-blpdrc/"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:einhell-te-cd-18-50-solo-4514345",
+          "authority": "PRIMARY",
+          "digest": "sha256:03b0f68e9c05bb1c78be9347d0e13c063f65f80ec29a04f5e46535dbfd92c9fa",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.einhell.com.tr/p/4514345-te-cd-18-50-li-solo/"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942",
+          "authority": "PRIMARY",
+          "digest": "sha256:06ed36b237e9eb0cb81bfcecb12747e805fc3d4a75fc34e45b3322b8bbde8a0d",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.einhell.com.tr/p/4513942-tp-cd-18-50-li-i-bl-solo/"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210",
+          "authority": "PRIMARY",
+          "digest": "sha256:9a6c54125cade1c46c7abff0efcb91ca83c2100b3d251193f9136e29990bf5f5",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.einhell.com.tr/p/4514210-tp-cd-18-60-li-bl-solo/"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205",
+          "authority": "PRIMARY",
+          "digest": "sha256:240cf127179b9f9b16d0416a2c56df21d51021259a22a5c960c0dc888bddaa32",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.95,
+          "locator": "https://www.einhell.com.tr/p/4514205-tp-cd-18-60-li-i-bl-solo/"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:ryobi-rpd18bl1-0-5133006237",
+          "authority": "PRIMARY",
+          "digest": "sha256:e3c4653a6a766812ddeab1c06378f313dee6d4af261b4960227e32e8d6b7b574",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://static.ryobitools.eu/RyobiTools/media/MediaLibrary/RYOBI_18V_ONE-_MAXPOWER_Katalog_2024-1_SCREEN.pdf"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:ryobi-rpd18x1-0-5133006610",
+          "authority": "PRIMARY",
+          "digest": "sha256:c7ce38971296db0ba9842c63a3d9eb3b207bf20af5b13a813bafeb1299f9a9f6",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://static.ryobitools.eu/RyobiTools/media/MediaLibrary/Ryobi_OnePlus_Leaflet_HUNGARY.pdf?v=1772786656"
+        },
+        {
+          "sourceId": "DRILL:durable:cordless-drill:metabo-sb-18-l-bl-602331500",
+          "authority": "PRIMARY",
+          "digest": "sha256:d138a28f3bcf56d70a6e257b7075b1153bb6f2bad666ef91b5f55410637f1f4d",
+          "market": "TR",
+          "capturedAt": "2026-09-08T00:00:00.000+03:00",
+          "reliability": 0.85,
+          "locator": "https://www.metabo.com/t3/fileadmin/metabo/at/070_aktuell/02_kataloge_logos/2023_Sortimentsuebersicht_AT-screen.pdf"
+        }
+      ],
+      "technicalPredicate": {
+        "field": "technical.impact",
+        "operator": "EQ",
+        "value": true,
+        "context": "Beton veya duvar delme; malzeme, uç ve güvenlik doğrulaması gerekir",
+        "regime": "MANUFACTURER_EXACT_IMPACT_MODE"
+      },
+      "dailyLifeConsequence": {
+        "statementTr": "Uygun uç ve güvenlik koşullarıyla darbeli delme moduna erişim",
+        "conditions": [
+          "Beton veya duvar delme; malzeme, uç ve güvenlik doğrulaması gerekir"
+        ],
+        "limitations": [
+          "Gerçek sonuç kullanım, çevre ve kurulum koşullarına bağlıdır."
+        ],
+        "nonGuarantees": [
+          "Bu yön tek ürün kazananı, kalite, güvenlik veya sonuç garantisi değildir."
+        ]
+      },
+      "userNeed": {
+        "needId": "drill.masonry-impact",
+        "statementTr": "Uygun uç ve güvenlik koşullarıyla darbeli delme moduna erişim",
+        "decisionUse": "SOFT_PREFERENCE"
+      },
+      "materialQuestion": {
+        "questionId": "p.drill.impact-mode",
+        "publicTurkishQuestion": "Beton veya duvar işiniz için exact modelde darbeli delme modu bulunması önemli mi?",
+        "answerDomain": [
+          {
+            "answerId": "YES",
+            "labelTr": "Evet, önemli",
+            "establishesExplicitRequirement": true
+          },
+          {
+            "answerId": "NO",
+            "labelTr": "Hayır, önemli değil",
+            "establishesExplicitRequirement": false
+          },
+          {
+            "answerId": "UNKNOWN",
+            "labelTr": "Henüz bilmiyorum",
+            "establishesExplicitRequirement": false
+          }
+        ],
+        "prerequisites": [
+          {
+            "prerequisiteId": "drill.masonry-impact:context",
+            "description": "Beton veya duvar delme; malzeme, uç ve güvenlik doğrulaması gerekir",
+            "required": true
+          }
+        ],
+        "candidateEffectByAnswer": {
+          "YES": [
+            {
+              "exactOfferingId": "durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-50-06019h5100",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:bosch-gsb-18v-50-06019h5100"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-110c-06019g030b",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:bosch-gsb-18v-110c-06019g030b"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:makita-dhp484rtj",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:makita-dhp484rtj"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:makita-dhp482rfe",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:makita-dhp482rfe"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:dewalt-dcd796p2-qw",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:dewalt-dcd796p2-qw"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:dewalt-dcd805nt-xj",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:dewalt-dcd805nt-xj"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:milwaukee-m18-fpd3-502x",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:milwaukee-m18-fpd3-502x"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:milwaukee-m18-blpdrc-502c",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:milwaukee-m18-blpdrc-502c"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:einhell-te-cd-18-50-solo-4514345",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:einhell-te-cd-18-50-solo-4514345"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:ryobi-rpd18bl1-0-5133006237",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:ryobi-rpd18bl1-0-5133006237"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:ryobi-rpd18x1-0-5133006610",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:ryobi-rpd18x1-0-5133006610"
+              ],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:metabo-sb-18-l-bl-602331500",
+              "effect": "softOnly",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [
+                "DRILL:durable:cordless-drill:metabo-sb-18-l-bl-602331500"
+              ],
+              "exactKnownMismatch": false
+            }
+          ],
+          "NO": [
+            {
+              "exactOfferingId": "durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-50-06019h5100",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-110c-06019g030b",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:makita-dhp484rtj",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:makita-dhp482rfe",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:dewalt-dcd796p2-qw",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:dewalt-dcd805nt-xj",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:milwaukee-m18-fpd3-502x",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:milwaukee-m18-blpdrc-502c",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:einhell-te-cd-18-50-solo-4514345",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:ryobi-rpd18bl1-0-5133006237",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:ryobi-rpd18x1-0-5133006610",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:metabo-sb-18-l-bl-602331500",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            }
+          ],
+          "UNKNOWN": [
+            {
+              "exactOfferingId": "durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-50-06019h5100",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-110c-06019g030b",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:makita-dhp484rtj",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:makita-dhp482rfe",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:dewalt-dcd796p2-qw",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:dewalt-dcd805nt-xj",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:milwaukee-m18-fpd3-502x",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:milwaukee-m18-blpdrc-502c",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:einhell-te-cd-18-50-solo-4514345",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_OTHER",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:ryobi-rpd18bl1-0-5133006237",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:ryobi-rpd18x1-0-5133006610",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            },
+            {
+              "exactOfferingId": "durable:cordless-drill:metabo-sb-18-l-bl-602331500",
+              "effect": "none",
+              "uncertainty": "KNOWN",
+              "partition": "DIRECTION_MATCH",
+              "evidenceRefs": [],
+              "exactKnownMismatch": false
+            }
+          ]
+        },
+        "decisionUseOnExplicitAnswer": "SOFT_PREFERENCE",
+        "predominantlyUnknownSuppressionCode": "SUPPRESSED_PREDOMINANTLY_UNKNOWN"
+      },
+      "uncertainty": "KNOWN",
+      "inheritance": {
+        "sourceScope": "EXACT_OFFERING",
+        "targetScope": "EXACT_OFFERING",
+        "allowedPurpose": "TECHNICAL_DECISION",
+        "explicitApplicabilityRequired": true,
+        "identityBridgeRequired": false,
+        "blockedByConflict": false,
+        "blockedByConflictRefs": [],
+        "foreignMarketDecisionAuthority": "NONE"
+      },
+      "personaDecisionPolicy": {
+        "maximumAggregateScore": 0.75,
+        "membershipEffect": "NONE",
+        "sufficiencyEffect": "NONE",
+        "singleWinnerEffect": "NONE"
+      },
+      "honestAllowedOutcomes": [
+        "ASK_ONE_QUESTION",
+        "NO_MATERIAL_QUESTION",
+        "KNOWN_CANDIDATE_PARTITION",
+        "UNKNOWN_CANDIDATES_RETAINED",
+        "SOFT_COMPARISON_ONLY",
+        "NON_RANKED_CANDIDATE_POOL",
+        "NO_SINGLE_WINNER"
+      ],
+      "governedComparison": true
+    }
+  ],
+  "readinessByCategory": {
+    "BICYCLE": {
+      "schemaVersion": "CatalogFactoryReadiness/v2",
+      "subjectId": "P-MATERIALITY-WAVE1A-20260908:BICYCLE",
+      "evaluationScope": "PRODUCTION_EXACT_CATALOG",
+      "evaluatedGates": [
+        {
+          "gateId": "identity-exact",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "primary-evidence-applicability",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "decision-field-coverage",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "semantic-causal-lineage",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "exact-projection-materialization",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "candidate-effect-completeness",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "P-zero-effect-suppression",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "unknown-conflict-neutrality",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "no-false-single-winner",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "price-commerce-isolation",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "persona-or-neutral",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "public-language",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "runtime-fixtures",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "pointer-manifest-approval-consistency",
+          "status": "PENDING",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Becomes verifiable only after atomic activation; not required for P_READY.",
+          "evidenceRefs": [],
+          "effectiveStatus": "PENDING",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "owner-approval",
+          "status": "PENDING",
+          "evidenceKind": "SIGNED_APPROVAL",
+          "reason": "Y authority is intentionally not requested by this P-only wave.",
+          "evidenceRefs": [],
+          "effectiveStatus": "PENDING",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        }
+      ],
+      "levels": {
+        "INFORMATION_READY": {
+          "ready": true,
+          "blockingGateIds": []
+        },
+        "P_READY": {
+          "ready": true,
+          "blockingGateIds": []
+        },
+        "Y_READY": {
+          "ready": false,
+          "blockingGateIds": [
+            "pointer-manifest-approval-consistency",
+            "owner-approval"
+          ]
+        }
+      },
+      "declarativeCapabilityRecordsObserved": 0,
+      "declarativeCapabilityRecordsAcceptedAsExecutableEvidence": false
+    },
+    "CORDLESS_DRILL": {
+      "schemaVersion": "CatalogFactoryReadiness/v2",
+      "subjectId": "P-MATERIALITY-WAVE1A-20260908:CORDLESS_DRILL",
+      "evaluationScope": "PRODUCTION_EXACT_CATALOG",
+      "evaluatedGates": [
+        {
+          "gateId": "identity-exact",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "primary-evidence-applicability",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "decision-field-coverage",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "semantic-causal-lineage",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "exact-projection-materialization",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "candidate-effect-completeness",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "P-zero-effect-suppression",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "unknown-conflict-neutrality",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "no-false-single-winner",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "price-commerce-isolation",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "persona-or-neutral",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "public-language",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "runtime-fixtures",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "pointer-manifest-approval-consistency",
+          "status": "PENDING",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Becomes verifiable only after atomic activation; not required for P_READY.",
+          "evidenceRefs": [],
+          "effectiveStatus": "PENDING",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "owner-approval",
+          "status": "PENDING",
+          "evidenceKind": "SIGNED_APPROVAL",
+          "reason": "Y authority is intentionally not requested by this P-only wave.",
+          "evidenceRefs": [],
+          "effectiveStatus": "PENDING",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        }
+      ],
+      "levels": {
+        "INFORMATION_READY": {
+          "ready": true,
+          "blockingGateIds": []
+        },
+        "P_READY": {
+          "ready": true,
+          "blockingGateIds": []
+        },
+        "Y_READY": {
+          "ready": false,
+          "blockingGateIds": [
+            "pointer-manifest-approval-consistency",
+            "owner-approval"
+          ]
+        }
+      },
+      "declarativeCapabilityRecordsObserved": 0,
+      "declarativeCapabilityRecordsAcceptedAsExecutableEvidence": false
+    },
+    "ELECTRIC_BICYCLE": {
+      "schemaVersion": "CatalogFactoryReadiness/v2",
+      "subjectId": "P-MATERIALITY-WAVE1A-20260908:ELECTRIC_BICYCLE",
+      "evaluationScope": "PRODUCTION_EXACT_CATALOG",
+      "evaluatedGates": [
+        {
+          "gateId": "identity-exact",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "primary-evidence-applicability",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "decision-field-coverage",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "semantic-causal-lineage",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "exact-projection-materialization",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "candidate-effect-completeness",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "P-zero-effect-suppression",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "unknown-conflict-neutrality",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "no-false-single-winner",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "price-commerce-isolation",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "persona-or-neutral",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "public-language",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "runtime-fixtures",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "pointer-manifest-approval-consistency",
+          "status": "PENDING",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Becomes verifiable only after atomic activation; not required for P_READY.",
+          "evidenceRefs": [],
+          "effectiveStatus": "PENDING",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "owner-approval",
+          "status": "PENDING",
+          "evidenceKind": "SIGNED_APPROVAL",
+          "reason": "Y authority is intentionally not requested by this P-only wave.",
+          "evidenceRefs": [],
+          "effectiveStatus": "PENDING",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        }
+      ],
+      "levels": {
+        "INFORMATION_READY": {
+          "ready": true,
+          "blockingGateIds": []
+        },
+        "P_READY": {
+          "ready": true,
+          "blockingGateIds": []
+        },
+        "Y_READY": {
+          "ready": false,
+          "blockingGateIds": [
+            "pointer-manifest-approval-consistency",
+            "owner-approval"
+          ]
+        }
+      },
+      "declarativeCapabilityRecordsObserved": 0,
+      "declarativeCapabilityRecordsAcceptedAsExecutableEvidence": false
+    },
+    "ELECTRIC_SCOOTER": {
+      "schemaVersion": "CatalogFactoryReadiness/v2",
+      "subjectId": "P-MATERIALITY-WAVE1A-20260908:ELECTRIC_SCOOTER",
+      "evaluationScope": "PRODUCTION_EXACT_CATALOG",
+      "evaluatedGates": [
+        {
+          "gateId": "identity-exact",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "primary-evidence-applicability",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "decision-field-coverage",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "semantic-causal-lineage",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "exact-projection-materialization",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "candidate-effect-completeness",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "P-zero-effect-suppression",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "unknown-conflict-neutrality",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "no-false-single-winner",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "price-commerce-isolation",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "persona-or-neutral",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "public-language",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "runtime-fixtures",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "pointer-manifest-approval-consistency",
+          "status": "PENDING",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Becomes verifiable only after atomic activation; not required for P_READY.",
+          "evidenceRefs": [],
+          "effectiveStatus": "PENDING",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "owner-approval",
+          "status": "PENDING",
+          "evidenceKind": "SIGNED_APPROVAL",
+          "reason": "Y authority is intentionally not requested by this P-only wave.",
+          "evidenceRefs": [],
+          "effectiveStatus": "PENDING",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        }
+      ],
+      "levels": {
+        "INFORMATION_READY": {
+          "ready": true,
+          "blockingGateIds": []
+        },
+        "P_READY": {
+          "ready": true,
+          "blockingGateIds": []
+        },
+        "Y_READY": {
+          "ready": false,
+          "blockingGateIds": [
+            "pointer-manifest-approval-consistency",
+            "owner-approval"
+          ]
+        }
+      },
+      "declarativeCapabilityRecordsObserved": 0,
+      "declarativeCapabilityRecordsAcceptedAsExecutableEvidence": false
+    },
+    "STROLLER": {
+      "schemaVersion": "CatalogFactoryReadiness/v2",
+      "subjectId": "P-MATERIALITY-WAVE1A-20260908:STROLLER",
+      "evaluationScope": "PRODUCTION_EXACT_CATALOG",
+      "evaluatedGates": [
+        {
+          "gateId": "identity-exact",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "primary-evidence-applicability",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "decision-field-coverage",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "semantic-causal-lineage",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "exact-projection-materialization",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "candidate-effect-completeness",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "P-zero-effect-suppression",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "unknown-conflict-neutrality",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "no-false-single-winner",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "price-commerce-isolation",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "persona-or-neutral",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "public-language",
+          "status": "PASS",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "INFORMATION_READY",
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "runtime-fixtures",
+          "status": "PASS",
+          "evidenceKind": "EXECUTABLE_TEST",
+          "reason": "Wave-1 exact projection and common invariant gate passed.",
+          "evidenceRefs": [
+            "features/semantic-decision-projection/v2/wave1CoreDomains.test.ts"
+          ],
+          "effectiveStatus": "PASS",
+          "requiredFor": [
+            "P_READY",
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "pointer-manifest-approval-consistency",
+          "status": "PENDING",
+          "evidenceKind": "IMMUTABLE_ARTIFACT",
+          "reason": "Becomes verifiable only after atomic activation; not required for P_READY.",
+          "evidenceRefs": [],
+          "effectiveStatus": "PENDING",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        },
+        {
+          "gateId": "owner-approval",
+          "status": "PENDING",
+          "evidenceKind": "SIGNED_APPROVAL",
+          "reason": "Y authority is intentionally not requested by this P-only wave.",
+          "evidenceRefs": [],
+          "effectiveStatus": "PENDING",
+          "requiredFor": [
+            "Y_READY"
+          ]
+        }
+      ],
+      "levels": {
+        "INFORMATION_READY": {
+          "ready": true,
+          "blockingGateIds": []
+        },
+        "P_READY": {
+          "ready": true,
+          "blockingGateIds": []
+        },
+        "Y_READY": {
+          "ready": false,
+          "blockingGateIds": [
+            "pointer-manifest-approval-consistency",
+            "owner-approval"
+          ]
+        }
+      },
+      "declarativeCapabilityRecordsObserved": 0,
+      "declarativeCapabilityRecordsAcceptedAsExecutableEvidence": false
+    }
+  },
+  "traces": [
+    {
+      "categoryId": "BICYCLE",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "p.bicycle.fold-storage",
+          "publicTurkishQuestion": "Bisikleti küçük evde saklamak için exact ürünün katlanır sınıfta olması önemli mi?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, önemli",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, önemli değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "bicycle.small-home-storage:context",
+              "description": "Küçük evde saklama; exact katlı ölçüler ayrıca doğrulanır",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "ELOPS_520_PURPLE_28_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [
+                  "DECATHLON-TR-BICYCLES"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "ELOPS_LD500_GREY_28_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [
+                  "DECATHLON-TR-BICYCLES"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "BTWIN_TILT_500_NAVY_TR",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DECATHLON-TR-BICYCLES"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "ROCKRIDER_RACE_500_BLUE_29_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [
+                  "DECATHLON-TR-BICYCLES"
+                ],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "ELOPS_520_PURPLE_28_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "ELOPS_LD500_GREY_28_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "BTWIN_TILT_500_NAVY_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "ROCKRIDER_RACE_500_BLUE_29_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "ELOPS_520_PURPLE_28_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "ELOPS_LD500_GREY_28_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "BTWIN_TILT_500_NAVY_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "ROCKRIDER_RACE_500_BLUE_29_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "SOFT_PREFERENCE",
+          "predominantlyUnknownSuppressionCode": "SUPPRESSED_PREDOMINANTLY_UNKNOWN"
+        },
+        "selectedProjectionId": "wave1.bicycle.fold-storage",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "BTWIN_TILT_500_NAVY_TR",
+            "ELOPS_520_PURPLE_28_TR",
+            "ELOPS_LD500_GREY_28_TR",
+            "ROCKRIDER_RACE_500_BLUE_29_TR"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "wave1.bicycle.fold-storage",
+              "questionId": "p.bicycle.fold-storage",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "DIRECTION_MATCH": [
+                  "BTWIN_TILT_500_NAVY_TR"
+                ],
+                "DIRECTION_OTHER": [
+                  "ELOPS_520_PURPLE_28_TR",
+                  "ELOPS_LD500_GREY_28_TR",
+                  "ROCKRIDER_RACE_500_BLUE_29_TR"
+                ]
+              },
+              "knownCandidateCount": 4,
+              "unknownCandidateCount": 0,
+              "expectedKnownReduction": 0.25,
+              "decisionChangeProbability": 0.25,
+              "evidenceReliability": 0.95,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0,
+              "fatiguePenalty": 0,
+              "score": 6.4,
+              "participatingEvidenceRefs": [
+                "DECATHLON-TR-BICYCLES"
+              ]
+            }
+          ],
+          "selectedQuestionId": "p.bicycle.fold-storage",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:642a620610de28e3f1eb7fc31e5046bb62d56362a7d0e998a520cd4d7ccaa881"
+      }
+    },
+    {
+      "categoryId": "CORDLESS_DRILL",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "p.drill.impact-mode",
+          "publicTurkishQuestion": "Beton veya duvar işiniz için exact modelde darbeli delme modu bulunması önemli mi?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, önemli",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, önemli değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "drill.masonry-impact:context",
+              "description": "Beton veya duvar delme; malzeme, uç ve güvenlik doğrulaması gerekir",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-50-06019h5100",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:bosch-gsb-18v-50-06019h5100"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-110c-06019g030b",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:bosch-gsb-18v-110c-06019g030b"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:makita-dhp484rtj",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:makita-dhp484rtj"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:makita-dhp482rfe",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:makita-dhp482rfe"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:dewalt-dcd796p2-qw",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:dewalt-dcd796p2-qw"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:dewalt-dcd805nt-xj",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:dewalt-dcd805nt-xj"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:milwaukee-m18-fpd3-502x",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:milwaukee-m18-fpd3-502x"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:milwaukee-m18-blpdrc-502c",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:milwaukee-m18-blpdrc-502c"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:einhell-te-cd-18-50-solo-4514345",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:einhell-te-cd-18-50-solo-4514345"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:ryobi-rpd18bl1-0-5133006237",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:ryobi-rpd18bl1-0-5133006237"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:ryobi-rpd18x1-0-5133006610",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:ryobi-rpd18x1-0-5133006610"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:metabo-sb-18-l-bl-602331500",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DRILL:durable:cordless-drill:metabo-sb-18-l-bl-602331500"
+                ],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-50-06019h5100",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-110c-06019g030b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:makita-dhp484rtj",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:makita-dhp482rfe",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:dewalt-dcd796p2-qw",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:dewalt-dcd805nt-xj",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:milwaukee-m18-fpd3-502x",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:milwaukee-m18-blpdrc-502c",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:einhell-te-cd-18-50-solo-4514345",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:ryobi-rpd18bl1-0-5133006237",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:ryobi-rpd18x1-0-5133006610",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:metabo-sb-18-l-bl-602331500",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-50-06019h5100",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:bosch-gsb-18v-110c-06019g030b",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:makita-dhp484rtj",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:makita-dhp482rfe",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:dewalt-dcd796p2-qw",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:dewalt-dcd805nt-xj",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:milwaukee-m18-fpd3-502x",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:milwaukee-m18-blpdrc-502c",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:einhell-te-cd-18-50-solo-4514345",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:ryobi-rpd18bl1-0-5133006237",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:ryobi-rpd18x1-0-5133006610",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "durable:cordless-drill:metabo-sb-18-l-bl-602331500",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "SOFT_PREFERENCE",
+          "predominantlyUnknownSuppressionCode": "SUPPRESSED_PREDOMINANTLY_UNKNOWN"
+        },
+        "selectedProjectionId": "wave1.drill.impact-mode",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100",
+            "durable:cordless-drill:bosch-gsb-18v-110c-06019g030b",
+            "durable:cordless-drill:bosch-gsb-18v-50-06019h5100",
+            "durable:cordless-drill:dewalt-dcd796p2-qw",
+            "durable:cordless-drill:dewalt-dcd805nt-xj",
+            "durable:cordless-drill:einhell-te-cd-18-50-solo-4514345",
+            "durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942",
+            "durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210",
+            "durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205",
+            "durable:cordless-drill:makita-dhp482rfe",
+            "durable:cordless-drill:makita-dhp484rtj",
+            "durable:cordless-drill:metabo-sb-18-l-bl-602331500",
+            "durable:cordless-drill:milwaukee-m18-blpdrc-502c",
+            "durable:cordless-drill:milwaukee-m18-fpd3-502x",
+            "durable:cordless-drill:ryobi-rpd18bl1-0-5133006237",
+            "durable:cordless-drill:ryobi-rpd18x1-0-5133006610"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "wave1.drill.impact-mode",
+              "questionId": "p.drill.impact-mode",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "DIRECTION_MATCH": [
+                  "durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100",
+                  "durable:cordless-drill:bosch-gsb-18v-110c-06019g030b",
+                  "durable:cordless-drill:bosch-gsb-18v-50-06019h5100",
+                  "durable:cordless-drill:dewalt-dcd796p2-qw",
+                  "durable:cordless-drill:dewalt-dcd805nt-xj",
+                  "durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942",
+                  "durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205",
+                  "durable:cordless-drill:makita-dhp482rfe",
+                  "durable:cordless-drill:makita-dhp484rtj",
+                  "durable:cordless-drill:metabo-sb-18-l-bl-602331500",
+                  "durable:cordless-drill:milwaukee-m18-blpdrc-502c",
+                  "durable:cordless-drill:milwaukee-m18-fpd3-502x",
+                  "durable:cordless-drill:ryobi-rpd18bl1-0-5133006237",
+                  "durable:cordless-drill:ryobi-rpd18x1-0-5133006610"
+                ],
+                "DIRECTION_OTHER": [
+                  "durable:cordless-drill:einhell-te-cd-18-50-solo-4514345",
+                  "durable:cordless-drill:einhell-tp-cd-18-60-li-bl-solo-4514210"
+                ]
+              },
+              "knownCandidateCount": 16,
+              "unknownCandidateCount": 0,
+              "expectedKnownReduction": 0.125,
+              "decisionChangeProbability": 0.875,
+              "evidenceReliability": 0.914286,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0,
+              "fatiguePenalty": 0,
+              "score": 7.828571,
+              "participatingEvidenceRefs": [
+                "DRILL:durable:cordless-drill:bosch-easyimpact-18v-40-06039d8100",
+                "DRILL:durable:cordless-drill:bosch-gsb-18v-110c-06019g030b",
+                "DRILL:durable:cordless-drill:bosch-gsb-18v-50-06019h5100",
+                "DRILL:durable:cordless-drill:dewalt-dcd796p2-qw",
+                "DRILL:durable:cordless-drill:dewalt-dcd805nt-xj",
+                "DRILL:durable:cordless-drill:einhell-tp-cd-18-50-li-i-bl-solo-4513942",
+                "DRILL:durable:cordless-drill:einhell-tp-cd-18-60-li-i-bl-solo-4514205",
+                "DRILL:durable:cordless-drill:makita-dhp482rfe",
+                "DRILL:durable:cordless-drill:makita-dhp484rtj",
+                "DRILL:durable:cordless-drill:metabo-sb-18-l-bl-602331500",
+                "DRILL:durable:cordless-drill:milwaukee-m18-blpdrc-502c",
+                "DRILL:durable:cordless-drill:milwaukee-m18-fpd3-502x",
+                "DRILL:durable:cordless-drill:ryobi-rpd18bl1-0-5133006237",
+                "DRILL:durable:cordless-drill:ryobi-rpd18x1-0-5133006610"
+              ]
+            }
+          ],
+          "selectedQuestionId": "p.drill.impact-mode",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:65c7f2c4bcd2501c222c09b996d21e5e287d4d7a1413186cd6ca62fd55e65d72"
+      }
+    },
+    {
+      "categoryId": "ELECTRIC_BICYCLE",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "p.ebike.hill-torque",
+          "publicTurkishQuestion": "Rotanız düzenli dik yokuş içerdiği için kanıtlı motor torkunun en az 50 Nm olması önemli mi?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, önemli",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, önemli değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "ebike.hill-assistance:context",
+              "description": "Düzenli dik yokuş; tork tırmanma sonucu veya güvenlik garantisi değildir",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "ROCKRIDER_E_ACTV_100_GREY_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [
+                  "DECATHLON-TR-ELECTRIC",
+                  "DECATHLON-SUPPORT-EBIKE"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "BTWIN_E_FOLD_500_GREEN_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [
+                  "DECATHLON-TR-ELECTRIC"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "ROCKRIDER_E_EXPL_700_GREEN_TR",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "DECATHLON-TR-ELECTRIC"
+                ],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "ROCKRIDER_E_ACTV_100_GREY_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "BTWIN_E_FOLD_500_GREEN_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "ROCKRIDER_E_EXPL_700_GREEN_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "ROCKRIDER_E_ACTV_100_GREY_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "BTWIN_E_FOLD_500_GREEN_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "ROCKRIDER_E_EXPL_700_GREEN_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "SOFT_PREFERENCE",
+          "predominantlyUnknownSuppressionCode": "SUPPRESSED_PREDOMINANTLY_UNKNOWN"
+        },
+        "selectedProjectionId": "wave1.ebike.hill-torque",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "BTWIN_E_FOLD_500_GREEN_TR",
+            "ROCKRIDER_E_ACTV_100_GREY_TR",
+            "ROCKRIDER_E_EXPL_700_GREEN_TR"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "wave1.ebike.hill-torque",
+              "questionId": "p.ebike.hill-torque",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "DIRECTION_MATCH": [
+                  "ROCKRIDER_E_EXPL_700_GREEN_TR"
+                ],
+                "DIRECTION_OTHER": [
+                  "BTWIN_E_FOLD_500_GREEN_TR",
+                  "ROCKRIDER_E_ACTV_100_GREY_TR"
+                ]
+              },
+              "knownCandidateCount": 3,
+              "unknownCandidateCount": 0,
+              "expectedKnownReduction": 0.333333,
+              "decisionChangeProbability": 0.333333,
+              "evidenceReliability": 0.95,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0,
+              "fatiguePenalty": 0,
+              "score": 6.9,
+              "participatingEvidenceRefs": [
+                "DECATHLON-TR-ELECTRIC"
+              ]
+            }
+          ],
+          "selectedQuestionId": "p.ebike.hill-torque",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:12d7a39ea968189302ae2c5fbe566fc972d436816f2d651b38cc4470d05ac6ed"
+      }
+    },
+    {
+      "categoryId": "ELECTRIC_SCOOTER",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "p.scooter.route-range",
+          "publicTurkishQuestion": "Günlük yaklaşık 25 km rotanız için üreticinin açıkladığı menzilin en az 30 km olması önemli mi?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, önemli",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, önemli değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "scooter.route-buffer:context",
+              "description": "Yaklaşık 25 km günlük rota; gerçek menzil garanti değildir",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "XIAOMI_4_LITE_2ND_GEN_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [
+                  "XIAOMI-TR-4-LITE-2"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "XIAOMI_4_PRO_2ND_GEN_TR",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "XIAOMI-TR-4-PRO-2"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "SEGWAY_NINEBOT_F2_PRO_E_TR",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "XIAOMI_4_LITE_2ND_GEN_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "XIAOMI_4_PRO_2ND_GEN_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "SEGWAY_NINEBOT_F2_PRO_E_TR",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "XIAOMI_4_LITE_2ND_GEN_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "XIAOMI_4_PRO_2ND_GEN_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "SEGWAY_NINEBOT_F2_PRO_E_TR",
+                "effect": "unknownRetain",
+                "uncertainty": "UNKNOWN",
+                "partition": null,
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "SOFT_PREFERENCE",
+          "predominantlyUnknownSuppressionCode": "SUPPRESSED_PREDOMINANTLY_UNKNOWN"
+        },
+        "selectedProjectionId": "wave1.scooter.route-range",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "SEGWAY_NINEBOT_F2_PRO_E_TR",
+            "XIAOMI_4_LITE_2ND_GEN_TR",
+            "XIAOMI_4_PRO_2ND_GEN_TR"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "wave1.scooter.route-range",
+              "questionId": "p.scooter.route-range",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "DIRECTION_MATCH": [
+                  "XIAOMI_4_PRO_2ND_GEN_TR"
+                ],
+                "DIRECTION_OTHER": [
+                  "XIAOMI_4_LITE_2ND_GEN_TR"
+                ]
+              },
+              "knownCandidateCount": 2,
+              "unknownCandidateCount": 1,
+              "expectedKnownReduction": 0.5,
+              "decisionChangeProbability": 0.333333,
+              "evidenceReliability": 0.95,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0.333333,
+              "fatiguePenalty": 0,
+              "score": 6.733333,
+              "participatingEvidenceRefs": [
+                "XIAOMI-TR-4-PRO-2"
+              ]
+            }
+          ],
+          "selectedQuestionId": "p.scooter.route-range",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:3529517d793db03f7c2036e8ee924db99f73dd1eea5e65ca1e063c537798e3c3"
+      }
+    },
+    {
+      "categoryId": "STROLLER",
+      "result": {
+        "outcome": "ASK_ONE_QUESTION",
+        "outcomeMeaning": "QUESTION_SELECTED_WITHOUT_CONTEXT_MUTATION",
+        "sufficiency": "NOT_EVALUATED",
+        "selectedQuestion": {
+          "questionId": "p.stroller.carry-weight",
+          "publicTurkishQuestion": "Puseti merdivende sık taşıyacağınız için 8 kg veya daha hafif olması sizin için önemli mi?",
+          "answerDomain": [
+            {
+              "answerId": "YES",
+              "labelTr": "Evet, önemli",
+              "establishesExplicitRequirement": true
+            },
+            {
+              "answerId": "NO",
+              "labelTr": "Hayır, önemli değil",
+              "establishesExplicitRequirement": false
+            },
+            {
+              "answerId": "UNKNOWN",
+              "labelTr": "Henüz bilmiyorum",
+              "establishesExplicitRequirement": false
+            }
+          ],
+          "prerequisites": [
+            {
+              "prerequisiteId": "stroller.daily-carry:context",
+              "description": "Puseti merdivende sık elde taşıma",
+              "required": true
+            }
+          ],
+          "candidateEffectByAnswer": {
+            "YES": [
+              {
+                "exactOfferingId": "CHICCO_GOODY_PLUS_04079877190000_TR",
+                "effect": "softOnly",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [
+                  "CHICCO-TR-GOODY-PLUS"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "CHICCO_MYSA_05087158450000_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [
+                  "CHICCO-TR-MYSA"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "CHICCO_BELLAGIO_07087183330000_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [
+                  "CHICCO-TR-BELLAGIO"
+                ],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "CYBEX_BALIOS_S_LUX_520001251_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [
+                  "CYBEX-BALIOS-PRODUCT",
+                  "CYBEX-BALIOS-MANUAL"
+                ],
+                "exactKnownMismatch": false
+              }
+            ],
+            "NO": [
+              {
+                "exactOfferingId": "CHICCO_GOODY_PLUS_04079877190000_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "CHICCO_MYSA_05087158450000_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "CHICCO_BELLAGIO_07087183330000_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "CYBEX_BALIOS_S_LUX_520001251_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ],
+            "UNKNOWN": [
+              {
+                "exactOfferingId": "CHICCO_GOODY_PLUS_04079877190000_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_MATCH",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "CHICCO_MYSA_05087158450000_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "CHICCO_BELLAGIO_07087183330000_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              },
+              {
+                "exactOfferingId": "CYBEX_BALIOS_S_LUX_520001251_TR",
+                "effect": "none",
+                "uncertainty": "KNOWN",
+                "partition": "DIRECTION_OTHER",
+                "evidenceRefs": [],
+                "exactKnownMismatch": false
+              }
+            ]
+          },
+          "decisionUseOnExplicitAnswer": "SOFT_PREFERENCE",
+          "predominantlyUnknownSuppressionCode": "SUPPRESSED_PREDOMINANTLY_UNKNOWN"
+        },
+        "selectedProjectionId": "wave1.stroller.carry-weight",
+        "candidatePoolUnchanged": true,
+        "productionMutation": false,
+        "trace": {
+          "schemaVersion": "p-materiality-shadow-trace/v2",
+          "mode": "SHADOW_ONLY",
+          "candidatePool": [
+            "CHICCO_BELLAGIO_07087183330000_TR",
+            "CHICCO_GOODY_PLUS_04079877190000_TR",
+            "CHICCO_MYSA_05087158450000_TR",
+            "CYBEX_BALIOS_S_LUX_520001251_TR"
+          ],
+          "activeAnswers": [],
+          "answerHistoryDisposition": [],
+          "evaluations": [
+            {
+              "projectionId": "wave1.stroller.carry-weight",
+              "questionId": "p.stroller.carry-weight",
+              "eligible": true,
+              "suppressionReasons": [],
+              "knownPartitions": {
+                "DIRECTION_MATCH": [
+                  "CHICCO_GOODY_PLUS_04079877190000_TR"
+                ],
+                "DIRECTION_OTHER": [
+                  "CHICCO_BELLAGIO_07087183330000_TR",
+                  "CHICCO_MYSA_05087158450000_TR",
+                  "CYBEX_BALIOS_S_LUX_520001251_TR"
+                ]
+              },
+              "knownCandidateCount": 4,
+              "unknownCandidateCount": 0,
+              "expectedKnownReduction": 0.25,
+              "decisionChangeProbability": 0.25,
+              "evidenceReliability": 0.85,
+              "answerability": 1,
+              "contextualRelevance": 1,
+              "novelty": 1,
+              "unknownPenalty": 0,
+              "fatiguePenalty": 0,
+              "score": 6.2,
+              "participatingEvidenceRefs": [
+                "CHICCO-TR-GOODY-PLUS"
+              ]
+            }
+          ],
+          "selectedQuestionId": "p.stroller.carry-weight",
+          "maxQuestions": 1
+        },
+        "traceFingerprint": "sha256:5a4d94fb85e4ad911eca9471e1a5596423471cbbcadb194b514e8f7c3e83b123"
+      }
+    }
+  ],
+  "activationMode": "P_DIRECTION_ONLY_NO_MEMBERSHIP_NO_WINNER",
+  "yAuthority": "UNCHANGED_NONE_GRANTED",
+  "releaseDigest": "sha256:8c1ca77aaa22244ab5e86711897bd092024fdf811ae9505bf2aceb2564a7f336"
+}

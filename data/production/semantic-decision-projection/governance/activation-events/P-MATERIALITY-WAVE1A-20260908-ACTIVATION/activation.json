@@ -1,0 +1,19 @@
+{
+  "schemaVersion": "p-materiality-wave-activation/v1",
+  "activationId": "P-MATERIALITY-WAVE1A-20260908-ACTIVATION",
+  "activatedAt": "2026-09-08T00:05:00.000+03:00",
+  "releaseId": "SDP-V2-P-WAVE1-CORE-DOMAINS-TR-v1.0",
+  "releaseSha256": "sha256:3f39841ee621c46b13cfee8997b2aa277738cb8058ef7347bc9f13b12bb79a76",
+  "approvalDigest": "sha256:baf50ca409ab0ab044ba8ed7c4d68330efd158ad9c2d34914d843c973e6248c6",
+  "previousPointerSha256": null,
+  "state": "ACTIVE_P",
+  "atomicCategories": [
+    "BICYCLE",
+    "CORDLESS_DRILL",
+    "ELECTRIC_BICYCLE",
+    "ELECTRIC_SCOOTER",
+    "STROLLER"
+  ],
+  "rollback": "REMOVE_POINTER_TO_FAIL_CLOSED",
+  "productionDeployment": false
+}

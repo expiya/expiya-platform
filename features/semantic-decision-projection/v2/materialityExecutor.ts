@@ -162,9 +162,11 @@ function evaluateProjection(input: {
     return {
       excluded: effects.filter((effect) => effect.effect === "knownExclude" && effect.exactKnownMismatch).length,
       retained: effects.filter((effect) => effect.effect === "knownRetain").length,
+      preferred: effects.filter((effect) => effect.effect === "softOnly").length,
+      neutral: effects.filter((effect) => effect.effect === "none").length,
     };
   });
-  const materialSplits = splitAnswers.filter((answer) => answer.excluded > 0 && answer.retained > 0);
+  const materialSplits = splitAnswers.filter((answer) => (answer.excluded > 0 && answer.retained > 0) || (answer.preferred > 0 && answer.neutral > 0));
   if (!materialSplits.length) suppression.push("ZERO_CANDIDATE_EFFECT");
   if (!states.length || known.some((effect) => effect.evidenceRefs.length === 0) || projection.sources.length === 0) suppression.push("UNSUPPORTED_QUESTION");
   if (unknown.length > known.length) suppression.push(question.predominantlyUnknownSuppressionCode ?? "SUPPRESSED_PREDOMINANTLY_UNKNOWN");
@@ -172,10 +174,10 @@ function evaluateProjection(input: {
   const knownCount = known.length;
   const candidateCount = states.length || candidatePool.size;
   const expectedKnownReduction = knownCount && materialSplits.length
-    ? materialSplits.reduce((sum, answer) => sum + answer.excluded / knownCount, 0) / materialSplits.length
+    ? materialSplits.reduce((sum, answer) => sum + (answer.excluded || Math.min(answer.preferred, answer.neutral)) / knownCount, 0) / materialSplits.length
     : 0;
   const decisionChangeProbability = candidateCount && materialSplits.length
-    ? Math.max(...materialSplits.map((answer) => answer.excluded / candidateCount))
+    ? Math.max(...materialSplits.map((answer) => (answer.excluded || answer.preferred) / candidateCount))
     : 0;
   const participatingEvidenceRefs = [...new Set(Object.values(question.candidateEffectByAnswer).flat()
     .filter((effect) => candidatePool.has(effect.exactOfferingId) && effect.uncertainty === "KNOWN" && ["knownRetain", "knownExclude", "softOnly"].includes(effect.effect))
