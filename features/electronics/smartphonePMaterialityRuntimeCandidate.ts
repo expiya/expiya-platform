@@ -1,5 +1,6 @@
 import type { ElectronicsCategoryPolicyArtifact } from "./categoryPolicy";
 import type { ElectronicsRuntimeCatalog } from "./runtimeAuthority.server";
+import { SMARTPHONE_P_MATERIALITY_SOURCE_ACTIVATED } from "./smartphonePMaterialityActivation";
 
 export const SMARTPHONE_P_MATERIALITY_FEATURE_FLAG = "SMARTPHONE_P_MATERIALITY_V1";
 export const SMARTPHONE_P_MATERIALITY_PACKAGE_DIGEST = "sha256:e67788378c14e0638ce9aec4224ca0f97864d3ac6528b0a9712bf8141b7c61d7";
@@ -16,7 +17,8 @@ const replacements: Readonly<Record<string, Pick<Question, "questionKey" | "targ
 });
 
 export function smartphonePMaterialityCandidateStatus(input: { policy: ElectronicsCategoryPolicyArtifact; catalog: ElectronicsRuntimeCatalog; requested?: boolean }) {
-  const requested = input.requested ?? process.env[SMARTPHONE_P_MATERIALITY_FEATURE_FLAG] === "true";
+  const environmentOverride = process.env[SMARTPHONE_P_MATERIALITY_FEATURE_FLAG];
+  const requested = input.requested ?? (environmentOverride === undefined ? SMARTPHONE_P_MATERIALITY_SOURCE_ACTIVATED : environmentOverride === "true");
   if (!requested) return { status: "DISABLED" as const, packageDigest: SMARTPHONE_P_MATERIALITY_PACKAGE_DIGEST };
   const smartphoneCount = input.catalog.products.filter((product) => product.categoryId === "SMARTPHONE").length;
   if (input.policy.policyDigest !== EXPECTED_POLICY_DIGEST || input.catalog.releaseDigest !== EXPECTED_CATALOG_RELEASE_DIGEST || input.catalog.products.length !== 121 || smartphoneCount !== 34) return { status: "FAILED_CLOSED" as const, reason: "AUTHORITY_OR_MEMBERSHIP_BINDING_MISMATCH", packageDigest: SMARTPHONE_P_MATERIALITY_PACKAGE_DIGEST };

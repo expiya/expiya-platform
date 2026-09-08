@@ -1,5 +1,3 @@
-import { readFileSync } from "node:fs";
-import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { ACTIVE_APPLIANCES_CATEGORY_IDS } from "@/features/appliances/categoryRegistry";
 import { createFileSystemAppliancesArtifactRepository } from "@/features/appliances/authority/loader.server";
@@ -9,10 +7,9 @@ import { commitAppliancesBootstrap } from "@/features/appliances/persistence/ser
 import { runNativeAppliancesTurn } from "@/features/appliances/nativeTurn.server";
 import type { AppliancesProductType } from "@/features/appliances/contracts";
 import { ELECTRONICS_CATEGORY_IDS } from "@/features/electronics/architectureBaseline";
-import { loadActiveElectronicsCategoryPolicy } from "@/features/electronics/categoryPolicyLoader.server";
 import { bootstrapElectronicsConversation, recoverElectronicsConversation, runElectronicsTurn } from "@/features/electronics/conversation.server";
 import { MemoryElectronicsConversationStore } from "@/features/electronics/persistence";
-import type { ElectronicsRuntimeCatalog } from "@/features/electronics/runtimeAuthority.server";
+import { loadActiveElectronicsRuntimeAuthority } from "@/features/electronics/runtimeAuthority.server";
 import { buildCategoryBehavioralAcceptanceMatrix, XPY_BEHAVIORAL_ACCEPTANCE_MATRIX } from "./behavioralAcceptance";
 import { requireXpyDomainPack, requireXpyReentry } from "./domainPacks";
 
@@ -41,9 +38,7 @@ describe("all-active-category executable behavioral acceptance", () => {
   });
 
   it.each(ELECTRONICS_CATEGORY_IDS)("executes question, short answer, correction and recovery for %s", async categoryId => {
-    const policy = loadActiveElectronicsCategoryPolicy(root);
-    const catalog = JSON.parse(readFileSync(path.join(root, "data/production/electronics/runtime/releases/ELECTRONICS-RUNTIME-CATALOG-TR-v1.0/catalog.json"), "utf8")) as ElectronicsRuntimeCatalog;
-    const authority = { policy, catalog }, store = new MemoryElectronicsConversationStore(), conversationId = crypto.randomUUID();
+    const authority = loadActiveElectronicsRuntimeAuthority(root), store = new MemoryElectronicsConversationStore(), conversationId = crypto.randomUUID();
     const boot = await bootstrapElectronicsConversation({ store, authority, conversationId, categoryId, messageId: "create" });
     expect(boot.status).toBe("OK"); if (boot.status !== "OK") return;
     expect(boot.outcome.kind).toBe("ASK");

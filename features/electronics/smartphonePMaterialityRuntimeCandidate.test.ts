@@ -9,7 +9,11 @@ describe("Smartphone P materiality runtime candidate", () => {
   const policy = loadActiveElectronicsCategoryPolicy();
   const catalog = loadActiveElectronicsRuntimeAuthority().catalog;
   afterEach(() => vi.unstubAllEnvs());
-  it("is default-off and fail-closed on binding mismatch", () => {
+  it("is source-activated, supports the explicit false rollback and fails closed on binding mismatch", () => {
+    vi.stubEnv("SMARTPHONE_P_MATERIALITY_V1", undefined);
+    expect(smartphonePMaterialityCandidateStatus({ policy, catalog }).status).toBe("ENABLED_CANDIDATE");
+    vi.stubEnv("SMARTPHONE_P_MATERIALITY_V1", "false");
+    expect(smartphonePMaterialityCandidateStatus({ policy, catalog }).status).toBe("DISABLED");
     expect(smartphonePMaterialityCandidateStatus({ policy, catalog, requested: false }).status).toBe("DISABLED");
     expect(smartphonePMaterialityCandidateStatus({ policy: { ...policy, policyDigest: "sha256:bad" }, catalog, requested: true }).status).toBe("FAILED_CLOSED");
   });
