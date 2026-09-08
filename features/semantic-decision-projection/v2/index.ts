@@ -2,6 +2,7 @@ export * from "./canonical";
 export * from "./artifacts";
 export * from "./catalogFactoryReadiness";
 export * from "./contract";
+export * from "./domainPackAdmission";
 export * from "./fixtures";
 export * from "./inheritance";
 export * from "./invariants";
