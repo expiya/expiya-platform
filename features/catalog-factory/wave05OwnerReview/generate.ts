@@ -26,14 +26,14 @@ const normalize = (value: string) => value.toLocaleLowerCase("tr-TR").normalize(
 const collectUrlValues = (value: unknown, urls: Set<string>) => { if (Array.isArray(value)) value.forEach(child => collectUrlValues(child, urls)); else if (value && typeof value === "object") for (const [key, child] of Object.entries(value as Json)) { if (key.toLowerCase() === "url" && typeof child === "string") urls.add(child); collectUrlValues(child, urls); } };
 const jsonFiles = async (root: string): Promise<string[]> => { try { const entries = await readdir(root, { withFileTypes: true }); const nested = await Promise.all(entries.map(entry => entry.isDirectory() ? jsonFiles(path.join(root, entry.name)) : Promise.resolve(entry.name.endsWith(".json") ? [path.join(root, entry.name)] : []))); return nested.flat(); } catch { return []; } };
 
-export async function generateWave05OwnerReview(options: { root?: string; output?: string; sources?: readonly Wave05Source[] } = {}) {
+export async function generateWave05OwnerReview(options: { root?: string; output?: string; sources?: readonly Wave05Source[]; pointerFile?: string } = {}) {
   const root = options.root ?? process.cwd(), output = options.output ?? path.join(root, "outputs/catalog-factory-active-coverage-wave-05-owner-review-01"), sources = options.sources ?? WAVE05_SOURCES;
   const governedOutput = "outputs/catalog-factory-active-coverage-wave-05-owner-review-01";
   const readJson = async (relative: string) => JSON.parse(await readFile(path.join(root, relative), "utf8")) as Json;
   const release = await readJson("data/production/semantic-decision-projection/releases/SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0/release.json");
   const inventory = await readJson("outputs/all-active-catalog-p-materiality-production-01/checkpoint-01-inventory/inventory-readiness.json");
   const legacy = await readJson("outputs/catalog-factory-coverage-audit-2026-09-07/coverage-ledger.json");
-  const pointerBytes = await readFile(path.join(root, "data/production/catalog-factory/active.json")); const pointer = JSON.parse(pointerBytes.toString()) as Json;
+  const pointerBytes = await readFile(options.pointerFile ?? path.join(root, "data/production/catalog-factory/active.json")); const pointer = JSON.parse(pointerBytes.toString()) as Json;
   const overlay = await readJson(String(pointer.overlayFile));
   const totals = release.totals as Json;
   if (stableWave05(totals) !== stableWave05({ departments: 6, categories: 54, exactOfferings: 813, pCategories: 48, informationOnlyCategories: 6, askableQuestions: 50, suppressedQuestions: 6 }) || release.yAuthority !== "UNCHANGED_NONE_GRANTED") throw new Error("ALL_CATALOG_813_P_Y_BASELINE_MISMATCH");

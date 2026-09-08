@@ -1,0 +1,28 @@
+{
+  "build": {
+    "bundler": "webpack",
+    "next": "16.3.0",
+    "node": "24.20.0",
+    "staticPages": 626,
+    "status": "PASS"
+  },
+  "diffCheck": "PASS",
+  "focusedTests": {
+    "failed": 0,
+    "files": 7,
+    "tests": 37
+  },
+  "fullTests": {
+    "failed": 0,
+    "files": 770,
+    "tests": 5871
+  },
+  "lint": {
+    "errors": 0,
+    "status": "PASS_WITH_EXISTING_WARNINGS",
+    "warnings": 13
+  },
+  "schemaVersion": "catalog-factory-wave05-runtime-quality-gates/v1",
+  "status": "PASS",
+  "typescript": "PASS"
+}

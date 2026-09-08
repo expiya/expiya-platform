@@ -1,0 +1,42 @@
+{
+  "allCatalogAuthority": {
+    "after": 813,
+    "before": 813,
+    "exactMapping": {
+      "E_READER": [
+        "electronics:e-reader:kobo:n365",
+        "electronics:e-reader:kobo:n367",
+        "electronics:e-reader:kobo:n428"
+      ],
+      "FITNESS_TRACKER": [
+        "electronics:fitness-tracker:huawei:nor-b19-black",
+        "electronics:fitness-tracker:xiaomi:m2435b1-black",
+        "electronics:fitness-tracker:xiaomi:smart-band-10-black"
+      ],
+      "SMART_HOME_HUB": [
+        "electronics:smart-home-hub:signify:hue-bridge-8719514342620",
+        "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1",
+        "electronics:smart-home-hub:tp-link:tapo-h200-eu-v1"
+      ]
+    },
+    "interpretation": "The three Wave-05 identities are Catalog Factory overlay members and do not alter the separate 813 domain authority.",
+    "mutation": 0,
+    "waveExactProductIdsAlreadyMembers": []
+  },
+  "catalogFactoryOverlay": {
+    "active": 111,
+    "admitted": 3,
+    "baseline": 80,
+    "duplicates": 0,
+    "overlayProducts": 31,
+    "priorActive": 108,
+    "silentDrops": 0,
+    "waveExactProductIds": [
+      "electronics:smart-home-hub:tp-link:tapo-h110-eu-v1",
+      "electronics:e-reader:kobo:n605",
+      "electronics:fitness-tracker:xiaomi:m2333b1"
+    ]
+  },
+  "schemaVersion": "catalog-factory-wave05-membership-plane-proof/v1",
+  "status": "PASS"
+}

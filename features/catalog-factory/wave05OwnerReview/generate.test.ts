@@ -6,11 +6,12 @@ import { generateWave05OwnerReview, stableWave05, WAVE05_SOURCES, type Wave05Sou
 
 const temporary: string[] = [];
 async function outputCopy() { const out = await mkdtemp(path.join(os.tmpdir(), "wave05-owner-review-")); temporary.push(out); await cp("outputs/catalog-factory-active-coverage-wave-05-owner-review-01/snapshots", path.join(out, "snapshots"), { recursive: true }); return out; }
+async function historicalOptions() { const output = await outputCopy(); const rollback = JSON.parse(await readFile("outputs/catalog-factory-wave05-exact3-108-activation-readiness-01/ROLLBACK_PLAN.json", "utf8")); const pointerFile = path.join(output, "active-108.json"); await writeFile(pointerFile, Buffer.from(rollback.pointerBytesBase64, "base64")); return { output, pointerFile }; }
 afterEach(async () => { await Promise.all(temporary.splice(0).map(dir => rm(dir, { recursive: true, force: true }))); });
 
 describe("Wave-05 candidate-only owner-review generator", () => {
   it("is deterministic and preserves separate 108/813 authority planes", async () => {
-    const first = await generateWave05OwnerReview({ output: await outputCopy() }); const second = await generateWave05OwnerReview({ output: await outputCopy() });
+    const first = await generateWave05OwnerReview(await historicalOptions()); const second = await generateWave05OwnerReview(await historicalOptions());
     expect(first.manifest.packageDigest).toBe(second.manifest.packageDigest);
     expect(first.packet.authority).toMatchObject({ deployedProductionSourceCommit: "7d4cce89094b53a1f0b536b40ede19ca6377cf74", catalogFactory: { active: 108 }, allCatalog: { exactOfferings: 813 } });
     expect(first.packet.selection.categories).toEqual(["SMART_HOME_HUB", "E_READER", "FITNESS_TRACKER"]);
@@ -18,8 +19,8 @@ describe("Wave-05 candidate-only owner-review generator", () => {
     expect(first.packet.boundaries).toMatchObject({ pReadiness: false, yReadiness: false, activation: false, pointer: false, runtime: false, database: false, production: false, preview: false, deployment: false, push: false });
   });
   it("serializes reordered objects identically", () => expect(stableWave05({ z: 1, a: { y: 2, b: 3 } })).toBe(stableWave05({ a: { b: 3, y: 2 }, z: 1 })));
-  it("fails closed on a tampered snapshot", async () => { const out = await outputCopy(); const file = path.join(out, "snapshots", WAVE05_SOURCES[0]!.snapshotFile); await writeFile(file, "tampered"); await expect(generateWave05OwnerReview({ output: out })).rejects.toThrow("EXACT_TOKEN_MISSING"); });
-  it("fails closed on prior URL reuse", async () => { const out = await outputCopy(); const reused = { ...WAVE05_SOURCES[0]!, url: "https://www.tp-link.com/tr/home-networking/cloud-camera/tapo-c225/v1/" } as Wave05Source; await expect(generateWave05OwnerReview({ output: out, sources: [reused, ...WAVE05_SOURCES.slice(1)] })).rejects.toThrow("PREVIOUS_OR_DUPLICATE_URL"); });
-  it("fails closed on duplicate identity", async () => { const out = await outputCopy(); const duplicate = { ...WAVE05_SOURCES[0]!, exactProductId: "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1" } as Wave05Source; await expect(generateWave05OwnerReview({ output: out, sources: [duplicate, ...WAVE05_SOURCES.slice(1)] })).rejects.toThrow("DUPLICATE_IDENTITY"); });
-  it("binds manifest digests to serialized artifacts", async () => { const out = await outputCopy(); const result = await generateWave05OwnerReview({ output: out }); const bytes = await readFile(path.join(out, "CANDIDATE_PACKET.json")); expect(result.manifest.artifactDigests["CANDIDATE_PACKET.json"]).toBe((await import("node:crypto")).createHash("sha256").update(bytes).digest("hex")); });
+  it("fails closed on a tampered snapshot", async () => { const options = await historicalOptions(); const file = path.join(options.output, "snapshots", WAVE05_SOURCES[0]!.snapshotFile); await writeFile(file, "tampered"); await expect(generateWave05OwnerReview(options)).rejects.toThrow("EXACT_TOKEN_MISSING"); });
+  it("fails closed on prior URL reuse", async () => { const options = await historicalOptions(); const reused = { ...WAVE05_SOURCES[0]!, url: "https://www.tp-link.com/tr/home-networking/cloud-camera/tapo-c225/v1/" } as Wave05Source; await expect(generateWave05OwnerReview({ ...options, sources: [reused, ...WAVE05_SOURCES.slice(1)] })).rejects.toThrow("PREVIOUS_OR_DUPLICATE_URL"); });
+  it("fails closed on duplicate identity", async () => { const options = await historicalOptions(); const duplicate = { ...WAVE05_SOURCES[0]!, exactProductId: "electronics:smart-home-hub:tp-link:tapo-h100-eu-v1" } as Wave05Source; await expect(generateWave05OwnerReview({ ...options, sources: [duplicate, ...WAVE05_SOURCES.slice(1)] })).rejects.toThrow("DUPLICATE_IDENTITY"); });
+  it("binds manifest digests to serialized artifacts", async () => { const options = await historicalOptions(); const result = await generateWave05OwnerReview(options); const bytes = await readFile(path.join(options.output, "CANDIDATE_PACKET.json")); expect(result.manifest.artifactDigests["CANDIDATE_PACKET.json"]).toBe((await import("node:crypto")).createHash("sha256").update(bytes).digest("hex")); });
 });

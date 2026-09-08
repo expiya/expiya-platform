@@ -1,0 +1,36 @@
+{
+  "desktop": {
+    "checks": [
+      "no overflow",
+      "privacy and consent unchanged",
+      "three exact labels visible through Directory",
+      "no question/ranking/winner implication"
+    ],
+    "routes": [
+      "/",
+      "/electronics",
+      "/electronics/analysis?category=SMART_HOME_HUB",
+      "/electronics/analysis?category=E_READER",
+      "/electronics/analysis?category=FITNESS_TRACKER"
+    ],
+    "viewport": "1440x900"
+  },
+  "mobile": {
+    "checks": [
+      "no horizontal scroll",
+      "tap targets unobstructed",
+      "Secretary identity routing fail-closed where destination is unsupported",
+      "no raw exactProductId leakage"
+    ],
+    "routes": [
+      "/",
+      "/electronics",
+      "/electronics/analysis?category=SMART_HOME_HUB",
+      "/electronics/analysis?category=E_READER",
+      "/electronics/analysis?category=FITNESS_TRACKER"
+    ],
+    "viewport": "390x844"
+  },
+  "schemaVersion": "catalog-factory-wave05-responsive-smoke-plan/v1",
+  "status": "READY_NOT_EXECUTED_NO_DEPLOYMENT_AUTHORITY"
+}
