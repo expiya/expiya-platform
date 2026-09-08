@@ -59,4 +59,22 @@ describe("Smartphone P materiality runtime candidate", () => {
     expect(cleared.state.ledger.some((row) => row.status === "CLEARED")).toBe(true);
     expect(cleared.outcome).toMatchObject({ kind: "ASK", questionKey: "electronics.smartphone.cellular_bands" });
   });
+  it("keeps source-activated P authority on later turns when no environment override exists", async () => {
+    vi.stubEnv("SMARTPHONE_P_MATERIALITY_V1", undefined);
+    const store = new MemoryElectronicsConversationStore();
+    const authority = { policy, catalog };
+    const conversationId = "smartphone-p-source-activated-turns";
+    await bootstrapElectronicsConversation({ store, authority, conversationId, categoryId: "SMARTPHONE", messageId: "start" });
+    const next = await runElectronicsTurn({ store, authority, conversationId, messageId: "unknown", expectedRevision: 1, message: "Henüz emin değilim" });
+    expect(next.status === "OK" && next.outcome).toMatchObject({
+      kind: "ASK",
+      questionKey: "electronics.smartphone.camera",
+      message: "Uzaktaki kişileri veya sahneleri dijital kırpma yerine telefoto kamerayla yakınlaştırmanız gerekiyor mu?",
+      choices: [
+        { label: "Evet, gerekli" },
+        { label: "Hayır, zorunlu değil" },
+        { label: "Henüz emin değilim" },
+      ],
+    });
+  });
 });
