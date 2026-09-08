@@ -7,6 +7,7 @@ describe("Catalog Factory v0.1", () => {
     const first = await runCatalogFactory(PILOT_INPUT, { now: "2026-09-06T12:00:00.000Z" });
     const second = await runCatalogFactory({ ...PILOT_INPUT, observations: [...PILOT_INPUT.observations].reverse() }, { now: "2026-09-06T12:00:00.000Z" });
     expect(second.digest).toBe(first.digest); expect(first.activationPlan).toMatchObject({ activePointerWrite: false, databaseMigration: false, deployment: false });
+    expect(first.domainPackCandidates.every(candidate => candidate.activationAdmission === "DomainPackPMaterialityAdmission/v1")).toBe(true);
   });
   it("resumes checkpoints and scopes incremental candidates", async () => {
     let saved: Awaited<ReturnType<typeof runCatalogFactory>>["checkpoint"] | undefined;

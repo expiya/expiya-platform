@@ -39,6 +39,15 @@ export interface DomainPackAdmissionResult {
   readonly projectionDigest: `sha256:${string}`;
 }
 
+export function assertDomainPackPMaterialityAdmission(input: {
+  readonly inventory: ActiveCatalogInventoryEntry;
+  readonly candidate: DomainPackPMaterialityCandidate;
+}): DomainPackAdmissionResult {
+  const result = validateDomainPackPMaterialityAdmission(input);
+  if (!result.eligible) throw new Error(`DOMAIN_PACK_P_MATERIALITY_ADMISSION_FAILED:${result.reasonCodes.join(",")}`);
+  return result;
+}
+
 export function validateDomainPackPMaterialityAdmission(input: {
   readonly inventory: ActiveCatalogInventoryEntry;
   readonly candidate: DomainPackPMaterialityCandidate;

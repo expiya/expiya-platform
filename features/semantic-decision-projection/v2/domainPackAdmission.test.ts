@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { evaluateCatalogFactoryReadinessV2, CATALOG_FACTORY_GATE_IDS, type CatalogFactoryGateEvidence } from "./catalogFactoryReadiness";
 import { buildRepresentativeQuestionFixtures } from "./fixtures";
-import { classifyQuestionAdmission, validateDomainPackPMaterialityAdmission } from "./domainPackAdmission";
+import { assertDomainPackPMaterialityAdmission, classifyQuestionAdmission, validateDomainPackPMaterialityAdmission } from "./domainPackAdmission";
 
 const fixture = buildRepresentativeQuestionFixtures()[0]!.good;
 const ids = fixture.offerings.map((offering) => offering.exactOfferingId);
@@ -25,6 +25,10 @@ describe("Domain Pack P-materiality admission", () => {
     });
     expect(result.eligible).toBe(false);
     expect(result.reasonCodes).toEqual(expect.arrayContaining(["EXACT_MEMBERSHIP_MISMATCH", "ACTIVE_WITHOUT_DIGEST_BOUND_APPROVAL", "Y_AUTHORITY_NOT_ADMITTED_BY_P_GATE"]));
+    expect(() => assertDomainPackPMaterialityAdmission({
+      inventory: { departmentId: "ELECTRONICS", categoryId: fixture.identity.categoryId, authorityBinding: "test", exactOfferingIds: ids },
+      candidate: { schemaVersion: "DomainPackPMaterialityAdmission/v1", domainPackId: "test", departmentId: "ELECTRONICS", categoryId: fixture.identity.categoryId, exactOfferingIds: ids.slice(1), projections: [fixture], readiness, authority: { information: "test", p: "test", y: "forbidden" }, activation: { mode: "ACTIVE_P", atomicWaveId: "wave", approvalDigest: null } },
+    })).toThrow("DOMAIN_PACK_P_MATERIALITY_ADMISSION_FAILED");
   });
 
   it("suppresses generic zero-effect and predominantly-unknown questions", () => {
