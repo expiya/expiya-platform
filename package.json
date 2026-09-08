@@ -24,6 +24,7 @@
     "catalog:p-materiality:activate-wave2-electronics": "node --import tsx scripts/activate-wave2-electronics-p-materiality.ts",
     "catalog:p-materiality:activate-wave3-cars": "node --import tsx scripts/activate-wave3-cars-p-materiality.ts",
     "catalog:p-materiality:activate-all-coverage": "node --import tsx scripts/activate-all-active-catalog-p-materiality-coverage.ts",
+    "catalog:p-materiality:report": "node --import tsx scripts/report-all-active-catalog-p-materiality.ts",
     "dev": "npm run catalog:active:sync && npm run technical-daily-life:active:sync && npm run persona-safe-traits:active:sync && next dev",
     "cars:dev:validation": "node --env-file=.env.local scripts/run-cars-validation-dev.mjs",
     "build": "npm run catalog:active:sync && npm run technical-daily-life:active:sync && npm run persona-safe-traits:active:sync && npm run verify:active-production-catalog && npm run verify:technical-daily-life && npm run verify:persona-safe-traits && npm run verify:vehicle-evidence-runtime-artifact && npm run typecheck:release && next build --webpack",
