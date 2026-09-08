@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "xpy-stage2-unified-current-production-package/v1",
+  "packageId": "WU-XPY-STAGE2-UNIFIED-CURRENT-PRODUCTION-INTEGRATION-AND-ACTIVATION-01",
+  "productionBase": "7d4cce89094b53a1f0b536b40ede19ca6377cf74",
+  "inputMigrationPackageCommit": "22de04a6c180aeeeac023b9bca903d78e06a3f6f",
+  "historicalApprovalInput": {
+    "digest": "sha256:53f13a85fe73540e165e3d7d338fbf21775eac7f604f691360ac6d39555d01f7",
+    "status": "SUPERSEDED_BY_SOURCE_CHANGE_NOT_EXECUTABLE"
+  },
+  "verdict": "BLOCKED",
+  "rootBlocker": "ELECTRONICS_ATOMIC_CONSENT_TO_DURABLE_HANDOFF_ISSUANCE_SEAM_MISSING",
+  "sharedSource": {
+    "registry": true,
+    "renderer": true,
+    "carsAdapter": true,
+    "appliancesAdapter24Of24": true,
+    "electronicsAdapter": false
+  },
+  "readiness": {
+    "categories": 54,
+    "exactOfferings": 813,
+    "authorizedExisting": 25,
+    "electronicsFailClosed": 24,
+    "otherFailClosed": 5
+  },
+  "artifactSha256": {
+    "conflict-ledger.json": "27b03a328176bd3b292280a15b7ea7a0b5a63a476fa98697d5a0bec27ef1b26d",
+    "readiness.json": "0f8701bba833ae27a01776dfe13b012e4639e1714067de43fd3c85a58afede5a",
+    "root-blocker.json": "96f1809815c7cb68b5428ecc1a68e15350bcf729565a0e9915718d22a7e801d7",
+    "verification.json": "068f712834a5f4e1549545143d4811dc260870621df749d77c2631d62a3b2525"
+  },
+  "executionEligible": false,
+  "authorizationSentenceEligible": false,
+  "packageDigest": "sha256:f319f52ea8f9877490901fb87e1e997f7105428393bff81a9f704bb0bcd6a774"
+}

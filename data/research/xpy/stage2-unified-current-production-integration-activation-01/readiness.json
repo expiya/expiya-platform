@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "xpy-stage2-unified-readiness/v1",
+  "departmentCount": 6,
+  "categoryCount": 54,
+  "exactOfferingCount": 813,
+  "authorizedExistingRuntime": {
+    "count": 25,
+    "departments": { "CARS": 1, "APPLIANCES": 24 }
+  },
+  "electronics": {
+    "count": 24,
+    "authorityCandidate": true,
+    "migrationCandidate": true,
+    "adapterRegistered": false,
+    "readiness": "MISSING_STAGE_TWO_AUTHORITY"
+  },
+  "remainingFailClosed": {
+    "count": 5,
+    "departments": { "BABY_AND_CHILD": 1, "MOBILITY": 3, "TOOLS": 1 }
+  },
+  "rootBlocker": "ELECTRONICS_ATOMIC_CONSENT_TO_DURABLE_HANDOFF_ISSUANCE_SEAM_MISSING"
+}

@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "xpy-stage2-unified-conflict-ledger/v1",
+  "productionBase": "7d4cce89094b53a1f0b536b40ede19ca6377cf74",
+  "lineage": [
+    { "source": "c5e4f97", "role": "SHARED_FOUNDATION", "result": "RECONCILED_CLEAN" },
+    { "source": "d43b299", "role": "SHARED_INTEGRATION_FIX", "result": "SUPERSEDED_BY_CURRENT_PRODUCTION" },
+    { "source": "1941fc6", "role": "CARS_ADAPTER", "result": "RECONCILED_CLEAN" },
+    { "source": "5a35db9", "role": "APPLIANCES_24_OF_24_ADAPTER", "result": "RECONCILED_CLEAN" },
+    { "source": "a2d8aae", "role": "CURRENT_CATALOG_READINESS", "result": "RECONCILED_CLEAN" },
+    { "source": "f7b0ec7", "role": "ELECTRONICS_SIGNED_AUTHORITY", "result": "ALREADY_RECONCILED_BY_22DE04A" },
+    { "source": "22de04a", "role": "CURRENT_PRODUCTION_MIGRATION_PACKAGE", "result": "DIRECT_INPUT" }
+  ],
+  "conflicts": [
+    {
+      "path": "features/platform/catalogPortfolioMatrix.server.ts",
+      "source": "d43b299",
+      "conflict": "MODIFY_DELETE",
+      "resolution": "CURRENT_IMPLEMENTATION_WINS; deleted production file was not restored",
+      "stageTwoEffect": "NONE"
+    }
+  ],
+  "protectedCurrentAuthorities": ["ROOT", "SMARTPHONE", "CATALOG_FACTORY", "P", "PERSONA"],
+  "blindCherryPick": false
+}

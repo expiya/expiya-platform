@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "xpy-stage2-unified-root-blocker/v1",
+  "verdict": "BLOCKED",
+  "code": "ELECTRONICS_ATOMIC_CONSENT_TO_DURABLE_HANDOFF_ISSUANCE_SEAM_MISSING",
+  "evidence": [
+    "Electronics Stage One has no production service or route that records explicit Stage Two consent in electronics_stage2_consent_events",
+    "No production issuance service atomically inserts electronics_stage2_handoff_issuances before returning a signed token",
+    "No production verification service appends VERIFIED, REPLAY_OBSERVED, REVOKED, EXPIRED or REJECTED lifecycle events",
+    "No Electronics XpyStageTwoDomainAdapter or route can open a persisted signed handoff and project the exact selected card"
+  ],
+  "whyAtomic": "Migration, secret configuration or registry admission without this seam would create partial activation and falsely advertise 24 categories as ready.",
+  "requiredClosure": [
+    "Implement and test one transactionally persisted consent-and-issuance service bound to the current Electronics decision record",
+    "Implement lifecycle audit writes and current-authority verification",
+    "Implement the Electronics shared adapter and route using that persisted authority",
+    "Regenerate an immutable package and obtain a new exact digest-bound authorization"
+  ],
+  "mutationsPerformed": {
+    "migrationApply": false,
+    "secretOrEnvironment": false,
+    "adapterActivation": false,
+    "push": false,
+    "preview": false,
+    "deployment": false
+  }
+}

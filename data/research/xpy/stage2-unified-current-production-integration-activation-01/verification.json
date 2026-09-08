@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "xpy-stage2-unified-verification/v1",
+  "focused": { "status": "PASS", "files": 11, "tests": 38 },
+  "fullNode24": { "status": "PASS", "files": 780, "tests": 5900 },
+  "typescript": "PASS",
+  "eslint": { "errors": 0, "warnings": 13, "classification": "EXISTING_BASELINE" },
+  "diffCheck": "PASS",
+  "node24Build": { "status": "PASS_AFTER_CLEAN_CACHE_RETRY", "pages": 626, "firstAttempt": "WEBPACK_WASM_HASH_CACHE_FAILURE" },
+  "failClosedQa": {
+    "desktop": "PASS",
+    "mobile390x844": "PASS",
+    "horizontalOverflow": false,
+    "forbiddenActionVisible": false,
+    "internalIdentifierVisible": false
+  },
+  "productionDatabasePreflight": {
+    "status": "PASS_READ_ONLY",
+    "electronicsConversationRows": 167,
+    "comparisonEntitlementRows": 0,
+    "comparisonEntitlementEventRows": 0,
+    "migrationApplied": false,
+    "databaseWrite": false
+  }
+}
