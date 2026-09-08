@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "electronics-stage2-legacy-fingerprint-bridge-verification/v1",
+  "focused": {
+    "files": 5,
+    "tests": 14,
+    "status": "PASS"
+  },
+  "fullRegression": {
+    "files": 787,
+    "tests": 5918,
+    "status": "PASS_AFTER_HISTORICAL_PACKAGE_IMMUTABILITY_FIX"
+  },
+  "typescript": "PASS",
+  "lint": {
+    "errors": 0,
+    "preExistingWarnings": 13,
+    "newWarnings": 0
+  },
+  "node24ProductionBuild": {
+    "status": "PASS",
+    "pages": 627,
+    "route": "/api/electronics/stage-two-handoff"
+  },
+  "databaseMigration": "NONE_0018_FIELDS_REUSED",
+  "databaseWrite": false,
+  "preview": false,
+  "productionDeployment": false
+}

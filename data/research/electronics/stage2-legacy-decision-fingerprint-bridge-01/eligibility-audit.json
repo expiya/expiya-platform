@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "electronics-stage2-legacy-fingerprint-eligibility-audit/v1",
+  "status": "PASS_READ_ONLY",
+  "databaseWrite": false,
+  "decisionRecords": 4,
+  "eligible": 4,
+  "ineligible": 0,
+  "sourceFormats": {
+    "LEGACY_CANONICAL_HEX": 4,
+    "NATIVE_SHA256_PREFIXED": 0
+  },
+  "eligibleByCategory": {
+    "E_READER": 3,
+    "SMARTPHONE": 1
+  },
+  "storedRecordMutation": false
+}

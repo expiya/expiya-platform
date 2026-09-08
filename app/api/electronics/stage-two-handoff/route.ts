@@ -5,7 +5,7 @@ import { electronicsStageTwoKeyProvider, electronicsStageTwoKeyReadiness, electr
 import { ELECTRONICS_XPY_STAGE_TWO_ADAPTER, registerElectronicsStageTwoAdapterIfReady, resolveElectronicsComparison } from "@/features/electronics/stageTwo/xpyStageTwoAdapter.server";
 export const runtime="nodejs";
 const schema=z.discriminatedUnion("action",[
- z.strictObject({action:z.literal("CONSENT_AND_ISSUE"),conversationId:z.string().uuid(),expectedRevision:z.number().int().positive(),decisionFingerprint:z.string().regex(/^sha256:[a-f0-9]{64}$/u),exactProductId:z.string().min(1).max(400),configurationIdentity:z.string().min(1).max(700),consentEventId:z.string().uuid(),idempotencyKey:z.string().min(8).max(200),explicitConsent:z.literal(true)}),
+ z.strictObject({action:z.literal("CONSENT_AND_ISSUE"),conversationId:z.string().uuid(),expectedRevision:z.number().int().positive(),decisionFingerprint:z.string().regex(/^(?:sha256:)?[a-f0-9]{64}$/u),exactProductId:z.string().min(1).max(400),configurationIdentity:z.string().min(1).max(700),consentEventId:z.string().uuid(),idempotencyKey:z.string().min(8).max(200),explicitConsent:z.literal(true)}),
  z.strictObject({action:z.literal("READ"),handoff:z.string().min(80).max(4096)})
 ]);
 const json=(body:unknown,status=200)=>Response.json(body,{status,headers:{"Cache-Control":"no-store",Pragma:"no-cache","Referrer-Policy":"no-referrer"}}),rejected=(status=403)=>json({kind:"HANDOFF_REJECTED",message:"Bu AŞAMA 2 geçişi doğrulanamadı. AŞAMA 1’deki güncel kararından yeniden deneyebilirsin."},status);

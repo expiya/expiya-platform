@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 import { ELECTRONICS_CATEGORY_IDS, ELECTRONICS_CATEGORY_REGISTRY, type ElectronicsCategoryId } from "../architectureBaseline";
+import type { ElectronicsDecisionFingerprintTrace } from "./decisionFingerprintBridge";
 
 export const ELECTRONICS_STAGE_TWO_HANDOFF_VERSION = "electronics-stage2-handoff/v1-candidate" as const;
 export const ELECTRONICS_STAGE_TWO_CONSENT_VERSION = "electronics-stage2-consent/v1-candidate" as const;
@@ -23,6 +24,7 @@ export interface ElectronicsStageTwoConsentEvent {
   readonly categoryId: ElectronicsCategoryId;
   readonly decisionRevision: number;
   readonly decisionFingerprint: string;
+  readonly decisionFingerprintTrace: ElectronicsDecisionFingerprintTrace;
   readonly exactProductId: string;
   readonly configurationIdentity: string;
   readonly occurredAt: string;
@@ -33,6 +35,7 @@ export interface ElectronicsStageTwoCurrentAuthority {
   readonly categoryId: ElectronicsCategoryId;
   readonly decisionRevision: number;
   readonly decisionFingerprint: string;
+  readonly decisionFingerprintTrace: ElectronicsDecisionFingerprintTrace;
   readonly exactProductId: string;
   readonly configurationIdentity: string;
   readonly catalogRelease: string;
@@ -71,7 +74,7 @@ export function validateElectronicsStageTwoBinding(claims: ElectronicsStageTwoHa
   const issues: string[] = [], schema = ELECTRONICS_STAGE_TWO_COMPARISON_SCHEMAS[current.categoryId];
   if (claims.version !== ELECTRONICS_STAGE_TWO_HANDOFF_VERSION || claims.departmentId !== "ELECTRONICS" || claims.purpose !== "ASAMA2_VIEW" || claims.replayPolicy !== ELECTRONICS_STAGE_TWO_REPLAY_POLICY) issues.push("HANDOFF_PROTOCOL_INVALID");
   if (!ELECTRONICS_CATEGORY_IDS.includes(claims.categoryId) || claims.categoryId !== current.categoryId || claims.comparisonSchemaVersion !== schema.schemaVersion || claims.comparisonSchemaDigest !== schema.digest) issues.push("CATEGORY_AUTHORITY_MISMATCH");
-  if (claims.conversationId !== current.conversationId || claims.decisionRevision !== current.decisionRevision || claims.decisionFingerprint !== current.decisionFingerprint || claims.exactProductId !== current.exactProductId || claims.configurationIdentity !== current.configurationIdentity) issues.push("DECISION_IDENTITY_MISMATCH");
+  if (claims.conversationId !== current.conversationId || claims.decisionRevision !== current.decisionRevision || claims.decisionFingerprint !== current.decisionFingerprint || claims.decisionFingerprintTrace.bridgeVersion !== current.decisionFingerprintTrace.bridgeVersion || claims.decisionFingerprintTrace.sourceFormat !== current.decisionFingerprintTrace.sourceFormat || claims.decisionFingerprintTrace.sourceFingerprintDigest !== current.decisionFingerprintTrace.sourceFingerprintDigest || claims.exactProductId !== current.exactProductId || claims.configurationIdentity !== current.configurationIdentity) issues.push("DECISION_IDENTITY_MISMATCH");
   if (claims.catalogRelease !== current.catalogRelease || claims.catalogDigest !== current.catalogDigest || claims.policyVersion !== current.policyVersion || claims.policyDigest !== current.policyDigest) issues.push("EVIDENCE_AUTHORITY_MISMATCH");
   const consent = current.consent;
   if (consent.schemaVersion !== ELECTRONICS_STAGE_TWO_CONSENT_VERSION || consent.status !== "CONSENTED" || consent.purpose !== "OPEN_STAGE_TWO_EXACT_PRODUCT_EVALUATION" || claims.consentEventId !== consent.eventId || claims.consentOccurredAt !== consent.occurredAt || consent.conversationId !== current.conversationId || consent.categoryId !== current.categoryId || consent.decisionRevision !== current.decisionRevision || consent.decisionFingerprint !== current.decisionFingerprint || consent.exactProductId !== current.exactProductId || consent.configurationIdentity !== current.configurationIdentity) issues.push("CONSENT_MISMATCH");

@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "electronics-stage2-legacy-decision-fingerprint-bridge-package/v1",
+  "packageId": "WU-XPY-STAGE2-ELECTRONICS-LEGACY-DECISION-FINGERPRINT-BRIDGE-01",
+  "integrationBase": "d6cfa3a6b263e95da28ed23602381f3d0512882f",
+  "productionBase": "7d4cce89094b53a1f0b536b40ede19ca6377cf74",
+  "supersedesBlocker": "LEGACY_DECISION_FINGERPRINT_FORMAT_REJECTED_BY_STAGE_TWO_SCHEMA",
+  "verdict": "OWNER_REVIEW_ELIGIBLE",
+  "bridge": {
+    "version": "electronics-stage2-decision-fingerprint-bridge/v1",
+    "legacySourceFormat": "CANONICALLY_RECOMPUTED_64_HEX_ONLY",
+    "nativeSourceFormat": "CANONICALLY_RECOMPUTED_SHA256_PREFIXED_UNCHANGED",
+    "derivedFormat": "DOMAIN_SEPARATED_SHA256_PREFIXED",
+    "bindings": [
+      "CONVERSATION",
+      "CATEGORY",
+      "DECISION_REVISION",
+      "EXACT_PRODUCT",
+      "CONFIGURATION_IDENTITY",
+      "CATALOG_RELEASE_AND_DIGEST",
+      "POLICY_VERSION_AND_DIGEST"
+    ],
+    "storedDecisionMutation": false
+  },
+  "migration": {
+    "required": false,
+    "reason": "MIGRATION_0018_CANONICAL_EVENT_AND_ISSUANCE_JSON_FIELDS_REUSED"
+  },
+  "readOnlyEligibility": {
+    "decisionRecords": 4,
+    "eligible": 4,
+    "legacyCanonical": 4,
+    "databaseWrite": false
+  },
+  "sourceSha256": {
+    "features/electronics/stageTwo/decisionFingerprintBridge.ts": "f0cb6e161121aac82e00fd1604ca4d940c7992fb3405fd7d0a320106d39c04db",
+    "features/electronics/stageTwo/consentToHandoff.server.ts": "b946dbc5b87bced4c31291465126dc67c8930c6803111fb3688b62a782bbbdf8",
+    "features/electronics/stageTwo/handoffAuthorityCandidate.ts": "40c71827fb57857e874855fa35dbe2cb3f7883ca078f630eae883871257fe2dd",
+    "features/electronics/stageTwo/handoffAuthorityCandidate.server.ts": "e6d3358962d53f6b85563bb807a6cdb840b16c2864198cab6bd06b8758cf3e67",
+    "app/api/electronics/stage-two-handoff/route.ts": "fefffde8b26ef43e210f29603a89acacdec4c19f832d1324e22e65daafba409b",
+    "scripts/audit-electronics-stage2-legacy-fingerprint-eligibility.ts": "3840fbc45d84b74462352e2824a8b633f6f60a33a48a227cab19ac611f6ebb72"
+  },
+  "testSha256": {
+    "features/electronics/stageTwo/decisionFingerprintBridge.test.ts": "9fd7ef6229166ae92a5a777ffad8bfb625539a3b31f566b6c326fb1fee8332c1",
+    "features/electronics/stageTwo/consentToHandoff.test.ts": "9f65f6066b4ea2ca5ff344d61a7394345403d840863fdf9f09f71b98eafd402e",
+    "features/electronics/stageTwo/handoffAuthorityCandidate.test.ts": "c272275c665c027c57b3157d954726cd5b978b384bbebf32fe6d242fbd783a3a",
+    "features/electronics/stageTwo/xpyStageTwoAdapter.test.ts": "3e8354974f267216a8b64f1fd08be029994d9c54b9f6f96d0d625716957b3075",
+    "features/electronics/stageTwo/consentToHandoffPackage.test.ts": "eeebd25a028e2bbe97149cce02bae9ddd5d3f4e3fbfeab6ab507e140199737cb"
+  },
+  "artifactSha256": {
+    "eligibility-audit.json": "d1d4a1e72f41537ae8b1763d5cd3ea10ba7548693b17ef6db7b978754bdfff5e",
+    "verification.json": "14913c5c67e51215da5a6ed264c7b8a184ad390f16e2c26527fac8ea5dd496f0",
+    "preview-plan.json": "df75fe1279cc404b8359e8f8750fb25a3885568806b760ebae06b1c5dd7cf596"
+  },
+  "currentMutations": {
+    "push": false,
+    "preview": false,
+    "databaseWrite": false,
+    "productionDeployment": false
+  },
+  "authorizationScope": "Non-force push the exact hotfix commit, deploy the exact package to Preview, execute one persisted Stage Two consent/handoff QA flow using an existing eligible decision without creating or changing Stage One state, and deploy Production only if every bound gate passes.",
+  "excludedScope": [
+    "STAGE_ONE_CREATE_OR_MUTATION",
+    "MEMBERSHIP",
+    "RANKING",
+    "P_Y",
+    "STAGE_THREE",
+    "SALES",
+    "PAYMENT"
+  ],
+  "packageDigest": "sha256:8870781edb6cfa677a3ecb11623af4fe36847e58b3f20df8ed98de06a45bd968"
+}
