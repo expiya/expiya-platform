@@ -7,7 +7,7 @@ export async function ingestComparisonIssuerEvent(input:{readonly adapter:Compar
  const verified=input.adapter.verify(input.rawBody,input.headers);if(!verified)return{status:"REJECTED" as const,reason:"ISSUER_SIGNATURE_INVALID" as const};
  return input.repository.applyIssuerEvent(verified);
 }
-export async function resolvePersistedComparisonEntitlement(input:{readonly repository:ComparisonEntitlementRepository|null;readonly subject:EntitlementSubject|null;readonly departmentId:"APPLIANCES"|"CARS";readonly category:string;readonly conversationId:string;readonly decisionRevision:number;readonly decisionFingerprint:string;readonly exactEvidenceIds:readonly string[];readonly now?:Date}){
+export async function resolvePersistedComparisonEntitlement(input:{readonly repository:ComparisonEntitlementRepository|null;readonly subject:EntitlementSubject|null;readonly departmentId:"APPLIANCES"|"CARS"|"ELECTRONICS";readonly category:string;readonly conversationId:string;readonly decisionRevision:number;readonly decisionFingerprint:string;readonly exactEvidenceIds:readonly string[];readonly now?:Date}){
  if(!input.repository||!input.subject)return{status:"NOT_PURCHASED" as const};
  const record=await input.repository.findActive({subject:input.subject,departmentId:input.departmentId,category:input.category,conversationId:input.conversationId,decisionRevision:input.decisionRevision,decisionFingerprint:input.decisionFingerprint},input.now??new Date());if(!record)return{status:"NOT_PURCHASED" as const};
  const evidence=new Set(input.exactEvidenceIds),authorized=[...new Set(record.authorizedExactIds)];

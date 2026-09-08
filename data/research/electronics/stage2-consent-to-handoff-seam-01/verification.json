@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "electronics-stage2-seam-verification/v1",
+  "focused": { "status": "PASS", "files": 14, "tests": 38 },
+  "finalComparisonFocused": { "status": "PASS", "files": 6, "tests": 16 },
+  "fullNode24": { "status": "PASS", "files": 785, "tests": 5913 },
+  "typescript": "PASS",
+  "eslint": { "errors": 0, "warnings": 13, "classification": "EXISTING_BASELINE" },
+  "diffCheck": "PASS",
+  "node24Build": { "status": "PASS", "pages": 627 },
+  "protectedBrowserQa": { "desktop": "PASS", "mobile390x844": "PASS", "horizontalOverflow": false, "forbiddenActionVisible": false, "internalIdentifierVisible": false }
+}

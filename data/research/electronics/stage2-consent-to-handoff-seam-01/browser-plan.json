@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "electronics-stage2-authorized-browser-plan/v1",
+  "protectedDesktopAnd390x844": "PASS",
+  "authorizedPersistedPathExecuted": false,
+  "authorizedPersistedPathBlockedBy": ["MIGRATION_NOT_APPLIED", "SIGNING_KEYS_NOT_CONFIGURED"],
+  "postActivationAssertions": [
+    "Exact selected identity and configuration match signed claims",
+    "Same-payload replay returns the identical signed token",
+    "Changed payload, stale revision, expired, future-issued, revoked-key and authority mismatch fail closed",
+    "Price and media remain honestly unavailable",
+    "Comparison contains only entitled same-category exact products and category-owned rows",
+    "Advisor refuses products outside selected and purchased comparison set",
+    "No Stage Three, sales or payment action is visible",
+    "No horizontal overflow at 390x844"
+  ]
+}

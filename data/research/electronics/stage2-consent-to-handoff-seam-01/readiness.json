@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "electronics-stage2-seam-readiness/v1",
+  "state": "OWNER_REVIEW_ELIGIBLE",
+  "categoryCount": 24,
+  "sharedAdapter": true,
+  "registrationGate": ["MIGRATION_0018_PRESENT", "SIGNING_KEY_READINESS_TRUE"],
+  "consent": "EXPLICIT_DECISION_CARD_BOUND_AND_IDEMPOTENT",
+  "issuance": "SAME_TRANSACTION_CAS_AND_DURABLE_SIGNED_TOKEN_RECOVERY",
+  "verificationEvents": ["VERIFIED", "REPLAY_OBSERVED", "REVOKED", "EXPIRED", "REJECTED"],
+  "comparison": "SAME_CATEGORY_PURCHASED_EXACT_SET_WITH_CATEGORY_OWNED_ROWS",
+  "advisor": "SELECTED_PRODUCT_AND_PURCHASED_COMPARISON_SET_ONLY",
+  "price": "UNAVAILABLE_WITHOUT_SEPARATE_AUTHORITY",
+  "media": "UNAVAILABLE_WITHOUT_SEPARATE_AUTHORITY",
+  "forbidden": ["STAGE_THREE", "SALES", "PAYMENT"]
+}

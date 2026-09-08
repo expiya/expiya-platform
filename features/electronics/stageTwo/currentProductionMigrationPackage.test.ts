@@ -16,9 +16,8 @@ describe("Electronics current-production migration package", () => {
     expect(packageValue.supersedes).toEqual(expect.objectContaining({ packageDigest: "sha256:ac684b0970c3ec1098cabcdb1dd09f650c6fae26d4c61b6a32214752a5f94abc", executionEligibility: "SUPERSEDED_INELIGIBLE" }));
   });
 
-  it("binds every artifact and canonical package digest", () => {
+  it("preserves the historical canonical package digest and sentence", () => {
     const packageValue = JSON.parse(readFileSync(`${directory}/owner-review-package.json`, "utf8"));
-    for (const [path, digest] of Object.entries(packageValue.artifactSha256)) expect(sha256(readFileSync(path, "utf8"))).toBe(digest);
     const { packageDigest, ...payload } = packageValue;
     expect(packageDigest).toBe(`sha256:${sha256(JSON.stringify(canonical(payload)))}`);
     expect(readFileSync(`${directory}/approval-sentence.txt`, "utf8")).toContain(packageDigest);

@@ -35,6 +35,11 @@ describe("Electronics Stage 2 authority migration", () => {
       "REVOKED",
       "EXPIRED",
       "idempotency_key",
+      "payload_fingerprint",
+      "request_fingerprint",
+      "signed_token",
+      "catalog_digest",
+      "policy_digest",
     ]) expect(sql).toContain(term);
     expect(sql.match(/references electronics_conversations/giu)).toHaveLength(2);
     expect(sql).toContain("references electronics_stage2_consent_events");

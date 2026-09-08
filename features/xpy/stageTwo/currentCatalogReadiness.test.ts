@@ -10,11 +10,11 @@ describe("current production catalog Stage 2 readiness", () => {
     expect(matrix.every(item => item.exactOfferingCount > 0)).toBe(true);
   });
 
-  it("keeps Cars and Appliances authorized and every Electronics category fail-closed", async () => {
+  it("keeps Cars and Appliances authorized and every Electronics category activation-ready", async () => {
     const matrix = await buildCurrentCatalogStageTwoReadiness();
     expect(matrix.filter(item => item.readiness === "AUTHORIZED_EXISTING_RUNTIME")).toHaveLength(25);
     const electronics = matrix.filter(item => item.departmentId === "ELECTRONICS");
     expect(electronics).toHaveLength(24);
-    expect(electronics.every(item => item.readiness === "MISSING_STAGE_TWO_AUTHORITY" && item.missing.includes("SIGNED_STAGE_ONE_TO_STAGE_TWO_HANDOFF"))).toBe(true);
+    expect(electronics.every(item => item.readiness === "ACTIVATION_READY" && item.missing.includes("MIGRATION_0018_APPLY"))).toBe(true);
   });
 });

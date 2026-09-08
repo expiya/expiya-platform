@@ -1,0 +1,30 @@
+{
+  "schemaVersion": "electronics-stage2-consent-to-handoff-seam-package/v1",
+  "packageId": "WU-XPY-STAGE2-ELECTRONICS-CONSENT-TO-HANDOFF-SEAM-01",
+  "integrationBase": "0e7bff08cf18004dc6a106dc01894428781808f7",
+  "productionBase": "7d4cce89094b53a1f0b536b40ede19ca6377cf74",
+  "supersedesBlockedPackage": {
+    "digest": "sha256:f319f52ea8f9877490901fb87e1e997f7105428393bff81a9f704bb0bcd6a774",
+    "status": "HISTORICAL_TERMINAL"
+  },
+  "verdict": "OWNER_REVIEW_ELIGIBLE",
+  "categoryCount": 24,
+  "migration": { "path": "database/migrations/0018_electronics_stage2_authority_foundation.sql", "sha256": "07c4f1041fa18802a65ca9752be8a0a653d7cf68f541327f7615c115644f7e5c", "applied": false },
+  "sourceSha256": {
+    "features/electronics/stageTwo/persistence.server.ts": "ec3b28c926822c1b22d398e3467ec779ed3c3dec2040757d5fb5647517dfd12b",
+    "features/electronics/stageTwo/consentToHandoff.server.ts": "3c9a0cfaa9cbb44f442cddb30d9874ffa4aa8ef6580460aeabfc91a423d4f84a",
+    "features/electronics/stageTwo/xpyStageTwoAdapter.server.ts": "650b562f96069b5bf6dbf786c407ff1b0a5cb28ce5f07a883fbe5a34c77ff523",
+    "app/api/electronics/stage-two-handoff/route.ts": "14e1e8858e84b30520c0bd232ec268df21e6bcaf3c7aad97e72560a01dcfc3c1",
+    "features/xpy/stageTwo/registry.ts": "cfce4f934efdc7edddf9fbca88390a5793ff89b45e0571b12883a933d1346d12"
+  },
+  "artifactSha256": {
+    "activation-plan.json": "8cb2454cfcdfa39da1e38c7fb01066a31643d57f10ee4df018a16fb80eede6d6",
+    "browser-plan.json": "0b1d5929edee7664a86ef7e9476b8307f3dd2a322b97810c1f99d5427c615820",
+    "production-preflight.json": "a23a7ae41d07ba1d7ce8cac8e5b40377d16284d889acb660daf5f1da8efefbf0",
+    "readiness.json": "c3022a338261e842e600af99c917e071bbfd04137708c8eedd132fbc46608bc9",
+    "verification.json": "010657cea75978e087217dc11a474555b4a12542973351dfd809e41efc4ebe03"
+  },
+  "authorizationScope": "Push the exact commit, apply and verify migration 0018, configure the injectable versioned signing-key environment without exposing values, activate the readiness-gated shared adapter for all 24 Electronics categories, run Preview and persisted authorized-path gates, then conditionally deploy production only if every bound gate passes; no Stage One membership/ranking/P/Y, Stage Three, sales or payment change.",
+  "currentMutations": { "push": false, "migrationApply": false, "secretOrEnvironment": false, "adapterActivation": false, "preview": false, "deployment": false },
+  "packageDigest": "sha256:0300ee00a6a5cc49302d84871f229cbe65069697e2526c498bf94412bf6ddf28"
+}
