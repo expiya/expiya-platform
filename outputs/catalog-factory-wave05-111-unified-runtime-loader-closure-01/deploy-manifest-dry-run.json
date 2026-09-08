@@ -1,0 +1,25 @@
+{
+  "actions": {
+    "database": false,
+    "deployment": false,
+    "pointer": false,
+    "preview": false,
+    "production": false,
+    "push": false
+  },
+  "bundler": "webpack",
+  "next": "16.3.0",
+  "node": "24.20.0",
+  "requiredFiles": [
+    "data/production/catalog-factory/active.json",
+    "data/production/catalog-factory/releases/CATALOG-FACTORY-WAVE05-EXACT3-111-CANDIDATE-01/catalog-overlay.json",
+    "data/production/catalog-factory/releases/CATALOG-FACTORY-WAVE05-EXACT3-111-CANDIDATE-01/manifest.json",
+    "data/production/catalog-factory/governance/activation-events/WU-CATALOG-FACTORY-WAVE05-EXACT3-ATOMIC-ACTIVATION-01/receipt.json",
+    "data/production/catalog-factory/governance/activation-events/WU-CATALOG-FACTORY-WAVE05-EXACT3-ATOMIC-ACTIVATION-01/activation.json",
+    "features/catalog-factory/runtime/effectiveCatalog.server.ts"
+  ],
+  "schemaVersion": "catalog-factory-wave05-deploy-manifest-dry-run/v1",
+  "sourceCommit": "FINAL_INTEGRATION_COMMIT_SUBSTITUTED_IN_AUTHORIZATION_SENTENCE",
+  "staticPages": 626,
+  "status": "PASS_NO_ACTIONS_PERFORMED"
+}

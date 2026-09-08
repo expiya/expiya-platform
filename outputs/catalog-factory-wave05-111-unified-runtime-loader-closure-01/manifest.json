@@ -1,0 +1,25 @@
+{
+  "artifactDigests": {
+    "authorization-sentence-template.txt": "af41ba2356b057e6c9d59b743ffb41ac17fa93130c64384bf1f382021e5fc0af",
+    "deploy-manifest-dry-run.json": "b28290415682837a09e92a7c1179f5c9f7e1e75da06ccb660274228793c57ab6",
+    "membership-plane-proof.json": "cb7605f3507c3200d402b625121726a864d8199e409ac1fe8b8bac7a2e593745",
+    "preservation-proof.json": "fc99b6d3181b8343f8a634e1ce6fa3f01d308c36af2a22a46364951dec16d211",
+    "quality-gates.json": "cbb6389cae48c42280e0b6d10233933b068310c3c2d4a8195b3355947129192e",
+    "responsive-smoke-plan.json": "a40e9029f39e2d1094002ccf6166c9173fe06585e875f9b633180a968066e2d7",
+    "runtime-closure.json": "3ae72202676e025b3ce5eabd03945946a58a958c77ca20903db21da44bc9f1d5"
+  },
+  "bindings": {
+    "activationCommit": "c705b9277dbd6264a47fac2e71eb5e5977f95621",
+    "activationDigest": "61a460ecbbdd957c203955842cdc2a4d1449dafdfb9834abe3a27a9dd5d1e4fe",
+    "overlayDigest": "f5020d102351a3673e8f285bc28cca1b9cb698ab08ef4f3f8b6193fc6b8ab2e6",
+    "pointerSha256": "268a9528b4fb40247730f6482ccdb9a82e2ec898a7506c559421a86191bc095e",
+    "productionDeployment": "GRd2v9kcpKDmF7B1pbwjP9qaGM43",
+    "productionSourceCommit": "7d4cce89094b53a1f0b536b40ede19ca6377cf74",
+    "receiptDigest": "cea6f16b21010958c7601239974c41bffd7c5e23c48d98d12783bbd7f36cb8bf",
+    "releaseDigest": "31929641c5673990bb28180b238983f6935d4cb2532cd4863676e936ed3cc6f0"
+  },
+  "packageDigest": "3604b9fa973a216590a470b1fb490ef1d4fbcaba0a1eb58563a7e9c27422b928",
+  "schemaVersion": "catalog-factory-wave05-runtime-closure-manifest/v1",
+  "status": "PASS",
+  "workUnit": "WU-CATALOG-FACTORY-WAVE05-111-UNIFIED-RUNTIME-LOADER-CLOSURE-01"
+}

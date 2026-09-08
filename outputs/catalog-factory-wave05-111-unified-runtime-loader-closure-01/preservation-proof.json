@@ -1,0 +1,25 @@
+{
+  "authorities": {
+    "allCatalogP": "PRESERVED_813_EXACT_MAPPING",
+    "mitgo": "PRESERVED",
+    "otherPointers": "UNCHANGED",
+    "persona": "PRESERVED",
+    "rootPrivacyUx": "PRESERVED",
+    "smartphoneP": "PRESERVED_CATALOG_FACTORY_COUNT_REFRESHED_TO_111"
+  },
+  "excludedMutations": {
+    "catalogFactoryPointer": true,
+    "database": true,
+    "deployment": true,
+    "domainPointers": true,
+    "preview": true,
+    "production": true,
+    "push": true
+  },
+  "schemaVersion": "catalog-factory-wave05-preservation-proof/v1",
+  "sourceBaseline": {
+    "commit": "7d4cce89094b53a1f0b536b40ede19ca6377cf74",
+    "deployment": "GRd2v9kcpKDmF7B1pbwjP9qaGM43"
+  },
+  "status": "PASS"
+}

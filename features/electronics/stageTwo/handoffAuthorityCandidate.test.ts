@@ -26,7 +26,8 @@ describe("Electronics signed Stage 2 handoff authority candidate", () => {
 
   it("rejects tamper, expiry, future consent and every current-authority mismatch", () => {
     const service = createLocalElectronicsStageTwoHandoffCandidate(secretA, "key-a", () => baseTime), token = service.issue(current());
-    expect(service.verify(`${token.slice(0, -1)}x`, current())).toMatchObject({ status: "INVALID", reason: "BAD_SIGNATURE" });
+    const tampered = `${token.slice(0, -1)}${token.endsWith("x") ? "y" : "x"}`;
+    expect(service.verify(tampered, current())).toMatchObject({ status: "INVALID", reason: "BAD_SIGNATURE" });
     for (const changed of [current({ decisionRevision: 8 }), current({ exactProductId: "other" }), current({ catalogDigest: "sha256:other" }), current({ categoryId: "LAPTOP" }), current({ consent: { ...current().consent, eventId: "33333333-3333-4333-8333-333333333333" } })]) expect(service.verify(token, changed)).toMatchObject({ status: "INVALID", reason: "AUTHORITY_MISMATCH" });
     expect(createLocalElectronicsStageTwoHandoffCandidate(secretA, "key-a", () => new Date("2026-09-08T08:16:00Z")).verify(token, current())).toMatchObject({ status: "INVALID", reason: "AUTHORITY_MISMATCH" });
     expect(() => service.issue(current({ consent: { ...current().consent, occurredAt: "2026-09-08T08:01:00.000Z" } }))).toThrow("ELECTRONICS_STAGE_TWO_ISSUANCE_NOT_AUTHORIZED");

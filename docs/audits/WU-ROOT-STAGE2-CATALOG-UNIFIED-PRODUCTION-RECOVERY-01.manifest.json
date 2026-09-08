@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "xpy-unified-production-recovery-candidate/v1",
+  "workUnit": "WU-ROOT-STAGE2-CATALOG-UNIFIED-PRODUCTION-RECOVERY-01",
+  "branch": "codex/root-stage2-catalog-unified-production-recovery-01",
+  "construction": "ONE_THREE_PARENT_MERGE_COMMIT",
+  "parents": {
+    "stageTwo": "b45094c3715518b213216b68622db089a08e20b5",
+    "catalogWave05": "4cec0fae7884f944dfc15c695c23004c4b278ed7",
+    "rootComposer": "fd04db1af105c518be23fdfa1a778975f0db9860"
+  },
+  "requiredPreservation": {
+    "catalogFactoryActiveMembership": 111,
+    "rootCategoryCount": 54,
+    "rootPromptCount": 162,
+    "electronicsStageTwoRoute": "app/api/electronics/stage-two-handoff/route.ts",
+    "electronicsStageTwoMigrationSource": "database/migrations/0018_electronics_stage2_authority_foundation.sql",
+    "electronicsConversationRecovery": "SESSION_SCOPED_EXPLICIT_READ_NO_FRESH_ROOT_LEAKAGE",
+    "requiredStageTwoSharedFileCount": 28,
+    "requiredBuildRoutes": ["api/electronics/stage-two-handoff", "electronics/stage/2"],
+    "databaseReadiness": "READ_ONLY_SCHEMA_AND_PERSISTED_ROW_COUNTS_NO_MUTATION",
+    "domains": ["CARS", "TOOLS", "ELECTRONICS", "APPLIANCES", "BABY", "MOBILITY"],
+    "labels": ["MITGO"]
+  },
+  "forbiddenEffects": [
+    "DATABASE_MIGRATION_EXECUTION",
+    "DATABASE_MUTATION",
+    "ENV_OR_SECRET_CHANGE",
+    "CONSENT_OR_QA_WRITE",
+    "PUSH",
+    "PREVIEW",
+    "PRODUCTION_DEPLOYMENT",
+    "ROLLBACK"
+  ],
+  "verification": {
+    "focusedTests": "59_PASS",
+    "fullTests": "5939_PASS_791_FILES",
+    "typescript": "PASS",
+    "lint": "PASS_0_ERRORS_13_PREEXISTING_WARNINGS",
+    "node24NextBuild": "PASS_627_STATIC_PAGES",
+    "routeBuildManifest": "PASS_STAGE_TWO_API_AND_PAGE_PRESENT",
+    "root390x844FreshReload": "PASS_NO_OVERFLOW_NO_RECOVERY_LEAKAGE",
+    "databaseReadOnlyReadiness": {
+      "transaction": "BEGIN_READ_ONLY_THEN_ROLLBACK",
+      "tablesPresent": 3,
+      "consentRows": 1,
+      "issuanceRows": 1,
+      "lifecycleRows": 1,
+      "mutations": 0
+    }
+  },
+  "candidateState": "LOCAL_VERIFIED_AWAITING_IMMUTABLE_COMMIT",
+  "exactCommit": "RECORDED_BY_GIT_AFTER_THIS_MANIFEST_IS_COMMITTED",
+  "failurePolicy": "LEAVE_CURRENT_LIVE_UNTOUCHED"
+}

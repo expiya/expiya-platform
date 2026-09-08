@@ -6,7 +6,7 @@ describe("Smartphone P current production integration candidate", () => {
   const result = buildSmartphonePMaterialityCurrentProductionIntegration();
   it("binds current production counts and preserves root lineages", () => {
     const candidate: any = result.artifacts["integration-candidate.json"];
-    expect(candidate.counts).toEqual({ electronics: 121, smartphone: 34, catalogFactory: 108, secretaryPrompts: 162 });
+    expect(candidate.counts).toEqual({ electronics: 121, smartphone: 34, catalogFactory: 111, secretaryPrompts: 162 });
     const lineage: any = result.artifacts["lineage-preservation.json"];
     expect(Object.values(lineage.lineages).every((value) => value === "PRESERVED" || value === true)).toBe(true);
   });

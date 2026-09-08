@@ -70,7 +70,10 @@ export default function ElectronicsConversation({
   useEffect(() => {
     let cancelled = false;
     const start = async () => {
-      const storedConversationId = window.localStorage.getItem(sessionKey(categoryId));
+      // Recovery is deliberately scoped to this browser tab. A legacy Electronics
+      // conversation may survive reload/back-forward, but must never auto-resume
+      // in a fresh tab or leak into the Root experience through cross-session state.
+      const storedConversationId = window.sessionStorage.getItem(sessionKey(categoryId));
       if (storedConversationId) {
         const recovered = await request({ action: "READ", conversationId: storedConversationId });
         const body = recovered.body as unknown as RecoveredReply & { message?: string };
@@ -82,13 +85,13 @@ export default function ElectronicsConversation({
           return;
         }
         if (recovered.response.status !== 404) throw new Error(body.message ?? "Kayıtlı görüşme güvenli biçimde yüklenemedi.");
-        window.localStorage.removeItem(sessionKey(categoryId));
+        window.sessionStorage.removeItem(sessionKey(categoryId));
       }
       const conversationId = crypto.randomUUID();
       const created = await request({ action: "CREATE", conversationId, messageId: crypto.randomUUID(), categoryId });
       if (!created.response.ok) throw new Error(created.body.message);
       if (!cancelled) {
-        window.localStorage.setItem(sessionKey(categoryId), conversationId);
+        window.sessionStorage.setItem(sessionKey(categoryId), conversationId);
         setSession({ conversationId, revision: created.body.revision });
         setEntries([{ id: crypto.randomUUID(), reply: created.body }]);
       }
@@ -105,7 +108,7 @@ export default function ElectronicsConversation({
                   error instanceof Error
                     ? error.message
                     : "Görüşme başlatılamadı.",
-                conversationId: window.localStorage.getItem(sessionKey(categoryId)) ?? "unavailable",
+                conversationId: window.sessionStorage.getItem(sessionKey(categoryId)) ?? "unavailable",
                 revision: 0,
               },
             },
