@@ -8,7 +8,6 @@ import {
   nextRootPlaceholderState,
   rootPlaceholderValue,
   rootQuickReplies,
-  ROOT_INPUT_MAX_HEIGHT_PX,
   ROOT_PLACEHOLDER_EXIT_MS,
   ROOT_PLACEHOLDER_HOLD_MS,
   ROOT_PLACEHOLDER_MAX_HEIGHT_PX,
@@ -44,10 +43,11 @@ describe("RootStageOneExperience", () => {
     expect(rootQuickReplies({ choices: { questionKey: "budget", source: "DOMAIN_PACK", options: [{ value: "UNKNOWN", label: "Henüz bilmiyorum" }] } })).toEqual([{ questionKey: "budget", value: "UNKNOWN", label: "Henüz bilmiyorum" }]);
   });
 
-  it("recovers only an active reference on a same-tab refresh", () => {
+  it("recovers reloads and an explicitly active same-tab back/forward entry", () => {
     expect(shouldRecoverRootConversation("reload", '{"session":{"conversationId":"owned"}}')).toBe(true);
     expect(shouldRecoverRootConversation("navigate", '{"session":{"conversationId":"stale"}}')).toBe(false);
-    expect(shouldRecoverRootConversation("back_forward", '{"session":{"conversationId":"stale"}}')).toBe(false);
+    expect(shouldRecoverRootConversation("back_forward", '{"session":{"conversationId":"owned"}}', "owned")).toBe(true);
+    expect(shouldRecoverRootConversation("back_forward", '{"session":{"conversationId":"stale"}}', "owned")).toBe(false);
     expect(shouldRecoverRootConversation("reload", null)).toBe(false);
   });
 
@@ -70,13 +70,15 @@ describe("RootStageOneExperience", () => {
   it("keeps the destructive-looking reset and composer controls accessible", () => {
     const html = renderToStaticMarkup(<RootStageOneExperience suggestions={[]} adapters={[]}/>);
     expect(html).toContain('type="submit"');
-    expect(html).toContain('rows="1"');
-    expect(html).toContain('maxLength="1000"');
+    expect(html).toContain('rows="2"');
+    expect(html).toContain('aria-describedby="root-composer-feedback"');
+    expect(html).toContain('data-testid="root-response-reserve"');
+    expect(html).toContain('data-testid="root-quick-reply-reserve"');
   });
 
   it("rotates one placeholder through forward typing, hold and whole-block exit phases", () => {
     expect([ROOT_PLACEHOLDER_TYPE_MS,ROOT_PLACEHOLDER_HOLD_MS,ROOT_PLACEHOLDER_EXIT_MS]).toEqual([55,1200,320]);
-    expect([ROOT_INPUT_MAX_HEIGHT_PX,ROOT_PLACEHOLDER_MAX_HEIGHT_PX]).toEqual([144,224]);
+    expect(ROOT_PLACEHOLDER_MAX_HEIGHT_PX).toBe(224);
     const typed=nextRootPlaceholderState({suggestionIndex:0,text:"",phase:"TYPING"},"AB",2);
     expect(typed).toEqual({suggestionIndex:0,text:"A",phase:"TYPING"});
     const complete=nextRootPlaceholderState({...typed,text:"AB"},"AB",2);
@@ -96,7 +98,7 @@ describe("RootStageOneExperience", () => {
     expect(rootPlaceholderValue(state,true)).toBe("");
   });
 
-  it("keeps focus, blur, reduced-motion and placeholder auto-grow wired to the controlled textarea", () => {
+  it("keeps focus, blur and reduced-motion wired to the fixed two-line textarea", () => {
     const source=readFileSync(path.join(process.cwd(),"components/platform/RootStageOneExperience.tsx"),"utf8");
     expect(source).toContain("prefers-reduced-motion: reduce");
     expect(source).toContain("setMessageFocused(true)");
@@ -111,8 +113,17 @@ describe("RootStageOneExperience", () => {
 
   it("keeps the budget switch and optional input in one compact responsive group", () => {
     const source=readFileSync(path.join(process.cwd(),"components/platform/RootStageOneExperience.tsx"),"utf8");
-    expect(source).toContain('flex flex-wrap items-center gap-x-3 gap-y-2');
-    expect(source).toContain('inline-flex min-h-11 shrink-0 cursor-pointer items-center gap-2');
-    expect(source).toContain('flex min-w-32 flex-1 basis-36 items-center gap-2');
+    expect(source).toContain('mt-1 flex min-h-11 flex-wrap items-center');
+    expect(source).toContain('inline-flex min-h-10 shrink-0 cursor-pointer');
+    expect(source).toContain('flex min-w-32 flex-1 items-center gap-1');
+    expect(source).toContain('rootBudgetCorrectionMessage');
+  });
+
+  it("stages quick replies in the composer and never sends from the chip click", () => {
+    const source=readFileSync(path.join(process.cwd(),"components/platform/RootStageOneExperience.tsx"),"utf8");
+    expect(source).toContain('aria-pressed={pressed}');
+    expect(source).toContain('onClick={()=>toggleReply(option)}');
+    expect(source).toContain('disabled={busy||!questionComplete}');
+    expect(source).not.toContain('onClick={()=>void turn(option.label');
   });
 });
