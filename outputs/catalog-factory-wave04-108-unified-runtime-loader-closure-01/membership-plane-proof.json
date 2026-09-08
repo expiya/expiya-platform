@@ -1,0 +1,28 @@
+{
+  "allCatalogAuthority": {
+    "after": 813,
+    "before": 813,
+    "categories": 54,
+    "departments": 6,
+    "pointerUnchanged": true,
+    "unchanged": true,
+    "waveExactProductIdsAlreadyMembers": []
+  },
+  "catalogFactoryOverlay": {
+    "active": 108,
+    "admitted": 3,
+    "baseline": 80,
+    "before": 105,
+    "duplicates": 0,
+    "overlayProducts": 28,
+    "silentDrops": 0,
+    "waveExactProductIds": [
+      "appliances:air-purifier:samsung:ap70f06103rgsk",
+      "appliances:hob:siemens:er6a6ph40",
+      "appliances:built-in-microwave-oven:siemens:bf922l1b1"
+    ]
+  },
+  "interpretation": "Catalog Factory overlay membership and all-catalog domain membership are separate planes. 813→813 proves preservation of the domain authority; it does not claim that the three Wave-04 identities were already members of that authority.",
+  "schemaVersion": "catalog-factory-membership-plane-proof/v1",
+  "status": "PASS"
+}

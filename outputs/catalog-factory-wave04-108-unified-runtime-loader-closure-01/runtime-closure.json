@@ -1,0 +1,44 @@
+{
+  "bindings": {
+    "activationSourceCommit": "6d0af9c02d36321ae1351d25fdfb87edb8b7ec71",
+    "allCatalogPointerSha256": "d5bfacd330409697aa68ebff9da13de0940c076d0943cdd643e2a1506c970130",
+    "allCatalogReleaseDigest": "sha256:9b0137e6cecd1b8789fe410f6e9fa437c348548d72fc5d7bf9e77cb76146259b",
+    "catalogFactoryPointerSha256": "c6d1a1ee821891e34d3e7c2bb05d7fe63a4375d0a43da543a964404b7eed4589",
+    "catalogFactoryReceiptDigest": "1671ac5b5550d1f98cbcf63f2d5e9867582576a9ead2e222f4bb56659d18b51b",
+    "catalogFactoryReleaseDigest": "cb1eb28a6bcf8d2a63c66bcc72d277dc7e9b6f9417c1790bb2d774e82b1e902e",
+    "priorRuntimeLoaderCommit": "bdab1c7b8e4f9ea7e7de0b5b7376902b4b39aa01",
+    "productionSourceCommit": "015e2cf2327874fa0e481ace06f9f6e58209e1eb"
+  },
+  "consumers": {
+    "catalogDirectory": "SHARED_EFFECTIVE_108_AUTHORITY",
+    "domainInformationViews": "SHARED_EFFECTIVE_108_AUTHORITY",
+    "secretaryIdentityIndex": "SHARED_EFFECTIVE_108_AUTHORITY",
+    "xpyProjection": "SHARED_EFFECTIVE_108_AUTHORITY_SHADOW_ONLY"
+  },
+  "decisionEffects": {
+    "authorization": "NONE",
+    "questions": "NONE",
+    "ranking": "NONE",
+    "selection": "NONE",
+    "unknownPolicy": "NEUTRAL"
+  },
+  "mutationBoundary": {
+    "database": false,
+    "pointer": false,
+    "preview": false,
+    "production": false,
+    "push": false
+  },
+  "readiness": {
+    "INFORMATION_READY": true,
+    "P_READY": false,
+    "Y_READY": false
+  },
+  "runtimeDependency": {
+    "deployIncludedImmutableDataOnly": true,
+    "outputsDirectoryRequired": false
+  },
+  "schemaVersion": "catalog-factory-wave04-runtime-closure/v1",
+  "status": "PASS",
+  "workUnit": "WU-CATALOG-FACTORY-WAVE04-108-UNIFIED-RUNTIME-LOADER-CLOSURE-01"
+}

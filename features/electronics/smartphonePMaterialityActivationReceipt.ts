@@ -25,7 +25,7 @@ export function buildSmartphonePMaterialityActivationReceipt(root = process.cwd(
     closureSourceCommit: SMARTPHONE_P_MATERIALITY_ACTIVATION_AUTHORITY.closureSourceCommit,
     operation: { onlyFeatureFlag: SMARTPHONE_P_MATERIALITY_ACTIVATION_AUTHORITY.flag, from: false, to: true, atomic: true },
     readiness: { P_READY: true, Y_READY: false },
-    postconditions: { electronics: 121, smartphone: 34, catalogFactory: 105, supportDurationQuestion: "SUPPRESSED", rollbackOverride: SMARTPHONE_P_MATERIALITY_ACTIVATION_AUTHORITY.rollbackOverride },
+    postconditions: { electronics: 121, smartphone: 34, catalogFactory: 108, supportDurationQuestion: "SUPPRESSED", rollbackOverride: SMARTPHONE_P_MATERIALITY_ACTIVATION_AUTHORITY.rollbackOverride },
     mutationBoundary: { push: false, preview: false, deployment: false, production: false, database: false, pointer: false, otherLineage: false },
     productionEffect: "NONE_UNTIL_SEPARATELY_AUTHORIZED_DEPLOYMENT",
   };

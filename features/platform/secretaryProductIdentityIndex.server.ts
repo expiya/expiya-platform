@@ -16,6 +16,13 @@ const read = (root:string,file:string): {raw:string; value:Json} => { const raw=
 const sha = (raw:string) => createHash("sha256").update(raw).digest("hex");
 const records = (value: unknown): Json[] => Array.isArray(value) ? value.filter((item): item is Json => item !== null && typeof item === "object" && !Array.isArray(item)) : [];
 const exact = (value:Json) => [value.exactProductId,value.productId,value.modelCode,value.manufacturerModelIdentifier,value.configurationIdentity].filter((item):item is string=>typeof item==="string");
+const overlayExactIdentifiers = (item: ReturnType<typeof loadEffectiveCatalogFactoryView>["products"][number]) => {
+  const anchors = [item.identity.model, item.identity.family].map(value => value.toLocaleLowerCase("tr-TR").replace(/[^a-z0-9]+/gu, ""));
+  return [item.identity.sku, item.identity.exactVariant].filter(value => {
+    const normalized = value.toLocaleLowerCase("tr-TR").replace(/[^a-z0-9]+/gu, "");
+    return anchors.some(anchor => anchor.length >= 3 && normalized.includes(anchor)) || (!/\s/u.test(value) && /[a-z]/iu.test(value) && /\d/u.test(value));
+  });
+};
 const identity = (departmentId:string,categoryId:SecretaryCategoryId|undefined,value:Json): GovernedProductIdentity | undefined => {
   const brand=value.manufacturer??value.brand??value.brandId; const model=value.model??value.modelCode??value.manufacturerModelIdentifier;
   return typeof brand==="string"&&typeof model==="string" ? {departmentId,categoryId,brand,model,family:typeof value.family==="string"?value.family:undefined,exactIdentifiers:exact(value)} : undefined;
@@ -44,7 +51,7 @@ export function loadActiveSecretaryProductIdentityIndex(root=process.cwd()): Sec
     if (!Array.isArray(cc.records) || cc.records.length !== 549) throw new Error("CARS_CATALOG_LINEAGE_MISMATCH");
     products.push(...STROLLER_PRODUCTS.map(item=>({departmentId:"BABY_AND_CHILD",categoryId:"STROLLER" as const,brand:item.manufacturer,model:item.model,exactIdentifiers:[item.exactProductId,item.configurationIdentity]})));
     products.push(...MOBILITY_PRODUCTS.map(item=>({departmentId:"MOBILITY",categoryId:item.categoryId,brand:item.brand,family:item.family,model:item.model,exactIdentifiers:[item.exactProductId,item.configurationIdentity]})));
-    products.push(...loadEffectiveCatalogFactoryView(root).products.map(item=>({departmentId:item.departmentId,categoryId:item.categoryId as SecretaryCategoryId,brand:item.identity.brand,family:item.identity.family,model:item.identity.model,exactIdentifiers:[item.identity.sku,item.identity.exactVariant]})));
+    products.push(...loadEffectiveCatalogFactoryView(root).products.map(item=>({departmentId:item.departmentId,categoryId:item.categoryId as SecretaryCategoryId,brand:item.identity.brand,family:item.identity.family,model:item.identity.model,exactIdentifiers:overlayExactIdentifiers(item)})));
     return buildSecretaryProductIdentityIndex(products);
   } catch(error) { return Object.freeze({status:"FAILED_CLOSED",entries:Object.freeze([]),issue:error instanceof Error?error.message:"UNKNOWN_INDEX_FAILURE"}); }
 }
