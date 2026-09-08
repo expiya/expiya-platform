@@ -25,7 +25,11 @@ function effectIssues(projection: SemanticDecisionProjectionV2, answerId: string
   if (effect.effect === "knownExclude" && (effect.uncertainty !== "KNOWN" || !effect.exactKnownMismatch)) {
     issues.push({ code: "EXCLUSION_REQUIRES_EXACT_KNOWN_MISMATCH", path, message: "Exclusion requires an exact, known mismatch." });
   }
-  if (effect.evidenceRefs.some((reference) => !projection.sources.some((source) => source.sourceId === reference))) {
+  if (effect.evidenceRefs.some((reference) => {
+    if (projection.sources.some((source) => source.sourceId === reference)) return false;
+    const fact = projection.factCapabilityRefs.find((item) => item.factId === reference);
+    return !fact || !fact.sourceRefs.length || fact.sourceRefs.some((sourceRef) => !projection.sources.some((source) => source.sourceId === sourceRef));
+  })) {
     issues.push({ code: "EFFECT_SOURCE_NOT_BOUND", path, message: "Every participating evidence reference must be bound by the projection." });
   }
   return issues;
@@ -142,7 +146,10 @@ export function simulateAcceptedAnswer(input: {
     if (neutralUncertainty) uncertain.push(candidateId);
     if (input.projection.userNeed.decisionUse === "SOFT_PREFERENCE" && effect.effect === "softOnly") soft.push(candidateId);
     if (effect.uncertainty === "KNOWN" && ["knownRetain", "knownExclude", "softOnly"].includes(effect.effect)) {
-      for (const evidenceRef of effect.evidenceRefs) evidenceIds.add(evidenceRef);
+      for (const evidenceRef of effect.evidenceRefs) {
+        const fact = input.projection.factCapabilityRefs.find((item) => item.factId === evidenceRef);
+        if (fact) for (const sourceRef of fact.sourceRefs) evidenceIds.add(sourceRef); else evidenceIds.add(evidenceRef);
+      }
     }
   }
   const personaOutOfBounds = Object.values(input.context.personaScores ?? {}).some((score) => score < 0 || score > 0.75);

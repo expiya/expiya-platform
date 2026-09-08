@@ -25,7 +25,7 @@ export async function loadActivePMaterialityWave(root: string): Promise<ActiveWa
     const release = JSON.parse(releaseRaw) as ActivePMaterialityWave;
     if (release.releaseId !== pointer.releaseId || !/^sha256:[a-f0-9]{64}$/u.test(release.releaseDigest) || release.yAuthority !== "UNCHANGED_NONE_GRANTED") return { status: "FAILED_CLOSED", reason: "RELEASE_IDENTITY_MISMATCH" };
     if (!Array.isArray(release.projections) || release.projections.flatMap(validateSemanticDecisionProjection).length) return { status: "FAILED_CLOSED", reason: "PROJECTION_INVARIANTS_FAILED" };
-    const categories = [...new Set(release.projections.map((projection) => projection.identity.categoryId))].sort();
+    const categories = [...new Set(release.projections.map((projection) => projection.identity.categoryId))].sort((left, right) => left.localeCompare(right));
     if (JSON.stringify(categories) !== JSON.stringify(release.categories)) return { status: "FAILED_CLOSED", reason: "CATEGORY_MANIFEST_MISMATCH" };
     return { status: "READY", wave: Object.freeze(release) };
   } catch { return { status: "FAILED_CLOSED", reason: "ACTIVE_WAVE_UNAVAILABLE" }; }

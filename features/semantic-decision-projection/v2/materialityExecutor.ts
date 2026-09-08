@@ -179,9 +179,10 @@ function evaluateProjection(input: {
   const decisionChangeProbability = candidateCount && materialSplits.length
     ? Math.max(...materialSplits.map((answer) => (answer.excluded || answer.preferred) / candidateCount))
     : 0;
-  const participatingEvidenceRefs = [...new Set(Object.values(question.candidateEffectByAnswer).flat()
+  const rawParticipatingEvidenceRefs = [...new Set(Object.values(question.candidateEffectByAnswer).flat()
     .filter((effect) => candidatePool.has(effect.exactOfferingId) && effect.uncertainty === "KNOWN" && ["knownRetain", "knownExclude", "softOnly"].includes(effect.effect))
     .flatMap((effect) => effect.evidenceRefs))].sort();
+  const participatingEvidenceRefs = [...new Set(rawParticipatingEvidenceRefs.flatMap((reference) => projection.factCapabilityRefs.find((item) => item.factId === reference)?.sourceRefs ?? [reference]))].sort();
   const evidence = projection.sources.filter((source) => participatingEvidenceRefs.includes(source.sourceId));
   const evidenceReliability = evidence.length ? evidence.reduce((sum, source) => sum + source.reliability, 0) / evidence.length : 0;
   const signals = context.questionSignals?.[question.questionId];

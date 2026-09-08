@@ -1,0 +1,61 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+import type { SemanticDecisionProjectionV2, SourceReference } from "./contract";
+import { buildSoftDirectionalProjection, type FactValue } from "./wave1CoreDomains";
+
+type Json = Record<string, unknown>;
+interface Mapping { readonly field: string; readonly operator: "EQ" | "GTE" | "LTE"; readonly threshold: string | number | boolean; readonly unit?: string; readonly need: string; readonly question: string; readonly context: string; readonly regime: string }
+export const ELECTRONICS_P_MATERIALITY_MAPPINGS: Readonly<Record<string, Mapping>> = Object.freeze({
+  LAPTOP: { field: "storage_gb", operator: "GTE", threshold: 1024, unit: "GB", need: "Büyük yerel dosya ve uygulamalar için daha geniş dahili depolama yönü", question: "Büyük yerel dosyalar için dahili depolamanın en az 1 TB olması önemli mi?", context: "Yerel büyük dosya ve uygulama kullanımı", regime: "EXACT_CONFIGURED_STORAGE" },
+  TABLET: { field: "storage_gb", operator: "GTE", threshold: 256, unit: "GB", need: "Çevrimdışı içerik için daha geniş dahili depolama yönü", question: "Çevrimdışı video ve dosyalar için en az 256 GB dahili depolama önemli mi?", context: "Seyahatte çevrimdışı içerik", regime: "EXACT_CONFIGURED_STORAGE" },
+  MONITOR: { field: "refresh_hz", operator: "GTE", threshold: 170, unit: "Hz", need: "Hızlı görüntüde daha yüksek beyan edilen yenileme hızı yönü", question: "Hızlı oyun görüntüsü için yenileme hızının en az 170 Hz olması önemli mi?", context: "Hızlı oyun; sistem ve bağlantı uyumu ayrıca gerekir", regime: "EXACT_REFRESH_RATE" },
+  TELEVISION: { field: "display_inches", operator: "GTE", threshold: 65, unit: "inch", need: "Uzak izleme mesafesinde daha büyük panel yönü", question: "İzleme mesafeniz için ekranın en az 65 inç olması önemli mi?", context: "Oda ve izleme mesafesi", regime: "EXACT_PANEL_DIAGONAL" },
+  E_READER: { field: "display_inches", operator: "GTE", threshold: 7, unit: "inch", need: "Okumada daha geniş sayfa alanı yönü", question: "Okurken daha geniş sayfa alanı için ekranın en az 7 inç olması önemli mi?", context: "Uzun metin ve belge okuma", regime: "EXACT_DISPLAY_DIAGONAL" },
+  PORTABLE_SPEAKER: { field: "battery_hours", operator: "GTE", threshold: 20, unit: "hour", need: "Prizden uzakta daha uzun üretici beyanlı çalma süresi yönü", question: "Prizden uzakta kullanım için beyan edilen pil süresinin en az 20 saat olması önemli mi?", context: "Taşınabilir kullanım; ses düzeyi gerçek süreyi değiştirir", regime: "MANUFACTURER_DECLARED_PLAYTIME" },
+  SOUNDBAR: { field: "rear_speakers_included", operator: "EQ", threshold: true, need: "Kutudan arka hoparlörlü kurulum topolojisi", question: "Ayrı satın alma yapmadan kutuda arka hoparlörlerin bulunması önemli mi?", context: "Çok kanallı salon kurulumu", regime: "EXACT_INCLUDED_BUNDLE" },
+  DIGITAL_CAMERA: { field: "sensor", operator: "EQ", threshold: "Full-frame stacked CMOS", need: "Exact gövdede full-frame sensör sınıfı", question: "Lens ve kullanım planınız için exact gövdede full-frame sensör sınıfı önemli mi?", context: "Fotoğraf sistemi tercihi; sensör sınıfı görüntü kalitesi garantisi değildir", regime: "EXACT_SENSOR_CLASS" },
+  PROJECTOR: { field: "brightness_lumens", operator: "GTE", threshold: 1000, unit: "lm", need: "Ortam ışığında daha yüksek beyan edilen parlaklık yönü", question: "Ortam ışığı olan odada beyan edilen parlaklığın en az 1000 lümen olması önemli mi?", context: "Ortam ışığı ve perde koşulları; farklı ölçüm rejimleri karıştırılmaz", regime: "MANUFACTURER_DECLARED_BRIGHTNESS" },
+  GAME_CONSOLE: { field: "storage_tb", operator: "GTE", threshold: 2, unit: "TB", need: "Yerel oyun kurulumları için daha geniş exact depolama yönü", question: "Çok sayıda oyunu yerelde tutmak için exact depolamanın en az 2 TB olması önemli mi?", context: "Yerel oyun kurulumu; kullanılabilir alan sistem verisiyle azalabilir", regime: "EXACT_CONFIGURED_STORAGE" },
+  WIFI_ROUTER_MESH: { field: "wifi_generation", operator: "EQ", threshold: "Wi-Fi 7", need: "Uyumlu istemciler için Wi‑Fi 7 nesil desteği", question: "Mevcut veya planladığınız uyumlu cihazlar için Wi‑Fi 7 desteği önemli mi?", context: "Uyumlu istemci ve internet altyapısı ayrıca gerekir", regime: "EXACT_WIFI_GENERATION" },
+  NETWORK_ATTACHED_STORAGE: { field: "memory_gb", operator: "GTE", threshold: 4, unit: "GB", need: "Eşzamanlı NAS görevleri için daha yüksek kurulu bellek yönü", question: "Eşzamanlı NAS uygulamaları için kurulu belleğin en az 4 GB olması önemli mi?", context: "Eşzamanlı servis kullanımı; iş yükü sonucu garanti değildir", regime: "EXACT_INSTALLED_MEMORY" },
+  EXTERNAL_STORAGE: { field: "capacity_tb", operator: "GTE", threshold: 2, unit: "TB", need: "Büyük arşiv için daha geniş exact kapasite yönü", question: "Yerel arşiviniz için exact kapasitenin en az 2 TB olması önemli mi?", context: "Fotoğraf, video veya yedek arşivi", regime: "EXACT_CONFIGURED_CAPACITY" },
+  PRINTER: { field: "color_capability", operator: "EQ", threshold: true, need: "Renkli belge basabilme kabiliyeti", question: "Ev veya iş belgelerini renkli basabilmek önemli mi?", context: "Renkli belge ihtiyacı; baskı kalitesi veya maliyet garantisi değildir", regime: "EXACT_COLOR_CAPABILITY" },
+  WEBCAM: { field: "focus", operator: "EQ", threshold: "autofocus", need: "Hareket ve mesafe değişiminde otomatik odak kabiliyeti", question: "Görüşme sırasında konumunuz değiştiği için otomatik odak önemli mi?", context: "Görüntülü görüşmede mesafe değişimi", regime: "EXACT_FOCUS_CAPABILITY" },
+  COMPUTER_AUDIO: { field: "power_rms_w", operator: "GTE", threshold: 40, unit: "W RMS", need: "Daha büyük çalışma alanında daha yüksek beyan edilen RMS güç yönü", question: "Daha büyük oda veya masa alanı için beyan edilen toplam gücün en az 40 W RMS olması önemli mi?", context: "Oda ve dinleme mesafesi; güç ses kalitesi garantisi değildir", regime: "MANUFACTURER_DECLARED_RMS" },
+  SMARTWATCH: { field: "case_size_mm", operator: "GTE", threshold: 45, unit: "mm", need: "Bilekte daha büyük kasa ve görüntü alanı yönü", question: "Daha büyük ekran alanı için kasa ölçüsünün en az 45 mm olması önemli mi?", context: "Bilek uyumu ve okunabilirlik; konfor kişiye bağlıdır", regime: "EXACT_CASE_SIZE" },
+  FITNESS_TRACKER: { field: "display_inches", operator: "GTE", threshold: 1.7, unit: "inch", need: "Bildirim ve egzersiz verisi için daha geniş ekran yönü", question: "Egzersiz verisini bilekte daha geniş görmek için ekranın en az 1,7 inç olması önemli mi?", context: "Bilekte veri okuma", regime: "EXACT_DISPLAY_DIAGONAL" },
+  HOME_SECURITY_CAMERA: { field: "local_storage", operator: "EQ", threshold: "microSD up to 512GB", need: "Exact cihazda 512 GB'a kadar yerel microSD desteği", question: "Bulut dışında daha geniş yerel kayıt için 512 GB'a kadar microSD desteği önemli mi?", context: "Yerel kayıt; kart, saklama süresi ve gizlilik ayarı ayrıca doğrulanır", regime: "EXACT_LOCAL_STORAGE_CAPABILITY" },
+  VIDEO_DOORBELL: { field: "local_storage", operator: "EQ", threshold: "built-in 32GB eMMC", need: "Harici kart veya hub olmadan dahili yerel kayıt", question: "Harici kart veya hub olmadan dahili yerel depolama önemli mi?", context: "Kapı önü olay kaydı; saklama ve gizlilik ayarı ayrıca doğrulanır", regime: "EXACT_LOCAL_STORAGE_TOPOLOGY" },
+  SMART_HOME_HUB: { field: "protocols", operator: "EQ", threshold: "Zigbee; Bluetooth; Matter via Hue Bridge", need: "Mevcut Hue/Matter kurulumuyla exact protokol topolojisi", question: "Mevcut Hue ve Matter cihaz planınız için bu protokol topolojisi önemli mi?", context: "Mevcut akıllı ev ekosistemi ve cihaz uyumu", regime: "EXACT_PROTOCOL_TOPOLOGY" },
+  UNINTERRUPTIBLE_POWER_SUPPLY: { field: "capacity", operator: "EQ", threshold: "1200VA/660W", need: "Doğrulanmış yük hesabında 660 W beyanlı kapasite yönü", question: "Doğrulanmış cihaz yükünüz için 1200 VA / 660 W sınıfı önemli mi?", context: "Exact cihaz yükü ve gerekli çalışma süresi ayrıca hesaplanır", regime: "EXACT_VA_W_CAPACITY" },
+});
+
+const value = (raw: unknown): FactValue => typeof raw === "string" || typeof raw === "number" || typeof raw === "boolean" ? raw : "UNKNOWN";
+const qualifies = (mapping: Mapping) => (fact: Exclude<FactValue, "UNKNOWN">) => mapping.operator === "EQ" ? fact === mapping.threshold : typeof fact === "number" && typeof mapping.threshold === "number" && (mapping.operator === "GTE" ? fact >= mapping.threshold : fact <= mapping.threshold);
+
+export async function buildWave2ElectronicsProjections(root: string): Promise<readonly SemanticDecisionProjectionV2[]> {
+  const pointer = JSON.parse(await readFile(path.join(root, "data/production/electronics/runtime/active.json"), "utf8")) as { catalogFile: string; catalogReleaseDigest?: `sha256:${string}`; catalogArtifactSha256: `sha256:${string}` };
+  const catalog = JSON.parse(await readFile(path.join(root, pointer.catalogFile), "utf8")) as { releaseVersion: string; products: Json[] };
+  const projections: SemanticDecisionProjectionV2[] = [];
+  for (const [categoryId, mapping] of Object.entries(ELECTRONICS_P_MATERIALITY_MAPPINGS).sort(([left], [right]) => left.localeCompare(right))) {
+    const products = catalog.products.filter((product) => product.categoryId === categoryId), selected = products.map((product) => ({ product, fact: ((product.facts as Json[]) ?? []).find((item) => item.key === mapping.field) }));
+    const sourcesById = new Map<string, SourceReference>();
+    for (const { product, fact } of selected) if (fact && typeof fact.sourceId === "string") sourcesById.set(fact.sourceId, Object.freeze({ sourceId: fact.sourceId, authority: "PRIMARY", digest: product.evidenceReleaseDigest as `sha256:${string}`, market: "TR", capturedAt: "2026-09-08T00:00:00.000+03:00", reliability: 0.95, locator: String(fact.locator ?? fact.factId) }));
+    projections.push(buildSoftDirectionalProjection({ departmentId: "ELECTRONICS", categoryId, authorityVersion: catalog.releaseVersion, authorityDigest: pointer.catalogReleaseDigest ?? pointer.catalogArtifactSha256, projectionId: `wave2.electronics.${categoryId.toLocaleLowerCase()}.${mapping.field}`, questionId: `p.electronics.${categoryId.toLocaleLowerCase()}.${mapping.field}`, questionTr: mapping.question, needId: `electronics.${categoryId.toLocaleLowerCase()}.${mapping.field}`, needTr: mapping.need, field: `facts.${mapping.field}`, operator: mapping.operator, threshold: mapping.threshold, ...(mapping.unit ? { unit: mapping.unit } : {}), context: mapping.context, regime: mapping.regime, candidates: selected.map(({ product, fact }) => ({ id: String(product.exactProductId), configurationId: String(product.configurationIdentity), fact: value(fact?.value), evidenceIds: fact && typeof fact.sourceId === "string" ? Object.freeze([fact.sourceId]) : Object.freeze([]) })), sources: Object.freeze([...sourcesById.values()].sort((left, right) => left.sourceId.localeCompare(right.sourceId))), qualifies: qualifies(mapping) }));
+  }
+  return Object.freeze(projections);
+}
+
+export async function loadSmartphoneProductionPProjections(root: string): Promise<readonly SemanticDecisionProjectionV2[]> {
+  const artifact = JSON.parse(await readFile(path.join(root, "data/research/electronics/smartphone-p-materiality-owner-review-v2-01/semantic-projections-v2.json"), "utf8")) as { projections: SemanticDecisionProjectionV2[] };
+  return Object.freeze(artifact.projections.map((item) => Object.freeze({
+    ...item,
+    userNeed: Object.freeze({ ...item.userNeed, decisionUse: "SOFT_PREFERENCE" as const }),
+    materialQuestion: Object.freeze({
+      ...item.materialQuestion,
+      decisionUseOnExplicitAnswer: "SOFT_PREFERENCE" as const,
+      candidateEffectByAnswer: Object.freeze(Object.fromEntries(Object.entries(item.materialQuestion.candidateEffectByAnswer).map(([answerId, effects]) => [answerId, Object.freeze(effects.map((effect) => Object.freeze(effect.uncertainty !== "KNOWN" ? { ...effect, effect: "unknownRetain" as const, exactKnownMismatch: false } : effect.effect === "knownRetain" ? { ...effect, effect: "softOnly" as const, exactKnownMismatch: false } : effect.effect === "knownExclude" ? { ...effect, effect: "none" as const, exactKnownMismatch: false } : effect)))]))),
+    }),
+    governedComparison: true,
+  })));
+}
