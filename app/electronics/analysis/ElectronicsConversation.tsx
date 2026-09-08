@@ -27,6 +27,13 @@ type Entry = {
   readonly user?: string;
   readonly reply: PublicReply;
 };
+type RecoveredReply = {
+  readonly kind: "CONVERSATION";
+  readonly conversationId: string;
+  readonly revision: number;
+  readonly outcome?: ElectronicsRuntimeOutcome;
+};
+const sessionKey = (categoryId: ElectronicsCategoryId) => `expiya:electronics:conversation:${categoryId}`;
 const request = async (body: unknown) => {
   const response = await fetch("/api/electronics/conversation", {
     method: "POST",
@@ -62,19 +69,31 @@ export default function ElectronicsConversation({
   const latest = entries.at(-1)?.reply;
   useEffect(() => {
     let cancelled = false;
-    const conversationId = crypto.randomUUID();
-    void request({
-      action: "CREATE",
-      conversationId,
-      messageId: crypto.randomUUID(),
-      categoryId,
-    })
-      .then(({ response, body }) => {
-        if (cancelled) return;
-        if (!response.ok) throw new Error(body.message);
-        setSession({ conversationId, revision: body.revision });
-        setEntries([{ id: crypto.randomUUID(), reply: body }]);
-      })
+    const start = async () => {
+      const storedConversationId = window.localStorage.getItem(sessionKey(categoryId));
+      if (storedConversationId) {
+        const recovered = await request({ action: "READ", conversationId: storedConversationId });
+        const body = recovered.body as unknown as RecoveredReply & { message?: string };
+        if (recovered.response.ok && body.kind === "CONVERSATION" && body.outcome) {
+          if (!cancelled) {
+            setSession({ conversationId: body.conversationId, revision: body.revision });
+            setEntries([{ id: crypto.randomUUID(), reply: { ...body.outcome, conversationId: body.conversationId, revision: body.revision } }]);
+          }
+          return;
+        }
+        if (recovered.response.status !== 404) throw new Error(body.message ?? "Kayıtlı görüşme güvenli biçimde yüklenemedi.");
+        window.localStorage.removeItem(sessionKey(categoryId));
+      }
+      const conversationId = crypto.randomUUID();
+      const created = await request({ action: "CREATE", conversationId, messageId: crypto.randomUUID(), categoryId });
+      if (!created.response.ok) throw new Error(created.body.message);
+      if (!cancelled) {
+        window.localStorage.setItem(sessionKey(categoryId), conversationId);
+        setSession({ conversationId, revision: created.body.revision });
+        setEntries([{ id: crypto.randomUUID(), reply: created.body }]);
+      }
+    };
+    void start()
       .catch((error) => {
         if (!cancelled)
           setEntries([
@@ -86,7 +105,7 @@ export default function ElectronicsConversation({
                   error instanceof Error
                     ? error.message
                     : "Görüşme başlatılamadı.",
-                conversationId,
+                conversationId: window.localStorage.getItem(sessionKey(categoryId)) ?? "unavailable",
                 revision: 0,
               },
             },
