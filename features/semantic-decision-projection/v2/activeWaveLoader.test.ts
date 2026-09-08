@@ -6,9 +6,10 @@ describe("active P-materiality wave loader", () => {
     const loaded = await loadActivePMaterialityWave(process.cwd());
     expect(loaded.status).toBe("READY");
     if (loaded.status !== "READY") return;
-    expect(loaded.wave.categories).toEqual(["BICYCLE", "CORDLESS_DRILL", "ELECTRIC_BICYCLE", "ELECTRIC_SCOOTER", "STROLLER"]);
-    expect(loaded.wave.projections).toHaveLength(5);
-    expect(loaded.wave.projections.reduce((sum, projection) => sum + projection.offerings.length, 0)).toBe(30);
+    expect(loaded.wave.categories).toHaveLength(24);
+    expect(loaded.wave.categories).toEqual(expect.arrayContaining(["AIR_FRYER", "BICYCLE", "CORDLESS_DRILL", "DISHWASHER", "ELECTRIC_BICYCLE", "ELECTRIC_SCOOTER", "REFRIGERATOR", "STROLLER", "VACUUM"]));
+    expect(loaded.wave.projections).toHaveLength(24);
+    expect(loaded.wave.projections.reduce((sum, projection) => sum + projection.offerings.length, 0)).toBe(102);
     expect(loaded.wave.yAuthority).toBe("UNCHANGED_NONE_GRANTED");
   });
 

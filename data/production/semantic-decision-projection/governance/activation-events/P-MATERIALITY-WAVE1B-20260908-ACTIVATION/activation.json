@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "p-materiality-wave-activation/v1",
+  "activationId": "P-MATERIALITY-WAVE1B-20260908-ACTIVATION",
+  "activatedAt": "2026-09-08T00:25:00.000+03:00",
+  "releaseId": "SDP-V2-P-WAVE1-DOMAIN-PACKS-TR-v1.1",
+  "releaseSha256": "sha256:90ca9e6b10e31b6f1ff17b7fd2000b3e70448fcaf6ffb0801d023d58200a92f8",
+  "approvalDigest": "sha256:70fd03491194fd01eee3b76a9177a65a94bf1d60ba6812155301068b246b1d7f",
+  "previousPointerSha256": "sha256:b9770d639c31a8f8f58c30fae74fc5d9bdf259b86536548f7eb50889bad1c6cb",
+  "previousReleaseId": "SDP-V2-P-WAVE1-CORE-DOMAINS-TR-v1.0",
+  "state": "ACTIVE_P",
+  "atomicCategories": [
+    "AIR_FRYER",
+    "BICYCLE",
+    "BLENDER",
+    "BUILT_IN_OVEN",
+    "CORDLESS_DRILL",
+    "COUNTERTOP_MICROWAVE_OVEN",
+    "DISHWASHER",
+    "DRYER",
+    "ELECTRIC_BICYCLE",
+    "ELECTRIC_SCOOTER",
+    "ELECTRIC_STORAGE_WATER_HEATER",
+    "FILTER_COFFEE_MACHINE",
+    "FOOD_PROCESSOR",
+    "FREESTANDING_COOKER",
+    "FREEZER",
+    "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+    "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+    "MANUAL_ESPRESSO_MACHINE",
+    "RANGE_HOOD",
+    "REFRIGERATOR",
+    "ROBOT_VACUUM",
+    "STROLLER",
+    "TURKISH_COFFEE_MACHINE",
+    "VACUUM"
+  ],
+  "blocked": [
+    {
+      "categoryId": "AIR_PURIFIER",
+      "exactOfferingCount": 3,
+      "rootReason": "NO_TWO_EVIDENCED_KNOWN_PARTITIONS_IN_ACTIVE_DECISION_FIELDS_OR_SEPARATE_POLICY_INTEGRATION_REQUIRED",
+      "p": "BLOCKED",
+      "y": "NOT_READY"
+    },
+    {
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "exactOfferingCount": 3,
+      "rootReason": "NO_TWO_EVIDENCED_KNOWN_PARTITIONS_IN_ACTIVE_DECISION_FIELDS_OR_SEPARATE_POLICY_INTEGRATION_REQUIRED",
+      "p": "BLOCKED",
+      "y": "NOT_READY"
+    },
+    {
+      "categoryId": "HOB",
+      "exactOfferingCount": 3,
+      "rootReason": "NO_TWO_EVIDENCED_KNOWN_PARTITIONS_IN_ACTIVE_DECISION_FIELDS_OR_SEPARATE_POLICY_INTEGRATION_REQUIRED",
+      "p": "BLOCKED",
+      "y": "NOT_READY"
+    },
+    {
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "exactOfferingCount": 3,
+      "rootReason": "NO_TWO_EVIDENCED_KNOWN_PARTITIONS_IN_ACTIVE_DECISION_FIELDS_OR_SEPARATE_POLICY_INTEGRATION_REQUIRED",
+      "p": "BLOCKED",
+      "y": "NOT_READY"
+    },
+    {
+      "categoryId": "WASHING_MACHINE",
+      "exactOfferingCount": 29,
+      "rootReason": "NO_TWO_EVIDENCED_KNOWN_PARTITIONS_IN_ACTIVE_DECISION_FIELDS_OR_SEPARATE_POLICY_INTEGRATION_REQUIRED",
+      "p": "BLOCKED",
+      "y": "NOT_READY"
+    }
+  ],
+  "rollback": "RESTORE_PREVIOUS_POINTER_BYTES",
+  "productionDeployment": false
+}
