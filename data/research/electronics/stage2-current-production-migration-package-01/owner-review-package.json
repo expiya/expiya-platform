@@ -1,0 +1,72 @@
+{
+  "schemaVersion": "electronics-stage2-current-production-migration-package/v1",
+  "packageId": "WU-XPY-STAGE2-ELECTRONICS-CURRENT-PRODUCTION-MIGRATION-PACKAGE-01",
+  "productionBase": "7d4cce89094b53a1f0b536b40ede19ca6377cf74",
+  "authoritySourceCommit": "f7b0ec71ee7d0cc0a6a1466bac46d235f06b4cb9",
+  "supersedes": {
+    "packageDigest": "sha256:ac684b0970c3ec1098cabcdb1dd09f650c6fae26d4c61b6a32214752a5f94abc",
+    "productionSource": "015e2cf2327874fa0e481ace06f9f6e58209e1eb",
+    "executionEligibility": "SUPERSEDED_INELIGIBLE"
+  },
+  "departmentId": "ELECTRONICS",
+  "categoryCount": 24,
+  "categoryRegistryDigest": "sha256:f3cca9657c37056836afb6a8be94f12936e744786acb4160b30f7a10b385ed87",
+  "lifecycle": "OWNER_REVIEW_CANDIDATE",
+  "databasePreflight": {
+    "status": "PASS_READ_ONLY",
+    "databaseIdentityFingerprint": "sha256:a756d3ca45e6be9a672a66e316aec271c46d5d34ea2b7cca73807a32dca25fc1",
+    "electronicsConversationRows": 167,
+    "comparisonEntitlementRows": 0,
+    "comparisonEntitlementEventRows": 0,
+    "databaseWrite": false
+  },
+  "migration": {
+    "path": "database/migrations/0018_electronics_stage2_authority_foundation.sql",
+    "required": true,
+    "applied": false,
+    "additiveTables": 3,
+    "sharedEntitlementConstraintWidened": true,
+    "dataChangingStatements": 0
+  },
+  "activation": {
+    "runtimeRegistered": false,
+    "secretConfigured": false,
+    "environmentChanged": false,
+    "previewed": false,
+    "deployed": false,
+    "requiredOrder": [
+      "MIGRATION_APPLY_AND_VERIFY",
+      "KEY_CONFIGURATION_AND_READINESS",
+      "EXACT_CONSENT_AND_HANDOFF_VERIFICATION",
+      "SHARED_ADAPTER_REGISTRATION_FOR_24_CATEGORIES",
+      "FAIL_CLOSED_QA_AND_ACTIVATION_RECEIPT"
+    ]
+  },
+  "boundaries": {
+    "stageOneMembershipChanged": false,
+    "rankingChanged": false,
+    "pMaterialityChanged": false,
+    "personaChanged": false,
+    "stageThreeActive": false,
+    "salesActive": false,
+    "paymentActive": false,
+    "comparisonCategoryOwned": true,
+    "advisorSelectedProductAndPurchasedSetOnly": true,
+    "unverifiedPriceUnavailable": true,
+    "unauthorizedMediaUnavailable": true
+  },
+  "artifactSha256": {
+    "database/migrations/0018_electronics_stage2_authority_foundation.sql": "21de289c66f9aad3f561196d904e4467b65e570c124fbd11b5654ba444239287",
+    "database/migrations/electronicsStageTwoAuthorityFoundation.test.ts": "d75a6f8e88d424e176aa3fb764c2c7c1e79ebccb9a4f6c81e2d98c425766f902",
+    "scripts/preflight-electronics-stage2-authority.ts": "0d6840ce16b0f2dec5db8d28d1be98a161d03bf1e6fe8aa355bf53dc472f4f56",
+    "features/electronics/stageTwo/handoffAuthorityCandidate.ts": "5d0da435db52acb571d018d9fbf29108ba8fdabcb8ec656e130b42c7c6db43d3",
+    "features/electronics/stageTwo/handoffAuthorityCandidate.server.ts": "b850c2ca8671d727e436ea02f55644d367bd7df7c686d4f25adb52b4dc29c204",
+    "data/research/electronics/stage2-current-production-migration-package-01/dry-run-proof.json": "e074a1af73ad56f370970f67db78b163005ebe953048a9b446e3f2b27980e7fb",
+    "data/research/electronics/stage2-current-production-migration-package-01/activation-readiness.json": "4040ed81dc6be37c092193422cd83458f5422b79a6e250c81f913a2241bb02b3",
+    "data/research/electronics/stage2-current-production-migration-package-01/key-readiness-plan.json": "b5f008108af0c87e2676ef5b208b483658746043fc8c7e3724c186cd0e79a4be",
+    "data/research/electronics/stage2-current-production-migration-package-01/rollback-plan.json": "493942bc244d20ab00817915a5cc0e8e217faa976ac8c709181b5ec9c46e781d",
+    "data/research/electronics/stage2-current-production-migration-package-01/qa-plan.json": "bd7f6294d90f1fe95e50e15b685ede3734d17dadf3f3ad0e28b39cee21306f6b"
+  },
+  "approvalScope": "Apply and verify migration 0018, configure the approved handoff key lifecycle without exposing values, register all 24 Electronics categories through the shared Stage Two adapter, execute fail-closed QA, and activate/deploy this exact production-base-bound package only; no Stage 1 membership/ranking/P/Y, Stage 3, sales or payment change.",
+  "packageDigest": "sha256:53f13a85fe73540e165e3d7d338fbf21775eac7f604f691360ac6d39555d01f7"
+}

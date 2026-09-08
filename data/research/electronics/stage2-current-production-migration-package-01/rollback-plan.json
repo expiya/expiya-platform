@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "electronics-stage2-rollback/v1",
+  "strategy": "FAIL_CLOSED_PRESERVE_AUDIT_DATA",
+  "steps": [
+    "Unregister the Electronics adapter at the shared Stage Two boundary",
+    "Mark the active handoff key REVOKED and stop issuance",
+    "Keep consent, issuance and lifecycle audit rows intact",
+    "Keep migration 0018 tables and the widened shared entitlement constraint intact",
+    "Restore a prior key only through a separately authorized environment change and append an audit event",
+    "Re-run protected desktop and 390x844 smoke checks before any reactivation"
+  ],
+  "automaticSchemaRollback": false,
+  "dataDeletion": false,
+  "stageOneImpact": false,
+  "stageThreeSalesPaymentImpact": false
+}

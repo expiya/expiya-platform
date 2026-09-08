@@ -1,0 +1,51 @@
+{
+  "schemaVersion": "electronics-stage2-owner-review-package/v1",
+  "packageId": "WU-XPY-STAGE2-ELECTRONICS-SIGNED-HANDOFF-AUTHORITY-01",
+  "baseCommit": "a2d8aae8d176968af1e88a7727f1daa926301dd1",
+  "productionSource": "015e2cf2327874fa0e481ace06f9f6e58209e1eb",
+  "departmentId": "ELECTRONICS",
+  "categoryCount": 24,
+  "authorityVersion": "electronics-stage2-handoff/v1-candidate",
+  "consentVersion": "electronics-stage2-consent/v1-candidate",
+  "comparisonSchemaVersion": "electronics-stage2-comparison-schema/v1-candidate",
+  "lifecycle": "OWNER_REVIEW_CANDIDATE",
+  "runtimeRegistered": false,
+  "secretCreated": false,
+  "databaseMigration": {
+    "neededBeforeActivation": true,
+    "applied": false,
+    "reason": "Explicit consent events, issue audit, replay observation and revocation linkage require durable append-only persistence; the current electronics conversation schema has no Stage 2 consent lifecycle."
+  },
+  "keyLifecycle": {
+    "active": "One ACTIVE key signs and verifies",
+    "rotation": "Prior ACTIVE becomes VERIFY_ONLY until its maximum token TTL elapses",
+    "revocation": "REVOKED keys fail closed immediately",
+    "rollback": "A prior key may become ACTIVE only through a separately approved environment change with an audit event; source and secrets remain unchanged"
+  },
+  "boundClaims": [
+    "department/category",
+    "conversation id",
+    "decision revision/fingerprint",
+    "exact product/configuration",
+    "catalog release/digest",
+    "policy version/digest",
+    "explicit consent event/time",
+    "category comparison schema digest",
+    "key id/version",
+    "issued/expiry",
+    "nonce/replay policy"
+  ],
+  "boundaries": {
+    "stageOneMembershipChanged": false,
+    "rankingChanged": false,
+    "pMaterialityChanged": false,
+    "personaChanged": false,
+    "stageThreeActive": false,
+    "salesActive": false,
+    "paymentActive": false,
+    "activePointerChanged": false,
+    "deployed": false
+  },
+  "approvalScope": "Exact package digest only; approval authorizes later implementation of durable consent/audit persistence, environment key configuration, 24-category adapter registration and deployment as one separately executed activation, with no Stage 1 membership/ranking/P/Y change.",
+  "packageDigest": "sha256:ac684b0970c3ec1098cabcdb1dd09f650c6fae26d4c61b6a32214752a5f94abc"
+}

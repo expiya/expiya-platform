@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "electronics-stage2-qa-plan/v1",
+  "currentState": "FAIL_CLOSED",
+  "viewports": ["DESKTOP", "390x844"],
+  "currentFailClosedQa": {
+    "executed": true,
+    "desktop": "PASS",
+    "mobile390x844": "PASS",
+    "protectedCopy": true,
+    "recoveryLink": true,
+    "horizontalOverflow": false,
+    "forbiddenActionVisible": false,
+    "internalIdentifierVisible": false
+  },
+  "preActivationAssertions": [
+    "Protected Stage Two page remains unavailable without signed authority",
+    "No horizontal overflow at 390x844",
+    "No internal identifier or secret value is rendered",
+    "No Stage Three, sales, order, offer or payment action is rendered"
+  ],
+  "postAuthorizationAssertions": [
+    "Exact product and configuration identity match the signed handoff",
+    "Only evidence-safe specifications, daily-life implications and explicit limitations render",
+    "Price and media remain honestly unavailable without separate authority",
+    "Comparison rows are category-owned and require a matching active entitlement",
+    "Advisor answers only about the selected product and purchased comparison set",
+    "Expired, replay-invalid, revoked, cross-conversation and stale-revision handoffs fail closed"
+  ],
+  "persistedQaRequiresMigrationApply": true,
+  "persistedQaExecuted": false
+}

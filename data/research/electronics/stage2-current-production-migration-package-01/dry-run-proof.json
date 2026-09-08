@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "electronics-stage2-production-preflight/v1",
+  "queriedAt": "2026-09-08T09:55:27Z",
+  "productionBase": "7d4cce89094b53a1f0b536b40ede19ca6377cf74",
+  "status": "PASS_READ_ONLY",
+  "databaseIdentityFingerprint": "sha256:a756d3ca45e6be9a672a66e316aec271c46d5d34ea2b7cca73807a32dca25fc1",
+  "transactionReadOnly": true,
+  "databaseRead": true,
+  "databaseWrite": false,
+  "migrationApplied": false,
+  "tables": {
+    "electronics_conversations": true,
+    "comparison_entitlements": true,
+    "comparison_entitlement_events": true,
+    "electronics_stage2_consent_events": false,
+    "electronics_stage2_handoff_issuances": false,
+    "electronics_stage2_handoff_events": false
+  },
+  "rowCounts": {
+    "electronics_conversations": 167,
+    "comparison_entitlements": 0,
+    "comparison_entitlement_events": 0
+  },
+  "comparisonDepartmentConstraint": "CHECK ((department_id = ANY (ARRAY['APPLIANCES'::text, 'CARS'::text])))",
+  "conclusion": "The shared comparison entitlement store exists but does not admit ELECTRONICS. Durable Electronics consent, signed handoff issuance, replay observation and revocation audit tables are absent. Migration 0018 is required before activation."
+}

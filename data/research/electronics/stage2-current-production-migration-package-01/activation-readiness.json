@@ -1,0 +1,41 @@
+{
+  "schemaVersion": "electronics-stage2-activation-readiness/v1",
+  "productionBase": "7d4cce89094b53a1f0b536b40ede19ca6377cf74",
+  "authoritySourceCommit": "f7b0ec71ee7d0cc0a6a1466bac46d235f06b4cb9",
+  "state": "PREPARED_NOT_AUTHORIZED",
+  "categoryCount": 24,
+  "categoryRegistryDigest": "sha256:f3cca9657c37056836afb6a8be94f12936e744786acb4160b30f7a10b385ed87",
+  "registration": {
+    "sharedAdapterOnly": true,
+    "runtimeRegistered": false,
+    "requiredOrder": [
+      "APPLY_AND_VERIFY_MIGRATION_0018",
+      "CONFIGURE_APPROVED_ACTIVE_AND_VERIFY_ONLY_KEYS",
+      "VERIFY_EXACT_CONSENT_AND_SIGNED_HANDOFF_BINDING",
+      "REGISTER_ALL_24_CATEGORIES_AT_SHARED_STAGE_TWO_BOUNDARY",
+      "RUN_FAIL_CLOSED_SMOKE_AND_AUDIT_RECEIPT"
+    ]
+  },
+  "handoff": {
+    "expiry": "REJECT_AFTER_EXPIRY",
+    "replay": "REVISION_BOUND_REUSABLE_UNTIL_EXPIRY_AND_AUDITED",
+    "revocation": "REVOKED_KEY_OR_HANDOFF_REJECTS_IMMEDIATELY",
+    "consent": "EXACT_CONVERSATION_CATEGORY_DECISION_PRODUCT_CONFIGURATION_AND_AUTHORITY_FINGERPRINT"
+  },
+  "renderer": {
+    "identity": "EXACT_SELECTED_PRODUCT_AND_CONFIGURATION_ONLY",
+    "specifications": "EVIDENCE_SAFE_ONLY",
+    "dailyLife": "CATEGORY_POLICY_DERIVED_ONLY",
+    "limitations": "EXPLICIT_AND_NON_INVENTED",
+    "price": "UNAVAILABLE_UNLESS_SEPARATELY_VERIFIED",
+    "media": "UNAVAILABLE_UNLESS_SEPARATELY_AUTHORIZED"
+  },
+  "comparison": {
+    "store": "comparison_entitlements",
+    "categoryOwnedRowsOnly": true,
+    "advisorScope": "SELECTED_PRODUCT_AND_PURCHASED_COMPARISON_SET_ONLY",
+    "crossCategory": false
+  },
+  "forbidden": ["STAGE_THREE", "SALES", "PAYMENT"],
+  "blockers": ["OWNER_DIGEST_AUTHORIZATION", "MIGRATION_APPLY_AND_RECEIPT", "KEY_ENVIRONMENT_CONFIGURATION", "ADAPTER_REGISTRATION_AND_DEPLOYMENT"]
+}

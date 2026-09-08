@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "electronics-stage2-key-readiness/v1",
+  "state": "NOT_CONFIGURED_NOT_INSPECTED",
+  "secretValuesPresentInPackage": false,
+  "required": {
+    "activeKeyCount": 1,
+    "activeKeyUse": "SIGN_AND_VERIFY",
+    "priorKeyUse": "VERIFY_ONLY_UNTIL_MAXIMUM_TOKEN_TTL_ELAPSES",
+    "revokedKeyUse": "REJECT_IMMEDIATELY",
+    "keyIdAndVersionPersisted": true,
+    "secretMaterialPersisted": false
+  },
+  "preActivationChecks": [
+    "Verify configured key identifiers and states without printing secret values",
+    "Verify exactly one ACTIVE key and zero signing use of VERIFY_ONLY keys",
+    "Verify maximum token TTL is no more than 3600 seconds",
+    "Verify rotation overlap covers the maximum outstanding token TTL",
+    "Verify revoked key and unknown key paths fail closed"
+  ],
+  "environmentMutationAuthorized": false
+}
