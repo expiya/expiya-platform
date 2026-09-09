@@ -7,6 +7,7 @@ import {
   formatRootBudget,
   nextRootPlaceholderState,
   rootPlaceholderValue,
+  rootCandidateReplies,
   rootQuickReplies,
   ROOT_PLACEHOLDER_EXIT_MS,
   ROOT_PLACEHOLDER_HOLD_MS,
@@ -129,5 +130,30 @@ describe("RootStageOneExperience", () => {
     expect(source).toContain('onClick={()=>toggleReply(option)}');
     expect(source).toContain('disabled={busy||!questionComplete}');
     expect(source).not.toContain('onClick={()=>void turn(option.label');
+  });
+
+  it("projects only authoritative exact candidate identities into composer-only buttons", () => {
+    expect(rootCandidateReplies({ outcome: { candidateSummaries: [
+      { exactProductId: "electronics:television:lg:oled55b65la", manufacturer: "LG", modelCode: "OLED55B65LA" },
+      { exactProductId: "electronics:television:next:ye-55gfsg8-qled", manufacturer: "Next", modelCode: "YE-55GFSG8-QLED" },
+      { exactProductId: "electronics:television:samsung:qe75qn90fatxtk", manufacturer: "Samsung", modelCode: "QE75QN90FATXTK" },
+    ] } })).toEqual([
+      expect.objectContaining({ exactProductId: "electronics:television:lg:oled55b65la", label: "LG OLED55B65LA" }),
+      expect.objectContaining({ exactProductId: "electronics:television:next:ye-55gfsg8-qled", label: "Next YE-55GFSG8-QLED" }),
+      expect.objectContaining({ exactProductId: "electronics:television:samsung:qe75qn90fatxtk", label: "Samsung QE75QN90FATXTK" }),
+    ]);
+    expect(rootCandidateReplies({ candidateSummaries: [{ exactProductId: "same", label: "A" }, { exactProductId: "same", label: "B" }] })).toEqual([]);
+    const source=readFileSync(path.join(process.cwd(),"components/platform/RootStageOneExperience.tsx"),"utf8");
+    expect(source).toContain("chooseCandidate(option)");
+    expect(source).toContain("setDraft(option.label)");
+    expect(source).not.toContain("turn(option.label");
+    expect(source).toContain("overflow-x-hidden");
+  });
+
+  it("renders persistent orientation outside the latest-only bounded response", () => {
+    const source=readFileSync(path.join(process.cwd(),"components/platform/RootStageOneExperience.tsx"),"utf8");
+    expect(source.indexOf("aria-label={`${categoryLabel} kısa bilgi`}")).toBeLessThan(source.indexOf('data-testid="root-response-reserve"'));
+    expect(source).toContain("orientation:adapter.welcomeSummary");
+    expect(source).toContain("setOrientation(parsed.orientation??baseAdapter.welcomeSummary)");
   });
 });

@@ -3,12 +3,14 @@ export const ROOT_COMPOSER_MAX_LINES = 2;
 export const ROOT_QUESTION_MAX_GRAPHEMES = 280;
 export const ROOT_REPLY_MAX_OPTIONS = 6;
 export const ROOT_REPLY_MAX_LABEL_GRAPHEMES = 48;
+export const ROOT_CANDIDATE_PAGE_SIZE = 6;
 
 export type RootComposerReply = {
   readonly value: string;
   readonly label: string;
   readonly questionKey?: string;
 };
+export type RootCandidateReply = RootComposerReply & { readonly exactProductId: string };
 
 export type RootBudgetPriceAuthority = {
   readonly authority?: string;
@@ -65,6 +67,11 @@ export function rootChoicePayload(selected: readonly RootComposerReply[]): { rea
   const questionKey = selected[0]?.questionKey;
   if (!questionKey || selected.some(option => option.questionKey !== questionKey)) return undefined;
   return { questionKey, values: selected.map(option => option.value) };
+}
+
+export function paginateRootCandidateReplies(options: readonly RootCandidateReply[], visibleCount = ROOT_CANDIDATE_PAGE_SIZE) {
+  const safeCount = Math.max(ROOT_CANDIDATE_PAGE_SIZE, Math.ceil(visibleCount / ROOT_CANDIDATE_PAGE_SIZE) * ROOT_CANDIDATE_PAGE_SIZE);
+  return Object.freeze({ visible: Object.freeze(options.slice(0, safeCount)), hiddenCount: Math.max(0, options.length - safeCount), canExpand: options.length > safeCount });
 }
 
 export function rootBudgetCorrectionMessage(previous: string, next: string): string {

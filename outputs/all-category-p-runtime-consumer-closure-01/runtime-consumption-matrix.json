@@ -1,0 +1,1260 @@
+{
+  "schemaVersion": "p-materiality-runtime-consumption-matrix/v1",
+  "sourceReleaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+  "sourceBaseCommit": "5d6a1b9731786d925dd2da97dbeb8b14d6f1a9ce",
+  "totals": {
+    "categories": 54,
+    "artifactPReady": 48,
+    "executableActiveV4PReady": 47,
+    "bespokeEquivalentPReady": 1,
+    "runtimePReady": 48,
+    "informationOnly": 6,
+    "suppressionHonored": 6
+  },
+  "rows": [
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "AIR_FRYER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.air_fryer.capacityLitres"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.air_fryer.capacityLitres",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "AIR_PURIFIER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "INFORMATION_ONLY",
+        "projectionIds": [
+          "readiness-gap.appliances.air_purifier"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "SUPPRESSED"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "NO_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": null,
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": true,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "BLENDER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.blender.jugCapacityLitres"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.blender.jugCapacityLitres",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "BUILT_IN_MICROWAVE_OVEN",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "INFORMATION_ONLY",
+        "projectionIds": [
+          "readiness-gap.appliances.built_in_microwave_oven"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "SUPPRESSED"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "NO_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": null,
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": true,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "BUILT_IN_OVEN",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.built_in_oven.cavityLitres"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.built_in_oven.cavityLitres",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "COUNTERTOP_MICROWAVE_OVEN",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.countertop_microwave_oven.controlType"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.countertop_microwave_oven.controlType",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "DISHWASHER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.dishwasher.noiseDbA"
+        ],
+        "exactOfferingCount": 7,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.dishwasher.noiseDbA",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "DRYER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.dryer.capacityKg"
+        ],
+        "exactOfferingCount": 7,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.dryer.capacityKg",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "ELECTRIC_STORAGE_WATER_HEATER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.electric_storage_water_heater.widthMm"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.electric_storage_water_heater.widthMm",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "FILTER_COFFEE_MACHINE",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.filter_coffee_machine.widthMm"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.filter_coffee_machine.widthMm",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "FOOD_PROCESSOR",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.food_processor.bowlCapacityLitres"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.food_processor.bowlCapacityLitres",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "FREESTANDING_COOKER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.freestanding_cooker.heatingModeCount"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.freestanding_cooker.heatingModeCount",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "FREEZER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.freezer.heightMm"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.freezer.heightMm",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "FULLY_AUTOMATIC_ESPRESSO_MACHINE",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.fully_automatic_espresso_machine.widthMm"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.fully_automatic_espresso_machine.widthMm",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "HOB",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "INFORMATION_ONLY",
+        "projectionIds": [
+          "readiness-gap.appliances.hob"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "SUPPRESSED"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "NO_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": null,
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": true,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "INSTANTANEOUS_ELECTRIC_WATER_HEATER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.instantaneous_electric_water_heater.powerW"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.instantaneous_electric_water_heater.powerW",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "MANUAL_ESPRESSO_MACHINE",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.manual_espresso_machine.integratedGrinder"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.manual_espresso_machine.integratedGrinder",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "RANGE_HOOD",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.range_hood.nominalAirflowM3h"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.range_hood.nominalAirflowM3h",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "REFRIGERATOR",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.refrigerator.widthMm"
+        ],
+        "exactOfferingCount": 8,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.refrigerator.widthMm",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "ROBOT_VACUUM",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.robot_vacuum.autoEmpty"
+        ],
+        "exactOfferingCount": 4,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.robot_vacuum.autoEmpty",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "SPLIT_AIR_CONDITIONER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "INFORMATION_ONLY",
+        "projectionIds": [
+          "readiness-gap.appliances.split_air_conditioner"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "SUPPRESSED"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "NO_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": null,
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": true,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "TURKISH_COFFEE_MACHINE",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.turkish_coffee_machine.cupsDeclared"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.turkish_coffee_machine.cupsDeclared",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "VACUUM",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.appliances.vacuum.noiseDbA"
+        ],
+        "exactOfferingCount": 4,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.appliances.vacuum.noiseDbA",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "APPLIANCES",
+      "categoryId": "WASHING_MACHINE",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "INFORMATION_ONLY",
+        "projectionIds": [
+          "readiness-gap.appliances.washing_machine"
+        ],
+        "exactOfferingCount": 29,
+        "questionAdmission": "SUPPRESSED"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/appliances/conversation"
+      },
+      "runtimeConsumption": "NO_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": null,
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": true,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "BABY_AND_CHILD",
+      "categoryId": "STROLLER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.stroller.carry-weight"
+        ],
+        "exactOfferingCount": 4,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/baby/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.stroller.carry-weight",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "CARS",
+      "categoryId": "NEW_CAR",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave3.cars.seven-seat-daily-use"
+        ],
+        "exactOfferingCount": 549,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/cars/conversation/v3"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.cars.seven-seat-daily-use",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "COMPUTER_AUDIO",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.computer_audio.power_rms_w"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.computer_audio.power_rms_w",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "DIGITAL_CAMERA",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.digital_camera.sensor"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.digital_camera.sensor",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "E_READER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.e_reader.display_inches"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.e_reader.display_inches",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "EXTERNAL_STORAGE",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.external_storage.capacity_tb"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.external_storage.capacity_tb",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "FITNESS_TRACKER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.fitness_tracker.display_inches"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.fitness_tracker.display_inches",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "GAME_CONSOLE",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.game_console.storage_tb"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.game_console.storage_tb",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "HEADPHONES",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "INFORMATION_ONLY",
+        "projectionIds": [
+          "readiness-gap.electronics.headphones"
+        ],
+        "exactOfferingCount": 18,
+        "questionAdmission": "SUPPRESSED"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "NO_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": null,
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": true,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "HOME_SECURITY_CAMERA",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.home_security_camera.local_storage"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.home_security_camera.local_storage",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "LAPTOP",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.laptop.storage_gb"
+        ],
+        "exactOfferingCount": 4,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.laptop.storage_gb",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "MONITOR",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.monitor.refresh_hz"
+        ],
+        "exactOfferingCount": 4,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.monitor.refresh_hz",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "NETWORK_ATTACHED_STORAGE",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.network_attached_storage.memory_gb"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.network_attached_storage.memory_gb",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PORTABLE_SPEAKER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.portable_speaker.battery_hours"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.portable_speaker.battery_hours",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PRINTER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.printer.color_capability"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.printer.color_capability",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "PROJECTOR",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.projector.brightness_lumens"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.projector.brightness_lumens",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMART_HOME_HUB",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.smart_home_hub.protocols"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.smart_home_hub.protocols",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMARTPHONE",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "electronics.smartphone.battery_charging_routine.owner-review-v2",
+          "electronics.smartphone.camera_use_case.owner-review-v2",
+          "electronics.smartphone.turkiye_network_applicability.owner-review-v2"
+        ],
+        "exactOfferingCount": 34,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/electronics/conversation",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "NO_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": "ACTIVE_DIGEST_BOUND_BESPOKE",
+      "selectedQuestionId": null,
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SMARTWATCH",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.smartwatch.case_size_mm"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.smartwatch.case_size_mm",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "SOUNDBAR",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.soundbar.rear_speakers_included"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.soundbar.rear_speakers_included",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "TABLET",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.tablet.storage_gb"
+        ],
+        "exactOfferingCount": 4,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.tablet.storage_gb",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "TELEVISION",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.television.display_inches"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.television.display_inches",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "UNINTERRUPTIBLE_POWER_SUPPLY",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.uninterruptible_power_supply.capacity"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.uninterruptible_power_supply.capacity",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "VIDEO_DOORBELL",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.video_doorbell.local_storage"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.video_doorbell.local_storage",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "WEBCAM",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.webcam.focus"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.webcam.focus",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "ELECTRONICS",
+      "categoryId": "WIFI_ROUTER_MESH",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave2.electronics.wifi_router_mesh.wifi_generation"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/electronics/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.electronics.wifi_router_mesh.wifi_generation",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "MOBILITY",
+      "categoryId": "BICYCLE",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.bicycle.fold-storage"
+        ],
+        "exactOfferingCount": 4,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/mobility/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.bicycle.fold-storage",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "MOBILITY",
+      "categoryId": "ELECTRIC_BICYCLE",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.ebike.hill-torque"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/mobility/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.ebike.hill-torque",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "MOBILITY",
+      "categoryId": "ELECTRIC_SCOOTER",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.scooter.route-range"
+        ],
+        "exactOfferingCount": 3,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/mobility/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.scooter.route-range",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    },
+    {
+      "departmentId": "TOOLS",
+      "categoryId": "CORDLESS_DRILL",
+      "authority": {
+        "releaseId": "SDP-V2-ALL-ACTIVE-CATALOGS-TR-v4.0",
+        "readiness": "P_READY",
+        "projectionIds": [
+          "wave1.drill.impact-mode"
+        ],
+        "exactOfferingCount": 16,
+        "questionAdmission": "ASKABLE"
+      },
+      "transport": {
+        "rootEndpoint": "/api/platform/p-materiality",
+        "preservedDomainEndpoint": "/api/tools/conversation"
+      },
+      "runtimeConsumption": "EXECUTABLE_MATERIAL_QUESTION",
+      "legacyEquivalentRuntime": null,
+      "selectedQuestionId": "p.drill.impact-mode",
+      "candidatePoolUnchanged": true,
+      "suppressionHonored": null,
+      "yAuthority": "UNCHANGED_NONE_GRANTED"
+    }
+  ]
+}

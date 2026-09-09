@@ -5,6 +5,7 @@ import {
   rootBudgetWarning,
   rootChoicePayload,
   rootGraphemeCount,
+  paginateRootCandidateReplies,
   rootReplyDraft,
   safeRootQuestionCopy,
   toggleRootReply,
@@ -52,5 +53,13 @@ describe("root conversation composer model", () => {
     expect(rootBudgetWarning(50_000, { authority: "GOVERNED", comparable: true, freshness: "CURRENT", sourceKind: "CATALOG", minimumTry: 60_000 })).toMatch(/altında/u);
     expect(rootBudgetWarning(50_000, { authority: "GOVERNED", comparable: true, freshness: "STALE", sourceKind: "CATALOG", minimumTry: 60_000 })).toBeUndefined();
     expect(rootBudgetWarning(50_000, { authority: "GOVERNED", comparable: true, freshness: "CURRENT", sourceKind: "COMMERCE_ONLY", minimumTry: 60_000 })).toBeUndefined();
+  });
+
+  it("progressively discloses exact candidates in deterministic pages without hiding overflow", () => {
+    const candidates = Array.from({ length: 13 }, (_, index) => ({ exactProductId: `exact:${index}`, value: `exact:${index}`, label: `Marka Model ${index}` }));
+    expect(paginateRootCandidateReplies(candidates)).toMatchObject({ hiddenCount: 7, canExpand: true });
+    expect(paginateRootCandidateReplies(candidates).visible).toHaveLength(6);
+    expect(paginateRootCandidateReplies(candidates, 12)).toMatchObject({ hiddenCount: 1, canExpand: true });
+    expect(paginateRootCandidateReplies(candidates, 18)).toMatchObject({ hiddenCount: 0, canExpand: false });
   });
 });

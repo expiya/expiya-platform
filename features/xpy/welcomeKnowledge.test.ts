@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { XPY_DOMAIN_PACKS } from "./domainPacks";
-import { carsWelcomeText, honestXpyWelcomeFallback, renderXpyWelcome } from "./welcomeKnowledge";
+import { carsWelcomeText, honestXpyWelcomeFallback, renderXpyWelcome, renderXpyWelcomeSummary } from "./welcomeKnowledge";
 import type { XpyDomainPackRegistration } from "./contracts";
 
 describe("shared X category-knowledge welcome", () => {
@@ -17,6 +17,13 @@ describe("shared X category-knowledge welcome", () => {
       const text = renderXpyWelcome(honestXpyWelcomeFallback(config!, "Bu ürünü en çok nerede kullanmayı düşünüyorsun?"));
       expect(text.match(/\?/gu)).toHaveLength(1);
       expect(text).not.toMatch(/(?:[a-zçğıöşü]+_[a-z0-9_]+|\b(?:enum|runtime|concept|field|policy|exact)\b)/iu);
+    }
+  });
+  it("keeps every category summary bounded and question-free for persistent Root orientation", () => {
+    for (const pack of Object.values(XPY_DOMAIN_PACKS) as XpyDomainPackRegistration[]) for (const category of pack.categories) {
+      const summary = renderXpyWelcomeSummary(honestXpyWelcomeFallback(pack.xReentry[category]!, "Açılış sorusu?"));
+      expect(summary).not.toContain("?");
+      expect(Array.from(summary).length).toBeLessThanOrEqual(280);
     }
   });
 });

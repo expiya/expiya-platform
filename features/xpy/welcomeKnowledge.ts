@@ -13,9 +13,13 @@ export function honestXpyWelcomeFallback(config: XpyDomainReentryConfig, opening
 }
 
 export function renderXpyWelcome(knowledge: XpyWelcomeKnowledge, secretaryIntent?: string): string {
+  return `${renderXpyWelcomeSummary(knowledge, secretaryIntent)} ${knowledge.openingQuestion}`;
+}
+
+export function renderXpyWelcomeSummary(knowledge: XpyWelcomeKnowledge, secretaryIntent?: string): string {
   const intent = secretaryIntent?.trim() ? ` ${secretaryIntent.trim()} isteğini bu görüşmeye taşıdım.` : "";
   const dimensions = knowledge.needDimensions.join(", ");
-  return `${knowledge.introduction}${intent} Seçerken ${dimensions} gibi ihtiyaçları düşünmek yararlı olur.${knowledge.technologySummary ? ` ${knowledge.technologySummary}` : ""} ${knowledge.openingQuestion}`;
+  return `${knowledge.introduction}${intent} Seçerken ${dimensions} gibi ihtiyaçları düşünmek yararlı olur.${knowledge.technologySummary ? ` ${knowledge.technologySummary}` : ""}`;
 }
 
 /** Cars Domain Pack orientation. It is intentionally category-level and does not

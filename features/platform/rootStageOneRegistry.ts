@@ -1,8 +1,10 @@
 import { ACTIVE_DEPARTMENT_REGISTRY, resolveDepartmentCapability } from "./departmentRegistry";
+import { requireXpyReentry } from "@/features/xpy/domainPacks";
+import { honestXpyWelcomeFallback, renderXpyWelcomeSummary } from "@/features/xpy/welcomeKnowledge";
 
 export type RootStageOneDepartment = "CARS" | "APPLIANCES" | "ELECTRONICS" | "BABY_AND_CHILD" | "MOBILITY" | "TOOLS";
 export interface RootStageOneAdapter { readonly departmentId: RootStageOneDepartment; readonly endpoint: string; readonly categoryField: "productType" | "categoryId"; readonly mode: "DURABLE_CRUD" | "SIGNED_CRUD" | "CARS_V3" }
-export interface RootStageOneClientAdapter extends RootStageOneAdapter { readonly categoryId: string; readonly categoryLabel: string; readonly legacyDestination: string }
+export interface RootStageOneClientAdapter extends RootStageOneAdapter { readonly categoryId: string; readonly categoryLabel: string; readonly legacyDestination: string; readonly welcomeSummary: string }
 
 const adapters: Readonly<Record<RootStageOneDepartment, RootStageOneAdapter>> = Object.freeze({
   CARS: Object.freeze({ departmentId: "CARS", endpoint: "/api/cars/conversation/v3", categoryField: "categoryId", mode: "CARS_V3" }),
@@ -26,7 +28,10 @@ export function rootStageOneCoverage() {
 export function rootStageOneClientAdapters(): readonly RootStageOneClientAdapter[] {
   return ACTIVE_DEPARTMENT_REGISTRY.flatMap(department => Object.entries(department.capabilities).flatMap(([categoryId, capability]) => {
     const adapter = resolveRootStageOneAdapter(department.departmentId, categoryId);
-    return adapter ? [{ ...adapter, categoryId, categoryLabel: capability.publicLabelTr, legacyDestination: capability.destination }] : [];
+    if (!adapter) return [];
+    const reentry = requireXpyReentry(department.departmentId as RootStageOneDepartment, categoryId);
+    const welcomeSummary = renderXpyWelcomeSummary(honestXpyWelcomeFallback(reentry, "İlk maddi ihtiyacınızı birlikte netleştirelim?"));
+    return [{ ...adapter, categoryId, categoryLabel: capability.publicLabelTr, legacyDestination: capability.destination, welcomeSummary }];
   }));
 }
 
