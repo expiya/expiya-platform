@@ -1,6 +1,11 @@
 import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import path from "node:path";
+import {
+  ACTIVE_P_MATERIALITY_POINTER_RAW,
+  ACTIVE_P_MATERIALITY_RELEASE_PATH,
+  ACTIVE_P_MATERIALITY_RELEASE_RAW,
+} from "./activeWaveBundle.generated";
 import type { SemanticDecisionProjectionV2 } from "./contract";
 import { validateSemanticDecisionProjection } from "./invariants";
 
@@ -17,12 +22,13 @@ export interface ActivePMaterialityWave {
 }
 export type ActiveWaveLoadResult = { readonly status: "READY"; readonly wave: ActivePMaterialityWave } | { readonly status: "FAILED_CLOSED"; readonly reason: string };
 
-export async function loadActivePMaterialityWave(root: string): Promise<ActiveWaveLoadResult> {
+export async function loadActivePMaterialityWave(root?: string): Promise<ActiveWaveLoadResult> {
   try {
-    const pointerRaw = await readFile(path.join(root, "data/production/semantic-decision-projection/active.json"), "utf8");
+    const pointerRaw = root ? await readFile(path.join(root, "data/production/semantic-decision-projection/active.json"), "utf8") : ACTIVE_P_MATERIALITY_POINTER_RAW;
     const pointer = JSON.parse(pointerRaw) as { state?: string; releaseId?: string; releaseFile?: string; releaseSha256?: string; approvalDigest?: string; yAuthority?: string; categories?: string[]; pCategories?: string[]; informationOnlyCategories?: string[] };
     if (!(["ACTIVE_P", "ACTIVE_MIXED_INFORMATION_AND_P"].includes(pointer.state ?? "")) || !pointer.releaseId || !pointer.releaseFile || !safe.test(pointer.releaseFile) || !pointer.approvalDigest || pointer.yAuthority !== "UNCHANGED_NONE_GRANTED") return { status: "FAILED_CLOSED", reason: "ACTIVE_POINTER_INVALID" };
-    const releaseRaw = await readFile(path.join(root, pointer.releaseFile), "utf8");
+    if (!root && pointer.releaseFile !== ACTIVE_P_MATERIALITY_RELEASE_PATH) return { status: "FAILED_CLOSED", reason: "BUNDLED_RELEASE_PATH_MISMATCH" };
+    const releaseRaw = root ? await readFile(path.join(root, pointer.releaseFile), "utf8") : ACTIVE_P_MATERIALITY_RELEASE_RAW;
     if (sha(releaseRaw) !== pointer.releaseSha256) return { status: "FAILED_CLOSED", reason: "RELEASE_DIGEST_MISMATCH" };
     const release = JSON.parse(releaseRaw) as ActivePMaterialityWave;
     if (release.releaseId !== pointer.releaseId || !/^sha256:[a-f0-9]{64}$/u.test(release.releaseDigest) || release.yAuthority !== "UNCHANGED_NONE_GRANTED") return { status: "FAILED_CLOSED", reason: "RELEASE_IDENTITY_MISMATCH" };

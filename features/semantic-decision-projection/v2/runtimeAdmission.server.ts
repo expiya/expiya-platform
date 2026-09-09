@@ -12,7 +12,7 @@ export interface ActiveCategoryPMateriality {
   readonly exactOfferingIds: readonly string[];
 }
 
-export async function requireActivePMaterialityWave(root = process.cwd()) {
+export async function requireActivePMaterialityWave(root?: string) {
   const loaded = await loadActivePMaterialityWave(root);
   if (loaded.status !== "READY") throw new Error(`P_MATERIALITY_${loaded.reason}`);
   return loaded.wave;
@@ -21,7 +21,7 @@ export async function requireActivePMaterialityWave(root = process.cwd()) {
 /** Fail-closed bridge used by every active Stage-1 conversation runtime. */
 export async function requireActiveCategoryPMateriality(
   categoryId: string,
-  root = process.cwd(),
+  root?: string,
 ): Promise<ActiveCategoryPMateriality> {
   const wave = await requireActivePMaterialityWave(root);
   const projections = wave.projections.filter((projection) => projection.identity.categoryId === categoryId);
