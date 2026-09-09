@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "xpy-root-interaction-revision-candidate/v1",
+  "workUnit": "WU-XPY-ROOT-INTERACTION-REVISION-02",
+  "branch": "codex/xpy-root-interaction-revision-02",
+  "baseCommit": "495d42353d134a0a1222c2ae687b42a3fc8b71c5",
+  "preservedAncestors": {
+    "electronicsStageTwo": "b45094c3715518b213216b68622db089a08e20b5",
+    "catalogFactory111": "4cec0fae7884f944dfc15c695c23004c4b278ed7",
+    "rootStableComposer": "fd04db1af105c518be23fdfa1a778975f0db9860"
+  },
+  "changedSurface": [
+    "components/platform/RootStageOneExperience.tsx",
+    "components/platform/RootStageOneExperience.test.tsx"
+  ],
+  "evidence": [
+    "docs/audits/WU-XPY-ROOT-INTERACTION-REVISION-02.md",
+    "docs/audits/WU-XPY-ROOT-INTERACTION-REVISION-02.manifest.json"
+  ],
+  "recoveryPolicy": "SESSION_PAYLOAD_AND_EXACT_HISTORY_ID_MUST_MATCH_EXCEPT_RELOAD",
+  "verification": {
+    "focusedTests": "53_PASS",
+    "fullTests": "5939_PASS_791_FILES",
+    "typescript": "PASS",
+    "lint": "PASS_0_ERRORS_13_PREEXISTING_WARNINGS",
+    "node24NextBuild": "PASS_627_STATIC_PAGES",
+    "routeManifest": "PASS_ELECTRONICS_STAGE_TWO_API_AND_PAGE_PRESENT",
+    "browser1280x844": "PASS_NO_OVERFLOW_BOUNDED_RESERVES_TWO_LINE_COMPOSER",
+    "browser390x844": "PASS_NO_OVERFLOW_BOUNDED_RESERVES_TWO_LINE_COMPOSER",
+    "freshReloadPrivacy": "PASS_EMPTY_UNSELECTED_NO_RECOVERY_LEAKAGE"
+  },
+  "candidateState": "LOCAL_VERIFIED_AWAITING_IMMUTABLE_COMMIT",
+  "forbiddenEffects": ["PUSH", "DEPLOY", "DATABASE_ACCESS", "DATABASE_MUTATION", "MIGRATION", "ENV_SECRET_CHANGE", "AUTHORITY_POINTER_MUTATION"]
+}

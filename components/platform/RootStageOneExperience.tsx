@@ -59,7 +59,10 @@ export const formatRootBudget = (value: string) => { const digits = value.replac
 export function shouldRecoverRootConversation(navigationType: PerformanceNavigationTiming["type"] | undefined, saved: string | null, activeConversationId?: string): boolean {
   if (!saved) return false;
   if (navigationType === "reload") return true;
-  if (navigationType !== "back_forward" || !activeConversationId) return false;
+  // Next client navigation can retain the document-level navigation type as
+  // "navigate" on a legal-link round trip. Recovery authority therefore comes
+  // from the exact history/session conversation binding, not that coarse value.
+  if (!activeConversationId) return false;
   try {
     const parsed = JSON.parse(saved) as { session?: Session; conversationId?: string };
     return (parsed.session?.conversationId ?? parsed.conversationId) === activeConversationId;

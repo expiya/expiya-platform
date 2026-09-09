@@ -45,7 +45,9 @@ describe("RootStageOneExperience", () => {
 
   it("recovers reloads and an explicitly active same-tab back/forward entry", () => {
     expect(shouldRecoverRootConversation("reload", '{"session":{"conversationId":"owned"}}')).toBe(true);
+    expect(shouldRecoverRootConversation("navigate", '{"session":{"conversationId":"owned"}}', "owned")).toBe(true);
     expect(shouldRecoverRootConversation("navigate", '{"session":{"conversationId":"stale"}}')).toBe(false);
+    expect(shouldRecoverRootConversation("navigate", '{"session":{"conversationId":"stale"}}', "owned")).toBe(false);
     expect(shouldRecoverRootConversation("back_forward", '{"session":{"conversationId":"owned"}}', "owned")).toBe(true);
     expect(shouldRecoverRootConversation("back_forward", '{"session":{"conversationId":"stale"}}', "owned")).toBe(false);
     expect(shouldRecoverRootConversation("reload", null)).toBe(false);
@@ -57,6 +59,8 @@ describe("RootStageOneExperience", () => {
     expect(removed).toEqual(["expiya.root.xpy-stage1.v1"]);
     const source=readFileSync(path.join(process.cwd(),"components/platform/RootStageOneExperience.tsx"),"utf8");
     expect(source).not.toContain("localStorage");
+    expect(source).toContain("expiyaRootConversationId");
+    expect(source).toContain('href="/arac-oneri-kosullari"');
   });
 
   it("applies a valid formatted budget on blur without a separate apply button", () => {
