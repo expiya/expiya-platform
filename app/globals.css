@@ -53,3 +53,18 @@ select {
 body:has([data-cars-homepage]) > .site-legal-footer {
   display: none;
 }
+
+@keyframes secretary-cursor-blink {
+  0%, 45% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.secretary-type-cursor {
+  animation: secretary-cursor-blink 0.9s step-end infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .secretary-type-cursor {
+    animation: none;
+  }
+}
